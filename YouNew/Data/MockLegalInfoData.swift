@@ -304,6 +304,39 @@ enum MockLegalInfoData {
             keywords: ["rechtbank", "court", "суд", "дедлайн", "rechtspraak"]
         ),
         item(
+            title: [.english: "Netherlands Labour Authority — Work Rights", .dutch: "Nederlandse Arbeidsinspectie — Werkrechten", .russian: "Нидерландская инспекция труда — права на работе"],
+            category: .work,
+            short: [.english: "Use the Labour Authority for work-safety and fair-work information.", .dutch: "Gebruik de Arbeidsinspectie voor informatie over veilig en eerlijk werk.", .russian: "Инспекция труда помогает ориентироваться в вопросах безопасной и честной работы."],
+            explanation: [.english: "If a workplace situation involves unsafe conditions, underpayment concerns, or exploitation signals, collect documents and verify the official reporting or information route before acting.", .dutch: "Gaat het om onveilige omstandigheden, mogelijke onderbetaling of signalen van uitbuiting, verzamel documenten en controleer de officiele meld- of informatieroute voordat je handelt.", .russian: "Если есть небезопасные условия, подозрение на недоплату или признаки эксплуатации, сохраните документы и проверьте официальный путь обращения перед действиями."],
+            sourceName: "Netherlands Labour Authority",
+            url: "https://www.nllabourauthority.nl",
+            institution: "Netherlands Labour Authority",
+            risk: .high,
+            keywords: ["labour authority", "arbeidsinspectie", "work rights", "underpayment", "exploitation", "работа", "недоплата"]
+        ),
+        item(
+            title: [.english: "Business.gov.nl — Starting as an Entrepreneur", .dutch: "Business.gov.nl — Starten als ondernemer", .russian: "Business.gov.nl — начало предпринимательства"],
+            category: .work,
+            short: [.english: "Business.gov.nl explains official steps for entrepreneurs in English.", .dutch: "Business.gov.nl legt officiele stappen voor ondernemers in het Engels uit.", .russian: "Business.gov.nl объясняет официальные шаги для предпринимателей на английском."],
+            explanation: [.english: "Before registering or signing contracts, verify business form, tax, permit, insurance, and administration requirements through official entrepreneur guidance.", .dutch: "Controleer voor inschrijving of contracten eerst rechtsvorm, belasting, vergunningen, verzekeringen en administratie via officiele ondernemersinformatie.", .russian: "Перед регистрацией или договорами проверьте форму бизнеса, налоги, разрешения, страховки и административные обязанности через официальный справочник для предпринимателей."],
+            sourceName: "Business.gov.nl",
+            url: "https://business.gov.nl",
+            institution: "Netherlands Enterprise Agency",
+            risk: .medium,
+            keywords: ["entrepreneur", "business", "kvk", "zzp", "self-employed", "предприниматель", "бизнес"]
+        ),
+        item(
+            title: [.english: "ACM ConsuWijzer — Consumer Complaints", .dutch: "ACM ConsuWijzer — Consumentenklachten", .russian: "ACM ConsuWijzer — жалобы потребителей"],
+            category: .legalHelp,
+            short: [.english: "ConsuWijzer explains consumer rights and complaint routes.", .dutch: "ConsuWijzer legt consumentenrechten en klachtroutes uit.", .russian: "ConsuWijzer объясняет права потребителей и порядок жалоб."],
+            explanation: [.english: "Use it for orientation about purchases, contracts, subscriptions, delivery problems, and unfair business practices. Keep receipts, emails, and contract details together.", .dutch: "Gebruik dit voor orientatie bij aankopen, contracten, abonnementen, leveringsproblemen en oneerlijke handelspraktijken. Bewaar bonnetjes, e-mails en contractgegevens.", .russian: "Используйте как ориентир по покупкам, договорам, подпискам, доставке и нечестной практике. Сохраняйте чеки, письма и детали договора."],
+            sourceName: "ACM ConsuWijzer",
+            url: "https://www.consuwijzer.nl",
+            institution: "ACM",
+            risk: .low,
+            keywords: ["consumer rights", "consuwijzer", "complaint", "contract", "subscription", "потребитель", "жалоба"]
+        ),
+        item(
             title: [.english: "Emergency — 112 and Non-Urgent Help", .dutch: "Noodgeval — 112 en niet-spoed", .russian: "Экстренные случаи — 112 и не срочные обращения"],
             category: .emergency,
             short: [.english: "Use 112 only for real emergencies.", .dutch: "Gebruik 112 alleen bij echte noodgevallen.", .russian: "Номер 112 используйте только в реальной экстренной ситуации."],
@@ -313,6 +346,17 @@ enum MockLegalInfoData {
             institution: "Government.nl",
             risk: .urgent,
             keywords: ["112", "emergency", "экстренно", "полиция", "ambulance"]
+        ),
+        item(
+            title: [.english: "Police.nl — Non-Urgent Reporting", .dutch: "Politie.nl — Niet-spoed melden", .russian: "Politie.nl — несрочное обращение"],
+            category: .emergency,
+            short: [.english: "For non-urgent police issues, use official police contact routes.", .dutch: "Gebruik officiele politiekanalen voor niet-spoedeisende situaties.", .russian: "Для несрочных вопросов используйте официальные каналы полиции."],
+            explanation: [.english: "If there is immediate danger, call 112. For non-urgent reporting or questions, verify the correct route on Politie.nl and avoid sharing details through unknown contacts.", .dutch: "Bel 112 bij direct gevaar. Controleer voor niet-spoedmeldingen of vragen de juiste route op Politie.nl en deel geen gegevens via onbekende contacten.", .russian: "При непосредственной опасности звоните 112. Для несрочных заявлений или вопросов проверьте правильный путь на Politie.nl и не передавайте данные неизвестным контактам."],
+            sourceName: "Politie.nl",
+            url: "https://www.politie.nl/en",
+            institution: "Politie",
+            risk: .high,
+            keywords: ["police", "non urgent", "report", "politie", "melding", "полиция", "заявление"]
         ),
         item(
             title: [.english: "DigiD Phishing and Fake Websites", .dutch: "DigiD-phishing en nepwebsites", .russian: "Фишинг DigiD и поддельные сайты"],

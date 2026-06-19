@@ -73,6 +73,10 @@ extension ResourceLinkItem {
             return localized(en: title, nl: "IND: Verblijfsvergunningen en immigratie", ru: "IND: ВНЖ и иммиграция", lang: lang)
         case "UWV: Employment and benefits":
             return localized(en: title, nl: "UWV: Werk en uitkeringen", ru: "UWV: Работа и пособия", lang: lang)
+        case "Netherlands Labour Authority: Work rights":
+            return localized(en: title, nl: "Nederlandse Arbeidsinspectie: Werkrechten", ru: "Инспекция труда: права на работе", lang: lang)
+        case "Business.gov.nl: Starting a business":
+            return localized(en: title, nl: "Business.gov.nl: Starten met ondernemen", ru: "Business.gov.nl: начало бизнеса", lang: lang)
         case "Belastingdienst: Tax administration":
             return localized(en: title, nl: "Belastingdienst: Belastingadministratie", ru: "Belastingdienst: Налоги", lang: lang)
         case "Toeslagen: Benefits and allowances":
@@ -95,6 +99,8 @@ extension ResourceLinkItem {
             return localized(en: title, nl: "Fraudehelpdesk: Meldpunt fraude", ru: "Fraudehelpdesk: Мошенничество", lang: lang)
         case "Emergency number 112":
             return localized(en: title, nl: "Noodnummer 112", ru: "Экстренный номер 112", lang: lang)
+        case "Politie.nl: Non-urgent reporting":
+            return localized(en: title, nl: "Politie.nl: Niet-spoed melden", ru: "Politie.nl: несрочное обращение", lang: lang)
         case "Government.nl: Coming to the Netherlands":
             return localized(en: title, nl: "Government.nl: Naar Nederland komen", ru: "Government.nl: Приезд в Нидерланды", lang: lang)
         case "ACM ConsuWijzer: Consumer rights":
@@ -109,6 +115,10 @@ extension ResourceLinkItem {
             return localized(en: description, nl: "Officiële regels over verblijfsvergunningtypen, verlengingen, visa, asiel en naturalisatie.", ru: "Официальные правила по видам ВНЖ, продлению, визам, убежищу и натурализации.", lang: lang)
         case "UWV: Employment and benefits":
             return localized(en: description, nl: "Officiële informatie over werknemersverzekeringen, WW-uitkering, ziekteverlof en arbeidscapaciteit.", ru: "Официальная информация о страховании занятости, пособиях по безработице, больничном и трудоспособности.", lang: lang)
+        case "Netherlands Labour Authority: Work rights":
+            return localized(en: description, nl: "Officiele route voor informatie over veilig werk, eerlijk werk, onderbetaling en arbeidsuitbuiting.", ru: "Официальный ориентир по безопасности труда, честным условиям, недоплате и трудовой эксплуатации.", lang: lang)
+        case "Business.gov.nl: Starting a business":
+            return localized(en: description, nl: "Engelstalige officiele informatie voor ondernemers over inschrijving, rechtsvormen, vergunningen, belasting en administratie.", ru: "Официальная информация на английском для предпринимателей: регистрация, формы бизнеса, разрешения, налоги и администрация.", lang: lang)
         case "Belastingdienst: Tax administration":
             return localized(en: description, nl: "Hoe belastingbrieven te lezen, deadlines te controleren, aangifte te doen en uw belastingsituatie te begrijpen.", ru: "Как читать налоговые письма, проверять сроки, подавать декларацию и понимать свою налоговую ситуацию.", lang: lang)
         case "Toeslagen: Benefits and allowances":
@@ -131,6 +141,8 @@ extension ResourceLinkItem {
             return localized(en: description, nl: "Controleer verdachte berichten, meld fraude en bescherm uzelf tegen phishing en nep-boetes.", ru: "Проверка подозрительных сообщений, сообщение о мошенничестве, защита от фишинга и фейковых штрафов.", lang: lang)
         case "Emergency number 112":
             return localized(en: description, nl: "Noodhulp bij direct levensgevaar: politie, brandweer en ambulance.", ru: "Экстренный номер при непосредственной угрозе жизни: полиция, пожарные, скорая помощь.", lang: lang)
+        case "Politie.nl: Non-urgent reporting":
+            return localized(en: description, nl: "Officiele politieroute voor niet-spoedmeldingen, veiligheidsvragen en contactinformatie.", ru: "Официальный канал полиции для несрочных заявлений, вопросов безопасности и контактов.", lang: lang)
         case "Government.nl: Coming to the Netherlands":
             return localized(en: description, nl: "Overzicht van inschrijving, BSN, verblijf en eerste stappen voor nieuwkomers in Nederland.", ru: "Обзор регистрации, BSN, проживания и первых шагов для новоприбывших в Нидерланды.", lang: lang)
         case "ACM ConsuWijzer: Consumer rights":
@@ -149,6 +161,10 @@ extension ResourceLinkItem {
             return localized(en: whoItHelps, nl: "Nieuwkomers met vragen over verblijf en immigratie", ru: "Новоприбывшим с вопросами о статусе и иммиграции", lang: lang)
         case "Workers and temporary employees dealing with employment rights":
             return localized(en: whoItHelps, nl: "Werknemers en tijdelijke medewerkers", ru: "Работникам и временным сотрудникам", lang: lang)
+        case "Workers and newcomers worried about unsafe or unfair work conditions":
+            return localized(en: whoItHelps, nl: "Werknemers en nieuwkomers met zorgen over onveilig of oneerlijk werk", ru: "Работникам и новым жителям, которых беспокоят небезопасные или нечестные условия труда", lang: lang)
+        case "Entrepreneurs and self-employed newcomers planning business activity":
+            return localized(en: whoItHelps, nl: "Ondernemers en zelfstandige nieuwkomers die bedrijfsactiviteiten plannen", ru: "Предпринимателям и самозанятым новым жителям, которые планируют бизнес", lang: lang)
         case "Anyone receiving tax correspondence or needing to file a return":
             return localized(en: whoItHelps, nl: "Ontvangers van belastingpost en aangevers", ru: "Получателям налоговых писем и тем, кто подаёт декларацию", lang: lang)
         case "Families, students, and workers who may qualify for income-based allowances":
@@ -171,6 +187,8 @@ extension ResourceLinkItem {
             return localized(en: whoItHelps, nl: "Iedereen die pas in Nederland aankomt", ru: "Всем, кто только приехал в Нидерланды", lang: lang)
         case "Anyone dealing with a consumer complaint or unfair business practice":
             return localized(en: whoItHelps, nl: "Iedereen met een consumentenklacht of oneerlijke handelspraktijk", ru: "Тем, кто столкнулся с жалобой или нечестной практикой бизнеса", lang: lang)
+        case "Anyone who needs police help when there is no immediate danger":
+            return localized(en: whoItHelps, nl: "Iedereen die politiehulp nodig heeft zonder direct gevaar", ru: "Тем, кому нужна помощь полиции без непосредственной опасности", lang: lang)
         default: return whoItHelps
         }
     }
@@ -182,6 +200,10 @@ extension ResourceLinkItem {
             return localized(en: reminder, nl: "Controleer altijd actuele vereisten voor indiening. Regels kunnen veranderen.", ru: "Всегда проверяйте актуальные требования перед подачей документов. Правила могут меняться.", lang: lang)
         case "UWV: Employment and benefits":
             return localized(en: reminder, nl: "Vergelijk voorwaarden met uw contracttype.", ru: "Сравняйте условия со своим типом контракта.", lang: lang)
+        case "Netherlands Labour Authority: Work rights":
+            return localized(en: reminder, nl: "Bewaar contracten, loonstroken, roosters en berichten voordat u hulp vraagt.", ru: "Сохраните договоры, расчетные листы, графики и сообщения перед обращением за помощью.", lang: lang)
+        case "Business.gov.nl: Starting a business":
+            return localized(en: reminder, nl: "Controleer rechtsvorm, belasting, verzekering en vergunningen voordat u verplichtingen aangaat.", ru: "Проверьте форму бизнеса, налоги, страховки и разрешения до подписания обязательств.", lang: lang)
         case "Belastingdienst: Tax administration":
             return localized(en: reminder, nl: "Noteer direct de reactie- en betalingsdeadlines op belastingbrieven — te laat handelen kan boetes geven.", ru: "Сразу фиксируйте даты ответа и оплаты из налоговых писем — просрочка может повлечь штраф.", lang: lang)
         case "Toeslagen: Benefits and allowances":
@@ -204,6 +226,8 @@ extension ResourceLinkItem {
             return localized(en: reminder, nl: "Klik nooit op links in verdachte berichten. Typ URL's altijd handmatig in.", ru: "Никогда не переходите по ссылкам из подозрительных сообщений. Вводите URL вручную.", lang: lang)
         case "Emergency number 112":
             return localized(en: reminder, nl: "Voor niet-urgent politiecontact: 0900-8844. Voor niet-urgente medische vragen: uw huisarts.", ru: "По неэкстренным вопросам полиции звоните 0900-8844. Для медицинских — обращайтесь к врачу.", lang: lang)
+        case "Politie.nl: Non-urgent reporting":
+            return localized(en: reminder, nl: "Gebruik 112 bij direct gevaar; gebruik officiele politiekanalen voor niet-spoedmeldingen.", ru: "При непосредственной опасности используйте 112; для несрочных обращений используйте официальные каналы полиции.", lang: lang)
         case "Government.nl: Coming to the Netherlands":
             return localized(en: reminder, nl: "Stappen en termijnen kunnen variëren per nationaliteit en verblijfsdoel.", ru: "Шаги и сроки могут различаться в зависимости от гражданства и цели пребывания.", lang: lang)
         case "ACM ConsuWijzer: Consumer rights":

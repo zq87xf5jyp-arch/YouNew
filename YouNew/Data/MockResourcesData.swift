@@ -27,6 +27,30 @@ enum MockResourcesData {
             personaTags: [.worker]
         ),
         ResourceLinkItem(
+            id: StableRouteID.uuid("resource:netherlands-labour-authority-work-rights"),
+            category: "Work",
+            title: "Netherlands Labour Authority: Work rights",
+            description: "Official route for work-safety, fair-work, underpayment, and labour exploitation information.",
+            whoItHelps: "Workers and newcomers worried about unsafe or unfair work conditions",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://www.nllabourauthority.nl"),
+            isOfficial: true,
+            reminder: "Save contracts, payslips, schedules, and messages before asking for help.",
+            personaTags: [.worker, .refugee, .highlySkilledMigrant]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:business-gov-nl-starting-business"),
+            category: "Work",
+            title: "Business.gov.nl: Starting a business",
+            description: "English official guidance for entrepreneurs on registration, legal forms, permits, tax, and administration.",
+            whoItHelps: "Entrepreneurs and self-employed newcomers planning business activity",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://business.gov.nl"),
+            isOfficial: true,
+            reminder: "Check business form, tax, insurance, and permit requirements before signing commitments.",
+            personaTags: [.entrepreneur, .highlySkilledMigrant]
+        ),
+        ResourceLinkItem(
             id: StableRouteID.uuid("resource:belastingdienst-tax-administration"),
             category: "Taxes",
             title: "Belastingdienst: Tax administration",
@@ -157,6 +181,18 @@ enum MockResourcesData {
             isOfficial: true,
             reminder: "For non-emergency police matters, call 0900-8844. For non-urgent medical questions, contact your GP or GP emergency post.",
             personaTags: [.refugee, .family, .tourist, .lgbt]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:politie-nl-non-urgent-reporting"),
+            category: "Emergencies",
+            title: "Politie.nl: Non-urgent reporting",
+            description: "Official police route for non-urgent reports, safety questions, and contact information.",
+            whoItHelps: "Anyone who needs police help when there is no immediate danger",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://www.politie.nl/en"),
+            isOfficial: true,
+            reminder: "Use 112 for immediate danger; use official police channels for non-urgent reports.",
+            personaTags: [.worker, .refugee, .family, .tourist, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
         ),
         ResourceLinkItem(
             id: StableRouteID.uuid("resource:government-nl-coming-to-the-netherlands"),
