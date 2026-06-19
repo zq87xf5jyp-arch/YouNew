@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Amersfoort flag: red field with a golden watchtower (Koppelpoort/tower, city landmark) -->
+  <rect width="300" height="200" fill="#C8102E"/>
+  <!-- Tower base (wide, stone) -->
+  <rect x="108" y="100" width="84" height="60" rx="4" fill="#D4AF37"/>
+  <!-- Tower main body -->
+  <rect x="124" y="52" width="52" height="52" rx="4" fill="#D4AF37"/>
+  <!-- Battlements on tower top -->
+  <rect x="118" y="36" width="14" height="20" rx="3" fill="#D4AF37"/>
+  <rect x="137" y="36" width="14" height="20" rx="3" fill="#D4AF37"/>
+  <rect x="156" y="36" width="14" height="20" rx="3" fill="#D4AF37"/>
+  <rect x="175" y="36" width="14" height="20" rx="3" fill="#D4AF37"/>
+  <!-- Arched gate in base -->
+  <path d="M128,160 L128,122 Q150,100 172,122 L172,160 Z" fill="#C8102E"/>
+  <!-- Tower windows -->
+  <rect x="132" y="64" width="14" height="18" rx="4" fill="#C8102E"/>
+  <rect x="154" y="64" width="14" height="18" rx="4" fill="#C8102E"/>
+  <!-- Portcullis bars in gate -->
+  <line x1="138" y1="122" x2="138" y2="158" stroke="#C8102E" stroke-width="4" opacity="0.6"/>
+  <line x1="150" y1="110" x2="150" y2="158" stroke="#C8102E" stroke-width="4" opacity="0.6"/>
+  <line x1="162" y1="122" x2="162" y2="158" stroke="#C8102E" stroke-width="4" opacity="0.6"/>
+  <!-- Arrow slits on base -->
+  <rect x="118" y="112" width="10" height="20" rx="3" fill="#C8102E"/>
+  <rect x="172" y="112" width="10" height="20" rx="3" fill="#C8102E"/>
+</svg>

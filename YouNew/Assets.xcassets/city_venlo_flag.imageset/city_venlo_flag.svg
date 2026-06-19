@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Venlo flag: black (sable) field with a golden lion (Limburg lion variant) -->
+  <rect width="300" height="200" fill="#141414"/>
+  <!-- Golden Limburg lion (passant/rampant) -->
+  <!-- Body -->
+  <ellipse cx="150" cy="120" rx="30" ry="32" fill="#D4AF37"/>
+  <!-- Head -->
+  <circle cx="150" cy="76" r="22" fill="#D4AF37"/>
+  <!-- Mane -->
+  <circle cx="150" cy="76" r="28" fill="none" stroke="#D4AF37" stroke-width="10"/>
+  <circle cx="150" cy="76" r="18" fill="#D4AF37"/>
+  <!-- Eyes -->
+  <circle cx="143" cy="72" r="3" fill="#141414"/>
+  <circle cx="157" cy="72" r="3" fill="#141414"/>
+  <!-- Tongue (red) -->
+  <path d="M147,80 Q150,88 153,80" stroke="#C8102E" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Crown -->
+  <rect x="132" y="46" width="36" height="9" rx="3" fill="#D4AF37"/>
+  <rect x="132" y="37" width="9" height="11" rx="3" fill="#D4AF37"/>
+  <rect x="145.5" y="37" width="9" height="11" rx="3" fill="#D4AF37"/>
+  <rect x="159" y="37" width="9" height="11" rx="3" fill="#D4AF37"/>
+  <!-- Left paw (raised) -->
+  <path d="M120,106 Q96,88 94,72 Q98,60 108,66 Q114,80 122,96" fill="#D4AF37"/>
+  <!-- Claws left -->
+  <path d="M94,72 Q86,64 84,56 M100,66 Q94,56 92,48" stroke="#D4AF37" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Right paw -->
+  <path d="M180,106 Q204,88 206,72 Q202,60 192,66 Q186,80 178,96" fill="#D4AF37"/>
+  <!-- Tail (curled) -->
+  <path d="M180,140 Q212,130 216,110 Q220,92 208,88" stroke="#D4AF37" stroke-width="11" stroke-linecap="round" fill="none"/>
+  <!-- Hind legs -->
+  <line x1="134" y1="148" x2="122" y2="176" stroke="#D4AF37" stroke-width="10" stroke-linecap="round"/>
+  <line x1="166" y1="148" x2="178" y2="176" stroke="#D4AF37" stroke-width="10" stroke-linecap="round"/>
+  <!-- Hooves -->
+  <ellipse cx="122" cy="180" rx="10" ry="5" fill="#C8840A"/>
+  <ellipse cx="178" cy="180" rx="10" ry="5" fill="#C8840A"/>
+</svg>

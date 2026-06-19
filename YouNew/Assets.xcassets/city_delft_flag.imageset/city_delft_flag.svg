@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Delft flag: deep blue field with golden crowned eagle (Holland county eagle) -->
+  <rect width="300" height="200" fill="#003082"/>
+  <!-- Golden eagle (displayed, like Holland county arms) -->
+  <!-- Eagle body -->
+  <ellipse cx="150" cy="118" rx="30" ry="36" fill="#D4AF37"/>
+  <!-- Eagle head -->
+  <circle cx="150" cy="78" r="18" fill="#D4AF37"/>
+  <!-- Beak (facing right, hooked) -->
+  <path d="M164,75 L182,80 L164,86 Z" fill="#C8840A"/>
+  <!-- Gold crown on eagle's head -->
+  <rect x="134" y="58" width="32" height="8" rx="2" fill="#D4AF37"/>
+  <rect x="134" y="50" width="8" height="10" rx="2" fill="#D4AF37"/>
+  <rect x="146" y="50" width="8" height="10" rx="2" fill="#D4AF37"/>
+  <rect x="158" y="50" width="8" height="10" rx="2" fill="#D4AF37"/>
+  <!-- Left wing (spread upward) -->
+  <path d="M120,108 Q74,72 44,88 Q68,116 120,126" fill="#D4AF37"/>
+  <!-- Right wing (spread upward) -->
+  <path d="M180,108 Q226,72 256,88 Q232,116 180,126" fill="#D4AF37"/>
+  <!-- Wing feather detail -->
+  <line x1="70" y1="86" x2="118" y2="112" stroke="#C8840A" stroke-width="2.5" opacity="0.5"/>
+  <line x1="230" y1="86" x2="182" y2="112" stroke="#C8840A" stroke-width="2.5" opacity="0.5"/>
+  <!-- Tail feathers -->
+  <path d="M126,152 L112,180 M150,156 L150,182 M174,152 L188,180" stroke="#D4AF37" stroke-width="9" stroke-linecap="round"/>
+  <!-- Talons -->
+  <line x1="136" y1="152" x2="126" y2="173" stroke="#D4AF37" stroke-width="6" stroke-linecap="round"/>
+  <line x1="164" y1="152" x2="174" y2="173" stroke="#D4AF37" stroke-width="6" stroke-linecap="round"/>
+</svg>

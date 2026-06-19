@@ -1,0 +1,12 @@
+{
+  "images" : [
+    {
+      "filename" : "home_healthcare_pharmacy.jpg",
+      "idiom" : "universal"
+    }
+  ],
+  "info" : {
+    "author" : "xcode",
+    "version" : 1
+  }
+}

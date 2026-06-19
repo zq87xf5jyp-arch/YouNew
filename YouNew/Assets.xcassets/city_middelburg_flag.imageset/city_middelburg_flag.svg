@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Middelburg flag: azure (blue) field with silver/white rampant lion (Zeeland lion) -->
+  <!-- The Zeeland lion: silver lion on blue field, lower half obscured by waves ("Luctor et Emergo") -->
+  <rect width="300" height="200" fill="#003B8E"/>
+  <!-- White/silver lion (rampant, upper body) -->
+  <!-- Lion body upper -->
+  <ellipse cx="150" cy="100" rx="28" ry="30" fill="white"/>
+  <!-- Lion head -->
+  <circle cx="150" cy="62" r="22" fill="white"/>
+  <!-- Mane ring -->
+  <circle cx="150" cy="62" r="28" fill="none" stroke="white" stroke-width="10"/>
+  <circle cx="150" cy="62" r="18" fill="white"/>
+  <!-- Eyes -->
+  <circle cx="143" cy="58" r="3" fill="#003B8E"/>
+  <circle cx="157" cy="58" r="3" fill="#003B8E"/>
+  <!-- Crown on lion head -->
+  <rect x="130" y="32" width="40" height="10" rx="3" fill="#D4AF37"/>
+  <rect x="130" y="22" width="10" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="145" y="22" width="10" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="160" y="22" width="10" height="14" rx="3" fill="#D4AF37"/>
+  <!-- Left raised paw (dexter) -->
+  <path d="M122,92 Q98,74 96,58 Q100,46 110,52 Q116,66 124,82" fill="white"/>
+  <!-- Claws -->
+  <path d="M96,58 Q88,50 86,42 M100,52 Q94,42 92,34" stroke="white" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Right paw -->
+  <path d="M178,92 Q202,74 204,58 Q200,46 190,52 Q184,66 176,82" fill="white"/>
+  <!-- Wavy blue-white border (sea waves, Zeeland "luctor et emergo") -->
+  <path d="M0,148 Q37.5,135 75,148 Q112.5,161 150,148 Q187.5,135 225,148 Q262.5,161 300,148 L300,200 L0,200 Z" fill="#003B8E"/>
+  <!-- Second wave -->
+  <path d="M0,162 Q37.5,149 75,162 Q112.5,175 150,162 Q187.5,149 225,162 Q262.5,175 300,162 L300,200 L0,200 Z" fill="white" opacity="0.28"/>
+</svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+  <!-- Crown -->
+  <rect x="43" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="91" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="139" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="38" y="10" width="124" height="12" rx="2" fill="#D4AF37"/>
+  <!-- Shield: red field -->
+  <path d="M20,20 H180 V170 Q180,210 100,232 Q20,210 20,170 Z" fill="#AE1C28" stroke="#5C3800" stroke-width="2.5"/>
+  <!-- Stylized golden eagle, displayed (wings spread) -->
+  <!-- Body -->
+  <ellipse cx="100" cy="135" rx="22" ry="28" fill="#D4AF37"/>
+  <!-- Head -->
+  <circle cx="100" cy="100" r="16" fill="#D4AF37"/>
+  <!-- Beak -->
+  <path d="M112,98 L126,102 L112,108 Z" fill="#C8840A"/>
+  <!-- Left wing -->
+  <path d="M78,120 Q48,100 32,112 Q48,128 78,134" fill="#D4AF37"/>
+  <!-- Right wing -->
+  <path d="M122,120 Q152,100 168,112 Q152,128 122,134" fill="#D4AF37"/>
+  <!-- Tail feathers -->
+  <path d="M84,160 L74,188 M100,163 L100,190 M116,160 L126,188" stroke="#D4AF37" stroke-width="7" stroke-linecap="round"/>
+  <!-- Shield border -->
+  <path d="M20,20 H180 V170 Q180,210 100,232 Q20,210 20,170 Z" fill="none" stroke="#8B6914" stroke-width="2.5"/>
+</svg>

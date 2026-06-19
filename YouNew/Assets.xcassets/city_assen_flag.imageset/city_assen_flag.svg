@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Assen flag: red field with a golden stag (hart) — Drenthe provincial animal -->
+  <rect width="300" height="200" fill="#AE1C28"/>
+  <!-- Stag (deer) silhouette in gold -->
+  <!-- Body -->
+  <ellipse cx="150" cy="124" rx="38" ry="26" fill="#D4AF37"/>
+  <!-- Neck -->
+  <path d="M150,100 Q162,80 168,62" stroke="#D4AF37" stroke-width="18" stroke-linecap="round" fill="none"/>
+  <!-- Head -->
+  <ellipse cx="170" cy="56" rx="16" ry="12" fill="#D4AF37"/>
+  <!-- Snout -->
+  <ellipse cx="183" cy="58" rx="8" ry="6" fill="#C8840A"/>
+  <!-- Eye -->
+  <circle cx="166" cy="52" r="3" fill="#AE1C28"/>
+  <!-- Antlers (branching) -->
+  <!-- Main antler beam left -->
+  <path d="M163,44 Q154,22 148,10" stroke="#D4AF37" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <path d="M154,28 Q144,18 138,8" stroke="#D4AF37" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M158,34 Q162,20 170,12" stroke="#D4AF37" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Main antler beam right -->
+  <path d="M178,44 Q188,22 194,10" stroke="#D4AF37" stroke-width="7" stroke-linecap="round" fill="none"/>
+  <path d="M188,28 Q198,18 204,8" stroke="#D4AF37" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M184,34 Q180,20 172,12" stroke="#D4AF37" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Legs (4 legs) -->
+  <line x1="126" y1="146" x2="116" y2="178" stroke="#D4AF37" stroke-width="9" stroke-linecap="round"/>
+  <line x1="146" y1="148" x2="138" y2="180" stroke="#D4AF37" stroke-width="9" stroke-linecap="round"/>
+  <line x1="162" y1="148" x2="170" y2="180" stroke="#D4AF37" stroke-width="9" stroke-linecap="round"/>
+  <line x1="178" y1="146" x2="188" y2="178" stroke="#D4AF37" stroke-width="9" stroke-linecap="round"/>
+  <!-- Hooves -->
+  <ellipse cx="116" cy="182" rx="8" ry="4" fill="#C8840A"/>
+  <ellipse cx="138" cy="184" rx="8" ry="4" fill="#C8840A"/>
+  <ellipse cx="170" cy="184" rx="8" ry="4" fill="#C8840A"/>
+  <ellipse cx="188" cy="182" rx="8" ry="4" fill="#C8840A"/>
+  <!-- Short tail -->
+  <ellipse cx="114" cy="116" rx="10" ry="7" fill="white" transform="rotate(-20 114 116)"/>
+</svg>

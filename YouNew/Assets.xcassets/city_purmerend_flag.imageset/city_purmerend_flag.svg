@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="300" viewBox="0 0 450 300">
+  <rect width="450" height="100" fill="#d71920"/>
+  <rect y="100" width="450" height="100" fill="#f7d417"/>
+  <rect y="200" width="450" height="100" fill="#000000"/>
+  <g fill="#000000">
+    <path d="M198 118h28l-22 31h25l-38 46 13-33h-25z"/>
+    <path d="M245 135h28l-22 31h25l-38 46 13-33h-25z"/>
+    <path d="M201 166h28l-22 31h25l-38 46 13-33h-25z" transform="translate(-24 -40)"/>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Lelystad flag: green field with golden sheaf of wheat (polder agriculture, Flevoland new land) -->
+  <rect width="300" height="200" fill="#2A5C3A"/>
+  <!-- Wheat sheaf (bundled stalks) in gold -->
+  <!-- Central binding -->
+  <rect x="140" y="110" width="20" height="22" rx="3" fill="#D4AF37"/>
+  <!-- Wheat stalks (fanning upward from binding) -->
+  <!-- Centre stalk + head -->
+  <line x1="150" y1="110" x2="150" y2="52" stroke="#D4AF37" stroke-width="6" stroke-linecap="round"/>
+  <ellipse cx="150" cy="48" rx="7" ry="16" fill="#D4AF37"/>
+  <!-- Stalk + head left 1 -->
+  <line x1="143" y1="110" x2="128" y2="60" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="125" cy="55" rx="6" ry="14" fill="#D4AF37" transform="rotate(-10 125 55)"/>
+  <!-- Stalk + head left 2 -->
+  <line x1="138" y1="112" x2="112" y2="72" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="108" cy="67" rx="6" ry="13" fill="#D4AF37" transform="rotate(-20 108 67)"/>
+  <!-- Stalk + head right 1 -->
+  <line x1="157" y1="110" x2="172" y2="60" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="175" cy="55" rx="6" ry="14" fill="#D4AF37" transform="rotate(10 175 55)"/>
+  <!-- Stalk + head right 2 -->
+  <line x1="162" y1="112" x2="188" y2="72" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+  <ellipse cx="192" cy="67" rx="6" ry="13" fill="#D4AF37" transform="rotate(20 192 67)"/>
+  <!-- Leaves on stalks -->
+  <path d="M143,85 Q132,78 128,86" stroke="#D4AF37" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <path d="M157,85 Q168,78 172,86" stroke="#D4AF37" stroke-width="4" stroke-linecap="round" fill="none"/>
+  <!-- Binding detail -->
+  <line x1="132" y1="112" x2="168" y2="112" stroke="#C8840A" stroke-width="4"/>
+  <line x1="132" y1="120" x2="168" y2="120" stroke="#C8840A" stroke-width="4"/>
+  <!-- Grain ears (small details on heads) -->
+  <line x1="150" y1="48" x2="144" y2="38" stroke="#C8840A" stroke-width="2" stroke-linecap="round"/>
+  <line x1="150" y1="48" x2="156" y2="38" stroke="#C8840A" stroke-width="2" stroke-linecap="round"/>
+</svg>

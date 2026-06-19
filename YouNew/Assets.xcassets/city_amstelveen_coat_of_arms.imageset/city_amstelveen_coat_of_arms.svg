@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="250" height="300" viewBox="0 0 250 300">
+  <path d="M18 6h214v172c0 57-45 103-107 116C63 281 18 235 18 178z" fill="#ed1c24" stroke="#111111" stroke-width="7"/>
+  <path d="M22 76h206v45H22zM22 185h206v45H22z" fill="#111111"/>
+  <defs>
+    <path id="amstelveen-cross" d="M-10-34H10V-10H34V10H10V34H-10V10H-34V-10H-10z" fill="#ffffff" stroke="#d9d9d9" stroke-width="3" transform="rotate(45)"/>
+  </defs>
+  <use href="#amstelveen-cross" x="70" y="98"/>
+  <use href="#amstelveen-cross" x="125" y="98"/>
+  <use href="#amstelveen-cross" x="180" y="98"/>
+  <use href="#amstelveen-cross" x="125" y="208"/>
+</svg>

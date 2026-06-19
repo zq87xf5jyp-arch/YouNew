@@ -1,0 +1,15 @@
+{
+  "images": [
+    {
+      "filename": "premium_netherlands_emergency_fallback.svg",
+      "idiom": "universal"
+    }
+  ],
+  "info": {
+    "author": "xcode",
+    "version": 1
+  },
+  "properties": {
+    "preserves-vector-representation": true
+  }
+}

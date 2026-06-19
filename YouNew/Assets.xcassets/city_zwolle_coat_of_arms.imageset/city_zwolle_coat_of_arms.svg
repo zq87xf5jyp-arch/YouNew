@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+  <!-- Crown -->
+  <rect x="43" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="91" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="139" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="38" y="10" width="124" height="12" rx="2" fill="#D4AF37"/>
+  <!-- Shield: blue field -->
+  <path d="M20,20 H180 V170 Q180,210 100,232 Q20,210 20,170 Z" fill="#003B8E" stroke="#5C3800" stroke-width="2.5"/>
+  <!-- White teardrop (druppel van Zwolle) -->
+  <path d="M100,42 Q142,82 142,120 Q142,158 100,168 Q58,158 58,120 Q58,82 100,42 Z" fill="white"/>
+  <!-- Blue inner shape for depth -->
+  <path d="M100,64 Q128,96 128,120 Q128,146 100,154 Q72,146 72,120 Q72,96 100,64 Z" fill="#003B8E"/>
+  <!-- Shield border -->
+  <path d="M20,20 H180 V170 Q180,210 100,232 Q20,210 20,170 Z" fill="none" stroke="#8B6914" stroke-width="2.5"/>
+</svg>

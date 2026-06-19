@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+  <!-- Crown -->
+  <rect x="43" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="91" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="139" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="38" y="10" width="124" height="12" rx="2" fill="#D4AF37"/>
+  <!-- Shield: black (sable) field -->
+  <path d="M20,20 H180 V170 Q180,210 100,232 Q20,210 20,170 Z" fill="#141414" stroke="#5C3800" stroke-width="2.5"/>
+  <!-- Golden Limburg lion (rampant) -->
+  <ellipse cx="100" cy="138" rx="22" ry="25" fill="#D4AF37"/>
+  <circle cx="100" cy="96" r="16" fill="#D4AF37"/>
+  <circle cx="100" cy="96" r="21" fill="none" stroke="#D4AF37" stroke-width="9"/>
+  <circle cx="100" cy="96" r="12" fill="#D4AF37"/>
+  <!-- Crown on lion -->
+  <rect x="82" y="72" width="36" height="8" rx="2" fill="#D4AF37"/>
+  <rect x="82" y="64" width="8" height="10" rx="2" fill="#D4AF37"/>
+  <rect x="96" y="64" width="8" height="10" rx="2" fill="#D4AF37"/>
+  <rect x="110" y="64" width="8" height="10" rx="2" fill="#D4AF37"/>
+  <!-- Tongue -->
+  <path d="M96,102 Q100,110 104,102" stroke="#C8102E" stroke-width="3" stroke-linecap="round" fill="none"/>
+  <!-- Paws -->
+  <path d="M78,120 Q58,106 56,92 Q60,80 68,86 Q74,98 80,112" fill="#D4AF37"/>
+  <path d="M122,120 Q142,106 144,92 Q140,80 132,86 Q126,98 120,112" fill="#D4AF37"/>
+  <!-- Tail -->
+  <path d="M122,158 Q148,148 152,132 Q156,118 144,114" stroke="#D4AF37" stroke-width="9" stroke-linecap="round" fill="none"/>
+  <!-- Hind legs -->
+  <line x1="86" y1="162" x2="76" y2="186" stroke="#D4AF37" stroke-width="8" stroke-linecap="round"/>
+  <line x1="114" y1="162" x2="124" y2="186" stroke="#D4AF37" stroke-width="8" stroke-linecap="round"/>
+  <!-- Shield border -->
+  <path d="M20,20 H180 V170 Q180,210 100,232 Q20,210 20,170 Z" fill="none" stroke="#8B6914" stroke-width="2.5"/>
+</svg>

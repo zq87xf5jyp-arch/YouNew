@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Almere flag: blue (water/sky) over green (polder land) — polder city born from water -->
+  <!-- Blue top half (IJmeer water) -->
+  <rect width="300" height="100" fill="#2B6CB0"/>
+  <!-- Green bottom half (polder land reclaimed from sea) -->
+  <rect y="100" width="300" height="100" fill="#276B3E"/>
+  <!-- Wavy white dividing line (horizon/dike) -->
+  <path d="M0,95 Q37.5,88 75,95 Q112.5,102 150,95 Q187.5,88 225,95 Q262.5,102 300,95 L300,105 Q262.5,112 225,105 Q187.5,98 150,105 Q112.5,112 75,105 Q37.5,98 0,105 Z" fill="white"/>
+  <!-- Sun / rising symbol (golden) on blue half -->
+  <circle cx="150" cy="58" r="24" fill="#D4AF37"/>
+  <!-- Sun rays -->
+  <line x1="150" y1="18" x2="150" y2="26" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+  <line x1="176" y1="24" x2="171" y2="31" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+  <line x1="190" y1="46" x2="183" y2="49" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+  <line x1="124" y1="24" x2="129" y2="31" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+  <line x1="110" y1="46" x2="117" y2="49" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+</svg>

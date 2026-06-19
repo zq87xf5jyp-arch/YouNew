@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Breda flag: azure (blue) field with golden castle (Kasteel van Breda) -->
+  <rect width="300" height="200" fill="#003082"/>
+  <!-- Castle (simplified medieval castle, Nassau castle style) -->
+  <!-- Central keep -->
+  <rect x="118" y="58" width="64" height="102" rx="4" fill="#D4AF37"/>
+  <!-- Battlements on keep -->
+  <rect x="112" y="42" width="16" height="20" rx="3" fill="#D4AF37"/>
+  <rect x="134" y="42" width="16" height="20" rx="3" fill="#D4AF37"/>
+  <rect x="156" y="42" width="16" height="20" rx="3" fill="#D4AF37"/>
+  <rect x="178" y="42" width="16" height="20" rx="3" fill="#D4AF37"/>
+  <!-- Gate arch -->
+  <path d="M135,160 L135,116 Q150,96 165,116 L165,160 Z" fill="#003082"/>
+  <!-- Windows -->
+  <rect x="124" y="76" width="14" height="18" rx="3" fill="#003082"/>
+  <rect x="162" y="76" width="14" height="18" rx="3" fill="#003082"/>
+  <!-- Left flanking tower -->
+  <rect x="64" y="80" width="56" height="80" rx="4" fill="#D4AF37"/>
+  <rect x="58" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
+  <rect x="76" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
+  <rect x="94" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
+  <!-- Right flanking tower -->
+  <rect x="180" y="80" width="56" height="80" rx="4" fill="#D4AF37"/>
+  <rect x="178" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
+  <rect x="196" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
+  <rect x="214" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
+  <!-- Connecting wall between towers -->
+  <rect x="64" y="126" width="56" height="16" rx="0" fill="#D4AF37"/>
+  <rect x="180" y="126" width="56" height="16" rx="0" fill="#D4AF37"/>
+</svg>

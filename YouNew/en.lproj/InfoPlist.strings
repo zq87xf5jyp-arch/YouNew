@@ -1,0 +1,3 @@
+"CFBundleDisplayName" = "YouNew";
+"NSCameraUsageDescription" = "YouNew.nl uses the camera to scan documents you choose to save locally on your device.";
+"NSLocationWhenInUseUsageDescription" = "YouNew.nl uses your location to show nearby municipalities, healthcare, transport, and official services.";

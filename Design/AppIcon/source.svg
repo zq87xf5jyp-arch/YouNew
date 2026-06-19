@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-label="YouNew.nl city route mark">
+  <!--
+    YouNew.nl app icon - Netherlands city portal concept.
+
+    Concept: stylized canal-house skyline plus route node.
+    The stepped building forms read as city life at small size. The teal
+    window highlights connect the mark to the product palette. The orange
+    route line and node represent navigation, newcomer discovery, and the
+    user's path through Dutch cities.
+
+    The deep navy background keeps the mark readable on dark surfaces.
+    No flags, government emblems, or official city/province symbols are used
+    in this brand mark.
+  -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1024" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0D4A84"/>
+      <stop offset="100%" stop-color="#06204A"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="512" cy="360" r="390" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#1592D3" stop-opacity="0.72"/>
+      <stop offset="100%" stop-color="#0E6CB9" stop-opacity="0.00"/>
+    </radialGradient>
+    <radialGradient id="orgNode" cx="35%" cy="28%" r="70%">
+      <stop offset="0%" stop-color="#FFDC5A"/>
+      <stop offset="55%" stop-color="#FF7C0A"/>
+      <stop offset="100%" stop-color="#BF4A00"/>
+    </radialGradient>
+  </defs>
+
+  <rect width="1024" height="1024" fill="url(#bg)"/>
+  <rect width="1024" height="1024" fill="url(#glow)"/>
+
+  <g stroke="white" stroke-width="54" stroke-linecap="round" stroke-linejoin="round" fill="none">
+    <path d="M208 772 L208 540 L276 500 L344 540 L344 772"/>
+    <path d="M362 772 L362 398 L444 330 L526 398 L526 772"/>
+    <path d="M544 772 L544 486 L612 444 L680 486 L680 772"/>
+    <path d="M698 772 L698 566 L786 566 L786 772"/>
+  </g>
+
+  <g fill="#31D7E8">
+    <circle cx="276" cy="626" r="14"/>
+    <circle cx="444" cy="626" r="14"/>
+    <circle cx="612" cy="626" r="14"/>
+    <circle cx="742" cy="626" r="14"/>
+  </g>
+
+  <path d="M246 842 C332 774 420 812 500 754 C604 678 676 820 778 842"
+        fill="none" stroke="#FF7C0A" stroke-width="44" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="246" cy="842" r="68" fill="url(#orgNode)"/>
+  <circle cx="246" cy="842" r="26" fill="#FFDF80" opacity="0.90"/>
+</svg>

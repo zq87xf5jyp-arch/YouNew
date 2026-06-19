@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- Nijmegen flag: gold/yellow field with black imperial double-headed eagle (oldest Dutch city, former imperial city) -->
+  <rect width="300" height="200" fill="#E8B800"/>
+  <!-- Double-headed eagle body -->
+  <ellipse cx="150" cy="115" rx="28" ry="32" fill="#1A1A1A"/>
+  <!-- Two heads -->
+  <!-- Left head -->
+  <circle cx="128" cy="73" r="18" fill="#1A1A1A"/>
+  <path d="M112,70 L94,75 L112,80 Z" fill="#8B6914"/>
+  <!-- Left crown -->
+  <rect x="112" y="53" width="32" height="8" rx="2" fill="#E8B800"/>
+  <rect x="112" y="45" width="8" height="10" rx="2" fill="#E8B800"/>
+  <rect x="124" y="45" width="8" height="10" rx="2" fill="#E8B800"/>
+  <rect x="136" y="45" width="8" height="10" rx="2" fill="#E8B800"/>
+  <!-- Right head -->
+  <circle cx="172" cy="73" r="18" fill="#1A1A1A"/>
+  <path d="M188,70 L206,75 L188,80 Z" fill="#8B6914"/>
+  <!-- Right crown -->
+  <rect x="156" y="53" width="32" height="8" rx="2" fill="#E8B800"/>
+  <rect x="156" y="45" width="8" height="10" rx="2" fill="#E8B800"/>
+  <rect x="168" y="45" width="8" height="10" rx="2" fill="#E8B800"/>
+  <rect x="180" y="45" width="8" height="10" rx="2" fill="#E8B800"/>
+  <!-- Left wing -->
+  <path d="M122,104 Q72,76 42,96 Q68,122 122,132" fill="#1A1A1A"/>
+  <!-- Right wing -->
+  <path d="M178,104 Q228,76 258,96 Q232,122 178,132" fill="#1A1A1A"/>
+  <!-- Tail -->
+  <path d="M126,145 L112,172 M150,148 L150,174 M174,145 L188,172" stroke="#1A1A1A" stroke-width="9" stroke-linecap="round"/>
+  <!-- Legs -->
+  <line x1="136" y1="145" x2="124" y2="168" stroke="#1A1A1A" stroke-width="7" stroke-linecap="round"/>
+  <line x1="164" y1="145" x2="176" y2="168" stroke="#1A1A1A" stroke-width="7" stroke-linecap="round"/>
+</svg>

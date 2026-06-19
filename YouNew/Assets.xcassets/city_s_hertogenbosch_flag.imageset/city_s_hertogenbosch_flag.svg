@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
+  <!-- 's-Hertogenbosch (Den Bosch) flag: red field with crowned golden eagle (imperial city symbol) -->
+  <rect width="300" height="200" fill="#B5121B"/>
+  <!-- Eagle body -->
+  <ellipse cx="150" cy="118" rx="30" ry="36" fill="#D4AF37"/>
+  <!-- Head -->
+  <circle cx="150" cy="76" r="20" fill="#D4AF37"/>
+  <!-- Imperial crown on eagle head -->
+  <rect x="132" y="54" width="36" height="10" rx="2" fill="#D4AF37"/>
+  <rect x="132" y="44" width="10" height="12" rx="2" fill="#D4AF37"/>
+  <rect x="145" y="44" width="10" height="12" rx="2" fill="#D4AF37"/>
+  <rect x="158" y="44" width="10" height="12" rx="2" fill="#D4AF37"/>
+  <!-- Arched crown band over prongs -->
+  <path d="M132,50 Q150,38 168,50" fill="none" stroke="#D4AF37" stroke-width="6" stroke-linecap="round"/>
+  <!-- Beak (hooked, right) -->
+  <path d="M166,73 L186,78 L166,84 Z" fill="#C8840A"/>
+  <!-- Left wing (spread up) -->
+  <path d="M120,108 Q70,74 42,92 Q66,118 120,128" fill="#D4AF37"/>
+  <!-- Right wing -->
+  <path d="M180,108 Q230,74 258,92 Q234,118 180,128" fill="#D4AF37"/>
+  <!-- Tail feathers -->
+  <path d="M124,152 L108,180 M150,156 L150,182 M176,152 L192,180" stroke="#D4AF37" stroke-width="9" stroke-linecap="round"/>
+  <!-- Legs -->
+  <line x1="136" y1="152" x2="124" y2="173" stroke="#D4AF37" stroke-width="7" stroke-linecap="round"/>
+  <line x1="164" y1="152" x2="176" y2="173" stroke="#D4AF37" stroke-width="7" stroke-linecap="round"/>
+  <!-- Talons -->
+  <path d="M112,173 L138,173 M125,173 L120,182" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+  <path d="M162,173 L188,173 M175,173 L180,182" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+</svg>

@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+  <!-- Crown -->
+  <rect x="43" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="91" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="139" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="38" y="10" width="124" height="12" rx="2" fill="#D4AF37"/>
+  <!-- Shield: divided horizontally blue over green -->
+  <!-- Blue top -->
+  <path d="M20,20 H180 V95 Q100,88 20,95 Z" fill="#2B6CB0"/>
+  <!-- Green bottom -->
+  <path d="M20,95 Q100,88 180,95 V170 Q180,210 100,232 Q20,210 20,170 Z" fill="#276B3E"/>
+  <!-- Shield outline for shaping -->
+  <path d="M20,20 H180 V170 Q180,210 100,232 Q20,210 20,170 Z" fill="none" stroke="#5C3800" stroke-width="2.5"/>
+  <!-- White wavy dividing line -->
+  <path d="M20,92 Q60,84 100,92 Q140,100 180,92 L180,100 Q140,108 100,100 Q60,92 20,100 Z" fill="white"/>
+  <!-- Golden sun on blue field -->
+  <circle cx="100" cy="60" r="18" fill="#D4AF37"/>
+  <line x1="100" y1="32" x2="100" y2="38" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
+  <line x1="118" y1="38" x2="114" y2="43" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
+  <line x1="82" y1="38" x2="86" y2="43" stroke="#D4AF37" stroke-width="4" stroke-linecap="round"/>
+  <!-- Shield border -->
+  <path d="M20,20 H180 V170 Q180,210 100,232 Q20,210 20,170 Z" fill="none" stroke="#8B6914" stroke-width="2.5"/>
+</svg>

@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 240">
+  <!-- Crown -->
+  <rect x="43" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="91" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="139" y="0" width="18" height="14" rx="3" fill="#D4AF37"/>
+  <rect x="38" y="10" width="124" height="12" rx="2" fill="#D4AF37"/>
+  <!-- Shield: divided per-pale red (left) and white (right) -->
+  <!-- Red left half -->
+  <path d="M20,20 H100 V170 Q100,210 100,232 Q20,210 20,170 Z" fill="#AE1C28"/>
+  <!-- White right half -->
+  <path d="M100,20 H180 V170 Q180,210 100,232 Q100,210 100,170 Z" fill="#FFFFFF"/>
+  <!-- Shield outline -->
+  <path d="M20,20 H180 V170 Q180,210 100,232 Q20,210 20,170 Z" fill="none" stroke="#5C3800" stroke-width="2.5"/>
+  <!-- Blue diagonal band (dijk) -->
+  <clipPath id="shieldClipH">
+    <path d="M20,20 H180 V170 Q180,210 100,232 Q20,210 20,170 Z"/>
+  </clipPath>
+  <g clip-path="url(#shieldClipH)">
+    <polygon points="20,20 80,20 20,100" fill="#003B8E"/>
+  </g>
+  <!-- Golden tulip (center charge) -->
+  <line x1="100" y1="170" x2="100" y2="126" stroke="#D4AF37" stroke-width="5" stroke-linecap="round"/>
+  <path d="M100,126 Q88,108 87,88 Q92,76 100,80 Q108,76 113,88 Q112,108 100,126 Z" fill="#D4AF37"/>
+  <path d="M87,88 Q76,80 74,66 Q80,56 88,62 Q88,74 87,88" fill="#D4AF37"/>
+  <path d="M113,88 Q124,80 126,66 Q120,56 112,62 Q112,74 113,88" fill="#D4AF37"/>
+  <!-- Leaves -->
+  <path d="M96,148 Q84,138 80,124" stroke="#276B3E" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <path d="M104,148 Q116,138 120,124" stroke="#276B3E" stroke-width="5" stroke-linecap="round" fill="none"/>
+  <!-- Shield border -->
+  <path d="M20,20 H180 V170 Q180,210 100,232 Q20,210 20,170 Z" fill="none" stroke="#8B6914" stroke-width="2.5"/>
+</svg>
