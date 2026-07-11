@@ -102,7 +102,7 @@ private struct TimelineDetailCard: View {
                 .foregroundStyle(AppColors.textSecondary)
 
             if let dueDate = step.dueDate {
-                Label(dueDate.formatted(date: .abbreviated, time: .omitted), systemImage: "calendar")
+                Label(dueDate.formattedForAppLanguage(language), systemImage: "calendar")
                     .font(AppTypography.captionStrong)
                     .foregroundStyle(AppColors.warning)
             }
@@ -276,7 +276,7 @@ private struct DeadlineCard: View {
     }
 
     private var dateText: String {
-        reminder.possibleDueDate?.formatted(date: .abbreviated, time: .omitted) ?? noDateTitle
+        reminder.possibleDueDate?.formattedForAppLanguage(language) ?? noDateTitle
     }
 
     private var calendarTitle: String { language == .russian ? "Открыть календарь" : (language == .dutch ? "Open agenda" : "Open calendar") }

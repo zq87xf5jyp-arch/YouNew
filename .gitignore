@@ -25,6 +25,7 @@ scripts/__pycache__/
 
 # Local package/cache output
 .pnpm-store/
+admin-dashboard/
 
 # Generated image-pack staging output
 netherlands_app_images/
