@@ -9,7 +9,12 @@ CYRILLIC = re.compile(r"[А-Яа-яЁё]")
 
 
 def read(path):
-    return (ROOT / path).read_text(encoding="utf-8")
+    target = ROOT / path
+    if not target.exists() and path.startswith("YouNew/Views/"):
+        matches = sorted((ROOT / "YouNew/Features").rglob(Path(path).name))
+        if len(matches) == 1:
+            target = matches[0]
+    return target.read_text(encoding="utf-8")
 
 
 def fail(message):

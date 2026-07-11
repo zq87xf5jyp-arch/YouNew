@@ -113,8 +113,19 @@ STUDENT_FORBIDDEN = [
 errors: list[str] = []
 
 
-def read(relative: str) -> str:
+def resolve_source_path(relative: str) -> Path:
     path = ROOT / relative
+    if path.exists() or not relative.startswith("YouNew/Views/"):
+        return path
+
+    matches = sorted((ROOT / "YouNew/Features").rglob(Path(relative).name))
+    if len(matches) == 1:
+        return matches[0]
+    return path
+
+
+def read(relative: str) -> str:
+    path = resolve_source_path(relative)
     if not path.exists():
         errors.append(f"Missing file: {relative}")
         return ""

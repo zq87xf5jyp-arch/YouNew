@@ -14,6 +14,10 @@ def fail(message: str) -> None:
 
 def read(path: str) -> str:
     target = ROOT / path
+    if not target.is_file() and path.startswith("YouNew/Views/"):
+        matches = sorted((ROOT / "YouNew/Features").rglob(Path(path).name))
+        if len(matches) == 1:
+            target = matches[0]
     if not target.is_file():
         fail(f"Missing file: {path}")
     return target.read_text(encoding="utf-8")
