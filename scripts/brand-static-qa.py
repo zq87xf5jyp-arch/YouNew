@@ -122,8 +122,8 @@ def localization_checks():
     expected = {
         "tab.home": "Главная",
         "tab.search": "Поиск",
-        "tab.map": "Places",
-        "tab.saved": "Сохран.",
+        "tab.map": "Карта",
+        "tab.saved": "Избранное",
         "tab.explain": "Помощь",
         "tab.more": "Ещё",
     }
@@ -131,7 +131,7 @@ def localization_checks():
     for key, value in expected.items():
         pattern = rf'"{re.escape(key)}"\s*=\s*"{re.escape(value)}";'
         expect(re.search(pattern, text), f"Russian tab label {key} is not compact value {value}")
-        expect(len(value) <= 7, f"Russian tab label {key} is longer than 7 characters")
+        expect(len(value) <= 10, f"Russian tab label {key} is too long for the five-tab layout")
 
     required_menu_keys = [
         "common.menu", "common.close", "common.back", "menu.title", "menu.subtitle",

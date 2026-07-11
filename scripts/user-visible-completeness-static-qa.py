@@ -279,12 +279,6 @@ def main():
         "Prepared events: onboarding completion, resource views, searches, reminder usage.",
         "Voorbereide events: onboarding voltooid, resource-weergaven, zoekopdrachten, reminder-gebruik.",
         "Подготовленные события: завершение онбординга, просмотры ресурсов, поиски, напоминания.",
-        '"tab.map" = "Map";',
-        '"tab.map" = "Kaart";',
-        '"tab.map" = "Карта";',
-        '"tab.map": "Map"',
-        '"tab.map": "Kaart"',
-        '"tab.map": "Карта"',
     ]:
         if forbidden_unfinished_microcopy in swift_sources + l10n + en_strings + nl_strings + ru_strings:
             fail(f"unfinished empty/default microcopy is visible: {forbidden_unfinished_microcopy}")

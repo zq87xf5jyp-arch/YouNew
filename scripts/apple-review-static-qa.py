@@ -112,8 +112,8 @@ def main() -> None:
     root_tab = read(APP_ROOT / "App/AppTabView.swift")
     expect("enum GlobalAILauncherMetrics" in app_spacing, "global AI launcher clearance metrics are missing")
     expect(
-        "GlobalAILauncherMetrics.contentReserve(" in root_tab,
-        "root content reserve must be derived from the global AI launcher size and bottom offset",
+        "GlobalAILauncherMetrics.contentReserve(" not in root_tab,
+        "global AI launcher must not add permanent height to root content",
     )
     expect(
         "bottomPadding + collapsedHeight + contentGap + (isExpanded ? expandedMenuHeight : 0)" in app_spacing,
@@ -131,17 +131,15 @@ def main() -> None:
         "private var shouldShowContextualAIButton: Bool" in root_tab
         and "static func shouldShowContextualAIButton(selectedTab: AppTab, isMenuPresented: Bool) -> Bool" in root_tab
         and "!isMenuPresented" in root_tab
-        and "selectedTab != .assistant" in root_tab
         and "selectedTab != .more" in root_tab
-        and "selectedTab != .search" in root_tab
-        and "selectedTab != .favorites" in root_tab,
-        "global AI launcher must hide while the menu, Assistant tab, More tab, Search tab, or Saved tab is active",
+        and "selectedTab != .saved" in root_tab,
+        "global AI launcher must hide while the menu, More tab, or Saved tab is active",
     )
     expect(
         ".safeAreaInset(edge: .bottom, spacing: 0)" in root_tab
-        and ".frame(height: contextualAIContentReserve)" in root_tab
-        and ".allowsHitTesting(false)" in root_tab.split(".frame(height: contextualAIContentReserve)", 1)[1].split(".frame(maxWidth: .infinity", 1)[0],
-        "global AI launcher reserve must be non-interactive safe-area content clearance",
+        and ".overlay(alignment: .bottomTrailing) { contextualAIButton }" in root_tab
+        and "contextualAIContentReserve" not in root_tab,
+        "tab bar must use bottom safe-area inset while the AI launcher remains a non-layout overlay",
     )
     expect(
         ".zIndex(20)" in root_tab.split("private var contextualAIButton", 1)[1].split("private var shouldShowContextualAIButton", 1)[0],

@@ -4,11 +4,11 @@
 
 "tab.home" = "Главная";
 "tab.search" = "Поиск";
-"tab.saved" = "Сохран.";
+"tab.saved" = "Избранное";
 "tab.explain" = "Помощь";
 "tab.checklist" = "Чек‑лист";
 "tab.ai" = "Ассистент";
-"tab.map" = "Places";
+"tab.map" = "Карта";
 "tab.resources" = "Ресурсы";
 "tab.more" = "Ещё";
 "tab.settings" = "Настройки";

@@ -1045,7 +1045,7 @@ struct RootTabView: View {
 
     private var tabHomeTitle: String      { L10n.t("tab.home",    lang) }
     private var tabGuideTitle: String     { localizedRootText(en: "Guide", nl: "Gids", ru: "Гид") }
-    private var tabPlacesTitle: String    { "Places" }
+    private var tabPlacesTitle: String    { localizedRootText(en: "Map", nl: "Kaart", ru: "Карта") }
     private var tabSearchTitle: String    { L10n.t("tab.search",  lang) }
     private var tabMapTitle: String       { L10n.t("tab.map",     lang) }
     private var tabFavoritesTitle: String { L10n.t("tab.saved",   lang) }
@@ -1063,7 +1063,7 @@ struct RootTabView: View {
                     SideMenuItemModel(
                         id: "places",
                         titleKey: "sideMenu.title",
-                        titleOverride: [.russian: "Places", .dutch: "Places", .english: "Places"],
+                        titleOverride: [.russian: "Карта", .dutch: "Kaart", .english: "Map"],
                         subtitleOverride: [.russian: "Карта, список и партнеры", .dutch: "Kaart, lijst en partners", .english: "Map, list, and partners"],
                         systemIcon: AppIcons.map,
                         destination: .map,

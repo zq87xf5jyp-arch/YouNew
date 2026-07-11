@@ -155,7 +155,7 @@ struct RootHomeView: View {
                 Button {
                     selectedTab = .guide
                 } label: {
-                    Text(localized(en: "View Guide", nl: "Open Gids", ru: "Открыть Guide"))
+                    Text(localized(en: "View Guide", nl: "Open Gids", ru: "Открыть Гид"))
                 }
                 .font(AppTypography.footnote.weight(.semibold))
             }
