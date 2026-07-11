@@ -22,6 +22,8 @@ enum AppIcons {
     static let route     = "tram.fill.tunnel"
     static let timeline  = "point.topleft.down.curvedto.point.bottomright.up"
     static let compass   = "safari"
+    static let guide     = "safari"
+    static let guideActive = "safari.fill"
     static let back      = "chevron.left"
     static let forward   = "chevron.right"
     static let settings  = "gearshape"
@@ -68,6 +70,8 @@ enum AppIcons {
     // MARK: - Actions
     static let save     = "bookmark"
     static let saved    = "bookmark.fill"
+    static let favorite = "heart"
+    static let favoriteActive = "heart.fill"
     static let share    = "square.and.arrow.up"
     static let expand   = "chevron.down"
     static let collapse = "chevron.up"

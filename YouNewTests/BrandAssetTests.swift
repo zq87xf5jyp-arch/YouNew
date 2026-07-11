@@ -168,8 +168,12 @@ struct BrandAssetTests {
         #expect(AppIcons.search == "magnifyingglass")
         #expect(AppIcons.map == "map")
         #expect(AppIcons.mapActive == "map.fill")
+        #expect(AppIcons.guide == "safari")
+        #expect(AppIcons.guideActive == "safari.fill")
         #expect(AppIcons.save == "bookmark")
         #expect(AppIcons.saved == "bookmark.fill")
+        #expect(AppIcons.favorite == "heart")
+        #expect(AppIcons.favoriteActive == "heart.fill")
         #expect(AppIcons.more == "ellipsis.circle")
         #expect(AppIcons.moreActive == "ellipsis.circle.fill")
         #expect(AppIcons.Metrics.minimumTouchTarget >= 44)
@@ -183,6 +187,13 @@ struct BrandAssetTests {
         #expect(L10n.t("tab.more", .russian) == "Ещё")
 
         #expect(AppTab.allCases == [.home, .guide, .map, .saved, .more])
+    }
+
+    @Test func mapTabUsesLocalizedMapNameInsteadOfPlaces() {
+        #expect(L10n.t("tab.map", .english) == "Map")
+        #expect(L10n.t("tab.map", .dutch) == "Kaart")
+        #expect(L10n.t("tab.map", .russian) == "Карта")
+        #expect(L10n.t("tab.saved", .russian) == "Избранное")
     }
 
     @Test func rightSideMenuLocalizationKeysExist() {

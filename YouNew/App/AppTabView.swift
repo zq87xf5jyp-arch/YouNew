@@ -819,9 +819,9 @@ struct RootTabView: View {
     private var sidebarItems: [TabSidebarItem] {
         [
             TabSidebarItem(tab: .home,  title: tabHomeTitle,  symbol: AppIcons.home, selectedSymbol: AppIcons.homeActive),
-            TabSidebarItem(tab: .guide, title: tabGuideTitle, symbol: "books.vertical", selectedSymbol: "books.vertical.fill"),
+            TabSidebarItem(tab: .guide, title: tabGuideTitle, symbol: AppIcons.guide, selectedSymbol: AppIcons.guideActive),
             TabSidebarItem(tab: .map,   title: tabMapTitle,   symbol: AppIcons.map, selectedSymbol: AppIcons.mapActive),
-            TabSidebarItem(tab: .saved, title: tabSavedTitle, symbol: AppIcons.save, selectedSymbol: AppIcons.saved),
+            TabSidebarItem(tab: .saved, title: tabSavedTitle, symbol: AppIcons.favorite, selectedSymbol: AppIcons.favoriteActive),
             TabSidebarItem(tab: .more,  title: tabMoreTitle,  symbol: AppIcons.more, selectedSymbol: AppIcons.moreActive)
         ]
     }
@@ -1041,9 +1041,9 @@ struct RootTabView: View {
     private var compactTabBarItems: [FloatingTabBarItem] {
         [
             FloatingTabBarItem(tab: .home,  title: tabHomeTitle,  symbol: AppIcons.home, selectedSymbol: AppIcons.homeActive),
-            FloatingTabBarItem(tab: .guide, title: tabGuideTitle, symbol: "books.vertical", selectedSymbol: "books.vertical.fill"),
+            FloatingTabBarItem(tab: .guide, title: tabGuideTitle, symbol: AppIcons.guide, selectedSymbol: AppIcons.guideActive),
             FloatingTabBarItem(tab: .map,   title: tabMapTitle,   symbol: AppIcons.map, selectedSymbol: AppIcons.mapActive),
-            FloatingTabBarItem(tab: .saved, title: tabSavedTitle, symbol: AppIcons.save, selectedSymbol: AppIcons.saved),
+            FloatingTabBarItem(tab: .saved, title: tabSavedTitle, symbol: AppIcons.favorite, selectedSymbol: AppIcons.favoriteActive),
             FloatingTabBarItem(tab: .more,  title: tabMoreTitle,  symbol: AppIcons.more, selectedSymbol: AppIcons.moreActive)
         ]
     }
