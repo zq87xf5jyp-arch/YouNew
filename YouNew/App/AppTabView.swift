@@ -287,9 +287,7 @@ struct RootTabView: View {
     }
 
     static func shouldShowContextualAIButton(selectedTab: AppTab, isMenuPresented: Bool) -> Bool {
-        !isMenuPresented
-            && selectedTab != .more
-            && selectedTab != .saved
+        !isMenuPresented && selectedTab == .map
     }
 
     private var contextualAIButtonBottomPadding: CGFloat {
@@ -386,6 +384,7 @@ struct RootTabView: View {
             axis: .horizontal,
             onSelect: handleTabSelection
         )
+        .accessibilityIdentifier("root.tabBar")
         .padding(.horizontal, FloatingTabBarMetrics.horizontalPadding)
         .padding(.top, edge == .top ? 8 : 0)
         .padding(.bottom, edge == .bottom ? FloatingTabBarMetrics.bottomOffset : 8)
@@ -679,7 +678,9 @@ struct RootTabView: View {
 #if os(iOS)
     private var homeTabStack: some View {
         NavigationStack(path: $homeNavPath) {
-            RootHomeView(selectedTab: $selectedTab)
+            RootHomeView(selectedTab: $selectedTab) {
+                homeNavPath.append(AppDestination.assistantHub)
+            }
                 .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }
@@ -719,7 +720,9 @@ struct RootTabView: View {
 
     private var guideTabStack: some View {
         NavigationStack(path: $guideNavPath) {
-            RootGuideView()
+            RootGuideView {
+                guideNavPath.append(AppDestination.assistantHub)
+            }
             .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }

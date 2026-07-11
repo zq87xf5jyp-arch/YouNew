@@ -2,6 +2,7 @@ import SwiftUI
 
 struct RootHomeView: View {
     @Binding var selectedTab: AppTab
+    var onAskAI: () -> Void = {}
     @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var savedStore: SavedItemsStore
@@ -45,6 +46,7 @@ struct RootHomeView: View {
                 .padding(.horizontal, 18)
                 .padding(.top, 10)
             }
+            .accessibilityIdentifier("home.scrollContent")
             .safeAreaPadding(.top, 4)
             .onReceive(router.homeScrollTop) {
                 withAnimation(.easeInOut(duration: 0.22)) {
@@ -102,23 +104,38 @@ struct RootHomeView: View {
     }
 
     private var globalSearch: some View {
-        NavigationLink(value: AppDestination.searchList) {
-            HStack(spacing: 12) {
+        HStack(spacing: 10) {
+            NavigationLink(value: AppDestination.searchList) {
+                HStack(spacing: 12) {
                 Image(systemName: "magnifyingglass")
                     .font(.headline.bold())
                 Text(localized(en: "Search guides, services and places", nl: "Zoek gidsen, diensten en plekken", ru: "Поиск материалов, сервисов и мест"))
                     .font(AppTypography.body.weight(.semibold))
+                    .lineLimit(2)
                     .fixedSize(horizontal: false, vertical: true)
                 Spacer(minLength: 4)
-                Image(systemName: "sparkles")
-                    .foregroundStyle(AppColors.violet)
-                    .accessibilityLabel(localized(en: "AI assistance available", nl: "AI-hulp beschikbaar", ru: "Доступна помощь AI"))
+                }
+                .contentShape(Rectangle())
             }
-            .foregroundStyle(AppColors.textPrimary)
-            .padding(16)
-            .appGlassCardStyle(padding: 0, cornerRadius: 20, accent: AppColors.cyanGlow)
+            .buttonStyle(.plain)
+
+            Button(action: onAskAI) {
+                Image(systemName: "sparkles")
+                    .font(.headline.bold())
+                    .foregroundStyle(AppColors.violet)
+                    .frame(minWidth: 44, minHeight: 44)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(localized(en: "Open AI assistant", nl: "Open AI-assistent", ru: "Открыть AI-помощника"))
+            .accessibilityHint(localized(en: "Opens the assistant without starting a search", nl: "Opent de assistent zonder te zoeken", ru: "Открывает помощника без запуска поиска"))
+            .accessibilityIdentifier("home.aiButton")
         }
-        .buttonStyle(.plain)
+        .foregroundStyle(AppColors.textPrimary)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 8)
+        .frame(minHeight: 64)
+        .appGlassCardStyle(padding: 0, cornerRadius: 20, accent: AppColors.cyanGlow)
         .accessibilityIdentifier("home.globalSearch")
     }
 
@@ -131,7 +148,9 @@ struct RootHomeView: View {
             .font(.headline.bold())
             .foregroundStyle(.white)
             .frame(maxWidth: .infinity, alignment: .leading)
-            .padding(16)
+            .padding(.horizontal, 16)
+            .padding(.vertical, 10)
+            .frame(minHeight: 56)
             .background(AppColors.error.gradient, in: RoundedRectangle(cornerRadius: 19, style: .continuous))
         }
         .buttonStyle(.plain)

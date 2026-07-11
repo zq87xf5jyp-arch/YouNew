@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct RootGuideView: View {
+    var onAskAI: () -> Void = {}
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var router: TabRouter
 
@@ -23,6 +24,7 @@ struct RootGuideView: View {
                 .padding(.horizontal, 18)
                 .padding(.top, 12)
             }
+            .accessibilityIdentifier("guide.scrollContent")
             .safeAreaPadding(.top, 4)
             .onReceive(router.guideScrollTop) {
                 withAnimation(.easeInOut(duration: 0.22)) {
@@ -51,8 +53,9 @@ struct RootGuideView: View {
     }
 
     private var searchAction: some View {
-        NavigationLink(value: AppDestination.searchList) {
-            HStack(spacing: 12) {
+        HStack(spacing: 10) {
+            NavigationLink(value: AppDestination.searchList) {
+                HStack(spacing: 12) {
                 Image(systemName: "magnifyingglass")
                     .font(.headline.bold())
                 Text(localized(en: "Search all guides and services", nl: "Zoek in alle gidsen en diensten", ru: "Поиск по всем материалам и сервисам"))
@@ -60,14 +63,27 @@ struct RootGuideView: View {
                     .lineLimit(2)
                     .fixedSize(horizontal: false, vertical: true)
                 Spacer(minLength: 4)
-                Image(systemName: "chevron.right")
-                    .accessibilityHidden(true)
+                }
+                .contentShape(Rectangle())
             }
-            .foregroundStyle(AppColors.textPrimary)
-            .padding(16)
-            .appGlassCardStyle(padding: 0, cornerRadius: 20, accent: AppColors.cyanGlow)
+            .buttonStyle(.plain)
+
+            Button(action: onAskAI) {
+                Image(systemName: "sparkles")
+                    .font(.headline.bold())
+                    .foregroundStyle(AppColors.violet)
+                    .frame(minWidth: 44, minHeight: 44)
+                    .contentShape(Rectangle())
+            }
+            .buttonStyle(.plain)
+            .accessibilityLabel(localized(en: "Open AI assistant", nl: "Open AI-assistent", ru: "Открыть AI-помощника"))
+            .accessibilityIdentifier("guide.aiButton")
         }
-        .buttonStyle(.plain)
+        .foregroundStyle(AppColors.textPrimary)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 8)
+        .frame(minHeight: 64)
+        .appGlassCardStyle(padding: 0, cornerRadius: 20, accent: AppColors.cyanGlow)
         .accessibilityIdentifier("guide.search")
     }
 
