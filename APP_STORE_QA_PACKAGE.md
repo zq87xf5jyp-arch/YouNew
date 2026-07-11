@@ -1,8 +1,8 @@
 # YouNew App Store QA Package
 
-Date: 2026-07-11  
-Version: 1.1 (5)  
-Bundle ID: `nl.younew.app`  
+Date: 2026-07-11
+Version: 1.1 (5)
+Bundle ID: `nl.younew.app`
 Verdict: **NOT READY TO SUBMIT**
 
 ## Executive summary
