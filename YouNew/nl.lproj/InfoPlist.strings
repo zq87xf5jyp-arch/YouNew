@@ -1,5 +1,3 @@
 "CFBundleDisplayName" = "YouNew";
 "NSCameraUsageDescription" = "YouNew.nl gebruikt de camera om documenten te scannen die u lokaal op uw apparaat wilt bewaren.";
 "NSLocationWhenInUseUsageDescription" = "YouNew.nl gebruikt uw locatie om gemeenten, zorg, vervoer en officiële diensten in de buurt te tonen.";
-"NSMicrophoneUsageDescription" = "YouNew gebruikt de microfoon alleen wanneer u spraakinvoer in de assistent activeert.";
-"NSSpeechRecognitionUsageDescription" = "YouNew zet spraak alleen om in tekst wanneer u spraakinvoer expliciet start.";

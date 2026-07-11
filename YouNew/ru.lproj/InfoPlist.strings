@@ -1,5 +1,3 @@
 "CFBundleDisplayName" = "YouNew";
 "NSCameraUsageDescription" = "YouNew.nl использует камеру для сканирования документов, которые вы выбираете сохранить локально на устройстве.";
 "NSLocationWhenInUseUsageDescription" = "YouNew.nl использует геолокацию, чтобы показывать ближайшие муниципалитеты, медицинские, транспортные и официальные службы.";
-"NSMicrophoneUsageDescription" = "YouNew использует микрофон только после нажатия кнопки голосового ввода в ассистенте.";
-"NSSpeechRecognitionUsageDescription" = "YouNew преобразует речь в текст только после явного запуска голосового ввода.";

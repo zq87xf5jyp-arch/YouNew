@@ -425,8 +425,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "YouNew uses the camera only to scan documents you choose to save locally on your device.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "YouNew uses the microphone only when you tap voice input in the assistant.";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "YouNew converts speech to text only when you explicitly start voice input.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "YouNew uses your location only to show nearby services and places. Your location is not stored.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
@@ -476,8 +474,6 @@
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "YouNew uses the camera only to scan documents you choose to save locally on your device.";
-				INFOPLIST_KEY_NSMicrophoneUsageDescription = "YouNew uses the microphone only when you tap voice input in the assistant.";
-				INFOPLIST_KEY_NSSpeechRecognitionUsageDescription = "YouNew converts speech to text only when you explicitly start voice input.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "YouNew uses your location only to show nearby services and places. Your location is not stored.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
