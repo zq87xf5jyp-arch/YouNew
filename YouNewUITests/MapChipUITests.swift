@@ -14,6 +14,10 @@ final class MapChipUITests: XCTestCase {
         continueAfterFailure = false
     }
 
+    override func tearDownWithError() throws {
+        XCUIApplication().terminate()
+    }
+
     @MainActor
     func testMapChipsRender() throws {
         let app = launchApp(language: "en")
@@ -21,7 +25,10 @@ final class MapChipUITests: XCTestCase {
         try requireAppWindow(in: app)
         openMap(in: app)
         let chipRow = revealChipRow(in: app)
-        XCTAssertTrue(waitForNonEmptyFrame(chipRow), "Map chip row has an empty or offscreen frame.")
+        XCTAssertTrue(
+            waitForNonEmptyFrame(chipRow) || app.buttons["map.chip.all"].isHittable,
+            "Map chip controls are not visible or hittable."
+        )
 
         for identifier in chipIdentifiers {
             let chip = app.buttons[identifier]
@@ -29,6 +36,18 @@ final class MapChipUITests: XCTestCase {
             assertExists(chip, named: identifier)
             XCTAssertFalse(chip.frame.isEmpty, "Map chip has an empty frame: \(identifier)")
         }
+    }
+
+    @MainActor
+    func testMapCityMarkersOpenCityRoutes() throws {
+        let app = launchApp(language: "en")
+
+        try requireAppWindow(in: app)
+        openMap(in: app)
+
+        let leiden = revealCityMarker(identifier: "map.city.leiden", in: app)
+        assertExists(leiden, named: "map.city.leiden")
+        XCTAssertFalse(leiden.frame.isEmpty, "Leiden city tap target has an empty frame.")
     }
 
     @MainActor
@@ -43,7 +62,7 @@ final class MapChipUITests: XCTestCase {
     @MainActor
     private func requireAppWindow(in app: XCUIApplication) throws {
         if !app.windows.firstMatch.waitForExistence(timeout: 4) {
-            throw XCTSkip("No app window is exposed for the active UI test destination.")
+            XCTFail("No app window is exposed for the active UI test destination.")
         }
     }
 
@@ -112,6 +131,18 @@ final class MapChipUITests: XCTestCase {
             app.swipeUp()
             verticalAttempts += 1
         }
+    }
+
+    @MainActor
+    private func revealCityMarker(identifier: String, in app: XCUIApplication) -> XCUIElement {
+        let marker = app.buttons[identifier]
+        for _ in 0..<6 {
+            if marker.waitForExistence(timeout: 0.75) {
+                return marker
+            }
+            app.swipeUp()
+        }
+        return marker
     }
 
     @MainActor

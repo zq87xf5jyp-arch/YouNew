@@ -57,8 +57,112 @@ struct KnowledgeIndexTests {
         #expect(index.items.contains { $0.type == .dutchTerm })
         #expect(index.items.contains { $0.type == .letter })
         #expect(index.items.contains { $0.type == .resource })
+        #expect(index.items.contains { $0.type == .localPartner && $0.city == "Rotterdam" })
         #expect(index.items.contains { $0.type == .knmModule })
         #expect(index.items.contains { $0.type == .dutchCourseModule })
+    }
+
+    @Test func netherlandsKnowledgeDatabaseProvidesUnifiedDataPlatform() {
+        let database = NetherlandsKnowledgeDatabase.shared
+        let report = database.report
+        let ids = database.entities.map(\.id)
+
+        #expect(Set(ids).count == ids.count)
+        #expect(report.cities >= NLCity.all.count)
+        #expect(report.cities >= 12)
+        #expect(report.places >= NLCity.all.flatMap(\.attractions).count)
+        #expect(report.governmentServices >= MockInstitutionsData.items.count)
+        #expect(report.localPartners == MockLocalPartnersData.partners.count)
+        #expect(report.officialSources >= 10)
+        #expect(report.linkedImages >= database.entities.count)
+        #expect(report.relations >= report.cities * 3)
+
+        for entity in database.entities {
+            #expect(!entity.id.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            #expect(!entity.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            #expect(!entity.summary.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            #expect(!entity.category.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            #expect(!entity.lastChecked.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            #expect(!entity.aiSummary.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+        }
+    }
+
+    @Test func unifiedDatabaseFeedsSearchAndKnowledgeGraph() throws {
+        let database = NetherlandsKnowledgeDatabase.shared
+        let index = KnowledgeIndex.shared
+        let engine = AppSearchEngine(index: index)
+
+        #expect(database.entity(id: "city:leiden") != nil)
+        #expect(database.entity(id: "source:government-brp") != nil)
+        #expect(index.itemsByID["topic:registration-bsn"] != nil)
+        #expect(index.graph.relations.contains {
+            $0.fromID == "city:leiden" && $0.toID == "topic:registration-bsn"
+        })
+
+        let bsnResults = engine.search("BSN BRP registration", language: .english, scope: .allContentWithOutsidePathWarning, limit: 12)
+        #expect(bsnResults.contains { $0.item.id == "topic:registration-bsn" || $0.item.sources.contains { $0.title.localizedCaseInsensitiveContains("BRP") } })
+
+        let placeResults = engine.search("Rijksmuseum Amsterdam", language: .english, scope: .allContentWithOutsidePathWarning, limit: 12)
+        #expect(placeResults.contains { $0.item.title(.english).localizedCaseInsensitiveContains("Rijksmuseum") })
+
+        let partnerResults = engine.search("lawyer Eindhoven", language: .english, scope: .allContentWithOutsidePathWarning, limit: 12)
+        #expect(partnerResults.contains { $0.item.type == .localPartner || $0.item.category.localizedCaseInsensitiveContains("legal") })
+    }
+
+    @Test func assistantBigQuestionAsksClarificationInsteadOfGenericTemplate() throws {
+        let response = try #require(AssistantAnswerEngine.getAssistantAnswer(
+            userText: "big",
+            language: .english,
+            context: context(persona: .tourist, selectedCity: "Amsterdam")
+        ))
+
+        #expect(response.answer.localizedCaseInsensitiveContains("what do you mean"))
+        #expect(response.answer.localizedCaseInsensitiveContains("BIG-register"))
+        #expect(!response.answer.localizedCaseInsensitiveContains("deadlines, payments"))
+        #expect(response.sources.isEmpty)
+        #expect(!response.isVerified)
+    }
+
+    @Test func assistantTouristBSNDoesNotStartResidentFlow() throws {
+        let response = try #require(AssistantAnswerEngine.getAssistantAnswer(
+            userText: "Bsn",
+            language: .english,
+            context: context(persona: .tourist, selectedCity: "Amsterdam")
+        ))
+
+        #expect(response.answer.localizedCaseInsensitiveContains("short-stay tourists"))
+        #expect(response.answer.localizedCaseInsensitiveContains("do not need a BSN"))
+        #expect(response.sections.map(\.body).joined(separator: " ").localizedCaseInsensitiveContains("do not type your BSN"))
+        #expect(!response.answer.localizedCaseInsensitiveContains("deadline"))
+    }
+
+    @Test func assistantTouristLostPassportUsesAmsterdamTouristContext() throws {
+        let response = try #require(AssistantAnswerEngine.getAssistantAnswer(
+            userText: "lost passport",
+            language: .english,
+            context: context(persona: .tourist, selectedCity: "Amsterdam")
+        ))
+
+        let fullText = ([response.answer] + response.sections.map(\.body)).joined(separator: " ")
+        #expect(fullText.localizedCaseInsensitiveContains("passport"))
+        #expect(fullText.localizedCaseInsensitiveContains("Amsterdam"))
+        #expect(fullText.localizedCaseInsensitiveContains("embassy") || fullText.localizedCaseInsensitiveContains("consulate"))
+        #expect(!fullText.localizedCaseInsensitiveContains("Municipality Leiden"))
+        #expect(response.sources.contains { $0.url != nil })
+    }
+
+    @Test func assistantTouristTransportUsesTouristTransportSources() throws {
+        let response = try #require(AssistantAnswerEngine.getAssistantAnswer(
+            userText: "transport",
+            language: .english,
+            context: context(persona: .tourist, selectedCity: "Amsterdam")
+        ))
+
+        let fullText = ([response.answer] + response.sections.map(\.body)).joined(separator: " ")
+        #expect(fullText.localizedCaseInsensitiveContains("tourist"))
+        #expect(fullText.localizedCaseInsensitiveContains("Amsterdam"))
+        #expect(fullText.localizedCaseInsensitiveContains("check in") || fullText.localizedCaseInsensitiveContains("check-in"))
+        #expect(response.sources.contains { $0.title == "9292" || $0.title == "OVpay" })
     }
 
     @Test func allGuideArticlesCitiesAndProvincesAreIndexedForAI() {
@@ -110,6 +214,7 @@ struct KnowledgeIndexTests {
             .institution,
             .letter,
             .resource,
+            .localPartner,
             .knmModule,
             .dutchCourseModule
         ]
@@ -147,6 +252,70 @@ struct KnowledgeIndexTests {
         }
     }
 
+    @Test func localPartnersAreIndexedForEverySupportedCityAndCoreCategory() {
+        let index = KnowledgeIndex.shared
+        let partners = index.items.filter { $0.type == .localPartner }
+        let cities = Set(CityDashboardContentData.supportedCityNames)
+        let indexedCities = Set(partners.compactMap(\.city))
+        let requiredSubcategories: Set<String> = [
+            "Hotels",
+            "Restaurants",
+            "Cafes",
+            "Immigration Lawyers",
+            "Clinics",
+            "Dentists",
+            "Banks",
+            "Real Estate",
+            "Bike Rental",
+            "Moving Companies",
+            "Dutch Language Schools",
+            "Universities",
+            "Gyms",
+            "Shopping"
+        ]
+        let indexedSubcategories = Set(partners.map(\.category))
+
+        #expect(cities.isSubset(of: indexedCities))
+        #expect(requiredSubcategories.isSubset(of: indexedSubcategories))
+        #expect(partners.allSatisfy { !$0.sources.compactMap(\.url).isEmpty })
+        #expect(AppSearchEngine().search("dentist Rotterdam", language: .english, activePersona: .worker).contains { $0.item.type == .localPartner && $0.item.city == "Rotterdam" })
+        #expect(AppSearchEngine().search("language school Eindhoven", language: .english, activePersona: .student).contains { $0.item.type == .localPartner && $0.item.city == "Eindhoven" })
+    }
+
+    @Test func studentEindhovenScenarioConnectsLifeStepsAndRealLocalServices() {
+        let index = KnowledgeIndex.shared
+        let scenario = index.itemsByID["scenario:student-eindhoven"]
+        #expect(scenario != nil)
+        #expect(scenario?.city == "Eindhoven")
+        #expect(scenario?.personaTags.contains(.student) == true)
+
+        let neighborIDs = Set(index.graph.neighbors(
+            of: "scenario:student-eindhoven",
+            in: index.itemsByID,
+            limit: 20
+        ).map(\.id))
+
+        let requiredNeighborIDs: Set<String> = [
+            "municipality:eindhoven",
+            "topic:registration-bsn",
+            "topic:digid",
+            "topic:health-insurance",
+            "topic:banking",
+            "topic:transport-ov",
+            "topic:language-schools-and-integration",
+            "topic:universities-and-student-administration",
+            "topic:student-housing",
+            "localPartner:tu-eindhoven",
+            "localPartner:municipality-eindhoven-service-center",
+            "localPartner:helpling-eindhoven"
+        ]
+
+        #expect(requiredNeighborIDs.isSubset(of: neighborIDs))
+
+        let results = index.search("student Eindhoven", language: .english, activePersona: .student, limit: 5)
+        #expect(results.contains { $0.item.id == "scenario:student-eindhoven" })
+    }
+
     @Test func indexedContentHasAssignedPersonaTags() {
         for item in KnowledgeIndex.shared.items {
             #expect(!item.personaTags.isEmpty, "Missing persona tags for \(item.id)")
@@ -170,7 +339,7 @@ struct KnowledgeIndexTests {
     }
 
     @Test func bsnSearchReturnsRouteSourceAndGraphContext() {
-        let results = AppSearchEngine().search("How do I get BSN?", language: .english)
+        let results = AppSearchEngine().search("How do I get BSN?", language: .english, activePersona: .worker)
         let titles = results.map { $0.item.title(.english) }
 
         #expect(titles.contains { $0.localizedCaseInsensitiveContains("BSN") })
@@ -184,7 +353,8 @@ struct KnowledgeIndexTests {
     }
 
     @Test func healthInsuranceSearchFindsGuideAndOfficialSources() {
-        let result = AppSearchEngine().answerContext(for: "I need health insurance", language: .english)
+        let context = context(persona: .worker, screen: .search, category: "Search")
+        let result = AppSearchEngine().answerContext(for: "I need health insurance", language: .english, context: context)
 
         #expect(result.summary?.localizedCaseInsensitiveContains("health insurance") == true)
         #expect(result.sources.contains { $0.title.localizedCaseInsensitiveContains("Government") || $0.title.localizedCaseInsensitiveContains("Zorg") })
@@ -204,10 +374,11 @@ struct KnowledgeIndexTests {
             selectedCity: "Leiden",
             selectedProvince: "Zuid-Holland",
             savedItemTitles: [],
-            disclaimer: ""
+            disclaimer: "",
+            activePersonaTag: .worker
         )
 
-        let results = AppSearchEngine().search("municipality registration", language: .english, context: context, limit: 12)
+        let results = AppSearchEngine().search("municipality registration", language: .english, context: context, activePersona: .worker, limit: 12)
 
         #expect(results.contains { $0.item.city == "Leiden" || $0.item.province == "Zuid-Holland" })
         #expect(results.contains { $0.item.route != nil })
@@ -226,10 +397,19 @@ struct KnowledgeIndexTests {
             selectedCity: nil,
             selectedProvince: nil,
             savedItemTitles: [],
-            disclaimer: ""
+            disclaimer: "",
+            activePersonaTag: .tourist,
+            personaSearchScope: .allContentWithOutsidePathWarning
         )
 
-        let cityResults = AppSearchEngine().search("Tell me about Rotterdam city", language: .english, context: context, limit: 8)
+        let cityResults = AppSearchEngine().search(
+            "Tell me about Rotterdam city",
+            language: .english,
+            context: context,
+            activePersona: .tourist,
+            scope: .allContentWithOutsidePathWarning,
+            limit: 8
+        )
         #expect(cityResults.first?.item.type == .city)
         #expect(cityResults.first?.item.city == "Rotterdam")
 
@@ -242,7 +422,14 @@ struct KnowledgeIndexTests {
             $0.kind == .openCity && $0.destinationID == "city:rotterdam"
         } == true)
 
-        let provinceResults = AppSearchEngine().search("North Holland province", language: .english, context: context, limit: 8)
+        let provinceResults = AppSearchEngine().search(
+            "North Holland province",
+            language: .english,
+            context: context,
+            activePersona: .tourist,
+            scope: .allContentWithOutsidePathWarning,
+            limit: 8
+        )
         #expect(provinceResults.first?.item.type == .province)
         #expect(provinceResults.first?.item.province == "Noord-Holland")
 
@@ -254,6 +441,27 @@ struct KnowledgeIndexTests {
         #expect(provinceResponse?.quickActions.contains {
             $0.kind == .openProvince && $0.destinationID == "province:noord-holland"
         } == true)
+    }
+
+    @Test func assistantEngineLeavesCityAndProvinceSearchQueriesToComposer() {
+        let context = context(
+            persona: .worker,
+            screen: .assistant,
+            category: "Assistant",
+            selectedCity: "Leiden",
+            selectedProvince: "Zuid-Holland"
+        )
+
+        #expect(AssistantAnswerEngine.getAssistantAnswer(
+            userText: "Tell me about Rotterdam city",
+            language: .english,
+            context: context
+        ) == nil)
+        #expect(AssistantAnswerEngine.getAssistantAnswer(
+            userText: "North Holland province",
+            language: .english,
+            context: context
+        ) == nil)
     }
 
     @Test func allIndexedRoutesResolveToLiveDestinations() {
@@ -334,7 +542,8 @@ struct KnowledgeIndexTests {
             selectedCity: "Leiden",
             selectedProvince: "Zuid-Holland",
             savedItemTitles: [],
-            disclaimer: ""
+            disclaimer: "",
+            activePersonaTag: .worker
         )
         let response = AIResponseComposer.compose(
             query: "How do I get BSN?",
@@ -343,6 +552,10 @@ struct KnowledgeIndexTests {
         )
 
         #expect(response?.sections.contains { $0.title == "Answer" } == true)
+        #expect(response?.sections.contains { $0.title == "What This Means" } == true)
+        #expect(response?.sections.contains { $0.title == "What To Do Next" } == true)
+        #expect(response?.sections.contains { $0.title == "Useful Actions" } == true)
+        #expect(response?.sections.contains { $0.title == "Official Source" } == true)
         #expect(response?.sections.contains { ["Requirements", "Checklist", "Warnings", "Related Topics"].contains($0.title) } == true)
         #expect(response?.quickActions.contains { $0.kind == .openGuide || $0.kind == .openScreen } == true)
         #expect(response?.quickActions.contains { $0.kind == .openSource } == true)
@@ -351,6 +564,38 @@ struct KnowledgeIndexTests {
         #expect(response?.quickActions.contains { $0.kind == .save } == true)
         #expect(response?.quickActions.contains { $0.kind == .share } == true)
         #expect(response?.quickActions.contains { $0.kind == .relatedTopic } == true)
+    }
+
+    @Test func localComposerDoesNotExposeEnglishActionsInRussianSession() {
+        let context = AIContext(
+            screen: .assistant,
+            category: "Ассистент",
+            topicTitle: nil,
+            topicSummary: nil,
+            officialSources: [],
+            lastReviewed: nil,
+            userLanguage: .russian,
+            userSituation: nil,
+            selectedCity: "Leiden",
+            selectedProvince: "Zuid-Holland",
+            savedItemTitles: [],
+            disclaimer: "",
+            activePersonaTag: .worker,
+            personaSearchScope: .allContentWithOutsidePathWarning
+        )
+        let response = AIResponseComposer.compose(
+            query: "Что важно знать и сделать в первую очередь как Украинец в Нидерландах?",
+            language: .russian,
+            context: context
+        )
+
+        #expect(response != nil)
+        #expect(response?.quickActions.allSatisfy { AIResponseLanguageGuard.isVisibleTextAcceptable($0.title, for: .russian) } == true)
+        #expect(response?.sections.allSatisfy {
+            AIResponseLanguageGuard.isVisibleTextAcceptable($0.title, for: .russian) &&
+            AIResponseLanguageGuard.isVisibleTextAcceptable($0.body, for: .russian)
+        } == true)
+        #expect(response.map { AIResponseLanguageGuard.isResponseAcceptable($0, for: .russian) } == true)
     }
 
     @Test func missingInformationResponseStillLinksSourceAndContextDestinations() {
@@ -366,7 +611,8 @@ struct KnowledgeIndexTests {
             selectedCity: "Leiden",
             selectedProvince: "Zuid-Holland",
             savedItemTitles: [],
-            disclaimer: ""
+            disclaimer: "",
+            activePersonaTag: .worker
         )
         let response = AIResponseComposer.compose(
             query: "xqzv plorbnax flibbertigibbet",
@@ -397,7 +643,9 @@ struct KnowledgeIndexTests {
             selectedCity: "Leiden",
             selectedProvince: "Zuid-Holland",
             savedItemTitles: [],
-            disclaimer: ""
+            disclaimer: "",
+            activePersonaTag: .worker,
+            personaSearchScope: .allContentWithOutsidePathWarning
         )
         let queries = [
             "How do I get BSN?",
@@ -494,11 +742,15 @@ struct KnowledgeIndexTests {
         #expect(started?.workflow.kind == .bsnRegistration)
         #expect(started?.workflow.step == .asksAddressStatus)
         #expect(started?.response.quickActions.contains { $0.kind == .askFollowUp } == true)
+        #expect(started?.response.quickActions.contains { $0.kind == .askFollowUp && $0.query == "yes address" } == true)
+        #expect(started?.response.quickActions.contains { $0.kind == .askFollowUp && $0.query == "no address" } == true)
 
         let digidQuestion = started.flatMap {
             AIWorkflowEngine.advance(workflow: $0.workflow, answer: "yes address", language: .english, context: context)
         }
         #expect(digidQuestion?.workflow?.step == .asksDigiDNeed)
+        #expect(digidQuestion?.response.quickActions.contains { $0.kind == .askFollowUp && $0.query == "yes digid" } == true)
+        #expect(digidQuestion?.response.quickActions.contains { $0.kind == .askFollowUp && $0.query == "no digid" } == true)
 
         let final = digidQuestion.flatMap {
             $0.workflow.flatMap { AIWorkflowEngine.advance(workflow: $0, answer: "yes digid", language: .english, context: context) }

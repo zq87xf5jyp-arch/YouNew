@@ -6,148 +6,117 @@ final class LocalizationRegressionUITests: XCTestCase {
         continueAfterFailure = false
     }
 
-    // MARK: - Premium App Vision E2E Scaffolding
-
-    @MainActor
-    func testHomeScreenHasPremiumGreetingAndStatusWidgets() throws {
-        let app = launchApp(language: "en")
-        try requireAppWindow(in: app)
-
-        // Verify continuous global background presence
-        XCTAssertTrue(app.otherElements["background.global.cinematic"].waitForExistence(timeout: 2), "Global cinematic background missing")
-
-        // Greeting card
-        XCTAssertTrue(app.staticTexts["home.greeting.title"].waitForExistence(timeout: 2), "Greeting title missing")
-        XCTAssertTrue(app.staticTexts["home.greeting.subtitle"].exists, "Greeting subtitle missing")
-
-        // Status widgets
-        XCTAssertTrue(app.otherElements["widget.currentCity"].exists, "Current city widget missing")
-        XCTAssertTrue(app.otherElements["widget.weather"].exists, "Weather widget missing")
-        XCTAssertTrue(app.otherElements["widget.time"].exists, "Time widget missing")
-        XCTAssertTrue(app.otherElements["widget.province"].exists, "Province widget missing")
+    override func tearDownWithError() throws {
+        XCUIApplication().terminate()
     }
 
-    @MainActor
-    func testRightSideDrawerOpensAndShowsPersonalDashboardWidgets() throws {
-        let app = launchApp(language: "en")
-        try requireAppWindow(in: app)
+    // MARK: - Release UX Regression
 
-        // Open the right-side drawer
-        let drawerButton = app.buttons["button.openRightDrawer"]
-        if drawerButton.waitForExistence(timeout: 2) && drawerButton.isHittable {
-            drawerButton.tap()
-        } else {
-            // Fallback gesture area if button is not present yet
-            let edge = app.otherElements["gesture.rightEdgeArea"]
-            if edge.exists { edge.swipeLeft() }
+    @MainActor
+    func testHomeScreenStartsWithHeroStatusAndProfileChange() throws {
+        for language in ["en", "nl", "ru"] {
+            let app = launchApp(language: language)
+            try requireAppWindow(in: app)
+
+            let hero = app.descendants(matching: .any)["home.product.hero"]
+            let statusCard = app.descendants(matching: .any)["home.statusCard"]
+            let changeButton = app.descendants(matching: .any)["home.status.change"]
+
+            XCTAssertTrue(hero.waitForExistence(timeout: 4), "[\(language)] hero missing")
+            XCTAssertTrue(statusCard.waitForExistence(timeout: 4), "[\(language)] status card missing")
+            XCTAssertTrue(changeButton.waitForExistence(timeout: 2), "[\(language)] Change button missing")
+            XCTAssertLessThan(hero.frame.minY, statusCard.frame.minY, "[\(language)] hero must appear before status")
+            XCTAssertLessThan(statusCard.frame.minY, changeButton.frame.minY, "[\(language)] status must precede profile change")
+            XCTAssertTrue(changeButton.isHittable, "[\(language)] Change button must be hittable")
+
+            app.terminate()
         }
-
-        let drawer = app.otherElements["drawer.right.personalDashboard"]
-        XCTAssertTrue(drawer.waitForExistence(timeout: 2), "Right drawer did not appear")
-
-        // Verify key widgets
-        XCTAssertTrue(app.otherElements["widget.weather"].exists)
-        XCTAssertTrue(app.otherElements["widget.currentTime"].exists)
-        XCTAssertTrue(app.otherElements["widget.emergencyContacts"].exists)
-        XCTAssertTrue(app.otherElements["widget.bookmarks"].exists)
-        XCTAssertTrue(app.otherElements["widget.recentSearches"].exists)
-        XCTAssertTrue(app.otherElements["widget.reminders"].exists)
-        XCTAssertTrue(app.otherElements["widget.savedCities"].exists)
-        XCTAssertTrue(app.otherElements["widget.quickActions"].exists)
-        XCTAssertTrue(app.otherElements["widget.phraseOfTheDay"].exists)
-        XCTAssertTrue(app.otherElements["widget.upcomingHolidays"].exists)
-        XCTAssertTrue(app.otherElements["widget.publicTransportStatus"].exists)
-        XCTAssertTrue(app.buttons["shortcut.aiAssistant"].exists)
     }
 
     @MainActor
-    func testInteractiveNetherlandsMapFlow() throws {
-        let app = launchApp(language: "en")
-        try requireAppWindow(in: app)
-
-        let map = app.otherElements["map.netherlands.premiumNeon"]
-        XCTAssertTrue(map.waitForExistence(timeout: 3), "Premium neon map missing")
-
-        // Province -> City -> Services -> Information
-        let southHolland = app.buttons["map.province.southHolland"]
-        if southHolland.waitForExistence(timeout: 2) { southHolland.tap() }
-
-        let rotterdam = app.buttons["map.city.rotterdam"]
-        if rotterdam.waitForExistence(timeout: 2) { rotterdam.tap() }
-
-        let transport = app.buttons["map.category.transport"]
-        if transport.waitForExistence(timeout: 2) { transport.tap() }
-
-        XCTAssertTrue(app.otherElements["screen.information.transport"].waitForExistence(timeout: 2), "Transport information screen missing")
-    }
-
-    @MainActor
-    func testPremiumSectionsCatalogHasIconsAccentsAndHeroImages() throws {
-        let app = launchApp(language: "en")
-        try requireAppWindow(in: app)
-
-        // Verify presence of several representative categories
-        let categories = [
-            "category.education",
-            "category.law",
-            "category.transport",
-            "category.healthcare",
-            "category.municipality",
-            "category.financial",
-            "category.integration",
-            "category.culture",
-            "category.history",
-            "category.tourism"
+    func testFloatingNavigationOpensPrimaryPublicAreas() throws {
+        let routes: [(startTab: String, screen: String)] = [
+            ("search", "search.input"),
+            ("map", "map.hub"),
+            ("assistant", "assistant.input"),
+            ("more", "rightMenu.panel"),
+            ("home", "home.statusCard")
         ]
-        for id in categories {
-            XCTAssertTrue(app.otherElements[id + ".card"].waitForExistence(timeout: 2), "Missing category card for \(id)")
-            XCTAssertTrue(app.images[id + ".hero"].exists, "Missing hero image for \(id)")
-            XCTAssertTrue(app.images[id + ".icon"].exists, "Missing custom icon for \(id)")
+
+        for route in routes {
+            let app = launchApp(language: "en", startTab: route.startTab)
+            try requireAppWindow(in: app)
+            let screen = app.descendants(matching: .any).matching(identifier: route.screen).firstMatch
+            XCTAssertTrue(screen.waitForExistence(timeout: 4), "Start tab \(route.startTab) did not open \(route.screen)")
+            XCTAssertFalse(screen.frame.isEmpty, "Screen \(route.screen) has an empty frame")
+            app.terminate()
         }
     }
 
     @MainActor
-    func testAIAssistantActsAsNavigatorNotAuthority() throws {
-        let app = launchApp(language: "en")
+    func testMapFlowShowsUsableNearbyScreen() throws {
+        let app = launchApp(language: "en", startTab: "map")
         try requireAppWindow(in: app)
 
-        // Open AI assistant
-        let assistant = app.buttons["shortcut.aiAssistant"]
-        if assistant.waitForExistence(timeout: 2) { assistant.tap() }
+        XCTAssertTrue(app.descendants(matching: .any).matching(identifier: "map.hub").firstMatch.waitForExistence(timeout: 4), "Map hub missing")
+        XCTAssertFalse(
+            app.descendants(matching: .any).matching(identifier: "map.hub").firstMatch.frame.isEmpty,
+            "Map hub has an empty frame"
+        )
+    }
 
-        // Ask a question via a canned shortcut to avoid flaky typing in UITests
-        let canned = app.buttons["assistant.prompt.registerInLeiden"]
-        if canned.waitForExistence(timeout: 2) { canned.tap() }
+    @MainActor
+    func testSearchUsesCurrentLocalizedResultContract() throws {
+        let app = launchApp(language: "en", startTab: "search")
+        try requireAppWindow(in: app)
 
-        // Expect brief explanation and a navigation button, not legal advice
-        XCTAssertTrue(app.staticTexts["assistant.response.brief"].waitForExistence(timeout: 3))
-        XCTAssertTrue(app.buttons["assistant.action.open.municipality.registration"].exists)
+        let suggestion = app.descendants(matching: .any)["search.suggestion.bsn"]
+        XCTAssertTrue(suggestion.waitForExistence(timeout: 4), "BSN suggestion missing")
+        suggestion.tap()
+
+        let result = app.descendants(matching: .any).matching(identifier: "search.result.card").firstMatch
+        XCTAssertTrue(result.waitForExistence(timeout: 4), "Search result card missing")
+        XCTAssertFalse(result.frame.isEmpty, "Search result card has empty frame")
+    }
+
+    @MainActor
+    func testAIAssistantIsUsableAndDoesNotPresentAsLegalAuthority() throws {
+        let app = launchApp(language: "en", startTab: "assistant")
+        try requireAppWindow(in: app)
+
+        let input = app.descendants(matching: .any)["assistant.input"]
+        XCTAssertTrue(input.waitForExistence(timeout: 4), "Assistant input missing")
+        let send = app.descendants(matching: .any)["assistant.send"]
+        XCTAssertTrue(send.waitForExistence(timeout: 4), "Assistant send control missing")
         XCTAssertFalse(app.staticTexts["assistant.disclaimer.legalAdvice"].exists, "Assistant should not present as legal authority")
     }
 
     @MainActor
-    func testHistoryTimelineAndCultureCardsAreInteractiveAndRich() throws {
+    func testMoreHubOpensAsSimpleOverflowSurface() throws {
         let app = launchApp(language: "en")
         try requireAppWindow(in: app)
 
-        // History timeline
-        let timeline = app.otherElements["history.timeline"]
-        XCTAssertTrue(timeline.waitForExistence(timeout: 2))
-        let goldenAge = app.buttons["history.timeline.dutchGoldenAge"]
-        if goldenAge.waitForExistence(timeout: 2) { goldenAge.tap() }
-        XCTAssertTrue(app.images["history.timeline.dutchGoldenAge.hero"].exists)
+        let moreTab = app.descendants(matching: .any)["tab.more"]
+        XCTAssertTrue(moreTab.waitForExistence(timeout: 4), "More tab missing")
+        XCTAssertTrue(moreTab.isHittable, "More tab is not hittable")
+        moreTab.tap()
 
-        // Culture large cards
-        let culture = app.otherElements["culture.grid"]
-        XCTAssertTrue(culture.waitForExistence(timeout: 2))
-        let food = app.otherElements["culture.card.food"]
-        XCTAssertTrue(food.exists)
+        let moreScreen = app.descendants(matching: .any).matching(identifier: "more.screen").firstMatch
+        XCTAssertTrue(moreScreen.waitForExistence(timeout: 4), "More screen missing")
+        XCTAssertFalse(moreScreen.frame.isEmpty, "More screen has empty frame")
     }
 
     @MainActor
-    private func launchApp(language: String) -> XCUIApplication {
+    private func launchApp(language: String, startTab: String = "home") -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", language]
+        app.launchArguments = [
+            "-uiTesting",
+            "-resetUITestState",
+            "-launchLanguage", language,
+            "-uiTestingStartTab", startTab,
+            "-uiTestingCity", "Leiden",
+            "-uiTestingStatus", "worker"
+        ]
         app.launch()
         app.activate()
         return app
@@ -156,7 +125,7 @@ final class LocalizationRegressionUITests: XCTestCase {
     @MainActor
     private func requireAppWindow(in app: XCUIApplication) throws {
         if !app.windows.firstMatch.waitForExistence(timeout: 4) {
-            throw XCTSkip("No app window is exposed for the active UI test destination.")
+            XCTFail("No app window is exposed for the active UI test destination.")
         }
     }
 

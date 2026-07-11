@@ -30,14 +30,20 @@ struct ProductionSafetyPatternTests {
 
     private static func sourceRoot() throws -> URL {
         var url = URL(fileURLWithPath: #filePath)
-        while url.lastPathComponent != "YouNew" {
+        while true {
+            let appSource = url.appendingPathComponent("YouNew")
+            let testSource = url.appendingPathComponent("YouNewTests")
+            if FileManager.default.fileExists(atPath: appSource.path),
+               FileManager.default.fileExists(atPath: testSource.path) {
+                return url
+            }
+
             let parent = url.deletingLastPathComponent()
             if parent.path == url.path {
                 throw SourceRootError.notFound
             }
             url = parent
         }
-        return url
     }
 
     private enum SourceRootError: Error {

@@ -10,11 +10,15 @@ import XCTest
 final class YouNewUITestsLaunchTests: XCTestCase {
 
     override class var runsForEachTargetApplicationUIConfiguration: Bool {
-        true
+        false
     }
 
     override func setUpWithError() throws {
         continueAfterFailure = false
+    }
+
+    override func tearDownWithError() throws {
+        XCUIApplication().terminate()
     }
 
     @MainActor

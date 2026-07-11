@@ -236,6 +236,34 @@ struct AIFoundationTests {
         #expect(response.nextStep?.destinationTitle == "Официальные источники")
     }
 
+    @Test func responseParserRejectsEnglishVisibleTextForRussianSession() throws {
+        let json = """
+        {
+          "answer": "Where to search, how to adapt your CV, and what to expect in interviews",
+          "verified": true,
+          "sections": [
+            {"title": "Answer", "body": "Where to search and how to prepare.", "symbol": "checkmark.circle.fill"}
+          ],
+          "nextStep": {
+            "title": "Open related section",
+            "detail": "Check the step in the app.",
+            "destination": {"id": "search", "title": "Search"}
+          },
+          "sources": [
+            {"title": "Work.nl", "url": "https://www.work.nl", "institution": "UWV"}
+          ],
+          "suggestedActions": ["Save", "Share"]
+        }
+        """
+        let response = try AIResponseParser.parse(Data(json.utf8), language: .russian)
+
+        #expect(!response.isVerified)
+        #expect(response.answer == "У меня пока нет проверенной информации по этому вопросу.")
+        #expect(response.sections.allSatisfy { AIResponseLanguageGuard.isVisibleTextAcceptable($0.title, for: .russian) })
+        #expect(response.sections.allSatisfy { AIResponseLanguageGuard.isVisibleTextAcceptable($0.body, for: .russian) })
+        #expect(response.quickActions.allSatisfy { AIResponseLanguageGuard.isVisibleTextAcceptable($0.title, for: .russian) })
+    }
+
     @Test func aiClientRetrievalContextSerializesPersonaFields() throws {
         let context = AIContext(
             screen: .home,
@@ -262,6 +290,30 @@ struct AIFoundationTests {
         #expect(object?["activePersonaTag"] as? String == "student")
         #expect(object?["personaSearchScope"] as? String == "currentPersonaOnly")
         #expect(object?["secondaryPersonaTags"] as? [String] == ["nonEU"])
+    }
+
+    @Test func aiClientRequestUsesAppLocaleAsAssistantLocale() throws {
+        let context = AIContext.empty(language: .russian)
+        let body = AIClient.RequestBody(
+            userMessage: "Проверить следующий шаг",
+            language: context.userLanguage.rawValue,
+            appLocale: context.userLanguage.rawValue,
+            assistantLocale: context.userLanguage.rawValue,
+            screen: context.screen,
+            contextRetrieval: AIClient.RetrievalContext(context: context),
+            responseFormat: "younew.ai.response.v1.strict_json",
+            policy: AIClient.RequestPolicy(),
+            systemPrompt: AISafetyRules.systemPrompt,
+            conversation: []
+        )
+
+        let data = try JSONEncoder().encode(body)
+        let object = try JSONSerialization.jsonObject(with: data) as? [String: Any]
+
+        #expect(object?["language"] as? String == "ru")
+        #expect(object?["appLocale"] as? String == "ru")
+        #expect(object?["assistantLocale"] as? String == "ru")
+        #expect(object?["assistantLocale"] as? String == object?["appLocale"] as? String)
     }
 
     @Test func responseParserAcceptsTypedQuickActions() throws {
@@ -537,7 +589,21 @@ struct AIFoundationTests {
         let service = MockAIService()
         let response = try await service.sendMessage(
             userMessage: "BSN",
-            context: AIContext.empty(language: .english),
+            context: AIContext(
+                screen: .assistant,
+                category: "Assistant",
+                topicTitle: nil,
+                topicSummary: nil,
+                officialSources: [],
+                lastReviewed: nil,
+                userLanguage: .english,
+                userSituation: "Worker",
+                selectedCity: nil,
+                selectedProvince: nil,
+                savedItemTitles: [],
+                disclaimer: "",
+                activePersonaTag: .worker
+            ),
             conversation: []
         )
 

@@ -170,9 +170,9 @@ struct CitySymbolValidationTests {
         #expect(CitySymbolValidator.renderableSymbol(city.symbols.flag, expectedType: .flag) != nil)
         #expect(CitySymbolValidator.renderableSymbol(city.symbols.coatOfArms, expectedType: .coatOfArms) != nil)
         #expect(city.symbols.flag?.url != city.symbols.coatOfArms?.url)
-        #expect(city.media.heroImage?.url?.contains("upload.wikimedia.org") == true)
-        #expect(city.media.heroImage?.url?.contains("Leiden_Grachten_20.jpg") == true)
-        #expect(city.media.heroImage?.url?.contains("3840px") == true)
+        #expect(city.media.heroImage?.url?.contains("commons.wikimedia.org/wiki/Special:FilePath") == true)
+        #expect(city.media.heroImage?.url?.contains("Oude%20Vest%20canal") == true)
+        #expect(city.media.heroImage?.url?.contains("width=2400") == true)
         #expect(city.symbols.flag?.url?.contains("Flag_of_Leiden.svg") == true)
         #expect(city.symbols.coatOfArms?.url?.contains("Leiden_wapen_HRvA.svg") == true)
         #expect(city.media.coatOfArms?.pixelHeight ?? 0 >= 512)
@@ -252,7 +252,7 @@ struct CitySymbolValidationTests {
     @Test func russianTabLabelsAreCompact() {
         #expect(L10n.t("tab.home", .russian) == "Главная")
         #expect(L10n.t("tab.search", .russian) == "Поиск")
-        #expect(L10n.t("tab.map", .russian) == "Карта")
+        #expect(L10n.t("tab.map", .russian) == "Places")
         #expect(L10n.t("tab.saved", .russian) == "Сохран.")
         #expect(L10n.t("tab.explain", .russian) == "Помощь")
         #expect(L10n.t("tab.more", .russian) == "Ещё")
@@ -272,6 +272,16 @@ struct CitySymbolValidationTests {
         #expect(RootTabView.resolvedMenuPosition(menuPosition: .left, horizontalSizeClass: .compact) == .bottom)
         #expect(RootTabView.resolvedMenuPosition(menuPosition: .automatic, horizontalSizeClass: .compact) == .bottom)
         #expect(RootTabView.resolvedMenuPosition(menuPosition: .right, horizontalSizeClass: .regular) == .right)
+    }
+
+    @Test func contextualAIButtonStaysOffUtilityTabs() {
+        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .search, isMenuPresented: false))
+        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .favorites, isMenuPresented: false))
+        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .home, isMenuPresented: false))
+        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .map, isMenuPresented: false))
+        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .assistant, isMenuPresented: false))
+        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .more, isMenuPresented: false))
+        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .search, isMenuPresented: true))
     }
 
     @Test func placeLayoutCardWidthSubtractsPaddingAndGap() {

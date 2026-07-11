@@ -14,7 +14,7 @@ struct SearchSynonymTests {
         ]
 
         for query in queries {
-            let viewModel = SearchViewModel(initialQuery: query, language: .english)
+            let viewModel = SearchViewModel(initialQuery: query, language: .english, personaSearchScope: .allContentWithOutsidePathWarning)
             #expect(!viewModel.displayedResults.isEmpty, "Expected search results for \(query)")
         }
     }
@@ -31,7 +31,7 @@ struct SearchSynonymTests {
         ]
 
         for (query, category) in expectations {
-            let viewModel = SearchViewModel(initialQuery: query, language: .english)
+            let viewModel = SearchViewModel(initialQuery: query, language: .english, personaSearchScope: .allContentWithOutsidePathWarning)
             #expect(viewModel.displayedResults.contains { $0.category == category }, "Expected \(query) to include \(category.rawValue)")
         }
     }
@@ -47,7 +47,7 @@ struct SearchSynonymTests {
         ]
 
         for (query, category) in expectations {
-            let viewModel = SearchViewModel(initialQuery: query, language: .english)
+            let viewModel = SearchViewModel(initialQuery: query, language: .english, personaSearchScope: .allContentWithOutsidePathWarning)
             #expect(viewModel.displayedResults.contains { $0.category == category }, "Expected \(query) to include \(category.rawValue)")
         }
     }
@@ -64,5 +64,67 @@ struct SearchSynonymTests {
 
         let studentUWV = SearchViewModel(initialQuery: "UWV", language: .english, activePersona: .student)
         #expect(!studentUWV.displayedResults.contains { $0.title(.english).localizedCaseInsensitiveContains("UWV") || $0.detailedAnswer(.english).localizedCaseInsensitiveContains("UWV") })
+    }
+
+    @Test func digidSearchRemainsVisibleForResidentPersonas() {
+        let personas: [PersonaTag] = [.student, .worker, .refugee, .family, .highlySkilledMigrant, .eu, .entrepreneur, .lgbt, .nonEU]
+
+        for persona in personas {
+            let viewModel = SearchViewModel(initialQuery: "DigiD", language: .english, activePersona: persona)
+            #expect(
+                viewModel.displayedResults.contains { $0.category == .digid },
+                "Expected DigiD results for \(persona.rawValue)"
+            )
+        }
+    }
+
+    @Test func explicitSearchRefreshesResultsImmediatelyWithoutWaitingForDebounce() {
+        UserDefaults.standard.removeObject(forKey: "question_search_recent_v1")
+
+        let viewModel = SearchViewModel(language: .english, activePersona: .worker)
+        viewModel.query = "BSN"
+        #expect(viewModel.displayedResults.isEmpty)
+
+        viewModel.performSearch()
+
+        #expect(viewModel.displayedResults.contains { $0.title(.english) == "How do I get a BSN?" })
+        #expect(viewModel.recentSearches.first == "BSN")
+    }
+
+    @Test func explicitNoResultsSearchClearsPreviousResultsImmediately() {
+        UserDefaults.standard.removeObject(forKey: "question_search_recent_v1")
+
+        let viewModel = SearchViewModel(language: .english, activePersona: .worker)
+        viewModel.query = "BSN"
+        viewModel.performSearch()
+        #expect(!viewModel.displayedResults.isEmpty)
+
+        viewModel.query = "zzznothingzz"
+        viewModel.performSearch()
+
+        #expect(viewModel.displayedResults.isEmpty)
+        #expect(viewModel.recentSearches.first == "zzznothingzz")
+    }
+
+    @Test func savedStarterPackUsesRouteBackedCoreAnswers() {
+        let answers = FavoritesView.starterPackAnswers(activePersona: .worker)
+        #expect(!answers.isEmpty)
+        #expect(answers.contains { $0.title(.english) == "How do I get a BSN?" })
+        #expect(answers.contains { $0.title(.english) == "Do I need health insurance?" })
+        #expect(answers.allSatisfy { $0.isVisible(for: .worker, scope: .currentAndUniversal) })
+
+        for answer in answers {
+            let item = FavoritesView.starterPackSavedItem(for: answer)
+            #expect(item.kind == .resource)
+            #expect(item.destination == .searchAnswer(answer.id))
+            #expect(!item.id.isEmpty)
+        }
+    }
+
+    @Test func savedStarterPackHonorsPersonaVisibility() {
+        let touristAnswers = FavoritesView.starterPackAnswers(activePersona: .tourist)
+        #expect(!touristAnswers.contains { $0.category == .registration })
+        #expect(!touristAnswers.contains { $0.category == .digid })
+        #expect(touristAnswers.allSatisfy { $0.isVisible(for: .tourist, scope: .currentAndUniversal) })
     }
 }

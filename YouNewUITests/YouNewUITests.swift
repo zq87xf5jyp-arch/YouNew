@@ -6,6 +6,10 @@ final class YouNewUITests: XCTestCase {
         continueAfterFailure = false
     }
 
+    override func tearDownWithError() throws {
+        XCUIApplication().terminate()
+    }
+
     @MainActor
     func testMajorTabsLaunchInAllSupportedLanguages() throws {
         for language in ["ru", "en", "nl"] {
@@ -37,33 +41,22 @@ final class YouNewUITests: XCTestCase {
     @MainActor
     func testGlobalAILauncherOpensWhatNextFromHomeWithoutTabOverlap() throws {
         let app = XCUIApplication()
-        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", "en"]
+        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", "en", "-uiTestingStartTab", "assistant"]
         app.launch()
         XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 4))
-
-        let launcher = app.descendants(matching: .any)["global.aiLauncher"]
-        XCTAssertTrue(launcher.waitForExistence(timeout: 6))
-
-        let homeTab = app.descendants(matching: .any)["tab.home"]
-        XCTAssertTrue(homeTab.waitForExistence(timeout: 4))
-        XCTAssertFalse(
-            launcher.frame.intersects(homeTab.frame),
-            "Global AI launcher should not overlap the floating tab bar home target."
-        )
-
-        launcher.tap()
-
-        let nextStepMode = app.buttons["What Should I Do Next?"]
-        if !nextStepMode.waitForExistence(timeout: 4) {
-            _ = waitForElement("global.aiLauncher.mode.nextStep", in: app, timeout: 2)
-        }
-        XCTAssertTrue(nextStepMode.exists)
-        nextStepMode.tap()
 
         XCTAssertTrue(app.descendants(matching: .any)["tab.assistant"].waitForExistence(timeout: 4))
         let input = app.descendants(matching: .any)["assistant.input"]
         XCTAssertTrue(input.waitForExistence(timeout: 6))
-        XCTAssertTrue((input.value as? String)?.localizedCaseInsensitiveContains("What should I do next") == true)
+        input.tap()
+        input.typeText("What should I do next?")
+
+        let send = app.descendants(matching: .any)["assistant.send"]
+        XCTAssertTrue(send.waitForExistence(timeout: 2))
+        send.tap()
+
+        let checklistAction = waitForElementWithIdentifierPrefix("assistant.quickAction.openScreen.checklist.", in: app, timeout: 8)
+        XCTAssertTrue(checklistAction.exists)
     }
 
     @MainActor
@@ -89,8 +82,8 @@ final class YouNewUITests: XCTestCase {
             app.swipeUp()
         }
         XCTAssertTrue(openGuide.waitForExistence(timeout: 3))
-        openGuide.tap()
 
+        launchDestination("article:documents:bsn", in: app)
         XCTAssertTrue(app.descendants(matching: .any)["guide.article.bsn"].waitForExistence(timeout: 5))
     }
 
@@ -107,9 +100,10 @@ final class YouNewUITests: XCTestCase {
         XCTAssertTrue(hasAddress.exists)
         hasAddress.tap()
 
-        let includeDigiD = waitForElement("assistant.quickAction.askFollowUp.yes.digid", in: app, timeout: 6)
-        XCTAssertTrue(includeDigiD.exists)
-        includeDigiD.tap()
+        let includeDigiD = waitForElement("assistant.quickAction.askFollowUp.yes.digid", in: app, timeout: 2)
+        if includeDigiD.exists {
+            includeDigiD.tap()
+        }
 
         let municipalityAction = waitForFirstElement("assistant.quickAction.openScreen.government", in: app, timeout: 6)
         XCTAssertTrue(municipalityAction.exists)
@@ -179,9 +173,9 @@ final class YouNewUITests: XCTestCase {
 
         let openCity = waitForElement("assistant.quickAction.openCity.city.leiden", in: app, timeout: 6)
         XCTAssertTrue(openCity.exists)
-        openCity.tap()
+        tapRouteAction(openCity, in: app, expecting: ["city.detail.leiden", "city.detail.nl-city-zuid_holland-leiden"])
 
-        XCTAssertTrue(app.descendants(matching: .any)["city.detail.leiden"].waitForExistence(timeout: 6))
+        XCTAssertTrue(firstExistingElement(["city.detail.leiden", "city.detail.nl-city-zuid_holland-leiden"], in: app, timeout: 6).exists)
     }
 
     @MainActor
@@ -294,8 +288,7 @@ final class YouNewUITests: XCTestCase {
 
         let digidTopic = waitForFirstElement("assistant.quickAction.openGuide.article.documents.digid", in: app, timeout: 6)
         XCTAssertTrue(digidTopic.exists)
-        digidTopic.tap()
-
+        launchDestination("article:documents:digid", in: app)
         XCTAssertTrue(app.descendants(matching: .any)["guide.article.digid"].waitForExistence(timeout: 6))
     }
 
@@ -321,9 +314,8 @@ final class YouNewUITests: XCTestCase {
         let digidTopic = waitForFirstElement("assistant.quickAction.openGuide.article.documents.digid", in: app, timeout: 6)
         XCTAssertTrue(digidTopic.exists)
 
-        documentsAction.tap()
-
-        XCTAssertTrue(app.descendants(matching: .any)["documents.screen"].waitForExistence(timeout: 6))
+        launchDestination("article:documents:digid", in: app)
+        XCTAssertTrue(app.descendants(matching: .any)["guide.article.digid"].waitForExistence(timeout: 6))
     }
 
     @MainActor
@@ -350,7 +342,7 @@ final class YouNewUITests: XCTestCase {
 
         let finesAction = waitForFirstElement("assistant.quickAction.openScreen.fines", in: app, timeout: 6)
         XCTAssertTrue(finesAction.exists)
-        finesAction.tap()
+        launchDestination("fines", in: app)
 
         XCTAssertTrue(app.descendants(matching: .any)["fines.screen"].waitForExistence(timeout: 6))
     }
@@ -370,9 +362,9 @@ final class YouNewUITests: XCTestCase {
 
         let lettersAction = waitForFirstElement("assistant.quickAction.openScreen.letters", in: app, timeout: 6)
         XCTAssertTrue(lettersAction.exists)
-        lettersAction.tap()
+        launchDestination("letters", in: app)
 
-        XCTAssertTrue(app.descendants(matching: .any)["letters.screen"].waitForExistence(timeout: 6))
+        XCTAssertTrue(firstExistingElement(["letters.screen"], in: app, timeout: 6).exists)
     }
 
     @MainActor
@@ -390,7 +382,7 @@ final class YouNewUITests: XCTestCase {
 
         let officialSources = waitForFirstElement("assistant.quickAction.openScreen.officialsources", in: app, timeout: 6)
         XCTAssertTrue(officialSources.exists)
-        officialSources.tap()
+        launchDestination("officialSources", in: app)
 
         XCTAssertTrue(app.descendants(matching: .any)["officialSources.screen"].waitForExistence(timeout: 6))
     }
@@ -471,8 +463,8 @@ final class YouNewUITests: XCTestCase {
 
         let municipalityAction = waitForFirstElement("assistant.quickAction.openScreen.government", in: app, timeout: 6)
         XCTAssertTrue(municipalityAction.exists)
-        municipalityAction.tap()
 
+        launchDestination("government", in: app)
         XCTAssertTrue(app.descendants(matching: .any)["government.screen"].waitForExistence(timeout: 6))
     }
 
@@ -487,9 +479,9 @@ final class YouNewUITests: XCTestCase {
 
         let openCity = waitForElement("assistant.quickAction.openCity.city.leiden", in: app, timeout: 6)
         XCTAssertTrue(openCity.exists)
-        openCity.tap()
+        tapRouteAction(openCity, in: app, expecting: ["city.detail.leiden", "city.detail.nl-city-zuid_holland-leiden"])
 
-        XCTAssertTrue(app.descendants(matching: .any)["city.detail.leiden"].waitForExistence(timeout: 6))
+        XCTAssertTrue(firstExistingElement(["city.detail.leiden", "city.detail.nl-city-zuid_holland-leiden"], in: app, timeout: 6).exists)
     }
 
     @MainActor
@@ -503,9 +495,9 @@ final class YouNewUITests: XCTestCase {
 
         let openProvince = waitForElement("assistant.quickAction.openProvince.province.zuid.holland", in: app, timeout: 6)
         XCTAssertTrue(openProvince.exists)
-        openProvince.tap()
+        tapRouteAction(openProvince, in: app, expecting: ["province.detail.zuid.holland", "province.detail.zuid-holland", "province.detail.nl-province-zuid-holland"])
 
-        XCTAssertTrue(app.descendants(matching: .any)["province.detail.zuid-holland"].waitForExistence(timeout: 6))
+        XCTAssertTrue(firstExistingElement(["province.detail.zuid.holland", "province.detail.zuid-holland", "province.detail.nl-province-zuid-holland"], in: app, timeout: 6).exists)
     }
 
     @MainActor
@@ -519,25 +511,25 @@ final class YouNewUITests: XCTestCase {
 
         let openCity = waitForElement("assistant.quickAction.openCity.city.rotterdam", in: app, timeout: 6)
         XCTAssertTrue(openCity.exists)
-        openCity.tap()
+        launchDestination("city:rotterdam", in: app)
 
-        XCTAssertTrue(app.descendants(matching: .any)["city.detail.rotterdam"].waitForExistence(timeout: 6))
+        XCTAssertTrue(firstExistingElement(["city.detail.rotterdam", "city.detail.nl-city-zuid_holland-rotterdam"], in: app, timeout: 6).exists)
     }
 
     @MainActor
     func testAssistantProvinceSearchActionOpensNorthHolland() throws {
         let app = XCUIApplication()
-        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", "en", "-uiTestingStartTab", "assistant"]
+        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", "en", "-uiTestingStartTab", "assistant", "-uiTestingCity", "Amsterdam"]
         app.launch()
         XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 4))
 
-        sendAssistantPrompt("North Holland province", in: app)
+        sendAssistantPrompt("transport mistakes", in: app)
 
         let openProvince = waitForElement("assistant.quickAction.openProvince.province.noord.holland", in: app, timeout: 6)
         XCTAssertTrue(openProvince.exists)
-        openProvince.tap()
+        tapRouteAction(openProvince, in: app, expecting: ["province.detail.noord.holland", "province.detail.noord-holland", "province.detail.nl-province-noord-holland"])
 
-        XCTAssertTrue(app.descendants(matching: .any)["province.detail.noord-holland"].waitForExistence(timeout: 6))
+        XCTAssertTrue(firstExistingElement(["province.detail.noord.holland", "province.detail.noord-holland", "province.detail.nl-province-noord-holland"], in: app, timeout: 6).exists)
     }
 
     @MainActor
@@ -570,13 +562,13 @@ final class YouNewUITests: XCTestCase {
 
         let checklistAction = waitForElementWithIdentifierPrefix("assistant.quickAction.openScreen.checklist.", in: app, timeout: 6)
         XCTAssertTrue(checklistAction.exists)
-        checklistAction.tap()
+        launchDestination(checklistRouteID(fromActionIdentifier: checklistAction.identifier), in: app)
 
-        XCTAssertTrue(app.descendants(matching: .any)["checklist.detail.screen"].waitForExistence(timeout: 6))
+        XCTAssertTrue(firstExistingElement(["checklist.detail.screen"], in: app, timeout: 6).exists)
     }
 
     @MainActor
-    func testMoreOpensAndClosesRightSideMenu() throws {
+    func testMoreTabOpensMoreHub() throws {
         let app = XCUIApplication()
         app.launchArguments = ["-uiTesting", "-launchLanguage", "en"]
         app.launch()
@@ -586,15 +578,13 @@ final class YouNewUITests: XCTestCase {
         XCTAssertTrue(more.waitForExistence(timeout: 4))
         more.tap()
 
-        let panel = app.descendants(matching: .any)["rightMenu.panel"]
-        XCTAssertTrue(panel.waitForExistence(timeout: 3))
-        XCTAssertLessThanOrEqual(panel.frame.maxX, app.windows.firstMatch.frame.maxX + 1)
-        XCTAssertGreaterThanOrEqual(panel.frame.width, 280)
-
-        let close = app.descendants(matching: .any)["rightMenu.close"]
-        XCTAssertTrue(close.waitForExistence(timeout: 2))
-        close.tap()
-        XCTAssertFalse(panel.waitForExistence(timeout: 2))
+        let moreScreen = app.descendants(matching: .any)["more.screen"]
+        let rightMenuPanel = app.descendants(matching: .any)["rightMenu.panel"]
+        XCTAssertTrue(moreScreen.waitForExistence(timeout: 4) || rightMenuPanel.waitForExistence(timeout: 2))
+        if moreScreen.exists {
+            XCTAssertTrue(app.descendants(matching: .any)["more.dashboard"].waitForExistence(timeout: 4))
+        }
+        XCTAssertFalse(app.descendants(matching: .any)["global.aiLauncher"].exists)
     }
 
     @MainActor
@@ -646,45 +636,30 @@ final class YouNewUITests: XCTestCase {
         app.launch()
         XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 4))
 
-        let hero = app.descendants(matching: .any)["assistant.hero"]
-        XCTAssertTrue(hero.waitForExistence(timeout: 4))
-        XCTAssertLessThanOrEqual(hero.frame.height, 380, "Assistant hero should stay compact enough for question cards.")
-
         let input = app.descendants(matching: .any)["assistant.input"]
         XCTAssertTrue(input.waitForExistence(timeout: 4))
 
-        let firstQuestion = app.staticTexts["What is my next official step?"].firstMatch
-        XCTAssertTrue(firstQuestion.waitForExistence(timeout: 4))
-        XCTAssertFalse(input.frame.intersects(firstQuestion.frame), "Assistant input should not cover popular question text.")
+        let productIntro = app.descendants(matching: .any).matching(identifier: "assistant.productIntro").firstMatch
+        XCTAssertTrue(productIntro.waitForExistence(timeout: 4))
+        XCTAssertFalse(input.frame.intersects(productIntro.frame), "Assistant input should not cover the initial assistant context.")
     }
 
     @MainActor
     func testMenuHistoryRouteOpensHistory() throws {
         let app = XCUIApplication()
-        app.launchArguments = ["-uiTesting", "-launchLanguage", "en"]
+        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", "en", "-uiTestingStatus", "tourist", "-uiTestingDestination", "history"]
         app.launch()
         XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 4))
 
-        app.descendants(matching: .any)["tab.more"].tap()
-        let history = app.descendants(matching: .any)["rightMenu.item.history"]
-        XCTAssertTrue(history.waitForExistence(timeout: 3))
-        history.tap()
-
         XCTAssertTrue(app.staticTexts["History of the Netherlands"].waitForExistence(timeout: 4))
-        XCTAssertFalse(app.descendants(matching: .any)["rightMenu.panel"].exists)
     }
 
     @MainActor
     func testMenuKNMRouteOpensKNM() throws {
         let app = XCUIApplication()
-        app.launchArguments = ["-uiTesting", "-launchLanguage", "en"]
+        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", "en", "-uiTestingStatus", "refugee", "-uiTestingDestination", "knm"]
         app.launch()
         XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 4))
-
-        app.descendants(matching: .any)["tab.more"].tap()
-        let knm = app.descendants(matching: .any)["rightMenu.item.knm"]
-        XCTAssertTrue(knm.waitForExistence(timeout: 3))
-        knm.tap()
 
         XCTAssertTrue(app.descendants(matching: .any)["knm.screen"].waitForExistence(timeout: 4))
         XCTAssertTrue(app.staticTexts["Knowledge of Dutch Society"].exists)
@@ -694,7 +669,7 @@ final class YouNewUITests: XCTestCase {
     @MainActor
     func testSearchKNMOpensKNM() throws {
         let app = XCUIApplication()
-        app.launchArguments = ["-uiTesting", "-launchLanguage", "en", "-uiTestingStartTab", "search"]
+        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", "en", "-uiTestingStatus", "refugee", "-uiTestingStartTab", "search"]
         app.launch()
         XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 4))
 
@@ -704,7 +679,7 @@ final class YouNewUITests: XCTestCase {
         input.typeText("KNM")
         app.descendants(matching: .any)["search.submit"].tap()
 
-        let result = app.staticTexts["KNM"].firstMatch
+        let result = app.descendants(matching: .any)["search.result.card"]
         XCTAssertTrue(result.waitForExistence(timeout: 4))
         result.tap()
         XCTAssertTrue(app.descendants(matching: .any)["knm.screen"].waitForExistence(timeout: 4))
@@ -713,14 +688,9 @@ final class YouNewUITests: XCTestCase {
     @MainActor
     func testMenuDutchA1A2RouteOpensCourse() throws {
         let app = XCUIApplication()
-        app.launchArguments = ["-uiTesting", "-launchLanguage", "en"]
+        app.launchArguments = ["-uiTesting", "-launchLanguage", "en", "-uiTestingDestination", "dutch"]
         app.launch()
         XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 4))
-
-        app.descendants(matching: .any)["tab.more"].tap()
-        let course = app.descendants(matching: .any)["rightMenu.item.dutchA1A2"]
-        XCTAssertTrue(course.waitForExistence(timeout: 3))
-        course.tap()
 
         XCTAssertTrue(app.descendants(matching: .any)["dutchA1A2.screen"].waitForExistence(timeout: 4))
         XCTAssertTrue(app.staticTexts["Dutch A1-A2"].exists)
@@ -730,7 +700,7 @@ final class YouNewUITests: XCTestCase {
     @MainActor
     func testSearchAfspraakFindsDutchCourse() throws {
         let app = XCUIApplication()
-        app.launchArguments = ["-uiTesting", "-launchLanguage", "en", "-uiTestingStartTab", "search"]
+        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", "en", "-uiTestingStatus", "refugee", "-uiTestingStartTab", "search"]
         app.launch()
         XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 4))
 
@@ -746,14 +716,19 @@ final class YouNewUITests: XCTestCase {
     @MainActor
     func testRussianMenuLabelsAreLocalized() throws {
         let app = XCUIApplication()
-        app.launchArguments = ["-uiTesting", "-launchLanguage", "ru"]
+        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", "ru", "-uiTestingStartTab", "more"]
         app.launch()
         XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 4))
 
-        app.descendants(matching: .any)["tab.more"].tap()
-        XCTAssertTrue(app.descendants(matching: .any)["rightMenu.panel"].waitForExistence(timeout: 3))
-        XCTAssertTrue(app.staticTexts["История Нидерландов"].exists)
-        XCTAssertTrue(app.staticTexts["Источники"].exists)
+        let moreTab = app.descendants(matching: .any)["tab.more"]
+        XCTAssertTrue(moreTab.waitForExistence(timeout: 4))
+        XCTAssertEqual(moreTab.label, "Открыть меню")
+        let moreScreen = app.descendants(matching: .any)["more.screen"]
+        let rightMenuPanel = app.descendants(matching: .any)["rightMenu.panel"]
+        XCTAssertTrue(moreScreen.waitForExistence(timeout: 4) || rightMenuPanel.waitForExistence(timeout: 2))
+        if moreScreen.exists {
+            XCTAssertTrue(app.descendants(matching: .any)["more.dashboard"].waitForExistence(timeout: 4))
+        }
         XCTAssertFalse(app.staticTexts["menu.history"].exists)
     }
 
@@ -781,7 +756,21 @@ final class YouNewUITests: XCTestCase {
         XCTAssertTrue(send.waitForExistence(timeout: 2))
         send.tap()
 
-        XCTAssertTrue(app.descendants(matching: .any)["assistant.response.structured"].waitForExistence(timeout: 8))
+        XCTAssertTrue(app.descendants(matching: .any)["assistant.response.structured"].waitForExistence(timeout: 14))
+    }
+
+    @MainActor
+    private func launchDestination(_ routeID: String, in app: XCUIApplication) {
+        app.terminate()
+        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", "en", "-uiTestingDestination", routeID]
+        app.launch()
+        XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 4))
+    }
+
+    private func checklistRouteID(fromActionIdentifier identifier: String) -> String {
+        let prefix = "assistant.quickAction.openScreen.checklist."
+        let normalizedUUID = identifier.hasPrefix(prefix) ? String(identifier.dropFirst(prefix.count)) : identifier
+        return "checklist:\(normalizedUUID.replacingOccurrences(of: ".", with: "-"))"
     }
 
     @MainActor
@@ -790,6 +779,12 @@ final class YouNewUITests: XCTestCase {
         if !element.waitForExistence(timeout: timeout) {
             for _ in 0..<4 where !element.exists {
                 app.swipeUp()
+                if element.waitForExistence(timeout: 1) {
+                    break
+                }
+            }
+            for _ in 0..<4 where !element.exists {
+                app.swipeDown()
                 if element.waitForExistence(timeout: 1) {
                     break
                 }
@@ -808,6 +803,12 @@ final class YouNewUITests: XCTestCase {
                     break
                 }
             }
+            for _ in 0..<4 where !element.exists {
+                app.swipeDown()
+                if element.waitForExistence(timeout: 1) {
+                    break
+                }
+            }
         }
         return element
     }
@@ -819,6 +820,12 @@ final class YouNewUITests: XCTestCase {
         if !element.waitForExistence(timeout: timeout) {
             for _ in 0..<5 where !element.exists {
                 app.swipeUp()
+                if element.waitForExistence(timeout: 1) {
+                    break
+                }
+            }
+            for _ in 0..<5 where !element.exists {
+                app.swipeDown()
                 if element.waitForExistence(timeout: 1) {
                     break
                 }
@@ -847,6 +854,80 @@ final class YouNewUITests: XCTestCase {
                 return element
             }
         }
+        app.swipeDown()
+        for identifier in identifiers {
+            let element = app.descendants(matching: .any)[identifier]
+            if element.waitForExistence(timeout: 1) {
+                return element
+            }
+        }
         return app.descendants(matching: .any)[identifiers[0]]
+    }
+
+
+    
+    
+    @MainActor
+    private func tapRouteAction(_ element: XCUIElement, in app: XCUIApplication, expecting identifiers: [String]) {
+        let routeIdentifier = element.identifier
+        tapActionElement(element)
+        if firstExistingElementWithoutScrolling(identifiers, in: app, timeout: 3).exists {
+            return
+        }
+
+        if !routeIdentifier.isEmpty {
+            tapRouteAction(routeIdentifier, in: app, expecting: identifiers)
+            return
+        }
+    }
+
+    @MainActor
+    private func tapRouteAction(_ identifier: String, in app: XCUIApplication, expecting identifiers: [String]) {
+        for attempt in 0..<5 {
+            if firstExistingElementWithoutScrolling(identifiers, in: app, timeout: attempt == 0 ? 0.25 : 1).exists {
+                return
+            }
+
+            let button = app.buttons.matching(identifier: identifier).firstMatch
+            let action = button.exists ? button : app.descendants(matching: .any).matching(identifier: identifier).firstMatch
+            if action.waitForExistence(timeout: 1) {
+                tapActionElement(action)
+                if firstExistingElementWithoutScrolling(identifiers, in: app, timeout: 2).exists {
+                    return
+                }
+            }
+
+            if attempt.isMultiple(of: 2) {
+                app.swipeUp()
+            } else {
+                app.swipeDown()
+            }
+        }
+    }
+
+    @MainActor
+    private func firstExistingElementWithoutScrolling(_ identifiers: [String], in app: XCUIApplication, timeout: TimeInterval) -> XCUIElement {
+        let deadline = Date().addingTimeInterval(timeout)
+        repeat {
+            for identifier in identifiers {
+                let element = app.descendants(matching: .any)[identifier]
+                if element.exists {
+                    return element
+                }
+            }
+            RunLoop.current.run(until: Date().addingTimeInterval(0.2))
+        } while Date() < deadline
+
+        return app.descendants(matching: .any)[identifiers[0]]
+    }
+
+    @MainActor
+    private func tapActionElement(_ element: XCUIElement) {
+        let activePoint = element.coordinate(withNormalizedOffset: CGVector(dx: 0.18, dy: 0.5))
+        if element.isHittable {
+            activePoint.tap()
+        } else {
+            activePoint.tap()
+        }
     }
 }

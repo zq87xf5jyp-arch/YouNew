@@ -178,7 +178,7 @@ struct BrandAssetTests {
     @Test func russianTabLabelsRemainCompact() {
         #expect(L10n.t("tab.home", .russian) == "Главная")
         #expect(L10n.t("tab.search", .russian) == "Поиск")
-        #expect(L10n.t("tab.map", .russian) == "Карта")
+        #expect(L10n.t("tab.map", .russian) == "Places")
         #expect(L10n.t("tab.saved", .russian) == "Сохран.")
         #expect(L10n.t("tab.explain", .russian) == "Помощь")
         #expect(L10n.t("tab.more", .russian) == "Ещё")

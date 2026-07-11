@@ -1,17 +1,10 @@
 import XCTest
 
 final class HomeCategoryUITests: XCTestCase {
-    private let categoryIdentifiers = [
-        "home.category.rules_fines",
-        "home.category.documents",
-        "home.category.transport",
-        "home.category.work_taxes",
-        "home.category.housing",
-        "home.category.healthcare",
-        "home.category.government",
-        "home.category.education",
-        "home.category.help_nearby",
-        "home.category.emergency_112"
+    private let releaseHomeIdentifiers = [
+        "home.product.hero",
+        "home.statusCard",
+        "home.status.change"
     ]
 
     private let floatingTabIdentifiers = [
@@ -26,21 +19,25 @@ final class HomeCategoryUITests: XCTestCase {
         continueAfterFailure = false
     }
 
-    // MARK: - Home Categories
+    override func tearDownWithError() throws {
+        XCUIApplication().terminate()
+    }
+
+    // MARK: - Release Home
 
     @MainActor
-    func testHomeCategoriesRender() throws {
+    func testReleaseHomeFirstViewportRenders() throws {
         let app = launchApp(language: "ru")
         try requireAppWindow(in: app)
-        assertHomeCategories(in: app)
+        assertReleaseHomeFirstViewport(in: app)
     }
 
     @MainActor
-    func testHomeCategoriesSurviveLanguageSwitch() throws {
+    func testReleaseHomeFirstViewportSurvivesLanguageSwitch() throws {
         for language in ["ru", "en", "nl"] {
             let app = launchApp(language: language)
             try requireAppWindow(in: app)
-            assertHomeCategories(in: app)
+            assertReleaseHomeFirstViewport(in: app)
             app.terminate()
         }
     }
@@ -147,6 +144,14 @@ final class HomeCategoryUITests: XCTestCase {
         let result = app.descendants(matching: .any)["search.result.card"]
         XCTAssertTrue(result.waitForExistence(timeout: 4), "Search should return at least one result for BSN")
         XCTAssertFalse(result.frame.isEmpty, "Search result has an empty frame")
+
+        let searchTab = app.descendants(matching: .any)["tab.search"]
+        XCTAssertTrue(searchTab.waitForExistence(timeout: 2), "Search tab is missing")
+        XCTAssertLessThanOrEqual(
+            result.frame.maxY,
+            searchTab.frame.minY - 8,
+            "First search result should not be obscured by the floating tab bar"
+        )
     }
 
     @MainActor
@@ -169,7 +174,14 @@ final class HomeCategoryUITests: XCTestCase {
     @MainActor
     private func launchApp(language: String, startTab: String = "home") -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-uiTesting", "-launchLanguage", language, "-uiTestingStartTab", startTab]
+        app.launchArguments = [
+            "-uiTesting",
+            "-resetUITestState",
+            "-launchLanguage", language,
+            "-uiTestingStartTab", startTab,
+            "-uiTestingCity", "Leiden",
+            "-uiTestingStatus", "worker"
+        ]
         app.launch()
         app.activate()
         return app
@@ -178,19 +190,27 @@ final class HomeCategoryUITests: XCTestCase {
     @MainActor
     private func requireAppWindow(in app: XCUIApplication) throws {
         if !app.windows.firstMatch.waitForExistence(timeout: 4) {
-            throw XCTSkip("No app window is exposed for the active UI test destination.")
+            XCTFail("No app window is exposed for the active UI test destination.")
         }
     }
 
     @MainActor
-    private func assertHomeCategories(in app: XCUIApplication) {
-        for identifier in categoryIdentifiers {
+    private func assertReleaseHomeFirstViewport(in app: XCUIApplication) {
+        for identifier in releaseHomeIdentifiers {
             let element = app.descendants(matching: .any)[identifier]
-            scrollToElement(element, in: app)
             assertExists(element, named: identifier)
-            XCTAssertFalse(element.frame.isEmpty, "Home category has an empty frame: \(identifier)")
-            XCTAssertGreaterThanOrEqual(element.frame.minX, 0, "Home category clips past the left edge: \(identifier)")
+            XCTAssertFalse(element.frame.isEmpty, "Release Home element has an empty frame: \(identifier)")
+            XCTAssertGreaterThanOrEqual(element.frame.minX, 0, "Release Home element clips past the left edge: \(identifier)")
+            XCTAssertGreaterThanOrEqual(element.frame.width, 44, "Release Home element touch width is too small: \(identifier)")
         }
+
+        let statusCard = app.descendants(matching: .any)["home.statusCard"]
+        let changeButton = app.descendants(matching: .any)["home.status.change"]
+
+        XCTAssertLessThan(statusCard.frame.minY, changeButton.frame.minY, "Status card must appear before profile change.")
+        XCTAssertTrue(changeButton.isHittable, "Change button must be hittable in the first viewport.")
+        XCTAssertGreaterThanOrEqual(changeButton.frame.height, 44, "Change button touch height is too small.")
+        XCTAssertGreaterThanOrEqual(changeButton.frame.width, 44, "Change button touch width is too small.")
     }
 
     @MainActor
