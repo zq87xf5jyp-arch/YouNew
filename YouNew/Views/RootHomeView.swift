@@ -8,6 +8,7 @@ struct RootHomeView: View {
     @EnvironmentObject private var savedStore: SavedItemsStore
     @EnvironmentObject private var router: TabRouter
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @State private var isHeaderSearchExpanded = false
 
     private var language: AppLanguage { languageManager.appLanguage }
     private var selectedCity: String { ProvinceCatalog.localizedCityName(appState.selectedCity, language) }
@@ -78,12 +79,27 @@ struct RootHomeView: View {
             }
             .foregroundStyle(AppColors.textPrimary)
             Spacer(minLength: 8)
-            NavigationLink(value: AppDestination.searchList) {
-                Image(systemName: "magnifyingglass")
-                    .font(.body.weight(.semibold))
-                    .frame(width: 44, height: 44)
-                    .background(AppColors.glassSurfaceElevated, in: Circle())
+            HStack(spacing: 6) {
+                if isHeaderSearchExpanded {
+                    NavigationLink(value: AppDestination.searchList) {
+                        Text(localized(en: "Search all", nl: "Alles zoeken", ru: "Искать везде"))
+                            .font(AppTypography.footnoteStrong)
+                            .lineLimit(1)
+                            .padding(.leading, 10)
+                    }
+                    .transition(.move(edge: .trailing).combined(with: .opacity))
+                }
+                Button {
+                    withAnimation(reduceMotion ? nil : AppAnimations.softSpring) {
+                        isHeaderSearchExpanded.toggle()
+                    }
+                } label: {
+                    Image(systemName: isHeaderSearchExpanded ? "xmark" : "magnifyingglass")
+                        .font(.body.weight(.semibold))
+                        .frame(width: 44, height: 44)
+                }
             }
+            .background(AppColors.glassSurfaceElevated, in: Capsule())
             .accessibilityLabel(localized(en: "Search", nl: "Zoeken", ru: "Поиск"))
             .buttonStyle(AppPressableButtonStyle())
             NavigationLink(value: AppDestination.profileSelection) {
@@ -146,6 +162,7 @@ struct RootHomeView: View {
             .overlay(RoundedRectangle(cornerRadius: 24, style: .continuous).stroke(AppColors.dutchOrange.opacity(0.22), lineWidth: 0.8))
         }
         .buttonStyle(.plain)
+        .immersiveTilt(intensity: 3.2)
         .accessibilityIdentifier("home.currentCity")
     }
 
@@ -298,6 +315,19 @@ struct RootHomeView: View {
                             .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white.opacity(0.10)))
                         }
                         .buttonStyle(AppPressableCardButtonStyle())
+                        .immersiveTilt(intensity: 2.2)
+                        .contextMenu {
+                            Button {
+                                selectedTab = .map
+                            } label: {
+                                Label(localized(en: "Open Map", nl: "Open kaart", ru: "Открыть карту"), systemImage: "map")
+                            }
+                            Button {
+                                selectedTab = .guide
+                            } label: {
+                                Label(localized(en: "Open Guide", nl: "Open gids", ru: "Открыть Гид"), systemImage: "books.vertical")
+                            }
+                        }
                         .scrollTransition(.interactive, axis: .horizontal) { content, phase in
                             content
                                 .scaleEffect(motionEnabled ? 1 - abs(phase.value) * 0.06 : 1)

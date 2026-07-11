@@ -133,26 +133,23 @@ private struct DutchFutureBaseLayer: View {
     let colorScheme: ColorScheme
 
     var body: some View {
-        LinearGradient(
-            colors: [
-                Color(red: 3 / 255, green: 7 / 255, blue: 17 / 255),
-                AppSurface.base,
-                Color(red: 6 / 255, green: 18 / 255, blue: 34 / 255),
-                Color(red: 3 / 255, green: 8 / 255, blue: 18 / 255)
-            ],
-            startPoint: .topLeading,
-            endPoint: .bottomTrailing
-        )
-        .overlay {
+        TimelineView(.periodic(from: .now, by: 60)) { context in
             LinearGradient(
-                colors: [
-                    Color.white.opacity(colorScheme == .dark ? 0.028 : 0.045),
-                    Color.clear,
-                    Color.black.opacity(colorScheme == .dark ? 0.34 : 0.10)
-                ],
-                startPoint: .top,
-                endPoint: .bottom
+                colors: TimeAwareAtmosphere.colors(at: context.date),
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
             )
+            .overlay {
+                LinearGradient(
+                    colors: [
+                        Color.white.opacity(colorScheme == .dark ? 0.028 : 0.045),
+                        Color.clear,
+                        Color.black.opacity(colorScheme == .dark ? 0.34 : 0.10)
+                    ],
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            }
         }
     }
 }

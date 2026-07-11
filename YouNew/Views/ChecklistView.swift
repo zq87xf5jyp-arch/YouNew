@@ -3,6 +3,7 @@ import SwiftUI
 struct ChecklistView: View {
     @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var languageManager: LanguageManager
+    @State private var showCompletionConfetti = false
 
     private var lang: AppLanguage { languageManager.appLanguage }
 
@@ -88,6 +89,16 @@ struct ChecklistView: View {
         }
         .appSceneBackground()
         .navigationTitle(L10n.t("checklist.title", lang))
+        .overlay {
+            AchievementConfetti(visible: showCompletionConfetti)
+        }
+        .onChange(of: progress) { oldValue, newValue in
+            if oldValue < 1, newValue == 1 {
+                showCompletionConfetti = true
+            } else if newValue < 1 {
+                showCompletionConfetti = false
+            }
+        }
     }
 
     private var checklistHero: some View {
