@@ -68,6 +68,37 @@ struct ContentRepositoryTests {
         #expect(kinds.contains(.unknownCity))
     }
 
+    @Test("Validator covers source freshness reachability and usage gates")
+    func validatorCoversAllRequiredGates() {
+        let staleDate = Date(timeIntervalSince1970: 0)
+        let sourceURL = URL(string: "https://example.org/")!
+        let sources = [
+            SourceReference(id: "source-a", title: "A", publisher: nil, url: sourceURL, isOfficial: true, lastVerifiedAt: staleDate),
+            SourceReference(id: "source-b", title: "B", publisher: nil, url: URL(string: "https://example.org#copy")!, isOfficial: true, lastVerifiedAt: staleDate)
+        ]
+        let items = [
+            fixture(id: "missing-source", contentType: .officialService),
+            fixture(id: "stale", lastVerifiedAt: staleDate),
+            fixture(id: "unused", actionType: .none, deepLink: nil),
+            fixture(id: "unreachable", isSearchable: false),
+            fixture(id: "bad-map", coordinates: GeoCoordinates(latitude: 200, longitude: 0), isMapVisible: true)
+        ]
+        let issues = ContentRepositoryValidator.validate(
+            items: items,
+            categories: Category.canonical,
+            cities: [],
+            sources: sources
+        )
+        let kinds = Set(issues.map(\.kind))
+
+        #expect(kinds.contains(.duplicateCanonicalURL))
+        #expect(kinds.contains(.missingSource))
+        #expect(kinds.contains(.staleVerificationDate))
+        #expect(kinds.contains(.unusedObject))
+        #expect(kinds.contains(.unreachableThroughGuideOrSearch))
+        #expect(kinds.contains(.invalidCoordinates))
+    }
+
     @Test("Search uses canonical items and audience does not gate")
     func canonicalSearchIsUniversal() {
         let engine = AppSearchEngine()
@@ -103,10 +134,21 @@ struct ContentRepositoryTests {
         defaults.removeObject(forKey: key)
     }
 
-    private func fixture(id: String, categoryID: String, cityIDs: [CityID]) -> ContentItem {
+    private func fixture(
+        id: String,
+        categoryID: String = "getting-started",
+        cityIDs: [CityID] = [],
+        contentType: ContentType = .article,
+        lastVerifiedAt: Date? = nil,
+        coordinates: GeoCoordinates? = nil,
+        actionType: ContentActionType = .openContent,
+        isSearchable: Bool = true,
+        isMapVisible: Bool = false,
+        deepLink: String? = "younew://content/fixture"
+    ) -> ContentItem {
         ContentItem(
             id: id,
-            contentType: .article,
+            contentType: contentType,
             title: "Fixture",
             localTitle: [:],
             shortDescription: "Fixture body",
@@ -121,16 +163,16 @@ struct ContentRepositoryTests {
             keywords: [],
             officialSourceURL: nil,
             additionalSourceURLs: [],
-            lastVerifiedAt: nil,
-            coordinates: nil,
-            actionType: .openContent,
+            lastVerifiedAt: lastVerifiedAt,
+            coordinates: coordinates,
+            actionType: actionType,
             relatedContentIDs: [],
             priority: 0,
             emergencyLevel: .none,
-            isSearchable: true,
-            isMapVisible: false,
+            isSearchable: isSearchable,
+            isMapVisible: isMapVisible,
             status: .published,
-            deepLink: "younew://content/fixture",
+            deepLink: deepLink,
             legacySourcePath: nil
         )
     }
