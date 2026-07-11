@@ -161,23 +161,31 @@ struct FavoritesView: View {
 
     @ViewBuilder
     private var emptySavedVisual: some View {
-        if dynamicTypeSize.isAccessibilitySize {
-            savedReadableHero(title: emptyTitle, subtitle: emptyDetail)
-                .accessibilityIdentifier("saved.empty.visual")
-        } else {
-            CategoryHeroVisual(
-                assetName: nil,
-                title: emptyTitle,
-                subtitle: emptyDetail,
-                symbol: "bookmark.fill",
-                badgeText: savedHeroBadge,
-                accent: AppColors.dutchOrange,
-                asset: ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.mapImage,
-                height: 180,
-                language: lang
-            )
-            .accessibilityIdentifier("saved.empty.visual")
+        HStack(alignment: .top, spacing: 14) {
+            Image(systemName: "bookmark.fill")
+                .font(.title2.bold())
+                .foregroundStyle(AppColors.dutchOrange)
+                .frame(width: 48, height: 48)
+                .background(AppColors.dutchOrange.opacity(0.14), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .accessibilityHidden(true)
+
+            VStack(alignment: .leading, spacing: 5) {
+                Text(emptyTitle)
+                    .font(.headline.bold())
+                    .foregroundStyle(AppColors.textPrimary)
+                    .fixedSize(horizontal: false, vertical: true)
+                Text(emptyDetail)
+                    .font(AppTypography.footnote)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(dynamicTypeSize.isAccessibilitySize ? nil : 3)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .appGlassCardStyle(padding: 0, cornerRadius: 18, accent: AppColors.dutchOrange)
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("saved.empty.visual")
     }
 
     private var emptyQuickActions: some View {
@@ -486,36 +494,20 @@ struct FavoritesView: View {
     private var emptyActions: [EmptySavedAction] {
         [
             EmptySavedAction(
-                id: "cities",
-                title: emptyActionTitle(en: "Cities", nl: "Steden", ru: "Города"),
-                subtitle: emptyActionTitle(en: "Find local city guidance", nl: "Vind lokale stadshulp", ru: "Найдите советы по городу"),
-                symbol: "building.2.fill",
-                tint: AppColors.softBlue,
-                destination: .cityList
-            ),
-            EmptySavedAction(
-                id: "documents",
-                title: emptyActionTitle(en: "Documents", nl: "Documenten", ru: "Документы"),
-                subtitle: emptyActionTitle(en: "Organize letters and proof", nl: "Orden brieven en bewijs", ru: "Соберите письма и подтверждения"),
-                symbol: "doc.text.fill",
+                id: "guide",
+                title: emptyActionTitle(en: "Open Guide", nl: "Open Gids", ru: "Открыть гид"),
+                subtitle: emptyActionTitle(en: "Browse practical topics", nl: "Bekijk praktische onderwerpen", ru: "Выберите полезную тему"),
+                symbol: "books.vertical.fill",
                 tint: AppColors.dutchOrange,
-                destination: .journeyDocuments
+                destination: .searchList
             ),
             EmptySavedAction(
-                id: "nearby",
-                title: emptyActionTitle(en: "Nearby places", nl: "Locaties dichtbij", ru: "Места рядом"),
-                subtitle: emptyActionTitle(en: "Save offices and support", nl: "Bewaar loketten en hulp", ru: "Сохраните офисы и помощь"),
+                id: "places",
+                title: emptyActionTitle(en: "Find places", nl: "Vind plaatsen", ru: "Найти места"),
+                subtitle: emptyActionTitle(en: "Explore nearby services", nl: "Bekijk diensten dichtbij", ru: "Посмотрите сервисы рядом"),
                 symbol: "map.fill",
                 tint: AppColors.emerald,
                 destination: .mapHub
-            ),
-            EmptySavedAction(
-                id: "official",
-                title: emptyActionTitle(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники"),
-                subtitle: emptyActionTitle(en: "Keep trusted links close", nl: "Houd betrouwbare links dichtbij", ru: "Держите проверенные ссылки рядом"),
-                symbol: "checkmark.shield.fill",
-                tint: AppColors.cyanGlow,
-                destination: .officialSources
             )
         ]
     }
