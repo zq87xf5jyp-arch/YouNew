@@ -111,9 +111,21 @@ enum DS {
 
 struct PressableModifier: ViewModifier {
     let targetScale: CGFloat
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    @GestureState private var isPressed = false
 
     func body(content: Content) -> some View {
         content
+            .scaleEffect(!reduceMotion && isPressed ? max(0.90, targetScale) : 1.0)
+            .opacity(isPressed ? 0.94 : 1.0)
+            .brightness(isPressed ? -0.018 : 0)
+            .animation(reduceMotion ? nil : AppAnimations.tactilePress, value: isPressed)
+            .simultaneousGesture(
+                DragGesture(minimumDistance: 0)
+                    .updating($isPressed) { _, state, _ in
+                        state = true
+                    }
+            )
     }
 }
 
@@ -126,6 +138,7 @@ struct StaggeredAppear: ViewModifier {
         content
             .opacity(appeared ? 1 : 0)
             .offset(y: appeared ? 0 : (reduceMotion ? 0 : 18))
+            .scaleEffect(appeared || reduceMotion ? 1 : 0.96)
             .onAppear {
                 withAnimation(reduceMotion ? nil : .spring(response: 0.48, dampingFraction: 0.78).delay(Double(index) * 0.055 + 0.1)) {
                     appeared = true
@@ -158,7 +171,7 @@ extension View {
             }
     }
 
-    func pressable(scale: CGFloat = 0.96) -> some View {
+    func pressable(scale: CGFloat = 0.97) -> some View {
         modifier(PressableModifier(targetScale: scale))
     }
 

@@ -4632,6 +4632,8 @@ private struct GlobalAIModeLauncher: View {
     let language: AppLanguage
     let onSelect: (GlobalAIMode) -> Void
     @Binding var isExpanded: Bool
+    @State private var isBreathing = false
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     var body: some View {
         VStack(alignment: .trailing, spacing: 8) {
@@ -4692,12 +4694,32 @@ private struct GlobalAIModeLauncher: View {
                         )
                     )
                     .clipShape(Circle())
+                    .scaleEffect(!reduceMotion && isBreathing ? 1.045 : 1)
+                    .shadow(
+                        color: AppColors.orangeGlow.opacity(!reduceMotion && isBreathing ? 0.34 : 0.12),
+                        radius: !reduceMotion && isBreathing ? 20 : 10
+                    )
             }
             .shadow(color: AppColors.cyanGlow.opacity(0.18), radius: 18, x: 0, y: 8)
             .contentShape(Circle())
             .buttonStyle(AppPressableButtonStyle())
             .accessibilityLabel("\(title) \(subtitle)")
             .accessibilityIdentifier("global.aiLauncher")
+        }
+        .onAppear {
+            guard !reduceMotion else { return }
+            withAnimation(AppAnimations.gentleBreathe) {
+                isBreathing = true
+            }
+        }
+        .onChange(of: reduceMotion) { _, newValue in
+            if newValue {
+                isBreathing = false
+            } else {
+                withAnimation(AppAnimations.gentleBreathe) {
+                    isBreathing = true
+                }
+            }
         }
     }
 }

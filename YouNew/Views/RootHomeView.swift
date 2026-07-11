@@ -7,6 +7,7 @@ struct RootHomeView: View {
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var savedStore: SavedItemsStore
     @EnvironmentObject private var router: TabRouter
+    @Environment(\.accessibilityReduceMotion) private var reduceMotion
 
     private var language: AppLanguage { languageManager.appLanguage }
     private var selectedCity: String { ProvinceCatalog.localizedCityName(appState.selectedCity, language) }
@@ -32,16 +33,17 @@ struct RootHomeView: View {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 18) {
                     Color.clear.frame(height: 1).id("home.top")
-                    premiumHeader
-                    cityHeader
-                    globalSearch
-                    urgentHelp
-                    nextActions
-                    categoryShortcuts
-                    recentlyViewed
-                    savedSummary
-                    nearbySection
-                    recommendationSection
+                    premiumHeader.staggeredAppear(index: 0)
+                    cityHeader.staggeredAppear(index: 1)
+                    globalSearch.staggeredAppear(index: 2)
+                    urgentHelp.staggeredAppear(index: 3)
+                    nextActions.staggeredAppear(index: 4)
+                    categoryShortcuts.staggeredAppear(index: 5)
+                    cityGallery.staggeredAppear(index: 6)
+                    recentlyViewed.staggeredAppear(index: 7)
+                    savedSummary.staggeredAppear(index: 8)
+                    nearbySection.staggeredAppear(index: 9)
+                    recommendationSection.staggeredAppear(index: 10)
                     Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
                 }
                 .padding(.horizontal, 18)
@@ -83,6 +85,7 @@ struct RootHomeView: View {
                     .background(AppColors.glassSurfaceElevated, in: Circle())
             }
             .accessibilityLabel(localized(en: "Search", nl: "Zoeken", ru: "Поиск"))
+            .buttonStyle(AppPressableButtonStyle())
             NavigationLink(value: AppDestination.profileSelection) {
                 Image(systemName: "person.fill")
                     .font(.body.weight(.semibold))
@@ -94,6 +97,7 @@ struct RootHomeView: View {
                     )
             }
             .accessibilityLabel(localized(en: "Profile", nl: "Profiel", ru: "Профиль"))
+            .buttonStyle(AppPressableButtonStyle())
         }
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("home.premiumHeader")
@@ -222,7 +226,7 @@ struct RootHomeView: View {
                 .font(AppTypography.footnote.weight(.semibold))
             }
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 132), spacing: 10)], spacing: 10) {
-                ForEach(Array(Category.canonical.sorted { $0.displayOrder < $1.displayOrder }.prefix(6))) { category in
+                ForEach(Array(Array(Category.canonical.sorted { $0.displayOrder < $1.displayOrder }.prefix(6)).enumerated()), id: \.element.id) { index, category in
                     NavigationLink(value: categoryDestination(category.id)) {
                         HStack(spacing: 10) {
                             Image(systemName: categorySymbol(category.id))
@@ -248,9 +252,65 @@ struct RootHomeView: View {
                         )
                         .overlay(RoundedRectangle(cornerRadius: 17, style: .continuous).stroke(.white.opacity(0.08)))
                     }
-                    .buttonStyle(.plain)
+                    .buttonStyle(AppPressableCardButtonStyle())
+                    .staggeredAppear(index: index)
                 }
             }
+        }
+    }
+
+    private var cityGallery: some View {
+        let motionEnabled = !reduceMotion
+        return VStack(alignment: .leading, spacing: 12) {
+            HStack {
+                sectionTitle(localized(en: "Netherlands in focus", nl: "Nederland in beeld", ru: "Нидерланды в кадре"))
+                Spacer()
+                NavigationLink(value: AppDestination.cityList) {
+                    Text(localized(en: "View all", nl: "Bekijk alles", ru: "Смотреть всё"))
+                        .font(AppTypography.footnote.weight(.semibold))
+                }
+                .buttonStyle(AppPressableButtonStyle())
+            }
+
+            ScrollView(.horizontal) {
+                LazyHStack(spacing: 12) {
+                    ForEach(PremiumGalleryItem.items) { item in
+                        NavigationLink(value: AppDestination.cityList) {
+                            ZStack(alignment: .bottomLeading) {
+                                Image(item.assetName)
+                                    .resizable()
+                                    .scaledToFill()
+                                    .frame(width: 244, height: 154)
+                                    .clipped()
+                                LinearGradient(colors: [.clear, AppColors.navyDeep.opacity(0.90)], startPoint: .center, endPoint: .bottom)
+                                VStack(alignment: .leading, spacing: 3) {
+                                    Text(item.title(language))
+                                        .font(AppTypography.cardTitle)
+                                        .foregroundStyle(.white)
+                                    Text(item.subtitle(language))
+                                        .font(AppTypography.caption)
+                                        .foregroundStyle(.white.opacity(0.76))
+                                }
+                                .padding(14)
+                            }
+                            .frame(width: 244, height: 154)
+                            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+                            .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(.white.opacity(0.10)))
+                        }
+                        .buttonStyle(AppPressableCardButtonStyle())
+                        .scrollTransition(.interactive, axis: .horizontal) { content, phase in
+                            content
+                                .scaleEffect(motionEnabled ? 1 - abs(phase.value) * 0.06 : 1)
+                                .offset(x: motionEnabled ? phase.value * -18 : 0)
+                                .opacity(motionEnabled ? 1 - abs(phase.value) * 0.14 : 1)
+                        }
+                    }
+                }
+                .scrollTargetLayout()
+            }
+            .scrollIndicators(.hidden)
+            .scrollTargetBehavior(.viewAligned)
+            .accessibilityIdentifier("home.cityGallery")
         }
     }
 
@@ -452,4 +512,29 @@ struct RootHomeView: View {
         case .russian: return ru
         }
     }
+}
+
+private struct PremiumGalleryItem: Identifiable {
+    let id: String
+    let assetName: String
+    let enTitle: String
+    let nlTitle: String
+    let ruTitle: String
+    let enSubtitle: String
+    let nlSubtitle: String
+    let ruSubtitle: String
+
+    func title(_ language: AppLanguage) -> String {
+        switch language { case .english: enTitle; case .dutch: nlTitle; case .russian: ruTitle }
+    }
+
+    func subtitle(_ language: AppLanguage) -> String {
+        switch language { case .english: enSubtitle; case .dutch: nlSubtitle; case .russian: ruSubtitle }
+    }
+
+    static let items = [
+        PremiumGalleryItem(id: "leiden", assetName: "nl_leiden_hero_01", enTitle: "Leiden", nlTitle: "Leiden", ruTitle: "Лейден", enSubtitle: "Canals and university life", nlSubtitle: "Grachten en studentenleven", ruSubtitle: "Каналы и университетская жизнь"),
+        PremiumGalleryItem(id: "amsterdam", assetName: "nl_amsterdam_hero_01", enTitle: "Amsterdam", nlTitle: "Amsterdam", ruTitle: "Амстердам", enSubtitle: "Museums, neighbourhoods and services", nlSubtitle: "Musea, buurten en diensten", ruSubtitle: "Музеи, районы и сервисы"),
+        PremiumGalleryItem(id: "rotterdam", assetName: "nl_rotterdam_hero_01", enTitle: "Rotterdam", nlTitle: "Rotterdam", ruTitle: "Роттердам", enSubtitle: "Architecture and working city", nlSubtitle: "Architectuur en werkstad", ruSubtitle: "Архитектура и деловой город")
+    ]
 }
