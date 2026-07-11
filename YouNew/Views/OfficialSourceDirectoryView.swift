@@ -100,10 +100,39 @@ private enum OfficialSourceSection: String, CaseIterable, Identifiable {
         case (.mediaLicenses, _): return "Media and licenses"
         }
     }
+
+    var icon: String {
+        switch self {
+        case .government: return "building.columns.fill"
+        case .municipalities: return "building.2.fill"
+        case .healthcare: return "cross.case.fill"
+        case .transport: return "tram.fill"
+        case .identity: return "person.text.rectangle.fill"
+        case .housing: return "house.fill"
+        case .cultureHistory: return "photo.on.rectangle.angled"
+        case .mediaLicenses: return "play.rectangle.on.rectangle.fill"
+        }
+    }
+
+    var accent: Color {
+        switch self {
+        case .government, .municipalities, .identity:
+            return AppColors.success
+        case .healthcare:
+            return AppColors.error
+        case .transport:
+            return AppColors.routeLine
+        case .housing:
+            return AppColors.cyanGlow
+        case .cultureHistory, .mediaLicenses:
+            return AppColors.dutchOrange
+        }
+    }
 }
 
 struct OfficialSourceDirectoryView: View {
     @State private var searchText = ""
+    @State private var selectedSection: OfficialSourceSection? = nil
     @State private var selectedSource: OfficialSourceItem? = nil
     @Environment(\.openURL) private var openURL
     @EnvironmentObject private var appState: AppStateViewModel
@@ -553,16 +582,27 @@ struct OfficialSourceDirectoryView: View {
 
     private var filtered: [OfficialSourceItem] {
         let q = searchText.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
-        guard !q.isEmpty else { return visibleSources }
-        return visibleSources.filter {
+        guard !q.isEmpty else { return sectionFilteredSources }
+        return sectionFilteredSources.filter {
             $0.name.lowercased().contains(q) ||
             $0.handles(lang).lowercased().contains(q) ||
             $0.whenNeeded(lang).lowercased().contains(q)
         }
     }
 
+    private var sectionFilteredSources: [OfficialSourceItem] {
+        guard let selectedSection else { return visibleSources }
+        return visibleSources.filter { sourceSection($0) == selectedSection }
+    }
+
     private var visibleSources: [OfficialSourceItem] {
         allSources.filter { $0.isVisible(for: activePersona, scope: .currentAndUniversal) }
+    }
+
+    private var visibleSections: [OfficialSourceSection] {
+        OfficialSourceSection.allCases.filter { section in
+            visibleSources.contains { sourceSection($0) == section }
+        }
     }
 
     private var visibleSourceCount: Int {
@@ -584,6 +624,8 @@ struct OfficialSourceDirectoryView: View {
                 TextField(L10n.t("official_sources.search_placeholder", lang), text: $searchText)
                     .textFieldStyle(.roundedBorder)
                     .autocorrectionDisabled(true)
+
+                officialSourceFilterChips
 
                 if filtered.isEmpty {
                     noSourcesDashboard
@@ -613,9 +655,81 @@ struct OfficialSourceDirectoryView: View {
         .appSceneBackground(.settings)
         .navigationTitle(L10n.t("resources.official_sources", lang))
         .animation(AppAnimations.standard, value: searchText)
+        .animation(AppAnimations.standard, value: selectedSection)
         .sheet(item: $selectedSource) { source in
             OfficialSourceDetailView(source: source)
         }
+    }
+
+    private var officialSourceFilterChips: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: AppSpacing.small) {
+                officialSourceFilterChip(
+                    title: allSourcesFilterTitle,
+                    count: visibleSourceCount,
+                    icon: "square.grid.2x2.fill",
+                    accent: AppColors.dutchOrange,
+                    isSelected: selectedSection == nil
+                ) {
+                    selectedSection = nil
+                }
+
+                ForEach(visibleSections) { section in
+                    officialSourceFilterChip(
+                        title: section.title(lang),
+                        count: visibleSources.filter { sourceSection($0) == section }.count,
+                        icon: section.icon,
+                        accent: section.accent,
+                        isSelected: selectedSection == section
+                    ) {
+                        selectedSection = section
+                    }
+                }
+            }
+            .padding(.vertical, 2)
+        }
+        .accessibilityIdentifier("officialSources.filter.chips")
+    }
+
+    private func officialSourceFilterChip(
+        title: String,
+        count: Int,
+        icon: String,
+        accent: Color,
+        isSelected: Bool,
+        action: @escaping () -> Void
+    ) -> some View {
+        Button(action: action) {
+            HStack(spacing: 7) {
+                Image(systemName: icon)
+                    .font(.system(size: 12, weight: .semibold))
+                Text(title)
+                    .font(AppTypography.captionStrong)
+                    .lineLimit(1)
+                Text("\(count)")
+                    .font(AppTypography.metadata)
+                    .foregroundStyle(isSelected ? .white.opacity(0.82) : AppColors.textSecondary)
+                    .padding(.horizontal, 6)
+                    .padding(.vertical, 2)
+                    .background(
+                        Capsule()
+                            .fill(isSelected ? .white.opacity(0.18) : AppColors.cardElevated)
+                    )
+            }
+            .foregroundStyle(isSelected ? .white : AppColors.textPrimary)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 9)
+            .background(
+                Capsule()
+                    .fill(isSelected ? accent : AppColors.cardElevated)
+            )
+            .overlay {
+                Capsule()
+                    .stroke(isSelected ? accent.opacity(0.25) : AppSurface.b2, lineWidth: 1)
+            }
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("officialSources.filter.\(title)")
     }
 
     private var noSourcesDashboard: some View {
@@ -629,6 +743,7 @@ struct OfficialSourceDirectoryView: View {
 
             Button {
                 searchText = ""
+                selectedSection = nil
             } label: {
                 Label(noSourcesResetTitle, systemImage: "arrow.counterclockwise")
                     .frame(maxWidth: .infinity)
@@ -683,6 +798,10 @@ struct OfficialSourceDirectoryView: View {
 
     private var noSourcesResetTitle: String {
         localized(en: "Show all sources", nl: "Toon alle bronnen", ru: "Показать все источники")
+    }
+
+    private var allSourcesFilterTitle: String {
+        localized(en: "All", nl: "Alles", ru: "Все")
     }
 
     private var noSourcesRecoveryActions: [OfficialSourceRecoveryAction] {

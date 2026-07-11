@@ -402,7 +402,7 @@ struct OnboardingQuestionnaireView: View {
             )
 
             LazyVGrid(
-                columns: [GridItem(.flexible()), GridItem(.flexible())],
+                columns: [GridItem(.adaptive(minimum: 164), spacing: AppSpacing.small)],
                 spacing: AppSpacing.small
             ) {
                 ForEach(cityRegionOptions, id: \.id) { option in
@@ -415,10 +415,9 @@ struct OnboardingQuestionnaireView: View {
                             }
                         }
                     } label: {
-                        ProductCTA(
-                            title: option.title,
-                            symbol: isSelected ? "checkmark.circle.fill" : option.icon,
-                            accent: isSelected ? OnboardingDesignTokens.accentCyan : AppColors.softBlue
+                        cityRegionOptionCard(
+                            option: option,
+                            isSelected: isSelected
                         )
                     }
                     .buttonStyle(OnboardingPressableStyle())
@@ -426,6 +425,34 @@ struct OnboardingQuestionnaireView: View {
                 }
             }
         }
+    }
+
+    private func cityRegionOptionCard(
+        option: (id: String, title: String, icon: String),
+        isSelected: Bool
+    ) -> some View {
+        let accent = isSelected ? OnboardingDesignTokens.accentCyan : AppColors.softBlue
+        return HStack(spacing: AppSpacing.small) {
+            ProductSymbolTile(
+                symbol: isSelected ? "checkmark.circle.fill" : option.icon,
+                accent: accent,
+                size: 40
+            )
+
+            Text(option.title)
+                .font(AppTypography.bodyStrong)
+                .foregroundStyle(AppColors.textPrimary)
+                .lineLimit(2)
+                .minimumScaleFactor(0.76)
+                .allowsTightening(true)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Spacer(minLength: 0)
+        }
+        .frame(maxWidth: .infinity, minHeight: 72, alignment: .leading)
+        .appGlassCardStyle(padding: AppSpacing.cardPaddingCompact, accent: accent)
+        .accessibilityElement(children: .combine)
     }
 
     // MARK: - Step 5: Optional interests
