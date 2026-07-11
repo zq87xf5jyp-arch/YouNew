@@ -96,11 +96,10 @@ struct RootTabView: View {
 
     @State private var regularNavPath = NavigationPath()
     @State private var homeNavPath = NavigationPath()
-    @State private var placesNavPath = NavigationPath()
+    @State private var guideNavPath = NavigationPath()
     @State private var searchNavPath = NavigationPath()
     @State private var mapNavPath = NavigationPath()
-    @State private var favoritesNavPath = NavigationPath()
-    @State private var assistantNavPath = NavigationPath()
+    @State private var savedNavPath = NavigationPath()
     @State private var moreNavPath = NavigationPath()
 
     private var lang: AppLanguage { languageManager.appLanguage }
@@ -156,11 +155,10 @@ struct RootTabView: View {
            let tabIndex = arguments.firstIndex(of: "-uiTestingStartTab"),
            arguments.indices.contains(tabIndex + 1) {
             switch arguments[tabIndex + 1] {
-            case "places":    return .places
-            case "search":    return .places
-            case "map":       return .places
-            case "favorites": return .favorites
-            case "assistant": return .assistant
+            case "places", "search", "guide": return .guide
+            case "map":       return .map
+            case "favorites", "saved": return .saved
+            case "assistant": return .guide
             case "more":      return .more
             default:          return .home
             }
@@ -198,11 +196,6 @@ struct RootTabView: View {
                     } else {
                         adaptiveMenuLayout
                     }
-                }
-                .safeAreaInset(edge: .bottom, spacing: 0) {
-                    Color.clear
-                        .frame(height: contextualAIContentReserve)
-                        .allowsHitTesting(false)
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
@@ -260,11 +253,9 @@ struct RootTabView: View {
     private var rootBackgroundStyle: YouNewScreenBackgroundStyle {
         switch selectedTab {
         case .home, .more: return .home
-        case .places: return .map
-        case .search: return .search
+        case .guide: return .search
         case .map: return .map
-        case .favorites: return .saved
-        case .assistant: return .assistant
+        case .saved: return .saved
         }
     }
 
@@ -297,22 +288,14 @@ struct RootTabView: View {
 
     static func shouldShowContextualAIButton(selectedTab: AppTab, isMenuPresented: Bool) -> Bool {
         !isMenuPresented
-            && selectedTab != .assistant
             && selectedTab != .more
-            && selectedTab != .places
-            && selectedTab != .map
-            && selectedTab != .home
-            && selectedTab != .search
-            && selectedTab != .favorites
+            && selectedTab != .saved
     }
 
     private var contextualAIButtonBottomPadding: CGFloat {
 #if os(iOS)
         if horizontalSizeClass == .regular && menuPosition == .automatic {
             return 24
-        }
-        if selectedTab == .assistant {
-            return FloatingTabBarMetrics.rootContentInset + 102
         }
         return effectiveMenuPosition == .bottom ? FloatingTabBarMetrics.rootContentInset : 24
 #else
@@ -326,22 +309,6 @@ struct RootTabView: View {
 #else
         18
 #endif
-    }
-
-    private var contextualAIContentReserve: CGFloat {
-        guard shouldShowContextualAIButton else { return 0 }
-        return GlobalAILauncherMetrics.contentReserve(
-            bottomPadding: contextualAIButtonBottomPadding,
-            isExpanded: isGlobalAIModeLauncherExpanded
-        )
-    }
-
-    private var bottomMenuLayoutReserve: CGFloat {
-        dynamicTypeSize.isAccessibilitySize ? 44 : 24
-    }
-
-    private var bottomMenuContentInset: CGFloat {
-        FloatingTabBarMetrics.totalClearance + bottomMenuLayoutReserve
     }
 
     private var contextualAIButtonTitle: String {
@@ -403,19 +370,12 @@ struct RootTabView: View {
                 .padding(.trailing, FloatingTabBarMetrics.sideContentInset)
                 .overlay(alignment: .trailing) { verticalMenu(edge: .trailing) }
         case .automatic, .bottom:
-            GeometryReader { geometry in
-                tabContent
-                    .frame(
-                        width: geometry.size.width,
-                        height: max(0, geometry.size.height - bottomMenuContentInset),
-                        alignment: .top
-                    )
-                    .frame(width: geometry.size.width, height: geometry.size.height, alignment: .top)
-                    .overlay(alignment: .bottom) {
-                        horizontalMenu(edge: .bottom)
-                            .zIndex(3)
-                    }
-            }
+            tabContent
+                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .safeAreaInset(edge: .bottom, spacing: 0) {
+                    horizontalMenu(edge: .bottom)
+                        .zIndex(3)
+                }
         }
     }
 
@@ -481,16 +441,10 @@ struct RootTabView: View {
             VStack(alignment: .leading, spacing: 16) {
                 regularSidebarHeader
                 regularSidebarWidgets
-                regularSidebarGroup(title: localizedRootText(en: "Home", nl: "Start", ru: "Главная"), items: [.home])
-                regularSidebarGroup(title: localizedRootText(en: "Explore", nl: "Ontdek", ru: "Обзор"), items: [.places, .favorites])
-                regularMenuGroup(title: localizedRootText(en: "Government", nl: "Overheid", ru: "Государство"), items: regularGovernmentItems)
-                regularMenuGroup(title: localizedRootText(en: "Life", nl: "Leven", ru: "Жизнь"), items: regularLifeItems)
-                regularMenuGroup(title: localizedRootText(en: "Learn", nl: "Leren", ru: "Учиться"), items: regularLearnItems)
-                regularMenuGroup(title: localizedRootText(en: "💼 WORK", nl: "💼 WERK", ru: "💼 РАБОТА"), items: [workGuideMenuItem])
-                regularMenuGroup(title: localizedRootText(en: "🌍 INTEGRATION", nl: "🌍 INTEGRATIE", ru: "🌍 ИНТЕГРАЦИЯ"), items: [integrationGuideMenuItem])
-                regularMenuGroup(title: localizedRootText(en: "🚨 EMERGENCY", nl: "🚨 NOODGEVALLEN", ru: "🚨 ЭКСТРЕННЫЕ СИТУАЦИИ"), items: [emergencyGuideMenuItem])
-                regularSidebarGroup(title: localizedRootText(en: "AI Assistant", nl: "AI-assistent", ru: "AI ассистент"), items: [.assistant])
-                regularMenuGroup(title: localizedRootText(en: "Settings", nl: "Instellingen", ru: "Настройки"), items: regularSettingsItems)
+                regularSidebarGroup(
+                    title: localizedRootText(en: "Navigation", nl: "Navigatie", ru: "Навигация"),
+                    items: AppTab.allCases
+                )
             }
             .padding(.horizontal, 14)
             .padding(.vertical, 18)
@@ -688,20 +642,11 @@ struct RootTabView: View {
     @ViewBuilder
     private var regularTabContent: some View {
         switch selectedTab {
-        case .home:      HomeView(selectedTab: $selectedTab, onOpenMenu: openMenu)
-        case .places, .search, .map:
-            PlacesDiscoveryView(
-                onNavigate: { regularNavPath.append($0) },
-                onAskAI: { openPlacesAI($0) }
-            )
-        case .favorites: FavoritesView()
-        case .assistant:
-            AIAssistantView(
-                mapToolDestination: .mapHub,
-                onOpenMap: { handleTabSelection(.places) },
-                onNavigate: { regularNavPath.append($0) }
-            )
-        case .more:      MoreHubView(onSwitchTab: handleTabSelection)
+        case .home: RootHomeView(selectedTab: $selectedTab)
+        case .guide: RootGuideView()
+        case .map: NetherlandsMapHubView()
+        case .saved: FavoritesView()
+        case .more: RootMoreView()
         }
     }
 #endif
@@ -714,14 +659,14 @@ struct RootTabView: View {
             switch selectedTab {
             case .home:
                 homeTabStack
+            case .guide:
+                guideTabStack
+            case .map:
+                mapTabStack
+            case .saved:
+                savedTabStack
             case .more:
                 moreTabStack
-            case .places, .search, .map:
-                placesTabStack
-            case .favorites:
-                favoritesTabStack
-            case .assistant:
-                assistantTabStack
             }
         }
         .background(Color.clear)
@@ -730,7 +675,7 @@ struct RootTabView: View {
 #if os(iOS)
     private var homeTabStack: some View {
         NavigationStack(path: $homeNavPath) {
-            HomeView(selectedTab: $selectedTab, onOpenMenu: openMenu)
+            RootHomeView(selectedTab: $selectedTab)
                 .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }
@@ -765,44 +710,30 @@ struct RootTabView: View {
         }
     }
 
-    private var placesTabStack: some View {
-        NavigationStack(path: $placesNavPath) {
-            PlacesDiscoveryView(
-                onNavigate: { placesNavPath.append($0) },
-                onAskAI: { openPlacesAI($0) }
-            )
+    private var guideTabStack: some View {
+        NavigationStack(path: $guideNavPath) {
+            RootGuideView()
             .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }
 
-    private var favoritesTabStack: some View {
-        NavigationStack(path: $favoritesNavPath) {
+    private var savedTabStack: some View {
+        NavigationStack(path: $savedNavPath) {
             FavoritesView()
-                .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
-        }
-    }
-
-    private var assistantTabStack: some View {
-        NavigationStack(path: $assistantNavPath) {
-            AIAssistantView(
-                mapToolDestination: .mapHub,
-                onOpenMap: { handleTabSelection(.places) },
-                onNavigate: { assistantNavPath.append($0) }
-            )
                 .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }
 
     private var moreTabStack: some View {
         NavigationStack(path: $moreNavPath) {
-            MoreHubView(onSwitchTab: handleTabSelection)
+            RootMoreView()
                 .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }
 #else
     private var homeTabStack: some View {
         NavigationStack {
-            HomeView(selectedTab: $selectedTab, onOpenMenu: openMenu)
+            RootHomeView(selectedTab: $selectedTab)
                 .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }
@@ -837,33 +768,23 @@ struct RootTabView: View {
         }
     }
 
-    private var placesTabStack: some View {
+    private var guideTabStack: some View {
         NavigationStack {
-            PlacesDiscoveryView(
-                onNavigate: { _ in },
-                onAskAI: { openPlacesAI($0) }
-            )
+            RootGuideView()
             .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }
 
-    private var favoritesTabStack: some View {
+    private var savedTabStack: some View {
         NavigationStack {
             FavoritesView()
                 .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }
 
-    private var assistantTabStack: some View {
-        NavigationStack {
-            AIAssistantView(mapToolDestination: .mapHub) { handleTabSelection(.places) }
-                .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
-        }
-    }
-
     private var moreTabStack: some View {
         NavigationStack {
-            MoreHubView(onSwitchTab: handleTabSelection)
+            RootMoreView()
                 .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }
@@ -881,11 +802,11 @@ struct RootTabView: View {
 
     private var sidebarItems: [TabSidebarItem] {
         [
-            TabSidebarItem(tab: .home,      title: tabHomeTitle,              symbol: AppIcons.home,      selectedSymbol: AppIcons.homeActive),
-            TabSidebarItem(tab: .places,    title: tabPlacesTitle,            symbol: AppIcons.map,       selectedSymbol: AppIcons.mapActive),
-            TabSidebarItem(tab: .assistant, title: tabAssistantTitle,         symbol: AppIcons.assistant, selectedSymbol: AppIcons.assistantActive),
-            TabSidebarItem(tab: .favorites, title: tabFavoritesTitle,         symbol: AppIcons.save,      selectedSymbol: AppIcons.saved),
-            TabSidebarItem(tab: .more,      title: L10n.t("tab.more", lang),  symbol: AppIcons.more,      selectedSymbol: AppIcons.moreActive)
+            TabSidebarItem(tab: .home,  title: tabHomeTitle,  symbol: AppIcons.home, selectedSymbol: AppIcons.homeActive),
+            TabSidebarItem(tab: .guide, title: tabGuideTitle, symbol: "books.vertical", selectedSymbol: "books.vertical.fill"),
+            TabSidebarItem(tab: .map,   title: tabMapTitle,   symbol: AppIcons.map, selectedSymbol: AppIcons.mapActive),
+            TabSidebarItem(tab: .saved, title: tabSavedTitle, symbol: AppIcons.save, selectedSymbol: AppIcons.saved),
+            TabSidebarItem(tab: .more,  title: tabMoreTitle,  symbol: AppIcons.more, selectedSymbol: AppIcons.moreActive)
         ]
     }
 
@@ -1083,11 +1004,9 @@ struct RootTabView: View {
     private func regularTabSubtitle(_ tab: AppTab) -> String? {
         switch tab {
         case .home: return localizedRootText(en: "City intelligence", nl: "Stadsinformatie", ru: "Городской гид")
-        case .places: return localizedRootText(en: "Map, list, partners", nl: "Kaart, lijst, partners", ru: "Карта, список, партнеры")
-        case .search: return localizedRootText(en: "Find answers", nl: "Vind antwoorden", ru: "Найти ответы")
+        case .guide: return localizedRootText(en: "All topics", nl: "Alle onderwerpen", ru: "Все темы")
         case .map: return localizedRootText(en: "Netherlands map", nl: "Kaart van Nederland", ru: "Карта Нидерландов")
-        case .favorites: return localizedRootText(en: "Saved guides", nl: "Bewaarde gidsen", ru: "Сохраненное")
-        case .assistant: return localizedRootText(en: "Personal navigator", nl: "Persoonlijke navigator", ru: "Личный навигатор")
+        case .saved: return localizedRootText(en: "Saved guides", nl: "Bewaarde gidsen", ru: "Сохраненное")
         case .more: return nil
         }
     }
@@ -1095,11 +1014,9 @@ struct RootTabView: View {
     private func regularTabTint(_ tab: AppTab) -> Color {
         switch tab {
         case .home: return AppColors.cyanGlow
-        case .places: return AppColors.routeLine
-        case .search: return AppColors.emerald
+        case .guide: return AppColors.emerald
         case .map: return AppColors.routeLine
-        case .favorites: return AppColors.softBlue
-        case .assistant: return AppColors.violet
+        case .saved: return AppColors.softBlue
         case .more: return AppColors.textSecondary
         }
     }
@@ -1107,21 +1024,24 @@ struct RootTabView: View {
 #if os(iOS)
     private var compactTabBarItems: [FloatingTabBarItem] {
         [
-            FloatingTabBarItem(tab: .home,      title: tabHomeTitle,              symbol: AppIcons.home,      selectedSymbol: AppIcons.homeActive),
-            FloatingTabBarItem(tab: .places,    title: tabPlacesTitle,            symbol: AppIcons.map,       selectedSymbol: AppIcons.mapActive),
-            FloatingTabBarItem(tab: .assistant, title: tabAssistantTitle,         symbol: AppIcons.assistant, selectedSymbol: AppIcons.assistantActive),
-            FloatingTabBarItem(tab: .favorites, title: tabFavoritesTitle,         symbol: AppIcons.save,      selectedSymbol: AppIcons.saved),
-            FloatingTabBarItem(tab: .more,      title: L10n.t("tab.more", lang),  symbol: AppIcons.more,      selectedSymbol: AppIcons.moreActive)
+            FloatingTabBarItem(tab: .home,  title: tabHomeTitle,  symbol: AppIcons.home, selectedSymbol: AppIcons.homeActive),
+            FloatingTabBarItem(tab: .guide, title: tabGuideTitle, symbol: "books.vertical", selectedSymbol: "books.vertical.fill"),
+            FloatingTabBarItem(tab: .map,   title: tabMapTitle,   symbol: AppIcons.map, selectedSymbol: AppIcons.mapActive),
+            FloatingTabBarItem(tab: .saved, title: tabSavedTitle, symbol: AppIcons.save, selectedSymbol: AppIcons.saved),
+            FloatingTabBarItem(tab: .more,  title: tabMoreTitle,  symbol: AppIcons.more, selectedSymbol: AppIcons.moreActive)
         ]
     }
 #endif
 
     private var tabHomeTitle: String      { L10n.t("tab.home",    lang) }
+    private var tabGuideTitle: String     { localizedRootText(en: "Guide", nl: "Gids", ru: "Гид") }
     private var tabPlacesTitle: String    { "Places" }
     private var tabSearchTitle: String    { L10n.t("tab.search",  lang) }
     private var tabMapTitle: String       { L10n.t("tab.map",     lang) }
     private var tabFavoritesTitle: String { L10n.t("tab.saved",   lang) }
     private var tabAssistantTitle: String { L10n.t("tab.ai", lang) }
+    private var tabSavedTitle: String     { L10n.t("tab.saved", lang) }
+    private var tabMoreTitle: String      { L10n.t("tab.more", lang) }
 
     private var menuSections: [SideMenuSection] {
         [
@@ -1383,9 +1303,14 @@ struct RootTabView: View {
         isMenuPresented = false
         isGlobalAIModeLauncherExpanded = false
         activeMenuDestination = nil
-        previousContentTab = .assistant
-        selectedTab = .assistant
-        tabRouter.selectedTab = TabItem.ai
+        previousContentTab = .guide
+        selectedTab = .guide
+        tabRouter.selectedTab = .guide
+        if horizontalSizeClass == .regular && menuPosition == .automatic {
+            regularNavPath.append(AppDestination.assistantHub)
+        } else {
+            guideNavPath.append(AppDestination.assistantHub)
+        }
     }
 
     private func globalAssistantPrompt(for mode: GlobalAIMode, context: AIContext) -> String? {
@@ -1481,20 +1406,23 @@ struct RootTabView: View {
         isMenuPresented = false
         isGlobalAIModeLauncherExpanded = false
         activeMenuDestination = nil
-        previousContentTab = .assistant
-        selectedTab = .assistant
-        tabRouter.selectedTab = TabItem.ai
+        previousContentTab = .guide
+        selectedTab = .guide
+        tabRouter.selectedTab = .guide
+        if horizontalSizeClass == .regular && menuPosition == .automatic {
+            regularNavPath.append(AppDestination.assistantHub)
+        } else {
+            guideNavPath.append(AppDestination.assistantHub)
+        }
     }
 
     private func clearPath(for tab: AppTab) {
         switch tab {
         case .home: homeNavPath = NavigationPath()
-        case .places: placesNavPath = NavigationPath()
+        case .guide: guideNavPath = NavigationPath()
         case .more: moreNavPath = NavigationPath()
-        case .search: searchNavPath = NavigationPath()
         case .map: mapNavPath = NavigationPath()
-        case .favorites: favoritesNavPath = NavigationPath()
-        case .assistant: assistantNavPath = NavigationPath()
+        case .saved: savedNavPath = NavigationPath()
         }
     }
 }
@@ -1553,9 +1481,10 @@ private enum MenuDestination: Equatable {
     var tab: AppTab? {
         switch self {
         case .home: return .home
-        case .search, .map: return .places
-        case .saved: return .favorites
-        case .help: return .assistant
+        case .search: return .guide
+        case .map: return .map
+        case .saved: return .saved
+        case .help: return .guide
         default: return nil
         }
     }
@@ -4735,54 +4664,21 @@ private struct GlobalAIModeLauncher: View {
                     isExpanded.toggle()
                 }
             } label: {
-                HStack(spacing: 9) {
-                    Image(systemName: "sparkles")
-                        .font(.system(size: 15, weight: .black))
-                        .foregroundStyle(AppColors.navyDeep)
-                        .frame(width: 34, height: 34)
-                        .background(
-                            LinearGradient(
-                                colors: [AppColors.orangeGlow, AppColors.cyanGlow],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-
-                    VStack(alignment: .leading, spacing: 1) {
-                        Text(title)
-                            .font(.system(size: 12, weight: .black, design: .rounded))
-                            .foregroundStyle(AppColors.textPrimary)
-                            .lineLimit(2)
-                            .minimumScaleFactor(0.82)
-                            .fixedSize(horizontal: false, vertical: true)
-                        Text(subtitle)
-                            .font(.system(size: 9.5, weight: .bold, design: .rounded))
-                            .foregroundStyle(AppColors.textSecondary)
-                            .lineLimit(2)
-                            .minimumScaleFactor(0.82)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
-            }
-            .padding(.leading, 10)
-            .padding(.trailing, 12)
-            .padding(.vertical, 8)
-            .background(AppSurface.base.opacity(0.84))
-            .clipShape(Capsule())
-            .overlay(
-                Capsule()
-                    .stroke(
+                Image(systemName: "sparkles")
+                    .font(.system(size: 17, weight: .black))
+                    .foregroundStyle(AppColors.navyDeep)
+                    .frame(width: 48, height: 48)
+                    .background(
                         LinearGradient(
-                            colors: [AppColors.orangeGlow.opacity(0.38), AppColors.cyanGlow.opacity(0.30)],
+                            colors: [AppColors.orangeGlow, AppColors.cyanGlow],
                             startPoint: .topLeading,
                             endPoint: .bottomTrailing
-                        ),
-                        lineWidth: 0.8
+                        )
                     )
-            )
+                    .clipShape(Circle())
+            }
             .shadow(color: AppColors.cyanGlow.opacity(0.18), radius: 18, x: 0, y: 8)
-            .contentShape(Capsule())
+            .contentShape(Circle())
             .buttonStyle(AppPressableButtonStyle())
             .accessibilityLabel("\(title) \(subtitle)")
             .accessibilityIdentifier("global.aiLauncher")
