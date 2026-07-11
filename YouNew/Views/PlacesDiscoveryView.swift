@@ -1629,7 +1629,9 @@ struct PlacesDiscoveryView: View {
             } else {
                 key = count == 0 ? "map.result.count.zero" : "map.result.count.many"
             }
-        case .english, .dutch:
+        case .english:
+            key = count == 0 ? "map.result.count.zero" : count == 1 ? "map.result.count.one" : "map.result.count.other"
+        case .dutch:
             key = count == 0 ? "map.result.count.zero" : count == 1 ? "map.result.count.one" : "map.result.count.other"
         }
 

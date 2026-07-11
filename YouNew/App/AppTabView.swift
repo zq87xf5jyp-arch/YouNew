@@ -287,7 +287,10 @@ struct RootTabView: View {
     }
 
     static func shouldShowContextualAIButton(selectedTab: AppTab, isMenuPresented: Bool) -> Bool {
-        !isMenuPresented && selectedTab == .map
+        !isMenuPresented
+            && selectedTab != .more
+            && selectedTab != .saved
+            && selectedTab == .map
     }
 
     private var contextualAIButtonBottomPadding: CGFloat {

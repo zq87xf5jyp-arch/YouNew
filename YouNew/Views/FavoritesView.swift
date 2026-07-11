@@ -509,6 +509,30 @@ struct FavoritesView: View {
                 symbol: "map.fill",
                 tint: AppColors.emerald,
                 destination: .mapHub
+            ),
+            EmptySavedAction(
+                id: "cities",
+                title: emptyActionTitle(en: "Cities", nl: "Steden", ru: "Города"),
+                subtitle: emptyActionTitle(en: "Find local city guidance", nl: "Vind lokale stadshulp", ru: "Найдите советы по городу"),
+                symbol: "building.2.fill",
+                tint: AppColors.softBlue,
+                destination: .cityList
+            ),
+            EmptySavedAction(
+                id: "documents",
+                title: emptyActionTitle(en: "Documents", nl: "Documenten", ru: "Документы"),
+                subtitle: emptyActionTitle(en: "Organize letters and proof", nl: "Orden brieven en bewijs", ru: "Соберите письма и подтверждения"),
+                symbol: "doc.text.fill",
+                tint: AppColors.dutchOrange,
+                destination: .journeyDocuments
+            ),
+            EmptySavedAction(
+                id: "official",
+                title: emptyActionTitle(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники"),
+                subtitle: emptyActionTitle(en: "Keep trusted links close", nl: "Houd betrouwbare links dichtbij", ru: "Держите проверенные ссылки рядом"),
+                symbol: "checkmark.shield.fill",
+                tint: AppColors.cyanGlow,
+                destination: .officialSources
             )
         ]
     }
