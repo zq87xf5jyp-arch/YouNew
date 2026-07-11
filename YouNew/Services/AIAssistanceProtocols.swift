@@ -4,10 +4,6 @@ protocol TranslationProviding {
     func translate(text: String, from: TranslationLanguage, to: TranslationLanguage) async throws -> TranslationResult
 }
 
-protocol OCRProviding {
-    func extractText(fromDocumentPlaceholderName: String, language: AppLanguage) async -> String
-}
-
 protocol SummarizationProviding {
     func summarize(text: String) async -> String
 }
@@ -80,19 +76,6 @@ struct MockTranslationProvider: TranslationProviding {
             return value
         case .english:
             return value
-        }
-    }
-}
-
-struct MockOCRProvider: OCRProviding {
-    func extractText(fromDocumentPlaceholderName: String, language: AppLanguage) async -> String {
-        switch language {
-        case .russian:
-            return "Локальное распознавание недоступно для этого документа. Проверьте оригинал и официальный источник."
-        case .dutch:
-            return "Lokale tekstherkenning is niet beschikbaar voor dit document. Controleer het origineel en de officiële bron."
-        case .english:
-            return "Local text recognition is unavailable for this document. Verify the original and official source."
         }
     }
 }
