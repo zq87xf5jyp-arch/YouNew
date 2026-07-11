@@ -20,7 +20,7 @@ struct RootHomeView: View {
     private var nearbyPlaces: [NearbyPlace] {
         Array(MockNearbyPlacesData.places.filter { $0.city.caseInsensitiveCompare(appState.selectedCity) == .orderedSame }.prefix(3))
     }
-    private var cityHeroAssetName: String {
+    @MainActor private var cityHeroAssetName: String {
         let placeID = NLCity.all.first { $0.name.caseInsensitiveCompare(appState.selectedCity) == .orderedSame }?.placeId
         return placeID
             .flatMap(LocalNetherlandsImagePackRegistry.cityHero(placeId:))?
@@ -32,6 +32,7 @@ struct RootHomeView: View {
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: 18) {
                     Color.clear.frame(height: 1).id("home.top")
+                    premiumHeader
                     cityHeader
                     globalSearch
                     urgentHelp
@@ -55,6 +56,47 @@ struct RootHomeView: View {
             }
         }
         .accessibilityIdentifier("screen.home")
+    }
+
+    private var premiumHeader: some View {
+        HStack(spacing: 12) {
+            VStack(alignment: .leading, spacing: 2) {
+                HStack(spacing: 8) {
+                    Text("YouNew")
+                        .font(.system(.title2, design: .serif).weight(.bold))
+                    Text("🇳🇱")
+                        .font(.footnote)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 5)
+                        .background(AppColors.glassSurfaceElevated, in: Capsule())
+                }
+                Text(localized(en: "Your Netherlands guide", nl: "Jouw gids voor Nederland", ru: "Ваш гид по Нидерландам"))
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+            }
+            .foregroundStyle(AppColors.textPrimary)
+            Spacer(minLength: 8)
+            NavigationLink(value: AppDestination.searchList) {
+                Image(systemName: "magnifyingglass")
+                    .font(.body.weight(.semibold))
+                    .frame(width: 44, height: 44)
+                    .background(AppColors.glassSurfaceElevated, in: Circle())
+            }
+            .accessibilityLabel(localized(en: "Search", nl: "Zoeken", ru: "Поиск"))
+            NavigationLink(value: AppDestination.profileSelection) {
+                Image(systemName: "person.fill")
+                    .font(.body.weight(.semibold))
+                    .foregroundStyle(.white)
+                    .frame(width: 44, height: 44)
+                    .background(
+                        LinearGradient(colors: [AppColors.dutchOrange, AppColors.routeLine], startPoint: .topLeading, endPoint: .bottomTrailing),
+                        in: Circle()
+                    )
+            }
+            .accessibilityLabel(localized(en: "Profile", nl: "Profiel", ru: "Профиль"))
+        }
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("home.premiumHeader")
     }
 
     private var cityHeader: some View {
@@ -182,13 +224,29 @@ struct RootHomeView: View {
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 132), spacing: 10)], spacing: 10) {
                 ForEach(Array(Category.canonical.sorted { $0.displayOrder < $1.displayOrder }.prefix(6))) { category in
                     NavigationLink(value: categoryDestination(category.id)) {
-                        Text(categoryTitle(category))
-                            .font(AppTypography.footnote.weight(.semibold))
-                            .foregroundStyle(AppColors.textPrimary)
-                            .frame(maxWidth: .infinity, minHeight: 50, alignment: .leading)
-                            .padding(.horizontal, 12)
-                            .background(AppColors.cardElevated.opacity(0.72), in: RoundedRectangle(cornerRadius: 15, style: .continuous))
-                            .fixedSize(horizontal: false, vertical: true)
+                        HStack(spacing: 10) {
+                            Image(systemName: categorySymbol(category.id))
+                                .font(.body.weight(.semibold))
+                                .foregroundStyle(.white)
+                                .frame(width: 34, height: 34)
+                                .background(.white.opacity(0.14), in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+                            Text(categoryTitle(category))
+                                .font(AppTypography.footnote.weight(.semibold))
+                                .foregroundStyle(.white)
+                                .fixedSize(horizontal: false, vertical: true)
+                            Spacer(minLength: 2)
+                            Image(systemName: "arrow.up.right")
+                                .font(.caption2.weight(.bold))
+                                .foregroundStyle(.white.opacity(0.66))
+                                .accessibilityHidden(true)
+                        }
+                        .frame(maxWidth: .infinity, minHeight: 58, alignment: .leading)
+                        .padding(.horizontal, 12)
+                        .background(
+                            LinearGradient(colors: categoryGradient(category.id), startPoint: .topLeading, endPoint: .bottomTrailing),
+                            in: RoundedRectangle(cornerRadius: 17, style: .continuous)
+                        )
+                        .overlay(RoundedRectangle(cornerRadius: 17, style: .continuous).stroke(.white.opacity(0.08)))
                     }
                     .buttonStyle(.plain)
                 }
@@ -358,6 +416,32 @@ struct RootHomeView: View {
         case .english: return category.title
         case .dutch: return category.localTitle["nl"] ?? category.title
         case .russian: return category.localTitle["ru"] ?? category.title
+        }
+    }
+
+    private func categorySymbol(_ id: String) -> String {
+        switch id {
+        case "getting-started": return "figure.walk"
+        case "housing": return "house.fill"
+        case "official-services": return "building.columns.fill"
+        case "work-money": return "briefcase.fill"
+        case "study": return "graduationcap.fill"
+        case "health-safety": return "cross.case.fill"
+        case "transport": return "tram.fill"
+        default: return "sailboat.fill"
+        }
+    }
+
+    private func categoryGradient(_ id: String) -> [Color] {
+        switch id {
+        case "getting-started": return [AppColors.routeLine, AppColors.accent]
+        case "housing": return AppColors.gradHousing
+        case "official-services": return AppColors.gradGovernment
+        case "work-money": return AppColors.gradWork
+        case "study": return AppColors.gradEducation
+        case "health-safety": return AppColors.gradHealth
+        case "transport": return AppColors.gradTransport
+        default: return [AppColors.dutchOrange, AppColors.warning]
         }
     }
 
