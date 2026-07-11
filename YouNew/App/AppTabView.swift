@@ -128,9 +128,9 @@ struct RootTabView: View {
 
     init(initialTab overrideInitialTab: AppTab? = nil) {
         let initialTab = overrideInitialTab ?? Self.initialSelectedTab()
-        _selectedTab = State(initialValue: initialTab == .more ? .home : initialTab)
-        _previousContentTab = State(initialValue: initialTab == .more ? .home : initialTab)
-        _isMenuPresented = State(initialValue: initialTab == .more)
+        _selectedTab = State(initialValue: initialTab)
+        _previousContentTab = State(initialValue: initialTab)
+        _isMenuPresented = State(initialValue: false)
         _activeMenuDestination = State(initialValue: Self.initialTestingDestination())
         _tabRouter = StateObject(wrappedValue: TabRouter(initialTab: initialTab.tabItem))
 

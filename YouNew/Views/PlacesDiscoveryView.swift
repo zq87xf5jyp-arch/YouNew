@@ -437,11 +437,7 @@ struct PlacesDiscoveryView: View {
             }
 
             if displayMode == .map {
-                if isCityMapOpen {
-                    mapPanel
-                } else {
-                    premiumNetherlandsMapPanel
-                }
+                mapPanel
             } else {
                 listPanel
             }
