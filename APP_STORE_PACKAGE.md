@@ -16,7 +16,7 @@ Newcomer guide for the Netherlands
 
 ## Promotional Text
 
-Source-first guidance for Dutch paperwork, services, search, checklists, and everyday newcomer questions.
+Source-first information and practical tools for Dutch paperwork, services, search, checklists, and everyday newcomer questions.
 
 ## Keywords
 
@@ -24,11 +24,13 @@ Netherlands, newcomer, Dutch, BSN, DigiD, gemeente, housing, taxes, healthcare, 
 
 ## Description
 
-YouNew helps newcomers in the Netherlands understand practical next steps around registration, BSN, DigiD, official letters, housing, healthcare, work, taxes, transport, fines, and trusted sources.
+YouNew helps newcomers in the Netherlands understand practical next steps around registration, BSN, DigiD, official letters, housing, healthcare, work, taxes, transport, fines, and official-source links.
 
-The app is designed as a local-first guide with checklists, search, official-source reminders, privacy controls, and optional AI-assisted informational explanations.
+The app is designed as a local-first guide with checklists, search, document organization, local reminders, official-source links, privacy controls, and optional AI-assisted informational explanations.
 
-YouNew is not affiliated with the Dutch government and does not provide legal, immigration, tax, medical, financial, employment, housing, or emergency advice. AI-generated informational assistance may contain inaccuracies. Always verify important information with official institutions.
+Calendar events are added through the iOS event editor when available; the app does not read or synchronize your calendar back into YouNew. Partner listings and local services are informational and should be checked directly with the business.
+
+YouNew is not affiliated with the Dutch government and does not provide legal, immigration, tax, medical, financial, employment, housing, or emergency advice. The AI assistant provides guidance based on the app's knowledge base and official sources where available. AI-generated informational assistance may contain inaccuracies. Always verify important information with official institutions or qualified professionals.
 
 ## Privacy Nutrition Label Draft
 

@@ -37,6 +37,16 @@ USER_STATUS_CASES = [
     "lgbtNewcomer",
 ]
 
+ONBOARDING_PROFILE_CASES = [
+    "tourist",
+    "student",
+    "worker",
+    "newResident",
+    "businessOwner",
+    "refugeeStatusHolder",
+    "family",
+]
+
 DASHBOARD_REQUIREMENTS = {
     "student": [
         "Universities",
@@ -164,6 +174,9 @@ for doc in REQUIRED_DOCS:
 user_profile = read("YouNew/Models/UserProfile.swift")
 for case_name in USER_STATUS_CASES:
     require(re.search(rf"\bcase {case_name}\b", user_profile) is not None, f"UserStatus missing case {case_name}")
+for case_name in ONBOARDING_PROFILE_CASES:
+    require(re.search(rf"\bcase {case_name}\b", user_profile) is not None, f"OnboardingProfile missing product profile {case_name}")
+require("var userStatus: UserStatus" in user_profile, "OnboardingProfile does not map to existing UserStatus navigation")
 
 persona_tag = read("YouNew/Models/PersonaTag.swift")
 for tag in ["student", "worker", "refugee", "family", "tourist", "entrepreneur", "lgbt", "eu", "nonEU", "highlySkilledMigrant"]:
@@ -181,12 +194,13 @@ onboarding = read("YouNew/Views/OnboardingQuestionnaireView.swift")
 profile_selection = read("YouNew/Views/ProfileSelectionView.swift")
 app_state = read("YouNew/ViewModels/AppStateViewModel.swift")
 content_view = read("YouNew/App/ContentView.swift")
-require("ForEach(UserStatus.allCases)" in onboarding, "Onboarding must ask Who am I? using UserStatus.allCases")
-require("ForEach(UserStatus.allCases)" in profile_selection, "Profile settings must use UserStatus.allCases")
+require("ForEach(OnboardingProfile.allCases)" in onboarding, "Onboarding must ask Who are you? using OnboardingProfile.allCases")
+require("ForEach(OnboardingProfile.allCases)" in profile_selection, "Profile settings must use OnboardingProfile.allCases")
 require("ProfileType.allCases" not in onboarding, "Onboarding still uses ProfileType.allCases")
 require("ProfileType.allCases" not in profile_selection, "Profile settings still uses ProfileType.allCases")
-require("appState.selectedUserStatus = persona" in onboarding, "Onboarding does not save selected persona")
-student_priority_options = section_between(onboarding, r"case \.student:", r"case \.worker:")
+require("appState.selectedUserStatus = persona" in onboarding or "appState.selectedUserStatus = profile.userStatus" in onboarding, "Onboarding does not save selected persona")
+priority_options = section_between(onboarding, r"private func priorityOptions\(for persona: UserStatus\?\)", r"\n    private func prunePrioritiesForSelectedPersona")
+student_priority_options = section_between(priority_options, r"case \.student:", r"case \.worker:")
 require("studentFinance" in student_priority_options and "studentJobs" in student_priority_options and "studentTransport" in student_priority_options, "Student onboarding priorities are not student-specific")
 require('"taxes"' not in student_priority_options and '"work"' not in student_priority_options, "Student onboarding priorities expose worker/tax options")
 require("prunePrioritiesForSelectedPersona()" in onboarding, "Onboarding does not prune stale priorities after persona change")
@@ -232,6 +246,8 @@ for forbidden in ["newcomer.recommendedSteps", "BSN", "DigiD", "Work contracts",
     require(forbidden not in family_path_profile, f"Family path profile leaks forbidden content: {forbidden}")
 
 home = read("YouNew/Views/HomeView.swift")
+home_category_components = read("YouNew/Views/HomeCategoryComponents.swift")
+home_help_components = read("YouNew/Views/HomeHelpComponents.swift")
 require("dashboard(for: appState.selectedUserStatus ?? .worker)" not in home, "Home defaults to worker when no persona is selected")
 home_case_order = {
     "student": r"case \.worker\b",
@@ -251,12 +267,34 @@ for forbidden in STUDENT_FORBIDDEN:
 
 for case_name in ["student", "worker", "refugee", "family", "tourist", "entrepreneur", "lgbt"]:
     require(re.search(rf"case \.{case_name}\b", home) is not None, f"Home life/dashboard data missing persona branch {case_name}")
-require("if shouldShowHistoryAndCultureSection" in home, "Home history/culture section must be persona-gated")
-require("if shouldShowAllCategoriesLink" in home, "Home broad categories link must be persona-gated")
+selected_home_flow = section_between(home, r"releaseCommandCenterTop", "disclaimerFooter")
+for required_section in [
+    "cityCompactOverviewSection",
+    "cityPillsSection",
+    "placesWorthVisitingSection",
+    "foodDrinksGuideSection",
+    "netherlandsCalendarSection",
+    "netherlandsMapSection",
+    "aiAudienceHelpSection",
+    "secondaryToolsSection",
+]:
+    require(required_section in selected_home_flow, f"Home travel-first flow must render {required_section}")
+require("stayInThisCitySection" not in selected_home_flow, "Home travel-first flow must not duplicate stays outside main actions")
+require("travelAction(.booking" in home, "Home main actions must keep stays/hotels as a primary action")
+require("primaryScenarioSection" not in selected_home_flow, "Home travel-first flow must not put scenario selection above travel actions")
+require("audienceEssentialsSection" not in selected_home_flow, "Home travel-first flow must not put filtered essentials above travel actions")
+require("audienceExploreSection" not in selected_home_flow, "Home travel-first flow must not put filtered explore content above travel actions")
+require("historyAndCultureSection" not in selected_home_flow, "Home selected-audience flow must not render mixed history/culture")
+require("categoriesGridSection" not in selected_home_flow, "Home selected-audience flow must not render broad categories before filtering")
+require(
+    "showAllCategoriesLink: shouldShowAllCategoriesLink" in home
+    and (
+        "if showAllCategoriesLink" in home_category_components
+        or "if showAllCategoriesLink" in home_help_components
+    ),
+    "Home broad categories link must be persona-gated",
+)
 require("appState.selectedUserStatus == nil" in section_between(home, "private var shouldShowAllCategoriesLink", r"\n    private var"), "Broad categories link should only appear before persona selection")
-student_history_guard = section_between(home, "private var shouldShowHistoryAndCultureSection", r"\n    private func")
-for forbidden_case in [".student", ".worker", ".refugee", ".family", ".entrepreneur", ".lgbt", ".highlySkilledMigrant"]:
-    require(forbidden_case in student_history_guard, f"History/culture guard does not explicitly handle {forbidden_case}")
 
 root_tab = read("YouNew/App/AppTabView.swift")
 for group in ["regularGovernmentItems", "regularLifeItems", "regularLearnItems"]:
@@ -333,6 +371,7 @@ for resource_title in ["UWV: Employment and benefits", "Belastingdienst: Tax adm
 checklist_engine = read("YouNew/ViewModels/ProfileChecklistEngine.swift")
 checklist_model = read("YouNew/Models/ChecklistItem.swift")
 checklist_view = read("YouNew/Views/ChecklistView.swift")
+home_models = read("YouNew/Views/HomeModels.swift")
 ai_view_model = read("YouNew/ViewModels/AIViewModel.swift")
 ai_builder = read("YouNew/Services/AIContextBuilder.swift")
 require("isAllowedCategory(item.category" in checklist_engine, "Checklist engine does not enforce persona category visibility")
@@ -343,7 +382,13 @@ require("var visibleChecklistItems: [ChecklistItem]" in app_state, "AppState lac
 require("for item in visibleChecklistItems" in app_state, "Prioritized checklist is not based on persona-visible items")
 require("guard item.isVisible(for: selectedUserStatus?.personaTag" in app_state, "Checklist toggle can mutate hidden checklist items")
 require("private var allItems: [ChecklistItem] { appState.visibleChecklistItems }" in checklist_view, "ChecklistView displays all checklist items instead of persona-visible items")
-require("appState.visibleChecklistItems.filter(\\.isCompleted).count" in home and "appState.visibleChecklistItems.count" in home, "Home checklist progress is not persona-filtered")
+require(
+    "visibleItems: appState.visibleChecklistItems" in home
+    and "recommendedItems: appState.prioritizedChecklist.recommended" in home
+    and "init(visibleItems: [ChecklistItem], recommendedItems: [ChecklistItem])" in home_models
+    and "totalCount = visibleItems.count" in home_models,
+    "Home checklist progress is not persona-filtered",
+)
 require("appState.visibleChecklistItems.filter(\\.isCompleted).count" in root_tab and "appState.visibleChecklistItems.count" in root_tab, "Root menu checklist progress is not persona-filtered")
 require("appState.visibleChecklistItems.filter(\\.isCompleted).count" in ai_builder, "AI home context checklist progress is not persona-filtered")
 require("appState.visibleChecklistItems.filter(\\.isCompleted).count" in ai_view_model, "AI view model checklist snapshot is not persona-filtered")

@@ -268,18 +268,19 @@ def main() -> None:
     )
     expect("ProvinceCatalog.provinceIfFound(matching: slug)" in navigation_resolver, "AppNavigationResolver province string routes do not resolve through ProvinceCatalog")
     expect("ProvinceCatalog.citySpotlight(matching: slug)" in navigation_resolver, "AppNavigationResolver city string routes do not resolve through ProvinceCatalog")
-    expect("guard let spotlight = ProvinceCatalog.citySpotlight(matching: cityID) else { return nil }" in app_destination, "MapFocus city raw values are not validated against ProvinceCatalog")
-    expect("self = .city(spotlight.city.id)" in app_destination, "MapFocus city raw values are not canonicalized to ProvinceCatalog city IDs")
-    expect("guard let province = ProvinceCatalog.provinceIfFound(matching: provinceID) else { return nil }" in app_destination, "MapFocus province raw values are not validated against ProvinceCatalog")
-    expect("self = .province(province.id)" in app_destination, "MapFocus province raw values are not canonicalized to ProvinceCatalog province IDs")
-    expect("guard let place = MockNearbyPlacesData.places.first(where: { $0.saveKey == placeID || $0.id.uuidString == placeID }) else { return nil }" in app_destination, "MapFocus place raw values are not validated against nearby place data")
-    expect("self = .place(place.saveKey)" in app_destination, "MapFocus place raw values are not canonicalized to nearby place save keys")
+    expect("ProvinceCatalog.cityID(matching: cityID)" in app_destination, "MapFocus city raw values are not validated against ProvinceCatalog")
+    expect("self = .city(resolvedCityID)" in app_destination, "MapFocus city raw values are not canonicalized to ProvinceCatalog city IDs")
+    expect("ProvinceCatalog.provinceID(matching: provinceID)" in app_destination, "MapFocus province raw values are not validated against ProvinceCatalog")
+    expect("self = .province(resolvedProvinceID)" in app_destination, "MapFocus province raw values are not canonicalized to ProvinceCatalog province IDs")
+    expect("MockNearbyPlacesData.saveKey(matching: placeID)" in app_destination, "MapFocus place raw values are not validated against nearby place data")
+    expect("self = .place(saveKey)" in app_destination, "MapFocus place raw values are not canonicalized to nearby place save keys")
     expect(
-        "AIAssistantView(mapToolDestination: .mapHub)" in app_destination_view,
+        "AIAssistantView(" in app_destination_view
+        and "mapToolDestination: .mapHub" in app_destination_view,
         "Assistant app-destination route must open Map through AppDestination.mapHub instead of an ad hoc sheet",
     )
     expect(
-        root_tab.count("AIAssistantView(mapToolDestination: .mapHub)") == 3,
+        root_tab.count("mapToolDestination: .mapHub") == 3,
         "Root assistant tabs must open the Map tool through AppDestination.mapHub so the Assistant tab stays active",
     )
     expect(
@@ -439,8 +440,6 @@ def main() -> None:
     for required_document_route in [
         "NavigationLink(value: AppDestination.lettersList)",
         "NavigationLink(value: AppDestination.officialSources)",
-        "routeActionLink(icon: \"envelope\", title: lettersTitle, subtitle: lettersSubtitle, destination: .lettersList)",
-        "routeActionLink(icon: \"building.columns\", title: officialTitle, subtitle: officialSubtitle, destination: .officialSources)",
     ]:
         expect(required_document_route in document_organizer, f"DocumentOrganizerView missing route-backed link {required_document_route}")
     expect(

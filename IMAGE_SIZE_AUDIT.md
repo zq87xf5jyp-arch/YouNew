@@ -106,7 +106,7 @@ Remote files were not downloaded. Findings use local raster dimensions, SVG view
 | PASS | Bundled asset | YouNew/Assets.xcassets/noord_brabant_flag.imageset/noord_brabant_flag.svg | Flag asset | 160 x 100 vector | 1.60:1 |  |
 | PASS | Bundled asset | YouNew/Assets.xcassets/noord_holland_flag.imageset/noord_holland_flag.svg | Flag asset | 160 x 100 vector | 1.60:1 |  |
 | PASS | Bundled asset | YouNew/Assets.xcassets/overijssel_flag.imageset/overijssel_flag.svg | Flag asset | 160 x 100 vector | 1.60:1 |  |
-| FAIL | Bundled asset | YouNew/Assets.xcassets/premium_home_background.imageset/premium_home_background.png | Home/category visual asset | 941 x 1672 | 0.56:1 | Below 2400px hero target if rendered as hero |
+| REMOVED | Bundled asset | YouNew/Assets.xcassets/premium_home_background.imageset/premium_home_background.png | Former home/category visual asset | 941 x 1672 | 0.56:1 | Removed after quality review; public preview now uses `home_leiden_canals` |
 | FAIL | Bundled asset | YouNew/Assets.xcassets/premium_home_documents.imageset/premium_home_documents.png | Home/category visual asset | 1586 x 992 | 1.60:1 | Below 2400px hero target if rendered as hero |
 | FAIL | Bundled asset | YouNew/Assets.xcassets/premium_home_emergency.imageset/premium_home_emergency.png | Home/category visual asset | 1586 x 992 | 1.60:1 | Below 2400px hero target if rendered as hero |
 | FAIL | Bundled asset | YouNew/Assets.xcassets/premium_home_healthcare.imageset/premium_home_healthcare.png | Home/category visual asset | 1586 x 992 | 1.60:1 | Below 2400px hero target if rendered as hero |

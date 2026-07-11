@@ -1,46 +1,32 @@
 # Performance Audit
 
-**Date:** 2026-06-18  
-**Verdict:** Static performance-sensitive checks pass; full 60 FPS certification is blocked until a stable simulator or physical device profiling pass is available.
+Date: 2026-07-01
 
-## Verified This Session
+## Result
 
-| Area | Result | Evidence |
-|---|---|---|
-| Static QA suite | PASS | `scripts/run-static-qa.sh` completed successfully |
-| Image data pressure | PASS | 294 visible image assignments, 294 unique URLs, 0 duplicate source groups |
-| Search data coverage | PASS | `search-static-qa.py` validated stable IDs and valid-content query coverage |
-| AI subsystem structure | PASS | `ai-subsystem-static-qa.py` validated route/source/fallback structure |
-| Visual audit gallery generation | PASS | 257 audit cards generated |
-| App icon pixel checks | PASS | Required icon sizes passed alpha, brightness, and contrast checks |
+No release-blocking performance regression was confirmed in completed automated gates.
 
-## Blocked Runtime Measurements
+## Evidence
 
-| Target | Status |
-|---|---|
-| Scrolling FPS | NOT MEASURED |
-| Search typing latency on device | NOT MEASURED |
-| AI send/stop/retry runtime responsiveness | NOT MEASURED |
-| Map interaction and chip scrolling | NOT MEASURED |
-| Image-heavy city/province scrolling | NOT MEASURED |
-| Large-screen layout performance | NOT MEASURED |
-| Memory leaks | NOT MEASURED |
-| Animation jank | NOT MEASURED |
+- Debug simulator build succeeded.
+- `KnowledgeIndexTests.localSearchStaysUnderPerformanceBudget` passed.
+- Static QA suite passed.
+- Image runtime/render QA passed.
+- Focused tab UI smoke completed without app hang or process termination.
+- `YouNewUITests/testLaunchPerformance` passed on iPhone SE QA with `XCTApplicationLaunchMetric()` average 1.486s across 5 launches.
+- `xcrun xctrace record` could not produce a valid Time Profiler artifact in this environment; all-processes and single-process attach attempts hung and partial `.trace` bundles failed export with `Document Missing Template Error`.
 
-## Runtime Blocker Evidence
+## Findings
 
-- Fresh `xcodebuild ... build-for-testing` was silent for roughly two minutes and was terminated with exit 143.
-- `simctl get_app_container ... nl.younew.app` failed after CoreSimulatorService connection became invalid.
-- Simulator Spotlight did not find YouNew installed on the booted device.
+| Area | Status |
+| --- | --- |
+| Main-thread blocking | No production `DispatchQueue.main` hit in direct scan; no blocker found |
+| Search performance | Unit performance budget passed |
+| Image runtime data | Image runtime data QA passed |
+| Render storms / animation jank | Not confirmed; Instruments trace could not be captured |
+| Memory spikes | Not measured in this pass |
+| Repeated network calls | No blocker found by completed static gates |
 
-## Required Before Release Claim
+## Required Follow-Up
 
-Run Instruments on a stable simulator or physical iPhone and capture at minimum:
-
-- SwiftUI scrolling in Home, More, Cities, Provinces, History, and Search.
-- Search query typing and result navigation.
-- AI prompt send, stop, retry, source-card taps, and related-section navigation.
-- Map pan/zoom/chip filtering.
-- Memory graph after repeated navigation through detail screens.
-
-Until those traces pass, the app is not 60 FPS certified.
+Collect a valid Instruments Time Profiler / SwiftUI trace on real device or stable simulator for launch, home scroll, search typing, map, and assistant send flows. The iPhone SE XCTest launch metric is useful supporting evidence, but it does not replace Instruments.

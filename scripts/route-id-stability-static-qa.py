@@ -107,7 +107,7 @@ def main() -> None:
     expect("private static func stableRouteKey" in mistakes, "Newcomer mistake stable route key helper is missing")
 
     resource_keys = stable_keys(resources, "resource:")
-    expect(len(resource_keys) == 18, f"expected 18 stable resource route keys, found {len(resource_keys)}")
+    expect(len(resource_keys) == 35, f"expected 35 stable resource route keys, found {len(resource_keys)}")
     duplicate_resource_keys = sorted({key for key in resource_keys if resource_keys.count(key) > 1})
     expect(not duplicate_resource_keys, f"duplicate stable resource route keys: {duplicate_resource_keys}")
     expect("let id: UUID" in resource_model and "id: UUID = UUID()" in resource_model, "ResourceLinkItem does not accept explicit stable IDs")
@@ -133,7 +133,7 @@ def main() -> None:
         expect(" " not in key, f"Scam Warning route key contains spaces: {key}")
 
     legal_info_count = len(re.findall(r"^\s*item\(", legal_info, flags=re.MULTILINE))
-    expect(legal_info_count == 32, f"expected 32 Legal Info knowledge items, found {legal_info_count}")
+    expect(legal_info_count == 48, f"expected 48 Legal Info knowledge items, found {legal_info_count}")
     expect('StableRouteID.uuid("legal-info:\\(stableKnowledgeKey(englishTitle))")' in legal_info, "Legal Info items do not use stable knowledge IDs")
     expect("private static func stableKnowledgeKey" in legal_info, "Legal Info stable knowledge key helper is missing")
 

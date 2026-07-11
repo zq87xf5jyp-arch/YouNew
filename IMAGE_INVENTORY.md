@@ -114,7 +114,7 @@ Runtime screenshots and network image downloads were not performed in this pass.
 | YouNew/Assets.xcassets/noord_brabant_flag.imageset/noord_brabant_flag.svg | Asset catalog |  | Noord Brabant | Flag asset | 160 x 100 vector | 1.60:1 | 0 | PASS |  |
 | YouNew/Assets.xcassets/noord_holland_flag.imageset/noord_holland_flag.svg | Asset catalog |  | Noord Holland | Flag asset | 160 x 100 vector | 1.60:1 | 0 | PASS |  |
 | YouNew/Assets.xcassets/overijssel_flag.imageset/overijssel_flag.svg | Asset catalog |  | Overijssel | Flag asset | 160 x 100 vector | 1.60:1 | 0 | PASS |  |
-| YouNew/Assets.xcassets/premium_home_background.imageset/premium_home_background.png | Asset catalog |  |  | Home/category visual asset | 941 x 1672 | 0.56:1 | 10 | FAIL | Below 2400px hero target if rendered as hero |
+| YouNew/Assets.xcassets/premium_home_background.imageset/premium_home_background.png | Removed |  |  | Former home/category visual asset | 941 x 1672 | 0.56:1 | 10 | REMOVED | Removed after quality review; public preview now uses `home_leiden_canals` |
 | YouNew/Assets.xcassets/premium_home_documents.imageset/premium_home_documents.png | Asset catalog |  |  | Home/category visual asset | 1586 x 992 | 1.60:1 | 6 | FAIL | Below 2400px hero target if rendered as hero |
 | YouNew/Assets.xcassets/premium_home_emergency.imageset/premium_home_emergency.png | Asset catalog |  |  | Home/category visual asset | 1586 x 992 | 1.60:1 | 2 | FAIL | Below 2400px hero target if rendered as hero |
 | YouNew/Assets.xcassets/premium_home_healthcare.imageset/premium_home_healthcare.png | Asset catalog |  |  | Home/category visual asset | 1586 x 992 | 1.60:1 | 2 | FAIL | Below 2400px hero target if rendered as hero |

@@ -330,9 +330,19 @@ def main() -> None:
             'L10n.t("common.last_checked", lang)',
             "assistantEmptyInputHint",
             '.accessibilityIdentifier("assistant.empty.inputHint")',
-            "Color.clear.frame(height: assistantScrollBottomPadding(safeAreaBottom: safeAreaBottom))",
+            "assistantScrollBottomPadding(safeAreaBottom:",
+            "PremiumVisualMetrics.Layout.bottomTerminalGap",
         ],
         "AIAssistantView quick actions",
+    )
+    expect(
+        "Color.clear.frame(height: PremiumVisualMetrics.Layout.bottomTerminalGap)" not in assistant_view,
+        "AIAssistantView empty state still has an artificial bottom spacer",
+    )
+    expect(
+        "measuredComposerHeight + PremiumVisualMetrics.Layout.bottomTerminalGap" in assistant_view
+        and "bottomComposerClearance" not in assistant_view,
+        "AIAssistantView terminal scroll gap must include the compact composer height without duplicating tab-bar clearance",
     )
     for forbidden_source_label in ['Label("Open Source"', 'Text("Verified Source")', 'Text("Source:', 'Text("Last checked:']:
         expect(

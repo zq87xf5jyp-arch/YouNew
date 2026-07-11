@@ -39,6 +39,42 @@ def block_after(text: str, marker: str, length: int = 2400) -> str:
     return text[index:index + length]
 
 
+def swift_call_blocks(text: str, marker: str) -> list[tuple[int, str]]:
+    blocks: list[tuple[int, str]] = []
+    index = 0
+    while True:
+        start = text.find(marker, index)
+        if start == -1:
+            return blocks
+
+        depth = 0
+        in_string = False
+        escaping = False
+        end = start
+        for cursor, char in enumerate(text[start:], start):
+            if in_string:
+                if escaping:
+                    escaping = False
+                elif char == "\\":
+                    escaping = True
+                elif char == '"':
+                    in_string = False
+                continue
+
+            if char == '"':
+                in_string = True
+            elif char == "(":
+                depth += 1
+            elif char == ")":
+                depth -= 1
+                if depth == 0:
+                    end = cursor + 1
+                    break
+
+        blocks.append((text[:start].count("\n") + 1, text[start:end]))
+        index = max(end, start + len(marker))
+
+
 def main() -> None:
     app_content = read("YouNew/Core/Imaging/AppContentImageView.swift")
     app_content_compact = compact(app_content)
@@ -67,7 +103,9 @@ def main() -> None:
         "AppContentImageView must default remote card requests to at least 1200px",
     )
     expect(
-        "byPreparingThumbnail(ofSize: targetPixelSize)" in app_content,
+        "byPreparingThumbnail(ofSize: targetPixelSize)" in app_content
+        or "downsampledContentImage(from: data, maxPixelSize:" in app_content
+        and "kCGImageSourceThumbnailMaxPixelSize" in app_content,
         "AppContentImageView must downsample to the requested display target instead of stretching source pixels",
     )
 
@@ -82,8 +120,23 @@ def main() -> None:
     ]:
         expect(needle in city_success_block, f"CityImageView success path missing {needle}")
     expect(
-        "let displayAwareWidth = height * 3.2" in image_loader,
-        "CityImageView must request a display-aware image width for hero/card surfaces",
+        "enum CityImageRenderRole" in image_loader
+        and "case hero" in image_loader
+        and "case card" in image_loader
+        and "case thumbnail" in image_loader
+        and "case mapPreview" in image_loader,
+        "CityImageView must expose explicit render roles for hero/card/thumbnail/map preview surfaces",
+    )
+    expect(
+        "readOffMain(urlString: String, targetWidth: CGFloat) async -> UIImage?" in image_loader
+        and "writeOffMain(_ image: UIImage, urlString: String, targetWidth: CGFloat) async" in image_loader
+        and "ImageDiskThumbnailCache.readOffMain(urlString: urlString, targetWidth: targetWidth)" in image_loader
+        and "ImageDiskThumbnailCache.writeOffMain(image, urlString: urlString, targetWidth: targetWidth)" in image_loader,
+        "DirectImageLoader must use explicit async off-main disk thumbnail read/write helpers",
+    )
+    expect(
+        ".onDisappear {\n            loader.cancel()\n        }" in image_loader,
+        "CityImageView must cancel obsolete image work when leaving the screen",
     )
 
     city_views = read("YouNew/Core/DesignSystem/Components/NetherlandsCityViews.swift")
@@ -94,6 +147,7 @@ def main() -> None:
         "height: 160",
         "fallbackURLStrings: resolvedImage.fallbackURLStrings",
         "debugContext: resolvedImage.debugContext",
+        "renderRole: .card",
     ]:
         expect(needle in attraction_block, f"AttractionCard render path missing {needle}")
 
@@ -104,9 +158,21 @@ def main() -> None:
         "urlString: record.photoURL",
         "height: 148",
         'sourceRegistry: "TourismAttractionCatalog"',
-        "targetPixelWidth: 1200",
+        "renderRole: .card",
     ]:
         expect(needle in culture_card_block, f"Tourism catalog card image missing {needle}")
+
+    swift_files = list((ROOT / "YouNew").rglob("*.swift"))
+    for path in swift_files:
+        rel = path.relative_to(ROOT).as_posix()
+        text = path.read_text(encoding="utf-8")
+        if rel == "YouNew/Core/Imaging/ImageLoader.swift":
+            continue
+        for line, block in swift_call_blocks(text, "CityImageView("):
+            expect(
+                "renderRole:" in block,
+                f"{rel}:{line} has CityImageView without an explicit renderRole",
+            )
 
     province_view = read("YouNew/Views/ProvinceDirectoryView.swift")
     expect(
@@ -138,7 +204,7 @@ def main() -> None:
         "CategoryHeroVisual must use AppContentImageView cache/fallback handling instead of raw AsyncImage",
     )
     expect(
-        "CuratedPlaceHeroMediaRegistry.bundledEmergencyFallbackAssetName" in category_hero_block,
+        "CuratedPlaceHeroMediaRegistry.bundledNeutralFallbackAssetName" in category_hero_block,
         "CategoryHeroVisual must fall back to a bundled local image if contextual hero media is unavailable",
     )
 

@@ -83,6 +83,18 @@ def main():
     for required in [
         "assistantActionPanel",
         "assistantToolCard(",
+        "ExternalAssistantTool.all",
+        "ExternalAssistantToolGroup.allCases",
+        "plugin://template-creator@openai-primary-runtime/",
+        "plugin://chrome@openai-bundled/",
+        "plugin://browser@openai-bundled/",
+        "plugin://computer-use@openai-bundled/",
+        "plugin://build-ios-apps@openai-curated-remote/",
+        "plugin://canva@openai-curated-remote/",
+        "plugin://creative-production@openai-curated-remote/",
+        "plugin://product-design@openai-curated-remote/",
+        "app://connector_69312da8e4dc81919370cb86fd172b6c",
+        "app://asdk_app_698a66e4227c8191b75dd67742387dcf",
         "AppDestination.officialSources",
         "AppDestination.searchList",
         "AppDestination.knm",
@@ -92,6 +104,8 @@ def main():
     ]:
         if required not in ai_assistant_view:
             fail(f"AI assistant multifunction tool missing {required}")
+    if "ai_prompt_generated_placeholder" in ai_assistant_view:
+        fail("AI assistant prompt cards must use real visual assets, not generated placeholders")
     for localized_disclaimer in [
         'case .russian:\n            return "YouNew предоставляет только информационную помощь. Ответы AI',
         'case .dutch:\n            return "YouNew biedt alleen informatieve hulp. AI-antwoorden',
@@ -125,21 +139,16 @@ def main():
 
     if 'SideMenuItemModel(id: "feedback"' in root_menu and 'isVisible: false' not in root_menu:
         fail("Feedback menu item must stay hidden without a real action")
-    for main_item in [
-        'SideMenuItemModel(id: "home"',
-        'SideMenuItemModel(id: "map"',
-        'SideMenuItemModel(id: "search"',
-        'SideMenuItemModel(id: "saved"',
-    ]:
-        if main_item not in root_menu:
-            fail(f"Main side menu item missing: {main_item}")
+    for main_item_id in ["home", "places", "saved"]:
+        if not re.search(rf'SideMenuItemModel\(\s*id: "{main_item_id}"', root_menu):
+            fail(f"Main side menu item missing: SideMenuItemModel(id: \"{main_item_id}\"")
     for forbidden_icon in ["flag", "coatOfArms", "YouNewLogoMark() as SideMenuItem"]:
         if forbidden_icon in root_menu:
             fail(f"Forbidden side menu icon/media usage: {forbidden_icon}")
 
     compact_items = re.search(r"private var compactTabBarItems: \[FloatingTabBarItem\] \{(.*?)\n    \}", root_menu, re.S)
-    if not compact_items or compact_items.group(1).count("FloatingTabBarItem(tab:") != 6:
-        fail("Bottom tab count changed from six compact tabs")
+    if not compact_items or compact_items.group(1).count("FloatingTabBarItem(tab:") != 5:
+        fail("Bottom tab count changed from five compact tabs")
     if "if tab == .more {" not in root_menu or "openMenu()" not in root_menu:
         fail("More tab does not open the right-side drawer")
     for route_case in [

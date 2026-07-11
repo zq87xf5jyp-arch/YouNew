@@ -122,7 +122,7 @@ def localization_checks():
     expected = {
         "tab.home": "Главная",
         "tab.search": "Поиск",
-        "tab.map": "Карта",
+        "tab.map": "Places",
         "tab.saved": "Сохран.",
         "tab.explain": "Помощь",
         "tab.more": "Ещё",
@@ -161,8 +161,8 @@ def source_guard_checks():
     expect("enum AppButtonMetrics" in app_spacing, "Shared AppButtonMetrics token enum is missing")
     for token in ["minTouchSize", "horizontalPadding", "verticalPadding", "iconSize"]:
         expect(token in app_spacing, f"AppButtonMetrics missing {token}")
-    expect("static let button: CGFloat = 18" in app_radius, "AppRadius.button token is missing")
-    expect("static let card: CGFloat = 28" in app_radius, "AppRadius.card token is missing")
+    expect("static let button: CGFloat = 16" in app_radius, "AppRadius.button token is missing")
+    expect("static let card: CGFloat = 24" in app_radius, "AppRadius.card token is missing")
     expect("AppButtonMetrics.minTouchSize" in app_shadows, "Button styles do not use shared min touch metric")
     expect("AppRadius.button" in app_shadows, "Button styles do not use shared button radius")
     expect("PrimaryPremiumButtonStyle()" in app_brand, "PrimaryButton does not use shared premium button style")

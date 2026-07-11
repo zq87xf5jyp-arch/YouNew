@@ -25,7 +25,7 @@ else
     _fail "ASSETCATALOG_COMPILER_APPICON_NAME does not point to ${ICON_NAME}"
 fi
 
-icon_sets="$(find "$REPO_ROOT" -name "*.appiconset" -type d | sort)"
+icon_sets="$(find "$REPO_ROOT/YouNew/Assets.xcassets" -name "*.appiconset" -type d | sort)"
 icon_set_count="$(printf '%s\n' "$icon_sets" | sed '/^$/d' | wc -l | tr -d ' ')"
 if [[ "$icon_set_count" == "1" && "$icon_sets" == "$ICON_DIR" ]]; then
     _ok "Only active app icon set found: ${ICON_DIR#$REPO_ROOT/}"

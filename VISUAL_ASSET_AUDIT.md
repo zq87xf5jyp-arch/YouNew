@@ -101,7 +101,7 @@ Generated: 2026-06-13
 | `noord_brabant_flag` | Province flag / province identity | 0 | 160x100 vector | 1.60:1 | 668 B | PASS |
 | `noord_holland_flag` | Province flag / province identity | 0 | 160x33 vector | 4.79:1 | 231 B | PASS |
 | `overijssel_flag` | Province flag / province identity | 0 | 160x100 vector | 1.60:1 | 325 B | PASS |
-| `premium_home_background` | Home / category cards | 10 | 941x1672 | 0.56:1 | 1.6 MB | PASS |
+| `premium_home_background` | Removed former home / category visual | 10 | 941x1672 | 0.56:1 | 1.6 MB | REMOVED after quality review |
 | `premium_home_documents` | Home / category cards | 6 | 1586x992 | 1.60:1 | 2.3 MB | PASS |
 | `premium_home_emergency` | Home / category cards | 2 | 1586x992 | 1.60:1 | 2.2 MB | PASS |
 | `premium_home_healthcare` | Home / category cards | 2 | 1586x992 | 1.60:1 | 1.9 MB | PASS |

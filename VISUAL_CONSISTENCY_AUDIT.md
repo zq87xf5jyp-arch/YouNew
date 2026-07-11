@@ -88,7 +88,7 @@ Runtime screenshot verification could not be completed in this sandbox because X
 | Swift syntax parse for changed visual files | Passed |
 | `scripts/media-static-qa.py` | Passed |
 | `scripts/place-media-static-qa.py` | Passed |
-| Referenced bundled assets exist | Passed: `home_documents_city_hall`, `home_healthcare_pharmacy`, `premium_home_housing`, `premium_home_emergency`, `premium_home_background`, `premium_home_work` |
+| Referenced bundled assets exist | Passed: `home_documents_city_hall`, `home_healthcare_pharmacy`, `premium_home_housing`, `premium_home_emergency`, `premium_home_work` |
 | Full Xcode build | Blocked by local Xcode/CoreSimulator environment: `No available simulator runtimes for platform iphonesimulator` |
 | Device screenshots | Blocked by the same simulator runtime issue |
 

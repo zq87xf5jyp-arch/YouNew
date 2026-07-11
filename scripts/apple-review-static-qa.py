@@ -129,8 +129,13 @@ def main() -> None:
     )
     expect(
         "private var shouldShowContextualAIButton: Bool" in root_tab
-        and "!isMenuPresented && selectedTab != .assistant && selectedTab != .more" in root_tab,
-        "global AI launcher must hide while the menu, Assistant tab, or More tab is active",
+        and "static func shouldShowContextualAIButton(selectedTab: AppTab, isMenuPresented: Bool) -> Bool" in root_tab
+        and "!isMenuPresented" in root_tab
+        and "selectedTab != .assistant" in root_tab
+        and "selectedTab != .more" in root_tab
+        and "selectedTab != .search" in root_tab
+        and "selectedTab != .favorites" in root_tab,
+        "global AI launcher must hide while the menu, Assistant tab, More tab, Search tab, or Saved tab is active",
     )
     expect(
         ".safeAreaInset(edge: .bottom, spacing: 0)" in root_tab
@@ -180,9 +185,12 @@ def main() -> None:
     )
     assistant_view = read(APP_ROOT / "Views/AIAssistantView.swift")
     expect(
-        ".frame(height: 300, alignment: .bottomLeading)" in assistant_view
-        and "assistantComposerDockClearance" in assistant_view
-        and "FloatingTabBarMetrics.height + FloatingTabBarMetrics.bottomOffset + 8" in assistant_view,
+        "PremiumVisualMetrics.Hero.regularHeight" in assistant_view
+        and "PremiumVisualMetrics.Layout.bottomTerminalGap" in assistant_view
+        and "assistantComposerTabBarClearance" in assistant_view
+        and "FloatingTabBarMetrics.height - 2" not in assistant_view
+        and "measuredComposerHeight + PremiumVisualMetrics.Layout.bottomTerminalGap" in assistant_view
+        and ".padding(.bottom, 6 + tabBarClearance)" in assistant_view,
         "AI Assistant hero and composer must keep first-screen cards clear of overlays",
     )
 
@@ -192,9 +200,10 @@ def main() -> None:
         ".frame(maxWidth: .infinity, minHeight: heroHeight, alignment: .bottomLeading)" in welcome_hero,
         "Home hero must use a minimum height so long localized/Dynamic Type content can grow instead of overlapping",
     )
-    hero_city_actions = home_view.split("private var heroCityActionsHorizontal", 1)[1].split("private var heroActionsHorizontal", 1)[0]
+    hero_city_actions = read(APP_ROOT / "Views/HomeHeroComponents.swift")
+    hero_city_actions_callsite = home_view.split("HomeHeroCityActions(", 1)[1].split("            }\n            .padding(.horizontal", 1)[0]
     expect(
-        "AppDestination.nlCityDetail(selectedHeroCity.id)" in hero_city_actions
+        "AppDestination.nlCityDetail(cityDashboard.routeCityId)" in hero_city_actions_callsite
         and "home.hero.exploreCity" in hero_city_actions,
         "Home hero Explore city CTA must target selected city detail and expose a stable runtime identifier",
     )
@@ -203,11 +212,11 @@ def main() -> None:
         "Home hero Explore city CTA must not use magneticEffect because it can misroute taps to the persona card below",
     )
     expect(
-        hero_city_actions.count(".contentShape(Rectangle())") >= 2
-        and hero_city_actions.count(".zIndex(2)") >= 2,
+        ".contentShape(Rectangle())" in hero_city_actions
+        and ".zIndex(2)" in hero_city_actions,
         "Home hero Explore city CTA must own its hit target and remain above neighboring hero content",
     )
-    home_map_card = home_view.split("private struct HomeRealisticNetherlandsMapCard", 1)[1].split("private struct HomeRealisticNetherlandsMapCanvas", 1)[0]
+    home_map_card = read(APP_ROOT / "Views/HomeMapComponents.swift")
     expect(
         ".frame(maxWidth: .infinity, minHeight: dynamicTypeSize.isAccessibilitySize ? 500 : 420)" in home_map_card,
         "Home Netherlands Map card must use a minimum height for long localized headers and controls",
@@ -233,9 +242,10 @@ def main() -> None:
     city_hero = province_view.split("struct CityHeroImageView", 1)[1].split("struct CityFlagBadge", 1)[0]
     expect(
         "@Environment(\\.dynamicTypeSize) private var dynamicTypeSize" in city_hero
-        and ".frame(maxWidth: .infinity, minHeight: heroMinimumHeight, alignment: .bottomLeading)" in city_hero
+        and "let contentWidth: CGFloat" in city_hero
+        and ".frame(width: contentWidth, height: heroMinimumHeight, alignment: .bottomLeading)" in city_hero
         and "private var heroMinimumHeight: CGFloat" in city_hero,
-        "City detail hero must use a Dynamic Type-aware minimum height instead of a fixed geometry height",
+        "City detail hero must use Dynamic Type-aware height and explicit content width instead of overflowing infinity layout",
     )
     expect(
         ".frame(height: CityDetailLayout.heroHeight)" not in city_hero,
