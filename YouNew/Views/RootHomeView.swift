@@ -54,6 +54,7 @@ struct RootHomeView: View {
                 .padding(.horizontal, 18)
                 .padding(.top, 10)
             }
+            .scrollContentBackground(.hidden)
             .accessibilityIdentifier("home.scrollContent")
             .safeAreaPadding(.top, 4)
             .onReceive(router.homeScrollTop) {
@@ -62,6 +63,7 @@ struct RootHomeView: View {
                 }
             }
         }
+        .appSceneBackground(.home)
         .accessibilityIdentifier("screen.home")
     }
 

@@ -56,7 +56,10 @@ struct GlobalBackgroundView: View {
 
     var body: some View {
         ZStack {
-            DutchFutureBaseLayer(colorScheme: colorScheme)
+            AppAmsterdamEveningBackground(
+                colorScheme: colorScheme,
+                reduceTransparency: reduceTransparency
+            )
             AppAmbientMotionLayer(
                 reduceMotion: reduceMotion,
                 reduceTransparency: reduceTransparency
@@ -74,6 +77,35 @@ struct GlobalBackgroundView: View {
         .ignoresSafeArea()
         .allowsHitTesting(false)
         .accessibilityHidden(true)
+    }
+}
+
+private struct AppAmsterdamEveningBackground: View {
+    let colorScheme: ColorScheme
+    let reduceTransparency: Bool
+
+    var body: some View {
+        GeometryReader { proxy in
+            Image("app_amsterdam_evening_background")
+                .resizable()
+                .scaledToFill()
+                .frame(width: proxy.size.width, height: proxy.size.height)
+                .clipped()
+                .overlay {
+                    LinearGradient(
+                        stops: [
+                            .init(color: AppColors.navyDeep.opacity(reduceTransparency ? 0.88 : 0.72), location: 0.00),
+                            .init(color: AppColors.navyDeep.opacity(reduceTransparency ? 0.82 : 0.58), location: 0.42),
+                            .init(color: Color.black.opacity(reduceTransparency ? 0.92 : 0.76), location: 1.00)
+                        ],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+                }
+                .overlay {
+                    Color.black.opacity(colorScheme == .dark ? 0.08 : 0.18)
+                }
+        }
     }
 }
 

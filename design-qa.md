@@ -37,3 +37,14 @@
 ## Final result
 
 Passed for the requested Home redesign against the supplied reference.
+
+## Amsterdam background follow-up
+
+- Source: user-supplied Amsterdam canal photograph, 1280 × 853.
+- Final render: `IA_Audit_Screenshots/amsterdam-background-home-final-settled.png`.
+- The photograph is installed as a real asset and rendered full-bleed behind the application chrome.
+- A navy-to-black readability veil preserves white-text contrast while retaining the sunset, canal houses, bridge and reflections.
+- Scroll surfaces remain transparent, while cards and the fixed tab bar keep their existing high-contrast materials.
+- Reduce Transparency receives a stronger veil instead of removing content.
+
+Final result: passed.
