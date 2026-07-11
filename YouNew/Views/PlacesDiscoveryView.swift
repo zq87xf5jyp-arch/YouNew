@@ -208,7 +208,6 @@ struct PlacesDiscoveryView: View {
 
                         explorationPanel
 
-                        belowMapSections
                         sourceNote
                         Color.clear.frame(height: placesBottomReserve)
                     }
@@ -300,7 +299,6 @@ struct PlacesDiscoveryView: View {
                 }
 
                 HStack(spacing: 10) {
-                    aiInputButton
                     submitInputButton
                 }
             }
@@ -313,22 +311,10 @@ struct PlacesDiscoveryView: View {
                     .focused($isInputFocused)
                     .submitLabel(.search)
                     .onSubmit(handleUniversalInput)
-                aiInputButton
                 submitInputButton
             }
             .placesInputChrome()
         }
-    }
-
-    private var aiInputButton: some View {
-        Button(action: askAIFromInput) {
-            Image(systemName: "sparkles")
-                .font(.headline.weight(.bold))
-                .foregroundStyle(AppColors.violet)
-                .frame(width: 32, height: 32)
-                .background(AppColors.violet.opacity(0.12), in: Circle())
-        }
-        .accessibilityLabel(aiButtonLabel)
     }
 
     private var submitInputButton: some View {
@@ -1346,11 +1332,6 @@ struct PlacesDiscoveryView: View {
         guard !trimmed.isEmpty else { return }
         isInputFocused = false
 
-        if isNaturalLanguageQuestion(trimmed) {
-            onAskAI(trimmed)
-            return
-        }
-
         if let partner = cityPartners.first(where: { partnerMatches($0, query: trimmed) }) {
             onNavigate(.localPartnerDetail(partner.id))
             return
@@ -1535,33 +1516,33 @@ struct PlacesDiscoveryView: View {
 
     private var title: String {
         switch lang {
-        case .russian: return "Places"
-        case .dutch: return "Places"
-        case .english: return "Places"
+        case .russian: return "Карта"
+        case .dutch: return "Kaart"
+        case .english: return "Map"
         }
     }
 
     private var subtitle: String {
         switch lang {
-        case .russian: return "Карта, места, партнеры и единый поиск через AI."
-        case .dutch: return "Kaart, plekken, partners en één zoekingang met AI."
-        case .english: return "Map, nearby places, partners, and one AI-aware discovery entry point."
+        case .russian: return "Карта и объекты рядом с выбранным городом."
+        case .dutch: return "Kaart en plekken rond de gekozen stad."
+        case .english: return "Map and places near your selected city."
         }
     }
 
     private var inputPlaceholder: String {
         switch lang {
-        case .russian: return "Поиск или вопрос AI"
-        case .dutch: return "Zoek of vraag AI"
-        case .english: return "Search or ask AI"
+        case .russian: return "Поиск мест и сервисов"
+        case .dutch: return "Zoek plekken en diensten"
+        case .english: return "Search places and services"
         }
     }
 
     private var inputSubmitLabel: String {
         switch lang {
-        case .russian: return "Найти или спросить AI"
-        case .dutch: return "Zoeken of AI vragen"
-        case .english: return "Ask or search"
+        case .russian: return "Найти"
+        case .dutch: return "Zoeken"
+        case .english: return "Search"
         }
     }
     private var aiButtonLabel: String {

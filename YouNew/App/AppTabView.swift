@@ -644,7 +644,11 @@ struct RootTabView: View {
         switch selectedTab {
         case .home: RootHomeView(selectedTab: $selectedTab)
         case .guide: RootGuideView()
-        case .map: NetherlandsMapHubView()
+        case .map:
+            PlacesDiscoveryView(
+                onNavigate: { regularNavPath.append($0) },
+                onAskAI: { openPlacesAI($0) }
+            )
         case .saved: FavoritesView()
         case .more: RootMoreView()
         }
@@ -705,7 +709,10 @@ struct RootTabView: View {
 
     private var mapTabStack: some View {
         NavigationStack(path: $mapNavPath) {
-            NetherlandsMapHubView()
+            PlacesDiscoveryView(
+                onNavigate: { mapNavPath.append($0) },
+                onAskAI: { openPlacesAI($0) }
+            )
                 .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }
@@ -763,7 +770,10 @@ struct RootTabView: View {
 
     private var mapTabStack: some View {
         NavigationStack {
-            NetherlandsMapHubView()
+            PlacesDiscoveryView(
+                onNavigate: { _ in },
+                onAskAI: { openPlacesAI($0) }
+            )
                 .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
         }
     }
