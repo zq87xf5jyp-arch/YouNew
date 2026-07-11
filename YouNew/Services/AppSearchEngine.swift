@@ -17,22 +17,21 @@ struct AppSearchEngine {
         scope: PersonaSearchScope = .currentAndUniversal,
         limit: Int = 8
     ) -> [KnowledgeSearchResult] {
-        searchContent(
+        let searchableIDs = Set(repository.searchableItems().map(\.id))
+        return index.search(
             query,
             language: language,
             context: context,
             activePersona: activePersona,
-            limit: limit
-        ).compactMap { result in
-            guard let legacy = index.itemsByID[result.item.id] else { return nil }
-            return KnowledgeSearchResult(
-                item: legacy,
-                score: result.score,
-                matchedFields: result.matchedFields,
-                graphNeighbors: index.graph.neighbors(of: legacy.id, in: index.itemsByID, limit: 6),
-                quickActions: KnowledgeIndexBuilder.quickActions(for: legacy)
-            )
+            scope: .allContentWithOutsidePathWarning,
+            limit: max(limit * 3, limit)
+        )
+        .filter { result in
+            let canonicalID = repository.aliases[result.item.id] ?? result.item.id
+            return searchableIDs.contains(canonicalID)
         }
+        .prefix(limit)
+        .map { $0 }
     }
 
     func searchContent(
