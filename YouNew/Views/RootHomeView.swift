@@ -40,15 +40,15 @@ struct RootHomeView: View {
                         offlineStatus.staggeredAppear(index: 1)
                     }
                     cityHeader.staggeredAppear(index: 2)
-                    globalSearch.staggeredAppear(index: 2)
-                    urgentHelp.staggeredAppear(index: 3)
-                    nextActions.staggeredAppear(index: 4)
-                    categoryShortcuts.staggeredAppear(index: 5)
-                    cityGallery.staggeredAppear(index: 6)
-                    recentlyViewed.staggeredAppear(index: 7)
-                    savedSummary.staggeredAppear(index: 8)
-                    nearbySection.staggeredAppear(index: 9)
-                    recommendationSection.staggeredAppear(index: 10)
+                    globalSearch.staggeredAppear(index: 3)
+                    categoryShortcuts.staggeredAppear(index: 4)
+                    nextActions.staggeredAppear(index: 5)
+                    urgentHelp.staggeredAppear(index: 6)
+                    cityGallery.staggeredAppear(index: 7)
+                    recentlyViewed.staggeredAppear(index: 8)
+                    savedSummary.staggeredAppear(index: 9)
+                    nearbySection.staggeredAppear(index: 10)
+                    recommendationSection.staggeredAppear(index: 11)
                     Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
                 }
                 .padding(.horizontal, 18)
@@ -69,8 +69,9 @@ struct RootHomeView: View {
         HStack(spacing: 12) {
             VStack(alignment: .leading, spacing: 2) {
                 HStack(spacing: 8) {
-                    Text("YouNew")
-                        .font(.system(.title2, design: .serif).weight(.bold))
+                    (Text("You").foregroundStyle(AppColors.textPrimary)
+                        + Text("New").foregroundStyle(AppColors.dutchOrange))
+                        .font(.system(size: 30, weight: .heavy, design: .rounded))
                     Text("🇳🇱")
                         .font(.footnote)
                         .padding(.horizontal, 8)
@@ -129,7 +130,7 @@ struct RootHomeView: View {
                 Image(cityHeroAssetName)
                     .resizable()
                     .scaledToFill()
-                    .frame(maxWidth: .infinity, minHeight: 158, maxHeight: 158)
+                    .frame(maxWidth: .infinity, minHeight: 126, maxHeight: 126)
                     .clipped()
                 LinearGradient(
                     colors: [.clear, AppColors.navyDeep.opacity(0.92)],
@@ -142,7 +143,7 @@ struct RootHomeView: View {
                         .font(AppTypography.footnote.weight(.semibold))
                         .foregroundStyle(AppColors.textSecondary)
                     Text(selectedCity)
-                        .font(.title.bold())
+                        .font(.system(size: 27, weight: .bold, design: .rounded))
                         .foregroundStyle(AppColors.textPrimary)
                         .fixedSize(horizontal: false, vertical: true)
                     Label(
@@ -159,11 +160,11 @@ struct RootHomeView: View {
                     .foregroundStyle(AppColors.dutchOrange)
                     .accessibilityHidden(true)
                 }
-                .padding(16)
+                .padding(14)
             }
-            .frame(height: 158)
-            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-            .overlay(RoundedRectangle(cornerRadius: 24, style: .continuous).stroke(AppColors.dutchOrange.opacity(0.22), lineWidth: 0.8))
+            .frame(height: 126)
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(AppColors.dutchOrange.opacity(0.34), lineWidth: 0.8))
         }
         .buttonStyle(.plain)
         .immersiveTilt(intensity: 3.2)
@@ -215,8 +216,8 @@ struct RootHomeView: View {
         .foregroundStyle(AppColors.textPrimary)
         .padding(.horizontal, 14)
         .padding(.vertical, 8)
-        .frame(minHeight: 64)
-        .appGlassCardStyle(padding: 0, cornerRadius: 20, accent: AppColors.cyanGlow)
+        .frame(minHeight: 54)
+        .appGlassCardStyle(padding: 0, cornerRadius: 18, accent: AppColors.cyanGlow)
         .accessibilityIdentifier("home.globalSearch")
     }
 
@@ -260,15 +261,15 @@ struct RootHomeView: View {
                 }
                 .font(AppTypography.footnote.weight(.semibold))
             }
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: 132), spacing: 10)], spacing: 10) {
-                ForEach(Array(Array(Category.canonical.sorted { $0.displayOrder < $1.displayOrder }.prefix(6)).enumerated()), id: \.element.id) { index, category in
+            LazyVGrid(columns: [GridItem(.flexible(), spacing: 9), GridItem(.flexible(), spacing: 9)], spacing: 9) {
+                ForEach(Array(Category.canonical.sorted { $0.displayOrder < $1.displayOrder }.enumerated()), id: \.element.id) { index, category in
                     NavigationLink(value: categoryDestination(category.id)) {
                         HStack(spacing: 10) {
                             Image(systemName: categorySymbol(category.id))
                                 .font(.body.weight(.semibold))
                                 .foregroundStyle(.white)
-                                .frame(width: 34, height: 34)
-                                .background(.white.opacity(0.14), in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+                                .frame(width: 31, height: 31)
+                                .background(.white.opacity(0.16), in: RoundedRectangle(cornerRadius: 10, style: .continuous))
                             Text(categoryTitle(category))
                                 .font(AppTypography.footnote.weight(.semibold))
                                 .foregroundStyle(.white)
@@ -279,13 +280,13 @@ struct RootHomeView: View {
                                 .foregroundStyle(.white.opacity(0.66))
                                 .accessibilityHidden(true)
                         }
-                        .frame(maxWidth: .infinity, minHeight: 58, alignment: .leading)
-                        .padding(.horizontal, 12)
+                        .frame(maxWidth: .infinity, minHeight: 54, alignment: .leading)
+                        .padding(.horizontal, 11)
                         .background(
                             LinearGradient(colors: categoryGradient(category.id), startPoint: .topLeading, endPoint: .bottomTrailing),
-                            in: RoundedRectangle(cornerRadius: 17, style: .continuous)
+                            in: RoundedRectangle(cornerRadius: 15, style: .continuous)
                         )
-                        .overlay(RoundedRectangle(cornerRadius: 17, style: .continuous).stroke(.white.opacity(0.08)))
+                        .overlay(RoundedRectangle(cornerRadius: 15, style: .continuous).stroke(.white.opacity(0.12)))
                     }
                     .buttonStyle(AppPressableCardButtonStyle())
                     .staggeredAppear(index: index)
