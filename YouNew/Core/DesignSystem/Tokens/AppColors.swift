@@ -70,6 +70,16 @@ enum AppColors {
     static let cyanGlow    = Color(red: 58/255,  green: 196/255, blue: 214/255)
     static let orangeGlow  = Color(red: 255/255, green: 136/255, blue: 54/255)
 
+    // MARK: - Reference-driven semantic palette
+    // Use these aliases in shared components instead of introducing local colours.
+    static let backgroundPrimary = Color(red: 5/255, green: 12/255, blue: 27/255)
+    static let backgroundSecondary = Color(red: 10/255, green: 27/255, blue: 50/255)
+    static let cardBackground = Color(red: 14/255, green: 29/255, blue: 53/255)
+    static let accentPrimary = dutchOrange
+    static let accentSecondary = Color(red: 45/255, green: 155/255, blue: 214/255)
+    static let accentAI = violet
+    static let divider = Color(red: 72/255, green: 92/255, blue: 121/255).opacity(0.30)
+
     // MARK: - Fines & Emergency UI
     static let fineAmountOrange = Color(red: 189/255, green: 77/255,  blue: 20/255)  // Burnt orange for fine amount text
     static let fineGold         = Color(red: 255/255, green: 199/255, blue: 71/255)  // Gold accent for fine-amount icon
@@ -108,8 +118,8 @@ enum AppColors {
     )
 
     // MARK: - Premium Semantic Aliases
-    static let primaryBackground = background
-    static let secondaryBackground = backgroundBottom
+    static let primaryBackground = backgroundPrimary
+    static let secondaryBackground = backgroundSecondary
     static let elevatedSurface = cardElevated
     static let primaryText = textPrimary
     static let secondaryText = textSecondary

@@ -85,26 +85,29 @@ private struct AppAmsterdamEveningBackground: View {
     let reduceTransparency: Bool
 
     var body: some View {
-        GeometryReader { proxy in
-            Image("app_amsterdam_evening_background")
-                .resizable()
-                .scaledToFill()
-                .frame(width: proxy.size.width, height: proxy.size.height)
-                .clipped()
-                .overlay {
-                    LinearGradient(
-                        stops: [
-                            .init(color: AppColors.navyDeep.opacity(reduceTransparency ? 0.88 : 0.72), location: 0.00),
-                            .init(color: AppColors.navyDeep.opacity(reduceTransparency ? 0.82 : 0.58), location: 0.42),
-                            .init(color: Color.black.opacity(reduceTransparency ? 0.92 : 0.76), location: 1.00)
-                        ],
-                        startPoint: .top,
-                        endPoint: .bottom
-                    )
-                }
-                .overlay {
-                    Color.black.opacity(colorScheme == .dark ? 0.08 : 0.18)
-                }
+        ZStack {
+            DutchFutureBaseLayer(colorScheme: colorScheme)
+
+            GeometryReader { proxy in
+                Image("app_amsterdam_evening_background")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(width: proxy.size.width, height: proxy.size.height)
+                    .clipped()
+                    .saturation(0.82)
+                    .contrast(1.06)
+                    .opacity(reduceTransparency ? 0.08 : 0.18)
+            }
+
+            LinearGradient(
+                colors: [
+                    AppColors.backgroundSecondary.opacity(0.58),
+                    AppColors.backgroundPrimary.opacity(0.72),
+                    Color.black.opacity(0.86)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
         }
     }
 }

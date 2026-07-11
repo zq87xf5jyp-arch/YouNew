@@ -48,3 +48,17 @@ Passed for the requested Home redesign against the supplied reference.
 - Reduce Transparency receives a stronger veil instead of removing content.
 
 Final result: passed.
+
+## Strict full-system refinement
+
+Evidence is stored in `IA_Audit_Screenshots/strict-reference-pass/` and detailed in `strict_visual_audit.md`.
+
+- Navy is the dominant application surface; photography is now restrained atmosphere and hero content.
+- Shared cards use one 18 pt radius, static edge highlight and shorter shadow.
+- Guide density and Map hierarchy now match the supplied commercial reference more closely.
+- Government and partner screens retain source/verification semantics and inherit the same system.
+- Canonical five-tab navigation is unchanged.
+
+Runtime limitations are recorded in `strict_visual_refinement_report.md`; no unverified device or Instruments claim is made.
+
+Final result: passed for the shared visual system and captured core surfaces.

@@ -1,11 +1,11 @@
 import SwiftUI
 
 enum AppShadows {
-    static let card        = Shadow(color: Color.black.opacity(0.22), radius: 22, x: 0, y: 12)
-    static let elevatedCard = Shadow(color: Color.black.opacity(0.30), radius: 30, x: 0, y: 18)
+    static let card        = Shadow(color: Color.black.opacity(0.24), radius: 14, x: 0, y: 8)
+    static let elevatedCard = Shadow(color: Color.black.opacity(0.30), radius: 20, x: 0, y: 12)
     static let pressedCard = Shadow(color: Color.black.opacity(0.05), radius: 8,  x: 0, y: 3)
-    static let floating    = Shadow(color: Color.black.opacity(0.16), radius: 32, x: 0, y: 16)
-    static let heroPanel   = Shadow(color: AppColors.navyDeep.opacity(0.30), radius: 40, x: 0, y: 20)
+    static let floating    = Shadow(color: Color.black.opacity(0.22), radius: 22, x: 0, y: 12)
+    static let heroPanel   = Shadow(color: AppColors.navyDeep.opacity(0.34), radius: 28, x: 0, y: 14)
     static let badge       = Shadow(color: Color.black.opacity(0.10), radius: 6,  x: 0, y: 2)
 }
 
@@ -149,7 +149,7 @@ private struct AppGlassCardModifier: ViewModifier {
                 AppCardContourOverlay(cornerRadius: cornerRadius, accent: accent)
                     .allowsHitTesting(false)
             }
-            .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.24 : 0.18), radius: colorScheme == .dark ? 22 : 18, x: 0, y: colorScheme == .dark ? 12 : 10)
+            .shadow(color: Color.black.opacity(colorScheme == .dark ? 0.24 : 0.18), radius: colorScheme == .dark ? 14 : 12, x: 0, y: colorScheme == .dark ? 8 : 7)
     }
 }
 
@@ -157,30 +157,24 @@ struct AppCardContourOverlay: View {
     var cornerRadius: CGFloat = AppSurface.cardRadius
     var accent: Color = AppColors.cyanGlow
 
-    @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
 
     var body: some View {
-        TimelineView(.animation) { timeline in
-            let phase = reduceMotion ? 0 : timeline.date.timeIntervalSinceReferenceDate
-            let animatedOpacity = reduceTransparency ? 0.10 : 0.13 + 0.035 * sin(phase / 4.2)
-
-            RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
-                .strokeBorder(
-                    LinearGradient(
-                        colors: [
-                            Color.white.opacity(0.16),
-                            accent.opacity(animatedOpacity),
-                            Color.white.opacity(0.030)
-                        ],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: reduceTransparency ? 0.7 : 0.9
-                )
-                .allowsHitTesting(false)
-                .accessibilityHidden(true)
-        }
+        RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
+            .strokeBorder(
+                LinearGradient(
+                    colors: [
+                        Color.white.opacity(0.14),
+                        accent.opacity(reduceTransparency ? 0.09 : 0.12),
+                        Color.white.opacity(0.025)
+                    ],
+                    startPoint: .topLeading,
+                    endPoint: .bottomTrailing
+                ),
+                lineWidth: reduceTransparency ? 0.7 : 0.8
+            )
+            .allowsHitTesting(false)
+            .accessibilityHidden(true)
     }
 }
 
@@ -221,9 +215,9 @@ struct AppPressableCardButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.982 : 1.0)
-            .opacity(configuration.isPressed ? 0.93 : 1.0)
-            .brightness(configuration.isPressed ? -0.015 : 0)
+            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.97 : 1.0)
+            .opacity(configuration.isPressed ? 0.92 : 1.0)
+            .brightness(configuration.isPressed ? -0.018 : 0)
             .shadow(
                 color: configuration.isPressed
                     ? .clear
@@ -249,7 +243,7 @@ struct AppPressableButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(minWidth: AppButtonMetrics.minTouchSize, minHeight: AppButtonMetrics.minTouchSize)
-            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.975 : 1.0)
+            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.97 : 1.0)
             .opacity(!isEnabled ? 0.56 : (configuration.isPressed ? 0.90 : 1.0))
             .brightness(configuration.isPressed ? -0.02 : 0)
             .animation(reduceMotion ? nil : AppAnimations.tactilePress, value: configuration.isPressed)
@@ -289,7 +283,7 @@ struct PrimaryPremiumButtonStyle: ButtonStyle {
             }
             .shadow(color: isEnabled ? AppColors.cyanGlow.opacity(0.24) : .clear, radius: 18, x: 0, y: 9)
             .shadow(color: isEnabled ? AppColors.dutchOrange.opacity(0.10) : .clear, radius: 8, x: 0, y: 2)
-            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.975 : 1.0)
+            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.97 : 1.0)
             .opacity(configuration.isPressed ? 0.92 : 1.0)
             .brightness(configuration.isPressed ? -0.025 : 0)
             .animation(reduceMotion ? nil : AppAnimations.tactilePress, value: configuration.isPressed)
@@ -329,7 +323,7 @@ struct SecondaryPremiumButtonStyle: ButtonStyle {
                     )
             }
             .shadow(color: isEnabled ? Color.black.opacity(0.06) : .clear, radius: 8, x: 0, y: 4)
-            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.975 : 1.0)
+            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.97 : 1.0)
             .opacity(configuration.isPressed ? 0.86 : 1.0)
             .brightness(configuration.isPressed ? -0.015 : 0)
             .animation(reduceMotion ? nil : AppAnimations.tactilePress, value: configuration.isPressed)
@@ -349,7 +343,7 @@ struct GhostPremiumButtonStyle: ButtonStyle {
             .padding(.vertical, AppButtonMetrics.compactVerticalPadding)
             .background(AppColors.accent.opacity(configuration.isPressed ? 0.12 : 0.0))
             .clipShape(RoundedRectangle(cornerRadius: AppRadius.button, style: .continuous))
-            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.98 : 1.0)
+            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.97 : 1.0)
             .animation(reduceMotion ? nil : AppAnimations.tactilePress, value: configuration.isPressed)
     }
 }
@@ -370,7 +364,7 @@ struct DestructivePremiumButtonStyle: ButtonStyle {
                 RoundedRectangle(cornerRadius: AppRadius.button, style: .continuous)
                     .stroke(AppColors.destructive.opacity(isEnabled ? 0.24 : 0.08), lineWidth: 0.75)
             }
-            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.975 : 1.0)
+            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.97 : 1.0)
             .animation(reduceMotion ? nil : AppAnimations.tactilePress, value: configuration.isPressed)
     }
 }

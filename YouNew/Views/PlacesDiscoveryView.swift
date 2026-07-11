@@ -204,9 +204,15 @@ struct PlacesDiscoveryView: View {
                     LazyVStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
                         Color.clear.frame(height: 0).id("placesTop")
                         universalInput
-                        filterRow
 
-                        explorationPanel
+                        if isCityMapOpen {
+                            filterRow
+                            explorationPanel
+                        } else {
+                            premiumNetherlandsMapPanel
+                        }
+
+                        belowMapSections
 
                         sourceNote
                         Color.clear.frame(height: placesBottomReserve)
@@ -215,6 +221,7 @@ struct PlacesDiscoveryView: View {
                     .padding(.horizontal, horizontalPadding)
                     .padding(.vertical, AppSpacing.medium)
                 }
+                .scrollContentBackground(.hidden)
                 .safeAreaInset(edge: .top, spacing: 0) {
                     Color.clear.frame(height: 8)
                 }

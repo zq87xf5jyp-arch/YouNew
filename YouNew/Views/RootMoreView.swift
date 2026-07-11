@@ -42,6 +42,8 @@ struct RootMoreView: View {
             .padding(.horizontal, 18)
             .padding(.top, 12)
         }
+        .scrollContentBackground(.hidden)
+        .appSceneBackground(.more)
         .safeAreaPadding(.top, 4)
     }
 
@@ -54,7 +56,7 @@ struct RootMoreView: View {
                 .padding(.horizontal, 4)
                 .padding(.bottom, 8)
             VStack(spacing: 0) { content() }
-                .appGlassCardStyle(padding: 0, cornerRadius: 19, accent: AppColors.softBlue)
+                .appGlassCardStyle(padding: 0, cornerRadius: AppSurface.cardRadius, accent: AppColors.softBlue)
         }
     }
 
@@ -84,7 +86,7 @@ struct RootMoreView: View {
                     .accessibilityHidden(true)
             }
             .padding(.horizontal, 13)
-            .frame(minHeight: 64)
+            .frame(minHeight: 58)
             .overlay(alignment: .bottom) {
                 Rectangle().fill(AppColors.stroke.opacity(0.45)).frame(height: 0.5).padding(.leading, 62)
             }

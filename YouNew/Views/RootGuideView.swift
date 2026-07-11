@@ -6,7 +6,7 @@ struct RootGuideView: View {
     @EnvironmentObject private var router: TabRouter
 
     private var language: AppLanguage { languageManager.appLanguage }
-    private let columns = [GridItem(.adaptive(minimum: 150, maximum: 280), spacing: 14)]
+    private let columns = [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)]
 
     var body: some View {
         ScrollViewReader { proxy in
@@ -24,6 +24,7 @@ struct RootGuideView: View {
                 .padding(.horizontal, 18)
                 .padding(.top, 12)
             }
+            .scrollContentBackground(.hidden)
             .accessibilityIdentifier("guide.scrollContent")
             .safeAreaPadding(.top, 4)
             .onReceive(router.guideScrollTop) {
@@ -32,6 +33,7 @@ struct RootGuideView: View {
                 }
             }
         }
+        .appSceneBackground(.search)
     }
 
     private var header: some View {
@@ -88,15 +90,15 @@ struct RootGuideView: View {
     }
 
     private var categoryGrid: some View {
-        LazyVGrid(columns: columns, alignment: .leading, spacing: 14) {
+        LazyVGrid(columns: columns, alignment: .leading, spacing: 10) {
             ForEach(Category.canonical.sorted { $0.displayOrder < $1.displayOrder }) { category in
                 NavigationLink(value: destination(for: category.id)) {
-                    VStack(alignment: .leading, spacing: 12) {
+                    VStack(alignment: .leading, spacing: 9) {
                         Image(systemName: symbol(for: category.id))
                             .font(.title2.bold())
                             .foregroundStyle(tint(for: category.id))
-                            .frame(width: 42, height: 42)
-                            .background(tint(for: category.id).opacity(0.13), in: RoundedRectangle(cornerRadius: 13, style: .continuous))
+                            .frame(width: 38, height: 38)
+                            .background(tint(for: category.id).opacity(0.16), in: RoundedRectangle(cornerRadius: 11, style: .continuous))
                         Text(title(for: category))
                             .font(.headline)
                             .foregroundStyle(AppColors.textPrimary)
@@ -107,9 +109,9 @@ struct RootGuideView: View {
                             .lineLimit(3)
                             .fixedSize(horizontal: false, vertical: true)
                     }
-                    .frame(maxWidth: .infinity, minHeight: 154, alignment: .topLeading)
-                    .padding(15)
-                    .appGlassCardStyle(padding: 0, cornerRadius: 22, accent: tint(for: category.id))
+                    .frame(maxWidth: .infinity, minHeight: 140, alignment: .topLeading)
+                    .padding(13)
+                    .appGlassCardStyle(padding: 0, cornerRadius: AppSurface.cardRadius, accent: tint(for: category.id))
                 }
                 .buttonStyle(.plain)
                 .accessibilityIdentifier("guide.category.\(category.id)")

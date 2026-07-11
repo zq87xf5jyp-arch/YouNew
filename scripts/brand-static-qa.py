@@ -172,7 +172,8 @@ def source_guard_checks():
     expect("accessibilityReduceMotion" in app_background, "Ambient visuals do not respect Reduce Motion")
     expect("accessibilityReduceTransparency" in app_background, "Ambient visuals do not respect Reduce Transparency")
     expect("AppCardContourOverlay" in app_shadows, "Shared card contour visual effect is missing")
-    expect("TimelineView(.animation)" in app_background and "TimelineView(.animation)" in app_shadows, "Visual effects are not wired through shared animated layers")
+    expect("TimelineView(.animation)" in app_background, "Ambient background motion is not wired through the shared layer")
+    expect("TimelineView(.animation)" not in app_shadows, "Card contours must remain static to avoid a per-card animation loop")
 
     for symbol in ["homeActive", "guideActive", "mapActive", "favoriteActive", "moreActive", "bookmark.fill", "house.fill", "map.fill", "heart.fill", "safari.fill", "static let back"]:
         expect(symbol in app_icons, f"Bottom tab icon mapping missing {symbol}")

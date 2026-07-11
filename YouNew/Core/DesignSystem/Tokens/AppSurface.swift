@@ -6,16 +6,16 @@ enum AppSurface {
     // MARK: - Base
 
     /// The one true background — every screen uses this exact floor color.
-    static let base = Color(red: 0.027, green: 0.039, blue: 0.075)
+    static let base = AppColors.backgroundPrimary
 
     // MARK: - Elevation layers (each ~7% lighter than previous)
 
     /// E1 — cards floating on base
-    static let e1 = Color(red: 0.047, green: 0.064, blue: 0.118)
+    static let e1 = AppColors.cardBackground
     /// E2 — elevated cards, highlighted rows
-    static let e2 = Color(red: 0.064, green: 0.086, blue: 0.152)
+    static let e2 = Color(red: 20/255, green: 40/255, blue: 70/255)
     /// E3 — modals, sheets, popovers
-    static let e3 = Color(red: 0.086, green: 0.112, blue: 0.188)
+    static let e3 = Color(red: 27/255, green: 51/255, blue: 84/255)
 
     // MARK: - Border system (same hue, varying opacity)
 
@@ -28,11 +28,11 @@ enum AppSurface {
 
     // MARK: - Product depth system
 
-    static let card = e1.opacity(0.88)
-    static let activeCard = e2.opacity(0.94)
+    static let card = e1.opacity(0.96)
+    static let activeCard = e2.opacity(0.98)
     static let modal = e3.opacity(0.96)
-    static let cardRadius: CGFloat = 22
-    static let modalRadius: CGFloat = 28
+    static let cardRadius: CGFloat = 18
+    static let modalRadius: CGFloat = 24
 
     static let hairline = Color.white.opacity(0.105)
     static let premiumHighlight = Color.white.opacity(0.085)
@@ -41,8 +41,8 @@ enum AppSurface {
     static func cardSurface(accent: Color = AppColors.cyanGlow, isActive: Bool = false) -> LinearGradient {
         LinearGradient(
             colors: [
-                Color.white.opacity(isActive ? 0.110 : 0.070),
-                accent.opacity(isActive ? 0.060 : 0.030),
+                Color.white.opacity(isActive ? 0.075 : 0.042),
+                accent.opacity(isActive ? 0.052 : 0.022),
                 (isActive ? activeCard : card)
             ],
             startPoint: .topLeading,
@@ -53,8 +53,8 @@ enum AppSurface {
     static func cardBorder(accent: Color = AppColors.cyanGlow, isActive: Bool = false) -> LinearGradient {
         LinearGradient(
             colors: [
-                Color.white.opacity(isActive ? 0.260 : 0.170),
-                accent.opacity(isActive ? 0.160 : 0.075),
+                Color.white.opacity(isActive ? 0.220 : 0.130),
+                accent.opacity(isActive ? 0.145 : 0.065),
                 Color.white.opacity(0.050)
             ],
             startPoint: .topLeading,
