@@ -49,7 +49,8 @@ struct CitiesDirectoryView: View {
             subtitle: subtitleText,
             symbol: "building.2.fill",
             badgeText: badgeText,
-            accent: AppColors.softBlue
+            accent: AppColors.softBlue,
+            asset: ContentMediaRegistry.mapImage ?? ContentMediaRegistry.cultureWideHero ?? ContentMediaRegistry.officialSourcesHero
         )
     }
 
@@ -80,7 +81,7 @@ struct CitiesDirectoryView: View {
             VStack(alignment: .leading, spacing: AppSpacing.small) {
                 NLSectionHeader(title: priorityTitle)
 
-                LazyVGrid(columns: [GridItem(.adaptive(minimum: 156), spacing: AppSpacing.small)], spacing: AppSpacing.small) {
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 240), spacing: AppSpacing.medium)], spacing: AppSpacing.medium) {
                     ForEach(ProvinceCatalog.citySpotlights.filter { ProvinceCatalog.priorityCityNames.contains($0.city.name) }) { spotlight in
                         NavigationLink(value: AppDestination.cityDetail(province: spotlight.province.id, city: spotlight.city.name)) {
                             cityTile(spotlight)
@@ -96,15 +97,104 @@ struct CitiesDirectoryView: View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             NLSectionHeader(title: allCitiesTitle)
 
-            LazyVStack(spacing: AppSpacing.small) {
-                ForEach(filteredCities) { spotlight in
-                    NavigationLink(value: AppDestination.cityDetail(province: spotlight.province.id, city: spotlight.city.name)) {
-                        cityRow(spotlight)
+            if filteredCities.isEmpty {
+                noCityResultsDashboard
+            } else {
+                LazyVStack(spacing: AppSpacing.small) {
+                    ForEach(filteredCities) { spotlight in
+                        NavigationLink(value: AppDestination.cityDetail(province: spotlight.province.id, city: spotlight.city.name)) {
+                            cityRow(spotlight)
+                        }
+                        .buttonStyle(NLTileButtonStyle())
                     }
-                    .buttonStyle(NLTileButtonStyle())
                 }
             }
         }
+    }
+
+    private var noCityResultsDashboard: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.medium) {
+            HStack(alignment: .top, spacing: AppSpacing.medium) {
+                Image(systemName: "building.2.crop.circle")
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundStyle(AppColors.softBlue)
+                    .frame(width: 52, height: 52)
+                    .background(AppColors.softBlue.opacity(0.13))
+                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(noCityResultsTitle)
+                        .font(AppTypography.cardTitle)
+                        .foregroundStyle(AppColors.textPrimary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text(noCityResultsDetail)
+                        .font(AppTypography.body)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
+            Button {
+                searchText = ""
+            } label: {
+                Label(showAllCitiesTitle, systemImage: "arrow.counterclockwise")
+                    .font(AppTypography.bodyStrong)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(AppColors.accent)
+            .accessibilityIdentifier("cities.empty.reset")
+
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 170), spacing: 10)], spacing: 10) {
+                ForEach(cityRecoveryActions) { action in
+                    NavigationLink(value: action.destination) {
+                        CityRecoveryActionCard(action: action)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("cities.empty.action.\(action.id)")
+                }
+            }
+        }
+        .appCardStyle()
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("cities.empty.dashboard")
+    }
+
+    private var cityRecoveryActions: [CityRecoveryAction] {
+        [
+            CityRecoveryAction(
+                id: "provinces",
+                icon: "map.fill",
+                title: localized(en: "Browse provinces", nl: "Provincies bekijken", ru: "Смотреть провинции"),
+                subtitle: localized(en: "Find cities by region", nl: "Vind steden per regio", ru: "Найти города по региону"),
+                color: AppColors.routeLine,
+                destination: .provinceList
+            ),
+            CityRecoveryAction(
+                id: "map",
+                icon: "mappin.and.ellipse",
+                title: localized(en: "Open map", nl: "Kaart openen", ru: "Открыть карту"),
+                subtitle: localized(en: "Search places nearby", nl: "Zoek plekken in de buurt", ru: "Искать места рядом"),
+                color: AppColors.emerald,
+                destination: .mapHub
+            ),
+            CityRecoveryAction(
+                id: "search",
+                icon: "magnifyingglass.circle.fill",
+                title: localized(en: "Search knowledge", nl: "Kennis zoeken", ru: "Поиск знаний"),
+                subtitle: localized(en: "Try municipality or service names", nl: "Probeer gemeente- of dienstnamen", ru: "Попробуйте gemeente или службы"),
+                color: AppColors.dutchOrange,
+                destination: .searchList
+            ),
+            CityRecoveryAction(
+                id: "sources",
+                icon: "checkmark.shield.fill",
+                title: localized(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники"),
+                subtitle: localized(en: "Use verified city channels", nl: "Gebruik geverifieerde stadskanalen", ru: "Использовать проверенные каналы"),
+                color: AppColors.success,
+                destination: .officialSources
+            )
+        ]
     }
 
     private func cityTile(_ spotlight: CitySpotlightData) -> some View {
@@ -121,7 +211,8 @@ struct CitiesDirectoryView: View {
                     screen: "Cities directory tile",
                     entityType: "city",
                     entityName: spotlight.city.localizedName(lang)
-                )
+                ),
+                renderRole: .card
             )
             .frame(maxWidth: .infinity)
             .frame(height: 152)
@@ -154,8 +245,10 @@ struct CitiesDirectoryView: View {
                 Text(spotlight.city.localizedName(lang))
                     .font(AppTypography.bodyStrong)
                     .foregroundStyle(.white)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.82)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.68)
+                    .allowsTightening(true)
+                    .fixedSize(horizontal: false, vertical: true)
                 Text(spotlight.province.localizedName(lang))
                     .font(AppTypography.caption)
                     .foregroundStyle(.white.opacity(0.76))
@@ -188,7 +281,8 @@ struct CitiesDirectoryView: View {
                         screen: "Cities directory row",
                         entityType: "city",
                         entityName: spotlight.city.localizedName(lang)
-                    )
+                    ),
+                    renderRole: .thumbnail
                 )
                 .frame(width: 96, height: 78)
                 .clipped()
@@ -277,5 +371,60 @@ struct CitiesDirectoryView: View {
         case .dutch: return "Alle steden"
         case .english: return "All cities"
         }
+    }
+
+    private var noCityResultsTitle: String {
+        switch lang {
+        case .russian: return "Город не найден"
+        case .dutch: return "Stad niet gevonden"
+        case .english: return "City not found"
+        }
+    }
+
+    private var noCityResultsDetail: String {
+        switch lang {
+        case .russian: return "Проверьте написание или перейдите к провинциям, карте и официальным источникам."
+        case .dutch: return "Controleer de spelling of ga naar provincies, kaart en officiële bronnen."
+        case .english: return "Check the spelling or continue with provinces, the map, and official sources."
+        }
+    }
+
+    private var showAllCitiesTitle: String {
+        switch lang {
+        case .russian: return "Показать все города"
+        case .dutch: return "Toon alle steden"
+        case .english: return "Show all cities"
+        }
+    }
+
+    private func localized(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .russian: return ru
+        case .dutch: return nl
+        case .english: return en
+        }
+    }
+}
+
+private struct CityRecoveryAction: Identifiable {
+    let id: String
+    let icon: String
+    let title: String
+    let subtitle: String
+    let color: Color
+    let destination: AppDestination
+}
+
+private struct CityRecoveryActionCard: View {
+    let action: CityRecoveryAction
+
+    var body: some View {
+        ProductTaskCard(
+            title: action.title,
+            subtitle: action.subtitle,
+            symbol: action.icon,
+            accent: action.color,
+            minHeight: 104
+        )
     }
 }

@@ -85,11 +85,11 @@ enum AISafetyRules {
     static func sourceMissingMessage(for language: AppLanguage) -> String {
         switch language {
         case .russian:
-            return "Официальный источник пока не добавлен в приложение. Проверьте это в соответствующем учреждении Нидерландов."
+            return "Для этого ответа нет привязанного официального источника. Проверьте информацию в соответствующем учреждении Нидерландов."
         case .dutch:
-            return "Officiële bron is nog niet beschikbaar in de app. Controleer dit bij de relevante Nederlandse instantie."
+            return "Voor dit antwoord is geen officiële bron gekoppeld. Controleer de informatie bij de relevante Nederlandse instantie."
         case .english:
-            return "Official source not available in the app yet. Please verify this with the relevant Dutch institution."
+            return "No official source is linked for this answer. Please verify the information with the relevant Dutch institution."
         }
     }
 

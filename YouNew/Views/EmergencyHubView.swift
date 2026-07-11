@@ -134,7 +134,8 @@ struct EmergencyHubView: View {
             subtitle: heroSubtitle,
             symbol: "phone.fill",
             badgeText: "112",
-            accent: AppColors.emergencyRed
+            accent: AppColors.emergencyRed,
+            asset: ContentMediaRegistry.emergencyImage ?? ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.officialSourcesHero
         )
     }
 
@@ -177,14 +178,39 @@ struct EmergencyHubView: View {
                 .padding(.horizontal, 18)
                 .padding(.vertical, 12)
 
-                Link(destination: AppURL.safeWebURL(contact.sourceURL)) {
-                    Label(sourceButtonTitle, systemImage: "checkmark.shield.fill")
-                        .font(.system(size: 13, weight: .bold, design: .rounded))
-                        .foregroundStyle(.white)
-                        .frame(maxWidth: .infinity)
-                        .padding(.vertical, 12)
-                        .background(Color.white.opacity(0.14))
+                VStack(alignment: .leading, spacing: 10) {
+                    Text(contact.sourceTitle)
+                        .font(.system(size: 12, weight: .bold, design: .rounded))
+                        .foregroundStyle(.white.opacity(0.78))
+                        .lineLimit(2)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    HStack(spacing: 8) {
+                        if let callURL = contact.callURL {
+                            Link(destination: callURL) {
+                                Label(callButtonTitle, systemImage: "phone.fill")
+                                    .font(.system(size: 13, weight: .bold, design: .rounded))
+                                    .foregroundStyle(.white)
+                                    .frame(maxWidth: .infinity)
+                                    .padding(.vertical, 12)
+                                    .background(Color.white.opacity(0.2))
+                            }
+                            .accessibilityIdentifier("emergency.primary.call")
+                        }
+
+                        Link(destination: AppURL.safeWebURL(contact.sourceURL)) {
+                            Label(sourceButtonTitle, systemImage: "checkmark.shield.fill")
+                                .font(.system(size: 13, weight: .bold, design: .rounded))
+                                .foregroundStyle(.white)
+                                .frame(maxWidth: .infinity)
+                                .padding(.vertical, 12)
+                                .background(Color.white.opacity(0.14))
+                        }
+                        .accessibilityIdentifier("emergency.primary.source")
+                    }
                 }
+                .padding(.horizontal, 18)
+                .padding(.vertical, 12)
             }
             .background(
                 LinearGradient(
@@ -241,6 +267,7 @@ struct EmergencyHubView: View {
                             .frame(maxWidth: .infinity)
                     }
                     .buttonStyle(SecondaryPremiumButtonStyle())
+                    .accessibilityIdentifier("emergency.contact.call.\(contact.id)")
                 }
 
                 Link(destination: AppURL.safeWebURL(contact.sourceURL)) {
@@ -249,6 +276,7 @@ struct EmergencyHubView: View {
                         .frame(maxWidth: .infinity)
                 }
                 .buttonStyle(SecondaryPremiumButtonStyle())
+                .accessibilityIdentifier("emergency.contact.source.\(contact.id)")
             }
         }
         .appGlassCardStyle(padding: 14, cornerRadius: 20, accent: contact.color)

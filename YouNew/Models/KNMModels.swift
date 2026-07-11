@@ -2,7 +2,7 @@ import SwiftUI
 
 // MARK: - Localised string
 
-struct KNMLocalizedString {
+struct KNMLocalizedString: Sendable {
     let en: String
     let nl: String
     let ru: String
@@ -18,7 +18,7 @@ struct KNMLocalizedString {
 
 // MARK: - Accent colour token (no SwiftUI Color stored in data)
 
-enum KNMAccentToken: String {
+enum KNMAccentToken: String, Sendable {
     case cyan, orange, green, violet, blue, red, yellow, emerald, teal
 
     var color: Color {
@@ -38,7 +38,7 @@ enum KNMAccentToken: String {
 
 // MARK: - Official source
 
-struct KNMSource: Identifiable {
+struct KNMSource: Identifiable, Sendable {
     let id: String
     let title: KNMLocalizedString
     let url: String
@@ -50,7 +50,7 @@ struct KNMSource: Identifiable {
 
 // MARK: - Key term
 
-struct KNMKeyTerm: Identifiable {
+struct KNMKeyTerm: Identifiable, Sendable {
     let id: String
     let term: String               // Dutch term
     let definition: KNMLocalizedString
@@ -59,7 +59,7 @@ struct KNMKeyTerm: Identifiable {
 // MARK: - Practice question
 // isOfficial is always false because these are app-created study questions, not DUO exam material.
 
-struct KNMPracticeQuestion: Identifiable {
+struct KNMPracticeQuestion: Identifiable, Sendable {
     let id: String
     let question: KNMLocalizedString
     let options: [KNMLocalizedString]   // always 4
@@ -71,7 +71,7 @@ struct KNMPracticeQuestion: Identifiable {
 
 // MARK: - Lesson
 
-struct KNMLesson: Identifiable {
+struct KNMLesson: Identifiable, Sendable {
     let id: String
     let title: KNMLocalizedString
     let body: KNMLocalizedString
@@ -85,7 +85,7 @@ struct KNMLesson: Identifiable {
 
 // MARK: - Module
 
-struct KNMModule: Identifiable {
+struct KNMModule: Identifiable, Sendable {
     let id: String
     let title: KNMLocalizedString
     let summary: KNMLocalizedString
@@ -97,7 +97,7 @@ struct KNMModule: Identifiable {
     let verified: Bool
     let searchAliases: [String]
 
-    var allQuestions: [KNMPracticeQuestion] {
+    nonisolated var allQuestions: [KNMPracticeQuestion] {
         lessons.flatMap(\.practiceQuestions)
     }
 }

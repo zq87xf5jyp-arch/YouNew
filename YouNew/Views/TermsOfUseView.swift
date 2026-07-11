@@ -34,22 +34,25 @@ struct TermsOfUseView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
-            Image(systemName: "doc.text.fill")
-                .font(.system(size: 24, weight: .semibold))
-                .foregroundStyle(AppColors.softBlue)
-                .frame(width: 54, height: 54)
-                .background(AppColors.softBlue.opacity(0.12))
-                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-            Text(title)
-                .font(AppTypography.title)
-                .foregroundStyle(AppColors.textPrimary)
+            CategoryHeroVisual(
+                assetName: nil,
+                title: title,
+                subtitle: headerSummary,
+                symbol: "doc.text.fill",
+                badgeText: termsBadgeText,
+                accent: AppColors.softBlue,
+                asset: ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero,
+                height: 240,
+                language: lang
+            )
+
             Text(headerDetail)
-                .font(AppTypography.body)
+                .font(AppTypography.footnote)
                 .foregroundStyle(AppColors.textSecondary)
                 .fixedSize(horizontal: false, vertical: true)
+                .padding(.horizontal, 4)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .appCardStyle()
     }
 
     private func section<Content: View>(title: String, @ViewBuilder content: () -> Content) -> some View {
@@ -88,6 +91,8 @@ struct TermsOfUseView: View {
 
 private extension TermsOfUseView {
     var title: String { lang == .russian ? "Условия использования" : (lang == .dutch ? "Gebruiksvoorwaarden" : "Terms of Use") }
+    var headerSummary: String { lang == .russian ? "Используйте приложение как информационный гид." : (lang == .dutch ? "Gebruik de app als informatieve gids." : "Use the app as an informational guide.") }
+    var termsBadgeText: String { lang == .russian ? "Информационный гид" : (lang == .dutch ? "Informatieve gids" : "Informational guide") }
     var headerDetail: String { lang == .russian ? "Используя YouNew, вы соглашаетесь использовать приложение как информационный гид и проверять важные решения в официальных источниках." : (lang == .dutch ? "Door YouNew te gebruiken, gebruikt u de app als informatieve gids en controleert u belangrijke beslissingen bij officiële bronnen." : "By using YouNew, you agree to use the app as an informational guide and verify important decisions with official sources.") }
     var useTitle: String { lang == .russian ? "Использование" : (lang == .dutch ? "Gebruik" : "Use") }
     var informationalTitle: String { lang == .russian ? "Информационный гид" : (lang == .dutch ? "Informatieve gids" : "Informational guide") }

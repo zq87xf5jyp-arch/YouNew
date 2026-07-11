@@ -112,6 +112,7 @@ struct InstitutionCard: View {
 
             TrustMetadataRow(metadata: trustMetadata)
         }
+        .padding(PremiumVisualMetrics.Card.padding)
         .frame(maxWidth: .infinity, alignment: .leading)
         .premiumNetherlandsCard(cornerRadius: AppCornerRadius.large, accent: institutionAccent)
     }

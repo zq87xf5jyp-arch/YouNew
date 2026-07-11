@@ -3,6 +3,7 @@ import Foundation
 
 enum AppTab: Hashable {
     case home
+    case places
     case search
     case map
     case favorites
@@ -12,8 +13,7 @@ enum AppTab: Hashable {
 
 enum TabItem: Hashable {
     case home
-    case search
-    case map
+    case places
     case saved
     case ai
     case more
@@ -23,6 +23,7 @@ final class TabRouter: ObservableObject {
     @Published var selectedTab: TabItem
 
     let homeScrollTop = PassthroughSubject<Void, Never>()
+    let placesScrollTop = PassthroughSubject<Void, Never>()
     let searchScrollTop = PassthroughSubject<Void, Never>()
     let mapReset = PassthroughSubject<Void, Never>()
     let savedScrollTop = PassthroughSubject<Void, Never>()
@@ -49,10 +50,8 @@ final class TabRouter: ObservableObject {
         switch tab {
         case .home:
             homeScrollTop.send()
-        case .search:
-            searchScrollTop.send()
-        case .map:
-            mapReset.send()
+        case .places:
+            placesScrollTop.send()
         case .saved:
             savedScrollTop.send()
         case .ai:
@@ -67,12 +66,12 @@ extension AppTab {
     var tabItem: TabItem {
         switch self {
         case .home: return .home
-        case .search: return .search
-        case .map: return .map
+        case .places: return .places
+        case .search: return .places
+        case .map: return .places
         case .favorites: return .saved
         case .assistant: return .ai
         case .more: return .more
         }
     }
 }
-

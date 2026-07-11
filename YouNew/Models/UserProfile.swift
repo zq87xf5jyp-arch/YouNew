@@ -1,6 +1,6 @@
 import Foundation
 
-enum ProfileType: String, CaseIterable, Identifiable {
+enum ProfileType: String, CaseIterable, Identifiable, Codable {
     case worker
     case student
     case expat
@@ -44,7 +44,7 @@ enum ProfileType: String, CaseIterable, Identifiable {
     }
 }
 
-enum ArrivalStatus: String, CaseIterable, Identifiable {
+enum ArrivalStatus: String, CaseIterable, Identifiable, Codable {
     case arrivingSoon
     case arrivedRecently
     case alreadyLivingInNL
@@ -62,7 +62,7 @@ enum ArrivalStatus: String, CaseIterable, Identifiable {
     }
 }
 
-enum TimeInNL: String, CaseIterable, Identifiable {
+enum TimeInNL: String, CaseIterable, Identifiable, Codable {
     case justArrived
     case lessThan3Months
     case threeToTwelveMonths
@@ -91,7 +91,7 @@ enum TimeInNL: String, CaseIterable, Identifiable {
     }
 }
 
-enum LifePriority: String, CaseIterable, Identifiable {
+enum LifePriority: String, CaseIterable, Identifiable, Codable {
     case documents
     case housing
     case work
@@ -215,7 +215,7 @@ enum LifePriority: String, CaseIterable, Identifiable {
     }
 }
 
-enum WorkStatus: String, CaseIterable, Identifiable {
+enum WorkStatus: String, CaseIterable, Identifiable, Codable {
     case employed = "Employed"
     case seekingWork = "Seeking work"
     case notApplicable = "Not applicable"
@@ -232,7 +232,7 @@ enum WorkStatus: String, CaseIterable, Identifiable {
     }
 }
 
-enum StudentStatus: String, CaseIterable, Identifiable {
+enum StudentStatus: String, CaseIterable, Identifiable, Codable {
     case enrolled = "Enrolled"
     case applying = "Applying"
     case notStudent = "Not a student"
@@ -251,7 +251,7 @@ enum StudentStatus: String, CaseIterable, Identifiable {
 
 // MARK: - User Status (7 situational identities for Home screen)
 
-enum UserStatus: String, CaseIterable, Identifiable {
+enum UserStatus: String, CaseIterable, Identifiable, Sendable, Codable {
     case refugee
     case ukrainian
     case student
@@ -453,7 +453,233 @@ enum UserStatus: String, CaseIterable, Identifiable {
 
 // MARK: - UserProfile
 
-struct UserProfile {
+enum OnboardingProfile: String, CaseIterable, Identifiable, Codable, Hashable, Sendable {
+    case tourist
+    case student
+    case worker
+    case newResident
+    case businessOwner
+    case refugeeStatusHolder
+    case family
+
+    var id: String { rawValue }
+
+    var userStatus: UserStatus {
+        switch self {
+        case .tourist: return .tourist
+        case .student: return .student
+        case .worker: return .worker
+        case .newResident: return .euCitizen
+        case .businessOwner: return .entrepreneur
+        case .refugeeStatusHolder: return .refugee
+        case .family: return .family
+        }
+    }
+
+    static func from(_ status: UserStatus?) -> OnboardingProfile? {
+        switch status {
+        case .tourist: return .tourist
+        case .student: return .student
+        case .worker, .expat, .highlySkilledMigrant: return .worker
+        case .euCitizen, .lgbtNewcomer: return .newResident
+        case .entrepreneur: return .businessOwner
+        case .refugee, .ukrainian: return .refugeeStatusHolder
+        case .family: return .family
+        case nil: return nil
+        }
+    }
+
+    func localized(_ lang: AppLanguage) -> String {
+        switch (self, lang) {
+        case (.tourist, .russian): return "Турист"
+        case (.tourist, .dutch): return "Toerist"
+        case (.tourist, .english): return "Tourist"
+        case (.student, .russian): return "Студент"
+        case (.student, .dutch): return "Student"
+        case (.student, .english): return "Student"
+        case (.worker, .russian): return "Работник"
+        case (.worker, .dutch): return "Werker"
+        case (.worker, .english): return "Worker"
+        case (.newResident, .russian): return "Новый резидент"
+        case (.newResident, .dutch): return "Nieuwe inwoner"
+        case (.newResident, .english): return "New resident"
+        case (.businessOwner, .russian): return "Владелец бизнеса"
+        case (.businessOwner, .dutch): return "Ondernemer"
+        case (.businessOwner, .english): return "Business owner"
+        case (.refugeeStatusHolder, .russian): return "Беженец / статусхолдер"
+        case (.refugeeStatusHolder, .dutch): return "Vluchteling / statushouder"
+        case (.refugeeStatusHolder, .english): return "Refugee / Status holder"
+        case (.family, .russian): return "Семья"
+        case (.family, .dutch): return "Gezin"
+        case (.family, .english): return "Family"
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .tourist: return "suitcase"
+        case .student: return "graduationcap"
+        case .worker: return "briefcase"
+        case .newResident: return "house"
+        case .businessOwner: return "building.2"
+        case .refugeeStatusHolder: return "person.badge.shield.checkmark"
+        case .family: return "figure.2.and.child.holdinghands"
+        }
+    }
+}
+
+enum OnboardingSituation: String, CaseIterable, Identifiable, Codable, Hashable, Sendable {
+    case shortStay
+    case applyingToStudy
+    case enrolledStudent
+    case lookingForWork
+    case employed
+    case recentlyMoved
+    case alreadyLiving
+    case startingBusiness
+    case runningBusiness
+    case asylumProcess
+    case statusHolder
+    case movingWithChildren
+    case familyAlreadyHere
+
+    var id: String { rawValue }
+
+    static func options(for profile: OnboardingProfile?) -> [OnboardingSituation] {
+        switch profile {
+        case .tourist:
+            return [.shortStay]
+        case .student:
+            return [.applyingToStudy, .enrolledStudent, .recentlyMoved]
+        case .worker:
+            return [.lookingForWork, .employed, .recentlyMoved]
+        case .newResident:
+            return [.recentlyMoved, .alreadyLiving]
+        case .businessOwner:
+            return [.startingBusiness, .runningBusiness, .recentlyMoved]
+        case .refugeeStatusHolder:
+            return [.asylumProcess, .statusHolder, .recentlyMoved]
+        case .family:
+            return [.movingWithChildren, .familyAlreadyHere, .recentlyMoved]
+        case nil:
+            return [.recentlyMoved, .alreadyLiving]
+        }
+    }
+
+    var priorityHints: [LifePriority] {
+        switch self {
+        case .shortStay: return [.transport, .healthcare, .freeTime]
+        case .applyingToStudy: return [.education, .housing, .studentFinance]
+        case .enrolledStudent: return [.studentFinance, .studentTransport, .housing]
+        case .lookingForWork: return [.work, .documents, .housing]
+        case .employed: return [.work, .taxes, .healthInsurance]
+        case .recentlyMoved: return [.documents, .housing, .healthInsurance]
+        case .alreadyLiving: return [.municipalServices, .healthcare, .transport]
+        case .startingBusiness: return [.businessRegistration, .banking, .taxes]
+        case .runningBusiness: return [.taxes, .permits, .banking]
+        case .asylumProcess: return [.documents, .supportOrganizations, .healthcare]
+        case .statusHolder: return [.municipalServices, .housing, .integration]
+        case .movingWithChildren: return [.schools, .childcare, .healthcare]
+        case .familyAlreadyHere: return [.schools, .childBenefits, .activities]
+        }
+    }
+
+    func localized(_ lang: AppLanguage) -> String {
+        switch (self, lang) {
+        case (.shortStay, .russian): return "Короткое пребывание"
+        case (.shortStay, .dutch): return "Kort verblijf"
+        case (.shortStay, .english): return "Short stay"
+        case (.applyingToStudy, .russian): return "Поступаю или жду начало учёбы"
+        case (.applyingToStudy, .dutch): return "Ik meld me aan of wacht op de start"
+        case (.applyingToStudy, .english): return "Applying or waiting to start"
+        case (.enrolledStudent, .russian): return "Уже учусь"
+        case (.enrolledStudent, .dutch): return "Ik studeer al"
+        case (.enrolledStudent, .english): return "Already enrolled"
+        case (.lookingForWork, .russian): return "Ищу работу"
+        case (.lookingForWork, .dutch): return "Ik zoek werk"
+        case (.lookingForWork, .english): return "Looking for work"
+        case (.employed, .russian): return "Уже работаю"
+        case (.employed, .dutch): return "Ik werk al"
+        case (.employed, .english): return "Already working"
+        case (.recentlyMoved, .russian): return "Недавно переехал"
+        case (.recentlyMoved, .dutch): return "Onlangs verhuisd"
+        case (.recentlyMoved, .english): return "Recently moved"
+        case (.alreadyLiving, .russian): return "Уже живу здесь"
+        case (.alreadyLiving, .dutch): return "Ik woon hier al"
+        case (.alreadyLiving, .english): return "Already living here"
+        case (.startingBusiness, .russian): return "Начинаю бизнес"
+        case (.startingBusiness, .dutch): return "Ik start een bedrijf"
+        case (.startingBusiness, .english): return "Starting a business"
+        case (.runningBusiness, .russian): return "Уже веду бизнес"
+        case (.runningBusiness, .dutch): return "Ik heb al een bedrijf"
+        case (.runningBusiness, .english): return "Already running a business"
+        case (.asylumProcess, .russian): return "В процедуре убежища"
+        case (.asylumProcess, .dutch): return "In asielprocedure"
+        case (.asylumProcess, .english): return "In asylum process"
+        case (.statusHolder, .russian): return "Есть статус / ВНЖ"
+        case (.statusHolder, .dutch): return "Statushouder"
+        case (.statusHolder, .english): return "Status holder"
+        case (.movingWithChildren, .russian): return "Переезжаю с детьми"
+        case (.movingWithChildren, .dutch): return "Verhuizen met kinderen"
+        case (.movingWithChildren, .english): return "Moving with children"
+        case (.familyAlreadyHere, .russian): return "Семья уже здесь"
+        case (.familyAlreadyHere, .dutch): return "Gezin is al hier"
+        case (.familyAlreadyHere, .english): return "Family already here"
+        }
+    }
+}
+
+enum OptionalInterest: String, CaseIterable, Identifiable, Codable, Hashable, Sendable {
+    case culture
+    case history
+    case restaurants
+    case nature
+    case events
+    case shopping
+    case museums
+
+    var id: String { rawValue }
+
+    func localized(_ lang: AppLanguage) -> String {
+        switch (self, lang) {
+        case (.culture, .russian): return "Культура"
+        case (.culture, .dutch): return "Cultuur"
+        case (.culture, .english): return "Culture"
+        case (.history, .russian): return "История"
+        case (.history, .dutch): return "Geschiedenis"
+        case (.history, .english): return "History"
+        case (.restaurants, .russian): return "Рестораны"
+        case (.restaurants, .dutch): return "Restaurants"
+        case (.restaurants, .english): return "Restaurants"
+        case (.nature, .russian): return "Природа"
+        case (.nature, .dutch): return "Natuur"
+        case (.nature, .english): return "Nature"
+        case (.events, .russian): return "События"
+        case (.events, .dutch): return "Events"
+        case (.events, .english): return "Events"
+        case (.shopping, .russian): return "Покупки"
+        case (.shopping, .dutch): return "Winkelen"
+        case (.shopping, .english): return "Shopping"
+        case (.museums, .russian): return "Музеи"
+        case (.museums, .dutch): return "Musea"
+        case (.museums, .english): return "Museums"
+        }
+    }
+
+    var icon: String {
+        switch self {
+        case .culture: return "theatermasks"
+        case .history: return "book.closed"
+        case .restaurants: return "fork.knife"
+        case .nature: return "leaf"
+        case .events: return "calendar"
+        case .shopping: return "bag"
+        case .museums: return "building.columns"
+        }
+    }
+}
+
+struct UserProfile: Codable {
     var profileType: ProfileType
     var arrivalStatus: ArrivalStatus
     var preferredLanguage: String
@@ -466,6 +692,10 @@ struct UserProfile {
 
     var timeInNL: TimeInNL
     var priorities: [LifePriority]
+    var onboardingProfile: OnboardingProfile?
+    var onboardingSituation: OnboardingSituation?
+    var selectedRegionOrProvince: String
+    var optionalInterests: [OptionalInterest]
     var hasBSN: Bool
     var hasDigiD: Bool
     var hasHealthInsuranceNL: Bool
@@ -477,13 +707,17 @@ struct UserProfile {
         arrivalStatus: .arrivedRecently,
         preferredLanguage: "English",
         remindersEnabled: false,
-        nationalityPlaceholder: "Not set",
+        nationalityPlaceholder: "",
         municipality: "Amsterdam",
         arrivalMonthYear: "2026-05",
         workStatus: .employed,
         studentStatus: .notStudent,
         timeInNL: .lessThan3Months,
         priorities: [.documents, .healthInsurance],
+        onboardingProfile: nil,
+        onboardingSituation: nil,
+        selectedRegionOrProvince: "",
+        optionalInterests: [],
         hasBSN: false,
         hasDigiD: false,
         hasHealthInsuranceNL: false,

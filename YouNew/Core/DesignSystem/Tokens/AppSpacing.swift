@@ -24,11 +24,12 @@ enum AppSpacing {
     static let buttonY:            CGFloat = 12
     static let iconButtonSize:     CGFloat = 48
     static let heroVertical:       CGFloat = 32
-    static let tabBarScrollReserve: CGFloat = 210
-    static let tabBarScrollReserveLarge: CGFloat = 244
-    static let tabBarScrollReserveMap: CGFloat = 224
-    static let tabBarScrollReserveCity: CGFloat = 238
+    static let tabBarScrollReserve: CGFloat = 260
+    static let tabBarScrollReserveLarge: CGFloat = 292
+    static let tabBarScrollReserveMap: CGFloat = 274
+    static let tabBarScrollReserveCity: CGFloat = 288
     static let floatingTabClearance: CGFloat = tabBarScrollReserve
+    static let screenTopSafeArea: CGFloat = 14
 
     // Legacy alias — kept for compatibility
     static let cornerRadius: CGFloat = 16
@@ -36,13 +37,15 @@ enum AppSpacing {
 
 // Centralised metrics for the root-hosted floating tab bar.
 enum FloatingTabBarMetrics {
-    static let height: CGFloat = 82
-    static let bottomOffset: CGFloat = 10
+    static let height: CGFloat = 66
+    static let bottomOffset: CGFloat = 6
     static let totalClearance: CGFloat = height + bottomOffset
-    static let rootContentInset: CGFloat = 176
+    static let rootContentInset: CGFloat = 142
     static let sideContentInset: CGFloat = 80
-    static let terminalContentClearance: CGFloat = 104
-    static let horizontalPadding: CGFloat = 10
+    static let terminalContentClearance: CGFloat = 116
+    static let horizontalPadding: CGFloat = 12
+    static let contentBottomPadding: CGFloat = rootContentInset + 24
+    static let modalContentBottomPadding: CGFloat = rootContentInset + 32
 }
 
 enum GlobalAILauncherMetrics {
@@ -111,5 +114,13 @@ enum DetailPageLayout {
 extension View {
     func tabBarScrollReserve(_ height: CGFloat = AppSpacing.tabBarScrollReserve) -> some View {
         padding(.bottom, height)
+    }
+
+    func bottomTabSafeAreaPadding(_ extra: CGFloat = 0) -> some View {
+        padding(.bottom, FloatingTabBarMetrics.contentBottomPadding + extra)
+    }
+
+    func topChromeSafeAreaPadding(_ extra: CGFloat = 0) -> some View {
+        safeAreaPadding(.top, AppSpacing.screenTopSafeArea + extra)
     }
 }

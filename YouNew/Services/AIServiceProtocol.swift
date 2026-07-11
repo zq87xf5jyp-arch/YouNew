@@ -24,10 +24,14 @@ extension AIServiceProtocol {
         guard !context.officialSources.isEmpty else {
             return AIResponse.unverified(language: context.userLanguage)
         }
+        let topicSources = Self.topicMatchedSources(for: userMessage, in: context)
+        guard !topicSources.isEmpty else {
+            return AIResponse.unverified(language: context.userLanguage)
+        }
         return AISafetyFilter.enforceResponseSafety(
             AIResponse(
                 answer: answer,
-                sources: context.officialSources,
+                sources: topicSources,
                 safetyNote: AISafetyRules.sourceReminder(languageCode: context.userLanguage.rawValue),
                 suggestedActions: [],
                 sections: [
@@ -37,5 +41,23 @@ extension AIServiceProtocol {
             ),
             context: context
         )
+    }
+
+    private static func topicMatchedSources(for message: String, in context: AIContext) -> [OfficialSource] {
+        let normalizedMessage = message
+            .folding(options: [.caseInsensitive, .diacriticInsensitive], locale: Locale(identifier: "en_US_POSIX"))
+            .lowercased()
+        let matches = context.officialSources.filter { source in
+            let sourceText = [source.title, source.institution ?? "", source.url?.absoluteString ?? ""]
+                .joined(separator: " ")
+                .folding(options: [.caseInsensitive, .diacriticInsensitive], locale: Locale(identifier: "en_US_POSIX"))
+                .lowercased()
+            return normalizedMessage
+                .split(whereSeparator: { !$0.isLetter && !$0.isNumber })
+                .contains { token in
+                    token.count >= 3 && sourceText.contains(token)
+                }
+        }
+        return Array(matches.prefix(3))
     }
 }

@@ -2,9 +2,10 @@ import SwiftUI
 
 enum AppTypography {
     enum Scale {
-        static let hero: CGFloat = 48
-        static let section: CGFloat = 32
-        static let card: CGFloat = 22
+        static let hero: CGFloat = 38
+        static let screenTitle: CGFloat = 30
+        static let section: CGFloat = 24
+        static let card: CGFloat = 19
         static let body: CGFloat = 16
         static let caption: CGFloat = 13
     }
@@ -12,10 +13,10 @@ enum AppTypography {
     // MARK: - Display
     static let display   = Font.system(size: Scale.hero, weight: .semibold, design: .default)
     static let heroTitle = Font.system(size: Scale.hero, weight: .semibold, design: .default)
-    static let largeTitle = Font.system(.largeTitle, design: .rounded).weight(.bold)
+    static let largeTitle = Font.system(size: Scale.screenTitle, weight: .bold, design: .rounded)
 
     // MARK: - Headings
-    static let title        = Font.system(.title2, design: .rounded).weight(.bold)
+    static let title        = Font.system(size: Scale.screenTitle, weight: .bold, design: .rounded)
     static let sectionTitle = Font.system(size: Scale.section, weight: .semibold, design: .default)
     static let cardTitle    = Font.system(size: Scale.card, weight: .semibold, design: .default)
 

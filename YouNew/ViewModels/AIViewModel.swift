@@ -64,12 +64,13 @@ final class AIViewModel: ObservableObject {
     private var sendTask: Task<Void, Never>?
     private var activeRequestID: UUID?
     private var activeUserMessageID: UUID?
+    private var activeAssistantMessageID: UUID?
     private let monitor = NWPathMonitor()
     private let monitorQueue = DispatchQueue(label: "YouNew.AIConnectivity")
-    private let conversationStorageKey = "ai.conversation.v1"
-    private let workflowStorageKey = "ai.activeWorkflow.v1"
-    private let answerCacheStorageKey = "ai.answerCache.v1"
-    private let structuredResponsesStorageKey = "ai.structuredResponses.v1"
+    private let conversationStorageKey = AssistantStorage.conversationStorageKey
+    private let workflowStorageKey = AssistantStorage.workflowStorageKey
+    private let answerCacheStorageKey = AssistantStorage.answerCacheStorageKey
+    private let structuredResponsesStorageKey = AssistantStorage.structuredResponsesStorageKey
     private let cacheFrequencyThreshold = 2
     private let cacheTtl: TimeInterval = 60 * 60 * 24 * 30
     private var answerCache: [String: CachedAIResponse] = [:]
@@ -86,10 +87,11 @@ final class AIViewModel: ObservableObject {
         }
 #endif
         self.service = service ?? AIService()
+        Self.removeLegacyAssistantStateIfNeeded()
         conversation = Self.loadConversation(storageKey: conversationStorageKey)
         activeWorkflow = Self.loadActiveWorkflow(storageKey: workflowStorageKey)
         answerCache = Self.loadAnswerCache(storageKey: answerCacheStorageKey)
-        structuredResponses = Self.loadStructuredResponses(storageKey: "ai.structuredResponses.v1")
+        structuredResponses = Self.loadStructuredResponses(storageKey: structuredResponsesStorageKey)
         startConnectivityMonitor()
     }
 
@@ -101,14 +103,17 @@ final class AIViewModel: ObservableObject {
 #if DEBUG
     private static func resetPersistentAssistantStateForUITesting() {
         let defaults = UserDefaults.standard
-        [
-            "ai.conversation.v1",
-            "ai.activeWorkflow.v1",
-            "ai.answerCache.v1",
-            "ai.structuredResponses.v1"
-        ].forEach { defaults.removeObject(forKey: $0) }
+        AssistantStorage.allPersistentKeys.forEach { defaults.removeObject(forKey: $0) }
     }
 #endif
+
+    private static func removeLegacyAssistantStateIfNeeded() {
+        let defaults = UserDefaults.standard
+        let migrationKey = AssistantStorage.legacyStorageClearedKey
+        guard !defaults.bool(forKey: migrationKey) else { return }
+        AssistantStorage.legacyStorageKeys.forEach { defaults.removeObject(forKey: $0) }
+        defaults.set(true, forKey: migrationKey)
+    }
 
     func followUpPrompts(for language: AppLanguage) -> [String] {
         [
@@ -234,67 +239,104 @@ final class AIViewModel: ObservableObject {
         guard !isLoading else { return }
         let message = input.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !message.isEmpty else {
-            requestState = .failed(localizedEmptyInputError(for: currentLanguage))
+            requestState = .idle
             canRetryLastMessage = false
             return
         }
+
+        let language = currentLanguage
+        let context = activeContext ?? fallbackContext(language: language)
+        let userMessage = appendUserMessage(message, context: context)
+        activeUserMessageID = userMessage.id
+        let loadingMessage = appendLoadingAssistantMessage(replyingTo: userMessage.id, context: context, language: language)
+        activeAssistantMessageID = loadingMessage.id
+        canRetryLastMessage = false
+        input = ""
 
         switch AISafetyFilter.evaluate(message, language: currentLanguage) {
         case .allowed:
             break
         case .blocked(let warning), .privacyWarning(let warning):
+            replaceAssistantMessage(
+                loadingMessage.id,
+                text: warning,
+                response: safetyWarningResponse(warning, language: language),
+                status: .error,
+                context: context
+            )
             requestState = .failed(warning)
             canRetryLastMessage = false
+            activeUserMessageID = nil
+            activeAssistantMessageID = nil
             return
         }
 
         sendTask?.cancel()
         let requestID = UUID()
         activeRequestID = requestID
-        input = ""
+        withAnimation(AppAnimations.standard) {
+            requestState = .loading
+        }
 
-        let language = currentLanguage
-        let context = activeContext ?? fallbackContext(language: language)
         let cacheKey = Self.buildCacheKey(message: message, language: language, context: context)
-        let userMessage = appendUserMessage(message)
-        activeUserMessageID = userMessage.id
-        canRetryLastMessage = false
 
         if let workflow = activeWorkflow,
            let advanced = AIWorkflowEngine.advance(workflow: workflow, answer: message, language: language, context: context) {
             activeWorkflow = advanced.workflow
             persistActiveWorkflow()
             withAnimation(AppAnimations.standard) {
-                applyAIResponse(advanced.response, language: language, replyingTo: userMessage.id, context: context)
+                applyAIResponse(advanced.response, language: language, replyingTo: userMessage.id, replacing: loadingMessage.id, context: context)
                 requestState = .idle
             }
             suggestedResources = advanced.response.sources.compactMap(resourceLink(from:))
             suggestedMapCategory = suggestedCategory(for: message)
             activeUserMessageID = nil
+            activeAssistantMessageID = nil
             return
         }
 
-        if let started = AIWorkflowEngine.startIfNeeded(query: message, language: language, context: context) {
+        if context.activePersonaTag != .tourist,
+           let started = AIWorkflowEngine.startIfNeeded(query: message, language: language, context: context) {
             activeWorkflow = started.workflow
             persistActiveWorkflow()
             withAnimation(AppAnimations.standard) {
-                applyAIResponse(started.response, language: language, replyingTo: userMessage.id, context: context)
+                applyAIResponse(started.response, language: language, replyingTo: userMessage.id, replacing: loadingMessage.id, context: context)
                 requestState = .idle
             }
             suggestedResources = started.response.sources.compactMap(resourceLink(from:))
             suggestedMapCategory = suggestedCategory(for: message)
             activeUserMessageID = nil
+            activeAssistantMessageID = nil
+            return
+        }
+
+        if let contextualResponse = AssistantAnswerEngine.getAssistantAnswer(
+            userText: message,
+            language: language,
+            context: context
+        ) {
+            activeWorkflow = nil
+            persistActiveWorkflow()
+            withAnimation(AppAnimations.standard) {
+                applyAIResponse(contextualResponse, language: language, replyingTo: userMessage.id, replacing: loadingMessage.id, context: context)
+                requestState = .idle
+            }
+            suggestedResources = contextualResponse.sources.compactMap(resourceLink(from:))
+            suggestedMapCategory = suggestedCategory(for: message)
+            activeUserMessageID = nil
+            activeAssistantMessageID = nil
             return
         }
 
         if let localResponse = AIResponseComposer.compose(query: message, language: language, context: context) {
             withAnimation(AppAnimations.standard) {
-                applyAIResponse(localResponse, language: language, replyingTo: userMessage.id, context: context)
+                applyAIResponse(localResponse, language: language, replyingTo: userMessage.id, replacing: loadingMessage.id, context: context)
                 requestState = .idle
             }
             suggestedResources = localResponse.sources.compactMap(resourceLink(from:))
             suggestedMapCategory = suggestedCategory(for: message)
             activeUserMessageID = nil
+            activeAssistantMessageID = nil
             return
         }
 
@@ -315,19 +357,18 @@ final class AIViewModel: ObservableObject {
             }
             suggestedMapCategory = suggestedCategory(for: message)
             activeUserMessageID = nil
+            activeAssistantMessageID = nil
             return
         }
-
-        withAnimation(AppAnimations.standard) { requestState = .loading }
 
         sendTask = Task {
             defer {
                 if activeRequestID == requestID {
                     sendTask = nil
                     withAnimation(AppAnimations.standard) {
-                        if case .loading = requestState { requestState = .idle }
-                    }
-                }
+                if case .loading = requestState { requestState = .idle }
+            }
+        }
             }
 
             guard activeRequestID == requestID, !Task.isCancelled else { return }
@@ -352,6 +393,13 @@ final class AIViewModel: ObservableObject {
                 withAnimation(AppAnimations.standard) {
                     canRetryLastMessage = true
                     requestState = .failed(localizedNoResponseError(for: language))
+                    replaceAssistantMessage(
+                        loadingMessage.id,
+                        text: localizedNoResponseError(for: language),
+                        response: nil,
+                        status: .error,
+                        context: context
+                    )
                 }
             } else {
                 applyAIResponse(response, language: language, replyingTo: userMessage.id, context: context)
@@ -372,6 +420,7 @@ final class AIViewModel: ObservableObject {
             guard activeRequestID == requestID, !Task.isCancelled else { return }
             suggestedMapCategory = suggestedCategory(for: message)
             activeUserMessageID = nil
+            activeAssistantMessageID = nil
         }
     }
 
@@ -385,11 +434,22 @@ final class AIViewModel: ObservableObject {
         let hadRetryableMessage = activeUserMessageID != nil
         activeRequestID = nil
         activeUserMessageID = nil
+        let assistantMessageID = activeAssistantMessageID
+        activeAssistantMessageID = nil
         sendTask?.cancel()
         sendTask = nil
         withAnimation(AppAnimations.standard) {
             canRetryLastMessage = hadRetryableMessage
             requestState = .failed(localizedCancelledRequestText(for: currentLanguage))
+            if let assistantMessageID {
+                replaceAssistantMessage(
+                    assistantMessageID,
+                    text: localizedCancelledRequestText(for: currentLanguage),
+                    response: nil,
+                    status: .error,
+                    context: activeContext
+                )
+            }
         }
     }
 
@@ -407,6 +467,7 @@ final class AIViewModel: ObservableObject {
             safetyNote = nil
             suggestedMapCategory = nil
             canRetryLastMessage = false
+            activeAssistantMessageID = nil
             activeWorkflow = nil
             persistActiveWorkflow()
             requestState = .idle
@@ -490,8 +551,19 @@ final class AIViewModel: ObservableObject {
         return nil
     }
 
-    private func appendUserMessage(_ text: String) -> AIMessage {
-        let message = conversation.appendUser(text)
+    private func appendUserMessage(_ text: String, context: AIContext) -> AIMessage {
+        let message = conversation.appendUser(text, metadata: messageMetadata(context: context, confidence: nil))
+        persistConversation()
+        return message
+    }
+
+    private func appendLoadingAssistantMessage(replyingTo userMessageID: UUID, context: AIContext, language: AppLanguage) -> AIMessage {
+        let message = conversation.appendAssistant(
+            localizedThinkingText(for: language),
+            replyToMessageID: userMessageID,
+            status: .sending,
+            metadata: messageMetadata(context: context, confidence: nil)
+        )
         persistConversation()
         return message
     }
@@ -500,18 +572,24 @@ final class AIViewModel: ObservableObject {
         applyAIResponse(response, language: language, replyingTo: userMessageID, context: context)
     }
 
-    private func applyAIResponse(_ response: AIResponse, language: AppLanguage, replyingTo userMessageID: UUID, context: AIContext? = nil) {
+    private func applyAIResponse(_ response: AIResponse, language: AppLanguage, replyingTo userMessageID: UUID, replacing assistantMessageID: UUID? = nil, context: AIContext? = nil) {
+        let personaCheckedResponse = context.map { personaSafeResponse(response, context: $0) } ?? response
+        let languageCheckedResponse = AIResponseLanguageGuard.isResponseAcceptable(personaCheckedResponse, for: language)
+            ? personaCheckedResponse
+            : AIResponse.unverified(language: language)
         let safeResponse = responseWithMandatoryDisclaimer(
-            context.map { personaSafeResponse(response, context: $0) } ?? response,
+            languageCheckedResponse,
             language: language
         )
         responseSources = safeResponse.sources
         suggestedActions = safeResponse.suggestedActions
         safetyNote = safeResponse.safetyNote
-        appendAssistantMessage(
+        upsertAssistantMessage(
             Self.safeFormattedAnswer(safeResponse.answer, language: language, offline: isOffline),
             response: safeResponse,
-            replyingTo: userMessageID
+            replyingTo: userMessageID,
+            replacing: assistantMessageID,
+            context: context
         )
     }
 
@@ -539,44 +617,13 @@ final class AIViewModel: ObservableObject {
             nextStep: nextStep,
             appDestinationID: appDestinationID,
             isVerified: response.isVerified,
-            cacheKey: response.cacheKey
+            cacheKey: response.cacheKey,
+            confidence: response.confidence
         )
     }
 
     private func responseWithMandatoryDisclaimer(_ response: AIResponse, language: AppLanguage) -> AIResponse {
-        let disclaimer = AISafetyRules.mandatoryDisclaimer(for: language)
-        let hasDisclaimer = response.sections.contains { section in
-            section.title.localizedCaseInsensitiveContains("disclaimer")
-                || section.title.localizedCaseInsensitiveContains("дисклеймер")
-                || section.body == disclaimer
-        }
-        guard !hasDisclaimer else { return response }
-
-        let disclaimerTitle: String
-        switch language {
-        case .russian: disclaimerTitle = "Дисклеймер"
-        case .dutch: disclaimerTitle = "Disclaimer"
-        case .english: disclaimerTitle = "Disclaimer"
-        }
-
-        return AIResponse(
-            answer: response.answer,
-            sources: response.sources,
-            safetyNote: response.safetyNote,
-            suggestedActions: response.suggestedActions,
-            quickActions: response.quickActions,
-            sections: response.sections + [
-                AIResponseSection(
-                    title: disclaimerTitle,
-                    body: disclaimer,
-                    symbol: "checkmark.shield.fill"
-                )
-            ],
-            nextStep: response.nextStep,
-            appDestinationID: response.appDestinationID,
-            isVerified: response.isVerified,
-            cacheKey: response.cacheKey
-        )
+        response
     }
 
     private func personaSafeNextStep(_ nextStep: AINextStep?, context: AIContext) -> AINextStep? {
@@ -693,18 +740,71 @@ final class AIViewModel: ObservableObject {
         persistAnswerCache()
     }
 
-    private func appendAssistantMessage(_ text: String, response: AIResponse? = nil, replyingTo userMessageID: UUID) {
+    private func upsertAssistantMessage(_ text: String, response: AIResponse? = nil, replyingTo userMessageID: UUID, replacing assistantMessageID: UUID?, context: AIContext?) {
+        if let assistantMessageID {
+            replaceAssistantMessage(assistantMessageID, text: text, response: response, status: .done, context: context)
+            return
+        }
+
         let removedReplies = conversation.removeAssistantReplies(to: userMessageID)
         for removedReply in removedReplies {
             structuredResponses.removeValue(forKey: removedReply.id)
         }
 
-        let message = conversation.appendAssistant(text, replyToMessageID: userMessageID)
+        let message = conversation.appendAssistant(
+            text,
+            replyToMessageID: userMessageID,
+            status: .done,
+            source: response?.sources.first,
+            metadata: context.map { messageMetadata(context: $0, confidence: response?.confidence) }
+        )
         if let response {
             structuredResponses[message.id] = response
             persistStructuredResponses()
         }
         persistConversation()
+    }
+
+    private func replaceAssistantMessage(_ messageID: UUID, text: String, response: AIResponse?, status: AIMessage.Status?, context: AIContext?) {
+        if let response {
+            structuredResponses[messageID] = response
+            persistStructuredResponses()
+        } else {
+            structuredResponses.removeValue(forKey: messageID)
+            persistStructuredResponses()
+        }
+
+        _ = conversation.replaceMessage(
+            id: messageID,
+            text: text,
+            status: status,
+            source: response?.sources.first,
+            metadata: context.map { messageMetadata(context: $0, confidence: response?.confidence) }
+        )
+        persistConversation()
+    }
+
+    private func messageMetadata(context: AIContext, confidence: AIResponseConfidence?) -> AIMessage.Metadata {
+        AIMessage.Metadata(
+            cityId: context.selectedCity,
+            audience: context.activePersonaTag,
+            categoryId: context.category,
+            confidence: confidence
+        )
+    }
+
+    private func safetyWarningResponse(_ warning: String, language: AppLanguage) -> AIResponse {
+        AIResponse(
+            answer: warning,
+            sources: [],
+            safetyNote: nil,
+            suggestedActions: [],
+            sections: [
+                AIResponseSection(title: safetyTitle(for: language), body: warning, symbol: "shield.lefthalf.filled")
+            ],
+            isVerified: false,
+            confidence: .low
+        )
     }
 
     private func updateContextLabels(_ context: AIContext) {
@@ -873,6 +973,22 @@ final class AIViewModel: ObservableObject {
         case .russian: return "Запрос остановлен. Можно задать вопрос ещё раз."
         case .dutch: return "Verzoek gestopt. Je kunt opnieuw een vraag stellen."
         case .english: return "Request stopped. You can ask again."
+        }
+    }
+
+    private func localizedThinkingText(for language: AppLanguage) -> String {
+        switch language {
+        case .russian: return "Готовлю ответ..."
+        case .dutch: return "Antwoord voorbereiden..."
+        case .english: return "Preparing an answer..."
+        }
+    }
+
+    private func safetyTitle(for language: AppLanguage) -> String {
+        switch language {
+        case .russian: return "Безопасность"
+        case .dutch: return "Veiligheid"
+        case .english: return "Safety"
         }
     }
 

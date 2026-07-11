@@ -79,24 +79,32 @@ final class MapViewModel: ObservableObject {
     @Published var selectedCity: String = "Leiden" {
         didSet {
             guard oldValue != selectedCity else { return }
+            resetCityScopedState()
+            applyCityCenter()
             rebuildCityData()
         }
     }
     @Published var selectedCategory: PlaceCategory? = nil {
         didSet {
             guard oldValue != selectedCategory else { return }
+            guard !isResettingCityScopedState else { return }
+            guard !isBatchUpdatingFilters else { return }
             rebuildFilteredData()
         }
     }
     @Published var selectedQuickFilter: QuickFilter? {
         didSet {
             guard oldValue != selectedQuickFilter else { return }
+            guard !isResettingCityScopedState else { return }
+            guard !isBatchUpdatingFilters else { return }
             rebuildFilteredData()
         }
     }
     @Published var selectedFocus: MapFocus? {
         didSet {
             guard oldValue != selectedFocus else { return }
+            guard !isResettingCityScopedState else { return }
+            guard !isBatchUpdatingFilters else { return }
             rebuildFilteredData()
         }
     }
@@ -107,6 +115,8 @@ final class MapViewModel: ObservableObject {
     @Published var searchText: String = "" {
         didSet {
             guard oldValue != searchText else { return }
+            guard !isResettingCityScopedState else { return }
+            guard !isBatchUpdatingFilters else { return }
             rebuildFilteredData()
             rebuildSearchSuggestions()
         }
@@ -116,6 +126,7 @@ final class MapViewModel: ObservableObject {
     @Published var activeJourneyPreset: JourneyPreset? {
         didSet {
             guard oldValue != activeJourneyPreset else { return }
+            guard !isBatchUpdatingFilters else { return }
             rebuildRouteData()
         }
     }
@@ -129,6 +140,12 @@ final class MapViewModel: ObservableObject {
             if let selectedPlace, !selectedPlace.isVisible(for: activePersona) {
                 self.selectedPlace = nil
             }
+        }
+    }
+    @Published var showLocalPartners: Bool = false {
+        didSet {
+            guard oldValue != showLocalPartners else { return }
+            rebuildCityData()
         }
     }
     @Published var language: AppLanguage = .english {
@@ -148,12 +165,18 @@ final class MapViewModel: ObservableObject {
     @Published private(set) var mapOverlayRouteCoordinates: [CLLocationCoordinate2D] = []
     @Published private(set) var routeHintSteps: [RouteHintStep] = []
 
+    var userCoordinate: CLLocationCoordinate2D? {
+        locationService.location?.coordinate
+    }
+
     let locationService = LocationService()
     private var cancellables = Set<AnyCancellable>()
     private let recentSearchesKey = "map_recent_searches_v1"
     private let selectedCityKey = "map_selected_city_v1"
     private let selectedCategoryKey = "map_selected_category_v1"
     private let selectedJourneyKey = "map_selected_journey_v1"
+    private var isResettingCityScopedState = false
+    private var isBatchUpdatingFilters = false
 
     init() {
         recentSearches = UserDefaults.standard.stringArray(forKey: recentSearchesKey) ?? []
@@ -190,7 +213,11 @@ final class MapViewModel: ObservableObject {
         $selectedCategory
             .dropFirst()
             .sink { category in
-                UserDefaults.standard.set(category?.rawValue, forKey: categoryKey)
+                if let category {
+                    UserDefaults.standard.set(category.rawValue, forKey: categoryKey)
+                } else {
+                    UserDefaults.standard.removeObject(forKey: categoryKey)
+                }
             }
             .store(in: &cancellables)
 
@@ -198,7 +225,11 @@ final class MapViewModel: ObservableObject {
         $activeJourneyPreset
             .dropFirst()
             .sink { journey in
-                UserDefaults.standard.set(journey?.rawValue, forKey: journeyKey)
+                if let journey {
+                    UserDefaults.standard.set(journey.rawValue, forKey: journeyKey)
+                } else {
+                    UserDefaults.standard.removeObject(forKey: journeyKey)
+                }
             }
             .store(in: &cancellables)
     }
@@ -245,9 +276,18 @@ final class MapViewModel: ObservableObject {
     }
 
     private func makeCityHubPlaces() -> [NearbyPlace] {
-        MockNearbyPlacesData.places.filter {
+        let effectivePersona = activePersona ?? .tourist
+        let audience = UserContentCategory.from(persona: effectivePersona) ?? .tourist
+        let dashboardPlaces = DashboardPlacesData.visiblePlaces(cityId: selectedCity, audience: audience, limit: nil)
+            .compactMap(NearbyPlace.init(dashboardPlace:))
+            .filter { $0.city == selectedCity && $0.isVisible(for: activePersona) }
+        let servicePlaces = MockNearbyPlacesData.places.filter {
             $0.city == selectedCity && $0.isVisible(for: activePersona)
         }
+        let partnerPlaces = showLocalPartners
+            ? MockLocalPartnersData.partners(in: selectedCity).map(\.mapPlace)
+            : []
+        return dashboardPlaces + servicePlaces + partnerPlaces
     }
 
     private func makeCategoryCounts() -> [(PlaceCategory, Int)] {
@@ -319,6 +359,19 @@ final class MapViewModel: ObservableObject {
         rebuildRouteData()
     }
 
+    private func resetCityScopedState() {
+        isResettingCityScopedState = true
+        selectedCategory = nil
+        selectedQuickFilter = nil
+        selectedFocus = nil
+        focusedCityId = nil
+        focusedProvinceId = nil
+        focusedPlaceId = nil
+        selectedPlace = nil
+        searchText = ""
+        isResettingCityScopedState = false
+    }
+
     private func rebuildFilteredData() {
         let places = makeFilteredPlaces()
         filteredPlaces = places
@@ -333,6 +386,15 @@ final class MapViewModel: ObservableObject {
     private func rebuildRouteData() {
         mapOverlayRouteCoordinates = makeMapOverlayRouteCoordinates()
         routeHintSteps = makeRouteHintSteps()
+    }
+
+    private func updateFilters(_ updates: () -> Void) {
+        isBatchUpdatingFilters = true
+        defer { isBatchUpdatingFilters = false }
+        updates()
+        rebuildFilteredData()
+        rebuildSearchSuggestions()
+        rebuildRouteData()
     }
 
     func relatedLinks(for place: NearbyPlace) -> [PlaceRelatedLink] {
@@ -398,19 +460,21 @@ final class MapViewModel: ObservableObject {
     }
 
     func applyJourneyPreset(_ preset: JourneyPreset) {
-        activeJourneyPreset = preset
-        selectedFocus = nil
-        selectedQuickFilter = nil
-        switch preset {
-        case .bsn:
-            selectedCategory = .municipality
-            searchText = PlaceCategory.municipality.localized(language)
-        case .healthcare:
-            selectedCategory = .healthcare
-            searchText = PlaceCategory.healthcare.localized(language)
-        case .legalHelp:
-            selectedCategory = .legalHelp
-            searchText = PlaceCategory.legalHelp.localized(language)
+        updateFilters {
+            activeJourneyPreset = preset
+            selectedFocus = nil
+            selectedQuickFilter = nil
+            switch preset {
+            case .bsn:
+                selectedCategory = .municipality
+                searchText = PlaceCategory.municipality.localized(language)
+            case .healthcare:
+                selectedCategory = .healthcare
+                searchText = PlaceCategory.healthcare.localized(language)
+            case .legalHelp:
+                selectedCategory = .legalHelp
+                searchText = PlaceCategory.legalHelp.localized(language)
+            }
         }
         commitSearch()
     }
@@ -454,56 +518,75 @@ final class MapViewModel: ObservableObject {
     }
 
     func clearFilters() {
-        selectedFocus = nil
-        focusedCityId = nil
-        focusedProvinceId = nil
-        focusedPlaceId = nil
-        selectedCategory = nil
-        selectedQuickFilter = nil
+        updateFilters {
+            selectedFocus = nil
+            focusedCityId = nil
+            focusedProvinceId = nil
+            focusedPlaceId = nil
+            selectedCategory = nil
+            selectedQuickFilter = nil
+        }
     }
 
     func applyFocus(_ focus: MapFocus) {
-        activeJourneyPreset = nil
-        focusedCityId = nil
-        focusedProvinceId = nil
-        focusedPlaceId = nil
-        selectedCategory = nil
-        selectedQuickFilter = nil
-        searchText = ""
+        updateFilters {
+            activeJourneyPreset = nil
+            focusedCityId = nil
+            focusedProvinceId = nil
+            focusedPlaceId = nil
+            selectedCategory = nil
+            selectedQuickFilter = nil
+            searchText = ""
 
-        switch focus {
-        case .city(let cityId):
-            focusedCityId = cityId
-            selectedFocus = nil
-            if let spotlight = ProvinceCatalog.citySpotlight(matching: cityId),
-               MockNearbyPlacesData.supportedCities.contains(spotlight.city.name) {
-                selectedCity = spotlight.city.name
-                applyCityCenter()
+            switch focus {
+            case .city(let cityId):
+                focusedCityId = cityId
+                selectedFocus = nil
+                if let spotlight = ProvinceCatalog.citySpotlight(matching: cityId),
+                   MockNearbyPlacesData.supportedCities.contains(spotlight.city.name) {
+                    selectedCity = spotlight.city.name
+                    applyCityCenter()
+                }
+            case .province(let provinceId):
+                guard let province = ProvinceCatalog.provinceIfFound(matching: provinceId) else { return }
+                focusedProvinceId = province.id
+                selectedFocus = nil
+                if let city = province.cities.first(where: { MockNearbyPlacesData.supportedCities.contains($0.name) }) {
+                    selectedCity = city.name
+                    applyCityCenter()
+                }
+            case .place(let placeId):
+                focusedPlaceId = placeId
+                selectedFocus = nil
+                if let place = mapPlace(matching: placeId) {
+                    selectedCity = place.city
+                    selectPlace(place)
+                }
+            case .transport, .healthcare, .government, .education, .emergency:
+                selectedFocus = focus
+                selectedQuickFilter = focus == .emergency ? .emergency : nil
+            case .category(let category):
+                selectedFocus = focus
+                selectedCategory = category
             }
-        case .province(let provinceId):
-            guard let province = ProvinceCatalog.provinceIfFound(matching: provinceId) else { return }
-            focusedProvinceId = province.id
-            selectedFocus = nil
-            if let city = province.cities.first(where: { MockNearbyPlacesData.supportedCities.contains($0.name) }) {
-                selectedCity = city.name
-                applyCityCenter()
-            }
-        case .place(let placeId):
-            focusedPlaceId = placeId
-            selectedFocus = nil
-            if let place = MockNearbyPlacesData.places.first(where: {
-                ($0.saveKey == placeId || $0.id.uuidString == placeId) && $0.isVisible(for: activePersona)
-            }) {
-                selectedCity = place.city
-                selectPlace(place)
-            }
-        case .transport, .healthcare, .government, .education, .emergency:
-            selectedFocus = focus
-            selectedQuickFilter = focus == .emergency ? .emergency : nil
-        case .category(let category):
-            selectedFocus = focus
-            selectedCategory = category
         }
+    }
+
+    private func mapPlace(matching placeId: String) -> NearbyPlace? {
+        if let dashboardPlace = DashboardPlacesData.places.first(where: { $0.id == placeId }),
+           let place = NearbyPlace(dashboardPlace: dashboardPlace),
+           place.isVisible(for: activePersona) {
+            return place
+        }
+
+        if let partner = MockLocalPartnersData.partners.first(where: { $0.mapPlace.saveKey == placeId || $0.id == placeId }) {
+            showLocalPartners = true
+            return partner.mapPlace
+        }
+
+        return MockNearbyPlacesData.places.first(where: {
+            ($0.saveKey == placeId || $0.id.uuidString == placeId) && $0.isVisible(for: activePersona)
+        })
     }
 
     func applyProfilePriority(status: UserStatus, availablePlaces: [NearbyPlace]? = nil) {
@@ -512,14 +595,18 @@ final class MapViewModel: ObservableObject {
         if let firstAvailable = prioritized.first(where: { category in
             pool.contains(where: { $0.category == category })
         }) {
-            selectedFocus = nil
-            selectedQuickFilter = nil
-            selectedCategory = firstAvailable
+            updateFilters {
+                selectedFocus = nil
+                selectedQuickFilter = nil
+                selectedCategory = firstAvailable
+            }
             return
         }
-        selectedFocus = nil
-        selectedQuickFilter = nil
-        selectedCategory = MapCategoryPriorityEngine.primaryCategory(for: status)
+        updateFilters {
+            selectedFocus = nil
+            selectedQuickFilter = nil
+            selectedCategory = MapCategoryPriorityEngine.primaryCategory(for: status)
+        }
     }
 
     func openInAppleMaps(_ place: NearbyPlace) {
@@ -570,11 +657,18 @@ final class MapViewModel: ObservableObject {
         let from = CLLocation(latitude: region.center.latitude, longitude: region.center.longitude)
         let to = CLLocation(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude)
         let km = from.distance(from: to) / 1000
+        if km < 0.05 {
+            switch language {
+            case .russian: return "в выбранном городе"
+            case .dutch: return "in geselecteerde stad"
+            case .english: return "In selected city"
+            }
+        }
         let format: String
         switch language {
-        case .russian: format = "примерно %.1f км"
-        case .dutch: format = "ca. %.1f km"
-        case .english: format = "Approx. %.1f km"
+        case .russian: format = "около %.1f км"
+        case .dutch: format = "ongeveer %.1f km"
+        case .english: format = "About %.1f km"
         }
         return String(format: format, km)
     }

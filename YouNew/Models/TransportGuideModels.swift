@@ -1,6 +1,6 @@
 import Foundation
 
-struct TransportGuide: Identifiable {
+struct TransportGuide: Identifiable, Sendable {
     let id: String
     let title: LocalizedInfoText
     let summary: LocalizedInfoText
@@ -12,7 +12,7 @@ struct TransportGuide: Identifiable {
     let searchAliases: [String]
 }
 
-struct TransportGuideSection: Identifiable, Hashable {
+struct TransportGuideSection: Identifiable, Hashable, Sendable {
     let id: String
     let title: LocalizedInfoText
     let summary: LocalizedInfoText
@@ -24,7 +24,7 @@ struct TransportGuideSection: Identifiable, Hashable {
     let symbol: String
 }
 
-struct TransportQuickCard: Identifiable, Hashable {
+struct TransportQuickCard: Identifiable, Hashable, Sendable {
     let id: String
     let title: LocalizedInfoText
     let subtitle: LocalizedInfoText
@@ -33,7 +33,7 @@ struct TransportQuickCard: Identifiable, Hashable {
     let sectionId: String?
 }
 
-struct TransportGuideSource: Identifiable, Hashable {
+struct TransportGuideSource: Identifiable, Hashable, Sendable {
     let id: String
     let title: String
     let institution: String

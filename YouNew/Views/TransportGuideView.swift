@@ -65,7 +65,10 @@ struct TransportGuideView: View {
             }
             .padding(18)
         }
-        .frame(maxWidth: .infinity, minHeight: 190)
+        .frame(maxWidth: .infinity)
+        .frame(height: 238)
+        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .clipped()
         .overlay {
             RoundedRectangle(cornerRadius: 24, style: .continuous)
                 .stroke(Color.white.opacity(0.12), lineWidth: 1)
@@ -90,6 +93,9 @@ struct TransportGuideView: View {
             cornerRadius: 24,
             showsCaption: false
         )
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .clipped()
         .accessibilityHidden(true)
     }
 
@@ -280,6 +286,7 @@ struct TransportGuideView: View {
                     .fixedSize(horizontal: false, vertical: true)
             }
             .frame(maxWidth: .infinity, minHeight: 128, alignment: .topLeading)
+            .padding(14)
             .premiumNetherlandsCard(cornerRadius: 18, accent: quickCardAccent(card))
         }
         .buttonStyle(AppPressableCardButtonStyle())
@@ -288,7 +295,7 @@ struct TransportGuideView: View {
     }
 
     private var sectionsList: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
+        return VStack(alignment: .leading, spacing: AppSpacing.small) {
             NLSectionHeader(title: localized("Main transport types", "Vervoerstypen", "Основные виды транспорта"))
 
             ForEach(guide.sections) { section in
@@ -394,53 +401,125 @@ struct TransportGuideView: View {
     }
 
     private var sourceSection: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
-            NLSectionHeader(title: localized("Official sources", "Officiele bronnen", "Официальные источники"))
+        let validSources = guide.sources.compactMap { source -> (TransportGuideSource, URL)? in
+            guard let safeURL = AppURL.validatedWebURL(source.url) else { return nil }
+            return (source, safeURL)
+        }
 
-            ForEach(guide.sources) { source in
-                Button {
-                    openTransportSource(source.url)
-                } label: {
-                    HStack(spacing: AppSpacing.medium) {
-                        Image(systemName: "link.circle.fill")
-                            .font(.system(size: 18, weight: .bold))
-                            .foregroundStyle(AppColors.success)
-                            .frame(width: 42, height: 42)
-                            .background(AppColors.success.opacity(0.12))
-                            .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
+        return VStack(alignment: .leading, spacing: AppSpacing.small) {
+            NLSectionHeader(title: localized("Official sources", "Officiële bronnen", "Официальные источники"))
 
-                        VStack(alignment: .leading, spacing: 3) {
-                            Text(source.title)
-                                .font(AppTypography.bodyStrong)
-                                .foregroundStyle(AppColors.textPrimary)
-                                .lineLimit(2)
-                            Text("\(source.institution) · \(source.language)")
-                                .font(AppTypography.caption)
-                                .foregroundStyle(AppColors.textSecondary)
-                                .lineLimit(2)
-                            Text(sourceTrustText(source))
-                                .font(AppTypography.metadata)
-                                .foregroundStyle(AppColors.success)
-                                .lineLimit(1)
-                        }
-
-                        Spacer(minLength: 8)
-
-                        Image(systemName: AppIcons.external)
-                            .foregroundStyle(AppColors.textTertiary)
-                    }
-                    .frame(minHeight: 58)
-                    .appCardStyle()
+            if validSources.isEmpty {
+                transportSourceFallbackRows
+            } else {
+                ForEach(validSources, id: \.0.id) { source, safeURL in
+                    transportSourceButton(source: source, safeURL: safeURL)
                 }
-                .buttonStyle(.plain)
-                .accessibilityLabel(sourceAccessibility(source))
             }
         }
+        .accessibilityIdentifier("transport.sources.dashboard")
     }
 
     private func openTransportSource(_ url: URL) {
         guard let safeURL = AppURL.validatedWebURL(url) else { return }
         openURL(safeURL)
+    }
+
+    private func transportSourceButton(source: TransportGuideSource, safeURL: URL) -> some View {
+        Button {
+            openURL(safeURL)
+        } label: {
+            HStack(spacing: AppSpacing.medium) {
+                Image(systemName: "link.circle.fill")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(AppColors.success)
+                    .frame(width: 42, height: 42)
+                    .background(AppColors.success.opacity(0.12))
+                    .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(source.title)
+                        .font(AppTypography.bodyStrong)
+                        .foregroundStyle(AppColors.textPrimary)
+                        .lineLimit(2)
+                    Text("\(source.institution) · \(source.language)")
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(2)
+                    Text(sourceTrustText(source))
+                        .font(AppTypography.metadata)
+                        .foregroundStyle(AppColors.success)
+                        .lineLimit(1)
+                }
+
+                Spacer(minLength: 8)
+
+                Image(systemName: AppIcons.external)
+                    .foregroundStyle(AppColors.textTertiary)
+            }
+            .frame(minHeight: 58)
+            .appCardStyle()
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel(sourceAccessibility(source))
+    }
+
+    private var transportSourceFallbackRows: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            transportSourceFallbackRow(
+                title: localized("Official sources", "Officiële bronnen", "Официальные источники"),
+                subtitle: localized("Verify transport rules before travelling.", "Controleer vervoersregels voordat je reist.", "Проверьте правила транспорта перед поездкой."),
+                icon: AppIcons.officialSource,
+                destination: .officialSources
+            )
+
+            transportSourceFallbackRow(
+                title: localized("Nearby transport", "Vervoer in de buurt", "Транспорт рядом"),
+                subtitle: localized("Find stations, OV points, and city transport.", "Vind stations, OV-punten en stadsvervoer.", "Найти станции, OV-точки и городской транспорт."),
+                icon: "tram.fill",
+                destination: .mapFocus(.category(.transport))
+            )
+
+            transportSourceFallbackRow(
+                title: localized("Search", "Zoeken", "Поиск"),
+                subtitle: localized("Search transport answers and documents.", "Zoek vervoersantwoorden en documenten.", "Искать ответы и документы про транспорт."),
+                icon: "magnifyingglass",
+                destination: .searchList
+            )
+        }
+        .accessibilityIdentifier("transport.sources.empty")
+    }
+
+    private func transportSourceFallbackRow(title: String, subtitle: String, icon: String, destination: AppDestination) -> some View {
+        NavigationLink(value: destination) {
+            HStack(spacing: AppSpacing.medium) {
+                Image(systemName: icon)
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(AppColors.success)
+                    .frame(width: 42, height: 42)
+                    .background(AppColors.success.opacity(0.12))
+                    .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(title)
+                        .font(AppTypography.bodyStrong)
+                        .foregroundStyle(AppColors.textPrimary)
+                        .lineLimit(2)
+                    Text(subtitle)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(2)
+                }
+
+                Spacer(minLength: 8)
+
+                Image(systemName: "chevron.right")
+                    .foregroundStyle(AppColors.textTertiary)
+            }
+            .frame(minHeight: 58)
+            .appCardStyle()
+        }
+        .buttonStyle(.plain)
     }
 
     private var updatedSection: some View {
@@ -455,14 +534,14 @@ struct TransportGuideView: View {
     }
 
     private func sourceTrustText(_ source: TransportGuideSource) -> String {
-        let label = localized("Official source", "Officiele bron", "Официальный источник")
+        let label = localized("Official source", "Officiële bron", "Официальный источник")
         return "\(label) · \(source.retrievedAt)"
     }
 
     private func quickCardAccessibility(_ card: TransportQuickCard) -> String {
         switch card.id {
-        case "ns": return localized("Open NS official source", "Open officiele NS-bron", "Открыть официальный сайт NS")
-        case "ovpay": return localized("Open OVpay official source", "Open officiele OVpay-bron", "Открыть официальный сайт OVpay")
+        case "ns": return localized("Open NS official source", "Open officiële NS-bron", "Открыть официальный сайт NS")
+        case "ovpay": return localized("Open OVpay official source", "Open officiële OVpay-bron", "Открыть официальный сайт OVpay")
         case "planner": return localized("Open 9292 planner", "Open 9292 planner", "Открыть планировщик 9292")
         default: return localized("Open transport guide", "Open vervoersgids", "Открыть гид по транспорту")
         }
@@ -470,15 +549,15 @@ struct TransportGuideView: View {
 
     private func sourceAccessibility(_ source: TransportGuideSource) -> String {
         if source.id == "source.ns" {
-            return localized("Open NS official source", "Open officiele NS-bron", "Открыть официальный сайт NS")
+            return localized("Open NS official source", "Open officiële NS-bron", "Открыть официальный сайт NS")
         }
         if source.id == "source.9292" {
             return localized("Open 9292 planner", "Open 9292 planner", "Открыть планировщик 9292")
         }
         if source.id == "source.ovpay" {
-            return localized("Open OVpay official source", "Open officiele OVpay-bron", "Открыть официальный сайт OVpay")
+            return localized("Open OVpay official source", "Open officiële OVpay-bron", "Открыть официальный сайт OVpay")
         }
-        return "\(localized("Open official source", "Open officiele bron", "Открыть официальный источник")): \(source.title)"
+        return "\(localized("Open official source", "Open officiële bron", "Открыть официальный источник")): \(source.title)"
     }
 
     private func quickCardAccent(_ card: TransportQuickCard) -> Color {

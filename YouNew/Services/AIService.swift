@@ -41,7 +41,7 @@ struct AIService: AIServiceProtocol {
                 conversation: conversation
             )
 
-            guard response.isVerified else { return AIResponse.unverified(language: context.userLanguage) }
+            guard response.isVerified, !response.sources.isEmpty else { return AIResponse.unverified(language: context.userLanguage) }
 
             return AISafetyFilter.enforceResponseSafety(
                 personaSafeResponse(response, context: context),
@@ -157,19 +157,51 @@ struct AIService: AIServiceProtocol {
             suggestedActions: [],
             sections: [
                 AIResponseSection(
-                    title: "Safety",
+                    title: safetyTitle(for: context.userLanguage),
                     body: message,
                     symbol: "shield.lefthalf.filled"
                 )
             ],
             nextStep: AINextStep(
-                title: "Open official sources",
-                detail: "Use verified sources before acting.",
+                title: officialSourcesTitle(for: context.userLanguage),
+                detail: officialSourcesDetail(for: context.userLanguage),
                 destinationID: "officialSources",
-                destinationTitle: "Official sources"
+                destinationTitle: officialSourcesDestinationTitle(for: context.userLanguage)
             ),
             appDestinationID: "officialSources",
             isVerified: false
         )
+    }
+
+    private func safetyTitle(for language: AppLanguage) -> String {
+        switch language {
+        case .russian: return "Безопасность"
+        case .dutch: return "Veiligheid"
+        case .english: return "Safety"
+        }
+    }
+
+    private func officialSourcesTitle(for language: AppLanguage) -> String {
+        switch language {
+        case .russian: return "Открыть официальные источники"
+        case .dutch: return "Officiële bronnen openen"
+        case .english: return "Open official sources"
+        }
+    }
+
+    private func officialSourcesDetail(for language: AppLanguage) -> String {
+        switch language {
+        case .russian: return "Перед действием проверьте официальные источники."
+        case .dutch: return "Gebruik geverifieerde bronnen voordat u handelt."
+        case .english: return "Use verified sources before acting."
+        }
+    }
+
+    private func officialSourcesDestinationTitle(for language: AppLanguage) -> String {
+        switch language {
+        case .russian: return "Официальные источники"
+        case .dutch: return "Officiële bronnen"
+        case .english: return "Official sources"
+        }
     }
 }

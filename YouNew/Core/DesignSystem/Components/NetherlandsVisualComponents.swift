@@ -456,6 +456,7 @@ struct CategoryHeroVisual: View {
     var imageURL: URL? = nil
     var asset: AppImageAsset? = nil
     var height: CGFloat = 220
+    var language: AppLanguage = .english
 
     var body: some View {
         let resolvedHeight = min(max(height, 220), 320)
@@ -463,27 +464,29 @@ struct CategoryHeroVisual: View {
         ZStack(alignment: .bottomLeading) {
             AppContentImageView(
                 asset: resolvedHeroAsset,
-                language: .english,
+                language: language,
                 mode: .fill,
                 accent: accent,
                 aspectRatio: nil,
                 cornerRadius: 0,
                 showsCaption: false,
                 showsSourceButton: false,
-                accessibilityLabel: title,
+                accessibilityLabel: accessibilityLabel,
                 fallbackURLs: fallbackRemoteURLs,
                 fallbackLocalAssetName: fallbackLocalAssetName,
+                fallbackSymbol: symbol,
                 debugContext: nil,
                 targetPixelWidth: 1200
             )
             .frame(maxWidth: .infinity, minHeight: resolvedHeight, maxHeight: resolvedHeight)
             .clipped()
+            .accessibilityHidden(true)
 
             LinearGradient(
                 colors: [
-                    Color.black.opacity(0.26),
-                    AppColors.navyDeep.opacity(0.58),
-                    AppColors.navyDeep.opacity(0.96)
+                    Color.black.opacity(0.10),
+                    Color.black.opacity(0.35),
+                    Color.black.opacity(0.65)
                 ],
                 startPoint: .top,
                 endPoint: .bottom
@@ -491,8 +494,8 @@ struct CategoryHeroVisual: View {
 
             RadialGradient(
                 colors: [
-                    AppColors.navyDeep.opacity(0.82),
-                    AppColors.navyDeep.opacity(0.44),
+                    AppColors.navyDeep.opacity(0.42),
+                    AppColors.navyDeep.opacity(0.22),
                     Color.clear
                 ],
                 center: .bottomLeading,
@@ -511,21 +514,21 @@ struct CategoryHeroVisual: View {
                 endPoint: .bottomTrailing
             )
 
-            ViewThatFits(in: .horizontal) {
-                HStack(alignment: .top, spacing: AppSpacing.cardPaddingCompact) {
-                    LandmarkSymbolBadge(symbol: symbol, accent: accent, size: 54)
-                        .accessibilityHidden(true)
-                    textStack
-                }
+            GeometryReader { proxy in
+                let availableTextWidth = max(0, proxy.size.width - AppSpacing.cardPadding * 2 - 18)
+                let textWidth = proxy.size.width < 1_000
+                    ? min(availableTextWidth, 430)
+                    : max(320, min(availableTextWidth, 640))
 
                 VStack(alignment: .leading, spacing: AppSpacing.small) {
                     LandmarkSymbolBadge(symbol: symbol, accent: accent, size: 48)
                         .accessibilityHidden(true)
                     textStack
+                        .frame(width: textWidth, alignment: .leading)
                 }
+                .padding(AppSpacing.cardPadding)
+                .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .bottomLeading)
             }
-            .padding(AppSpacing.cardPadding)
-            .padding(.trailing, AppSpacing.small)
         }
         .frame(height: resolvedHeight, alignment: .bottomLeading)
         .frame(maxWidth: .infinity, alignment: .bottomLeading)
@@ -543,6 +546,13 @@ struct CategoryHeroVisual: View {
         )
         .shadow(color: accent.opacity(0.16), radius: 22, x: 0, y: 0)
         .shadow(color: Color.black.opacity(0.24), radius: 20, x: 0, y: 12)
+    }
+
+    private var accessibilityLabel: String {
+        if let asset = resolvedHeroAsset {
+            return asset.displayTitle(language)
+        }
+        return title
     }
 
     private var resolvedHeroAsset: AppImageAsset? {
@@ -588,7 +598,7 @@ struct CategoryHeroVisual: View {
            VisualAssetHelper.exists(localAssetName) {
             return localAssetName
         }
-        return CuratedPlaceHeroMediaRegistry.bundledEmergencyFallbackAssetName
+        return CuratedPlaceHeroMediaRegistry.bundledNeutralFallbackAssetName
     }
 
     private var fallbackRemoteURLs: [URL] {
@@ -609,19 +619,43 @@ struct CategoryHeroVisual: View {
         let lowerBadge = badgeText?.lowercased() ?? ""
 
         let candidate: AppImageAsset?
-        if lowerSymbol.contains("cross") || lowerSymbol.contains("stethoscope") || lowerSymbol.contains("heart") {
+        if lowerSymbol.contains("phone") || lowerSymbol.contains("exclamationmark") || lowerSymbol.contains("siren") || lowerBadge.contains("112") || lowerBadge.contains("emergency") {
+            candidate = ContentMediaRegistry.emergencyImage
+        } else if lowerSymbol.contains("cross") || lowerSymbol.contains("stethoscope") || lowerSymbol.contains("heart") {
             candidate = ContentMediaRegistry.healthcarePharmacyImage
         } else if lowerSymbol.contains("tram") || lowerSymbol.contains("bus") || lowerSymbol.contains("car") || lowerSymbol.contains("bicycle") {
             candidate = ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
         } else if lowerSymbol.contains("house") {
-            candidate = ContentMediaRegistry.housingTerracedHousesImage
+            candidate = ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        } else if lowerSymbol.contains("briefcase") || lowerSymbol.contains("wrench") || lowerSymbol.contains("hammer") || lowerBadge.contains("work") {
+            candidate = ContentMediaRegistry.workImage
+        } else if lowerSymbol.contains("fork") || lowerSymbol.contains("cup") || lowerBadge.contains("food") {
+            candidate = ContentMediaRegistry.foodImage
+        } else if lowerSymbol.contains("leaf") || lowerSymbol.contains("tree") || lowerSymbol.contains("sun") || lowerBadge.contains("nature") {
+            candidate = ContentMediaRegistry.natureImage
+        } else if lowerSymbol.contains("calendar") || lowerBadge.contains("event") {
+            candidate = ContentMediaRegistry.calendarImage
+        } else if lowerSymbol.contains("rectangle.grid") {
+            candidate = ContentMediaRegistry.searchImage ?? ContentMediaRegistry.mapImage
+        } else if lowerSymbol.contains("gearshape") || lowerBadge.contains("settings") {
+            candidate = ContentMediaRegistry.profileImage ?? ContentMediaRegistry.savedImage
         } else if lowerSymbol.contains("building.columns") || lowerSymbol.contains("person.badge") || lowerSymbol.contains("doc") {
             candidate = ContentMediaRegistry.municipalityCityHallImage
         } else if lowerSymbol.contains("book") || lowerSymbol.contains("graduationcap") || lowerBadge.contains("knm") || lowerBadge.contains("a1") {
             candidate = ContentMediaRegistry.leidenCanalsHero ?? ContentMediaRegistry.officialSourcesHero
         } else if lowerSymbol.contains("paintpalette") || lowerSymbol.contains("theatermasks") || lowerSymbol.contains("crown") || lowerSymbol.contains("star") {
             candidate = ContentMediaRegistry.cultureHero
-        } else if lowerSymbol.contains("map") || lowerSymbol.contains("globe") || lowerSymbol.contains("sparkles") {
+        } else if lowerSymbol.contains("map") || lowerSymbol.contains("globe") {
+            candidate = ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero
+        } else if lowerSymbol.contains("sparkles") || lowerSymbol.contains("wand") || lowerBadge.contains("ai") {
+            candidate = ContentMediaRegistry.aiImage
+        } else if lowerSymbol.contains("magnifyingglass") {
+            candidate = ContentMediaRegistry.searchImage
+        } else if lowerSymbol.contains("bookmark") || lowerSymbol.contains("heart") {
+            candidate = ContentMediaRegistry.savedImage
+        } else if lowerSymbol.contains("person.crop.circle") {
+            candidate = ContentMediaRegistry.profileImage
+        } else if lowerSymbol.contains("building.2") || lowerSymbol.contains("mappin") {
             candidate = ContentMediaRegistry.officialSourcesHero
         } else {
             candidate = nil
@@ -647,13 +681,17 @@ struct CategoryHeroVisual: View {
                 .foregroundStyle(.white)
                 .lineLimit(3)
                 .minimumScaleFactor(0.82)
-                .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
 
             Text(subtitle)
                 .font(.system(size: 14, weight: .semibold, design: .rounded))
                 .foregroundStyle(Color.white.opacity(0.84))
                 .lineLimit(4)
+                .minimumScaleFactor(0.84)
+                .allowsTightening(true)
+                .multilineTextAlignment(.leading)
                 .fixedSize(horizontal: false, vertical: true)
+                .frame(maxWidth: .infinity, alignment: .leading)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .layoutPriority(1)
@@ -731,12 +769,23 @@ struct OfficialSourceVisualCard: View {
     let detail: String
     var symbol: String = "building.columns.fill"
     var accent: Color = AppColors.success
+    var asset: AppImageAsset? = nil
+    var language: AppLanguage = .english
+    var fallbackCategory: PremiumImageFallbackCategory = .government
 
     var body: some View {
         HStack(alignment: .top, spacing: 12) {
-            GlassVisualBadge(size: 48, cornerRadius: 15, accent: accent) {
-                GeneratedCategoryArtwork(symbol: symbol, accent: accent)
-            }
+            PremiumImageHeader(
+                title: title,
+                asset: asset,
+                language: language,
+                symbol: symbol,
+                accent: accent,
+                height: 92,
+                width: 104,
+                cornerRadius: 18,
+                fallbackCategory: fallbackCategory
+            )
 
             VStack(alignment: .leading, spacing: 5) {
                 Text(title)
@@ -757,6 +806,7 @@ struct OfficialSourceVisualCard: View {
             Spacer(minLength: 4)
         }
         .padding(14)
+        .frame(maxWidth: .infinity, minHeight: 128, alignment: .topLeading)
         .background(AppColors.glassSurface.opacity(0.76))
         .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
         .overlay(
@@ -810,12 +860,43 @@ struct VisualEmptyState: View {
             }
         }
         .padding(16)
-        .background(AppColors.glassSurface.opacity(0.78))
-        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .background {
+            ZStack {
+                RoundedRectangle(cornerRadius: 22, style: .continuous)
+                    .fill(AppColors.glassSurfaceElevated.opacity(0.82))
+                RoundedRectangle(cornerRadius: 22, style: .continuous)
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                accent.opacity(0.11),
+                                Color.white.opacity(0.035),
+                                Color.clear
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+                RadialGradient(
+                    colors: [accent.opacity(0.10), .clear],
+                    center: .topTrailing,
+                    startRadius: 0,
+                    endRadius: 190
+                )
+            }
+        }
+        .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
         .overlay(
-            RoundedRectangle(cornerRadius: 20, style: .continuous)
-                .stroke(Color.white.opacity(0.13), lineWidth: 0.75)
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .stroke(
+                    LinearGradient(
+                        colors: [Color.white.opacity(0.17), accent.opacity(0.18), Color.white.opacity(0.06)],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    ),
+                    lineWidth: 0.8
+                )
         )
+        .shadow(color: accent.opacity(0.08), radius: 18, x: 0, y: 10)
         .accessibilityElement(children: .combine)
     }
 }

@@ -265,9 +265,9 @@ enum MockBeginnerGuidesData {
                 .russian: "Медицинская страховка в Нидерландах"
             ],
             descriptionByLanguage: [
-                .english: "Basic health insurance (basisverzekering) is mandatory for everyone residing in the Netherlands. You must get it within 4 months of registering.",
-                .dutch: "Basisverzekering is verplicht voor iedereen die in Nederland woont. U moet die afsluiten binnen 4 maanden na inschrijving.",
-                .russian: "Базовая медицинская страховка (basisverzekering) обязательна для всех жителей Нидерландов. Оформить её нужно в течение 4 месяцев после регистрации."
+                .english: "Basic health insurance (basisverzekering) is mandatory for many residents and workers. Check when your obligation starts for your situation.",
+                .dutch: "Basisverzekering is verplicht voor veel inwoners en werknemers. Controleer wanneer de plicht in uw situatie begint.",
+                .russian: "Базовая медицинская страховка (basisverzekering) обязательна для многих жителей и работников. Проверьте, когда обязанность начинается именно для вашей ситуации."
             ],
             simpleAnswerByLanguage: [
                 .english: "Choose a health insurer (zorgverzekeraar), sign up online, and pay monthly premiums. The basic package covers GP visits, hospitals, and essential medicines.",
@@ -280,9 +280,9 @@ enum MockBeginnerGuidesData {
                 .russian: "Если вы не застрахованы, CAK может зарегистрировать вас по более высокой ставке. Медицинская помощь без страховки очень дорогостоящая."
             ],
             whatToCheckByLanguage: [
-                .english: ["Monthly premium amount", "Annual eigen risico (own risk, €385 in 2024)", "Network of hospitals and GPs covered", "Supplementary dental or physio insurance needed?", "Apply for zorgtoeslag if income is low"],
-                .dutch: ["Maandelijkse premiehoogte", "Jaarlijks eigen risico (€385 in 2024)", "Netwerk van gedekte ziekenhuizen en huisartsen", "Aanvullende tand- of fysiotherapieverzekering nodig?", "Vraag zorgtoeslag aan bij laag inkomen"],
-                .russian: ["Размер ежемесячной премии", "Eigen risico (собственный риск, €385 в 2024)", "Покрытие больниц и GP", "Нужна доп. страховка (зубы, физио)?", "Подать на zorgtoeslag при низком доходе"]
+                .english: ["Monthly premium amount", "Current annual eigen risico and exceptions", "Network of hospitals and GPs covered", "Supplementary dental or physio insurance needed?", "Apply for zorgtoeslag if income is low"],
+                .dutch: ["Maandelijkse premiehoogte", "Actueel jaarlijks eigen risico en uitzonderingen", "Netwerk van gedekte ziekenhuizen en huisartsen", "Aanvullende tand- of fysiotherapieverzekering nodig?", "Vraag zorgtoeslag aan bij laag inkomen"],
+                .russian: ["Размер ежемесячной премии", "Актуальный eigen risico и исключения", "Покрытие больниц и GP", "Нужна доп. страховка (зубы, физио)?", "Подать на zorgtoeslag при низком доходе"]
             ],
             commonMistakeByLanguage: [
                 .english: "Not comparing insurers before signing up. Prices and covered extras vary significantly. Use zorgvergelijker.nl to compare.",
@@ -290,9 +290,9 @@ enum MockBeginnerGuidesData {
                 .russian: "Не сравнивать страховщиков перед подпиской. Цены и покрытие сильно различаются. Используйте zorgvergelijker.nl."
             ],
             safeNextStepByLanguage: [
-                .english: "Compare plans on zorgvergelijker.nl, choose a provider, and sign up before the 4-month deadline. Then apply for zorgtoeslag on toeslagen.nl if eligible.",
-                .dutch: "Vergelijk plannen op zorgvergelijker.nl, kies een aanbieder en schrijf u in vóór de termijn van 4 maanden. Vraag dan zorgtoeslag aan op toeslagen.nl.",
-                .russian: "Сравните на zorgvergelijker.nl, выберите страховщика, оформите до истечения 4 месяцев. Затем подайте на zorgtoeslag на toeslagen.nl при праве."
+                .english: "Compare plans, choose a provider, and verify your deadline through Government.nl or CAK. Then apply for zorgtoeslag on toeslagen.nl if eligible.",
+                .dutch: "Vergelijk pakketten, kies een aanbieder en controleer uw termijn via Government.nl of CAK. Vraag daarna zorgtoeslag aan op toeslagen.nl als u recht heeft.",
+                .russian: "Сравните полисы, выберите страховщика и проверьте срок через Government.nl или CAK. Затем подайте на zorgtoeslag на toeslagen.nl при праве."
             ],
             officialSourceName: "Government.nl — Health Insurance",
             officialSourceURL: URL(string: "https://www.government.nl/topics/health-insurance"),
@@ -621,9 +621,9 @@ enum MockBeginnerGuidesData {
                 .russian: "Рынок аренды в Нидерландах конкурентен. Важно понимать разницу между социальным и частным жильём."
             ],
             simpleAnswerByLanguage: [
-                .english: "Social housing (sociale huur) has lower rents but long waiting lists (5-15 years). Private sector (vrije sector) is faster but more expensive — budget €1,000-1,500/month for a studio.",
-                .dutch: "Sociale huur heeft lagere huurprijzen maar zeer lange wachtlijsten (5-15 jaar). Vrije sector is sneller maar duurder — budget minimaal €1.000-1.500/maand voor een studio.",
-                .russian: "Социальное жильё (sociale huur) дешевле, но очереди 5–15 лет. Частный сектор (vrije sector) быстрее, но дороже — бюджетируйте минимум €1.000–1.500/мес. за студию."
+                .english: "Social housing (sociale huur) has regulated rents and can have long waiting lists. Private sector (vrije sector) is usually faster but often more expensive; check current local prices.",
+                .dutch: "Sociale huur heeft gereguleerde huren en kan lange wachtlijsten hebben. De vrije sector is meestal sneller maar vaak duurder; controleer actuele lokale prijzen.",
+                .russian: "Социальное жильё (sociale huur) имеет регулируемую аренду и может иметь длинные очереди. Частный сектор обычно быстрее, но часто дороже; проверяйте текущие цены по городу."
             ],
             whyItMattersByLanguage: [
                 .english: "Scam listings are common. Never pay a deposit without viewing the property and signing a contract. Verify landlord identity before transferring money.",
@@ -631,9 +631,9 @@ enum MockBeginnerGuidesData {
                 .russian: "Мошеннические объявления распространены. Никогда не платите залог без просмотра квартиры и подписания договора."
             ],
             whatToCheckByLanguage: [
-                .english: ["Rental contract in Dutch/English", "Maximum deposit = 2 months rent (since 2023)", "Energy label of the property", "Utilities included or excluded?", "Register for Huurcommissie rights if in regulated zone"],
-                .dutch: ["Huurcontract in NL/EN", "Maximale borgsom = 2 maanden huur (sinds 2023)", "Energielabel van de woning", "Nutsvoorzieningen inbegrepen?", "Huurcommissierechten voor gereguleerde huur"],
-                .russian: ["Договор на NL/EN", "Залог максимум 2 месяца аренды (с 2023)", "Энергетический ярлык жилья", "Утилиты включены?", "Права Huurcommissie при регулируемой аренде"]
+                .english: ["Rental contract in Dutch/English", "Deposit amount and refund terms", "Energy label of the property", "Utilities included or excluded?", "Huurcommissie rights if the home is regulated"],
+                .dutch: ["Huurcontract in NL/EN", "Borgsom en terugbetalingsvoorwaarden", "Energielabel van de woning", "Nutsvoorzieningen inbegrepen?", "Huurcommissierechten bij gereguleerde huur"],
+                .russian: ["Договор на NL/EN", "Сумма депозита и условия возврата", "Энергетический ярлык жилья", "Утилиты включены?", "Права Huurcommissie при регулируемой аренде"]
             ],
             commonMistakeByLanguage: [
                 .english: "Paying a deposit before signing a contract. Scammers exploit urgent housing situations. Always use official platforms like Funda, Pararius, or a registered agency.",
@@ -672,14 +672,14 @@ enum MockBeginnerGuidesData {
                 .russian: "OV-chipkaart — пополняемая смарт-карта для оплаты всего общественного транспорта Нидерландов."
             ],
             simpleAnswerByLanguage: [
-                .english: "Always check in (inchecken) when boarding and check out (uitchecken) when leaving. Keep a minimum balance of €20 for train journeys.",
-                .dutch: "Check altijd in bij het instappen en uit bij het uitstappen. Houd een minimumsaldo van €20 voor treinreizen.",
-                .russian: "Всегда выполняйте check-in при посадке и check-out при выходе. Держите минимальный баланс €20 для поездок на поезде."
+                .english: "Always check in (inchecken) when boarding and check out (uitchecken) when leaving. Verify current balance or payment rules for your card, bank card, or operator.",
+                .dutch: "Check altijd in bij het instappen en uit bij het uitstappen. Controleer de actuele saldo- of betaalregels voor uw kaart, bankpas of vervoerder.",
+                .russian: "Всегда выполняйте check-in при посадке и check-out при выходе. Проверяйте актуальные правила баланса или оплаты для вашей карты, банковской карты или оператора."
             ],
             whyItMattersByLanguage: [
-                .english: "Failing to check out results in the maximum fare being charged. Forgetting check-out on a train can cost €20+ per journey.",
-                .dutch: "Niet uitchecken leidt tot maximumkosten. Vergeten uit te checken in een trein kan €20+ per rit kosten.",
-                .russian: "Забытый check-out означает максимальный тариф. Не выйти в поезде = €20+ за поездку."
+                .english: "Failing to check out can result in a correction charge or maximum fare. Check the operator's current correction process.",
+                .dutch: "Niet uitchecken kan leiden tot correctiekosten of maximaal tarief. Controleer het actuele correctieproces van de vervoerder.",
+                .russian: "Забытый check-out может привести к корректировке или максимальному тарифу. Проверяйте актуальный процесс исправления у оператора."
             ],
             whatToCheckByLanguage: [
                 .english: ["Personal or anonymous OV-chipkaart", "Auto-reload set up to avoid empty balance", "Student OV subscription if eligible", "Check balance at ov-chipkaart.nl or yellow check-in poles", "Always check in and out — even when transferring"],
@@ -726,9 +726,9 @@ enum MockBeginnerGuidesData {
                 .russian: "Используйте велодорожки (fietspaden), имейте передний и задний свет ночью, не пользуйтесь телефоном и соблюдайте сигналы."
             ],
             whyItMattersByLanguage: [
-                .english: "Cycling fines start at €95 (no lights) and €180+ (phone use). Police actively enforce cycling rules, especially in cities.",
-                .dutch: "Fietsboetes beginnen bij €95 (geen lichten) en €180+ (telefoongebruik). Politie handhaaft fietsregels actief in steden.",
-                .russian: "Штрафы за велосипед: от €95 (нет фонарей) и €180+ (телефон). Полиция активно следит за правилами."
+                .english: "Cycling violations such as no lights, phone use, red lights, or pavement cycling can lead to fines. Amounts change, so verify the official table.",
+                .dutch: "Fietsovertredingen zoals geen licht, telefoongebruik, rood licht of fietsen op de stoep kunnen boetes opleveren. Bedragen veranderen; controleer de officiële tabel.",
+                .russian: "Нарушения на велосипеде — нет света, телефон, красный свет, езда по тротуару — могут привести к штрафам. Суммы меняются, проверяйте официальную таблицу."
             ],
             whatToCheckByLanguage: [
                 .english: ["Front white light + rear red light required after dark", "Bell (bel) required by law", "No phone use while cycling", "Must use fietspaden where available", "No cycling against traffic on one-way streets"],
@@ -872,9 +872,9 @@ enum MockBeginnerGuidesData {
                 .russian: "В Нидерландах строго соблюдаются правила. Частые штрафы: нет фонарей, телефон, красный свет, езда против движения."
             ],
             simpleAnswerByLanguage: [
-                .english: "Main cycling fines: No lights (€95+), phone use (€180+), running red light (€100+), no bell (€55+), cycling on pavement (€55+).",
-                .dutch: "Belangrijkste fietsboetes: Geen lichten (€95+), telefoon (€180+), rood licht (€100+), geen bel (€55+), fietspad trottoir (€55+).",
-                .russian: "Основные штрафы: нет фонарей (€95+), телефон (€180+), красный свет (€100+), нет звонка (€55+), тротуар (€55+)."
+                .english: "Main cycling fine categories: no lights, phone use, running red lights, missing bell, and cycling on the pavement. Check current official amounts.",
+                .dutch: "Belangrijkste fietsboetecategorieën: geen licht, telefoon, rood licht, ontbrekende bel en fietsen op de stoep. Controleer actuele officiële bedragen.",
+                .russian: "Основные категории штрафов: нет фонарей, телефон, красный свет, нет звонка и езда по тротуару. Проверяйте актуальные официальные суммы."
             ],
             whyItMattersByLanguage: [
                 .english: "These are the most commonly issued fines to newcomers unaware of Dutch cycling law.",

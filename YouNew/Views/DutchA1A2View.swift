@@ -96,7 +96,7 @@ struct DutchA1A2View: View {
                     NavigationLink {
                         DutchCourseModuleView(module: module)
                     } label: {
-                        DutchCourseModuleCard(module: module)
+                        dutchModuleCard(module)
                     }
                     .buttonStyle(NLTileButtonStyle())
                     .accessibilityIdentifier("dutchA1A2.module.\(module.id)")
@@ -105,11 +105,61 @@ struct DutchA1A2View: View {
         }
     }
 
+    private func dutchModuleCard(_ module: DutchCourseModule) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            PremiumImageHeader(
+                title: module.title.value(lang),
+                asset: moduleImageAsset(module),
+                language: lang,
+                symbol: module.icon,
+                accent: AppColors.emerald,
+                height: 88,
+                width: 96,
+                cornerRadius: 18,
+                fallbackCategory: moduleFallbackCategory(module)
+            )
+            .layoutPriority(0)
+
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 8) {
+                    Text(module.level.rawValue)
+                        .font(AppTypography.captionStrong)
+                        .foregroundStyle(.white)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 4)
+                        .background(AppColors.emerald, in: Capsule())
+                    Text("\(module.lessons.count) \(localized(en: "lessons", nl: "lessen", ru: "уроков"))")
+                        .font(AppTypography.captionStrong)
+                        .foregroundStyle(AppColors.textSecondary)
+                }
+
+                Text(module.title.value(lang))
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+
+                Text(module.summary.value(lang))
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(3)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .layoutPriority(1)
+        }
+        .frame(maxWidth: .infinity, minHeight: 156, alignment: .topLeading)
+        .appCardStyle()
+    }
+
     private var flashcardsSection: some View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             NLSectionHeader(title: localized(en: "Flashcards", nl: "Flashcards", ru: "Карточки"))
             ForEach(allVocabulary.prefix(32)) { item in
-                DutchVocabularyCard(item: item)
+                ProductInfoBlock(
+                    title: item.nl,
+                    bodyText: "\(lang == .russian ? item.ru : (item.en ?? item.ru))\n\(item.exampleNl)\n\(item.exampleRu)",
+                    symbol: "textformat.abc",
+                    accent: AppColors.emerald
+                )
             }
         }
     }
@@ -131,6 +181,50 @@ struct DutchA1A2View: View {
         localized(en: "Dutch A1-A2", nl: "Nederlands A1-A2", ru: "Нидерландский A1-A2")
     }
 
+    private func moduleImageAsset(_ module: DutchCourseModule) -> AppImageAsset? {
+        switch module.id {
+        case "basics", "personal-info", "grammar":
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.marketsLocalLifeImage ?? ContentMediaRegistry.mapImage
+        case "municipality":
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        case "housing":
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case "transport":
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case "healthcare":
+            return ContentMediaRegistry.healthcarePharmacyImage
+        case "work-income":
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case "shopping-services":
+            return ContentMediaRegistry.marketsLocalLifeImage ?? ContentMediaRegistry.foodImage
+        case "time-appointments":
+            return ContentMediaRegistry.calendarImage ?? ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        default:
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+    }
+
+    private func moduleFallbackCategory(_ module: DutchCourseModule) -> PremiumImageFallbackCategory {
+        switch module.id {
+        case "municipality", "time-appointments":
+            return .government
+        case "housing":
+            return .housing
+        case "transport":
+            return .transport
+        case "healthcare":
+            return .healthcare
+        case "work-income":
+            return .work
+        case "shopping-services":
+            return .integration
+        case "grammar", "basics", "personal-info":
+            return .dutchA1A2
+        default:
+            return .integration
+        }
+    }
+
     private func localized(en: String, nl: String, ru: String) -> String {
         switch lang {
         case .english: return en
@@ -149,7 +243,16 @@ private struct DutchCourseModuleView: View {
         ScrollView {
             ResponsiveContentContainer(maxWidth: 920) {
                 LazyVStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
-                    CategoryHeroVisual(assetName: nil, title: module.title.value(lang), subtitle: module.summary.value(lang), symbol: module.icon, badgeText: module.level.rawValue, accent: AppColors.emerald)
+                    CategoryHeroVisual(
+                        assetName: nil,
+                        title: module.title.value(lang),
+                        subtitle: module.summary.value(lang),
+                        symbol: module.icon,
+                        badgeText: module.level.rawValue,
+                        accent: AppColors.emerald,
+                        asset: moduleHeroAsset,
+                        language: lang
+                    )
                     DisclaimerBanner(text: localized(en: "App-created Dutch practice. Not official DUO exam material.", nl: "Nederlandse oefening gemaakt door de app. Geen officieel DUO-examenmateriaal.", ru: "Тренировка нидерландского, созданная приложением. Не официальный материал экзамена DUO."))
 
                     VStack(alignment: .leading, spacing: AppSpacing.small) {
@@ -201,6 +304,29 @@ private struct DutchCourseModuleView: View {
         case .russian: return ru
         }
     }
+
+    private var moduleHeroAsset: AppImageAsset? {
+        switch module.id {
+        case "basics", "personal-info", "grammar":
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.profileImage
+        case "municipality":
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        case "housing":
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case "transport":
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case "healthcare":
+            return ContentMediaRegistry.healthcarePharmacyImage
+        case "work-income":
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case "shopping-services":
+            return ContentMediaRegistry.marketsLocalLifeImage ?? ContentMediaRegistry.foodImage
+        case "time-appointments":
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.calendarImage
+        default:
+            return ContentMediaRegistry.profileImage ?? ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+    }
 }
 
 private struct DutchCourseLessonView: View {
@@ -215,7 +341,16 @@ private struct DutchCourseLessonView: View {
         ScrollView {
             ResponsiveContentContainer(maxWidth: 920) {
                 LazyVStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
-                    CategoryHeroVisual(assetName: nil, title: lesson.title.value(lang), subtitle: module.title.value(lang), symbol: module.icon, badgeText: module.level.rawValue, accent: AppColors.emerald)
+                    CategoryHeroVisual(
+                        assetName: nil,
+                        title: lesson.title.value(lang),
+                        subtitle: module.title.value(lang),
+                        symbol: module.icon,
+                        badgeText: module.level.rawValue,
+                        accent: AppColors.emerald,
+                        asset: moduleHeroAsset,
+                        language: lang
+                    )
                     textBlock(label("Explanation", "Uitleg", "Объяснение"), lesson.explanation.value(lang))
                     vocabularyBlock
                     phrasesBlock
@@ -247,13 +382,41 @@ private struct DutchCourseLessonView: View {
         }
     }
 
+    private var moduleHeroAsset: AppImageAsset? {
+        switch module.id {
+        case "basics", "personal-info", "grammar":
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.profileImage
+        case "municipality":
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        case "housing":
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case "transport":
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case "healthcare":
+            return ContentMediaRegistry.healthcarePharmacyImage
+        case "work-income":
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case "shopping-services":
+            return ContentMediaRegistry.marketsLocalLifeImage ?? ContentMediaRegistry.foodImage
+        case "time-appointments":
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.calendarImage
+        default:
+            return ContentMediaRegistry.profileImage ?? ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+    }
+
     private var vocabularyBlock: some View {
         Group {
             if !lesson.vocabulary.isEmpty {
                 VStack(alignment: .leading, spacing: AppSpacing.small) {
                     NLSectionHeader(title: label("Words", "Woorden", "Слова"))
                     ForEach(lesson.vocabulary) { item in
-                        DutchVocabularyCard(item: item)
+                        ProductInfoBlock(
+                            title: item.nl,
+                            bodyText: "\(lang == .russian ? item.ru : (item.en ?? item.ru))\n\(item.exampleNl)\n\(item.exampleRu)",
+                            symbol: "textformat.abc",
+                            accent: AppColors.emerald
+                        )
                     }
                 }
             }
@@ -348,31 +511,166 @@ private struct DutchCourseLessonView: View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             NLSectionHeader(title: label("Practice", "Oefenen", "Практика"))
             ForEach(lesson.exercises) { exercise in
-                DutchExerciseCard(exercise: exercise, selectedAnswer: selectedAnswers[exercise.id]) { answer in
-                    selectedAnswers[exercise.id] = answer
-                }
+                exercisePanel(exercise)
             }
         }
     }
 
-    private var relatedBlock: some View {
-        Group {
-            if !lesson.relatedDestinations.isEmpty {
-                VStack(alignment: .leading, spacing: AppSpacing.small) {
-                    NLSectionHeader(title: label("Related topics", "Gerelateerde thema's", "Связанные темы"))
-                    ForEach(lesson.relatedDestinations) { related in
-                        NavigationLink(value: related.destination) {
-                            Label(related.title.value(lang), systemImage: related.icon)
-                                .font(AppTypography.bodyStrong)
-                                .foregroundStyle(AppColors.textPrimary)
-                                .frame(maxWidth: .infinity, alignment: .leading)
-                                .appCardStyle()
-                        }
-                        .buttonStyle(.plain)
+    private func exercisePanel(_ exercise: DutchExercise) -> some View {
+        let selectedAnswer = selectedAnswers[exercise.id]
+        return VStack(alignment: .leading, spacing: AppSpacing.small) {
+            ProductInfoBlock(
+                title: "\(exercise.level.rawValue) • \(exercise.type.rawValue)",
+                bodyText: exercise.prompt.value(lang),
+                symbol: "text.book.closed.fill",
+                accent: AppColors.emerald
+            )
+
+            ForEach(exercise.options, id: \.self) { option in
+                Button {
+                    selectedAnswers[exercise.id] = option
+                } label: {
+                    HStack(spacing: AppSpacing.small) {
+                        Image(systemName: exerciseOptionIcon(option, selectedAnswer: selectedAnswer, exercise: exercise))
+                            .font(.system(size: 14, weight: .bold))
+                        Text(option)
+                            .font(AppTypography.body)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Spacer(minLength: 0)
                     }
+                    .foregroundStyle(exerciseOptionForeground(option, selectedAnswer: selectedAnswer, exercise: exercise))
+                    .padding(AppSpacing.small)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(exerciseOptionBackground(option, selectedAnswer: selectedAnswer, exercise: exercise))
+                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("dutchA1A2.exercise.option.\(exercise.id)")
+            }
+
+            if selectedAnswer != nil {
+                ProductInfoBlock(
+                    title: label("Explanation", "Uitleg", "Пояснение"),
+                    bodyText: exercise.explanation.value(lang),
+                    symbol: "text.bubble.fill",
+                    accent: AppColors.cyanGlow
+                )
+                .accessibilityIdentifier("dutchA1A2.exercise.feedback")
+            }
+        }
+    }
+
+    private func exerciseOptionIcon(_ option: String, selectedAnswer: String?, exercise: DutchExercise) -> String {
+        guard let selectedAnswer else { return "circle" }
+        if option == exercise.correctAnswer { return "checkmark.circle.fill" }
+        if option == selectedAnswer { return "xmark.circle.fill" }
+        return "circle"
+    }
+
+    private func exerciseOptionForeground(_ option: String, selectedAnswer: String?, exercise: DutchExercise) -> Color {
+        guard let selectedAnswer else { return AppColors.textPrimary }
+        if option == exercise.correctAnswer { return AppColors.success }
+        if option == selectedAnswer { return AppColors.error }
+        return AppColors.textSecondary
+    }
+
+    private func exerciseOptionBackground(_ option: String, selectedAnswer: String?, exercise: DutchExercise) -> Color {
+        guard let selectedAnswer else { return AppColors.glassSurfaceElevated }
+        if option == exercise.correctAnswer { return AppColors.success.opacity(0.12) }
+        if option == selectedAnswer { return AppColors.error.opacity(0.12) }
+        return AppColors.glassSurfaceElevated
+    }
+
+    private var relatedBlock: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            NLSectionHeader(
+                title: label("Related topics", "Gerelateerde thema's", "Связанные темы"),
+                subtitle: lesson.relatedDestinations.isEmpty ? relatedFallbackSubtitle : nil
+            )
+
+            if lesson.relatedDestinations.isEmpty {
+                relatedFallbackRows
+            } else {
+                ForEach(lesson.relatedDestinations) { related in
+                    NavigationLink(value: related.destination) {
+                        Label(related.title.value(lang), systemImage: related.icon)
+                            .font(AppTypography.bodyStrong)
+                            .foregroundStyle(AppColors.textPrimary)
+                            .frame(maxWidth: .infinity, alignment: .leading)
+                            .appCardStyle()
+                    }
+                    .buttonStyle(.plain)
                 }
             }
         }
+        .accessibilityIdentifier("dutchA1A2.lesson.related.dashboard")
+    }
+
+    private var relatedFallbackRows: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            relatedFallbackRow(
+                title: label("Dutch terms", "Nederlandse termen", "Нидерландские термины"),
+                subtitle: label("Check words that appear in letters and official pages.", "Controleer woorden uit brieven en officiële pagina's.", "Проверьте слова из писем и официальных страниц."),
+                icon: "text.magnifyingglass",
+                destination: .dutchTermsList
+            )
+
+            relatedFallbackRow(
+                title: label("Search", "Zoeken", "Поиск"),
+                subtitle: label("Find answers, documents, and official sources.", "Vind antwoorden, documenten en officiële bronnen.", "Найти ответы, документы и официальные источники."),
+                icon: "magnifyingglass",
+                destination: .searchList
+            )
+
+            relatedFallbackRow(
+                title: label("Course overview", "Cursusoverzicht", "Обзор курса"),
+                subtitle: label("Return to modules and practice.", "Ga terug naar modules en oefenen.", "Вернуться к модулям и практике."),
+                icon: "text.book.closed",
+                destination: .dutchA1A2
+            )
+        }
+        .accessibilityIdentifier("dutchA1A2.lesson.related.empty")
+    }
+
+    private func relatedFallbackRow(title: String, subtitle: String, icon: String, destination: AppDestination) -> some View {
+        NavigationLink(value: destination) {
+            HStack(spacing: AppSpacing.small) {
+                Image(systemName: icon)
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(AppColors.emerald)
+                    .frame(width: 34, height: 34)
+                    .background(AppColors.emerald.opacity(0.14))
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(title)
+                        .font(AppTypography.bodyStrong)
+                        .foregroundStyle(AppColors.textPrimary)
+                        .lineLimit(2)
+                    Text(subtitle)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(2)
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.caption.weight(.bold))
+                    .foregroundStyle(AppColors.textSecondary)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .appCardStyle()
+        }
+        .buttonStyle(.plain)
+    }
+
+    private var relatedFallbackSubtitle: String {
+        label(
+            "Continue with terms, search, or the course overview.",
+            "Ga verder met termen, zoeken of het cursusoverzicht.",
+            "Продолжите через термины, поиск или обзор курса."
+        )
     }
 
     private func label(_ en: String, _ nl: String, _ ru: String) -> String {
@@ -436,139 +734,38 @@ private struct DutchCoursePracticeView: View {
             .accessibilityIdentifier("dutchA1A2.practice.summary")
 
             ForEach(exercises) { exercise in
-                DutchExerciseCard(exercise: exercise, selectedAnswer: selectedAnswers[exercise.id]) { answer in
-                    selectedAnswers[exercise.id] = answer
-                }
+                exercisePanel(exercise)
             }
         }
         .accessibilityIdentifier("dutchA1A2.practice")
     }
 
-    private func localized(en: String, nl: String, ru: String) -> String {
-        switch lang {
-        case .english: return en
-        case .dutch: return nl
-        case .russian: return ru
-        }
-    }
-}
-
-private struct DutchCourseModuleCard: View {
-    let module: DutchCourseModule
-    @EnvironmentObject private var languageManager: LanguageManager
-    private var lang: AppLanguage { languageManager.appLanguage }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
-            HStack(alignment: .top, spacing: AppSpacing.small) {
-                Image(systemName: module.icon)
-                    .font(.system(size: 17, weight: .bold))
-                    .foregroundStyle(AppColors.emerald)
-                    .frame(width: 42, height: 42)
-                    .background(AppColors.emerald.opacity(0.12))
-                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                VStack(alignment: .leading, spacing: 3) {
-                    Text(module.title.value(lang))
-                        .font(AppTypography.bodyStrong)
-                        .foregroundStyle(AppColors.textPrimary)
-                        .lineLimit(2)
-                    Text("\(module.level.rawValue) • \(module.lessons.count) \(localized(en: "lessons", nl: "lessen", ru: "уроков"))")
-                        .font(AppTypography.metadata)
-                        .foregroundStyle(AppColors.emerald)
-                }
-                Spacer(minLength: 0)
-            }
-            Text(module.summary.value(lang))
-                .font(AppTypography.caption)
-                .foregroundStyle(AppColors.textSecondary)
-                .lineLimit(4)
-                .fixedSize(horizontal: false, vertical: true)
-        }
-        .frame(maxWidth: .infinity, minHeight: 154, alignment: .topLeading)
-        .appCardStyle()
-    }
-
-    private func localized(en: String, nl: String, ru: String) -> String {
-        switch lang {
-        case .english: return en
-        case .dutch: return nl
-        case .russian: return ru
-        }
-    }
-}
-
-private struct DutchVocabularyCard: View {
-    let item: DutchVocabularyItem
-    @EnvironmentObject private var languageManager: LanguageManager
-    private var lang: AppLanguage { languageManager.appLanguage }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 7) {
-            HStack(alignment: .firstTextBaseline) {
-                Text(item.nl)
-                    .font(AppTypography.cardTitle)
-                    .foregroundStyle(AppColors.textPrimary)
-                Spacer()
-                if let tag = item.tags.first {
-                    Text(tag)
-                        .font(AppTypography.metadata)
-                        .foregroundStyle(AppColors.emerald)
-                }
-            }
-            Text(lang == .russian ? item.ru : (item.en ?? item.ru))
-                .font(AppTypography.body)
-                .foregroundStyle(AppColors.textSecondary)
-            if let pronunciationHint = item.pronunciationHint {
-                Text(pronunciationHint)
-                    .font(AppTypography.metadata)
-                    .foregroundStyle(AppColors.warning)
-            }
-            Text(item.exampleNl)
-                .font(AppTypography.caption)
-                .foregroundStyle(AppColors.textPrimary)
-            Text(item.exampleRu)
-                .font(AppTypography.caption)
-                .foregroundStyle(AppColors.textSecondary)
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .appCardStyle()
-    }
-}
-
-private struct DutchExerciseCard: View {
-    let exercise: DutchExercise
-    let selectedAnswer: String?
-    let onAnswer: (String) -> Void
-    @EnvironmentObject private var languageManager: LanguageManager
-
-    private var lang: AppLanguage { languageManager.appLanguage }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
-            Text(exercise.prompt.value(lang))
-                .font(AppTypography.bodyStrong)
-                .foregroundStyle(AppColors.textPrimary)
-                .fixedSize(horizontal: false, vertical: true)
-            Text("\(exercise.level.rawValue) • \(exercise.type.rawValue)")
-                .font(AppTypography.metadata)
-                .foregroundStyle(AppColors.emerald)
+    private func exercisePanel(_ exercise: DutchExercise) -> some View {
+        let selectedAnswer = selectedAnswers[exercise.id]
+        return VStack(alignment: .leading, spacing: AppSpacing.small) {
+            ProductInfoBlock(
+                title: "\(exercise.level.rawValue) • \(exercise.type.rawValue)",
+                bodyText: exercise.prompt.value(lang),
+                symbol: "text.book.closed.fill",
+                accent: AppColors.emerald
+            )
 
             ForEach(exercise.options, id: \.self) { option in
                 Button {
-                    onAnswer(option)
+                    selectedAnswers[exercise.id] = option
                 } label: {
                     HStack(spacing: AppSpacing.small) {
-                        Image(systemName: icon(for: option))
+                        Image(systemName: exerciseOptionIcon(option, selectedAnswer: selectedAnswer, exercise: exercise))
                             .font(.system(size: 14, weight: .bold))
                         Text(option)
                             .font(AppTypography.body)
                             .fixedSize(horizontal: false, vertical: true)
                         Spacer(minLength: 0)
                     }
-                    .foregroundStyle(foreground(for: option))
+                    .foregroundStyle(exerciseOptionForeground(option, selectedAnswer: selectedAnswer, exercise: exercise))
                     .padding(AppSpacing.small)
                     .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(background(for: option))
+                    .background(exerciseOptionBackground(option, selectedAnswer: selectedAnswer, exercise: exercise))
                     .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
                 }
                 .buttonStyle(.plain)
@@ -576,35 +773,44 @@ private struct DutchExerciseCard: View {
             }
 
             if selectedAnswer != nil {
-                Text(exercise.explanation.value(lang))
-                    .font(AppTypography.caption)
-                    .foregroundStyle(AppColors.textSecondary)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .accessibilityIdentifier("dutchA1A2.exercise.feedback")
+                ProductInfoBlock(
+                    title: localized(en: "Explanation", nl: "Uitleg", ru: "Пояснение"),
+                    bodyText: exercise.explanation.value(lang),
+                    symbol: "text.bubble.fill",
+                    accent: AppColors.cyanGlow
+                )
+                .accessibilityIdentifier("dutchA1A2.exercise.feedback")
             }
         }
-        .appCardStyle()
     }
 
-    private func icon(for option: String) -> String {
+    private func exerciseOptionIcon(_ option: String, selectedAnswer: String?, exercise: DutchExercise) -> String {
         guard let selectedAnswer else { return "circle" }
         if option == exercise.correctAnswer { return "checkmark.circle.fill" }
         if option == selectedAnswer { return "xmark.circle.fill" }
         return "circle"
     }
 
-    private func foreground(for option: String) -> Color {
+    private func exerciseOptionForeground(_ option: String, selectedAnswer: String?, exercise: DutchExercise) -> Color {
         guard let selectedAnswer else { return AppColors.textPrimary }
         if option == exercise.correctAnswer { return AppColors.success }
         if option == selectedAnswer { return AppColors.error }
         return AppColors.textSecondary
     }
 
-    private func background(for option: String) -> Color {
+    private func exerciseOptionBackground(_ option: String, selectedAnswer: String?, exercise: DutchExercise) -> Color {
         guard let selectedAnswer else { return AppColors.glassSurfaceElevated }
         if option == exercise.correctAnswer { return AppColors.success.opacity(0.12) }
         if option == selectedAnswer { return AppColors.error.opacity(0.12) }
         return AppColors.glassSurfaceElevated
+    }
+
+    private func localized(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .english: return en
+        case .dutch: return nl
+        case .russian: return ru
+        }
     }
 }
 

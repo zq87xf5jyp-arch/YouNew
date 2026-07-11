@@ -22,11 +22,21 @@ struct LGBTQSupportView: View {
                 case .failed(let message):
                     errorState(message)
                 case .empty:
-                    emptyState(L10n.t("lgbtq.empty.title", lang), L10n.t("lgbtq.empty.subtitle", lang))
+                    supportEmptyDashboard(
+                        title: L10n.t("lgbtq.empty.title", lang),
+                        subtitle: L10n.t("lgbtq.empty.subtitle", lang),
+                        showsRetry: true,
+                        showsReset: false
+                    )
                 case .loaded:
                     filters
                     if viewModel.filteredItems.isEmpty {
-                        emptyState(L10n.t("lgbtq.no_results.title", lang), L10n.t("lgbtq.no_results.subtitle", lang))
+                        supportEmptyDashboard(
+                            title: L10n.t("lgbtq.no_results.title", lang),
+                            subtitle: L10n.t("lgbtq.no_results.subtitle", lang),
+                            showsRetry: false,
+                            showsReset: true
+                        )
                     } else {
                         sections
                     }
@@ -55,7 +65,10 @@ struct LGBTQSupportView: View {
                 subtitle: L10n.t("lgbtq.subtitle", lang),
                 symbol: "heart.text.square.fill",
                 badgeText: supportBadgeText,
-                accent: AppColors.violet
+                accent: AppColors.violet,
+                asset: ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.profileImage ?? ContentMediaRegistry.officialSourcesHero,
+                height: 238,
+                language: lang
             )
 
             HStack(spacing: 8) {
@@ -150,18 +163,88 @@ struct LGBTQSupportView: View {
                     VStack(alignment: .leading, spacing: AppSpacing.small) {
                         SectionHeader(title: section.title(lang))
                         ForEach(items) { item in
-                            LGBTQSupportCard(
-                                item: item,
-                                isSaved: savedStore.isSaved(item.saveKey),
-                                onSave: { toggleSave(item) },
-                                onOpenWebsite: { openWebsite(item) },
-                                onOpenMaps: { openMaps(item) }
-                            )
+                            supportItemCard(item)
                         }
                     }
                 }
             }
         }
+    }
+
+    private func supportItemCard(_ item: LGBTQSupportItem) -> some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            ProductTaskCard(
+                title: item.title,
+                subtitle: item.description(lang),
+                symbol: item.section.symbol,
+                accent: AppColors.violet,
+                priority: item.isTrusted ? L10n.t("lgbtq.trusted", lang) : item.category.title(lang),
+                minHeight: 112
+            )
+
+            ProductInfoBlock(
+                title: item.category.title(lang),
+                bodyText: supportMetadataText(for: item),
+                symbol: "mappin.and.ellipse",
+                accent: AppColors.softBlue
+            )
+
+            if !item.accessibilityTags.isEmpty {
+                FlexibleTagLayout(items: item.accessibilityTags) { tag in
+                    Text(tag)
+                        .font(AppTypography.metadata)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 5)
+                        .background(AppColors.chipBackground)
+                        .clipShape(Capsule())
+                }
+            }
+
+            HStack(spacing: AppSpacing.small) {
+                if item.websiteURL != nil {
+                    Button(action: { openWebsite(item) }) {
+                        ProductCTA(title: L10n.t("common.website", lang), symbol: "safari", accent: AppColors.accent)
+                    }
+                    .buttonStyle(.plain)
+                }
+
+                if item.mapsQuery != nil {
+                    Button(action: { openMaps(item) }) {
+                        ProductCTA(title: L10n.t("common.maps", lang), symbol: "map", accent: AppColors.accent)
+                    }
+                    .buttonStyle(.plain)
+                }
+
+                Button(action: { toggleSave(item) }) {
+                    ProductCTA(
+                        title: savedStore.isSaved(item.saveKey) ? L10n.t("common.remove_saved", lang) : L10n.t("common.save", lang),
+                        symbol: savedStore.isSaved(item.saveKey) ? "bookmark.fill" : "bookmark",
+                        accent: savedStore.isSaved(item.saveKey) ? AppColors.accent : AppColors.textSecondary
+                    )
+                }
+                .buttonStyle(.plain)
+            }
+        }
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(item.title), \(item.city), \(item.category.title(lang))")
+    }
+
+    private func supportMetadataText(for item: LGBTQSupportItem) -> String {
+        var lines = [item.city]
+        if let transit = item.publicTransportInfo(lang) {
+            lines.append(transit)
+        }
+        if let hours = item.openingHours(lang) {
+            lines.append(hours)
+        }
+        if let date = item.dateText(lang) {
+            lines.append(date)
+        }
+        if let organizer = item.organizer {
+            lines.append(organizer)
+        }
+        return lines.joined(separator: "\n")
     }
 
     private var skeletonSection: some View {
@@ -180,25 +263,112 @@ struct LGBTQSupportView: View {
         .accessibilityLabel(L10n.t("lgbtq.loading", lang))
     }
 
-    private func emptyState(_ title: String, _ subtitle: String) -> some View {
+    private func supportEmptyDashboard(title: String, subtitle: String, showsRetry: Bool, showsReset: Bool) -> some View {
         NLGlassCard {
-            VStack(alignment: .leading, spacing: AppSpacing.small) {
-                GradientIconBadge(symbol: "tray", color: AppColors.textSecondary, size: 42, cornerRadius: 12)
-                Text(title)
-                    .font(AppTypography.cardTitle)
-                    .foregroundStyle(AppColors.textPrimary)
-                Text(subtitle)
-                    .font(AppTypography.body)
-                    .foregroundStyle(AppColors.textSecondary)
-                Button(L10n.t("lgbtq.reset_filters", lang)) {
-                    withAnimation(reduceMotion ? nil : AppAnimations.softSpring) {
-                        viewModel.resetFilters()
+            VStack(alignment: .leading, spacing: AppSpacing.medium) {
+                HStack(alignment: .top, spacing: AppSpacing.medium) {
+                    GradientIconBadge(symbol: "heart.text.square.fill", color: AppColors.violet, size: 48, cornerRadius: 14)
+                    VStack(alignment: .leading, spacing: 6) {
+                        Text(title)
+                            .font(AppTypography.cardTitle)
+                            .foregroundStyle(AppColors.textPrimary)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Text(subtitle)
+                            .font(AppTypography.body)
+                            .foregroundStyle(AppColors.textSecondary)
+                            .fixedSize(horizontal: false, vertical: true)
                     }
                 }
-                .font(AppTypography.bodyStrong)
-                .foregroundStyle(AppColors.accent)
+
+                if showsRetry || showsReset {
+                    HStack(spacing: AppSpacing.small) {
+                        if showsRetry {
+                            Button {
+                                Task { await viewModel.load() }
+                            } label: {
+                                Label(retryTitle, systemImage: "arrow.clockwise")
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.borderedProminent)
+                            .tint(AppColors.accent)
+                            .accessibilityIdentifier("lgbtq.empty.retry")
+                        }
+
+                        if showsReset {
+                            Button {
+                                withAnimation(reduceMotion ? nil : AppAnimations.softSpring) {
+                                    viewModel.resetFilters()
+                                }
+                            } label: {
+                                Label(L10n.t("lgbtq.reset_filters", lang), systemImage: "line.3.horizontal.decrease.circle")
+                                    .frame(maxWidth: .infinity)
+                            }
+                            .buttonStyle(.bordered)
+                            .tint(AppColors.accent)
+                            .accessibilityIdentifier("lgbtq.empty.reset")
+                        }
+                    }
+                    .font(AppTypography.bodyStrong)
+                }
+
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: 168), spacing: 10)], spacing: 10) {
+                    ForEach(supportRecoveryActions) { action in
+                        NavigationLink(value: action.destination) {
+                            LGBTQRecoveryActionCard(action: action)
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("lgbtq.empty.action.\(action.id)")
+                    }
+                }
             }
             .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("lgbtq.empty.dashboard")
+    }
+
+    private var supportRecoveryActions: [LGBTQRecoveryAction] {
+        [
+            LGBTQRecoveryAction(
+                id: "map",
+                icon: "map.fill",
+                title: localized(en: "Nearby support", nl: "Steun in de buurt", ru: "Поддержка рядом"),
+                subtitle: localized(en: "Open LGBTQ places on the map", nl: "Open LGBTQ-plekken op de kaart", ru: "Открыть LGBTQ-места на карте"),
+                color: AppColors.violet,
+                destination: .mapFocus(.category(.lgbtqSupport))
+            ),
+            LGBTQRecoveryAction(
+                id: "legal",
+                icon: "scalemass.fill",
+                title: localized(en: "Legal help", nl: "Juridische hulp", ru: "Юридическая помощь"),
+                subtitle: localized(en: "Rights, safety, discrimination", nl: "Rechten, veiligheid, discriminatie", ru: "Права, безопасность, дискриминация"),
+                color: AppColors.softBlue,
+                destination: .legalHelp
+            ),
+            LGBTQRecoveryAction(
+                id: "sources",
+                icon: "checkmark.shield.fill",
+                title: localized(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники"),
+                subtitle: localized(en: "Verify trusted channels", nl: "Controleer betrouwbare kanalen", ru: "Проверить надёжные каналы"),
+                color: AppColors.success,
+                destination: .officialSources
+            ),
+            LGBTQRecoveryAction(
+                id: "search",
+                icon: "magnifyingglass.circle.fill",
+                title: localized(en: "Search help", nl: "Hulp zoeken", ru: "Поиск помощи"),
+                subtitle: localized(en: "Try broader words", nl: "Probeer bredere woorden", ru: "Попробовать более общие слова"),
+                color: AppColors.dutchOrange,
+                destination: .searchList
+            )
+        ]
+    }
+
+    private var retryTitle: String {
+        switch lang {
+        case .russian: return "Повторить"
+        case .dutch: return "Opnieuw"
+        case .english: return "Retry"
         }
     }
 
@@ -273,6 +443,14 @@ struct LGBTQSupportView: View {
               let url = URL(string: "https://maps.apple.com/?q=\(query)") else { return }
         openURL(AppURL.safeWebURL(url))
     }
+
+    private func localized(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .russian: return ru
+        case .dutch: return nl
+        case .english: return en
+        }
+    }
 }
 
 private extension View {
@@ -286,143 +464,32 @@ private extension View {
     }
 }
 
-private struct LGBTQSupportCard: View {
-    let item: LGBTQSupportItem
-    let isSaved: Bool
-    let onSave: () -> Void
-    let onOpenWebsite: () -> Void
-    let onOpenMaps: () -> Void
+private struct LGBTQRecoveryAction: Identifiable {
+    let id: String
+    let icon: String
+    let title: String
+    let subtitle: String
+    let color: Color
+    let destination: AppDestination
+}
 
-    @EnvironmentObject private var languageManager: LanguageManager
-    private var lang: AppLanguage { languageManager.appLanguage }
+private struct LGBTQRecoveryActionCard: View {
+    let action: LGBTQRecoveryAction
 
     var body: some View {
-        NLGlassCard {
-            VStack(alignment: .leading, spacing: AppSpacing.small) {
-                HStack(alignment: .top, spacing: AppSpacing.small) {
-                    LGBTQSupportThumbnail(item: item)
-
-                    VStack(alignment: .leading, spacing: 6) {
-                        HStack(alignment: .firstTextBaseline) {
-                            Text(item.category.title(lang))
-                                .font(AppTypography.captionStrong)
-                                .foregroundStyle(AppColors.violet)
-                            Spacer(minLength: 8)
-                            if item.isTrusted {
-                                trustedBadge
-                            }
-                        }
-
-                        Text(item.title)
-                            .font(AppTypography.cardTitle)
-                            .foregroundStyle(AppColors.textPrimary)
-                            .fixedSize(horizontal: false, vertical: true)
-
-                        Text(item.description(lang))
-                            .font(AppTypography.body)
-                            .foregroundStyle(AppColors.textSecondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
-
-                metadataGrid
-
-                if !item.accessibilityTags.isEmpty {
-                    tagFlow
-                }
-
-                HStack(spacing: AppSpacing.small) {
-                    if item.websiteURL != nil {
-                        actionButton(title: L10n.t("common.website", lang), symbol: "safari", action: onOpenWebsite)
-                    }
-                    if item.mapsQuery != nil {
-                        actionButton(title: L10n.t("common.maps", lang), symbol: "map", action: onOpenMaps)
-                    }
-                    Button(action: onSave) {
-                        Image(systemName: isSaved ? "bookmark.fill" : "bookmark")
-                            .font(.system(size: 16, weight: .semibold))
-                            .foregroundStyle(isSaved ? AppColors.accent : AppColors.textSecondary)
-                            .frame(width: 44, height: 44)
-                            .background(AppColors.cardElevated)
-                            .clipShape(RoundedRectangle(cornerRadius: AppCornerRadius.small, style: .continuous))
-                    }
-                    .buttonStyle(.plain)
-                    .accessibilityLabel(isSaved ? L10n.t("common.remove_saved", lang) : L10n.t("common.save", lang))
-                }
-            }
-        }
-        .accessibilityElement(children: .combine)
-        .accessibilityLabel("\(item.title), \(item.city), \(item.category.title(lang))")
-    }
-
-    private var trustedBadge: some View {
-        Text(L10n.t("lgbtq.trusted", lang))
-            .font(AppTypography.metadata)
-            .foregroundStyle(AppColors.success)
-            .padding(.horizontal, 8)
-            .padding(.vertical, 4)
-            .background(AppColors.success.opacity(0.12))
-            .clipShape(Capsule())
-    }
-
-    private var metadataGrid: some View {
-        VStack(alignment: .leading, spacing: 6) {
-            metadataLine(symbol: "mappin.and.ellipse", text: item.city)
-            if let transit = item.publicTransportInfo(lang) {
-                metadataLine(symbol: "tram.fill", text: transit)
-            }
-            if let hours = item.openingHours(lang) {
-                metadataLine(symbol: "clock", text: hours)
-            }
-            if let date = item.dateText(lang) {
-                metadataLine(symbol: "calendar", text: date)
-            }
-            if let organizer = item.organizer {
-                metadataLine(symbol: "person.2.fill", text: organizer)
-            }
-        }
-    }
-
-    private var tagFlow: some View {
-        FlexibleTagLayout(items: item.accessibilityTags) { tag in
-            Text(tag)
-                .font(AppTypography.metadata)
-                .foregroundStyle(AppColors.textSecondary)
-                .padding(.horizontal, 8)
-                .padding(.vertical, 5)
-                .background(AppColors.chipBackground)
-                .clipShape(Capsule())
-        }
-    }
-
-    private func metadataLine(symbol: String, text: String) -> some View {
-        HStack(alignment: .top, spacing: 8) {
-            Image(systemName: symbol)
-                .font(.system(size: 12, weight: .semibold))
-                .foregroundStyle(AppColors.textTertiary)
-                .frame(width: 16)
-            Text(text)
-                .font(AppTypography.footnote)
-                .foregroundStyle(AppColors.textSecondary)
-                .fixedSize(horizontal: false, vertical: true)
-        }
-    }
-
-    private func actionButton(title: String, symbol: String, action: @escaping () -> Void) -> some View {
-        Button(action: action) {
-            Label(title, systemImage: symbol)
-                .font(AppTypography.footnoteStrong)
-                .foregroundStyle(AppColors.accent)
-                .frame(maxWidth: .infinity, minHeight: 44)
-                .background(AppColors.cardElevated)
-                .clipShape(RoundedRectangle(cornerRadius: AppCornerRadius.small, style: .continuous))
-        }
-        .buttonStyle(.plain)
+        ProductTaskCard(
+            title: action.title,
+            subtitle: action.subtitle,
+            symbol: action.icon,
+            accent: action.color,
+            minHeight: 104
+        )
     }
 }
 
 private struct LGBTQSupportThumbnail: View {
     let item: LGBTQSupportItem
+    let language: AppLanguage
 
     var body: some View {
         ZStack {
@@ -440,27 +507,47 @@ private struct LGBTQSupportThumbnail: View {
                 )
 
             if let imageURL = item.imageURL {
-                AsyncImage(url: imageURL) { phase in
-                    switch phase {
-                    case .empty:
-                        ProgressView().tint(.white)
-                    case .success(let image):
-                        image.resizable().scaledToFill()
-                    case .failure:
-                        Image(systemName: item.section.symbol).foregroundStyle(.white)
-                    @unknown default:
-                        Image(systemName: item.section.symbol).foregroundStyle(.white)
-                    }
-                }
+                AppContentImageView(
+                    asset: thumbnailAsset(imageURL),
+                    language: language,
+                    mode: .fill,
+                    accent: AppColors.violet,
+                    aspectRatio: nil,
+                    cornerRadius: 0,
+                    showsCaption: false,
+                    accessibilityLabel: "\(item.title), \(item.city)",
+                    fallbackLocalAssetName: CuratedPlaceHeroMediaRegistry.bundledNeutralFallbackAssetName,
+                    fallbackSymbol: item.section.symbol,
+                    targetPixelWidth: 180
+                )
             } else {
-                Image(systemName: item.section.symbol)
-                    .font(.system(size: 24, weight: .semibold))
-                    .foregroundStyle(.white)
+                GeneratedCategoryArtwork(symbol: item.section.symbol, accent: AppColors.violet)
             }
         }
         .frame(width: 58, height: 58)
         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
         .accessibilityHidden(true)
+    }
+
+    private func thumbnailAsset(_ url: URL) -> AppImageAsset {
+        AppImageAsset(
+            id: "lgbtq-support-\(item.id)",
+            url: url,
+            imageURL: url,
+            thumbnailURL: url,
+            title: "\(item.title), \(item.city)",
+            description: item.description(language),
+            sourceName: "Verified support resource",
+            sourceURL: item.websiteURL,
+            license: nil,
+            attribution: nil,
+            width: nil,
+            height: nil,
+            aspectRatio: 1,
+            type: .cardThumbnail,
+            verified: true,
+            retrievedAt: "2026-06-27"
+        )
     }
 }
 

@@ -54,7 +54,7 @@ enum AppEmptyStates {
     static let noSavedItemsDetail       = "Save guides, letters, and institutions so you can return quickly."
     static let noSearchResultsDetail    = "Try another query or open official sources."
     static let noNearbyPlacesDetail     = "Allow location access to find help nearby."
-    static let noLetterSummariesDetail  = "Saved letter explanations will appear here."
+    static let noLetterSummariesDetail  = "Save letter explanations to keep them ready for later."
 }
 
 // MARK: - Microcopy

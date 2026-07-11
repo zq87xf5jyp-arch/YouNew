@@ -51,7 +51,6 @@ enum AIResponseParser {
         let query: String?
     }
 
-    @MainActor
     static func parse(_ data: Data, language: AppLanguage) throws -> AIResponse {
         let decoded = try JSONDecoder().decode(BackendResponse.self, from: data)
 
@@ -83,7 +82,7 @@ enum AIResponseParser {
             sources: sources,
             suggestedActions: suggestedActions
         )
-        return AIResponse(
+        let response = AIResponse(
             answer: answer,
             sources: sources,
             safetyNote: sanitizedBody(decoded.safetyNote),
@@ -95,6 +94,10 @@ enum AIResponseParser {
             isVerified: true,
             cacheKey: decoded.cacheKey
         )
+        guard AIResponseLanguageGuard.isResponseAcceptable(response, for: language) else {
+            return AIResponse.unverified(language: language)
+        }
+        return response
     }
 
     nonisolated private static func makeSource(_ source: BackendSource) -> OfficialSource? {

@@ -1,6 +1,6 @@
 import Foundation
 
-enum TransportGuideData {
+nonisolated enum TransportGuideData {
     static let guide = TransportGuide(
         id: "transport-netherlands",
         title: text(
@@ -20,13 +20,13 @@ enum TransportGuideData {
                 "Overzicht",
                 "Обзор",
                 "Use official planners and operators for live times, platform changes, tickets, and accessibility information.",
-                "Gebruik officiele planners en vervoerders voor actuele tijden, spoorwijzigingen, tickets en toegankelijkheid.",
+                "Gebruik officiële planners en vervoerders voor actuele tijden, spoorwijzigingen, tickets en toegankelijkheid.",
                 "Используйте официальные планировщики и сайты операторов для актуального времени, платформ, билетов и доступности.",
                 "map.fill",
                 ["source.ns", "source.9292"],
                 [
                     point("Most everyday trips combine train, bus, tram, metro, ferry, walking, or cycling.", "Veel dagelijkse reizen combineren trein, bus, tram, metro, veerboot, lopen of fietsen.", "Повседневные поездки часто сочетают поезд, автобус, трамвай, метро, паром, пеший путь или велосипед."),
-                    point("Conditions can change; verify important trips and payments at the official source.", "Voorwaarden kunnen wijzigen; controleer belangrijke reizen en betalingen bij de officiele bron.", "Условия могут меняться; важные поездки и оплату проверяйте на официальном сайте.")
+                    point("Conditions can change; verify important trips and payments at the official source.", "Voorwaarden kunnen wijzigen; controleer belangrijke reizen en betalingen bij de officiële bron.", "Условия могут меняться; важные поездки и оплату проверяйте на официальном сайте.")
                 ]
             ),
             section(
@@ -65,7 +65,7 @@ enum TransportGuideData {
                 "OV-chipkaart",
                 "OV-chipkaart",
                 "OV-chipkaart is a public transport card for trains, buses, trams, and metro. Check card type, balance, and conditions on the official site.",
-                "De OV-chipkaart is een kaart voor trein, bus, tram en metro. Controleer kaarttype, saldo en voorwaarden op de officiele site.",
+                "De OV-chipkaart is een kaart voor trein, bus, tram en metro. Controleer kaarttype, saldo en voorwaarden op de officiële site.",
                 "OV-chipkaart — транспортная карта для общественного транспорта. Её можно использовать для поездов, автобусов, трамваев и метро. Условия, баланс и тип карты нужно проверять на официальном сайте.",
                 "creditcard.fill",
                 ["source.ovchipkaart"],
@@ -101,7 +101,7 @@ enum TransportGuideData {
                 ["source.ns", "source.9292"],
                 [
                     point("9292 is useful for door-to-door public transport planning across operators.", "9292 is handig voor deur-tot-deurplanning met meerdere vervoerders.", "9292 удобен для планирования маршрута от двери до двери между разными операторами."),
-                    point("Google or Apple Maps can help orientation, but official transport sources should be checked for important trips.", "Google of Apple Kaarten kunnen helpen met orientatie, maar controleer belangrijke reizen bij officiele ov-bronnen.", "Google или Apple Maps помогают ориентироваться, но важные поездки проверяйте в официальных транспортных источниках.")
+                    point("Google or Apple Maps can help orientation, but official transport sources should be checked for important trips.", "Google of Apple Kaarten kunnen helpen met oriëntatie, maar controleer belangrijke reizen bij officiële ov-bronnen.", "Google или Apple Maps помогают ориентироваться, но важные поездки проверяйте в официальных транспортных источниках.")
                 ]
             ),
             section(
@@ -230,7 +230,7 @@ enum TransportGuideData {
         case "transport.overview":
             return [
                 point("Transport cost depends on distance, operator, payment method, discount product, time, and route. Check current fares before important trips.", "Reiskosten hangen af van afstand, vervoerder, betaalmethode, kortingsproduct, tijd en route. Controleer actuele tarieven voor belangrijke reizen.", "Стоимость зависит от расстояния, оператора, способа оплаты, скидочного продукта, времени и маршрута. Перед важной поездкой проверяйте актуальную цену."),
-                point("Use official apps or websites to compare a single ticket, OVpay, OV-chipkaart, subscription, or discount option.", "Gebruik officiele apps of websites om een los ticket, OVpay, OV-chipkaart, abonnement of kortingsoptie te vergelijken.", "Сравнивайте разовый билет, OVpay, OV-chipkaart, абонемент или скидку только в официальных приложениях и на сайтах.")
+                point("Use official apps or websites to compare a single ticket, OVpay, OV-chipkaart, subscription, or discount option.", "Gebruik officiële apps of websites om een los ticket, OVpay, OV-chipkaart, abonnement of kortingsoptie te vergelijken.", "Сравнивайте разовый билет, OVpay, OV-chipkaart, абонемент или скидку только в официальных приложениях и на сайтах.")
             ]
         case "transport.trains":
             return [
@@ -265,7 +265,7 @@ enum TransportGuideData {
         case "transport.airports":
             return [
                 point("Airport travel cost depends on train, bus, taxi, parking, luggage, and route. Public transport is often predictable, but always check live disruption updates.", "Kosten naar de luchthaven hangen af van trein, bus, taxi, parkeren, bagage en route. Ov is vaak voorspelbaar, maar controleer altijd actuele storingen.", "Стоимость поездки в аэропорт зависит от поезда, автобуса, такси, парковки, багажа и маршрута. Общественный транспорт часто предсказуем, но всегда проверяйте сбои."),
-                point("If you use a taxi or parking, check official airport information and avoid unclear offers.", "Gebruik je taxi of parkeren, controleer dan officiele luchthaveninformatie en vermijd onduidelijke aanbiedingen.", "Если едете на такси или парковку, проверяйте официальный сайт аэропорта и избегайте неясных предложений.")
+                point("If you use a taxi or parking, check official airport information and avoid unclear offers.", "Gebruik je taxi of parkeren, controleer dan officiële luchthaveninformatie en vermijd onduidelijke aanbiedingen.", "Если едете на такси или парковку, проверяйте официальный сайт аэропорта и избегайте неясных предложений.")
             ]
         case "transport.accessibility":
             return [

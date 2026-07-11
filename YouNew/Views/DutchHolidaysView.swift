@@ -42,7 +42,8 @@ struct DutchHolidaysView: View {
             subtitle: heroSubtitle,
             symbol: "calendar.badge.clock",
             badgeText: badgeText,
-            accent: AppColors.dutchOrange
+            accent: AppColors.dutchOrange,
+            asset: ContentMediaRegistry.calendarImage
         )
     }
 
@@ -80,17 +81,134 @@ struct DutchHolidaysView: View {
     private var holidaysList: some View {
         LazyVStack(spacing: 10) {
             ForEach(filteredHolidays) { holiday in
-                HolidayCard(
-                    holiday: holiday,
-                    lang: lang,
-                    isExpanded: expandedID == holiday.id,
-                    onToggle: {
-                        withAnimation(.spring(response: 0.3, dampingFraction: 0.85)) {
-                            expandedID = expandedID == holiday.id ? nil : holiday.id
+                let isExpanded = expandedID == holiday.id
+                Button {
+                    withAnimation(.spring(response: 0.3, dampingFraction: 0.85)) {
+                        expandedID = expandedID == holiday.id ? nil : holiday.id
+                    }
+                } label: {
+                    VStack(alignment: .leading, spacing: AppSpacing.small) {
+                        holidayCard(holiday, isExpanded: isExpanded)
+
+                        if isExpanded {
+                            holidayExpandedDetails(holiday)
+                                .transition(.opacity.combined(with: .move(edge: .top)))
                         }
                     }
-                )
+                }
+                .buttonStyle(.plain)
             }
+        }
+    }
+
+    private func holidayCard(_ holiday: DutchHoliday, isExpanded: Bool) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            PremiumImageHeader(
+                title: holiday.name(lang),
+                asset: holidayImageAsset(holiday),
+                language: lang,
+                symbol: holiday.type.symbol,
+                accent: holiday.type.accentColor,
+                height: 88,
+                width: 96,
+                cornerRadius: 18,
+                fallbackCategory: holidayFallbackCategory(holiday)
+            )
+            .layoutPriority(0)
+
+            VStack(alignment: .leading, spacing: 7) {
+                HStack(spacing: 8) {
+                    Text(holiday.type.title(lang))
+                        .font(AppTypography.captionStrong)
+                        .foregroundStyle(holiday.type.accentColor)
+                        .lineLimit(1)
+                }
+
+                Text(holiday.name(lang))
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+
+                Text("\(holiday.date(lang)) · \(holiday.dayOffStatus(lang))")
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(2)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .layoutPriority(1)
+        }
+        .frame(maxWidth: .infinity, minHeight: 132, alignment: .topLeading)
+        .appCardStyle()
+    }
+
+    private func holidayExpandedDetails(_ holiday: DutchHoliday) -> some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            ProductInfoBlock(
+                title: summaryLabel,
+                bodyText: holiday.summary(lang),
+                symbol: "text.bubble.fill",
+                accent: holiday.type.accentColor
+            )
+            ProductInfoBlock(
+                title: originLabel,
+                bodyText: holiday.origin(lang),
+                symbol: "clock.arrow.circlepath",
+                accent: holiday.type.accentColor
+            )
+            ProductInfoBlock(
+                title: practicalLabel,
+                bodyText: holiday.practical(lang),
+                symbol: "hand.raised.fill",
+                accent: holiday.type.accentColor
+            )
+        }
+    }
+
+    private var summaryLabel: String {
+        switch lang {
+        case .russian: return "Описание"
+        case .dutch:   return "Omschrijving"
+        case .english: return "Description"
+        }
+    }
+
+    private var originLabel: String {
+        switch lang {
+        case .russian: return "История"
+        case .dutch:   return "Geschiedenis"
+        case .english: return "History"
+        }
+    }
+
+    private var practicalLabel: String {
+        switch lang {
+        case .russian: return "Практическая заметка"
+        case .dutch:   return "Praktische opmerking"
+        case .english: return "Practical note"
+        }
+    }
+
+    private func holidayImageAsset(_ holiday: DutchHoliday) -> AppImageAsset? {
+        switch holiday.type {
+        case .monarchy:
+            return ContentMediaRegistry.theHagueBinnenhofImage ?? ContentMediaRegistry.calendarImage
+        case .remembrance:
+            return ContentMediaRegistry.cultureHero ?? ContentMediaRegistry.calendarImage
+        case .christian:
+            return ContentMediaRegistry.calendarImage ?? ContentMediaRegistry.dailyCultureImage
+        case .cultural:
+            return ContentMediaRegistry.cultureHero ?? ContentMediaRegistry.dailyCultureImage
+        case .publicHoliday:
+            return ContentMediaRegistry.calendarImage ?? ContentMediaRegistry.homeAtmosphereHero
+        }
+    }
+
+    private func holidayFallbackCategory(_ holiday: DutchHoliday) -> PremiumImageFallbackCategory {
+        switch holiday.type {
+        case .monarchy, .remembrance, .cultural:
+            return .city
+        case .christian, .publicHoliday:
+            return .integration
         }
     }
 
@@ -161,140 +279,6 @@ struct DutchHolidaysView: View {
         case .russian: return "Даты и характеристика выходных дней основаны на официальном календаре правительства Нидерландов. Является ли день праздника оплачиваемым выходным — зависит от вашего CAO или индивидуального трудового договора. Проверяйте актуальные данные на Government.nl."
         case .dutch:   return "Data en kenmerken van vrije dagen zijn gebaseerd op de officiële feestdagenkalender van de Nederlandse overheid. Of een feestdag een betaalde vrije dag is, hangt af van uw CAO of individueel arbeidscontract. Controleer actuele informatie op Government.nl."
         case .english: return "Dates and day-off status are based on the official Dutch government holiday calendar. Whether a holiday is a paid day off depends on your CAO or individual employment contract. Verify current details at Government.nl."
-        }
-    }
-}
-
-// MARK: - HolidayCard
-
-private struct HolidayCard: View {
-    let holiday: DutchHoliday
-    let lang: AppLanguage
-    let isExpanded: Bool
-    let onToggle: () -> Void
-
-    private var accent: Color { holiday.type.accentColor }
-
-    var body: some View {
-        Button(action: onToggle) {
-            VStack(alignment: .leading, spacing: 0) {
-                header
-                if isExpanded {
-                    expandedContent
-                        .transition(.opacity.combined(with: .move(edge: .top)))
-                }
-            }
-        }
-        .buttonStyle(PlainButtonStyle())
-        .appGlassCardStyle(padding: 14, cornerRadius: 18, accent: accent)
-    }
-
-    private var header: some View {
-        HStack(spacing: 12) {
-            typeIcon
-            VStack(alignment: .leading, spacing: 3) {
-                Text(holiday.name(lang))
-                    .font(AppTypography.bodyStrong)
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(2)
-                    .fixedSize(horizontal: false, vertical: true)
-                HStack(spacing: 6) {
-                    Text(holiday.date(lang))
-                        .font(AppTypography.caption)
-                        .foregroundStyle(AppColors.textSecondary)
-                    Text("·")
-                        .foregroundStyle(AppColors.textTertiary)
-                    Text(holiday.dayOffStatus(lang))
-                        .font(AppTypography.captionStrong)
-                        .foregroundStyle(holiday.isAutomaticDayOff ? accent : AppColors.textSecondary)
-                }
-            }
-            Spacer(minLength: 4)
-            Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                .font(.system(size: 12, weight: .bold))
-                .foregroundStyle(AppColors.textTertiary)
-        }
-    }
-
-    private var typeIcon: some View {
-        Image(systemName: holiday.type.symbol)
-            .font(.system(size: 18, weight: .bold))
-            .foregroundStyle(accent)
-            .frame(width: 42, height: 42)
-            .background(accent.opacity(0.14))
-            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-    }
-
-    private var expandedContent: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            Divider().background(accent.opacity(0.18)).padding(.top, 10)
-
-            infoRow(icon: "text.bubble.fill", label: summaryLabel, text: holiday.summary(lang))
-            infoRow(icon: "clock.arrow.circlepath", label: originLabel, text: holiday.origin(lang))
-            infoRow(icon: "hand.raised.fill", label: practicalLabel, text: holiday.practical(lang))
-
-            typeBadge
-        }
-        .padding(.top, 2)
-    }
-
-    private func infoRow(icon: String, label: String, text: String) -> some View {
-        HStack(alignment: .top, spacing: 10) {
-            Image(systemName: icon)
-                .font(.system(size: 13, weight: .semibold))
-                .foregroundStyle(accent.opacity(0.8))
-                .frame(width: 20)
-            VStack(alignment: .leading, spacing: 3) {
-                Text(label)
-                    .font(AppTypography.metadata)
-                    .foregroundStyle(AppColors.textTertiary)
-                    .tracking(AppTypography.overlineTracking)
-                    .textCase(.uppercase)
-                Text(text)
-                    .font(AppTypography.footnote)
-                    .foregroundStyle(AppColors.textSecondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-        }
-    }
-
-    private var typeBadge: some View {
-        HStack(spacing: 6) {
-            Image(systemName: holiday.type.symbol)
-                .font(.system(size: 10, weight: .bold))
-            Text(holiday.type.title(lang))
-                .font(.system(size: 10, weight: .bold, design: .rounded))
-            Spacer()
-            Text(holiday.lastChecked)
-                .font(.system(size: 10, weight: .medium))
-                .foregroundStyle(AppColors.textTertiary)
-        }
-        .foregroundStyle(accent)
-        .padding(.horizontal, 10)
-        .padding(.vertical, 6)
-        .background(accent.opacity(0.10))
-        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-    }
-
-    private var summaryLabel: String {
-        switch lang {
-        case .russian: return "Описание"
-        case .dutch:   return "Omschrijving"
-        case .english: return "Description"
-        }
-    }
-    private var originLabel: String {
-        switch lang {
-        case .russian: return "История"
-        case .dutch:   return "Geschiedenis"
-        case .english: return "History"
-        }
-    }
-    private var practicalLabel: String {
-        switch lang {
-        case .russian: return "Практическая заметка"
-        case .dutch:   return "Praktische opmerking"
-        case .english: return "Practical note"
         }
     }
 }

@@ -73,9 +73,32 @@ struct KnowledgeGraph {
                     reason: "Same category."
                 ))
             }
+
+            let normalizedItemText = KnowledgeNormalizer.normalize(
+                [
+                    item.title(.english),
+                    item.summary(.english),
+                    item.category,
+                    item.keywords.joined(separator: " ")
+                ].joined(separator: " ")
+            )
+            if normalizedItemText.contains("bsn"),
+               item.id != "topic:digid",
+               itemsByID["topic:digid"] != nil {
+                relations.append(KnowledgeRelation(
+                    fromID: item.id,
+                    toID: "topic:digid",
+                    type: .nextStep,
+                    weight: 0.88,
+                    reason: "BSN-related content should surface DigiD as a common next step."
+                ))
+            }
         }
 
         relations += canonicalRelations(itemsByID: itemsByID)
+        relations += NetherlandsKnowledgeDatabase.shared.relations.filter { relation in
+            itemsByID[relation.fromID] != nil && itemsByID[relation.toID] != nil
+        }
 
         var seen = Set<String>()
         let unique = relations.filter { relation in
@@ -99,9 +122,23 @@ struct KnowledgeGraph {
         link("topic:registration-bsn", "topic:digid", .nextStep, "DigiD is a common next step after BSN.")
         link("topic:registration-bsn", "screen:journeyDocuments", .documentNeeded, "Documents are needed for municipality registration.")
         link("topic:registration-bsn", "hub:government", .opensDestination, "Government hub contains municipality and official-service guidance.")
+        link("article:documents:bsn", "topic:digid", .nextStep, "DigiD usually follows after BSN and address registration.")
         link("topic:health-insurance", "article:healthcare:insurance", .relatedGuide, "Health insurance topic opens healthcare guide.")
         link("topic:health-insurance", "topic:healthcare-navigation", .nextStep, "Huisarts and care navigation follow insurance setup.")
         link("topic:digid", "topic:registration-bsn", .requires, "DigiD requires BSN and registered address.")
+
+        link("scenario:student-eindhoven", "municipality:eindhoven", .requires, "A student settling in Eindhoven needs municipality registration.", weight: 0.96)
+        link("scenario:student-eindhoven", "topic:registration-bsn", .requires, "Municipality registration and BSN unlock most student setup steps.", weight: 0.95)
+        link("scenario:student-eindhoven", "topic:digid", .nextStep, "DigiD follows BSN and registered address.", weight: 0.92)
+        link("scenario:student-eindhoven", "topic:health-insurance", .nextStep, "Students must check Dutch health insurance obligations.", weight: 0.90)
+        link("scenario:student-eindhoven", "topic:banking", .nextStep, "A bank account is needed for rent, salary, subscriptions, and payments.", weight: 0.88)
+        link("scenario:student-eindhoven", "topic:transport-ov", .nextStep, "Daily student mobility depends on NS, OVpay, OV-chipkaart, and local operators.", weight: 0.86)
+        link("scenario:student-eindhoven", "topic:language-schools-and-integration", .nextStep, "Dutch language practice helps with appointments, housing, and study life.", weight: 0.84)
+        link("scenario:student-eindhoven", "topic:universities-and-student-administration", .userStatusRecommended, "Student administration is a profile-specific priority.", weight: 0.94)
+        link("scenario:student-eindhoven", "topic:student-housing", .userStatusRecommended, "Student housing and registration permission are high-risk arrival issues.", weight: 0.89)
+        link("scenario:student-eindhoven", "localPartner:tu-eindhoven", .citySpecific, "TU/e is the primary university anchor for the Eindhoven student scenario.", weight: 0.93)
+        link("scenario:student-eindhoven", "localPartner:municipality-eindhoven-service-center", .citySpecific, "Municipality Eindhoven service center is the local registration route.", weight: 0.91)
+        link("scenario:student-eindhoven", "localPartner:helpling-eindhoven", .citySpecific, "Local home services can help with move-in setup.", weight: 0.64)
 
         return relations
     }

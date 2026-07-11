@@ -33,6 +33,18 @@ struct ChecklistItemDetailView: View {
                     item.title(lang)
                 ])
 
+                PremiumImageHeader(
+                    title: item.title(lang),
+                    asset: checklistDetailImageAsset,
+                    language: lang,
+                    symbol: checklistDetailSymbol,
+                    accent: checklistDetailAccent,
+                    height: 210,
+                    cornerRadius: 22,
+                    fallbackCategory: checklistDetailFallbackCategory
+                )
+                .appCardStyle()
+
                 headerCard
                     .accessibilityIdentifier("checklist.detail.screen")
 
@@ -85,6 +97,7 @@ struct ChecklistItemDetailView: View {
             .padding(.horizontal, AppSpacing.screenHorizontal)
             .padding(.vertical, AppSpacing.medium)
             .tabBarScrollReserve()
+            .accessibilityIdentifier("checklist.detail.screen")
         }
         .appSceneBackground()
         .navigationTitle(L10n.t("checklist.detail.nav_title", lang))
@@ -115,6 +128,76 @@ struct ChecklistItemDetailView: View {
         case .housing: return .communitySupport
         case .education: return .studentHelp
         case .transport: return .transport
+        }
+    }
+
+    private var checklistDetailImageAsset: AppImageAsset? {
+        switch item.category {
+        case .registration:
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        case .documents:
+            return ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero
+        case .insurance:
+            return ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.healthcarePharmacyImage ?? ContentMediaRegistry.officialSourcesHero
+        case .work, .taxes:
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case .housing:
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage ?? ContentMediaRegistry.officialSourcesHero
+        case .education:
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.cultureHero ?? ContentMediaRegistry.officialSourcesHero
+        case .transport:
+            return ContentMediaRegistry.transportHero ?? ContentMediaRegistry.ovChipkaartImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+    }
+
+    private var checklistDetailFallbackCategory: PremiumImageFallbackCategory {
+        switch item.category {
+        case .registration, .taxes:
+            return .government
+        case .documents:
+            return .documents
+        case .insurance:
+            return .healthcare
+        case .work:
+            return .work
+        case .housing:
+            return .housing
+        case .education:
+            return .integration
+        case .transport:
+            return .transport
+        }
+    }
+
+    private var checklistDetailSymbol: String {
+        switch item.category {
+        case .registration: return "building.columns.fill"
+        case .documents: return "doc.text.fill"
+        case .insurance: return "cross.case.fill"
+        case .work: return "briefcase.fill"
+        case .taxes: return "eurosign.circle.fill"
+        case .housing: return "house.fill"
+        case .education: return "graduationcap.fill"
+        case .transport: return "tram.fill"
+        }
+    }
+
+    private var checklistDetailAccent: Color {
+        switch item.category {
+        case .registration, .taxes:
+            return AppColors.routeLine
+        case .documents:
+            return AppColors.dutchOrange
+        case .insurance:
+            return AppColors.error
+        case .work:
+            return AppColors.violet
+        case .housing:
+            return AppColors.emerald
+        case .education:
+            return AppColors.softBlue
+        case .transport:
+            return AppColors.dutchOrange
         }
     }
 

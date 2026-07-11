@@ -1,6 +1,9 @@
 import SwiftUI
 import UniformTypeIdentifiers
 import QuickLook
+#if canImport(LocalAuthentication)
+import LocalAuthentication
+#endif
 #if os(iOS)
 import UIKit
 import VisionKit
@@ -16,33 +19,25 @@ struct DocumentOrganizerView: View {
     @State private var selectedDocument: DocumentItem?
     @State private var showPrintUnavailableAlert = false
     @State private var alertMessage: String?
+    @State private var vaultUnlocked = false
+    @State private var authenticationFailed = false
 
     private var lang: AppLanguage { languageManager.appLanguage }
     private enum ScrollTarget: Hashable { case documents, needed }
 
     var body: some View {
-        ScrollViewReader { proxy in
-            ScrollView {
-                VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
-                    DisclaimerBanner(text: privacyIntro)
-                    documentHero
-                    actionsSection(scrollTo: { target in
-                        withAnimation(AppAnimations.standard) {
-                            proxy.scrollTo(target, anchor: .top)
-                        }
-                    })
-                    documentsList
-                        .id(ScrollTarget.documents)
-                    suggestionSection
-                        .id(ScrollTarget.needed)
-                    lettersSection
-                    officialSourcesSection
-                    safeExplainSection
-                    privacyCard
-                }
-                .padding(.horizontal, AppSpacing.screenHorizontal)
-                .padding(.vertical, AppSpacing.medium)
-                .tabBarScrollReserve()
+        vaultContent
+            .task {
+                await authenticateVaultIfNeeded()
+            }
+    }
+
+    private var vaultContent: some View {
+        Group {
+            if vaultUnlocked {
+                unlockedVault
+            } else {
+                lockedVault
             }
         }
         .appSceneBackground(.documents)
@@ -92,6 +87,105 @@ struct DocumentOrganizerView: View {
         }
     }
 
+    private var unlockedVault: some View {
+        ScrollViewReader { proxy in
+            ScrollView {
+                VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
+                    DisclaimerBanner(text: privacyIntro)
+                    documentHero
+                    actionsSection(scrollTo: { target in
+                        withAnimation(AppAnimations.standard) {
+                            proxy.scrollTo(target, anchor: .top)
+                        }
+                    })
+                    documentsList
+                        .id(ScrollTarget.documents)
+                    suggestionSection
+                        .id(ScrollTarget.needed)
+                    lettersSection
+                    officialSourcesSection
+                    safeExplainSection
+                    privacyCard
+                }
+                .padding(.horizontal, AppSpacing.screenHorizontal)
+                .padding(.vertical, AppSpacing.medium)
+                .tabBarScrollReserve()
+            }
+        }
+    }
+
+    private var lockedVault: some View {
+        ScrollView {
+            VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
+                CategoryHeroVisual(
+                    assetName: "premium_home_documents",
+                    title: title,
+                    subtitle: privacyIntro,
+                    symbol: "lock.doc.fill",
+                    badgeText: localOnlyBadge,
+                    accent: AppColors.softBlue
+                )
+
+                VStack(alignment: .leading, spacing: AppSpacing.small) {
+                    Text(vaultLockTitle)
+                        .font(AppTypography.sectionTitle)
+                        .foregroundStyle(AppColors.textPrimary)
+                    Text(vaultLockText)
+                        .font(AppTypography.body)
+                        .foregroundStyle(AppColors.textSecondary)
+
+                    Button {
+                        Task { await authenticateVaultIfNeeded(forcePrompt: true) }
+                    } label: {
+                        Label(unlockTitle, systemImage: "lock.open.fill")
+                            .frame(maxWidth: .infinity)
+                    }
+                    .buttonStyle(PrimaryPremiumButtonStyle())
+
+                    if authenticationFailed {
+                        Text(authenticationFailedText)
+                            .font(AppTypography.caption)
+                            .foregroundStyle(AppColors.warning)
+                    }
+                }
+                .appCardStyle()
+
+                privacyCard
+            }
+            .padding(.horizontal, AppSpacing.screenHorizontal)
+            .padding(.vertical, AppSpacing.medium)
+            .tabBarScrollReserve()
+        }
+    }
+
+    private func authenticateVaultIfNeeded(forcePrompt: Bool = false) async {
+        guard !vaultUnlocked || forcePrompt else { return }
+#if DEBUG
+        if ProcessInfo.processInfo.arguments.contains("-uiTesting") {
+            vaultUnlocked = true
+            authenticationFailed = false
+            return
+        }
+#endif
+#if canImport(LocalAuthentication)
+        let context = LAContext()
+        var error: NSError?
+        guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
+            vaultUnlocked = true
+            return
+        }
+        do {
+            let success = try await context.evaluatePolicy(.deviceOwnerAuthentication, localizedReason: authenticationReason)
+            vaultUnlocked = success
+            authenticationFailed = !success
+        } catch {
+            authenticationFailed = true
+        }
+#else
+        vaultUnlocked = true
+#endif
+    }
+
     private var sectionHeader: some View {
         SectionHeader(title: title, subtitle: subtitle)
     }
@@ -110,40 +204,13 @@ struct DocumentOrganizerView: View {
     private func actionsSection(scrollTo: @escaping (ScrollTarget) -> Void) -> some View {
         VStack(spacing: AppSpacing.small) {
             actionButton(icon: "doc.viewfinder", title: scanTitle, subtitle: scanSubtitle) {
-#if os(iOS)
-                if UIImagePickerController.isSourceTypeAvailable(.camera), Bundle.main.object(forInfoDictionaryKey: "NSCameraUsageDescription") != nil {
-                    showScanner = true
-                } else {
-                    alertMessage = scanningLater
-                }
-#else
-                alertMessage = scanningLater
-#endif
+                startScanner()
             }
             actionButton(icon: "square.and.arrow.down", title: importTitle, subtitle: importSubtitle) { showImporter = true }
-            actionButton(icon: "folder", title: myDocsTitle, subtitle: myDocsSubtitle) {
-                scrollTo(.documents)
-            }
-            actionButton(icon: "printer", title: preparePrintTitle, subtitle: preparePrintSubtitle) {
-                if documentStore.items.isEmpty {
-                    alertMessage = emptyDocs
-                } else {
-                    scrollTo(.documents)
-                }
-            }
             actionButton(icon: "list.bullet.clipboard", title: neededDocsTitle, subtitle: neededDocsSubtitle) {
                 scrollTo(.needed)
             }
-            routeActionLink(icon: "envelope", title: lettersTitle, subtitle: lettersSubtitle, destination: .lettersList)
-            routeActionLink(icon: "building.columns", title: officialTitle, subtitle: officialSubtitle, destination: .officialSources)
         }
-    }
-
-    private func routeActionLink(icon: String, title: String, subtitle: String, destination: AppDestination) -> some View {
-        NavigationLink(value: destination) {
-            actionLabel(icon: icon, title: title, subtitle: subtitle)
-        }
-        .buttonStyle(.plain)
     }
 
     private func actionButton(icon: String, title: String, subtitle: String, action: @escaping () -> Void) -> some View {
@@ -177,7 +244,7 @@ struct DocumentOrganizerView: View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             Text(myDocsTitle).font(AppTypography.sectionTitle).foregroundStyle(AppColors.textPrimary)
             if documentStore.items.isEmpty {
-                Text(emptyDocs).appCardStyle()
+                emptyDocumentsDashboard
             } else {
                 ForEach(documentStore.items) { item in
                     HStack(spacing: AppSpacing.small) {
@@ -223,6 +290,74 @@ struct DocumentOrganizerView: View {
                 }
             }
         }
+    }
+
+    private var emptyDocumentsDashboard: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.medium) {
+            InfoCard(
+                title: emptyDocsTitle,
+                subtitle: emptyDocsSubtitle,
+                detail: emptyDocsDetail,
+                icon: "tray.and.arrow.down.fill"
+            )
+
+            HStack(spacing: AppSpacing.small) {
+                Button {
+                    startScanner()
+                } label: {
+                    Label(scanTitle, systemImage: "doc.viewfinder")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(SecondaryPremiumButtonStyle())
+                .accessibilityIdentifier("documents.empty.scan")
+
+                Button {
+                    showImporter = true
+                } label: {
+                    Label(importTitle, systemImage: "square.and.arrow.down")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(PrimaryPremiumButtonStyle())
+                .accessibilityIdentifier("documents.empty.import")
+            }
+
+            if !emptyStarterCategories.isEmpty {
+                VStack(alignment: .leading, spacing: AppSpacing.small) {
+                    SectionHeader(title: emptyStarterTitle, subtitle: emptyStarterSubtitle)
+                    LazyVGrid(columns: DetailPageLayout.twoColumnWhenPossible(for: 360, minimumColumnWidth: 156), spacing: AppSpacing.small) {
+                        ForEach(emptyStarterCategories) { category in
+                            DocumentStarterCategoryCard(
+                                title: category.localized(lang),
+                                subtitle: suggestionReason(for: category),
+                                symbol: starterIcon(for: category)
+                            )
+                            .accessibilityIdentifier("documents.empty.category.\(category.id)")
+                        }
+                    }
+                }
+            }
+
+            HStack(spacing: AppSpacing.small) {
+                NavigationLink(value: AppDestination.lettersList) {
+                    Label(lettersTitle, systemImage: "envelope.open")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(SecondaryPremiumButtonStyle())
+                .accessibilityIdentifier("documents.empty.letters")
+
+                NavigationLink(value: AppDestination.officialSources) {
+                    Label(officialTitle, systemImage: "checkmark.shield")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(SecondaryPremiumButtonStyle())
+                .accessibilityIdentifier("documents.empty.sources")
+            }
+        }
+        .accessibilityIdentifier("documents.empty.dashboard")
+    }
+
+    private var emptyStarterCategories: ArraySlice<DocumentCategory> {
+        documentStore.suggestedCategories(for: appState.selectedUserStatus).prefix(4)
     }
 
     private var suggestionSection: some View {
@@ -292,6 +427,19 @@ struct DocumentOrganizerView: View {
         }
     }
 
+    private func startScanner() {
+#if os(iOS)
+        if UIImagePickerController.isSourceTypeAvailable(.camera),
+           Bundle.main.object(forInfoDictionaryKey: "NSCameraUsageDescription") != nil {
+            showScanner = true
+        } else {
+            alertMessage = scanningLater
+        }
+#else
+        alertMessage = scanningLater
+#endif
+    }
+
     private func suggestionReason(for category: DocumentCategory) -> String {
         switch lang {
         case .russian:
@@ -300,6 +448,29 @@ struct DocumentOrganizerView: View {
             return "Kan nodig zijn om gegevens te bevestigen. Wordt vaak gevraagd door organisaties. Controleer altijd de eisen."
         case .english:
             return "May be needed to confirm your details. Organizations often request it. Always verify requirements."
+        }
+    }
+
+    private func starterIcon(for category: DocumentCategory) -> String {
+        switch category {
+        case .passportID, .indResidence:
+            return "person.text.rectangle.fill"
+        case .brpRegistration, .bsn, .digid:
+            return "number"
+        case .gemeenteLetters, .belastingdienstLetters, .cjibFines, .duoLetters, .uwvLetters:
+            return "envelope.fill"
+        case .healthInsurance:
+            return "cross.case.fill"
+        case .rentalContract:
+            return "house.fill"
+        case .workContract, .payslip:
+            return "briefcase.fill"
+        case .bankDocuments:
+            return "creditcard.fill"
+        case .schoolUniversity:
+            return "graduationcap.fill"
+        case .other:
+            return "doc.fill"
         }
     }
 
@@ -312,8 +483,13 @@ struct DocumentOrganizerView: View {
                 alertMessage = scanningLater
             },
             onSave: { url in
-                documentStore.addScannedDocument(fileURL: url, title: "Scan \(Date().formattedForAppLanguage(lang))", category: .other, notes: "", isSensitive: false, language: lang)
-                showScanner = false
+                do {
+                    try documentStore.addScannedDocument(fileURL: url, title: "Scan \(Date().formattedForAppLanguage(lang))", category: .other, notes: "", isSensitive: false, language: lang)
+                    showScanner = false
+                } catch {
+                    showScanner = false
+                    alertMessage = scanningLater
+                }
             }
         )
 #else
@@ -324,15 +500,18 @@ struct DocumentOrganizerView: View {
     private var title: String { lang == .russian ? "Документы" : (lang == .dutch ? "Documenten" : "Documents") }
     private var subtitle: String { lang == .russian ? "Сканируйте, импортируйте, храните и готовьте документы локально." : (lang == .dutch ? "Scan, importeer, bewaar en bereid documenten lokaal voor." : "Scan, import, store, and prepare documents locally.") }
     private var privacyIntro: String { lang == .russian ? "Не загружайте чувствительные документы в сторонние сервисы. Приложение хранит документы локально на устройстве." : (lang == .dutch ? "Upload gevoelige documenten niet naar externe diensten. Deze app bewaart documenten lokaal op je apparaat." : "Do not upload sensitive documents to external services. This app stores documents locally on-device.") }
+    private var localOnlyBadge: String { lang == .russian ? "Локально" : (lang == .dutch ? "Alleen lokaal" : "Local only") }
+    private var vaultLockTitle: String { lang == .russian ? "Разблокировать хранилище" : (lang == .dutch ? "Documentkluis ontgrendelen" : "Unlock Document Vault") }
+    private var vaultLockText: String { lang == .russian ? "Используйте Face ID, Touch ID или код устройства перед просмотром локальных документов и метаданных." : (lang == .dutch ? "Gebruik Face ID, Touch ID of je toegangscode voordat je lokale documentgegevens en bestanden bekijkt." : "Use Face ID, Touch ID, or your device passcode before viewing local document metadata and files.") }
+    private var unlockTitle: String { lang == .russian ? "Открыть" : (lang == .dutch ? "Ontgrendel" : "Unlock") }
+    private var authenticationFailedText: String { lang == .russian ? "Аутентификация отменена или не удалась. Документы остаются закрытыми." : (lang == .dutch ? "Authenticatie is geannuleerd of mislukt. Documenten blijven vergrendeld." : "Authentication was cancelled or failed. Documents remain locked.") }
+    private var authenticationReason: String { lang == .russian ? "Разблокируйте локальное хранилище документов YouNew." : (lang == .dutch ? "Ontgrendel je lokale YouNew-documentkluis." : "Unlock your local YouNew document vault.") }
     private var visualPreviewLabel: String { lang == .russian ? "Визуальный предпросмотр" : (lang == .dutch ? "Visuele preview" : "Visual preview") }
     private var scanTitle: String { lang == .russian ? "Отсканировать документ" : (lang == .dutch ? "Document scannen" : "Scan document") }
     private var scanSubtitle: String { lang == .russian ? "Камера и безопасное локальное сохранение" : (lang == .dutch ? "Camera en veilig lokaal opslaan" : "Camera and safe local save") }
     private var importTitle: String { lang == .russian ? "Импортировать файл" : (lang == .dutch ? "Bestand importeren" : "Import file") }
     private var importSubtitle: String { lang == .russian ? "PDF, изображения и документы" : (lang == .dutch ? "PDF, afbeeldingen en documenten" : "PDF, images, and documents") }
     private var myDocsTitle: String { lang == .russian ? "Мои документы" : (lang == .dutch ? "Mijn documenten" : "My documents") }
-    private var myDocsSubtitle: String { lang == .russian ? "Локальный список сохранённых файлов" : (lang == .dutch ? "Lokale lijst met opgeslagen bestanden" : "Local list of saved files") }
-    private var preparePrintTitle: String { lang == .russian ? "Подготовить к печати" : (lang == .dutch ? "Voorbereiden voor afdrukken" : "Prepare for print") }
-    private var preparePrintSubtitle: String { lang == .russian ? "Выберите локальный документ для просмотра, экспорта или печати" : (lang == .dutch ? "Selecteer een lokaal document om te bekijken, exporteren of afdrukken" : "Select a local document to preview, export, or print") }
     private var neededDocsTitle: String { lang == .russian ? "Какие документы могут понадобиться" : (lang == .dutch ? "Welke documenten kunnen nodig zijn" : "Which documents may be needed") }
     private var neededDocsSubtitle: String { lang == .russian ? "По вашему статусу и этапу" : (lang == .dutch ? "Op basis van je status en fase" : "Based on your status and stage") }
     private var lettersTitle: String { lang == .russian ? "Письма и уведомления" : (lang == .dutch ? "Brieven en meldingen" : "Letters and notices") }
@@ -347,7 +526,13 @@ struct DocumentOrganizerView: View {
     private var privacyPoints: String { lang == .russian ? "• Без серверной загрузки\n• Вы контролируете удаление\n• Чувствительные файлы храните осторожно\n• Проверяйте официальные источники" : (lang == .dutch ? "• Geen server-upload\n• Jij beheert verwijdering\n• Ga voorzichtig om met gevoelige bestanden\n• Controleer officiële bronnen" : "• No server upload\n• You control deletion\n• Handle sensitive files carefully\n• Verify official sources") }
     private var sourceCheckText: String { lang == .russian ? "Может понадобиться сверка с официальным сайтом организации." : (lang == .dutch ? "Controle met officiële website van de organisatie kan nodig zijn." : "You may need to verify with the organization’s official website.") }
     private var suggestionDisclaimer: String { lang == .russian ? "Это не гарантия. Требования могут отличаться: проверьте требования организации." : (lang == .dutch ? "Dit is geen garantie. Vereisten kunnen verschillen: controleer de organisatie-eisen." : "This is not a guarantee. Requirements may vary: verify with the organization.") }
-    private var scanningLater: String { lang == .russian ? "Сканирование будет доступно позже." : (lang == .dutch ? "Scannen is later beschikbaar." : "Scanning will be available later.") }
+    private var scanningLater: String {
+        lang == .russian
+            ? "Камера недоступна на этом устройстве. Импортируйте файл или добавьте заметку вручную."
+            : (lang == .dutch
+                ? "Camera is niet beschikbaar op dit apparaat. Importeer een bestand of voeg handmatig een notitie toe."
+                : "Camera is unavailable on this device. Import a file or add a note manually.")
+    }
     private var importSuccess: String { lang == .russian ? "Файл импортирован локально" : (lang == .dutch ? "Bestand lokaal geïmporteerd" : "File imported locally") }
     private var importError: String { lang == .russian ? "Не удалось импортировать файл" : (lang == .dutch ? "Bestand importeren mislukt" : "Failed to import file") }
     private var infoAlertTitle: String { lang == .russian ? "Информация" : (lang == .dutch ? "Info" : "Info") }
@@ -355,7 +540,28 @@ struct DocumentOrganizerView: View {
     private var printUnavailableTitle: String { lang == .russian ? "Печать" : (lang == .dutch ? "Afdrukken" : "Print") }
     private var printUnavailableMessage: String { lang == .russian ? "Печать недоступна на этом устройстве." : (lang == .dutch ? "Afdrukken is niet beschikbaar op dit apparaat." : "Printing is unavailable on this device.") }
     private var sensitiveTag: String { lang == .russian ? "Чувствительный документ" : (lang == .dutch ? "Gevoelig document" : "Sensitive document") }
-    private var emptyDocs: String { lang == .russian ? "Пока нет документов. Добавьте скан или импортируйте файл." : (lang == .dutch ? "Nog geen documenten. Voeg een scan toe of importeer een bestand." : "No documents yet. Add a scan or import a file.") }
+    private var emptyDocs: String { lang == .russian ? "Добавьте скан или импортируйте первый файл." : (lang == .dutch ? "Voeg een scan toe of importeer je eerste bestand." : "Add a scan or import your first file.") }
+    private var emptyDocsTitle: String { lang == .russian ? "Начните с первого документа" : (lang == .dutch ? "Begin met je eerste document" : "Start with your first document") }
+    private var emptyDocsSubtitle: String { lang == .russian ? "Начните с одного файла" : (lang == .dutch ? "Begin met een bestand" : "Start with one file") }
+    private var emptyDocsDetail: String { lang == .russian ? "Сканируйте или импортируйте документ, затем добавьте категорию, заметки и отметку чувствительности." : (lang == .dutch ? "Scan of importeer een document en voeg daarna categorie, notities en gevoeligheidsmarkering toe." : "Scan or import a document, then add a category, notes, and sensitivity flag.") }
+    private var emptyStarterTitle: String { lang == .russian ? "Что подготовить первым" : (lang == .dutch ? "Wat eerst voorbereiden" : "What to prepare first") }
+    private var emptyStarterSubtitle: String { lang == .russian ? "Рекомендации зависят от выбранного профиля." : (lang == .dutch ? "Suggesties hangen af van je gekozen profiel." : "Suggestions depend on the selected profile.") }
+}
+
+private struct DocumentStarterCategoryCard: View {
+    let title: String
+    let subtitle: String
+    let symbol: String
+
+    var body: some View {
+        ProductTaskCard(
+            title: title,
+            subtitle: subtitle,
+            symbol: symbol,
+            accent: AppColors.softBlue,
+            minHeight: 104
+        )
+    }
 }
 
 private struct DocumentDetailSheet: View {

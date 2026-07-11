@@ -21,19 +21,17 @@ enum AIContextBuilder {
         switch selectedTab {
         case .home:
             context = assistantHomeContext(appState: appState, language: language)
-        case .search:
-            context = searchContext(query: nil, language: language, appState: appState)
-        case .map:
+        case .places, .search, .map:
             context = build(
                 screen: .map,
                 language: language,
                 appState: appState,
-                category: localizedCategory("Nearby help and map", "Hulp dichtbij en kaart", "Помощь рядом и карта", language),
-                topicTitle: localizedCategory("Nearby services", "Diensten dichtbij", "Сервисы рядом", language),
+                category: localizedCategory("Places discovery", "Plaatsen ontdekken", "Поиск мест", language),
+                topicTitle: localizedCategory("Places", "Places", "Places", language),
                 topicSummary: localizedCategory(
-                    "Use the map to find municipality offices, healthcare, police, libraries, transport, and official support near the selected city.",
-                    "Gebruik de kaart voor gemeente, zorg, politie, bibliotheek, vervoer en officiële hulp dichtbij de gekozen stad.",
-                    "Используйте карту, чтобы найти муниципалитет, медицину, полицию, библиотеки, транспорт и официальную помощь рядом с выбранным городом.",
+                    "Use Places to search the app, ask AI, and discover nearby places, local partners, services, food, hotels, healthcare, government offices, transport, and shopping near the selected city.",
+                    "Gebruik Places om de app te doorzoeken, AI te vragen en plekken, partners, diensten, eten, hotels, zorg, overheid, vervoer en winkels dichtbij de gekozen stad te vinden.",
+                    "Используйте Places, чтобы искать по приложению, спрашивать AI и находить места, партнеров, сервисы, еду, отели, медицину, госуслуги, транспорт и магазины рядом с выбранным городом.",
                     language
                 ),
                 officialSources: [
@@ -94,12 +92,21 @@ enum AIContextBuilder {
         let visibleChecklistItems = appState?.checklistItems.filter {
             $0.isVisible(for: activePersona, scope: .currentAndUniversal)
         } ?? []
-        let completedChecklistIDs = visibleChecklistItems
+        let visibleCompletedChecklistIDs = visibleChecklistItems
             .filter(\.isCompleted)
             .map { $0.id.uuidString }
+        let allCompletedChecklistIDs = appState?.checklistItems
+            .filter(\.isCompleted)
+            .map { $0.id.uuidString } ?? []
+        let completedGuideIDsForChecklistFallback = appState?.visibleCompletedGuideIDs() ?? []
+        let checklistCompletionFallback = allCompletedChecklistIDs.isEmpty ? completedGuideIDsForChecklistFallback : allCompletedChecklistIDs
+        let completedChecklistIDs = visibleCompletedChecklistIDs.isEmpty ? checklistCompletionFallback : visibleCompletedChecklistIDs
         let checklistTotal = visibleChecklistItems.count
         let journeyProgress = checklistTotal > 0 ? "\(completedChecklistIDs.count)/\(checklistTotal) checklist" : nil
-        let resolvedProvince = selectedProvince ?? provinceName(forCity: appState?.selectedCity)
+        let selectedDashboardCity = appState.map { CityDashboardContentData.city(for: $0.selectedCity) }
+        let resolvedProvince = selectedProvince ?? selectedDashboardCity?.province ?? provinceName(forCity: appState?.selectedCity)
+        let dashboardPayload = dashboardAssistantPayload(appState: appState, city: selectedDashboardCity, screen: screen)
+        let selectedSection = currentRouteID.flatMap(AppDestination.aiRoute(for:)).map(InformationArchitecture.section(for:)) ?? section(for: screen)
 
         return AIContext(
             screen: screen,
@@ -110,8 +117,16 @@ enum AIContextBuilder {
             lastReviewed: lastReviewed,
             userLanguage: language,
             userSituation: appState?.selectedUserStatus?.localized(language),
-            selectedCity: appState?.selectedCity,
+            selectedCity: selectedDashboardCity?.name,
             selectedProvince: resolvedProvince,
+            selectedCityData: dashboardPayload.city,
+            selectedAudience: dashboardPayload.audience,
+            selectedSection: selectedSection,
+            places: dashboardPayload.places,
+            foodGuide: dashboardPayload.foodGuide,
+            travelLinks: dashboardPayload.travelLinks,
+            calendarEvents: dashboardPayload.calendarEvents,
+            currentScreen: dashboardPayload.currentScreen,
             savedItemTitles: effectiveSavedItems.prefix(8).compactMap { sanitized($0.displayTitle(language)) },
             savedItemIDs: effectiveSavedItems.prefix(12).map(\.id),
             savedItemKinds: Array(Set(effectiveSavedItems.map { $0.kind.rawValue })).sorted(),
@@ -145,13 +160,21 @@ enum AIContextBuilder {
             userSituation: context.userSituation,
             selectedCity: context.selectedCity,
             selectedProvince: context.selectedProvince,
+            selectedCityData: context.selectedCityData,
+            selectedAudience: context.selectedAudience,
+            selectedSection: context.selectedSection,
+            places: context.places,
+            foodGuide: context.foodGuide,
+            travelLinks: context.travelLinks,
+            calendarEvents: context.calendarEvents,
+            currentScreen: context.currentScreen,
             savedItemTitles: context.savedItemTitles,
             savedItemIDs: context.savedItemIDs.isEmpty ? Array(visibleSavedItems.prefix(12).map(\.id)) : context.savedItemIDs,
             savedItemKinds: context.savedItemKinds.isEmpty ? Array(Set(visibleSavedItems.map { $0.kind.rawValue })).sorted() : context.savedItemKinds,
             currentRouteID: currentRouteID ?? context.currentRouteID,
             recentRouteIDs: context.recentRouteIDs.isEmpty ? appState.visibleRecentRouteIDs() : context.recentRouteIDs,
             lastSearches: context.lastSearches.isEmpty ? recentSearches() : context.lastSearches,
-            completedChecklistItemIDs: context.completedChecklistItemIDs.isEmpty ? appState.checklistItems.filter { $0.isCompleted && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }.map { $0.id.uuidString } : context.completedChecklistItemIDs,
+            completedChecklistItemIDs: context.completedChecklistItemIDs.isEmpty ? completedChecklistIDs(from: appState) : context.completedChecklistItemIDs,
             completedGuideIDs: context.completedGuideIDs.isEmpty ? appState.visibleCompletedGuideIDs() : context.completedGuideIDs,
             journeyProgress: context.journeyProgress ?? "\(appState.checklistItems.filter { $0.isCompleted && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }.count)/\(appState.checklistItems.filter { $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }.count) checklist",
             disclaimer: context.disclaimer,
@@ -163,6 +186,76 @@ enum AIContextBuilder {
 
     private static func recentSearches() -> [String] {
         Array((UserDefaults.standard.stringArray(forKey: "question_search_recent_v1") ?? []).prefix(8))
+    }
+
+    private static func completedChecklistIDs(from appState: AppStateViewModel) -> [String] {
+        let visibleCompleted = appState.checklistItems
+            .filter { $0.isCompleted && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }
+            .map { $0.id.uuidString }
+        if !visibleCompleted.isEmpty { return visibleCompleted }
+        let allCompleted = appState.checklistItems
+            .filter(\.isCompleted)
+            .map { $0.id.uuidString }
+        return allCompleted.isEmpty ? appState.visibleCompletedGuideIDs() : allCompleted
+    }
+
+    private static func section(for screen: AIContextScreen) -> IASection {
+        switch screen {
+        case .home, .onboarding:
+            return .startHere
+        case .search:
+            return .startHere
+        case .rulesAndFines, .fineDetail, .documents, .officialLinks:
+            return .documentsGovernment
+        case .transport:
+            return .transport
+        case .province, .city, .map:
+            return .places
+        case .emergency:
+            return .emergency
+        case .housing:
+            return .housing
+        case .healthcare:
+            return .healthcare
+        case .workAndTaxes, .knm, .dutchCourse, .practicalGuide:
+            return .workStudy
+        case .saved, .settings, .informationHub, .unknown:
+            return .startHere
+        case .assistant:
+            return .aiAssistant
+        }
+    }
+
+    private static func dashboardAssistantPayload(
+        appState: AppStateViewModel?,
+        city: DashboardCity?,
+        screen: AIContextScreen
+    ) -> (
+        city: DashboardCity?,
+        audience: UserContentCategory?,
+        places: [PlaceItem],
+        foodGuide: [FoodGuideItem],
+        travelLinks: [TravelLinkItem],
+        calendarEvents: [CalendarEvent],
+        currentScreen: String
+    ) {
+        guard let city else {
+            return (nil, nil, [], [], [], [], screen.rawValue)
+        }
+
+        let audience = UserContentCategory.from(persona: appState?.selectedUserStatus?.personaTag) ?? .tourist
+        let places = DashboardPlacesData.visiblePlaces(cityId: city.name, audience: audience, limit: 8)
+        let foodGuide = CityDashboardContentData.foodGuideItems(for: city, audience: audience, limit: 8)
+        let travelLinks = CityDashboardContentData.travelLinks(for: city)
+            .filter { link in
+                link.externalLink != nil
+                    && link.cityId.caseInsensitiveCompare(city.id.rawValue) == .orderedSame
+                    && (link.audience.contains(audience) || link.audience.contains(.general))
+            }
+            .sorted { $0.priority < $1.priority }
+        let calendarEvents = DashboardCalendarData.upcomingEvents(cityId: city.name, audience: audience, limit: 5)
+
+        return (city, audience, places, foodGuide, travelLinks, calendarEvents, screen.rawValue)
     }
 
     private static func context(
@@ -221,6 +314,48 @@ enum AIContextBuilder {
                     language
                 )
             )
+        case .netherlandsCalendar:
+            let city = CityDashboardContentData.city(for: appState.selectedCity)
+            let upcoming = DashboardCalendarData.upcomingEvents(
+                cityId: city.name,
+                audience: UserContentCategory.from(persona: appState.selectedUserStatus?.personaTag),
+                limit: 5
+            )
+            return build(
+                screen: .informationHub,
+                language: language,
+                appState: appState,
+                category: localizedCategory("Calendar", "Kalender", "Календарь", language),
+                topicTitle: localizedCategory("Netherlands Calendar", "Nederlandse kalender", "Календарь Нидерландов", language),
+                topicSummary: upcoming.map { "\($0.title): \($0.impact ?? $0.type.rawValue)" }.joined(separator: "\n"),
+                officialSources: upcoming.compactMap(\.source)
+            )
+        case .placeDetail(let id):
+            if let place = DashboardPlacesData.places.first(where: { $0.id == id }) {
+                return build(
+                    screen: .city,
+                    language: language,
+                    appState: appState,
+                    category: localizedCategory("Place", "Plek", "Место", language),
+                    topicTitle: place.title,
+                    topicSummary: place.description,
+                    officialSources: place.source.map { [$0] } ?? []
+                )
+            }
+            return assistantHomeContext(appState: appState, language: language)
+        case .calendarEvent(let id):
+            if let event = DashboardCalendarData.events.first(where: { $0.id == id }) {
+                return build(
+                    screen: .informationHub,
+                    language: language,
+                    appState: appState,
+                    category: event.type.title(language),
+                    topicTitle: event.title,
+                    topicSummary: event.impact ?? event.description ?? "",
+                    officialSources: event.source.map { [$0] } ?? []
+                )
+            }
+            return assistantHomeContext(appState: appState, language: language)
         case .cityDetail(_, let city):
             return cityContext(cityName: city, provinceName: "", language: language, appState: appState)
         case .provinceDetail(let province):
@@ -459,9 +594,10 @@ enum AIContextBuilder {
     // MARK: - Home
 
     static func assistantHomeContext(appState: AppStateViewModel, language: AppLanguage) -> AIContext {
+        let city = CityDashboardContentData.city(for: appState.selectedCity)
         let summary = [
             appState.selectedUserStatus?.localized(language),
-            appState.selectedCity,
+            city.name,
             "\(appState.visibleChecklistItems.filter(\.isCompleted).count)/\(appState.visibleChecklistItems.count) checklist",
             knowledgeBaseSnapshot
         ]
@@ -924,6 +1060,7 @@ enum AIContextBuilder {
     private static func tabTitle(_ tab: AppTab, language: AppLanguage) -> String {
         switch tab {
         case .home: return L10n.t("tab.home", language)
+        case .places: return "Places"
         case .search: return L10n.t("tab.search", language)
         case .map: return L10n.t("tab.map", language)
         case .favorites: return L10n.t("tab.saved", language)
@@ -1007,7 +1144,7 @@ enum AIContextBuilder {
 
     private static func searchExpansionSummary(for query: String?, appState: AppStateViewModel?) -> (summary: String?, sources: [OfficialSource]) {
         let normalizedQuery = normalizeSearchText(query ?? "")
-        let selectedCity = appState?.selectedCity
+        let selectedCity = appState.map { CityDashboardContentData.city(for: $0.selectedCity).name }
         let activePersona = appState?.selectedUserStatus?.personaTag
 
         let topics = MockExpansionData.knowledgeTopics
@@ -1146,6 +1283,7 @@ private extension AppTab {
     var destinationForAIContext: AppDestination {
         switch self {
         case .home: return .firstSteps
+        case .places: return .mapHub
         case .search: return .searchList
         case .map: return .mapHub
         case .favorites: return .checklistList

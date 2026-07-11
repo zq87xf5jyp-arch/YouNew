@@ -30,15 +30,18 @@ struct SurvivalNavigatorView: View {
     }
 
     private var guideHeader: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
-            Text(L10n.t("survival_guide.header_tagline", lang))
-                .font(AppTypography.title)
-                .foregroundStyle(AppColors.textPrimary)
-            Text(profileHint)
-                .font(AppTypography.body)
-                .foregroundStyle(AppColors.textSecondary)
-        }
-        .appCardStyle()
+        CategoryHeroVisual(
+            assetName: nil,
+            title: L10n.t("survival_guide.title", lang),
+            subtitle: profileHint,
+            symbol: "heart.text.square.fill",
+            badgeText: L10n.t("survival_guide.header_tagline", lang),
+            accent: AppColors.warning,
+            asset: ContentMediaRegistry.emergencyImage ?? ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 240,
+            language: lang
+        )
+        .accessibilityIdentifier("survivalNavigator.hero")
     }
 
     private var calmStartSection: some View {
@@ -47,7 +50,30 @@ struct SurvivalNavigatorView: View {
 
             LazyVGrid(columns: [GridItem(.flexible())], spacing: AppSpacing.small) {
                 ForEach(SurvivalStarterItem.localizedItems(lang)) { item in
-                    SurvivalStarterCard(item: item)
+                    if let sourceURL = AppURL.validatedWebURL(item.sourceURL) {
+                        Link(destination: sourceURL) {
+                            ProductTaskCard(
+                                title: item.title,
+                                subtitle: item.body,
+                                symbol: item.icon,
+                                accent: item.accent,
+                                priority: item.sourceName,
+                                cta: item.firstAction,
+                                minHeight: 112
+                            )
+                        }
+                        .buttonStyle(.plain)
+                    } else {
+                        ProductTaskCard(
+                            title: item.title,
+                            subtitle: item.body,
+                            symbol: item.icon,
+                            accent: item.accent,
+                            priority: item.sourceName,
+                            cta: item.firstAction,
+                            minHeight: 112
+                        )
+                    }
                 }
             }
         }
@@ -81,18 +107,50 @@ struct SurvivalNavigatorView: View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             SectionHeader(title: essentialsTitle, subtitle: essentialsSubtitle)
             ForEach(SurvivalEssentialStep.items(lang)) { item in
-                SurvivalEssentialStepCard(
-                    item: item,
-                    isCompleted: completedEssentialIDs.contains(item.id),
-                    onToggle: {
-                        if completedEssentialIDs.contains(item.id) {
-                            completedEssentialIDs.remove(item.id)
-                        } else {
-                            completedEssentialIDs.insert(item.id)
-                        }
+                HStack(alignment: .top, spacing: AppSpacing.small) {
+                    Button {
+                        toggleEssentialStep(item)
+                    } label: {
+                        Image(systemName: completedEssentialIDs.contains(item.id) ? "checkmark.circle.fill" : "circle")
+                            .font(.system(size: 24, weight: .bold))
+                            .foregroundStyle(completedEssentialIDs.contains(item.id) ? AppColors.success : AppColors.textTertiary)
+                            .frame(width: 44, height: 44)
                     }
-                )
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(completedEssentialIDs.contains(item.id) ? "Completed" : "Not completed")
+
+                    if let sourceURL = AppURL.validatedWebURL(item.sourceURL) {
+                        Link(destination: sourceURL) {
+                            ProductTaskCard(
+                                title: item.title,
+                                subtitle: item.detail,
+                                symbol: item.icon,
+                                accent: completedEssentialIDs.contains(item.id) ? AppColors.success : AppColors.accent,
+                                priority: item.sourceName,
+                                minHeight: 96
+                            )
+                        }
+                        .buttonStyle(.plain)
+                    } else {
+                        ProductTaskCard(
+                            title: item.title,
+                            subtitle: item.detail,
+                            symbol: item.icon,
+                            accent: completedEssentialIDs.contains(item.id) ? AppColors.success : AppColors.accent,
+                            priority: item.sourceName,
+                            minHeight: 96
+                        )
+                    }
+                }
             }
+        }
+    }
+
+    private func toggleEssentialStep(_ item: SurvivalEssentialStep) {
+        if completedEssentialIDs.contains(item.id) {
+            completedEssentialIDs.remove(item.id)
+        } else {
+            completedEssentialIDs.insert(item.id)
         }
     }
 
@@ -172,6 +230,18 @@ struct RuleScenarioDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.medium) {
+                PremiumImageHeader(
+                    title: scenario.title,
+                    asset: scenarioImageAsset,
+                    language: lang,
+                    symbol: scenarioSymbol,
+                    accent: scenarioAccent,
+                    height: 210,
+                    cornerRadius: 22,
+                    fallbackCategory: scenarioFallbackCategory
+                )
+                .appCardStyle()
+
                 InfoCard(title: L10n.t("rule.scenario.what_means", lang), subtitle: scenario.title, detail: scenario.meaning, icon: "info.circle")
                 InfoCard(title: L10n.t("rule.scenario.dont_panic", lang), subtitle: L10n.t("rule.scenario.what_to_know", lang), detail: scenario.doNotPanic, icon: "heart.text.square")
 
@@ -201,6 +271,64 @@ struct RuleScenarioDetailView: View {
         }
         .appSceneBackground()
         .navigationTitle(scenario.title)
+    }
+
+    private var scenarioImageAsset: AppImageAsset? {
+        let source = normalizedScenarioSource
+        if source.contains("transport") || source.contains("bicycle") {
+            return ContentMediaRegistry.transportHero ?? ContentMediaRegistry.ovChipkaartImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        if source.contains("landlord") || source.contains("housing") || source.contains("rent") {
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        if source.contains("tax") || source.contains("belasting") || source.contains("employer") || source.contains("labour") {
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        if source.contains("crashed") || source.contains("police") || source.contains("fake") || source.contains("fraud") || source.contains("cjib") {
+            return ContentMediaRegistry.emergencyImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        if source.contains("bsn") || source.contains("municipality") {
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        return ContentMediaRegistry.officialSourcesHero
+    }
+
+    private var scenarioFallbackCategory: PremiumImageFallbackCategory {
+        let source = normalizedScenarioSource
+        if source.contains("transport") || source.contains("bicycle") { return .transport }
+        if source.contains("landlord") || source.contains("housing") || source.contains("rent") { return .housing }
+        if source.contains("tax") || source.contains("belasting") || source.contains("employer") || source.contains("labour") { return .work }
+        if source.contains("crashed") || source.contains("police") || source.contains("fake") || source.contains("fraud") || source.contains("cjib") { return .emergency }
+        if source.contains("bsn") || source.contains("municipality") { return .government }
+        return .documents
+    }
+
+    private var scenarioSymbol: String {
+        switch scenarioFallbackCategory {
+        case .transport: return "tram.fill"
+        case .housing: return "house.fill"
+        case .work: return "briefcase.fill"
+        case .emergency: return "exclamationmark.triangle.fill"
+        case .government: return "building.columns.fill"
+        default: return "checklist.checked"
+        }
+    }
+
+    private var scenarioAccent: Color {
+        switch scenarioFallbackCategory {
+        case .transport: return AppColors.dutchOrange
+        case .housing: return AppColors.emerald
+        case .work: return AppColors.violet
+        case .emergency: return AppColors.warning
+        case .government: return AppColors.routeLine
+        default: return AppColors.accent
+        }
+    }
+
+    private var normalizedScenarioSource: String {
+        "\(scenario.title) \(scenario.institution)"
+            .folding(options: [.caseInsensitive, .diacriticInsensitive], locale: Locale(identifier: "en_US_POSIX"))
+            .lowercased()
     }
 }
 
@@ -251,68 +379,6 @@ private struct SurvivalStarterItem: Identifiable {
     }
 }
 
-private struct SurvivalStarterCard: View {
-    let item: SurvivalStarterItem
-
-    var body: some View {
-        if let sourceURL = AppURL.validatedWebURL(item.sourceURL) {
-            Link(destination: sourceURL) {
-                cardContent(showSourceIcon: true)
-            }
-            .buttonStyle(.plain)
-        } else {
-            cardContent(showSourceIcon: false)
-        }
-    }
-
-    private func cardContent(showSourceIcon: Bool) -> some View {
-        HStack(alignment: .top, spacing: AppSpacing.small) {
-            Image(systemName: item.icon)
-                .font(.system(size: 17, weight: .bold))
-                .foregroundStyle(.white)
-                .frame(width: 38, height: 38)
-                .background(item.accent)
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-
-            VStack(alignment: .leading, spacing: 7) {
-                HStack(alignment: .firstTextBaseline, spacing: 8) {
-                    Text(item.title)
-                        .font(AppTypography.bodyStrong)
-                        .foregroundStyle(AppColors.textPrimary)
-                        .lineLimit(2)
-                        .fixedSize(horizontal: false, vertical: true)
-
-                    Spacer(minLength: 4)
-
-                    if showSourceIcon {
-                        Image(systemName: "arrow.up.right.square")
-                            .font(.system(size: 12, weight: .bold))
-                            .foregroundStyle(AppColors.textTertiary)
-                    }
-                }
-
-                Text(item.body)
-                    .font(AppTypography.caption)
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(3)
-                    .fixedSize(horizontal: false, vertical: true)
-
-                Label(item.firstAction, systemImage: "checkmark.circle.fill")
-                    .font(AppTypography.caption)
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(2)
-                    .fixedSize(horizontal: false, vertical: true)
-
-                Text(item.sourceName)
-                    .font(AppTypography.footnote)
-                    .foregroundStyle(AppColors.textTertiary)
-            }
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .appCardStyle()
-    }
-}
-
 private struct SurvivalEssentialStep: Identifiable {
     let id: String
     let icon: String
@@ -339,48 +405,5 @@ private struct SurvivalEssentialStep: Identifiable {
         case .dutch: return nl
         case .english: return en
         }
-    }
-}
-
-private struct SurvivalEssentialStepCard: View {
-    let item: SurvivalEssentialStep
-    let isCompleted: Bool
-    let onToggle: () -> Void
-
-    var body: some View {
-        HStack(alignment: .top, spacing: AppSpacing.small) {
-            Button(action: onToggle) {
-                Image(systemName: isCompleted ? "checkmark.circle.fill" : "circle")
-                    .font(.system(size: 24, weight: .bold))
-                    .foregroundStyle(isCompleted ? AppColors.success : AppColors.textTertiary)
-            }
-            .buttonStyle(.plain)
-            .accessibilityLabel(isCompleted ? "Completed" : "Not completed")
-
-            Image(systemName: item.icon)
-                .font(.system(size: 16, weight: .bold))
-                .foregroundStyle(AppColors.accent)
-                .frame(width: 34, height: 34)
-                .background(AppColors.accent.opacity(0.12))
-                .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
-
-            VStack(alignment: .leading, spacing: 5) {
-                Text(item.title)
-                    .font(AppTypography.bodyStrong)
-                    .foregroundStyle(AppColors.textPrimary)
-                Text(item.detail)
-                    .font(AppTypography.caption)
-                    .foregroundStyle(AppColors.textSecondary)
-                    .fixedSize(horizontal: false, vertical: true)
-                if let sourceURL = AppURL.validatedWebURL(item.sourceURL) {
-                    Link(destination: sourceURL) {
-                        Label(item.sourceName, systemImage: "checkmark.seal.fill")
-                            .font(AppTypography.footnote)
-                            .foregroundStyle(AppColors.textTertiary)
-                    }
-                }
-            }
-        }
-        .appCardStyle()
     }
 }

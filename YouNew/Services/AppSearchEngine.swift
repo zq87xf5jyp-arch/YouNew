@@ -23,7 +23,14 @@ struct AppSearchEngine {
         language: AppLanguage,
         context: AIContext? = nil
     ) -> (summary: String?, sources: [OfficialSource], destination: AppDestination?) {
-        let results = search(query, language: language, context: context, limit: 6)
+        let results = search(
+            query,
+            language: language,
+            context: context,
+            activePersona: context?.activePersonaTag,
+            scope: context?.personaSearchScope ?? .currentAndUniversal,
+            limit: 6
+        )
         guard !results.isEmpty else { return (nil, [], nil) }
 
         let summary = results.prefix(4).map { result in

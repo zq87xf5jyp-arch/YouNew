@@ -14,6 +14,112 @@ enum ImageMemoryCache {
     }()
 }
 
+enum ImageDiskThumbnailCache {
+    nonisolated static func cacheKey(urlString: String, targetWidth: CGFloat) -> String {
+        let width = max(1, Int(targetWidth.rounded(.up)))
+        return "\(stableHash(urlString))-\(width)"
+    }
+
+    nonisolated static func readOffMain(urlString: String, targetWidth: CGFloat) async -> UIImage? {
+        await Task.detached(priority: .utility) {
+            read(urlString: urlString, targetWidth: targetWidth)
+        }.value
+    }
+
+    nonisolated static func writeOffMain(_ image: UIImage, urlString: String, targetWidth: CGFloat) async {
+        await Task.detached(priority: .utility) {
+            write(image, urlString: urlString, targetWidth: targetWidth)
+        }.value
+    }
+
+    nonisolated static func read(urlString: String, targetWidth: CGFloat) -> UIImage? {
+        let key = cacheKey(urlString: urlString, targetWidth: targetWidth)
+        let url = fileURL(for: key)
+        guard let data = try? Data(contentsOf: url),
+              let image = UIImage(data: data) else {
+            return nil
+        }
+        try? FileManager.default.setAttributes([.modificationDate: Date()], ofItemAtPath: url.path)
+        return image
+    }
+
+    nonisolated static func write(_ image: UIImage, urlString: String, targetWidth: CGFloat) {
+        guard let data = image.jpegData(compressionQuality: 0.86) else { return }
+        let directory = cacheDirectory
+        try? FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+        try? data.write(to: fileURL(for: cacheKey(urlString: urlString, targetWidth: targetWidth)), options: [.atomic])
+        pruneIfNeeded()
+    }
+
+    nonisolated private static var cacheDirectory: URL {
+        let base = FileManager.default.urls(for: .cachesDirectory, in: .userDomainMask).first
+            ?? FileManager.default.temporaryDirectory
+        return base.appendingPathComponent("YouNewImageThumbnails", isDirectory: true)
+    }
+
+    nonisolated private static func fileURL(for key: String) -> URL {
+        cacheDirectory.appendingPathComponent(key).appendingPathExtension("jpg")
+    }
+
+    nonisolated private static func pruneIfNeeded(maxBytes: Int64 = 150 * 1024 * 1024, maxFiles: Int = 520) {
+        let directory = cacheDirectory
+        guard let files = try? FileManager.default.contentsOfDirectory(
+            at: directory,
+            includingPropertiesForKeys: [.contentModificationDateKey, .fileSizeKey],
+            options: [.skipsHiddenFiles]
+        ) else {
+            return
+        }
+
+        var records: [(url: URL, modified: Date, size: Int64)] = []
+        var totalBytes: Int64 = 0
+        for file in files where file.pathExtension == "jpg" {
+            let values = try? file.resourceValues(forKeys: [.contentModificationDateKey, .fileSizeKey])
+            let size = Int64(values?.fileSize ?? 0)
+            totalBytes += size
+            records.append((file, values?.contentModificationDate ?? .distantPast, size))
+        }
+
+        guard totalBytes > maxBytes || records.count > maxFiles else { return }
+        for record in records.sorted(by: { $0.modified < $1.modified }) {
+            try? FileManager.default.removeItem(at: record.url)
+            totalBytes -= record.size
+            records.removeAll { $0.url == record.url }
+            if totalBytes <= maxBytes && records.count <= maxFiles {
+                break
+            }
+        }
+    }
+
+    nonisolated private static func stableHash(_ value: String) -> String {
+        var hash: UInt64 = 5381
+        for scalar in value.unicodeScalars {
+            hash = ((hash << 5) &+ hash) &+ UInt64(scalar.value)
+        }
+        return String(hash, radix: 16)
+    }
+}
+
+enum CityImageRenderRole {
+    case hero
+    case card
+    case thumbnail
+    case mapPreview
+
+    var targetPixelWidth: CGFloat {
+        switch self {
+        case .hero:
+            return 1200
+        case .card:
+            return 720
+        case .thumbnail:
+            return 420
+        case .mapPreview:
+            return 560
+        }
+    }
+}
+
 @MainActor
 final class DirectImageLoader: ObservableObject {
     @Published private(set) var image: UIImage?
@@ -38,6 +144,11 @@ final class DirectImageLoader: ObservableObject {
         task?.cancel()
     }
 
+    func cancel() {
+        task?.cancel()
+        task = nil
+    }
+
     func load(_ urlString: String?, targetWidth: CGFloat = 900, debugContext: ImageDebugContext? = nil) {
         let requestedURL = urlString?.trimmingCharacters(in: .whitespacesAndNewlines)
 
@@ -51,20 +162,21 @@ final class DirectImageLoader: ObservableObject {
             return
         }
 
-        guard requestedURL != currentURLString else { return }
-        currentURLString = requestedURL
+        let requestedCacheKey = ImageDiskThumbnailCache.cacheKey(urlString: requestedURL, targetWidth: targetWidth)
+        guard requestedCacheKey != currentURLString else { return }
+        currentURLString = requestedCacheKey
         task?.cancel()
 
-        if let cached = ImageMemoryCache.shared.object(forKey: requestedURL as NSString) {
+        if let cached = ImageMemoryCache.shared.object(forKey: requestedCacheKey as NSString) {
             ImageDebugLogger.log(
                 context: debugContext,
                 resolvedURL: requestedURL,
                 fallbackLevel: debugContext?.fallbackLevel,
-                cacheKey: requestedURL,
+                cacheKey: requestedCacheKey,
                 cacheHit: true
             )
             resolvedURLString = requestedURL
-            resolvedCacheKey = requestedURL
+            resolvedCacheKey = requestedCacheKey
             resolvedFallbackLevel = debugContext?.fallbackLevel ?? "cached"
             resolvedFromCache = true
             image = cached
@@ -74,21 +186,21 @@ final class DirectImageLoader: ObservableObject {
 
         image = nil
         resolvedURLString = nil
-        resolvedCacheKey = requestedURL
+        resolvedCacheKey = requestedCacheKey
         resolvedFallbackLevel = debugContext?.fallbackLevel ?? "loading"
         resolvedFromCache = false
         state = .loading
         task = Task { [weak self] in
-            await self?.loadImage(urlString: requestedURL, targetWidth: targetWidth, debugContext: debugContext)
+            await self?.loadImage(urlString: requestedURL, targetWidth: targetWidth, cacheKey: requestedCacheKey, debugContext: debugContext)
         }
     }
 
-    private func loadImage(urlString: String, targetWidth: CGFloat, debugContext: ImageDebugContext?) async {
-        guard let prepared = await fetchImage(urlString: urlString, targetWidth: targetWidth) else {
+    private func loadImage(urlString: String, targetWidth: CGFloat, cacheKey: String, debugContext: ImageDebugContext?) async {
+        guard let prepared = await fetchImage(urlString: urlString, targetWidth: targetWidth, cacheKey: cacheKey) else {
             guard !Task.isCancelled else { return }
             image = nil
             resolvedURLString = nil
-            resolvedCacheKey = urlString
+            resolvedCacheKey = cacheKey
             resolvedFallbackLevel = "generated-artwork"
             resolvedFromCache = false
             state = .failed
@@ -96,23 +208,23 @@ final class DirectImageLoader: ObservableObject {
                 context: debugContext,
                 resolvedURL: nil,
                 fallbackLevel: "generated-artwork",
-                cacheKey: urlString,
+                cacheKey: cacheKey,
                 cacheHit: false
             )
             return
         }
 
         guard !Task.isCancelled else { return }
-        ImageMemoryCache.shared.setObject(prepared, forKey: urlString as NSString, cost: prepared.memoryCost)
+        ImageMemoryCache.shared.setObject(prepared, forKey: cacheKey as NSString, cost: prepared.memoryCost)
         ImageDebugLogger.log(
             context: debugContext,
             resolvedURL: urlString,
             fallbackLevel: debugContext?.fallbackLevel,
-            cacheKey: urlString,
+            cacheKey: cacheKey,
             cacheHit: false
         )
         resolvedURLString = urlString
-        resolvedCacheKey = urlString
+        resolvedCacheKey = cacheKey
         resolvedFallbackLevel = debugContext?.fallbackLevel ?? "direct-url"
         resolvedFromCache = false
         withAnimation(.easeIn(duration: 0.25)) {
@@ -121,12 +233,19 @@ final class DirectImageLoader: ObservableObject {
         }
     }
 
-    private func fetchImage(urlString: String, targetWidth: CGFloat) async -> UIImage? {
-        if let cached = ImageMemoryCache.shared.object(forKey: urlString as NSString) {
+    private func fetchImage(urlString: String, targetWidth: CGFloat, cacheKey: String) async -> UIImage? {
+        if let cached = ImageMemoryCache.shared.object(forKey: cacheKey as NSString) {
             return cached
         }
 
-        if let existingTask = Self.inFlightTasks[urlString] {
+        let diskImage = await ImageDiskThumbnailCache.readOffMain(urlString: urlString, targetWidth: targetWidth)
+
+        if let diskImage {
+            ImageMemoryCache.shared.setObject(diskImage, forKey: cacheKey as NSString, cost: diskImage.memoryCost)
+            return diskImage
+        }
+
+        if let existingTask = Self.inFlightTasks[cacheKey] {
             return await existingTask.value
         }
 
@@ -154,7 +273,11 @@ final class DirectImageLoader: ObservableObject {
                     #endif
                     return nil
                 }
-                return downsampledImage(from: data, maxPixelWidth: targetWidth)
+                let image = downsampledImage(from: data, maxPixelWidth: targetWidth)
+                if let image {
+                    await ImageDiskThumbnailCache.writeOffMain(image, urlString: urlString, targetWidth: targetWidth)
+                }
+                return image
             } catch {
                 #if DEBUG
                 print("Image load failed: \(urlString) - \(error.localizedDescription)")
@@ -163,9 +286,9 @@ final class DirectImageLoader: ObservableObject {
             }
         }
 
-        Self.inFlightTasks[urlString] = task
+        Self.inFlightTasks[cacheKey] = task
         let result = await task.value
-        Self.inFlightTasks[urlString] = nil
+        Self.inFlightTasks[cacheKey] = nil
         return result
     }
 }
@@ -178,6 +301,7 @@ struct CityImageView: View {
     var fallbackColor: Color = Color(hex: "#142A3E")
     var fallbackURLStrings: [String] = []
     var debugContext: ImageDebugContext? = nil
+    var renderRole: CityImageRenderRole = .hero
     var targetPixelWidth: CGFloat? = nil
 
     @StateObject private var loader = DirectImageLoader()
@@ -190,6 +314,27 @@ struct CityImageView: View {
         return nil
     }
 
+    private var bundledAssetName: String? {
+        guard let placeId else { return nil }
+
+        let asset: AppImageAsset?
+        if placeId.hasPrefix("nl-province-") {
+            asset = LocalNetherlandsImagePackRegistry.provinceHero(placeId: placeId)
+        } else {
+            switch renderRole {
+            case .hero:
+                asset = LocalNetherlandsImagePackRegistry.cityHero(placeId: placeId)
+            case .card, .thumbnail, .mapPreview:
+                asset = LocalNetherlandsImagePackRegistry.cityCard(placeId: placeId)
+                    ?? LocalNetherlandsImagePackRegistry.cityHero(placeId: placeId)
+            }
+        }
+
+        guard let localAssetName = asset?.localAssetName,
+              VisualAssetHelper.exists(localAssetName) else { return nil }
+        return localAssetName
+    }
+
     private var effectiveURL: String? {
         resolveHeroURL(placeId: placeId, entityURL: urlString)
     }
@@ -199,41 +344,58 @@ struct CityImageView: View {
             return targetPixelWidth
         }
 
-        let displayAwareWidth = height * 3.2
-        return min(1200, max(320, displayAwareWidth))
+        return renderRole.targetPixelWidth
+    }
+
+    private var loadIdentity: String {
+        "\(bundledAssetName ?? effectiveURL ?? "no-url")-\(Int(imageTargetWidth.rounded(.up)))"
     }
 
     var body: some View {
         ZStack {
-            switch loader.state {
-            case .success:
-                if let image = loader.image {
-                    Image(uiImage: image)
-                        .resizable()
-                        .aspectRatio(contentMode: .fill)
-                        .frame(maxWidth: .infinity)
-                        .frame(height: height)
-                        .clipped()
-                        .transition(.opacity.animation(.easeIn(duration: 0.25)))
-                } else {
+            if let bundledAssetName {
+                Image(bundledAssetName)
+                    .resizable()
+                    .aspectRatio(contentMode: .fill)
+                    .frame(maxWidth: .infinity)
+                    .frame(height: height)
+                    .clipped()
+                    .transition(.opacity.animation(.easeIn(duration: 0.25)))
+            } else {
+                switch loader.state {
+                case .success:
+                    if let image = loader.image {
+                        Image(uiImage: image)
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(maxWidth: .infinity)
+                            .frame(height: height)
+                            .clipped()
+                            .transition(.opacity.animation(.easeIn(duration: 0.25)))
+                    } else {
+                        FallbackCityView(cityName: cityName, color: fallbackColor, height: height)
+                    }
+                case .idle, .loading:
+                    if let effectiveURL, !effectiveURL.isEmpty {
+                        ShimmerView(height: height)
+                            .transition(.opacity.animation(.easeIn(duration: 0.25)))
+                    } else {
+                        FallbackCityView(cityName: cityName, color: fallbackColor, height: height)
+                    }
+                case .failed:
                     FallbackCityView(cityName: cityName, color: fallbackColor, height: height)
                 }
-            case .idle, .loading:
-                if let effectiveURL, !effectiveURL.isEmpty {
-                    ShimmerView(height: height)
-                        .transition(.opacity.animation(.easeIn(duration: 0.25)))
-                } else {
-                    FallbackCityView(cityName: cityName, color: fallbackColor, height: height)
-                }
-            case .failed:
-                FallbackCityView(cityName: cityName, color: fallbackColor, height: height)
             }
         }
         .frame(maxWidth: .infinity)
         .frame(height: height)
         .clipped()
         .runtimeImageDebugInspector(runtimeDebugInfo)
-        .task(id: effectiveURL) {
+        .task(id: loadIdentity) {
+            guard bundledAssetName == nil else {
+                loader.cancel()
+                return
+            }
             guard let effectiveURL else { return }
             loader.load(
                 effectiveURL,
@@ -248,6 +410,9 @@ struct CityImageView: View {
                     modelID: placeId ?? "unknown"
                 )
             )
+        }
+        .onDisappear {
+            loader.cancel()
         }
     }
 
@@ -267,12 +432,14 @@ struct CityImageView: View {
             entityName: context.entityName,
             entityType: context.entityType,
             requestedURL: context.requestedURL,
-            resolvedURL: loader.resolvedURLString ?? "generated-fallback",
+            resolvedURL: bundledAssetName.map { "local:\($0)" } ?? loader.resolvedURLString ?? "generated-fallback",
             registrySource: context.sourceRegistry,
-            fallbackLevel: loader.resolvedFallbackLevel.isEmpty ? context.fallbackLevel : loader.resolvedFallbackLevel,
-            cacheKey: loader.resolvedCacheKey.isEmpty ? (effectiveURL ?? "") : loader.resolvedCacheKey,
+            fallbackLevel: bundledAssetName == nil
+                ? (loader.resolvedFallbackLevel.isEmpty ? context.fallbackLevel : loader.resolvedFallbackLevel)
+                : "bundled-local-photo",
+            cacheKey: bundledAssetName ?? (loader.resolvedCacheKey.isEmpty ? (effectiveURL ?? "") : loader.resolvedCacheKey),
             modelID: context.modelID,
-            cacheHit: loader.resolvedFromCache
+            cacheHit: bundledAssetName != nil || loader.resolvedFromCache
         )
     }
 
@@ -450,6 +617,13 @@ struct ShimmerView: View {
     let height: CGFloat
     @State private var phase: CGFloat = -1
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
+    private var shouldAnimate: Bool {
+#if DEBUG
+        !ProcessInfo.processInfo.arguments.contains("-uiTesting") && !reduceMotion
+#else
+        !reduceMotion
+#endif
+    }
 
     var body: some View {
         Rectangle()
@@ -460,7 +634,7 @@ struct ShimmerView: View {
                 shimmerOverlay
             )
             .onAppear {
-                guard !reduceMotion else { return }
+                guard shouldAnimate else { return }
                 withAnimation(.linear(duration: 1.6).repeatForever(autoreverses: false)) {
                     phase = 1.4
                 }
@@ -469,7 +643,7 @@ struct ShimmerView: View {
 
     @ViewBuilder
     private var shimmerOverlay: some View {
-        if reduceMotion {
+        if !shouldAnimate {
             Color.white.opacity(0.035)
         } else {
             LinearGradient(

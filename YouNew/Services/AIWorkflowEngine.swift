@@ -296,7 +296,7 @@ private extension AIWorkflowEngine {
         let contextualActions = composed.quickActions.filter { $0.kind == .openCity || $0.kind == .openProvince }
         let remainingComposedActions = composed.quickActions.filter { $0.kind != .openCity && $0.kind != .openProvince }
         var actions = branchActions(for: workflow, language: language) + supportActions(for: workflow.kind, language: language, sources: composed.sources) + contextualActions + remainingComposedActions
-        actions = visibleActions(deduplicateActions(actions), context: context)
+        actions = visibleActions(prioritizedActions(deduplicateActions(actions)), context: context)
 
         return AIResponse(
             answer: guidance,
@@ -608,6 +608,26 @@ private extension AIWorkflowEngine {
         return actions.filter { action in
             let key = [action.kind.rawValue, action.destinationID ?? "", action.url?.absoluteString ?? "", action.itemID ?? "", action.query ?? "", action.title].joined(separator: "|")
             return seen.insert(key).inserted
+        }
+    }
+
+    static func prioritizedActions(_ actions: [AIResponseAction]) -> [AIResponseAction] {
+        actions.enumerated()
+            .sorted { lhs, rhs in
+                let leftPriority = actionPriority(lhs.element)
+                let rightPriority = actionPriority(rhs.element)
+                return leftPriority == rightPriority ? lhs.offset < rhs.offset : leftPriority < rightPriority
+            }
+            .map(\.element)
+    }
+
+    private static func actionPriority(_ action: AIResponseAction) -> Int {
+        switch action.kind {
+        case .askFollowUp: return 0
+        case .openCity, .openProvince: return 1
+        case .openGuide, .openScreen: return 2
+        case .openSource: return 3
+        case .save, .share, .relatedTopic: return 4
         }
     }
 

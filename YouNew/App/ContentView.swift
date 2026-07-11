@@ -8,6 +8,9 @@ struct ContentView: View {
     var body: some View {
         #if os(macOS)
         appRoot
+            .onAppear {
+                LaunchDiagnostics.mark("Root view loaded")
+            }
             .sheet(isPresented: Binding(
                 get: { appState.requiresPersonaSelection },
                 set: { _ in }
@@ -19,6 +22,9 @@ struct ContentView: View {
             }
         #else
         appRoot
+            .onAppear {
+                LaunchDiagnostics.mark("Root view loaded")
+            }
             .fullScreenCover(isPresented: Binding(
                 get: { appState.requiresPersonaSelection },
                 set: { _ in }

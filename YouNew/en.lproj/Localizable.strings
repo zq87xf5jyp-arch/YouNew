@@ -8,7 +8,7 @@
 "tab.explain" = "Explain";
 "tab.checklist" = "Checklist";
 "tab.ai" = "AI Assistant";
-"tab.map" = "Map";
+"tab.map" = "Places";
 "tab.resources" = "Resources";
 "tab.more" = "More";
 "tab.settings" = "Settings";
@@ -20,6 +20,7 @@
 "common.back" = "Back";
 "common.close" = "Close";
 "common.search" = "Search";
+"common.selected" = "Selected";
 "common.send" = "Send";
 "common.clear" = "Clear";
 "common.edit" = "Edit";
@@ -38,7 +39,7 @@
 
 "search.title" = "Question search";
 "search.subtitle" = "Official-source-first answers";
-"search.placeholder" = "Ask a question about Dutch systems";
+"search.placeholder" = "Search for rules, documents, services…";
 "search.nav_title" = "Search";
 "search.recent" = "Recent searches";
 "search.popular" = "Popular questions";
@@ -49,7 +50,7 @@
 
 "ai.title" = "AI Assistant";
 "ai.subtitle" = "Source-first Explain Mode and next steps";
-"ai.disclaimer" = "AI Explain Mode is informational and may be inaccurate. Always verify important information with official institutions.";
+"ai.disclaimer" = "The AI assistant provides guidance based on the app's knowledge base and official sources where available. It does not replace legal, medical or financial professionals.";
 "ai.thinking" = "Thinking...";
 "ai.search_official_answer" = "Search official answer";
 "ai.related_institutions" = "Related institutions";
@@ -110,8 +111,8 @@
 "disclaimer.medium" = "YouNew.nl is an informational guide only. Requirements may change over time. Always check the official source.";
 "disclaimer.expanded" = "This app provides educational onboarding information only. It does not provide legal advice or outcome predictions. Rules can change. Always check the official source.";
 
-"empty.no_results" = "No results found.";
-"empty.no_nearby_places" = "No support points found nearby.";
+"empty.no_results" = "Try another query, open official sources, or ask AI.";
+"empty.no_nearby_places" = "Open Places, official sources, or ask AI for nearby options.";
 "checklist.title" = "Checklist";
 "checklist.progress_summary" = "Progress summary";
 "checklist.all_completed" = "All listed steps completed";
@@ -129,10 +130,10 @@
 "resources.question_search" = "Question Search";
 "resources.beginner_guides" = "Beginner Guides";
 "resources.official_links" = "Official resource links";
-"resources.no_resources" = "No resources available";
+"resources.no_resources" = "Open official sources, search, or documents for source-labeled routes.";
 
 "letters.title" = "Letters";
-"letters.smart_assistant" = "Smart letter assistant";
+"letters.smart_assistant" = "Letter assistant";
 "letters.smart_assistant_subtitle" = "Local letter orientation";
 "letters.upload_placeholder" = "Upload letter";
 "letters.scan_placeholder" = "Scan letter";
@@ -140,10 +141,10 @@
 "letters.extracted_text" = "Extracted text";
 "letters.ocr_placeholder" = "Local text check";
 "letters.summaries" = "Letter summaries";
-"letters.no_saved_examples" = "No saved examples";
+"letters.no_saved_examples" = "Start with documents, sources, or search.";
 "letters.center_flow" = "Letter center flow";
-"letters.center_flow_subtitle" = "Open any letter example";
-"letters.center_flow_detail" = "Each letter now opens a detailed guide with related institutions, glossary links, fines context, and next-step recommendations.";
+"letters.center_flow_subtitle" = "Use examples to understand official letters";
+"letters.center_flow_detail" = "Each example shows plain-language context, related services, and possible next steps. Always check the original letter.";
 
 "translator.title" = "Translator";
 "translator.subtitle" = "Language assistance only";
@@ -164,12 +165,12 @@
 "translator.copy_translated" = "Copy translated text";
 "translator.swap_languages" = "Swap languages";
 "translator.recent" = "Recent translations";
-"translator.no_recent" = "No recent translations yet.";
+"translator.no_recent" = "Translate a letter or message to keep it here.";
 
 "fines.title" = "Fines & Penalties";
 "fines.info_title" = "Fine Info";
 "fines.disclaimer" = "This section is educational only. Fine amounts and rules can change. Always verify current details with the official institution. This is not legal advice.";
-"fines.no_items" = "No items in this category.";
+"fines.no_items" = "Choose another category or check official sources.";
 "fines.amounts_can_change" = "Fine amounts can change. This app does not show exact amounts. Always check the current amount on the official CJIB, municipality, or relevant institution source.";
 "fines.what_this_means" = "What this means";
 "fines.possible_consequence" = "Possible consequence";
@@ -240,11 +241,11 @@
 "home.quick.map" = "Nearby help map";
 "home.quick.map_sub" = "Find local support points";
 "home.quick.resources" = "Official resources";
-"home.quick.resources_sub" = "Browse trusted links";
+"home.quick.resources_sub" = "Browse source links";
 "home.upcoming_reminder" = "Upcoming reminder";
 "home.educational_tip" = "Educational tip";
 "home.for_today" = "For today";
-"home.browse_all" = "Browse everything";
+"home.browse_all" = "Browse sections";
 "home.nav.glossary" = "Dutch Terms Glossary";
 "home.nav.glossary_sub" = "Understand bureaucratic language";
 "home.nav.fines" = "Fines & Penalties";
@@ -254,7 +255,7 @@
 "home.nav.institutions" = "Government Institutions";
 "home.nav.institutions_sub" = "Know who does what";
 "home.nav.letters" = "Official Letters Guide";
-"home.nav.letters_sub" = "Decode letters from authorities";
+"home.nav.letters_sub" = "Understand letters from authorities";
 "home.nav.beginner" = "Beginner Guides";
 "home.nav.beginner_sub" = "Simple explanations for key systems";
 "home.hero.kicker" = "YOUR NETHERLANDS JOURNEY";
@@ -268,7 +269,7 @@
 "home.next" = "Next: %@";
 "search.category_answers" = "%@ answers";
 "search.official_source" = "Official source";
-"search.trusted_source" = "Trusted source";
+"search.trusted_source" = "Source-labeled";
 "search.verify_official_website" = "Verify on official website";
 "search.open_answer" = "Open answer";
 "search.people_also_search" = "People also search for";
@@ -286,13 +287,13 @@
 "common.saved" = "Saved";
 "dutch_terms.disclaimer" = "Terms are explained for educational orientation. Legal and financial terms carry important real-world consequences. Verify with official sources.";
 "dutch_terms.search_placeholder" = "Search Dutch terms…";
-"dutch_terms.no_terms" = "No terms found. Try a different search.";
+"dutch_terms.no_terms" = "Try another term or open related official sources.";
 "dutch_terms.nav_title" = "Dutch Terms Dictionary";
 "dutch_terms.legal_warning" = "This term has legal or financial implications. The explanation below is for educational orientation only. Verify consequences with the official institution or a qualified advisor.";
 "dutch_terms.term" = "Term";
 "dutch_terms.legal_financial" = "Legal / Financial";
 "legal.search_placeholder" = "Search topics…";
-"legal.no_results" = "No results found. Try a different search or category.";
+"legal.no_results" = "Try another topic, reset filters, or open official sources.";
 "legal.explanation" = "Explanation";
 "legal.info" = "Legal Info";
 "common.done" = "Done";
@@ -361,7 +362,7 @@
 "official_sources.title" = "Official source directory";
 "official_sources.subtitle" = "%ld Dutch institutions and services";
 "official_sources.search_placeholder" = "Search institutions…";
-"official_sources.no_match" = "No institutions match your search.";
+"official_sources.no_match" = "Use another official route";
 "official_sources.what_handles" = "What it handles";
 "official_sources.when_needed" = "When a newcomer may need it";
 "official_sources.scam_warning" = "Scam warning";
@@ -376,16 +377,16 @@
 "checklist.category.housing" = "Housing";
 "checklist.category.education" = "Education";
 "checklist.category.transport" = "Transport";
-"ai.input_placeholder" = "Ask a question";
+"ai.input_placeholder" = "Ask without personal data…";
 "map.cluster_accessibility" = "%ld places grouped";
-"map.no_places_title" = "No places found";
+"map.no_places_title" = "Places not found";
 "map.no_places_subtitle" = "Try another search or category";
 "map.no_places_detail" = "Switch city, clear search, or use filters to discover newcomer support points.";
-"empty.no_reminders" = "No upcoming reminders yet.";
-"empty.checklist_complete" = "Your onboarding checklist is complete.";
-"empty.no_letter_summaries" = "No saved letter summaries yet.";
-"empty.resources_unavailable" = "No matching resources are saved yet. Open Official Sources or Search to find verified links.";
-"empty.no_saved_items" = "Nothing saved yet.";
+"empty.no_reminders" = "Add a reminder from checklist steps or important documents.";
+"empty.checklist_complete" = "Your current checklist steps are complete.";
+"empty.no_letter_summaries" = "Save a letter explanation after scanning or opening a document.";
+"empty.resources_unavailable" = "Open Official Sources, Places, or Search for source-labeled alternatives.";
+"empty.no_saved_items" = "Save useful items as you explore.";
 "home.quick.continue" = "Continue";
 "home.search.suggestion.1" = "Ask about life in the Netherlands...";
 "home.search.suggestion.2" = "How do I get a BSN number?";
@@ -408,12 +409,12 @@
 "home.start_here.fines.subtitle" = "Boetes explained simply";
 "home.priorities.title" = "Your priorities";
 "home.identity.title" = "What is YouNew.nl?";
-"home.identity.headline" = "Everything for your life in the Netherlands — in one place.";
+"home.identity.headline" = "Practical help for life in the Netherlands.";
 "home.identity.body" = "We explain documents, services, fines and important steps in plain language. We help you understand where to turn and what to do next.";
 "home.identity.point.1" = "Explains Dutch bureaucratic terms simply";
 "home.identity.point.2" = "Helps you not miss critical onboarding steps";
-"home.identity.point.3" = "Links every answer to official Dutch sources";
-"home.identity.point.4" = "Decodes letters and official documents";
+"home.identity.point.3" = "Keeps official-source links close where available";
+"home.identity.point.4" = "Helps explain letters and official documents";
 "home.identity.point.5" = "Finds local institutions and support near you";
 "home.who_for.title" = "Who is this for?";
 "home.how_helps.title" = "How it helps";
@@ -422,7 +423,7 @@
 "home.how_helps.item.2.title" = "Step-by-step onboarding";
 "home.how_helps.item.2.subtitle" = "Structured path — don't miss what matters most";
 "home.how_helps.item.3.title" = "Official sources throughout";
-"home.how_helps.item.3.subtitle" = "Every guide backed by government websites";
+"home.how_helps.item.3.subtitle" = "Guides point to official sources where available";
 "home.how_helps.item.4.title" = "Find local support near you";
 "home.how_helps.item.4.subtitle" = "Municipalities, offices, and help centres";
 "home.disclaimer.not_affiliated" = "Not affiliated with Dutch government authorities. Always verify official sources.";
@@ -512,7 +513,7 @@
 "resource.open_source" = "Open official resource";
 "common.open_details" = "Open details";
 "common.report_short" = "Report";
-"common.verified_source" = "Verified source";
+"common.verified_source" = "Source-labeled";
 "common.source" = "Source";
 "common.last_checked" = "Last checked";
 "common.continue_onboarding" = "Continue onboarding";
@@ -636,17 +637,17 @@
 "more.fines_hub.fines.subtitle" = "What to do if you receive a fine";
 "more.fines_hub.fines.title" = "Fines";
 "more.fines_hub.letters.detail" = "Help understanding formal correspondence in Dutch";
-"more.fines_hub.letters.subtitle" = "Decode letters from government institutions";
+"more.fines_hub.letters.subtitle" = "Understand letters from government institutions";
 "more.fines_hub.letters.title" = "Official Letters";
 "more.legal.courts" = "Court system";
 "more.legal.courts_detail" = "Information about Dutch courts and legal proceedings.";
-"more.legal.free_advice" = "Free legal advice";
-"more.legal.loket_detail" = "Juridisch Loket offers free first-line legal advice across the Netherlands.";
+"more.legal.free_advice" = "First legal orientation";
+"more.legal.loket_detail" = "Juridisch Loket may offer first-line legal information. Check whether your situation qualifies.";
 "more.legal.open_loket" = "Open Juridisch Loket";
 "more.quick.change_status" = "Personalize guide";
 "more.quick.check_fine" = "Check a fine";
 "more.quick.find_site" = "Find official site";
-"more.quick.parse_letter" = "Decode a letter";
+"more.quick.parse_letter" = "Explain a letter";
 "more.quick.title" = "Quick actions";
 "more.row.about.subtitle" = "Information about YouNew.nl";
 "more.row.about.title" = "About the App";
@@ -669,7 +670,7 @@
 "more.row.map.title" = "Map";
 "more.row.mistakes.subtitle" = "Avoid the most frequent newcomer errors";
 "more.row.mistakes.title" = "Common Mistakes";
-"more.row.official_sites.subtitle" = "Verified government websites";
+"more.row.official_sites.subtitle" = "Official websites and source links";
 "more.row.official_sites.title" = "Official Sites";
 "more.row.resources.subtitle" = "Guides, links, and official sources";
 "more.row.resources.title" = "Resources";
@@ -689,10 +690,10 @@
 "settings.about" = "About YouNew.nl";
 "settings.documents.center" = "Document Center";
 "settings.documents.clear_cache" = "Clear document cache";
-"settings.documents.export_coming" = "Document metadata can be exported from Privacy and data.";
+"settings.documents.export_coming" = "Manage document privacy, local storage, and data controls in Privacy and data.";
 "settings.documents.stored_on_device" = "Documents are stored on-device.";
 "settings.edit_profile" = "Edit Profile";
-"settings.feedback_coming" = "The feedback feature will be available in the next update. Thank you!";
+"settings.feedback_coming" = "Feedback is saved locally for your review. Use official sources for urgent issues.";
 "settings.language_updated" = "Language updated";
 "settings.map.default_category" = "Default category";
 "settings.map.default_city" = "Default city";
@@ -702,7 +703,7 @@
 "settings.nav.recommended_steps" = "Recommended steps";
 "settings.nav.saved_topics" = "Saved topics";
 "settings.profile_status" = "Status";
-"settings.recent.empty" = "Nothing opened yet";
+"settings.recent.empty" = "Open a section to build your quick history";
 "settings.reminders.active" = "Reminders active";
 "settings.reminders.important_steps" = "Important steps";
 "settings.reminders.local_detail" = "Reminders are stored locally on-device.";
@@ -800,10 +801,10 @@
 "lgbtq.filter.category" = "Category";
 "lgbtq.trusted" = "Trusted";
 "lgbtq.loading" = "Loading LGBTQ support resources";
-"lgbtq.empty.title" = "No resources available";
-"lgbtq.empty.subtitle" = "The local support directory is unavailable right now.";
-"lgbtq.no_results.title" = "No matching resources";
-"lgbtq.no_results.subtitle" = "Try another city, category, or search word.";
+"lgbtq.empty.title" = "Use safe support paths";
+"lgbtq.empty.subtitle" = "Open nearby support, legal help, search, or official sources below.";
+"lgbtq.no_results.title" = "Use another support route";
+"lgbtq.no_results.subtitle" = "Change city, category, or search word, then check official and community resources.";
 "lgbtq.reset_filters" = "Reset filters";
 "city.flag" = "Flag";
 "city.coat_of_arms" = "Coat of arms";
@@ -811,7 +812,7 @@
 "city.local_highlights" = "Local highlights";
 "city.official_sources" = "Official sources";
 "city.image_credit" = "Image source";
-"city.image_verified_source" = "Verified source";
+"city.image_verified_source" = "Source-labeled";
 "city.image_license_unspecified" = "License listed by source";
 "city.province" = "Province";
 "city.municipality" = "Municipality";
@@ -819,15 +820,15 @@
 "city.area" = "Area";
 "city.open_on_map" = "Open on map";
 "city.official_website" = "Official website";
-"city.no_image_available" = "No image available";
+"city.no_image_available" = "City visual context";
 "city.information" = "City information";
 "city.historic_city" = "Historic city";
 "city.university_city" = "University city";
 "city.useful_information" = "Useful information";
-"city.asset_missing" = "Verified image unavailable";
-"city.flag_pending" = "Official flag unavailable";
-"city.coat_pending" = "Official coat of arms unavailable";
-"city.hero_pending" = "City hero unavailable";
+"city.asset_missing" = "Visual context";
+"city.flag_pending" = "Official flag context";
+"city.coat_pending" = "Official coat of arms context";
+"city.hero_pending" = "City context";
 "city.identity.title" = "City identity";
 "city.accessibility.hero" = "%@ city image.";
 "city.accessibility.flag" = "Flag of %@.";
@@ -908,7 +909,7 @@
 "historyNetherlands.sources.licenseLabel" = "License";
 "historyNetherlands.sources.noteLabel" = "Note";
 "historyNetherlands.sources.note" = "Summarized and adapted for the app; no raw Wikipedia article text is shown.";
-"historyNetherlands.images.title" = "Verified images";
+"historyNetherlands.images.title" = "Source-labeled images";
 "historyNetherlands.images.sourcesTitle" = "Image sources";
 "historyNetherlands.images.attribution" = "Attribution";
 "historyNetherlands.images.map.title" = "Map of the Netherlands, 1631";
@@ -1012,7 +1013,7 @@
 "menu.version" = "Version";
 "image.source" = "Source";
 "image.license" = "License";
-"image.unavailable" = "Image unavailable";
+"image.unavailable" = "Visual context";
 "image.openSource" = "Open source";
 "contentMedia.transport.bikeParking.title" = "Bicycle parking in Amsterdam";
 "contentMedia.transport.bikeParking.description" = "Canal-side bicycle parking used as contextual transport imagery.";

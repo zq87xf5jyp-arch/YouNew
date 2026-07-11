@@ -13,7 +13,7 @@ struct FirstStepsView: View {
                 id: "first-steps",
                 icon: AppIcons.checklist,
                 title: localized(en: "First steps in the Netherlands", nl: "Eerste stappen in Nederland", ru: "Первые шаги в Нидерландах"),
-                subtitle: localized(en: "Set up address, documents, phone access, official portals, care, money, and transport.", nl: "Regel adres, documenten, telefoon, officiele portalen, zorg, geld en vervoer.", ru: "Настройте адрес, документы, телефон, официальные порталы, медицину, деньги и транспорт."),
+                subtitle: localized(en: "Set up address, documents, phone access, official portals, care, money, and transport.", nl: "Regel adres, documenten, telefoon, officiële portalen, zorg, geld en vervoer.", ru: "Настройте адрес, документы, телефон, официальные порталы, медицину, деньги и транспорт."),
                 destination: .practicalGuide(.firstStepsNetherlands),
                 sourceURL: AppURL.make("https://www.government.nl/topics/municipalities"),
                 tint: AppColors.success
@@ -31,7 +31,7 @@ struct FirstStepsView: View {
                 id: "digid",
                 icon: "lock.shield.fill",
                 title: "DigiD",
-                subtitle: localized(en: "Use only the official DigiD domain and avoid login links in unexpected messages.", nl: "Gebruik alleen het officiele DigiD-domein en vermijd loginlinks in onverwachte berichten.", ru: "Используйте только официальный домен DigiD и не открывайте ссылки входа из неожиданных сообщений."),
+                subtitle: localized(en: "Use only the official DigiD domain and avoid login links in unexpected messages.", nl: "Gebruik alleen het officiële DigiD-domein en vermijd loginlinks in onverwachte berichten.", ru: "Используйте только официальный домен DigiD и не открывайте ссылки входа из неожиданных сообщений."),
                 destination: .practicalGuide(.digidSafety),
                 sourceURL: AppURL.make("https://www.digid.nl/en"),
                 tint: AppColors.cyanGlow
@@ -111,8 +111,8 @@ struct FirstStepsView: View {
             FirstStepItem(
                 id: "sources",
                 icon: AppIcons.officialSource,
-                title: localized(en: "Official sources", nl: "Officiele bronnen", ru: "Официальные источники"),
-                subtitle: localized(en: "Use YouNew.nl as orientation, then verify important actions at official sources.", nl: "Gebruik YouNew.nl als orientatie en controleer belangrijke acties bij officiele bronnen.", ru: "Используйте YouNew.nl для ориентира, а важные действия проверяйте в официальных источниках."),
+                title: localized(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники"),
+                subtitle: localized(en: "Use YouNew.nl as orientation, then verify important actions at official sources.", nl: "Gebruik YouNew.nl als oriëntatie en controleer belangrijke acties bij officiële bronnen.", ru: "Используйте YouNew.nl для ориентира, а важные действия проверяйте в официальных источниках."),
                 destination: .practicalGuide(.officialSourcesChecklist),
                 sourceURL: nil,
                 tint: AppColors.success
@@ -151,7 +151,8 @@ struct FirstStepsView: View {
             subtitle: subtitleText,
             symbol: AppIcons.checklist,
             badgeText: badgeText,
-            accent: AppColors.success
+            accent: AppColors.success,
+            asset: ContentMediaRegistry.profileImage ?? ContentMediaRegistry.officialSourcesHero
         )
     }
 
@@ -203,7 +204,7 @@ struct FirstStepsView: View {
                     Button {
                         openURL(sourceURL)
                     } label: {
-                        actionLabel(localized(en: "Official source", nl: "Officiele bron", ru: "Официальный источник"), icon: AppIcons.external)
+                        actionLabel(localized(en: "Official source", nl: "Officiële bron", ru: "Официальный источник"), icon: AppIcons.external)
                     }
                     .buttonStyle(.plain)
                 }
@@ -231,7 +232,7 @@ struct FirstStepsView: View {
     private var verifyNote: some View {
         DisclaimerBanner(text: localized(
             en: "Information only. Rules can change. Always verify important steps with official sources.",
-            nl: "Alleen informatie. Regels kunnen veranderen. Controleer belangrijke stappen altijd bij officiele bronnen.",
+            nl: "Alleen informatie. Regels kunnen veranderen. Controleer belangrijke stappen altijd bij officiële bronnen.",
             ru: "Только информация. Правила могут меняться. Всегда проверяйте важные шаги в официальных источниках."
         ))
     }
@@ -536,7 +537,7 @@ struct PracticalGuideView: View {
         case .russian:
             return source.sourceType == "municipality" ? "Источник муниципалитета" : "Официальный источник"
         case .dutch:
-            return source.sourceType == "municipality" ? "Gemeentelijke bron" : "Officiele bron"
+            return source.sourceType == "municipality" ? "Gemeentelijke bron" : "Officiële bron"
         case .english:
             return source.sourceType == "municipality" ? "Municipality source" : "Official source"
         }
@@ -853,15 +854,15 @@ private extension PracticalGuideTopic {
                 steps: [
                     text(lang, "Secure an address where municipality registration is allowed.", "Zorg voor een adres waar inschrijving bij de gemeente mag.", "Найдите адрес, где разрешена регистрация в gemeente."),
                     text(lang, "Book gemeente registration and prepare identity and address documents.", "Maak een gemeenteafspraak en bereid identiteit- en adresdocumenten voor.", "Запишитесь в gemeente и подготовьте документы личности и адреса."),
-                    text(lang, "After BSN/address steps, set up DigiD through the official domain.", "Regel na BSN/adresstappen DigiD via het officiele domein.", "После BSN/адреса оформите DigiD через официальный домен."),
-                    text(lang, "Check health insurance, huisarts, banking, transport, and official-letter routines.", "Controleer zorgverzekering, huisarts, bankieren, vervoer en routines voor officiele brieven.", "Проверьте страховку, huisarts, банк, транспорт и работу с официальными письмами.")
+                    text(lang, "After BSN/address steps, set up DigiD through the official domain.", "Regel na BSN/adresstappen DigiD via het officiële domein.", "После BSN/адреса оформите DigiD через официальный домен."),
+                    text(lang, "Check health insurance, huisarts, banking, transport, and official-letter routines.", "Controleer zorgverzekering, huisarts, bankieren, vervoer en routines voor officiële brieven.", "Проверьте страховку, huisarts, банк, транспорт и работу с официальными письмами.")
                 ],
                 actionsTitle: actionsTitle(lang),
                 mapTitle: mapTitle(lang),
                 sourcesTitle: sourcesTitle(lang),
                 sourceTitle: sourceTitle(lang),
                 sourceName: "Government.nl",
-                sourceDescription: text(lang, "Official information about municipalities and public services.", "Officiele informatie over gemeenten en publieke diensten.", "Официальная информация о муниципалитетах и госуслугах."),
+                sourceDescription: text(lang, "Official information about municipalities and public services.", "Officiële informatie over gemeenten en publieke diensten.", "Официальная информация о муниципалитетах и госуслугах."),
                 sourceURL: AppURL.make("https://www.government.nl/topics/municipalities"),
                 mapFocus: .government
             )
@@ -874,7 +875,7 @@ private extension PracticalGuideTopic {
                 tint: AppColors.routeLine,
                 stepsTitle: stepsTitle(lang),
                 steps: [
-                    text(lang, "Find your municipality’s official website.", "Zoek de officiele website van je gemeente.", "Найдите официальный сайт вашего муниципалитета."),
+                    text(lang, "Find your municipality’s official website.", "Zoek de officiële website van je gemeente.", "Найдите официальный сайт вашего муниципалитета."),
                     text(lang, "Check appointment, identity document, and address proof requirements.", "Controleer afspraak, identiteitsbewijs en adresbewijs.", "Проверьте требования к записи, документу личности и подтверждению адреса."),
                     text(lang, "Save confirmations and bring original documents when required.", "Bewaar bevestigingen en neem originele documenten mee als dat nodig is.", "Сохраните подтверждения и возьмите оригиналы документов, если требуется.")
                 ],
@@ -883,7 +884,7 @@ private extension PracticalGuideTopic {
                 sourcesTitle: sourcesTitle(lang),
                 sourceTitle: sourceTitle(lang),
                 sourceName: "Government.nl",
-                sourceDescription: text(lang, "Official central-government information about municipalities.", "Officiele informatie van de centrale overheid over gemeenten.", "Официальная информация правительства о муниципалитетах."),
+                sourceDescription: text(lang, "Official central-government information about municipalities.", "Officiële informatie van de centrale overheid over gemeenten.", "Официальная информация правительства о муниципалитетах."),
                 sourceURL: AppURL.make("https://www.government.nl/topics/municipalities"),
                 mapFocus: .government
             )
@@ -905,7 +906,7 @@ private extension PracticalGuideTopic {
                 sourcesTitle: sourcesTitle(lang),
                 sourceTitle: sourceTitle(lang),
                 sourceName: "Government.nl",
-                sourceDescription: text(lang, "Official information about Dutch health insurance.", "Officiele informatie over Nederlandse zorgverzekering.", "Официальная информация о медицинской страховке в Нидерландах."),
+                sourceDescription: text(lang, "Official information about Dutch health insurance.", "Officiële informatie over Nederlandse zorgverzekering.", "Официальная информация о медицинской страховке в Нидерландах."),
                 sourceURL: AppURL.make("https://www.government.nl/topics/health-insurance"),
                 mapFocus: .healthcare
             )
@@ -928,7 +929,7 @@ private extension PracticalGuideTopic {
                 sourcesTitle: sourcesTitle(lang),
                 sourceTitle: sourceTitle(lang),
                 sourceName: "Government.nl",
-                sourceDescription: text(lang, "Official information about health insurance and healthcare access.", "Officiele informatie over zorgverzekering en toegang tot zorg.", "Официальная информация о страховке и доступе к медицине."),
+                sourceDescription: text(lang, "Official information about health insurance and healthcare access.", "Officiële informatie over zorgverzekering en toegang tot zorg.", "Официальная информация о страховке и доступе к медицине."),
                 sourceURL: AppURL.make("https://www.government.nl/topics/health-insurance"),
                 mapFocus: .healthcare
             )
@@ -943,7 +944,7 @@ private extension PracticalGuideTopic {
                 steps: [
                     text(lang, "Verify whether your residence, work, or study situation creates an insurance obligation.", "Controleer of wonen, werken of studeren een verzekeringsplicht geeft.", "Проверьте, создает ли проживание, работа или учеба обязанность страхования."),
                     text(lang, "Compare premium, eigen risico, contracted care, reimbursements, and English support.", "Vergelijk premie, eigen risico, gecontracteerde zorg, vergoedingen en Engelstalige hulp.", "Сравните взнос, eigen risico, договорную помощь, компенсации и поддержку на английском."),
-                    text(lang, "Check healthcare allowance only through official Toeslagen channels if you may be eligible.", "Controleer zorgtoeslag alleen via officiele Toeslagen-kanalen als je mogelijk recht hebt.", "Проверяйте zorgtoeslag только через официальные каналы Toeslagen."),
+                    text(lang, "Check healthcare allowance only through official Toeslagen channels if you may be eligible.", "Controleer zorgtoeslag alleen via officiële Toeslagen-kanalen als je mogelijk recht hebt.", "Проверяйте zorgtoeslag только через официальные каналы Toeslagen."),
                     text(lang, "Keep policy numbers and insurer contact details in your document folder.", "Bewaar polisnummers en contactgegevens van je verzekeraar in je documentenmap.", "Сохраните номер полиса и контакты страховщика.")
                 ],
                 actionsTitle: actionsTitle(lang),
@@ -951,20 +952,20 @@ private extension PracticalGuideTopic {
                 sourcesTitle: sourcesTitle(lang),
                 sourceTitle: sourceTitle(lang),
                 sourceName: "Government.nl",
-                sourceDescription: text(lang, "Official information about Dutch health insurance.", "Officiele informatie over Nederlandse zorgverzekering.", "Официальная информация о медицинской страховке в Нидерландах."),
+                sourceDescription: text(lang, "Official information about Dutch health insurance.", "Officiële informatie over Nederlandse zorgverzekering.", "Официальная информация о медицинской страховке в Нидерландах."),
                 sourceURL: AppURL.make("https://www.government.nl/topics/health-insurance"),
                 mapFocus: .healthcare
             )
         case .digidSafety:
             return PracticalGuideContent(
                 title: text(lang, "DigiD safety", "DigiD-veiligheid", "Безопасность DigiD"),
-                subtitle: text(lang, "Use DigiD carefully: it is the login key for many official services.", "Gebruik DigiD zorgvuldig: het is de login voor veel officiele diensten.", "Используйте DigiD осторожно: это ключ входа во многие официальные сервисы."),
+                subtitle: text(lang, "Use DigiD carefully: it is the login key for many official services.", "Gebruik DigiD zorgvuldig: het is de login voor veel officiële diensten.", "Используйте DigiD осторожно: это ключ входа во многие официальные сервисы."),
                 badge: "DigiD",
                 icon: "lock.shield.fill",
                 tint: AppColors.cyanGlow,
                 stepsTitle: stepsTitle(lang),
                 steps: [
-                    text(lang, "Open DigiD by typing the official domain yourself.", "Open DigiD door zelf het officiele domein te typen.", "Открывайте DigiD, самостоятельно вводя официальный домен."),
+                    text(lang, "Open DigiD by typing the official domain yourself.", "Open DigiD door zelf het officiële domein te typen.", "Открывайте DigiD, самостоятельно вводя официальный домен."),
                     text(lang, "Do not share login details, activation codes, or app approval requests.", "Deel geen inloggegevens, activatiecodes of app-goedkeuringen.", "Не передавайте логин, коды активации и подтверждения в приложении."),
                     text(lang, "Treat unexpected SMS, email, or payment links as suspicious until verified.", "Behandel onverwachte sms-, mail- of betaallinks als verdacht totdat ze gecontroleerd zijn.", "Считайте неожиданные SMS, письма и ссылки оплаты подозрительными, пока не проверите их.")
                 ],
@@ -973,7 +974,7 @@ private extension PracticalGuideTopic {
                 sourcesTitle: sourcesTitle(lang),
                 sourceTitle: sourceTitle(lang),
                 sourceName: "DigiD",
-                sourceDescription: text(lang, "Official DigiD website and safety information.", "Officiele DigiD-website en veiligheidsinformatie.", "Официальный сайт DigiD и информация по безопасности."),
+                sourceDescription: text(lang, "Official DigiD website and safety information.", "Officiële DigiD-website en veiligheidsinformatie.", "Официальный сайт DigiD и информация по безопасности."),
                 sourceURL: AppURL.make("https://www.digid.nl/en"),
                 mapFocus: nil
             )
@@ -986,23 +987,23 @@ private extension PracticalGuideTopic {
                 tint: AppColors.dutchOrange,
                 stepsTitle: stepsTitle(lang),
                 steps: [
-                    text(lang, "Use official route planners or local operators for live schedules.", "Gebruik officiele routeplanners of lokale vervoerders voor actuele tijden.", "Пользуйтесь официальными планировщиками или местными операторами для актуального расписания."),
+                    text(lang, "Use official route planners or local operators for live schedules.", "Gebruik officiële routeplanners of lokale vervoerders voor actuele tijden.", "Пользуйтесь официальными планировщиками или местными операторами для актуального расписания."),
                     text(lang, "Check in and out correctly where the system requires it.", "Check correct in en uit waar het systeem dat vraagt.", "Правильно делайте check-in и check-out там, где это требуется."),
-                    text(lang, "Verify fine/payment messages through official channels before paying.", "Controleer boete- of betaalberichten via officiele kanalen voordat je betaalt.", "Проверяйте штрафы и платежные сообщения через официальные каналы перед оплатой.")
+                    text(lang, "Verify fine/payment messages through official channels before paying.", "Controleer boete- of betaalberichten via officiële kanalen voordat je betaalt.", "Проверяйте штрафы и платежные сообщения через официальные каналы перед оплатой.")
                 ],
                 actionsTitle: actionsTitle(lang),
                 mapTitle: mapTitle(lang),
                 sourcesTitle: sourcesTitle(lang),
                 sourceTitle: sourceTitle(lang),
                 sourceName: "Government.nl",
-                sourceDescription: text(lang, "Official information about mobility, public transport, and road safety.", "Officiele informatie over mobiliteit, openbaar vervoer en verkeersveiligheid.", "Официальная информация о мобильности, общественном транспорте и безопасности движения."),
+                sourceDescription: text(lang, "Official information about mobility, public transport, and road safety.", "Officiële informatie over mobiliteit, openbaar vervoer en verkeersveiligheid.", "Официальная информация о мобильности, общественном транспорте и безопасности движения."),
                 sourceURL: AppURL.make("https://www.government.nl/topics/mobility-public-transport-and-road-safety"),
                 mapFocus: .transport
             )
         case .housingBasics:
             return PracticalGuideContent(
                 title: text(lang, "Housing basics", "Wonen basis", "Жильё"),
-                subtitle: text(lang, "Check rental terms, registration permission, deposits, and official city rules before committing.", "Controleer huurvoorwaarden, inschrijfmogelijkheid, borg en officiele stadsregels voordat je tekent.", "Проверьте условия аренды, возможность регистрации, депозит и официальные городские правила до решения."),
+                subtitle: text(lang, "Check rental terms, registration permission, deposits, and official city rules before committing.", "Controleer huurvoorwaarden, inschrijfmogelijkheid, borg en officiële stadsregels voordat je tekent.", "Проверьте условия аренды, возможность регистрации, депозит и официальные городские правила до решения."),
                 badge: text(lang, "Housing", "Wonen", "Жильё"),
                 icon: "house.lodge.fill",
                 tint: AppColors.violet,
@@ -1017,20 +1018,20 @@ private extension PracticalGuideTopic {
                 sourcesTitle: sourcesTitle(lang),
                 sourceTitle: sourceTitle(lang),
                 sourceName: "Government.nl",
-                sourceDescription: text(lang, "Official information about housing and renting in the Netherlands.", "Officiele informatie over wonen en huren in Nederland.", "Официальная информация о жилье и аренде в Нидерландах."),
+                sourceDescription: text(lang, "Official information about housing and renting in the Netherlands.", "Officiële informatie over wonen en huren in Nederland.", "Официальная информация о жилье и аренде в Нидерландах."),
                 sourceURL: AppURL.make("https://www.government.nl/topics/housing"),
                 mapFocus: nil
             )
         case .officialSourcesChecklist:
             return PracticalGuideContent(
-                title: text(lang, "Official sources checklist", "Checklist officiele bronnen", "Чеклист официальных источников"),
+                title: text(lang, "Official sources checklist", "Checklist officiële bronnen", "Чеклист официальных источников"),
                 subtitle: text(lang, "Verify domains before acting on money, identity, housing, healthcare, or immigration information.", "Controleer domeinen voordat je handelt rond geld, identiteit, wonen, zorg of immigratie.", "Проверяйте домены перед действиями с деньгами, личностью, жильём, медициной или иммиграцией."),
                 badge: text(lang, "Verify", "Controleer", "Проверка"),
                 icon: AppIcons.officialSource,
                 tint: AppColors.success,
                 stepsTitle: stepsTitle(lang),
                 steps: [
-                    text(lang, "Type official domains yourself instead of following unexpected links.", "Typ officiele domeinen zelf in plaats van onverwachte links te volgen.", "Вводите официальные домены сами, не переходите по неожиданным ссылкам."),
+                    text(lang, "Type official domains yourself instead of following unexpected links.", "Typ officiële domeinen zelf in plaats van onverwachte links te volgen.", "Вводите официальные домены сами, не переходите по неожиданным ссылкам."),
                     text(lang, "For national rules, start with Government.nl or Rijksoverheid.nl.", "Begin voor nationale regels bij Government.nl of Rijksoverheid.nl.", "Для национальных правил начинайте с Government.nl или Rijksoverheid.nl."),
                     text(lang, "For local rules, use your municipality website and confirm the city domain.", "Gebruik voor lokale regels je gemeentesite en controleer het stadsdomein.", "Для местных правил используйте сайт gemeente и проверяйте домен города."),
                     text(lang, "For payments or fines, compare sender, reference number, domain, and postal letter before paying.", "Vergelijk bij betalingen of boetes afzender, kenmerk, domein en postbrief voordat je betaalt.", "Перед оплатой штрафов сверяйте отправителя, номер, домен и бумажное письмо.")
@@ -1040,7 +1041,7 @@ private extension PracticalGuideTopic {
                 sourcesTitle: sourcesTitle(lang),
                 sourceTitle: sourceTitle(lang),
                 sourceName: "Government.nl",
-                sourceDescription: text(lang, "Official central-government information and links to responsible public institutions.", "Officiele informatie van de centrale overheid en links naar verantwoordelijke organisaties.", "Официальная информация правительства и ссылки на ответственные организации."),
+                sourceDescription: text(lang, "Official central-government information and links to responsible public institutions.", "Officiële informatie van de centrale overheid en links naar verantwoordelijke organisaties.", "Официальная информация правительства и ссылки на ответственные организации."),
                 sourceURL: AppURL.make("https://www.government.nl"),
                 mapFocus: .government
             )
@@ -1091,7 +1092,7 @@ private extension PracticalGuideTopic {
     }
 
     private func sourcesTitle(_ lang: AppLanguage) -> String {
-        text(lang, "Official sources", "Officiele bronnen", "Официальные источники")
+        text(lang, "Official sources", "Officiële bronnen", "Официальные источники")
     }
 
     private func sourceTitle(_ lang: AppLanguage) -> String {

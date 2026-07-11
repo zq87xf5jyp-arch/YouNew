@@ -1,4 +1,5 @@
 import SwiftUI
+import CoreLocation
 
 struct FastFact: Identifiable, Codable {
     let id: String
@@ -1413,5 +1414,818 @@ extension Color {
             blue: Double(blue) / 255,
             opacity: Double(alpha) / 255
         )
+    }
+}
+
+enum NetherlandsEntityKind: String, CaseIterable, Codable, Hashable {
+    case country
+    case province
+    case city
+    case district
+    case place
+    case attraction
+    case museum
+    case park
+    case restaurant
+    case cafe
+    case hotel
+    case governmentService
+    case healthcare
+    case university
+    case transport
+    case localPartner
+    case officialSource
+    case knowledgeTopic
+    case checklist
+    case event
+}
+
+struct NetherlandsDataCoordinate: Codable, Hashable {
+    let latitude: Double
+    let longitude: Double
+}
+
+struct NetherlandsVisualSet: Codable {
+    let hero: AppImageAsset?
+    let gallery: [AppImageAsset]
+    let thumbnail: AppImageAsset?
+    let mapPreview: AppImageAsset?
+    let categoryCover: AppImageAsset?
+
+    var allImages: [AppImageAsset] {
+        [hero, thumbnail, mapPreview, categoryCover].compactMap { $0 } + gallery
+    }
+}
+
+struct NetherlandsKnowledgeEntity: Identifiable {
+    let id: String
+    let kind: NetherlandsEntityKind
+    let title: String
+    let summary: String
+    let cityId: String?
+    let provinceId: String?
+    let category: String
+    let coordinate: NetherlandsDataCoordinate?
+    let source: OfficialSource?
+    let lastChecked: String
+    let images: NetherlandsVisualSet
+    let aiSummary: String
+    let relatedEntityIDs: [String]
+    let route: AppDestination?
+    let attributes: [String: String]
+    let keywords: [String]
+}
+
+struct NetherlandsKnowledgeDatabaseReport {
+    let cities: Int
+    let places: Int
+    let governmentServices: Int
+    let localPartners: Int
+    let museums: Int
+    let restaurants: Int
+    let hotels: Int
+    let officialSources: Int
+    let linkedImages: Int
+    let relations: Int
+
+    var lines: [String] {
+        [
+            "Cities: \(cities)",
+            "Places: \(places)",
+            "Government Services: \(governmentServices)",
+            "Local Partners: \(localPartners)",
+            "Museums: \(museums)",
+            "Restaurants: \(restaurants)",
+            "Hotels: \(hotels)",
+            "Official Sources: \(officialSources)",
+            "Linked Images: \(linkedImages)",
+            "Knowledge Graph Relations: \(relations)"
+        ]
+    }
+}
+
+struct NetherlandsKnowledgeDatabase {
+    static let shared = NetherlandsKnowledgeDatabase.build()
+
+    let entities: [NetherlandsKnowledgeEntity]
+    let relations: [KnowledgeRelation]
+
+    private let entitiesByID: [String: NetherlandsKnowledgeEntity]
+
+    init(entities: [NetherlandsKnowledgeEntity], relations: [KnowledgeRelation]) {
+        var seen = Set<String>()
+        let uniqueEntities = entities.filter { seen.insert($0.id).inserted }
+        self.entities = uniqueEntities
+        self.entitiesByID = Dictionary(uniqueKeysWithValues: uniqueEntities.map { ($0.id, $0) })
+
+        var seenRelations = Set<String>()
+        self.relations = relations.filter { relation in
+            seenRelations.insert("\(relation.fromID)|\(relation.toID)|\(relation.type.rawValue)").inserted
+        }
+    }
+
+    func entity(id: String) -> NetherlandsKnowledgeEntity? {
+        entitiesByID[id]
+    }
+
+    func entities(kind: NetherlandsEntityKind) -> [NetherlandsKnowledgeEntity] {
+        entities.filter { $0.kind == kind }
+    }
+
+    func entities(cityId: String) -> [NetherlandsKnowledgeEntity] {
+        entities.filter { $0.cityId?.caseInsensitiveCompare(cityId) == .orderedSame }
+    }
+
+    func knowledgeItems() -> [KnowledgeItem] {
+        entities.map { entity in
+            KnowledgeItem(
+                id: entity.knowledgeItemID,
+                type: entity.knowledgeItemType,
+                title: LocalizedKnowledgeText(entity.title),
+                summary: LocalizedKnowledgeText(entity.aiSummary.isEmpty ? entity.summary : entity.aiSummary),
+                category: entity.category,
+                city: entity.cityId,
+                province: entity.provinceId,
+                keywords: entity.searchKeywords,
+                route: entity.route,
+                routeID: entity.route.flatMap(AppNavigationResolver.routeID(from:)),
+                sources: entity.source.map { [$0] } ?? [],
+                lastReviewed: nil,
+                safetyLevel: entity.source == nil ? .general : .officialSourceRecommended,
+                sourcePath: "YouNew/Data/NetherlandsData.swift",
+                personaTags: entity.personaTags
+            )
+        }
+    }
+
+    var report: NetherlandsKnowledgeDatabaseReport {
+        NetherlandsKnowledgeDatabaseReport(
+            cities: entities(kind: .city).count,
+            places: entities.filter { [.place, .attraction, .museum, .park, .restaurant, .cafe, .hotel, .healthcare, .transport, .university].contains($0.kind) }.count,
+            governmentServices: entities(kind: .governmentService).count,
+            localPartners: entities(kind: .localPartner).count,
+            museums: entities(kind: .museum).count,
+            restaurants: entities(kind: .restaurant).count,
+            hotels: entities(kind: .hotel).count,
+            officialSources: entities(kind: .officialSource).count,
+            linkedImages: entities.reduce(0) { $0 + $1.images.allImages.count },
+            relations: relations.count
+        )
+    }
+
+    private static func build() -> NetherlandsKnowledgeDatabase {
+        var entities: [NetherlandsKnowledgeEntity] = []
+        var relations: [KnowledgeRelation] = []
+
+        entities.append(countryEntity())
+        entities += officialSourceEntities()
+        entities += provinceEntities()
+        entities += cityEntities()
+        entities += attractionEntities()
+        entities += dashboardPlaceEntities()
+        entities += nearbyPlaceEntities()
+        entities += institutionEntities()
+        entities += localPartnerEntities()
+        entities += calendarEventEntities()
+        entities += coreKnowledgeTopicEntities()
+
+        relations += buildRelations(for: entities)
+        return NetherlandsKnowledgeDatabase(entities: entities, relations: relations)
+    }
+
+    private static func countryEntity() -> NetherlandsKnowledgeEntity {
+        entity(
+            id: "country:nl",
+            kind: .country,
+            title: NetherlandsCountry.name,
+            summary: NetherlandsCountry.tagline,
+            category: "country",
+            source: officialSource(title: "CBS", url: "https://www.cbs.nl/en-gb", institution: "Statistics Netherlands"),
+            lastChecked: "2026-07-05",
+            images: visualSet(
+                id: "country:nl",
+                title: "Netherlands map",
+                url: nil,
+                localAssetName: "netherlands_map_base",
+                category: .province
+            ),
+            aiSummary: "Country-level profile used as the root for provinces, cities, services, places, partners, events, and newcomer knowledge.",
+            relatedEntityIDs: NLProvince.all.map { "province:\(KnowledgeNormalizer.slug($0.id))" },
+            route: .informationHub,
+            attributes: [
+                "population": NetherlandsCountry.population,
+                "capital": NetherlandsCountry.capital,
+                "government": NetherlandsCountry.government,
+                "timezone": NetherlandsCountry.timezone,
+                "currency": NetherlandsCountry.currency
+            ],
+            keywords: ["Netherlands", "Nederland", "country", "provinces", "cities", "government", "CBS"]
+        )
+    }
+
+    private static func officialSourceEntities() -> [NetherlandsKnowledgeEntity] {
+        [
+            officialSourceEntity("source:government-nl", "Government.nl", "Official English-language government information for national rules and public services.", "https://www.government.nl"),
+            officialSourceEntity("source:government-brp", "Government.nl BRP", "Official information about the Personal Records Database (BRP), municipalities, residents, non-residents, and BSN registration context.", "https://www.government.nl/themes/government-and-democracy/personal-data/personal-records-database-brp"),
+            officialSourceEntity("source:cbs", "CBS", "Statistics Netherlands: official statistics, StatLine, regional and population figures.", "https://www.cbs.nl/en-gb"),
+            officialSourceEntity("source:ind", "IND", "Immigration and Naturalisation Service: residence permits, appointments, status, forms, and brochures.", "https://ind.nl/en"),
+            officialSourceEntity("source:duo", "DUO", "Education Executive Agency: student finance, tuition, diplomas, and education administration.", "https://www.duo.nl"),
+            officialSourceEntity("source:belastingdienst", "Belastingdienst", "Dutch Tax Administration: taxes, allowances, tax letters, and official payment routes.", "https://www.belastingdienst.nl"),
+            officialSourceEntity("source:uwv", "UWV", "Employee insurance and employment-support agency for work-related benefits and job transitions.", "https://www.uwv.nl"),
+            officialSourceEntity("source:svb", "SVB", "Social Insurance Bank for national insurance schemes such as child benefit and state pension.", "https://www.svb.nl"),
+            officialSourceEntity("source:politie", "Politie", "Official Dutch police information and non-emergency reporting routes.", "https://www.politie.nl"),
+            officialSourceEntity("source:ns", "NS", "Dutch railway operator for national train travel information.", "https://www.ns.nl/en"),
+            officialSourceEntity("source:9292", "9292", "Public transport journey planner for train, tram, bus, metro, and ferry routes.", "https://9292.nl/en"),
+            officialSourceEntity("source:ovpay", "OVpay", "Official public transport check-in and payment information.", "https://www.ovpay.nl/en")
+        ]
+    }
+
+    private static func provinceEntities() -> [NetherlandsKnowledgeEntity] {
+        NLProvince.all.map { province in
+            entity(
+                id: "province:\(KnowledgeNormalizer.slug(province.id))",
+                kind: .province,
+                title: province.nameEN,
+                summary: province.description,
+                provinceId: province.id,
+                category: "province",
+                source: officialSource(title: "CBS", url: "https://www.cbs.nl/en-gb", institution: "Statistics Netherlands"),
+                lastChecked: "2026-07-05",
+                images: visualSet(
+                    id: "province:\(province.id)",
+                    title: province.nameEN,
+                    url: province.imageURL,
+                    localAssetName: nil,
+                    category: .province
+                ),
+                aiSummary: "\(province.nameEN) contains \(province.cityCount) municipalities/cities in the app catalog. Use municipality and official sources for live administrative details.",
+                relatedEntityIDs: NLCity.all
+                    .filter { $0.province == province.id }
+                    .map { "city:\(KnowledgeNormalizer.slug($0.id))" },
+                route: .provinceDetail(province.name),
+                attributes: [
+                    "population": province.population,
+                    "area": province.areaKm2,
+                    "capital": province.capital,
+                    "cityCount": province.cityCount
+                ],
+                keywords: [province.name, province.nameEN, province.capital, "province", "municipality", "cities"] + province.highlights
+            )
+        }
+    }
+
+    private static func cityEntities() -> [NetherlandsKnowledgeEntity] {
+        NLCity.all.map { city in
+            let provinceId = provinceID(containingCity: city.name) ?? city.province
+            let dashboardCity = CityDashboardContentData.city(for: city.name)
+            return entity(
+                id: "city:\(KnowledgeNormalizer.slug(city.id))",
+                kind: .city,
+                title: city.name,
+                summary: city.shortDescription,
+                cityId: city.name,
+                provinceId: provinceId,
+                category: "city",
+                coordinate: coordinate(from: city.coordinates),
+                source: officialSource(title: "\(city.name) municipality", url: municipalityURL(for: city), institution: "Gemeente \(city.name)"),
+                lastChecked: "2026-07-05",
+                images: visualSet(
+                    id: "city:\(city.id)",
+                    title: city.name,
+                    url: city.imageURL,
+                    localAssetName: nil,
+                    category: .city
+                ),
+                aiSummary: city.fullDescription,
+                relatedEntityIDs: relatedIDs(forCity: city.name, provinceId: provinceId),
+                route: .nlCityDetail(city.id),
+                attributes: [
+                    "population": city.population,
+                    "area": city.area,
+                    "coordinates": city.coordinates,
+                    "municipality": "Gemeente \(city.name)",
+                    "transport": city.transport,
+                    "weather": "Use live weather provider for current forecast; city coordinate is stored for lookup.",
+                    "dashboardCityId": dashboardCity.id.rawValue
+                ],
+                keywords: [city.name, city.province, city.tagline, city.expat, city.transport, "city", "municipality", "weather", "local partners"] + city.highlights + city.services
+            )
+        }
+    }
+
+    private static func attractionEntities() -> [NetherlandsKnowledgeEntity] {
+        NLCity.all.flatMap { city in
+            city.attractions.map { attraction in
+                let kind = kind(forAttractionType: attraction.type)
+                return entity(
+                    id: "place:\(KnowledgeNormalizer.slug(city.id)):\(KnowledgeNormalizer.slug(attraction.id))",
+                    kind: kind,
+                    title: attraction.name,
+                    summary: attraction.description,
+                    cityId: city.name,
+                provinceId: provinceID(containingCity: city.name) ?? city.province,
+                    category: attraction.type,
+                    coordinate: coordinate(from: city.coordinates),
+                    source: officialSource(title: "\(city.name) visitor information", url: municipalityURL(for: city), institution: "Gemeente \(city.name)"),
+                    lastChecked: "2026-07-05",
+                    images: visualSet(id: "place:\(city.id):\(attraction.id)", title: attraction.name, url: attraction.imageURL, localAssetName: nil, category: .city),
+                    aiSummary: "\(attraction.description) Opening hours and prices should be checked with the official source before visiting.",
+                    relatedEntityIDs: ["city:\(KnowledgeNormalizer.slug(city.id))"],
+                    route: .nlCityDetail(city.id),
+                    attributes: [
+                        "openingHours": attraction.openHours,
+                        "admission": attraction.admission,
+                        "city": city.name
+                    ],
+                    keywords: [attraction.name, attraction.type, attraction.description, city.name, "attraction", "museum", "place", "visit"]
+                )
+            }
+        }
+    }
+
+    private static func dashboardPlaceEntities() -> [NetherlandsKnowledgeEntity] {
+        DashboardPlacesData.places.map { place in
+            entity(
+                id: "place:\(KnowledgeNormalizer.slug(place.id))",
+                kind: kind(forVisitCategory: place.primaryCategory),
+                title: place.title,
+                summary: place.description,
+                cityId: place.cityId,
+                provinceId: provinceID(containingCity: place.cityId),
+                category: place.primaryCategory.rawValue,
+                coordinate: place.coordinates.map { NetherlandsDataCoordinate(latitude: $0.lat, longitude: $0.lng) },
+                source: place.source,
+                lastChecked: place.lastChecked ?? "2026-07-05",
+                images: visualSet(id: "dashboard-place:\(place.id)", title: place.title, url: place.image, localAssetName: nil, category: .city),
+                aiSummary: "\(place.description) Check the linked source for current opening hours, access, and prices.",
+                relatedEntityIDs: ["city:\(KnowledgeNormalizer.slug(place.cityId))"],
+                route: place.destination,
+                attributes: [
+                    "address": place.address ?? "",
+                    "visitTime": place.estimatedVisitTime ?? "",
+                    "priceHint": place.priceHint?.rawValue ?? "",
+                    "indoor": place.indoor.map(String.init) ?? ""
+                ],
+                keywords: [place.title, place.shortTitle ?? "", place.description, place.cityId, place.address ?? ""] + place.category.map(\.rawValue)
+            )
+        }
+    }
+
+    private static func nearbyPlaceEntities() -> [NetherlandsKnowledgeEntity] {
+        MockNearbyPlacesData.places.map { place in
+            entity(
+                id: "nearby-place:\(KnowledgeNormalizer.slug(place.saveKey))",
+                kind: kind(forPlaceCategory: place.category),
+                title: place.localizedName(.english),
+                summary: place.localizedDescription(.english),
+                cityId: place.city,
+                provinceId: provinceID(containingCity: place.city),
+                category: place.category.rawValue,
+                coordinate: NetherlandsDataCoordinate(latitude: place.coordinate.latitude, longitude: place.coordinate.longitude),
+                source: place.websiteURL.map { OfficialSource(title: place.sourceLabel, url: $0, institution: place.name) },
+                lastChecked: place.lastUpdated,
+                images: visualSet(id: "nearby-place:\(place.saveKey)", title: place.name, url: nil, localAssetName: nil, category: .nearbyHelp),
+                aiSummary: place.localizedUseCase(.english),
+                relatedEntityIDs: ["city:\(KnowledgeNormalizer.slug(place.city))"] + place.relatedLinks.map { "topic:\(KnowledgeNormalizer.slug($0.title))" },
+                route: .mapFocus(.place(place.saveKey)),
+                attributes: [
+                    "address": place.address,
+                    "openingHours": place.openingHoursPlaceholder,
+                    "phone": place.phone ?? "",
+                    "website": place.websiteURL?.absoluteString ?? "",
+                    "trustNote": place.trustNote
+                ],
+                keywords: [place.name, place.address, place.city, place.category.rawValue, place.description, place.newcomerUseCase, place.sourceLabel]
+            )
+        }
+    }
+
+    private static func institutionEntities() -> [NetherlandsKnowledgeEntity] {
+        MockInstitutionsData.items.map { institution in
+            entity(
+                id: "government-service:\(KnowledgeNormalizer.slug(institution.name))",
+                kind: .governmentService,
+                title: institution.name,
+                summary: institution.shortExplanation(.english),
+                category: "government",
+                source: OfficialSource(title: institution.name, url: institution.officialWebsiteURL, institution: institution.name),
+                lastChecked: "2026-07-05",
+                images: visualSet(id: "government-service:\(institution.name)", title: institution.name, url: nil, localAssetName: "home_documents_city_hall", category: .government),
+                aiSummary: institution.usage(.english),
+                relatedEntityIDs: relatedTopicIDs(forInstitution: institution.name),
+                route: .institution(institution.name),
+                attributes: [
+                    "website": institution.officialWebsiteURL.absoluteString,
+                    "warning": institution.warning(.english),
+                    "whenToUse": institution.whenToUse(.english)
+                ],
+                keywords: [institution.name, institution.shortExplanation(.english), institution.usage(.english), institution.whenToUse(.english), "government", "official service"]
+            )
+        }
+    }
+
+    private static func localPartnerEntities() -> [NetherlandsKnowledgeEntity] {
+        MockLocalPartnersData.partners.map { partner in
+            let directImageURL = isDirectImageURL(partner.media.thumbnail.url) ? partner.media.thumbnail.url.absoluteString : nil
+            return entity(
+                id: "local-partner:\(partner.id)",
+                kind: .localPartner,
+                title: partner.name,
+                summary: partner.description,
+                cityId: partner.city,
+                provinceId: provinceID(containingCity: partner.city),
+                category: partner.subcategory,
+                coordinate: NetherlandsDataCoordinate(latitude: partner.coordinate.latitude, longitude: partner.coordinate.longitude),
+                source: partner.officialSource,
+                lastChecked: partner.lastVerified,
+                images: visualSet(id: "local-partner:\(partner.id)", title: partner.name, url: directImageURL, localAssetName: nil, category: .nearbyHelp),
+                aiSummary: "\(partner.description) Commercial listing status: \(partner.plan.label(.english)). Verify availability directly with the business.",
+                relatedEntityIDs: ["city:\(KnowledgeNormalizer.slug(partner.city))", "source:\(KnowledgeNormalizer.slug(partner.officialSource.title))"],
+                route: .localPartnerDetail(partner.id),
+                attributes: [
+                    "subcategory": partner.subcategory,
+                    "plan": partner.plan.label(.english),
+                    "address": partner.address,
+                    "phone": partner.phone,
+                    "email": partner.email,
+                    "website": partner.website.absoluteString,
+                    "openingHours": partner.openingHours,
+                    "verified": String(partner.plan == .verifiedPartner || partner.plan == .premium || partner.plan == .featured || partner.plan == .aiFeatured),
+                    "sponsored": String(partner.plan == .sponsoredPlacement)
+                ],
+                keywords: [partner.name, partner.category.rawValue, partner.category.title(.english), partner.subcategory, partner.description, partner.address, partner.city, partner.openingHours] + partner.languages + partner.photoSymbols
+            )
+        }
+    }
+
+    private static func calendarEventEntities() -> [NetherlandsKnowledgeEntity] {
+        DashboardCalendarData.events.map { event in
+            entity(
+                id: "event:\(KnowledgeNormalizer.slug(event.id))",
+                kind: .event,
+                title: event.localTitle ?? event.title,
+                summary: event.description ?? event.impact ?? event.type.rawValue,
+                cityId: event.cityId,
+                provinceId: event.cityId.flatMap { provinceID(containingCity: $0) },
+                category: event.type.rawValue,
+                source: event.source,
+                lastChecked: event.lastChecked ?? "2026-07-05",
+                images: visualSet(id: "event:\(event.id)", title: event.title, url: nil, localAssetName: nil, category: .city),
+                aiSummary: event.impact ?? event.description ?? "Check the official source for current event details.",
+                relatedEntityIDs: [event.cityId.map { "city:\(KnowledgeNormalizer.slug($0))" }, event.source.map { "source:\(KnowledgeNormalizer.slug($0.title))" }].compactMap { $0 },
+                route: .calendarEvent(event.id),
+                attributes: [
+                    "official": String(event.official),
+                    "affectsServices": event.affectsServices.map(String.init) ?? "",
+                    "affectsTransport": event.affectsTransport.map(String.init) ?? ""
+                ],
+                keywords: [event.title, event.localTitle ?? "", event.description ?? "", event.impact ?? "", event.type.rawValue, "calendar", "event"]
+            )
+        }
+    }
+
+    private static func coreKnowledgeTopicEntities() -> [NetherlandsKnowledgeEntity] {
+        [
+            topicEntity("topic:registration-bsn", "BSN and BRP registration", "Municipality registration creates or updates BRP records and is the normal path to a BSN for residents.", "government", "source:government-brp", .practicalGuide(.municipalityRegistration)),
+            topicEntity("topic:digid", "DigiD", "Digital login for many Dutch government and healthcare services. Usually depends on BSN and official registration context.", "government", "source:government-nl", .institution("DigiD")),
+            topicEntity("topic:health-insurance", "Health insurance", "Dutch basic health insurance is mandatory for many residents and workers; eligibility and obligations should be checked with official sources.", "healthcare", "source:government-nl", .practicalGuide(.healthInsuranceBasics)),
+            topicEntity("topic:transport-ov", "Public transport", "Use NS, 9292, OVpay, and local operators for routes, check-in rules, and ticketing.", "transport", "source:9292", .practicalGuide(.transportBasics)),
+            topicEntity("topic:local-partners", "Local partners", "Commercial listings are stored once and labeled by status: verified, featured, sponsored, or free listing.", "partners", "source:government-nl", .localPartners)
+        ]
+    }
+
+    private static func buildRelations(for entities: [NetherlandsKnowledgeEntity]) -> [KnowledgeRelation] {
+        var relations: [KnowledgeRelation] = []
+        let ids = Set(entities.map(\.id))
+        let knowledgeIDByEntityID = Dictionary(uniqueKeysWithValues: entities.map { ($0.id, $0.knowledgeItemID) })
+
+        func link(_ from: String, _ to: String, _ type: KnowledgeRelationType, _ reason: String, weight: Double = 0.82) {
+            guard ids.contains(from),
+                  ids.contains(to),
+                  let fromID = knowledgeIDByEntityID[from],
+                  let toID = knowledgeIDByEntityID[to]
+            else { return }
+            relations.append(KnowledgeRelation(fromID: fromID, toID: toID, type: type, weight: weight, reason: reason))
+        }
+
+        for entity in entities {
+            if let provinceId = entity.provinceId {
+                link(entity.id, "province:\(KnowledgeNormalizer.slug(provinceId))", .provinceSpecific, "Entity belongs to province \(provinceId).", weight: 0.74)
+            }
+            if let cityId = entity.cityId {
+                link(entity.id, "city:\(KnowledgeNormalizer.slug(cityId))", .citySpecific, "Entity belongs to city \(cityId).", weight: 0.88)
+            }
+            if let source = entity.source {
+                link(entity.id, "source:\(KnowledgeNormalizer.slug(source.title))", .officialSource, "Entity cites \(source.title).", weight: 0.92)
+            }
+            for related in entity.relatedEntityIDs {
+                link(entity.id, related, .relatedTopic, "Explicit database relation.", weight: 0.76)
+            }
+        }
+
+        for city in entities where city.kind == .city {
+            link(city.id, "topic:registration-bsn", .nextStep, "City setup usually starts with municipality registration and BSN.", weight: 0.90)
+            link(city.id, "topic:transport-ov", .relatedTopic, "City exploration depends on transport.", weight: 0.74)
+            link(city.id, "topic:local-partners", .relatedTopic, "City pages can surface local partners.", weight: 0.70)
+        }
+
+        link("topic:registration-bsn", "topic:digid", .nextStep, "DigiD often follows BSN/BRP registration.", weight: 0.94)
+        link("topic:registration-bsn", "source:government-brp", .officialSource, "BRP source explains municipality records and BSN context.", weight: 0.98)
+        link("topic:transport-ov", "source:9292", .officialSource, "9292 provides public transport route planning.", weight: 0.90)
+
+        return relations
+    }
+
+    private static func entity(
+        id: String,
+        kind: NetherlandsEntityKind,
+        title: String,
+        summary: String,
+        cityId: String? = nil,
+        provinceId: String? = nil,
+        category: String,
+        coordinate: NetherlandsDataCoordinate? = nil,
+        source: OfficialSource? = nil,
+        lastChecked: String,
+        images: NetherlandsVisualSet = NetherlandsVisualSet(hero: nil, gallery: [], thumbnail: nil, mapPreview: nil, categoryCover: nil),
+        aiSummary: String,
+        relatedEntityIDs: [String] = [],
+        route: AppDestination? = nil,
+        attributes: [String: String] = [:],
+        keywords: [String] = []
+    ) -> NetherlandsKnowledgeEntity {
+        NetherlandsKnowledgeEntity(
+            id: id,
+            kind: kind,
+            title: title,
+            summary: summary,
+            cityId: cityId,
+            provinceId: provinceId,
+            category: category,
+            coordinate: coordinate,
+            source: source,
+            lastChecked: lastChecked,
+            images: images,
+            aiSummary: aiSummary,
+            relatedEntityIDs: relatedEntityIDs,
+            route: route,
+            attributes: attributes,
+            keywords: keywords
+        )
+    }
+
+    private static func officialSourceEntity(_ id: String, _ title: String, _ summary: String, _ url: String) -> NetherlandsKnowledgeEntity {
+        entity(
+            id: id,
+            kind: .officialSource,
+            title: title,
+            summary: summary,
+            category: "official source",
+            source: officialSource(title: title, url: url, institution: title),
+            lastChecked: "2026-07-05",
+            images: visualSet(id: id, title: title, url: nil, localAssetName: "home_documents_city_hall", category: .government),
+            aiSummary: summary,
+            route: .officialSources,
+            attributes: ["url": url],
+            keywords: [title, summary, url, "official", "source"]
+        )
+    }
+
+    private static func topicEntity(_ id: String, _ title: String, _ summary: String, _ category: String, _ sourceID: String, _ route: AppDestination) -> NetherlandsKnowledgeEntity {
+        entity(
+            id: id,
+            kind: .knowledgeTopic,
+            title: title,
+            summary: summary,
+            category: category,
+            source: nil,
+            lastChecked: "2026-07-05",
+            images: visualSet(id: id, title: title, url: nil, localAssetName: nil, category: category == "transport" ? .transport : .government),
+            aiSummary: summary,
+            relatedEntityIDs: [sourceID],
+            route: route,
+            keywords: [title, summary, category, "knowledge", "topic"]
+        )
+    }
+
+    private static func visualSet(id: String, title: String, url: String?, localAssetName: String?, category: PremiumImageFallbackCategory) -> NetherlandsVisualSet {
+        let asset = appImageAsset(id: id, title: title, url: url, localAssetName: localAssetName, category: category)
+        return NetherlandsVisualSet(hero: asset, gallery: asset.map { [$0] } ?? [], thumbnail: asset, mapPreview: asset, categoryCover: asset)
+    }
+
+    private static func appImageAsset(id: String, title: String, url: String?, localAssetName: String?, category: PremiumImageFallbackCategory) -> AppImageAsset? {
+        if let url, let imageURL = AppURL.validatedWebURL(URL(string: url)) {
+            return AppImageAsset(
+                id: "\(id):image",
+                url: imageURL,
+                imageURL: imageURL,
+                thumbnailURL: imageURL,
+                localAssetName: nil,
+                title: title,
+                description: "Verified visual for \(title)",
+                sourceName: imageURL.host ?? "Verified source",
+                sourceURL: imageURL,
+                license: nil,
+                attribution: nil,
+                width: nil,
+                height: nil,
+                type: .cardThumbnail,
+                verified: true
+            )
+        }
+
+        if let localAssetName {
+            return AppImageAsset(
+                id: "\(id):local-image",
+                url: nil,
+                localAssetName: localAssetName,
+                title: title,
+                description: "Bundled YouNew visual for \(title)",
+                sourceName: "YouNew",
+                sourceURL: nil,
+                license: nil,
+                attribution: nil,
+                width: nil,
+                height: nil,
+                type: .cardThumbnail,
+                verified: true
+            )
+        }
+
+        return AppImageAsset(
+            id: "\(id):fallback-\(category)",
+            url: nil,
+            title: title,
+            description: "Premium thematic fallback for \(title)",
+            sourceName: "YouNew",
+            sourceURL: nil,
+            license: nil,
+            attribution: nil,
+            width: nil,
+            height: nil,
+            type: .cardThumbnail,
+            verified: true
+        )
+    }
+
+    private static func officialSource(title: String, url: String?, institution: String?) -> OfficialSource? {
+        guard let url, let sourceURL = AppURL.validatedWebURL(URL(string: url)) else { return nil }
+        return OfficialSource(title: title, url: sourceURL, institution: institution)
+    }
+
+    private static func municipalityURL(for city: NLCity) -> String? {
+        let normalized = KnowledgeNormalizer.slug(city.name)
+        let overrides: [String: String] = [
+            "den-haag": "https://www.denhaag.nl",
+            "s-hertogenbosch": "https://www.s-hertogenbosch.nl"
+        ]
+        if let override = overrides[normalized] { return override }
+        return "https://www.\(normalized).nl"
+    }
+
+    private static let provinceIDByCityLookupKey: [String: String] = {
+        var values: [String: String] = [:]
+        for city in NLCity.all {
+            values[KnowledgeNormalizer.slug(city.id)] = city.province
+            values[KnowledgeNormalizer.slug(city.name)] = city.province
+        }
+        return values
+    }()
+
+    private static func provinceID(containingCity city: String) -> String? {
+        provinceIDByCityLookupKey[KnowledgeNormalizer.slug(city)]
+    }
+
+    private static func coordinate(from value: String) -> NetherlandsDataCoordinate? {
+        let parts = value
+            .replacingOccurrences(of: "°", with: "")
+            .replacingOccurrences(of: ",", with: "")
+            .split(separator: " ")
+            .map(String.init)
+        guard parts.count >= 4,
+              let latitude = Double(parts[0]),
+              let longitude = Double(parts[2])
+        else { return nil }
+        return NetherlandsDataCoordinate(
+            latitude: parts[1].uppercased() == "S" ? -latitude : latitude,
+            longitude: parts[3].uppercased() == "W" ? -longitude : longitude
+        )
+    }
+
+    private static func kind(forAttractionType type: String) -> NetherlandsEntityKind {
+        let normalized = type.lowercased()
+        if normalized.contains("museum") { return .museum }
+        if normalized.contains("park") || normalized.contains("garden") { return .park }
+        if normalized.contains("food") || normalized.contains("market") { return .restaurant }
+        return .attraction
+    }
+
+    private static func kind(forVisitCategory category: VisitPlaceCategory) -> NetherlandsEntityKind {
+        switch category {
+        case .museum, .rainyDay: return .museum
+        case .park, .free: return .park
+        case .food, .market: return .restaurant
+        default: return .attraction
+        }
+    }
+
+    private static func kind(forPlaceCategory category: PlaceCategory) -> NetherlandsEntityKind {
+        switch category {
+        case .healthcare, .hospital, .huisarts, .pharmacy, .nightPharmacy:
+            return .healthcare
+        case .municipality, .ind, .uwv, .duo, .immigrationSupport, .expatCenter, .police:
+            return .governmentService
+        case .transport, .transportOffice, .bikeRepair:
+            return .transport
+        case .education, .library, .studentHelp:
+            return .university
+        default:
+            return .place
+        }
+    }
+
+    private static func relatedIDs(forCity city: String, provinceId: String) -> [String] {
+        [
+            "province:\(KnowledgeNormalizer.slug(provinceId))",
+            "topic:registration-bsn",
+            "topic:transport-ov",
+            "topic:local-partners"
+        ] + MockLocalPartnersData.partners(in: city).prefix(5).map { "local-partner:\($0.id)" }
+    }
+
+    private static func relatedTopicIDs(forInstitution name: String) -> [String] {
+        let normalized = KnowledgeNormalizer.normalize(name)
+        if normalized.contains("digid") { return ["topic:digid", "topic:registration-bsn"] }
+        if normalized.contains("ind") { return ["topic:registration-bsn"] }
+        if normalized.contains("duo") { return ["topic:registration-bsn"] }
+        if normalized.contains("belasting") || normalized.contains("uwv") || normalized.contains("svb") { return ["topic:digid"] }
+        return ["topic:registration-bsn"]
+    }
+
+    private static func isDirectImageURL(_ url: URL) -> Bool {
+        ["jpg", "jpeg", "png", "webp", "gif", "heic"].contains(url.pathExtension.lowercased())
+    }
+}
+
+private extension NetherlandsKnowledgeEntity {
+    var knowledgeItemID: String {
+        switch kind {
+        case .country, .knowledgeTopic:
+            return id
+        case .province:
+            return id
+        case .city:
+            return id
+        case .localPartner:
+            return id.replacingOccurrences(of: "local-partner:", with: "localPartner:")
+        case .officialSource:
+            return id
+        case .event:
+            return id.replacingOccurrences(of: "event:", with: "calendarEvent:")
+        default:
+            return id
+        }
+    }
+
+    var knowledgeItemType: KnowledgeItemType {
+        switch kind {
+        case .country, .knowledgeTopic:
+            return .topic
+        case .province:
+            return .province
+        case .city:
+            return .city
+        case .governmentService:
+            return .officialService
+        case .localPartner:
+            return .localPartner
+        case .officialSource:
+            return .resource
+        case .checklist:
+            return .checklist
+        case .event:
+            return .deadline
+        default:
+            return .nearbyPlace
+        }
+    }
+
+    var searchKeywords: [String] {
+        Array(Set(([title, summary, category, cityId, provinceId, aiSummary] + keywords + attributes.map { "\($0.key) \($0.value)" }).compactMap { $0 }))
+    }
+
+    var personaTags: Set<PersonaTag> {
+        switch kind {
+        case .country, .province, .city, .place, .attraction, .museum, .park, .restaurant, .cafe, .hotel, .transport, .officialSource, .knowledgeTopic, .event:
+            return [.universal]
+        case .governmentService, .healthcare:
+            return [.student, .worker, .refugee, .family, .entrepreneur, .eu, .nonEU, .highlySkilledMigrant, .lgbt]
+        case .university:
+            return [.student, .family, .nonEU, .eu, .highlySkilledMigrant]
+        case .localPartner:
+            return [.student, .worker, .family, .tourist, .entrepreneur, .eu, .nonEU, .highlySkilledMigrant, .lgbt]
+        case .district, .checklist:
+            return [.universal]
+        }
     }
 }

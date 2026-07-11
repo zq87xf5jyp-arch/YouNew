@@ -11,7 +11,7 @@ struct RelatedNavigationItem: Identifiable, Hashable {
 enum RelatedContentEngine {
     static func isVisible(_ destination: AppDestination, for persona: PersonaTag?) -> Bool {
         switch destination {
-        case .settings, .profileSelection, .savedTopics, .recentlyViewedTopics, .resourcesHub, .finesAndLettersHub, .legalHelp, .aboutYouNew, .supportFeedback, .privacyDataControl, .termsOfUse, .legalDisclaimer, .assistantHub, .searchList:
+        case .settings, .profileSelection, .savedTopics, .recentlyViewedTopics, .resourcesHub, .localPartners, .localPartnerDetail, .businessGrowth, .businessLogin, .businessDashboard, .finesAndLettersHub, .legalHelp, .aboutYouNew, .supportFeedback, .privacyDataControl, .termsOfUse, .legalDisclaimer, .assistantHub, .searchList:
             return true
         case .categoriesHub:
             return persona != nil
@@ -45,6 +45,8 @@ enum RelatedContentEngine {
         case .mapFocus(.place(let placeId)):
             return MockNearbyPlacesData.places.contains {
                 ($0.saveKey == placeId || $0.id.uuidString == placeId) && $0.isVisible(for: persona)
+            } || MockLocalPartnersData.partners.contains {
+                $0.mapPlace.saveKey == placeId || $0.id == placeId
             }
         case .mapFocus(let focus):
             return isMapFocus(focus, visibleFor: persona)
@@ -59,8 +61,18 @@ enum RelatedContentEngine {
             return isPracticalGuide(topic, visibleFor: persona)
         case .netherlandsOverview, .netherlandsHistory, .historyKNMHub, .dutchHolidays, .dutchFigures, .dutchMonarchy:
             return isPersona(persona, in: [.tourist, .family, .refugee, .eu, .nonEU])
-        case .cultureAttractions, .cityList, .provinceList, .provinceDetail, .provinceCities, .cityDetail, .nlCityDetail:
-            return isPersona(persona, in: [.student, .family, .tourist, .eu, .highlySkilledMigrant, .lgbt])
+        case .cultureAttractions, .cityList, .provinceList, .provinceDetail, .provinceCities, .cityDetail, .homeExploreList, .nlCityDetail:
+            return true
+        case .netherlandsCalendar:
+            return isPersona(persona, in: [.tourist, .student, .worker, .refugee, .family, .entrepreneur, .eu, .nonEU, .highlySkilledMigrant, .lgbt])
+        case .placeDetail(let id):
+            return DashboardPlacesData.places.contains {
+                $0.id == id && ContentAccessPolicy.canShowToUser(audience: $0.audience, selectedPersona: persona)
+            }
+        case .calendarEvent(let id):
+            return DashboardCalendarData.events.contains {
+                $0.id == id && ContentAccessPolicy.canShowToUser(audience: $0.audience, selectedPersona: persona)
+            }
         case .governmentHub:
             return isPersona(persona, in: [.worker, .refugee, .family, .entrepreneur, .eu, .nonEU, .highlySkilledMigrant, .lgbt])
         case .helpHub:
@@ -159,7 +171,7 @@ enum RelatedContentEngine {
                 $0.category == category && $0.isVisible(for: persona)
             }
         case .city, .province:
-            return isPersona(persona, in: [.student, .family, .tourist, .eu, .highlySkilledMigrant, .lgbt])
+            return true
         case .place(let placeId):
             return MockNearbyPlacesData.places.contains {
                 ($0.saveKey == placeId || $0.id.uuidString == placeId) && $0.isVisible(for: persona)

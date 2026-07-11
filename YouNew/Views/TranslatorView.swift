@@ -9,6 +9,7 @@ struct TranslatorView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
+                translatorHero
                 DisclaimerBanner(text: L10n.t("translator.disclaimer", lang), tone: AppColors.error)
 
                 SectionHeader(title: L10n.t("translator.title", lang), subtitle: L10n.t("translator.subtitle", lang))
@@ -22,6 +23,7 @@ struct TranslatorView: View {
                         .font(AppTypography.body)
                         .frame(minHeight: 140)
                         .padding(8)
+                        .scrollContentBackground(.hidden)
                         .background(AppColors.card)
                         .clipShape(RoundedRectangle(cornerRadius: AppSpacing.cornerRadius, style: .continuous))
 
@@ -89,14 +91,9 @@ struct TranslatorView: View {
                     }
                 }
 
-                VStack(alignment: .leading, spacing: AppSpacing.medium) {
-                    SectionHeader(title: L10n.t("translator.recent", lang))
-                    if viewModel.recent.isEmpty {
-                        Text(L10n.t("translator.no_recent", lang))
-                            .font(AppTypography.body)
-                            .foregroundStyle(AppColors.textSecondary)
-                            .appCardStyle()
-                    } else {
+                if !viewModel.recent.isEmpty {
+                    VStack(alignment: .leading, spacing: AppSpacing.medium) {
+                        SectionHeader(title: L10n.t("translator.recent", lang))
                         ForEach(viewModel.recent.prefix(5)) { item in
                             VStack(alignment: .leading, spacing: AppSpacing.xSmall) {
                                 Text(item.sourceText)
@@ -119,5 +116,35 @@ struct TranslatorView: View {
         }
         .appSceneBackground()
         .navigationTitle(L10n.t("translator.title", lang))
+    }
+
+    private var translatorHero: some View {
+        CategoryHeroVisual(
+            assetName: nil,
+            title: L10n.t("translator.title", lang),
+            subtitle: translatorHeroSubtitle,
+            symbol: "character.book.closed.fill",
+            badgeText: translatorHeroBadge,
+            accent: AppColors.violet,
+            asset: ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 240,
+            language: lang
+        )
+    }
+
+    private var translatorHeroSubtitle: String {
+        switch lang {
+        case .russian: return "Переводите письма и сообщения, затем проверяйте важные детали в официальном источнике."
+        case .dutch: return "Vertaal brieven en berichten, en controleer belangrijke details bij de officiële bron."
+        case .english: return "Translate letters and messages, then verify important details with the official source."
+        }
+    }
+
+    private var translatorHeroBadge: String {
+        switch lang {
+        case .russian: return "Языковая помощь"
+        case .dutch: return "Taalhulp"
+        case .english: return "Language help"
+        }
     }
 }

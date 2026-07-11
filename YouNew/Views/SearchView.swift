@@ -67,7 +67,10 @@ struct SearchView: View {
                             .frame(height: 0)
                             .id("searchTop")
 
-                suggestedSearchesSection
+                        if viewModel.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+                            searchSharedHeroSurface
+                            suggestedSearchesSection
+                        }
 
                 // Category filter chips
                 ScrollView(.horizontal, showsIndicators: false) {
@@ -97,17 +100,9 @@ struct SearchView: View {
                 }
 
                 if viewModel.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
-                    VisualEmptyState(
-                        title: L10n.t("search.empty_state", lang),
-                        detail: noResultsHelpText,
-                        symbol: "magnifyingglass.circle.fill",
-                        accent: AppColors.accentBlue,
-                        suggestedActions: suggestedSearches.prefix(4).map(\.title)
-                    )
-
                     if !viewModel.recentSearches.isEmpty {
                         SectionHeader(title: L10n.t("search.recent", lang))
-                        ForEach(viewModel.recentSearches, id: \.self) { recent in
+                        ForEach(viewModel.recentSearches.prefix(4), id: \.self) { recent in
                             Button {
                                 viewModel.setQuery(recent)
                             } label: {
@@ -130,23 +125,22 @@ struct SearchView: View {
                     }
 
                     SectionHeader(title: L10n.t("search.popular", lang))
-                    ForEach(viewModel.popularQuestions) { answer in
+                    ForEach(viewModel.popularQuestions.prefix(4)) { answer in
                         NavigationLink(value: AppDestination.searchAnswer(answer.id)) {
                             resultCard(answer: answer)
-                                .appCardStyle()
                         }
                         .buttonStyle(.plain)
                     }
 
                     if let selectedCategory = viewModel.selectedCategory {
                         SectionHeader(title: String(format: L10n.t("search.category_answers", lang), selectedCategory.localized(lang)))
-                        ForEach(viewModel.displayedResults) { answer in
-                            resultRow(answer: answer)
+                        ForEach(Array(viewModel.displayedResults.enumerated()), id: \.element.id) { index, answer in
+                            resultRow(answer: answer, exposesPrimaryIdentifier: index == 0)
                         }
                     }
 
                     SectionHeader(title: L10n.t("beginner.guides.title", lang))
-                    ForEach(viewModel.beginnerGuidePopular) { item in
+                    ForEach(viewModel.beginnerGuidePopular.prefix(3)) { item in
                         beginnerGuideRow(item)
                     }
                 } else {
@@ -155,23 +149,34 @@ struct SearchView: View {
                             title: directResultsTitle,
                             subtitle: resultCountText(directResultsCache.count)
                         )
-                        ForEach(directResultsCache) { result in
-                            NavigationLink(value: result.destination) {
-                                directResultCard(result)
+                        ForEach(Array(directResultsCache.enumerated()), id: \.element.id) { index, result in
+                            if let externalURL = result.externalURL {
+                                Button {
+                                    openOfficialSource(externalURL)
+                                } label: {
+                                    directResultCard(result)
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityIdentifier(index == 0 ? "search.result.card" : "search.directResult.button.\(result.id)")
+                            } else {
+                                NavigationLink(value: result.destination) {
+                                    directResultCard(result)
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityIdentifier(index == 0 ? "search.result.card" : "search.directResult.link.\(result.id)")
                             }
-                            .buttonStyle(.plain)
                         }
                     }
 
-                    if viewModel.displayedResults.isEmpty {
+                    if viewModel.displayedResults.isEmpty && directResultsCache.isEmpty {
                         noResultsState
-                    } else {
+                    } else if !viewModel.displayedResults.isEmpty {
                         SectionHeader(
                             title: L10n.t("search.results", lang),
                             subtitle: resultCountText(viewModel.displayedResults.count)
                         )
-                        ForEach(viewModel.displayedResults) { answer in
-                            resultRow(answer: answer)
+                        ForEach(Array(viewModel.displayedResults.enumerated()), id: \.element.id) { index, answer in
+                            resultRow(answer: answer, exposesPrimaryIdentifier: directResultsCache.isEmpty && index == 0)
                         }
                     }
 
@@ -208,7 +213,8 @@ struct SearchView: View {
                     Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
                 }
                 .padding(.horizontal, Layout.screenHorizontal)
-                .padding(.vertical, Layout.medium)
+                .padding(.top, Layout.small)
+                .padding(.bottom, Layout.medium)
                 }
             }
             .safeAreaInset(edge: .top, spacing: 0) {
@@ -221,6 +227,14 @@ struct SearchView: View {
                     scrollProxy.scrollTo("searchTop", anchor: .top)
                 }
             }
+            .onChange(of: viewModel.query) { _, _ in
+                scheduleDirectResultsRefresh()
+                scrollToSearchTop(scrollProxy)
+            }
+            .onChange(of: viewModel.selectedCategory) { _, _ in
+                refreshDirectResults()
+                scrollToSearchTop(scrollProxy)
+            }
         }
         .animation(AppAnimations.standard, value: viewModel.selectedCategory)
         .onAppear {
@@ -229,12 +243,6 @@ struct SearchView: View {
         }
         .onChange(of: lang) { _, newLanguage in
             viewModel.language = newLanguage
-            refreshDirectResults()
-        }
-        .onChange(of: viewModel.query) { _, _ in
-            scheduleDirectResultsRefresh()
-        }
-        .onChange(of: viewModel.selectedCategory) { _, _ in
             refreshDirectResults()
         }
         .onDisappear {
@@ -253,10 +261,19 @@ struct SearchView: View {
                         .foregroundStyle(AppColors.accentLight)
                     TextField(L10n.t("search.placeholder", lang), text: $viewModel.query)
                         .font(AppTypography.body)
+                        .frame(minHeight: 44)
                         .submitLabel(.search)
-                        .onSubmit { viewModel.performSearch() }
+                        .onSubmit {
+                            isSearchFocused = false
+                            viewModel.performSearch()
+                        }
                         .autocorrectionDisabled(true)
                         .focused($isSearchFocused)
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            isSearchFocused = true
+                        }
+                        .accessibilityLabel(L10n.t("search.placeholder", lang))
                         .accessibilityIdentifier("search.input")
                     if !viewModel.query.isEmpty {
                         Button {
@@ -272,9 +289,14 @@ struct SearchView: View {
                         .accessibilityLabel(L10n.t("common.clear", lang))
                     }
                 }
+                .contentShape(Rectangle())
+                .onTapGesture {
+                    isSearchFocused = true
+                }
                 .appInputStyle()
 
                 Button {
+                    isSearchFocused = false
                     viewModel.performSearch()
                 } label: {
                     Image(systemName: "arrow.right")
@@ -307,26 +329,70 @@ struct SearchView: View {
 
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: AppSpacing.xSmall) {
-            ForEach(Array(suggestedSearches.enumerated()), id: \.offset) { _, suggestion in
-                        Button {
+                    ForEach(Array(suggestedSearches.enumerated()), id: \.offset) { _, suggestion in
+                        let applySuggestion = {
                             viewModel.setQuery(suggestion.query)
-                        } label: {
-                            Label(suggestion.title, systemImage: suggestion.icon)
-                                .font(.system(size: 13, weight: .semibold, design: .rounded))
-                                .foregroundStyle(AppColors.textPrimary)
-                                .padding(.horizontal, 12)
-                                .padding(.vertical, 8)
-                                .background(AppColors.glassSurfaceElevated)
-                                .clipShape(Capsule())
-                                .overlay(Capsule().stroke(AppColors.stroke.opacity(0.80), lineWidth: 0.8))
+                            refreshDirectResults()
+                            isSearchFocused = false
                         }
-                        .buttonStyle(AppPressableButtonStyle())
+
+                        Button(action: applySuggestion) {
+                            ProductTaskCard(
+                                title: suggestion.title,
+                                subtitle: suggestion.query,
+                                symbol: suggestion.icon,
+                                accent: searchAccent(for: suggestion.query),
+                                minHeight: 132
+                            )
+                            .frame(width: 240)
+                        }
+                        .buttonStyle(.plain)
+                        .highPriorityGesture(TapGesture().onEnded(applySuggestion))
                         .accessibilityIdentifier("search.suggestion.\(suggestion.id)")
                     }
                 }
                 .padding(.vertical, 2)
             }
         }
+    }
+
+    private var searchIntroCard: some View {
+        HStack(alignment: .center, spacing: AppSpacing.medium) {
+            GradientIconBadge(symbol: "checkmark.shield.fill", color: AppColors.cyanGlow, size: 54)
+
+            VStack(alignment: .leading, spacing: 6) {
+                Text(searchHeroTitle)
+                    .font(AppTypography.cardTitle)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.82)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Text(searchHeroSubtitle)
+                    .font(AppTypography.footnote)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .appGlassCardStyle(padding: AppSpacing.medium, cornerRadius: AppCornerRadius.large, accent: AppColors.cyanGlow)
+        .accessibilityIdentifier("search.intro.card")
+    }
+
+    private var searchSharedHeroSurface: some View {
+        PremiumHeroSurface(
+            title: searchHeroTitle,
+            subtitle: searchHeroSubtitle,
+            badge: searchHeroBadge,
+            badgeSystemImage: "checkmark.shield.fill",
+            asset: searchHeroAsset,
+            language: lang,
+            fallbackCategory: .search,
+            accent: AppColors.cyanGlow,
+            focalPoint: .center,
+            accessibilityIdentifier: "search.premium.hero"
+        )
     }
 
     private var noResultsState: some View {
@@ -339,61 +405,68 @@ struct SearchView: View {
                 suggestedActions: suggestedSearches.prefix(4).map(\.title)
             )
             suggestedSearchesSection
+            noResultsRecoverySection
         }
+        .accessibilityElement(children: .contain)
         .accessibilityIdentifier("search.no_results")
+    }
+
+    private var noResultsRecoverySection: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            SectionHeader(title: noResultsRecoveryTitle, subtitle: noResultsRecoverySubtitle)
+
+            LazyVGrid(columns: DetailPageLayout.twoColumnWhenPossible(for: 360, minimumColumnWidth: 156), spacing: AppSpacing.small) {
+                ForEach(noResultsRecoveryActions) { action in
+                    NavigationLink(value: action.destination) {
+                        SearchRecoveryActionCard(action: action)
+                    }
+                    .buttonStyle(AppPressableCardButtonStyle())
+                    .accessibilityIdentifier("search.no_results.action.\(action.id)")
+                }
+            }
+        }
     }
 
     private func resultCard(answer: SearchAnswer) -> some View {
         let sourceDomain = answer.officialSourceURL.host ?? answer.officialSourceURL.absoluteString
-        return VStack(alignment: .leading, spacing: Layout.xSmall) {
-            Text(answer.localizedQuestion(lang))
-                .font(AppTypography.cardTitle)
-                .foregroundStyle(Color.primary)
+        return PremiumImageCard(
+            title: answer.localizedQuestion(lang),
+            subtitle: answer.localizedShortAnswer(lang),
+            asset: searchAsset(for: answer.category),
+            language: lang,
+            symbol: searchSymbol(for: answer.category),
+            accent: searchAccent(for: answer.category),
+            fallbackCategory: searchFallbackCategory(for: answer.category)
+        ) {
+            ViewThatFits(in: .horizontal) {
+                HStack(spacing: AppSpacing.xSmall) {
+                    searchCategoryBadge(for: answer)
+                    searchTrustBadge(for: answer)
+                }
 
-            Text(answer.localizedShortAnswer(lang))
-                .font(AppTypography.body)
-                .foregroundStyle(Color.secondary)
-                .lineLimit(3)
-                .fixedSize(horizontal: false, vertical: true)
-
-            HStack(spacing: 8) {
-                Text(answer.category.localized(lang))
-                    .font(AppTypography.captionStrong)
-                    .foregroundStyle(AppColors.accentLight)
-                    .padding(.horizontal, 9)
-                    .padding(.vertical, 5)
-                    .background(AppColors.accent.opacity(0.10))
-                    .clipShape(Capsule())
-
-                Text(answer.isOfficialSource
-                     ? L10n.t("search.official_source", lang)
-                     : L10n.t("search.trusted_source", lang))
-                    .font(AppTypography.caption)
-                    .foregroundStyle(answer.isOfficialSource ? AppColors.success : AppColors.warning)
-                    .padding(.horizontal, 9)
-                    .padding(.vertical, 5)
-                    .background((answer.isOfficialSource ? AppColors.success : AppColors.warning).opacity(0.10))
-                    .clipShape(Capsule())
+                VStack(alignment: .leading, spacing: AppSpacing.xSmall) {
+                    searchCategoryBadge(for: answer)
+                    searchTrustBadge(for: answer)
+                }
             }
-
-            HStack(spacing: 6) {
-                Image(systemName: "checkmark.shield.fill")
-                    .font(.system(size: 11, weight: .semibold))
-                    .foregroundStyle(AppColors.success)
-                Text(answer.officialSourceName)
-                    .font(AppTypography.caption)
-                    .foregroundStyle(AppColors.textSecondary)
-                Spacer()
-                Text(answer.lastUpdated.formattedForAppLanguage(lang))
-                    .font(AppTypography.caption)
-                    .foregroundStyle(Color.secondary)
-            }
-
-            Text(sourceDomain)
-                .font(AppTypography.metadata)
-                .foregroundStyle(Color.secondary)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .accessibilityLabel("\(answer.localizedQuestion(lang)), \(answer.officialSourceName), \(sourceDomain), \(answer.lastUpdated.formattedForAppLanguage(lang))")
+    }
+
+    private func searchCategoryBadge(for answer: SearchAnswer) -> some View {
+        PremiumBadge(
+            text: answer.category.localized(lang),
+            systemImage: searchSymbol(for: answer.category),
+            color: searchAccent(for: answer.category)
+        )
+    }
+
+    private func searchTrustBadge(for answer: SearchAnswer) -> some View {
+        PremiumBadge(
+            text: answer.isOfficialSource ? L10n.t("search.official_source", lang) : L10n.t("search.trusted_source", lang),
+            systemImage: answer.isOfficialSource ? "checkmark.shield.fill" : "info.circle.fill",
+            color: answer.isOfficialSource ? AppColors.success : AppColors.warning
+        )
     }
 
     private func refreshDirectResults() {
@@ -421,11 +494,33 @@ struct SearchView: View {
         guard q.count >= 2 else { return [] }
         let normalized = q.lowercased()
         let allowsKNMResults = matches(normalized, knmSearchAliases)
-        let selectedCategory = viewModel.selectedCategory
+        let selectedCategory = viewModel.selectedCategory ?? directIntentCategory(for: normalized)
         var results: [InformationSearchResult] = []
+
+        if let essentialResult = essentialDirectResult(for: normalized, selectedCategory: selectedCategory) {
+            results.append(essentialResult)
+        }
 
         if selectedCategory == nil || selectedCategory == .general {
             results += viewModel.netherlandsResults.compactMap(netherlandsResult)
+        }
+
+        for section in InformationArchitecture.canonicalSections
+            where shouldSearchIASection(section, selectedCategory: selectedCategory) &&
+            matches(normalized, iaSectionSearchValues(section)) {
+            let destination = iaDestination(for: section)
+            if RelatedContentEngine.isVisible(destination, for: appState.selectedUserStatus?.personaTag) {
+                results.append(InformationSearchResult(
+                    id: "ia-section-\(section.rawValue)",
+                    type: localized(en: "Section", nl: "Sectie", ru: "Раздел"),
+                    title: section.title(lang),
+                    subtitle: iaSectionSubtitle(section),
+                    icon: section.symbol,
+                    tint: section.accent,
+                    destination: destination,
+                    externalURL: nil
+                ))
+            }
         }
 
         for topic in PracticalGuideTopic.allSearchable
@@ -508,10 +603,331 @@ struct SearchView: View {
             }
         }
 
+        let selectedAudience = UserContentCategory.from(persona: appState.selectedUserStatus?.personaTag) ?? .tourist
+        let selectedCity = CityDashboardContentData.city(for: appState.selectedCity)
+        if shouldSearchCityPlanning(selectedCategory) {
+            let travelLinks = CityDashboardContentData.travelLinks(for: selectedCity)
+                .filter { travelLinkIsVisible($0, city: selectedCity, audience: selectedAudience, selectedCategory: selectedCategory) }
+
+            for link in travelLinks where matches(normalized, travelLinkSearchValues(link, city: selectedCity)) {
+                let result = searchResult(for: link, city: selectedCity)
+                if !results.contains(where: { $0.id == result.id }) {
+                    results.append(result)
+                }
+            }
+
+            let foodGuide = CityDashboardContentData.foodGuideItems(for: selectedCity, audience: selectedAudience, limit: nil)
+                .filter { foodGuideSearchCategoryAllows($0, selectedCategory: selectedCategory) }
+            for item in foodGuide where matches(normalized, foodGuideSearchValues(item, city: selectedCity)) {
+                let result = searchResult(for: item)
+                if !results.contains(where: { $0.id == result.id }) {
+                    results.append(result)
+                }
+            }
+        }
+
+        let places = DashboardPlacesData.visiblePlaces(cityId: selectedCity.name, audience: selectedAudience, limit: nil)
+        for place in places where shouldSearchPlaces(selectedCategory) && matches(normalized, [place.title, place.shortTitle ?? "", place.description, place.cityId, place.address ?? "", "places", "visit", "museum", "museums", "landmark", "park", "attraction", "attractions", "places to visit"] + place.category.map(\.rawValue)) {
+            results.append(InformationSearchResult(
+                id: "visit-place-\(place.id)",
+                type: localized(en: "Places", nl: "Plekken", ru: "Места"),
+                title: place.title,
+                subtitle: place.description,
+                icon: place.primaryCategory.symbol,
+                tint: place.primaryCategory.accent,
+                destination: place.destination,
+                externalURL: nil
+            ))
+        }
+
+        let events = DashboardCalendarData.upcomingEvents(cityId: selectedCity.name, audience: selectedAudience, limit: nil)
+        for event in events where shouldSearchCalendar(selectedCategory) && matches(normalized, [event.title, event.localTitle ?? "", event.description ?? "", event.impact ?? "", "holiday", "holidays", "calendar", "event", "events", "public holiday", "king day", "kings day"]) {
+            results.append(InformationSearchResult(
+                id: "calendar-event-\(event.id)",
+                type: localized(en: "Calendar", nl: "Kalender", ru: "Календарь"),
+                title: event.title,
+                subtitle: event.impact ?? event.type.title(lang),
+                icon: event.type.symbol,
+                tint: event.type.accent,
+                destination: .calendarEvent(event.id),
+                externalURL: nil
+            ))
+        }
+
         let activePersona = appState.selectedUserStatus?.personaTag
         return Array(results
             .filter { RelatedContentEngine.isVisible($0.destination, for: activePersona) }
             .prefix(8))
+    }
+
+    private func directIntentCategory(for normalized: String) -> SearchCategory? {
+        if matches(normalized, ["fine", "fines", "boete", "boetes", "cjib", "traffic ticket", "penalty", "штраф", "штрафы"]) {
+            return .fines
+        }
+        if matches(normalized, dutchCourseSearchAliases) {
+            return .education
+        }
+        if matches(normalized, knmSearchAliases) {
+            return .education
+        }
+        return nil
+    }
+
+    private func essentialDirectResult(for normalized: String, selectedCategory: SearchCategory?) -> InformationSearchResult? {
+        let categoryAllowsRegistration = selectedCategory == nil || selectedCategory == .registration || selectedCategory == .general
+        if categoryAllowsRegistration,
+           matches(normalized, ["bsn", "burgerservicenummer", "brp", "registration", "register address", "gemeente"]) {
+            return InformationSearchResult(
+                id: "essential-bsn-registration",
+                type: localized(en: "Registration", nl: "Registratie", ru: "Регистрация"),
+                title: localized(en: "BSN and municipality registration", nl: "BSN en gemeente-inschrijving", ru: "BSN и регистрация в gemeente"),
+                subtitle: localized(en: "Register your address and check the official BSN steps.", nl: "Schrijf je adres in en controleer de officiële BSN-stappen.", ru: "Зарегистрируйте адрес и проверьте официальные шаги для BSN."),
+                icon: "number.circle.fill",
+                tint: AppColors.softBlue,
+                destination: .practicalGuide(.municipalityRegistration),
+                externalURL: nil
+            )
+        }
+
+        let categoryAllowsDigiD = selectedCategory == nil || selectedCategory == .digid || selectedCategory == .general
+        if categoryAllowsDigiD,
+           matches(normalized, ["digid", "digital identity", "government login", "login"]) {
+            return InformationSearchResult(
+                id: "essential-digid-safety",
+                type: localized(en: "DigiD", nl: "DigiD", ru: "DigiD"),
+                title: localized(en: "DigiD safety", nl: "DigiD-veiligheid", ru: "DigiD и безопасность"),
+                subtitle: localized(en: "Use official DigiD channels and protect your login.", nl: "Gebruik officiële DigiD-kanalen en bescherm je login.", ru: "Используйте официальные каналы DigiD и защищайте вход."),
+                icon: "lock.shield.fill",
+                tint: AppColors.violet,
+                destination: .practicalGuide(.digidSafety),
+                externalURL: nil
+            )
+        }
+
+        return nil
+    }
+
+    private func shouldSearchCityPlanning(_ selectedCategory: SearchCategory?) -> Bool {
+        selectedCategory == nil || selectedCategory == .general || selectedCategory == .housing || selectedCategory == .transport || selectedCategory == .emergency
+    }
+
+    private func shouldSearchIASection(_ section: IASection, selectedCategory: SearchCategory?) -> Bool {
+        guard let selectedCategory else { return true }
+        switch section {
+        case .startHere, .places, .foodLifestyle, .calendarEvents, .aiAssistant:
+            return selectedCategory == .general
+        case .transport:
+            return selectedCategory == .transport
+        case .emergency:
+            return selectedCategory == .emergency
+        case .documentsGovernment:
+            return [.registration, .digid, .taxes, .fines, .immigration].contains(selectedCategory)
+        case .housing:
+            return selectedCategory == .housing
+        case .healthcare:
+            return selectedCategory == .healthInsurance
+        case .workStudy:
+            return [.work, .education].contains(selectedCategory)
+        }
+    }
+
+    private func iaDestination(for section: IASection) -> AppDestination {
+        switch section {
+        case .startHere:
+            return .firstSteps
+        case .places:
+            return .mapFocus(.city(cityDashboardCityName))
+        case .transport:
+            return .practicalGuide(.transportBasics)
+        case .emergency:
+            return .emergencyHub
+        case .documentsGovernment:
+            return .journeyDocuments
+        case .housing:
+            return .practicalGuide(.housingBasics)
+        case .healthcare:
+            return .practicalGuide(.healthcareBasics)
+        case .workStudy:
+            return .institutionsList
+        case .foodLifestyle:
+            return .mapFocus(.city(cityDashboardCityName))
+        case .calendarEvents:
+            return .netherlandsCalendar
+        case .aiAssistant:
+            return .assistantHub
+        }
+    }
+
+    private var cityDashboardCityName: String {
+        CityDashboardContentData.city(for: appState.selectedCity).name
+    }
+
+    private func iaSectionSearchValues(_ section: IASection) -> [String] {
+        switch section {
+        case .startHere:
+            return ["start", "first steps", "begin", "where to start", "начать", "первые шаги", "begin hier"]
+        case .places:
+            return ["places", "city guide", "map", "museum", "museums", "attractions", "места", "куда пойти", "plekken"]
+        case .transport:
+            return ["transport", "tram", "train", "bus", "metro", "bike", "fiets", "транспорт", "поезд"]
+        case .emergency:
+            return ["emergency", "112", "police", "ambulance", "urgent", "экстренно", "полиция", "noodhulp"]
+        case .documentsGovernment:
+            return ["documents", "government", "bsn", "digid", "gemeente", "ind", "official", "документы", "государство"]
+        case .housing:
+            return ["housing", "rent", "address", "deposit", "landlord", "жилье", "жильё", "huur", "wonen"]
+        case .healthcare:
+            return ["healthcare", "health insurance", "huisarts", "pharmacy", "doctor", "медицина", "страховка", "zorg"]
+        case .workStudy:
+            return ["work", "study", "student", "university", "job", "duo", "uwv", "работа", "учеба", "studie"]
+        case .foodLifestyle:
+            return ["food", "restaurant", "restaurants", "cafe", "cafes", "coffee", "lifestyle", "еда", "кафе"]
+        case .calendarEvents:
+            return ["calendar", "events", "holiday", "holidays", "king's day", "праздники", "события", "kalender"]
+        case .aiAssistant:
+            return ["ai", "assistant", "ask", "help me", "ai assistant", "ии", "ассистент"]
+        }
+    }
+
+    private func iaSectionSubtitle(_ section: IASection) -> String {
+        switch section {
+        case .startHere:
+            return localized(en: "First steps and the safest next action.", nl: "Eerste stappen en de veiligste volgende actie.", ru: "Первые шаги и безопасное следующее действие.")
+        case .places:
+            return localized(en: "City places, map, attractions, and local orientation.", nl: "Plekken, kaart, attracties en lokale oriëntatie.", ru: "Места, карта, достопримечательности и ориентация.")
+        case .transport:
+            return localized(en: "OV, cycling, routes, tickets, and transport rules.", nl: "OV, fietsen, routes, tickets en vervoersregels.", ru: "OV, велосипед, маршруты, билеты и правила.")
+        case .emergency:
+            return localized(en: "112, police, urgent healthcare, and crisis help.", nl: "112, politie, spoedzorg en crisishulp.", ru: "112, полиция, срочная медицина и кризисная помощь.")
+        case .documentsGovernment:
+            return localized(en: "BSN, DigiD, gemeente, IND, official letters, and sources.", nl: "BSN, DigiD, gemeente, IND, brieven en bronnen.", ru: "BSN, DigiD, gemeente, IND, письма и источники.")
+        case .housing:
+            return localized(en: "Rent, address, contracts, deposits, and housing safety.", nl: "Huur, adres, contracten, borg en woonveiligheid.", ru: "Аренда, адрес, договоры, депозит и безопасность жилья.")
+        case .healthcare:
+            return localized(en: "Insurance, huisarts, pharmacy, hospital, and urgent care.", nl: "Verzekering, huisarts, apotheek, ziekenhuis en spoedzorg.", ru: "Страховка, huisarts, аптека, больница и срочная помощь.")
+        case .workStudy:
+            return localized(en: "Work, student path, institutions, DUO, UWV, and rights.", nl: "Werk, studiepad, instellingen, DUO, UWV en rechten.", ru: "Работа, учеба, учреждения, DUO, UWV и права.")
+        case .foodLifestyle:
+            return localized(en: "Restaurants, cafes, markets, daily life, and city habits.", nl: "Restaurants, cafés, markten, dagelijks leven en stadsgewoonten.", ru: "Рестораны, кафе, рынки, быт и городские привычки.")
+        case .calendarEvents:
+            return localized(en: "Public holidays, events, closures, and city impacts.", nl: "Feestdagen, events, sluitingen en stedelijke impact.", ru: "Праздники, события, закрытия и влияние на город.")
+        case .aiAssistant:
+            return localized(en: "Ask with your city, profile, section, places, and calendar context.", nl: "Vraag met stad, profiel, sectie, plekken en kalendercontext.", ru: "Спросить с учетом города, профиля, раздела, мест и календаря.")
+        }
+    }
+
+    private func shouldSearchPlaces(_ selectedCategory: SearchCategory?) -> Bool {
+        selectedCategory == nil || selectedCategory == .general
+    }
+
+    private func shouldSearchCalendar(_ selectedCategory: SearchCategory?) -> Bool {
+        selectedCategory == nil || selectedCategory == .general || selectedCategory == .transport || selectedCategory == .education
+    }
+
+    private func travelLinkIsVisible(_ link: TravelLinkItem, city: DashboardCity, audience: UserContentCategory, selectedCategory: SearchCategory?) -> Bool {
+        guard link.cityId.caseInsensitiveCompare(city.id.rawValue) == .orderedSame else { return false }
+        guard AppURL.validatedWebURL(link.url) != nil else { return false }
+        guard link.audience.contains(audience) || link.audience.contains(.general) else { return false }
+
+        switch link.kind {
+        case .booking:
+            return selectedCategory == nil || selectedCategory == .general || selectedCategory == .housing
+        case .restaurants, .cafes, .places, .officialGuide:
+            return selectedCategory == nil || selectedCategory == .general
+        case .maps:
+            return selectedCategory == nil || selectedCategory == .general || selectedCategory == .transport
+        }
+    }
+
+    private func foodGuideSearchCategoryAllows(_ item: FoodGuideItem, selectedCategory: SearchCategory?) -> Bool {
+        guard AppURL.validatedWebURL(item.externalUrl) != nil else { return false }
+        guard item.cityId == CityDashboardContentData.city(for: appState.selectedCity).id else { return false }
+        return selectedCategory == nil || selectedCategory == .general
+    }
+
+    private func travelLinkSearchValues(_ link: TravelLinkItem, city: DashboardCity) -> [String] {
+        let cityName = city.name
+        switch link.kind {
+        case .booking:
+            return [link.title, link.subtitle, "booking", "booking.com", "hotel", "hotels", "stay", "stays", "accommodation", "apartments", "hotels in \(cityName)", cityName]
+        case .restaurants:
+            return [link.title, link.subtitle, "restaurant", "restaurants", "food", "eat", "dinner", "lunch", "restaurants in \(cityName)", cityName]
+        case .cafes:
+            return [link.title, link.subtitle, "cafe", "cafes", "coffee", "breakfast", "coffee in \(cityName)", cityName]
+        case .places:
+            return [link.title, link.subtitle, "places", "visit", "museum", "museums", "landmarks", "attractions", "places in \(cityName)", cityName]
+        case .officialGuide:
+            return [link.title, link.subtitle, "official", "visitor", "guide", "city info", "tourism", cityName]
+        case .maps:
+            return [link.title, link.subtitle, "transport", "public transport", "routes", "tickets", "map", "maps", cityName]
+        }
+    }
+
+    private func foodGuideSearchValues(_ item: FoodGuideItem, city: DashboardCity) -> [String] {
+        var values = [item.title, item.shortTitle ?? "", item.description, item.query ?? "", item.category.rawValue, city.name]
+        switch item.category {
+        case .restaurant:
+            values += ["restaurant", "restaurants", "food", "eat", "dinner", "lunch"]
+        case .cafe:
+            values += ["cafe", "cafes", "coffee", "breakfast"]
+        case .breakfast:
+            values += ["breakfast", "brunch", "coffee"]
+        case .localFood:
+            values += ["local food", "dutch food", "food"]
+        case .market:
+            values += ["market", "markets", "food market"]
+        case .vegetarian:
+            values += ["vegetarian", "vegan"]
+        case .budget:
+            values += ["budget", "cheap eats", "food"]
+        case .fineDining:
+            values += ["fine dining", "restaurant", "restaurants"]
+        }
+        return values
+    }
+
+    private func searchResult(for link: TravelLinkItem, city: DashboardCity) -> InformationSearchResult {
+        let title: String
+        switch link.kind {
+        case .booking:
+            title = localized(en: "Hotels in \(city.name)", nl: "Hotels in \(city.name)", ru: "Отели в \(city.name)")
+        default:
+            title = link.title
+        }
+
+        return InformationSearchResult(
+            id: "travel-link-\(link.id)",
+            type: link.kind == .booking ? "Booking.com" : localized(en: "Travel links", nl: "Reislinks", ru: "Travel links"),
+            title: title,
+            subtitle: link.subtitle,
+            icon: link.kind.symbol,
+            tint: link.kind.accent,
+            destination: .officialSources,
+            externalURL: link.url
+        )
+    }
+
+    private func searchResult(for item: FoodGuideItem) -> InformationSearchResult {
+        InformationSearchResult(
+            id: "food-guide-\(item.id)",
+            type: item.category == .cafe ? localized(en: "Cafés", nl: "Cafés", ru: "Кафе") : localized(en: "Food guide", nl: "Eetgids", ru: "Гид по еде"),
+            title: item.title,
+            subtitle: item.description,
+            icon: item.icon,
+            tint: foodGuideTint(item.category),
+            destination: .officialSources,
+            externalURL: item.externalUrl
+        )
+    }
+
+    private func foodGuideTint(_ category: FoodGuideCategory) -> Color {
+        switch category {
+        case .restaurant, .fineDining: return AppColors.dutchOrange
+        case .cafe, .breakfast: return AppColors.warning
+        case .localFood, .market: return AppColors.emerald
+        case .vegetarian: return AppColors.success
+        case .budget: return AppColors.softBlue
+        }
     }
 
     private func selectedCategoryAllows(_ topic: PracticalGuideTopic, selectedCategory: SearchCategory?) -> Bool {
@@ -584,35 +1000,31 @@ struct SearchView: View {
     }
 
     private func directResultCard(_ result: InformationSearchResult) -> some View {
-        HStack(alignment: .top, spacing: AppSpacing.medium) {
-            Image(systemName: result.icon)
-                .font(.system(size: 16, weight: .bold))
-                .foregroundStyle(result.tint)
-                .frame(width: 40, height: 40)
-                .background(result.tint.opacity(0.12))
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text(result.type)
-                    .font(AppTypography.metadata)
-                    .foregroundStyle(result.tint)
-                Text(result.title)
-                    .font(AppTypography.bodyStrong)
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(2)
-                Text(result.subtitle)
-                    .font(AppTypography.caption)
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(2)
-            }
-
-            Spacer(minLength: 0)
-        }
-        .appCardStyle()
+        PremiumDirectResultCard(
+            type: result.type,
+            title: result.title,
+            subtitle: result.subtitle,
+            symbol: result.icon,
+            asset: searchAsset(for: result.title + " " + result.subtitle),
+            accent: result.tint,
+            language: lang
+        )
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("search.directResult.card.\(result.id)")
     }
 
     private func matches(_ query: String, _ values: [String]) -> Bool {
-        values.contains { $0.lowercased().contains(query) || query.contains($0.lowercased()) }
+        let normalizedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        guard normalizedQuery.count >= 2 else { return false }
+
+        return values.contains { rawValue in
+            let value = rawValue.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+            guard value.count >= 2 else { return false }
+            if value == normalizedQuery { return true }
+            if normalizedQuery.count >= 3, value.contains(normalizedQuery) { return true }
+            if value.count >= 3, normalizedQuery.contains(value) { return true }
+            return false
+        }
     }
 
     private func guideTitle(_ topic: PracticalGuideTopic) -> String {
@@ -625,7 +1037,7 @@ struct SearchView: View {
         case .digidSafety: return localized(en: "DigiD safety", nl: "DigiD-veiligheid", ru: "DigiD и безопасность")
         case .transportBasics: return localized(en: "Transport in the Netherlands", nl: "Vervoer in Nederland", ru: "Транспорт в Нидерландах")
         case .housingBasics: return localized(en: "Housing basics", nl: "Wonen basis", ru: "Жильё")
-        case .officialSourcesChecklist: return localized(en: "Official sources", nl: "Officiele bronnen", ru: "Официальные источники")
+        case .officialSourcesChecklist: return localized(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники")
         case .bankingBasics: return localized(en: "Banking basics", nl: "Bankieren", ru: "Банкинг")
         }
     }
@@ -634,11 +1046,11 @@ struct SearchView: View {
         switch topic {
         case .firstStepsNetherlands: return localized(en: "What to handle first after arrival.", nl: "Wat je eerst regelt na aankomst.", ru: "Что сделать первым после приезда.")
         case .municipalityRegistration: return localized(en: "Register your address and check BSN steps.", nl: "Schrijf je adres in en controleer BSN-stappen.", ru: "Зарегистрируйте адрес и проверьте BSN.")
-        case .healthcareBasics, .findingHuisarts, .healthInsuranceBasics: return localized(en: "Healthcare orientation with official source checks.", nl: "Zorgorientatie met officiele broncontrole.", ru: "Медицинская ориентация с проверкой источников.")
+        case .healthcareBasics, .findingHuisarts, .healthInsuranceBasics: return localized(en: "Healthcare orientation with official source checks.", nl: "Zorgoriëntatie met officiële broncontrole.", ru: "Медицинская ориентация с проверкой источников.")
         case .digidSafety: return localized(en: "Use official DigiD safely.", nl: "Gebruik DigiD veilig.", ru: "Безопасно используйте DigiD.")
-        case .transportBasics: return localized(en: "NS, OVpay, OV-chipkaart, buses, trams, metro, bikes, planners, and official sources.", nl: "NS, OVpay, OV-chipkaart, bus, tram, metro, fiets, planners en officiele bronnen.", ru: "NS, OVpay, OV-chipkaart, автобусы, трамваи, метро, велосипеды, планировщики и источники.")
+        case .transportBasics: return localized(en: "NS, OVpay, OV-chipkaart, buses, trams, metro, bikes, planners, and official sources.", nl: "NS, OVpay, OV-chipkaart, bus, tram, metro, fiets, planners en officiële bronnen.", ru: "NS, OVpay, OV-chipkaart, автобусы, трамваи, метро, велосипеды, планировщики и источники.")
         case .housingBasics: return localized(en: "Rental checks and registration permission.", nl: "Huurcontrole en inschrijfmogelijkheid.", ru: "Проверка аренды и регистрации.")
-        case .officialSourcesChecklist: return localized(en: "Verify official domains before acting.", nl: "Controleer officiele domeinen.", ru: "Проверяйте официальные домены.")
+        case .officialSourcesChecklist: return localized(en: "Verify official domains before acting.", nl: "Controleer officiële domeinen.", ru: "Проверяйте официальные домены.")
         case .bankingBasics: return localized(en: "IBAN, payments, and secure banking.", nl: "IBAN, betalingen en veilig bankieren.", ru: "IBAN, платежи и безопасный банк.")
         }
     }
@@ -689,13 +1101,66 @@ struct SearchView: View {
         }
     }
 
+    private var noResultsRecoveryTitle: String {
+        localized(en: "Try a practical route", nl: "Probeer een praktische route", ru: "Попробуйте практичный маршрут")
+    }
+
+    private var noResultsRecoverySubtitle: String {
+        localized(
+            en: "If the wording is unclear, start from source-labeled resources, nearby help, or documents.",
+            nl: "Als de woorden niet duidelijk zijn, begin met betrouwbare bronnen, hulp dichtbij of documenten.",
+            ru: "Если формулировка не сработала, начните с проверенных ресурсов, помощи рядом или документов."
+        )
+    }
+
+    private var noResultsRecoveryActions: [SearchRecoveryAction] {
+        [
+            SearchRecoveryAction(
+                id: "resources",
+                title: L10n.t("resources.title", lang),
+                subtitle: localized(en: "Browse trusted links by situation.", nl: "Bekijk betrouwbare links per situatie.", ru: "Откройте проверенные ссылки по ситуации."),
+                icon: "books.vertical.fill",
+                tint: AppColors.cyanGlow,
+                destination: .resourcesHub
+            ),
+            SearchRecoveryAction(
+                id: "official",
+                title: L10n.t("settings.sources", lang),
+                subtitle: localized(en: "Check government and official portals.", nl: "Controleer overheidssites en officiële portalen.", ru: "Проверьте государственные и официальные порталы."),
+                icon: "checkmark.shield.fill",
+                tint: AppColors.success,
+                destination: .officialSources
+            ),
+            SearchRecoveryAction(
+                id: "nearby",
+                title: "Places",
+                subtitle: localized(en: "Find municipality, health, legal, and support places.", nl: "Vind gemeente, zorg, juridisch en hulp dichtbij.", ru: "Найдите gemeente, медицину, юридическую помощь и поддержку."),
+                icon: "map.fill",
+                tint: AppColors.softBlue,
+                destination: .mapHub
+            ),
+            SearchRecoveryAction(
+                id: "documents",
+                title: localized(en: "Documents", nl: "Documenten", ru: "Документы"),
+                subtitle: localized(en: "Prepare letters, proof, and next-step notes.", nl: "Bereid brieven, bewijs en notities voor.", ru: "Подготовьте письма, подтверждения и заметки."),
+                icon: "doc.text.fill",
+                tint: AppColors.dutchOrange,
+                destination: .journeyDocuments
+            )
+        ]
+        .filter { RelatedContentEngine.isVisible($0.destination, for: appState.selectedUserStatus?.personaTag) }
+    }
+
     @ViewBuilder
-    private func resultRow(answer: SearchAnswer) -> some View {
+    private func resultRow(answer: SearchAnswer, exposesPrimaryIdentifier: Bool = false) -> some View {
         VStack(alignment: .leading, spacing: Layout.small) {
             NavigationLink(value: AppDestination.searchAnswer(answer.id)) {
                 resultCard(answer: answer)
+                    .accessibilityElement(children: .combine)
+                    .accessibilityIdentifier(exposesPrimaryIdentifier ? "search.result.card" : "search.result.card.\(answer.id)")
             }
             .buttonStyle(.plain)
+            .accessibilityIdentifier("search.result.link.\(answer.id)")
 
             Button {
                 openOfficialSource(answer.officialSourceURL)
@@ -703,9 +1168,10 @@ struct SearchView: View {
                 Label(L10n.t("beginner.open_official_source", lang), systemImage: "arrow.up.right.square")
             }
             .buttonStyle(SecondaryPremiumButtonStyle())
+            .accessibilityIdentifier("search.result.source.\(answer.id)")
         }
         .appGlassCardStyle(accent: answer.isOfficialSource ? AppColors.success : AppColors.warning)
-        .accessibilityIdentifier("search.result.card")
+        .accessibilityIdentifier("search.result.container.\(answer.id)")
     }
 
     private func searchFilterChip(title: String, selected: Bool, action: @escaping () -> Void) -> some View {
@@ -731,21 +1197,50 @@ struct SearchView: View {
         openURL(safeURL)
     }
 
+    private func scrollToSearchTop(_ scrollProxy: ScrollViewProxy) {
+        guard !viewModel.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
+        withAnimation(.easeOut(duration: 0.18)) {
+            scrollProxy.scrollTo("searchTop", anchor: .top)
+        }
+    }
+
     @ViewBuilder
     private func beginnerGuideRow(_ item: BeginnerGuideItem) -> some View {
         VStack(alignment: .leading, spacing: Layout.xSmall) {
             NavigationLink(value: AppDestination.beginnerGuide(item.id)) {
-                VStack(alignment: .leading, spacing: Layout.xSmall) {
-                    Text(item.title(lang))
-                        .font(AppTypography.cardTitle)
-                        .foregroundStyle(AppColors.textPrimary)
-                    Text(item.simpleAnswer(lang))
-                        .font(AppTypography.body)
-                        .foregroundStyle(AppColors.textSecondary)
-                    Text(String(format: L10n.t("search.official_source_named", lang), item.officialSourceName))
-                        .font(AppTypography.caption)
-                        .foregroundStyle(AppColors.accent)
+                HStack(alignment: .top, spacing: 12) {
+                    PremiumImageHeader(
+                        title: item.title(lang),
+                        asset: guideAsset(for: item.category),
+                        language: lang,
+                        symbol: guideIcon(item.category),
+                        accent: guideAccent(for: item.category),
+                        height: 82,
+                        width: 88,
+                        cornerRadius: 18,
+                        fallbackCategory: guideFallbackCategory(for: item.category)
+                    )
+                    .layoutPriority(0)
+
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(item.title(lang))
+                            .font(AppTypography.cardTitle)
+                            .foregroundStyle(AppColors.textPrimary)
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.82)
+                        Text(item.simpleAnswer(lang))
+                            .font(AppTypography.caption)
+                            .foregroundStyle(AppColors.textSecondary)
+                            .lineLimit(2)
+                        Text(String(format: L10n.t("search.official_source_named", lang), item.officialSourceName))
+                            .font(AppTypography.metadata)
+                            .foregroundStyle(AppColors.accent)
+                            .lineLimit(1)
+                    }
+                    .layoutPriority(1)
                 }
+                .frame(maxWidth: .infinity, alignment: .leading)
+                .appCardStyle()
             }
             .buttonStyle(.plain)
 
@@ -764,9 +1259,217 @@ struct SearchView: View {
                 Text(L10n.t("beginner.related_topics", lang) + ": " + item.relatedTopics.prefix(3).map { relatedTopicDisplayTitle($0) }.joined(separator: ", "))
                     .font(AppTypography.caption)
                     .foregroundStyle(AppColors.textSecondary)
+            } else {
+                NavigationLink(value: AppDestination.searchList) {
+                    Label(beginnerRelatedFallbackTitle, systemImage: "magnifyingglass")
+                        .font(AppTypography.captionStrong)
+                        .foregroundStyle(AppColors.accent)
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("search.beginner.related.empty")
             }
         }
-        .appCardStyle()
+    }
+
+    private var searchHeroAsset: AppImageAsset? {
+        ContentArtworkRegistry.asset(for: .searchHero)
+    }
+
+    private var searchHeroTitle: String {
+        localized(en: "Search the Netherlands with confidence", nl: "Zoek in Nederland met vertrouwen", ru: "Ищите по Нидерландам уверенно")
+    }
+
+    private var searchHeroSubtitle: String {
+        localized(
+            en: "Official answers, nearby help, documents, transport, housing, and city guidance in one verified place.",
+            nl: "Officiële antwoorden, hulp dichtbij, documenten, vervoer, wonen en stadsgidsen op een betrouwbare plek.",
+            ru: "Официальные ответы, помощь рядом, документы, транспорт, жильё и городские подсказки в одном месте."
+        )
+    }
+
+    private var searchHeroBadge: String {
+        localized(en: "Source-aware guidance", nl: "Bronbewuste gids", ru: "Навигация с учетом источников")
+    }
+
+    private func searchAsset(for category: SearchCategory) -> AppImageAsset? {
+        switch category {
+        case .healthInsurance:
+            return ContentArtworkRegistry.asset(for: .searchHealthcare)
+        case .work:
+            return ContentArtworkRegistry.asset(for: .searchWork)
+        case .housing:
+            return ContentArtworkRegistry.asset(for: .searchHousing)
+        case .transport:
+            return ContentArtworkRegistry.asset(for: .searchTransport)
+        case .emergency:
+            return ContentArtworkRegistry.asset(for: .searchEmergency)
+        case .registration, .digid, .immigration, .taxes, .fines:
+            return ContentArtworkRegistry.asset(for: .searchRegistration)
+        case .legalHelp:
+            return ContentArtworkRegistry.asset(for: .searchLegal)
+        case .education:
+            return ContentArtworkRegistry.asset(for: .searchEducation)
+        case .general:
+            return searchHeroAsset
+        }
+    }
+
+    private func guideAsset(for category: BeginnerGuideCategory) -> AppImageAsset? {
+        switch category {
+        case .identity, .municipality, .immigration, .taxes, .fines, .benefits:
+            return ContentArtworkRegistry.asset(for: .searchRegistration)
+        case .work:
+            return ContentArtworkRegistry.asset(for: .searchWork)
+        case .education:
+            return ContentArtworkRegistry.asset(for: .searchEducation)
+        case .healthcare, .health, .safety:
+            return ContentArtworkRegistry.asset(for: .searchHealthcare)
+        case .housing:
+            return ContentArtworkRegistry.asset(for: .searchHousing)
+        case .transport:
+            return ContentArtworkRegistry.asset(for: .searchTransport)
+        case .legalHelp:
+            return ContentArtworkRegistry.asset(for: .searchLegal)
+        case .dailyLife:
+            return searchHeroAsset
+        }
+    }
+
+    private func searchAsset(for query: String) -> AppImageAsset? {
+        let value = query.lowercased()
+        if value.contains("health") || value.contains("zorg") || value.contains("мед") { return ContentArtworkRegistry.asset(for: .searchHealthcare) }
+        if value.contains("transport") || value.contains("train") || value.contains("ov") || value.contains("транспорт") { return ContentArtworkRegistry.asset(for: .searchTransport) }
+        if value.contains("housing") || value.contains("rent") || value.contains("жиль") { return ContentArtworkRegistry.asset(for: .searchHousing) }
+        if value.contains("work") || value.contains("job") || value.contains("работ") { return ContentArtworkRegistry.asset(for: .searchWork) }
+        if value.contains("document") || value.contains("bsn") || value.contains("digid") || value.contains("док") { return ContentArtworkRegistry.asset(for: .searchRegistration) }
+        if value.contains("legal") || value.contains("jurid") || value.contains("прав") { return ContentArtworkRegistry.asset(for: .searchLegal) }
+        if value.contains("map") || value.contains("city") || value.contains("город") { return ContentArtworkRegistry.asset(for: .searchMap) }
+        return searchHeroAsset
+    }
+
+    private func searchAccent(for category: SearchCategory) -> Color {
+        switch category {
+        case .healthInsurance: return AppColors.success
+        case .work: return AppColors.softBlue
+        case .housing: return AppColors.cyanGlow
+        case .transport: return AppColors.routeLine
+        case .emergency: return AppColors.dutchOrange
+        case .registration, .digid, .immigration, .taxes, .fines, .legalHelp: return AppColors.violet
+        case .education: return AppColors.accentLight
+        case .general: return AppColors.accentBlue
+        }
+    }
+
+    private func guideAccent(for category: BeginnerGuideCategory) -> Color {
+        switch category {
+        case .healthcare, .health, .safety:
+            return AppColors.success
+        case .transport:
+            return AppColors.routeLine
+        case .housing:
+            return AppColors.cyanGlow
+        case .work:
+            return AppColors.softBlue
+        case .education:
+            return AppColors.accentLight
+        case .legalHelp, .fines:
+            return AppColors.warning
+        default:
+            return AppColors.violet
+        }
+    }
+
+    private func searchAccent(for query: String) -> Color {
+        let value = query.lowercased()
+        if value.contains("health") || value.contains("zorg") || value.contains("мед") { return AppColors.success }
+        if value.contains("transport") || value.contains("train") || value.contains("ov") || value.contains("транспорт") { return AppColors.routeLine }
+        if value.contains("housing") || value.contains("rent") || value.contains("жиль") { return AppColors.cyanGlow }
+        if value.contains("work") || value.contains("job") || value.contains("работ") { return AppColors.softBlue }
+        if value.contains("document") || value.contains("bsn") || value.contains("digid") || value.contains("док") { return AppColors.violet }
+        return AppColors.accentBlue
+    }
+
+    private func searchFallbackCategory(for category: SearchCategory) -> PremiumImageFallbackCategory {
+        switch category {
+        case .healthInsurance:
+            return .healthcare
+        case .work:
+            return .work
+        case .housing:
+            return .housing
+        case .transport:
+            return .transport
+        case .emergency:
+            return .emergency
+        case .registration, .digid, .immigration, .taxes, .fines:
+            return .government
+        case .legalHelp:
+            return .documents
+        case .education:
+            return .dutchA1A2
+        case .general:
+            return .search
+        }
+    }
+
+    private func guideFallbackCategory(for category: BeginnerGuideCategory) -> PremiumImageFallbackCategory {
+        switch category {
+        case .identity, .fines, .legalHelp:
+            return .documents
+        case .municipality, .immigration, .taxes, .benefits:
+            return .government
+        case .work:
+            return .work
+        case .education:
+            return .dutchA1A2
+        case .healthcare, .health:
+            return .healthcare
+        case .housing:
+            return .housing
+        case .transport:
+            return .transport
+        case .safety:
+            return .emergency
+        case .dailyLife:
+            return .integration
+        }
+    }
+
+    private func searchSymbol(for category: SearchCategory) -> String {
+        switch category {
+        case .registration: return "person.badge.plus.fill"
+        case .digid: return "lock.shield.fill"
+        case .immigration: return "globe.europe.africa.fill"
+        case .taxes: return "banknote.fill"
+        case .fines: return "exclamationmark.triangle.fill"
+        case .healthInsurance: return "cross.case.fill"
+        case .work: return "briefcase.fill"
+        case .education: return "graduationcap.fill"
+        case .housing: return "house.lodge.fill"
+        case .transport: return "tram.fill"
+        case .legalHelp: return "scale.3d"
+        case .emergency: return "phone.badge.waveform.fill"
+        case .general: return "magnifyingglass"
+        }
+    }
+
+    private func guideIcon(_ category: BeginnerGuideCategory) -> String {
+        switch category {
+        case .identity: return "lock.shield.fill"
+        case .municipality: return "building.columns.fill"
+        case .immigration: return "globe.europe.africa.fill"
+        case .work: return "briefcase.fill"
+        case .education: return "graduationcap.fill"
+        case .healthcare, .health: return "cross.case.fill"
+        case .housing: return "house.lodge.fill"
+        case .transport: return "tram.fill"
+        case .taxes: return "banknote.fill"
+        case .fines: return "exclamationmark.triangle.fill"
+        case .legalHelp: return "scale.3d"
+        case .safety: return "checkmark.shield.fill"
+        case .dailyLife: return "sparkles.rectangle.stack.fill"
+        case .benefits: return "heart.text.square.fill"
+        }
     }
 
     private func relatedTopicDisplayTitle(_ topic: String) -> String {
@@ -858,6 +1561,14 @@ struct SearchView: View {
         }
     }
 
+    private var beginnerRelatedFallbackTitle: String {
+        switch lang {
+        case .russian: return "Найти похожие темы"
+        case .dutch: return "Zoek verwante onderwerpen"
+        case .english: return "Find related topics"
+        }
+    }
+
     private var knmSearchAliases: [String] {
         [
             "knm", "kennis van de nederlandse maatschappij", "knowledge of dutch society",
@@ -868,8 +1579,9 @@ struct SearchView: View {
 
     private var dutchCourseSearchAliases: [String] {
         [
-            "dutch a1-a2", "dutch a1 a2", "nederlands a1-a2", "nederlands a1 a2",
-            "нидерландский a1-a2", "нидерландский a1 a2", "afspraak", "gemeente",
+            "dutch a1", "dutch a2", "dutch a1-a2", "dutch a1 a2",
+            "nederlands a1", "nederlands a2", "nederlands a1-a2", "nederlands a1 a2",
+            "нидерландский a1", "нидерландский a2", "нидерландский a1-a2", "нидерландский a1 a2", "afspraak", "gemeente",
             "huisarts", "trein", "ov-chipkaart", "werk", "huur", "verzekering",
             "de het", "hebben zijn", "separable verbs", "отделяемые глаголы",
             "слова", "грамматика", "woorden", "grammatica"
@@ -955,6 +1667,50 @@ private struct InformationSearchResult: Identifiable {
     let icon: String
     let tint: Color
     let destination: AppDestination
+    let externalURL: URL?
+
+    init(
+        id: String,
+        type: String,
+        title: String,
+        subtitle: String,
+        icon: String,
+        tint: Color,
+        destination: AppDestination,
+        externalURL: URL? = nil
+    ) {
+        self.id = id
+        self.type = type
+        self.title = title
+        self.subtitle = subtitle
+        self.icon = icon
+        self.tint = tint
+        self.destination = destination
+        self.externalURL = externalURL
+    }
+}
+
+private struct SearchRecoveryAction: Identifiable {
+    let id: String
+    let title: String
+    let subtitle: String
+    let icon: String
+    let tint: Color
+    let destination: AppDestination
+}
+
+private struct SearchRecoveryActionCard: View {
+    let action: SearchRecoveryAction
+
+    var body: some View {
+        ProductTaskCard(
+            title: action.title,
+            subtitle: action.subtitle,
+            symbol: action.icon,
+            accent: action.tint,
+            minHeight: 104
+        )
+    }
 }
 
 private extension PracticalGuideTopic {

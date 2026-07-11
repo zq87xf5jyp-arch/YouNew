@@ -45,16 +45,16 @@ enum SearchCategory: String, CaseIterable, Identifiable {
     }
 
     func isVisible(for persona: PersonaTag?) -> Bool {
-        guard let persona else { return true }
+        guard let persona else { return false }
         switch persona {
         case .student:
-            return [.education, .housing, .healthInsurance, .transport, .general].contains(self)
+            return [.registration, .digid, .education, .housing, .healthInsurance, .transport, .general].contains(self)
         case .worker:
             return [.registration, .digid, .taxes, .healthInsurance, .work, .housing, .transport, .legalHelp, .general].contains(self)
         case .refugee:
-            return [.registration, .immigration, .healthInsurance, .education, .housing, .transport, .legalHelp, .emergency, .general].contains(self)
+            return [.registration, .digid, .immigration, .healthInsurance, .education, .housing, .transport, .legalHelp, .emergency, .general].contains(self)
         case .family:
-            return [.registration, .healthInsurance, .education, .housing, .transport, .emergency, .general].contains(self)
+            return [.registration, .digid, .healthInsurance, .education, .housing, .transport, .emergency, .general].contains(self)
         case .highlySkilledMigrant:
             return [.registration, .digid, .immigration, .taxes, .healthInsurance, .work, .housing, .transport, .education, .general].contains(self)
         case .eu:
@@ -64,9 +64,11 @@ enum SearchCategory: String, CaseIterable, Identifiable {
         case .entrepreneur:
             return [.registration, .digid, .taxes, .healthInsurance, .work, .housing, .transport, .legalHelp, .general].contains(self)
         case .lgbt:
-            return [.healthInsurance, .housing, .legalHelp, .emergency, .general].contains(self)
-        case .nonEU, .universal:
+            return [.registration, .digid, .healthInsurance, .housing, .legalHelp, .emergency, .general].contains(self)
+        case .nonEU:
             return true
+        case .universal:
+            return self == .general
         }
     }
 }
@@ -260,7 +262,12 @@ extension SearchAnswer {
     }
 
     func isVisible(for persona: PersonaTag?, scope: PersonaSearchScope = .currentAndUniversal) -> Bool {
-        PersonaContentPolicy.isVisible(tags: effectivePersonaTags(), activePersona: persona, scope: scope)
+        guard scope != .allContentWithOutsidePathWarning else { return true }
+        guard let persona else { return true }
+        guard PersonaContentPolicy.isVisible(tags: effectivePersonaTags(), activePersona: persona, scope: scope) else {
+            return false
+        }
+        return category.isVisible(for: persona)
     }
 
     private func localizedVisibleText(_ values: [AppLanguage: String], lang: AppLanguage) -> String {

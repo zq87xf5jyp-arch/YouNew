@@ -132,9 +132,26 @@ struct DocumentItem: Identifiable, Hashable, Codable {
     var category: DocumentCategory
     var fileURL: URL
     var createdAt: Date
+    var expirationDate: Date?
+    var reminderDate: Date?
+    var relatedChecklistItemID: UUID?
     var isSensitive: Bool
     var notes: String
     var printReady: Bool
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case category
+        case fileURL
+        case createdAt
+        case expirationDate
+        case reminderDate
+        case relatedChecklistItemID
+        case isSensitive
+        case notes
+        case printReady
+    }
 
     init(
         id: UUID = UUID(),
@@ -142,6 +159,9 @@ struct DocumentItem: Identifiable, Hashable, Codable {
         category: DocumentCategory = .other,
         fileURL: URL? = nil,
         createdAt: Date = Date(),
+        expirationDate: Date? = nil,
+        reminderDate: Date? = nil,
+        relatedChecklistItemID: UUID? = nil,
         isSensitive: Bool = false,
         notes: String = "",
         printReady: Bool = true
@@ -151,8 +171,26 @@ struct DocumentItem: Identifiable, Hashable, Codable {
         self.category = category
         self.fileURL = fileURL ?? FileManager.default.temporaryDirectory.appendingPathComponent("doc_\(id.uuidString).txt")
         self.createdAt = createdAt
+        self.expirationDate = expirationDate
+        self.reminderDate = reminderDate
+        self.relatedChecklistItemID = relatedChecklistItemID
         self.isSensitive = isSensitive
         self.notes = notes
         self.printReady = printReady
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        title = try container.decode(String.self, forKey: .title)
+        category = try container.decode(DocumentCategory.self, forKey: .category)
+        fileURL = try container.decode(URL.self, forKey: .fileURL)
+        createdAt = try container.decodeIfPresent(Date.self, forKey: .createdAt) ?? Date()
+        expirationDate = try container.decodeIfPresent(Date.self, forKey: .expirationDate)
+        reminderDate = try container.decodeIfPresent(Date.self, forKey: .reminderDate)
+        relatedChecklistItemID = try container.decodeIfPresent(UUID.self, forKey: .relatedChecklistItemID)
+        isSensitive = try container.decodeIfPresent(Bool.self, forKey: .isSensitive) ?? false
+        notes = try container.decodeIfPresent(String.self, forKey: .notes) ?? ""
+        printReady = try container.decodeIfPresent(Bool.self, forKey: .printReady) ?? true
     }
 }

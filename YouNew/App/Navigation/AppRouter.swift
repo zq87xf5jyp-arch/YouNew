@@ -19,11 +19,15 @@ enum AppNavigationResolver {
         case .ruleTopic(let id): return "rule:\(id.uuidString)"
         case .ruleScenario(let id): return "ruleScenario:\(id.uuidString)"
         case .resource(let id): return "resource:\(id.uuidString)"
+        case .localPartnerDetail(let id): return "localPartner:\(id)"
         case .document(let id): return "document:\(id.uuidString)"
+        case .placeDetail(let id): return "placeDetail:\(id)"
+        case .calendarEvent(let id): return "calendarEvent:\(id)"
         case .statusDirection(let status): return "statusDirection:\(status.rawValue)"
         case .provinceDetail(let province): return "province:\(KnowledgeNormalizer.slug(province))"
         case .provinceCities(let province): return "provinceCities:\(KnowledgeNormalizer.slug(province))"
         case .cityDetail(let province, let city): return "cityDetail:\(KnowledgeNormalizer.slug(province)):\(KnowledgeNormalizer.slug(city))"
+        case .homeExploreList(let id): return "homeExploreList:\(KnowledgeNormalizer.slug(id))"
         case .nlCityDetail(let cityID): return "city:\(KnowledgeNormalizer.slug(cityID))"
         case .knmModule(let id): return "knmModule:\(id)"
         case .dutchA1A2Module(let id): return "dutchCourseModule:\(id)"
@@ -78,8 +82,17 @@ enum AppNavigationResolver {
             return uuidDestination(parts, 1, in: MockRulesGuideData.scenarios.map(\.id), AppDestination.ruleScenario)
         case "resource":
             return uuidDestination(parts, 1, in: MockResourcesData.items.map(\.id), AppDestination.resource)
+        case "localPartner":
+            let id = valuePart(parts, 1)
+            return MockLocalPartnersData.partner(id: id) == nil ? nil : .localPartnerDetail(id)
         case "document":
             return uuidPart(parts, 1).map(AppDestination.document)
+        case "placeDetail":
+            let id = valuePart(parts, 1)
+            return DashboardPlacesData.places.contains(where: { $0.id == id }) ? .placeDetail(id) : nil
+        case "calendarEvent":
+            let id = valuePart(parts, 1)
+            return DashboardCalendarData.events.contains(where: { $0.id == id }) ? .calendarEvent(id) : nil
         case "statusDirection":
             return UserStatus(rawValue: valuePart(parts, 1)).map(AppDestination.statusDirection)
         case "province":
@@ -116,6 +129,9 @@ enum AppNavigationResolver {
                 return nil
             }
             return .cityDetail(province: province.id, city: spotlight.city.name)
+        case "homeExploreList":
+            let id = valuePart(parts, 1)
+            return id.isEmpty ? nil : .homeExploreList(id)
         case "city":
             let slug = valuePart(parts, 1)
             guard let city = NLCity.all.first(where: { KnowledgeNormalizer.slug($0.id) == slug || KnowledgeNormalizer.slug($0.name) == slug }) else {
@@ -176,4 +192,37 @@ enum AppNavigationResolver {
         guard parts.indices.contains(index) else { return "" }
         return parts[index]
     }
+}
+
+struct ReleaseNavigationArea: Hashable {
+    let id: String
+    let title: String
+    let rootTab: AppTab
+    let destination: AppDestination?
+    let tapCountFromHome: Int
+    let supportsBackNavigation: Bool
+
+    var routeID: String? {
+        AppNavigationResolver.routeID(from: destination)
+    }
+}
+
+enum ReleaseNavigationContract {
+    static let maximumTapCountFromHome = 3
+
+    static let publicAreas: [ReleaseNavigationArea] = [
+        .init(id: "home", title: "Home", rootTab: .home, destination: nil, tapCountFromHome: 0, supportsBackNavigation: true),
+        .init(id: "dashboard", title: "Dashboard", rootTab: .home, destination: nil, tapCountFromHome: 1, supportsBackNavigation: true),
+        .init(id: "search", title: "Search", rootTab: .search, destination: .searchList, tapCountFromHome: 1, supportsBackNavigation: true),
+        .init(id: "map", title: "Map", rootTab: .map, destination: .mapHub, tapCountFromHome: 1, supportsBackNavigation: true),
+        .init(id: "places", title: "Places", rootTab: .places, destination: .mapHub, tapCountFromHome: 1, supportsBackNavigation: true),
+        .init(id: "aiAssistant", title: "AI Assistant", rootTab: .assistant, destination: .assistantHub, tapCountFromHome: 1, supportsBackNavigation: true),
+        .init(id: "saved", title: "Saved", rootTab: .favorites, destination: .savedTopics, tapCountFromHome: 1, supportsBackNavigation: true),
+        .init(id: "more", title: "More", rootTab: .more, destination: nil, tapCountFromHome: 1, supportsBackNavigation: true),
+        .init(id: "calendar", title: "Calendar", rootTab: .more, destination: .netherlandsCalendar, tapCountFromHome: 2, supportsBackNavigation: true),
+        .init(id: "transport", title: "Transport", rootTab: .home, destination: .practicalGuide(.transportBasics), tapCountFromHome: 2, supportsBackNavigation: true),
+        .init(id: "emergency", title: "Emergency", rootTab: .home, destination: .emergencyHub, tapCountFromHome: 1, supportsBackNavigation: true),
+        .init(id: "documents", title: "Documents", rootTab: .home, destination: .journeyDocuments, tapCountFromHome: 2, supportsBackNavigation: true),
+        .init(id: "settings", title: "Settings", rootTab: .more, destination: .settings, tapCountFromHome: 2, supportsBackNavigation: true)
+    ]
 }

@@ -4,6 +4,8 @@ struct FavoritesView: View {
     @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var router: TabRouter
+    @Environment(\.horizontalSizeClass) private var horizontalSizeClass
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @ObservedObject private var savedStore = SavedItemsStore.shared
 
     private var lang: AppLanguage { languageManager.appLanguage }
@@ -24,17 +26,10 @@ struct FavoritesView: View {
                             .frame(height: 0)
                             .id("favoritesTop")
 
-                        SectionHeader(title: titleText, subtitle: subtitleText)
-
                         if visibleSavedItems.isEmpty {
-                            VisualEmptyState(
-                                title: emptyTitle,
-                                detail: emptyDetail,
-                                symbol: "bookmark.fill",
-                                accent: AppColors.dutchOrange,
-                                suggestedActions: emptySuggestions
-                            )
+                            emptySavedDashboard
                         } else {
+                            savedHero
                             ForEach(SavedItemsStore.SavedItemKind.allCases, id: \.rawValue) { kind in
                                 let items = visibleSavedItems.filter { $0.kind == kind }
                                 if !items.isEmpty {
@@ -48,10 +43,11 @@ struct FavoritesView: View {
                             }
                         }
 
-                        Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
+                        Color.clear.frame(height: savedBottomReserve)
                     }
                     .padding(.horizontal, AppSpacing.screenHorizontal)
                     .padding(.vertical, AppSpacing.medium)
+                    .padding(.top, AppSpacing.large)
                 }
             }
             .onReceive(router.savedScrollTop) { _ in
@@ -62,6 +58,146 @@ struct FavoritesView: View {
         }
         .appSceneBackground(.saved)
         .navigationTitle(titleText)
+        .nlNavigationInline()
+    }
+
+    private var emptySavedDashboard: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.medium) {
+            emptySavedVisual
+
+            emptyQuickActions
+            if !starterPackAnswers.isEmpty {
+                starterPackCard
+            }
+        }
+        .accessibilityIdentifier("saved.empty.dashboard")
+    }
+
+    @ViewBuilder
+    private var emptySavedVisual: some View {
+        if dynamicTypeSize.isAccessibilitySize {
+            savedReadableHero(title: emptyTitle, subtitle: emptyDetail)
+                .accessibilityIdentifier("saved.empty.visual")
+        } else {
+            CategoryHeroVisual(
+                assetName: nil,
+                title: emptyTitle,
+                subtitle: emptyDetail,
+                symbol: "bookmark.fill",
+                badgeText: savedHeroBadge,
+                accent: AppColors.dutchOrange,
+                asset: ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.mapImage,
+                height: 250,
+                language: lang
+            )
+            .accessibilityIdentifier("saved.empty.visual")
+        }
+    }
+
+    private var emptyQuickActions: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            SectionHeader(title: emptyQuickActionsTitle, subtitle: emptyQuickActionsSubtitle)
+
+            LazyVGrid(columns: emptyActionGridColumns, spacing: AppSpacing.small) {
+                ForEach(emptyActions) { action in
+                    NavigationLink(value: action.destination) {
+                        emptyActionCard(action)
+                    }
+                    .buttonStyle(AppPressableCardButtonStyle())
+                    .accessibilityIdentifier("saved.empty.action.\(action.id)")
+                }
+            }
+        }
+    }
+
+    private var emptyActionGridColumns: [GridItem] {
+        if dynamicTypeSize.isAccessibilitySize {
+            return [GridItem(.flexible(minimum: 0), spacing: AppSpacing.small)]
+        }
+
+        if horizontalSizeClass == .regular {
+            return [GridItem(.adaptive(minimum: 260), spacing: AppSpacing.small)]
+        }
+
+        return [GridItem(.flexible(minimum: 0), spacing: AppSpacing.small)]
+    }
+
+    private func emptyActionCard(_ action: EmptySavedAction) -> some View {
+        HStack(alignment: .center, spacing: AppSpacing.medium) {
+            ProductSymbolTile(symbol: action.symbol, accent: action.tint, size: 52)
+
+            VStack(alignment: .leading, spacing: 6) {
+                Text(action.title)
+                    .font(AppTypography.cardTitle)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.82)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Text(action.subtitle)
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+
+            Image(systemName: "chevron.right")
+                .font(.system(size: 13, weight: .bold))
+                .foregroundStyle(AppColors.textTertiary)
+                .frame(width: 24, height: 24)
+        }
+        .padding(PremiumVisualMetrics.Card.padding)
+        .frame(maxWidth: .infinity, minHeight: 96, alignment: .leading)
+        .appGlassCardStyle(padding: 0, cornerRadius: PremiumVisualMetrics.Card.cornerRadius, accent: action.tint)
+        .contentShape(RoundedRectangle(cornerRadius: PremiumVisualMetrics.Card.cornerRadius, style: .continuous))
+        .accessibilityElement(children: .combine)
+    }
+
+    private var starterPackCard: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            HStack(alignment: .top, spacing: AppSpacing.small) {
+                GradientIconBadge(symbol: "tray.and.arrow.down.fill", color: AppColors.emerald, size: 44, cornerRadius: 14)
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(starterPackTitle)
+                        .font(AppTypography.bodyStrong)
+                        .foregroundStyle(AppColors.textPrimary)
+                    Text(starterPackDetail)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+
+                Spacer(minLength: 0)
+            }
+
+            VStack(alignment: .leading, spacing: 8) {
+                ForEach(starterPackAnswers) { answer in
+                    HStack(spacing: 8) {
+                        Image(systemName: "checkmark.circle.fill")
+                            .font(.system(size: 13, weight: .bold))
+                            .foregroundStyle(AppColors.success)
+                        Text(answer.title(lang))
+                            .font(AppTypography.captionStrong)
+                            .foregroundStyle(AppColors.textPrimary)
+                            .lineLimit(2)
+                        Spacer(minLength: 0)
+                    }
+                }
+            }
+
+            Button {
+                saveStarterPack()
+            } label: {
+                Label(starterPackButtonTitle, systemImage: "bookmark.fill")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(PrimaryPremiumButtonStyle())
+            .disabled(starterPackAnswers.isEmpty)
+            .accessibilityIdentifier("saved.empty.saveStarterPack")
+        }
+        .appGlassCardStyle(accent: AppColors.emerald)
     }
 
     private var titleText: String {
@@ -70,6 +206,41 @@ struct FavoritesView: View {
         case .english: return "Saved"
         case .dutch: return "Opgeslagen"
         }
+    }
+
+    private var savedBottomReserve: CGFloat {
+        dynamicTypeSize.isAccessibilitySize ? AppSpacing.tabBarScrollReserveLarge + 56 : AppSpacing.tabBarScrollReserve
+    }
+
+    @ViewBuilder
+    private var savedHero: some View {
+        if dynamicTypeSize.isAccessibilitySize {
+            savedReadableHero(title: titleText, subtitle: subtitleText)
+                .accessibilityIdentifier("saved.hero")
+        } else {
+            CategoryHeroVisual(
+                assetName: nil,
+                title: titleText,
+                subtitle: subtitleText,
+                symbol: "bookmark.fill",
+                badgeText: savedHeroBadge,
+                accent: AppColors.dutchOrange,
+                asset: ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero,
+                height: 240,
+                language: lang
+            )
+            .accessibilityIdentifier("saved.hero")
+        }
+    }
+
+    private func savedReadableHero(title: String, subtitle: String) -> some View {
+        ProductStatusStrip(
+            title: title,
+            subtitle: subtitle,
+            symbol: "bookmark.fill",
+            accent: AppColors.dutchOrange,
+            actionTitle: savedHeroBadge
+        )
     }
 
     @ViewBuilder
@@ -157,11 +328,19 @@ struct FavoritesView: View {
         }
     }
 
+    private var savedHeroBadge: String {
+        switch lang {
+        case .russian: return "Ваша библиотека"
+        case .english: return "Your library"
+        case .dutch: return "Jouw bibliotheek"
+        }
+    }
+
     private var emptyTitle: String {
         switch lang {
-        case .russian: return "Пока ничего не сохранено"
-        case .english: return "No saved items yet"
-        case .dutch: return "Nog niets opgeslagen"
+        case .russian: return "Сохраняйте полезное по мере просмотра"
+        case .english: return "Save useful items as you explore"
+        case .dutch: return "Bewaar nuttige items terwijl je verkent"
         }
     }
 
@@ -173,11 +352,134 @@ struct FavoritesView: View {
         }
     }
 
-    private var emptySuggestions: [String] {
+    private var emptyQuickActionsTitle: String {
         switch lang {
-        case .russian: return ["Города", "Документы", "Места рядом"]
-        case .english: return ["Cities", "Documents", "Nearby places"]
-        case .dutch: return ["Steden", "Documenten", "Locaties dichtbij"]
+        case .russian: return "Начните отсюда"
+        case .english: return "Start from here"
+        case .dutch: return "Begin hier"
         }
     }
+
+    private var emptyQuickActionsSubtitle: String {
+        switch lang {
+        case .russian: return "Откройте раздел и сохраните нужные карточки по пути."
+        case .english: return "Open a section and bookmark useful cards as you go."
+        case .dutch: return "Open een onderdeel en bewaar nuttige kaarten onderweg."
+        }
+    }
+
+    private var starterPackTitle: String {
+        switch lang {
+        case .russian: return "Стартовый набор новичка"
+        case .english: return "Newcomer starter pack"
+        case .dutch: return "Startpakket voor nieuwkomers"
+        }
+    }
+
+    private var starterPackDetail: String {
+        switch lang {
+        case .russian: return "Добавьте базовые темы в Saved одним нажатием: регистрация, DigiD и медицинская страховка."
+        case .english: return "Add the basics to Saved in one tap: registration, DigiD, and health insurance."
+        case .dutch: return "Bewaar de basis in een tik: registratie, DigiD en zorgverzekering."
+        }
+    }
+
+    private var starterPackButtonTitle: String {
+        switch lang {
+        case .russian: return "Сохранить стартовый набор"
+        case .english: return "Save starter pack"
+        case .dutch: return "Startpakket bewaren"
+        }
+    }
+
+    private var emptyActions: [EmptySavedAction] {
+        [
+            EmptySavedAction(
+                id: "cities",
+                title: emptyActionTitle(en: "Cities", nl: "Steden", ru: "Города"),
+                subtitle: emptyActionTitle(en: "Find local city guidance", nl: "Vind lokale stadshulp", ru: "Найдите советы по городу"),
+                symbol: "building.2.fill",
+                tint: AppColors.softBlue,
+                destination: .cityList
+            ),
+            EmptySavedAction(
+                id: "documents",
+                title: emptyActionTitle(en: "Documents", nl: "Documenten", ru: "Документы"),
+                subtitle: emptyActionTitle(en: "Organize letters and proof", nl: "Orden brieven en bewijs", ru: "Соберите письма и подтверждения"),
+                symbol: "doc.text.fill",
+                tint: AppColors.dutchOrange,
+                destination: .journeyDocuments
+            ),
+            EmptySavedAction(
+                id: "nearby",
+                title: emptyActionTitle(en: "Nearby places", nl: "Locaties dichtbij", ru: "Места рядом"),
+                subtitle: emptyActionTitle(en: "Save offices and support", nl: "Bewaar loketten en hulp", ru: "Сохраните офисы и помощь"),
+                symbol: "map.fill",
+                tint: AppColors.emerald,
+                destination: .mapHub
+            ),
+            EmptySavedAction(
+                id: "official",
+                title: emptyActionTitle(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники"),
+                subtitle: emptyActionTitle(en: "Keep trusted links close", nl: "Houd betrouwbare links dichtbij", ru: "Держите проверенные ссылки рядом"),
+                symbol: "checkmark.shield.fill",
+                tint: AppColors.cyanGlow,
+                destination: .officialSources
+            )
+        ]
+    }
+
+    private var starterPackAnswers: [SearchAnswer] {
+        Self.starterPackAnswers(activePersona: activePersona)
+    }
+
+    private func saveStarterPack() {
+        for answer in starterPackAnswers {
+            let item = Self.starterPackSavedItem(for: answer)
+            if !savedStore.isSaved(item.id) {
+                savedStore.toggle(item: item)
+            }
+        }
+    }
+
+    static func starterPackAnswers(activePersona: PersonaTag?) -> [SearchAnswer] {
+        let questions = [
+            "How do I get a BSN?",
+            "How do I activate DigiD?",
+            "Do I need health insurance?"
+        ]
+
+        return questions.compactMap { question in
+            MockSearchAnswersData.items.first { $0.title(.english) == question }
+        }
+        .filter { $0.isVisible(for: activePersona, scope: .currentAndUniversal) }
+    }
+
+    static func starterPackSavedItem(for answer: SearchAnswer) -> SavedItemsStore.SavedItem {
+        SavedItemsStore.SavedItem(
+            id: "starter-search-answer::\(answer.id.uuidString.lowercased())",
+            kind: .resource,
+            title: answer.title(.english),
+            subtitle: answer.category.localized(.english),
+            destination: .searchAnswer(answer.id),
+            savedAt: Date()
+        )
+    }
+
+    private func emptyActionTitle(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .russian: return ru
+        case .dutch: return nl
+        case .english: return en
+        }
+    }
+}
+
+private struct EmptySavedAction: Identifiable {
+    let id: String
+    let title: String
+    let subtitle: String
+    let symbol: String
+    let tint: Color
+    let destination: AppDestination
 }

@@ -33,16 +33,18 @@ struct SettingsView: View {
                     documentSection
                     appSection
                     safetySection
-                    Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
                 }
                 .padding(.horizontal, AppSpacing.screenHorizontal)
                 .padding(.top, AppSpacing.xLarge)
                 .padding(.bottom, AppSpacing.medium)
+                .bottomTabSafeAreaPadding()
             }
         }
+        .topChromeSafeAreaPadding()
         .appSceneBackground(.settings)
         .navigationTitle(L10n.t("settings.title", lang))
         .nlNavigationInline()
+        .accessibilityIdentifier("settings.screen")
         .onAppear(perform: syncProfileMunicipality)
         .onChange(of: appState.selectedCity) { _, _ in syncProfileMunicipality() }
         .onChange(of: appState.selectedUserStatus) { _, newStatus in
@@ -73,7 +75,10 @@ struct SettingsView: View {
             subtitle: settingsHeroSubtitle,
             symbol: "gearshape.2.fill",
             badgeText: settingsHeroBadge,
-            accent: AppColors.softBlue
+            accent: AppColors.softBlue,
+            asset: ContentMediaRegistry.profileImage ?? ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 238,
+            language: lang
         )
     }
 
@@ -668,8 +673,19 @@ struct SavedTopicsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.small) {
+                savedTopicsHero
+
                 if visibleSavedItems.isEmpty {
-                    InfoCard(title: L10n.t("empty.no_saved_items", lang), subtitle: "", detail: "", icon: "bookmark")
+                    settingsEmptyState(
+                        title: L10n.t("empty.no_saved_items", lang),
+                        detail: savedTopicsEmptyDetail,
+                        icon: "bookmark",
+                        actions: [
+                            SettingsEmptyAction(id: "resources", title: L10n.t("resources.title", lang), icon: "books.vertical.fill", destination: .resourcesHub),
+                            SettingsEmptyAction(id: "search", title: L10n.t("tab.search", lang), icon: "magnifyingglass", destination: .searchList),
+                            SettingsEmptyAction(id: "sources", title: L10n.t("settings.sources", lang), icon: "checkmark.shield.fill", destination: .officialSources)
+                        ]
+                    )
                 } else {
                     ForEach(visibleSavedItems) { item in
                         if let destination = item.destination {
@@ -687,6 +703,21 @@ struct SavedTopicsView: View {
         .navigationTitle(L10n.t("settings.nav.saved_topics", lang))
     }
 
+    private var savedTopicsHero: some View {
+        CategoryHeroVisual(
+            assetName: nil,
+            title: L10n.t("settings.nav.saved_topics", lang),
+            subtitle: savedTopicsHeroSubtitle,
+            symbol: "bookmark.fill",
+            badgeText: savedTopicsHeroBadge,
+            accent: AppColors.dutchOrange,
+            asset: ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 220,
+            language: lang
+        )
+        .accessibilityIdentifier("settings.savedTopics.hero")
+    }
+
     private func savedTopicRow(_ item: SavedItemsStore.SavedItem) -> some View {
         VStack(alignment: .leading, spacing: 4) {
             Text(item.displayTitle(lang))
@@ -702,25 +733,62 @@ struct SavedTopicsView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .appCardStyle()
     }
+
+    private var savedTopicsEmptyDetail: String {
+        switch lang {
+        case .russian: return "Откройте ресурсы, поиск или официальные источники и сохраните важные карточки для быстрого доступа."
+        case .english: return "Open Resources, Search, or Official Sources and bookmark useful cards for quick access."
+        case .dutch: return "Open Bronnen, Zoeken of Officiële bronnen en bewaar nuttige kaarten voor snelle toegang."
+        }
+    }
+
+    private var savedTopicsHeroSubtitle: String {
+        switch lang {
+        case .russian: return "Соберите важные карточки, документы, места и источники в одном спокойном месте."
+        case .english: return "Keep important cards, documents, places, and sources in one calm place."
+        case .dutch: return "Bewaar belangrijke kaarten, documenten, plekken en bronnen op een rustige plek."
+        }
+    }
+
+    private var savedTopicsHeroBadge: String {
+        switch lang {
+        case .russian: return "Быстрый доступ"
+        case .english: return "Quick access"
+        case .dutch: return "Snelle toegang"
+        }
+    }
 }
 
 struct RecentlyViewedTopicsView: View {
     @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var languageManager: LanguageManager
     private var lang: AppLanguage { languageManager.appLanguage }
-    private var visibleRouteIDs: [String] { appState.visibleRecentRouteIDs() }
+    private var visibleRouteIDs: [String] {
+        appState.visibleRecentRouteIDs().filter { $0 != "recentlyViewedTopics" }
+    }
     private var visibleLegacyTopics: [String] { appState.visibleRecentlyViewedTopics() }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.small) {
+                recentlyViewedHero
+
                 if visibleRouteIDs.isEmpty && visibleLegacyTopics.isEmpty {
-                    InfoCard(title: L10n.t("settings.recent.empty", lang), subtitle: "", detail: "", icon: "clock")
+                    settingsEmptyState(
+                        title: L10n.t("settings.recent.empty", lang),
+                        detail: recentlyViewedEmptyDetail,
+                        icon: "clock",
+                        actions: [
+                            SettingsEmptyAction(id: "checklist", title: L10n.t("settings.nav.recommended_steps", lang), icon: "checklist", destination: .checklistList),
+                            SettingsEmptyAction(id: "search", title: L10n.t("tab.search", lang), icon: "magnifyingglass", destination: .searchList),
+                            SettingsEmptyAction(id: "map", title: L10n.t("tab.map", lang), icon: "map.fill", destination: .mapHub)
+                        ]
+                    )
                 } else {
                     ForEach(visibleRouteIDs, id: \.self) { routeID in
                         if let destination = AppNavigationResolver.destination(for: routeID, visibleFor: appState.selectedUserStatus?.personaTag) {
                             NavigationLink(value: destination) {
-                                recentTopicRow(title: recentRouteTitle(destination, fallback: routeID), subtitle: routeID)
+                                recentTopicRow(title: recentRouteTitle(destination, fallback: routeID), subtitle: recentRouteSubtitle(for: routeID))
                             }
                             .buttonStyle(.plain)
                         }
@@ -743,6 +811,21 @@ struct RecentlyViewedTopicsView: View {
             .padding(.vertical, AppSpacing.medium)
         }
         .navigationTitle(L10n.t("settings.nav.recently_viewed", lang))
+    }
+
+    private var recentlyViewedHero: some View {
+        CategoryHeroVisual(
+            assetName: nil,
+            title: L10n.t("settings.nav.recently_viewed", lang),
+            subtitle: recentlyViewedHeroSubtitle,
+            symbol: "clock.arrow.circlepath",
+            badgeText: recentlyViewedHeroBadge,
+            accent: AppColors.accent,
+            asset: ContentMediaRegistry.searchImage ?? ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 220,
+            language: lang
+        )
+        .accessibilityIdentifier("settings.recentlyViewed.hero")
     }
 
     private func legacyDestination(for topic: String) -> AppDestination? {
@@ -784,7 +867,13 @@ struct RecentlyViewedTopicsView: View {
             return supportFeedbackTitle
         default:
             return fallback
+                .replacingOccurrences(of: "([a-z])([A-Z])", with: "$1 $2", options: .regularExpression)
+                .capitalized
         }
+    }
+
+    private func recentRouteSubtitle(for routeID: String) -> String? {
+        routeID.contains(":") ? routeID : nil
     }
 
     private var supportFeedbackTitle: String {
@@ -792,6 +881,30 @@ struct RecentlyViewedTopicsView: View {
         case .russian: return "Поддержка и обратная связь"
         case .english: return "Support & Feedback"
         case .dutch: return "Support en feedback"
+        }
+    }
+
+    private var recentlyViewedEmptyDetail: String {
+        switch lang {
+        case .russian: return "Откройте чек-лист, поиск или карту, чтобы быстро вернуться к полезным разделам позже."
+        case .english: return "Open the checklist, search, or map to make useful sections easy to revisit."
+        case .dutch: return "Open de checklist, zoekfunctie of kaart om nuttige onderdelen makkelijk terug te vinden."
+        }
+    }
+
+    private var recentlyViewedHeroSubtitle: String {
+        switch lang {
+        case .russian: return "Быстро возвращайтесь к темам, которые вы уже открывали."
+        case .english: return "Return quickly to topics you have already opened."
+        case .dutch: return "Ga snel terug naar onderwerpen die u al hebt geopend."
+        }
+    }
+
+    private var recentlyViewedHeroBadge: String {
+        switch lang {
+        case .russian: return "История"
+        case .english: return "History"
+        case .dutch: return "Geschiedenis"
         }
     }
 
@@ -810,6 +923,52 @@ struct RecentlyViewedTopicsView: View {
         .frame(maxWidth: .infinity, alignment: .leading)
         .appCardStyle()
     }
+}
+
+private struct SettingsEmptyAction: Identifiable {
+    let id: String
+    let title: String
+    let icon: String
+    let destination: AppDestination
+}
+
+private func settingsEmptyState(
+    title: String,
+    detail: String,
+    icon: String,
+    actions: [SettingsEmptyAction]
+) -> some View {
+    VStack(alignment: .leading, spacing: AppSpacing.medium) {
+        InfoCard(title: title, subtitle: nil, detail: detail, icon: icon)
+
+        LazyVGrid(columns: DetailPageLayout.twoColumnWhenPossible(for: 420, minimumColumnWidth: 220), spacing: AppSpacing.small) {
+            ForEach(actions) { action in
+                NavigationLink(value: action.destination) {
+                    HStack(spacing: AppSpacing.small) {
+                        Image(systemName: action.icon)
+                            .font(.system(size: 14, weight: .bold))
+                            .foregroundStyle(AppColors.accentLight)
+                            .frame(width: 34, height: 34)
+                            .background(AppColors.accentLight.opacity(0.12))
+                            .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
+
+                        Text(action.title)
+                            .font(AppTypography.bodyStrong)
+                            .foregroundStyle(AppColors.textPrimary)
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.82)
+
+                        Spacer(minLength: 0)
+                    }
+                    .frame(maxWidth: .infinity, minHeight: 62, alignment: .leading)
+                    .appGlassCardStyle(accent: AppColors.accentLight)
+                }
+                .buttonStyle(AppPressableCardButtonStyle())
+                .accessibilityIdentifier("settings.empty.action.\(action.id)")
+            }
+        }
+    }
+    .accessibilityIdentifier("settings.empty.state")
 }
 
 private extension String {

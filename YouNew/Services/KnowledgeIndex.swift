@@ -52,6 +52,9 @@ struct KnowledgeIndex {
     let graph: KnowledgeGraph
     let itemsByID: [String: KnowledgeItem]
     private let searchableTextByID: [String: String]
+    private let normalizedTitleByID: [String: String]
+    private let normalizedCityByID: [String: String]
+    private let normalizedProvinceByID: [String: String]
     private let normalizedProvinceEnglishByName: [String: String]
 
     init(items: [KnowledgeItem]) {
@@ -71,6 +74,15 @@ struct KnowledgeIndex {
             .compactMap { $0 }
             .joined(separator: " ")
             return (item.id, KnowledgeNormalizer.normalize(text))
+        })
+        self.normalizedTitleByID = Dictionary(uniqueKeysWithValues: items.map { item in
+            (item.id, KnowledgeNormalizer.normalize(item.title(.english)))
+        })
+        self.normalizedCityByID = Dictionary(uniqueKeysWithValues: items.compactMap { item in
+            item.city.map { (item.id, KnowledgeNormalizer.normalize($0)) }
+        })
+        self.normalizedProvinceByID = Dictionary(uniqueKeysWithValues: items.compactMap { item in
+            item.province.map { (item.id, KnowledgeNormalizer.normalize($0)) }
         })
         self.normalizedProvinceEnglishByName = Dictionary(uniqueKeysWithValues: NLProvince.all.map { province in
             (province.name, KnowledgeNormalizer.normalize(province.nameEN))
@@ -107,6 +119,12 @@ struct KnowledgeIndex {
 
         let scored = items.compactMap { item -> (KnowledgeItem, Double, [String])? in
             guard item.isVisible(for: persona, scope: searchScope) else { return nil }
+            if item.type == .nearbyPlace,
+               let contextCity,
+               let itemCity = item.city,
+               itemCity.caseInsensitiveCompare(contextCity) != .orderedSame {
+                return nil
+            }
 
             let text = searchableTextByID[item.id] ?? ""
             let phraseMatched = text.contains(normalizedQuery)
@@ -114,7 +132,21 @@ struct KnowledgeIndex {
             for token in queryTokens where text.contains(token) {
                 matchedTokenCount += 1
             }
-            guard matchedTokenCount > 0 || phraseMatched else { return nil }
+            let localPartnerQueryMatched: Bool
+            if item.type == .localPartner,
+               let itemCity = item.city {
+                let normalizedItemCity = KnowledgeNormalizer.normalize(itemCity)
+                let serviceTokens = queryTokens.filter { $0 != normalizedItemCity }
+                localPartnerQueryMatched = !normalizedItemCity.isEmpty
+                    && normalizedQuery.contains(normalizedItemCity)
+                    && !serviceTokens.isEmpty
+                    && serviceTokens.allSatisfy { token in
+                        text.contains(token) || text.contains("\(token)s")
+                    }
+            } else {
+                localPartnerQueryMatched = false
+            }
+            guard matchedTokenCount > 0 || phraseMatched || localPartnerQueryMatched else { return nil }
 
             var score = 0.0
             var fields: [String] = []
@@ -129,7 +161,12 @@ struct KnowledgeIndex {
                 fields.append("tokens")
             }
 
-            let normalizedTitle = KnowledgeNormalizer.normalize(item.title(.english))
+            if localPartnerQueryMatched {
+                score += 1_000
+                fields.append("local-partner-query")
+            }
+
+            let normalizedTitle = normalizedTitleByID[item.id] ?? ""
             if normalizedTitle == normalizedQuery {
                 score += 140
                 fields.append("exact-title")
@@ -138,18 +175,67 @@ struct KnowledgeIndex {
                 fields.append("title")
             }
 
+            if !normalizedTitle.isEmpty,
+               let itemCity = item.city {
+                let normalizedItemCity = KnowledgeNormalizer.normalize(itemCity)
+                if normalizedQuery.contains(normalizedTitle),
+                   !normalizedItemCity.isEmpty,
+                   normalizedQuery.contains(normalizedItemCity) {
+                    score += 420
+                    fields.append("title-city")
+                }
+            }
+
+            let normalizedKeywords = item.keywords.map(KnowledgeNormalizer.normalize)
+            if normalizedKeywords.contains(normalizedQuery) {
+                score += 120
+                fields.append("exact-keyword")
+            } else if normalizedKeywords.contains(where: { keyword in
+                keyword.split(separator: " ").contains(Substring(normalizedQuery))
+            }) {
+                score += 72
+                fields.append("keyword-token")
+            }
+
+            let normalizedSources = item.sources.map { source in
+                KnowledgeNormalizer.normalize([source.title, source.institution].compactMap { $0 }.joined(separator: " "))
+            }
+            if normalizedSources.contains(where: { source in
+                source == normalizedQuery || source.split(separator: " ").contains(Substring(normalizedQuery))
+            }) {
+                score += 96
+                fields.append("source")
+            }
+
             if item.type == .city,
-               let city = item.city {
-                let normalizedCity = KnowledgeNormalizer.normalize(city)
+               let normalizedCity = normalizedCityByID[item.id] {
                 if normalizedCity == normalizedQuery || normalizedQuery.contains(normalizedCity) {
                     score += 140
                     fields.append("city-entity")
                 }
             }
 
+            if let itemCity = item.city {
+                let normalizedItemCity = KnowledgeNormalizer.normalize(itemCity)
+                if !normalizedItemCity.isEmpty, normalizedQuery.contains(normalizedItemCity) {
+                    score += 64
+                    fields.append("query-city")
+                    if item.type == .localPartner {
+                        score += 160
+                        fields.append("local-partner-city")
+                    }
+                }
+            }
+
+            if item.type == .localPartner,
+               matchedTokenCount == queryTokens.count {
+                score += 600
+                fields.append("local-partner-exact-tokens")
+            }
+
             if item.type == .province,
-               let province = item.province {
-                let normalizedProvince = KnowledgeNormalizer.normalize(province)
+               let province = item.province,
+               let normalizedProvince = normalizedProvinceByID[item.id] {
                 let normalizedProvinceEnglish = normalizedProvinceEnglishByName[province]
                 if normalizedProvince == normalizedQuery
                     || normalizedQuery.contains(normalizedProvince)
@@ -216,9 +302,11 @@ struct KnowledgeIndex {
 enum KnowledgeIndexBuilder {
     static func buildItems() -> [KnowledgeItem] {
         var items: [KnowledgeItem] = []
+        items += NetherlandsKnowledgeDatabase.shared.knowledgeItems()
         items += appScreens()
         items += knowledgeTopics()
         items += lifeScenarios()
+        items += profileScenarioItems()
         items += officialServices()
         items += documents()
         items += municipalities()
@@ -238,6 +326,9 @@ enum KnowledgeIndexBuilder {
         items += legalInfo()
         items += dailyLife()
         items += lgbtqSupport()
+        items += dashboardPlaces()
+        items += localPartners()
+        items += dashboardCalendarEvents()
         items += nearbyPlaces()
         items += resources()
         items += knmModules()
@@ -358,6 +449,50 @@ enum KnowledgeIndexBuilder {
                 personaTags: scenario.personaTags
             )
         }
+    }
+
+    private static func profileScenarioItems() -> [KnowledgeItem] {
+        [
+            KnowledgeItem(
+                id: "scenario:student-eindhoven",
+                type: .scenario,
+                title: LocalizedKnowledgeText(
+                    "Student arrival in Eindhoven",
+                    dutch: "Student aankomst in Eindhoven",
+                    russian: "Студент приехал в Эйндховен"
+                ),
+                summary: LocalizedKnowledgeText(
+                    "Guided next steps for an international student settling in Eindhoven: municipality registration, BSN, DigiD, health insurance, banking, transport, Dutch language, university orientation, and verified local services.",
+                    dutch: "Begeleide volgende stappen voor een internationale student in Eindhoven: gemeente, BSN, DigiD, zorgverzekering, bank, vervoer, Nederlands, universiteit en gecontroleerde lokale diensten.",
+                    russian: "Следующие шаги для иностранного студента в Эйндховене: муниципальная регистрация, BSN, DigiD, страховка, банк, транспорт, голландский язык, университет и проверенные местные сервисы."
+                ),
+                category: "Workflow",
+                city: "Eindhoven",
+                province: ProvinceCatalog.provinceID(containingCity: "Eindhoven"),
+                keywords: [
+                    "student Eindhoven",
+                    "TU Eindhoven",
+                    "international student Eindhoven",
+                    "BSN Eindhoven",
+                    "municipality Eindhoven",
+                    "health insurance student",
+                    "bank account student",
+                    "OV-chipkaart student",
+                    "Dutch course Eindhoven",
+                    "local services Eindhoven"
+                ],
+                route: .firstSteps,
+                routeID: "firstSteps",
+                sources: [
+                    OfficialSource(title: "Municipality Eindhoven", url: AppURL.make("https://www.eindhoven.nl/en"), institution: "Gemeente Eindhoven"),
+                    OfficialSource(title: "Study in NL", url: AppURL.make("https://www.studyinnl.org"), institution: "Nuffic")
+                ],
+                lastReviewed: nil,
+                safetyLevel: .officialSourceRequired,
+                sourcePath: "YouNew/Services/KnowledgeIndex.swift",
+                personaTags: [.student]
+            )
+        ]
     }
 
     private static func officialServices() -> [KnowledgeItem] {
@@ -885,6 +1020,102 @@ enum KnowledgeIndexBuilder {
                 safetyLevel: place.emergencyNote == nil ? (place.isOfficialSource ? .officialSourceRecommended : .general) : .emergency,
                 sourcePath: "YouNew/Data/MockNearbyPlacesData.swift",
                 personaTags: place.personaTags
+            )
+        }
+    }
+
+    private static func dashboardPlaces() -> [KnowledgeItem] {
+        DashboardPlacesData.places.map { place in
+            KnowledgeItem(
+                id: "visitPlace:\(KnowledgeNormalizer.slug(place.id))",
+                type: .nearbyPlace,
+                title: LocalizedKnowledgeText(place.title),
+                summary: LocalizedKnowledgeText(place.description),
+                category: place.primaryCategory.rawValue,
+                city: place.cityId,
+                province: nil,
+                keywords: [
+                    place.title,
+                    place.shortTitle ?? "",
+                    place.description,
+                    place.cityId,
+                    place.address ?? "",
+                    "places to visit",
+                    "tourist place",
+                    "attraction"
+                ] + place.category.map(\.rawValue),
+                route: place.destination,
+                routeID: AppNavigationResolver.routeID(from: place.destination),
+                sources: place.source.map { [$0] } ?? [],
+                lastReviewed: nil,
+                safetyLevel: place.source == nil ? .general : .officialSourceRecommended,
+                sourcePath: "YouNew/Data/MockDashboardDiscoveryData.swift",
+                personaTags: place.audience
+            )
+        }
+    }
+
+    private static func localPartners() -> [KnowledgeItem] {
+        MockLocalPartnersData.partners.map { partner in
+            KnowledgeItem(
+                id: "localPartner:\(partner.id)",
+                type: .localPartner,
+                title: LocalizedKnowledgeText(partner.name),
+                summary: LocalizedKnowledgeText(partner.description),
+                category: partner.subcategory,
+                city: partner.city,
+                province: ProvinceCatalog.provinceID(containingCity: partner.city),
+                keywords: [
+                    partner.name,
+                    partner.category.title(.english),
+                    partner.subcategory,
+                    partner.description,
+                    partner.address,
+                    partner.city,
+                    partner.openingHours,
+                    partner.sourceReliabilityNote,
+                    partner.officialSource.title,
+                    partner.officialSource.institution ?? "",
+                    partner.media.allAssets.map(\.altText).joined(separator: " ")
+                ] + partner.languages + partner.photoSymbols,
+                route: .localPartnerDetail(partner.id),
+                routeID: AppNavigationResolver.routeID(from: .localPartnerDetail(partner.id)),
+                sources: [partner.officialSource],
+                lastReviewed: nil,
+                safetyLevel: partner.plan == .freeListing ? .general : .officialSourceRecommended,
+                sourcePath: "YouNew/Data/MockLocalPartnersData.swift",
+                personaTags: [.student, .worker, .family, .tourist, .entrepreneur, .eu, .nonEU, .highlySkilledMigrant, .lgbt]
+            )
+        }
+    }
+
+    private static func dashboardCalendarEvents() -> [KnowledgeItem] {
+        DashboardCalendarData.events.map { event in
+            KnowledgeItem(
+                id: "calendarEvent:\(KnowledgeNormalizer.slug(event.id))",
+                type: .deadline,
+                title: LocalizedKnowledgeText(event.title),
+                summary: LocalizedKnowledgeText(event.impact ?? event.description ?? event.type.rawValue),
+                category: event.type.rawValue,
+                city: event.cityId,
+                province: nil,
+                keywords: [
+                    event.title,
+                    event.localTitle ?? "",
+                    event.description ?? "",
+                    event.impact ?? "",
+                    "holiday",
+                    "calendar",
+                    "public holiday",
+                    "netherlands"
+                ],
+                route: .calendarEvent(event.id),
+                routeID: AppNavigationResolver.routeID(from: .calendarEvent(event.id)),
+                sources: event.source.map { [$0] } ?? [],
+                lastReviewed: nil,
+                safetyLevel: event.source == nil ? .general : .officialSourceRecommended,
+                sourcePath: "YouNew/Data/MockDashboardDiscoveryData.swift",
+                personaTags: event.audience
             )
         }
     }

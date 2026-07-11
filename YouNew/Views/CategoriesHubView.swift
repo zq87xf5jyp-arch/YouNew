@@ -42,7 +42,7 @@ struct CategoriesHubView: View {
             symbol: "rectangle.grid.2x2.fill",
             badgeText: badgeText,
             accent: AppColors.success,
-            asset: nil
+            asset: ContentMediaRegistry.searchImage ?? ContentMediaRegistry.mapImage
         )
     }
 
@@ -209,7 +209,7 @@ struct CategoriesHubView: View {
 
     private var badgeText: String {
         switch lang {
-        case .russian: return "Проверенные пути"
+        case .russian: return "Маршруты с учетом источников"
         case .dutch:   return "Gecontroleerde routes"
         case .english: return "Verified routes"
         }
@@ -239,9 +239,9 @@ struct CategoriesHubView: View {
             }
         }
         switch lang {
-        case .russian: return "Нажмите для перехода в раздел"
-        case .dutch:   return "Tik om naar de categorie te gaan"
-        case .english: return "Tap to enter a category"
+        case .russian: return "Темы, действия и источники в одном месте"
+        case .dutch:   return "Thema's, acties en bronnen op een plek"
+        case .english: return "Topics, actions, and sources in one place"
         }
     }
 

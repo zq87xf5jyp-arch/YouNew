@@ -59,12 +59,12 @@ struct NetherlandsHistoryView: View {
                         }
                         sourcesSection
                     case .empty:
-                        EmptyView()
+                        historyEmptyDashboard
                     case .failed:
                         loadErrorView
                     }
 
-                    Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
+                    Color.clear.frame(height: AppSpacing.tabBarScrollReserve + 36)
                 }
                 .padding(.horizontal, AppSpacing.screenHorizontal)
                 .padding(.vertical, AppSpacing.medium)
@@ -133,6 +133,93 @@ struct NetherlandsHistoryView: View {
         }
     }
 
+    // MARK: - Empty State
+
+    private var historyEmptyDashboard: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.medium) {
+            HStack(alignment: .top, spacing: AppSpacing.medium) {
+                Image(systemName: "clock.badge.questionmark")
+                    .font(.system(size: 24, weight: .bold))
+                    .foregroundStyle(AppColors.cyanGlow)
+                    .frame(width: 52, height: 52)
+                    .background(AppColors.cyanGlow.opacity(0.14))
+                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(localized(en: "Use connected history paths", nl: "Gebruik verbonden geschiedenispaden", ru: "Используйте связанные исторические маршруты"))
+                        .font(AppTypography.title)
+                        .foregroundStyle(AppColors.textPrimary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text(localized(en: "Retry loading, or continue through KNM, culture, Dutch terms, and official sources below.", nl: "Probeer opnieuw te laden of ga hieronder verder via KNM, cultuur, Nederlandse termen en officiële bronnen.", ru: "Повторите загрузку или продолжите через KNM, культуру, нидерландские термины и официальные источники ниже."))
+                        .font(AppTypography.body)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
+            Button {
+                Task { await viewModel.retry() }
+            } label: {
+                Label(loadErrorRetry, systemImage: "arrow.clockwise")
+                    .font(AppTypography.bodyStrong)
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(AppColors.accent)
+            .accessibilityIdentifier("history.empty.retry")
+
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 170), spacing: 10)], spacing: 10) {
+                ForEach(historyEmptyActions) { action in
+                    NavigationLink(value: action.destination) {
+                        HistoryRecoveryActionCard(action: action)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("history.empty.action.\(action.id)")
+                }
+            }
+        }
+        .appCardStyle()
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("history.empty.dashboard")
+    }
+
+    private var historyEmptyActions: [HistoryRecoveryAction] {
+        [
+            HistoryRecoveryAction(
+                id: "knm",
+                icon: "graduationcap.fill",
+                title: localized(en: "KNM guide", nl: "KNM-gids", ru: "Гайд KNM"),
+                subtitle: localized(en: "Civic themes for the exam", nl: "Burgerschapsthema's voor het examen", ru: "Темы общества для экзамена"),
+                color: AppColors.violet,
+                destination: .knm
+            ),
+            HistoryRecoveryAction(
+                id: "culture",
+                icon: "building.columns.fill",
+                title: localized(en: "Culture", nl: "Cultuur", ru: "Культура"),
+                subtitle: localized(en: "Places, customs, daily context", nl: "Plaatsen, gewoonten en dagelijkse context", ru: "Места, привычки и повседневный контекст"),
+                color: AppColors.dutchOrange,
+                destination: .cultureAttractions
+            ),
+            HistoryRecoveryAction(
+                id: "terms",
+                icon: "text.magnifyingglass",
+                title: localized(en: "Dutch terms", nl: "Nederlandse termen", ru: "Термины"),
+                subtitle: localized(en: "Useful civic words", nl: "Handige burgerwoorden", ru: "Полезные слова о стране"),
+                color: AppColors.softBlue,
+                destination: .dutchTermsList
+            ),
+            HistoryRecoveryAction(
+                id: "sources",
+                icon: "checkmark.shield.fill",
+                title: localized(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники"),
+                subtitle: localized(en: "Verify facts before acting", nl: "Controleer feiten voordat je handelt", ru: "Проверьте факты перед действием"),
+                color: AppColors.success,
+                destination: .officialSources
+            )
+        ]
+    }
+
     // MARK: - Header
 
     private var headerSection: some View {
@@ -190,7 +277,7 @@ struct NetherlandsHistoryView: View {
 
             VStack(alignment: .leading, spacing: 0) {
                 ForEach(Array(historyJourneyPeriods.enumerated()), id: \.element.id) { index, period in
-                    HistoryJourneyPeriodCard(
+                    HistoryJourneyPeriodSurface(
                         period: period,
                         language: lang,
                         isFirst: index == 0,
@@ -248,14 +335,60 @@ struct NetherlandsHistoryView: View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             NLSectionHeader(title: timelineTitle)
             ForEach(viewModel.timeline) { item in
-                NLCivicTimelineRow(
-                    item: item,
-                    language: lang,
-                    isExpanded: viewModel.expandedTimelineIDs.contains(item.id),
-                    onToggle: { viewModel.toggleTimelineExpansion(item.id) }
-                )
+                civicTimelineRow(item)
             }
         }
+    }
+
+    private func civicTimelineRow(_ item: CivicTimelineItem) -> some View {
+        let isExpanded = viewModel.expandedTimelineIDs.contains(item.id)
+        return Button {
+            viewModel.toggleTimelineExpansion(item.id)
+        } label: {
+            VStack(alignment: .leading, spacing: AppSpacing.small) {
+                HStack(alignment: .center, spacing: AppSpacing.small) {
+                    AppSymbolBadge(symbol: item.symbol, color: AppColors.cyanGlow, size: 50)
+
+                    VStack(alignment: .leading, spacing: 5) {
+                        Text(item.title(lang))
+                            .font(AppTypography.cardTitle)
+                            .foregroundStyle(AppColors.textPrimary)
+                            .lineLimit(2)
+                            .minimumScaleFactor(0.80)
+                            .fixedSize(horizontal: false, vertical: true)
+
+                        Text(item.period(lang))
+                            .font(AppTypography.caption)
+                            .foregroundStyle(AppColors.textSecondary)
+                            .lineLimit(2)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+
+                    Spacer(minLength: 8)
+
+                    Image(systemName: "chevron.down")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundStyle(AppColors.textTertiary)
+                        .rotationEffect(isExpanded ? .degrees(180) : .zero)
+                }
+                .padding(PremiumVisualMetrics.Card.padding)
+                .frame(maxWidth: .infinity, minHeight: 88, alignment: .leading)
+                .appGlassCardStyle(accent: AppColors.cyanGlow)
+
+                if isExpanded {
+                    ProductInfoBlock(
+                        title: item.title(lang),
+                        bodyText: "\(item.details(lang))\n\n\(item.whyItMatters(lang))",
+                        symbol: "text.book.closed.fill",
+                        accent: AppColors.cyanGlow
+                    )
+                    .transition(.opacity.combined(with: .move(edge: .top)))
+                }
+            }
+        }
+        .buttonStyle(.plain)
+        .accessibilityLabel("\(item.title(lang)), \(item.period(lang))")
+        .animation(AppAnimations.softSpring, value: isExpanded)
     }
 
     private func historyHeroPill(_ value: String, _ label: String, _ color: Color) -> some View {
@@ -319,10 +452,49 @@ struct NetherlandsHistoryView: View {
             }
 
             ForEach(cards) { card in
-                NLCivicInfoCard(item: card, language: lang, isExpanded: viewModel.expandedCardIDs.contains(card.id)) {
-                    viewModel.toggleCardExpansion(card.id)
+                civicInfoBlock(card)
+            }
+        }
+    }
+
+    private func civicInfoBlock(_ card: CivicInfoCardItem) -> some View {
+        let isExpanded = viewModel.expandedCardIDs.contains(card.id)
+        let accent = civicInfoAccent(for: card)
+        return Button {
+            viewModel.toggleCardExpansion(card.id)
+        } label: {
+            VStack(alignment: .leading, spacing: AppSpacing.small) {
+                ProductTaskCard(
+                    title: card.title(lang),
+                    subtitle: card.summary(lang),
+                    symbol: card.symbol,
+                    accent: accent,
+                    minHeight: 88
+                )
+
+                if isExpanded {
+                    ProductInfoBlock(
+                        title: card.title(lang),
+                        bodyText: card.detail(lang),
+                        symbol: card.symbol,
+                        accent: accent
+                    )
+                    .transition(.opacity.combined(with: .move(edge: .top)))
                 }
             }
+        }
+        .buttonStyle(.plain)
+        .animation(AppAnimations.softSpring, value: isExpanded)
+    }
+
+    private func civicInfoAccent(for item: CivicInfoCardItem) -> Color {
+        switch item.section {
+        case .history: return AppColors.cyanGlow
+        case .monarchy: return AppColors.dutchOrange
+        case .politics: return AppColors.violet
+        case .society: return AppColors.emerald
+        case .glossary: return AppColors.softBlue
+        case .quiz: return AppColors.success
         }
     }
 
@@ -348,7 +520,6 @@ struct NetherlandsHistoryView: View {
                     Text(term.definition(lang))
                         .font(AppTypography.caption)
                         .foregroundStyle(AppColors.textSecondary)
-                        .lineLimit(4)
                         .fixedSize(horizontal: false, vertical: true)
                         .frame(maxWidth: .infinity, alignment: .leading)
                 }
@@ -361,14 +532,75 @@ struct NetherlandsHistoryView: View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             NLSectionHeader(title: CivicLearningSection.quiz.title(lang))
             ForEach(viewModel.quiz) { question in
-                NLCivicQuizCard(
-                    question: question,
-                    language: lang,
-                    selectedIndex: viewModel.selectedQuizAnswers[question.id],
-                    onAnswer: { index in viewModel.answer(question, index: index) }
+                civicQuizBlock(question)
+            }
+        }
+    }
+
+    private func civicQuizBlock(_ question: CivicQuizQuestion) -> some View {
+        let selectedIndex = viewModel.selectedQuizAnswers[question.id]
+        let options = question.options(lang)
+        return VStack(alignment: .leading, spacing: AppSpacing.small) {
+            ProductInfoBlock(
+                title: CivicLearningSection.quiz.title(lang),
+                bodyText: question.question(lang),
+                symbol: "questionmark.circle.fill",
+                accent: AppColors.success
+            )
+
+            ForEach(Array(options.enumerated()), id: \.offset) { index, option in
+                Button {
+                    viewModel.answer(question, index: index)
+                } label: {
+                    HStack(alignment: .top, spacing: AppSpacing.small) {
+                        Image(systemName: civicQuizIcon(index, selectedIndex: selectedIndex, question: question))
+                            .font(.system(size: 14, weight: .bold))
+                            .foregroundStyle(civicQuizIconColor(index, selectedIndex: selectedIndex, question: question))
+                            .padding(.top, 2)
+                        Text(option)
+                            .font(AppTypography.body)
+                            .foregroundStyle(AppColors.textPrimary)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Spacer(minLength: 0)
+                    }
+                    .padding(AppSpacing.small)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(civicQuizBackground(index, selectedIndex: selectedIndex, question: question))
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                }
+                .buttonStyle(.plain)
+            }
+
+            if selectedIndex != nil {
+                ProductInfoBlock(
+                    title: localized(en: "Explanation", nl: "Uitleg", ru: "Пояснение"),
+                    bodyText: question.explanation(lang),
+                    symbol: "text.bubble.fill",
+                    accent: AppColors.cyanGlow
                 )
             }
         }
+    }
+
+    private func civicQuizIcon(_ index: Int, selectedIndex: Int?, question: CivicQuizQuestion) -> String {
+        guard let selectedIndex else { return "circle" }
+        if index == question.correctIndex { return "checkmark.circle.fill" }
+        if index == selectedIndex { return "xmark.circle.fill" }
+        return "circle"
+    }
+
+    private func civicQuizIconColor(_ index: Int, selectedIndex: Int?, question: CivicQuizQuestion) -> Color {
+        guard selectedIndex != nil else { return AppColors.textTertiary }
+        if index == question.correctIndex { return AppColors.success }
+        if index == selectedIndex { return AppColors.error }
+        return AppColors.textTertiary
+    }
+
+    private func civicQuizBackground(_ index: Int, selectedIndex: Int?, question: CivicQuizQuestion) -> Color {
+        guard selectedIndex != nil else { return Color.white.opacity(0.04) }
+        if index == question.correctIndex { return AppColors.success.opacity(0.12) }
+        if index == selectedIndex { return AppColors.error.opacity(0.10) }
+        return Color.white.opacity(0.04)
     }
 
     // MARK: - Sources
@@ -397,6 +629,7 @@ struct NetherlandsHistoryView: View {
                 }
                 .buttonStyle(.plain)
                 .foregroundStyle(AppColors.accentLight)
+                .accessibilityLabel(L10n.t("historyNetherlands.sources.open", lang))
                 .accessibilityIdentifier("history.sources.open")
             }
             .appCardStyle()
@@ -602,6 +835,29 @@ struct NetherlandsHistoryView: View {
 
 // MARK: - Guided History Timeline
 
+private struct HistoryRecoveryAction: Identifiable {
+    let id: String
+    let icon: String
+    let title: String
+    let subtitle: String
+    let color: Color
+    let destination: AppDestination
+}
+
+private struct HistoryRecoveryActionCard: View {
+    let action: HistoryRecoveryAction
+
+    var body: some View {
+        ProductTaskCard(
+            title: action.title,
+            subtitle: action.subtitle,
+            symbol: action.icon,
+            accent: action.color,
+            minHeight: 104
+        )
+    }
+}
+
 private struct HistoryJourneyPeriod: Identifiable {
     let id: String
     let symbol: String
@@ -616,7 +872,7 @@ private struct HistoryJourneyPeriod: Identifiable {
     let imageReason: String?
 }
 
-private struct HistoryJourneyPeriodCard: View {
+private struct HistoryJourneyPeriodSurface: View {
     let period: HistoryJourneyPeriod
     let language: AppLanguage
     let isFirst: Bool
@@ -627,7 +883,15 @@ private struct HistoryJourneyPeriodCard: View {
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     private var imageHeight: CGFloat {
-        dynamicTypeSize.isAccessibilitySize ? 220 : 190
+        dynamicTypeSize.isAccessibilitySize ? 220 : 184
+    }
+
+    private var railWidth: CGFloat {
+        dynamicTypeSize.isAccessibilitySize ? 34 : 30
+    }
+
+    private var contentLeadingInset: CGFloat {
+        railWidth + 12
     }
 
     var body: some View {
@@ -638,8 +902,8 @@ private struct HistoryJourneyPeriodCard: View {
     private var cardSurface: some View {
         ZStack(alignment: .topLeading) {
             timelineRail
-                .frame(width: 36)
-                .padding(.leading, 4)
+                .frame(width: railWidth)
+                .padding(.leading, 2)
                 .allowsHitTesting(false)
 
             VStack(alignment: .leading, spacing: 12) {
@@ -658,10 +922,10 @@ private struct HistoryJourneyPeriodCard: View {
                     expandedDetail
                 }
             }
-            .padding(.leading, 48)
+            .padding(.leading, contentLeadingInset)
             .frame(minWidth: 0, maxWidth: .infinity, alignment: .leading)
         }
-        .padding(14)
+        .padding(dynamicTypeSize.isAccessibilitySize ? 14 : 12)
         .frame(maxWidth: .infinity, alignment: .leading)
         .background(
             LinearGradient(
@@ -675,7 +939,6 @@ private struct HistoryJourneyPeriodCard: View {
             RoundedRectangle(cornerRadius: 18, style: .continuous)
                 .stroke(period.accent.opacity(0.20), lineWidth: 0.8)
         )
-        .clipped()
     }
 
     private var timelineRail: some View {
@@ -687,9 +950,9 @@ private struct HistoryJourneyPeriodCard: View {
             ZStack {
                 Circle()
                     .fill(period.accent.opacity(0.16))
-                    .frame(width: 42, height: 42)
+                    .frame(width: railWidth, height: railWidth)
                 Image(systemName: period.symbol)
-                    .font(.system(size: 15, weight: .bold))
+                    .font(.system(size: dynamicTypeSize.isAccessibilitySize ? 14 : 13, weight: .bold))
                     .foregroundStyle(period.accent)
             }
 
@@ -698,7 +961,7 @@ private struct HistoryJourneyPeriodCard: View {
                 .frame(width: 2)
                 .frame(maxHeight: .infinity)
         }
-        .frame(width: 36)
+        .frame(width: railWidth)
     }
 
     private var header: some View {
@@ -796,8 +1059,9 @@ private struct HistoryJourneyPeriodCard: View {
                 accessibilityLabel: image.displayTitle(language),
                 targetPixelWidth: 900
             )
-            .frame(maxWidth: .infinity)
+            .frame(minWidth: 0, maxWidth: .infinity)
             .frame(height: imageHeight)
+            .contentShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
             .clipped()
 
             if let imageReason = period.imageReason {
@@ -806,11 +1070,18 @@ private struct HistoryJourneyPeriodCard: View {
                         .font(.system(size: 11, weight: .bold))
                         .foregroundStyle(period.accent)
                         .padding(.top, 2)
+                        .frame(width: 18, alignment: .center)
+
                     Text(imageReason)
                         .font(AppTypography.caption)
                         .foregroundStyle(AppColors.textSecondary)
+                        .multilineTextAlignment(.leading)
                         .fixedSize(horizontal: false, vertical: true)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .layoutPriority(1)
                 }
+                .padding(.trailing, 4)
+                .frame(maxWidth: .infinity, alignment: .leading)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -883,97 +1154,6 @@ private struct HistoryJourneyPeriodCard: View {
         case .russian: return "Скрыть"
         case .dutch: return "Minder tonen"
         case .english: return "Show less"
-        }
-    }
-}
-
-// MARK: - Civic Timeline Row
-
-private struct NLCivicTimelineRow: View {
-    let item: CivicTimelineItem
-    let language: AppLanguage
-    let isExpanded: Bool
-    let onToggle: () -> Void
-
-    var body: some View {
-        Button(action: onToggle) {
-            VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 12) {
-                    AppSymbolBadge(symbol: item.symbol, color: AppColors.cyanGlow, size: 44)
-
-                    VStack(alignment: .leading, spacing: 3) {
-                        Text(item.period(language))
-                            .font(.system(size: 11, weight: .bold, design: .rounded))
-                            .foregroundStyle(AppColors.accentLight)
-                            .lineLimit(2)
-                            .fixedSize(horizontal: false, vertical: true)
-                        Text(item.title(language))
-                            .font(AppTypography.bodyStrong)
-                            .foregroundStyle(AppColors.textPrimary)
-                            .lineLimit(2)
-                            .minimumScaleFactor(0.88)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-
-                    Spacer(minLength: 6)
-
-                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                        .font(.system(size: 12, weight: .bold))
-                        .foregroundStyle(AppColors.textTertiary)
-                        .frame(width: 24, height: 24)
-                        .animation(AppAnimations.softSpring, value: isExpanded)
-                }
-
-                if isExpanded {
-                    VStack(alignment: .leading, spacing: AppSpacing.small) {
-                        Divider()
-                            .background(Color.white.opacity(0.08))
-                            .padding(.vertical, 4)
-
-                        timelineText(labelKey: "historyNetherlands.labels.summary", value: item.summary(language))
-
-                        timelineText(labelKey: "historyNetherlands.labels.details", value: item.details(language))
-
-                        HStack(alignment: .top, spacing: 8) {
-                            Image(systemName: "lightbulb.fill")
-                                .font(.system(size: 11, weight: .bold))
-                                .foregroundStyle(AppColors.dutchOrange)
-                                .padding(.top, 2)
-                            VStack(alignment: .leading, spacing: 3) {
-                                Text(L10n.t("historyNetherlands.labels.whyItMatters", language))
-                                    .font(.system(.caption, design: .rounded).weight(.bold))
-                                    .foregroundStyle(AppColors.textPrimary)
-                                Text(item.whyItMatters(language))
-                                    .font(AppTypography.caption)
-                                    .foregroundStyle(AppColors.textSecondary)
-                                    .fixedSize(horizontal: false, vertical: true)
-                            }
-                        }
-                        .padding(10)
-                        .background(AppColors.dutchOrange.opacity(0.08))
-                        .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-                    }
-                    .transition(.opacity.combined(with: .move(edge: .top)))
-                }
-            }
-            .appCardStyle()
-        }
-        .buttonStyle(.plain)
-        .accessibilityLabel(
-            "\(isExpanded ? L10n.t("common.collapse_details", language) : L10n.t("common.expand_details", language)): \(item.title(language))"
-        )
-        .animation(AppAnimations.softSpring, value: isExpanded)
-    }
-
-    private func timelineText(labelKey: String, value: String) -> some View {
-        VStack(alignment: .leading, spacing: 3) {
-            Text(L10n.t(labelKey, language))
-                .font(.system(.caption, design: .rounded).weight(.bold))
-                .foregroundStyle(AppColors.textPrimary)
-            Text(value)
-                .font(AppTypography.body)
-                .foregroundStyle(AppColors.textSecondary)
-                .fixedSize(horizontal: false, vertical: true)
         }
     }
 }
@@ -1143,150 +1323,6 @@ enum HistorySourceDetails {
             author: author,
             attribution: attribution
         )
-    }
-}
-
-// MARK: - Civic Info Card
-
-private struct NLCivicInfoCard: View {
-    let item: CivicInfoCardItem
-    let language: AppLanguage
-    let isExpanded: Bool
-    let onToggle: () -> Void
-
-    var body: some View {
-        Button(action: onToggle) {
-            VStack(alignment: .leading, spacing: 0) {
-                HStack(spacing: 12) {
-                    Image(systemName: item.symbol)
-                        .font(.system(size: 15, weight: .bold))
-                        .foregroundStyle(sectionColor)
-                        .frame(width: 36, height: 36)
-                        .background(sectionColor.opacity(0.12))
-                        .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
-
-                    VStack(alignment: .leading, spacing: 3) {
-                        Text(item.title(language))
-                            .font(AppTypography.bodyStrong)
-                            .foregroundStyle(AppColors.textPrimary)
-                            .lineLimit(2)
-                            .minimumScaleFactor(0.88)
-                            .fixedSize(horizontal: false, vertical: true)
-                        Text(item.summary(language))
-                            .font(AppTypography.caption)
-                            .foregroundStyle(AppColors.textSecondary)
-                            .lineLimit(isExpanded ? nil : 2)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-
-                    Spacer(minLength: 8)
-
-                    Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                        .font(.system(size: 12, weight: .bold))
-                        .foregroundStyle(AppColors.textTertiary)
-                        .animation(AppAnimations.softSpring, value: isExpanded)
-                }
-
-                if isExpanded {
-                    VStack(alignment: .leading, spacing: 0) {
-                        Divider()
-                            .background(Color.white.opacity(0.08))
-                            .padding(.vertical, 8)
-                        Text(item.detail(language))
-                            .font(AppTypography.body)
-                            .foregroundStyle(AppColors.textSecondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                    .transition(.opacity.combined(with: .move(edge: .top)))
-                }
-            }
-            .appCardStyle()
-        }
-        .buttonStyle(.plain)
-        .animation(AppAnimations.softSpring, value: isExpanded)
-    }
-
-    private var sectionColor: Color {
-        switch item.section {
-        case .history: return AppColors.cyanGlow
-        case .monarchy: return AppColors.dutchOrange
-        case .politics: return AppColors.violet
-        case .society: return AppColors.emerald
-        case .glossary: return AppColors.softBlue
-        case .quiz: return AppColors.success
-        }
-    }
-}
-
-// MARK: - Civic Quiz
-
-private struct NLCivicQuizCard: View {
-    let question: CivicQuizQuestion
-    let language: AppLanguage
-    let selectedIndex: Int?
-    let onAnswer: (Int) -> Void
-
-    private var options: [String] { question.options(language) }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
-            Text(question.question(language))
-                .font(AppTypography.bodyStrong)
-                .foregroundStyle(AppColors.textPrimary)
-                .fixedSize(horizontal: false, vertical: true)
-
-            ForEach(Array(options.enumerated()), id: \.offset) { index, option in
-                Button {
-                    onAnswer(index)
-                } label: {
-                    HStack(alignment: .top, spacing: AppSpacing.small) {
-                        Image(systemName: icon(for: index))
-                            .font(.system(size: 14, weight: .bold))
-                            .foregroundStyle(iconColor(for: index))
-                            .padding(.top, 2)
-                        Text(option)
-                            .font(AppTypography.body)
-                            .foregroundStyle(AppColors.textPrimary)
-                            .fixedSize(horizontal: false, vertical: true)
-                        Spacer(minLength: 0)
-                    }
-                    .padding(AppSpacing.small)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(background(for: index))
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                }
-                .buttonStyle(.plain)
-            }
-
-            if selectedIndex != nil {
-                Text(question.explanation(language))
-                    .font(AppTypography.caption)
-                    .foregroundStyle(AppColors.textSecondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-        }
-        .appCardStyle()
-    }
-
-    private func icon(for index: Int) -> String {
-        guard let selectedIndex else { return "circle" }
-        if index == question.correctIndex { return "checkmark.circle.fill" }
-        if index == selectedIndex { return "xmark.circle.fill" }
-        return "circle"
-    }
-
-    private func iconColor(for index: Int) -> Color {
-        guard selectedIndex != nil else { return AppColors.textTertiary }
-        if index == question.correctIndex { return AppColors.success }
-        if index == selectedIndex { return AppColors.error }
-        return AppColors.textTertiary
-    }
-
-    private func background(for index: Int) -> Color {
-        guard selectedIndex != nil else { return Color.white.opacity(0.04) }
-        if index == question.correctIndex { return AppColors.success.opacity(0.12) }
-        if index == selectedIndex { return AppColors.error.opacity(0.10) }
-        return Color.white.opacity(0.04)
     }
 }
 

@@ -27,7 +27,7 @@ struct InformationHubView: View {
                     sectionIfNeeded(title: text("Practical life", "Praktisch leven", "Практическая жизнь"), items: practicalItems)
                     sectionIfNeeded(title: text("Cities & provinces", "Steden & provincies", "Города и провинции"), items: placeItems)
                     sectionIfNeeded(title: text("Culture & attractions", "Cultuur & attracties", "Культура и достопримечательности"), items: cultureItems)
-                    sectionIfNeeded(title: text("Official sources", "Officiele bronnen", "Официальные источники"), items: sourceItems)
+                    sectionIfNeeded(title: text("Official sources", "Officiële bronnen", "Официальные источники"), items: sourceItems)
                     sectionIfNeeded(title: text("Recently updated", "Recent bijgewerkt", "Недавно обновлено"), items: recentlyUpdated)
                     Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
                 }
@@ -46,12 +46,14 @@ struct InformationHubView: View {
             title: text("Information Hub", "Informatiecentrum", "Информационный центр"),
             subtitle: text(
                 "A connected guide to practical life, cities, culture, and official sources.",
-                "Een verbonden gids voor praktisch leven, steden, cultuur en officiele bronnen.",
+                "Een verbonden gids voor praktisch leven, steden, cultuur en officiële bronnen.",
                 "Единый центр для практической жизни, городов, культуры и официальных источников."
             ),
             symbol: "rectangle.grid.2x2.fill",
-            badgeText: text("Verified paths", "Gecontroleerde routes", "Проверенные пути"),
-            accent: AppColors.success
+            badgeText: text("Source-aware paths", "Bronbewuste routes", "Маршруты с учетом источников"),
+            accent: AppColors.success,
+            asset: ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.mapImage,
+            language: lang
         )
     }
 
@@ -119,7 +121,7 @@ struct InformationHubView: View {
 
     private var startItems: [InformationHubItem] {
         visibleItems([
-            item(title: text("First steps in the Netherlands", "Eerste stappen in Nederland", "Первые шаги в Нидерландах"), subtitle: text("A safe newcomer flow with official source links.", "Een veilige startflow met officiele bronlinks.", "Безопасный стартовый маршрут с официальными ссылками."), icon: AppIcons.checklist, tint: AppColors.success, destination: .firstSteps),
+            item(title: text("First steps in the Netherlands", "Eerste stappen in Nederland", "Первые шаги в Нидерландах"), subtitle: text("A safe newcomer flow with official source links.", "Een veilige startflow met officiële bronlinks.", "Безопасный стартовый маршрут с официальными ссылками."), icon: AppIcons.checklist, tint: AppColors.success, destination: .firstSteps),
             item(title: text("KNM", "KNM", "KNM"), subtitle: text("Knowledge of Dutch Society: everyday, civic, and practical life.", "Kennis van de Nederlandse Maatschappij: dagelijks, maatschappelijk en praktisch leven.", "Знание нидерландского общества: быт, общество и практика."), icon: "graduationcap.fill", tint: AppColors.cyanGlow, destination: .knm),
             item(title: text("Dutch A1-A2", "Nederlands A1-A2", "Нидерландский A1-A2"), subtitle: text("Learn practical Dutch for daily life.", "Praktisch Nederlands voor het dagelijks leven.", "Практический нидерландский для повседневной жизни."), icon: "text.book.closed.fill", tint: AppColors.emerald, destination: .dutchA1A2),
             item(title: text("Search knowledge", "Zoek kennis", "Поиск знаний"), subtitle: text("Find cities, guides, sources, and practical answers.", "Vind steden, gidsen, bronnen en praktische antwoorden.", "Ищите города, гайды, источники и практические ответы."), icon: AppIcons.search, tint: AppColors.dutchOrange, destination: .searchList)
@@ -151,7 +153,7 @@ struct InformationHubView: View {
 
     private var placeItems: [InformationHubItem] {
         visibleItems([
-            item(title: text("Cities", "Steden", "Города"), subtitle: text("Supported city profiles and official links.", "Stadsprofielen en officiele links.", "Профили городов и официальные ссылки."), icon: "building.2.fill", tint: AppColors.softBlue, destination: .cityList),
+            item(title: text("Cities", "Steden", "Города"), subtitle: text("Supported city profiles and official links.", "Stadsprofielen en officiële links.", "Профили городов и официальные ссылки."), icon: "building.2.fill", tint: AppColors.softBlue, destination: .cityList),
             item(title: text("Provinces", "Provincies", "Провинции"), subtitle: text("Province overview and real city links.", "Provincieoverzicht en echte stadslinks.", "Обзор провинций и реальные ссылки на города."), icon: "map.fill", tint: AppColors.routeLine, destination: .provinceList)
         ])
     }
@@ -165,7 +167,7 @@ struct InformationHubView: View {
 
     private var sourceItems: [InformationHubItem] {
         visibleItems([
-            item(title: text("Official sources", "Officiele bronnen", "Официальные источники"), subtitle: text("Government, municipality, healthcare, transport, and identity sources.", "Overheid, gemeente, zorg, vervoer en identiteit.", "Государство, gemeente, медицина, транспорт и DigiD."), icon: AppIcons.officialSource, tint: AppColors.success, destination: .officialSources)
+            item(title: text("Official sources", "Officiële bronnen", "Официальные источники"), subtitle: text("Government, municipality, healthcare, transport, and identity sources.", "Overheid, gemeente, zorg, vervoer en identiteit.", "Государство, gemeente, медицина, транспорт и DigiD."), icon: AppIcons.officialSource, tint: AppColors.success, destination: .officialSources)
         ])
     }
 
@@ -238,7 +240,7 @@ struct InformationHubView: View {
         case .digidSafety: return text("DigiD safety", "DigiD-veiligheid", "DigiD и безопасность")
         case .transportBasics: return text("Transport in the Netherlands", "Vervoer in Nederland", "Транспорт в Нидерландах")
         case .housingBasics: return text("Housing basics", "Wonen basis", "Жильё")
-        case .officialSourcesChecklist: return text("Official sources", "Officiele bronnen", "Официальные источники")
+        case .officialSourcesChecklist: return text("Official sources", "Officiële bronnen", "Официальные источники")
         case .bankingBasics: return text("Banking basics", "Bankieren", "Банкинг")
         }
     }
@@ -247,8 +249,8 @@ struct InformationHubView: View {
         switch topic {
         case .firstStepsNetherlands: return text("What to handle first after arrival.", "Wat je eerst regelt na aankomst.", "Что сделать первым после приезда.")
         case .municipalityRegistration: return text("Address registration and BSN-related steps.", "Adresinschrijving en BSN-stappen.", "Регистрация адреса и шаги по BSN.")
-        case .healthcareBasics, .findingHuisarts, .healthInsuranceBasics: return text("General care orientation with official checks.", "Algemene zorgorientatie met broncontrole.", "Общая медицинская ориентация с проверкой источников.")
-        case .digidSafety: return text("Use the official login safely.", "Gebruik de officiele login veilig.", "Безопасно используйте официальный вход.")
+        case .healthcareBasics, .findingHuisarts, .healthInsuranceBasics: return text("General care orientation with official checks.", "Algemene zorgoriëntatie met broncontrole.", "Общая медицинская ориентация с проверкой источников.")
+        case .digidSafety: return text("Use the official login safely.", "Gebruik de officiële login veilig.", "Безопасно используйте официальный вход.")
         case .transportBasics: return text("NS, OVpay, OV-chipkaart, local operators, bikes, and planners.", "NS, OVpay, OV-chipkaart, lokale vervoerders, fiets en planners.", "NS, OVpay, OV-chipkaart, операторы, велосипеды и планировщики.")
         case .housingBasics: return text("Rental checks and registration permission.", "Huurcontrole en inschrijfmogelijkheid.", "Проверка аренды и регистрации.")
         case .officialSourcesChecklist: return text("Verify domains before acting.", "Controleer domeinen voordat je handelt.", "Проверяйте домены перед действиями.")

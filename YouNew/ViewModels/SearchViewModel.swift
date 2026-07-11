@@ -145,6 +145,7 @@ final class SearchViewModel: ObservableObject {
 
     func performSearch() {
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        refreshSearchState()
         guard !trimmed.isEmpty else { return }
         recentSearches = [trimmed] + recentSearches.filter { $0.caseInsensitiveCompare(trimmed) != .orderedSame }
         recentSearches = Array(recentSearches.prefix(8))
@@ -199,6 +200,20 @@ final class SearchViewModel: ObservableObject {
             beginnerGuideResults = []
             return
         }
+        if inferredCategory(for: trimmed) == .fines {
+            beginnerGuideResults = uniqueBeginnerGuideItems(beginnerGuideCategories(for: .fines)
+                .flatMap {
+                    MockBeginnerGuidesData.search(
+                        trimmed,
+                        language: language,
+                        category: $0,
+                        activePersona: activePersona,
+                        scope: personaSearchScope
+                    )
+                }
+            )
+            return
+        }
         if let selectedCategory,
            !beginnerGuideCategories(for: selectedCategory).isEmpty {
             beginnerGuideResults = uniqueBeginnerGuideItems(beginnerGuideCategories(for: selectedCategory)
@@ -241,25 +256,19 @@ final class SearchViewModel: ObservableObject {
 
         results += NLCity.all
             .filter { city in
-                city.name.lowercased().contains(q) ||
-                city.shortDescription.lowercased().contains(q) ||
-                city.fullDescription.lowercased().contains(q) ||
-                city.province.lowercased().contains(q) ||
-                city.facts.contains { fact in
-                    fact.label.lowercased().contains(q) ||
-                    fact.value.lowercased().contains(q)
-                }
+                explicitGeographyMatch(
+                    q,
+                    values: [city.name, city.province] + city.facts.map(\.value)
+                )
             }
             .map(NetherlandsSearchResult.city)
 
         results += NLProvince.all
             .filter { province in
-                province.name.lowercased().contains(q) ||
-                province.id.lowercased().contains(q) ||
-                province.description.lowercased().contains(q) ||
-                province.history.lowercased().contains(q) ||
-                province.capital.lowercased().contains(q) ||
-                province.highlights.contains { $0.lowercased().contains(q) }
+                explicitGeographyMatch(
+                    q,
+                    values: [province.name, province.id, province.capital]
+                )
             }
             .map(NetherlandsSearchResult.province)
 
@@ -285,6 +294,14 @@ final class SearchViewModel: ObservableObject {
         let institution = normalizeSearchText(answer.relatedInstitution?.lowercased() ?? "")
 
         if question == normalizedQuery { return 100 }
+        if isFineIntentQuery(normalizedQuery),
+           !answerMatchesFineIntent(answer, query: normalizedQuery, question: question, institution: institution) {
+            return 0
+        }
+        if isDutchCourseIntentQuery(normalizedQuery),
+           !answerMatchesDutchCourseIntent(answer, question: question, institution: institution) {
+            return 0
+        }
 
         var score = 0
         if question.contains(normalizedQuery) { score += 70 }
@@ -301,7 +318,7 @@ final class SearchViewModel: ObservableObject {
         if detail.contains(normalizedQuery) { score += 10 }
         if answer.relatedQuestions.contains(where: { normalizeSearchText($0.lowercased()).contains(normalizedQuery) }) { score += 5 }
         if score == 0,
-           normalizedQuery.count >= 4,
+           normalizedQuery.count >= 5,
            normalizedQuery.count <= 40 {
             let fuzzyText = [question, short, institution, multilingualKeywords.joined(separator: " ")]
                 .map(normalizeSearchText)
@@ -310,6 +327,58 @@ final class SearchViewModel: ObservableObject {
         }
 
         return score
+    }
+
+    private func isFineIntentQuery(_ query: String) -> Bool {
+        ["fine", "fines", "boete", "boetes", "cjib", "штраф", "штрафы"].contains(query)
+    }
+
+    private func isDutchCourseIntentQuery(_ query: String) -> Bool {
+        let compact = query.replacingOccurrences(of: " ", with: "")
+        return query == "dutch a1" ||
+            query == "dutch a1 a2" ||
+            query == "dutch a1-a2" ||
+            query == "nederlands a1" ||
+            query == "nederlands a1 a2" ||
+            query == "нидерландский a1" ||
+            compact == "dutcha1" ||
+            compact == "dutcha1-a2" ||
+            compact == "nederlandsa1" ||
+            compact == "a1a2"
+    }
+
+    private func answerMatchesDutchCourseIntent(_ answer: SearchAnswer, question: String, institution: String) -> Bool {
+        guard answer.category == .education else { return false }
+        if question.contains("dutch a1") || question.contains("nederlands a1") || question.contains("a1 a2") || question.contains("a1-a2") {
+            return true
+        }
+        if institution.contains("duo") || institution.contains("cefr") {
+            return true
+        }
+
+        let keywords = AppLanguage.allCases
+            .flatMap { answer.keywords($0) }
+            .map { normalizeSearchText($0.lowercased()) }
+            .joined(separator: " ")
+        return keywords.contains("dutch a1") || keywords.contains("nederlands a1") || keywords.contains("a1-a2")
+    }
+
+    private func answerMatchesFineIntent(_ answer: SearchAnswer, query: String, question: String, institution: String) -> Bool {
+        if answer.category == .fines { return true }
+        if containsSearchToken(in: question, tokens: ["fine", "fines", "boete", "boetes", "штраф", "штрафы"]) { return true }
+        if containsSearchToken(in: institution, tokens: ["cjib"]) { return true }
+
+        guard ["cjib", "boete", "boetes"].contains(query) else { return false }
+        let keywords = AppLanguage.allCases
+            .flatMap { answer.keywords($0) }
+            .map { normalizeSearchText($0.lowercased()) }
+            .joined(separator: " ")
+        return containsSearchToken(in: keywords, tokens: ["fine", "fines", "boete", "boetes", "cjib", "штраф", "штрафы"])
+    }
+
+    private func containsSearchToken(in text: String, tokens: [String]) -> Bool {
+        let words = Set(text.split { !$0.isLetter && !$0.isNumber }.map(String.init))
+        return tokens.contains { words.contains($0) }
     }
 
     private func normalizeSearchText(_ value: String) -> String {
@@ -416,10 +485,24 @@ final class SearchViewModel: ObservableObject {
         add(.transport, when: ["transport", "ov-chipkaart", "ovpay", "train", "metro", "bus", "fiets", "bicycle"])
         add(.housing, when: ["housing", "rent", "huur", "deposit", "landlord"])
         add(.work, when: ["work", "uwv", "salary", "payslip", "contract", "employer"])
-        add(.education, when: ["education", "duo", "student", "study", "school", "university", "knm"])
+        add(.education, when: ["education", "duo", "student", "study", "school", "university", "knm", "dutch a1", "dutch a2", "dutch a1-a2", "nederlands a1", "nederlands a2", "grammar", "words", "grammatica", "woorden"])
         add(.emergency, when: ["112", "emergency", "police", "ambulance", "fire"])
 
-        return matches.count == 1 ? matches[0] : nil
+        return matches.count == 1 ? matches.first : nil
+    }
+
+    private func explicitGeographyMatch(_ query: String, values: [String]) -> Bool {
+        let normalizedQuery = query.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+        guard normalizedQuery.count >= 2 else { return false }
+
+        return values.contains { rawValue in
+            let value = rawValue.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
+            guard value.count >= 2 else { return false }
+            if value == normalizedQuery { return true }
+            if normalizedQuery.count >= 3, value.contains(normalizedQuery) { return true }
+            if value.count >= 4, normalizedQuery.contains(value) { return true }
+            return false
+        }
     }
 
     private func beginnerGuideCategories(for category: SearchCategory) -> [BeginnerGuideCategory] {
@@ -485,7 +568,7 @@ final class SearchViewModel: ObservableObject {
 
         for (i, lhsCharacter) in lhsCharacters.enumerated() {
             var current = [i + 1]
-            var rowMinimum = current[0]
+            var rowMinimum = current.first ?? maximum + 1
 
             for (j, rhsCharacter) in rhsCharacters.enumerated() {
                 let insert = current[j] + 1

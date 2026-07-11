@@ -21,6 +21,7 @@ struct NearbyPlace: Identifiable {
     let address: String
     let openingHoursPlaceholder: String
     let websiteURL: URL?
+    let imageURL: URL?
     let phone: String?
     let isOfficialSource: Bool
     let sourceLabel: String
@@ -43,8 +44,9 @@ struct NearbyPlace: Identifiable {
         newcomerUseCase: String = "Useful for newcomer onboarding and local services.",
         coordinate: CLLocationCoordinate2D,
         address: String,
-        openingHoursPlaceholder: String = "Opening hours unavailable — verify official source.",
+        openingHoursPlaceholder: String = "Check current opening hours with the official source before visiting.",
         websiteURL: URL?,
+        imageURL: URL? = nil,
         phone: String?,
         isOfficialSource: Bool,
         sourceLabel: String,
@@ -66,6 +68,7 @@ struct NearbyPlace: Identifiable {
         self.address = address
         self.openingHoursPlaceholder = openingHoursPlaceholder
         self.websiteURL = websiteURL
+        self.imageURL = imageURL
         self.phone = phone
         self.isOfficialSource = isOfficialSource
         self.sourceLabel = sourceLabel
@@ -80,7 +83,157 @@ struct NearbyPlace: Identifiable {
 }
 
 extension NearbyPlace {
+    var discoverySymbolName: String {
+        let text = discoveryText
+        if text.contains("museum") || text.contains("rijksmuseum") || text.contains("lakenhal") || text.contains("oudheden") {
+            return "building.columns.fill"
+        }
+        if text.contains("restaurant") || text.contains("cafe") || text.contains("café") || text.contains("bakery") || text.contains("market") || text.contains("food") || text.contains("markthal") {
+            return "fork.knife"
+        }
+        if text.contains("hotel") || text.contains("stay") || text.contains("hostel") {
+            return "bed.double.fill"
+        }
+        if text.contains("park") || text.contains("hortus") || text.contains("botanic") || text.contains("nature") {
+            return "leaf.fill"
+        }
+        if text.contains("canal") || text.contains("gracht") || text.contains("molen") || text.contains("windmill") || text.contains("bridge") || text.contains("burcht") || text.contains("castle") || text.contains("landmark") || text.contains("historic") || text.contains("viewpoint") || text.contains("euromast") || text.contains("cube houses") {
+            return "camera.viewfinder"
+        }
+        return category.systemImageName
+    }
+
+    func discoveryCategoryTitle(_ lang: AppLanguage) -> String {
+        let text = discoveryText
+        if text.contains("museum") || text.contains("rijksmuseum") || text.contains("lakenhal") || text.contains("oudheden") {
+            return localized(en: "Museum", nl: "Museum", ru: "Музей", lang: lang)
+        }
+        if text.contains("restaurant") {
+            return localized(en: "Restaurant", nl: "Restaurant", ru: "Ресторан", lang: lang)
+        }
+        if text.contains("cafe") || text.contains("café") || text.contains("coffee") || text.contains("bakery") {
+            return localized(en: "Cafe", nl: "Cafe", ru: "Кафе", lang: lang)
+        }
+        if text.contains("market") || text.contains("food") || text.contains("markthal") {
+            return localized(en: "Food", nl: "Eten", ru: "Еда", lang: lang)
+        }
+        if text.contains("hotel") || text.contains("stay") || text.contains("hostel") {
+            return localized(en: "Hotel", nl: "Hotel", ru: "Отель", lang: lang)
+        }
+        if text.contains("park") || text.contains("hortus") || text.contains("botanic") || text.contains("nature") {
+            return localized(en: "Park", nl: "Park", ru: "Парк", lang: lang)
+        }
+        if text.contains("canal") || text.contains("gracht") || text.contains("molen") || text.contains("windmill") || text.contains("bridge") || text.contains("burcht") || text.contains("castle") || text.contains("landmark") || text.contains("historic") || text.contains("viewpoint") || text.contains("euromast") || text.contains("cube houses") {
+            return localized(en: "Attraction", nl: "Bezienswaardigheid", ru: "Достопримечательность", lang: lang)
+        }
+        return category.localized(lang)
+    }
+
+    init?(dashboardPlace place: PlaceItem) {
+        guard let coordinates = place.coordinates else { return nil }
+
+        self.init(
+            name: place.title,
+            category: Self.category(for: place.primaryCategory),
+            description: place.description,
+            newcomerUseCase: Self.useCase(for: place),
+            coordinate: coordinates.coordinate,
+            address: place.address ?? place.cityId,
+            openingHoursPlaceholder: Self.openingHoursNote(for: place),
+            websiteURL: place.externalUrl ?? place.source?.url,
+            imageURL: place.image.flatMap { AppURL.validatedWebURL(URL(string: $0)) },
+            phone: nil,
+            isOfficialSource: place.source != nil,
+            sourceLabel: place.source?.institution ?? place.source?.title ?? "City guide",
+            lastUpdated: place.lastChecked ?? "Reference data",
+            city: place.cityId,
+            trustNote: Self.trustNote(for: place),
+            relatedLinks: [
+                PlaceRelatedLink(
+                    title: "Place details",
+                    subtitle: place.title,
+                    symbol: place.primaryCategory.symbol,
+                    destination: place.destination
+                )
+            ],
+            isReferenceLocation: place.source == nil
+        )
+    }
+
+    private static func category(for category: VisitPlaceCategory) -> PlaceCategory {
+        switch category {
+        case .museum, .rainyDay:
+            return .education
+        case .park, .family, .free:
+            return .communitySupport
+        case .market, .food:
+            return .foodBank
+        case .landmark, .historic, .viewpoint, .hiddenGem:
+            return .communitySupport
+        }
+    }
+
+    private static func useCase(for place: PlaceItem) -> String {
+        let city = place.cityId
+        switch place.primaryCategory {
+        case .museum, .rainyDay:
+            return "Museum or indoor culture stop in \(city). Check opening hours and tickets with the official source."
+        case .park, .family, .free:
+            return "Low-barrier place in \(city) for a walk, family time, or a free city break."
+        case .market, .food:
+            return "Food or market stop in \(city). Useful for local routines, casual meals, or discovering the neighbourhood."
+        case .landmark, .historic:
+            return "Recognizable city landmark in \(city) with historical or cultural context."
+        case .viewpoint:
+            return "Viewpoint in \(city) for orientation, photos, and understanding the city layout."
+        case .hiddenGem:
+            return "Local discovery spot in \(city), useful when you want something beyond the obvious highlights."
+        }
+    }
+
+    private static func openingHoursNote(for place: PlaceItem) -> String {
+        if let estimatedVisitTime = place.estimatedVisitTime,
+           !estimatedVisitTime.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
+            return "Typical visit: \(estimatedVisitTime). Check current opening hours with the source."
+        }
+
+        switch place.primaryCategory {
+        case .park, .viewpoint, .landmark, .historic, .hiddenGem:
+            return "Public access may vary by area or season. Check local signs before visiting."
+        case .market, .food:
+            return "Market and restaurant hours vary by day. Check the official source before going."
+        case .museum, .rainyDay, .family, .free:
+            return "Opening hours can change. Verify with the official source before visiting."
+        }
+    }
+
+    private static func trustNote(for place: PlaceItem) -> String {
+        if let source = place.source?.institution, !source.isEmpty {
+            return "Based on \(source). Prices, access, and opening hours should be checked before visiting."
+        }
+        return "Reference city data. Prices, access, and opening hours are not inferred."
+    }
+
+    private var discoveryText: String {
+        "\(name) \(description) \(newcomerUseCase) \(sourceLabel)".lowercased()
+    }
+
+    private func localized(en: String, nl: String, ru: String, lang: AppLanguage) -> String {
+        switch lang {
+        case .english: return en
+        case .dutch: return nl
+        case .russian: return ru
+        }
+    }
+
     var personaTags: Set<PersonaTag> {
+        if relatedLinks.contains(where: { link in
+            if case .placeDetail = link.destination { return true }
+            return false
+        }) {
+            return [.student, .worker, .refugee, .family, .tourist, .entrepreneur, .lgbt, .eu, .nonEU, .highlySkilledMigrant]
+        }
+
         switch category {
         case .duo, .studentHelp:
             return [.student]
@@ -156,7 +309,7 @@ extension NearbyPlace {
     func localizedOpeningHours(_ lang: AppLanguage) -> String {
         guard lang == .russian else { return openingHoursPlaceholder }
         if looksEnglish(openingHoursPlaceholder) {
-            return "Часы работы не указаны — проверьте официальный источник."
+            return "Проверьте актуальные часы работы в официальном источнике перед визитом."
         }
         return openingHoursPlaceholder
     }

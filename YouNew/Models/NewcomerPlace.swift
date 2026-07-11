@@ -198,7 +198,7 @@ extension NearbyPlace {
             newcomerUseCase: place.localizedTags(.english).joined(separator: " • "),
             coordinate: cityCenter,
             address: "Reference map query: \(place.mapQuery)",
-            openingHoursPlaceholder: "No opening hours in app — verify official source before visiting.",
+            openingHoursPlaceholder: "Check current opening hours with the official source before visiting.",
             websiteURL: place.officialWebsiteURL,
             phone: nil,
             isOfficialSource: place.confidenceLevel == .verified,

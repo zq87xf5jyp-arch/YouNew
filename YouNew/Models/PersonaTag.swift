@@ -106,17 +106,7 @@ enum PersonaContentPolicy {
     }
 
     nonisolated static func isVisible(tags: Set<PersonaTag>, activePersona: PersonaTag?, scope: PersonaSearchScope) -> Bool {
-        guard let activePersona else { return true }
-        guard !tags.isEmpty else { return false }
-
-        switch scope {
-        case .allContentWithOutsidePathWarning:
-            return true
-        case .currentPersonaOnly:
-            return tags.contains(activePersona)
-        case .currentAndUniversal:
-            return tags.contains(activePersona) || tags.contains(.universal)
-        }
+        ContentAccessPolicy.canShowToUser(audience: tags, selectedPersona: activePersona, scope: scope)
     }
 
     nonisolated static func isOutsidePersonaQuery(_ query: String, for persona: PersonaTag?) -> Bool {
@@ -135,9 +125,23 @@ enum PersonaContentPolicy {
         let normalized = prompt
             .folding(options: [.caseInsensitive, .diacriticInsensitive], locale: Locale(identifier: "en_US_POSIX"))
             .lowercased()
+        let words = normalized
+            .components(separatedBy: CharacterSet.alphanumerics.inverted)
+            .filter { !$0.isEmpty }
+        let paddedText = " \(words.joined(separator: " ")) "
 
         return outsidePersonaTerms(for: persona).contains { term in
-            normalized.range(of: term, options: [.caseInsensitive, .diacriticInsensitive]) != nil
+            let normalizedTerm = term
+                .folding(options: [.caseInsensitive, .diacriticInsensitive], locale: Locale(identifier: "en_US_POSIX"))
+                .lowercased()
+            let termWords = normalizedTerm
+                .components(separatedBy: CharacterSet.alphanumerics.inverted)
+                .filter { !$0.isEmpty }
+            guard !termWords.isEmpty else { return false }
+            if termWords.count == 1 {
+                return words.contains(termWords[0])
+            }
+            return paddedText.contains(" \(termWords.joined(separator: " ")) ")
         }
     }
 

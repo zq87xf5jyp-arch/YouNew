@@ -21,6 +21,7 @@ enum KnowledgeItemType: String, CaseIterable, Codable, Hashable {
     case risk
     case mistake
     case resource
+    case localPartner
     case appTool
     case appScreen
     case topic

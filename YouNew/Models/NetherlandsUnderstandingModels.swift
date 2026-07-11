@@ -117,7 +117,7 @@ struct CivicInfoCardItem: Identifiable, Hashable {
     var saveKey: String { "civic::\(id)" }
 }
 
-struct LocalizedInfoText: Hashable {
+struct LocalizedInfoText: Hashable, Sendable {
     let english: String
     let dutch: String
     let russian: String

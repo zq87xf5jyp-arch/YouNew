@@ -1,6 +1,6 @@
 import Foundation
 
-nonisolated enum MapFocus: Hashable {
+nonisolated enum MapFocus: Hashable, Sendable {
     case transport
     case healthcare
     case government
@@ -11,7 +11,6 @@ nonisolated enum MapFocus: Hashable {
     case province(String)
     case place(String)
 
-    @MainActor
     init?(rawValue: String) {
         if rawValue.hasPrefix("category:") {
             guard let category = PlaceCategory(rawValue: String(rawValue.dropFirst(9))) else { return nil }
@@ -20,20 +19,29 @@ nonisolated enum MapFocus: Hashable {
         }
         if rawValue.hasPrefix("city:") {
             let cityID = String(rawValue.dropFirst(5))
-            guard let spotlight = ProvinceCatalog.citySpotlight(matching: cityID) else { return nil }
-            self = .city(spotlight.city.id)
+            let resolvedCityID = MainActor.assumeIsolated {
+                ProvinceCatalog.cityID(matching: cityID)
+            }
+            guard let resolvedCityID else { return nil }
+            self = .city(resolvedCityID)
             return
         }
         if rawValue.hasPrefix("province:") {
             let provinceID = String(rawValue.dropFirst(9))
-            guard let province = ProvinceCatalog.provinceIfFound(matching: provinceID) else { return nil }
-            self = .province(province.id)
+            let resolvedProvinceID = MainActor.assumeIsolated {
+                ProvinceCatalog.provinceID(matching: provinceID)
+            }
+            guard let resolvedProvinceID else { return nil }
+            self = .province(resolvedProvinceID)
             return
         }
         if rawValue.hasPrefix("place:") {
             let placeID = String(rawValue.dropFirst(6))
-            guard let place = MockNearbyPlacesData.places.first(where: { $0.saveKey == placeID || $0.id.uuidString == placeID }) else { return nil }
-            self = .place(place.saveKey)
+            let saveKey = MainActor.assumeIsolated {
+                MockNearbyPlacesData.saveKey(matching: placeID)
+            }
+            guard let saveKey else { return nil }
+            self = .place(saveKey)
             return
         }
 
@@ -114,7 +122,7 @@ nonisolated enum MapFocus: Hashable {
     }
 }
 
-nonisolated enum PracticalGuideTopic: String, CaseIterable, Hashable {
+nonisolated enum PracticalGuideTopic: String, CaseIterable, Hashable, Sendable {
     case firstStepsNetherlands
     case municipalityRegistration
     case healthcareBasics
@@ -127,7 +135,7 @@ nonisolated enum PracticalGuideTopic: String, CaseIterable, Hashable {
     case bankingBasics
 }
 
-nonisolated enum AppDestination: Hashable {
+nonisolated enum AppDestination: Hashable, Sendable {
 
     // MARK: - Individual Items
     case checklist(UUID)
@@ -143,11 +151,14 @@ nonisolated enum AppDestination: Hashable {
     case ruleScenario(UUID)
     case resource(UUID)
     case document(UUID)
+    case placeDetail(String)
+    case calendarEvent(String)
     case provinceList
     case cityList
     case provinceDetail(String)
     case provinceCities(String)
     case cityDetail(province: String, city: String)
+    case homeExploreList(String)
 
     // MARK: - Lists
     case checklistList
@@ -175,11 +186,23 @@ nonisolated enum AppDestination: Hashable {
     case nlCityDetail(String)
     case netherlandsHistory
     case cultureAttractions
+    case netherlandsCalendar
     case settings
     case profileSelection
     case savedTopics
     case recentlyViewedTopics
     case resourcesHub
+    case lifeTimeline
+    case documentVault
+    case deadlineCenter
+    case verifiedExperts
+    case aiLetterGenerator
+    case discoverNetherlands
+    case localPartners
+    case localPartnerDetail(String)
+    case businessGrowth
+    case businessLogin
+    case businessDashboard
     case finesAndLettersHub
     case legalHelp
     case officialSources
@@ -232,6 +255,8 @@ extension AppDestination {
             return .searchList
         case "officialsources", "sources", "officalsources", "officialsource":
             return .officialSources
+        case "netherlandscalendar", "calendar", "dutchcalendar", "holidays":
+            return .netherlandsCalendar
         case "firststeps", "firststepsnetherlands", "registration":
             return .firstSteps
         case "checklist", "checklistlist":
@@ -242,6 +267,18 @@ extension AppDestination {
             return .beginnerGuidesList
         case "documents", "document", "journeydocuments", "journeydocument":
             return .journeyDocuments
+        case "documentvault", "vault":
+            return .documentVault
+        case "lifetimeline", "timeline", "smarttimeline":
+            return .lifeTimeline
+        case "deadlinecenter", "deadlines", "deadlinecentre":
+            return .deadlineCenter
+        case "verifiedexperts", "experts":
+            return .verifiedExperts
+        case "lettergenerator", "ailettergenerator", "templates":
+            return .aiLetterGenerator
+        case "discovernetherlands", "explorenetherlands", "explore":
+            return .discoverNetherlands
         case "survival", "survivalhub":
             return .survivalHub
         case "emotionalsupport", "support":
@@ -306,7 +343,7 @@ extension AppDestination {
             return .finesList
         case "letters", "letter":
             return .lettersList
-        case "institutions", "institution":
+        case "institutions", "institution", "education", "universities", "schools":
             return .institutionsList
         case "settings", "setting":
             return .settings
@@ -318,6 +355,14 @@ extension AppDestination {
             return .recentlyViewedTopics
         case "resources", "resourceshub", "resourcehub":
             return .resourcesHub
+        case "localpartners", "trustedlocalservices", "recommendedbusinesses", "partners":
+            return .localPartners
+        case "businessgrowth", "growbusiness", "growyourbusiness":
+            return .businessGrowth
+        case "businesslogin", "partnerlogin", "businesssignin":
+            return .businessLogin
+        case "businessdashboard", "partnerdashboard":
+            return .businessDashboard
         case "finesletters", "finesandletters", "finesandlettershub":
             return .finesAndLettersHub
         case "legalhelp", "legaladvice":
@@ -346,7 +391,7 @@ extension AppDestination {
             return .supportFeedback
         case "scams", "scamwarnings", "scamwarningslist":
             return .scamWarningsList
-        case "holidays", "dutchholidays":
+        case "dutchholidays":
             return .dutchHolidays
         case "figures", "dutchfigures":
             return .dutchFigures
@@ -425,6 +470,26 @@ extension AppDestination {
             return "recentlyViewedTopics"
         case .resourcesHub:
             return "resourcesHub"
+        case .lifeTimeline:
+            return "lifeTimeline"
+        case .documentVault:
+            return "documentVault"
+        case .deadlineCenter:
+            return "deadlineCenter"
+        case .verifiedExperts:
+            return "verifiedExperts"
+        case .aiLetterGenerator:
+            return "aiLetterGenerator"
+        case .discoverNetherlands:
+            return "discoverNetherlands"
+        case .localPartners:
+            return "localPartners"
+        case .businessGrowth:
+            return "businessGrowth"
+        case .businessLogin:
+            return "businessLogin"
+        case .businessDashboard:
+            return "businessDashboard"
         case .finesAndLettersHub:
             return "finesAndLettersHub"
         case .legalHelp:
@@ -447,6 +512,8 @@ extension AppDestination {
             return "history"
         case .cultureAttractions:
             return "culture"
+        case .netherlandsCalendar:
+            return "netherlandsCalendar"
         case .aboutYouNew:
             return "aboutYouNew"
         case .supportFeedback:
@@ -500,6 +567,16 @@ extension AppDestination {
             "savedTopics",
             "recentlyViewedTopics",
             "resourcesHub",
+            "lifeTimeline",
+            "documentVault",
+            "deadlineCenter",
+            "verifiedExperts",
+            "aiLetterGenerator",
+            "discoverNetherlands",
+            "localPartners",
+            "businessGrowth",
+            "businessLogin",
+            "businessDashboard",
             "finesAndLettersHub",
             "legalHelp",
             "privacyDataControl",

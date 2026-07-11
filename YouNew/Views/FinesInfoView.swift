@@ -44,6 +44,7 @@ struct FinesInfoView: View {
             .padding(.horizontal, AppSpacing.screenHorizontal)
             .padding(.top, AppSpacing.small)
             .tabBarScrollReserve()
+            .accessibilityIdentifier("fines.screen")
         }
         .scrollIndicators(.hidden)
         .appSceneBackground(.fines)
@@ -77,7 +78,7 @@ struct FinesInfoView: View {
             NLSectionHeader(title: quickFinesTitle, subtitle: quickFinesSubtitle)
 
             ForEach(QuickFineExample.localized(lang)) { example in
-                RuleFineCard(example: example, fineLabel: fineLabel, lang: lang)
+                quickFineCard(example)
             }
 
             Button {
@@ -184,12 +185,100 @@ struct FinesInfoView: View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             ForEach(filtered) { topic in
                 NavigationLink(value: AppDestination.ruleTopic(topic.id)) {
-                    FineTopicCard(topic: topic, lang: lang)
+                    ruleTopicCard(topic)
                 }
                 .buttonStyle(NLTileButtonStyle())
             }
         }
         .animation(AppAnimations.softSpring, value: selectedCategory)
+    }
+
+    private func quickFineCard(_ example: QuickFineExample) -> some View {
+        let accent = severityColor(example.severity)
+        return HStack(alignment: .top, spacing: 12) {
+            PremiumImageHeader(
+                title: example.title,
+                asset: fineImageAsset(icon: example.icon, category: nil),
+                language: lang,
+                symbol: example.icon,
+                accent: accent,
+                height: 88,
+                width: 96,
+                cornerRadius: 18,
+                fallbackCategory: .transport
+            )
+            .layoutPriority(0)
+
+            VStack(alignment: .leading, spacing: 7) {
+                HStack(spacing: 8) {
+                    Text(fineLabel)
+                        .font(AppTypography.captionStrong)
+                        .foregroundStyle(accent)
+                    Text(example.fine)
+                        .font(AppTypography.metadata)
+                        .foregroundStyle(AppColors.textTertiary)
+                }
+
+                Text(example.title)
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+
+                Text("\(example.explanation) \(example.context)")
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(3)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .layoutPriority(1)
+        }
+        .frame(maxWidth: .infinity, minHeight: 132, alignment: .topLeading)
+        .appCardStyle()
+    }
+
+    private func ruleTopicCard(_ topic: RuleGuideTopic) -> some View {
+        let accent = severityColor(topic.severity)
+        return HStack(alignment: .top, spacing: 12) {
+            PremiumImageHeader(
+                title: topic.title,
+                asset: fineImageAsset(icon: iconForCategory(topic.category), category: topic.category),
+                language: lang,
+                symbol: iconForCategory(topic.category),
+                accent: accent,
+                height: 88,
+                width: 96,
+                cornerRadius: 18,
+                fallbackCategory: fineFallbackCategory(for: topic.category)
+            )
+            .layoutPriority(0)
+
+            VStack(alignment: .leading, spacing: 7) {
+                HStack(spacing: 8) {
+                    Text(RuleGuideCategoryLocalization.localized(topic.category, lang: lang))
+                        .font(AppTypography.captionStrong)
+                        .foregroundStyle(accent)
+                        .lineLimit(1)
+                    Text(topic.estimatedFineRange)
+                        .font(AppTypography.metadata)
+                        .foregroundStyle(AppColors.textTertiary)
+                        .lineLimit(1)
+                }
+
+                Text(topic.title)
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+
+                Text(topic.commonMistake)
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(3)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .layoutPriority(1)
+        }
+        .frame(maxWidth: .infinity, minHeight: 136, alignment: .topLeading)
+        .appCardStyle()
     }
 
     // MARK: - Scenarios
@@ -255,10 +344,54 @@ struct FinesInfoView: View {
         }
     }
 
+    private func severityColor(_ severity: RuleSeverity) -> Color {
+        switch severity {
+        case .low: return AppColors.success
+        case .medium: return AppColors.warning
+        case .high: return AppColors.dutchOrange
+        case .critical: return AppColors.error
+        }
+    }
+
+    private func fineImageAsset(icon: String, category: String?) -> AppImageAsset? {
+        let normalizedCategory = category?.lowercased() ?? ""
+        if icon == "tram.fill" || normalizedCategory.contains("public transport") {
+            return ContentMediaRegistry.ovChipkaartImage ?? ContentMediaRegistry.transportStationHero
+        }
+        if icon == "bicycle" || icon == "lightbulb.fill" || icon == "iphone" || icon == "figure.walk" || icon == "person.2.fill" || normalizedCategory.contains("bicycle") {
+            return ContentMediaRegistry.transportHero ?? ContentMediaRegistry.transportStationHero
+        }
+        if icon == "parkingsign" || normalizedCategory.contains("parking") || normalizedCategory.contains("car") {
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        }
+        if normalizedCategory.contains("municipality") || normalizedCategory.contains("id/passport") {
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        if normalizedCategory.contains("housing") {
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        }
+        if normalizedCategory.contains("work") {
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        if normalizedCategory.contains("scam") {
+            return ContentMediaRegistry.officialSourcesHero
+        }
+        return ContentMediaRegistry.transportHero ?? ContentMediaRegistry.officialSourcesHero
+    }
+
+    private func fineFallbackCategory(for category: String) -> PremiumImageFallbackCategory {
+        let normalized = category.lowercased()
+        if normalized.contains("housing") { return .housing }
+        if normalized.contains("work") { return .work }
+        if normalized.contains("municipality") || normalized.contains("id/passport") { return .government }
+        if normalized.contains("scam") { return .search }
+        return .transport
+    }
+
     private var rulesBadgeText: String {
         switch lang {
         case .russian: return "Неофициальный гид"
-        case .dutch: return "Onofficiele gids"
+        case .dutch: return "Onofficiële gids"
         case .english: return "Unofficial guide"
         }
     }
@@ -274,7 +407,7 @@ struct FinesInfoView: View {
     private var quickFinesSubtitle: String {
         switch lang {
         case .russian: return "Короткие примеры для быстрой ориентации"
-        case .dutch: return "Korte voorbeelden voor snelle orientatie"
+        case .dutch: return "Korte voorbeelden voor snelle oriëntatie"
         case .english: return "Short examples for quick orientation"
         }
     }
@@ -330,200 +463,6 @@ private struct QuickFineExample: Identifiable {
                 QuickFineExample(title: "Cycling on the sidewalk", fine: "CJIB", explanation: "Cyclists usually belong on the bike lane.", context: "Pedestrian and cyclist safety", icon: "figure.walk", severity: .medium),
                 QuickFineExample(title: "Passenger on rear rack", fine: "CJIB", explanation: "Carrying someone on the rack is often unsafe.", context: "Fall and injury risk", icon: "person.2.fill", severity: .low)
             ]
-        }
-    }
-}
-
-private struct RuleFineCard: View {
-    let example: QuickFineExample
-    let fineLabel: String
-    let lang: AppLanguage
-
-    var body: some View {
-        HStack(alignment: .center, spacing: 14) {
-            ZStack {
-                RoundedRectangle(cornerRadius: 15, style: .continuous)
-                    .fill(severityColor.opacity(0.12))
-                    .frame(width: 48, height: 48)
-                Image(systemName: example.icon)
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundStyle(severityColor)
-                Circle()
-                    .fill(severityColor)
-                    .frame(width: 8, height: 8)
-                    .frame(width: 48, height: 48, alignment: .topTrailing)
-                    .offset(x: 1, y: -1)
-            }
-
-            VStack(alignment: .leading, spacing: 6) {
-                Text(example.title)
-                    .font(.system(.headline, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(2)
-                Text(example.explanation)
-                    .font(.system(.subheadline, design: .rounded).weight(.medium))
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(3)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text(example.context)
-                    .font(.system(size: 12, weight: .semibold, design: .rounded))
-                    .foregroundStyle(AppColors.textTertiary)
-                    .lineLimit(2)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-
-            Spacer(minLength: 8)
-
-            VStack(alignment: .trailing, spacing: 5) {
-                Text(fineLabel)
-                    .font(.system(size: 10, weight: .bold, design: .rounded))
-                    .foregroundStyle(AppColors.textTertiary)
-                    .textCase(.uppercase)
-                Text(example.fine)
-                    .font(.system(size: 20, weight: .black, design: .rounded))
-                    .foregroundStyle(AppColors.fineAmountOrange)
-                Text(severityLabel)
-                    .font(.system(size: 10, weight: .bold, design: .rounded))
-                    .foregroundStyle(severityColor)
-                    .padding(.horizontal, 8)
-                    .padding(.vertical, 4)
-                    .background(severityColor.opacity(0.10))
-                    .clipShape(Capsule())
-            }
-        }
-        .padding(15)
-        .background(AppColors.cardElevated)
-        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .stroke(AppColors.stroke.opacity(0.88), lineWidth: 0.75)
-        )
-        .shadow(color: Color.black.opacity(0.10), radius: 14, x: 0, y: 7)
-    }
-
-    private var severityColor: Color {
-        switch example.severity {
-        case .low: return AppColors.success
-        case .medium: return AppColors.warning
-        case .high: return AppColors.dutchOrange
-        case .critical: return AppColors.error
-        }
-    }
-
-    private var severityLabel: String {
-        example.severity.localized(lang)
-    }
-}
-
-private struct FineTopicCard: View {
-    let topic: RuleGuideTopic
-    let lang: AppLanguage
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            HStack(alignment: .top, spacing: 13) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 15, style: .continuous)
-                        .fill(severityColor(topic.severity).opacity(0.12))
-                    Image(systemName: iconForCategory(topic.category))
-                        .font(.system(size: 20, weight: .semibold))
-                        .foregroundStyle(severityColor(topic.severity))
-                }
-                .frame(width: 48, height: 48)
-
-                VStack(alignment: .leading, spacing: 5) {
-                    Text(topic.title)
-                        .font(.system(.headline, design: .rounded).weight(.bold))
-                        .foregroundStyle(AppColors.textPrimary)
-                        .lineLimit(2)
-                        .fixedSize(horizontal: false, vertical: true)
-
-                    Text(RuleGuideCategoryLocalization.localized(topic.category, lang: lang))
-                        .font(.system(size: 12, weight: .semibold, design: .rounded))
-                        .foregroundStyle(AppColors.textTertiary)
-                        .lineLimit(1)
-                }
-
-                Spacer(minLength: 8)
-
-                VStack(alignment: .trailing, spacing: 6) {
-                    Text(topic.estimatedFineRange)
-                        .font(.system(size: 16, weight: .black, design: .rounded))
-                        .foregroundStyle(AppColors.fineAmountOrange)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.78)
-                    Text(topic.severity.localized(lang))
-                        .font(.system(size: 10, weight: .bold, design: .rounded))
-                        .foregroundStyle(severityColor(topic.severity))
-                        .padding(.horizontal, 8)
-                        .padding(.vertical, 4)
-                        .background(severityColor(topic.severity).opacity(0.10))
-                        .clipShape(Capsule())
-                }
-            }
-
-            Text(topic.commonMistake)
-                .font(.system(.subheadline, design: .rounded).weight(.medium))
-                .foregroundStyle(AppColors.textSecondary)
-                .lineLimit(3)
-                .fixedSize(horizontal: false, vertical: true)
-
-            HStack(alignment: .center, spacing: 8) {
-                Label(topic.authority, systemImage: "building.columns.fill")
-                    .font(.system(size: 12, weight: .semibold, design: .rounded))
-                    .foregroundStyle(AppColors.textTertiary)
-                    .lineLimit(1)
-                Spacer(minLength: 8)
-                SaveItemButton(
-                    itemID: "rule::\(topic.id.uuidString.lowercased())",
-                    kind: .rule,
-                    title: topic.title,
-                    subtitle: RuleGuideCategoryLocalization.localized(topic.category, lang: lang),
-                    destination: .ruleTopic(topic.id)
-                )
-                .foregroundStyle(AppColors.textTertiary)
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 11, weight: .semibold))
-                    .foregroundStyle(AppColors.textTertiary)
-            }
-        }
-        .padding(15)
-        .background(AppColors.cardElevated)
-        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .stroke(AppColors.stroke.opacity(0.88), lineWidth: 0.75)
-        )
-        .shadow(color: Color.black.opacity(0.10), radius: 14, x: 0, y: 7)
-    }
-
-    private func severityColor(_ severity: RuleSeverity) -> Color {
-        switch severity {
-        case .low:      return AppColors.success
-        case .medium:   return AppColors.warning
-        case .high:     return AppColors.dutchOrange
-        case .critical: return AppColors.error
-        }
-    }
-
-    private func iconForCategory(_ category: String) -> String {
-        switch category {
-        case "Bicycle rules":               return "bicycle"
-        case "Scooter / moped rules":       return "scooter"
-        case "Car rules":                   return "car.fill"
-        case "Parking fines":               return "parkingsign"
-        case "Public transport fines":      return "tram.fill"
-        case "Trash / garbage rules":       return "trash.fill"
-        case "Smoking rules":               return "nosign"
-        case "Noise complaints":            return "speaker.wave.3.fill"
-        case "ID/passport obligations":     return "person.text.rectangle.fill"
-        case "Alcohol/drug rules":          return "exclamationmark.octagon.fill"
-        case "Municipality rules":          return "building.columns.fill"
-        case "Housing violations":          return "house.fill"
-        case "Work violations":             return "briefcase.fill"
-        case "Scam warnings":              return "shield.lefthalf.filled"
-        case "Tourist mistakes":            return "globe.europe.africa.fill"
-        default:                            return "circle.fill"
         }
     }
 }
@@ -654,18 +593,66 @@ struct RuleTopicDetailView: View {
             Text(relatedTitle)
                 .font(.system(size: 14, weight: .bold, design: .rounded))
                 .foregroundStyle(.white)
-            ForEach(topic.relatedTopics, id: \.self) { topicName in
-                HStack(spacing: 8) {
-                    Circle()
-                        .fill(AppColors.softBlue.opacity(0.50))
-                        .frame(width: 5, height: 5)
-                    Text(RuleGuideCategoryLocalization.localized(topicName, lang: lang))
-                        .font(.system(size: 13, weight: .regular, design: .rounded))
-                        .foregroundStyle(Color.white.opacity(0.72))
+
+            if topic.relatedTopics.isEmpty {
+                ruleNavigationRow(
+                    title: relatedFallbackTitle,
+                    subtitle: relatedFallbackSubtitle,
+                    symbol: "list.bullet.rectangle.fill",
+                    destination: .finesList
+                )
+                ruleNavigationRow(
+                    title: officialSourcesTitle,
+                    subtitle: officialSourcesSubtitle,
+                    symbol: "building.columns.fill",
+                    destination: .officialSources
+                )
+            } else {
+                ForEach(topic.relatedTopics, id: \.self) { topicName in
+                    ruleNavigationRow(
+                        title: RuleGuideCategoryLocalization.localized(topicName, lang: lang),
+                        subtitle: relatedTopicActionSubtitle,
+                        symbol: "magnifyingglass",
+                        destination: .searchList
+                    )
                 }
             }
         }
         .nlCard()
+        .accessibilityIdentifier("fines.rule.relatedTopics.dashboard")
+    }
+
+    private func ruleNavigationRow(title: String, subtitle: String, symbol: String, destination: AppDestination) -> some View {
+        NavigationLink(value: destination) {
+            HStack(spacing: AppSpacing.small) {
+                Image(systemName: symbol)
+                    .font(.system(size: 14, weight: .semibold))
+                    .foregroundStyle(AppColors.softBlue)
+                    .frame(width: 30, height: 30)
+                    .background(AppColors.softBlue.opacity(0.14))
+                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title)
+                        .font(.system(size: 13, weight: .semibold, design: .rounded))
+                        .foregroundStyle(.white)
+                        .lineLimit(2)
+                    Text(subtitle)
+                        .font(.system(size: 11, weight: .regular, design: .rounded))
+                        .foregroundStyle(Color.white.opacity(0.62))
+                        .lineLimit(2)
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 11, weight: .bold))
+                    .foregroundStyle(Color.white.opacity(0.38))
+            }
+            .padding(.vertical, 6)
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
     }
 
     private var safeWordingCard: some View {
@@ -724,6 +711,46 @@ struct RuleTopicDetailView: View {
         case .russian: return "Связанные темы"
         case .english: return "Related topics"
         case .dutch: return "Gerelateerde onderwerpen"
+        }
+    }
+
+    private var relatedTopicActionSubtitle: String {
+        switch lang {
+        case .russian: return "Открыть поиск по связанным правилам и источникам"
+        case .english: return "Search related rules and sources"
+        case .dutch: return "Zoek verwante regels en bronnen"
+        }
+    }
+
+    private var relatedFallbackTitle: String {
+        switch lang {
+        case .russian: return "Смотреть все правила и штрафы"
+        case .english: return "View all rules and fines"
+        case .dutch: return "Bekijk alle regels en boetes"
+        }
+    }
+
+    private var relatedFallbackSubtitle: String {
+        switch lang {
+        case .russian: return "Сравните похожие ситуации перед оплатой или обжалованием"
+        case .english: return "Compare similar situations before payment or objection"
+        case .dutch: return "Vergelijk soortgelijke situaties voor betaling of bezwaar"
+        }
+    }
+
+    private var officialSourcesTitle: String {
+        switch lang {
+        case .russian: return "Проверить официальный источник"
+        case .english: return "Check official sources"
+        case .dutch: return "Controleer officiële bronnen"
+        }
+    }
+
+    private var officialSourcesSubtitle: String {
+        switch lang {
+        case .russian: return "Суммы и процедуры могут меняться"
+        case .english: return "Amounts and procedures can change"
+        case .dutch: return "Bedragen en procedures kunnen veranderen"
         }
     }
 

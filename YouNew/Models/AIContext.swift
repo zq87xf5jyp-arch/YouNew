@@ -31,13 +31,38 @@ struct OfficialSource: Codable, Equatable, Identifiable {
     let title: String
     let url: URL?
     let institution: String?
+    let lastChecked: Date?
 
-    nonisolated init(id: UUID = UUID(), title: String, url: URL? = nil, institution: String? = nil) {
+    nonisolated init(id: UUID = UUID(), title: String, url: URL? = nil, institution: String? = nil, lastChecked: Date? = nil) {
         self.id = id
         self.title = title
         self.url = url
         self.institution = institution
+        self.lastChecked = lastChecked
     }
+
+    private enum CodingKeys: String, CodingKey {
+        case id
+        case title
+        case url
+        case institution
+        case lastChecked
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        id = try container.decode(UUID.self, forKey: .id)
+        title = try container.decode(String.self, forKey: .title)
+        url = try container.decodeIfPresent(URL.self, forKey: .url)
+        institution = try container.decodeIfPresent(String.self, forKey: .institution)
+        lastChecked = try container.decodeIfPresent(Date.self, forKey: .lastChecked)
+    }
+}
+
+enum AIResponseConfidence: String, Codable, Equatable {
+    case high
+    case medium
+    case low
 }
 
 struct AIContext: Codable, Equatable {
@@ -51,6 +76,14 @@ struct AIContext: Codable, Equatable {
     let userSituation: String?
     let selectedCity: String?
     let selectedProvince: String?
+    let selectedCityData: DashboardCity?
+    let selectedAudience: UserContentCategory?
+    let selectedSection: IASection?
+    let places: [PlaceItem]
+    let foodGuide: [FoodGuideItem]
+    let travelLinks: [TravelLinkItem]
+    let calendarEvents: [CalendarEvent]
+    let currentScreen: String
     let savedItemTitles: [String]
     let savedItemIDs: [String]
     let savedItemKinds: [String]
@@ -76,6 +109,14 @@ struct AIContext: Codable, Equatable {
         userSituation: String?,
         selectedCity: String?,
         selectedProvince: String?,
+        selectedCityData: DashboardCity? = nil,
+        selectedAudience: UserContentCategory? = nil,
+        selectedSection: IASection? = nil,
+        places: [PlaceItem] = [],
+        foodGuide: [FoodGuideItem] = [],
+        travelLinks: [TravelLinkItem] = [],
+        calendarEvents: [CalendarEvent] = [],
+        currentScreen: String? = nil,
         savedItemTitles: [String],
         savedItemIDs: [String] = [],
         savedItemKinds: [String] = [],
@@ -100,6 +141,14 @@ struct AIContext: Codable, Equatable {
         self.userSituation = userSituation
         self.selectedCity = selectedCity
         self.selectedProvince = selectedProvince
+        self.selectedCityData = selectedCityData
+        self.selectedAudience = selectedAudience
+        self.selectedSection = selectedSection
+        self.places = places
+        self.foodGuide = foodGuide
+        self.travelLinks = travelLinks
+        self.calendarEvents = calendarEvents
+        self.currentScreen = currentScreen ?? screen.rawValue
         self.savedItemTitles = savedItemTitles
         self.savedItemIDs = savedItemIDs
         self.savedItemKinds = savedItemKinds
@@ -154,6 +203,21 @@ struct AIResponse: Codable, Equatable {
     let appDestinationID: String?
     let isVerified: Bool
     let cacheKey: String?
+    let confidence: AIResponseConfidence
+
+    private enum CodingKeys: String, CodingKey {
+        case answer
+        case sources
+        case safetyNote
+        case suggestedActions
+        case quickActions
+        case sections
+        case nextStep
+        case appDestinationID
+        case isVerified
+        case cacheKey
+        case confidence
+    }
 
     init(
         answer: String,
@@ -165,7 +229,8 @@ struct AIResponse: Codable, Equatable {
         nextStep: AINextStep? = nil,
         appDestinationID: String? = nil,
         isVerified: Bool = true,
-        cacheKey: String? = nil
+        cacheKey: String? = nil,
+        confidence: AIResponseConfidence? = nil
     ) {
         self.answer = answer
         self.sources = sources
@@ -177,24 +242,48 @@ struct AIResponse: Codable, Equatable {
         self.appDestinationID = appDestinationID
         self.isVerified = isVerified
         self.cacheKey = cacheKey
+        self.confidence = confidence ?? (isVerified ? .high : .low)
+    }
+
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        answer = try container.decode(String.self, forKey: .answer)
+        sources = try container.decodeIfPresent([OfficialSource].self, forKey: .sources) ?? []
+        safetyNote = try container.decodeIfPresent(String.self, forKey: .safetyNote)
+        suggestedActions = try container.decodeIfPresent([String].self, forKey: .suggestedActions) ?? []
+        quickActions = try container.decodeIfPresent([AIResponseAction].self, forKey: .quickActions) ?? []
+        sections = try container.decodeIfPresent([AIResponseSection].self, forKey: .sections) ?? []
+        nextStep = try container.decodeIfPresent(AINextStep.self, forKey: .nextStep)
+        appDestinationID = try container.decodeIfPresent(String.self, forKey: .appDestinationID)
+        isVerified = try container.decodeIfPresent(Bool.self, forKey: .isVerified) ?? false
+        cacheKey = try container.decodeIfPresent(String.self, forKey: .cacheKey)
+        confidence = try container.decodeIfPresent(AIResponseConfidence.self, forKey: .confidence) ?? (isVerified ? .high : .low)
     }
 
     static func empty(language: AppLanguage) -> AIResponse {
-        let officialSource = AppURL.make("https://www.government.nl")
+        let searchTitle = localizedActionTitle(.search, language)
+        let officialSourcesTitle = localizedActionTitle(.officialSources, language)
+        let officialSourceTitle = localizedActionTitle(.officialSource, language)
+        let saveTitle = localizedActionTitle(.save, language)
+        let shareTitle = localizedActionTitle(.share, language)
+        let relatedTitle = localizedRelatedOfficialSourcesTitle(language)
+        let fallbackSource = OfficialSource(
+            title: "Government.nl",
+            url: URL(string: "https://www.government.nl"),
+            institution: "Government of the Netherlands"
+        )
         return AIResponse(
             answer: AISafetyRules.emptyAnswerMessage(for: language),
-            sources: [
-                OfficialSource(title: "Government.nl", url: officialSource, institution: "Government of the Netherlands")
-            ],
+            sources: [fallbackSource],
             safetyNote: AISafetyRules.sourceMissingMessage(for: language),
-            suggestedActions: ["Open Search", "Open Official Sources", "Open Official Source", "Save", "Share"],
+            suggestedActions: [searchTitle, officialSourcesTitle, saveTitle, shareTitle],
             quickActions: [
-                AIResponseAction.openScreen(title: "Open Search", destinationID: "search"),
-                AIResponseAction.openScreen(title: "Open Official Sources", destinationID: "officialSources"),
-                AIResponseAction.openSource(title: "Open Official Source", url: officialSource),
-                AIResponseAction.save(title: "Save", itemID: "empty-response"),
-                AIResponseAction.share(title: "Share", itemID: "empty-response"),
-                AIResponseAction.relatedTopic("Related: official sources", query: "official sources")
+                AIResponseAction.openScreen(title: searchTitle, destinationID: "search"),
+                AIResponseAction.openScreen(title: officialSourcesTitle, destinationID: "officialSources"),
+                AIResponseAction.openSource(title: officialSourceTitle, url: AppURL.make("https://www.government.nl")),
+                AIResponseAction.save(title: saveTitle, itemID: "empty-response"),
+                AIResponseAction.share(title: shareTitle, itemID: "empty-response"),
+                AIResponseAction.relatedTopic(relatedTitle, query: relatedTitle)
             ],
             isVerified: false
         )
@@ -226,21 +315,28 @@ struct AIResponse: Codable, Equatable {
             nextDetail = "Use app search or official sources before acting."
             nextDestTitle = "Search"
         }
-        let officialSource = AppURL.make("https://www.government.nl")
+        let officialSourcesTitle = localizedActionTitle(.officialSources, language)
+        let officialSourceTitle = localizedActionTitle(.officialSource, language)
+        let saveTitle = localizedActionTitle(.save, language)
+        let shareTitle = localizedActionTitle(.share, language)
+        let relatedTitle = localizedRelatedOfficialSourcesTitle(language)
+        let fallbackSource = OfficialSource(
+            title: "Government.nl",
+            url: URL(string: "https://www.government.nl"),
+            institution: "Government of the Netherlands"
+        )
         return AIResponse(
             answer: displayBody,
-            sources: [
-                OfficialSource(title: "Government.nl", url: officialSource, institution: "Government of the Netherlands")
-            ],
+            sources: [fallbackSource],
             safetyNote: AISafetyRules.sourceMissingMessage(for: language),
-            suggestedActions: [nextTitle, "Open Official Sources", "Open Official Source", "Save", "Share"],
+            suggestedActions: [nextTitle, officialSourcesTitle, saveTitle, shareTitle],
             quickActions: [
                 AIResponseAction.openScreen(title: nextTitle, destinationID: "search"),
-                AIResponseAction.openScreen(title: nextDestTitle, destinationID: "officialSources"),
-                AIResponseAction.openSource(title: "Open Official Source", url: officialSource),
-                AIResponseAction.save(title: "Save", itemID: "unverified-response"),
-                AIResponseAction.share(title: "Share", itemID: "unverified-response"),
-                AIResponseAction.relatedTopic("Related: official sources", query: "official sources")
+                AIResponseAction.openScreen(title: officialSourcesTitle, destinationID: "officialSources"),
+                AIResponseAction.openSource(title: officialSourceTitle, url: AppURL.make("https://www.government.nl")),
+                AIResponseAction.save(title: saveTitle, itemID: "unverified-response"),
+                AIResponseAction.share(title: shareTitle, itemID: "unverified-response"),
+                AIResponseAction.relatedTopic(relatedTitle, query: relatedTitle)
             ],
             sections: [
                 AIResponseSection(
@@ -258,6 +354,42 @@ struct AIResponse: Codable, Equatable {
             appDestinationID: "search",
             isVerified: false
         )
+    }
+
+    private enum FallbackActionTitle {
+        case search
+        case officialSources
+        case officialSource
+        case save
+        case share
+    }
+
+    private static func localizedActionTitle(_ title: FallbackActionTitle, _ language: AppLanguage) -> String {
+        switch (title, language) {
+        case (.search, .russian): return "Открыть поиск"
+        case (.search, .dutch): return "Zoeken openen"
+        case (.search, .english): return "Open Search"
+        case (.officialSources, .russian): return "Открыть официальные источники"
+        case (.officialSources, .dutch): return "Officiële bronnen openen"
+        case (.officialSources, .english): return "Open Official Sources"
+        case (.officialSource, .russian): return "Открыть официальный источник"
+        case (.officialSource, .dutch): return "Officiële bron openen"
+        case (.officialSource, .english): return "Open Official Source"
+        case (.save, .russian): return "Сохранить"
+        case (.save, .dutch): return "Bewaren"
+        case (.save, .english): return "Save"
+        case (.share, .russian): return "Поделиться"
+        case (.share, .dutch): return "Delen"
+        case (.share, .english): return "Share"
+        }
+    }
+
+    private static func localizedRelatedOfficialSourcesTitle(_ language: AppLanguage) -> String {
+        switch language {
+        case .russian: return "Связано: официальные источники"
+        case .dutch: return "Verwant: officiële bronnen"
+        case .english: return "Related: official sources"
+        }
     }
 }
 

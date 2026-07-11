@@ -160,7 +160,27 @@ enum SideMenuLandmarkRegistry {
     ]
 
     static var fallback: AppImageAsset {
-        images.first { $0.id == "side-menu-leiden-canals" } ?? images[0]
+        if let leiden = images.first(where: { $0.id == "side-menu-leiden-canals" }) {
+            return leiden
+        }
+        guard let first = images.first else {
+            return AppImageAsset(
+                id: "side-menu-fallback",
+                url: nil,
+                localAssetName: nil,
+                title: "Netherlands",
+                description: "Fallback Netherlands visual.",
+                sourceName: "YouNew",
+                sourceURL: nil,
+                license: nil,
+                attribution: nil,
+                width: nil,
+                height: nil,
+                type: .sideMenuHero,
+                verified: false
+            )
+        }
+        return first
     }
 
     static func hero(for cityName: String?, rotationSeed: Int) -> AppImageAsset {

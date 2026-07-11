@@ -19,6 +19,10 @@ struct MistakesLibraryView: View {
         return visibleItems.filter { $0.category == cat }
     }
 
+    private var hasActiveFilters: Bool {
+        selectedCategory != nil
+    }
+
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
@@ -32,10 +36,7 @@ struct MistakesLibraryView: View {
                 categoryFilterBar
 
                 if filtered.isEmpty {
-                    Text(L10n.t("fines.no_items", lang))
-                        .font(AppTypography.body)
-                        .foregroundStyle(AppColors.textSecondary)
-                        .appCardStyle()
+                    emptyMistakesDashboard
                 } else {
                     ForEach(filtered) { item in
                         NavigationLink(value: AppDestination.mistake(item.id)) {
@@ -54,6 +55,39 @@ struct MistakesLibraryView: View {
         .appSceneBackground()
         .navigationTitle(L10n.t("resources.common_mistakes", lang))
         .animation(AppAnimations.standard, value: selectedCategory)
+    }
+
+    private var emptyMistakesDashboard: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.medium) {
+            InfoCard(
+                title: emptyMistakesTitle,
+                subtitle: emptyMistakesSubtitle,
+                detail: emptyMistakesDetail,
+                icon: "exclamationmark.triangle.fill"
+            )
+
+            if hasActiveFilters {
+                Button {
+                    selectedCategory = nil
+                } label: {
+                    Label(emptyMistakesResetTitle, systemImage: "arrow.counterclockwise")
+                        .frame(maxWidth: .infinity)
+                }
+                .buttonStyle(PrimaryPremiumButtonStyle())
+                .accessibilityIdentifier("mistakes.empty.reset")
+            }
+
+            LazyVGrid(columns: DetailPageLayout.twoColumnWhenPossible(for: 360, minimumColumnWidth: 156), spacing: AppSpacing.small) {
+                ForEach(emptyMistakeActions) { action in
+                    NavigationLink(value: action.destination) {
+                        MistakeRecoveryActionCard(action: action)
+                    }
+                    .buttonStyle(AppPressableCardButtonStyle())
+                    .accessibilityIdentifier("mistakes.empty.action.\(action.id)")
+                }
+            }
+        }
+        .accessibilityIdentifier("mistakes.empty.dashboard")
     }
 
     private var categoryFilterBar: some View {
@@ -86,36 +120,91 @@ struct MistakesLibraryView: View {
     }
 
     private func mistakeCard(item: NewcomerMistake) -> some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
-            HStack(alignment: .top) {
-                Image(systemName: item.category.systemImageName)
-                    .font(.title3)
-                    .foregroundStyle(riskColor(item.riskLevel))
-                    .frame(width: 36, height: 36)
-                    .background(riskColor(item.riskLevel).opacity(0.12))
-                    .clipShape(RoundedRectangle(cornerRadius: AppCornerRadius.small, style: .continuous))
+        HStack(alignment: .top, spacing: 12) {
+            PremiumImageHeader(
+                title: item.title(lang),
+                asset: mistakeImageAsset(for: item.category),
+                language: lang,
+                symbol: item.category.systemImageName,
+                accent: riskColor(item.riskLevel),
+                height: 92,
+                width: 104,
+                cornerRadius: 18,
+                fallbackCategory: mistakeFallbackCategory(for: item.category)
+            )
+            .layoutPriority(0)
 
-                VStack(alignment: .leading, spacing: AppSpacing.xSmall) {
-                    Text(item.title(lang))
-                        .font(AppTypography.cardTitle)
-                        .foregroundStyle(AppColors.textPrimary)
+            VStack(alignment: .leading, spacing: 7) {
+                HStack(alignment: .center, spacing: 8) {
                     Text(item.category.localized(lang))
                         .font(AppTypography.metadata)
                         .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(1)
+
+                    Spacer(minLength: 4)
+
+                    riskBadge(item.riskLevel)
                 }
 
-                Spacer()
+                Text(item.title(lang))
+                    .font(AppTypography.cardTitle)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
 
-                riskBadge(item.riskLevel)
+                Text(item.whyItMatters(lang))
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(3)
             }
-
-            Text(item.whyItMatters(lang))
-                .font(AppTypography.body)
-                .foregroundStyle(AppColors.textSecondary)
-                .lineLimit(2)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .layoutPriority(1)
         }
-        .frame(maxWidth: .infinity, alignment: .leading)
+        .frame(maxWidth: .infinity, minHeight: 138, alignment: .topLeading)
         .appCardStyle()
+    }
+
+    private func mistakeImageAsset(for category: MistakeCategory) -> AppImageAsset? {
+        switch category {
+        case .documents, .legalLetters:
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.governmentBasicsImage
+        case .deadlines:
+            return ContentMediaRegistry.calendarImage ?? ContentMediaRegistry.officialSourcesHero
+        case .housing:
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case .healthInsurance:
+            return ContentMediaRegistry.healthInsuranceImage ?? ContentMediaRegistry.healthcareBasicsImage
+        case .work:
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case .taxes, .municipality:
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.governmentBasicsImage
+        case .transport:
+            return ContentMediaRegistry.ovChipkaartImage ?? ContentMediaRegistry.transportStationHero
+        case .scams:
+            return ContentMediaRegistry.searchImage ?? ContentMediaRegistry.officialSourcesHero
+        case .education:
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.cultureHero
+        }
+    }
+
+    private func mistakeFallbackCategory(for category: MistakeCategory) -> PremiumImageFallbackCategory {
+        switch category {
+        case .documents, .legalLetters:
+            return .documents
+        case .deadlines, .municipality, .taxes:
+            return .government
+        case .housing:
+            return .housing
+        case .healthInsurance:
+            return .healthcare
+        case .work:
+            return .work
+        case .transport:
+            return .transport
+        case .scams:
+            return .search
+        case .education:
+            return .dutchA1A2
+        }
     }
 
     private func riskColor(_ level: RiskLevel) -> Color {
@@ -137,9 +226,97 @@ struct MistakesLibraryView: View {
             .background(color.opacity(0.12))
             .clipShape(Capsule())
     }
+
+    private var emptyMistakesTitle: String {
+        localized(en: "Use a safer route", nl: "Gebruik een veiligere route", ru: "Откройте безопасный маршрут")
+    }
+
+    private var emptyMistakesSubtitle: String {
+        localized(en: "Try a safer route", nl: "Probeer een veiligere route", ru: "Попробуйте безопасный маршрут")
+    }
+
+    private var emptyMistakesDetail: String {
+        localized(
+            en: "Clear the category or start from scam safety, official sources, or legal support.",
+            nl: "Wis de categorie of begin met oplichting voorkomen, officiële bronnen of juridische hulp.",
+            ru: "Сбросьте категорию или начните с защиты от мошенников, официальных источников или юридической помощи."
+        )
+    }
+
+    private var emptyMistakesResetTitle: String {
+        localized(en: "Show all mistakes", nl: "Toon alle fouten", ru: "Показать все ошибки")
+    }
+
+    private var emptyMistakeActions: [MistakeRecoveryAction] {
+        [
+            MistakeRecoveryAction(
+                id: "scams",
+                title: L10n.t("resources.scam_safety", lang),
+                subtitle: localized(en: "Check common fraud patterns.", nl: "Controleer veelvoorkomende fraude.", ru: "Проверьте частые схемы мошенничества."),
+                icon: "shield.lefthalf.filled",
+                tint: AppColors.error,
+                destination: .scamWarningsList
+            ),
+            MistakeRecoveryAction(
+                id: "sources",
+                title: L10n.t("settings.sources", lang),
+                subtitle: localized(en: "Verify current rules before acting.", nl: "Controleer actuele regels voordat je handelt.", ru: "Проверьте актуальные правила перед действием."),
+                icon: "checkmark.shield.fill",
+                tint: AppColors.success,
+                destination: .officialSources
+            ),
+            MistakeRecoveryAction(
+                id: "search",
+                title: L10n.t("tab.search", lang),
+                subtitle: localized(en: "Search for the situation or institution.", nl: "Zoek op situatie of instantie.", ru: "Ищите ситуацию или учреждение."),
+                icon: "magnifyingglass.circle.fill",
+                tint: AppColors.dutchOrange,
+                destination: .searchList
+            ),
+            MistakeRecoveryAction(
+                id: "legal",
+                title: localized(en: "Legal help", nl: "Juridische hulp", ru: "Юридическая помощь"),
+                subtitle: localized(en: "Use support for disputes, fines, or urgent issues.", nl: "Gebruik hulp bij geschillen, boetes of urgente zaken.", ru: "Используйте помощь для споров, штрафов или срочных вопросов."),
+                icon: "person.fill.questionmark",
+                tint: AppColors.violet,
+                destination: .legalHelp
+            )
+        ]
+    }
+
+    private func localized(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .english: return en
+        case .dutch: return nl
+        case .russian: return ru
+        }
+    }
 }
 
 // MARK: - Detail View
+
+private struct MistakeRecoveryAction: Identifiable {
+    let id: String
+    let title: String
+    let subtitle: String
+    let icon: String
+    let tint: Color
+    let destination: AppDestination
+}
+
+private struct MistakeRecoveryActionCard: View {
+    let action: MistakeRecoveryAction
+
+    var body: some View {
+        ProductTaskCard(
+            title: action.title,
+            subtitle: action.subtitle,
+            symbol: action.icon,
+            accent: action.tint,
+            minHeight: 104
+        )
+    }
+}
 
 struct NewcomerMistakeDetailView: View {
     let item: NewcomerMistake
@@ -190,6 +367,17 @@ struct NewcomerMistakeDetailView: View {
 
     private var headerSection: some View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
+            PremiumImageHeader(
+                title: item.title(lang),
+                asset: mistakeImageAsset(for: item.category),
+                language: lang,
+                symbol: item.category.systemImageName,
+                accent: riskColor(item.riskLevel),
+                height: 178,
+                cornerRadius: 22,
+                fallbackCategory: mistakeFallbackCategory(for: item.category)
+            )
+
             HStack {
                 Text(item.category.localized(lang))
                     .font(AppTypography.metadata)
@@ -206,6 +394,50 @@ struct NewcomerMistakeDetailView: View {
                 .foregroundStyle(AppColors.textPrimary)
         }
         .appCardStyle()
+    }
+
+    private func mistakeImageAsset(for category: MistakeCategory) -> AppImageAsset? {
+        switch category {
+        case .documents, .legalLetters:
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.governmentBasicsImage
+        case .deadlines:
+            return ContentMediaRegistry.calendarImage ?? ContentMediaRegistry.officialSourcesHero
+        case .housing:
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case .healthInsurance:
+            return ContentMediaRegistry.healthInsuranceImage ?? ContentMediaRegistry.healthcareBasicsImage
+        case .work:
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case .taxes, .municipality:
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.governmentBasicsImage
+        case .transport:
+            return ContentMediaRegistry.ovChipkaartImage ?? ContentMediaRegistry.transportStationHero
+        case .scams:
+            return ContentMediaRegistry.searchImage ?? ContentMediaRegistry.officialSourcesHero
+        case .education:
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.cultureHero
+        }
+    }
+
+    private func mistakeFallbackCategory(for category: MistakeCategory) -> PremiumImageFallbackCategory {
+        switch category {
+        case .documents, .legalLetters:
+            return .documents
+        case .deadlines, .municipality, .taxes:
+            return .government
+        case .housing:
+            return .housing
+        case .healthInsurance:
+            return .healthcare
+        case .work:
+            return .work
+        case .transport:
+            return .transport
+        case .scams:
+            return .search
+        case .education:
+            return .dutchA1A2
+        }
     }
 
     private var whySection: some View {
@@ -264,14 +496,7 @@ struct NewcomerMistakeDetailView: View {
     }
 
     private func riskBadge(_ level: RiskLevel) -> some View {
-        let color: Color = {
-            switch level {
-            case .low: return AppColors.success
-            case .medium: return AppColors.warning
-            case .high: return AppColors.dutchOrange
-            case .urgent: return AppColors.error
-            }
-        }()
+        let color = riskColor(level)
         return Text(level.localized(lang))
             .font(AppTypography.metadata)
             .foregroundStyle(color)
@@ -279,5 +504,14 @@ struct NewcomerMistakeDetailView: View {
             .padding(.vertical, 4)
             .background(color.opacity(0.12))
             .clipShape(Capsule())
+    }
+
+    private func riskColor(_ level: RiskLevel) -> Color {
+        switch level {
+        case .low: return AppColors.success
+        case .medium: return AppColors.warning
+        case .high: return AppColors.dutchOrange
+        case .urgent: return AppColors.error
+        }
     }
 }

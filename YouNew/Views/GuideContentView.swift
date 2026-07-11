@@ -130,6 +130,7 @@ struct ExternalLink: Identifiable {
 enum GuideContent {
     nonisolated static let sections: [GuideSection] = [
         documentsSection,
+        touristDocumentsSection,
         housingSection,
         transportSection,
         healthcareSection,
@@ -174,6 +175,8 @@ private extension GuideSection {
         if !explicitTags.isEmpty { return explicitTags }
 
         switch id {
+        case "tourist-documents":
+            return [.tourist]
         case "documents":
             return [.worker, .refugee, .family, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
         case "housing":
@@ -239,6 +242,7 @@ private extension ExternalLink {
 private enum GuideEnglishFallback {
     static let sectionText: [String: (title: String, subtitle: String)] = [
         "documents": ("Documents", "BSN, DigiD, BRP registration, and official letters for life in the Netherlands"),
+        "tourist-documents": ("Lost documents", "Passport, ID, embassy, consulate, and police steps for tourists"),
         "housing": ("Housing", "Renting, huurtoeslag, tenant rights, and registration checks"),
         "transport": ("Transport", "OV-chipkaart, OVpay, bicycles, trains, and everyday travel"),
         "healthcare": ("Healthcare", "Health insurance, huisarts, pharmacy, urgent care, and official sources"),
@@ -275,7 +279,9 @@ private enum GuideEnglishFallback {
         "parkmobile": "ParkMobile - pay parking",
         "cjib-parking": "CJIB - pay parking fines",
         "cjib-main": "CJIB official website",
-        "cjib-bezwaar": "Object to a fine online"
+        "cjib-bezwaar": "Object to a fine online",
+        "foreign-embassies": "Foreign embassies and consulates",
+        "politie-contact": "Police contact"
     ]
 
     static let articleText: [String: (title: String, summary: String, blocks: [GuideBlock])] = [
@@ -320,6 +326,23 @@ private enum GuideEnglishFallback {
                 .tip("After BRP registration, request DigiD so you can use official online services."),
                 .term(dutch: "BRP", meaning: "Basisregistratie Personen, the Dutch population register"),
                 .term(dutch: "Inschrijven", meaning: "Registering at an address")
+            ]
+        ),
+        "lost-documents": (
+            "Lost passport or ID",
+            "What tourists should do after losing travel documents in the Netherlands",
+            [
+                .paragraph("If you lose your passport, ID, residence card, or travel document while visiting the Netherlands, treat it as a document-replacement problem first. It is not the same flow as calling emergency services unless you are in immediate danger."),
+                .step(index: 1, text: "Make sure you are safe. If there is life danger, violence, fire, or a crime happening now, call 112."),
+                .step(index: 2, text: "Retrace the last place you used the document: hotel, museum, train station, restaurant, taxi, or event desk."),
+                .step(index: 3, text: "Contact your embassy or consulate. Only your own country can confirm replacement travel document options."),
+                .step(index: 4, text: "If the document was stolen, contact the police through the non-emergency route or official Politie.nl instructions. Keep any report or reference number."),
+                .step(index: 5, text: "Before travelling, confirm with your airline, embassy or consulate, and border authority which replacement document is accepted."),
+                .warning("Do not type passport numbers, BSN, full address, or document scans into chat. Use official embassy, consulate, police, airline, and border-control channels."),
+                .tip("Keep a protected copy of your passport photo page separate from the original. A copy is not a travel document, but it can speed up replacement checks."),
+                .term(dutch: "Ambassade", meaning: "Embassy"),
+                .term(dutch: "Consulaat", meaning: "Consulate"),
+                .term(dutch: "Aangifte", meaning: "Police report or formal report")
             ]
         ),
         "renting": (
@@ -507,6 +530,51 @@ private enum GuideEnglishFallback {
 // MARK: - Documents
 
 private extension GuideContent {
+    static var touristDocumentsSection: GuideSection {
+        GuideSection(
+            id: "tourist-documents",
+            icon: "doc.badge.exclamationmark.fill",
+            title: "Потерянные документы",
+            subtitle: "Паспорт, ID, посольство, консульство и полиция для туристов",
+            tint: AppColors.cyanGlow,
+            articles: [lostDocumentsArticle],
+            titleEN: "Lost documents",
+            subtitleEN: "Passport, ID, embassy, consulate, and police steps for tourists",
+            personaTags: [.tourist]
+        )
+    }
+
+    static var lostDocumentsArticle: GuideArticle {
+        GuideArticle(
+            id: "lost-documents",
+            title: "Потерян паспорт или ID",
+            summary: "Что делать туристу, если документ потерян или украден в Нидерландах",
+            blocks: [
+                .paragraph("Если вы потеряли паспорт, ID, карту резидента или travel document в Нидерландах, это не обычный emergency flow. Сначала восстановите безопасность, затем идите по маршруту: место потери, посольство/консульство, полиция при краже."),
+                .step(index: 1, text: "Убедитесь, что вы в безопасности. Если есть угроза жизни, насилие, пожар или преступление происходит прямо сейчас - звоните 112."),
+                .step(index: 2, text: "Проверьте последние места: отель, музей, вокзал, ресторан, такси, стойка мероприятия или lost & found."),
+                .step(index: 3, text: "Свяжитесь с посольством или консульством своей страны. Только они могут подтвердить замену паспорта или emergency travel document."),
+                .step(index: 4, text: "Если документ украден, используйте официальный маршрут полиции для заявления или несрочного контакта. Сохраните номер заявления/референс."),
+                .step(index: 5, text: "Перед поездкой уточните у авиакомпании, посольства/консульства и пограничной службы, какой документ примут для выезда."),
+                .warning("Не вводите паспортные номера, BSN, полный адрес или сканы документов в чат. Используйте только официальные каналы посольства, консульства, полиции, авиакомпании и border control."),
+                .tip("Храните защищенную копию страницы паспорта отдельно от оригинала. Копия не заменяет документ, но помогает быстрее пройти проверку для замены."),
+                .term(dutch: "Ambassade", meaning: "Посольство"),
+                .term(dutch: "Consulaat", meaning: "Консульство"),
+                .term(dutch: "Aangifte", meaning: "Заявление в полицию")
+            ],
+            links: [
+                ExternalLink(id: "foreign-embassies", title: "Foreign embassies and consulates", urlString: "https://www.government.nl/topics/embassies-consulates-and-other-representations", institution: "Government.nl"),
+                ExternalLink(id: "politie-contact", title: "Police contact", urlString: "https://www.politie.nl/en/contact", institution: "Politie.nl")
+            ],
+            updatedDate: "2026-06-22",
+            readingMinutes: 3,
+            isOfficial: false,
+            titleEN: "Lost passport or ID",
+            summaryEN: "What tourists should do after losing travel documents in the Netherlands",
+            personaTags: [.tourist]
+        )
+    }
+
     static var documentsSection: GuideSection {
         GuideSection(
             id: "documents",
@@ -526,9 +594,9 @@ private extension GuideContent {
             blocks: [
                 .paragraph("BSN (Burgerservicenummer) — ваш личный идентификатор во всех государственных системах Нидерландов. Без него не открыть счёт в банке, не оформить медицинскую страховку, не устроиться на работу и не зарегистрировать DigiD."),
                 .step(index: 1, text: "Зарегистрируйтесь в муниципалитете (gemeente) по месту проживания — BSN выдают автоматически при регистрации"),
-                .step(index: 2, text: "Граждане ЕС могут обратиться в Expat Center крупных городов — там BSN выдают в тот же день"),
-                .step(index: 3, text: "Ожидайте письмо с BSN — обычно приходит в течение 5 рабочих дней на зарегистрированный адрес"),
-                .warning("Без постоянного адреса в Нидерландах BSN не выдают. Если вы ещё ищете жильё — попробуйте временно зарегистрироваться у знакомых или в хостеле с разрешения хозяина."),
+                .step(index: 2, text: "В некоторых городах expat center помогает с регистрацией, но доступ и сроки зависят от города, работодателя, статуса и записи"),
+                .step(index: 3, text: "Срок получения или подтверждения BSN зависит от gemeente и типа регистрации. Проверьте BRP/RNI маршрут для вашей ситуации."),
+                .warning("Не считайте один маршрут универсальным: жители обычно идут через BRP, а краткосрочное пребывание может требовать RNI. Проверяйте официальный сайт gemeente или Rijksoverheid."),
                 .tip("Храните BSN конфиденциально — он нужен при каждом обращении в госорган, банк или страховую компанию."),
                 .term(dutch: "Burgerservicenummer (BSN)", meaning: "Уникальный личный идентификатор гражданина в государственных системах"),
                 .term(dutch: "Gemeente", meaning: "Муниципалитет — местный административный орган")
@@ -632,7 +700,7 @@ private extension GuideContent {
             summary: "Государственная ежемесячная помощь для снижения расходов на жильё",
             blocks: [
                 .paragraph("Huurtoeslag — ежемесячная субсидия от государства для арендаторов с невысоким доходом. Выплачивается Belastingdienst прямо на банковский счёт каждый месяц."),
-                .step(index: 1, text: "Проверьте право: аренда в пределах порога (2025: около €879/мес), доход в пределах лимита для вашей ситуации"),
+                .step(index: 1, text: "Проверьте право через официальный портал: учитываются аренда, доход, возраст, состав домохозяйства и тип жилья. Пороги меняются."),
                 .step(index: 2, text: "Войдите на toeslagen.nl через DigiD и подайте aanvraag (заявку)"),
                 .step(index: 3, text: "Подавайте в год начала аренды — retroactively компенсируют максимум 3 месяца назад"),
                 .step(index: 4, text: "Ежегодно продлевайте заявку или настройте автопролонгацию через личный кабинет"),
@@ -642,7 +710,7 @@ private extension GuideContent {
                 .term(dutch: "Toeslagen", meaning: "Государственные субсидии (huur, zorg, kinderopvang)")
             ],
             links: [
-                ExternalLink(id: "huurtoeslag-belast", title: "Huurtoeslag — Belastingdienst", urlString: "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/toeslagen/huurtoeslag", institution: "Belastingdienst"),
+                ExternalLink(id: "huurtoeslag-belast", title: "Huurtoeslag — Belastingdienst", urlString: "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/privé/toeslagen/huurtoeslag", institution: "Belastingdienst"),
                 ExternalLink(id: "toeslagen-portal", title: "Портал toeslagen.nl", urlString: "https://www.toeslagen.nl", institution: "Belastingdienst / Toeslagen")
             ],
             personaTags: [.worker, .refugee, .family, .eu, .nonEU, .highlySkilledMigrant]
@@ -694,8 +762,8 @@ private extension GuideContent {
             summary: "Как получить, пополнить и правильно использовать транспортную карту",
             blocks: [
                 .paragraph("OV-chipkaart — бесконтактная карта для оплаты всего общественного транспорта Нидерландов: поезда NS, трамваи, автобусы и метро. Работает по принципу check-in/check-out."),
-                .step(index: 1, text: "Купите карту: анонимную (3.55 €) или личную (7.50 €) — в автоматах NS, магазинах Primera или на ov-chipkaart.nl"),
-                .step(index: 2, text: "Пополните баланс: минимум 20 € для поезда NS, не менее 4 € для городского транспорта"),
+                .step(index: 1, text: "Проверьте, подходит ли вам OV-chipkaart, OVpay или билет оператора. Условия и стоимость карты смотрите на официальном сайте."),
+                .step(index: 2, text: "Проверьте минимальный баланс и правила check-in/check-out у вашего оператора перед поездкой."),
                 .step(index: 3, text: "При посадке: приложите карту к жёлтому считывателю — зелёный свет означает успешный check-in"),
                 .step(index: 4, text: "При выходе: обязательно сделайте check-out — без него спишут максимальный тариф маршрута"),
                 .warning("Если забыли сделать check-out, деньги не возвращают автоматически. Подайте запрос на ov-chipkaart.nl в течение 30 дней."),
@@ -718,12 +786,12 @@ private extension GuideContent {
             summary: "Правила дорожного движения, покупка велосипеда и защита от кражи",
             blocks: [
                 .paragraph("Велосипед — основной вид транспорта в Нидерландах: более 23 миллионов велосипедов при 17 миллионах жителей. Незнание правил не освобождает от штрафов."),
-                .step(index: 1, text: "Купите велосипед: новый от 150 €, подержанный на Marktplaats.nl от 40 €"),
+                .step(index: 1, text: "Покупайте велосипед в магазине, у проверенного продавца или через площадку с понятной историей покупки"),
                 .step(index: 2, text: "Установите два замка: рамочный (ringslot) + цепной (kettingslot) — прикрепите к неподвижному объекту"),
                 .step(index: 3, text: "Поставьте передний белый и задний красный фонари — закон обязывает при недостаточной видимости"),
                 .step(index: 4, text: "Зарегистрируйте велосипед на nationaalregisterfietsdiefstal.nl с серийным номером рамы"),
-                .warning("Езда без фонарей ночью: штраф €55. Парковка в запрещённом месте в центре города — велосипед конфискуют, возврат стоит 15–25 €."),
-                .tip("Страхование велосипеда от 3–8 €/месяц покрывает кражу. В Нидерландах кража велосипедов — настоящая эпидемия, особенно в крупных городах."),
+                .warning("Езда без фонарей ночью, телефон в руке, красный свет и неправильная парковка могут привести к штрафу или эвакуации велосипеда. Суммы проверяйте на официальных страницах."),
+                .tip("Для дорогого велосипеда рассмотрите страховку и хороший замок. Условия покрытия отличаются у страховщиков."),
                 .term(dutch: "Fietspad", meaning: "Велодорожка — отдельная полоса для велосипедистов"),
                 .term(dutch: "Ringslot", meaning: "Рамочный замок — крепится или встроен в раму"),
                 .term(dutch: "Fietsdiefstal", meaning: "Кража велосипеда")
@@ -744,9 +812,9 @@ private extension GuideContent {
                 .paragraph("NS (Nederlandse Spoorwegen) — главная железнодорожная компания страны. Поезда между крупными городами ходят каждые 15–30 минут, расписание стабильное."),
                 .step(index: 1, text: "Планируйте маршрут через приложение NS или сайт ns.nl — показывает задержки в реальном времени"),
                 .step(index: 2, text: "Покупайте билет в автомате или используйте OV-chipkaart — check-in/check-out на платформе"),
-                .step(index: 3, text: "Для частых поездок: подпишитесь на Dal-voordeel — 40% скидка в нерабочие часы за 17.90 €/мес"),
+                .step(index: 3, text: "Для частых поездок сравните актуальные подписки NS и региональных операторов: скидки, часы действия и цены меняются."),
                 .step(index: 4, text: "2-й класс — стандарт, 1-й класс — тише и просторнее, но дороже на ~40%"),
-                .warning("Езда без билета или с незаряженной OV-chipkaart — штраф €50 плюс стоимость билета. Conducteur (контролёр) проверяет регулярно, без исключений."),
+                .warning("Езда без действительного билета или check-in может привести к штрафу и оплате поездки. Текущие суммы проверяйте у NS или оператора."),
                 .tip("Приложение NS уведомляет об изменениях маршрута и задержках в реальном времени. Незаменимо для ежедневных поездок."),
                 .term(dutch: "Dal-voordeel", meaning: "Скидка 40% в нерабочие часы — dal означает «впадина/непиковое время»"),
                 .term(dutch: "Conducteur", meaning: "Контролёр в поезде NS"),
@@ -780,20 +848,20 @@ private extension GuideContent {
             title: "Медицинская страховка",
             summary: "Базовая basisverzekering, eigen risico и субсидия zorgtoeslag",
             blocks: [
-                .paragraph("В Нидерландах обязательна базовая медицинская страховка (basisverzekering) для всех резидентов. Оформить нужно в течение 4 месяцев после переезда, иначе — штраф от CAK."),
-                .step(index: 1, text: "Сравните страховщиков (verzekeraars) на zorgwijzer.nl или independer.nl — стоимость базового пакета у всех примерно одинакова"),
+                .paragraph("В Нидерландах базовая медицинская страховка обязательна для многих жителей и работников. Момент возникновения обязанности зависит от вашей ситуации; проверяйте Government.nl и CAK."),
+                .step(index: 1, text: "Сравните страховщиков (verzekeraars), премии, contracted care, eigen risico и поддержку на нужном языке"),
                 .step(index: 2, text: "Оформите полис онлайн — потребуется BSN и IBAN-номер банковского счёта"),
                 .step(index: 3, text: "Зарегистрируйтесь у huisarts (семейного врача) — без него не попасть к специалисту"),
-                .step(index: 4, text: "Проверьте право на zorgtoeslag через DigiD на belastingdienst.nl — субсидия может покрыть до 50% страховки"),
-                .warning("Eigen risico (собственный риск) 2025: €385/год. Вы платите её первой при любом лечении. Исключение — приём у huisarts, акушерство и психиатрия первого уровня."),
+                .step(index: 4, text: "Проверьте право на zorgtoeslag через официальный портал Toeslagen. Размер зависит от дохода, домохозяйства и текущих правил."),
+                .warning("Eigen risico меняется по правилам года и не применяется ко всем видам помощи. Проверяйте актуальную сумму и исключения у страховщика или на официальных источниках."),
                 .tip("Aanvullende verzekering (дополнительная страховка) покрывает зубного врача, очки и физиотерапию — базовый пакет их не включает."),
                 .term(dutch: "Basisverzekering", meaning: "Обязательная базовая медицинская страховка"),
-                .term(dutch: "Eigen risico", meaning: "Обязательная франшиза — первые €385/год платите сами"),
+                .term(dutch: "Eigen risico", meaning: "Обязательная франшиза: актуальную сумму и исключения проверяйте каждый год"),
                 .term(dutch: "Zorgtoeslag", meaning: "Государственная субсидия на медицинскую страховку")
             ],
             links: [
                 ExternalLink(id: "zorgwijzer", title: "Сравнение полисов — Zorgwijzer", urlString: "https://www.zorgwijzer.nl", institution: "Zorgwijzer"),
-                ExternalLink(id: "zorgtoeslag-belast", title: "Zorgtoeslag — Belastingdienst", urlString: "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/toeslagen/zorgtoeslag", institution: "Belastingdienst")
+                ExternalLink(id: "zorgtoeslag-belast", title: "Zorgtoeslag — Belastingdienst", urlString: "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/privé/toeslagen/zorgtoeslag", institution: "Belastingdienst")
             ]
         )
     }
@@ -868,11 +936,11 @@ private extension GuideContent {
             summary: "Размеры штрафов и наиболее частые ошибки велосипедистов",
             blocks: [
                 .paragraph("В Нидерландах строго контролируют соблюдение велосипедных правил. Полиция штрафует без предупреждений — незнание правил не освобождает от ответственности."),
-                .step(index: 1, text: "Езда без фонаря ночью: €55 (обязательны передний белый + задний красный фонарь)"),
-                .step(index: 2, text: "Проезд на красный свет: €160 (велосипедные светофоры обязательны к соблюдению)"),
-                .step(index: 3, text: "Езда по тротуару: €55 (разрешено только по велодорожке или по дороге)"),
-                .step(index: 4, text: "Телефон в руках: €100 (включая наушники в обоих ушах при движении)"),
-                .warning("Неправильная парковка велосипеда в центре города — велосипед конфискуют. Возврат со штрафстоянки стоит 15–25 €. В Amsterdam, Utrecht и Rotterdam особенно строго."),
+                .step(index: 1, text: "Езда без света ночью: проверьте текущую сумму штрафа и требования к переднему/заднему свету"),
+                .step(index: 2, text: "Проезд на красный свет: велосипедные светофоры обязательны к соблюдению"),
+                .step(index: 3, text: "Езда по тротуару: проверьте местные правила и официальную таблицу штрафов"),
+                .step(index: 4, text: "Телефон в руке во время движения запрещён; текущую сумму штрафа проверяйте в официальной таблице"),
+                .warning("Неправильная парковка велосипеда в центре города может привести к эвакуации. Стоимость возврата и правила зависят от gemeente."),
                 .tip("В больших городах работают специальные велосипедные патрули — особенно активны у вокзалов и в историческом центре. Лучше не рисковать."),
                 .term(dutch: "Fietslicht", meaning: "Велосипедный фонарь — обязателен при недостаточной видимости"),
                 .term(dutch: "Fietsenstalling", meaning: "Официальная велопарковка — там штрафы не выписывают")
@@ -895,10 +963,10 @@ private extension GuideContent {
                 .step(index: 2, text: "Оплачивайте через паркомат (parkeerautomaat) или приложения: ParkMobile, Yellowbrick, EasyPark"),
                 .step(index: 3, text: "Следите за временем — после истечения срока оплаты штраф выписывают немедленно"),
                 .step(index: 4, text: "Получили parkeerbon (штраф на лобовом стекле) — оплатите в срок, иначе дело передадут в CJIB с надбавкой"),
-                .warning("Парковка на месте для инвалидов без разрешения: штраф €440. Парковка на жёлтой линии или автобусной остановке — возможна эвакуация (wegslepen)."),
+                .warning("Парковка на месте для инвалидов без разрешения, на жёлтой линии или автобусной остановке может привести к штрафу или эвакуации. Суммы проверяйте в официальной таблице."),
                 .tip("ParkMobile позволяет продлить парковку через телефон, не возвращаясь к машине. Работает в большинстве нидерландских городов."),
                 .term(dutch: "Parkeerbon", meaning: "Квитанция штрафа за нарушение парковки"),
-                .term(dutch: "Wegslepen", meaning: "Эвакуация автомобиля — возврат обычно стоит 100–200 €"),
+                .term(dutch: "Wegslepen", meaning: "Эвакуация автомобиля: стоимость возврата зависит от города и ситуации"),
                 .term(dutch: "Parkeercontroleur", meaning: "Инспектор по парковке — уполномочен выписывать штрафы")
             ],
             links: [
@@ -998,8 +1066,8 @@ private extension GuideContent {
             summary: "Как читать bruto/netto, что такое loonheffing и когда подавать декларацию",
             blocks: [
                 .paragraph("В Нидерландах зарплата почти всегда обсуждается как bruto — сумма до налогов и социальных взносов. На банковский счёт приходит netto. Разница зависит от дохода, налоговых скидок, пенсионных взносов, отпускных и бонусов."),
-                .paragraph("Подоходный налог Box 1 прогрессивный: в 2024 году до €75,518 действует ставка 36.97%, выше — 49.50%. Фактически многие платят меньше из-за arbeidskorting и algemene heffingskorting."),
-                .paragraph("Пример: при €4,000 bruto в месяц netto может быть около €2,500-2,700 в зависимости от pension, tax credits, holiday allowance и личной ситуации. Для бюджета аренды всегда считайте netto."),
+                .paragraph("Подоходный налог Box 1 прогрессивный, а ставки и пороги меняются по годам. Проверяйте текущие таблицы Belastingdienst перед расчётом бюджета."),
+                .paragraph("Не используйте грубые netto-примеры как обещание. На зарплату после налогов влияют пенсионные взносы, tax credits, holiday allowance и личная ситуация."),
                 .step(index: 1, text: "В контракте проверьте bruto salary, количество часов, отпускные 8%, пенсионную схему и срок уведомления"),
                 .step(index: 2, text: "Каждый месяц скачивайте loonstrook/payslip и сверяйте bruto, netto, loonheffing, vakantiegeld и reimbursements"),
                 .step(index: 3, text: "Укажите только у одного работодателя loonheffingskorting, иначе можно получить недоплату налога"),
@@ -1020,8 +1088,8 @@ private extension GuideContent {
             summaryEN: "How bruto/netto works, what loonheffing means, and when to file taxes",
             blocksEN: [
                 .paragraph("Dutch salaries are usually discussed as bruto: the amount before tax and social contributions. Your bank receives netto. The difference depends on income, tax credits, pension contributions, holiday allowance, and bonuses."),
-                .paragraph("Box 1 income tax is progressive. In 2024, income up to €75,518 is taxed at 36.97%, and income above that at 49.50%. Effective tax can be lower because of labour and general tax credits."),
-                .paragraph("Example: at €4,000 bruto per month, netto may be around €2,500-2,700 depending on pension, tax credits, holiday allowance, and personal circumstances. Plan housing from netto."),
+                .paragraph("Box 1 income tax is progressive, and rates and thresholds change by year. Check current Belastingdienst tables before budgeting."),
+                .paragraph("Do not treat rough netto examples as a promise. Pension contributions, tax credits, holiday allowance, and personal circumstances all affect take-home pay."),
                 .step(index: 1, text: "In the contract, check bruto salary, hours, 8% holiday allowance, pension scheme, and notice period"),
                 .step(index: 2, text: "Download every loonstrook/payslip and check bruto, netto, loonheffing, vakantiegeld, and reimbursements"),
                 .step(index: 3, text: "Apply loonheffingskorting with only one employer, otherwise you may underpay tax"),
@@ -1258,7 +1326,9 @@ struct GuideSectionView: View {
                         subtitle: section.localizedSubtitle(lang),
                         symbol: section.icon,
                         badgeText: articleCountBadge,
-                        accent: section.tint
+                        accent: section.tint,
+                        asset: sectionHeroAsset,
+                        language: lang
                     )
 
                     VStack(alignment: .leading, spacing: AppSpacing.small) {
@@ -1305,6 +1375,29 @@ struct GuideSectionView: View {
         case .english: return "Articles"
         }
     }
+
+    private var sectionHeroAsset: AppImageAsset? {
+        switch section.id {
+        case "tourist-documents", "documents":
+            return ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero
+        case "housing":
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case "transport":
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case "healthcare":
+            return ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.healthcarePharmacyImage
+        case "fines":
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.municipalityCityHallImage
+        case "work":
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case "integration":
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.profileImage ?? ContentMediaRegistry.mapImage
+        case "emergency":
+            return ContentMediaRegistry.emergencyImage ?? ContentMediaRegistry.healthcareBasicsImage
+        default:
+            return ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+    }
 }
 
 // MARK: - GuideArticleRow
@@ -1338,7 +1431,7 @@ struct GuideArticleRow: View {
                     .multilineTextAlignment(.leading)
 
                 if article.hasMetadata {
-                    GuideArticleMetadataRow(article: article, tint: tint, compact: true)
+                    guideArticleMetadataRow(article: article, tint: tint, compact: true, lang: lang)
                 }
             }
 
@@ -1354,78 +1447,75 @@ struct GuideArticleRow: View {
     }
 }
 
-private struct GuideArticleMetadataRow: View {
-    let article: GuideArticle
-    let tint: Color
-    var compact = false
-
-    @EnvironmentObject private var languageManager: LanguageManager
-
-    private var lang: AppLanguage { languageManager.appLanguage }
-
-    var body: some View {
-        ViewThatFits(in: .horizontal) {
-            HStack(spacing: 6) {
-                chips
-            }
-
-            VStack(alignment: .leading, spacing: 6) {
-                chips
-            }
-        }
-        .accessibilityElement(children: .combine)
-    }
-
-    @ViewBuilder
-    private var chips: some View {
-        if article.isOfficial {
-            metadataChip(symbol: "checkmark.shield.fill", text: officialLabel, color: AppColors.success)
+private func guideArticleMetadataRow(article: GuideArticle, tint: Color, compact: Bool, lang: AppLanguage) -> some View {
+    ViewThatFits(in: .horizontal) {
+        HStack(spacing: 6) {
+            guideArticleMetadataChips(article: article, tint: tint, compact: compact, lang: lang)
         }
 
-        if let readingMinutes = article.readingMinutes {
-            metadataChip(symbol: "clock.fill", text: readingLabel(readingMinutes), color: tint)
-        }
-
-        if let updatedDate = article.updatedDate {
-            metadataChip(symbol: "calendar", text: updatedDate, color: AppColors.textTertiary)
+        VStack(alignment: .leading, spacing: 6) {
+            guideArticleMetadataChips(article: article, tint: tint, compact: compact, lang: lang)
         }
     }
+    .accessibilityElement(children: .combine)
+}
 
-    private func metadataChip(symbol: String, text: String, color: Color) -> some View {
-        Label {
-            Text(text)
-                .lineLimit(1)
-                .minimumScaleFactor(0.74)
-        } icon: {
-            Image(systemName: symbol)
-                .font(.system(size: compact ? 9 : 10, weight: .bold))
-        }
-        .font(.system(size: compact ? 10 : 11, weight: .bold, design: .rounded))
-        .foregroundStyle(color)
-        .padding(.horizontal, compact ? 7 : 9)
-        .padding(.vertical, compact ? 4 : 5)
-        .background(color.opacity(0.10))
-        .clipShape(Capsule())
-        .overlay(
-            Capsule()
-                .stroke(color.opacity(0.20), lineWidth: 0.7)
+@ViewBuilder
+private func guideArticleMetadataChips(article: GuideArticle, tint: Color, compact: Bool, lang: AppLanguage) -> some View {
+    if article.isOfficial {
+        guideArticleMetadataChip(
+            symbol: "checkmark.shield.fill",
+            text: guideArticleOfficialLabel(compact: compact, lang: lang),
+            color: AppColors.success,
+            compact: compact
         )
     }
 
-    private var officialLabel: String {
-        switch lang {
-        case .russian: return compact ? "Офиц." : "Официальные источники"
-        case .dutch: return compact ? "Offic." : "Officiele bronnen"
-        case .english: return compact ? "Official" : "Official sources"
-        }
+    if let readingMinutes = article.readingMinutes {
+        guideArticleMetadataChip(
+            symbol: "clock.fill",
+            text: guideArticleReadingLabel(readingMinutes, compact: compact, lang: lang),
+            color: tint,
+            compact: compact
+        )
     }
 
-    private func readingLabel(_ minutes: Int) -> String {
-        switch lang {
-        case .russian: return "\(minutes) мин"
-        case .dutch: return "\(minutes) min"
-        case .english: return compact ? "\(minutes) min" : "\(minutes) min read"
-        }
+    if let updatedDate = article.updatedDate {
+        guideArticleMetadataChip(symbol: "calendar", text: updatedDate, color: AppColors.textTertiary, compact: compact)
+    }
+}
+
+private func guideArticleMetadataChip(symbol: String, text: String, color: Color, compact: Bool) -> some View {
+    Label {
+        Text(text)
+            .lineLimit(1)
+            .minimumScaleFactor(0.74)
+    } icon: {
+        Image(systemName: symbol)
+            .font(.system(size: compact ? 9 : 10, weight: .bold))
+    }
+    .font(.system(size: compact ? 10 : 11, weight: .bold, design: .rounded))
+    .foregroundStyle(color)
+    .padding(.horizontal, compact ? 7 : 9)
+    .padding(.vertical, compact ? 4 : 5)
+    .background(color.opacity(0.10))
+    .clipShape(Capsule())
+    .overlay(Capsule().stroke(color.opacity(0.20), lineWidth: 0.7))
+}
+
+private func guideArticleOfficialLabel(compact: Bool, lang: AppLanguage) -> String {
+    switch lang {
+    case .russian: return compact ? "Офиц." : "Официальные источники"
+    case .dutch: return compact ? "Offic." : "Officiële bronnen"
+    case .english: return compact ? "Official" : "Official sources"
+    }
+}
+
+private func guideArticleReadingLabel(_ minutes: Int, compact: Bool, lang: AppLanguage) -> String {
+    switch lang {
+    case .russian: return "\(minutes) мин"
+    case .dutch: return "\(minutes) min"
+    case .english: return compact ? "\(minutes) min" : "\(minutes) min read"
     }
 }
 
@@ -1438,6 +1528,13 @@ struct GuideArticleView: View {
     @Environment(\.openURL) private var openURL
 
     private var lang: AppLanguage { languageManager.appLanguage }
+    private var articleAccessibilityIdentifier: String {
+        if article.id == "documents:bsn" {
+            return "guide.article.bsn"
+        }
+
+        return "guide.article.\(article.id.replacingOccurrences(of: ":", with: "."))"
+    }
 
     var body: some View {
         ScrollView {
@@ -1445,9 +1542,7 @@ struct GuideArticleView: View {
                 LazyVStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
                     articleHeader
                     blocksContent
-                    if !article.links.isEmpty {
-                        linksSection
-                    }
+                    linksSection
                     Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
                 }
                 .padding(.horizontal, AppSpacing.screenHorizontal)
@@ -1457,21 +1552,22 @@ struct GuideArticleView: View {
         .appSceneBackground()
         .navigationTitle(article.localizedTitle(lang))
         .nlNavigationInline()
-        .accessibilityIdentifier("guide.article.\(article.id)")
+        .accessibilityIdentifier(articleAccessibilityIdentifier)
     }
 
     private var articleHeader: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
+        return VStack(alignment: .leading, spacing: AppSpacing.small) {
             Text(article.localizedTitle(lang))
                 .font(.system(size: 22, weight: .bold, design: .rounded))
                 .foregroundStyle(AppColors.textPrimary)
                 .fixedSize(horizontal: false, vertical: true)
+                .accessibilityIdentifier(articleAccessibilityIdentifier)
             Text(article.localizedSummary(lang))
                 .font(AppTypography.body)
                 .foregroundStyle(AppColors.textSecondary)
                 .fixedSize(horizontal: false, vertical: true)
             if article.hasMetadata {
-                GuideArticleMetadataRow(article: article, tint: sectionTint, compact: false)
+                guideArticleMetadataRow(article: article, tint: sectionTint, compact: false, lang: lang)
             }
         }
         .frame(maxWidth: .infinity, alignment: .leading)
@@ -1566,43 +1662,114 @@ struct GuideArticleView: View {
     }
 
     private var linksSection: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
+        let validLinks = article.links.compactMap { link -> (ExternalLink, URL)? in
+            guard let url = AppURL.validatedWebURL(URL(string: link.urlString)) else { return nil }
+            return (link, url)
+        }
+
+        return VStack(alignment: .leading, spacing: AppSpacing.small) {
             NLSectionHeader(title: sourcesLabel)
-            ForEach(article.links) { link in
-                if let url = AppURL.validatedWebURL(URL(string: link.urlString)) {
-                    Button {
-                        openURL(url)
-                    } label: {
-                        HStack(spacing: AppSpacing.medium) {
-                            Image(systemName: "link.circle.fill")
-                                .font(.system(size: 20, weight: .bold))
-                                .foregroundStyle(sectionTint)
-                                .frame(width: 42, height: 42)
-                                .background(sectionTint.opacity(0.12))
-                                .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
 
-                            VStack(alignment: .leading, spacing: 3) {
-                                Text(link.localizedTitle(lang))
-                                    .font(AppTypography.bodyStrong)
-                                    .foregroundStyle(AppColors.textPrimary)
-                                    .multilineTextAlignment(.leading)
-                                Text(link.institution)
-                                    .font(AppTypography.caption)
-                                    .foregroundStyle(AppColors.textSecondary)
-                            }
-
-                            Spacer(minLength: 8)
-
-                            Image(systemName: AppIcons.external)
-                                .font(.system(size: 13, weight: .semibold))
-                                .foregroundStyle(AppColors.textTertiary)
-                        }
-                        .appCardStyle()
-                    }
-                    .buttonStyle(.plain)
+            if validLinks.isEmpty {
+                sourceFallbackRows
+            } else {
+                ForEach(validLinks, id: \.0.id) { link, url in
+                    sourceButton(link: link, url: url)
                 }
             }
         }
+        .accessibilityIdentifier("guide.article.sources.dashboard")
+    }
+
+    private func sourceButton(link: ExternalLink, url: URL) -> some View {
+        Button {
+            openURL(url)
+        } label: {
+            HStack(spacing: AppSpacing.medium) {
+                Image(systemName: "link.circle.fill")
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundStyle(sectionTint)
+                    .frame(width: 42, height: 42)
+                    .background(sectionTint.opacity(0.12))
+                    .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(link.localizedTitle(lang))
+                        .font(AppTypography.bodyStrong)
+                        .foregroundStyle(AppColors.textPrimary)
+                        .multilineTextAlignment(.leading)
+                    Text(link.institution)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppColors.textSecondary)
+                }
+
+                Spacer(minLength: 8)
+
+                Image(systemName: AppIcons.external)
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(AppColors.textTertiary)
+            }
+            .appCardStyle()
+        }
+        .buttonStyle(.plain)
+    }
+
+    private var sourceFallbackRows: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            sourceFallbackRow(
+                title: sourcesLabel,
+                subtitle: sourceFallbackOfficialSubtitle,
+                icon: AppIcons.officialSource,
+                destination: .officialSources
+            )
+
+            sourceFallbackRow(
+                title: searchFallbackTitle,
+                subtitle: searchFallbackSubtitle,
+                icon: "magnifyingglass",
+                destination: .searchList
+            )
+
+            sourceFallbackRow(
+                title: resourcesFallbackTitle,
+                subtitle: resourcesFallbackSubtitle,
+                icon: "books.vertical.fill",
+                destination: .resourcesHub
+            )
+        }
+        .accessibilityIdentifier("guide.article.sources.empty")
+    }
+
+    private func sourceFallbackRow(title: String, subtitle: String, icon: String, destination: AppDestination) -> some View {
+        NavigationLink(value: destination) {
+            HStack(spacing: AppSpacing.medium) {
+                Image(systemName: icon)
+                    .font(.system(size: 20, weight: .bold))
+                    .foregroundStyle(sectionTint)
+                    .frame(width: 42, height: 42)
+                    .background(sectionTint.opacity(0.12))
+                    .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(title)
+                        .font(AppTypography.bodyStrong)
+                        .foregroundStyle(AppColors.textPrimary)
+                        .lineLimit(2)
+                    Text(subtitle)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(2)
+                }
+
+                Spacer(minLength: 8)
+
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 13, weight: .semibold))
+                    .foregroundStyle(AppColors.textTertiary)
+            }
+            .appCardStyle()
+        }
+        .buttonStyle(.plain)
     }
 
     private var sourcesLabel: String {
@@ -1610,6 +1777,46 @@ struct GuideArticleView: View {
         case .russian: return "Официальные источники"
         case .dutch: return "Officiële bronnen"
         case .english: return "Official sources"
+        }
+    }
+
+    private var sourceFallbackOfficialSubtitle: String {
+        switch lang {
+        case .russian: return "Проверьте актуальные правила перед действием."
+        case .dutch: return "Controleer actuele regels voordat je handelt."
+        case .english: return "Check current rules before you act."
+        }
+    }
+
+    private var searchFallbackTitle: String {
+        switch lang {
+        case .russian: return "Поиск"
+        case .dutch: return "Zoeken"
+        case .english: return "Search"
+        }
+    }
+
+    private var searchFallbackSubtitle: String {
+        switch lang {
+        case .russian: return "Найти связанные ответы и документы."
+        case .dutch: return "Vind verwante antwoorden en documenten."
+        case .english: return "Find related answers and documents."
+        }
+    }
+
+    private var resourcesFallbackTitle: String {
+        switch lang {
+        case .russian: return "Ресурсы"
+        case .dutch: return "Bronnen"
+        case .english: return "Resources"
+        }
+    }
+
+    private var resourcesFallbackSubtitle: String {
+        switch lang {
+        case .russian: return "Открыть полезные ссылки по темам."
+        case .dutch: return "Open nuttige links per thema."
+        case .english: return "Open useful links by topic."
         }
     }
 }

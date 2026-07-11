@@ -23,6 +23,18 @@ struct PlaceDetailView: View {
 
             ScrollView {
                 VStack(alignment: .leading, spacing: DetailPageLayout.sectionGap) {
+                    PremiumImageHeader(
+                        title: place.localizedName(lang),
+                        asset: imageAsset(for: place),
+                        language: lang,
+                        symbol: place.category.systemImageName,
+                        accent: accent(for: place.category),
+                        height: 190,
+                        cornerRadius: 24,
+                        fallbackCategory: fallbackCategory(for: place.category)
+                    )
+                    .accessibilityIdentifier("place.detail.hero")
+
                     HStack(alignment: .top) {
                         VStack(alignment: .leading, spacing: AppSpacing.xSmall) {
                             Text(place.localizedName(lang))
@@ -113,9 +125,15 @@ struct PlaceDetailView: View {
                         .appCardStyle()
                     }
 
-                    if !relatedLinks.isEmpty {
-                        VStack(alignment: .leading, spacing: AppSpacing.small) {
-                            SectionHeader(title: L10n.t("map.related_guides", lang))
+                    VStack(alignment: .leading, spacing: AppSpacing.small) {
+                        SectionHeader(
+                            title: L10n.t("map.related_guides", lang),
+                            subtitle: relatedLinks.isEmpty ? relatedGuidesFallbackSubtitle : nil
+                        )
+
+                        if relatedLinks.isEmpty {
+                            relatedGuidesFallback
+                        } else {
                             ForEach(relatedLinks) { link in
                                 SmartNavigationRow(
                                     title: link.title,
@@ -126,6 +144,7 @@ struct PlaceDetailView: View {
                             }
                         }
                     }
+                    .accessibilityIdentifier("place.relatedGuides.dashboard")
 
                     InfoCard(
                         title: L10n.t("map.trust_safety", lang),
@@ -153,5 +172,155 @@ struct PlaceDetailView: View {
     private func routeButton(title: String, action: @escaping () -> Void) -> some View {
         Button(title, action: action)
             .buttonStyle(.bordered)
+    }
+
+    private var relatedGuidesFallback: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            SmartNavigationRow(
+                title: localized(en: "Search this topic", nl: "Zoek dit onderwerp", ru: "Искать по теме"),
+                subtitle: localized(en: "Find answers, documents, and official links.", nl: "Vind antwoorden, documenten en officiële links.", ru: "Найти ответы, документы и официальные ссылки."),
+                symbol: "magnifyingglass",
+                destination: .searchList
+            )
+
+            SmartNavigationRow(
+                title: localized(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники"),
+                subtitle: localized(en: "Verify opening hours, rules, and requirements.", nl: "Controleer openingstijden, regels en vereisten.", ru: "Проверьте часы работы, правила и требования."),
+                symbol: "building.columns",
+                destination: .officialSources
+            )
+
+            SmartNavigationRow(
+                title: localized(en: "Documents", nl: "Documenten", ru: "Документы"),
+                subtitle: localized(en: "Prepare files before visiting or applying.", nl: "Bereid bestanden voor voordat je langsgaat of aanvraagt.", ru: "Подготовьте файлы перед визитом или заявлением."),
+                symbol: "folder",
+                destination: .journeyDocuments
+            )
+        }
+        .accessibilityIdentifier("place.relatedGuides.empty")
+    }
+
+    private var relatedGuidesFallbackSubtitle: String {
+        localized(
+            en: "Use search, official sources, or documents for the next step.",
+            nl: "Gebruik zoeken, officiële bronnen of documenten voor de volgende stap.",
+            ru: "Используйте поиск, официальные источники или документы для следующего шага."
+        )
+    }
+
+    private func localized(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .russian: return ru
+        case .dutch: return nl
+        case .english: return en
+        }
+    }
+
+    private func imageAsset(for place: NearbyPlace) -> AppImageAsset? {
+        if let directAsset = directPlaceImageAsset(for: place) {
+            return directAsset
+        }
+        if let tourismAsset = tourismImageAsset(for: place) {
+            return tourismAsset
+        }
+        switch place.category {
+        case .healthcare, .hospital, .huisarts, .pharmacy, .nightPharmacy:
+            return ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.healthcarePharmacyImage
+        case .municipality, .ind, .duo, .immigrationSupport, .expatCenter, .police:
+            return ContentMediaRegistry.governmentBasicsImage ?? ContentMediaRegistry.municipalityCityHallImage
+        case .uwv, .legalHelp:
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.governmentBasicsImage
+        case .transport, .transportOffice, .bikeRepair:
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case .education, .library, .studentHelp:
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.officialSourcesHero
+        case .foodBank:
+            return ContentMediaRegistry.foodImage ?? ContentMediaRegistry.marketsLocalLifeImage
+        case .shelter:
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingWonenImage
+        case .communitySupport, .lgbtqSupport:
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.marketsLocalLifeImage ?? ContentMediaRegistry.officialSourcesHero
+        case .animalEmergency:
+            return ContentMediaRegistry.emergencyImage
+        }
+    }
+
+    private func directPlaceImageAsset(for place: NearbyPlace) -> AppImageAsset? {
+        guard let imageURL = place.imageURL else { return nil }
+        return AppImageAsset(
+            id: "place-detail-\(place.saveKey)-image",
+            url: imageURL,
+            sourcePageURL: place.websiteURL,
+            imageURL: imageURL,
+            thumbnailURL: imageURL,
+            title: place.localizedName(lang),
+            description: place.localizedDescription(lang),
+            sourceName: place.sourceLabel,
+            sourceURL: place.websiteURL,
+            license: nil,
+            attribution: place.sourceLabel,
+            width: nil,
+            height: nil,
+            type: .cardThumbnail,
+            verified: place.isOfficialSource
+        )
+    }
+
+    private func tourismImageAsset(for place: NearbyPlace) -> AppImageAsset? {
+        let normalizedName = place.name.lowercased()
+        if normalizedName.contains("canal") || normalizedName.contains("gracht") {
+            return ContentMediaRegistry.leidenCanalsHero ?? ContentMediaRegistry.canalHousesHero
+        }
+        if normalizedName.contains("molen") || normalizedName.contains("windmill") || normalizedName.contains("valk") {
+            return ContentMediaRegistry.cultureWindmillHero ?? ContentMediaRegistry.cultureWideHero
+        }
+        if normalizedName.contains("museum") || normalizedName.contains("rijksmuseum") || normalizedName.contains("lakenhal") || normalizedName.contains("oudheden") {
+            return ContentMediaRegistry.cultureWideHero ?? ContentMediaRegistry.dailyCultureImage
+        }
+        if normalizedName.contains("hortus") || normalizedName.contains("botanic") || normalizedName.contains("park") {
+            return ContentMediaRegistry.natureImage ?? ContentMediaRegistry.dailyCultureImage
+        }
+        if normalizedName.contains("burcht") || normalizedName.contains("castle") || normalizedName.contains("historic") {
+            return ContentMediaRegistry.cultureWideHero ?? ContentMediaRegistry.mapImage
+        }
+        return nil
+    }
+
+    private func fallbackCategory(for category: PlaceCategory) -> PremiumImageFallbackCategory {
+        switch category {
+        case .healthcare, .hospital, .huisarts, .pharmacy, .nightPharmacy:
+            return .healthcare
+        case .municipality, .ind, .uwv, .duo, .immigrationSupport, .expatCenter, .police:
+            return .government
+        case .transport, .transportOffice, .bikeRepair:
+            return .transport
+        case .education, .library, .studentHelp:
+            return .dutchA1A2
+        case .legalHelp:
+            return .documents
+        case .foodBank, .communitySupport, .lgbtqSupport:
+            return .integration
+        case .shelter:
+            return .housing
+        case .animalEmergency:
+            return .emergency
+        }
+    }
+
+    private func accent(for category: PlaceCategory) -> Color {
+        switch category {
+        case .healthcare, .hospital, .huisarts, .pharmacy, .nightPharmacy:
+            return AppColors.error
+        case .municipality, .ind, .uwv, .duo, .immigrationSupport, .expatCenter:
+            return AppColors.softBlue
+        case .transport, .transportOffice, .bikeRepair:
+            return AppColors.dutchOrange
+        case .education, .library, .studentHelp:
+            return AppColors.emerald
+        case .legalHelp, .police:
+            return AppColors.violet
+        default:
+            return AppColors.routeLine
+        }
     }
 }

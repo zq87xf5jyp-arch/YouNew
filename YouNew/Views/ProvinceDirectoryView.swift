@@ -52,9 +52,9 @@ struct ProvinceDirectoryView: View {
                 columns: [GridItem(.adaptive(minimum: 104), spacing: AppSpacing.small)],
                 spacing: AppSpacing.small
             ) {
-                ProvinceMetricCard(value: "12", label: provincesCountTitle, icon: "map.fill", color: AppColors.orangeGlow)
-                ProvinceMetricCard(value: "342", label: municipalitiesTitle, icon: "building.columns.fill", color: AppColors.routeLine)
-                ProvinceMetricCard(value: "18.2M", label: populationTitle, icon: "person.3.fill", color: AppColors.cyanGlow)
+                ProductStatusStrip(title: "12", subtitle: provincesCountTitle, symbol: "map.fill", accent: AppColors.orangeGlow)
+                ProductStatusStrip(title: "342", subtitle: municipalitiesTitle, symbol: "building.columns.fill", accent: AppColors.routeLine)
+                ProductStatusStrip(title: "18.2M", subtitle: populationTitle, symbol: "person.3.fill", accent: AppColors.cyanGlow)
             }
             .padding(.top, 4)
         }
@@ -128,11 +128,13 @@ struct ProvinceDirectoryView: View {
         if let selectedProvinceID {
             let province = ProvinceCatalog.item(id: selectedProvinceID)
             NavigationLink(value: AppDestination.provinceDetail(province.id)) {
-                ProvinceRowCard(
-                    province: province,
-                    lang: lang,
-                    isSelected: true,
-                    subtitleOverride: "\(selectedProvinceTitle) • \(province.capital) • \(province.municipalityCount) \(municipalityShortLabel)"
+                ProductTaskCard(
+                    title: province.localizedName(lang),
+                    subtitle: "\(selectedProvinceTitle) • \(province.capital) • \(province.municipalityCount) \(municipalityShortLabel)",
+                    symbol: "map.fill",
+                    accent: province.mapHighlightColor,
+                    priority: selectedProvinceTitle,
+                    minHeight: 100
                 )
             }
             .buttonStyle(NLTileButtonStyle())
@@ -147,10 +149,13 @@ struct ProvinceDirectoryView: View {
             LazyVStack(spacing: 12) {
                 ForEach(ProvinceCatalog.all) { province in
                     NavigationLink(value: AppDestination.provinceDetail(province.id)) {
-                        ProvinceRowCard(
-                            province: province,
-                            lang: lang,
-                            isSelected: selectedProvinceID == province.id
+                        ProductTaskCard(
+                            title: province.localizedName(lang),
+                            subtitle: "\(province.capital) • \(province.municipalityCount) \(municipalityShortLabel)",
+                            symbol: selectedProvinceID == province.id ? "checkmark.seal.fill" : "map.fill",
+                            accent: province.mapHighlightColor,
+                            priority: province.capital,
+                            minHeight: 100
                         )
                     }
                     .buttonStyle(NLTileButtonStyle())
@@ -260,20 +265,22 @@ struct ProvinceCityDetailView: View {
     private var province: ProvinceItem { ProvinceCatalog.item(id: provinceName) }
 
     var body: some View {
-        ScrollView {
-            ResponsiveContentContainer(maxWidth: 920) {
-                LazyVStack(alignment: .leading, spacing: AppSpacing.large) {
-                    scenicHero
-                    askAISection
-                    provinceStats
-                    officialSiteCard
-                    citiesSection
-                    provinceKnowledgeSection
-                    mapButton
-                    Color.clear.frame(height: AppSpacing.tabBarScrollReserveMap)
+        GeometryReader { proxy in
+            ScrollView {
+                ResponsiveContentContainer(maxWidth: 920) {
+                    LazyVStack(alignment: .leading, spacing: AppSpacing.large) {
+                        scenicHero(height: CityDetailLayout.premiumHeroHeight(viewport: proxy.size))
+                        askAISection
+                        provinceStats
+                        officialSiteCard
+                        citiesSection
+                        provinceKnowledgeSection
+                        mapButton
+                        Color.clear.frame(height: CityDetailLayout.bottomContentPadding(safeAreaBottom: proxy.safeAreaInsets.bottom))
+                    }
+                    .padding(.horizontal, AppSpacing.screenHorizontal)
+                    .padding(.top, AppSpacing.medium)
                 }
-                .padding(.horizontal, AppSpacing.screenHorizontal)
-                .padding(.top, AppSpacing.medium)
             }
         }
         .appSceneBackground(.province)
@@ -284,7 +291,7 @@ struct ProvinceCityDetailView: View {
 
     // MARK: Scenic Hero
 
-    private var scenicHero: some View {
+    private func scenicHero(height heroHeight: CGFloat) -> some View {
         let resolvedImage = CanonicalPlaceImageResolver.resolveProvinceHero(province: province)
         return ZStack(alignment: .bottomLeading) {
 
@@ -292,7 +299,7 @@ struct ProvinceCityDetailView: View {
 
             CityImageView(
                 urlString: resolvedImage.urlString,
-                height: CityDetailLayout.heroHeight,
+                height: heroHeight,
                 placeId: province.placeId,
                 cityName: province.localizedName(lang),
                 fallbackColor: province.mapHighlightColor,
@@ -301,7 +308,8 @@ struct ProvinceCityDetailView: View {
                     screen: "Province detail hero",
                     entityType: "province",
                     entityName: province.localizedName(lang)
-                )
+                ),
+                renderRole: .hero
             )
             .transition(.opacity)
 
@@ -438,14 +446,51 @@ struct ProvinceCityDetailView: View {
 
                 Spacer(minLength: 12)
 
-                ProvinceHeroMapPanel(province: province)
+                ZStack {
+                    RoundedRectangle(cornerRadius: 22, style: .continuous)
+                        .fill(AppColors.graphite.opacity(0.64))
+                    RoundedRectangle(cornerRadius: 22, style: .continuous)
+                        .fill(.ultraThinMaterial)
+                        .opacity(0.26)
+                    RoundedRectangle(cornerRadius: 22, style: .continuous)
+                        .fill(
+                            RadialGradient(
+                                colors: [province.mapHighlightColor.opacity(0.20), .clear],
+                                center: .top,
+                                startRadius: 0,
+                                endRadius: 120
+                            )
+                        )
+
+                    ProvinceHighlightMapView(
+                        provinceID: province.id,
+                        highlightColor: province.mapHighlightColor,
+                        showLabels: false
+                    )
+                    .padding(10)
+                    .opacity(0.92)
+                }
+                .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
+                .overlay {
+                    RoundedRectangle(cornerRadius: 22, style: .continuous)
+                        .stroke(
+                            LinearGradient(
+                                colors: [Color.white.opacity(0.28), province.mapHighlightColor.opacity(0.22), Color.white.opacity(0.06)],
+                                startPoint: .topLeading,
+                                endPoint: .bottomTrailing
+                            ),
+                            lineWidth: 0.8
+                        )
+                }
+                .shadow(color: province.mapHighlightColor.opacity(0.14), radius: 18, x: 0, y: 0)
+                .shadow(color: Color.black.opacity(0.24), radius: 16, x: 0, y: 10)
                     .frame(width: 96, height: 128)
                     .accessibilityHidden(true)
             }
             .padding(20)
 
         }
-        .frame(minHeight: 252)
+        .frame(maxWidth: .infinity, minHeight: heroHeight, maxHeight: heroHeight)
         .clipShape(RoundedRectangle(cornerRadius: AppCornerRadius.hero, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: AppCornerRadius.hero, style: .continuous)
@@ -484,23 +529,23 @@ struct ProvinceCityDetailView: View {
 
     private var provinceStats: some View {
         LazyVGrid(
-            columns: [GridItem(.adaptive(minimum: 104), spacing: AppSpacing.small)],
+            columns: [GridItem(.adaptive(minimum: 132), spacing: AppSpacing.small)],
             spacing: AppSpacing.small
         ) {
-            ProvinceMetricCard(value: province.population, label: populationLabel, icon: "person.3.fill", color: province.mapHighlightColor)
-            ProvinceMetricCard(value: province.areaKm2, label: areaLabel, icon: "square.grid.2x2.fill", color: AppColors.routeLine)
-            ProvinceMetricCard(value: "\(province.municipalityCount)", label: municipalitiesLabel, icon: "building.columns.fill", color: AppColors.orangeGlow)
+            ProvinceMetricCard(title: province.population, subtitle: populationLabel, symbol: "person.3.fill", accent: province.mapHighlightColor)
+            ProvinceMetricCard(title: province.areaKm2, subtitle: areaLabel, symbol: "square.grid.2x2.fill", accent: AppColors.routeLine)
+            ProvinceMetricCard(title: "\(province.municipalityCount)", subtitle: municipalitiesLabel, symbol: "building.columns.fill", accent: AppColors.orangeGlow)
         }
     }
 
     // MARK: Official Site
 
     private var officialSiteCard: some View {
-        ProvinceDarkInfoRow(
-            icon: "globe",
+        ProductListItem(
             title: officialWebsiteLabel,
-            value: province.officialWebsite,
-            color: AppColors.dutchOrange
+            subtitle: province.officialWebsite,
+            symbol: "globe",
+            accent: AppColors.dutchOrange
         )
     }
 
@@ -524,7 +569,12 @@ struct ProvinceCityDetailView: View {
             LazyVStack(spacing: AppSpacing.small) {
                 ForEach(province.cities) { city in
                     NavigationLink(value: AppDestination.cityDetail(province: province.id, city: city.name)) {
-                        ProvinceCityPreviewCard(city: city, province: province, lang: lang)
+                        ProvinceCityPremiumCard(
+                            city: city,
+                            province: province,
+                            lang: lang,
+                            style: .compact
+                        )
                     }
                     .buttonStyle(NLTileButtonStyle())
                 }
@@ -617,7 +667,7 @@ struct ProvinceCityDetailView: View {
     private var officialWebsiteLabel: String {
         switch lang {
         case .russian: return "Официальный сайт"
-        case .dutch:   return "Officiele website"
+        case .dutch:   return "Officiële website"
         case .english: return "Official website"
         }
     }
@@ -657,7 +707,7 @@ struct ProvinceCityDetailView: View {
     private var provinceSourcesTitle: String {
         switch lang {
         case .russian: return "Официальные источники"
-        case .dutch: return "Officiele bronnen"
+        case .dutch: return "Officiële bronnen"
         case .english: return "Official sources"
         }
     }
@@ -705,7 +755,12 @@ struct ProvinceCitiesView: View {
                     header
                     ForEach(province.cities) { city in
                         NavigationLink(value: AppDestination.cityDetail(province: province.id, city: city.name)) {
-                            CityRowCard(city: city, lang: lang)
+                            ProvinceCityPremiumCard(
+                                city: city,
+                                province: ProvinceCatalog.item(id: city.provinceId),
+                                lang: lang,
+                                style: .regular
+                            )
                         }
                         .buttonStyle(NLTileButtonStyle())
                     }
@@ -721,16 +776,20 @@ struct ProvinceCitiesView: View {
     }
 
     private var header: some View {
-        ProvinceCard(
-            title: province.localizedName(lang),
-            subtitle: "\(province.capital) • \(province.cities.count) \(citiesShortLabel)",
-            icon: "building.2.crop.circle.fill",
-            gradient: LinearGradient(
-                colors: [province.mapHighlightColor, province.mapHighlightColor.opacity(0.62)],
-                startPoint: .topLeading,
-                endPoint: .bottomTrailing
-            )
+        ProvinceCitiesHeroCard(
+            province: province,
+            lang: lang,
+            cityCountLabel: "\(province.cities.count) \(citiesShortLabel)"
         )
+    }
+
+    private func cityRowSubtitle(for city: CityItem) -> String {
+        let province = ProvinceCatalog.item(id: city.provinceId)
+        var parts = [city.population, province.localizedName(lang)]
+        if let website = city.officialWebsite {
+            parts.append(website)
+        }
+        return parts.joined(separator: " • ")
     }
 
     private var citiesTitle: String {
@@ -747,6 +806,332 @@ struct ProvinceCitiesView: View {
         case .dutch: return "steden"
         case .english: return "cities"
         }
+    }
+}
+
+private struct ProvinceCitiesHeroCard: View {
+    let province: ProvinceItem
+    let lang: AppLanguage
+    let cityCountLabel: String
+
+    private var spotlightCity: CityItem? {
+        province.cities.first
+    }
+
+    var body: some View {
+        ZStack(alignment: .bottomLeading) {
+            if let spotlightCity {
+                let resolvedImage = CanonicalPlaceImageResolver.resolveCityHero(city: spotlightCity)
+                CityImageView(
+                    urlString: resolvedImage.urlString,
+                    height: 220,
+                    placeId: spotlightCity.placeId,
+                    cityName: spotlightCity.localizedName(lang),
+                    fallbackColor: province.mapHighlightColor,
+                    fallbackURLStrings: resolvedImage.fallbackURLStrings,
+                    debugContext: resolvedImage.debugContext(
+                        screen: "Province cities header",
+                        entityType: "city",
+                        entityName: spotlightCity.localizedName(lang)
+                    ),
+                    renderRole: .hero,
+                    targetPixelWidth: 1100
+                )
+            } else {
+                GeneratedProvinceArtwork(provinceID: province.id, accent: province.mapHighlightColor)
+            }
+
+            LinearGradient(
+                colors: [
+                    Color.black.opacity(0.00),
+                    AppColors.navyDeep.opacity(0.34),
+                    AppColors.navyDeep.opacity(0.82)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+
+            RadialGradient(
+                colors: [province.mapHighlightColor.opacity(0.34), .clear],
+                center: .topTrailing,
+                startRadius: 0,
+                endRadius: 240
+            )
+            .allowsHitTesting(false)
+
+            VStack(alignment: .leading, spacing: 10) {
+                Label(cityCountLabel, systemImage: "building.2.crop.circle.fill")
+                    .font(AppTypography.captionStrong)
+                    .foregroundStyle(.white.opacity(0.88))
+                    .padding(.horizontal, 11)
+                    .padding(.vertical, 7)
+                    .background(.white.opacity(0.14), in: Capsule())
+                    .overlay(Capsule().stroke(.white.opacity(0.18), lineWidth: 0.7))
+
+                Text(province.localizedName(lang))
+                    .font(.system(size: 34, weight: .black, design: .rounded))
+                    .foregroundStyle(.white)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.72)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Text("\(province.capital) • \(province.population) • \(province.officialWebsite)")
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(.white.opacity(0.80))
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(18)
+            .frame(maxWidth: .infinity, alignment: .bottomLeading)
+        }
+        .frame(height: 220)
+        .frame(maxWidth: .infinity)
+        .clipShape(RoundedRectangle(cornerRadius: 28, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: 28, style: .continuous)
+                .stroke(.white.opacity(0.16), lineWidth: 0.9)
+        )
+        .shadow(color: province.mapHighlightColor.opacity(0.16), radius: 24, x: 0, y: 14)
+        .accessibilityElement(children: .combine)
+    }
+}
+
+private struct ProvinceMetricCard: View {
+    let title: String
+    let subtitle: String
+    let symbol: String
+    let accent: Color
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 9) {
+            ProductSymbolTile(symbol: symbol, accent: accent, size: 42)
+
+            VStack(alignment: .leading, spacing: 2) {
+                Text(title)
+                    .font(.system(size: 19, weight: .black, design: .rounded))
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.62)
+
+                Text(subtitle)
+                    .font(.system(size: 11, weight: .bold, design: .rounded))
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(1)
+                    .minimumScaleFactor(0.66)
+                    .textCase(.uppercase)
+            }
+        }
+        .padding(12)
+        .frame(maxWidth: .infinity, minHeight: 112, alignment: .leading)
+        .background(
+            LinearGradient(
+                colors: [
+                    AppColors.cardElevated.opacity(0.90),
+                    accent.opacity(0.12),
+                    AppColors.glassSurface.opacity(0.72)
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            ),
+            in: RoundedRectangle(cornerRadius: 18, style: .continuous)
+        )
+        .overlay(
+            RoundedRectangle(cornerRadius: 18, style: .continuous)
+                .stroke(accent.opacity(0.18), lineWidth: 0.8)
+        )
+        .accessibilityElement(children: .combine)
+    }
+}
+
+private struct ProvinceCityPremiumCard: View {
+    enum Style {
+        case compact
+        case regular
+    }
+
+    let city: CityItem
+    let province: ProvinceItem
+    let lang: AppLanguage
+    var style: Style = .regular
+
+    private var cardHeight: CGFloat {
+        style == .compact ? 164 : 202
+    }
+
+    private var imageWidth: CGFloat {
+        style == .compact ? 124 : 150
+    }
+
+    var body: some View {
+        HStack(spacing: 0) {
+            imagePanel
+
+            VStack(alignment: .leading, spacing: 8) {
+                HStack(spacing: 8) {
+                    flagBadge
+                    Text(province.localizedName(lang))
+                        .font(AppTypography.metadata)
+                        .foregroundStyle(province.mapHighlightColor)
+                        .textCase(.uppercase)
+                        .lineLimit(1)
+                        .minimumScaleFactor(0.78)
+                }
+
+                Text(city.localizedName(lang))
+                    .font(.system(size: style == .compact ? 24 : 26, weight: .black, design: .rounded))
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.76)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                Text(cardSubtitle)
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: true)
+
+                HStack(spacing: 7) {
+                    metadataPill(city.population)
+                    if let website = city.officialWebsite {
+                        metadataPill(website)
+                    }
+                }
+                .padding(.top, 2)
+            }
+            .padding(.horizontal, 16)
+            .padding(.vertical, 14)
+            .frame(maxWidth: .infinity, alignment: .leading)
+
+            Image(systemName: "chevron.right")
+                .font(.system(size: 18, weight: .black))
+                .foregroundStyle(AppColors.textSecondary)
+                .padding(.trailing, 16)
+        }
+        .frame(height: cardHeight)
+        .frame(maxWidth: .infinity)
+        .background(
+            LinearGradient(
+                colors: [
+                    AppColors.cardElevated.opacity(0.94),
+                    province.mapHighlightColor.opacity(0.08),
+                    AppColors.glassSurface.opacity(0.90)
+                ],
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: 24, style: .continuous)
+                .stroke(.white.opacity(0.12), lineWidth: 0.8)
+        )
+        .shadow(color: province.mapHighlightColor.opacity(0.09), radius: 18, x: 0, y: 10)
+        .accessibilityElement(children: .combine)
+    }
+
+    private var imagePanel: some View {
+        ZStack(alignment: .bottomLeading) {
+            let resolvedImage = CanonicalPlaceImageResolver.resolveCityHero(city: city)
+            CityImageView(
+                urlString: resolvedImage.urlString,
+                height: cardHeight,
+                placeId: city.placeId,
+                cityName: city.localizedName(lang),
+                fallbackColor: province.mapHighlightColor,
+                fallbackURLStrings: resolvedImage.fallbackURLStrings,
+                debugContext: resolvedImage.debugContext(
+                    screen: "Province city premium card",
+                    entityType: "city",
+                    entityName: city.localizedName(lang)
+                ),
+                renderRole: .card,
+                targetPixelWidth: 520
+            )
+
+            LinearGradient(
+                colors: [
+                    Color.black.opacity(0.02),
+                    AppColors.navyDeep.opacity(0.20),
+                    AppColors.navyDeep.opacity(0.72)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+
+            Image(systemName: ProvinceCatalog.identityIconName(for: city.name))
+                .font(.system(size: 18, weight: .black))
+                .foregroundStyle(.white)
+                .frame(width: 42, height: 42)
+                .background(province.mapHighlightColor.opacity(0.82), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 14, style: .continuous)
+                        .stroke(.white.opacity(0.22), lineWidth: 0.8)
+                )
+                .padding(12)
+        }
+        .frame(width: imageWidth, height: cardHeight)
+        .clipped()
+    }
+
+    private var cardSubtitle: String {
+        let description = city.localizedShortDescription(lang)
+        if description.localizedCaseInsensitiveContains("municipality")
+            || description.localizedCaseInsensitiveContains("gemeente")
+            || description.localizedCaseInsensitiveContains("муниципалитет") {
+            switch lang {
+            case .russian:
+                return "Городские сервисы, транспорт и базовая информация для новичков."
+            case .dutch:
+                return "Stadsdiensten, vervoer en praktische basis voor nieuwkomers."
+            case .english:
+                return "Local services, transport links, and newcomer basics."
+            }
+        }
+
+        if description.localizedCaseInsensitiveContains("technology and design") {
+            switch lang {
+            case .russian:
+                return "Технологии, дизайн, образование и удобный транспорт."
+            case .dutch:
+                return "Technologie, design, onderwijs en sterke verbindingen."
+            case .english:
+                return "Technology, design, education, and strong connections."
+            }
+        }
+
+        return description
+    }
+
+    @ViewBuilder
+    private var flagBadge: some View {
+        if AssetAvailability.exists(city.flagAssetName) {
+            Image(city.flagAssetName)
+                .resizable()
+                .scaledToFit()
+                .frame(width: 28, height: 18)
+                .padding(2)
+                .background(.white.opacity(0.10), in: RoundedRectangle(cornerRadius: 5, style: .continuous))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 5, style: .continuous)
+                        .stroke(.white.opacity(0.20), lineWidth: 0.7)
+                )
+        } else {
+            Image(systemName: "mappin.circle.fill")
+                .font(.system(size: 15, weight: .bold))
+                .foregroundStyle(province.mapHighlightColor)
+        }
+    }
+
+    private func metadataPill(_ text: String) -> some View {
+        Text(text)
+            .font(.system(size: 11, weight: .bold, design: .rounded))
+            .foregroundStyle(AppColors.textSecondary)
+            .lineLimit(1)
+            .minimumScaleFactor(0.78)
+            .padding(.horizontal, 8)
+            .padding(.vertical, 5)
+            .background(.white.opacity(0.07), in: Capsule())
+            .overlay(Capsule().stroke(.white.opacity(0.10), lineWidth: 0.6))
     }
 }
 
@@ -774,6 +1159,18 @@ enum CityDetailLayout {
 
     static func pageWidth(viewportWidth: CGFloat) -> CGFloat {
         DetailPageLayout.pageWidth(viewportWidth: viewportWidth)
+    }
+
+    static func premiumHeroHeight(viewport: CGSize) -> CGFloat {
+        let isLandscape = viewport.width > viewport.height
+        let isPadLike = viewport.width >= 700
+        if isPadLike {
+            return min(max(viewport.height * 0.36, 420), 560)
+        }
+        if isLandscape {
+            return min(max(viewport.height * 0.48, 260), 360)
+        }
+        return min(max(viewport.height * 0.40, 340), 470)
     }
 
     static func singleColumnGrid() -> [GridItem] {
@@ -830,7 +1227,7 @@ struct CityDetailView: View {
         .appSceneBackground(.city)
         .navigationTitle(hasResolvedCityBinding ? city.localizedName(lang) : cityName)
         .nlNavigationInline()
-        .accessibilityIdentifier("city.detail.\(city.id)")
+        .accessibilityIdentifier("city.detail.\(KnowledgeNormalizer.slug(city.name))")
     }
 
     private var cityDetailContent: some View {
@@ -840,12 +1237,24 @@ struct CityDetailView: View {
 
             ScrollView {
                 LazyVStack(alignment: .leading, spacing: CityDetailLayout.sectionGap) {
-                    CityHeroImageView(city: city, province: province, lang: lang)
+                    Color.clear
+                        .frame(width: 1, height: 1)
+                        .accessibilityElement()
+                        .accessibilityLabel(city.localizedName(lang))
+                        .accessibilityIdentifier("city.detail.\(KnowledgeNormalizer.slug(city.name))")
+                    CityHeroImageView(
+                        city: city,
+                        province: province,
+                        lang: lang,
+                        heroHeight: CityDetailLayout.premiumHeroHeight(viewport: proxy.size),
+                        contentWidth: contentWidth
+                    )
                         .debugPlaceLayoutBounds("city.hero")
                     identitySection(contentWidth: contentWidth)
                         .debugPlaceLayoutBounds("city.identity")
                     statsRow(contentWidth: contentWidth)
                         .debugPlaceLayoutBounds("city.stats")
+                    cityTaskSection(contentWidth: contentWidth)
                     cityInfoProfileSection(contentWidth: contentWidth)
                     firstWeekStepsSection(contentWidth: contentWidth)
                         .debugPlaceLayoutBounds("city.first_steps")
@@ -879,6 +1288,7 @@ struct CityDetailView: View {
                     imageCreditSection
                     Color.clear.frame(height: CityDetailLayout.bottomContentPadding(safeAreaBottom: proxy.safeAreaInsets.bottom))
                 }
+                .accessibilityIdentifier("city.detail.\(KnowledgeNormalizer.slug(city.name))")
                 .frame(width: contentWidth, alignment: .leading)
                 .padding(.top, AppSpacing.small)
                 .padding(.bottom, AppSpacing.medium)
@@ -905,10 +1315,62 @@ struct CityDetailView: View {
         .accessibilityElement(children: .combine)
     }
 
+    private func cityTaskSection(contentWidth: CGFloat) -> some View {
+        ProductScreenSection(title: cityTaskTitle, subtitle: cityTaskSubtitle) {
+            VStack(alignment: .leading, spacing: CityDetailLayout.cardGap) {
+                if let firstStep = city.firstWeekSteps.first {
+                    ProductTaskCard(
+                        title: firstStep.localizedTitle(lang),
+                        subtitle: firstStep.localizedDetail(lang),
+                        symbol: firstStep.icon,
+                        accent: AppColors.emerald,
+                        priority: cityTaskPriority,
+                        cta: cityTaskCTA,
+                        minHeight: 118,
+                        prominence: .primary
+                    )
+                }
+
+                LazyVGrid(
+                    columns: CityDetailLayout.columns(for: contentWidth, regularMinimum: 220),
+                    alignment: .leading,
+                    spacing: CityDetailLayout.cardGap
+                ) {
+                    AIAskButton(
+                        title: askCityAITitle,
+                        context: AIContextBuilder.cityContext(
+                            cityName: city.localizedName(lang),
+                            provinceName: province.localizedName(lang),
+                            language: lang,
+                            appState: appState
+                        ),
+                        prompt: askCityAIPrompt
+                    )
+
+                    if isVisible(.mapFocus(.city(city.id))) {
+                        NavigationLink(value: AppDestination.mapFocus(.city(city.id))) {
+                            ProductListItem(
+                                title: mapButtonTitle,
+                                subtitle: cityMapHelperSubtitle,
+                                symbol: "map.fill",
+                                accent: AppColors.dutchOrange
+                            )
+                        }
+                        .simultaneousGesture(TapGesture().onEnded {
+                            appState.pendingMapFocus = .city(city.id)
+                        })
+                        .buttonStyle(NLTileButtonStyle())
+                    }
+                }
+            }
+        }
+        .accessibilityIdentifier("city.task.section")
+    }
+
     @ViewBuilder
     private func cityInfoProfileSection(contentWidth: CGFloat) -> some View {
         if let profile = cityInfoProfile {
-            CityPremiumSection(title: profile.title.value(lang), subtitle: profile.subtitle.value(lang)) {
+            ProductScreenSection(title: profile.title.value(lang), subtitle: profile.subtitle.value(lang)) {
                 VStack(alignment: .leading, spacing: AppSpacing.small) {
                     Text(profile.summary.value(lang))
                         .font(AppTypography.body)
@@ -933,9 +1395,7 @@ struct CityDetailView: View {
                         relatedGuideChips(profile.practicalGuideIds)
                     }
 
-                    if !profile.attractionIds.isEmpty || !profile.articleIds.isEmpty {
-                        relatedArticleTags(profile)
-                    }
+                    relatedArticleTags(profile)
 
                     cityInfoSources(profile)
                 }
@@ -986,11 +1446,45 @@ struct CityDetailView: View {
                 alignment: .leading,
                 spacing: 8
             ) {
-                ForEach(articleTitles, id: \.self) { title in
-                    CityRelatedChip(title: title, icon: "text.book.closed.fill", color: AppColors.dutchOrange)
+                if articleTitles.isEmpty {
+                    cityRelatedActionChip(
+                        title: cultureRelatedTitle,
+                        icon: "sparkles.rectangle.stack.fill",
+                        color: AppColors.dutchOrange,
+                        destination: .cultureAttractions
+                    )
+                    cityRelatedActionChip(
+                        title: historyRelatedTitle,
+                        icon: "clock.arrow.circlepath",
+                        color: AppColors.cyanGlow,
+                        destination: .netherlandsHistory
+                    )
+                    cityRelatedActionChip(
+                        title: officialSourcesRelatedTitle,
+                        icon: AppIcons.officialSource,
+                        color: AppColors.emerald,
+                        destination: .officialSources
+                    )
+                } else {
+                    ForEach(articleTitles, id: \.self) { title in
+                        cityRelatedActionChip(
+                            title: title,
+                            icon: "text.book.closed.fill",
+                            color: AppColors.dutchOrange,
+                            destination: .cultureAttractions
+                        )
+                    }
                 }
             }
         }
+        .accessibilityIdentifier("city.relatedArticles.dashboard")
+    }
+
+    private func cityRelatedActionChip(title: String, icon: String, color: Color, destination: AppDestination) -> some View {
+        NavigationLink(value: destination) {
+            CityRelatedChip(title: title, icon: icon, color: color)
+        }
+        .buttonStyle(.plain)
     }
 
     private func cityInfoSources(_ profile: CityInfoProfile) -> some View {
@@ -1001,7 +1495,12 @@ struct CityDetailView: View {
 
             ForEach(MockNetherlandsUnderstandingData.sources(for: profile.officialSourceIds)) { source in
                 Link(destination: AppURL.safeWebURL(source.url)) {
-                    CityRelatedSourceRow(source: source)
+                    ProductListItem(
+                        title: source.title,
+                        subtitle: source.institution,
+                        symbol: AppIcons.external,
+                        accent: AppColors.emerald
+                    )
                 }
                 .buttonStyle(.plain)
             }
@@ -1057,21 +1556,26 @@ struct CityDetailView: View {
     }
 
     private func scorecardSection(contentWidth: CGFloat) -> some View {
-        CityPremiumSection(title: scorecardTitle, subtitle: scorecardSubtitle) {
+        ProductScreenSection(title: scorecardTitle, subtitle: scorecardSubtitle) {
             LazyVGrid(
                 columns: CityDetailLayout.columns(for: contentWidth, regularMinimum: 170),
                 alignment: .leading,
                 spacing: CityDetailLayout.cardGap
             ) {
                 ForEach(city.scorecard) { item in
-                    CityScorecardTile(item: item, lang: lang)
+                    ProductStatusStrip(
+                        title: item.localizedValue(lang),
+                        subtitle: item.localizedTitle(lang),
+                        symbol: item.icon,
+                        accent: item.tint
+                    )
                 }
             }
         }
     }
 
     private func firstWeekStepsSection(contentWidth: CGFloat) -> some View {
-        CityPremiumSection(title: firstWeekTitle, subtitle: firstWeekSubtitle) {
+        ProductScreenSection(title: firstWeekTitle, subtitle: firstWeekSubtitle) {
             LazyVGrid(
                 columns: CityDetailLayout.columns(for: contentWidth, regularMinimum: 220),
                 alignment: .leading,
@@ -1081,11 +1585,22 @@ struct CityDetailView: View {
                     if let urlString = item.urlString,
                        let url = AppURL.validatedWebURL(URL(string: urlString)) {
                         Link(destination: url) {
-                            CityNewcomerGuideCard(item: item, lang: lang)
+                            ProductListItem(
+                                title: item.localizedTitle(lang),
+                                subtitle: item.localizedDetail(lang),
+                                symbol: item.icon,
+                                accent: AppColors.emerald,
+                                metadata: openOfficialSourceAccessibilityText
+                            )
                         }
                         .buttonStyle(.plain)
                     } else {
-                        CityNewcomerGuideCard(item: item, lang: lang)
+                        ProductListItem(
+                            title: item.localizedTitle(lang),
+                            subtitle: item.localizedDetail(lang),
+                            symbol: item.icon,
+                            accent: AppColors.emerald
+                        )
                     }
                 }
             }
@@ -1093,21 +1608,41 @@ struct CityDetailView: View {
     }
 
     private func newcomerPlacesSection(contentWidth: CGFloat) -> some View {
-        CityPremiumSection(title: newcomerPlacesTitle, subtitle: newcomerPlacesSubtitle) {
+        ProductScreenSection(title: newcomerPlacesTitle, subtitle: newcomerPlacesSubtitle) {
             LazyVGrid(
                 columns: CityDetailLayout.columns(for: contentWidth, regularMinimum: 240),
                 alignment: .leading,
                 spacing: CityDetailLayout.cardGap
             ) {
                 ForEach(city.newcomerPlaces) { place in
-                    CityNewcomerPlaceCard(place: place, lang: lang)
+                    if let url = AppURL.validatedWebURL(place.officialWebsiteURL) {
+                        Link(destination: url) {
+                            ProductListItem(
+                                title: place.title(lang),
+                                subtitle: place.description(lang),
+                                symbol: place.iconName,
+                                accent: place.accentColor,
+                                metadata: place.category.localized(lang)
+                            )
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityHint(openOfficialSourceAccessibilityText)
+                    } else {
+                        ProductListItem(
+                            title: place.title(lang),
+                            subtitle: place.description(lang),
+                            symbol: place.iconName,
+                            accent: place.accentColor,
+                            metadata: place.category.localized(lang)
+                        )
+                    }
                 }
             }
         }
     }
 
     private func whyMoveSection(contentWidth: CGFloat) -> some View {
-        CityPremiumSection(title: whyMoveTitle, subtitle: city.localizedShortDescription(lang)) {
+        ProductScreenSection(title: whyMoveTitle, subtitle: city.localizedShortDescription(lang)) {
             LazyVGrid(
                 columns: CityDetailLayout.columns(for: contentWidth, regularMinimum: 190),
                 alignment: .leading,
@@ -1121,14 +1656,21 @@ struct CityDetailView: View {
     }
 
     private func costOfLivingSection(contentWidth: CGFloat) -> some View {
-        CityPremiumSection(title: costTitle, subtitle: costSubtitle) {
+        ProductScreenSection(title: costTitle, subtitle: costSubtitle) {
             LazyVGrid(
                 columns: CityDetailLayout.columns(for: contentWidth, regularMinimum: 190),
                 alignment: .leading,
                 spacing: CityDetailLayout.cardGap
             ) {
                 ForEach(city.costOfLiving) { item in
-                    CityCostTile(item: item, lang: lang)
+                    ProductTaskCard(
+                        title: item.title.value(for: lang),
+                        subtitle: item.level.localized(lang),
+                        symbol: item.icon,
+                        accent: item.level.color,
+                        cta: item.level.localized(lang),
+                        minHeight: 104
+                    )
                 }
             }
         }
@@ -1240,7 +1782,12 @@ struct CityDetailView: View {
                 spacing: AppSpacing.small
             ) {
                 ForEach(city.quickFacts) { fact in
-                    CityQuickFactCard(fact: fact, lang: lang)
+                    ProductStatusStrip(
+                        title: fact.localizedValue(lang),
+                        subtitle: fact.localizedTitle(lang),
+                        symbol: fact.icon,
+                        accent: AppColors.accentLight
+                    )
                 }
             }
 
@@ -1251,16 +1798,18 @@ struct CityDetailView: View {
     }
 
     private var landmarkCardsSection: some View {
-        CityPremiumSection(title: landmarksTitle, subtitle: nil) {
+        ProductScreenSection(title: landmarksTitle, subtitle: nil) {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: AppSpacing.small) {
                     ForEach(city.localHighlights) { highlight in
-                        CityLandmarkCard(
-                            city: city,
-                            highlight: highlight,
-                            provinceColor: province.mapHighlightColor,
-                            lang: lang
+                        ProductTaskCard(
+                            title: highlight.localizedTitle(lang),
+                            subtitle: highlight.localizedDescription(lang),
+                            symbol: highlight.icon,
+                            accent: province.mapHighlightColor,
+                            minHeight: 172
                         )
+                        .frame(width: 224)
                     }
                 }
                 .padding(.horizontal, 2)
@@ -1270,7 +1819,7 @@ struct CityDetailView: View {
     }
 
     private var timelineSection: some View {
-        CityPremiumSection(title: timelineTitle, subtitle: nil) {
+        ProductScreenSection(title: timelineTitle, subtitle: nil) {
             VStack(alignment: .leading, spacing: AppSpacing.small) {
                 ForEach(Array(city.timelineEvents.enumerated()), id: \.element.id) { index, event in
                     Button {
@@ -1278,11 +1827,11 @@ struct CityDetailView: View {
                             expandedTimelineEventID = expandedTimelineEventID == event.id ? nil : event.id
                         }
                     } label: {
-                        CityTimelineRow(
-                            event: event,
-                            isLast: index == city.timelineEvents.count - 1,
-                            isExpanded: expandedTimelineEventID == event.id || (expandedTimelineEventID == nil && index == 0),
-                            lang: lang
+                        ProductInfoBlock(
+                            title: event.localizedTitle(lang),
+                            bodyText: expandedTimelineEventID == event.id || (expandedTimelineEventID == nil && index == 0) ? event.localizedDetail(lang) : event.localizedPeriod(lang),
+                            symbol: index == city.timelineEvents.count - 1 ? "circle.fill" : "timeline.selection",
+                            accent: AppColors.accentLight
                         )
                     }
                     .buttonStyle(.plain)
@@ -1292,7 +1841,7 @@ struct CityDetailView: View {
     }
 
     private func newcomerGuideSection(contentWidth: CGFloat) -> some View {
-        CityPremiumSection(title: newcomerTitle, subtitle: newcomerSubtitle) {
+        ProductScreenSection(title: newcomerTitle, subtitle: newcomerSubtitle) {
             LazyVGrid(
                 columns: CityDetailLayout.columns(for: contentWidth, regularMinimum: 220),
                 alignment: .leading,
@@ -1302,11 +1851,22 @@ struct CityDetailView: View {
                     if let urlString = item.urlString,
                        let url = AppURL.validatedWebURL(URL(string: urlString)) {
                         Link(destination: url) {
-                            CityNewcomerGuideCard(item: item, lang: lang)
+                            ProductListItem(
+                                title: item.localizedTitle(lang),
+                                subtitle: item.localizedDetail(lang),
+                                symbol: item.icon,
+                                accent: AppColors.emerald,
+                                metadata: openOfficialSourceAccessibilityText
+                            )
                         }
                         .buttonStyle(.plain)
                     } else {
-                        CityNewcomerGuideCard(item: item, lang: lang)
+                        ProductListItem(
+                            title: item.localizedTitle(lang),
+                            subtitle: item.localizedDetail(lang),
+                            symbol: item.icon,
+                            accent: AppColors.emerald
+                        )
                     }
                 }
             }
@@ -1314,17 +1874,22 @@ struct CityDetailView: View {
     }
 
     private var personalitySection: some View {
-        CityPremiumSection(title: personalityTitle, subtitle: nil) {
+        ProductScreenSection(title: personalityTitle, subtitle: nil) {
             FlexibleTagCloud(tags: city.personalityTags.map { $0.value(for: lang) })
         }
     }
 
     private var localHighlightFactsSection: some View {
-        CityPremiumSection(title: localHighlightsTitle, subtitle: nil) {
+        ProductScreenSection(title: localHighlightsTitle, subtitle: nil) {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: AppSpacing.small) {
                     ForEach(city.localHighlightFacts) { fact in
-                        CityLocalHighlightFactCard(fact: fact, lang: lang)
+                        ProductStatusStrip(
+                            title: fact.localizedValue(lang),
+                            subtitle: fact.localizedTitle(lang),
+                            symbol: fact.icon,
+                            accent: AppColors.orangeGlow
+                        )
                     }
                 }
                 .padding(.horizontal, 2)
@@ -1334,7 +1899,7 @@ struct CityDetailView: View {
     }
 
     private func nearbyCitiesSection(contentWidth: CGFloat) -> some View {
-        CityPremiumSection(title: nearbyTitle, subtitle: nil) {
+        ProductScreenSection(title: nearbyTitle, subtitle: nil) {
             LazyVGrid(
                 columns: CityDetailLayout.columns(for: contentWidth, regularMinimum: 170),
                 alignment: .leading,
@@ -1455,6 +2020,14 @@ struct CityDetailView: View {
         L10n.t("city.official_website", lang)
     }
 
+    private var openOfficialSourceAccessibilityText: String {
+        switch lang {
+        case .russian: return "Открыть официальную ссылку"
+        case .dutch: return "Open officiële link"
+        case .english: return "Open official link"
+        }
+    }
+
     private var touristLabel: String {
         switch lang {
         case .russian: return "Туристическая информация"
@@ -1465,6 +2038,62 @@ struct CityDetailView: View {
 
     private var mapButtonTitle: String {
         L10n.t("city.open_on_map", lang)
+    }
+
+    private var cityTaskTitle: String {
+        switch lang {
+        case .russian: return "Что делать в \(city.localizedName(lang)) сейчас"
+        case .dutch: return "Wat je nu doet in \(city.localizedName(lang))"
+        case .english: return "What to do in \(city.localizedName(lang)) now"
+        }
+    }
+
+    private var cityTaskSubtitle: String {
+        switch lang {
+        case .russian: return "Начните с одного практического шага. AI и карта помогают только этому действию."
+        case .dutch: return "Begin met een praktische stap. AI en kaart ondersteunen alleen deze actie."
+        case .english: return "Start with one practical step. AI and the map support that action."
+        }
+    }
+
+    private var cityTaskPriority: String {
+        switch lang {
+        case .russian: return "Сначала"
+        case .dutch: return "Eerst"
+        case .english: return "Do first"
+        }
+    }
+
+    private var cityTaskCTA: String {
+        switch lang {
+        case .russian: return "Начать"
+        case .dutch: return "Start"
+        case .english: return "Start"
+        }
+    }
+
+    private var askCityAITitle: String {
+        switch lang {
+        case .russian: return "Попросить AI объяснить этот шаг"
+        case .dutch: return "Laat AI deze stap uitleggen"
+        case .english: return "Ask AI to explain this step"
+        }
+    }
+
+    private var askCityAIPrompt: String {
+        switch lang {
+        case .russian: return "Я нахожусь в \(city.localizedName(lang)), провинция \(province.localizedName(lang)). Объясни, что сделать сначала, какие официальные источники проверить и где это искать на карте. Кратко, по шагам."
+        case .dutch: return "Ik ben in \(city.localizedName(lang)), provincie \(province.localizedName(lang)). Leg uit wat ik eerst moet doen, welke officiële bronnen ik controleer en waar ik dit op de kaart vind. Kort, stap voor stap."
+        case .english: return "I am in \(city.localizedName(lang)), \(province.localizedName(lang)). Explain what to do first, which official sources to verify, and where to look on the map. Keep it brief, step by step."
+        }
+    }
+
+    private var cityMapHelperSubtitle: String {
+        switch lang {
+        case .russian: return "Найти место или службу для текущего шага."
+        case .dutch: return "Vind een plek of dienst voor deze stap."
+        case .english: return "Find the place or service for this step."
+        }
     }
 
     private var quickFactsTitle: String {
@@ -1491,6 +2120,30 @@ struct CityDetailView: View {
         }
     }
 
+    private var cultureRelatedTitle: String {
+        switch lang {
+        case .russian: return "Культура и достопримечательности"
+        case .dutch: return "Cultuur & attracties"
+        case .english: return "Culture & attractions"
+        }
+    }
+
+    private var historyRelatedTitle: String {
+        switch lang {
+        case .russian: return "История Нидерландов"
+        case .dutch: return "Geschiedenis van Nederland"
+        case .english: return "History of the Netherlands"
+        }
+    }
+
+    private var officialSourcesRelatedTitle: String {
+        switch lang {
+        case .russian: return "Официальные источники"
+        case .dutch: return "Officiële bronnen"
+        case .english: return "Official sources"
+        }
+    }
+
     private var scorecardTitle: String {
         switch lang {
         case .russian: return "Профиль города"
@@ -1510,7 +2163,7 @@ struct CityDetailView: View {
     private var firstWeekSubtitle: String {
         switch lang {
         case .russian: return "Общие ориентиры. Всегда проверяйте официальные источники для вашей ситуации."
-        case .dutch: return "Algemene orientatie. Controleer altijd officiele bronnen voor jouw situatie."
+        case .dutch: return "Algemene oriëntatie. Controleer altijd officiële bronnen voor jouw situatie."
         case .english: return "General orientation. Always verify official sources for your situation."
         }
     }
@@ -1717,20 +2370,24 @@ struct CityHeroImageView: View {
     let city: CityItem
     let province: ProvinceItem
     let lang: AppLanguage
+    let heroHeight: CGFloat
+    let contentWidth: CGFloat
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
     var body: some View {
         ZStack(alignment: .bottomLeading) {
             heroBackground
+                .frame(width: contentWidth, height: heroMinimumHeight)
+                .clipped()
 
             heroTextContent
                 .padding(.leading, CityDetailLayout.heroContentPadding)
                 .padding(.trailing, CityDetailLayout.heroContentPadding)
                 .padding(.top, CityDetailLayout.heroContentPadding)
                 .padding(.bottom, CityDetailLayout.heroContentBottomPadding)
-                .frame(maxWidth: .infinity, alignment: .bottomLeading)
+                .frame(width: contentWidth, alignment: .bottomLeading)
         }
-        .frame(maxWidth: .infinity, minHeight: heroMinimumHeight, alignment: .bottomLeading)
+        .frame(width: contentWidth, height: heroMinimumHeight, alignment: .bottomLeading)
         .clipShape(RoundedRectangle(cornerRadius: AppCornerRadius.hero, style: .continuous))
         .overlay(
             RoundedRectangle(cornerRadius: AppCornerRadius.hero, style: .continuous)
@@ -1747,7 +2404,7 @@ struct CityHeroImageView: View {
             let resolvedImage = CanonicalPlaceImageResolver.resolveCityHero(city: city)
 
             fallbackHero
-                .frame(maxWidth: .infinity, maxHeight: .infinity)
+                .frame(width: contentWidth, height: heroMinimumHeight)
                 .clipped()
 
             CityImageView(
@@ -1761,9 +2418,10 @@ struct CityHeroImageView: View {
                     screen: "Province city detail hero",
                     entityType: "city",
                     entityName: city.localizedName(lang)
-                )
+                ),
+                renderRole: .hero
             )
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
+            .frame(width: contentWidth, height: heroMinimumHeight)
             .clipped()
             .transition(.opacity)
 
@@ -1801,8 +2459,8 @@ struct CityHeroImageView: View {
                     .font(.system(size: lang == .russian ? 16 : 18, weight: .bold, design: .rounded))
                     .foregroundStyle(Color.white.opacity(0.90))
                     .multilineTextAlignment(.leading)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.82)
+                    .lineLimit(3)
+                    .minimumScaleFactor(0.76)
                     .fixedSize(horizontal: false, vertical: true)
                     .frame(maxWidth: .infinity, alignment: .leading)
 
@@ -1828,7 +2486,7 @@ struct CityHeroImageView: View {
                     .layoutPriority(1)
             }
         }
-        .frame(maxWidth: 640, alignment: .leading)
+        .frame(width: max(0, contentWidth - CityDetailLayout.heroContentPadding * 2), alignment: .leading)
     }
 
     private func heroChip(_ text: String, icon: String) -> some View {
@@ -1854,7 +2512,7 @@ struct CityHeroImageView: View {
     }
 
     private var heroMinimumHeight: CGFloat {
-        dynamicTypeSize.isAccessibilitySize ? 420 : CityDetailLayout.heroHeight
+        dynamicTypeSize.isAccessibilitySize ? max(420, heroHeight) : heroHeight
     }
 
     private var residentsFormat: String {
@@ -1935,10 +2593,10 @@ private struct PlaceLayoutBoundsGuard: ViewModifier {
 
     private func audit(proxy: GeometryProxy) {
         let frame = proxy.frame(in: .global)
-        let viewportWidth = UIScreen.main.bounds.width
+        let viewportWidth = max(proxy.size.width, frame.maxX)
         guard viewportWidth > 0 else { return }
 
-        if frame.minX < -0.5 || frame.maxX > viewportWidth + 0.5 || frame.width > viewportWidth + 0.5 {
+        if frame.width > viewportWidth + 0.5 {
             Self.logger.warning(
                 "Place layout overflow in \(name, privacy: .public): minX=\(frame.minX), maxX=\(frame.maxX), width=\(frame.width), viewport=\(viewportWidth)"
             )
@@ -2038,36 +2696,85 @@ private struct CityVerifiedSymbolImageView: View {
     var localAssetName: String? = nil
 
     var body: some View {
-        // Use local asset catalog first — iOS AsyncImage cannot decode SVG from URLs
         if let assetName = localAssetName, AssetAvailability.exists(assetName) {
             Image(assetName)
                 .resizable()
                 .scaledToFit()
                 .accessibilityHidden(true)
-        } else if let symbol,
-                  symbol.isRemoteRenderable,
-                  let rawURL = symbol.imageURL ?? symbol.thumbnailURL ?? symbol.url,
-                  let url = URL(string: rawURL) {
-            AsyncImage(url: url) { phase in
-                switch phase {
-                case .empty:
-                    ProgressView()
-                        .tint(AppColors.accentLight)
-                        .frame(maxWidth: .infinity, maxHeight: .infinity)
-                case .success(let image):
-                    image
-                        .resizable()
-                        .scaledToFit()
-                        .padding(symbol.type == .coatOfArms ? 4 : 4)
-                        .accessibilityHidden(true)
-                case .failure:
-                    CityOfficialSymbolPlaceholder(kind: placeholderKind, lang: lang, accent: accent, showsText: showsPlaceholderText)
-                @unknown default:
-                    CityOfficialSymbolPlaceholder(kind: placeholderKind, lang: lang, accent: accent, showsText: showsPlaceholderText)
-                }
-            }
+        } else if let symbol, symbol.isRemoteRenderable {
+            CityVerifiedMediaImageView(
+                asset: symbol.mediaAsset,
+                placeholderKind: placeholderKind,
+                lang: lang,
+                accent: accent,
+                contentMode: .fit,
+                accessibilityLabel: accessibilityLabel(for: placeholderKind, lang: lang),
+                hidesLoadingBackground: !showsPlaceholderText
+            )
         } else {
             CityOfficialSymbolPlaceholder(kind: placeholderKind, lang: lang, accent: accent, showsText: showsPlaceholderText)
+        }
+    }
+
+    private func accessibilityLabel(for kind: ImagePlaceholderKind, lang: AppLanguage) -> String {
+        switch (kind, lang) {
+        case (.flag, .russian): return "Официальный флаг города"
+        case (.flag, .dutch): return "Officiële stadsvlag"
+        case (.flag, .english): return "Official city flag"
+        case (.coatOfArms, .russian): return "Официальный герб города"
+        case (.coatOfArms, .dutch): return "Officieel stadswapen"
+        case (.coatOfArms, .english): return "Official city coat of arms"
+        case (.hero, .russian): return "Официальное изображение города"
+        case (.hero, .dutch): return "Officiële stadsafbeelding"
+        case (.hero, .english): return "Official city image"
+        }
+    }
+}
+
+private struct CityRemoteSymbolPremiumImage: View {
+    let symbol: CitySymbol
+    let placeholderKind: ImagePlaceholderKind
+    let lang: AppLanguage
+    let accent: Color
+    var showsPlaceholderText = true
+
+    var body: some View {
+        PremiumImageView(
+            asset: appImageAsset,
+            language: lang,
+            height: nil,
+            aspectRatio: placeholderKind == .flag ? 3.0 / 2.0 : 1,
+            mode: .fit,
+            cornerRadius: 0,
+            overlayStyle: .none,
+            fallbackCategory: placeholderKind == .flag ? .city : .government,
+            accessibilityLabel: accessibilityLabel,
+            targetPixelWidth: 420
+        )
+        .background(AppColors.graphite.opacity(0.76))
+        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .clipped()
+    }
+
+    private var appImageAsset: AppImageAsset? {
+        symbol.mediaAsset.appImageAsset(
+            id: symbol.placeId ?? symbol.url ?? "verified-city-symbol",
+            title: accessibilityLabel,
+            type: .cityHero
+        )
+    }
+
+    private var accessibilityLabel: String {
+        switch (placeholderKind, lang) {
+        case (.flag, .russian): return "Официальный флаг города"
+        case (.flag, .dutch): return "Officiële stadsvlag"
+        case (.flag, .english): return "Official city flag"
+        case (.coatOfArms, .russian): return "Официальный герб города"
+        case (.coatOfArms, .dutch): return "Officieel stadswapen"
+        case (.coatOfArms, .english): return "Official city coat of arms"
+        case (.hero, .russian): return "Официальное изображение города"
+        case (.hero, .dutch): return "Officiële stadsafbeelding"
+        case (.hero, .english): return "Official city image"
         }
     }
 }
@@ -2109,6 +2816,8 @@ private struct CityVerifiedMediaImageView: View {
             debugContext: debugContext
         )
         .background(hidesLoadingBackground ? Color.clear : AppColors.graphite.opacity(0.74))
+        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .clipped()
     }
 
     private var appImageAsset: AppImageAsset? {
@@ -2159,9 +2868,9 @@ private struct CityOfficialSymbolPlaceholder: View {
 
     private var officialSymbolUnavailableText: String {
         switch lang {
-        case .english: return "Verified local symbol not available"
-        case .dutch: return "Geverifieerd lokaal symbool niet beschikbaar"
-        case .russian: return "Проверенный местный символ недоступен"
+        case .english: return "Official symbol context"
+        case .dutch: return "Officiële symboolcontext"
+        case .russian: return "Контекст официального символа"
         }
     }
 }
@@ -2253,6 +2962,10 @@ struct CityHistoryView: View {
         city.localizedHistoryDetail(lang)
     }
 
+    private var historySourceURL: URL? {
+        AppURL.validatedWebURL(URL(string: city.historySourceURL ?? ""))
+    }
+
     var body: some View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             HStack(alignment: .top, spacing: AppSpacing.small) {
@@ -2280,13 +2993,12 @@ struct CityHistoryView: View {
                     .frame(width: 82)
             }
 
-            if let sourceURL = city.historySourceURL, historyText != nil {
+            if let sourceURL = historySourceURL {
                 Button {
-                    guard let url = AppURL.validatedWebURL(URL(string: sourceURL)) else { return }
                     #if canImport(SafariServices) && canImport(UIKit)
-                    activeSource = CityHistorySource(url: url)
+                    activeSource = CityHistorySource(url: sourceURL)
                     #else
-                    openURL(url)
+                    openURL(sourceURL)
                     #endif
                 } label: {
                     Label(readMoreTitle, systemImage: "safari.fill")
@@ -2300,6 +3012,23 @@ struct CityHistoryView: View {
                 }
                 .buttonStyle(.plain)
                 .accessibilityLabel("\(readMoreTitle): \(title), \(city.localizedName(lang))")
+            } else if historyText == nil {
+                VStack(alignment: .leading, spacing: 8) {
+                    NavigationLink(value: AppDestination.officialSources) {
+                        Label(officialSourcesFallbackTitle, systemImage: "checkmark.shield.fill")
+                            .font(.system(.caption, design: .rounded).weight(.bold))
+                            .foregroundStyle(AppColors.accentLight)
+                    }
+                    .buttonStyle(.plain)
+
+                    NavigationLink(value: AppDestination.searchList) {
+                        Label(searchFallbackTitle, systemImage: "magnifyingglass")
+                            .font(.system(.caption, design: .rounded).weight(.bold))
+                            .foregroundStyle(AppColors.textSecondary)
+                    }
+                    .buttonStyle(.plain)
+                }
+                .accessibilityIdentifier("city.history.empty.actions")
             }
         }
         .padding(16)
@@ -2339,9 +3068,25 @@ struct CityHistoryView: View {
 
     private var placeholderText: String {
         switch lang {
-        case .english: return "Historical background unavailable"
-        case .dutch: return "Historische achtergrond niet beschikbaar"
-        case .russian: return "Историческая справка недоступна"
+        case .english: return "Use official sources or search to continue."
+        case .dutch: return "Gebruik officiële bronnen of zoek verder om deze stad te verkennen."
+        case .russian: return "Используйте официальные источники или поиск, чтобы продолжить изучение города."
+        }
+    }
+
+    private var officialSourcesFallbackTitle: String {
+        switch lang {
+        case .english: return "Check official sources"
+        case .dutch: return "Controleer officiële bronnen"
+        case .russian: return "Проверить официальные источники"
+        }
+    }
+
+    private var searchFallbackTitle: String {
+        switch lang {
+        case .english: return "Search this city"
+        case .dutch: return "Zoek deze stad"
+        case .russian: return "Искать этот город"
         }
     }
 
@@ -2420,93 +3165,10 @@ private struct CityHistoryHeraldryCorner: View {
 
     private var coatPlaceholderText: String {
         switch lang {
-        case .english: return "Official coat of arms unavailable"
-        case .dutch: return "Officieel wapen niet beschikbaar"
-        case .russian: return "Официальный герб недоступен"
+        case .english: return "Official source"
+        case .dutch: return "Officiële bron"
+        case .russian: return "Офиц. источник"
         }
-    }
-}
-
-private struct CityQuickFactCard: View {
-    let fact: CityQuickFact
-    let lang: AppLanguage
-
-    var body: some View {
-        HStack(alignment: .top, spacing: 10) {
-            Image(systemName: fact.icon)
-                .font(.system(size: 13, weight: .bold))
-                .foregroundStyle(AppColors.accentLight)
-                .frame(width: 30, height: 30)
-                .background(AppColors.accent.opacity(0.14))
-                .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
-
-            VStack(alignment: .leading, spacing: 3) {
-                Text(fact.localizedTitle(lang))
-                    .font(.system(.caption, design: .rounded).weight(.semibold))
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(2)
-                Text(fact.localizedValue(lang))
-                    .font(.system(.subheadline, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.82)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-        }
-        .padding(12)
-        .frame(maxWidth: .infinity, minHeight: 76, alignment: .topLeading)
-        .background(AppColors.glassSurface.opacity(0.72))
-        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: 14, style: .continuous)
-                .stroke(Color.white.opacity(0.12), lineWidth: 0.75)
-        )
-    }
-}
-
-private struct CityPremiumSection<Content: View>: View {
-    let title: String
-    let subtitle: String?
-    @ViewBuilder let content: () -> Content
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
-            NLSectionHeader(title: title, subtitle: subtitle)
-            content()
-        }
-        .frame(maxWidth: .infinity, alignment: .leading)
-    }
-}
-
-private struct CityScorecardTile: View {
-    let item: CityScorecardItem
-    let lang: AppLanguage
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Image(systemName: item.icon)
-                .font(.system(size: 14, weight: .bold))
-                .foregroundStyle(item.tint)
-                .frame(width: 32, height: 32)
-                .background(item.tint.opacity(0.15))
-                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-            VStack(alignment: .leading, spacing: 4) {
-                Text(item.localizedTitle(lang))
-                    .font(.system(.caption, design: .rounded).weight(.semibold))
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(2)
-                Text(item.localizedValue(lang))
-                    .font(.system(.subheadline, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.78)
-            }
-        }
-        .padding(14)
-        .frame(maxWidth: .infinity, minHeight: 118, alignment: .topLeading)
-        .background(AppColors.glassSurface.opacity(0.78))
-        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(Color.white.opacity(0.13), lineWidth: 0.75))
     }
 }
 
@@ -2554,285 +3216,6 @@ private struct CityRelatedChip: View {
         .background(color.opacity(0.10))
         .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
         .overlay(RoundedRectangle(cornerRadius: 12, style: .continuous).stroke(Color.white.opacity(0.10), lineWidth: 0.7))
-    }
-}
-
-private struct CityRelatedSourceRow: View {
-    let source: InfoSourceMetadata
-
-    var body: some View {
-        HStack(spacing: 10) {
-            Image(systemName: AppIcons.external)
-                .font(.system(size: 12, weight: .bold))
-                .foregroundStyle(AppColors.emerald)
-                .frame(width: 28, height: 28)
-                .background(AppColors.emerald.opacity(0.12))
-                .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
-
-            VStack(alignment: .leading, spacing: 2) {
-                Text(source.title)
-                    .font(.system(.caption, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(1)
-                Text(source.institution)
-                    .font(.system(.caption2, design: .rounded).weight(.medium))
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(1)
-            }
-
-            Spacer(minLength: 0)
-        }
-        .padding(10)
-        .background(AppColors.glassSurface.opacity(0.64))
-        .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 13, style: .continuous).stroke(Color.white.opacity(0.10), lineWidth: 0.7))
-    }
-}
-
-private struct CityCostTile: View {
-    let item: CityCostItem
-    let lang: AppLanguage
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                Image(systemName: item.icon)
-                    .font(.system(size: 14, weight: .bold))
-                    .foregroundStyle(item.level.color)
-                    .frame(width: 32, height: 32)
-                    .background(item.level.color.opacity(0.15))
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                Spacer()
-                Text(item.level.localized(lang))
-                    .font(.system(.caption, design: .rounded).weight(.bold))
-                    .foregroundStyle(item.level.color)
-                    .padding(.horizontal, 9)
-                    .padding(.vertical, 5)
-                    .background(item.level.color.opacity(0.13))
-                    .clipShape(Capsule())
-            }
-            Text(item.title.value(for: lang))
-                .font(.system(.subheadline, design: .rounded).weight(.bold))
-                .foregroundStyle(AppColors.textPrimary)
-                .lineLimit(2)
-        }
-        .padding(14)
-        .frame(maxWidth: .infinity, minHeight: 104, alignment: .topLeading)
-        .background(AppColors.glassSurface.opacity(0.74))
-        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(Color.white.opacity(0.12), lineWidth: 0.75))
-    }
-}
-
-private struct CityLandmarkCard: View {
-    let city: CityItem
-    let highlight: CityLocalHighlight
-    let provinceColor: Color
-    let lang: AppLanguage
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 12) {
-            ZStack(alignment: .bottomLeading) {
-                let assetName = landmarkAssetName
-                if AssetAvailability.exists(assetName) {
-                    Image(assetName)
-                        .resizable()
-                        .scaledToFill()
-                        .frame(height: 92)
-                        .clipped()
-                } else if CityMediaValidator.renderableAsset(city.media.heroImage, expectedType: .heroImage) != nil {
-                    CityVerifiedMediaImageView(
-                        asset: CityMediaValidator.renderableAsset(city.media.heroImage, expectedType: .heroImage),
-                        placeholderKind: .hero,
-                        lang: lang,
-                        accent: provinceColor,
-                        contentMode: .fill,
-                        accessibilityLabel: String(format: L10n.t("city.accessibility.hero", lang), city.localizedName(lang))
-                    )
-                    .frame(height: 92)
-                    .clipped()
-                } else {
-                    GeneratedCategoryArtwork(symbol: highlight.icon, accent: provinceColor)
-                }
-            }
-            .frame(height: 92)
-            .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-
-            VStack(alignment: .leading, spacing: 5) {
-                Text(highlight.localizedTitle(lang))
-                    .font(.system(.headline, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(2)
-                Text(highlight.localizedDescription(lang))
-                    .font(.system(.caption, design: .rounded).weight(.semibold))
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(3)
-            }
-        }
-        .padding(12)
-        .frame(width: 224, alignment: .topLeading)
-        .frame(minHeight: 210, alignment: .topLeading)
-        .background(AppColors.glassSurface.opacity(0.78))
-        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(Color.white.opacity(0.12), lineWidth: 0.75))
-    }
-
-    private var landmarkAssetName: String {
-        "city_\(city.name.lowercased().replacingOccurrences(of: "'", with: "").replacingOccurrences(of: "-", with: "_").replacingOccurrences(of: " ", with: "_"))_\(highlight.id)"
-    }
-}
-
-private struct CityTimelineRow: View {
-    let event: CityTimelineEvent
-    let isLast: Bool
-    let isExpanded: Bool
-    let lang: AppLanguage
-
-    var body: some View {
-        HStack(alignment: .top, spacing: 12) {
-            VStack(spacing: 0) {
-                Circle()
-                    .fill(AppColors.accentLight)
-                    .frame(width: 12, height: 12)
-                if !isLast {
-                    Rectangle()
-                        .fill(AppColors.accentLight.opacity(0.28))
-                        .frame(width: 2, height: 58)
-                }
-            }
-            VStack(alignment: .leading, spacing: 4) {
-                Text(event.localizedPeriod(lang))
-                    .font(.system(.caption, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.accentLight)
-                Text(event.localizedTitle(lang))
-                    .font(.system(.subheadline, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.textPrimary)
-                if isExpanded {
-                    Text(event.localizedDetail(lang))
-                        .font(.system(.caption, design: .rounded).weight(.semibold))
-                        .foregroundStyle(AppColors.textSecondary)
-                        .fixedSize(horizontal: false, vertical: true)
-                        .transition(.opacity.combined(with: .move(edge: .top)))
-                }
-            }
-            .padding(.bottom, isLast ? 0 : 10)
-        }
-    }
-}
-
-private struct CityNewcomerGuideCard: View {
-    let item: CityNewcomerGuideItem
-    let lang: AppLanguage
-
-    var body: some View {
-        HStack(alignment: .top, spacing: 10) {
-            Image(systemName: item.icon)
-                .font(.system(size: 14, weight: .bold))
-                .foregroundStyle(AppColors.emerald)
-                .frame(width: 32, height: 32)
-                .background(AppColors.emerald.opacity(0.14))
-                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-            VStack(alignment: .leading, spacing: 4) {
-                Text(item.localizedTitle(lang))
-                    .font(.system(.subheadline, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(2)
-                Text(item.localizedDetail(lang))
-                    .font(.system(.caption, design: .rounded).weight(.semibold))
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(3)
-            }
-            .frame(maxWidth: .infinity, alignment: .leading)
-            Spacer(minLength: 4)
-            if item.urlString != nil {
-                Image(systemName: "arrow.up.right")
-                    .font(.system(size: 11, weight: .bold))
-                    .foregroundStyle(AppColors.textTertiary)
-            }
-        }
-        .padding(12)
-        .frame(maxWidth: .infinity, minHeight: 92, alignment: .topLeading)
-        .background(AppColors.glassSurface.opacity(0.74))
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).stroke(Color.white.opacity(0.12), lineWidth: 0.75))
-    }
-}
-
-private struct CityNewcomerPlaceCard: View {
-    let place: NewcomerPlace
-    let lang: AppLanguage
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack(alignment: .top, spacing: 10) {
-                Image(systemName: place.iconName)
-                    .font(.system(size: 14, weight: .bold))
-                    .foregroundStyle(place.accentColor)
-                    .frame(width: 34, height: 34)
-                    .background(place.accentColor.opacity(0.14))
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(place.title(lang))
-                        .font(.system(.subheadline, design: .rounded).weight(.bold))
-                        .foregroundStyle(AppColors.textPrimary)
-                        .lineLimit(2)
-                    Text(place.category.localized(lang))
-                        .font(.system(.caption2, design: .rounded).weight(.bold))
-                        .foregroundStyle(place.accentColor)
-                        .lineLimit(1)
-                }
-                Spacer(minLength: 4)
-                if place.officialWebsiteURL != nil {
-                    Image(systemName: "arrow.up.right")
-                        .font(.system(size: 11, weight: .bold))
-                        .foregroundStyle(AppColors.textTertiary)
-                }
-            }
-
-            Text(place.description(lang))
-                .font(.system(.caption, design: .rounded).weight(.semibold))
-                .foregroundStyle(AppColors.textSecondary)
-                .lineLimit(4)
-                .fixedSize(horizontal: false, vertical: true)
-
-            Text(place.confidenceLevel.localized(lang))
-                .font(.system(.caption2, design: .rounded).weight(.bold))
-                .foregroundStyle(place.confidenceLevel == .verified ? AppColors.success : AppColors.warning)
-                .lineLimit(1)
-        }
-        .padding(13)
-        .frame(maxWidth: .infinity, minHeight: 154, alignment: .topLeading)
-        .background(AppColors.glassSurface.opacity(0.76))
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 16, style: .continuous).stroke(place.accentColor.opacity(0.20), lineWidth: 0.9))
-    }
-}
-
-private struct CityLocalHighlightFactCard: View {
-    let fact: CityLocalHighlightFact
-    let lang: AppLanguage
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Image(systemName: fact.icon)
-                .font(.system(size: 15, weight: .bold))
-                .foregroundStyle(AppColors.orangeGlow)
-            Text(fact.localizedTitle(lang))
-                .font(.system(.caption, design: .rounded).weight(.semibold))
-                .foregroundStyle(AppColors.textSecondary)
-                .lineLimit(2)
-            Text(fact.localizedValue(lang))
-                .font(.system(.headline, design: .rounded).weight(.bold))
-                .foregroundStyle(AppColors.textPrimary)
-                .lineLimit(3)
-                .fixedSize(horizontal: false, vertical: true)
-        }
-        .padding(14)
-        .frame(width: 182, alignment: .topLeading)
-        .frame(minHeight: 150, alignment: .topLeading)
-        .background(AppColors.glassSurface.opacity(0.76))
-        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(Color.white.opacity(0.12), lineWidth: 0.75))
     }
 }
 
@@ -2908,441 +3291,6 @@ private enum CitySymbolAudit {
     }
 }
 
-// MARK: - Cards and Placeholders
-
-private struct ProvinceHeroMapPanel: View {
-    let province: ProvinceItem
-
-    var body: some View {
-        ZStack {
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .fill(AppColors.graphite.opacity(0.64))
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .fill(.ultraThinMaterial)
-                .opacity(0.26)
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .fill(
-                    RadialGradient(
-                        colors: [province.mapHighlightColor.opacity(0.20), .clear],
-                        center: .top,
-                        startRadius: 0,
-                        endRadius: 120
-                    )
-                )
-
-            ProvinceHighlightMapView(
-                provinceID: province.id,
-                highlightColor: province.mapHighlightColor,
-                showLabels: false
-            )
-            .padding(10)
-            .opacity(0.92)
-        }
-        .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
-        .overlay {
-            RoundedRectangle(cornerRadius: 22, style: .continuous)
-                .stroke(
-                    LinearGradient(
-                        colors: [Color.white.opacity(0.28), province.mapHighlightColor.opacity(0.22), Color.white.opacity(0.06)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: 0.8
-                )
-        }
-        .shadow(color: province.mapHighlightColor.opacity(0.14), radius: 18, x: 0, y: 0)
-        .shadow(color: Color.black.opacity(0.24), radius: 16, x: 0, y: 10)
-    }
-}
-
-private struct ProvinceMetricCard: View {
-    let value: String
-    let label: String
-    let icon: String
-    let color: Color
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            HStack {
-                Image(systemName: icon)
-                    .font(.system(size: 13, weight: .bold))
-                    .foregroundStyle(color)
-                    .frame(width: 28, height: 28)
-                    .background(color.opacity(0.16))
-                    .clipShape(RoundedRectangle(cornerRadius: 9, style: .continuous))
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 9, style: .continuous)
-                            .stroke(color.opacity(0.22), lineWidth: 0.7)
-                    )
-                Spacer(minLength: 4)
-            }
-
-            VStack(alignment: .leading, spacing: 3) {
-                Text(value)
-                    .font(.system(.title3, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.78)
-                Text(label)
-                    .font(.system(.caption, design: .rounded).weight(.semibold))
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.68)
-                    .allowsTightening(true)
-            }
-        }
-        .padding(14)
-        .frame(maxWidth: .infinity, minHeight: 112, alignment: .topLeading)
-        .background {
-            ZStack {
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(AppColors.graphite.opacity(0.92))
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(
-                        LinearGradient(
-                            colors: [Color.white.opacity(0.09), Color.clear, Color.black.opacity(0.12)],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(
-                        RadialGradient(
-                            colors: [color.opacity(0.12), .clear],
-                            center: .topLeading,
-                            startRadius: 0,
-                            endRadius: 130
-                        )
-                    )
-            }
-        }
-        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay {
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .stroke(
-                    LinearGradient(
-                        colors: [Color.white.opacity(0.22), AppColors.stroke.opacity(0.48)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: 0.75
-                )
-        }
-        .shadow(color: Color.black.opacity(0.18), radius: 14, x: 0, y: 8)
-    }
-}
-
-private struct ProvinceDarkInfoRow: View {
-    let icon: String
-    let title: String
-    let value: String
-    var color: Color = AppColors.softBlue
-
-    var body: some View {
-        HStack(spacing: 13) {
-            Image(systemName: icon)
-                .font(.system(size: 16, weight: .bold))
-                .foregroundStyle(color)
-                .frame(width: 42, height: 42)
-                .background(color.opacity(0.15))
-                .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 13, style: .continuous)
-                        .stroke(color.opacity(0.24), lineWidth: 0.7)
-                )
-
-            VStack(alignment: .leading, spacing: 3) {
-                Text(title)
-                    .font(.system(.caption, design: .rounded).weight(.semibold))
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(1)
-                Text(value)
-                    .font(.system(.subheadline, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.86)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-
-            Spacer(minLength: 6)
-        }
-        .padding(15)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background {
-            RoundedRectangle(cornerRadius: AppCornerRadius.large, style: .continuous)
-                .fill(AppColors.graphite.opacity(0.90))
-                .overlay(
-                    LinearGradient(
-                        colors: [Color.white.opacity(0.08), Color.clear],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    )
-                )
-        }
-        .clipShape(RoundedRectangle(cornerRadius: AppCornerRadius.large, style: .continuous))
-        .overlay {
-            RoundedRectangle(cornerRadius: AppCornerRadius.large, style: .continuous)
-                .stroke(Color.white.opacity(0.14), lineWidth: 0.75)
-        }
-        .shadow(color: Color.black.opacity(0.16), radius: 14, x: 0, y: 8)
-    }
-}
-
-private struct ProvinceCityPreviewCard: View {
-    let city: CityItem
-    let province: ProvinceItem
-    let lang: AppLanguage
-
-    var body: some View {
-        HStack(spacing: 14) {
-            CityFlagBadge(city: city, lang: lang, compact: true)
-
-            VStack(alignment: .leading, spacing: 5) {
-                Text(city.name)
-                    .font(.system(.subheadline, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.86)
-                HStack(spacing: 7) {
-                    Label(city.population, systemImage: "person.2.fill")
-                    Text("•")
-                        .foregroundStyle(AppColors.textTertiary)
-                    Text(city.municipality)
-                        .lineLimit(1)
-                }
-                .font(.system(.caption, design: .rounded).weight(.semibold))
-                .foregroundStyle(AppColors.textSecondary)
-                .minimumScaleFactor(0.82)
-            }
-
-            Spacer(minLength: 8)
-
-            Image(systemName: "chevron.right")
-                .font(.system(size: 12, weight: .bold))
-                .foregroundStyle(AppColors.textTertiary)
-                .frame(width: 28, height: 28)
-                .background(Color.white.opacity(0.06))
-                .clipShape(Circle())
-        }
-        .padding(14)
-        .frame(maxWidth: .infinity, minHeight: 82, alignment: .leading)
-        .background {
-            ZStack {
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(AppColors.graphite.opacity(0.90))
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(
-                        LinearGradient(
-                            colors: [Color.white.opacity(0.085), Color.clear],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-            }
-        }
-        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay {
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .stroke(
-                    LinearGradient(
-                        colors: [Color.white.opacity(0.18), AppColors.stroke.opacity(0.44)],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: 0.75
-                )
-        }
-        .shadow(color: Color.black.opacity(0.16), radius: 12, x: 0, y: 7)
-        .accessibilityElement(children: .combine)
-    }
-}
-
-private struct ProvinceRowCard: View {
-    let province: ProvinceItem
-    let lang: AppLanguage
-    var isSelected: Bool = false
-    var subtitleOverride: String? = nil
-
-    var body: some View {
-        HStack(spacing: 12) {
-            ProvinceFlagView(province: province, lang: lang)
-                .frame(width: 58, height: 58)
-                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 14, style: .continuous)
-                        .stroke(Color.white.opacity(0.16), lineWidth: 0.75)
-                )
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text(province.localizedName(lang))
-                    .font(.system(.headline, design: .rounded).weight(.bold))
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.86)
-                Text(subtitleOverride ?? "\(capitalLabel): \(province.capital)")
-                    .font(.system(.caption, design: .rounded).weight(.semibold))
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(2)
-                    .minimumScaleFactor(0.84)
-                Text("\(province.municipalityCount) \(municipalityLabel)")
-                    .font(.system(size: 11, weight: .medium, design: .rounded))
-                    .foregroundStyle(AppColors.cyanGlow)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.72)
-                    .allowsTightening(true)
-            }
-
-            Spacer(minLength: 6)
-
-            NetherlandsMiniMapView(
-                provinceID: province.id,
-                highlightColor: province.mapHighlightColor
-            )
-            .frame(width: 54, height: 74)
-            .padding(.horizontal, 2)
-
-            Image(systemName: "chevron.right")
-                .font(.system(size: 12, weight: .bold))
-                .foregroundStyle(AppColors.textTertiary)
-        }
-        .padding(14)
-        .frame(maxWidth: .infinity, minHeight: 100, alignment: .leading)
-        .background {
-            ZStack {
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(AppColors.graphite.opacity(0.92))
-                RoundedRectangle(cornerRadius: 18, style: .continuous)
-                    .fill(
-                        LinearGradient(
-                            colors: [
-                                Color.white.opacity(0.08),
-                                province.mapHighlightColor.opacity(isSelected ? 0.16 : 0.08),
-                                Color.black.opacity(0.10)
-                            ],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-                if isSelected {
-                    RoundedRectangle(cornerRadius: 18, style: .continuous)
-                        .fill(
-                            RadialGradient(
-                                colors: [AppColors.orangeGlow.opacity(0.18), .clear],
-                                center: .topLeading,
-                                startRadius: 0,
-                                endRadius: 180
-                            )
-                        )
-                }
-            }
-        }
-        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay {
-            RoundedRectangle(cornerRadius: 18, style: .continuous)
-                .stroke(
-                    LinearGradient(
-                        colors: [
-                            Color.white.opacity(isSelected ? 0.34 : 0.20),
-                            province.mapHighlightColor.opacity(isSelected ? 0.34 : 0.14),
-                            AppColors.stroke.opacity(0.40)
-                        ],
-                        startPoint: .topLeading,
-                        endPoint: .bottomTrailing
-                    ),
-                    lineWidth: isSelected ? 1.0 : 0.75
-                )
-        }
-        .shadow(color: isSelected ? AppColors.orangeGlow.opacity(0.18) : Color.black.opacity(0.18), radius: 16, x: 0, y: 8)
-        .accessibilityElement(children: .combine)
-    }
-
-    private var capitalLabel: String {
-        switch lang {
-        case .russian: return "Столица"
-        case .dutch: return "Hoofdstad"
-        case .english: return "Capital"
-        }
-    }
-
-    private var municipalityLabel: String {
-        switch lang {
-        case .russian: return "муниципалитетов"
-        case .dutch: return "gemeenten"
-        case .english: return "municipalities"
-        }
-    }
-}
-
-private struct CityRowCard: View {
-    let city: CityItem
-    let lang: AppLanguage
-
-    var body: some View {
-        let province = ProvinceCatalog.item(id: city.provinceId)
-
-        HStack(spacing: 12) {
-            CityFlagBadge(city: city, lang: lang, compact: true)
-
-            VStack(alignment: .leading, spacing: 4) {
-                Text(city.localizedName(lang))
-                    .font(.system(size: 16, weight: .bold, design: .rounded))
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(1)
-                Text(city.localizedShortDescription(lang))
-                    .font(.system(size: 12, weight: .medium, design: .rounded))
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(2)
-                    .fixedSize(horizontal: false, vertical: true)
-                HStack(spacing: 6) {
-                    Text(city.population)
-                    Text("•")
-                    Text(province.localizedName(lang))
-                    if let website = city.officialWebsite {
-                        Text("•")
-                        Text(website)
-                    }
-                }
-                .font(.system(size: 11, weight: .semibold, design: .rounded))
-                .foregroundStyle(AppColors.cyanGlow)
-                .lineLimit(1)
-                .minimumScaleFactor(0.82)
-            }
-
-            Spacer()
-
-            VStack(spacing: 8) {
-            Image(systemName: "mappin.circle.fill")
-                    .font(.system(size: 18, weight: .semibold))
-                    .foregroundStyle(AppColors.orangeGlow)
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 11, weight: .bold))
-                    .foregroundStyle(AppColors.textTertiary)
-            }
-        }
-        .padding(14)
-        .background {
-            ZStack {
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(AppColors.graphite.opacity(0.90))
-                RoundedRectangle(cornerRadius: 16, style: .continuous)
-                    .fill(
-                        LinearGradient(
-                            colors: [Color.white.opacity(0.085), Color.clear],
-                            startPoint: .topLeading,
-                            endPoint: .bottomTrailing
-                        )
-                    )
-            }
-        }
-        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-        .overlay(
-            RoundedRectangle(cornerRadius: 16, style: .continuous)
-                .stroke(Color.white.opacity(0.15), lineWidth: 0.75)
-        )
-        .shadow(color: Color.black.opacity(0.16), radius: 12, x: 0, y: 7)
-    }
-}
-
 private struct ProvinceActionButtonContent: View {
     let title: String
     let icon: String
@@ -3397,9 +3345,9 @@ struct ProvinceFlagView: View {
 
     private var officialSymbolUnavailableText: String {
         switch lang {
-        case .english: return "Verified local symbol not available"
-        case .dutch: return "Geverifieerd lokaal symbool niet beschikbaar"
-        case .russian: return "Проверенный местный символ недоступен"
+        case .english: return "Official symbol context"
+        case .dutch: return "Officiële symboolcontext"
+        case .russian: return "Контекст официального символа"
         }
     }
 
@@ -4429,12 +4377,32 @@ extension CityItem {
             return LocalizedCityText(english: "Central hub with historic canals", dutch: "Centraal knooppunt met historische grachten", russian: "Центральный узел с историческими каналами")
         case "Eindhoven":
             return LocalizedCityText(english: "Technology and design city", dutch: "Technologie- en designstad", russian: "Город технологий и дизайна")
+        case "Tilburg":
+            return LocalizedCityText(english: "Creative Brabant city with student life", dutch: "Creatieve Brabantse stad met studentenleven", russian: "Творческий город Брабанта")
+        case "Breda":
+            return LocalizedCityText(english: "Historic Brabant city with strong local links", dutch: "Historische Brabantse stad met sterke lokale verbindingen", russian: "Исторический город Брабанта")
+        case "'s-Hertogenbosch":
+            return LocalizedCityText(english: "Brabant capital with heritage and services", dutch: "Brabantse hoofdstad met erfgoed en diensten", russian: "Столица Брабанта с наследием")
+        case "Almere":
+            return LocalizedCityText(english: "Modern new-land city near Amsterdam", dutch: "Moderne nieuwlandstad bij Amsterdam", russian: "Современный город на новой земле")
+        case "Lelystad":
+            return LocalizedCityText(english: "Flevoland capital shaped by water and land", dutch: "Hoofdstad van Flevoland gevormd door water en land", russian: "Столица Флеволанда у воды")
+        case "Haarlem":
+            return LocalizedCityText(english: "Historic city near dunes and Amsterdam", dutch: "Historische stad bij duinen en Amsterdam", russian: "Исторический город рядом с дюнами")
+        case "Zandvoort":
+            return LocalizedCityText(english: "Beach town with rail links to the city", dutch: "Badplaats met treinverbinding naar de stad", russian: "Пляжный город с поездом до города")
+        case "Delft":
+            return LocalizedCityText(english: "Historic canal city of science and craft", dutch: "Historische grachtenstad van wetenschap en ambacht", russian: "Исторический город каналов")
         case "Groningen":
             return LocalizedCityText(english: "Northern student and cycling city", dutch: "Noordelijke studenten- en fietsstad", russian: "Северный студенческий и велосипедный город")
         case "Maastricht":
             return LocalizedCityText(english: "Historic Maas city with border links", dutch: "Historische Maasstad met grensverbindingen", russian: "Исторический город на Маасе с приграничными связями")
         default:
-            return shortDescription
+            return LocalizedCityText(
+                english: "\(name) local services and city life",
+                dutch: "\(name) lokale diensten en stadsleven",
+                russian: "\(name): городские услуги и жизнь"
+            )
         }
     }
 }
@@ -4594,6 +4562,10 @@ enum ProvinceCatalog {
         provinceByID[id] ?? provinceByNormalizedID[normalizedLookupKey(id)]
     }
 
+    static func provinceID(matching identifier: String) -> String? {
+        provinceIfFound(matching: identifier)?.id
+    }
+
     static func provinceIfFound(matching identifier: String) -> ProvinceItem? {
         let normalized = normalizedLookupKey(identifier)
         if let province = provinceIfFound(id: identifier) {
@@ -4641,6 +4613,10 @@ enum ProvinceCatalog {
 
     static func citySpotlight(id: String) -> CitySpotlightData? {
         citySpotlightById[id]
+    }
+
+    static func cityID(matching identifier: String) -> String? {
+        citySpotlight(matching: identifier)?.city.id
     }
 
     static func citySpotlight(matching identifier: String) -> CitySpotlightData? {
@@ -5133,7 +5109,7 @@ enum ProvinceCatalog {
         default:
             return LocalizedCityText(
                 english: "\(name) has local history shaped by its municipality, province, transport links, and public services. For exact dates and heritage details, verify current information through official city or regional sources.",
-                dutch: "\(name) heeft lokale geschiedenis die is gevormd door de gemeente, provincie, vervoersverbindingen en publieke diensten. Controleer exacte data en erfgoedinformatie via officiele stads- of regionale bronnen.",
+                dutch: "\(name) heeft lokale geschiedenis die is gevormd door de gemeente, provincie, vervoersverbindingen en publieke diensten. Controleer exacte data en erfgoedinformatie via officiële stads- of regionale bronnen.",
                 russian: "\(name) имеет местную историю, сформированную муниципалитетом, провинцией, транспортными связями и государственными службами. Для точных дат и сведений о наследии проверяйте актуальную информацию через официальные городские или региональные источники."
             )
         }
@@ -5187,7 +5163,7 @@ enum ProvinceCatalog {
             return [
                 LocalizedCityText(english: "Historic Limburg city on the Maas", dutch: "Historische Limburgse stad aan de Maas", russian: "Исторический город Лимбурга на Маасе"),
                 LocalizedCityText(english: "University, healthcare, culture, and cross-border links", dutch: "Universiteit, zorg, cultuur en grensverbindingen", russian: "Университет, медицина, культура и приграничные связи"),
-                LocalizedCityText(english: "Useful orientation point for southern Limburg", dutch: "Handig orientatiepunt voor Zuid-Limburg", russian: "Удобная точка ориентации для южного Лимбурга")
+                LocalizedCityText(english: "Useful orientation point for southern Limburg", dutch: "Handig oriëntatiepunt voor Zuid-Limburg", russian: "Удобная точка ориентации для южного Лимбурга")
             ]
         default:
             return [
@@ -5215,7 +5191,7 @@ enum ProvinceCatalog {
             id: "old-centre",
             icon: "building.2.fill",
             title: LocalizedCityText(english: "City centre", dutch: "Binnenstad", russian: "Центр города"),
-            description: LocalizedCityText(english: "Useful area for services, shops, culture, and first orientation.", dutch: "Handig gebied voor diensten, winkels, cultuur en eerste orientatie.", russian: "Удобный район для услуг, магазинов, культуры и первой ориентации.")
+            description: LocalizedCityText(english: "Useful area for services, shops, culture, and first orientation.", dutch: "Handig gebied voor diensten, winkels, cultuur en eerste oriëntatie.", russian: "Удобный район для услуг, магазинов, культуры и первой ориентации.")
         )
 
         switch name {
@@ -5277,7 +5253,7 @@ enum ProvinceCatalog {
             ]
         case "Maastricht":
             return [
-                CityLocalHighlight(id: "maas", icon: "water.waves", title: LocalizedCityText(english: "Maas river city", dutch: "Stad aan de Maas", russian: "Город на Маасе"), description: LocalizedCityText(english: "The river and historic centre shape orientation and identity.", dutch: "De rivier en binnenstad bepalen orientatie en identiteit.", russian: "Река и исторический центр формируют ориентацию и идентичность.")),
+                CityLocalHighlight(id: "maas", icon: "water.waves", title: LocalizedCityText(english: "Maas river city", dutch: "Stad aan de Maas", russian: "Город на Маасе"), description: LocalizedCityText(english: "The river and historic centre shape orientation and identity.", dutch: "De rivier en binnenstad bepalen oriëntatie en identiteit.", russian: "Река и исторический центр формируют ориентацию и идентичность.")),
                 CityLocalHighlight(id: "border", icon: "globe.europe.africa.fill", title: LocalizedCityText(english: "Cross-border links", dutch: "Grensverbindingen", russian: "Приграничные связи"), description: LocalizedCityText(english: "Belgian and German connections matter for travel, work, and culture.", dutch: "Belgische en Duitse verbindingen zijn belangrijk voor reizen, werk en cultuur.", russian: "Связи с Бельгией и Германией важны для поездок, работы и культуры.")),
                 CityLocalHighlight(id: "university", icon: "graduationcap.fill", title: LocalizedCityText(english: "University and healthcare", dutch: "Universiteit en zorg", russian: "Университет и медицина"), description: LocalizedCityText(english: "Education and medical services are important local anchors.", dutch: "Onderwijs en medische diensten zijn belangrijke lokale ankers.", russian: "Образование и медицинские услуги — важные городские опоры.")),
                 municipalityHighlight

@@ -3,20 +3,27 @@ import Combine
 
 @MainActor
 final class DocumentStore: ObservableObject {
-    private static let metadataFileName = "documents.json"
-    private static let storageDirectoryName = "YouNewDocuments"
-    private static let corruptedMetadataPrefix = "documents-corrupted"
+    private nonisolated static let metadataFileName = "documents.json"
+    private nonisolated static let storageDirectoryName = "YouNewDocuments"
+    private nonisolated static let corruptedMetadataPrefix = "documents-corrupted"
 
     @Published var documents: [DocumentItem] = [] {
         didSet { persistDocuments() }
     }
     @Published private(set) var lastStorageError: String?
     @Published private(set) var recoveredFromCorruption = false
+    private var isLoadingFromDisk = false
+    private var persistTask: Task<Void, Never>?
 
     init() {
-        let loaded = Self.loadDocuments()
-        documents = loaded.documents
-        recoveredFromCorruption = loaded.recoveredFromCorruption
+        isLoadingFromDisk = true
+        Task { [weak self] in
+            let loaded = await Self.loadDocumentsOffMain()
+            guard let self else { return }
+            documents = loaded.documents
+            recoveredFromCorruption = loaded.recoveredFromCorruption
+            isLoadingFromDisk = false
+        }
     }
 
     var items: [DocumentItem] { documents }
@@ -92,26 +99,53 @@ final class DocumentStore: ObservableObject {
         add(DocumentItem(id: id, title: title, category: category, fileURL: storedURL, isSensitive: isSensitive, notes: notes))
     }
 
-    func addScannedDocument(fileURL: URL, title: String, category: DocumentCategory, notes: String, isSensitive: Bool, language: AppLanguage) {
+    func addScannedDocument(fileURL: URL, title: String, category: DocumentCategory, notes: String, isSensitive: Bool, language: AppLanguage) throws {
         _ = language
         let id = UUID()
-        let storedURL = (try? copyIntoManagedStorage(fileURL, id: id)) ?? fileURL
+        defer {
+            try? FileManager.default.removeItem(at: fileURL)
+        }
+        let storedURL = try copyIntoManagedStorage(fileURL, id: id)
         add(DocumentItem(id: id, title: title, category: category, fileURL: storedURL, isSensitive: isSensitive, notes: notes))
     }
 
     private func persistDocuments() {
-        do {
-            let metadataURL = try Self.metadataURL()
-            let data = try JSONEncoder().encode(documents)
-            try data.write(to: metadataURL, options: [.atomic, .completeFileProtection])
-            try Self.applyFileProtection(to: metadataURL, excludeFromBackup: true)
-            lastStorageError = nil
-        } catch {
-            lastStorageError = error.localizedDescription
+        guard !isLoadingFromDisk else { return }
+        let snapshot = documents
+        persistTask?.cancel()
+        persistTask = Task { [weak self] in
+            let result = await Self.persistDocumentsOffMain(snapshot)
+            guard let self, !Task.isCancelled else { return }
+            switch result {
+            case .success:
+                lastStorageError = nil
+            case .failure(let error):
+                lastStorageError = error.localizedDescription
+            }
         }
     }
 
-    private static func loadDocuments() -> (documents: [DocumentItem], recoveredFromCorruption: Bool) {
+    private nonisolated static func persistDocumentsOffMain(_ documents: [DocumentItem]) async -> Result<Void, Error> {
+        await Task.detached(priority: .utility) {
+            do {
+                let metadataURL = try Self.metadataURL()
+                let data = try JSONEncoder().encode(documents)
+                try data.write(to: metadataURL, options: [.atomic, .completeFileProtection])
+                try Self.applyFileProtection(to: metadataURL, excludeFromBackup: true)
+                return .success(())
+            } catch {
+                return .failure(error)
+            }
+        }.value
+    }
+
+    private nonisolated static func loadDocumentsOffMain() async -> (documents: [DocumentItem], recoveredFromCorruption: Bool) {
+        await Task.detached(priority: .utility) {
+            loadDocuments()
+        }.value
+    }
+
+    private nonisolated static func loadDocuments() -> (documents: [DocumentItem], recoveredFromCorruption: Bool) {
         do {
             let metadataURL = try Self.metadataURL()
             guard FileManager.default.fileExists(atPath: metadataURL.path) else { return ([], false) }
@@ -165,11 +199,11 @@ final class DocumentStore: ObservableObject {
         try? FileManager.default.removeItem(at: fileURL)
     }
 
-    private static func metadataURL() throws -> URL {
+    private nonisolated static func metadataURL() throws -> URL {
         try storageDirectoryURL().appendingPathComponent(metadataFileName)
     }
 
-    private static func storageDirectoryURL() throws -> URL {
+    private nonisolated static func storageDirectoryURL() throws -> URL {
         let baseURL = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask).first
             ?? FileManager.default.temporaryDirectory
         let directoryURL = baseURL.appendingPathComponent(storageDirectoryName, isDirectory: true)
@@ -178,7 +212,7 @@ final class DocumentStore: ObservableObject {
         return directoryURL
     }
 
-    private static func applyFileProtection(to url: URL, excludeFromBackup: Bool) throws {
+    private nonisolated static func applyFileProtection(to url: URL, excludeFromBackup: Bool) throws {
         #if os(iOS)
         try FileManager.default.setAttributes([.protectionKey: FileProtectionType.complete], ofItemAtPath: url.path)
         #endif
@@ -191,7 +225,7 @@ final class DocumentStore: ObservableObject {
         }
     }
 
-    private static func quarantineCorruptedMetadata() {
+    private nonisolated static func quarantineCorruptedMetadata() {
         guard let metadataURL = try? metadataURL(),
               FileManager.default.fileExists(atPath: metadataURL.path) else {
             return

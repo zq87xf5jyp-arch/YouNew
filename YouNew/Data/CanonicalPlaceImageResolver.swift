@@ -225,6 +225,16 @@ enum CanonicalPlaceImageResolver {
     }
 
     static func resolvePlaceImage(place: Attraction) -> ResolvedPlaceImage {
+        if let localAsset = LocalNetherlandsImagePackRegistry.landmark(named: place.name, id: place.id) {
+            return resolvedLocalImage(
+                localAsset,
+                fallbackLevel: .verifiedMedia,
+                sourceRegistry: "LocalNetherlandsImagePackRegistry.landmark",
+                fallbackSymbolName: "mappin.and.ellipse",
+                modelID: place.id
+            )
+        }
+
         let url = validURL(place.imageURL)
         let resolved = ResolvedPlaceImage(
             url: url,
@@ -271,6 +281,18 @@ enum CanonicalPlaceImageResolver {
         entityName: String,
         sourceLabel: String
     ) -> ResolvedPlaceImage {
+        if let localAsset = LocalNetherlandsImagePackRegistry.cityHero(placeId: placeId) {
+            let resolved = resolvedLocalImage(
+                localAsset,
+                fallbackLevel: .curatedCity,
+                sourceRegistry: "LocalNetherlandsImagePackRegistry.cityHero",
+                fallbackSymbolName: "building.2.crop.circle",
+                modelID: placeId
+            )
+            assertCityHero(entityName: entityName, placeId: placeId, resolved: resolved)
+            return resolved
+        }
+
         if let curated = CuratedPlaceHeroMediaRegistry.media(for: placeId),
            let remoteURL = curated.remoteURL {
             let resolved = ResolvedPlaceImage(
@@ -330,7 +352,7 @@ enum CanonicalPlaceImageResolver {
             fallbackLevel: .bundledEmergencyFallback,
             attribution: nil,
             sourceRegistry: "CuratedPlaceHeroMediaRegistry",
-            localAssetName: CuratedPlaceHeroMediaRegistry.bundledEmergencyFallbackAssetName,
+            localAssetName: CuratedPlaceHeroMediaRegistry.cityPlaceholderAssetName,
             fallbackSymbolName: "building.2.crop.circle",
             modelID: placeId
         )
@@ -342,6 +364,17 @@ enum CanonicalPlaceImageResolver {
         entityName: String,
         fallback: ResolvedPlaceImage
     ) -> ResolvedPlaceImage {
+        if role == .card || role == .thumbnail,
+           let localAsset = LocalNetherlandsImagePackRegistry.cityCard(placeId: placeId) {
+            return resolvedLocalImage(
+                localAsset,
+                fallbackLevel: .curatedCity,
+                sourceRegistry: "LocalNetherlandsImagePackRegistry.cityCard",
+                fallbackSymbolName: "building.2.crop.circle",
+                modelID: "\(placeId)#\(role.rawValue)"
+            )
+        }
+
         guard let visual = CuratedPlaceHeroMediaRegistry.cityVisual(for: placeId, role: role),
               let remoteURL = visual.remoteURL else {
             return fallback
@@ -367,6 +400,16 @@ enum CanonicalPlaceImageResolver {
         entityName: String,
         sourceLabel: String
     ) -> ResolvedPlaceImage {
+        if let localAsset = LocalNetherlandsImagePackRegistry.provinceHero(placeId: placeId) {
+            return resolvedLocalImage(
+                localAsset,
+                fallbackLevel: .curatedProvince,
+                sourceRegistry: "LocalNetherlandsImagePackRegistry.provinceHero",
+                fallbackSymbolName: "map.fill",
+                modelID: placeId
+            )
+        }
+
         if let curated = CuratedPlaceHeroMediaRegistry.media(for: placeId),
            let remoteURL = curated.remoteURL {
             return ResolvedPlaceImage(
@@ -420,9 +463,29 @@ enum CanonicalPlaceImageResolver {
             fallbackLevel: .bundledEmergencyFallback,
             attribution: nil,
             sourceRegistry: "CuratedPlaceHeroMediaRegistry",
-            localAssetName: CuratedPlaceHeroMediaRegistry.bundledEmergencyFallbackAssetName,
+            localAssetName: CuratedPlaceHeroMediaRegistry.provincePlaceholderAssetName,
             fallbackSymbolName: "map.fill",
             modelID: placeId
+        )
+    }
+
+    private static func resolvedLocalImage(
+        _ asset: AppImageAsset,
+        fallbackLevel: PlaceImageFallbackLevel,
+        sourceRegistry: String,
+        fallbackSymbolName: String,
+        modelID: String
+    ) -> ResolvedPlaceImage {
+        ResolvedPlaceImage(
+            url: asset.thumbnailURL ?? asset.imageURL ?? asset.url,
+            fallbackURLs: [],
+            sourceLabel: sourceRegistry,
+            fallbackLevel: fallbackLevel,
+            attribution: asset.attribution,
+            sourceRegistry: sourceRegistry,
+            localAssetName: asset.localAssetName,
+            fallbackSymbolName: fallbackSymbolName,
+            modelID: modelID
         )
     }
 

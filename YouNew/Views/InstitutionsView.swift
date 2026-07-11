@@ -53,6 +53,7 @@ struct InstitutionsView: View {
         .appSceneBackground(.more)
         .navigationTitle(L10n.t("institutions.nav_title", lang))
         .nlNavigationInline()
+        .accessibilityIdentifier("institutions.screen")
     }
 
     private var heroSection: some View {
@@ -70,7 +71,7 @@ struct InstitutionsView: View {
     private var officialBadgeText: String {
         switch lang {
         case .english: return "Official institutions"
-        case .dutch: return "Officiele instanties"
+        case .dutch: return "Officiële instanties"
         case .russian: return "Официальные службы"
         }
     }

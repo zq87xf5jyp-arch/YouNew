@@ -32,22 +32,25 @@ struct LegalDisclaimerView: View {
 
     private var header: some View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
-            Image(systemName: "shield.checkered")
-                .font(.system(size: 24, weight: .semibold))
-                .foregroundStyle(AppColors.warning)
-                .frame(width: 54, height: 54)
-                .background(AppColors.warning.opacity(0.12))
-                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-            Text(title)
-                .font(.system(.title2, design: .rounded).weight(.bold))
-                .foregroundStyle(AppColors.textPrimary)
+            CategoryHeroVisual(
+                assetName: nil,
+                title: title,
+                subtitle: headerSummary,
+                symbol: "shield.checkered",
+                badgeText: disclaimerBadgeText,
+                accent: AppColors.warning,
+                asset: ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero,
+                height: 240,
+                language: lang
+            )
+
             Text(headerDetail)
-                .font(AppTypography.body)
+                .font(AppTypography.footnote)
                 .foregroundStyle(AppColors.textSecondary)
                 .fixedSize(horizontal: false, vertical: true)
+                .padding(.horizontal, 4)
         }
         .frame(maxWidth: .infinity, alignment: .leading)
-        .appCardStyle()
     }
 
     @ViewBuilder
@@ -101,6 +104,22 @@ private extension LegalDisclaimerView {
         case .russian: return "YouNew.nl помогает ориентироваться в правилах, документах и официальных источниках, но не заменяет профессиональную или государственную консультацию."
         case .english: return "YouNew.nl helps with orientation around rules, documents and official sources, but does not replace professional or government advice."
         case .dutch: return "YouNew.nl helpt bij oriëntatie rond regels, documenten en officiële bronnen, maar vervangt geen professioneel of overheidsadvies."
+        }
+    }
+
+    var headerSummary: String {
+        switch lang {
+        case .russian: return "Проверяйте важные решения в официальных источниках."
+        case .english: return "Verify important decisions with official sources."
+        case .dutch: return "Controleer belangrijke beslissingen bij officiële bronnen."
+        }
+    }
+
+    var disclaimerBadgeText: String {
+        switch lang {
+        case .russian: return "Информация"
+        case .english: return "Information only"
+        case .dutch: return "Alleen informatie"
         }
     }
 

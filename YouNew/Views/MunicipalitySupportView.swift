@@ -13,10 +13,7 @@ struct MunicipalitySupportView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
-                SectionHeader(
-                    title: L10n.t("municipality.support_title", lang),
-                    subtitle: L10n.t("municipality.support_subtitle", lang)
-                )
+                municipalityHero
 
                 Picker(L10n.t("municipality.picker", lang), selection: Binding(
                     get: { appState.userProfile.municipality },
@@ -72,5 +69,32 @@ struct MunicipalitySupportView: View {
         }
         .appSceneBackground()
         .navigationTitle(L10n.t("municipality.picker", lang))
+    }
+
+    private var municipalityHero: some View {
+        CategoryHeroVisual(
+            assetName: nil,
+            title: L10n.t("municipality.support_title", lang),
+            subtitle: L10n.t("municipality.support_subtitle", lang),
+            symbol: "building.2.fill",
+            badgeText: municipalityHeroBadge,
+            accent: AppColors.softBlue,
+            asset: ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 240,
+            language: lang
+        )
+        .accessibilityIdentifier("municipalitySupport.hero")
+    }
+
+    private var municipalityHeroBadge: String {
+        appState.userProfile.municipality.isEmpty ? defaultMunicipalityBadge : appState.userProfile.municipality
+    }
+
+    private var defaultMunicipalityBadge: String {
+        switch lang {
+        case .russian: return "Gemeente"
+        case .dutch: return "Gemeente"
+        case .english: return "Municipality"
+        }
     }
 }

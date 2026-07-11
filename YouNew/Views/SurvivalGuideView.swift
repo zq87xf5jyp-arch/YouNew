@@ -14,11 +14,8 @@ struct SurvivalGuideView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
+                survivalHero
                 DisclaimerBanner(text: L10n.t("disclaimer.medium", lang))
-                SectionHeader(
-                    title: L10n.t("survival_guide.title", lang),
-                    subtitle: L10n.t("survival_guide.subtitle", lang)
-                )
 
                 AIAskButton(
                     title: askAITitle,
@@ -64,6 +61,21 @@ struct SurvivalGuideView: View {
         .navigationTitle(L10n.t("survival_guide.nav_title", lang))
     }
 
+    private var survivalHero: some View {
+        CategoryHeroVisual(
+            assetName: nil,
+            title: L10n.t("survival_guide.title", lang),
+            subtitle: L10n.t("survival_guide.subtitle", lang),
+            symbol: "lifepreserver.fill",
+            badgeText: survivalHeroBadge,
+            accent: AppColors.error,
+            asset: ContentMediaRegistry.emergencyImage ?? ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 240,
+            language: lang
+        )
+        .accessibilityIdentifier("survivalGuide.hero")
+    }
+
     private var askAITitle: String {
         switch lang {
         case .russian: return "Спросить AI о важных советах"
@@ -77,6 +89,14 @@ struct SurvivalGuideView: View {
         case .russian: return "Что самое важное нужно знать и сделать первым делом в Нидерландах?"
         case .dutch: return "Wat is het allerbelangrijkste om te weten als nieuwkomer in Nederland?"
         case .english: return "What are the most important things to know and do first as a newcomer in the Netherlands?"
+        }
+    }
+
+    private var survivalHeroBadge: String {
+        switch lang {
+        case .russian: return "Спокойный старт"
+        case .dutch: return "Rustige start"
+        case .english: return "Calm start"
         }
     }
 }

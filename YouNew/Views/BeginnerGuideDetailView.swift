@@ -129,23 +129,43 @@ struct BeginnerGuidesView: View {
 
                 ForEach(displayedItems) { item in
                     NavigationLink(value: AppDestination.beginnerGuide(item.id)) {
-                        VStack(alignment: .leading, spacing: AppSpacing.xSmall) {
-                            HStack {
-                                Text(item.title(lang))
-                                    .font(AppTypography.cardTitle)
-                                    .foregroundStyle(AppColors.textPrimary)
-                                Spacer()
-                                Text(localizedCategoryLabel(item.category))
-                                    .font(AppTypography.caption)
+                        HStack(alignment: .top, spacing: 12) {
+                            PremiumImageHeader(
+                                title: item.title(lang),
+                                asset: guideImageAsset(for: item.category),
+                                language: lang,
+                                symbol: guideSymbol(for: item.category),
+                                accent: guideAccent(for: item.category),
+                                height: 82,
+                                width: 88,
+                                cornerRadius: 18,
+                                fallbackCategory: guideFallbackCategory(for: item.category)
+                            )
+                            .layoutPriority(0)
+
+                            VStack(alignment: .leading, spacing: AppSpacing.xSmall) {
+                                HStack(alignment: .top) {
+                                    Text(item.title(lang))
+                                        .font(AppTypography.cardTitle)
+                                        .foregroundStyle(AppColors.textPrimary)
+                                        .lineLimit(2)
+                                        .minimumScaleFactor(0.82)
+                                    Spacer(minLength: 8)
+                                    Text(localizedCategoryLabel(item.category))
+                                        .font(AppTypography.caption)
+                                        .foregroundStyle(AppColors.accent)
+                                        .lineLimit(1)
+                                }
+                                Text(item.simpleAnswer(lang))
+                                    .font(AppTypography.body)
+                                    .foregroundStyle(AppColors.textSecondary)
+                                    .lineLimit(2)
+                                Text(item.officialSourceName)
+                                    .font(AppTypography.metadata)
                                     .foregroundStyle(AppColors.accent)
+                                    .lineLimit(1)
                             }
-                            Text(item.simpleAnswer(lang))
-                                .font(AppTypography.body)
-                                .foregroundStyle(AppColors.textSecondary)
-                                .lineLimit(2)
-                            Text(item.officialSourceName)
-                                .font(AppTypography.metadata)
-                                .foregroundStyle(AppColors.accent)
+                            .layoutPriority(1)
                         }
                         .frame(maxWidth: .infinity, alignment: .leading)
                         .padding(2)
@@ -164,6 +184,90 @@ struct BeginnerGuidesView: View {
         .appSceneBackground()
         .navigationTitle(L10n.t("beginner.guides.nav_title", lang))
         .nlNavigationInline()
+    }
+
+    private func guideImageAsset(for category: BeginnerGuideCategory) -> AppImageAsset? {
+        switch category {
+        case .identity:
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.governmentBasicsImage
+        case .municipality, .immigration, .benefits:
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.governmentBasicsImage
+        case .work, .taxes:
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case .education:
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.officialSourcesHero
+        case .healthcare, .health:
+            return ContentMediaRegistry.healthcarePharmacyImage
+        case .housing:
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case .transport:
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case .fines, .legalHelp:
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.municipalityCityHallImage
+        case .safety:
+            return ContentMediaRegistry.emergencyImage
+        case .dailyLife:
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.marketsLocalLifeImage ?? ContentMediaRegistry.mapImage
+        }
+    }
+
+    private func guideFallbackCategory(for category: BeginnerGuideCategory) -> PremiumImageFallbackCategory {
+        switch category {
+        case .identity, .fines, .legalHelp:
+            return .documents
+        case .municipality, .immigration, .benefits:
+            return .government
+        case .work, .taxes:
+            return .work
+        case .education:
+            return .dutchA1A2
+        case .healthcare, .health:
+            return .healthcare
+        case .housing:
+            return .housing
+        case .transport:
+            return .transport
+        case .safety:
+            return .emergency
+        case .dailyLife:
+            return .integration
+        }
+    }
+
+    private func guideSymbol(for category: BeginnerGuideCategory) -> String {
+        switch category {
+        case .identity: return "doc.text.fill"
+        case .municipality: return "building.columns.fill"
+        case .immigration: return "person.text.rectangle.fill"
+        case .work: return "briefcase.fill"
+        case .education: return "graduationcap.fill"
+        case .healthcare, .health: return "cross.case.fill"
+        case .housing: return "house.fill"
+        case .transport: return "tram.fill"
+        case .taxes: return "banknote.fill"
+        case .fines: return "exclamationmark.triangle.fill"
+        case .legalHelp: return "doc.text.magnifyingglass"
+        case .safety: return "shield.fill"
+        case .dailyLife: return "figure.walk"
+        case .benefits: return "checkmark.seal.fill"
+        }
+    }
+
+    private func guideAccent(for category: BeginnerGuideCategory) -> Color {
+        switch category {
+        case .healthcare, .health, .safety:
+            return AppColors.error
+        case .transport:
+            return AppColors.dutchOrange
+        case .education:
+            return AppColors.emerald
+        case .housing:
+            return AppColors.softBlue
+        case .legalHelp, .fines:
+            return AppColors.warning
+        default:
+            return AppColors.accent
+        }
     }
 
     private func filterChip(title: String, selected: Bool, action: @escaping () -> Void) -> some View {
@@ -250,6 +354,18 @@ struct BeginnerGuideDetailView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.medium) {
+                PremiumImageHeader(
+                    title: item.title(lang),
+                    asset: guideImageAsset(for: item.category),
+                    language: lang,
+                    symbol: guideSymbol(for: item.category),
+                    accent: guideAccent(for: item.category),
+                    height: 184,
+                    cornerRadius: 24,
+                    fallbackCategory: guideFallbackCategory(for: item.category)
+                )
+                .accessibilityIdentifier("beginnerGuide.detail.hero")
+
                 Text(item.title(lang))
                     .font(AppTypography.largeTitle)
                     .foregroundStyle(AppColors.textPrimary)
@@ -283,26 +399,34 @@ struct BeginnerGuideDetailView: View {
                 VStack(alignment: .leading, spacing: AppSpacing.small) {
                     Text(L10n.t("beginner.related_topics", lang)).font(AppTypography.cardTitle)
                     ForEach(item.relatedTopics, id: \.self) { topic in
-                        Text(topic)
-                            .font(AppTypography.body)
-                            .foregroundStyle(AppColors.textSecondary)
+                        SmartNavigationRow(
+                            title: topic,
+                            subtitle: relatedTopicSubtitle,
+                            symbol: "magnifyingglass",
+                            destination: .searchList
+                        )
                     }
                 }
+                .accessibilityIdentifier("beginnerGuide.relatedTopics.dashboard")
                 .appCardStyle()
 
-                if !relatedTerms.isEmpty {
-                    VStack(alignment: .leading, spacing: AppSpacing.small) {
-                        Text(L10n.t("beginner.dutch_terms", lang)).font(AppTypography.cardTitle)
+                VStack(alignment: .leading, spacing: AppSpacing.small) {
+                    Text(L10n.t("beginner.dutch_terms", lang)).font(AppTypography.cardTitle)
+                    if relatedTerms.isEmpty {
+                        dutchTermsFallback
+                    } else {
                         ForEach(relatedTerms) { term in
-                            NavigationLink(value: AppDestination.dutchTerm(term.id)) {
-                                Text(term.dutchTerm)
-                                    .font(AppTypography.body)
-                                    .foregroundStyle(AppColors.accent)
-                            }
+                            SmartNavigationRow(
+                                title: term.dutchTerm,
+                                subtitle: term.localizedExplanation(lang),
+                                symbol: "text.magnifyingglass",
+                                destination: .dutchTerm(term.id)
+                            )
                         }
                     }
-                    .appCardStyle()
                 }
+                .accessibilityIdentifier("beginnerGuide.dutchTerms.dashboard")
+                .appCardStyle()
 
                 AIAskButton(
                     title: askAITitle,
@@ -345,11 +469,161 @@ struct BeginnerGuideDetailView: View {
         }
     }
 
+    private var dutchTermsFallback: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            InfoCard(
+                title: dutchTermsFallbackTitle,
+                subtitle: dutchTermsFallbackSubtitle,
+                detail: dutchTermsFallbackDetail,
+                icon: "text.book.closed"
+            )
+
+            SmartNavigationRow(
+                title: L10n.t("resources.dutch_terms", lang),
+                subtitle: localized(en: "Open the full glossary.", nl: "Open de volledige woordenlijst.", ru: "Открыть полный словарь."),
+                symbol: "text.magnifyingglass",
+                destination: .dutchTermsList
+            )
+
+            SmartNavigationRow(
+                title: L10n.t("tab.search", lang),
+                subtitle: localized(en: "Search by institution, document, or rule.", nl: "Zoek op instantie, document of regel.", ru: "Искать по организации, документу или правилу."),
+                symbol: "magnifyingglass",
+                destination: .searchList
+            )
+        }
+        .accessibilityIdentifier("beginnerGuide.dutchTerms.empty")
+    }
+
+    private var relatedTopicSubtitle: String {
+        localized(
+            en: "Open search to compare related answers and sources.",
+            nl: "Open zoeken om verwante antwoorden en bronnen te vergelijken.",
+            ru: "Откройте поиск, чтобы сравнить связанные ответы и источники."
+        )
+    }
+
+    private var dutchTermsFallbackTitle: String {
+        localized(
+            en: "No exact Dutch term is linked",
+            nl: "Geen exacte Nederlandse term gekoppeld",
+            ru: "Точный нидерландский термин не привязан"
+        )
+    }
+
+    private var dutchTermsFallbackSubtitle: String {
+        localized(
+            en: "Use the glossary when wording matters",
+            nl: "Gebruik de woordenlijst wanneer formulering belangrijk is",
+            ru: "Используйте словарь, когда важна формулировка"
+        )
+    }
+
+    private var dutchTermsFallbackDetail: String {
+        localized(
+            en: "This guide can still involve Dutch words on letters, websites, or municipality pages. Check the glossary or search before acting.",
+            nl: "Deze gids kan nog steeds Nederlandse woorden bevatten op brieven, websites of gemeentepagina's. Controleer de woordenlijst of zoek voordat je handelt.",
+            ru: "В этом гайде всё равно могут встречаться нидерландские слова в письмах, на сайтах или страницах gemeente. Проверьте словарь или поиск перед действием."
+        )
+    }
+
+    private func localized(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .russian: return ru
+        case .dutch: return nl
+        case .english: return en
+        }
+    }
+
     private func detailSection(title: String, text: String) -> some View {
         VStack(alignment: .leading, spacing: AppSpacing.xSmall) {
             Text(title).font(AppTypography.cardTitle)
             Text(text).font(AppTypography.body).foregroundStyle(AppColors.textPrimary)
         }
         .appCardStyle()
+    }
+
+    private func guideImageAsset(for category: BeginnerGuideCategory) -> AppImageAsset? {
+        switch category {
+        case .identity:
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.governmentBasicsImage
+        case .municipality, .immigration, .benefits:
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.governmentBasicsImage
+        case .work, .taxes:
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case .education:
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.officialSourcesHero
+        case .healthcare, .health:
+            return ContentMediaRegistry.healthcarePharmacyImage
+        case .housing:
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case .transport:
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case .fines, .legalHelp:
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.municipalityCityHallImage
+        case .safety:
+            return ContentMediaRegistry.emergencyImage
+        case .dailyLife:
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.marketsLocalLifeImage ?? ContentMediaRegistry.mapImage
+        }
+    }
+
+    private func guideFallbackCategory(for category: BeginnerGuideCategory) -> PremiumImageFallbackCategory {
+        switch category {
+        case .identity, .fines, .legalHelp:
+            return .documents
+        case .municipality, .immigration, .benefits:
+            return .government
+        case .work, .taxes:
+            return .work
+        case .education:
+            return .dutchA1A2
+        case .healthcare, .health:
+            return .healthcare
+        case .housing:
+            return .housing
+        case .transport:
+            return .transport
+        case .safety:
+            return .emergency
+        case .dailyLife:
+            return .integration
+        }
+    }
+
+    private func guideSymbol(for category: BeginnerGuideCategory) -> String {
+        switch category {
+        case .identity: return "doc.text.fill"
+        case .municipality: return "building.columns.fill"
+        case .immigration: return "person.text.rectangle.fill"
+        case .work: return "briefcase.fill"
+        case .education: return "graduationcap.fill"
+        case .healthcare, .health: return "cross.case.fill"
+        case .housing: return "house.fill"
+        case .transport: return "tram.fill"
+        case .taxes: return "banknote.fill"
+        case .fines: return "exclamationmark.triangle.fill"
+        case .legalHelp: return "doc.text.magnifyingglass"
+        case .safety: return "shield.fill"
+        case .dailyLife: return "figure.walk"
+        case .benefits: return "checkmark.seal.fill"
+        }
+    }
+
+    private func guideAccent(for category: BeginnerGuideCategory) -> Color {
+        switch category {
+        case .healthcare, .health, .safety:
+            return AppColors.error
+        case .transport:
+            return AppColors.dutchOrange
+        case .education:
+            return AppColors.emerald
+        case .housing:
+            return AppColors.softBlue
+        case .legalHelp, .fines:
+            return AppColors.warning
+        default:
+            return AppColors.accent
+        }
     }
 }

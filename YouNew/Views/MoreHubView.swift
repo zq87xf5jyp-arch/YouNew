@@ -13,8 +13,7 @@ struct MoreHubView: View {
             ResponsiveContentContainer(maxWidth: 920) {
                 LazyVStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
 
-                    moreHeroSection
-                    personalGuideDashboardSection
+                    moreIntroSection
                     categoryNavigatorSection
                     quickActionsSection
                     referenceLibrarySection
@@ -22,19 +21,46 @@ struct MoreHubView: View {
                     profileSection
 
                     DisclaimerBanner(text: AppDisclaimers.medium(lang))
-
-                    Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
                 }
                 .padding(.horizontal, AppSpacing.screenHorizontal)
-                .padding(.vertical, AppSpacing.medium)
+                .padding(.top, AppSpacing.large)
+                .padding(.bottom, AppSpacing.medium)
+                .bottomTabSafeAreaPadding()
             }
         }
+        .topChromeSafeAreaPadding(AppSpacing.small)
         .appSceneBackground(.more)
         .navigationTitle(L10n.t("tab.more", lang))
         .accessibilityIdentifier("more.screen")
     }
 
     // MARK: - Quick Actions Strip
+
+    private var moreIntroSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(alignment: .center, spacing: 12) {
+                ProductSymbolTile(symbol: "square.grid.2x2.fill", accent: AppColors.accentLight, size: 50)
+                    .accessibilityHidden(true)
+
+                VStack(alignment: .leading, spacing: 4) {
+                    Text(moreHeroTitle)
+                        .font(.system(size: 23, weight: .black, design: .rounded))
+                        .foregroundStyle(AppColors.textPrimary)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.84)
+
+                    Text(moreIntroSubtitle)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(3)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .appGlassCardStyle(padding: AppSpacing.cardPadding, cornerRadius: 22, accent: AppColors.accentLight)
+        .accessibilityIdentifier("more.intro")
+    }
 
     private var moreHeroSection: some View {
         ZStack {
@@ -49,7 +75,7 @@ struct MoreHubView: View {
                 showsSourceButton: false,
                 accessibilityLabel: moreHeroTitle,
                 fallbackURLs: [],
-                fallbackLocalAssetName: CuratedPlaceHeroMediaRegistry.bundledEmergencyFallbackAssetName,
+                fallbackLocalAssetName: CuratedPlaceHeroMediaRegistry.bundledNeutralFallbackAssetName,
                 debugContext: nil,
                 targetPixelWidth: 1200
             )
@@ -58,9 +84,9 @@ struct MoreHubView: View {
 
             LinearGradient(
                 colors: [
-                    Color.black.opacity(0.05),
-                    AppColors.accentLight.opacity(0.16),
-                    AppColors.navyDeep.opacity(0.92)
+                    Color.black.opacity(0.10),
+                    Color.black.opacity(0.35),
+                    Color.black.opacity(0.65)
                 ],
                 startPoint: .top,
                 endPoint: .bottom
@@ -125,15 +151,6 @@ struct MoreHubView: View {
                     color: AppColors.dutchOrange
                 ) { onSwitchTab?(.assistant) }
 
-                NavigationLink(value: AppDestination.officialSources) {
-                    QuickActionChipLabel(
-                        title: L10n.t("more.quick.find_site", lang),
-                        icon: "building.columns.fill",
-                        color: AppColors.success
-                    )
-                }
-                .buttonStyle(.plain)
-
                 NavigationLink(value: AppDestination.finesList) {
                     QuickActionChipLabel(
                         title: L10n.t("more.quick.check_fine", lang),
@@ -167,6 +184,11 @@ struct MoreHubView: View {
                     subtitle: L10n.t("more.row.resources.subtitle", lang),
                     destination: .resourcesHub)
 
+            moreRow(icon: "checkmark.seal.fill", color: AppColors.success,
+                    title: localPartnersTitle,
+                    subtitle: localPartnersSubtitle,
+                    destination: .localPartners)
+
             moreRow(icon: "figure.child", color: AppColors.accent,
                     title: L10n.t("more.row.guides.title", lang),
                     subtitle: L10n.t("more.row.guides.subtitle", lang),
@@ -194,22 +216,38 @@ struct MoreHubView: View {
         }
     }
 
+    private var localPartnersTitle: String {
+        switch lang {
+        case .russian: return "Local Partners"
+        case .dutch: return "Local Partners"
+        case .english: return "Local Partners"
+        }
+    }
+
+    private var localPartnersSubtitle: String {
+        switch lang {
+        case .russian: return "Подборка локальных сервисов без навязчивой рекламы."
+        case .dutch: return "Uitgelichte lokale diensten zonder opdringerige reclame."
+        case .english: return "Featured local services without intrusive advertising."
+        }
+    }
+
     private var supportLibrarySection: some View {
         moreSection(title: supportLibraryTitle) {
-            moreRow(icon: "scale.3d", color: AppColors.textSecondary,
+            supportRow(icon: "scale.3d", color: AppColors.textSecondary,
                     title: L10n.t("more.row.legal.title", lang),
                     subtitle: L10n.t("more.row.legal.subtitle", lang),
                     destination: .legalHelp)
 
             if RelatedContentEngine.isVisible(.lgbtqSupport, for: appState.selectedUserStatus?.personaTag) {
-                moreRow(icon: "heart.text.square.fill", color: AppColors.violet,
+                supportRow(icon: "heart.text.square.fill", color: AppColors.violet,
                         title: L10n.t("more.row.lgbtq.title", lang),
                         subtitle: L10n.t("more.row.lgbtq.subtitle", lang),
                         destination: .lgbtqSupport)
             }
 
             if RelatedContentEngine.isVisible(.emotionalSupport, for: appState.selectedUserStatus?.personaTag) {
-                moreRow(icon: "figure.mind.and.body", color: AppColors.emerald,
+                supportRow(icon: "figure.mind.and.body", color: AppColors.emerald,
                         title: emotionalSupportTitle,
                         subtitle: emotionalSupportSubtitle,
                         destination: .emotionalSupport)
@@ -480,6 +518,14 @@ struct MoreHubView: View {
         localizedText(en: "Your city, urgent help, saved items, documents, learning, and next actions.", nl: "Je stad, spoedhulp, opgeslagen items, documenten, leren en volgende acties.", ru: "Ваш город, срочная помощь, сохранённое, документы, обучение и следующие шаги.")
     }
 
+    private var moreIntroSubtitle: String {
+        localizedText(
+            en: "Settings, official resources, support topics, and useful tools in one calm place.",
+            nl: "Instellingen, officiële bronnen, steunonderwerpen en handige tools op één rustige plek.",
+            ru: "Настройки, официальные источники, поддержка и полезные инструменты в одном спокойном месте."
+        )
+    }
+
     private var currentCityTitle: String { localizedText(en: "Current city", nl: "Huidige stad", ru: "Текущий город") }
     private var currentCityDetail: String { localizedText(en: "Open municipality and local basics from city pages.", nl: "Open gemeente en lokale basisinfo via stadspagina's.", ru: "Откройте муниципалитет и местную информацию на странице города.") }
     private var weatherTitle: String { localizedText(en: "Weather", nl: "Weer", ru: "Погода") }
@@ -562,7 +608,9 @@ struct MoreHubView: View {
             categoryAction(icon: AppIcons.home, color: AppColors.dutchOrange, title: categoryHomeTitle, subtitle: categoryHomeSubtitle) {
                 onSwitchTab?(.home)
             }
-            personaCategoryLinks
+            categoryAction(icon: AppIcons.mapActive, color: AppColors.cyanGlow, title: categoryPlacesTitle, subtitle: categoryPlacesSubtitle) {
+                onSwitchTab?(.map)
+            }
             categoryAction(icon: AppIcons.assistant, color: AppColors.violet, title: categoryAssistantTitle, subtitle: categoryAssistantSubtitle) {
                 onSwitchTab?(.assistant)
             }
@@ -670,6 +718,8 @@ struct MoreHubView: View {
 
     private var categoryHomeTitle: String { lang == .russian ? "Главная" : (lang == .dutch ? "Start" : "Home") }
     private var categoryHomeSubtitle: String { lang == .russian ? "Важное сегодня и быстрые действия" : (lang == .dutch ? "Belangrijk vandaag en snelle acties" : "Important today and quick actions") }
+    private var categoryPlacesTitle: String { lang == .russian ? "Places" : (lang == .dutch ? "Places" : "Places") }
+    private var categoryPlacesSubtitle: String { lang == .russian ? "Карта, места и сервисы рядом" : (lang == .dutch ? "Kaart, plekken en diensten dichtbij" : "Map, places, and services nearby") }
     private var categoryRulesTitle: String { lang == .russian ? "Правила и штрафы" : (lang == .dutch ? "Regels en boetes" : "Rules and fines") }
     private var categoryRulesSubtitle: String { lang == .russian ? "Транспорт, парковка, штрафы, предупреждения" : (lang == .dutch ? "Vervoer, parkeren, boetes en waarschuwingen" : "Transport, parking, fines, warnings") }
     private var categoryDocsTitle: String { lang == .russian ? "Документы и услуги" : (lang == .dutch ? "Documenten en diensten" : "Documents and services") }
@@ -756,6 +806,33 @@ struct MoreHubView: View {
                 .padding(.leading, 66)
         }
     }
+
+    private func supportRow(
+        icon: String,
+        color: Color,
+        title: String,
+        subtitle: String,
+        destination: AppDestination
+    ) -> some View {
+        VStack(spacing: 0) {
+            NavigationLink(value: destination) {
+                PremiumMenuRow(
+                    icon: icon,
+                    color: color,
+                    title: title,
+                    subtitle: subtitle,
+                    minHeight: 76,
+                    iconSize: 42
+                )
+            }
+            .buttonStyle(.plain)
+
+            Rectangle()
+                .fill(AppColors.stroke.opacity(0.70))
+                .frame(height: 0.5)
+                .padding(.leading, 68)
+        }
+    }
 }
 
 // MARK: - Quick Action Chip Label
@@ -806,7 +883,9 @@ struct FinesAndLettersHubView: View {
 
     var body: some View {
         ScrollView {
-            VStack(spacing: AppSpacing.medium) {
+            VStack(alignment: .leading, spacing: AppSpacing.medium) {
+                finesAndLettersHero
+
                 NavigationLink(value: AppDestination.finesList) {
                     PremiumMenuCard {
                         PremiumMenuRow(
@@ -831,13 +910,45 @@ struct FinesAndLettersHubView: View {
                 }
                 .buttonStyle(.plain)
 
-                Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
             }
             .padding(.horizontal, AppSpacing.screenHorizontal)
             .padding(.vertical, AppSpacing.medium)
+            .bottomTabSafeAreaPadding()
         }
+        .topChromeSafeAreaPadding()
         .appSceneBackground(.fines)
         .navigationTitle(L10n.t("more.row.fines_letters.title", lang))
+    }
+
+    private var finesAndLettersHero: some View {
+        CategoryHeroVisual(
+            assetName: nil,
+            title: L10n.t("more.row.fines_letters.title", lang),
+            subtitle: finesAndLettersSubtitle,
+            symbol: "envelope.badge.shield.half.filled.fill",
+            badgeText: finesAndLettersBadge,
+            accent: AppColors.dutchOrange,
+            asset: ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 220,
+            language: lang
+        )
+        .accessibilityIdentifier("finesLetters.hero")
+    }
+
+    private var finesAndLettersSubtitle: String {
+        switch lang {
+        case .russian: return "Понимайте официальные письма, штрафы и безопасные следующие шаги."
+        case .dutch: return "Begrijp officiële brieven, boetes en veilige vervolgstappen."
+        case .english: return "Understand official letters, fines, and safe next steps."
+        }
+    }
+
+    private var finesAndLettersBadge: String {
+        switch lang {
+        case .russian: return "Документы и правила"
+        case .dutch: return "Brieven en regels"
+        case .english: return "Letters and rules"
+        }
     }
 }
 
@@ -882,6 +993,7 @@ private struct EmergencyContactsView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
+                emergencyContactsHero
                 DisclaimerBanner(text: L10n.t("disclaimer.short", lang))
 
                 ForEach(contacts) { contact in
@@ -922,13 +1034,45 @@ private struct EmergencyContactsView: View {
                     }
                 }
 
-                Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
             }
             .padding(.horizontal, AppSpacing.screenHorizontal)
             .padding(.vertical, AppSpacing.medium)
+            .bottomTabSafeAreaPadding()
         }
+        .topChromeSafeAreaPadding()
         .appSceneBackground(.support)
         .navigationTitle(L10n.t("more.row.emergency.title", lang))
+    }
+
+    private var emergencyContactsHero: some View {
+        CategoryHeroVisual(
+            assetName: nil,
+            title: L10n.t("more.row.emergency.title", lang),
+            subtitle: emergencyContactsHeroSubtitle,
+            symbol: "phone.badge.waveform.fill",
+            badgeText: emergencyContactsHeroBadge,
+            accent: AppColors.error,
+            asset: ContentMediaRegistry.emergencyImage ?? ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 220,
+            language: lang
+        )
+        .accessibilityIdentifier("emergencyContacts.hero")
+    }
+
+    private var emergencyContactsHeroSubtitle: String {
+        switch lang {
+        case .russian: return "112, полиция и базовые контакты для срочных ситуаций в Нидерландах."
+        case .dutch: return "112, politie en basiscontacten voor spoedsituaties in Nederland."
+        case .english: return "112, police, and essential contacts for urgent situations in the Netherlands."
+        }
+    }
+
+    private var emergencyContactsHeroBadge: String {
+        switch lang {
+        case .russian: return "Срочная помощь"
+        case .dutch: return "Spoedhulp"
+        case .english: return "Urgent help"
+        }
     }
 
     private func callAccessibilityLabel(for contactName: String) -> String {
@@ -950,6 +1094,18 @@ struct LegalHelpView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.medium) {
+                PremiumImageHeader(
+                    title: L10n.t("more.row.legal.title", lang),
+                    asset: ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero,
+                    language: lang,
+                    symbol: "building.columns.fill",
+                    accent: AppColors.violet,
+                    height: 190,
+                    cornerRadius: 22,
+                    fallbackCategory: .government
+                )
+                .appCardStyle()
+
                 DisclaimerBanner(text: L10n.t("disclaimer.medium", lang))
 
                 PremiumMenuCard {
@@ -980,11 +1136,12 @@ struct LegalHelpView: View {
                 .tint(AppColors.accent)
                 .frame(maxWidth: .infinity)
 
-                Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
             }
             .padding(.horizontal, AppSpacing.screenHorizontal)
             .padding(.vertical, AppSpacing.medium)
+            .bottomTabSafeAreaPadding()
         }
+        .topChromeSafeAreaPadding()
         .appSceneBackground(.support)
         .navigationTitle(L10n.t("more.row.legal.title", lang))
     }
@@ -1002,20 +1159,7 @@ struct AboutYouNewView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.medium) {
-                HStack(spacing: 12) {
-                    YouNewLogoMark()
-                        .frame(width: 56, height: 56)
-                    VStack(alignment: .leading, spacing: 4) {
-                        Text("YouNew.nl")
-                            .font(.system(.title3, design: .rounded).weight(.bold))
-                            .foregroundStyle(AppColors.textPrimary)
-                        Text(L10n.t("more.about.detail", lang))
-                            .font(AppTypography.caption)
-                            .foregroundStyle(AppColors.textSecondary)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
-                .appGlassCardStyle(padding: 16, cornerRadius: AppCornerRadius.large, accent: AppColors.cyanGlow)
+                aboutHero
 
                 PremiumMenuCard {
                     VStack(spacing: 0) {
@@ -1053,13 +1197,44 @@ struct AboutYouNewView: View {
                     }
                 }
 
-                Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
             }
             .padding(.horizontal, AppSpacing.screenHorizontal)
             .padding(.vertical, AppSpacing.medium)
+            .bottomTabSafeAreaPadding()
         }
+        .topChromeSafeAreaPadding()
         .appSceneBackground(.more)
         .navigationTitle(L10n.t("more.row.about.title", lang))
+    }
+
+    private var aboutHero: some View {
+        CategoryHeroVisual(
+            assetName: nil,
+            title: "YouNew.nl",
+            subtitle: aboutHeroSubtitle,
+            symbol: "sparkles.rectangle.stack.fill",
+            badgeText: aboutHeroBadge,
+            accent: AppColors.cyanGlow,
+            asset: ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 250,
+            language: lang
+        )
+    }
+
+    private var aboutHeroSubtitle: String {
+        switch lang {
+        case .russian: return "Информационный гид по жизни в Нидерландах."
+        case .dutch: return "Informatieve gids voor leven in Nederland."
+        case .english: return "An informational guide for life in the Netherlands."
+        }
+    }
+
+    private var aboutHeroBadge: String {
+        switch lang {
+        case .russian: return "Нидерланды"
+        case .dutch: return "Nederland"
+        case .english: return "Netherlands"
+        }
     }
 
     private var aboutVersionTitle: String {
@@ -1083,7 +1258,7 @@ struct AboutYouNewView: View {
         case .russian:
             return "YouNew.nl показывает информационные материалы и ссылки на официальные источники. Медиа и сторонние материалы сохраняют свои исходные лицензии."
         case .dutch:
-            return "YouNew.nl toont informatieve inhoud en verwijzingen naar officiele bronnen. Media en materiaal van derden behouden hun oorspronkelijke licenties."
+            return "YouNew.nl toont informatieve inhoud en verwijzingen naar officiële bronnen. Media en materiaal van derden behouden hun oorspronkelijke licenties."
         case .english:
             return "YouNew.nl provides informational content and references official sources. Media and third-party materials keep their original licenses."
         }
@@ -1099,17 +1274,11 @@ struct EmotionalSupportView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
-                SectionHeader(title: title, subtitle: subtitle)
+                emotionalSupportHero
 
                 let items = EmotionalSupportItem.items(lang)
                 if items.isEmpty {
-                    InfoCard(
-                        title: emptyStateTitle,
-                        subtitle: nil,
-                        detail: emptyStateDetail,
-                        icon: "checkmark.shield.fill",
-                        accentColor: AppColors.warning
-                    )
+                    emptySupportDashboard
                 } else {
                     VStack(spacing: AppSpacing.small) {
                         ForEach(items) { item in
@@ -1154,13 +1323,103 @@ struct EmotionalSupportView: View {
                 .buttonStyle(.plain)
 
                 DisclaimerBanner(text: footerNote)
-                Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
             }
             .padding(.horizontal, AppSpacing.screenHorizontal)
             .padding(.vertical, AppSpacing.medium)
+            .bottomTabSafeAreaPadding()
         }
+        .topChromeSafeAreaPadding()
         .appSceneBackground(.support)
         .navigationTitle(title)
+    }
+
+    private var emotionalSupportHero: some View {
+        CategoryHeroVisual(
+            assetName: nil,
+            title: title,
+            subtitle: subtitle,
+            symbol: "heart.fill",
+            badgeText: emotionalSupportHeroBadge,
+            accent: AppColors.violet,
+            asset: ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.profileImage ?? ContentMediaRegistry.emergencyImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 240,
+            language: lang
+        )
+        .accessibilityIdentifier("emotionalSupport.hero")
+    }
+
+    private var emptySupportDashboard: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.medium) {
+            HStack(alignment: .top, spacing: AppSpacing.medium) {
+                Image(systemName: "checkmark.shield.fill")
+                    .font(.system(size: 22, weight: .bold))
+                    .foregroundStyle(AppColors.warning)
+                    .frame(width: 52, height: 52)
+                    .background(AppColors.warning.opacity(0.13))
+                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(emptyStateTitle)
+                        .font(AppTypography.cardTitle)
+                        .foregroundStyle(AppColors.textPrimary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text(emptyStateDetail)
+                        .font(AppTypography.body)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 170), spacing: 10)], spacing: 10) {
+                ForEach(emptySupportActions) { action in
+                    NavigationLink(value: action.destination) {
+                        EmotionalSupportRecoveryActionCard(action: action)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("emotionalSupport.empty.action.\(action.id)")
+                }
+            }
+        }
+        .appCardStyle()
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("emotionalSupport.empty.dashboard")
+    }
+
+    private var emptySupportActions: [EmotionalSupportRecoveryAction] {
+        [
+            EmotionalSupportRecoveryAction(
+                id: "map",
+                icon: "map.fill",
+                title: localSupportTitle,
+                subtitle: localSupportSubtitle,
+                color: AppColors.emerald,
+                destination: .mapFocus(.category(.communitySupport))
+            ),
+            EmotionalSupportRecoveryAction(
+                id: "search",
+                icon: "magnifyingglass.circle.fill",
+                title: localized(en: "Search help", nl: "Hulp zoeken", ru: "Поиск помощи"),
+                subtitle: localized(en: "Find support by topic", nl: "Zoek steun per onderwerp", ru: "Найти поддержку по теме"),
+                color: AppColors.dutchOrange,
+                destination: .searchList
+            ),
+            EmotionalSupportRecoveryAction(
+                id: "sources",
+                icon: "checkmark.shield.fill",
+                title: localized(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники"),
+                subtitle: localized(en: "Use verified public channels", nl: "Gebruik geverifieerde publieke kanalen", ru: "Использовать проверенные публичные каналы"),
+                color: AppColors.success,
+                destination: .officialSources
+            ),
+            EmotionalSupportRecoveryAction(
+                id: "legal",
+                icon: "scalemass.fill",
+                title: localized(en: "Legal help", nl: "Juridische hulp", ru: "Юридическая помощь"),
+                subtitle: localized(en: "Rights and safety routes", nl: "Rechten en veiligheidsroutes", ru: "Права и маршруты безопасности"),
+                color: AppColors.violet,
+                destination: .legalHelp
+            )
+        ]
     }
 
     private var title: String {
@@ -1176,6 +1435,14 @@ struct EmotionalSupportView: View {
         case .russian: return "Если страшно, непонятно или одиноко: начните с одного безопасного контакта."
         case .dutch: return "Als je bang, verward of alleen bent: begin met één veilig contact."
         case .english: return "If you feel scared, confused, or alone: start with one safe contact."
+        }
+    }
+
+    private var emotionalSupportHeroBadge: String {
+        switch lang {
+        case .russian: return "Безопасная поддержка"
+        case .dutch: return "Veilige steun"
+        case .english: return "Safe support"
         }
     }
 
@@ -1205,17 +1472,17 @@ struct EmotionalSupportView: View {
 
     private var emptyStateTitle: String {
         switch lang {
-        case .russian: return "Проверенные ресурсы не загружены"
-        case .dutch: return "Gecontroleerde bronnen zijn niet geladen"
-        case .english: return "Verified resources are not loaded"
+        case .russian: return "Надёжные варианты помощи"
+        case .dutch: return "Betrouwbare hulpopties"
+        case .english: return "Reliable support options"
         }
     }
 
     private var emptyStateDetail: String {
         switch lang {
-        case .russian: return "Здесь не показываются неподтверждённые контакты. Проверьте официальные источники или экстренную помощь, если ситуация срочная."
-        case .dutch: return "Niet-geverifieerde contacten worden hier niet getoond. Controleer officiële bronnen of spoedhulp als de situatie dringend is."
-        case .english: return "Unverified contacts are not shown here. Check official sources or urgent help if the situation is immediate."
+        case .russian: return "Для этой темы используйте проверенные источники, карту помощи рядом и экстренные контакты, если ситуация срочная."
+        case .dutch: return "Gebruik voor dit onderwerp betrouwbare bronnen, hulp dichtbij op de kaart en noodcontacten als de situatie dringend is."
+        case .english: return "For this topic, use trusted sources, nearby help on the map, and emergency contacts if the situation is urgent."
         }
     }
 
@@ -1225,6 +1492,37 @@ struct EmotionalSupportView: View {
         case .dutch: return "Bel 112 bij direct gevaar. Bij gedachten aan zelfbeschadiging: gebruik 113 of lokale spoedhulp."
         case .english: return "Call 112 for immediate danger. If self-harm thoughts appear, use 113 or local urgent help."
         }
+    }
+
+    private func localized(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .russian: return ru
+        case .dutch: return nl
+        case .english: return en
+        }
+    }
+}
+
+private struct EmotionalSupportRecoveryAction: Identifiable {
+    let id: String
+    let icon: String
+    let title: String
+    let subtitle: String
+    let color: Color
+    let destination: AppDestination
+}
+
+private struct EmotionalSupportRecoveryActionCard: View {
+    let action: EmotionalSupportRecoveryAction
+
+    var body: some View {
+        ProductTaskCard(
+            title: action.title,
+            subtitle: action.subtitle,
+            symbol: action.icon,
+            accent: action.color,
+            minHeight: 104
+        )
     }
 }
 

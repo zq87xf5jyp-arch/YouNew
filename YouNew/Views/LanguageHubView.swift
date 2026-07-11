@@ -41,7 +41,8 @@ struct LanguageHubView: View {
             subtitle: heroSubtitle,
             symbol: "text.book.closed.fill",
             badgeText: badgeText,
-            accent: AppColors.violet
+            accent: AppColors.violet,
+            asset: ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.profileImage ?? ContentMediaRegistry.officialSourcesHero
         )
     }
 

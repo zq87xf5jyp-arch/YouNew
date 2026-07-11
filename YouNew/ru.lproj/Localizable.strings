@@ -8,7 +8,7 @@
 "tab.explain" = "Помощь";
 "tab.checklist" = "Чек‑лист";
 "tab.ai" = "Ассистент";
-"tab.map" = "Карта";
+"tab.map" = "Places";
 "tab.resources" = "Ресурсы";
 "tab.more" = "Ещё";
 "tab.settings" = "Настройки";
@@ -20,6 +20,7 @@
 "common.back" = "Назад";
 "common.close" = "Закрыть";
 "common.search" = "Поиск";
+"common.selected" = "Выбрано";
 "common.send" = "Отправить";
 "common.clear" = "Очистить";
 "common.edit" = "Изменить";
@@ -38,7 +39,7 @@
 
 "search.title" = "Поиск по вопросам";
 "search.subtitle" = "Коротко и по делу, с опорой на официальные источники";
-"search.placeholder" = "Задайте вопрос о системах Нидерландов";
+"search.placeholder" = "Поиск правил, документов, услуг…";
 "search.nav_title" = "Поиск";
 "search.recent" = "Недавние запросы";
 "search.popular" = "Популярные вопросы";
@@ -49,7 +50,7 @@
 
 "ai.title" = "Ассистент";
 "ai.subtitle" = "Explain Mode с источниками и следующими шагами";
-"ai.disclaimer" = "AI Explain Mode носит информационный характер и может ошибаться. Всегда проверяйте важную информацию в официальных организациях.";
+"ai.disclaimer" = "AI-ассистент даёт ориентир на основе базы знаний приложения и официальных источников, где они доступны. Он не заменяет юридических, медицинских или финансовых специалистов.";
 "ai.thinking" = "Думаю...";
 "ai.search_official_answer" = "Проверить в официальных источниках";
 "ai.related_institutions" = "Связанные организации";
@@ -110,8 +111,8 @@
 "disclaimer.medium" = "YouNew.nl помогает сориентироваться, но не заменяет официальные инструкции.";
 "disclaimer.expanded" = "Приложение помогает с адаптацией и навигацией по сервисам. Для решений по документам и правовым вопросам используйте официальные источники.";
 
-"empty.no_results" = "Ничего не найдено.";
-"empty.no_nearby_places" = "Поблизости не найдено точек поддержки.";
+"empty.no_results" = "Попробуйте другой запрос, откройте официальные источники или спросите AI.";
+"empty.no_nearby_places" = "Откройте Places, официальные источники или спросите AI о вариантах рядом.";
 "checklist.title" = "Ваши шаги";
 "checklist.progress_summary" = "Ваш прогресс";
 "checklist.all_completed" = "Все шаги из списка выполнены";
@@ -129,10 +130,10 @@
 "resources.question_search" = "Поиск по вопросам";
 "resources.beginner_guides" = "Гайды для новичков";
 "resources.official_links" = "Официальные ссылки";
-"resources.no_resources" = "Ресурсы пока недоступны";
+"resources.no_resources" = "Откройте официальные источники, поиск или документы для маршрутов со ссылками на источник.";
 
 "letters.title" = "Письма";
-"letters.smart_assistant" = "Умный помощник по письмам";
+"letters.smart_assistant" = "Помощник по письмам";
 "letters.smart_assistant_subtitle" = "Черновой режим анализа";
 "letters.upload_placeholder" = "Загрузить письмо";
 "letters.scan_placeholder" = "Сканировать письмо";
@@ -140,10 +141,10 @@
 "letters.extracted_text" = "Извлечённый текст";
 "letters.ocr_placeholder" = "Локальная проверка текста";
 "letters.summaries" = "Сводки писем";
-"letters.no_saved_examples" = "Нет сохранённых примеров";
+"letters.no_saved_examples" = "Начните с документов, источников или поиска.";
 "letters.center_flow" = "Центр писем";
-"letters.center_flow_subtitle" = "Откройте любой пример письма";
-"letters.center_flow_detail" = "Внутри: краткое объяснение, связанные службы и следующий шаг.";
+"letters.center_flow_subtitle" = "Используйте примеры, чтобы понять официальные письма";
+"letters.center_flow_detail" = "Внутри: простое объяснение, связанные сервисы и возможные следующие шаги. Всегда сверяйтесь с оригиналом письма.";
 
 "translator.swap_languages" = "Поменять языки";
 "translator.title" = "Переводчик";
@@ -164,12 +165,12 @@
 "translator.dates_may_be_incomplete" = "Даты могут быть неполными. Проверьте оригинал документа.";
 "translator.copy_translated" = "Скопировать перевод";
 "translator.recent" = "Недавние переводы";
-"translator.no_recent" = "Недавних переводов пока нет.";
+"translator.no_recent" = "Переведите письмо или сообщение, чтобы сохранить его здесь.";
 
 "fines.title" = "Штрафы и санкции";
 "fines.info_title" = "Информация о штрафе";
 "fines.disclaimer" = "Раздел для ориентира. Суммы и правила меняются, поэтому сверяйтесь с официальными источниками.";
-"fines.no_items" = "В этой категории пока нет элементов.";
+"fines.no_items" = "Выберите другую категорию или проверьте официальные источники.";
 "fines.amounts_can_change" = "Точные суммы не показываем: проверяйте актуальные данные на сайте CJIB или ведомства из письма.";
 "fines.what_this_means" = "Что это значит";
 "fines.possible_consequence" = "Возможные последствия";
@@ -268,7 +269,7 @@
 "home.next" = "Далее: %@";
 "search.category_answers" = "Ответы: %@";
 "search.official_source" = "Официальный источник";
-"search.trusted_source" = "Проверенный источник";
+"search.trusted_source" = "Источник указан";
 "search.verify_official_website" = "Проверьте на официальном сайте";
 "search.open_answer" = "Открыть ответ";
 "search.people_also_search" = "Люди также ищут";
@@ -286,13 +287,13 @@
 "common.saved" = "Сохранено";
 "dutch_terms.disclaimer" = "Короткий словарь для ориентира. По юридическим и финансовым вопросам всегда сверяйтесь с официальными источниками.";
 "dutch_terms.search_placeholder" = "Поиск нидерландских терминов…";
-"dutch_terms.no_terms" = "Термины не найдены. Попробуйте другой запрос.";
+"dutch_terms.no_terms" = "Попробуйте другой термин или откройте связанные официальные источники.";
 "dutch_terms.nav_title" = "Словарь нидерландских терминов";
 "dutch_terms.legal_warning" = "Термин может иметь юридические или финансовые последствия. Используйте официальные источники для принятия решений.";
 "dutch_terms.term" = "Термин";
 "dutch_terms.legal_financial" = "Право / Финансы";
 "legal.search_placeholder" = "Поиск тем…";
-"legal.no_results" = "Ничего не найдено. Попробуйте другой запрос или категорию.";
+"legal.no_results" = "Попробуйте другую тему, сбросьте фильтры или откройте официальные источники.";
 "legal.explanation" = "Объяснение";
 "legal.info" = "Юридическая информация";
 "common.done" = "Готово";
@@ -361,7 +362,7 @@
 "official_sources.title" = "Каталог официальных источников";
 "official_sources.subtitle" = "%ld организаций и сервисов Нидерландов";
 "official_sources.search_placeholder" = "Поиск организаций…";
-"official_sources.no_match" = "Организации по вашему запросу не найдены.";
+"official_sources.no_match" = "Используйте другой официальный маршрут";
 "official_sources.what_handles" = "За что отвечает";
 "official_sources.when_needed" = "Когда это может понадобиться новичку";
 "official_sources.scam_warning" = "Предупреждение о мошенничестве";
@@ -381,11 +382,11 @@
 "map.no_places_title" = "Места не найдены";
 "map.no_places_subtitle" = "Попробуйте другой поиск или категорию";
 "map.no_places_detail" = "Смените город, очистите поиск или примените фильтры для точек поддержки новичков.";
-"empty.no_reminders" = "Пока нет предстоящих напоминаний.";
-"empty.checklist_complete" = "Все шаги выполнены.";
-"empty.no_letter_summaries" = "Пока нет сохранённых сводок писем.";
-"empty.resources_unavailable" = "Подходящие ресурсы пока не сохранены. Откройте Официальные источники или Поиск, чтобы найти проверенные ссылки.";
-"empty.no_saved_items" = "Пока ничего не сохранено.";
+"empty.no_reminders" = "Добавьте напоминание из шагов чек-листа или важных документов.";
+"empty.checklist_complete" = "Текущие шаги выполнены.";
+"empty.no_letter_summaries" = "Сохраните объяснение письма после сканирования или открытия документа.";
+"empty.resources_unavailable" = "Откройте Официальные источники, Places или Поиск для альтернатив со ссылками на источник.";
+"empty.no_saved_items" = "Сохраняйте полезное по мере просмотра.";
 "home.quick.continue" = "Продолжить";
 "home.search.suggestion.1" = "Спросите о жизни в Нидерландах...";
 "home.search.suggestion.2" = "Как получить BSN?";
@@ -408,11 +409,11 @@
 "home.start_here.fines.subtitle" = "CJIB отправляет официальные штрафы и платёжные уведомления.";
 "home.priorities.title" = "Ваши приоритеты";
 "home.identity.title" = "Что такое YouNew.nl?";
-"home.identity.headline" = "Всё для жизни в Нидерландах — в одном месте.";
+"home.identity.headline" = "Практическая помощь для жизни в Нидерландах.";
 "home.identity.body" = "Мы объясняем документы, сервисы, штрафы и важные шаги простым языком. Помогаем понять, куда обращаться и что делать дальше.";
 "home.identity.point.1" = "Просто объясняет нидерландские бюрократические термины";
 "home.identity.point.2" = "Помогает не пропустить критичные шаги онбординга";
-"home.identity.point.3" = "Привязывает каждый ответ к официальным источникам Нидерландов";
+"home.identity.point.3" = "Держит ссылки на официальные источники рядом, где они доступны";
 "home.identity.point.4" = "Расшифровывает письма и официальные документы";
 "home.identity.point.5" = "Находит местные учреждения и поддержку рядом";
 "home.who_for.title" = "Для кого это?";
@@ -512,7 +513,7 @@
 "resource.open_source" = "Открыть источник";
 "common.open_details" = "Открыть";
 "common.report_short" = "Сообщить";
-"common.verified_source" = "Проверенный источник";
+"common.verified_source" = "Источник указан";
 "common.source" = "Источник";
 "common.last_checked" = "Проверено";
 "common.continue_onboarding" = "Продолжить";
@@ -618,7 +619,7 @@
 "emergency.112.name" = "112";
 "emergency.huisarts.desc" = "Обратитесь к своему семейному врачу";
 "emergency.huisarts.name" = "Huisarts (семейный врач)";
-"emergency.loket.desc" = "Бесплатная юридическая консультация";
+"emergency.loket.desc" = "Первичная правовая информация";
 "emergency.loket.name" = "Juridisch Loket";
 "emergency.politie.desc" = "Не срочные обращения в полицию";
 "emergency.politie.name" = "Politie (не срочно)";
@@ -640,8 +641,8 @@
 "more.fines_hub.letters.title" = "Официальные письма";
 "more.legal.courts" = "Судебная система";
 "more.legal.courts_detail" = "Информация о нидерландских судах и судебных процессах.";
-"more.legal.free_advice" = "Бесплатная юридическая консультация";
-"more.legal.loket_detail" = "Juridisch Loket предоставляет бесплатную первичную юридическую помощь по всей стране.";
+"more.legal.free_advice" = "Первичная правовая ориентация";
+"more.legal.loket_detail" = "Juridisch Loket может предоставить первичную правовую информацию. Проверьте, подходит ли ваша ситуация.";
 "more.legal.open_loket" = "Открыть Juridisch Loket";
 "more.quick.change_status" = "Настроить гид";
 "more.quick.check_fine" = "Проверить штраф";
@@ -669,7 +670,7 @@
 "more.row.map.title" = "Карта";
 "more.row.mistakes.subtitle" = "Избегайте самых распространённых ошибок";
 "more.row.mistakes.title" = "Частые ошибки";
-"more.row.official_sites.subtitle" = "Проверенные государственные сайты";
+"more.row.official_sites.subtitle" = "Официальные сайты и ссылки на источники";
 "more.row.official_sites.title" = "Официальные сайты";
 "more.row.resources.subtitle" = "Гайды, ссылки и официальные источники";
 "more.row.resources.title" = "Ресурсы";
@@ -689,10 +690,10 @@
 "settings.about" = "О YouNew.nl";
 "settings.documents.center" = "Центр документов";
 "settings.documents.clear_cache" = "Очистить кэш документов";
-"settings.documents.export_coming" = "Метаданные документов можно экспортировать в разделе приватности и данных.";
+"settings.documents.export_coming" = "Управляйте приватностью документов, локальным хранением и данными в разделе приватности.";
 "settings.documents.stored_on_device" = "Документы хранятся на устройстве.";
 "settings.edit_profile" = "Изменить профиль";
-"settings.feedback_coming" = "Функция обратной связи появится в следующем обновлении. Спасибо!";
+"settings.feedback_coming" = "Отзыв сохраняется локально для вашего обзора. Для срочных вопросов используйте официальные источники.";
 "settings.language_updated" = "Язык обновлён";
 "settings.map.default_category" = "Категория по умолчанию";
 "settings.map.default_city" = "Город по умолчанию";
@@ -702,7 +703,7 @@
 "settings.nav.recommended_steps" = "Рекомендуемые шаги";
 "settings.nav.saved_topics" = "Сохранённые темы";
 "settings.profile_status" = "Статус";
-"settings.recent.empty" = "Пока пусто";
+"settings.recent.empty" = "Откройте раздел, чтобы собрать быструю историю";
 "settings.reminders.active" = "Напоминания включены";
 "settings.reminders.important_steps" = "Важные шаги";
 "settings.reminders.local_detail" = "Напоминания сохраняются локально на устройстве.";
@@ -801,10 +802,10 @@
 "lgbtq.filter.category" = "Категория";
 "lgbtq.trusted" = "Проверено";
 "lgbtq.loading" = "Загрузка ресурсов поддержки LGBTQ";
-"lgbtq.empty.title" = "Ресурсы недоступны";
-"lgbtq.empty.subtitle" = "Локальный каталог поддержки сейчас недоступен.";
-"lgbtq.no_results.title" = "Подходящих ресурсов нет";
-"lgbtq.no_results.subtitle" = "Попробуйте другой город, категорию или поисковое слово.";
+"lgbtq.empty.title" = "Используйте безопасные маршруты поддержки";
+"lgbtq.empty.subtitle" = "Откройте поддержку рядом, юридическую помощь, поиск или официальные источники ниже.";
+"lgbtq.no_results.title" = "Откройте другой маршрут поддержки";
+"lgbtq.no_results.subtitle" = "Смените город, категорию или запрос, затем проверьте официальные и community-ресурсы.";
 "lgbtq.reset_filters" = "Сбросить фильтры";
 
 "city.flag" = "Флаг";
@@ -813,7 +814,7 @@
 "city.local_highlights" = "Местные ориентиры";
 "city.official_sources" = "Официальные источники";
 "city.image_credit" = "Источник изображения";
-"city.image_verified_source" = "Проверенный источник";
+"city.image_verified_source" = "Источник указан";
 "city.image_license_unspecified" = "Лицензия указана источником";
 "city.province" = "Провинция";
 "city.municipality" = "Муниципалитет";
@@ -828,14 +829,14 @@
 "city.accessibility.coat_of_arms" = "Герб города %@.";
 "city.accessibility.open_map" = "Открыть %@ на карте.";
 "city.accessibility.history" = "Краткая история города %@.";
-"city.no_image_available" = "Изображение недоступно";
+"city.no_image_available" = "Визуальный контекст города";
 "city.information" = "Информация о городе";
 "city.historic_city" = "Исторический город";
 "city.university_city" = "Университетский город";
-"city.asset_missing" = "Проверенное изображение недоступно";
-"city.flag_pending" = "Официальный флаг недоступен";
-"city.coat_pending" = "Официальный герб недоступен";
-"city.hero_pending" = "Изображение города недоступно";
+"city.asset_missing" = "Визуальный контекст";
+"city.flag_pending" = "Контекст официального флага";
+"city.coat_pending" = "Контекст официального герба";
+"city.hero_pending" = "Контекст города";
 
 "home.growth.tagline" = "От первых шагов к устойчивой жизни.";
 "home.next_step.title" = "Ваш следующий шаг";
@@ -910,7 +911,7 @@
 "historyNetherlands.sources.licenseLabel" = "Лицензия";
 "historyNetherlands.sources.noteLabel" = "Примечание";
 "historyNetherlands.sources.note" = "Кратко пересказано и адаптировано для приложения; исходный текст статей Wikipedia не показывается.";
-"historyNetherlands.images.title" = "Проверенные изображения";
+"historyNetherlands.images.title" = "Изображения с указанием источника";
 "historyNetherlands.images.sourcesTitle" = "Источники изображений";
 "historyNetherlands.images.attribution" = "Атрибуция";
 "historyNetherlands.images.map.title" = "Карта Нидерландов, 1631";
@@ -1002,7 +1003,7 @@
 "menu.home" = "Главная";
 "menu.map" = "Карта";
 "menu.search" = "Поиск";
-"menu.saved" = "Сохран.";
+"menu.saved" = "Сохранённое";
 "menu.history" = "История Нидерландов";
 "menu.cultureAttractions" = "Культура и достопримечательности";
 "menu.cities" = "Города";
@@ -1014,7 +1015,7 @@
 "menu.version" = "Версия";
 "image.source" = "Источник";
 "image.license" = "Лицензия";
-"image.unavailable" = "Изображение недоступно";
+"image.unavailable" = "Проверенный визуальный контекст";
 "image.openSource" = "Открыть источник";
 "contentMedia.transport.bikeParking.title" = "Велопарковка в Амстердаме";
 "contentMedia.transport.bikeParking.description" = "Велопарковка у канала как визуальный контекст для транспорта.";

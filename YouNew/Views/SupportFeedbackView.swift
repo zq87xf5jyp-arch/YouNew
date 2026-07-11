@@ -34,25 +34,25 @@ struct SupportFeedbackView: View {
     }
 
     private var header: some View {
-        HStack(alignment: .top, spacing: AppSpacing.medium) {
-            Image(systemName: "lifepreserver.fill")
-                .font(.system(size: 22, weight: .bold))
-                .foregroundStyle(AppColors.cyanGlow)
-                .frame(width: 52, height: 52)
-                .background(AppColors.cyanGlow.opacity(0.13))
-                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            CategoryHeroVisual(
+                assetName: nil,
+                title: title,
+                subtitle: headerSummary,
+                symbol: "lifepreserver.fill",
+                badgeText: supportBadgeText,
+                accent: AppColors.cyanGlow,
+                asset: ContentMediaRegistry.aiImage ?? ContentMediaRegistry.officialSourcesHero,
+                height: 240,
+                language: lang
+            )
 
-            VStack(alignment: .leading, spacing: 5) {
-                Text(title)
-                    .font(AppTypography.title)
-                    .foregroundStyle(AppColors.textPrimary)
-                Text(headerDetail)
-                    .font(AppTypography.footnote)
-                    .foregroundStyle(AppColors.textSecondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            }
+            Text(headerDetail)
+                .font(AppTypography.footnote)
+                .foregroundStyle(AppColors.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
+                .padding(.horizontal, 4)
         }
-        .appCardStyle()
     }
 
     private var feedbackForm: some View {
@@ -75,6 +75,9 @@ struct SupportFeedbackView: View {
                             .stroke(AppColors.stroke.opacity(0.8), lineWidth: 0.8)
                     )
                     .accessibilityLabel(feedbackPlaceholder)
+#if os(iOS)
+                    .scrollContentBackground(.hidden)
+#endif
 
                 Button {
                     saveFeedback()
@@ -168,6 +171,22 @@ private extension SupportFeedbackView {
         case .russian: return "Сохраните отзыв локально для передачи команде поддержки. Для срочных ситуаций используйте официальные службы, а не форму отзыва."
         case .dutch: return "Bewaar feedback lokaal om met support te delen. Gebruik officiële diensten voor urgente situaties, niet dit formulier."
         case .english: return "Save feedback locally so it can be shared with support. For urgent situations, use official services, not this form."
+        }
+    }
+
+    var headerSummary: String {
+        switch lang {
+        case .russian: return "Отзыв, безопасность и официальные маршруты помощи."
+        case .dutch: return "Feedback, veiligheid en officiële hulproutes."
+        case .english: return "Feedback, safety, and official support routes."
+        }
+    }
+
+    var supportBadgeText: String {
+        switch lang {
+        case .russian: return "Поддержка"
+        case .dutch: return "Support"
+        case .english: return "Support"
         }
     }
 

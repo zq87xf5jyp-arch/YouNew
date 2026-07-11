@@ -28,27 +28,36 @@ final class LocationService: NSObject, ObservableObject, CLLocationManagerDelega
         manager.requestLocation()
     }
 
-    func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
-        authorizationStatus = manager.authorizationStatus
-        if shouldRequestLocationAfterAuthorization,
-           Self.isAuthorized(manager.authorizationStatus) {
-            shouldRequestLocationAfterAuthorization = false
-            requestLocation()
+    nonisolated func locationManagerDidChangeAuthorization(_ manager: CLLocationManager) {
+        let status = manager.authorizationStatus
+        Task { @MainActor [weak self] in
+            guard let self else { return }
+            authorizationStatus = status
+            if shouldRequestLocationAfterAuthorization,
+               Self.isAuthorized(status) {
+                shouldRequestLocationAfterAuthorization = false
+                requestLocation()
+            }
         }
     }
 
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        location = locations.first
-        locationFetchFailed = false
+    nonisolated func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        let firstLocation = locations.first
+        Task { @MainActor [weak self] in
+            self?.location = firstLocation
+            self?.locationFetchFailed = false
+        }
     }
 
-    func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
+    nonisolated func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
         guard let clError = error as? CLError else { return }
         switch clError.code {
         case .locationUnknown:
             break
         default:
-            locationFetchFailed = true
+            Task { @MainActor [weak self] in
+                self?.locationFetchFailed = true
+            }
         }
     }
 

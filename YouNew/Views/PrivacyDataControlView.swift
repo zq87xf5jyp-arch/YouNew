@@ -40,32 +40,25 @@ struct PrivacyDataControlView: View {
     }
 
     private var header: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.medium) {
-            HStack(spacing: AppSpacing.medium) {
-                Image(systemName: "lock.shield.fill")
-                    .font(.system(size: 24, weight: .semibold))
-                    .foregroundStyle(AppColors.accent)
-                    .frame(width: 54, height: 54)
-                    .background(AppColors.accent.opacity(0.12))
-                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(title)
-                        .font(.system(.title2, design: .rounded).weight(.bold))
-                        .foregroundStyle(AppColors.textPrimary)
-                    Text(headerSubtitle)
-                        .font(AppTypography.body)
-                        .foregroundStyle(AppColors.textSecondary)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-            }
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            CategoryHeroVisual(
+                assetName: nil,
+                title: title,
+                subtitle: headerSubtitle,
+                symbol: "lock.shield.fill",
+                badgeText: privacyBadgeText,
+                accent: AppColors.accent,
+                asset: ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero,
+                height: 240,
+                language: lang
+            )
 
             Text(headerDetail)
                 .font(AppTypography.footnote)
                 .foregroundStyle(AppColors.textSecondary)
                 .fixedSize(horizontal: false, vertical: true)
+                .padding(.horizontal, 4)
         }
-        .appCardStyle()
     }
 
     private var storageSection: some View {
@@ -259,6 +252,14 @@ private extension PrivacyDataControlView {
         case .russian: return "Локальное хранение, экспорт и удаление ваших данных."
         case .english: return "Local storage, export and deletion for your data."
         case .dutch: return "Lokale opslag, export en verwijdering van uw gegevens."
+        }
+    }
+
+    var privacyBadgeText: String {
+        switch lang {
+        case .russian: return "Локально на устройстве"
+        case .english: return "On-device control"
+        case .dutch: return "Op apparaat"
         }
     }
 

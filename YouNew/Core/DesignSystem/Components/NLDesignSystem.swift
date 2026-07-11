@@ -719,23 +719,1040 @@ enum PlaceResponsiveLayout {
     }
 }
 
+// MARK: - Premium Visual System
+
+enum PremiumVisualMetrics {
+    enum Layout {
+        static let maxContentWidth: CGFloat = 920
+        static let readableContentWidth: CGFloat = 760
+        static let horizontalPadding: CGFloat = AppSpacing.screenHorizontal
+        static let sectionSpacing: CGFloat = AppSpacing.large
+        static let compactSectionSpacing: CGFloat = AppSpacing.medium
+        static let bottomTerminalGap: CGFloat = 20
+    }
+
+    enum Card {
+        static let cornerRadius: CGFloat = 20
+        static let compactCornerRadius: CGFloat = 16
+        static let padding: CGFloat = AppSpacing.cardPadding
+        static let compactPadding: CGFloat = AppSpacing.cardPaddingCompact
+        static let borderWidth: CGFloat = 0.8
+        static let minSearchResultHeight: CGFloat = 314
+        static let directResultMinHeight: CGFloat = 148
+    }
+
+    enum Image {
+        static let searchHeaderHeight: CGFloat = 142
+        static let searchDirectSize: CGFloat = 124
+        static let carouselThumbnailHeight: CGFloat = 94
+        static let cardAspectRatio: CGFloat = 16.0 / 10.0
+        static let heroTargetPixelWidth: CGFloat = 1400
+        static let cardTargetPixelWidth: CGFloat = 1000
+        static let thumbnailTargetPixelWidth: CGFloat = 680
+    }
+
+    enum Hero {
+        static let minViewportFraction: CGFloat = 0.25
+        static let maxViewportFraction: CGFloat = 0.35
+        static let compactHeight: CGFloat = 220
+        static let regularHeight: CGFloat = 312
+        static let maxHeight: CGFloat = 356
+
+        static func height(for viewportHeight: CGFloat) -> CGFloat {
+            let target = viewportHeight * 0.30
+            return min(max(target, compactHeight), maxHeight)
+        }
+    }
+
+    enum Grid {
+        static let spacing: CGFloat = AppSpacing.gridGap
+        static let minimumCardWidth: CGFloat = 156
+        static let regularMinimumCardWidth: CGFloat = 220
+
+        static func adaptiveColumns(minimum: CGFloat = minimumCardWidth) -> [GridItem] {
+            [GridItem(.adaptive(minimum: minimum), spacing: spacing)]
+        }
+
+        static func twoColumnsWhenPossible(contentWidth: CGFloat, minimum: CGFloat = minimumCardWidth) -> [GridItem] {
+            DetailPageLayout.twoColumnWhenPossible(for: contentWidth, minimumColumnWidth: minimum)
+        }
+    }
+
+    enum Carousel {
+        static let spacing: CGFloat = AppSpacing.small
+        static let maxCardWidth: CGFloat = 320
+
+        static func cardWidth(availableWidth: CGFloat) -> CGFloat {
+            min(max(availableWidth * 0.72, 220), maxCardWidth)
+        }
+    }
+}
+
+enum PremiumImageRole {
+    case hero
+    case card
+    case thumbnail
+    case symbol
+    case fallback
+
+    var defaultAspectRatio: CGFloat? {
+        switch self {
+        case .hero, .card:
+            return PremiumVisualMetrics.Image.cardAspectRatio
+        case .thumbnail:
+            return 1
+        case .symbol, .fallback:
+            return nil
+        }
+    }
+
+    var defaultTargetPixelWidth: CGFloat {
+        switch self {
+        case .hero:
+            return PremiumVisualMetrics.Image.heroTargetPixelWidth
+        case .card:
+            return PremiumVisualMetrics.Image.cardTargetPixelWidth
+        case .thumbnail, .symbol, .fallback:
+            return PremiumVisualMetrics.Image.thumbnailTargetPixelWidth
+        }
+    }
+}
+
+enum PremiumImageFocalPoint {
+    case center
+    case top
+    case bottom
+    case leading
+    case trailing
+    case topLeading
+    case topTrailing
+    case bottomLeading
+    case bottomTrailing
+
+    var alignment: Alignment {
+        switch self {
+        case .center: return .center
+        case .top: return .top
+        case .bottom: return .bottom
+        case .leading: return .leading
+        case .trailing: return .trailing
+        case .topLeading: return .topLeading
+        case .topTrailing: return .topTrailing
+        case .bottomLeading: return .bottomLeading
+        case .bottomTrailing: return .bottomTrailing
+        }
+    }
+}
+
+enum PremiumImageOverlayPolicy {
+    case none
+    case adaptive
+    case light
+    case balanced
+    case strong
+
+    func gradient(role: PremiumImageRole, asset: AppImageAsset?) -> LinearGradient? {
+        switch self {
+        case .none:
+            return nil
+        case .light:
+            return Self.lightGradient
+        case .balanced:
+            return Self.balancedGradient
+        case .strong:
+            return Self.strongGradient
+        case .adaptive:
+            if role == .hero {
+                return prefersStrongOverlay(asset: asset) ? Self.readableGradient : Self.lightGradient
+            }
+            return Self.cardGradient
+        }
+    }
+
+    private func prefersStrongOverlay(asset: AppImageAsset?) -> Bool {
+        let text = [
+            asset?.title,
+            asset?.description,
+            asset?.localAssetName,
+            asset?.id
+        ]
+        .compactMap { $0?.lowercased() }
+        .joined(separator: " ")
+        return text.contains("map")
+            || text.contains("pharmacy")
+            || text.contains("city hall")
+            || text.contains("station")
+            || text.contains("day")
+    }
+
+    private static let lightGradient = LinearGradient(
+        colors: [
+            Color.black.opacity(0.00),
+            Color.black.opacity(0.06),
+            AppColors.navyDeep.opacity(0.24)
+        ],
+        startPoint: .top,
+        endPoint: .bottom
+    )
+
+    private static let readableGradient = LinearGradient(
+        colors: [
+            Color.black.opacity(0.02),
+            AppColors.navyDeep.opacity(0.18),
+            AppColors.navyDeep.opacity(0.44)
+        ],
+        startPoint: .top,
+        endPoint: .bottom
+    )
+
+    private static let cardGradient = LinearGradient(
+        colors: [
+            Color.black.opacity(0.02),
+            AppColors.navyDeep.opacity(0.16),
+            AppColors.navyDeep.opacity(0.40)
+        ],
+        startPoint: .top,
+        endPoint: .bottom
+    )
+
+    private static let balancedGradient = LinearGradient(
+        colors: [
+            Color.black.opacity(0.02),
+            AppColors.navyDeep.opacity(0.16),
+            AppColors.navyDeep.opacity(0.40)
+        ],
+        startPoint: .top,
+        endPoint: .bottom
+    )
+
+    private static let strongGradient = LinearGradient(
+        colors: [
+            Color.black.opacity(0.08),
+            AppColors.navyDeep.opacity(0.30),
+            AppColors.navyDeep.opacity(0.58)
+        ],
+        startPoint: .top,
+        endPoint: .bottom
+    )
+}
+
+struct PremiumPageContainer<Content: View>: View {
+    var maxWidth: CGFloat = PremiumVisualMetrics.Layout.maxContentWidth
+    var horizontalPadding: CGFloat = PremiumVisualMetrics.Layout.horizontalPadding
+    var verticalPadding: CGFloat = AppSpacing.medium
+    @ViewBuilder let content: () -> Content
+
+    var body: some View {
+        ResponsiveContentContainer(maxWidth: maxWidth) {
+            content()
+                .padding(.horizontal, horizontalPadding)
+                .padding(.vertical, verticalPadding)
+        }
+    }
+}
+
+struct PremiumHeroSurface<Content: View>: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
+    let title: String
+    let subtitle: String
+    let badge: String?
+    let badgeSystemImage: String
+    let asset: AppImageAsset?
+    let language: AppLanguage
+    var role: PremiumImageRole = .hero
+    var fallbackCategory: PremiumImageFallbackCategory = .city
+    var accent: Color = AppColors.cyanGlow
+    var focalPoint: PremiumImageFocalPoint = .center
+    var overlayPolicy: PremiumImageOverlayPolicy = .adaptive
+    var height: CGFloat = PremiumVisualMetrics.Hero.regularHeight
+    var accessibilityIdentifier: String? = nil
+    @ViewBuilder let accessory: () -> Content
+
+    var body: some View {
+        GeometryReader { proxy in
+            let horizontalTextInset = dynamicTypeSize.isAccessibilitySize ? PremiumVisualMetrics.Card.padding : PremiumVisualMetrics.Card.padding + 52
+            let verticalTextInset = PremiumVisualMetrics.Card.padding
+            let textMaxWidth = max(180, proxy.size.width - horizontalTextInset * 2)
+            ZStack(alignment: .bottomLeading) {
+                PremiumImageView(
+                    asset: asset,
+                    language: language,
+                    height: proxy.size.height,
+                    aspectRatio: nil,
+                    mode: .fill,
+                    cornerRadius: 0,
+                    overlayStyle: .none,
+                    fallbackCategory: fallbackCategory,
+                    accessibilityLabel: title,
+                    targetPixelWidth: role.defaultTargetPixelWidth,
+                    role: role,
+                    overlayPolicy: .none,
+                    focalPoint: focalPoint
+                )
+                .accessibilityHidden(true)
+
+                if let gradient = overlayPolicy.gradient(role: role, asset: asset) {
+                    gradient.allowsHitTesting(false)
+                }
+
+                RadialGradient(
+                    colors: [accent.opacity(0.24), .clear],
+                    center: .topTrailing,
+                    startRadius: 0,
+                    endRadius: 240
+                )
+                .allowsHitTesting(false)
+
+                VStack(alignment: .leading, spacing: AppSpacing.small) {
+                    if let badge {
+                        PremiumBadge(text: badge, systemImage: badgeSystemImage, color: AppColors.success)
+                    }
+
+                    Text(title)
+                        .font(dynamicTypeSize.isAccessibilitySize ? .system(size: 42, weight: .black, design: .rounded) : AppTypography.title)
+                        .foregroundStyle(.white)
+                        .lineLimit(dynamicTypeSize.isAccessibilitySize ? 4 : 3)
+                        .minimumScaleFactor(dynamicTypeSize.isAccessibilitySize ? 0.78 : 0.68)
+                        .allowsTightening(true)
+                        .multilineTextAlignment(.leading)
+                        .frame(width: textMaxWidth, alignment: .leading)
+
+                    Text(subtitle)
+                        .font(dynamicTypeSize.isAccessibilitySize ? .system(size: 25, weight: .bold, design: .rounded) : AppTypography.bodyStrong)
+                        .foregroundStyle(Color.white.opacity(0.82))
+                        .lineLimit(dynamicTypeSize.isAccessibilitySize ? 5 : 3)
+                        .minimumScaleFactor(0.82)
+                        .allowsTightening(true)
+                        .multilineTextAlignment(.leading)
+                        .frame(width: textMaxWidth, alignment: .leading)
+
+                    accessory()
+                }
+                .padding(.leading, horizontalTextInset)
+                .padding(.trailing, horizontalTextInset)
+                .padding(.top, verticalTextInset)
+                .padding(.bottom, verticalTextInset)
+                .frame(width: proxy.size.width, alignment: .leading)
+            }
+            .frame(width: proxy.size.width, height: proxy.size.height)
+        }
+        .frame(height: height)
+        .clipShape(RoundedRectangle(cornerRadius: AppCornerRadius.hero, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: AppCornerRadius.hero, style: .continuous)
+                .stroke(Color.white.opacity(0.14), lineWidth: PremiumVisualMetrics.Card.borderWidth)
+        )
+        .shadow(color: AppShadows.heroPanel.color, radius: 24, x: 0, y: 14)
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier(accessibilityIdentifier ?? "")
+    }
+}
+
+extension PremiumHeroSurface where Content == EmptyView {
+    init(
+        title: String,
+        subtitle: String,
+        badge: String?,
+        badgeSystemImage: String,
+        asset: AppImageAsset?,
+        language: AppLanguage,
+        role: PremiumImageRole = .hero,
+        fallbackCategory: PremiumImageFallbackCategory = .city,
+        accent: Color = AppColors.cyanGlow,
+        focalPoint: PremiumImageFocalPoint = .center,
+        overlayPolicy: PremiumImageOverlayPolicy = .adaptive,
+        height: CGFloat = PremiumVisualMetrics.Hero.regularHeight,
+        accessibilityIdentifier: String? = nil
+    ) {
+        self.title = title
+        self.subtitle = subtitle
+        self.badge = badge
+        self.badgeSystemImage = badgeSystemImage
+        self.asset = asset
+        self.language = language
+        self.role = role
+        self.fallbackCategory = fallbackCategory
+        self.accent = accent
+        self.focalPoint = focalPoint
+        self.overlayPolicy = overlayPolicy
+        self.height = height
+        self.accessibilityIdentifier = accessibilityIdentifier
+        self.accessory = { EmptyView() }
+    }
+}
+
+struct PremiumBadge: View {
+    let text: String
+    var systemImage: String? = nil
+    var color: Color = AppColors.cyanGlow
+
+    var body: some View {
+        Label {
+            Text(text)
+                .lineLimit(1)
+                .minimumScaleFactor(0.74)
+        } icon: {
+            if let systemImage {
+                Image(systemName: systemImage)
+            }
+        }
+        .font(AppTypography.metadata)
+        .foregroundStyle(.white)
+        .padding(.horizontal, 11)
+        .padding(.vertical, 7)
+        .background(
+            Capsule()
+                .fill(Color.black.opacity(0.42))
+                .overlay(color.opacity(0.16), in: Capsule())
+        )
+        .overlay(Capsule().stroke(Color.white.opacity(0.22), lineWidth: 0.8))
+        .shadow(color: Color.black.opacity(0.26), radius: 8, x: 0, y: 4)
+    }
+}
+
+struct ProductScreenSection<Content: View>: View {
+    let title: String
+    var subtitle: String? = nil
+    var priority: String? = nil
+    @ViewBuilder let content: () -> Content
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.medium) {
+            HStack(alignment: .firstTextBaseline, spacing: AppSpacing.small) {
+                VStack(alignment: .leading, spacing: 4) {
+                    if let priority {
+                        Text(priority)
+                            .font(AppTypography.metadata)
+                            .foregroundStyle(AppColors.dutchOrange)
+                            .textCase(.uppercase)
+                            .lineLimit(1)
+                    }
+
+                    Text(title)
+                        .font(AppTypography.sectionTitle)
+                        .foregroundStyle(AppColors.textPrimary)
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.82)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    if let subtitle {
+                        Text(subtitle)
+                            .font(AppTypography.caption)
+                            .foregroundStyle(AppColors.textSecondary)
+                            .lineLimit(3)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+
+                Spacer(minLength: 0)
+            }
+
+            content()
+        }
+        .padding(.top, AppSpacing.small)
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+struct ProductStatusStrip: View {
+    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
+
+    let title: String
+    let subtitle: String
+    let symbol: String
+    let accent: Color
+    var actionTitle: String? = nil
+    var actionIdentifier: String? = nil
+    var prominence: ProductTaskCard.Prominence = .normal
+
+    var body: some View {
+        Group {
+            if dynamicTypeSize.isAccessibilitySize {
+                VStack(alignment: .leading, spacing: AppSpacing.small) {
+                    HStack(alignment: .top, spacing: AppSpacing.small) {
+                        ProductSymbolTile(symbol: symbol, accent: accent, size: prominence == .primary ? 56 : 46)
+                        textBlock
+                    }
+
+                    actionPill
+                }
+            } else {
+                HStack(alignment: .center, spacing: AppSpacing.small) {
+                    ProductSymbolTile(symbol: symbol, accent: accent, size: prominence == .primary ? 56 : 46)
+                    textBlock
+
+                    Spacer(minLength: 8)
+
+                    actionPill
+                }
+            }
+        }
+        .padding(prominence == .primary ? PremiumVisualMetrics.Card.padding : PremiumVisualMetrics.Card.compactPadding)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .premiumCardChrome(accent: accent, prominence: prominence)
+    }
+
+    private var textBlock: some View {
+        VStack(alignment: .leading, spacing: 3) {
+            Text(title)
+                .font(prominence == .primary ? .system(size: 21, weight: .heavy, design: .default) : AppTypography.cardTitle)
+                .foregroundStyle(AppColors.textPrimary)
+                .lineLimit(dynamicTypeSize.isAccessibilitySize ? 3 : 2)
+                .minimumScaleFactor(0.82)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Text(subtitle)
+                .font(prominence == .primary ? AppTypography.bodyStrong : AppTypography.caption)
+                .foregroundStyle(prominence == .primary ? AppColors.textPrimary.opacity(0.78) : AppColors.textSecondary)
+                .lineLimit(dynamicTypeSize.isAccessibilitySize ? 4 : 2)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    @ViewBuilder
+    private var actionPill: some View {
+        if let actionTitle {
+            Text(actionTitle)
+                .font(AppTypography.captionStrong)
+                .foregroundStyle(accent)
+                .lineLimit(dynamicTypeSize.isAccessibilitySize ? 2 : 1)
+                .minimumScaleFactor(0.86)
+                .multilineTextAlignment(.center)
+                .padding(.horizontal, 14)
+                .frame(minWidth: 44, minHeight: 44)
+                .background(accent.opacity(0.12), in: Capsule())
+                .accessibilityIdentifier(actionIdentifier ?? "")
+        }
+    }
+}
+
+struct ProductTaskCard: View {
+    enum Prominence {
+        case primary
+        case normal
+        case quiet
+    }
+
+    let title: String
+    let subtitle: String
+    let symbol: String
+    let accent: Color
+    var priority: String? = nil
+    var cta: String? = nil
+    var minHeight: CGFloat = 96
+    var prominence: Prominence = .normal
+
+    var body: some View {
+        ViewThatFits(in: .horizontal) {
+            horizontalContent
+            compactContent
+        }
+        .padding(cardPadding)
+        .frame(maxWidth: .infinity, minHeight: minHeight, alignment: .leading)
+        .premiumCardChrome(accent: accent, prominence: prominence)
+        .contentShape(RoundedRectangle(cornerRadius: PremiumVisualMetrics.Card.cornerRadius, style: .continuous))
+        .accessibilityElement(children: .combine)
+    }
+
+    private var horizontalContent: some View {
+        HStack(alignment: .center, spacing: AppSpacing.small) {
+            ProductSymbolTile(symbol: symbol, accent: accent, size: symbolSize)
+
+            textContent
+
+            Spacer(minLength: 8)
+
+            accessory
+        }
+    }
+
+    private var compactContent: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(alignment: .center, spacing: AppSpacing.small) {
+                ProductSymbolTile(symbol: symbol, accent: accent, size: symbolSize)
+
+                Spacer(minLength: 8)
+
+                accessory
+            }
+
+            textContent
+        }
+    }
+
+    private var textContent: some View {
+        VStack(alignment: .leading, spacing: 5) {
+            if let priority {
+                Text(priority)
+                    .font(AppTypography.metadata)
+                    .foregroundStyle(accent)
+                    .textCase(.uppercase)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.82)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            Text(title)
+                .font(titleFont)
+                .foregroundStyle(AppColors.textPrimary)
+                .lineLimit(3)
+                .minimumScaleFactor(0.82)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Text(subtitle)
+                .font(subtitleFont)
+                .foregroundStyle(subtitleColor)
+                .lineLimit(prominence == .quiet ? 2 : 4)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .layoutPriority(1)
+    }
+
+    @ViewBuilder
+    private var accessory: some View {
+        if let cta {
+            Text(cta)
+                .font(prominence == .primary ? AppTypography.bodyStrong : AppTypography.captionStrong)
+                .foregroundStyle(AppColors.navyDeep)
+                .lineLimit(1)
+                .minimumScaleFactor(0.78)
+                .padding(.horizontal, prominence == .primary ? 15 : 11)
+                .frame(minHeight: prominence == .primary ? 42 : 36)
+                .background(accent, in: Capsule())
+        } else {
+            Image(systemName: "chevron.right")
+                .font(.system(size: 13, weight: .bold))
+                .foregroundStyle(prominence == .quiet ? AppColors.textTertiary.opacity(0.62) : AppColors.textTertiary)
+        }
+    }
+
+    private var cardPadding: CGFloat {
+        switch prominence {
+        case .primary: return PremiumVisualMetrics.Card.padding + 4
+        case .normal: return PremiumVisualMetrics.Card.padding
+        case .quiet: return max(PremiumVisualMetrics.Card.compactPadding - 2, 10)
+        }
+    }
+
+    private var symbolSize: CGFloat {
+        switch prominence {
+        case .primary: return 58
+        case .normal: return 50
+        case .quiet: return 38
+        }
+    }
+
+    private var titleFont: Font {
+        switch prominence {
+        case .primary: return .system(size: 20, weight: .heavy, design: .default)
+        case .normal: return AppTypography.cardTitle
+        case .quiet: return AppTypography.bodyStrong
+        }
+    }
+
+    private var subtitleFont: Font {
+        prominence == .quiet ? AppTypography.caption : AppTypography.body
+    }
+
+    private var subtitleColor: Color {
+        prominence == .quiet ? AppColors.textTertiary : AppColors.textSecondary
+    }
+}
+
+struct ProductSymbolTile: View {
+    let symbol: String
+    let accent: Color
+    var size: CGFloat = 44
+
+    var body: some View {
+        Image(systemName: symbol)
+            .font(.system(size: size * 0.40, weight: .bold))
+            .foregroundStyle(accent)
+            .frame(width: size, height: size)
+            .background {
+                RoundedRectangle(cornerRadius: min(16, size * 0.30), style: .continuous)
+                    .fill(
+                        LinearGradient(
+                            colors: [
+                                accent.opacity(0.20),
+                                accent.opacity(0.085),
+                                Color.white.opacity(0.035)
+                            ],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        )
+                    )
+            }
+            .clipShape(RoundedRectangle(cornerRadius: min(16, size * 0.30), style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: min(16, size * 0.30), style: .continuous)
+                    .stroke(
+                        LinearGradient(
+                            colors: [Color.white.opacity(0.16), accent.opacity(0.28), Color.white.opacity(0.045)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ),
+                        lineWidth: 0.8
+                    )
+            )
+            .shadow(color: accent.opacity(0.10), radius: 10, x: 0, y: 5)
+            .accessibilityHidden(true)
+    }
+}
+
+typealias ProductHero<Content: View> = PremiumHeroSurface<Content>
+
+struct ProductCTA: View {
+    let title: String
+    var subtitle: String? = nil
+    let symbol: String
+    let accent: Color
+
+    var body: some View {
+        HStack(spacing: AppSpacing.small) {
+            ProductSymbolTile(symbol: symbol, accent: accent, size: 42)
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text(title)
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.82)
+
+                if let subtitle {
+                    Text(subtitle)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(2)
+                }
+            }
+
+            Spacer(minLength: 8)
+
+            Image(systemName: "arrow.right")
+                .font(.system(size: 13, weight: .bold))
+                .foregroundStyle(accent)
+        }
+        .padding(PremiumVisualMetrics.Card.compactPadding)
+        .frame(maxWidth: .infinity, minHeight: 72, alignment: .leading)
+        .premiumCardChrome(accent: accent)
+    }
+}
+
+struct ProductListItem: View {
+    let title: String
+    let subtitle: String
+    let symbol: String
+    let accent: Color
+    var metadata: String? = nil
+
+    var body: some View {
+        HStack(alignment: .top, spacing: AppSpacing.small) {
+            ProductSymbolTile(symbol: symbol, accent: accent, size: 40)
+
+            VStack(alignment: .leading, spacing: 4) {
+                if let metadata {
+                    Text(metadata)
+                        .font(AppTypography.metadata)
+                        .foregroundStyle(accent)
+                        .textCase(.uppercase)
+                        .lineLimit(1)
+                }
+
+                Text(title)
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.82)
+
+                Text(subtitle)
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            Spacer(minLength: 0)
+        }
+        .padding(PremiumVisualMetrics.Card.compactPadding)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .premiumCardChrome(accent: accent)
+    }
+}
+
+struct ProductInfoBlock: View {
+    let title: String
+    let bodyText: String
+    let symbol: String
+    let accent: Color
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            HStack(spacing: AppSpacing.small) {
+                ProductSymbolTile(symbol: symbol, accent: accent, size: 42)
+                Text(title)
+                    .font(AppTypography.cardTitle)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.82)
+            }
+
+            Text(bodyText)
+                .font(AppTypography.body)
+                .foregroundStyle(AppColors.textSecondary)
+                .lineLimit(nil)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(PremiumVisualMetrics.Card.padding)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .premiumCardChrome(accent: accent)
+    }
+}
+
+struct PremiumImageCard<Content: View>: View {
+    let title: String
+    let subtitle: String
+    let asset: AppImageAsset?
+    let language: AppLanguage
+    let symbol: String
+    let accent: Color
+    var imageHeight: CGFloat = PremiumVisualMetrics.Image.searchHeaderHeight
+    var minHeight: CGFloat = PremiumVisualMetrics.Card.minSearchResultHeight
+    var fallbackCategory: PremiumImageFallbackCategory = .search
+    @ViewBuilder let metadata: () -> Content
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 0) {
+            PremiumImageHeader(
+                title: title,
+                asset: asset,
+                language: language,
+                symbol: symbol,
+                accent: accent,
+                height: imageHeight,
+                fallbackCategory: fallbackCategory
+            )
+
+            VStack(alignment: .leading, spacing: AppSpacing.small) {
+                metadata()
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Text(title)
+                    .font(AppTypography.cardTitle)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(3)
+                    .minimumScaleFactor(0.82)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+
+                Text(subtitle)
+                    .font(AppTypography.body)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(4)
+                    .multilineTextAlignment(.leading)
+                    .fixedSize(horizontal: false, vertical: true)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            .padding(PremiumVisualMetrics.Card.padding)
+            .frame(maxWidth: .infinity, alignment: .leading)
+        }
+        .frame(maxWidth: .infinity, minHeight: minHeight, alignment: .topLeading)
+        .premiumCardChrome(accent: accent)
+    }
+}
+
+struct PremiumDirectResultCard: View {
+    let type: String
+    let title: String
+    let subtitle: String
+    let symbol: String
+    let asset: AppImageAsset?
+    let accent: Color
+    let language: AppLanguage
+
+    var body: some View {
+        directBody
+        .frame(maxWidth: .infinity, minHeight: PremiumVisualMetrics.Card.directResultMinHeight, alignment: .topLeading)
+        .padding(PremiumVisualMetrics.Card.compactPadding)
+        .premiumCardChrome(accent: accent)
+    }
+
+    private var directBody: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            PremiumImageHeader(
+                title: title,
+                asset: asset,
+                language: language,
+                symbol: symbol,
+                accent: accent,
+                height: PremiumVisualMetrics.Image.carouselThumbnailHeight,
+                cornerRadius: 14,
+                fallbackCategory: .search
+            )
+            directText
+        }
+    }
+
+    private var directText: some View {
+        VStack(alignment: .leading, spacing: 6) {
+            Text(type)
+                .font(AppTypography.metadata)
+                .foregroundStyle(accent)
+                .textCase(.uppercase)
+                .lineLimit(1)
+            Text(title)
+                .font(AppTypography.cardTitle)
+                .foregroundStyle(AppColors.textPrimary)
+                .lineLimit(2)
+                .minimumScaleFactor(0.82)
+                .fixedSize(horizontal: false, vertical: true)
+            Text(subtitle)
+                .font(AppTypography.caption)
+                .foregroundStyle(AppColors.textSecondary)
+                .lineLimit(4)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+}
+
+struct PremiumImageHeader: View {
+    let title: String
+    let asset: AppImageAsset?
+    let language: AppLanguage
+    let symbol: String
+    let accent: Color
+    var height: CGFloat
+    var width: CGFloat? = nil
+    var cornerRadius: CGFloat = 0
+    var fallbackCategory: PremiumImageFallbackCategory = .city
+
+    var body: some View {
+        ZStack(alignment: .bottomLeading) {
+            PremiumImageView(
+                asset: asset,
+                language: language,
+                height: height,
+                aspectRatio: nil,
+                mode: .fill,
+                cornerRadius: cornerRadius,
+                overlayStyle: .none,
+                fallbackCategory: fallbackCategory,
+                accessibilityLabel: title,
+                targetPixelWidth: PremiumVisualMetrics.Image.cardTargetPixelWidth,
+                role: .card,
+                overlayPolicy: .none,
+                focalPoint: .center
+            )
+            .frame(width: width)
+            .frame(height: height)
+            .frame(maxWidth: width == nil ? .infinity : nil)
+            .clipped()
+            .accessibilityHidden(true)
+
+            if let gradient = PremiumImageOverlayPolicy.balanced.gradient(role: .card, asset: asset) {
+                gradient
+                    .frame(width: width)
+                    .frame(height: height)
+                    .frame(maxWidth: width == nil ? .infinity : nil)
+                    .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+                    .allowsHitTesting(false)
+            }
+
+            Image(systemName: symbol)
+                .font(.system(size: 18, weight: .bold))
+                .foregroundStyle(.white)
+                .frame(width: 42, height: 42)
+                .background(accent.opacity(0.86), in: RoundedRectangle(cornerRadius: 13, style: .continuous))
+                .padding(14)
+        }
+        .frame(width: width)
+        .frame(maxWidth: width == nil ? .infinity : nil)
+        .frame(height: height)
+        .clipShape(RoundedRectangle(cornerRadius: cornerRadius, style: .continuous))
+        .clipped()
+    }
+}
+
+private extension View {
+    func premiumCardChrome(accent: Color, prominence: ProductTaskCard.Prominence = .normal) -> some View {
+        background {
+            ZStack {
+                AppColors.glassSurfaceElevated.opacity(surfaceOpacity(for: prominence))
+
+                if prominence == .primary {
+                    LinearGradient(
+                        colors: [
+                            accent.opacity(0.16),
+                            AppColors.glassSurfaceElevated.opacity(0.30)
+                        ],
+                        startPoint: .topLeading,
+                        endPoint: .bottomTrailing
+                    )
+                }
+            }
+        }
+            .clipShape(RoundedRectangle(cornerRadius: PremiumVisualMetrics.Card.cornerRadius, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: PremiumVisualMetrics.Card.cornerRadius, style: .continuous)
+                    .stroke(cardBorder(accent: accent, prominence: prominence), lineWidth: prominence == .primary ? 1.2 : PremiumVisualMetrics.Card.borderWidth)
+            )
+            .shadow(color: Color.black.opacity(shadowOpacity(for: prominence)), radius: shadowRadius(for: prominence), x: 0, y: shadowY(for: prominence))
+    }
+
+    private func surfaceOpacity(for prominence: ProductTaskCard.Prominence) -> Double {
+        switch prominence {
+        case .primary: return 1
+        case .normal: return 0.86
+        case .quiet: return 0.58
+        }
+    }
+
+    private func cardBorder(accent: Color, prominence: ProductTaskCard.Prominence) -> AnyShapeStyle {
+        switch prominence {
+        case .primary: return AnyShapeStyle(accent.opacity(0.34))
+        case .normal: return AnyShapeStyle(AppSurface.cardBorder(accent: accent).opacity(0.82))
+        case .quiet: return AnyShapeStyle(Color.white.opacity(0.10))
+        }
+    }
+
+    private func shadowOpacity(for prominence: ProductTaskCard.Prominence) -> Double {
+        switch prominence {
+        case .primary: return 0.24
+        case .normal: return 0.14
+        case .quiet: return 0.06
+        }
+    }
+
+    private func shadowRadius(for prominence: ProductTaskCard.Prominence) -> CGFloat {
+        switch prominence {
+        case .primary: return 24
+        case .normal: return 14
+        case .quiet: return 8
+        }
+    }
+
+    private func shadowY(for prominence: ProductTaskCard.Prominence) -> CGFloat {
+        switch prominence {
+        case .primary: return 14
+        case .normal: return 8
+        case .quiet: return 4
+        }
+    }
+}
+
 // MARK: - TypewriterText
 
 /// Animates text character-by-character on appear, like a typewriter.
 struct TypewriterText: View {
     let fullText: String
     var speed: TimeInterval = 0.045
-    @State private var displayed = ""
 
     var body: some View {
-        Text(displayed)
-            .task(id: fullText) {
-                displayed = ""
-                for char in fullText {
-                    try? await Task.sleep(for: .seconds(speed))
-                    displayed += String(char)
-                }
-            }
+        Text(fullText)
     }
 }
 

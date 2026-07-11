@@ -17,6 +17,15 @@ enum CityVisualRole: String, CaseIterable, Equatable {
     case card
 }
 
+enum CityHeroSeason: String, CaseIterable, Equatable {
+    case day
+    case night
+    case autumn
+    case winter
+    case spring
+    case summer
+}
+
 enum ProvinceVisualRole: String, CaseIterable, Equatable {
     case landscape
     case culture
@@ -39,8 +48,10 @@ struct CuratedPlaceVisualMedia: Equatable {
 }
 
 enum CuratedPlaceHeroMediaRegistry {
-    static let cityPlaceholderAssetName = bundledEmergencyFallbackAssetName
-    static let provincePlaceholderAssetName = bundledEmergencyFallbackAssetName
+    static let bundledNeutralFallbackAssetName = "netherlands_map_base"
+    static let bundledMapFallbackAssetName = "netherlands_map_base"
+    static let cityPlaceholderAssetName = bundledNeutralFallbackAssetName
+    static let provincePlaceholderAssetName = bundledMapFallbackAssetName
     static let bundledEmergencyFallbackAssetName = "premium_netherlands_emergency_fallback"
     static let netherlandsPremiumFallbackURL: URL? = nil
 
@@ -56,7 +67,7 @@ enum CuratedPlaceHeroMediaRegistry {
         "nl-city-noord_holland-heerhugowaard": media("nl-city-noord_holland-heerhugowaard", "hero_heerhugowaard", remote: "https://upload.wikimedia.org/wikipedia/commons/4/42/Station_Heerhugowaard_%282024%29-11.jpg"),
         "nl-city-zuid_holland-rotterdam": media("nl-city-zuid_holland-rotterdam", "hero_rotterdam", remote: "https://commons.wikimedia.org/wiki/Special:FilePath/Erasmusbrug%20seen%20from%20Euromast.jpg?width=2400"),
         "nl-city-zuid_holland-den_haag": media("nl-city-zuid_holland-den_haag", "hero_den_haag", remote: "https://commons.wikimedia.org/wiki/Special:FilePath/Friedenspalast_Den_Haag.jpg?width=2400"),
-        "nl-city-zuid_holland-leiden": media("nl-city-zuid_holland-leiden", "hero_leiden", remote: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leiden_Grachten_20.jpg/3840px-Leiden_Grachten_20.jpg"),
+        "nl-city-zuid_holland-leiden": media("nl-city-zuid_holland-leiden", "hero_leiden", remote: "https://commons.wikimedia.org/wiki/Special:FilePath/Oude%20Vest%20canal%2C%20Leiden%206869.jpg?width=2400"),
         "nl-city-zuid_holland-delft": media("nl-city-zuid_holland-delft", "hero_delft", remote: "https://upload.wikimedia.org/wikipedia/commons/c/c2/Delft_Blick_von_der_Nieuwe_Kerk_auf_die_Oude_Kerk_1.jpg"),
         "nl-city-utrecht-utrecht": media("nl-city-utrecht-utrecht", "hero_utrecht", remote: "https://commons.wikimedia.org/wiki/Special:FilePath/Utrecht%2C%20de%20Domtoren%20%28RM36075%29%20vanaf%20de%20Oudegracht%20230%20ongeveer%20foto5%202015-11-01%2008.56.jpg?width=2400"),
         "nl-city-utrecht-amersfoort": media("nl-city-utrecht-amersfoort", "hero_amersfoort", remote: "https://upload.wikimedia.org/wikipedia/commons/e/e3/Amersfoort_Zuidsingel.JPG"),
@@ -117,7 +128,7 @@ enum CuratedPlaceHeroMediaRegistry {
             .card: visual("nl-city-zuid_holland-den_haag", "card", "Hofvijver and Binnenhof", "Card view protects the government skyline over Hofvijver.", "card_den_haag_hofvijver", remote: "https://commons.wikimedia.org/wiki/Special:FilePath/Den%20Haag%2C%20het%20Binnenhof%20diverse%20RM%20met%20de%20Hofvijver%20op%20de%20voorgrond%20foto8%202015-08-05%2018.56.jpg?width=1200")
         ],
         "nl-city-zuid_holland-leiden": [
-            .hero: visual("nl-city-zuid_holland-leiden", "hero", "Leiden canals", "Leiden identity: historic university canal city.", "hero_leiden", remote: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leiden_Grachten_20.jpg/3840px-Leiden_Grachten_20.jpg", minimumPixelWidth: 3840),
+            .hero: visual("nl-city-zuid_holland-leiden", "hero", "Oude Vest canal", "Leiden identity: historic university canal city.", "hero_leiden", remote: "https://commons.wikimedia.org/wiki/Special:FilePath/Oude%20Vest%20canal%2C%20Leiden%206869.jpg?width=2400", minimumPixelWidth: 2400),
             .landmark: visual("nl-city-zuid_holland-leiden", "landmark", "Molen de Valk", "Landmark role uses Leiden's own windmill museum beside the old canal city.", "landmark_leiden_molen_de_valk", remote: "https://commons.wikimedia.org/wiki/Special:FilePath/De%20Valk%20Leiden%206847.jpg?width=1600"),
             .culture: visual("nl-city-zuid_holland-leiden", "culture", "Hortus Botanicus Leiden", "Culture role reflects university science heritage.", "culture_leiden_hortus", remote: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e6/Hortus_Botanicus_Leiden.jpg/1280px-Hortus_Botanicus_Leiden.jpg"),
             .night: visual("nl-city-zuid_holland-leiden", "night", "Leiden illuminated canals", "Night role uses illuminated historic centre, separate from Oude Vest hero.", "night_leiden_canals", remote: "https://commons.wikimedia.org/wiki/Special:FilePath/Harbour%20area%2C%20Leiden%2C%20by%20night%20%284079027076%29%20%283%29.jpg?width=1600"),
@@ -425,6 +436,29 @@ enum CuratedPlaceHeroMediaRegistry {
 
     static func cityVisual(for placeId: String, role: CityVisualRole) -> CuratedPlaceVisualMedia? {
         cityVisualsByPlaceId[placeId]?[role]
+    }
+
+    static func seasonalCityHero(for placeId: String, season: CityHeroSeason) -> CuratedPlaceVisualMedia? {
+        let role: CityVisualRole
+        switch season {
+        case .day:
+            role = .hero
+        case .night:
+            role = .night
+        case .spring:
+            role = .landmark
+        case .summer:
+            role = .card
+        case .autumn:
+            role = .culture
+        case .winter:
+            role = .thumbnail
+        }
+        return cityVisual(for: placeId, role: role)
+    }
+
+    static func rotatingCityHeroes(for placeId: String) -> [CuratedPlaceVisualMedia] {
+        CityHeroSeason.allCases.compactMap { seasonalCityHero(for: placeId, season: $0) }
     }
 
     static func provinceVisual(for placeId: String, role: ProvinceVisualRole) -> CuratedPlaceVisualMedia? {

@@ -16,6 +16,12 @@ struct CultureAttractionsView: View {
         let articleByID = Dictionary(uniqueKeysWithValues: allArticles.map { ($0.id, $0) })
         return topicOrder.compactMap { articleByID[$0] }
     }
+    private var cultureTopics: [InfoArticle] {
+        orderedTopics.filter { $0.type == .culture }
+    }
+    private var attractionTopics: [InfoArticle] {
+        orderedTopics.filter { $0.type != .culture }
+    }
 
     var body: some View {
         ScrollView {
@@ -45,11 +51,13 @@ struct CultureAttractionsView: View {
             badgeText: badgeText,
             accent: AppColors.dutchOrange,
             asset: ContentMediaRegistry.cultureHero
+                ?? ContentMediaRegistry.museumsCultureImage
+                ?? ContentMediaRegistry.mapImage
         )
     }
 
     private var introSection: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        return VStack(alignment: .leading, spacing: 8) {
             Text(introTitle)
                 .font(AppTypography.bodyStrong)
                 .foregroundStyle(AppColors.textPrimary)
@@ -69,13 +77,14 @@ struct CultureAttractionsView: View {
                 subtitle: tourismSectionSubtitle
             )
 
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 8) {
-                    ForEach(TourismCategory.allCases, id: \.self) { category in
-                        tourismCategoryChip(category)
-                    }
+            LazyVGrid(
+                columns: [GridItem(.adaptive(minimum: 116), spacing: 8)],
+                alignment: .leading,
+                spacing: 8
+            ) {
+                ForEach(TourismCategory.allCases, id: \.self) { category in
+                    tourismCategoryChip(category)
                 }
-                .padding(.vertical, 2)
             }
 
             LazyVGrid(columns: [GridItem(.adaptive(minimum: 250), spacing: AppSpacing.small)], spacing: AppSpacing.small) {
@@ -83,6 +92,7 @@ struct CultureAttractionsView: View {
                     tourismAttractionCard(record)
                 }
             }
+            .id(selectedTourismCategory)
         }
     }
 
@@ -102,7 +112,7 @@ struct CultureAttractionsView: View {
             }
             .foregroundStyle(isSelected ? Color.white : AppColors.textSecondary)
             .padding(.horizontal, 12)
-            .padding(.vertical, 8)
+            .frame(maxWidth: .infinity, minHeight: 40)
             .background(isSelected ? AppColors.dutchOrange : AppColors.chipBackground)
             .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
             .overlay(
@@ -111,6 +121,9 @@ struct CultureAttractionsView: View {
             )
         }
         .buttonStyle(.plain)
+        .contentShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .accessibilityAddTraits(isSelected ? .isSelected : [])
+        .accessibilityIdentifier("culture.category.\(category.rawValue)")
     }
 
     private func tourismAttractionCard(_ record: TourismAttractionRecord) -> some View {
@@ -129,7 +142,7 @@ struct CultureAttractionsView: View {
                     sourceRegistry: "TourismAttractionCatalog",
                     modelID: record.id
                 ),
-                targetPixelWidth: 1200
+                renderRole: .card
             )
             .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 
@@ -196,36 +209,47 @@ struct CultureAttractionsView: View {
 
     private var topicFlow: some View {
         LazyVStack(alignment: .leading, spacing: AppSpacing.small) {
-            ForEach(Array(orderedTopics.enumerated()), id: \.element.id) { index, article in
-                topicCard(article, index: index, next: nextTopicTitle(after: index))
+            if !cultureTopics.isEmpty {
+                topicGroupHeader(title: cultureTopicsTitle, subtitle: cultureTopicsSubtitle, accent: AppColors.emerald)
+                ForEach(Array(cultureTopics.enumerated()), id: \.element.id) { index, article in
+                    topicCard(article, index: index, next: nextTopicTitle(in: cultureTopics, after: index))
+                }
+            }
+
+            if !attractionTopics.isEmpty {
+                topicGroupHeader(title: attractionTopicsTitle, subtitle: attractionTopicsSubtitle, accent: AppColors.dutchOrange)
+                    .padding(.top, AppSpacing.medium)
+                ForEach(Array(attractionTopics.enumerated()), id: \.element.id) { index, article in
+                    topicCard(article, index: index, next: nextTopicTitle(in: attractionTopics, after: index))
+                }
             }
         }
     }
 
+    private func topicGroupHeader(title: String, subtitle: String, accent: Color) -> some View {
+        VStack(alignment: .leading, spacing: 4) {
+            RoundedRectangle(cornerRadius: 2, style: .continuous)
+                .fill(accent)
+                .frame(width: 42, height: 3)
+                .padding(.bottom, 4)
+
+            Text(title)
+                .font(.system(.title3, design: .rounded).weight(.bold))
+                .foregroundStyle(AppColors.textPrimary)
+                .lineLimit(2)
+                .minimumScaleFactor(0.82)
+
+            Text(subtitle)
+                .font(AppTypography.caption)
+                .foregroundStyle(AppColors.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(.top, AppSpacing.small)
+    }
+
     private func topicCard(_ article: InfoArticle, index: Int, next: String?) -> some View {
         VStack(alignment: .leading, spacing: 12) {
-            HStack(alignment: .top, spacing: 12) {
-                topicThumbnail(article, accent: accent(for: article))
-
-                VStack(alignment: .leading, spacing: 5) {
-                    Text("\(topicLabel) \(index + 1)")
-                        .font(AppTypography.metadata)
-                        .foregroundStyle(accent(for: article))
-                        .textCase(.uppercase)
-
-                    Text(article.title.value(lang))
-                        .font(AppTypography.bodyStrong)
-                        .foregroundStyle(AppColors.textPrimary)
-                        .lineLimit(2)
-                        .fixedSize(horizontal: false, vertical: true)
-
-                    Text(article.subtitle.value(lang))
-                        .font(AppTypography.caption)
-                        .foregroundStyle(AppColors.textSecondary)
-                        .lineLimit(3)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-            }
+            topicHeader(article, index: index)
 
             explanationBlock(article, accent: accent(for: article))
             sourceBlock(article, accent: accent(for: article))
@@ -247,6 +271,38 @@ struct CultureAttractionsView: View {
         .appGlassCardStyle(padding: 12, cornerRadius: 16, accent: accent(for: article))
     }
 
+    private func topicHeader(_ article: InfoArticle, index: Int) -> some View {
+        VStack(alignment: .leading, spacing: 10) {
+            topicWideImage(article, accent: accent(for: article))
+            topicHeaderText(article, index: index)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
+    private func topicHeaderText(_ article: InfoArticle, index: Int) -> some View {
+        VStack(alignment: .leading, spacing: 5) {
+            Text("\(topicLabel) \(index + 1)")
+                .font(AppTypography.metadata)
+                .foregroundStyle(accent(for: article))
+                .textCase(.uppercase)
+
+            Text(article.title.value(lang))
+                .font(AppTypography.bodyStrong)
+                .foregroundStyle(AppColors.textPrimary)
+                .lineLimit(3)
+                .minimumScaleFactor(0.86)
+                .fixedSize(horizontal: false, vertical: true)
+
+            Text(article.subtitle.value(lang))
+                .font(AppTypography.caption)
+                .foregroundStyle(AppColors.textSecondary)
+                .lineLimit(3)
+                .multilineTextAlignment(.leading)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .frame(maxWidth: .infinity, alignment: .leading)
+    }
+
     @ViewBuilder
     private func topicThumbnail(_ article: InfoArticle, accent: Color) -> some View {
         if let image = article.image {
@@ -263,12 +319,42 @@ struct CultureAttractionsView: View {
                 targetPixelWidth: 360
             )
             .frame(width: 82, height: 62)
+            .clipped()
         } else {
             Image(systemName: article.symbol)
                 .font(.system(size: 19, weight: .bold))
                 .foregroundStyle(accent)
                 .frame(width: 82, height: 62)
                 .background(accent.opacity(0.12))
+                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+        }
+    }
+
+    @ViewBuilder
+    private func topicWideImage(_ article: InfoArticle, accent: Color) -> some View {
+        if let image = article.image {
+            AppContentImageView(
+                asset: image,
+                language: lang,
+                mode: .fill,
+                accent: accent,
+                aspectRatio: 16.0 / 9.0,
+                cornerRadius: 12,
+                showsCaption: false,
+                showsSourceButton: false,
+                accessibilityLabel: image.displayTitle(lang),
+                targetPixelWidth: 720
+            )
+            .frame(maxWidth: .infinity)
+            .frame(height: 138)
+            .clipped()
+        } else {
+            Image(systemName: article.symbol)
+                .font(.system(size: 22, weight: .bold))
+                .foregroundStyle(accent)
+                .frame(maxWidth: .infinity)
+                .frame(height: 84)
+                .background(accent.opacity(0.10))
                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
         }
     }
@@ -296,49 +382,112 @@ struct CultureAttractionsView: View {
     }
 
     private func sourceBlock(_ article: InfoArticle, accent: Color) -> some View {
-        VStack(alignment: .leading, spacing: 8) {
+        let validSources = article.sources.prefix(2).compactMap { source -> (InfoSourceMetadata, URL)? in
+            guard let sourceURL = AppURL.validatedWebURL(source.url) else { return nil }
+            return (source, sourceURL)
+        }
+
+        return VStack(alignment: .leading, spacing: 8) {
             Label(sourceLabel, systemImage: "checkmark.seal.fill")
                 .font(AppTypography.captionStrong)
                 .foregroundStyle(AppColors.textPrimary)
 
-            ForEach(article.sources.prefix(2)) { source in
-                if let sourceURL = AppURL.validatedWebURL(source.url) {
-                    Button {
-                        openURL(sourceURL)
-                    } label: {
-                    HStack(spacing: 8) {
-                        Image(systemName: AppIcons.external)
-                            .font(.system(size: 11, weight: .bold))
-                        VStack(alignment: .leading, spacing: 2) {
-                            Text(source.title)
-                                .font(.system(size: 12, weight: .bold, design: .rounded))
-                                .lineLimit(1)
-                            Text(source.institution)
-                                .font(.system(size: 11, weight: .medium, design: .rounded))
-                                .foregroundStyle(AppColors.textSecondary)
-                                .lineLimit(1)
-                        }
-                        Spacer(minLength: 0)
-                    }
-                    .foregroundStyle(accent)
-                    .padding(.horizontal, 10)
-                    .padding(.vertical, 8)
-                    .background(accent.opacity(0.08))
-                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
-                    }
-                    .buttonStyle(.plain)
+            if validSources.isEmpty {
+                sourceFallbackRows(accent: accent)
+            } else {
+                ForEach(validSources, id: \.0.id) { source, sourceURL in
+                    cultureSourceButton(source: source, sourceURL: sourceURL, accent: accent)
                 }
             }
         }
+        .accessibilityIdentifier("culture.article.sources.dashboard")
+    }
+
+    private func cultureSourceButton(source: InfoSourceMetadata, sourceURL: URL, accent: Color) -> some View {
+        Button {
+            openURL(sourceURL)
+        } label: {
+            HStack(spacing: 8) {
+                Image(systemName: AppIcons.external)
+                    .font(.system(size: 11, weight: .bold))
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(source.title)
+                        .font(.system(size: 12, weight: .bold, design: .rounded))
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.82)
+                    Text(source.institution)
+                        .font(.system(size: 11, weight: .medium, design: .rounded))
+                        .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(1)
+                }
+                Spacer(minLength: 0)
+            }
+            .foregroundStyle(accent)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 8)
+            .background(accent.opacity(0.08))
+            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+        }
+        .buttonStyle(.plain)
+    }
+
+    private func sourceFallbackRows(accent: Color) -> some View {
+        VStack(alignment: .leading, spacing: 8) {
+            sourceFallbackRow(
+                title: officialSourcesFallbackTitle,
+                subtitle: officialSourcesFallbackSubtitle,
+                symbol: AppIcons.officialSource,
+                destination: .officialSources,
+                accent: accent
+            )
+
+            sourceFallbackRow(
+                title: cultureFallbackTitle,
+                subtitle: cultureFallbackSubtitle,
+                symbol: "sparkles.rectangle.stack.fill",
+                destination: .cultureAttractions,
+                accent: accent
+            )
+        }
+        .accessibilityIdentifier("culture.article.sources.empty")
+    }
+
+    private func sourceFallbackRow(title: String, subtitle: String, symbol: String, destination: AppDestination, accent: Color) -> some View {
+        NavigationLink(value: destination) {
+            HStack(spacing: 8) {
+                Image(systemName: symbol)
+                    .font(.system(size: 11, weight: .bold))
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title)
+                        .font(.system(size: 12, weight: .bold, design: .rounded))
+                        .lineLimit(2)
+                        .minimumScaleFactor(0.82)
+                    Text(subtitle)
+                        .font(.system(size: 11, weight: .medium, design: .rounded))
+                        .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(2)
+                }
+                Spacer(minLength: 0)
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 10, weight: .bold))
+                    .foregroundStyle(AppColors.textTertiary)
+            }
+            .foregroundStyle(accent)
+            .padding(.horizontal, 10)
+            .padding(.vertical, 8)
+            .background(accent.opacity(0.08))
+            .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+        }
+        .buttonStyle(.plain)
     }
 
     private func accent(for article: InfoArticle) -> Color {
         article.type == .culture ? AppColors.emerald : AppColors.dutchOrange
     }
 
-    private func nextTopicTitle(after index: Int) -> String? {
-        guard orderedTopics.indices.contains(index + 1) else { return nil }
-        return orderedTopics[index + 1].title.value(lang)
+    private func nextTopicTitle(in topics: [InfoArticle], after index: Int) -> String? {
+        guard topics.indices.contains(index + 1) else { return nil }
+        return topics[index + 1].title.value(lang)
     }
 
     private var topicOrder: [String] {
@@ -365,7 +514,7 @@ struct CultureAttractionsView: View {
 
     private var titleText: String { "Culture & Attractions" }
     private var subtitleText: String {
-        "A practical, source-backed path through Dutch daily culture, canals, museums, and city landmarks."
+        "Dutch culture, canals, museums, and city landmarks."
     }
     private var badgeText: String { "Guide" }
     private var introTitle: String { "Start with context, then choose a place" }
@@ -376,6 +525,34 @@ struct CultureAttractionsView: View {
     private var explanationLabel: String { "Explanation" }
     private var sourceLabel: String { "Source" }
     private var nextTopicLabel: String { "Next topic" }
+    private var officialSourcesFallbackTitle: String {
+        switch lang {
+        case .russian: return "Официальные источники"
+        case .dutch: return "Officiële bronnen"
+        case .english: return "Official sources"
+        }
+    }
+    private var officialSourcesFallbackSubtitle: String {
+        switch lang {
+        case .russian: return "Проверьте актуальную информацию перед поездкой."
+        case .dutch: return "Controleer actuele informatie voordat je gaat."
+        case .english: return "Check current information before you go."
+        }
+    }
+    private var cultureFallbackTitle: String {
+        switch lang {
+        case .russian: return "Культура и достопримечательности"
+        case .dutch: return "Cultuur & attracties"
+        case .english: return "Culture & attractions"
+        }
+    }
+    private var cultureFallbackSubtitle: String {
+        switch lang {
+        case .russian: return "Вернуться к проверенным темам и местам."
+        case .dutch: return "Ga terug naar gecontroleerde thema's en plekken."
+        case .english: return "Return to verified topics and places."
+        }
+    }
     private var tourismSectionTitle: String {
         switch lang {
         case .english: return "Tourism by category"
@@ -388,6 +565,34 @@ struct CultureAttractionsView: View {
         case .english: return "Attractions with specific photos, locations, reasons to visit, and seasons."
         case .dutch: return "Attracties met specifieke foto's, locaties, bezoekredenen en seizoenen."
         case .russian: return "Достопримечательности с конкретными фото, местом, причиной и сезоном."
+        }
+    }
+    private var cultureTopicsTitle: String {
+        switch lang {
+        case .english: return "Culture basics"
+        case .dutch: return "Cultuurbasis"
+        case .russian: return "Основы культуры"
+        }
+    }
+    private var cultureTopicsSubtitle: String {
+        switch lang {
+        case .english: return "Daily life, communication, cycling, water, museums, and local routines."
+        case .dutch: return "Dagelijks leven, communicatie, fietsen, water, musea en lokale routines."
+        case .russian: return "Повседневная жизнь, общение, велосипеды, вода, музеи и местные привычки."
+        }
+    }
+    private var attractionTopicsTitle: String {
+        switch lang {
+        case .english: return "City places"
+        case .dutch: return "Stadsplekken"
+        case .russian: return "Городские места"
+        }
+    }
+    private var attractionTopicsSubtitle: String {
+        switch lang {
+        case .english: return "Canals, historic centres, landmarks, UNESCO sites, and visitor source checks."
+        case .dutch: return "Grachten, historische centra, landmarks, UNESCO-sites en broncontrole."
+        case .russian: return "Каналы, исторические центры, достопримечательности, UNESCO и проверка источников."
         }
     }
     private var whyVisitLabel: String {

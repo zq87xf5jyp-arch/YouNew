@@ -40,41 +40,166 @@ struct DutchMonarchyView: View {
             subtitle: heroSubtitle,
             symbol: "crown.fill",
             badgeText: badgeText,
-            accent: AppColors.violet
+            accent: AppColors.violet,
+            asset: ContentMediaRegistry.theHagueBinnenhofImage ?? ContentMediaRegistry.cultureHero
         )
     }
 
     private var monarchsTimeline: some View {
         LazyVStack(spacing: 10) {
             ForEach(MockDutchHolidaysData.monarchs) { monarch in
-                MonarchCard(
-                    monarch: monarch,
-                    lang: lang,
-                    isExpanded: expandedMonarchID == monarch.id,
-                    onToggle: {
-                        withAnimation(.spring(response: 0.3, dampingFraction: 0.85)) {
-                            expandedMonarchID = expandedMonarchID == monarch.id ? nil : monarch.id
+                let isExpanded = expandedMonarchID == monarch.id
+                Button {
+                    withAnimation(.spring(response: 0.3, dampingFraction: 0.85)) {
+                        expandedMonarchID = expandedMonarchID == monarch.id ? nil : monarch.id
+                    }
+                } label: {
+                    VStack(alignment: .leading, spacing: AppSpacing.small) {
+                        monarchCard(monarch)
+
+                        if isExpanded {
+                            ProductInfoBlock(
+                                title: monarch.reign(lang),
+                                bodyText: monarch.summary(lang),
+                                symbol: "text.book.closed.fill",
+                                accent: monarch.accentColor
+                            )
+                            .transition(.opacity.combined(with: .move(edge: .top)))
                         }
                     }
-                )
+                }
+                .buttonStyle(.plain)
             }
         }
+    }
+
+    private func monarchCard(_ monarch: DutchMonarch) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            PremiumImageHeader(
+                title: monarch.name,
+                asset: monarchImageAsset(monarch),
+                language: lang,
+                symbol: "crown.fill",
+                accent: monarch.accentColor,
+                height: 88,
+                width: 96,
+                cornerRadius: 18,
+                fallbackCategory: .city
+            )
+            .layoutPriority(0)
+
+            VStack(alignment: .leading, spacing: 7) {
+                Text(monarch.emoji)
+                    .font(.system(size: 18))
+                    .lineLimit(1)
+
+                Text(monarch.name)
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+
+                Text("\(monarch.years) · \(monarch.reign(lang))")
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(3)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .layoutPriority(1)
+        }
+        .frame(maxWidth: .infinity, minHeight: 132, alignment: .topLeading)
+        .appCardStyle()
     }
 
     private var monarchyCards: some View {
         LazyVStack(spacing: 10) {
             ForEach(MockNetherlandsUnderstandingData.monarchyCards) { card in
-                CivicCard(
-                    item: card,
-                    lang: lang,
-                    isExpanded: expandedCardID == card.id,
-                    onToggle: {
-                        withAnimation(.spring(response: 0.3, dampingFraction: 0.85)) {
-                            expandedCardID = expandedCardID == card.id ? nil : card.id
+                let isExpanded = expandedCardID == card.id
+                Button {
+                    withAnimation(.spring(response: 0.3, dampingFraction: 0.85)) {
+                        expandedCardID = expandedCardID == card.id ? nil : card.id
+                    }
+                } label: {
+                    VStack(alignment: .leading, spacing: AppSpacing.small) {
+                        monarchyInfoCard(card)
+
+                        if isExpanded {
+                            VStack(alignment: .leading, spacing: AppSpacing.small) {
+                                ProductInfoBlock(
+                                    title: card.title(lang),
+                                    bodyText: card.detail(lang),
+                                    symbol: card.symbol,
+                                    accent: AppColors.violet
+                                )
+
+                                if let url = card.sourceURL {
+                                    Link(destination: AppURL.safeWebURL(url)) {
+                                        ProductCTA(
+                                            title: officialSourceLabel,
+                                            symbol: "arrow.up.right.square",
+                                            accent: AppColors.violet
+                                        )
+                                    }
+                                }
+                            }
+                            .transition(.opacity.combined(with: .move(edge: .top)))
                         }
                     }
-                )
+                }
+                .buttonStyle(.plain)
             }
+        }
+    }
+
+    private func monarchyInfoCard(_ card: CivicInfoCardItem) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            PremiumImageHeader(
+                title: card.title(lang),
+                asset: monarchyCardImageAsset(card),
+                language: lang,
+                symbol: card.symbol,
+                accent: AppColors.violet,
+                height: 88,
+                width: 96,
+                cornerRadius: 18,
+                fallbackCategory: .government
+            )
+            .layoutPriority(0)
+
+            VStack(alignment: .leading, spacing: 7) {
+                Text(card.title(lang))
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+
+                Text(card.summary(lang))
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(3)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .layoutPriority(1)
+        }
+        .frame(maxWidth: .infinity, minHeight: 132, alignment: .topLeading)
+        .appCardStyle()
+    }
+
+    private func monarchImageAsset(_ monarch: DutchMonarch) -> AppImageAsset? {
+        switch monarch.id {
+        case "willem-alexander", "beatrix", "juliana", "wilhelmina":
+            return ContentMediaRegistry.theHagueBinnenhofImage ?? ContentMediaRegistry.officialSourcesHero
+        default:
+            return ContentMediaRegistry.theHagueBinnenhofImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+    }
+
+    private func monarchyCardImageAsset(_ card: CivicInfoCardItem) -> AppImageAsset? {
+        switch card.id {
+        case "kings-day":
+            return ContentMediaRegistry.calendarImage ?? ContentMediaRegistry.theHagueBinnenhofImage
+        case "monarchy-funded":
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.theHagueBinnenhofImage
+        default:
+            return ContentMediaRegistry.theHagueBinnenhofImage ?? ContentMediaRegistry.officialSourcesHero
         }
     }
 
@@ -96,6 +221,14 @@ struct DutchMonarchyView: View {
             RoundedRectangle(cornerRadius: 14, style: .continuous)
                 .strokeBorder(AppColors.cyanGlow.opacity(0.18), lineWidth: 1)
         )
+    }
+
+    private var officialSourceLabel: String {
+        switch lang {
+        case .russian: return "Официальный источник"
+        case .dutch:   return "Officiële bron"
+        case .english: return "Official source"
+        }
     }
 
     // MARK: - Strings
@@ -169,153 +302,6 @@ struct DutchMonarchyView: View {
         case .russian: return "Информация о монархии основана на официальных данных Королевского дома Нидерландов (royal-house.nl) и Government.nl. Нидерланды — конституционная монархия: министры политически ответственны за решения правительства, а не монарх."
         case .dutch:   return "Monarchie-informatie is gebaseerd op officiële gegevens van het Koninklijk Huis der Nederlanden (royal-house.nl) en Government.nl. Nederland is een constitutionele monarchie: ministers zijn politiek verantwoordelijk voor regeringsbesluiten, niet de monarch."
         case .english: return "Monarchy information is based on official data from the Royal House of the Netherlands (royal-house.nl) and Government.nl. The Netherlands is a constitutional monarchy: ministers are politically responsible for government decisions, not the monarch."
-        }
-    }
-}
-
-// MARK: - MonarchCard
-
-private struct MonarchCard: View {
-    let monarch: DutchMonarch
-    let lang: AppLanguage
-    let isExpanded: Bool
-    let onToggle: () -> Void
-
-    var body: some View {
-        Button(action: onToggle) {
-            VStack(alignment: .leading, spacing: 0) {
-                header
-                if isExpanded {
-                    expandedContent
-                        .transition(.opacity.combined(with: .move(edge: .top)))
-                }
-            }
-        }
-        .buttonStyle(PlainButtonStyle())
-        .appGlassCardStyle(padding: 14, cornerRadius: 18, accent: monarch.accentColor)
-    }
-
-    private var header: some View {
-        HStack(spacing: 12) {
-            emojiIcon
-            VStack(alignment: .leading, spacing: 3) {
-                Text(monarch.name)
-                    .font(AppTypography.bodyStrong)
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(1)
-                    .minimumScaleFactor(0.82)
-                HStack(spacing: 4) {
-                    Text(monarch.years)
-                        .font(AppTypography.caption)
-                        .foregroundStyle(AppColors.textSecondary)
-                    Text("·")
-                        .foregroundStyle(AppColors.textTertiary)
-                    Text(monarch.reign(lang))
-                        .font(AppTypography.captionStrong)
-                        .foregroundStyle(monarch.accentColor)
-                        .lineLimit(1)
-                        .minimumScaleFactor(0.8)
-                }
-            }
-            Spacer(minLength: 4)
-            Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                .font(.system(size: 12, weight: .bold))
-                .foregroundStyle(AppColors.textTertiary)
-        }
-    }
-
-    private var emojiIcon: some View {
-        Text(monarch.emoji)
-            .font(.system(size: 22))
-            .frame(width: 48, height: 48)
-            .background(monarch.accentColor.opacity(0.14))
-            .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-    }
-
-    private var expandedContent: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Divider().background(monarch.accentColor.opacity(0.2)).padding(.top, 10)
-            Text(monarch.summary(lang))
-                .font(AppTypography.footnote)
-                .foregroundStyle(AppColors.textSecondary)
-                .fixedSize(horizontal: false, vertical: true)
-        }
-        .padding(.top, 2)
-    }
-}
-
-// MARK: - CivicCard (reusable for monarchyCards)
-
-private struct CivicCard: View {
-    let item: CivicInfoCardItem
-    let lang: AppLanguage
-    let isExpanded: Bool
-    let onToggle: () -> Void
-
-    var body: some View {
-        Button(action: onToggle) {
-            VStack(alignment: .leading, spacing: 0) {
-                header
-                if isExpanded {
-                    expandedContent
-                        .transition(.opacity.combined(with: .move(edge: .top)))
-                }
-            }
-        }
-        .buttonStyle(PlainButtonStyle())
-        .appGlassCardStyle(padding: 14, cornerRadius: 18, accent: AppColors.violet)
-    }
-
-    private var header: some View {
-        HStack(spacing: 12) {
-            Image(systemName: item.symbol)
-                .font(.system(size: 18, weight: .bold))
-                .foregroundStyle(AppColors.violet)
-                .frame(width: 42, height: 42)
-                .background(AppColors.violet.opacity(0.14))
-                .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
-
-            VStack(alignment: .leading, spacing: 3) {
-                Text(item.title(lang))
-                    .font(AppTypography.bodyStrong)
-                    .foregroundStyle(AppColors.textPrimary)
-                    .lineLimit(2)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text(item.summary(lang))
-                    .font(AppTypography.caption)
-                    .foregroundStyle(AppColors.textSecondary)
-                    .lineLimit(2)
-            }
-            Spacer(minLength: 4)
-            Image(systemName: isExpanded ? "chevron.up" : "chevron.down")
-                .font(.system(size: 12, weight: .bold))
-                .foregroundStyle(AppColors.textTertiary)
-        }
-    }
-
-    private var expandedContent: some View {
-        VStack(alignment: .leading, spacing: 10) {
-            Divider().background(AppColors.violet.opacity(0.2)).padding(.top, 10)
-            Text(item.detail(lang))
-                .font(AppTypography.footnote)
-                .foregroundStyle(AppColors.textSecondary)
-                .fixedSize(horizontal: false, vertical: true)
-            if let url = item.sourceURL {
-                Link(destination: AppURL.safeWebURL(url)) {
-                    Label(officialSourceLabel, systemImage: "arrow.up.right.square")
-                        .font(.system(size: 11, weight: .semibold))
-                        .foregroundStyle(AppColors.violet)
-                }
-            }
-        }
-        .padding(.top, 2)
-    }
-
-    private var officialSourceLabel: String {
-        switch lang {
-        case .russian: return "Официальный источник"
-        case .dutch:   return "Officiële bron"
-        case .english: return "Official source"
         }
     }
 }

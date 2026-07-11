@@ -1,13 +1,13 @@
 import Foundation
 
-enum DutchLevel: String, CaseIterable, Identifiable {
+enum DutchLevel: String, CaseIterable, Identifiable, Sendable {
     case a1 = "A1"
     case a2 = "A2"
 
     var id: String { rawValue }
 }
 
-enum DutchExerciseType: String, CaseIterable {
+enum DutchExerciseType: String, CaseIterable, Sendable {
     case multipleChoice
     case fillBlank
     case wordOrder
@@ -16,7 +16,7 @@ enum DutchExerciseType: String, CaseIterable {
     case grammarChoice
 }
 
-struct DutchCourseSource: Identifiable {
+struct DutchCourseSource: Identifiable, Sendable {
     let id: String
     let title: KNMLocalizedString
     let url: String
@@ -26,7 +26,7 @@ struct DutchCourseSource: Identifiable {
     let verified: Bool
 }
 
-struct DutchCourseModule: Identifiable {
+struct DutchCourseModule: Identifiable, Sendable {
     let id: String
     let level: DutchLevel
     let title: KNMLocalizedString
@@ -37,12 +37,12 @@ struct DutchCourseModule: Identifiable {
     let updatedAt: String
     let searchAliases: [String]
 
-    var exercises: [DutchExercise] {
+    nonisolated var exercises: [DutchExercise] {
         lessons.flatMap(\.exercises)
     }
 }
 
-struct DutchLesson: Identifiable {
+struct DutchLesson: Identifiable, Sendable {
     let id: String
     let title: KNMLocalizedString
     let explanation: KNMLocalizedString
@@ -55,7 +55,7 @@ struct DutchLesson: Identifiable {
     let relatedDestinations: [DutchCourseRelatedDestination]
 }
 
-struct DutchVocabularyItem: Identifiable {
+struct DutchVocabularyItem: Identifiable, Sendable {
     let id: String
     let nl: String
     let ru: String
@@ -66,7 +66,7 @@ struct DutchVocabularyItem: Identifiable {
     let tags: [String]
 }
 
-struct DutchPhrase: Identifiable {
+struct DutchPhrase: Identifiable, Sendable {
     let id: String
     let nl: String
     let ru: String
@@ -74,27 +74,27 @@ struct DutchPhrase: Identifiable {
     let context: KNMLocalizedString
 }
 
-struct DutchDialogue: Identifiable {
+struct DutchDialogue: Identifiable, Sendable {
     let id: String
     let title: KNMLocalizedString
     let lines: [DutchDialogueLine]
 }
 
-struct DutchDialogueLine: Identifiable {
+struct DutchDialogueLine: Identifiable, Sendable {
     let id: String
     let speaker: KNMLocalizedString
     let nl: String
     let translation: KNMLocalizedString
 }
 
-struct DutchGrammarNote: Identifiable {
+struct DutchGrammarNote: Identifiable, Sendable {
     let id: String
     let title: KNMLocalizedString
     let explanation: KNMLocalizedString
     let examples: [String]
 }
 
-struct DutchExercise: Identifiable {
+struct DutchExercise: Identifiable, Sendable {
     let id: String
     let type: DutchExerciseType
     let level: DutchLevel
@@ -104,7 +104,7 @@ struct DutchExercise: Identifiable {
     let explanation: KNMLocalizedString
 }
 
-struct DutchCourseRelatedDestination: Identifiable {
+struct DutchCourseRelatedDestination: Identifiable, Sendable {
     let id: String
     let title: KNMLocalizedString
     let icon: String

@@ -27,11 +27,14 @@ struct AIClient {
     struct RequestBody: Encodable {
         let userMessage: String
         let language: String
+        let appLocale: String
+        let assistantLocale: String
         let screen: AIContextScreen
         let contextRetrieval: RetrievalContext
         let responseFormat: String
         let policy: RequestPolicy
         let policyVersion = "v1"
+        let systemPrompt: String
         let conversation: [ConversationTurn]
     }
 
@@ -44,6 +47,7 @@ struct AIClient {
         let personaSearchScope: String
         let selectedCity: String?
         let selectedProvince: String?
+        let selectedSection: String?
         let category: String?
         let topicTitle: String?
         let topicSummary: String?
@@ -67,6 +71,7 @@ struct AIClient {
             personaSearchScope = context.personaSearchScope.rawValue
             selectedCity = context.selectedCity
             selectedProvince = context.selectedProvince
+            selectedSection = context.selectedSection?.rawValue
             category = context.category
             topicTitle = context.topicTitle
             topicSummary = context.topicSummary
@@ -132,10 +137,13 @@ struct AIClient {
             RequestBody(
                 userMessage: String(userMessage.prefix(2_000)),
                 language: context.userLanguage.rawValue,
+                appLocale: context.userLanguage.rawValue,
+                assistantLocale: context.userLanguage.rawValue,
                 screen: context.screen,
                 contextRetrieval: RetrievalContext(context: context),
                 responseFormat: "younew.ai.response.v1.strict_json",
                 policy: RequestPolicy(),
+                systemPrompt: Self.systemPrompt,
                 conversation: conversation.suffix(6).map(ConversationTurn.init)
             )
         )
@@ -178,4 +186,47 @@ struct AIClient {
         let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
         return AppURL.validatedWebURL(URL(string: trimmed))
     }
+
+    private static let systemPrompt = """
+    You are YouNew AI Assistant inside a city guidance app.
+
+    You help users with practical city information based on the app context.
+
+    You must use:
+    - selectedCity
+    - selectedAudience
+    - currentScreen
+    - selectedCategory
+    - verified in-app content
+    - official sources only when provided
+
+    Rules:
+    1. Answer only for the selected city unless the user asks otherwise.
+    2. Respect selectedAudience. If audience is tourist, answer for tourists.
+    3. Do not provide resident-only, business-only, or student-only flows unless the user asks or changes audience.
+    4. Do not invent official sources.
+    5. If no verified source is available, say so.
+    6. If the question is unclear, ask one short clarifying question.
+    7. Do not use generic template answers.
+    8. Do not ask for BSN, passport numbers, medical data, bank data, or other sensitive personal data.
+    9. Give short, practical answers.
+    10. Use the app’s available actions when possible.
+
+    For tourist mode, prioritize:
+    - emergency help
+    - lost documents
+    - transport
+    - rules and fines
+    - healthcare
+    - places
+    - weather
+    - official help
+
+    Response format:
+    - answer: direct answer
+    - whyItMatters: only if useful
+    - nextSteps: 1-3 practical steps
+    - officialSource: only if provided by app context
+    - confidence: high, medium, or low
+    """
 }

@@ -188,10 +188,13 @@ struct PremiumMenuRow: View {
     let title: String
     let subtitle: String
     var trailingSymbol: String = "chevron.right"
+    var minHeight: CGFloat = 64
+    var iconSize: CGFloat = 40
 
     var body: some View {
         HStack(spacing: 14) {
-            GradientIconBadge(symbol: icon, color: color, size: 40)
+            GradientIconBadge(symbol: icon, color: color, size: iconSize)
+                .frame(width: 44, height: 44)
 
             VStack(alignment: .leading, spacing: 3) {
                 Text(title)
@@ -199,6 +202,7 @@ struct PremiumMenuRow: View {
                     .foregroundStyle(AppColors.textPrimary)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
+                    .minimumScaleFactor(0.82)
                     .fixedSize(horizontal: false, vertical: true)
 
                 Text(subtitle)
@@ -206,8 +210,10 @@ struct PremiumMenuRow: View {
                     .foregroundStyle(AppColors.textSecondary)
                     .multilineTextAlignment(.leading)
                     .lineLimit(2)
+                    .minimumScaleFactor(0.78)
                     .fixedSize(horizontal: false, vertical: true)
             }
+            .layoutPriority(1)
 
             Spacer(minLength: AppSpacing.small)
 
@@ -216,7 +222,7 @@ struct PremiumMenuRow: View {
                 .foregroundStyle(AppColors.textTertiary)
                 .frame(width: 18)
         }
-        .frame(maxWidth: .infinity, minHeight: 64, alignment: .leading)
+        .frame(maxWidth: .infinity, minHeight: minHeight, alignment: .leading)
         .padding(.horizontal, AppSpacing.medium)
         .padding(.vertical, 11)
         .contentShape(Rectangle())
@@ -333,6 +339,9 @@ struct SafetyBanner: View {
 struct RelatedContentSection: View {
     let title: String
     let items: [RelatedNavigationItem]
+    @EnvironmentObject private var languageManager: LanguageManager
+
+    private var lang: AppLanguage { languageManager.appLanguage }
 
     var body: some View {
         if !items.isEmpty {
@@ -347,6 +356,130 @@ struct RelatedContentSection: View {
                     )
                 }
             }
+        } else {
+            relatedContentFallback
+        }
+    }
+
+    private var relatedContentFallback: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            SectionHeader(title: title, subtitle: fallbackSubtitle)
+
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 170), spacing: 10)], spacing: 10) {
+                ForEach(fallbackActions) { action in
+                    NavigationLink(value: action.destination) {
+                        RelatedContentFallbackCard(action: action)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("relatedContent.empty.action.\(action.id)")
+                }
+            }
+        }
+        .appCardStyle()
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("relatedContent.empty.dashboard")
+    }
+
+    private var fallbackActions: [RelatedContentFallbackAction] {
+        [
+            RelatedContentFallbackAction(
+                id: "search",
+                icon: "magnifyingglass.circle.fill",
+                title: localized(en: "Search", nl: "Zoeken", ru: "Поиск"),
+                subtitle: localized(en: "Try another topic", nl: "Probeer een ander onderwerp", ru: "Попробовать другую тему"),
+                color: AppColors.dutchOrange,
+                destination: .searchList
+            ),
+            RelatedContentFallbackAction(
+                id: "sources",
+                icon: "checkmark.shield.fill",
+                title: localized(en: "Official sources", nl: "Officiele bronnen", ru: "Официальные источники"),
+                subtitle: localized(en: "Verify before acting", nl: "Controleer voordat u handelt", ru: "Проверяйте перед действием"),
+                color: AppColors.success,
+                destination: .officialSources
+            ),
+            RelatedContentFallbackAction(
+                id: "first-steps",
+                icon: "list.number",
+                title: localized(en: "First steps", nl: "Eerste stappen", ru: "Первые шаги"),
+                subtitle: localized(en: "Start practical setup", nl: "Begin praktische setup", ru: "Начать практический маршрут"),
+                color: AppColors.softBlue,
+                destination: .firstSteps
+            ),
+            RelatedContentFallbackAction(
+                id: "resources",
+                icon: "books.vertical.fill",
+                title: localized(en: "Resources", nl: "Bronnen", ru: "Ресурсы"),
+                subtitle: localized(en: "Open useful links", nl: "Open nuttige links", ru: "Открыть полезные ссылки"),
+                color: AppColors.violet,
+                destination: .resourcesHub
+            )
+        ]
+    }
+
+    private var fallbackSubtitle: String {
+        localized(
+            en: "Continue with trusted next steps, official sources, or practical setup routes.",
+            nl: "Ga verder met vertrouwde vervolgstappen, officiele bronnen of praktische routes.",
+            ru: "Продолжите через проверенные следующие шаги, официальные источники или практические маршруты."
+        )
+    }
+
+    private func localized(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .russian: return ru
+        case .dutch: return nl
+        case .english: return en
+        }
+    }
+}
+
+private struct RelatedContentFallbackAction: Identifiable {
+    let id: String
+    let icon: String
+    let title: String
+    let subtitle: String
+    let color: Color
+    let destination: AppDestination
+}
+
+private struct RelatedContentFallbackCard: View {
+    let action: RelatedContentFallbackAction
+
+    var body: some View {
+        HStack(spacing: 10) {
+            Image(systemName: action.icon)
+                .font(.system(size: 16, weight: .bold))
+                .foregroundStyle(action.color)
+                .frame(width: 34, height: 34)
+                .background(action.color.opacity(0.13))
+                .clipShape(RoundedRectangle(cornerRadius: 11, style: .continuous))
+
+            VStack(alignment: .leading, spacing: 3) {
+                Text(action.title)
+                    .font(AppTypography.captionStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+                    .minimumScaleFactor(0.82)
+                Text(action.subtitle)
+                    .font(.system(size: 10.5, weight: .medium, design: .rounded))
+                    .foregroundStyle(AppColors.textTertiary)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            Spacer(minLength: 0)
+            Image(systemName: "chevron.right")
+                .font(.system(size: 11, weight: .bold))
+                .foregroundStyle(AppColors.textTertiary)
+        }
+        .padding(10)
+        .frame(maxWidth: .infinity, minHeight: 76, alignment: .leading)
+        .background(AppColors.cardElevated.opacity(0.62))
+        .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .overlay {
+            RoundedRectangle(cornerRadius: 14, style: .continuous)
+                .stroke(action.color.opacity(0.18), lineWidth: 0.8)
         }
     }
 }
@@ -418,39 +551,156 @@ struct CommonMistakesSection: View {
     @EnvironmentObject private var languageManager: LanguageManager
 
     var body: some View {
-        if !mistakes.isEmpty {
-            VStack(alignment: .leading, spacing: AppSpacing.small) {
-                SectionHeader(title: L10n.t("common.mistakes_section_title", languageManager.appLanguage), icon: "exclamationmark.triangle")
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            SectionHeader(title: L10n.t("common.mistakes_section_title", languageManager.appLanguage), icon: "exclamationmark.triangle")
+
+            if mistakes.isEmpty {
+                noMistakesFallback
+            } else {
                 ForEach(mistakes) { mistake in
                     NavigationLink(value: AppDestination.mistake(mistake.id)) {
-                        HStack(spacing: AppSpacing.small) {
-                            ZStack {
-                                RoundedRectangle(cornerRadius: AppCornerRadius.xSmall)
-                                    .fill(riskColor(mistake.riskLevel).opacity(0.12))
-                                    .frame(width: 36, height: 36)
-                                Image(systemName: mistake.category.systemImageName)
-                                    .font(.system(size: 16, weight: .medium))
-                                    .foregroundStyle(riskColor(mistake.riskLevel))
-                            }
-                            VStack(alignment: .leading, spacing: 2) {
-                                Text(mistake.title(languageManager.appLanguage))
-                                    .font(AppTypography.bodyStrong)
-                                    .foregroundStyle(AppColors.textPrimary)
-                                    .lineLimit(2)
-                                Text(mistake.category.localized(languageManager.appLanguage))
-                                    .font(AppTypography.caption)
-                                    .foregroundStyle(AppColors.textSecondary)
-                            }
-                            Spacer()
-                            Image(systemName: "chevron.right")
-                                .font(.footnote)
-                                .foregroundStyle(AppColors.textSecondary)
-                        }
-                        .appCardStyle()
+                        mistakeRow(mistake)
                     }
                     .buttonStyle(.plain)
                 }
             }
+        }
+    }
+
+    private func mistakeRow(_ mistake: NewcomerMistake) -> some View {
+        HStack(alignment: .top, spacing: 12) {
+            PremiumImageHeader(
+                title: mistake.title(languageManager.appLanguage),
+                asset: mistakeImageAsset(for: mistake.category),
+                language: languageManager.appLanguage,
+                symbol: mistake.category.systemImageName,
+                accent: riskColor(mistake.riskLevel),
+                height: 78,
+                width: 88,
+                cornerRadius: 16,
+                fallbackCategory: mistakeFallbackCategory(for: mistake.category)
+            )
+            .layoutPriority(0)
+
+            VStack(alignment: .leading, spacing: 5) {
+                HStack(spacing: 8) {
+                    Text(mistake.category.localized(languageManager.appLanguage))
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(1)
+
+                    Spacer(minLength: 4)
+
+                    Text(mistake.riskLevel.localized(languageManager.appLanguage))
+                        .font(AppTypography.metadata)
+                        .foregroundStyle(riskColor(mistake.riskLevel))
+                        .padding(.horizontal, 7)
+                        .padding(.vertical, 3)
+                        .background(riskColor(mistake.riskLevel).opacity(0.12))
+                        .clipShape(Capsule())
+                }
+
+                Text(mistake.title(languageManager.appLanguage))
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+                    .lineLimit(2)
+
+                Text(mistake.whyItMatters(languageManager.appLanguage))
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(2)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .layoutPriority(1)
+
+            Image(systemName: "chevron.right")
+                .font(.footnote.weight(.semibold))
+                .foregroundStyle(AppColors.textTertiary)
+                .padding(.top, 30)
+        }
+        .frame(maxWidth: .infinity, minHeight: 112, alignment: .topLeading)
+        .appCardStyle()
+    }
+
+    private var noMistakesFallback: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            InfoCard(
+                title: noMistakesTitle,
+                subtitle: noMistakesSubtitle,
+                detail: noMistakesDetail,
+                icon: "checkmark.shield"
+            )
+
+            SmartNavigationRow(
+                title: mistakesLibraryTitle,
+                subtitle: mistakesLibrarySubtitle,
+                symbol: "exclamationmark.triangle",
+                destination: .mistakesList
+            )
+
+            SmartNavigationRow(
+                title: officialSourceTitle,
+                subtitle: officialSourceSubtitle,
+                symbol: "building.columns",
+                destination: .officialSources
+            )
+        }
+        .accessibilityIdentifier("commonMistakes.empty.dashboard")
+    }
+
+    private var noMistakesTitle: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Нет явных частых ошибок"
+        case .dutch: return "Geen duidelijke veelgemaakte fouten"
+        case .english: return "No obvious common mistakes"
+        }
+    }
+
+    private var noMistakesSubtitle: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Но всё равно проверьте официальный источник"
+        case .dutch: return "Controleer nog steeds de officiele bron"
+        case .english: return "Still check the official source"
+        }
+    }
+
+    private var noMistakesDetail: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Для этого профиля нет отдельной ошибки, но правила могут зависеть от муниципалитета, даты и вашей ситуации."
+        case .dutch: return "Voor dit profiel is er geen aparte fout gekoppeld, maar regels kunnen afhangen van gemeente, datum en jouw situatie."
+        case .english: return "No specific mistake is linked for this profile, but rules can depend on municipality, date, and your situation."
+        }
+    }
+
+    private var mistakesLibraryTitle: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Открыть библиотеку ошибок"
+        case .dutch: return "Open de foutenbibliotheek"
+        case .english: return "Open mistakes library"
+        }
+    }
+
+    private var mistakesLibrarySubtitle: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Посмотреть риски по документам, срокам и заявлениям."
+        case .dutch: return "Bekijk risico's rond documenten, deadlines en aanvragen."
+        case .english: return "Review risks around documents, deadlines, and applications."
+        }
+    }
+
+    private var officialSourceTitle: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Проверить официальный источник"
+        case .dutch: return "Controleer de officiele bron"
+        case .english: return "Check official sources"
+        }
+    }
+
+    private var officialSourceSubtitle: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Сверить актуальные правила перед действием."
+        case .dutch: return "Controleer actuele regels voordat je handelt."
+        case .english: return "Confirm current rules before you act."
         }
     }
 
@@ -460,6 +710,50 @@ struct CommonMistakesSection: View {
         case .medium: return AppColors.warning
         case .high: return AppColors.dutchOrange
         case .urgent: return AppColors.error
+        }
+    }
+
+    private func mistakeImageAsset(for category: MistakeCategory) -> AppImageAsset? {
+        switch category {
+        case .documents, .legalLetters:
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.governmentBasicsImage
+        case .deadlines:
+            return ContentMediaRegistry.calendarImage ?? ContentMediaRegistry.officialSourcesHero
+        case .housing:
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case .healthInsurance:
+            return ContentMediaRegistry.healthInsuranceImage ?? ContentMediaRegistry.healthcareBasicsImage
+        case .work:
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case .taxes, .municipality:
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.governmentBasicsImage
+        case .transport:
+            return ContentMediaRegistry.ovChipkaartImage ?? ContentMediaRegistry.transportStationHero
+        case .scams:
+            return ContentMediaRegistry.searchImage ?? ContentMediaRegistry.officialSourcesHero
+        case .education:
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.cultureHero
+        }
+    }
+
+    private func mistakeFallbackCategory(for category: MistakeCategory) -> PremiumImageFallbackCategory {
+        switch category {
+        case .documents, .legalLetters:
+            return .documents
+        case .deadlines, .municipality, .taxes:
+            return .government
+        case .housing:
+            return .housing
+        case .healthInsurance:
+            return .healthcare
+        case .work:
+            return .work
+        case .transport:
+            return .transport
+        case .scams:
+            return .search
+        case .education:
+            return .dutchA1A2
         }
     }
 }

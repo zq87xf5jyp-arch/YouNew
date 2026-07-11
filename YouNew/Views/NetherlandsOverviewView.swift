@@ -14,7 +14,8 @@ struct NetherlandsOverviewView: View {
                         urlString: "https://commons.wikimedia.org/wiki/Special:FilePath/Amsterdam%20-%20canal%20houses%20%283416157844%29.jpg?width=1600",
                         height: 280,
                         cityName: "Netherlands",
-                        fallbackColor: Color(hex: "#142A3E")
+                        fallbackColor: Color(hex: "#142A3E"),
+                        renderRole: .hero
                     )
 
                     LinearGradient(
@@ -120,7 +121,12 @@ struct NetherlandsOverviewView: View {
                         }
                         LazyVStack(spacing: 8) {
                             ForEach(text.topUniversities) { university in
-                                UniversityOverviewRow(university: university)
+                                ProductListItem(
+                                    title: university.name,
+                                    subtitle: university.subtitle,
+                                    symbol: "graduationcap.fill",
+                                    accent: Color(hex: "#2DD4BF")
+                                )
                             }
                         }
                         OverviewNoteCard(text: text.educationNote, tint: Color(hex: "#2DD4BF"))
@@ -617,36 +623,5 @@ struct OverviewNoteCard: View {
         .background(tint.opacity(0.10))
         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
         .overlay(RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(tint.opacity(0.20), lineWidth: 0.7))
-    }
-}
-
-private struct UniversityOverviewRow: View {
-    let university: LocalizedUniversityInfo
-
-    var body: some View {
-        HStack(alignment: .top, spacing: 10) {
-            Image(systemName: "graduationcap.fill")
-                .font(.system(size: 14, weight: .bold))
-                .foregroundStyle(Color(hex: "#2DD4BF"))
-                .frame(width: 30, height: 30)
-                .background(Color(hex: "#2DD4BF").opacity(0.12))
-                .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-
-            VStack(alignment: .leading, spacing: 3) {
-                Text(university.name)
-                    .font(.system(size: 13, weight: .bold, design: .rounded))
-                    .foregroundStyle(.white)
-                    .fixedSize(horizontal: false, vertical: true)
-                Text(university.subtitle)
-                    .font(.system(size: 12))
-                    .foregroundStyle(.white.opacity(0.58))
-                    .fixedSize(horizontal: false, vertical: true)
-            }
-            Spacer(minLength: 0)
-        }
-        .padding(12)
-        .background(Color.white.opacity(0.055))
-        .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 8, style: .continuous).stroke(Color.white.opacity(0.08), lineWidth: 0.7))
     }
 }

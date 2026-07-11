@@ -8,7 +8,7 @@
 "tab.explain" = "Uitleg";
 "tab.checklist" = "Checklist";
 "tab.ai" = "AI-assistent";
-"tab.map" = "Kaart";
+"tab.map" = "Places";
 "tab.resources" = "Bronnen";
 "tab.more" = "Meer";
 "tab.settings" = "Instellingen";
@@ -20,6 +20,7 @@
 "common.back" = "Terug";
 "common.close" = "Sluiten";
 "common.search" = "Zoeken";
+"common.selected" = "Geselecteerd";
 "common.send" = "Verstuur";
 "common.clear" = "Wissen";
 "common.edit" = "Bewerken";
@@ -38,7 +39,7 @@
 
 "search.title" = "Vragen zoeken";
 "search.subtitle" = "Antwoorden met officiële bron eerst";
-"search.placeholder" = "Stel een vraag over Nederlandse systemen";
+"search.placeholder" = "Zoek naar regels, documenten, diensten…";
 "search.nav_title" = "Zoeken";
 "search.recent" = "Recente zoekopdrachten";
 "search.popular" = "Populaire vragen";
@@ -49,7 +50,7 @@
 
 "ai.title" = "AI-assistent";
 "ai.subtitle" = "Bron-eerst uitlegmodus en vervolgstappen";
-"ai.disclaimer" = "AI-uitlegmodus is informatief en kan onnauwkeurig zijn. Controleer belangrijke informatie altijd bij officiële instanties.";
+"ai.disclaimer" = "De AI-assistent geeft uitleg op basis van de kennisbank van de app en officiële bronnen waar beschikbaar. Dit vervangt geen juridische, medische of financiële professional.";
 "ai.thinking" = "Even denken...";
 "ai.search_official_answer" = "Zoek officieel antwoord";
 "ai.related_institutions" = "Gerelateerde instanties";
@@ -110,8 +111,8 @@
 "disclaimer.medium" = "YouNew.nl is alleen een informatieve gids. Regels kunnen in de tijd veranderen. Controleer altijd de officiële bron.";
 "disclaimer.expanded" = "Deze app geeft alleen educatieve onboardinginformatie. Geen juridisch advies en geen voorspelling van uitkomsten. Regels kunnen veranderen. Controleer altijd de officiële bron.";
 
-"empty.no_results" = "Geen resultaten gevonden.";
-"empty.no_nearby_places" = "Geen steunpunten in de buurt gevonden.";
+"empty.no_results" = "Probeer een andere zoekopdracht, open officiële bronnen of vraag AI.";
+"empty.no_nearby_places" = "Open Places, officiële bronnen of vraag AI naar opties dichtbij.";
 "checklist.title" = "Checklist";
 "checklist.progress_summary" = "Voortgangsoverzicht";
 "checklist.all_completed" = "Alle genoemde stappen zijn voltooid";
@@ -129,10 +130,10 @@
 "resources.question_search" = "Vragen zoeken";
 "resources.beginner_guides" = "Beginnersgidsen";
 "resources.official_links" = "Officiële links";
-"resources.no_resources" = "Geen bronnen beschikbaar";
+"resources.no_resources" = "Open officiële bronnen, zoeken of documenten voor routes met bronvermelding.";
 
 "letters.title" = "Brieven";
-"letters.smart_assistant" = "Slimme briefassistent";
+"letters.smart_assistant" = "Briefassistent";
 "letters.smart_assistant_subtitle" = "Lokale brieforiëntatie";
 "letters.upload_placeholder" = "Brief uploaden";
 "letters.scan_placeholder" = "Brief scannen";
@@ -140,10 +141,10 @@
 "letters.extracted_text" = "Geëxtraheerde tekst";
 "letters.ocr_placeholder" = "Lokale tekstcontrole";
 "letters.summaries" = "Briefoverzichten";
-"letters.no_saved_examples" = "Geen opgeslagen voorbeelden";
+"letters.no_saved_examples" = "Begin met documenten, bronnen of zoeken.";
 "letters.center_flow" = "Briefcentrum-flow";
-"letters.center_flow_subtitle" = "Open een willekeurig briefvoorbeeld";
-"letters.center_flow_detail" = "Elke brief opent nu een gedetailleerde gids met gerelateerde instanties, woordenlijstlinks, boetecontext en aanbevolen volgende stappen.";
+"letters.center_flow_subtitle" = "Gebruik voorbeelden om officiële brieven te begrijpen";
+"letters.center_flow_detail" = "Elk voorbeeld toont eenvoudige context, gerelateerde diensten en mogelijke vervolgstappen. Controleer altijd de originele brief.";
 
 "translator.swap_languages" = "Talen wisselen";
 "translator.title" = "Vertaler";
@@ -164,12 +165,12 @@
 "translator.dates_may_be_incomplete" = "Datums kunnen onvolledig zijn. Controleer het originele document.";
 "translator.copy_translated" = "Vertaalde tekst kopiëren";
 "translator.recent" = "Recente vertalingen";
-"translator.no_recent" = "Nog geen recente vertalingen.";
+"translator.no_recent" = "Vertaal een brief of bericht om het hier te bewaren.";
 
 "fines.title" = "Boetes en sancties";
 "fines.info_title" = "Boete-info";
 "fines.disclaimer" = "Deze sectie is alleen educatief. Boetebedragen en regels kunnen veranderen. Controleer altijd de actuele details bij de officiële instantie. Dit is geen juridisch advies.";
-"fines.no_items" = "Geen items in deze categorie.";
+"fines.no_items" = "Kies een andere categorie of controleer officiële bronnen.";
 "fines.amounts_can_change" = "Boetebedragen kunnen veranderen. Deze app toont geen exacte bedragen. Controleer altijd het actuele bedrag bij CJIB, gemeente of relevante instantie.";
 "fines.what_this_means" = "Wat dit betekent";
 "fines.possible_consequence" = "Mogelijk gevolg";
@@ -268,7 +269,7 @@
 "home.next" = "Volgende: %@";
 "search.category_answers" = "%@ antwoorden";
 "search.official_source" = "Officiële bron";
-"search.trusted_source" = "Betrouwbare bron";
+"search.trusted_source" = "Bron vermeld";
 "search.verify_official_website" = "Controleer op de officiële website";
 "search.open_answer" = "Open antwoord";
 "search.people_also_search" = "Mensen zoeken ook naar";
@@ -286,13 +287,13 @@
 "common.saved" = "Opgeslagen";
 "dutch_terms.disclaimer" = "Termen worden uitgelegd voor educatieve oriëntatie. Juridische en financiële termen kunnen belangrijke gevolgen hebben. Controleer officiële bronnen.";
 "dutch_terms.search_placeholder" = "Zoek Nederlandse termen…";
-"dutch_terms.no_terms" = "Geen termen gevonden. Probeer een andere zoekopdracht.";
+"dutch_terms.no_terms" = "Probeer een andere term of open verwante officiële bronnen.";
 "dutch_terms.nav_title" = "Woordenboek Nederlandse termen";
 "dutch_terms.legal_warning" = "Deze term heeft juridische of financiële implicaties. De uitleg is alleen voor educatieve oriëntatie. Controleer gevolgen bij de officiële instantie of een gekwalificeerde adviseur.";
 "dutch_terms.term" = "Term";
 "dutch_terms.legal_financial" = "Juridisch / Financieel";
 "legal.search_placeholder" = "Zoek onderwerpen…";
-"legal.no_results" = "Geen resultaten. Probeer een andere zoekopdracht of categorie.";
+"legal.no_results" = "Probeer een ander onderwerp, reset filters of open officiële bronnen.";
 "legal.explanation" = "Uitleg";
 "legal.info" = "Juridische info";
 "common.done" = "Klaar";
@@ -361,7 +362,7 @@
 "official_sources.title" = "Directory officiële bronnen";
 "official_sources.subtitle" = "%ld Nederlandse instanties en diensten";
 "official_sources.search_placeholder" = "Zoek instanties…";
-"official_sources.no_match" = "Geen instanties gevonden voor je zoekopdracht.";
+"official_sources.no_match" = "Gebruik een andere officiële route";
 "official_sources.what_handles" = "Wat het behandelt";
 "official_sources.when_needed" = "Wanneer een nieuwkomer dit nodig kan hebben";
 "official_sources.scam_warning" = "Waarschuwing voor fraude";
@@ -376,16 +377,16 @@
 "checklist.category.housing" = "Huisvesting";
 "checklist.category.education" = "Onderwijs";
 "checklist.category.transport" = "Vervoer";
-"ai.input_placeholder" = "Stel een vraag";
+"ai.input_placeholder" = "Vraag zonder persoonsgegevens…";
 "map.cluster_accessibility" = "%ld plaatsen gegroepeerd";
 "map.no_places_title" = "Geen plaatsen gevonden";
 "map.no_places_subtitle" = "Probeer een andere zoekopdracht of categorie";
 "map.no_places_detail" = "Wissel van stad, wis je zoekopdracht of gebruik filters om steunpunten voor nieuwkomers te vinden.";
-"empty.no_reminders" = "Nog geen aankomende herinneringen.";
-"empty.checklist_complete" = "Je onboarding-checklist is voltooid.";
-"empty.no_letter_summaries" = "Nog geen opgeslagen briefoverzichten.";
-"empty.resources_unavailable" = "Er zijn nog geen passende bronnen bewaard. Open Officiële bronnen of Zoeken voor gecontroleerde links.";
-"empty.no_saved_items" = "Nog niets opgeslagen.";
+"empty.no_reminders" = "Voeg een herinnering toe vanuit checkliststappen of belangrijke documenten.";
+"empty.checklist_complete" = "Je huidige checkliststappen zijn klaar.";
+"empty.no_letter_summaries" = "Bewaar een briefuitleg na het scannen of openen van een document.";
+"empty.resources_unavailable" = "Open Officiële bronnen, Places of Zoeken voor alternatieven met bronvermelding.";
+"empty.no_saved_items" = "Bewaar nuttige items terwijl je verkent.";
 "home.quick.continue" = "Doorgaan";
 "home.search.suggestion.1" = "Vraag over het leven in Nederland...";
 "home.search.suggestion.2" = "Hoe krijg ik een BSN?";
@@ -408,11 +409,11 @@
 "home.start_here.fines.subtitle" = "Boetes eenvoudig uitgelegd";
 "home.priorities.title" = "Jouw prioriteiten";
 "home.identity.title" = "Wat is YouNew.nl?";
-"home.identity.headline" = "Alles voor je leven in Nederland — op één plek.";
+"home.identity.headline" = "Praktische hulp voor leven in Nederland.";
 "home.identity.body" = "We leggen documenten, diensten, boetes en belangrijke stappen in duidelijke taal uit. Zo weet je waar je terecht kunt en wat je daarna moet doen.";
 "home.identity.point.1" = "Legt Nederlandse bureaucratische termen eenvoudig uit";
 "home.identity.point.2" = "Helpt je kritieke onboardingstappen niet te missen";
-"home.identity.point.3" = "Koppelt elk antwoord aan officiële Nederlandse bronnen";
+"home.identity.point.3" = "Houdt officiële bronlinks dichtbij waar beschikbaar";
 "home.identity.point.4" = "Ontcijfert brieven en officiële documenten";
 "home.identity.point.5" = "Vindt lokale instanties en ondersteuning bij jou in de buurt";
 "home.who_for.title" = "Voor wie is dit?";
@@ -512,7 +513,7 @@
 "resource.open_source" = "Open officiële bron";
 "common.open_details" = "Open details";
 "common.report_short" = "Melden";
-"common.verified_source" = "Geverifieerde bron";
+"common.verified_source" = "Bron vermeld";
 "common.source" = "Bron";
 "common.last_checked" = "Laatst gecontroleerd";
 "common.continue_onboarding" = "Onboarding voortzetten";
@@ -618,7 +619,7 @@
 "emergency.112.name" = "112";
 "emergency.huisarts.desc" = "Neem contact op met uw vaste huisarts";
 "emergency.huisarts.name" = "Huisarts";
-"emergency.loket.desc" = "Gratis juridisch advies";
+"emergency.loket.desc" = "Eerste juridische informatie";
 "emergency.loket.name" = "Juridisch Loket";
 "emergency.politie.desc" = "Niet-urgente meldingen bij de politie";
 "emergency.politie.name" = "Politie (niet-urgent)";
@@ -640,8 +641,8 @@
 "more.fines_hub.letters.title" = "Officiële brieven";
 "more.legal.courts" = "Rechtssysteem";
 "more.legal.courts_detail" = "Informatie over Nederlandse rechtbanken en juridische procedures.";
-"more.legal.free_advice" = "Gratis juridisch advies";
-"more.legal.loket_detail" = "Het Juridisch Loket biedt gratis eerstelijnsjuridisch advies in heel Nederland.";
+"more.legal.free_advice" = "Eerste juridische oriëntatie";
+"more.legal.loket_detail" = "Het Juridisch Loket kan eerste juridische informatie bieden. Controleer of je situatie in aanmerking komt.";
 "more.legal.open_loket" = "Open Juridisch Loket";
 "more.quick.change_status" = "Gids personaliseren";
 "more.quick.check_fine" = "Boete controleren";
@@ -669,7 +670,7 @@
 "more.row.map.title" = "Kaart";
 "more.row.mistakes.subtitle" = "Vermijd de meest voorkomende fouten";
 "more.row.mistakes.title" = "Veelgemaakte fouten";
-"more.row.official_sites.subtitle" = "Geverifieerde overheidswebsites";
+"more.row.official_sites.subtitle" = "Officiële websites en bronlinks";
 "more.row.official_sites.title" = "Officiële sites";
 "more.row.resources.subtitle" = "Gidsen, links en officiële bronnen";
 "more.row.resources.title" = "Bronnen";
@@ -689,10 +690,10 @@
 "settings.about" = "Over YouNew.nl";
 "settings.documents.center" = "Documentcentrum";
 "settings.documents.clear_cache" = "Documentcache wissen";
-"settings.documents.export_coming" = "Documentmetadata kan worden geëxporteerd via Privacy en gegevensbeheer.";
+"settings.documents.export_coming" = "Beheer documentprivacy, lokale opslag en gegevensopties via Privacy en gegevensbeheer.";
 "settings.documents.stored_on_device" = "Documenten worden op het apparaat opgeslagen.";
 "settings.edit_profile" = "Profiel bewerken";
-"settings.feedback_coming" = "De feedbackfunctie verschijnt in de volgende update. Bedankt!";
+"settings.feedback_coming" = "Feedback wordt lokaal bewaard voor je eigen overzicht. Gebruik officiële bronnen bij urgente zaken.";
 "settings.language_updated" = "Taal bijgewerkt";
 "settings.map.default_category" = "Standaardcategorie";
 "settings.map.default_city" = "Standaardstad";
@@ -702,7 +703,7 @@
 "settings.nav.recommended_steps" = "Aanbevolen stappen";
 "settings.nav.saved_topics" = "Opgeslagen onderwerpen";
 "settings.profile_status" = "Status";
-"settings.recent.empty" = "Nog niets geopend";
+"settings.recent.empty" = "Open een onderdeel om je snelle geschiedenis op te bouwen";
 "settings.reminders.active" = "Herinneringen actief";
 "settings.reminders.important_steps" = "Belangrijke stappen";
 "settings.reminders.local_detail" = "Herinneringen worden lokaal op je apparaat opgeslagen.";
@@ -800,10 +801,10 @@
 "lgbtq.filter.category" = "Categorie";
 "lgbtq.trusted" = "Vertrouwd";
 "lgbtq.loading" = "LGBTQ ondersteuningsbronnen laden";
-"lgbtq.empty.title" = "Geen bronnen beschikbaar";
-"lgbtq.empty.subtitle" = "De lokale ondersteuningsgids is nu niet beschikbaar.";
-"lgbtq.no_results.title" = "Geen passende bronnen";
-"lgbtq.no_results.subtitle" = "Probeer een andere stad, categorie of zoekterm.";
+"lgbtq.empty.title" = "Gebruik veilige hulproutes";
+"lgbtq.empty.subtitle" = "Open steun in de buurt, juridische hulp, zoeken of officiële bronnen hieronder.";
+"lgbtq.no_results.title" = "Gebruik een andere hulproute";
+"lgbtq.no_results.subtitle" = "Wijzig stad, categorie of zoekterm en controleer officiële en communitybronnen.";
 "lgbtq.reset_filters" = "Filters wissen";
 "city.flag" = "Vlag";
 "city.coat_of_arms" = "Wapen";
@@ -811,7 +812,7 @@
 "city.local_highlights" = "Lokale hoogtepunten";
 "city.official_sources" = "Officiële bronnen";
 "city.image_credit" = "Beeldbron";
-"city.image_verified_source" = "Geverifieerde bron";
+"city.image_verified_source" = "Bron vermeld";
 "city.image_license_unspecified" = "Licentie vermeld bij bron";
 "city.province" = "Provincie";
 "city.municipality" = "Gemeente";
@@ -819,15 +820,15 @@
 "city.area" = "Oppervlakte";
 "city.open_on_map" = "Open op kaart";
 "city.official_website" = "Officiële website";
-"city.no_image_available" = "Geen beeld beschikbaar";
+"city.no_image_available" = "Visuele stadscontext";
 "city.information" = "Stadsinformatie";
 "city.historic_city" = "Historische stad";
 "city.university_city" = "Universiteitsstad";
 "city.useful_information" = "Nuttige informatie";
-"city.asset_missing" = "Geverifieerde afbeelding niet beschikbaar";
-"city.flag_pending" = "Officiele vlag niet beschikbaar";
-"city.coat_pending" = "Officieel wapen niet beschikbaar";
-"city.hero_pending" = "Stadsbeeld niet beschikbaar";
+"city.asset_missing" = "Visuele context";
+"city.flag_pending" = "Officiële vlagcontext";
+"city.coat_pending" = "Officiële wapencontext";
+"city.hero_pending" = "Stadscontext";
 "city.identity.title" = "Stadsidentiteit";
 "city.accessibility.hero" = "Stadsbeeld van %@.";
 "city.accessibility.flag" = "Vlag van %@.";
@@ -908,7 +909,7 @@
 "historyNetherlands.sources.licenseLabel" = "Licentie";
 "historyNetherlands.sources.noteLabel" = "Opmerking";
 "historyNetherlands.sources.note" = "Samengevat en aangepast voor de app; ruwe Wikipedia-artikeltekst wordt niet getoond.";
-"historyNetherlands.images.title" = "Geverifieerde beelden";
+"historyNetherlands.images.title" = "Beelden met bronvermelding";
 "historyNetherlands.images.sourcesTitle" = "Beeldbronnen";
 "historyNetherlands.images.attribution" = "Attributie";
 "historyNetherlands.images.map.title" = "Kaart van Nederland, 1631";
@@ -1012,7 +1013,7 @@
 "menu.version" = "Versie";
 "image.source" = "Bron";
 "image.license" = "Licentie";
-"image.unavailable" = "Afbeelding niet beschikbaar";
+"image.unavailable" = "Visuele context";
 "image.openSource" = "Bron openen";
 "contentMedia.transport.bikeParking.title" = "Fietsparkeren in Amsterdam";
 "contentMedia.transport.bikeParking.description" = "Fietsparkeren aan de gracht als contextbeeld voor vervoer.";

@@ -24,6 +24,18 @@ struct InstitutionDetailView: View {
                     L10n.t("institutions.nav_title", lang),
                     institution.name
                 ])
+                PremiumImageHeader(
+                    title: institution.name,
+                    asset: institutionImageAsset,
+                    language: lang,
+                    symbol: institutionHeroSymbol,
+                    accent: institutionHeroAccent,
+                    height: 210,
+                    cornerRadius: 22,
+                    fallbackCategory: institutionFallbackCategory
+                )
+                .appCardStyle()
+
                 InstitutionCard(institution: institution)
 
                 InfoCard(
@@ -81,6 +93,68 @@ struct InstitutionDetailView: View {
         case .dutch: return "Vraag AI over deze instantie"
         case .english: return "Ask AI about this institution"
         }
+    }
+
+    private var institutionImageAsset: AppImageAsset? {
+        let source = normalizedInstitutionName
+        if source.contains("ind") || source.contains("immigration") {
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.municipalityCityHallImage
+        }
+        if source.contains("duo") {
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.cultureHero ?? ContentMediaRegistry.officialSourcesHero
+        }
+        if source.contains("uwv") || source.contains("labour") || source.contains("arbeid") {
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        if source.contains("belasting") || source.contains("tax") {
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        if source.contains("gemeente") || source.contains("municipality") {
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        if source.contains("police") || source.contains("cjib") || source.contains("emergency") {
+            return ContentMediaRegistry.emergencyImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        if source.contains("health") || source.contains("zorg") || source.contains("cak") {
+            return ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.healthcarePharmacyImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+        return ContentMediaRegistry.officialSourcesHero
+    }
+
+    private var institutionFallbackCategory: PremiumImageFallbackCategory {
+        let source = normalizedInstitutionName
+        if source.contains("duo") { return .integration }
+        if source.contains("uwv") || source.contains("labour") || source.contains("arbeid") { return .work }
+        if source.contains("belasting") || source.contains("tax") { return .work }
+        if source.contains("police") || source.contains("cjib") || source.contains("emergency") { return .emergency }
+        if source.contains("health") || source.contains("zorg") || source.contains("cak") { return .healthcare }
+        return .government
+    }
+
+    private var institutionHeroSymbol: String {
+        switch institutionFallbackCategory {
+        case .integration: return "graduationcap.fill"
+        case .work: return "briefcase.fill"
+        case .emergency: return "exclamationmark.triangle.fill"
+        case .healthcare: return "cross.case.fill"
+        default: return "building.columns.fill"
+        }
+    }
+
+    private var institutionHeroAccent: Color {
+        switch institutionFallbackCategory {
+        case .integration: return AppColors.violet
+        case .work: return AppColors.emerald
+        case .emergency: return AppColors.warning
+        case .healthcare: return AppColors.error
+        default: return AppColors.routeLine
+        }
+    }
+
+    private var normalizedInstitutionName: String {
+        institution.name
+            .folding(options: [.caseInsensitive, .diacriticInsensitive], locale: Locale(identifier: "en_US_POSIX"))
+            .lowercased()
     }
 
     private var askAIPrompt: String {

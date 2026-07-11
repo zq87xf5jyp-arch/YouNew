@@ -32,6 +32,7 @@ struct NearbyMapView: View {
     private let initialFocus: MapFocus?
     private let initialCategory: PlaceCategory?
     private let provinceOverviewItems: [ProvinceItem]
+    private let cityRouteTargets: [MapCityRouteTarget]
 
     private var lang: AppLanguage { languageManager.appLanguage }
 
@@ -40,6 +41,7 @@ struct NearbyMapView: View {
         self.initialFocus = initialFocus
         self.initialCategory = initialCategory
         self.provinceOverviewItems = ProvinceCatalog.all
+        self.cityRouteTargets = MapCityRouteTarget.releaseCities
     }
 
     var body: some View {
@@ -49,11 +51,14 @@ struct NearbyMapView: View {
                     ResponsiveContentContainer(maxWidth: 920) {
                         LazyVStack(alignment: .leading, spacing: Layout.sectionGap) {
                             cityHubHeader
+                            mapCategoryChipRow
                             citySpotlightCard
+                            mapCityRouteShortcutRow
                             journeyPresetCard
                             trustAndLocationRow
                             manualCityPicker
                             mapSearchCard
+                            partnerLayerCard
                             provincesOverviewCard
                                 .id(MapScrollAnchor.provinceMap.rawValue)
                             mapSection
@@ -245,14 +250,7 @@ struct NearbyMapView: View {
 
     private func scheduleInteractiveMapLoad() {
         guard !showInteractiveMap else { return }
-        Task { @MainActor in
-            do {
-                try await Task.sleep(for: .seconds(0.22))
-                showInteractiveMap = true
-            } catch is CancellationError {
-                return
-            }
-        }
+        showInteractiveMap = true
     }
 
     private var cityHubHeader: some View {
@@ -420,6 +418,40 @@ struct NearbyMapView: View {
         .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
     }
 
+    private var mapCityRouteShortcutRow: some View {
+        ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                ForEach(cityRouteTargets) { city in
+                    NavigationLink(value: AppDestination.cityDetail(province: city.provinceID, city: city.name)) {
+                        HStack(spacing: 6) {
+                            Image(systemName: "mappin.and.ellipse")
+                                .font(.system(size: 12, weight: .bold))
+                            Text(ProvinceCatalog.localizedCityName(city.name, lang))
+                                .font(.system(.footnote, design: .rounded).weight(.bold))
+                                .lineLimit(1)
+                        }
+                        .foregroundStyle(AppColors.textPrimary)
+                        .padding(.horizontal, 12)
+                        .padding(.vertical, 9)
+                        .background(AppColors.cardElevated)
+                        .overlay(
+                            Capsule()
+                                .stroke(AppColors.stroke.opacity(0.85), lineWidth: 0.85)
+                        )
+                        .clipShape(Capsule())
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityLabel(ProvinceCatalog.localizedCityName(city.name, lang))
+                    .accessibilityIdentifier("map.city.\(city.name.nearbyMapAccessibilityIDSegment)")
+                }
+            }
+            .padding(.horizontal, 2)
+            .padding(.vertical, 2)
+        }
+        .frame(height: 50)
+        .accessibilityIdentifier("map.city.routes")
+    }
+
     private var cityStatColumns: [GridItem] {
         [GridItem(.adaptive(minimum: 96), spacing: 8)]
     }
@@ -442,7 +474,8 @@ struct NearbyMapView: View {
                         screen: "Nearby map city preview",
                         entityType: "city",
                         entityName: city.localizedName(lang)
-                    )
+                    ),
+                    renderRole: .thumbnail
                 )
                 .frame(width: 58, height: 58)
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
@@ -665,6 +698,53 @@ struct NearbyMapView: View {
         .accessibilityLabel(L10n.t("map.select_city", lang))
     }
 
+    private var mapCategoryChipRow: some View {
+        let categories: [PlaceCategory] = [.municipality, .legalHelp, .healthcare, .transport]
+
+        return ScrollView(.horizontal, showsIndicators: false) {
+            HStack(spacing: 8) {
+                categoryChip(
+                    title: localizedText("All", "Alles", "Все"),
+                    symbol: "square.grid.2x2.fill",
+                    count: viewModel.cityHubPlaces.count,
+                    isSelected: viewModel.selectedCategory == nil,
+                    accessibilityIdentifier: "map.chip.all"
+                ) {
+                    viewModel.clearFilters()
+                }
+
+                categoryChip(
+                    title: MapFocus.emergency.localized(lang),
+                    symbol: MapFocus.emergency.symbol,
+                    count: placeCount(for: .emergency),
+                    isSelected: viewModel.selectedFocus == .emergency,
+                    accessibilityIdentifier: "map.chip.emergency"
+                ) {
+                    viewModel.applyFocus(.emergency)
+                }
+
+                ForEach(categories, id: \.id) { category in
+                    categoryChip(
+                        title: category.localized(lang),
+                        symbol: category.systemImageName,
+                        count: placeCount(for: category),
+                        isSelected: viewModel.selectedCategory == category,
+                        accessibilityIdentifier: accessibilityIdentifier(for: category)
+                    ) {
+                        viewModel.selectedCategory = category
+                        viewModel.searchText = category.localized(lang)
+                    }
+                }
+            }
+            .padding(.horizontal, 2)
+            .padding(.vertical, 2)
+        }
+        .frame(height: 54)
+        .contentShape(Rectangle())
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("map.chip.row")
+    }
+
     private func categoryChip(
         title: String,
         symbol: String,
@@ -718,6 +798,26 @@ struct NearbyMapView: View {
         .buttonStyle(AppPressableCardButtonStyle())
         .accessibilityLabel(String(format: L10n.t("map.places_count_accessibility", lang), title, count))
         .accessibilityIdentifier(accessibilityIdentifier)
+    }
+
+    private func placeCount(for category: PlaceCategory) -> Int {
+        viewModel.cityHubPlaces.filter { $0.category == category }.count
+    }
+
+    private func placeCount(for focus: MapFocus) -> Int {
+        viewModel.cityHubPlaces.filter { focus.matches($0) }.count
+    }
+
+    private func localizedText(_ en: String, _ nl: String, _ ru: String) -> String {
+        switch lang {
+        case .english: return en
+        case .dutch: return nl
+        case .russian: return ru
+        }
+    }
+
+    private var userLocationTitle: String {
+        localizedText("You", "Jij", "Вы")
     }
 
     private func accessibilityIdentifier(for category: PlaceCategory) -> String {
@@ -830,6 +930,35 @@ struct NearbyMapView: View {
         .accessibilityIdentifier("map.search.category.\(action.id)")
     }
 
+    private var partnerLayerCard: some View {
+        VStack(alignment: .leading, spacing: Layout.small) {
+            Toggle(isOn: $viewModel.showLocalPartners) {
+                Label(partnerLayerTitle, systemImage: "checkmark.seal.fill")
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+            }
+            .toggleStyle(.switch)
+
+            Text(partnerLayerSubtitle)
+                .font(AppTypography.caption)
+                .foregroundStyle(AppColors.textSecondary)
+
+            LazyVGrid(columns: DetailPageLayout.twoColumnWhenPossible(for: 320, minimumColumnWidth: 118), spacing: 8) {
+                ForEach(partnerLayerExamples, id: \.title) { item in
+                    Label(item.title, systemImage: item.symbol)
+                        .font(AppTypography.metadata)
+                        .foregroundStyle(AppColors.accent)
+                        .frame(maxWidth: .infinity, alignment: .leading)
+                        .padding(.horizontal, 8)
+                        .padding(.vertical, 7)
+                        .background(AppColors.chipBackground, in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+                }
+            }
+        }
+        .appCardStyle()
+        .accessibilityIdentifier("map.partnerLayer.toggle")
+    }
+
     private var mapSection: some View {
         Group {
             if showInteractiveMap {
@@ -850,6 +979,12 @@ struct NearbyMapView: View {
                             }
                         }
                     }
+
+                    if let userCoordinate = viewModel.userCoordinate {
+                        Annotation(userLocationTitle, coordinate: userCoordinate) {
+                            UserLocationMapAnnotation()
+                        }
+                    }
                 }
                 .allowsHitTesting(false)
                 .onAppear {
@@ -860,6 +995,7 @@ struct NearbyMapView: View {
                 }
             } else {
                 LightweightNearbyMapPlaceholder(
+                    selectedCity: viewModel.selectedCity,
                     cityName: ProvinceCatalog.localizedCityName(viewModel.selectedCity, lang),
                     placeCount: viewModel.filteredPlaces.count,
                     tint: Palette.accent
@@ -903,6 +1039,26 @@ struct NearbyMapView: View {
                 }
             }
             .allowsHitTesting(false)
+        }
+        .overlay {
+            mapCityRouteAccessibilityLayer
+        }
+    }
+
+    private var mapCityRouteAccessibilityLayer: some View {
+        GeometryReader { geo in
+            ForEach(cityRouteTargets) { city in
+                NavigationLink(value: AppDestination.cityDetail(province: city.provinceID, city: city.name)) {
+                    Circle()
+                        .fill(Color.white.opacity(0.001))
+                        .frame(width: city.tapDiameter, height: city.tapDiameter)
+                        .contentShape(Circle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(ProvinceCatalog.localizedCityName(city.name, lang))
+                .accessibilityIdentifier("map.city.\(city.name.nearbyMapAccessibilityIDSegment)")
+                .position(x: city.x * geo.size.width, y: city.y * geo.size.height)
+            }
         }
     }
 
@@ -948,7 +1104,39 @@ struct NearbyMapView: View {
                 }
             )
         }
-        return AnyView(EmptyView())
+        return AnyView(routeHintFallback)
+    }
+
+    private var routeHintFallback: some View {
+        VStack(alignment: .leading, spacing: Layout.small) {
+            Text(L10n.t("map.guided_route_flow", lang))
+                .font(.headline.weight(.semibold))
+            InfoCard(
+                title: routeFallbackTitle,
+                subtitle: routeFallbackSubtitle,
+                detail: routeFallbackDetail,
+                icon: "point.topleft.down.curvedto.point.bottomright.up"
+            )
+            SmartNavigationRow(
+                title: L10n.t("tab.search", lang),
+                subtitle: localizedText("Search practical steps before you go.", "Zoek praktische stappen voordat je gaat.", "Найдите практические шаги перед визитом."),
+                symbol: "magnifyingglass.circle.fill",
+                destination: .searchList
+            )
+            SmartNavigationRow(
+                title: L10n.t("settings.sources", lang),
+                subtitle: localizedText("Check official requirements and opening hours.", "Controleer officiële eisen en openingstijden.", "Проверьте требования и часы работы на официальных сайтах."),
+                symbol: "checkmark.shield.fill",
+                destination: .officialSources
+            )
+            SmartNavigationRow(
+                title: localizedText("Documents", "Documenten", "Документы"),
+                subtitle: localizedText("Prepare proof before visiting an office.", "Bereid bewijs voor voordat je naar een loket gaat.", "Подготовьте подтверждения перед визитом в офис."),
+                symbol: "doc.text.fill",
+                destination: .journeyDocuments
+            )
+        }
+        .accessibilityIdentifier("map.routeFallback.dashboard")
     }
 
     private var placesListSection: some View {
@@ -989,14 +1177,42 @@ struct NearbyMapView: View {
                 .buttonStyle(.plain)
             }
             if viewModel.filteredPlaces.isEmpty {
-                InfoCard(
-                    title: L10n.t("map.no_places_title", lang),
-                    subtitle: L10n.t("map.no_places_subtitle", lang),
-                    detail: L10n.t("map.no_places_detail", lang),
-                    icon: "mappin.slash"
-                )
+                noPlacesDashboard
             }
         }
+    }
+
+    private var noPlacesDashboard: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.medium) {
+            InfoCard(
+                title: L10n.t("map.no_places_title", lang),
+                subtitle: L10n.t("map.no_places_subtitle", lang),
+                detail: noPlacesRecoveryDetail,
+                icon: "mappin.slash"
+            )
+
+            Button {
+                viewModel.searchText = ""
+                viewModel.clearFilters()
+                viewModel.applyCityCenter()
+            } label: {
+                Label(showAllPlacesTitle, systemImage: "arrow.counterclockwise")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(PrimaryPremiumButtonStyle())
+            .accessibilityIdentifier("map.empty.reset")
+
+            LazyVGrid(columns: DetailPageLayout.twoColumnWhenPossible(for: 360, minimumColumnWidth: 156), spacing: AppSpacing.small) {
+                ForEach(mapRecoveryActions) { action in
+                    NavigationLink(value: action.destination) {
+                        MapRecoveryActionCard(action: action)
+                    }
+                    .buttonStyle(AppPressableCardButtonStyle())
+                    .accessibilityIdentifier("map.empty.action.\(action.id)")
+                }
+            }
+        }
+        .accessibilityIdentifier("map.empty.dashboard")
     }
 
     private var showMorePlacesTitle: String {
@@ -1005,6 +1221,110 @@ struct NearbyMapView: View {
         case .dutch: return "Meer plekken tonen"
         case .english: return "Show more places"
         }
+    }
+
+    private var showAllPlacesTitle: String {
+        switch lang {
+        case .russian: return "Показать все места"
+        case .dutch: return "Alle plekken tonen"
+        case .english: return "Show all places"
+        }
+    }
+
+    private var partnerLayerTitle: String {
+        switch lang {
+        case .russian: return "Show Local Partners"
+        case .dutch: return "Show Local Partners"
+        case .english: return "Show Local Partners"
+        }
+    }
+
+    private var partnerLayerSubtitle: String {
+        switch lang {
+        case .russian: return "Partner Layer добавляет подборку local listings на карту. Проверяйте цены, доступность и условия напрямую у бизнеса."
+        case .dutch: return "Partner Layer toont een selectie lokale vermeldingen op de kaart. Controleer prijzen, beschikbaarheid en voorwaarden rechtstreeks bij het bedrijf."
+        case .english: return "Partner Layer adds selected local listings to the map. Check prices, availability, and terms directly with the business."
+        }
+    }
+
+    private var partnerLayerExamples: [(title: String, symbol: String)] {
+        [
+            ("Hotels", "bed.double.fill"),
+            ("Cafés", "cup.and.saucer.fill"),
+            ("Restaurants", "fork.knife"),
+            ("Hospitals", "cross.case.fill"),
+            ("Lawyers", "scale.3d")
+        ]
+    }
+
+    private var noPlacesRecoveryDetail: String {
+        localizedText(
+            "Clear filters or use a broader route. Always verify opening hours and requirements before visiting.",
+            "Wis filters of gebruik een bredere route. Controleer openingstijden en eisen voordat je gaat.",
+            "Сбросьте фильтры или используйте более широкий маршрут. Перед визитом проверяйте часы работы и требования."
+        )
+    }
+
+    private var routeFallbackTitle: String {
+        localizedText(
+            "No guided route selected",
+            "Geen route gekozen",
+            "Маршрут ещё не выбран"
+        )
+    }
+
+    private var routeFallbackSubtitle: String {
+        localizedText(
+            "Choose a quick route or use the safe paths below.",
+            "Kies een snelle route of gebruik de veilige paden hieronder.",
+            "Выберите быстрый маршрут или используйте безопасные шаги ниже."
+        )
+    }
+
+    private var routeFallbackDetail: String {
+        localizedText(
+            "The map can still help: search the topic, verify official rules, and prepare documents before visiting.",
+            "De kaart kan nog steeds helpen: zoek het onderwerp, controleer officiële regels en bereid documenten voor.",
+            "Карта всё равно помогает: найдите тему, проверьте официальные правила и подготовьте документы."
+        )
+    }
+
+    private var mapRecoveryActions: [MapRecoveryAction] {
+        [
+            MapRecoveryAction(
+                id: "search",
+                title: L10n.t("tab.search", lang),
+                subtitle: localizedText("Search guides and answers.", "Zoek gidsen en antwoorden.", "Искать гайды и ответы."),
+                icon: "magnifyingglass.circle.fill",
+                tint: AppColors.dutchOrange,
+                destination: .searchList
+            ),
+            MapRecoveryAction(
+                id: "sources",
+                title: L10n.t("settings.sources", lang),
+                subtitle: localizedText("Check official service websites.", "Controleer officiële websites.", "Проверьте официальные сайты служб."),
+                icon: "checkmark.shield.fill",
+                tint: AppColors.success,
+                destination: .officialSources
+            ),
+            MapRecoveryAction(
+                id: "documents",
+                title: localizedText("Documents", "Documenten", "Документы"),
+                subtitle: localizedText("Prepare proof before visiting.", "Bereid bewijs voor je bezoek voor.", "Подготовьте подтверждения перед визитом."),
+                icon: "doc.text.fill",
+                tint: AppColors.cyanGlow,
+                destination: .journeyDocuments
+            ),
+            MapRecoveryAction(
+                id: "legal",
+                title: localizedText("Legal help", "Juridische hulp", "Юридическая помощь"),
+                subtitle: localizedText("Use support for personal situations.", "Gebruik hulp bij persoonlijke situaties.", "Используйте помощь для личных ситуаций."),
+                icon: "person.fill.questionmark",
+                tint: AppColors.violet,
+                destination: .legalHelp
+            )
+        ]
+        .filter { RelatedContentEngine.isVisible($0.destination, for: appState.selectedUserStatus?.personaTag) }
     }
 
     private var groupedVisiblePlaceSections: [SupportPlaceSection] {
@@ -1021,32 +1341,98 @@ struct NearbyMapView: View {
             viewModel.selectPlace(place)
             appState.addRecentlyViewedTopic(place.name)
         } label: {
-            HStack(spacing: 10) {
-                GlassImageBadge(size: 44, cornerRadius: 13, accent: annotationColor(for: place.category)) {
+            HStack(alignment: .top, spacing: 14) {
+                ZStack(alignment: .bottomLeading) {
                     GeneratedCategoryArtwork(
                         symbol: place.category.systemImageName,
                         accent: annotationColor(for: place.category)
                     )
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+                    .clipped()
+
+                    LinearGradient(
+                        colors: [.clear, AppColors.navyDeep.opacity(0.65)],
+                        startPoint: .top,
+                        endPoint: .bottom
+                    )
+
+                    Image(systemName: place.category.systemImageName)
+                        .font(.system(size: 16, weight: .bold))
+                        .foregroundStyle(.white)
+                        .frame(width: 36, height: 36)
+                        .background(annotationColor(for: place.category).opacity(0.88), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+                        .padding(10)
                 }
-                VStack(alignment: .leading, spacing: Layout.xSmall) {
+                .frame(width: 92, height: 98)
+                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                .overlay(
+                    RoundedRectangle(cornerRadius: 18, style: .continuous)
+                        .stroke(Color.white.opacity(0.12), lineWidth: 0.8)
+                )
+                .accessibilityHidden(true)
+
+                VStack(alignment: .leading, spacing: 8) {
+                    HStack(spacing: 7) {
+                        Text(place.category.localized(lang))
+                            .font(AppTypography.metadata)
+                            .foregroundStyle(annotationColor(for: place.category))
+                            .lineLimit(1)
+                            .padding(.horizontal, 9)
+                            .padding(.vertical, 5)
+                            .background(annotationColor(for: place.category).opacity(0.12), in: Capsule())
+
+                        if place.isOfficialSource {
+                            Image(systemName: "checkmark.shield.fill")
+                                .font(.system(size: 12, weight: .semibold))
+                                .foregroundStyle(AppColors.success)
+                        }
+                    }
+
                     Text(place.localizedName(lang))
-                        .font(.headline.weight(.semibold))
+                        .font(AppTypography.cardTitle)
                         .foregroundStyle(Palette.textPrimary)
-                    Text(place.category.localized(lang) + " • " + viewModel.distancePlaceholderText(for: place, language: lang))
-                        .font(.caption)
-                        .foregroundStyle(Palette.accent)
+                        .lineLimit(2)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    Text(place.localizedUseCase(lang))
+                        .font(AppTypography.caption)
+                        .foregroundStyle(Palette.textSecondary)
+                        .lineLimit(2)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    HStack(spacing: 6) {
+                        Image(systemName: "location.fill")
+                            .font(.system(size: 10, weight: .semibold))
+                        Text(viewModel.distancePlaceholderText(for: place, language: lang))
+                            .lineLimit(1)
+                        Text("•")
+                            .foregroundStyle(Palette.textSecondary)
+                        Text(place.sourceLabel)
+                            .lineLimit(1)
+                    }
+                    .font(AppTypography.caption)
+                    .foregroundStyle(Palette.accent)
+
                     if savedItemsStore.isSaved(place.saveKey) {
-                        Text(L10n.t("common.saved", lang))
-                            .font(AppTypography.caption)
+                        Label(L10n.t("common.saved", lang), systemImage: "bookmark.fill")
+                            .font(AppTypography.captionStrong)
                             .foregroundStyle(AppColors.success)
                     }
                 }
-                Spacer()
+                Spacer(minLength: 0)
                 Image(systemName: "chevron.right")
+                    .font(.system(size: 13, weight: .bold))
                     .foregroundStyle(Palette.textSecondary)
+                    .padding(.top, 8)
             }
             .frame(maxWidth: .infinity, alignment: .leading)
-            .appCardStyle()
+            .padding(12)
+            .background(AppColors.glassSurfaceElevated)
+            .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+            .overlay(
+                RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    .stroke(AppColors.stroke.opacity(0.72), lineWidth: 0.8)
+            )
         }
         .buttonStyle(.plain)
     }
@@ -1516,6 +1902,7 @@ private struct CompactCityRouteBackground: View {
 }
 
 private struct LightweightNearbyMapPlaceholder: View {
+    let selectedCity: String
     let cityName: String
     let placeCount: Int
     let tint: Color
@@ -1524,17 +1911,51 @@ private struct LightweightNearbyMapPlaceholder: View {
         ZStack {
             LinearGradient(
                 colors: [
-                    AppColors.navyDeep.opacity(0.96),
-                    tint.opacity(0.34),
-                    AppColors.graphite.opacity(0.88)
+                    Color(hex: "#06111F"),
+                    Color(hex: "#0A2136"),
+                    Color(hex: "#030914")
                 ],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
 
-            ProvinceMapMiniGraphic(accent: tint)
-                .opacity(0.30)
-                .padding(36)
+            RadialGradient(
+                colors: [AppColors.cyanGlow.opacity(0.20), .clear],
+                center: UnitPoint(x: 0.70, y: 0.20),
+                startRadius: 0,
+                endRadius: 250
+            )
+            .allowsHitTesting(false)
+
+            RadialGradient(
+                colors: [AppColors.dutchOrange.opacity(0.12), .clear],
+                center: UnitPoint(x: 0.16, y: 0.84),
+                startRadius: 0,
+                endRadius: 230
+            )
+            .allowsHitTesting(false)
+
+            PremiumNetherlandsMapCanvas(
+                selectedProvinceID: nil,
+                selectedCity: selectedCity,
+                glowPhase: 0.58,
+                displayMode: .services
+            )
+            .padding(.horizontal, 34)
+            .padding(.vertical, 18)
+            .opacity(0.92)
+            .accessibilityHidden(true)
+
+            LinearGradient(
+                colors: [
+                    Color.black.opacity(0.02),
+                    Color.black.opacity(0.08),
+                    Color.black.opacity(0.36)
+                ],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+            .allowsHitTesting(false)
 
             VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 8) {
@@ -1611,6 +2032,12 @@ private struct NearbyFullScreenMapView: View {
                         .buttonStyle(.plain)
                     }
                 }
+
+                if let userCoordinate = viewModel.userCoordinate {
+                    Annotation(userLocationTitle, coordinate: userCoordinate) {
+                        UserLocationMapAnnotation()
+                    }
+                }
             }
             .ignoresSafeArea()
             .onAppear {
@@ -1631,6 +2058,32 @@ private struct NearbyFullScreenMapView: View {
             .buttonStyle(.plain)
             .padding(18)
         }
+    }
+
+    private var userLocationTitle: String {
+        switch lang {
+        case .english: return "You"
+        case .dutch: return "Jij"
+        case .russian: return "Вы"
+        }
+    }
+}
+
+private struct UserLocationMapAnnotation: View {
+    var body: some View {
+        ZStack {
+            Circle()
+                .fill(AppColors.softBlue.opacity(0.24))
+                .frame(width: 42, height: 42)
+            Circle()
+                .fill(AppColors.softBlue)
+                .frame(width: 18, height: 18)
+            Circle()
+                .stroke(Color.white.opacity(0.92), lineWidth: 3)
+                .frame(width: 18, height: 18)
+        }
+        .shadow(color: AppColors.softBlue.opacity(0.34), radius: 8, x: 0, y: 3)
+        .accessibilityLabel("Current location")
     }
 }
 
@@ -1667,6 +2120,58 @@ private struct SupportPlaceSection: Identifiable {
     }
 }
 
+private struct MapRecoveryAction: Identifiable {
+    let id: String
+    let title: String
+    let subtitle: String
+    let icon: String
+    let tint: Color
+    let destination: AppDestination
+}
+
+private struct MapRecoveryActionCard: View {
+    let action: MapRecoveryAction
+
+    var body: some View {
+        ProductTaskCard(
+            title: action.title,
+            subtitle: action.subtitle,
+            symbol: action.icon,
+            accent: action.tint,
+            minHeight: 104
+        )
+    }
+}
+
+private struct MapCityRouteTarget: Identifiable {
+    let name: String
+    let provinceID: String
+    let x: CGFloat
+    let y: CGFloat
+    let tapDiameter: CGFloat
+
+    var id: String { name }
+
+    static let releaseCities: [MapCityRouteTarget] = [
+        MapCityRouteTarget(name: "Amsterdam", provinceID: "Noord-Holland", x: 0.47, y: 0.33, tapDiameter: 62),
+        MapCityRouteTarget(name: "Leiden", provinceID: "Zuid-Holland", x: 0.39, y: 0.45, tapDiameter: 56),
+        MapCityRouteTarget(name: "Den Haag", provinceID: "Zuid-Holland", x: 0.34, y: 0.50, tapDiameter: 56),
+        MapCityRouteTarget(name: "Rotterdam", provinceID: "Zuid-Holland", x: 0.43, y: 0.58, tapDiameter: 56),
+        MapCityRouteTarget(name: "Utrecht", provinceID: "Utrecht", x: 0.56, y: 0.48, tapDiameter: 56),
+        MapCityRouteTarget(name: "Eindhoven", provinceID: "Noord-Brabant", x: 0.61, y: 0.73, tapDiameter: 50),
+        MapCityRouteTarget(name: "Groningen", provinceID: "Groningen", x: 0.72, y: 0.15, tapDiameter: 50),
+        MapCityRouteTarget(name: "Maastricht", provinceID: "Limburg", x: 0.68, y: 0.91, tapDiameter: 50)
+    ]
+}
+
+private extension String {
+    var nearbyMapAccessibilityIDSegment: String {
+        replacingOccurrences(of: "-", with: "_")
+            .replacingOccurrences(of: " ", with: "_")
+            .lowercased()
+    }
+}
+
 #if DEBUG && os(iOS)
 private struct NearbyMapPreviewContainer: View {
     @StateObject private var appState = AppStateViewModel()
@@ -1696,60 +2201,6 @@ private struct NearbyMapPreviewContainer: View {
     }
 }
 
-private struct NearbyMapChipRowPreview: View {
-    let language: AppLanguage
-
-    private var focusItems: [(title: String, symbol: String, count: Int, isSelected: Bool)] {
-        [
-            (L10n.t("common.all", language), "square.grid.2x2", 19, false),
-            (MapFocus.healthcare.localized(language), MapFocus.healthcare.symbol, 6, true),
-            (L10n.t("map.emergency", language), "cross.case.fill", 4, false),
-            (MapFocus.government.localized(language), MapFocus.government.symbol, 7, false),
-            (MapFocus.education.localized(language), MapFocus.education.symbol, 5, false),
-            (MapFocus.transport.localized(language), MapFocus.transport.symbol, 5, false)
-        ]
-    }
-
-    var body: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 10) {
-                ForEach(focusItems, id: \.title) { item in
-                    HStack(spacing: 6) {
-                        Image(systemName: item.symbol)
-                            .imageScale(.small)
-                        Text(item.title)
-                            .font(AppTypography.footnote)
-                            .lineLimit(1)
-                            .minimumScaleFactor(0.88)
-                            .allowsTightening(true)
-                        Text("\(item.count)")
-                            .font(AppTypography.caption)
-                            .padding(.horizontal, 5)
-                            .padding(.vertical, 2)
-                            .background((item.isSelected ? Color.white : AppColors.chipBackground).opacity(0.6))
-                            .clipShape(Capsule())
-                    }
-                    .foregroundStyle(item.isSelected ? .white : AppColors.textPrimary)
-                    .padding(.horizontal, 12)
-                    .padding(.vertical, 8)
-                    .fixedSize(horizontal: true, vertical: false)
-                    .background(item.isSelected ? AppColors.accent : AppColors.card)
-                    .overlay(
-                        RoundedRectangle(cornerRadius: 14, style: .continuous)
-                            .stroke(item.isSelected ? AppColors.accent : AppColors.stroke, lineWidth: 1)
-                    )
-                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-                }
-            }
-            .padding(.horizontal, AppSpacing.screenHorizontal)
-        }
-        .padding(.horizontal, -AppSpacing.screenHorizontal)
-        .padding(.vertical, AppSpacing.medium)
-        .frame(maxWidth: .infinity, alignment: .leading)
-        .background(AppSurface.base.opacity(0.62))
-    }
-}
-
 #Preview("Map Focus RU - iPhone SE", traits: .fixedLayout(width: 375, height: 667)) {
     NearbyMapPreviewContainer(language: .russian, focus: .emergency)
         .environment(\.dynamicTypeSize, .large)
@@ -1768,13 +2219,4 @@ private struct NearbyMapChipRowPreview: View {
         .environment(\.dynamicTypeSize, .xLarge)
 }
 
-#Preview("Map Chips RU - iPhone SE", traits: .fixedLayout(width: 375, height: 96)) {
-    NearbyMapChipRowPreview(language: .russian)
-        .environment(\.dynamicTypeSize, .large)
-}
-
-#Preview("Map Chips NL - iPhone SE", traits: .fixedLayout(width: 375, height: 96)) {
-    NearbyMapChipRowPreview(language: .dutch)
-        .environment(\.dynamicTypeSize, .large)
-}
 #endif

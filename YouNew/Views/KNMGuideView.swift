@@ -124,12 +124,19 @@ struct KNMGuideView: View {
     private func moduleCard(_ module: KNMModule) -> some View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             HStack(alignment: .top, spacing: AppSpacing.small) {
-                Image(systemName: module.icon)
-                    .font(.system(size: 17, weight: .bold))
-                    .foregroundStyle(module.accent.color)
-                    .frame(width: 42, height: 42)
-                    .background(module.accent.color.opacity(0.12))
-                    .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                PremiumImageHeader(
+                    title: module.title.value(lang),
+                    asset: moduleImageAsset(module),
+                    language: lang,
+                    symbol: module.icon,
+                    accent: module.accent.color,
+                    height: 88,
+                    width: 96,
+                    cornerRadius: 18,
+                    fallbackCategory: moduleFallbackCategory(module)
+                )
+                .layoutPriority(0)
+
                 VStack(alignment: .leading, spacing: 3) {
                     Text(module.title.value(lang))
                         .font(AppTypography.bodyStrong)
@@ -139,6 +146,7 @@ struct KNMGuideView: View {
                         .font(AppTypography.metadata)
                         .foregroundStyle(module.accent.color)
                 }
+                .layoutPriority(1)
                 Spacer(minLength: 0)
             }
 
@@ -150,6 +158,54 @@ struct KNMGuideView: View {
         }
         .frame(maxWidth: .infinity, minHeight: 158, alignment: .topLeading)
         .appCardStyle()
+    }
+
+    private func moduleImageAsset(_ module: KNMModule) -> AppImageAsset? {
+        switch module.id {
+        case "housing":
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case "work-income", "money":
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case "health":
+            return ContentMediaRegistry.healthcarePharmacyImage
+        case "education-upbringing":
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.officialSourcesHero
+        case "government-institutions":
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        case "norms-values":
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.marketsLocalLifeImage ?? ContentMediaRegistry.mapImage
+        case "transport":
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case "safety":
+            return ContentMediaRegistry.emergencyImage
+        case "free-time":
+            return ContentMediaRegistry.cultureWideHero ?? ContentMediaRegistry.cultureHero ?? ContentMediaRegistry.museumsCultureImage
+        default:
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+    }
+
+    private func moduleFallbackCategory(_ module: KNMModule) -> PremiumImageFallbackCategory {
+        switch module.id {
+        case "housing":
+            return .housing
+        case "work-income", "money":
+            return .work
+        case "health":
+            return .healthcare
+        case "education-upbringing":
+            return .dutchA1A2
+        case "government-institutions":
+            return .government
+        case "transport":
+            return .transport
+        case "safety":
+            return .emergency
+        case "free-time", "norms-values":
+            return .integration
+        default:
+            return .city
+        }
     }
 
     private var keyTermsSection: some View {
@@ -212,7 +268,16 @@ private struct KNMModuleView: View {
         ScrollView {
             ResponsiveContentContainer(maxWidth: 920) {
                 LazyVStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
-                    CategoryHeroVisual(assetName: nil, title: module.title.value(lang), subtitle: module.summary.value(lang), symbol: module.icon, badgeText: "KNM", accent: module.accent.color)
+                    CategoryHeroVisual(
+                        assetName: nil,
+                        title: module.title.value(lang),
+                        subtitle: module.summary.value(lang),
+                        symbol: module.icon,
+                        badgeText: "KNM",
+                        accent: module.accent.color,
+                        asset: moduleHeroAsset,
+                        language: lang
+                    )
                     DisclaimerBanner(text: localized(en: "App-created KNM study content. Not an official DUO exam.", nl: "Door de app gemaakte KNM-studiecontent. Geen officieel DUO-examen.", ru: "Учебный материал KNM, созданный приложением. Не официальный экзамен DUO."))
 
                     VStack(alignment: .leading, spacing: AppSpacing.small) {
@@ -288,6 +353,31 @@ private struct KNMModuleView: View {
         default: return nil
         }
     }
+
+    private var moduleHeroAsset: AppImageAsset? {
+        switch module.id {
+        case "housing":
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case "work-income", "money":
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case "health":
+            return ContentMediaRegistry.healthcarePharmacyImage
+        case "education-upbringing":
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.dailyCultureImage
+        case "government-institutions":
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        case "norms-values":
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.profileImage
+        case "transport":
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case "safety":
+            return ContentMediaRegistry.emergencyImage
+        case "free-time":
+            return ContentMediaRegistry.cultureHero ?? ContentMediaRegistry.museumsCultureImage
+        default:
+            return ContentMediaRegistry.profileImage ?? ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+    }
 }
 
 private struct KNMLessonDetailView: View {
@@ -302,7 +392,16 @@ private struct KNMLessonDetailView: View {
         ScrollView {
             ResponsiveContentContainer(maxWidth: 920) {
                 LazyVStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
-                    CategoryHeroVisual(assetName: nil, title: lesson.title.value(lang), subtitle: module.title.value(lang), symbol: module.icon, badgeText: "KNM", accent: module.accent.color)
+                    CategoryHeroVisual(
+                        assetName: nil,
+                        title: lesson.title.value(lang),
+                        subtitle: module.title.value(lang),
+                        symbol: module.icon,
+                        badgeText: "KNM",
+                        accent: module.accent.color,
+                        asset: moduleHeroAsset,
+                        language: lang
+                    )
                     textBlock(title: label("Explanation", "Uitleg", "Объяснение"), text: lesson.body.value(lang))
                     if let example = lesson.example {
                         textBlock(title: label("Example", "Voorbeeld", "Пример"), text: example.value(lang))
@@ -332,6 +431,31 @@ private struct KNMLessonDetailView: View {
                 .foregroundStyle(AppColors.textPrimary)
                 .fixedSize(horizontal: false, vertical: true)
                 .appCardStyle()
+        }
+    }
+
+    private var moduleHeroAsset: AppImageAsset? {
+        switch module.id {
+        case "housing":
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case "work-income", "money":
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case "health":
+            return ContentMediaRegistry.healthcarePharmacyImage
+        case "education-upbringing":
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.dailyCultureImage
+        case "government-institutions":
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        case "norms-values":
+            return ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.profileImage
+        case "transport":
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case "safety":
+            return ContentMediaRegistry.emergencyImage
+        case "free-time":
+            return ContentMediaRegistry.cultureHero ?? ContentMediaRegistry.museumsCultureImage
+        default:
+            return ContentMediaRegistry.profileImage ?? ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero
         }
     }
 
@@ -396,11 +520,74 @@ private struct KNMLessonDetailView: View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             NLSectionHeader(title: label("Practice", "Oefenen", "Практика"))
             ForEach(lesson.practiceQuestions) { question in
-                KNMQuestionCard(question: question, selectedIndex: selectedAnswers[question.id]) { index in
-                    selectedAnswers[question.id] = index
-                }
+                lessonQuestionPanel(question)
             }
         }
+    }
+
+    private func lessonQuestionPanel(_ question: KNMPracticeQuestion) -> some View {
+        let selectedIndex = selectedAnswers[question.id]
+        return VStack(alignment: .leading, spacing: AppSpacing.small) {
+            ProductInfoBlock(
+                title: question.isOfficial ? label("Official public question", "Officiële openbare vraag", "Официальный публичный вопрос") : label("App-created practice question", "Oefenvraag gemaakt door de app", "Тренировочный вопрос, созданный приложением"),
+                bodyText: question.question.value(lang),
+                symbol: question.isOfficial ? "checkmark.seal.fill" : "questionmark.circle.fill",
+                accent: question.isOfficial ? AppColors.success : module.accent.color
+            )
+
+            ForEach(Array(question.options.enumerated()), id: \.offset) { index, option in
+                Button {
+                    selectedAnswers[question.id] = index
+                } label: {
+                    HStack(alignment: .top, spacing: AppSpacing.small) {
+                        Image(systemName: optionIcon(index, selectedIndex: selectedIndex, question: question))
+                            .font(.system(size: 14, weight: .bold))
+                        Text(option.value(lang))
+                            .font(AppTypography.body)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Spacer(minLength: 0)
+                    }
+                    .foregroundStyle(optionForeground(index, selectedIndex: selectedIndex, question: question))
+                    .padding(AppSpacing.small)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(optionBackground(index, selectedIndex: selectedIndex, question: question))
+                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("knm.quiz.option.\(question.id).\(index)")
+            }
+
+            if selectedIndex != nil {
+                ProductInfoBlock(
+                    title: label("Explanation", "Uitleg", "Пояснение"),
+                    bodyText: question.explanation.value(lang),
+                    symbol: "text.bubble.fill",
+                    accent: AppColors.cyanGlow
+                )
+                .accessibilityIdentifier("knm.quiz.feedback")
+            }
+        }
+    }
+
+    private func optionIcon(_ index: Int, selectedIndex: Int?, question: KNMPracticeQuestion) -> String {
+        guard let selectedIndex else { return "circle" }
+        if index == question.correctIndex { return "checkmark.circle.fill" }
+        if index == selectedIndex { return "xmark.circle.fill" }
+        return "circle"
+    }
+
+    private func optionForeground(_ index: Int, selectedIndex: Int?, question: KNMPracticeQuestion) -> Color {
+        guard selectedIndex != nil else { return AppColors.textPrimary }
+        if index == question.correctIndex { return AppColors.success }
+        if index == selectedIndex { return AppColors.error }
+        return AppColors.textSecondary
+    }
+
+    private func optionBackground(_ index: Int, selectedIndex: Int?, question: KNMPracticeQuestion) -> Color {
+        guard selectedIndex != nil else { return AppColors.glassSurfaceElevated }
+        if index == question.correctIndex { return AppColors.success.opacity(0.12) }
+        if index == selectedIndex { return AppColors.error.opacity(0.12) }
+        return AppColors.glassSurfaceElevated
     }
 
     private func label(_ en: String, _ nl: String, _ ru: String) -> String {
@@ -453,12 +640,83 @@ private struct KNMPracticeView: View {
             .accessibilityIdentifier("knm.practice.summary")
 
             ForEach(questions) { question in
-                KNMQuestionCard(question: question, selectedIndex: selectedAnswers[question.id]) { index in
-                    selectedAnswers[question.id] = index
-                }
+                questionPanel(question)
             }
         }
         .accessibilityIdentifier("knm.practice")
+    }
+
+    private func questionPanel(_ question: KNMPracticeQuestion) -> some View {
+        let selectedIndex = selectedAnswers[question.id]
+        return VStack(alignment: .leading, spacing: AppSpacing.small) {
+            ProductInfoBlock(
+                title: question.isOfficial ? officialQuestionLabel : appPracticeQuestionLabel,
+                bodyText: question.question.value(lang),
+                symbol: question.isOfficial ? "checkmark.seal.fill" : "questionmark.circle.fill",
+                accent: question.isOfficial ? AppColors.success : AppColors.warning
+            )
+
+            ForEach(Array(question.options.enumerated()), id: \.offset) { index, option in
+                Button {
+                    selectedAnswers[question.id] = index
+                } label: {
+                    HStack(alignment: .top, spacing: AppSpacing.small) {
+                        Image(systemName: optionIcon(index, selectedIndex: selectedIndex, question: question))
+                            .font(.system(size: 14, weight: .bold))
+                        Text(option.value(lang))
+                            .font(AppTypography.body)
+                            .fixedSize(horizontal: false, vertical: true)
+                        Spacer(minLength: 0)
+                    }
+                    .foregroundStyle(optionForeground(index, selectedIndex: selectedIndex, question: question))
+                    .padding(AppSpacing.small)
+                    .frame(maxWidth: .infinity, alignment: .leading)
+                    .background(optionBackground(index, selectedIndex: selectedIndex, question: question))
+                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("knm.quiz.option.\(question.id).\(index)")
+            }
+
+            if selectedIndex != nil {
+                ProductInfoBlock(
+                    title: localized(en: "Explanation", nl: "Uitleg", ru: "Пояснение"),
+                    bodyText: question.explanation.value(lang),
+                    symbol: "text.bubble.fill",
+                    accent: AppColors.cyanGlow
+                )
+                .accessibilityIdentifier("knm.quiz.feedback")
+            }
+        }
+    }
+
+    private var officialQuestionLabel: String {
+        localized(en: "Official public question", nl: "Officiële openbare vraag", ru: "Официальный публичный вопрос")
+    }
+
+    private var appPracticeQuestionLabel: String {
+        localized(en: "App-created practice question", nl: "Oefenvraag gemaakt door de app", ru: "Тренировочный вопрос, созданный приложением")
+    }
+
+    private func optionIcon(_ index: Int, selectedIndex: Int?, question: KNMPracticeQuestion) -> String {
+        guard let selectedIndex else { return "circle" }
+        if index == question.correctIndex { return "checkmark.circle.fill" }
+        if index == selectedIndex { return "xmark.circle.fill" }
+        return "circle"
+    }
+
+    private func optionForeground(_ index: Int, selectedIndex: Int?, question: KNMPracticeQuestion) -> Color {
+        guard selectedIndex != nil else { return AppColors.textPrimary }
+        if index == question.correctIndex { return AppColors.success }
+        if index == selectedIndex { return AppColors.error }
+        return AppColors.textSecondary
+    }
+
+    private func optionBackground(_ index: Int, selectedIndex: Int?, question: KNMPracticeQuestion) -> Color {
+        guard selectedIndex != nil else { return AppColors.glassSurfaceElevated }
+        if index == question.correctIndex { return AppColors.success.opacity(0.12) }
+        if index == selectedIndex { return AppColors.error.opacity(0.12) }
+        return AppColors.glassSurfaceElevated
     }
 
     private func localized(en: String, nl: String, ru: String) -> String {
@@ -470,96 +728,6 @@ private struct KNMPracticeView: View {
     }
 }
 
-private struct KNMQuestionCard: View {
-    let question: KNMPracticeQuestion
-    let selectedIndex: Int?
-    let onAnswer: (Int) -> Void
-    @EnvironmentObject private var languageManager: LanguageManager
-
-    private var lang: AppLanguage { languageManager.appLanguage }
-
-    var body: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
-            Text(question.question.value(lang))
-                .font(AppTypography.bodyStrong)
-                .foregroundStyle(AppColors.textPrimary)
-                .fixedSize(horizontal: false, vertical: true)
-
-            Text(question.isOfficial ? officialLabel : appPracticeLabel)
-                .font(AppTypography.metadata)
-                .foregroundStyle(question.isOfficial ? AppColors.success : AppColors.warning)
-
-            ForEach(Array(question.options.enumerated()), id: \.offset) { index, option in
-                Button {
-                    onAnswer(index)
-                } label: {
-                    HStack(alignment: .top, spacing: AppSpacing.small) {
-                        Image(systemName: optionIcon(index))
-                            .font(.system(size: 14, weight: .bold))
-                        Text(option.value(lang))
-                            .font(AppTypography.body)
-                            .fixedSize(horizontal: false, vertical: true)
-                        Spacer(minLength: 0)
-                    }
-                    .foregroundStyle(optionForeground(index))
-                    .padding(AppSpacing.small)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .background(optionBackground(index))
-                    .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
-                }
-                .buttonStyle(.plain)
-                .accessibilityIdentifier("knm.quiz.option.\(question.id).\(index)")
-            }
-
-            if selectedIndex != nil {
-                Text(question.explanation.value(lang))
-                    .font(AppTypography.caption)
-                    .foregroundStyle(AppColors.textSecondary)
-                    .fixedSize(horizontal: false, vertical: true)
-                    .accessibilityIdentifier("knm.quiz.feedback")
-            }
-        }
-        .appCardStyle()
-    }
-
-    private var officialLabel: String {
-        switch lang {
-        case .english: return "Official public question"
-        case .dutch: return "Officiële openbare vraag"
-        case .russian: return "Официальный публичный вопрос"
-        }
-    }
-
-    private var appPracticeLabel: String {
-        switch lang {
-        case .english: return "App-created practice question"
-        case .dutch: return "Oefenvraag gemaakt door de app"
-        case .russian: return "Тренировочный вопрос, созданный приложением"
-        }
-    }
-
-    private func optionIcon(_ index: Int) -> String {
-        guard let selectedIndex else { return "circle" }
-        if index == question.correctIndex { return "checkmark.circle.fill" }
-        if index == selectedIndex { return "xmark.circle.fill" }
-        return "circle"
-    }
-
-    private func optionForeground(_ index: Int) -> Color {
-        guard selectedIndex != nil else { return AppColors.textPrimary }
-        if index == question.correctIndex { return AppColors.success }
-        if index == selectedIndex { return AppColors.error }
-        return AppColors.textSecondary
-    }
-
-    private func optionBackground(_ index: Int) -> Color {
-        guard selectedIndex != nil else { return AppColors.glassSurfaceElevated }
-        if index == question.correctIndex { return AppColors.success.opacity(0.12) }
-        if index == selectedIndex { return AppColors.error.opacity(0.12) }
-        return AppColors.glassSurfaceElevated
-    }
-}
-
 private struct KNMSourceListView: View {
     let sources: [KNMSource]
     @EnvironmentObject private var languageManager: LanguageManager
@@ -568,39 +736,110 @@ private struct KNMSourceListView: View {
     private var lang: AppLanguage { languageManager.appLanguage }
 
     var body: some View {
+        let validSources = sources.compactMap { source -> (KNMSource, URL)? in
+            guard let url = AppURL.validatedWebURL(URL(string: source.url)) else { return nil }
+            return (source, url)
+        }
+
         VStack(alignment: .leading, spacing: AppSpacing.small) {
             NLSectionHeader(title: localized(en: "Official sources", nl: "Officiële bronnen", ru: "Источники"))
-            ForEach(sources) { source in
-                if let url = AppURL.validatedWebURL(URL(string: source.url)) {
-                    Button {
-                        openURL(url)
-                    } label: {
-                        VStack(alignment: .leading, spacing: 5) {
-                            HStack(alignment: .top) {
-                                Text(source.title.value(lang))
-                                    .font(AppTypography.bodyStrong)
-                                    .foregroundStyle(AppColors.textPrimary)
-                                Spacer()
-                                Image(systemName: "arrow.up.right.square")
-                                    .font(.system(size: 13, weight: .bold))
-                                    .foregroundStyle(AppColors.cyanGlow)
-                            }
-                            Text(source.url)
-                                .font(AppTypography.metadata)
-                                .foregroundStyle(AppColors.textSecondary)
-                                .lineLimit(2)
-                            Text("\(source.sourceType) • \(source.language) • \(source.retrievedAt)")
-                                .font(AppTypography.metadata)
-                                .foregroundStyle(source.verified ? AppColors.success : AppColors.warning)
-                        }
-                        .frame(maxWidth: .infinity, alignment: .leading)
-                        .appCardStyle()
-                    }
-                    .buttonStyle(.plain)
+
+            if validSources.isEmpty {
+                sourceFallbackRows
+            } else {
+                ForEach(validSources, id: \.0.id) { source, url in
+                    sourceButton(source: source, url: url)
                 }
             }
         }
         .accessibilityIdentifier("knm.sources")
+    }
+
+    private func sourceButton(source: KNMSource, url: URL) -> some View {
+        Button {
+            openURL(url)
+        } label: {
+            VStack(alignment: .leading, spacing: 5) {
+                HStack(alignment: .top) {
+                    Text(source.title.value(lang))
+                        .font(AppTypography.bodyStrong)
+                        .foregroundStyle(AppColors.textPrimary)
+                    Spacer()
+                    Image(systemName: "arrow.up.right.square")
+                        .font(.system(size: 13, weight: .bold))
+                        .foregroundStyle(AppColors.cyanGlow)
+                }
+                Text(source.url)
+                    .font(AppTypography.metadata)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(2)
+                Text("\(source.sourceType) • \(source.language) • \(source.retrievedAt)")
+                    .font(AppTypography.metadata)
+                    .foregroundStyle(source.verified ? AppColors.success : AppColors.warning)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .appCardStyle()
+        }
+        .buttonStyle(.plain)
+    }
+
+    private var sourceFallbackRows: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            sourceFallbackRow(
+                title: localized(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники"),
+                subtitle: localized(en: "Verify civic information before acting.", nl: "Controleer burgerinformatie voordat je handelt.", ru: "Проверяйте гражданскую информацию перед действием."),
+                icon: AppIcons.officialSource,
+                destination: .officialSources
+            )
+
+            sourceFallbackRow(
+                title: localized(en: "KNM overview", nl: "KNM-overzicht", ru: "Обзор KNM"),
+                subtitle: localized(en: "Return to modules and practice.", nl: "Ga terug naar modules en oefenen.", ru: "Вернуться к модулям и практике."),
+                icon: "graduationcap.fill",
+                destination: .knm
+            )
+
+            sourceFallbackRow(
+                title: localized(en: "Search", nl: "Zoeken", ru: "Поиск"),
+                subtitle: localized(en: "Find related answers and documents.", nl: "Vind verwante antwoorden en documenten.", ru: "Найти связанные ответы и документы."),
+                icon: "magnifyingglass",
+                destination: .searchList
+            )
+        }
+        .accessibilityIdentifier("knm.sources.empty")
+    }
+
+    private func sourceFallbackRow(title: String, subtitle: String, icon: String, destination: AppDestination) -> some View {
+        NavigationLink(value: destination) {
+            HStack(spacing: AppSpacing.small) {
+                Image(systemName: icon)
+                    .font(.system(size: 15, weight: .semibold))
+                    .foregroundStyle(AppColors.cyanGlow)
+                    .frame(width: 34, height: 34)
+                    .background(AppColors.cyanGlow.opacity(0.14))
+                    .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(title)
+                        .font(AppTypography.bodyStrong)
+                        .foregroundStyle(AppColors.textPrimary)
+                        .lineLimit(2)
+                    Text(subtitle)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(2)
+                }
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.caption.weight(.bold))
+                    .foregroundStyle(AppColors.textSecondary)
+            }
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .appCardStyle()
+        }
+        .buttonStyle(.plain)
     }
 
     private func localized(en: String, nl: String, ru: String) -> String {

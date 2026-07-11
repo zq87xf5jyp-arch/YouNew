@@ -25,6 +25,7 @@ struct ChecklistView: View {
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
+                checklistHero
 
                 ProgressCard(
                     title: L10n.t("checklist.progress_summary", lang),
@@ -41,12 +42,7 @@ struct ChecklistView: View {
                         icon: "flag"
                     )
                 } else {
-                    InfoCard(
-                        title: L10n.t("checklist.status", lang),
-                        subtitle: L10n.t("checklist.all_completed", lang),
-                        detail: AppEmptyStates.checklistComplete(lang),
-                        icon: "checkmark.seal"
-                    )
+                    checklistCompleteDashboard
                 }
 
                 DisclaimerBanner(text: L10n.t("disclaimer.short", lang))
@@ -94,6 +90,95 @@ struct ChecklistView: View {
         .navigationTitle(L10n.t("checklist.title", lang))
     }
 
+    private var checklistHero: some View {
+        CategoryHeroVisual(
+            assetName: nil,
+            title: L10n.t("checklist.title", lang),
+            subtitle: checklistHeroSubtitle,
+            symbol: "checklist.checked",
+            badgeText: checklistHeroBadge,
+            accent: AppColors.success,
+            asset: ContentMediaRegistry.profileImage ?? ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero,
+            height: 240,
+            language: lang
+        )
+        .accessibilityIdentifier("checklist.hero")
+    }
+
+    private var checklistCompleteDashboard: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.medium) {
+            HStack(alignment: .top, spacing: AppSpacing.medium) {
+                Image(systemName: "checkmark.seal.fill")
+                    .font(.system(size: 23, weight: .bold))
+                    .foregroundStyle(AppColors.success)
+                    .frame(width: 52, height: 52)
+                    .background(AppColors.success.opacity(0.13))
+                    .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 6) {
+                    Text(L10n.t("checklist.all_completed", lang))
+                        .font(AppTypography.cardTitle)
+                        .foregroundStyle(AppColors.textPrimary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text(AppEmptyStates.checklistComplete(lang))
+                        .font(AppTypography.body)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                }
+            }
+
+            LazyVGrid(columns: [GridItem(.adaptive(minimum: 170), spacing: 10)], spacing: 10) {
+                ForEach(checklistCompleteActions) { action in
+                    NavigationLink(value: action.destination) {
+                        ChecklistRecoveryActionCard(action: action)
+                    }
+                    .buttonStyle(.plain)
+                    .accessibilityIdentifier("checklist.complete.action.\(action.id)")
+                }
+            }
+        }
+        .appCardStyle()
+        .accessibilityElement(children: .contain)
+        .accessibilityIdentifier("checklist.complete.dashboard")
+    }
+
+    private var checklistCompleteActions: [ChecklistRecoveryAction] {
+        [
+            ChecklistRecoveryAction(
+                id: "first-steps",
+                icon: "list.bullet.clipboard.fill",
+                title: localized(en: "Review first steps", nl: "Eerste stappen bekijken", ru: "Проверить первые шаги"),
+                subtitle: localized(en: "Registration, DigiD, care", nl: "Inschrijving, DigiD, zorg", ru: "Регистрация, DigiD, медицина"),
+                color: AppColors.success,
+                destination: .firstSteps
+            ),
+            ChecklistRecoveryAction(
+                id: "documents",
+                icon: "folder.fill",
+                title: localized(en: "Organize documents", nl: "Documenten ordenen", ru: "Разобрать документы"),
+                subtitle: localized(en: "Files, scans, letters", nl: "Bestanden, scans, brieven", ru: "Файлы, сканы, письма"),
+                color: AppColors.softBlue,
+                destination: .journeyDocuments
+            ),
+            ChecklistRecoveryAction(
+                id: "sources",
+                icon: "checkmark.shield.fill",
+                title: localized(en: "Official sources", nl: "Officiële bronnen", ru: "Официальные источники"),
+                subtitle: localized(en: "Verify before acting", nl: "Controleer voordat u handelt", ru: "Проверяйте перед действием"),
+                color: AppColors.dutchOrange,
+                destination: .officialSources
+            ),
+            ChecklistRecoveryAction(
+                id: "search",
+                icon: "magnifyingglass.circle.fill",
+                title: localized(en: "Search knowledge", nl: "Kennis zoeken", ru: "Поиск знаний"),
+                subtitle: localized(en: "Find the next topic", nl: "Vind het volgende onderwerp", ru: "Найти следующую тему"),
+                color: AppColors.violet,
+                destination: .searchList
+            )
+        ]
+    }
+
     @ViewBuilder
     private func checklistSection(title: String, subtitle: String?, items: [ChecklistItem]) -> some View {
         VStack(alignment: .leading, spacing: AppSpacing.medium) {
@@ -116,5 +201,52 @@ struct ChecklistView: View {
                 }
             }
         }
+    }
+
+    private func localized(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .russian: return ru
+        case .dutch: return nl
+        case .english: return en
+        }
+    }
+
+    private var checklistHeroSubtitle: String {
+        switch lang {
+        case .russian: return "Ваши следующие шаги, документы и проверки в одном спокойном маршруте."
+        case .dutch: return "Uw volgende stappen, documenten en controles in een rustige route."
+        case .english: return "Your next steps, documents, and checks in one calm path."
+        }
+    }
+
+    private var checklistHeroBadge: String {
+        switch lang {
+        case .russian: return "Следующие шаги"
+        case .dutch: return "Volgende stappen"
+        case .english: return "Next steps"
+        }
+    }
+}
+
+private struct ChecklistRecoveryAction: Identifiable {
+    let id: String
+    let icon: String
+    let title: String
+    let subtitle: String
+    let color: Color
+    let destination: AppDestination
+}
+
+private struct ChecklistRecoveryActionCard: View {
+    let action: ChecklistRecoveryAction
+
+    var body: some View {
+        ProductTaskCard(
+            title: action.title,
+            subtitle: action.subtitle,
+            symbol: action.icon,
+            accent: action.color,
+            minHeight: 104
+        )
     }
 }

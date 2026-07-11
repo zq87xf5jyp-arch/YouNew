@@ -1,7 +1,6 @@
 import Foundation
 
-@MainActor
-enum KNMGuideData {
+nonisolated enum KNMGuideData {
     static let retrievedAt = "2026-06-01"
 
     static let sources: [KNMSource] = [
@@ -59,7 +58,7 @@ enum KNMGuideData {
     ]
 
     static var allQuestions: [KNMPracticeQuestion] {
-        modules.flatMap(\.allQuestions)
+        modules.flatMap { $0.allQuestions }
     }
 
     static func module(with id: String) -> KNMModule? {

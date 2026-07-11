@@ -28,7 +28,8 @@ struct AppDestinationView: View {
         } else {
             switch destination {
         case .checklist(let id):
-            if let item = appState.checklistItems.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }) {
+            if let item = appState.checklistItems.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) })
+                ?? MockChecklistData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }) {
                 ChecklistItemDetailView(item: item)
             } else {
                 notFoundView
@@ -104,6 +105,26 @@ struct AppDestinationView: View {
             } else {
                 notFoundView
             }
+        case .placeDetail(let id):
+            let audience = UserContentCategory.from(persona: appState.selectedUserStatus?.personaTag) ?? .tourist
+            if let place = DashboardPlacesData.detailPlace(id: id) {
+                PlaceItemDetailView(
+                    place: place,
+                    relatedPlaces: DashboardPlacesData.visiblePlaces(
+                        cityId: place.cityId,
+                        audience: audience,
+                        limit: nil
+                    )
+                )
+            } else {
+                notFoundView
+            }
+        case .calendarEvent(let id):
+            if let event = DashboardCalendarData.detailEvent(id: id) {
+                CalendarEventDetailView(event: event)
+            } else {
+                notFoundView
+            }
         case .provinceList:
             ProvinceDirectoryView()
         case .cityList:
@@ -127,6 +148,8 @@ struct AppDestinationView: View {
             } else {
                 notFoundView
             }
+        case .homeExploreList(let id):
+            HomeExploreListView(listID: id)
 
         case .checklistList:    ChecklistView()
         case .institutionsList: InstitutionsView()
@@ -183,11 +206,28 @@ struct AppDestinationView: View {
             }
         case .netherlandsHistory: NetherlandsHistoryView()
         case .cultureAttractions: CultureAttractionsView()
+        case .netherlandsCalendar: NetherlandsCalendarView()
         case .settings: SettingsView()
         case .profileSelection: ProfileSelectionView()
         case .savedTopics: SavedTopicsView()
         case .recentlyViewedTopics: RecentlyViewedTopicsView()
         case .resourcesHub: ResourcesView()
+        case .lifeTimeline: LifeTimelineView()
+        case .documentVault: DocumentOrganizerView()
+        case .deadlineCenter: DeadlineCenterView()
+        case .verifiedExperts: VerifiedExpertsView()
+        case .aiLetterGenerator: AILetterGeneratorView()
+        case .discoverNetherlands: DiscoverNetherlandsView()
+        case .localPartners: LocalPartnersView()
+        case .localPartnerDetail(let id):
+            if let partner = MockLocalPartnersData.partner(id: id) {
+                LocalPartnerDetailView(partner: partner)
+            } else {
+                notFoundView
+            }
+        case .businessGrowth: BusinessGrowthView()
+        case .businessLogin: BusinessLoginView()
+        case .businessDashboard: BusinessDashboardView()
         case .finesAndLettersHub: FinesAndLettersHubView()
         case .legalHelp: LegalHelpView()
         case .officialSources: OfficialSourceDirectoryView()
@@ -240,6 +280,7 @@ private struct ReleaseRouteFallbackView: View {
     let destination: AppDestination
     @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var languageManager: LanguageManager
+    @Environment(\.dismiss) private var dismiss
 
     private var lang: AppLanguage { languageManager.appLanguage }
     private var activePersona: PersonaTag? { appState.selectedUserStatus?.personaTag }
@@ -250,19 +291,21 @@ private struct ReleaseRouteFallbackView: View {
     var body: some View {
         ScrollView {
             ResponsiveContentContainer(maxWidth: 760) {
-                VStack(alignment: .leading, spacing: AppSpacing.medium) {
-                    CategoryHeroVisual(
-                        assetName: nil,
-                        title: title,
-                        subtitle: subtitle,
-                        symbol: "arrow.triangle.branch",
-                        badgeText: badge,
-                        accent: AppColors.cyanGlow,
-                        height: 188
-                    )
+                VStack(alignment: .leading, spacing: 18) {
+                    compactHeader
 
                     VStack(alignment: .leading, spacing: AppSpacing.small) {
                         if isHiddenForProfile {
+                            Button(action: goBack) {
+                                fallbackRow(
+                                    title: goBackTitle,
+                                    subtitle: goBackSubtitle,
+                                    icon: "chevron.left",
+                                    tint: AppColors.textSecondary
+                                )
+                            }
+                            .buttonStyle(.plain)
+
                             fallbackLink(
                                 title: profileHomeTitle,
                                 subtitle: profileHomeSubtitle,
@@ -308,47 +351,96 @@ private struct ReleaseRouteFallbackView: View {
                             )
                         }
                     }
-
-                    Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
                 }
                 .padding(.horizontal, AppSpacing.screenHorizontal)
                 .padding(.vertical, AppSpacing.medium)
+                .bottomTabSafeAreaPadding()
             }
         }
+        .topChromeSafeAreaPadding()
         .appSceneBackground()
-        .navigationTitle(title)
+        .navigationTitle(navigationTitle)
         .nlNavigationInline()
+    }
+
+    private var compactHeader: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            HStack(spacing: 10) {
+                Image(systemName: isHiddenForProfile ? "lock.circle.fill" : "arrow.triangle.branch")
+                    .font(.system(size: 18, weight: .bold))
+                    .foregroundStyle(isHiddenForProfile ? AppColors.warning : AppColors.cyanGlow)
+                    .frame(width: 38, height: 38)
+                    .background((isHiddenForProfile ? AppColors.warning : AppColors.cyanGlow).opacity(0.12))
+                    .clipShape(RoundedRectangle(cornerRadius: 13, style: .continuous))
+
+                VStack(alignment: .leading, spacing: 2) {
+                    Text(title)
+                        .font(.system(size: 21, weight: .bold, design: .rounded))
+                        .foregroundStyle(AppColors.textPrimary)
+                        .lineLimit(3)
+                        .minimumScaleFactor(0.82)
+                        .fixedSize(horizontal: false, vertical: true)
+                    Text(currentProfileLine)
+                        .font(AppTypography.caption)
+                        .foregroundStyle(AppColors.textSecondary)
+                        .lineLimit(1)
+                }
+            }
+
+            Text(subtitle)
+                .font(AppTypography.body)
+                .foregroundStyle(AppColors.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
+        .padding(18)
+        .background(AppColors.card.opacity(0.72))
+        .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .stroke(Color.white.opacity(0.08), lineWidth: 1)
+        )
     }
 
     private func fallbackLink(title: String, subtitle: String, icon: String, tint: Color, destination: AppDestination) -> some View {
         NavigationLink(value: destination) {
-            HStack(spacing: AppSpacing.medium) {
-                Image(systemName: icon)
-                    .font(.system(size: 18, weight: .bold))
-                    .foregroundStyle(tint)
-                    .frame(width: 44, height: 44)
-                    .background(tint.opacity(0.12))
-                    .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(title)
-                        .font(AppTypography.bodyStrong)
-                        .foregroundStyle(AppColors.textPrimary)
-                    Text(subtitle)
-                        .font(AppTypography.caption)
-                        .foregroundStyle(AppColors.textSecondary)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-
-                Spacer(minLength: 0)
-
-                Image(systemName: "chevron.right")
-                    .font(.system(size: 13, weight: .bold))
-                    .foregroundStyle(AppColors.textTertiary)
-            }
-            .appCardStyle()
+            fallbackRow(title: title, subtitle: subtitle, icon: icon, tint: tint)
         }
         .buttonStyle(.plain)
+    }
+
+    private func fallbackRow(title: String, subtitle: String, icon: String, tint: Color) -> some View {
+        HStack(spacing: AppSpacing.medium) {
+            Image(systemName: icon)
+                .font(.system(size: 18, weight: .bold))
+                .foregroundStyle(tint)
+                .frame(width: 44, height: 44)
+                .background(tint.opacity(0.12))
+                .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
+
+            VStack(alignment: .leading, spacing: 4) {
+                Text(title)
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(AppColors.textPrimary)
+                Text(subtitle)
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.textSecondary)
+                    .lineLimit(2)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+
+            Spacer(minLength: 0)
+
+            Image(systemName: "chevron.right")
+                .font(.system(size: 13, weight: .bold))
+                .foregroundStyle(AppColors.textTertiary)
+        }
+        .padding(14)
+        .background(AppColors.cardElevated.opacity(0.86))
+        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+    }
+
+    private func goBack() {
+        dismiss()
     }
 
     private var badge: String {
@@ -369,9 +461,9 @@ private struct ReleaseRouteFallbackView: View {
     private var title: String {
         if isHiddenForProfile {
             switch lang {
-            case .russian: return "Маршрут для профиля \(activeProfileName)"
-            case .dutch: return "Route voor \(activeProfileName)"
-            case .english: return "\(activeProfileName) route"
+            case .russian: return "Недоступно для этого профиля"
+            case .dutch: return "Niet beschikbaar voor dit profiel"
+            case .english: return "Not available for this profile"
             }
         }
         switch lang {
@@ -384,9 +476,9 @@ private struct ReleaseRouteFallbackView: View {
     private var subtitle: String {
         if isHiddenForProfile {
             switch lang {
-            case .russian: return "Откройте маршруты и поиск, отфильтрованные под выбранный профиль."
-            case .dutch: return "Open routes en zoekresultaten die voor het gekozen profiel zijn gefilterd."
-            case .english: return "Open routes and search results filtered for the selected profile."
+            case .russian: return "Этот раздел для другого профиля. Смените профиль или вернитесь назад."
+            case .dutch: return "Deze sectie is voor een ander profiel. Wissel van profiel of ga terug."
+            case .english: return "This section is for another user profile. Switch profile or go back."
             }
         }
         switch lang {
@@ -396,8 +488,43 @@ private struct ReleaseRouteFallbackView: View {
         }
     }
 
+    private var navigationTitle: String {
+        if isHiddenForProfile {
+            switch lang {
+            case .russian: return "Недоступно"
+            case .dutch: return "Niet beschikbaar"
+            case .english: return "Not available"
+            }
+        }
+        return title
+    }
+
+    private var currentProfileLine: String {
+        switch lang {
+        case .russian: return "Текущий профиль: \(activeProfileName)"
+        case .dutch: return "Huidig profiel: \(activeProfileName)"
+        case .english: return "Current profile: \(activeProfileName)"
+        }
+    }
+
+    private var goBackTitle: String {
+        switch lang {
+        case .russian: return "Назад"
+        case .dutch: return "Terug"
+        case .english: return "Go back"
+        }
+    }
+
+    private var goBackSubtitle: String {
+        switch lang {
+        case .russian: return "Вернуться к предыдущему экрану."
+        case .dutch: return "Ga terug naar het vorige scherm."
+        case .english: return "Return to the previous screen."
+        }
+    }
+
     private var profileHomeDestination: AppDestination {
-        activePersona == nil ? .searchList : .categoriesHub
+        .profileSelection
     }
 
     private var activeProfileName: String {
@@ -413,17 +540,17 @@ private struct ReleaseRouteFallbackView: View {
 
     private var profileHomeTitle: String {
         switch lang {
-        case .russian: return "Маршруты профиля"
-        case .dutch: return "Profielroutes"
-        case .english: return "Profile routes"
+        case .russian: return "Сменить профиль"
+        case .dutch: return "Profiel wijzigen"
+        case .english: return "Change profile"
         }
     }
 
     private var profileHomeSubtitle: String {
         switch lang {
-        case .russian: return "Перейдите к действиям, которые подходят выбранной жизненной ситуации."
-        case .dutch: return "Ga naar acties die passen bij de gekozen levenssituatie."
-        case .english: return "Go to actions that match the selected life situation."
+        case .russian: return "Выберите другой сценарий пользователя."
+        case .dutch: return "Kies een andere gebruikersroute."
+        case .english: return "Choose a different user profile."
         }
     }
 
@@ -594,8 +721,17 @@ private struct ReleaseRouteFallbackView: View {
 }
 
 private struct AssistantHubRoot: View {
+    @State private var assistantPath = NavigationPath()
+
     var body: some View {
-        AIAssistantView(mapToolDestination: .mapHub) { }
+        NavigationStack(path: $assistantPath) {
+            AIAssistantView(
+                mapToolDestination: .mapHub,
+                onOpenMap: { },
+                onNavigate: { assistantPath.append($0) }
+            )
+            .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
+        }
     }
 }
 

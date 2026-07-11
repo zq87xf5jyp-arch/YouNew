@@ -214,7 +214,7 @@ enum ContentMediaRegistry {
             url: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Canal%20houses%20and%20Oude%20Kerk%20at%20blue%20hour%20with%20water%20reflection%20in%20Damrak%20Amsterdam%20Netherlands.jpg?width=1600"),
             sourcePageURL: URL(string: "https://commons.wikimedia.org/wiki/File:Canal_houses_and_Oude_Kerk_at_blue_hour_with_water_reflection_in_Damrak_Amsterdam_Netherlands.jpg"),
             imageURL: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Canal%20houses%20and%20Oude%20Kerk%20at%20blue%20hour%20with%20water%20reflection%20in%20Damrak%20Amsterdam%20Netherlands.jpg"),
-            thumbnailURL: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Canal%20houses%20and%20Oude%20Kerk%20at%20blue%20hour%20with%20water%20reflection%20in%20Damrak%20Amsterdam%20Netherlands.jpg?width=1200"),
+            thumbnailURL: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Canal%20houses%20and%20Oude%20Kerk%20at%20blue%20hour%20with%20water%20reflection%20in%20Damrak%20Amsterdam%20Netherlands.jpg?width=2400"),
             originalFileURL: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Canal%20houses%20and%20Oude%20Kerk%20at%20blue%20hour%20with%20water%20reflection%20in%20Damrak%20Amsterdam%20Netherlands.jpg"),
             title: "Amsterdam canal houses at Damrak",
             description: "Amsterdam canal houses and Oude Kerk reflected in Damrak water, used only when the content is explicitly Amsterdam or canal-ring context.",
@@ -240,20 +240,20 @@ enum ContentMediaRegistry {
 
         AppImageAsset(
             id: "content-culture-kinderdijk-windmills",
-            url: URL(string: "https://upload.wikimedia.org/wikipedia/commons/2/2c/The_windmills_of_Kinderdijk.JPG"),
-            sourcePageURL: URL(string: "https://commons.wikimedia.org/wiki/File:The_windmills_of_Kinderdijk.JPG"),
-            imageURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/2/2c/The_windmills_of_Kinderdijk.JPG"),
-            thumbnailURL: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/The%20windmills%20of%20Kinderdijk.JPG?width=1600"),
-            originalFileURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/2/2c/The_windmills_of_Kinderdijk.JPG"),
+            url: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Kinderdijk%2C%20Nederwaard%20molens%20no%201tm5%20RM30543tm7%20IMG%209354%202021-06-13%2011.04.jpg?width=2400"),
+            sourcePageURL: URL(string: "https://commons.wikimedia.org/wiki/File:Kinderdijk,_Nederwaard_molens_no_1tm5_RM30543tm7_IMG_9354_2021-06-13_11.04.jpg"),
+            imageURL: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Kinderdijk%2C%20Nederwaard%20molens%20no%201tm5%20RM30543tm7%20IMG%209354%202021-06-13%2011.04.jpg"),
+            thumbnailURL: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Kinderdijk%2C%20Nederwaard%20molens%20no%201tm5%20RM30543tm7%20IMG%209354%202021-06-13%2011.04.jpg?width=2400"),
+            originalFileURL: URL(string: "https://upload.wikimedia.org/wikipedia/commons/9/9d/Kinderdijk%2C_Nederwaard_molens_no_1tm5_RM30543tm7_IMG_9354_2021-06-13_11.04.jpg"),
             title: "Kinderdijk windmills",
-            description: "The UNESCO windmill landscape at Kinderdijk, used for Dutch water-management and windmill heritage content.",
+            description: "The UNESCO windmill landscape at Kinderdijk, used as a wide premium hero for Dutch water-management and windmill heritage content.",
             sourceName: "Wikimedia Commons",
-            sourceURL: URL(string: "https://commons.wikimedia.org/wiki/File:The_windmills_of_Kinderdijk.JPG"),
+            sourceURL: URL(string: "https://commons.wikimedia.org/wiki/File:Kinderdijk,_Nederwaard_molens_no_1tm5_RM30543tm7_IMG_9354_2021-06-13_11.04.jpg"),
             creator: "Wikimedia Commons contributor",
             author: "Wikimedia Commons contributor",
             license: "Wikimedia Commons file license",
             licenseName: "Wikimedia Commons file license",
-            licenseURL: URL(string: "https://commons.wikimedia.org/wiki/File:The_windmills_of_Kinderdijk.JPG"),
+            licenseURL: URL(string: "https://commons.wikimedia.org/wiki/File:Kinderdijk,_Nederwaard_molens_no_1tm5_RM30543tm7_IMG_9354_2021-06-13_11.04.jpg"),
             attribution: "Wikimedia Commons contributors",
             width: 2400,
             height: 1600,
@@ -272,7 +272,7 @@ enum ContentMediaRegistry {
             url: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Leiden_Grachten_20.jpg?width=1600"),
             sourcePageURL: URL(string: "https://commons.wikimedia.org/wiki/File:Leiden_Grachten_20.jpg"),
             imageURL: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Leiden_Grachten_20.jpg"),
-            thumbnailURL: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Leiden_Grachten_20.jpg?width=1200"),
+            thumbnailURL: URL(string: "https://commons.wikimedia.org/wiki/Special:FilePath/Leiden_Grachten_20.jpg?width=2400"),
             localAssetName: "home_leiden_canals",
             title: "Leiden canals",
             description: "The historic canal network of Leiden, a university city and one of the key centres for newcomer support in the Netherlands.",
@@ -321,8 +321,23 @@ enum ContentMediaRegistry {
         images.first { $0.id == "content-housing-rijtjeshuizen" }
     }
 
+    static var premiumHousingImage: AppImageAsset? {
+        localCover(
+            id: "content-housing-premium-local",
+            localAssetName: "premium_home_housing",
+            title: "Modern Dutch housing street",
+            description: "A bright residential street used for housing, rent, and address registration topics.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail
+        )
+    }
+
     static var cultureHero: AppImageAsset? {
         images.first { $0.id == "content-culture-vermeer-girl-pearl-earring" }
+    }
+
+    static var cultureWideHero: AppImageAsset? {
+        images.first { $0.id == "content-culture-kinderdijk-windmills" }
     }
 
     static var officialSourcesHero: AppImageAsset? {
@@ -337,6 +352,260 @@ enum ContentMediaRegistry {
         images.first { $0.id == "content-culture-kinderdijk-windmills" }
     }
 
+    static var workImage: AppImageAsset? {
+        localCover(
+            id: "cover-work-zuidas",
+            localAssetName: "home_work_zuidas",
+            title: "Amsterdam Zuidas offices",
+            description: "Office-district cover used for work, contracts, and employment topics.",
+            sourceName: "Project bundled visual",
+            type: .cardThumbnail,
+            width: 1642,
+            height: 2500
+        )
+    }
+
+    static var foodImage: AppImageAsset? {
+        localCover(
+            id: "cover-food-local-life",
+            localAssetName: "home_leiden_canals",
+            title: "Leiden canals and local terraces",
+            description: "Canal-side city scene used for food, cafes, restaurants, and daily local-life discovery.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1920,
+            height: 1207
+        )
+    }
+
+    static var natureImage: AppImageAsset? {
+        cultureWindmillHero
+    }
+
+    static var calendarImage: AppImageAsset? {
+        localCover(
+            id: "cover-calendar-netherlands",
+            localAssetName: "premium_home_documents",
+            title: "Netherlands calendar and events",
+            description: "Premium bundled cover used for holidays, appointments, and event planning surfaces.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1586,
+            height: 992
+        )
+    }
+
+    static var aiImage: AppImageAsset? {
+        localCover(
+            id: "cover-ai-assistant",
+            localAssetName: "premium_home_language",
+            title: "YouNew AI assistant guidance",
+            description: "Premium bundled cover for AI guidance, language help, and next-step assistant surfaces.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1586,
+            height: 992
+        )
+    }
+
+    static var emergencyImage: AppImageAsset? {
+        localCover(
+            id: "cover-emergency-services",
+            localAssetName: "home_emergency_ambulance",
+            title: "Dutch emergency services",
+            description: "Emergency services cover used for urgent help and 112 topics.",
+            sourceName: "Project bundled visual",
+            type: .cardThumbnail,
+            width: 1920,
+            height: 1280
+        )
+    }
+
+    static var mapImage: AppImageAsset? {
+        localCover(
+            id: "cover-netherlands-map",
+            localAssetName: "netherlands_map_base",
+            title: "Netherlands map",
+            description: "Map cover used for place discovery and city navigation topics.",
+            sourceName: "Project bundled visual",
+            type: .cardThumbnail,
+            aspectRatio: 1
+        )
+    }
+
+    static var searchImage: AppImageAsset? {
+        localCover(
+            id: "cover-search-discovery",
+            localAssetName: "premium_home_documents",
+            title: "Search across trusted Netherlands services",
+            description: "Premium bundled cover used for search, official answers, document topics, and country-wide service lookup.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1586,
+            height: 992
+        )
+    }
+
+    static var savedImage: AppImageAsset? {
+        localCover(
+            id: "cover-saved-items",
+            localAssetName: "premium_home_documents",
+            title: "Saved guides and documents",
+            description: "Premium bundled cover for saved places, guides, documents, and official-source bookmarks.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1586,
+            height: 992
+        )
+    }
+
+    static var profileImage: AppImageAsset? {
+        localCover(
+            id: "cover-profile-personal-path",
+            localAssetName: "premium_home_documents",
+            title: "Personal newcomer profile",
+            description: "Premium bundled cover for profile, onboarding, saved documents, and personalized newcomer path screens.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1586,
+            height: 992
+        )
+    }
+
+    static var dailyCultureImage: AppImageAsset? {
+        localCover(
+            id: "content-culture-daily-life-local",
+            localAssetName: "premium_home_language",
+            title: "Dutch daily culture",
+            description: "Premium bundled visual used for everyday culture and communication topics.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1586,
+            height: 992
+        )
+    }
+
+    static var marketsLocalLifeImage: AppImageAsset? {
+        localCover(
+            id: "content-culture-markets-local-life",
+            localAssetName: "home_leiden_canals",
+            title: "Dutch canals and local life",
+            description: "Canal-side city scene used for markets, food errands, and everyday local-life topics.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1920,
+            height: 1207
+        )
+    }
+
+    static var delftHistoricCentreImage: AppImageAsset? {
+        cultureWideHero
+    }
+
+    static var utrechtCanalsImage: AppImageAsset? {
+        transportStationHero
+    }
+
+    static var directCommunicationImage: AppImageAsset? {
+        localCover(
+            id: "content-culture-direct-communication",
+            localAssetName: "premium_home_language",
+            title: "Dutch direct communication",
+            description: "Premium bundled visual used for communication style and daily-culture guidance.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1586,
+            height: 992
+        )
+    }
+
+    static var canalsCityCentresImage: AppImageAsset? {
+        canalHousesHero
+    }
+
+    static var waterManagementImage: AppImageAsset? {
+        cultureWideHero
+    }
+
+    static var deltaWorksImage: AppImageAsset? {
+        mapImage
+    }
+
+    static var museumsCultureImage: AppImageAsset? {
+        cultureHero
+    }
+
+    static var theHagueBinnenhofImage: AppImageAsset? {
+        municipalityCityHallImage
+    }
+
+    static var governmentBasicsImage: AppImageAsset? {
+        municipalityCityHallImage
+    }
+
+    static var bsnImage: AppImageAsset? {
+        localCover(
+            id: "content-government-bsn",
+            localAssetName: "premium_home_documents",
+            title: "BSN registration documents",
+            description: "Premium bundled visual used for BSN, municipality, and document-registration topics.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1586,
+            height: 992
+        )
+    }
+
+    static var digidImage: AppImageAsset? {
+        localCover(
+            id: "content-government-digid",
+            localAssetName: "premium_home_documents",
+            title: "DigiD and online government access",
+            description: "Premium bundled visual used for DigiD and online public-service access topics.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1586,
+            height: 992
+        )
+    }
+
+    static var governmentInstitutionsImage: AppImageAsset? {
+        municipalityCityHallImage
+    }
+
+    static var healthcareBasicsImage: AppImageAsset? {
+        healthcarePharmacyImage
+    }
+
+    static var healthInsuranceImage: AppImageAsset? {
+        localCover(
+            id: "content-healthcare-insurance",
+            localAssetName: "premium_home_healthcare",
+            title: "Dutch health insurance",
+            description: "Premium bundled visual used for health insurance and care-system topics.",
+            sourceName: "YouNew bundled artwork",
+            type: .cardThumbnail,
+            width: 1586,
+            height: 992
+        )
+    }
+
+    static var huisartsImage: AppImageAsset? {
+        healthcarePharmacyImage
+    }
+
+    static var housingWonenImage: AppImageAsset? {
+        premiumHousingImage
+    }
+
+    static var transportBasicsImage: AppImageAsset? {
+        transportStationHero
+    }
+
+    static var ovpayImage: AppImageAsset? {
+        mapImage
+    }
+
     static var canalHousesHero: AppImageAsset? {
         images.first { $0.id == "content-home-amsterdam-canal-houses" }
     }
@@ -345,52 +614,188 @@ enum ContentMediaRegistry {
         images.first { $0.id == "content-guide-leiden-grachten" }
     }
 
+    private static func localCover(
+        id: String,
+        localAssetName: String,
+        title: String,
+        description: String,
+        sourceName: String,
+        type: AppImageType,
+        aspectRatio: Double = 16.0 / 10.0,
+        width: Int? = nil,
+        height: Int? = nil
+    ) -> AppImageAsset? {
+        guard VisualAssetHelper.exists(localAssetName) else { return nil }
+        return AppImageAsset(
+            id: id,
+            url: nil,
+            localAssetName: localAssetName,
+            title: title,
+            description: description,
+            sourceName: sourceName,
+            sourceURL: nil,
+            license: "Bundled app asset",
+            attribution: "YouNew",
+            width: width,
+            height: height,
+            aspectRatio: aspectRatio,
+            type: type,
+            verified: true,
+            retrievedAt: "2026-06-27"
+        )
+    }
+
     static func image(forContentID id: String) -> AppImageAsset? {
         switch id {
         case "amsterdam-canals":
             return canalHousesHero
         case "dutch-daily-culture":
-            return nil
+            return dailyCultureImage
         case "canals-city-centres":
-            return nil
+            return canalsCityCentresImage
         case "cycling-culture":
             return transportHero
         case "kinderdijk-windmills":
             return cultureWindmillHero
-        case "water-and-netherlands", "delta-works":
-            return nil
+        case "water-and-netherlands":
+            return waterManagementImage
+        case "delta-works":
+            return deltaWorksImage
         case "rijksmuseum-museumplein":
             return cultureHero
-        case "museums-public-culture", "the-hague-binnenhof":
-            return nil
+        case "museums-public-culture":
+            return museumsCultureImage
+        case "the-hague-binnenhof":
+            return theHagueBinnenhofImage
         case "leiden-old-centre-canals":
             return leidenCanalsHero
-        case "markets-local-life", "delft-historic-centre", "utrecht-canals":
-            return nil
+        case "markets-local-life":
+            return marketsLocalLifeImage
+        case "delft-historic-centre":
+            return delftHistoricCentreImage
+        case "utrecht-canals":
+            return utrechtCanalsImage
         case "direct-communication-style":
-            return nil
+            return directCommunicationImage
         case "rotterdam-architecture":
             return transportStationHero
         case "maastricht-historic-centre":
-            return nil
+            return cultureWideHero
         case "municipality-registration":
             return municipalityCityHallImage
-        case "bsn", "digid", "government-institutions":
-            return nil
+        case "bsn":
+            return bsnImage
+        case "digid":
+            return digidImage
+        case "government-institutions":
+            return governmentInstitutionsImage
         case "finding-huisarts":
             return healthcarePharmacyImage
-        case "healthcare-basics", "health-insurance", "huisarts":
-            return nil
+        case "healthcare-basics":
+            return healthcareBasicsImage
+        case "health-insurance":
+            return healthInsuranceImage
+        case "huisarts":
+            return huisartsImage
         case "housing-basics":
             return housingTerracedHousesImage
-        case "housing", "wonen":
-            return nil
+        case "housing":
+            return premiumHousingImage
+        case "wonen":
+            return housingWonenImage
         case "ov-chipkaart":
             return ovChipkaartImage
-        case "transport-basics", "ovpay":
-            return nil
+        case "transport-basics":
+            return transportBasicsImage
+        case "ovpay":
+            return ovpayImage
         default:
             return nil
         }
     }
+}
+
+enum ContentArtworkSlot: String, CaseIterable {
+    case aiHero
+    case searchHero
+    case searchRegistration
+    case searchHealthcare
+    case searchHousing
+    case searchTransport
+    case searchWork
+    case searchEmergency
+    case searchEducation
+    case searchLegal
+    case searchMap
+    case cityHeroFallback
+    case provinceHeroFallback
+}
+
+enum ContentArtworkRegistry {
+    static func asset(for slot: ContentArtworkSlot) -> AppImageAsset? {
+        switch slot {
+        case .aiHero:
+            return ContentMediaRegistry.aiImage ?? ContentMediaRegistry.officialSourcesHero
+        case .searchHero:
+            return ContentMediaRegistry.searchImage ?? ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero
+        case .searchRegistration:
+            return ContentMediaRegistry.municipalityCityHallImage
+        case .searchHealthcare:
+            return ContentMediaRegistry.healthcarePharmacyImage
+        case .searchHousing:
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case .searchTransport:
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case .searchWork:
+            return ContentMediaRegistry.workImage
+        case .searchEmergency:
+            return ContentMediaRegistry.emergencyImage
+        case .searchEducation:
+            return ContentMediaRegistry.cultureHero
+        case .searchLegal:
+            return ContentMediaRegistry.officialSourcesHero
+        case .searchMap:
+            return ContentMediaRegistry.mapImage
+        case .cityHeroFallback:
+            return ContentMediaRegistry.homeAtmosphereHero ?? ContentMediaRegistry.leidenCanalsHero
+        case .provinceHeroFallback:
+            return ContentMediaRegistry.cultureWindmillHero ?? ContentMediaRegistry.mapImage
+        }
+    }
+
+    static func duplicateArtworkViolations() -> [String] {
+        var seen: [String: ContentArtworkSlot] = [:]
+        var violations: [String] = []
+
+        for slot in ContentArtworkSlot.allCases {
+            guard let asset = asset(for: slot) else {
+                violations.append("\(slot.rawValue): missing asset")
+                continue
+            }
+
+            let key = normalizedIdentity(for: asset)
+            if let previous = seen[key], !allowedDuplicate(slot, previous) {
+                violations.append("\(previous.rawValue) and \(slot.rawValue) share \(key)")
+            } else {
+                seen[key] = slot
+            }
+        }
+
+        return violations
+    }
+
+    private static func allowedDuplicate(_ lhs: ContentArtworkSlot, _ rhs: ContentArtworkSlot) -> Bool {
+        false
+    }
+
+    private static func normalizedIdentity(for asset: AppImageAsset) -> String {
+        if let localAssetName = asset.localAssetName, !localAssetName.isEmpty {
+            return "local:\(localAssetName)"
+        }
+        if let url = asset.thumbnailURL ?? asset.imageURL ?? asset.url {
+            return "url:\(url.absoluteString.lowercased())"
+        }
+        return "asset:\(asset.id.lowercased())"
+    }
+
 }

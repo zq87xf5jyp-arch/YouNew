@@ -16,6 +16,17 @@ struct ResourceCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: AppSpacing.small) {
+            PremiumImageHeader(
+                title: item.localizedTitle(lang),
+                asset: resourceImageAsset,
+                language: lang,
+                symbol: resourceSymbol,
+                accent: item.isOfficial ? AppColors.success : AppColors.warning,
+                height: 124,
+                cornerRadius: 18,
+                fallbackCategory: resourceFallbackCategory
+            )
+
             ViewThatFits(in: .horizontal) {
                 HStack(alignment: .center, spacing: AppSpacing.xSmall) {
                     categoryLabel
@@ -68,6 +79,74 @@ struct ResourceCard: View {
         }
         .frame(maxWidth: .infinity, alignment: .leading)
         .appGlassCardStyle(accent: item.isOfficial ? AppColors.success : AppColors.warning)
+    }
+
+    private var resourceImageAsset: AppImageAsset? {
+        switch normalizedCategory {
+        case "emergencies":
+            return ContentMediaRegistry.emergencyImage ?? ContentMediaRegistry.officialSourcesHero
+        case "healthcare":
+            return ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.healthcarePharmacyImage
+        case "transport":
+            return ContentMediaRegistry.ovChipkaartImage ?? ContentMediaRegistry.transportStationHero
+        case "taxes", "identity", "immigration", "legal help":
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.municipalityCityHallImage
+        case "work":
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case "education", "student life":
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.cultureHero
+        case "housing":
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case "mental support":
+            return ContentMediaRegistry.healthcareBasicsImage ?? ContentMediaRegistry.profileImage
+        case "scams":
+            return ContentMediaRegistry.searchImage ?? ContentMediaRegistry.officialSourcesHero
+        default:
+            return item.isOfficial ? ContentMediaRegistry.officialSourcesHero : ContentMediaRegistry.searchImage
+        }
+    }
+
+    private var resourceFallbackCategory: PremiumImageFallbackCategory {
+        switch normalizedCategory {
+        case "emergencies":
+            return .emergency
+        case "healthcare", "mental support":
+            return .healthcare
+        case "transport":
+            return .transport
+        case "housing":
+            return .housing
+        case "work":
+            return .work
+        case "education", "student life":
+            return .dutchA1A2
+        case "scams":
+            return .search
+        case "taxes", "identity", "immigration", "legal help":
+            return .government
+        default:
+            return item.isOfficial ? .government : .search
+        }
+    }
+
+    private var resourceSymbol: String {
+        switch normalizedCategory {
+        case "emergencies": return "cross.case.circle.fill"
+        case "healthcare", "mental support": return "cross.case.fill"
+        case "transport": return "tram.fill"
+        case "taxes": return "eurosign.circle.fill"
+        case "legal help": return "scalemass.fill"
+        case "immigration", "identity": return "person.text.rectangle.fill"
+        case "work": return "briefcase.fill"
+        case "education", "student life": return "graduationcap.fill"
+        case "housing": return "house.fill"
+        case "scams": return "shield.lefthalf.filled"
+        default: return item.isOfficial ? "checkmark.shield.fill" : "link.circle.fill"
+        }
+    }
+
+    private var normalizedCategory: String {
+        item.category.trimmingCharacters(in: .whitespacesAndNewlines).lowercased()
     }
 
     private var categoryLabel: some View {

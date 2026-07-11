@@ -16,9 +16,13 @@ struct OnboardingQuestionnaireView: View {
 
     // Answers collected across steps
     @State private var selectedPersona: UserStatus? = nil
+    @State private var selectedOnboardingProfile: OnboardingProfile? = nil
+    @State private var selectedSituation: OnboardingSituation? = nil
     @State private var selectedTimeInNL: TimeInNL? = nil
     @State private var selectedPriorities: Set<String> = []
     @State private var selectedCity: String = ""
+    @State private var selectedRegion: String = ""
+    @State private var selectedInterests: Set<OptionalInterest> = []
     @State private var hasBSN = false
     @State private var hasDigiD = false
     @State private var hasHealthInsurance = false
@@ -30,22 +34,24 @@ struct OnboardingQuestionnaireView: View {
         priorityOptions(for: selectedPersona)
     }
     private var cities: [String] {
+        CityId.allCases.map(\.displayName)
+    }
+
+    private var cityRegionOptions: [(id: String, title: String, icon: String)] {
         [
-            L10n.t("onboarding.city.amsterdam", lang),
-            L10n.t("onboarding.city.rotterdam", lang),
-            L10n.t("onboarding.city.den_haag", lang),
-            L10n.t("onboarding.city.utrecht", lang),
-            L10n.t("onboarding.city.leiden", lang),
-            L10n.t("onboarding.city.eindhoven", lang),
-            L10n.t("onboarding.city.groningen", lang),
-            L10n.t("onboarding.city.other", lang)
-        ]
+            ("currentLocation", localized(en: "Current location", nl: "Huidige locatie", ru: "Текущая геолокация"), "location.fill"),
+            ("chooseLater", localized(en: "Choose later", nl: "Later kiezen", ru: "Выбрать позже"), "clock"),
+            ("province:Noord-Holland", "Noord-Holland", "map.fill"),
+            ("province:Zuid-Holland", "Zuid-Holland", "map.fill")
+        ] + cities.map { ("city:\($0)", ProvinceCatalog.localizedCityName($0, lang), "mappin.circle.fill") }
     }
 
     private var canAdvance: Bool {
         switch currentStep {
-        case 1: return selectedPersona != nil
+        case 1: return selectedOnboardingProfile != nil
+        case 2: return selectedSituation != nil
         case 3: return !selectedPriorities.isEmpty
+        case 4: return !selectedRegion.isEmpty
         default: return true
         }
     }
@@ -71,10 +77,10 @@ struct OnboardingQuestionnaireView: View {
                         switch currentStep {
                         case 0:   welcomeStep
                         case 1:   profileTypeStep
-                        case 2:   timeInNLStep
+                        case 2:   currentSituationStep
                         case 3:   prioritiesStep
                         case 4:   cityStep
-                        case 5:   documentsStep
+                        case 5:   optionalInterestsStep
                         default:  readyStep
                         }
                     }
@@ -180,7 +186,7 @@ struct OnboardingQuestionnaireView: View {
     private var ctaLabel: String {
         switch currentStep {
         case 0: return L10n.t("onboarding.cta.lets_go", lang)
-        case totalSteps: return L10n.t("onboarding.cta.see_guide", lang)
+        case totalSteps: return localized(en: "Finish", nl: "Afronden", ru: "Готово")
         default: return L10n.t("onboarding.cta.continue", lang)
         }
     }
@@ -191,8 +197,7 @@ struct OnboardingQuestionnaireView: View {
         VStack(alignment: .leading, spacing: AppSpacing.large) {
             Spacer().frame(height: AppSpacing.medium)
 
-            NetherlandsHeroMark()
-                .padding(.bottom, AppSpacing.xSmall)
+            welcomeImageHero
 
             VStack(alignment: .leading, spacing: AppSpacing.small) {
                 Text("YouNew.nl")
@@ -228,54 +233,120 @@ struct OnboardingQuestionnaireView: View {
         }
     }
 
+    private var welcomeImageHero: some View {
+        ZStack(alignment: .bottomLeading) {
+            PremiumImageHeader(
+                title: L10n.t("onboarding.welcome.title", lang),
+                asset: ContentMediaRegistry.profileImage ?? ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero,
+                language: lang,
+                symbol: "map.fill",
+                accent: OnboardingDesignTokens.accentCyan,
+                height: 190,
+                cornerRadius: 28,
+                fallbackCategory: .city
+            )
+
+            HStack(spacing: 8) {
+                Image(systemName: "location.fill")
+                    .font(.system(size: 12, weight: .bold))
+                Text("Netherlands")
+                    .font(AppTypography.captionStrong)
+            }
+            .foregroundStyle(.white)
+            .padding(.horizontal, 12)
+            .padding(.vertical, 8)
+            .background(.ultraThinMaterial, in: Capsule())
+            .padding(16)
+        }
+        .shadow(color: OnboardingDesignTokens.cardShadow(colorScheme), radius: 18, x: 0, y: 10)
+        .accessibilityIdentifier("onboarding.welcome.imageHero")
+    }
+
     private func welcomeFeatureRow(icon: String, text: String) -> some View {
-        OnboardingInfoRow(icon: icon, text: text)
+        HStack(alignment: .top, spacing: AppSpacing.small) {
+            Image(systemName: icon)
+                .font(.system(size: 13, weight: .semibold))
+                .foregroundStyle(OnboardingDesignTokens.accentCyan)
+                .frame(width: 20, height: 20)
+                .accessibilityHidden(true)
+            Text(text)
+                .font(AppTypography.footnote)
+                .foregroundStyle(OnboardingDesignTokens.secondaryText(colorScheme))
+                .fixedSize(horizontal: false, vertical: true)
+        }
     }
 
     // MARK: - Step 1: Profile type
 
     private var profileTypeStep: some View {
         VStack(alignment: .leading, spacing: AppSpacing.medium) {
-            stepHeader(title: L10n.t("onboarding.profile.title", lang),
-                       subtitle: L10n.t("onboarding.profile.subtitle", lang))
+            stepHeader(
+                title: localized(en: "Who are you?", nl: "Wie bent u?", ru: "Кто вы?"),
+                subtitle: localized(
+                    en: "This chooses the workspace, checklist, and first recommendations.",
+                    nl: "Dit kiest de workspace, checklist en eerste aanbevelingen.",
+                    ru: "Это настроит workspace, checklist и первые рекомендации."
+                )
+            )
 
             VStack(spacing: AppSpacing.small) {
-                ForEach(UserStatus.allCases) { type in
-                    QuestionnaireSelectionCard(
-                        icon: type.icon,
-                        title: type.localized(lang),
-                        subtitle: type.subtitle(lang),
-                        landmarkAssetName: landmarkAsset(for: type),
-                        isSelected: selectedPersona == type
-                    ) {
+                ForEach(OnboardingProfile.allCases) { type in
+                    let isSelected = selectedOnboardingProfile == type
+                    Button {
                         withAnimation(AppAnimations.softSpring) {
-                            selectedPersona = type
+                            selectedOnboardingProfile = type
+                            selectedPersona = type.userStatus
+                            selectedSituation = OnboardingSituation.options(for: type).first
                             prunePrioritiesForSelectedPersona()
                         }
+                    } label: {
+                        ProductTaskCard(
+                            title: type.localized(lang),
+                            subtitle: profileSubtitle(type),
+                            symbol: isSelected ? "checkmark.circle.fill" : type.icon,
+                            accent: isSelected ? OnboardingDesignTokens.accentCyan : AppColors.accent,
+                            priority: isSelected ? L10n.t("common.selected", lang) : nil,
+                            minHeight: 86
+                        )
                     }
+                    .buttonStyle(OnboardingPressableStyle())
                 }
             }
         }
     }
 
-    // MARK: - Step 2: Time in NL
+    // MARK: - Step 2: Current situation
 
-    private var timeInNLStep: some View {
+    private var currentSituationStep: some View {
         VStack(alignment: .leading, spacing: AppSpacing.medium) {
-            stepHeader(title: L10n.t("onboarding.time_in_nl.title", lang),
-                       subtitle: L10n.t("onboarding.time_in_nl.subtitle", lang))
+            stepHeader(
+                title: localized(en: "What is your current situation?", nl: "Wat is uw huidige situatie?", ru: "Какая у вас сейчас ситуация?"),
+                subtitle: localized(
+                    en: "Only relevant answers are shown for the profile you picked.",
+                    nl: "Alleen relevante antwoorden voor uw profiel worden getoond.",
+                    ru: "Показаны только релевантные ответы для выбранного профиля."
+                )
+            )
 
             VStack(spacing: AppSpacing.small) {
-                ForEach(TimeInNL.allCases) { time in
-                    QuestionnaireSelectionCard(
-                        icon: time.icon,
-                        title: time.localized(lang),
-                        subtitle: nil,
-                        landmarkAssetName: landmarkAsset(for: time),
-                        isSelected: selectedTimeInNL == time
-                    ) {
-                        withAnimation(AppAnimations.softSpring) { selectedTimeInNL = time }
+                ForEach(OnboardingSituation.options(for: selectedOnboardingProfile)) { situation in
+                    let isSelected = selectedSituation == situation
+                    Button {
+                        withAnimation(AppAnimations.softSpring) {
+                            selectedSituation = situation
+                            selectedPriorities.formUnion(situation.priorityHints.map(\.rawValue).prefix(2))
+                        }
+                    } label: {
+                        ProductTaskCard(
+                            title: situation.localized(lang),
+                            subtitle: situation.priorityHints.prefix(3).map { $0.localized(lang) }.joined(separator: " · "),
+                            symbol: isSelected ? "checkmark.circle.fill" : "person.text.rectangle",
+                            accent: isSelected ? OnboardingDesignTokens.accentCyan : AppColors.accent,
+                            priority: isSelected ? L10n.t("common.selected", lang) : nil,
+                            minHeight: 86
+                        )
                     }
+                    .buttonStyle(OnboardingPressableStyle())
                 }
             }
         }
@@ -285,8 +356,14 @@ struct OnboardingQuestionnaireView: View {
 
     private var prioritiesStep: some View {
         VStack(alignment: .leading, spacing: AppSpacing.medium) {
-            stepHeader(title: L10n.t("onboarding.priorities.title", lang),
-                       subtitle: L10n.t("onboarding.priorities.subtitle", lang))
+            stepHeader(
+                title: localized(en: "What do you need help with first?", nl: "Waarmee heeft u eerst hulp nodig?", ru: "С чем вам нужна помощь в первую очередь?"),
+                subtitle: localized(
+                    en: "Pick at least one. This changes Home, checklist priority, and AI context.",
+                    nl: "Kies minstens één. Dit verandert Home, checklist-prioriteit en AI-context.",
+                    ru: "Выберите хотя бы один пункт. Это меняет Home, приоритет checklist и AI-контекст."
+                )
+            )
 
             LazyVGrid(
                 columns: [GridItem(.flexible()), GridItem(.flexible())],
@@ -315,64 +392,82 @@ struct OnboardingQuestionnaireView: View {
 
     private var cityStep: some View {
         VStack(alignment: .leading, spacing: AppSpacing.medium) {
-            stepHeader(title: L10n.t("onboarding.city.title", lang),
-                       subtitle: L10n.t("onboarding.city.subtitle", lang))
+            stepHeader(
+                title: localized(en: "Which city or region should we use?", nl: "Welke stad of regio gebruiken we?", ru: "Какой город или регион использовать?"),
+                subtitle: localized(
+                    en: "This controls local content, map defaults, and nearby services.",
+                    nl: "Dit bepaalt lokale inhoud, kaartstandaard en diensten in de buurt.",
+                    ru: "Это влияет на локальный контент, карту и сервисы рядом."
+                )
+            )
 
             LazyVGrid(
                 columns: [GridItem(.flexible()), GridItem(.flexible())],
                 spacing: AppSpacing.small
             ) {
-                ForEach(cities, id: \.self) { city in
-                    QuestionnaireCityCard(
-                        city: city,
-                        isSelected: selectedCity == city
-                    ) {
-                        withAnimation(AppAnimations.softSpring) { selectedCity = city }
+                ForEach(cityRegionOptions, id: \.id) { option in
+                    let isSelected = selectedRegion == option.id
+                    Button {
+                        withAnimation(AppAnimations.softSpring) {
+                            selectedRegion = option.id
+                            if option.id.hasPrefix("city:") {
+                                selectedCity = String(option.id.dropFirst("city:".count))
+                            }
+                        }
+                    } label: {
+                        ProductCTA(
+                            title: option.title,
+                            symbol: isSelected ? "checkmark.circle.fill" : option.icon,
+                            accent: isSelected ? OnboardingDesignTokens.accentCyan : AppColors.softBlue
+                        )
                     }
+                    .buttonStyle(OnboardingPressableStyle())
+                    .animation(AppAnimations.softSpring, value: isSelected)
                 }
             }
         }
     }
 
-    // MARK: - Step 5: Documents
+    // MARK: - Step 5: Optional interests
 
-    private var documentsStep: some View {
+    private var optionalInterestsStep: some View {
         VStack(alignment: .leading, spacing: AppSpacing.medium) {
-            stepHeader(title: L10n.t("onboarding.documents.title", lang),
-                       subtitle: L10n.t("onboarding.documents.subtitle", lang))
+            stepHeader(
+                title: localized(en: "What else would you like to explore?", nl: "Wat wilt u verder verkennen?", ru: "Что ещё вы хотите изучить?"),
+                subtitle: localized(
+                    en: "Optional. You can skip this and still start your required journey.",
+                    nl: "Optioneel. U kunt overslaan en toch uw noodzakelijke route starten.",
+                    ru: "Необязательно. Можно пропустить и начать обязательный сценарий."
+                )
+            )
 
-            VStack(spacing: AppSpacing.xSmall) {
-                documentToggleRow(
-                    title: L10n.t("onboarding.documents.bsn.title", lang),
-                    subtitle: L10n.t("onboarding.documents.bsn.subtitle", lang),
-                    icon: "person.text.rectangle",
-                    value: $hasBSN
-                )
-                documentToggleRow(
-                    title: L10n.t("onboarding.documents.digid.title", lang),
-                    subtitle: L10n.t("onboarding.documents.digid.subtitle", lang),
-                    icon: "person.badge.key",
-                    value: $hasDigiD
-                )
-                documentToggleRow(
-                    title: L10n.t("onboarding.documents.insurance.title", lang),
-                    subtitle: L10n.t("onboarding.documents.insurance.subtitle", lang),
-                    icon: "cross.case",
-                    value: $hasHealthInsurance
-                )
-                documentToggleRow(
-                    title: L10n.t("onboarding.documents.bank.title", lang),
-                    subtitle: L10n.t("onboarding.documents.bank.subtitle", lang),
-                    icon: "banknote",
-                    value: $hasBankAccount
-                )
-                documentToggleRow(
-                    title: L10n.t("onboarding.documents.address.title", lang),
-                    subtitle: L10n.t("onboarding.documents.address.subtitle", lang),
-                    icon: "house",
-                    value: $hasRegisteredAddress
-                )
+            LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible())], spacing: AppSpacing.small) {
+                ForEach(OptionalInterest.allCases) { interest in
+                    QuestionnairePriorityChip(
+                        icon: interest.icon,
+                        title: interest.localized(lang),
+                        isSelected: selectedInterests.contains(interest)
+                    ) {
+                        withAnimation(AppAnimations.softSpring) {
+                            if selectedInterests.contains(interest) {
+                                selectedInterests.remove(interest)
+                            } else {
+                                selectedInterests.insert(interest)
+                            }
+                        }
+                    }
+                }
             }
+
+            Button {
+                selectedInterests.removeAll()
+                applyAnswers()
+                withAnimation(AppAnimations.onboardingStep) { currentStep += 1 }
+            } label: {
+                Label(localized(en: "Skip for now", nl: "Nu overslaan", ru: "Пока пропустить"), systemImage: "arrow.right.circle")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.bordered)
         }
     }
 
@@ -444,9 +539,11 @@ struct OnboardingQuestionnaireView: View {
             VStack(alignment: .leading, spacing: AppSpacing.small) {
                 profileSummaryRow(icon: "person", value: selectedPersona?.localized(lang) ?? L10n.t("onboarding.ready.general_path", lang))
                 if !selectedCity.isEmpty {
-                    profileSummaryRow(icon: "mappin.circle", value: selectedCity)
+                    profileSummaryRow(icon: "mappin.circle", value: ProvinceCatalog.localizedCityName(selectedCity, lang))
                 }
-                profileSummaryRow(icon: "clock", value: selectedTimeInNL?.localized(lang) ?? L10n.t("onboarding.ready.recently_arrived", lang))
+                if let selectedSituation {
+                    profileSummaryRow(icon: "person.text.rectangle", value: selectedSituation.localized(lang))
+                }
                 if !selectedPriorities.isEmpty {
                     profileSummaryRow(
                         icon: "star",
@@ -497,6 +594,16 @@ struct OnboardingQuestionnaireView: View {
     }
 
     private func applyAnswers() {
+        if let selectedOnboardingProfile {
+            selectedPersona = selectedOnboardingProfile.userStatus
+            appState.userProfile.onboardingProfile = selectedOnboardingProfile
+        }
+        if let selectedSituation {
+            appState.userProfile.onboardingSituation = selectedSituation
+            if selectedPriorities.isEmpty {
+                selectedPriorities.formUnion(selectedSituation.priorityHints.map(\.rawValue).prefix(2))
+            }
+        }
         if let persona = selectedPersona {
             appState.selectedUserStatus = persona
             if let profile = persona.correspondingProfileType {
@@ -509,14 +616,15 @@ struct OnboardingQuestionnaireView: View {
         if !selectedPriorities.isEmpty {
             appState.userProfile.priorities = selectedPriorities.compactMap { .init(rawValue: $0) }
         }
+        appState.userProfile.selectedRegionOrProvince = selectedRegion
+        appState.userProfile.optionalInterests = Array(selectedInterests).sorted { $0.rawValue < $1.rawValue }
+        if selectedRegion == "currentLocation" {
+            appState.useCurrentLocationForMap = true
+        }
         if !selectedCity.isEmpty {
+            appState.selectedCity = selectedCity
             appState.userProfile.municipality = selectedCity
         }
-        appState.userProfile.hasBSN = hasBSN
-        appState.userProfile.hasDigiD = hasDigiD
-        appState.userProfile.hasHealthInsuranceNL = hasHealthInsurance
-        appState.userProfile.hasBankAccountNL = hasBankAccount
-        appState.userProfile.hasRegisteredAddress = hasRegisteredAddress
     }
 
     private func localizedPriority(_ id: String) -> String {
@@ -563,6 +671,25 @@ struct OnboardingQuestionnaireView: View {
         case .english: return en
         case .dutch: return nl
         case .russian: return ru
+        }
+    }
+
+    private func profileSubtitle(_ profile: OnboardingProfile) -> String {
+        switch profile {
+        case .tourist:
+            return localized(en: "Short stay, transport, places, emergency help.", nl: "Kort verblijf, vervoer, plekken, noodhulp.", ru: "Короткое пребывание, транспорт, места, экстренная помощь.")
+        case .student:
+            return localized(en: "Study, housing, DUO, transport, healthcare.", nl: "Studie, wonen, DUO, vervoer, zorg.", ru: "Учёба, жильё, DUO, транспорт, медицина.")
+        case .worker:
+            return localized(en: "Work, documents, taxes, housing, insurance.", nl: "Werk, documenten, belasting, wonen, verzekering.", ru: "Работа, документы, налоги, жильё, страховка.")
+        case .newResident:
+            return localized(en: "Registration, municipality, healthcare, daily life.", nl: "Inschrijving, gemeente, zorg, dagelijks leven.", ru: "Регистрация, gemeente, медицина, повседневная жизнь.")
+        case .businessOwner:
+            return localized(en: "KVK, VAT, banking, permits, local partners.", nl: "KVK, btw, bank, vergunningen, lokale partners.", ru: "KVK, VAT/BTW, банк, разрешения, партнёры.")
+        case .refugeeStatusHolder:
+            return localized(en: "IND, municipality, support, healthcare, housing.", nl: "IND, gemeente, steun, zorg, wonen.", ru: "IND, gemeente, поддержка, медицина, жильё.")
+        case .family:
+            return localized(en: "Schools, childcare, benefits, housing, healthcare.", nl: "School, opvang, toeslagen, wonen, zorg.", ru: "Школы, детсад, пособия, жильё, медицина.")
         }
     }
 
@@ -699,28 +826,6 @@ struct OnboardingQuestionnaireView: View {
 }
 
 // MARK: - Selection Card
-
-private struct QuestionnaireSelectionCard: View {
-    let icon: String
-    let title: String
-    let subtitle: String?
-    let landmarkAssetName: String?
-    let isSelected: Bool
-    let action: () -> Void
-
-    var body: some View {
-        OnboardingOptionCard(
-            icon: icon,
-            title: title,
-            subtitle: subtitle,
-            landmarkAssetName: landmarkAssetName,
-            isSelected: isSelected,
-            action: action
-        )
-        .accessibilityElement(children: .combine)
-        .accessibilityAddTraits(isSelected ? [.isSelected] : [])
-    }
-}
 
 // MARK: - Premium Onboarding System
 
@@ -989,110 +1094,6 @@ private struct OnboardingPrimaryButton: View {
     }
 }
 
-private struct OnboardingInfoRow: View {
-    let icon: String
-    let text: String
-    @Environment(\.colorScheme) private var colorScheme
-
-    var body: some View {
-        HStack(alignment: .top, spacing: AppSpacing.small) {
-            Image(systemName: icon)
-                .font(.system(size: 13, weight: .semibold))
-                .foregroundStyle(OnboardingDesignTokens.accentCyan)
-                .frame(width: 20, height: 20)
-                .accessibilityHidden(true)
-            Text(text)
-                .font(AppTypography.footnote)
-                .foregroundStyle(OnboardingDesignTokens.secondaryText(colorScheme))
-                .fixedSize(horizontal: false, vertical: true)
-        }
-    }
-}
-
-private struct OnboardingOptionCard: View {
-    let icon: String
-    let title: String
-    let subtitle: String?
-    let landmarkAssetName: String?
-    let isSelected: Bool
-    let action: () -> Void
-    @Environment(\.colorScheme) private var colorScheme
-
-    var body: some View {
-        Button(action: action) {
-            HStack(spacing: AppSpacing.medium) {
-                OnboardingLandmarkImageBadge(
-                    assetName: landmarkAssetName,
-                    fallbackSymbol: icon,
-                    isSelected: isSelected
-                )
-
-                VStack(alignment: .leading, spacing: 4) {
-                    Text(title)
-                        .font(AppTypography.bodyStrong)
-                        .foregroundStyle(OnboardingDesignTokens.primaryText(colorScheme))
-                        .fixedSize(horizontal: false, vertical: true)
-                    if let subtitle {
-                        Text(subtitle)
-                            .font(AppTypography.caption)
-                            .foregroundStyle(OnboardingDesignTokens.secondaryText(colorScheme))
-                            .lineLimit(4)
-                            .fixedSize(horizontal: false, vertical: true)
-                    }
-                }
-
-                Spacer(minLength: AppSpacing.small)
-
-                Image(systemName: isSelected ? "checkmark.circle.fill" : "circle")
-                    .font(.system(size: 20, weight: .semibold))
-                    .foregroundStyle(isSelected ? OnboardingDesignTokens.accentCyan : OnboardingDesignTokens.mutedText(colorScheme))
-            }
-            .padding(.horizontal, AppSpacing.cardPaddingCompact)
-            .padding(.vertical, 14)
-            .frame(maxWidth: .infinity, minHeight: 98, alignment: .leading)
-            .background {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .fill(OnboardingDesignTokens.onboardingCardSurface(colorScheme, isSelected: isSelected))
-                    RoundedRectangle(cornerRadius: 24, style: .continuous)
-                        .fill(
-                            LinearGradient(
-                                colors: [
-                                    Color.white.opacity(colorScheme == .dark ? 0.10 : 0.34),
-                                    OnboardingDesignTokens.onboardingAccentBlue(colorScheme).opacity(isSelected ? 0.11 : 0.025),
-                                    Color.clear
-                                ],
-                                startPoint: .topLeading,
-                                endPoint: .bottomTrailing
-                            )
-                        )
-                    if isSelected {
-                        RoundedRectangle(cornerRadius: 24, style: .continuous)
-                            .fill(
-                                LinearGradient(
-                                    colors: [
-                                        OnboardingDesignTokens.accentCyan.opacity(colorScheme == .dark ? 0.10 : 0.06),
-                                        .clear
-                                    ],
-                                    startPoint: .top,
-                                    endPoint: .bottom
-                                )
-                            )
-                    }
-                }
-            }
-            .clipShape(RoundedRectangle(cornerRadius: 24, style: .continuous))
-            .overlay {
-                RoundedRectangle(cornerRadius: 24, style: .continuous)
-                    .stroke(isSelected ? OnboardingDesignTokens.selectedStroke(colorScheme) : OnboardingDesignTokens.onboardingCardStroke(colorScheme), lineWidth: isSelected ? 1.5 : 1)
-            }
-            .shadow(color: OnboardingDesignTokens.cardShadow(colorScheme, isSelected: isSelected), radius: isSelected ? 24 : 12, x: 0, y: isSelected ? 12 : 6)
-            .animation(AppAnimations.softSpring, value: isSelected)
-        }
-        .buttonStyle(OnboardingPressableStyle())
-    }
-}
-
 private struct OnboardingLandmarkImageBadge: View {
     let assetName: String?
     let fallbackSymbol: String
@@ -1165,7 +1166,7 @@ private struct OnboardingLandmarkImageBadge: View {
     }
 }
 
-private struct NetherlandsHeroMark: View {
+private struct NetherlandsWelcomeMark: View {
     @EnvironmentObject private var languageManager: LanguageManager
     @Environment(\.colorScheme) private var colorScheme
 
@@ -1311,34 +1312,6 @@ private struct QuestionnairePriorityChip: View {
             )
             .shadow(color: isSelected ? OnboardingDesignTokens.accentCyan.opacity(0.16) : .clear, radius: 16, x: 0, y: 8)
             .animation(AppAnimations.softSpring, value: isSelected)
-        }
-        .buttonStyle(OnboardingPressableStyle())
-    }
-}
-
-// MARK: - City Card
-
-private struct QuestionnaireCityCard: View {
-    let city: String
-    let isSelected: Bool
-    let action: () -> Void
-    @Environment(\.colorScheme) private var colorScheme
-
-    var body: some View {
-        Button(action: action) {
-            Text(city)
-                .font(AppTypography.bodyStrong)
-                .foregroundStyle(isSelected ? OnboardingDesignTokens.primaryText(colorScheme) : OnboardingDesignTokens.secondaryText(colorScheme))
-                .frame(maxWidth: .infinity)
-                .frame(minHeight: 56)
-                .background(OnboardingDesignTokens.surface(colorScheme, isSelected: isSelected))
-                .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
-                .overlay(
-                    RoundedRectangle(cornerRadius: 18, style: .continuous)
-                        .stroke(isSelected ? OnboardingDesignTokens.selectedStroke(colorScheme) : OnboardingDesignTokens.surfaceStroke(colorScheme), lineWidth: 1)
-                )
-                .shadow(color: isSelected ? OnboardingDesignTokens.accentCyan.opacity(0.14) : .clear, radius: 14, x: 0, y: 7)
-                .animation(AppAnimations.softSpring, value: isSelected)
         }
         .buttonStyle(OnboardingPressableStyle())
     }

@@ -488,7 +488,7 @@ struct OfficialSourceDirectoryView: View {
             officialURL: AppURL.make("https://www.ns.nl/en"),
             scamWarningByLanguage: [
                 .english: "Use ns.nl or the official NS app. Verify payment requests before entering bank details.",
-                .dutch: "Gebruik ns.nl of de officiele NS-app. Controleer betaalverzoeken voordat je bankgegevens invult.",
+                .dutch: "Gebruik ns.nl of de officiële NS-app. Controleer betaalverzoeken voordat je bankgegevens invult.",
                 .russian: "Используйте ns.nl или официальное приложение NS. Проверяйте платежи перед вводом банковских данных."
             ]
         ),
@@ -507,7 +507,7 @@ struct OfficialSourceDirectoryView: View {
             officialURL: AppURL.make("https://9292.nl/en"),
             scamWarningByLanguage: [
                 .english: "Use 9292 for planning; buy or manage tickets only through the relevant official operator or payment provider.",
-                .dutch: "Gebruik 9292 voor planning; koop of beheer tickets via de relevante officiele vervoerder of betaaldienst.",
+                .dutch: "Gebruik 9292 voor planning; koop of beheer tickets via de relevante officiële vervoerder of betaaldienst.",
                 .russian: "Используйте 9292 для маршрутов; билеты покупайте или управляйте ими у официального оператора или платежного сервиса."
             ]
         ),
@@ -526,7 +526,7 @@ struct OfficialSourceDirectoryView: View {
             officialURL: AppURL.make("https://www.ovpay.nl/en"),
             scamWarningByLanguage: [
                 .english: "Use official OVpay or OV-chipkaart domains; transport payment phishing can imitate balance or refund pages.",
-                .dutch: "Gebruik officiele OVpay- of OV-chipkaart-domeinen; phishing kan saldo- of terugbetaalpagina's nabootsen.",
+                .dutch: "Gebruik officiële OVpay- of OV-chipkaart-domeinen; phishing kan saldo- of terugbetaalpagina's nabootsen.",
                 .russian: "Используйте официальные домены OVpay или OV-chipkaart; фишинг может имитировать баланс или возврат."
             ]
         ),
@@ -586,10 +586,7 @@ struct OfficialSourceDirectoryView: View {
                     .autocorrectionDisabled(true)
 
                 if filtered.isEmpty {
-                    Text(L10n.t("official_sources.no_match", lang))
-                        .font(AppTypography.body)
-                        .foregroundStyle(AppColors.textSecondary)
-                        .appCardStyle()
+                    noSourcesDashboard
                 } else {
                     ForEach(OfficialSourceSection.allCases) { section in
                         let sources = filtered.filter { sourceSection($0) == section }
@@ -621,6 +618,37 @@ struct OfficialSourceDirectoryView: View {
         }
     }
 
+    private var noSourcesDashboard: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.medium) {
+            InfoCard(
+                title: L10n.t("official_sources.no_match", lang),
+                subtitle: noSourcesSubtitle,
+                detail: noSourcesDetail,
+                icon: "checkmark.shield.fill"
+            )
+
+            Button {
+                searchText = ""
+            } label: {
+                Label(noSourcesResetTitle, systemImage: "arrow.counterclockwise")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(PrimaryPremiumButtonStyle())
+            .accessibilityIdentifier("officialSources.empty.reset")
+
+            LazyVGrid(columns: DetailPageLayout.twoColumnWhenPossible(for: 360, minimumColumnWidth: 156), spacing: AppSpacing.small) {
+                ForEach(noSourcesRecoveryActions) { action in
+                    NavigationLink(value: action.destination) {
+                        OfficialSourceRecoveryActionCard(action: action)
+                    }
+                    .buttonStyle(AppPressableCardButtonStyle())
+                    .accessibilityIdentifier("officialSources.empty.action.\(action.id)")
+                }
+            }
+        }
+        .accessibilityIdentifier("officialSources.empty.dashboard")
+    }
+
     private var officialSourcesHero: some View {
         CategoryHeroVisual(
             assetName: "home_documents_city_hall",
@@ -641,13 +669,78 @@ struct OfficialSourceDirectoryView: View {
         }
     }
 
+    private var noSourcesSubtitle: String {
+        localized(en: "Try a broader route", nl: "Probeer een bredere route", ru: "Попробуйте более широкий маршрут")
+    }
+
+    private var noSourcesDetail: String {
+        localized(
+            en: "Clear the search or start from a practical area. Many services are listed under broader institutions.",
+            nl: "Wis de zoekopdracht of begin bij een praktisch onderdeel. Veel diensten vallen onder bredere organisaties.",
+            ru: "Сбросьте поиск или начните с практического раздела. Многие сервисы находятся внутри более крупных организаций."
+        )
+    }
+
+    private var noSourcesResetTitle: String {
+        localized(en: "Show all sources", nl: "Toon alle bronnen", ru: "Показать все источники")
+    }
+
+    private var noSourcesRecoveryActions: [OfficialSourceRecoveryAction] {
+        [
+            OfficialSourceRecoveryAction(
+                id: "search",
+                title: L10n.t("tab.search", lang),
+                subtitle: localized(en: "Search answers, guides, and institutions.", nl: "Zoek antwoorden, gidsen en instanties.", ru: "Искать ответы, гайды и организации."),
+                icon: "magnifyingglass.circle.fill",
+                tint: AppColors.dutchOrange,
+                destination: .searchList
+            ),
+            OfficialSourceRecoveryAction(
+                id: "map",
+                title: L10n.t("tab.map", lang),
+                subtitle: localized(en: "Find local municipality, legal, health, and support places.", nl: "Vind gemeente, juridische hulp, zorg en ondersteuning dichtbij.", ru: "Найдите gemeente, юридическую помощь, медицину и поддержку рядом."),
+                icon: "map.fill",
+                tint: AppColors.softBlue,
+                destination: .mapHub
+            ),
+            OfficialSourceRecoveryAction(
+                id: "documents",
+                title: localized(en: "Documents", nl: "Documenten", ru: "Документы"),
+                subtitle: localized(en: "Prepare files before opening an official portal.", nl: "Bereid bestanden voor voordat je een officieel portaal opent.", ru: "Подготовьте файлы перед официальным порталом."),
+                icon: "doc.text.fill",
+                tint: AppColors.cyanGlow,
+                destination: .journeyDocuments
+            ),
+            OfficialSourceRecoveryAction(
+                id: "legal",
+                title: localized(en: "Legal help", nl: "Juridische hulp", ru: "Юридическая помощь"),
+                subtitle: localized(en: "Use support when the question is personal or urgent.", nl: "Gebruik hulp als de vraag persoonlijk of dringend is.", ru: "Используйте помощь, если вопрос личный или срочный."),
+                icon: "person.fill.questionmark",
+                tint: AppColors.violet,
+                destination: .legalHelp
+            )
+        ]
+        .filter { RelatedContentEngine.isVisible($0.destination, for: activePersona) }
+    }
+
+    private func localized(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .english: return en
+        case .dutch: return nl
+        case .russian: return ru
+        }
+    }
+
     private func sourceCard(source: OfficialSourceItem) -> some View {
         OfficialSourceVisualCard(
             title: source.name,
             subtitle: source.officialURL.host ?? source.officialURL.absoluteString,
             detail: "\(sourceSection(source).title(lang)) • \(source.handles(lang))",
-            symbol: "checkmark.shield.fill",
-            accent: AppColors.success
+            symbol: sourceSymbol(for: source),
+            accent: sourceAccent(for: source),
+            asset: sourceImageAsset(for: source),
+            language: lang,
+            fallbackCategory: sourceFallbackCategory(for: source)
         )
     }
 
@@ -662,9 +755,114 @@ struct OfficialSourceDirectoryView: View {
         if name.contains("media") || name.contains("license") { return .mediaLicenses }
         return .government
     }
+
+    private func sourceImageAsset(for source: OfficialSourceItem) -> AppImageAsset? {
+        let name = source.name.lowercased()
+        if name.contains("digid") {
+            return ContentMediaRegistry.digidImage ?? ContentMediaRegistry.municipalityCityHallImage
+        }
+        if name.contains("112") || name.contains("politie") {
+            return ContentMediaRegistry.emergencyImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+
+        switch sourceSection(source) {
+        case .government, .municipalities, .identity:
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        case .healthcare:
+            return ContentMediaRegistry.healthInsuranceImage ?? ContentMediaRegistry.healthcarePharmacyImage
+        case .transport:
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case .housing:
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case .cultureHistory, .mediaLicenses:
+            return ContentMediaRegistry.cultureWindmillHero ?? ContentMediaRegistry.officialSourcesHero
+        }
+    }
+
+    private func sourceFallbackCategory(for source: OfficialSourceItem) -> PremiumImageFallbackCategory {
+        let name = source.name.lowercased()
+        if name.contains("112") || name.contains("politie") { return .emergency }
+
+        switch sourceSection(source) {
+        case .government, .municipalities, .identity:
+            return .government
+        case .healthcare:
+            return .healthcare
+        case .transport:
+            return .transport
+        case .housing:
+            return .housing
+        case .cultureHistory, .mediaLicenses:
+            return .province
+        }
+    }
+
+    private func sourceSymbol(for source: OfficialSourceItem) -> String {
+        let name = source.name.lowercased()
+        if name.contains("digid") { return "lock.shield.fill" }
+        if name.contains("112") { return "cross.case.circle.fill" }
+        if name.contains("politie") { return "shield.lefthalf.filled" }
+
+        switch sourceSection(source) {
+        case .government, .municipalities:
+            return "building.columns.fill"
+        case .healthcare:
+            return "cross.case.fill"
+        case .transport:
+            return "tram.fill"
+        case .identity:
+            return "person.text.rectangle.fill"
+        case .housing:
+            return "house.fill"
+        case .cultureHistory, .mediaLicenses:
+            return "photo.on.rectangle.angled"
+        }
+    }
+
+    private func sourceAccent(for source: OfficialSourceItem) -> Color {
+        let name = source.name.lowercased()
+        if name.contains("112") || name.contains("politie") { return AppColors.error }
+        if name.contains("digid") { return AppColors.violet }
+
+        switch sourceSection(source) {
+        case .government, .municipalities, .identity:
+            return AppColors.success
+        case .healthcare:
+            return AppColors.error
+        case .transport:
+            return AppColors.routeLine
+        case .housing:
+            return AppColors.cyanGlow
+        case .cultureHistory, .mediaLicenses:
+            return AppColors.dutchOrange
+        }
+    }
 }
 
 // MARK: - Detail View
+
+private struct OfficialSourceRecoveryAction: Identifiable {
+    let id: String
+    let title: String
+    let subtitle: String
+    let icon: String
+    let tint: Color
+    let destination: AppDestination
+}
+
+private struct OfficialSourceRecoveryActionCard: View {
+    let action: OfficialSourceRecoveryAction
+
+    var body: some View {
+        ProductTaskCard(
+            title: action.title,
+            subtitle: action.subtitle,
+            symbol: action.icon,
+            accent: action.tint,
+            minHeight: 104
+        )
+    }
+}
 
 private struct OfficialSourceDetailView: View {
     let source: OfficialSourceItem
@@ -678,6 +876,17 @@ private struct OfficialSourceDetailView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
                     VStack(alignment: .leading, spacing: AppSpacing.small) {
+                        PremiumImageHeader(
+                            title: source.name,
+                            asset: sourceImageAsset(for: source),
+                            language: lang,
+                            symbol: sourceSymbol(for: source),
+                            accent: sourceAccent(for: source),
+                            height: 184,
+                            cornerRadius: 22,
+                            fallbackCategory: sourceFallbackCategory(for: source)
+                        )
+
                         Text(source.name)
                             .font(AppTypography.title)
                             .foregroundStyle(AppColors.textPrimary)
@@ -748,10 +957,104 @@ private struct OfficialSourceDetailView: View {
         }
     }
 
+    private func sourceSection(_ source: OfficialSourceItem) -> OfficialSourceSection {
+        let name = source.name.lowercased()
+        if name.contains("digid") || name.contains("rdw") || name.contains("duo") { return .identity }
+        if name.contains("zorg") || name.contains("cak") || name.contains("svb") { return .healthcare }
+        if name.contains("ns") || name.contains("9292") || name.contains("ovpay") || name.contains("ov-chipkaart") { return .transport }
+        if name.contains("huurcommissie") { return .housing }
+        if name.contains("municipality") || name.contains("gemeente") { return .municipalities }
+        if name.contains("rijksmuseum") || name.contains("unesco") || name.contains("wikimedia") { return .cultureHistory }
+        if name.contains("media") || name.contains("license") { return .mediaLicenses }
+        return .government
+    }
+
+    private func sourceImageAsset(for source: OfficialSourceItem) -> AppImageAsset? {
+        let name = source.name.lowercased()
+        if name.contains("digid") {
+            return ContentMediaRegistry.digidImage ?? ContentMediaRegistry.municipalityCityHallImage
+        }
+        if name.contains("112") || name.contains("politie") {
+            return ContentMediaRegistry.emergencyImage ?? ContentMediaRegistry.officialSourcesHero
+        }
+
+        switch sourceSection(source) {
+        case .government, .municipalities, .identity:
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.officialSourcesHero
+        case .healthcare:
+            return ContentMediaRegistry.healthInsuranceImage ?? ContentMediaRegistry.healthcarePharmacyImage
+        case .transport:
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case .housing:
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case .cultureHistory, .mediaLicenses:
+            return ContentMediaRegistry.cultureWindmillHero ?? ContentMediaRegistry.officialSourcesHero
+        }
+    }
+
+    private func sourceFallbackCategory(for source: OfficialSourceItem) -> PremiumImageFallbackCategory {
+        let name = source.name.lowercased()
+        if name.contains("112") || name.contains("politie") { return .emergency }
+
+        switch sourceSection(source) {
+        case .government, .municipalities, .identity:
+            return .government
+        case .healthcare:
+            return .healthcare
+        case .transport:
+            return .transport
+        case .housing:
+            return .housing
+        case .cultureHistory, .mediaLicenses:
+            return .province
+        }
+    }
+
+    private func sourceSymbol(for source: OfficialSourceItem) -> String {
+        let name = source.name.lowercased()
+        if name.contains("digid") { return "lock.shield.fill" }
+        if name.contains("112") { return "cross.case.circle.fill" }
+        if name.contains("politie") { return "shield.lefthalf.filled" }
+
+        switch sourceSection(source) {
+        case .government, .municipalities:
+            return "building.columns.fill"
+        case .healthcare:
+            return "cross.case.fill"
+        case .transport:
+            return "tram.fill"
+        case .identity:
+            return "person.text.rectangle.fill"
+        case .housing:
+            return "house.fill"
+        case .cultureHistory, .mediaLicenses:
+            return "photo.on.rectangle.angled"
+        }
+    }
+
+    private func sourceAccent(for source: OfficialSourceItem) -> Color {
+        let name = source.name.lowercased()
+        if name.contains("112") || name.contains("politie") { return AppColors.error }
+        if name.contains("digid") { return AppColors.violet }
+
+        switch sourceSection(source) {
+        case .government, .municipalities, .identity:
+            return AppColors.success
+        case .healthcare:
+            return AppColors.error
+        case .transport:
+            return AppColors.routeLine
+        case .housing:
+            return AppColors.cyanGlow
+        case .cultureHistory, .mediaLicenses:
+            return AppColors.dutchOrange
+        }
+    }
+
     private var openOfficialSourceTitle: String {
         switch lang {
         case .russian: return "Открыть официальный источник"
-        case .dutch: return "Open officiele bron"
+        case .dutch: return "Open officiële bron"
         case .english: return "Open official source"
         }
     }

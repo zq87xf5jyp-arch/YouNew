@@ -1,7 +1,6 @@
 import Foundation
 
-@MainActor
-enum DutchA1A2CourseData {
+nonisolated enum DutchA1A2CourseData {
     static let updatedAt = "2026-06-01"
 
     static let sources: [DutchCourseSource] = [
@@ -52,7 +51,7 @@ enum DutchA1A2CourseData {
     ]
 
     static var allExercises: [DutchExercise] {
-        modules.flatMap(\.exercises)
+        modules.flatMap { $0.exercises }
     }
 
     static func module(with id: String) -> DutchCourseModule? {

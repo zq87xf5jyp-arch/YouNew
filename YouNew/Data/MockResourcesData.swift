@@ -75,6 +75,42 @@ enum MockResourcesData {
             personaTags: [.family, .worker, .refugee]
         ),
         ResourceLinkItem(
+            id: StableRouteID.uuid("resource:mijn-belastingdienst-tax-portal"),
+            category: "Taxes",
+            title: "Mijn Belastingdienst: Tax portal",
+            description: "Official online portal for Dutch income tax returns, tax messages, assessments, and personal tax details.",
+            whoItHelps: "Residents and workers managing Dutch tax returns or tax letters",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals"),
+            isOfficial: true,
+            reminder: "Check deadlines and reference numbers in official tax letters before submitting or paying.",
+            personaTags: [.student, .worker, .family, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:toeslagen-report-changes"),
+            category: "Taxes",
+            title: "Toeslagen: Report changes",
+            description: "Official route for reporting income, household, childcare, rent, and care-insurance changes for allowances.",
+            whoItHelps: "People receiving allowances who need to avoid overpayments",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://www.toeslagen.nl"),
+            isOfficial: true,
+            reminder: "Report changes quickly; overpaid allowances usually have to be paid back.",
+            personaTags: [.student, .worker, .refugee, .family, .eu, .nonEU, .highlySkilledMigrant]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:government-nl-childcare-benefit"),
+            category: "Taxes",
+            title: "Government.nl: Childcare benefit",
+            description: "Official overview of childcare benefit and what parents should verify before applying or reporting changes.",
+            whoItHelps: "Parents checking childcare benefit or childcare cost support",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://www.government.nl/topics/childcare/childcare-benefit"),
+            isOfficial: true,
+            reminder: "Keep childcare contracts, hours, income changes, and household details current to avoid repayments.",
+            personaTags: [.family, .worker, .student, .eu, .nonEU, .highlySkilledMigrant]
+        ),
+        ResourceLinkItem(
             id: StableRouteID.uuid("resource:government-nl-health-insurance-explained"),
             category: "Healthcare",
             title: "Government.nl: Health insurance explained",
@@ -97,6 +133,30 @@ enum MockResourcesData {
             isOfficial: true,
             reminder: "Call 112 only for life-threatening situations. For non-urgent care, contact your huisarts.",
             personaTags: [.worker, .refugee, .family, .tourist, .eu, .highlySkilledMigrant, .entrepreneur, .lgbt]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:thuisarts-gp-health-information"),
+            category: "Healthcare",
+            title: "Thuisarts.nl: GP health information",
+            description: "Plain Dutch health information about symptoms, self-care, and when to contact a GP.",
+            whoItHelps: "Anyone deciding whether to contact a huisarts or prepare for a GP visit",
+            sourceLabel: "Trusted source",
+            url: AppURL.make("https://www.thuisarts.nl"),
+            isOfficial: false,
+            reminder: "Use it for orientation only; call your GP, huisartsenpost, or 112 when symptoms are urgent.",
+            personaTags: [.student, .worker, .refugee, .family, .tourist, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:big-register-healthcare-professionals"),
+            category: "Healthcare",
+            title: "BIG-register: Healthcare professionals",
+            description: "Official register for checking whether regulated healthcare professionals are registered in the Netherlands.",
+            whoItHelps: "Patients who want to verify a regulated healthcare professional",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://english.bigregister.nl"),
+            isOfficial: true,
+            reminder: "Check names carefully and use official contact routes if a result is unclear.",
+            personaTags: [.student, .worker, .refugee, .family, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
         ),
         ResourceLinkItem(
             id: StableRouteID.uuid("resource:duo-international-student-info"),
@@ -123,6 +183,42 @@ enum MockResourcesData {
             personaTags: [.student]
         ),
         ResourceLinkItem(
+            id: StableRouteID.uuid("resource:studielink-higher-education-enrolment"),
+            category: "Education",
+            title: "Studielink: Higher education enrolment",
+            description: "Official application and enrolment route for many Dutch higher education programmes.",
+            whoItHelps: "Students applying to Dutch universities or universities of applied sciences",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://www.studielink.nl"),
+            isOfficial: true,
+            reminder: "Check programme deadlines and institution requirements before submitting an enrolment request.",
+            personaTags: [.student, .eu, .nonEU, .highlySkilledMigrant, .family]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:idw-international-credential-evaluation"),
+            category: "Education",
+            title: "IDW: International credential evaluation",
+            description: "Information on evaluating foreign diplomas for work, study, or official use in the Netherlands.",
+            whoItHelps: "Newcomers who need a Dutch evaluation of foreign education documents",
+            sourceLabel: "Trusted source",
+            url: AppURL.make("https://www.idw.nl/en"),
+            isOfficial: false,
+            reminder: "Keep original diplomas, transcripts, translations, and identity documents together before applying.",
+            personaTags: [.student, .worker, .refugee, .eu, .nonEU, .highlySkilledMigrant]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:rijksoverheid-compulsory-education"),
+            category: "Education",
+            title: "Rijksoverheid: Compulsory education",
+            description: "Official Dutch information about school attendance, leerplicht, and qualification duty for children.",
+            whoItHelps: "Parents and guardians checking school attendance duties",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://www.rijksoverheid.nl/onderwerpen/leerplicht"),
+            isOfficial: true,
+            reminder: "Check municipality and school instructions if a child cannot attend school or is moving schools.",
+            personaTags: [.family, .refugee, .eu, .nonEU, .highlySkilledMigrant]
+        ),
+        ResourceLinkItem(
             id: StableRouteID.uuid("resource:government-nl-housing-and-rental-rights"),
             category: "Housing",
             title: "Government.nl: Housing and rental rights",
@@ -135,6 +231,54 @@ enum MockResourcesData {
             personaTags: [.student, .worker, .refugee, .family, .eu, .highlySkilledMigrant, .entrepreneur, .lgbt]
         ),
         ResourceLinkItem(
+            id: StableRouteID.uuid("resource:huurcommissie-rental-disputes"),
+            category: "Housing",
+            title: "Huurcommissie: Rental disputes and rent checks",
+            description: "Independent information about rent prices, service costs, and disputes between tenants and landlords.",
+            whoItHelps: "Renters who need to verify rent, service costs, or landlord disputes",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://www.huurcommissie.nl"),
+            isOfficial: true,
+            reminder: "Collect your rental contract, payment proof, service-cost overviews, and messages before taking a step.",
+            personaTags: [.student, .worker, .refugee, .family, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:mijnoverheid-berichtenbox"),
+            category: "Identity",
+            title: "MijnOverheid: Berichtenbox",
+            description: "Official digital mailbox for messages from Dutch government organizations.",
+            whoItHelps: "Anyone who receives Dutch government mail digitally",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://mijn.overheid.nl"),
+            isOfficial: true,
+            reminder: "Check sender and deadline in official portals; avoid unknown links from SMS or email.",
+            personaTags: [.student, .worker, .refugee, .family, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:government-nl-bsn-use-and-safety"),
+            category: "Identity",
+            title: "Government.nl: BSN use and safety",
+            description: "Official information about the citizen service number, where it is used, and why it should be handled carefully.",
+            whoItHelps: "Anyone who needs to share a BSN with employers, schools, healthcare providers, banks, or government services",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://www.government.nl/topics/personal-data/citizen-service-number-bsn"),
+            isOfficial: true,
+            reminder: "Share your BSN only when the organization has a legitimate reason and you are using an official channel.",
+            personaTags: [.student, .worker, .refugee, .family, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:autoriteit-persoonsgegevens-privacy"),
+            category: "Identity",
+            title: "Autoriteit Persoonsgegevens: Privacy rights",
+            description: "Dutch data-protection authority information about privacy rights, personal data, complaints, and data breaches.",
+            whoItHelps: "People worried about misuse of personal data or privacy rights",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://www.autoriteitpersoonsgegevens.nl/en"),
+            isOfficial: true,
+            reminder: "Keep copies of requests, responses, screenshots, dates, and organization names before asking for help.",
+            personaTags: [.student, .worker, .refugee, .family, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
+        ),
+        ResourceLinkItem(
             id: StableRouteID.uuid("resource:rdw-driving-licences-and-vehicles"),
             category: "Transport",
             title: "RDW: Driving licences and vehicles",
@@ -145,6 +289,30 @@ enum MockResourcesData {
             isOfficial: true,
             reminder: "Check whether your country has a licence exchange agreement with the Netherlands before applying.",
             personaTags: [.worker, .tourist, .eu, .highlySkilledMigrant, .entrepreneur]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:ovpay-contactless-public-transport"),
+            category: "Transport",
+            title: "OVpay: Contactless public transport",
+            description: "Official information on checking in and out with a debit card, credit card, or mobile wallet in Dutch public transport.",
+            whoItHelps: "Travellers who want to use contactless payment instead of an OV-chipkaart",
+            sourceLabel: "Official source",
+            url: AppURL.make("https://www.ovpay.nl/en"),
+            isOfficial: true,
+            reminder: "Always check in and out with the same card or device to avoid travel corrections.",
+            personaTags: [.student, .worker, .refugee, .family, .tourist, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:9292-public-transport-planner"),
+            category: "Transport",
+            title: "9292: Public transport planner",
+            description: "National public transport planner for bus, tram, metro, train, ferry routes, disruptions, and transfer planning.",
+            whoItHelps: "Travellers planning routes across different Dutch transport operators",
+            sourceLabel: "Trusted source",
+            url: AppURL.make("https://9292.nl/en"),
+            isOfficial: false,
+            reminder: "Check shortly before departure because disruptions, platforms, and transfers can change.",
+            personaTags: [.student, .worker, .refugee, .family, .tourist, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
         ),
         ResourceLinkItem(
             id: StableRouteID.uuid("resource:juridisch-loket-first-line-legal-help"),
@@ -217,6 +385,42 @@ enum MockResourcesData {
             isOfficial: true,
             reminder: "For unresolved complaints, you can escalate to the relevant sector regulator.",
             personaTags: [.worker, .family, .tourist, .entrepreneur, .lgbt]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:113-suicide-prevention"),
+            category: "Mental support",
+            title: "113: Suicide prevention",
+            description: "Dutch crisis support with chat and phone routes for people thinking about suicide or worried about someone else.",
+            whoItHelps: "Anyone in mental health crisis or worried about suicidal thoughts",
+            sourceLabel: "Crisis support",
+            url: AppURL.make("https://www.113.nl/english"),
+            isOfficial: false,
+            reminder: "If there is immediate danger, call 112 first. Use 113 for suicide-prevention support and guidance.",
+            personaTags: [.student, .worker, .refugee, .family, .tourist, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:slachtofferhulp-victim-support"),
+            category: "Legal help",
+            title: "Slachtofferhulp Nederland: Victim support",
+            description: "Support after crime, traffic incidents, calamities, or missing-person situations, including emotional and practical guidance.",
+            whoItHelps: "People affected by crime, accidents, violence, or serious incidents",
+            sourceLabel: "Trusted source",
+            url: AppURL.make("https://www.slachtofferhulp.nl/english"),
+            isOfficial: false,
+            reminder: "If danger is happening now, call 112. For follow-up support, save police reports, letters, photos, and case references.",
+            personaTags: [.student, .worker, .refugee, .family, .tourist, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
+        ),
+        ResourceLinkItem(
+            id: StableRouteID.uuid("resource:discriminatie-nl-report-discrimination"),
+            category: "Legal help",
+            title: "Discriminatie.nl: Report discrimination",
+            description: "National discrimination reporting route for incidents involving origin, religion, gender, disability, sexuality, or other protected grounds.",
+            whoItHelps: "People who experienced or witnessed discrimination",
+            sourceLabel: "Trusted source",
+            url: AppURL.make("https://discriminatie.nl"),
+            isOfficial: false,
+            reminder: "Save dates, locations, messages, screenshots, witness details, and any official letters before reporting.",
+            personaTags: [.student, .worker, .refugee, .family, .tourist, .eu, .nonEU, .highlySkilledMigrant, .entrepreneur, .lgbt]
         )
     ]
 }

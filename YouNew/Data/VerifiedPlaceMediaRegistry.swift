@@ -85,9 +85,9 @@ enum VerifiedPlaceMediaRegistry {
         let media = media(for: type, name: name, provinceId: provinceId)
         guard media.hasVerifiedMedia else {
             return LocalizedCityText(
-                english: "Verified place media attribution will appear when official assets are available.",
-                dutch: "Attributie voor geverifieerde plaatsmedia verschijnt zodra officiele assets beschikbaar zijn.",
-                russian: "Атрибуция проверенных медиа появится, когда официальные материалы будут доступны."
+                english: "Using YouNew visual fallback; verified source attribution is shown when linked media is present.",
+                dutch: "YouNew-visuele fallback; bronvermelding staat bij gekoppelde geverifieerde media.",
+                russian: "Используется визуальный fallback YouNew; атрибуция показывается у связанных проверенных медиа."
             )
         }
 

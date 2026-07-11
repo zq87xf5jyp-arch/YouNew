@@ -10,6 +10,13 @@ private let cityDetailBackButtonPlacement: ToolbarItemPlacement = .navigationBar
 #endif
 
 #if !canImport(UIKit)
+enum CityImageRenderRole {
+    case hero
+    case card
+    case thumbnail
+    case mapPreview
+}
+
 struct CityImageView: View {
     let urlString: String?
     let height: CGFloat
@@ -18,6 +25,7 @@ struct CityImageView: View {
     var fallbackColor: Color = Color(hex: "#142A3E")
     var fallbackURLStrings: [String] = []
     var debugContext: ImageDebugContext? = nil
+    var renderRole: CityImageRenderRole = .hero
     var targetPixelWidth: CGFloat? = nil
 
     private var imageURL: URL? {
@@ -30,30 +38,48 @@ struct CityImageView: View {
             .first
     }
 
+    private var cityImageAsset: AppImageAsset? {
+        guard let imageURL else { return nil }
+
+        return AppImageAsset(
+            id: "city-image-\(placeId ?? cityName)",
+            url: imageURL,
+            imageURL: imageURL,
+            thumbnailURL: imageURL,
+            localAssetName: nil,
+            title: cityName.isEmpty ? "City image" : cityName,
+            description: nil,
+            sourceName: "Verified city image",
+            sourceURL: imageURL,
+            license: nil,
+            attribution: nil,
+            width: nil,
+            height: nil,
+            aspectRatio: 16.0 / 10.0,
+            type: .cityHero,
+            verified: true
+        )
+    }
+
     var body: some View {
-        ZStack {
-            if let imageURL {
-                AsyncImage(url: imageURL) { phase in
-                    switch phase {
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                    case .empty:
-                        fallback
-                            .overlay(Color.white.opacity(0.035))
-                    case .failure:
-                        fallback
-                    @unknown default:
-                        fallback
-                    }
-                }
-            } else {
-                fallback
-            }
-        }
+        AppContentImageView(
+            asset: cityImageAsset,
+            language: .english,
+            mode: .fill,
+            accent: fallbackColor,
+            aspectRatio: nil,
+            cornerRadius: 0,
+            showsCaption: false,
+            showsSourceButton: false,
+            accessibilityLabel: cityName.isEmpty ? nil : cityName,
+            fallbackLocalAssetName: CuratedPlaceHeroMediaRegistry.cityPlaceholderAssetName,
+            fallbackSymbol: "building.2.fill",
+            debugContext: debugContext,
+            targetPixelWidth: targetPixelWidth
+        )
         .frame(maxWidth: .infinity)
         .frame(height: height)
+        .contentShape(Rectangle())
         .clipped()
     }
 
@@ -182,40 +208,42 @@ struct NetherlandsCityDetailView: View {
     private var lang: AppLanguage { languageManager.appLanguage }
 
     var body: some View {
-        ScrollView(showsIndicators: false) {
-            LazyVStack(spacing: 0) {
-                hero
+        GeometryReader { proxy in
+            ScrollView(showsIndicators: false) {
+                LazyVStack(spacing: 0) {
+                    hero(height: premiumHeroHeight(viewport: proxy.size))
 
-                CityTabSelector(
-                    selected: $selectedTab,
-                    tabs: [
-                        cityDetailText(.overview, lang),
-                        cityDetailText(.history, lang),
-                        cityDetailText(.places, lang),
-                        cityDetailText(.life, lang)
-                    ]
-                )
-                .padding(.vertical, 16)
+                    CityTabSelector(
+                        selected: $selectedTab,
+                        tabs: [
+                            cityDetailText(.overview, lang),
+                            cityDetailText(.history, lang),
+                            cityDetailText(.places, lang),
+                            cityDetailText(.life, lang)
+                        ]
+                    )
+                    .padding(.vertical, 16)
 
-                Group {
-                    switch selectedTab {
-                    case 0:
-                        CityOverviewTab(city: city, lang: lang)
-                    case 1:
-                        CityHistoryTab(city: city, lang: lang)
-                    case 2:
-                        CityAttractionsTab(city: city, lang: lang)
-                    case 3:
-                        CityLivingTab(city: city, lang: lang)
-                    default:
-                        EmptyView()
+                    Group {
+                        switch selectedTab {
+                        case 0:
+                            CityOverviewTab(city: city, lang: lang)
+                        case 1:
+                            CityHistoryTab(city: city, lang: lang)
+                        case 2:
+                            CityAttractionsTab(city: city, lang: lang)
+                        case 3:
+                            CityLivingTab(city: city, lang: lang)
+                        default:
+                            EmptyView()
+                        }
                     }
-                }
-                .padding(.horizontal, 20)
-                .padding(.bottom, 40)
+                    .padding(.horizontal, 20)
+                    .padding(.bottom, 40)
 
-                Color.clear
-                    .frame(height: AppSpacing.tabBarScrollReserveCity)
+                    Color.clear
+                        .frame(height: AppSpacing.tabBarScrollReserveCity)
+                }
             }
         }
         .background(Color(hex: "#06080F"))
@@ -242,12 +270,12 @@ struct NetherlandsCityDetailView: View {
         }
     }
 
-    private var hero: some View {
+    private func hero(height heroHeight: CGFloat) -> some View {
         let resolvedImage = CanonicalPlaceImageResolver.resolveCityHero(city: city)
         return ZStack(alignment: .bottom) {
             CityImageView(
                 urlString: resolvedImage.urlString,
-                height: 320,
+                height: heroHeight,
                 placeId: city.placeId,
                 cityName: city.name,
                 fallbackColor: Color(hex: city.heroColor),
@@ -256,7 +284,8 @@ struct NetherlandsCityDetailView: View {
                     screen: "City detail hero",
                     entityType: "city",
                     entityName: city.name
-                )
+                ),
+                renderRole: .hero
             )
 
             LinearGradient(
@@ -307,6 +336,18 @@ struct NetherlandsCityDetailView: View {
             .frame(maxWidth: .infinity, alignment: .leading)
         }
         .frame(maxWidth: .infinity)
+    }
+
+    private func premiumHeroHeight(viewport: CGSize) -> CGFloat {
+        let isLandscape = viewport.width > viewport.height
+        let isPadLike = viewport.width >= 700
+        if isPadLike {
+            return min(max(viewport.height * 0.36, 420), 560)
+        }
+        if isLandscape {
+            return min(max(viewport.height * 0.48, 260), 360)
+        }
+        return min(max(viewport.height * 0.40, 340), 470)
     }
 }
 
@@ -411,7 +452,8 @@ struct AttractionCard: View {
                     screen: "City places card",
                     entityType: "place",
                     entityName: attraction.name
-                )
+                ),
+                renderRole: .card
             )
                 .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
 
@@ -886,7 +928,8 @@ struct SidebarCityCard: View {
                     screen: "Sidebar city card",
                     entityType: "city",
                     entityName: city.name
-                )
+                ),
+                renderRole: .card
             )
                 .frame(width: 130, height: 150)
                 .clipped()

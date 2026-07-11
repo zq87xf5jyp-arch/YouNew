@@ -1,6 +1,6 @@
 import Foundation
 
-enum PlaceCategory: String, CaseIterable, Identifiable {
+enum PlaceCategory: String, CaseIterable, Identifiable, Sendable {
     case municipality
     case healthcare
     case hospital

@@ -20,6 +20,7 @@ struct SearchAnswerDetailView: View {
         answer.relatedQuestions.compactMap { q in
             allAnswers.first(where: { $0.question.caseInsensitiveCompare(q) == .orderedSame })
         }
+        .filter { $0.isVisible(for: activePersona, scope: .currentAndUniversal) }
     }
 
     private var relatedNavigationItems: [RelatedNavigationItem] {
@@ -39,6 +40,18 @@ struct SearchAnswerDetailView: View {
             VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
                 BreadcrumbTrail(segments: [L10n.t("tab.home", lang), L10n.t("search.nav_title", lang), answer.localizedQuestion(lang)])
                 DisclaimerBanner(text: L10n.t("disclaimer.short", lang))
+
+                PremiumImageHeader(
+                    title: answer.localizedQuestion(lang),
+                    asset: answerImageAsset(for: answer.category),
+                    language: lang,
+                    symbol: answerSymbol(for: answer.category),
+                    accent: answerAccent(for: answer.category),
+                    height: 184,
+                    cornerRadius: 24,
+                    fallbackCategory: answerFallbackCategory(for: answer.category)
+                )
+                .accessibilityIdentifier("search.answer.hero")
 
                 Text(answer.localizedQuestion(lang))
                     .font(AppTypography.sectionTitle)
@@ -101,48 +114,48 @@ struct SearchAnswerDetailView: View {
                         .appCardStyle()
                 }
 
-                if !relatedAnswers.isEmpty {
+                VStack(alignment: .leading, spacing: AppSpacing.small) {
                     SectionHeader(title: L10n.t("search.related_questions", lang))
-                    ForEach(relatedAnswers) { related in
-                        NavigationLink(value: AppDestination.searchAnswer(related.id)) {
-                            VStack(alignment: .leading, spacing: AppSpacing.xSmall) {
-                                Text(related.localizedQuestion(lang))
-                                    .font(AppTypography.bodyStrong)
-                                    .foregroundStyle(AppColors.textPrimary)
-                                Text(related.localizedShortAnswer(lang))
-                                    .font(AppTypography.footnote)
-                                    .foregroundStyle(AppColors.textSecondary)
+                    if relatedAnswers.isEmpty {
+                        relatedQuestionsFallback
+                    } else {
+                        ForEach(relatedAnswers) { related in
+                            NavigationLink(value: AppDestination.searchAnswer(related.id)) {
+                                VStack(alignment: .leading, spacing: AppSpacing.xSmall) {
+                                    Text(related.localizedQuestion(lang))
+                                        .font(AppTypography.bodyStrong)
+                                        .foregroundStyle(AppColors.textPrimary)
+                                    Text(related.localizedShortAnswer(lang))
+                                        .font(AppTypography.footnote)
+                                        .foregroundStyle(AppColors.textSecondary)
+                                }
+                                .frame(maxWidth: .infinity, alignment: .leading)
+                                .appCardStyle()
                             }
-                            .frame(maxWidth: .infinity, alignment: .leading)
-                            .appCardStyle()
+                            .buttonStyle(.plain)
                         }
-                        .buttonStyle(.plain)
                     }
                 }
+                .accessibilityIdentifier("search.answer.relatedQuestions.dashboard")
 
-                if !peopleAlsoSearch.isEmpty {
+                VStack(alignment: .leading, spacing: AppSpacing.small) {
                     SectionHeader(title: L10n.t("search.people_also_search", lang))
-                    ForEach(peopleAlsoSearch) { related in
-                        SmartNavigationRow(
-                            title: related.localizedQuestion(lang),
-                            subtitle: related.localizedShortAnswer(lang),
-                            symbol: "magnifyingglass",
-                            destination: .searchAnswer(related.id)
-                        )
+                    if peopleAlsoSearch.isEmpty {
+                        peopleAlsoSearchFallback
+                    } else {
+                        ForEach(peopleAlsoSearch) { related in
+                            SmartNavigationRow(
+                                title: related.localizedQuestion(lang),
+                                subtitle: related.localizedShortAnswer(lang),
+                                symbol: "magnifyingglass",
+                                destination: .searchAnswer(related.id)
+                            )
+                        }
                     }
                 }
+                .accessibilityIdentifier("search.answer.peopleAlsoSearch.dashboard")
 
-                if !commonMistakes.isEmpty {
-                    SectionHeader(title: L10n.t("resources.common_mistakes", lang))
-                    ForEach(commonMistakes) { mistake in
-                        SmartNavigationRow(
-                            title: mistake.title(lang),
-                            subtitle: mistake.possibleConsequence(lang),
-                            symbol: "exclamationmark.triangle",
-                            destination: .mistakesList
-                        )
-                    }
-                }
+                CommonMistakesSection(mistakes: commonMistakes)
 
                 InfoCard(
                     title: L10n.t("search.next_recommended_step", lang),
@@ -183,6 +196,60 @@ struct SearchAnswerDetailView: View {
         appState.showToast(L10n.t("search.source_opened", lang))
     }
 
+    private var relatedQuestionsFallback: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            InfoCard(
+                title: relatedFallbackTitle,
+                subtitle: relatedFallbackSubtitle,
+                detail: relatedFallbackDetail,
+                icon: "point.3.connected.trianglepath.dotted"
+            )
+
+            SmartNavigationRow(
+                title: searchMoreTitle,
+                subtitle: searchMoreSubtitle,
+                symbol: "magnifyingglass",
+                destination: .searchList
+            )
+
+            SmartNavigationRow(
+                title: officialSourcesTitle,
+                subtitle: officialSourcesSubtitle,
+                symbol: "checkmark.shield.fill",
+                destination: .officialSources
+            )
+        }
+        .accessibilityIdentifier("search.answer.relatedQuestions.empty")
+    }
+
+    private var peopleAlsoSearchFallback: some View {
+        VStack(alignment: .leading, spacing: AppSpacing.small) {
+            SmartNavigationRow(
+                title: searchMoreTitle,
+                subtitle: searchMoreSubtitle,
+                symbol: "magnifyingglass.circle",
+                destination: .searchList
+            )
+
+            if let placeCategory = mapCategory(for: answer) {
+                SmartNavigationRow(
+                    title: mapFallbackTitle,
+                    subtitle: mapFallbackSubtitle,
+                    symbol: "map.fill",
+                    destination: .mapFocus(.category(placeCategory))
+                )
+            } else {
+                SmartNavigationRow(
+                    title: resourcesFallbackTitle,
+                    subtitle: resourcesFallbackSubtitle,
+                    symbol: "books.vertical.fill",
+                    destination: .resourcesHub
+                )
+            }
+        }
+        .accessibilityIdentifier("search.answer.peopleAlsoSearch.empty")
+    }
+
     private var askAITitle: String {
         switch lang {
         case .russian: return "Спросить AI об этом ответе"
@@ -199,6 +266,94 @@ struct SearchAnswerDetailView: View {
         }
     }
 
+    private var relatedFallbackTitle: String {
+        switch lang {
+        case .russian: return "Продолжите через похожие маршруты"
+        case .dutch: return "Ga verder via verwante routes"
+        case .english: return "Continue through related paths"
+        }
+    }
+
+    private var relatedFallbackSubtitle: String {
+        switch lang {
+        case .russian: return "Продолжите через поиск или проверенные источники"
+        case .dutch: return "Ga verder via zoeken of betrouwbare bronnen"
+        case .english: return "Continue through search or trusted sources"
+        }
+    }
+
+    private var relatedFallbackDetail: String {
+        switch lang {
+        case .russian: return "Этот ответ всё ещё можно расширить: найдите похожую тему, откройте официальный источник или спросите AI ниже."
+        case .dutch: return "Je kunt dit antwoord nog uitbreiden: zoek een verwant onderwerp, open een officiële bron of vraag AI hieronder."
+        case .english: return "You can still expand this answer: search a related topic, open official sources, or ask AI below."
+        }
+    }
+
+    private var searchMoreTitle: String {
+        switch lang {
+        case .russian: return "Искать похожую тему"
+        case .dutch: return "Zoek een verwant onderwerp"
+        case .english: return "Search a related topic"
+        }
+    }
+
+    private var searchMoreSubtitle: String {
+        switch lang {
+        case .russian: return "Попробуйте другое слово, учреждение или документ."
+        case .dutch: return "Probeer een ander woord, instantie of document."
+        case .english: return "Try another word, institution, or document."
+        }
+    }
+
+    private var officialSourcesTitle: String {
+        switch lang {
+        case .russian: return "Проверить официальные источники"
+        case .dutch: return "Controleer officiële bronnen"
+        case .english: return "Check official sources"
+        }
+    }
+
+    private var officialSourcesSubtitle: String {
+        switch lang {
+        case .russian: return "Откройте государственные и городские сайты по теме."
+        case .dutch: return "Open overheids- en gemeentesites over dit onderwerp."
+        case .english: return "Open government and municipality sources for this topic."
+        }
+    }
+
+    private var mapFallbackTitle: String {
+        switch lang {
+        case .russian: return "Найти место рядом"
+        case .dutch: return "Vind een locatie dichtbij"
+        case .english: return "Find a nearby place"
+        }
+    }
+
+    private var mapFallbackSubtitle: String {
+        switch lang {
+        case .russian: return "Откройте карту с подходящей категорией."
+        case .dutch: return "Open de kaart met een passende categorie."
+        case .english: return "Open the map with a matching category."
+        }
+    }
+
+    private var resourcesFallbackTitle: String {
+        switch lang {
+        case .russian: return "Открыть полезные ресурсы"
+        case .dutch: return "Open nuttige bronnen"
+        case .english: return "Open useful resources"
+        }
+    }
+
+    private var resourcesFallbackSubtitle: String {
+        switch lang {
+        case .russian: return "Перейдите к материалам, организациям и проверочным спискам."
+        case .dutch: return "Ga naar materialen, organisaties en checklists."
+        case .english: return "Go to materials, organizations, and checklists."
+        }
+    }
+
     private func mapCategory(for answer: SearchAnswer) -> PlaceCategory? {
         switch answer.category {
         case .registration: return .municipality
@@ -209,6 +364,87 @@ struct SearchAnswerDetailView: View {
         case .emergency: return .police
         case .immigration: return .immigrationSupport
         case .general, .digid, .taxes, .work, .housing: return nil
+        }
+    }
+
+    private func answerImageAsset(for category: SearchCategory) -> AppImageAsset? {
+        switch category {
+        case .registration, .digid:
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.municipalityCityHallImage
+        case .immigration:
+            return ContentMediaRegistry.municipalityCityHallImage ?? ContentMediaRegistry.governmentBasicsImage
+        case .taxes, .work:
+            return ContentMediaRegistry.workImage ?? ContentMediaRegistry.officialSourcesHero
+        case .fines, .legalHelp:
+            return ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.municipalityCityHallImage
+        case .healthInsurance, .emergency:
+            return ContentMediaRegistry.healthcarePharmacyImage ?? ContentMediaRegistry.emergencyImage
+        case .education:
+            return ContentMediaRegistry.museumsCultureImage ?? ContentMediaRegistry.dailyCultureImage ?? ContentMediaRegistry.officialSourcesHero
+        case .housing:
+            return ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage
+        case .transport:
+            return ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero
+        case .general:
+            return ContentMediaRegistry.mapImage ?? ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.dailyCultureImage
+        }
+    }
+
+    private func answerFallbackCategory(for category: SearchCategory) -> PremiumImageFallbackCategory {
+        switch category {
+        case .registration, .digid, .immigration:
+            return .government
+        case .taxes, .work:
+            return .work
+        case .fines, .legalHelp:
+            return .documents
+        case .healthInsurance:
+            return .healthcare
+        case .emergency:
+            return .emergency
+        case .education:
+            return .dutchA1A2
+        case .housing:
+            return .housing
+        case .transport:
+            return .transport
+        case .general:
+            return .integration
+        }
+    }
+
+    private func answerSymbol(for category: SearchCategory) -> String {
+        switch category {
+        case .registration: return "person.crop.circle.badge.checkmark"
+        case .digid: return "key.fill"
+        case .immigration: return "person.text.rectangle.fill"
+        case .taxes: return "banknote.fill"
+        case .fines: return "exclamationmark.triangle.fill"
+        case .healthInsurance: return "cross.case.fill"
+        case .work: return "briefcase.fill"
+        case .education: return "graduationcap.fill"
+        case .housing: return "house.fill"
+        case .transport: return "tram.fill"
+        case .legalHelp: return "doc.text.magnifyingglass"
+        case .emergency: return "phone.fill"
+        case .general: return "sparkles"
+        }
+    }
+
+    private func answerAccent(for category: SearchCategory) -> Color {
+        switch category {
+        case .healthInsurance, .emergency:
+            return AppColors.error
+        case .transport:
+            return AppColors.dutchOrange
+        case .education:
+            return AppColors.emerald
+        case .housing:
+            return AppColors.softBlue
+        case .fines, .legalHelp:
+            return AppColors.warning
+        default:
+            return AppColors.accent
         }
     }
 }

@@ -154,3 +154,32 @@ extension CityMediaAsset {
         )
     }
 }
+
+extension CuratedPlaceVisualMedia {
+    func appImageAsset(id: String? = nil, type: AppImageType = .cityHero) -> AppImageAsset {
+        AppImageAsset(
+            id: id ?? "\(placeId)-\(role)",
+            url: remoteURL,
+            sourcePageURL: sourceURL,
+            imageURL: remoteURL,
+            thumbnailURL: remoteURL,
+            localAssetName: nil,
+            title: title,
+            description: why,
+            sourceName: "Wikimedia Commons",
+            sourceURL: sourceURL ?? remoteURL,
+            creator: nil,
+            author: nil,
+            license: license,
+            licenseName: license,
+            licenseURL: nil,
+            attribution: "Wikimedia Commons contributors",
+            width: minimumPixelWidth,
+            height: nil,
+            aspectRatio: 16.0 / 10.0,
+            type: type,
+            verified: true,
+            retrievedAt: "2026-06-27"
+        )
+    }
+}

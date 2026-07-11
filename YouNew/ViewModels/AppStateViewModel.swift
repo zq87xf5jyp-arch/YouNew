@@ -5,6 +5,8 @@ import Combine
 final class AppStateViewModel: ObservableObject {
     static let onboardingCompletionKey = "younew.onboarding.completed.v1"
     static let selectedUserStatusKey = "younew.profile.selectedUserStatus.v1"
+    static let completedChecklistIDsKey = "younew.checklist.completedIDs.v1"
+    static let userProfileKey = "younew.profile.userProfile.v1"
 
     struct PrioritizedChecklist {
         let recommended: [ChecklistItem]
@@ -27,7 +29,20 @@ final class AppStateViewModel: ObservableObject {
     }
     @Published var selectedLanguage = AppLanguage.english.rawValue
     @Published var selectedStatus = "unsure"
-    @Published var selectedCity = "Leiden"
+    @Published var selectedCity = CityId.leiden.displayName {
+        didSet {
+            guard let cityId = CityId.resolve(selectedCity) else {
+                if oldValue != CityId.leiden.displayName {
+                    selectedCity = CityId.leiden.displayName
+                }
+                return
+            }
+            let normalized = cityId.displayName
+            if selectedCity != normalized {
+                selectedCity = normalized
+            }
+        }
+    }
     @Published var selectedHousingSituation = "unknown"
     @Published var checklistItems: [ChecklistItem] = MockChecklistData.items
     @Published var selectedUserStatus: UserStatus? = nil {
@@ -39,7 +54,11 @@ final class AppStateViewModel: ObservableObject {
             }
         }
     }
-    @Published var userProfile: UserProfile = .default
+    @Published var userProfile: UserProfile = .default {
+        didSet {
+            persistUserProfile()
+        }
+    }
     @Published var preferredMapCategory: PlaceCategory? = nil
     @Published var defaultMapCategory: PlaceCategory? = nil
     @Published var pendingMapFocus: MapFocus? = nil
@@ -52,7 +71,7 @@ final class AppStateViewModel: ObservableObject {
     @Published var pendingAIContext: AIContext? = nil
     @Published var pendingAIPrompt: String? = nil
     private let defaults: UserDefaults
-    private var toastDismissTask: Task<Void, Never>?
+    private var toastDismissTimer: Timer?
 
     init(defaults: UserDefaults = .standard) {
         self.defaults = defaults
@@ -60,6 +79,11 @@ final class AppStateViewModel: ObservableObject {
         if let savedStatus = defaults.string(forKey: Self.selectedUserStatusKey) {
             self.selectedUserStatus = UserStatus(rawValue: savedStatus)
         }
+        if let data = defaults.data(forKey: Self.userProfileKey),
+           let savedProfile = try? JSONDecoder().decode(UserProfile.self, from: data) {
+            self.userProfile = savedProfile
+        }
+        restoreChecklistProgress()
 
 #if DEBUG
         let arguments = ProcessInfo.processInfo.arguments
@@ -67,13 +91,13 @@ final class AppStateViewModel: ObservableObject {
            let cityIndex = arguments.firstIndex(of: "-uiTestingCity"),
            arguments.indices.contains(cityIndex + 1),
            MockNearbyPlacesData.supportedCities.contains(arguments[cityIndex + 1]) {
-            selectedCity = arguments[cityIndex + 1]
+            selectedCity = CityId.resolve(arguments[cityIndex + 1])?.displayName ?? CityId.leiden.displayName
         }
 #endif
     }
 
     deinit {
-        toastDismissTask?.cancel()
+        toastDismissTimer?.invalidate()
     }
 
     var prioritizedGuideSections: [MainGuideSection] {
@@ -229,15 +253,35 @@ final class AppStateViewModel: ObservableObject {
               let idx = checklistItems.firstIndex(where: { $0.id == item.id })
         else { return }
         checklistItems[idx].isCompleted.toggle()
+        persistChecklistProgress()
+    }
+
+    func completedChecklistIDs() -> Set<UUID> {
+        Set(checklistItems.filter(\.isCompleted).map(\.id))
+    }
+
+    private func persistChecklistProgress() {
+        let ids = checklistItems
+            .filter(\.isCompleted)
+            .map { $0.id.uuidString.lowercased() }
+        defaults.set(ids, forKey: Self.completedChecklistIDsKey)
+    }
+
+    private func restoreChecklistProgress() {
+        let completed = Set(defaults.stringArray(forKey: Self.completedChecklistIDsKey) ?? [])
+        guard !completed.isEmpty else { return }
+        checklistItems = checklistItems.map { item in
+            var updated = item
+            updated.isCompleted = completed.contains(item.id.uuidString.lowercased())
+            return updated
+        }
     }
 
     func showToast(_ message: String) {
-        toastDismissTask?.cancel()
+        toastDismissTimer?.invalidate()
         toastMessage = message
-        toastDismissTask = Task { [weak self] in
-            try? await Task.sleep(nanoseconds: 2_500_000_000)
-            guard !Task.isCancelled else { return }
-            await MainActor.run {
+        toastDismissTimer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { [weak self] _ in
+            Task { @MainActor [weak self] in
                 self?.toastMessage = nil
             }
         }
@@ -325,7 +369,7 @@ final class AppStateViewModel: ObservableObject {
         hasCompletedQuestionnaire = false
         selectedLanguage = AppLanguage.english.rawValue
         selectedStatus = "unsure"
-        selectedCity = "Leiden"
+        selectedCity = CityId.leiden.displayName
         selectedHousingSituation = "unknown"
         checklistItems = MockChecklistData.items
         selectedUserStatus = nil
@@ -339,6 +383,7 @@ final class AppStateViewModel: ObservableObject {
         recentRouteIDs = []
         pendingAIContext = nil
         pendingAIPrompt = nil
+        defaults.removeObject(forKey: Self.userProfileKey)
     }
 
     func privacyExportPayload(
@@ -376,6 +421,9 @@ final class AppStateViewModel: ObservableObject {
                     title: $0.title,
                     category: $0.category.rawValue,
                     createdAt: $0.createdAt,
+                    expirationDate: $0.expirationDate,
+                    reminderDate: $0.reminderDate,
+                    relatedChecklistItemID: $0.relatedChecklistItemID?.uuidString,
                     isSensitive: $0.isSensitive,
                     hasNotes: !$0.notes.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
                     fileName: $0.fileURL.lastPathComponent
@@ -433,6 +481,11 @@ final class AppStateViewModel: ObservableObject {
             return [.russian: "После базовых шагов проще находить безопасную поддержку, медицину, юридическую помощь и сообщество.", .english: "After core steps, safe support, healthcare, legal help, and community become easier to find.", .dutch: "Na basisstappen worden veilige steun, zorg, juridische hulp en gemeenschap makkelijker te vinden."]
         }
     }
+
+    private func persistUserProfile() {
+        guard let data = try? JSONEncoder().encode(userProfile) else { return }
+        defaults.set(data, forKey: Self.userProfileKey)
+    }
 }
 
 struct PrivacyExportPayload: Codable {
@@ -457,6 +510,9 @@ struct PrivacyExportPayload: Codable {
         let title: String
         let category: String
         let createdAt: Date
+        let expirationDate: Date?
+        let reminderDate: Date?
+        let relatedChecklistItemID: String?
         let isSensitive: Bool
         let hasNotes: Bool
         let fileName: String

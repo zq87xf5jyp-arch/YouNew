@@ -25,11 +25,14 @@ final class SavedItemsStore: ObservableObject {
         case ruleScenario(String)
         case resource(String)
         case document(String)
+        case placeDetail(String)
+        case calendarEvent(String)
         case provinceList
         case cityList
         case provinceDetail(String)
         case provinceCities(String)
         case cityDetail(String, String)
+        case homeExploreList(String)
         case checklistList
         case institutionsList
         case finesList
@@ -61,11 +64,23 @@ final class SavedItemsStore: ObservableObject {
         case nlCityDetail(String)
         case netherlandsHistory
         case cultureAttractions
+        case netherlandsCalendar
         case settings
         case profileSelection
         case savedTopics
         case recentlyViewedTopics
         case resourcesHub
+        case lifeTimeline
+        case documentVault
+        case deadlineCenter
+        case verifiedExperts
+        case aiLetterGenerator
+        case discoverNetherlands
+        case localPartners
+        case localPartnerDetail(String)
+        case businessGrowth
+        case businessLogin
+        case businessDashboard
         case finesAndLettersHub
         case legalHelp
         case officialSources
@@ -289,11 +304,14 @@ final class SavedItemsStore: ObservableObject {
         case .ruleScenario(let id): return .ruleScenario(id.uuidString)
         case .resource(let id): return .resource(id.uuidString)
         case .document(let id): return .document(id.uuidString)
+        case .placeDetail(let id): return .placeDetail(id)
+        case .calendarEvent(let id): return .calendarEvent(id)
         case .provinceList: return .provinceList
         case .cityList: return .cityList
         case .provinceDetail(let provinceName): return .provinceDetail(provinceName)
         case .provinceCities(let provinceName): return .provinceCities(provinceName)
         case .cityDetail(let province, let city): return .cityDetail(province, city)
+        case .homeExploreList(let id): return .homeExploreList(id)
         case .checklistList: return .checklistList
         case .institutionsList: return .institutionsList
         case .finesList: return .finesList
@@ -325,11 +343,23 @@ final class SavedItemsStore: ObservableObject {
         case .nlCityDetail(let cityID): return .nlCityDetail(cityID)
         case .netherlandsHistory: return .netherlandsHistory
         case .cultureAttractions: return .cultureAttractions
+        case .netherlandsCalendar: return .netherlandsCalendar
         case .settings: return .settings
         case .profileSelection: return .profileSelection
         case .savedTopics: return .savedTopics
         case .recentlyViewedTopics: return .recentlyViewedTopics
         case .resourcesHub: return .resourcesHub
+        case .lifeTimeline: return .lifeTimeline
+        case .documentVault: return .documentVault
+        case .deadlineCenter: return .deadlineCenter
+        case .verifiedExperts: return .verifiedExperts
+        case .aiLetterGenerator: return .aiLetterGenerator
+        case .discoverNetherlands: return .discoverNetherlands
+        case .localPartners: return .localPartners
+        case .localPartnerDetail(let id): return .localPartnerDetail(id)
+        case .businessGrowth: return .businessGrowth
+        case .businessLogin: return .businessLogin
+        case .businessDashboard: return .businessDashboard
         case .finesAndLettersHub: return .finesAndLettersHub
         case .legalHelp: return .legalHelp
         case .officialSources: return .officialSources
@@ -376,6 +406,10 @@ final class SavedItemsStore: ObservableObject {
         case .resource(let id):
             return restoredUUIDDestination(id, in: MockResourcesData.items.map(\.id), AppDestination.resource)
         case .document(let id): return UUID(uuidString: id).map(AppDestination.document)
+        case .placeDetail(let id):
+            return DashboardPlacesData.places.contains(where: { $0.id == id }) ? .placeDetail(id) : nil
+        case .calendarEvent(let id):
+            return DashboardCalendarData.events.contains(where: { $0.id == id }) ? .calendarEvent(id) : nil
         case .provinceList: return .provinceList
         case .cityList: return .cityList
         case .provinceDetail(let provinceName):
@@ -386,6 +420,7 @@ final class SavedItemsStore: ObservableObject {
             guard let provinceItem = ProvinceCatalog.provinceIfFound(matching: province),
                   ProvinceCatalog.cityIfFound(named: city, provinceID: provinceItem.id) != nil else { return nil }
             return .cityDetail(province: province, city: city)
+        case .homeExploreList(let id): return id.isEmpty ? nil : .homeExploreList(id)
         case .checklistList: return .checklistList
         case .institutionsList: return .institutionsList
         case .finesList: return .finesList
@@ -418,11 +453,24 @@ final class SavedItemsStore: ObservableObject {
             return ProvinceCatalog.citySpotlight(matching: cityID) == nil && NLCity.all.first(where: { $0.id == cityID || $0.name.caseInsensitiveCompare(cityID) == .orderedSame }) == nil ? nil : .nlCityDetail(cityID)
         case .netherlandsHistory: return .netherlandsHistory
         case .cultureAttractions: return .cultureAttractions
+        case .netherlandsCalendar: return .netherlandsCalendar
         case .settings: return .settings
         case .profileSelection: return .profileSelection
         case .savedTopics: return .savedTopics
         case .recentlyViewedTopics: return .recentlyViewedTopics
         case .resourcesHub: return .resourcesHub
+        case .lifeTimeline: return .lifeTimeline
+        case .documentVault: return .documentVault
+        case .deadlineCenter: return .deadlineCenter
+        case .verifiedExperts: return .verifiedExperts
+        case .aiLetterGenerator: return .aiLetterGenerator
+        case .discoverNetherlands: return .discoverNetherlands
+        case .localPartners: return .localPartners
+        case .localPartnerDetail(let id):
+            return MockLocalPartnersData.partner(id: id) == nil ? nil : .localPartnerDetail(id)
+        case .businessGrowth: return .businessGrowth
+        case .businessLogin: return .businessLogin
+        case .businessDashboard: return .businessDashboard
         case .finesAndLettersHub: return .finesAndLettersHub
         case .legalHelp: return .legalHelp
         case .officialSources: return .officialSources

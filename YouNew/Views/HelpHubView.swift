@@ -280,9 +280,9 @@ struct HelpHubView: View {
 
     private var badgeText: String {
         switch lang {
-        case .russian: return "Проверенные пути"
+        case .russian: return "Маршруты с учетом источников"
         case .dutch:   return "Gecontroleerde routes"
-        case .english: return "Verified routes"
+        case .english: return "Source-aware routes"
         }
     }
 
