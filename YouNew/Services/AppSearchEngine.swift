@@ -17,18 +17,16 @@ struct AppSearchEngine {
         scope: PersonaSearchScope = .currentAndUniversal,
         limit: Int = 8
     ) -> [KnowledgeSearchResult] {
-        let searchableIDs = Set(repository.searchableItems().map(\.id))
         return index.search(
             query,
             language: language,
             context: context,
             activePersona: activePersona,
             scope: .allContentWithOutsidePathWarning,
-            limit: max(limit * 3, limit)
+            limit: limit
         )
         .filter { result in
-            let canonicalID = repository.aliases[result.item.id] ?? result.item.id
-            return searchableIDs.contains(canonicalID)
+            repository.item(id: result.item.id)?.isSearchable == true
         }
         .prefix(limit)
         .map { $0 }
