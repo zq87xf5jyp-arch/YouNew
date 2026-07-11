@@ -1,5 +1,44 @@
 import SwiftUI
 
+private enum SavedFilter: String, CaseIterable, Identifiable {
+    case all, articles, services, cities, places, checklists
+    var id: String { rawValue }
+
+    func matches(_ item: SavedItemsStore.SavedItem) -> Bool {
+        switch self {
+        case .all: return true
+        case .articles: return [.rule, .document, .resource, .other].contains(item.kind)
+        case .services: return item.kind == .institution
+        case .cities: return item.kind == .city
+        case .places: return item.kind == .place
+        case .checklists: return item.id.localizedCaseInsensitiveContains("checklist")
+        }
+    }
+
+    func title(_ language: AppLanguage) -> String {
+        switch (self, language) {
+        case (.all, .russian): return "Все"
+        case (.articles, .russian): return "Статьи"
+        case (.services, .russian): return "Услуги"
+        case (.cities, .russian): return "Города"
+        case (.places, .russian): return "Места"
+        case (.checklists, .russian): return "Чек-листы"
+        case (.all, .dutch): return "Alles"
+        case (.articles, .dutch): return "Artikelen"
+        case (.services, .dutch): return "Diensten"
+        case (.cities, .dutch): return "Steden"
+        case (.places, .dutch): return "Plekken"
+        case (.checklists, .dutch): return "Checklists"
+        case (.all, .english): return "All"
+        case (.articles, .english): return "Articles"
+        case (.services, .english): return "Services"
+        case (.cities, .english): return "Cities"
+        case (.places, .english): return "Places"
+        case (.checklists, .english): return "Checklists"
+        }
+    }
+}
+
 struct FavoritesView: View {
     @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var languageManager: LanguageManager
@@ -7,14 +46,20 @@ struct FavoritesView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @ObservedObject private var savedStore = SavedItemsStore.shared
+    @State private var query = ""
+    @State private var selectedFilter: SavedFilter = .all
+    @State private var sortNewestFirst = true
 
     private var lang: AppLanguage { languageManager.appLanguage }
     private var activePersona: PersonaTag? { appState.selectedUserStatus?.personaTag }
     private var visibleSavedItems: [SavedItemsStore.SavedItem] {
-        savedStore.savedItems.filter { item in
-            guard let destination = item.destination else { return true }
-            return RelatedContentEngine.isVisible(destination, for: activePersona)
-        }
+        savedStore.savedItems
+            .filter { selectedFilter.matches($0) }
+            .filter { item in
+                let value = query.trimmingCharacters(in: .whitespacesAndNewlines)
+                return value.isEmpty || item.displayTitle(lang).localizedCaseInsensitiveContains(value)
+            }
+            .sorted { sortNewestFirst ? $0.savedAt > $1.savedAt : $0.savedAt < $1.savedAt }
     }
 
     var body: some View {
@@ -25,6 +70,8 @@ struct FavoritesView: View {
                         Color.clear
                             .frame(height: 0)
                             .id("favoritesTop")
+
+                        savedControls
 
                         if visibleSavedItems.isEmpty {
                             emptySavedDashboard
@@ -59,6 +106,45 @@ struct FavoritesView: View {
         .appSceneBackground(.saved)
         .navigationTitle(titleText)
         .nlNavigationInline()
+        .accessibilityIdentifier("favorites.screen")
+    }
+
+    private var savedControls: some View {
+        VStack(alignment: .leading, spacing: 11) {
+            HStack {
+                Text(titleText)
+                    .font(.largeTitle.bold())
+                    .foregroundStyle(AppColors.textPrimary)
+                Spacer()
+                Menu {
+                    Button(sortNewestTitle) { sortNewestFirst = true }
+                    Button(sortOldestTitle) { sortNewestFirst = false }
+                } label: {
+                    Label(sortTitle, systemImage: "arrow.up.arrow.down")
+                        .font(AppTypography.footnote.weight(.semibold))
+                }
+            }
+            TextField(searchPlaceholder, text: $query)
+                .textFieldStyle(.plain)
+                .padding(13)
+                .background(AppColors.cardElevated, in: RoundedRectangle(cornerRadius: 15))
+                .accessibilityIdentifier("saved.search")
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(SavedFilter.allCases) { filter in
+                        Button { selectedFilter = filter } label: {
+                            Text(filter.title(lang))
+                                .font(AppTypography.captionStrong)
+                                .foregroundStyle(selectedFilter == filter ? .white : AppColors.textPrimary)
+                                .padding(.horizontal, 12)
+                                .padding(.vertical, 9)
+                                .background(selectedFilter == filter ? AppColors.dutchOrange : AppColors.chipBackground, in: Capsule())
+                        }
+                        .buttonStyle(.plain)
+                    }
+                }
+            }
+        }
     }
 
     private var emptySavedDashboard: some View {
@@ -87,7 +173,7 @@ struct FavoritesView: View {
                 badgeText: savedHeroBadge,
                 accent: AppColors.dutchOrange,
                 asset: ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.mapImage,
-                height: 250,
+                height: 180,
                 language: lang
             )
             .accessibilityIdentifier("saved.empty.visual")
@@ -226,7 +312,7 @@ struct FavoritesView: View {
                 badgeText: savedHeroBadge,
                 accent: AppColors.dutchOrange,
                 asset: ContentMediaRegistry.savedImage ?? ContentMediaRegistry.officialSourcesHero,
-                height: 240,
+                height: 180,
                 language: lang
             )
             .accessibilityIdentifier("saved.hero")
@@ -245,7 +331,7 @@ struct FavoritesView: View {
 
     @ViewBuilder
     private func favoriteRow(_ item: SavedItemsStore.SavedItem) -> some View {
-        if let destination = item.destination {
+        if let destination = item.destination ?? ContentRepository.shared.legacyDestination(id: item.id) {
             NavigationLink(value: destination) {
                 rowContent(item)
             }
@@ -254,6 +340,11 @@ struct FavoritesView: View {
             rowContent(item)
         }
     }
+
+    private var searchPlaceholder: String { emptyActionTitle(en: "Search saved items", nl: "Zoek opgeslagen items", ru: "Поиск в избранном") }
+    private var sortTitle: String { emptyActionTitle(en: "Sort", nl: "Sorteren", ru: "Сортировка") }
+    private var sortNewestTitle: String { emptyActionTitle(en: "Newest first", nl: "Nieuwste eerst", ru: "Сначала новые") }
+    private var sortOldestTitle: String { emptyActionTitle(en: "Oldest first", nl: "Oudste eerst", ru: "Сначала старые") }
 
     private func rowContent(_ item: SavedItemsStore.SavedItem) -> some View {
         HStack {
