@@ -1,0 +1,35 @@
+.DS_Store
+
+# Xcode user state
+xcuserdata/
+*.xcuserstate
+*.xcuserdatad/
+YouNew.xcodeproj/project.xcworkspace/xcuserdata/
+YouNew.xcodeproj/xcuserdata/
+
+# Local build and index output
+DerivedData/
+.DerivedData*/
+.derivedData*/
+.SwiftModuleCache/
+.SwiftTypecheckModuleCache/
+
+# Local verification output
+test.log
+VISUAL_AUDIT_GALLERY.html
+.visual-audit/
+scripts/__pycache__/
+
+# Accidental duplicate audit exports
+* 2.md
+
+# Local package/cache output
+.pnpm-store/
+
+# Generated image-pack staging output
+netherlands_app_images/
+netherlands_app_images_v*.zip
+
+# One-off local audit exports
+*_AUDIT.md
+*_REPORT.md
