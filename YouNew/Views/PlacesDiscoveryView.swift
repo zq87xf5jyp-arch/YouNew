@@ -1055,6 +1055,8 @@ struct PlacesDiscoveryView: View {
 
     private var sourceNote: some View {
         DisclaimerBanner(text: sourceNoteText)
+            .accessibilityElement(children: .combine)
+            .accessibilityIdentifier("map.lastElement")
     }
 
     private func placeRow(_ place: NearbyPlace) -> some View {

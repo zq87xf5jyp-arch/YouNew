@@ -287,6 +287,7 @@ struct RootHomeView: View {
                         recommendationRow(item)
                     }
                     .buttonStyle(.plain)
+                    .accessibilityIdentifier(item.id == recommendations.last?.id ? "home.lastElement" : "home.recommendation.\(item.id)")
                 }
             }
         }

@@ -290,6 +290,7 @@ struct FavoritesView: View {
             .buttonStyle(PrimaryPremiumButtonStyle())
             .disabled(starterPackAnswers.isEmpty)
             .accessibilityIdentifier("saved.empty.saveStarterPack")
+            .accessibilityIdentifier("saved.lastElement")
         }
         .appGlassCardStyle(accent: AppColors.emerald)
     }

@@ -213,6 +213,7 @@ struct RootGuideView: View {
             .foregroundStyle(AppColors.textSecondary)
             .fixedSize(horizontal: false, vertical: true)
         }
+        .accessibilityIdentifier("guide.lastElement")
     }
 
     private func destination(for categoryID: String) -> AppDestination {

@@ -34,6 +34,7 @@ struct RootMoreView: View {
                     row("bubble.left.and.bubble.right.fill", localized(en: "Feedback", nl: "Feedback", ru: "Обратная связь"), .supportFeedback)
                     row("hand.raised.fill", localized(en: "Privacy", nl: "Privacy", ru: "Конфиденциальность"), .privacyDataControl)
                     row("info.circle.fill", localized(en: "About", nl: "Over", ru: "О приложении"), .aboutYouNew)
+                        .accessibilityIdentifier("more.lastElement")
                 }
 
                 Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
