@@ -30,7 +30,7 @@ struct RootHomeView: View {
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView {
-                LazyVStack(alignment: .leading, spacing: 22) {
+                LazyVStack(alignment: .leading, spacing: 18) {
                     Color.clear.frame(height: 1).id("home.top")
                     cityHeader
                     globalSearch
@@ -155,6 +155,7 @@ struct RootHomeView: View {
         }
         .buttonStyle(.plain)
         .accessibilityHint(localized(en: "Opens emergency actions and official numbers", nl: "Opent noodacties en officiële nummers", ru: "Открывает экстренные действия и официальные номера"))
+        .accessibilityElement(children: .combine)
         .accessibilityIdentifier("home.urgentHelp")
     }
 
