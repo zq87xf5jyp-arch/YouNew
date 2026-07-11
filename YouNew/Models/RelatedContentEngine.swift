@@ -10,6 +10,51 @@ struct RelatedNavigationItem: Identifiable, Hashable {
 
 enum RelatedContentEngine {
     static func isVisible(_ destination: AppDestination, for persona: PersonaTag?) -> Bool {
+        // Audience metadata ranks recommendations; it never restricts navigation.
+        // Entity-backed routes must still resolve to a canonical object so that
+        // saved items, search results, and AI deep links cannot open dead screens.
+        switch destination {
+        case .knmModule(let moduleID):
+            return KNMGuideData.module(with: moduleID) != nil
+        case .dutchA1A2Module(let moduleID):
+            return DutchA1A2CourseData.module(with: moduleID) != nil
+        case .checklist(let id):
+            return MockChecklistData.items.contains { $0.id == id }
+        case .institution(let name):
+            return MockInstitutionsData.items.contains { $0.name.caseInsensitiveCompare(name) == .orderedSame }
+        case .searchAnswer(let id):
+            return MockSearchAnswersData.items.contains { $0.id == id }
+        case .beginnerGuide(let id):
+            return MockBeginnerGuidesData.items.contains { $0.id == id }
+        case .resource(let id):
+            return MockResourcesData.items.contains { $0.id == id }
+        case .mistake(let id):
+            return MockNewcomerMistakesData.items.contains { $0.id == id }
+        case .dutchTerm(let id):
+            return MockDutchTermsData.items.contains { $0.id == id }
+        case .fineInfo(let id):
+            return MockFineInfoData.items.contains { $0.id == id }
+        case .letter(let title):
+            return MockLettersData.examples.contains { $0.title.caseInsensitiveCompare(title) == .orderedSame }
+        case .ruleTopic(let id):
+            return MockRulesGuideData.topics.contains { $0.id == id }
+        case .ruleScenario(let id):
+            return MockRulesGuideData.scenarios.contains { $0.id == id }
+        case .guideSection(let id):
+            return GuideContent.section(id: id, activePersona: persona) != nil
+        case .guideArticle(let sectionID, let articleID):
+            return GuideContent.article(sectionID: sectionID, articleID: articleID, activePersona: persona) != nil
+        case .placeDetail(let id):
+            return DashboardPlacesData.places.contains { $0.id == id }
+        case .calendarEvent(let id):
+            return DashboardCalendarData.events.contains { $0.id == id }
+        case .mapFocus(.place(let placeID)):
+            return MockNearbyPlacesData.places.contains { $0.saveKey == placeID || $0.id.uuidString == placeID }
+                || MockLocalPartnersData.partners.contains { $0.mapPlace.saveKey == placeID || $0.id == placeID }
+        default:
+            return true
+        }
+        /* Legacy existence/persona matrix retained temporarily for migration reference.
         switch destination {
         case .settings, .profileSelection, .savedTopics, .recentlyViewedTopics, .resourcesHub, .localPartners, .localPartnerDetail, .businessGrowth, .businessLogin, .businessDashboard, .finesAndLettersHub, .legalHelp, .aboutYouNew, .supportFeedback, .privacyDataControl, .termsOfUse, .legalDisclaimer, .assistantHub, .searchList:
             return true
@@ -135,6 +180,7 @@ enum RelatedContentEngine {
         default:
             return true
         }
+        */
     }
 
     private static func isPracticalGuide(_ topic: PracticalGuideTopic, visibleFor persona: PersonaTag?) -> Bool {

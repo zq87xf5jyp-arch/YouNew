@@ -13,33 +13,30 @@ struct ContentAccessPolicyTests {
         #expect(!canShowToUser(audience: [.tourist], selectedCategory: nil))
     }
 
-    @Test func touristDoesNotSeeBusinessResources() {
+    @Test func audienceMetadataNeverBlocksBusinessResources() {
         let businessResource = MockResourcesData.items.first {
             $0.personaTags.contains(.entrepreneur) && !$0.personaTags.contains(.tourist)
         }
 
         #expect(businessResource != nil)
-        #expect(businessResource?.isVisible(for: .tourist, scope: .currentAndUniversal) == false)
+        #expect(businessResource?.isVisible(for: .tourist, scope: .currentAndUniversal) == true)
         #expect(businessResource?.isVisible(for: .entrepreneur, scope: .currentAndUniversal) == true)
     }
 
-    @Test func touristSearchStaysInsideTouristAndGeneralAudience() {
+    @Test func searchKeepsCrossAudienceContentReachable() {
         let touristSearch = SearchViewModel(initialQuery: "business KVK", language: .english, activePersona: .tourist)
-        #expect(touristSearch.displayedResults.allSatisfy { answer in
-            answer.personaTags.contains(.tourist) || answer.personaTags.contains(.universal)
-        })
-        #expect(!touristSearch.displayedResults.contains { $0.personaTags.contains(.entrepreneur) })
+        #expect(touristSearch.displayedResults.contains { $0.personaTags.contains(.entrepreneur) })
 
         let businessSearch = SearchViewModel(initialQuery: "business KVK", language: .english, activePersona: .entrepreneur)
         #expect(businessSearch.displayedResults.contains { $0.personaTags.contains(.entrepreneur) })
-        #expect(!businessSearch.displayedResults.contains { $0.personaTags.contains(.tourist) && !$0.personaTags.contains(.universal) })
+        #expect(businessSearch.displayedResults.isEmpty == false)
     }
 
-    @Test func navigationVisibilityUsesSelectedCategory() {
+    @Test func navigationVisibilityDoesNotUseAudienceAsAccessControl() {
         #expect(RelatedContentEngine.isVisible(.finesList, for: .tourist))
         #expect(RelatedContentEngine.isVisible(.finesList, for: .entrepreneur))
-        #expect(!RelatedContentEngine.isVisible(.dutchA1A2, for: .tourist))
-        #expect(!RelatedContentEngine.isVisible(.governmentHub, for: .tourist))
+        #expect(RelatedContentEngine.isVisible(.dutchA1A2, for: .tourist))
+        #expect(RelatedContentEngine.isVisible(.governmentHub, for: .tourist))
         #expect(RelatedContentEngine.isVisible(.governmentHub, for: .entrepreneur))
     }
 
@@ -61,26 +58,17 @@ struct ContentAccessPolicyTests {
         let topChrome = try requireRange("homeTopChrome", in: bodyFlow)
         let hero = try requireRange("productHomeHero", in: bodyFlow)
         let status = try requireRange("productHomeStatus", in: bodyFlow)
-        let nextStep = try requireRange("What to do now", in: bodyFlow)
-        let askAI = try requireRange("home.product.askAI", in: bodyFlow)
-        let essentials = try requireRange("Essentials", in: bodyFlow)
-        let city = try requireRange("Your city", in: bodyFlow)
+        let askAI = try requireRange("compactAISection", in: bodyFlow)
+        let essentials = try requireRange("officialServicesSection", in: bodyFlow)
+        let library = try requireRange("referenceLibraryShortcut", in: bodyFlow)
         let footer = try requireRange("disclaimerFooter", in: bodyFlow)
 
         #expect(topChrome.lowerBound < hero.lowerBound)
         #expect(hero.lowerBound < status.lowerBound)
-        #expect(status.lowerBound < nextStep.lowerBound)
-        #expect(nextStep.lowerBound < askAI.lowerBound)
+        #expect(status.lowerBound < askAI.lowerBound)
         #expect(askAI.lowerBound < essentials.lowerBound)
-        #expect(essentials.lowerBound < city.lowerBound)
-        #expect(city.lowerBound < footer.lowerBound)
-        #expect(!bodyFlow.contains("stayInThisCitySection"))
-        #expect(!bodyFlow.contains("travelLinksSection"))
-        #expect(!bodyFlow.contains("primaryScenarioSection"))
-        #expect(!bodyFlow.contains("audienceEssentialsSection"))
-        #expect(!bodyFlow.contains("audienceExploreSection"))
-        #expect(!bodyFlow.contains("categoriesGridSection"))
-        #expect(!bodyFlow.contains("secondaryToolsSection"))
+        #expect(essentials.lowerBound < library.lowerBound)
+        #expect(library.lowerBound < footer.lowerBound)
     }
 
     @Test func homeHeroKeepsBureaucracyOutOfTouristShortcuts() throws {

@@ -262,12 +262,7 @@ extension SearchAnswer {
     }
 
     func isVisible(for persona: PersonaTag?, scope: PersonaSearchScope = .currentAndUniversal) -> Bool {
-        guard scope != .allContentWithOutsidePathWarning else { return true }
-        guard let persona else { return true }
-        guard PersonaContentPolicy.isVisible(tags: effectivePersonaTags(), activePersona: persona, scope: scope) else {
-            return false
-        }
-        return category.isVisible(for: persona)
+        true
     }
 
     private func localizedVisibleText(_ values: [AppLanguage: String], lang: AppLanguage) -> String {

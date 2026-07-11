@@ -157,7 +157,7 @@ struct DashboardContentPolicyTests {
         #expect(AppNavigationResolver.destination(for: routeID) == .guideArticle(sectionID: "tourist-documents", articleID: "lost-documents"))
         #expect(AppNavigationResolver.destination(for: routeID) != .emergencyHub)
         #expect(GuideContent.article(sectionID: "tourist-documents", articleID: "lost-documents", activePersona: .tourist) != nil)
-        #expect(GuideContent.article(sectionID: "tourist-documents", articleID: "lost-documents", activePersona: .refugee) == nil)
+        #expect(GuideContent.article(sectionID: "tourist-documents", articleID: "lost-documents", activePersona: .refugee) != nil)
     }
 
     @Test func quickActionsShowMaxFourPrimaryActions() {

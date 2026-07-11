@@ -52,18 +52,18 @@ struct SearchSynonymTests {
         }
     }
 
-    @Test func personaSearchBlocksCrossPersonaResults() {
+    @Test func personaSearchRanksWithoutBlockingCrossPersonaResults() {
         let studentDUO = SearchViewModel(initialQuery: "DUO", language: .english, activePersona: .student)
         #expect(studentDUO.displayedResults.contains { $0.title(.english).localizedCaseInsensitiveContains("DUO") })
 
         let workerDUO = SearchViewModel(initialQuery: "DUO", language: .english, activePersona: .worker)
-        #expect(!workerDUO.displayedResults.contains { $0.title(.english).localizedCaseInsensitiveContains("DUO") })
+        #expect(workerDUO.displayedResults.contains { $0.title(.english).localizedCaseInsensitiveContains("DUO") })
 
         let workerUWV = SearchViewModel(initialQuery: "UWV", language: .english, activePersona: .worker)
         #expect(workerUWV.displayedResults.contains { $0.title(.english).localizedCaseInsensitiveContains("UWV") || $0.detailedAnswer(.english).localizedCaseInsensitiveContains("UWV") })
 
         let studentUWV = SearchViewModel(initialQuery: "UWV", language: .english, activePersona: .student)
-        #expect(!studentUWV.displayedResults.contains { $0.title(.english).localizedCaseInsensitiveContains("UWV") || $0.detailedAnswer(.english).localizedCaseInsensitiveContains("UWV") })
+        #expect(studentUWV.displayedResults.contains { $0.title(.english).localizedCaseInsensitiveContains("UWV") || $0.detailedAnswer(.english).localizedCaseInsensitiveContains("UWV") })
     }
 
     @Test func digidSearchRemainsVisibleForResidentPersonas() {
@@ -121,10 +121,10 @@ struct SearchSynonymTests {
         }
     }
 
-    @Test func savedStarterPackHonorsPersonaVisibility() {
+    @Test func savedStarterPackKeepsCanonicalItemsReachableAcrossProfiles() {
         let touristAnswers = FavoritesView.starterPackAnswers(activePersona: .tourist)
-        #expect(!touristAnswers.contains { $0.category == .registration })
-        #expect(!touristAnswers.contains { $0.category == .digid })
+        #expect(touristAnswers.contains { $0.category == .registration })
+        #expect(touristAnswers.contains { $0.category == .digid })
         #expect(touristAnswers.allSatisfy { $0.isVisible(for: .tourist, scope: .currentAndUniversal) })
     }
 }

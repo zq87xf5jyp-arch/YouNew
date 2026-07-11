@@ -56,6 +56,8 @@ struct KnowledgeIndex {
     private let normalizedCityByID: [String: String]
     private let normalizedProvinceByID: [String: String]
     private let normalizedProvinceEnglishByName: [String: String]
+    private let normalizedKeywordsByID: [String: [String]]
+    private let normalizedSourcesByID: [String: [String]]
 
     init(items: [KnowledgeItem]) {
         self.items = items
@@ -86,6 +88,15 @@ struct KnowledgeIndex {
         })
         self.normalizedProvinceEnglishByName = Dictionary(uniqueKeysWithValues: NLProvince.all.map { province in
             (province.name, KnowledgeNormalizer.normalize(province.nameEN))
+        })
+        self.normalizedKeywordsByID = Dictionary(uniqueKeysWithValues: items.map { item in
+            (item.id, item.keywords.map(KnowledgeNormalizer.normalize))
+        })
+        self.normalizedSourcesByID = Dictionary(uniqueKeysWithValues: items.map { item in
+            let sources = item.sources.map { source in
+                KnowledgeNormalizer.normalize([source.title, source.institution].compactMap { $0 }.joined(separator: " "))
+            }
+            return (item.id, sources)
         })
     }
 
@@ -186,7 +197,7 @@ struct KnowledgeIndex {
                 }
             }
 
-            let normalizedKeywords = item.keywords.map(KnowledgeNormalizer.normalize)
+            let normalizedKeywords = normalizedKeywordsByID[item.id] ?? []
             if normalizedKeywords.contains(normalizedQuery) {
                 score += 120
                 fields.append("exact-keyword")
@@ -197,9 +208,7 @@ struct KnowledgeIndex {
                 fields.append("keyword-token")
             }
 
-            let normalizedSources = item.sources.map { source in
-                KnowledgeNormalizer.normalize([source.title, source.institution].compactMap { $0 }.joined(separator: " "))
-            }
+            let normalizedSources = normalizedSourcesByID[item.id] ?? []
             if normalizedSources.contains(where: { source in
                 source == normalizedQuery || source.split(separator: " ").contains(Substring(normalizedQuery))
             }) {

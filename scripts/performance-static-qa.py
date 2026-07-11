@@ -20,7 +20,7 @@ ALLOWED_TASK_SLEEP = {
     ("YouNew/Views/HomeView.swift", 6229),
     ("YouNew/Views/SearchView.swift", 486),
     ("YouNew/ViewModels/AppStateViewModel.swift", 251),
-    ("YouNew/ViewModels/SearchViewModel.swift", 187),
+    ("YouNew/ViewModels/SearchViewModel.swift", 183),
     ("YouNew/Core/DesignSystem/Components/NLDesignSystem.swift", 1693),
 }
 

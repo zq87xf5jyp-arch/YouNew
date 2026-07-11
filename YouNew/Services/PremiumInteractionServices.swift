@@ -13,9 +13,10 @@ final class ConnectivityStatus: ObservableObject {
     private let queue = DispatchQueue(label: "YouNew.ConnectivityStatus")
 
     private init() {
-        monitor.pathUpdateHandler = { [weak self] path in
-            Task { @MainActor in
-                self?.isOnline = path.status == .satisfied
+        monitor.pathUpdateHandler = { path in
+            let isOnline = path.status == .satisfied
+            Task { @MainActor [weak self] in
+                self?.isOnline = isOnline
             }
         }
         monitor.start(queue: queue)

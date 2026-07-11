@@ -47,9 +47,6 @@ final class SearchViewModel: ObservableObject {
     }
     @Published var activePersona: PersonaTag? {
         didSet {
-            if let selectedCategory, !selectedCategory.isVisible(for: activePersona) {
-                self.selectedCategory = nil
-            }
             refreshSearchState()
         }
     }
@@ -93,7 +90,7 @@ final class SearchViewModel: ObservableObject {
     }
 
     var visibleCategories: [SearchCategory] {
-        SearchCategory.allCases.filter { $0.isVisible(for: activePersona) }
+        SearchCategory.allCases
     }
 
     private func filteredResults() -> [SearchAnswer] {
@@ -167,7 +164,6 @@ final class SearchViewModel: ObservableObject {
         guard !isAligningCategoryWithQuery else { return }
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard trimmed.count >= 2, let inferredCategory = inferredCategory(for: trimmed) else { return }
-        guard inferredCategory.isVisible(for: activePersona) else { return }
         guard selectedCategory != inferredCategory else { return }
 
         isAligningCategoryWithQuery = true

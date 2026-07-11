@@ -249,15 +249,13 @@ struct CitySymbolValidationTests {
         #expect(!credit.lowercased().contains("verified media"))
     }
 
-    @Test func russianTabLabelsAreCompact() {
+    @Test func russianTabLabelsMatchCanonicalNavigation() {
         #expect(L10n.t("tab.home", .russian) == "Главная")
-        #expect(L10n.t("tab.search", .russian) == "Поиск")
-        #expect(L10n.t("tab.map", .russian) == "Places")
-        #expect(L10n.t("tab.saved", .russian) == "Сохран.")
-        #expect(L10n.t("tab.explain", .russian) == "Помощь")
+        #expect(L10n.t("tab.guide", .russian) == "Гид")
+        #expect(L10n.t("tab.map", .russian) == "Карта")
+        #expect(L10n.t("tab.saved", .russian) == "Избранное")
         #expect(L10n.t("tab.more", .russian) == "Ещё")
-        #expect(L10n.t("tab.saved", .russian).count <= 7)
-        #expect(L10n.t("tab.explain", .russian).count <= 6)
+        #expect(AppTab.allCases == [.home, .guide, .map, .saved, .more])
     }
 
     @Test func russianLeidenCopyUsesCompactStrings() {
@@ -274,14 +272,14 @@ struct CitySymbolValidationTests {
         #expect(RootTabView.resolvedMenuPosition(menuPosition: .right, horizontalSizeClass: .regular) == .right)
     }
 
-    @Test func contextualAIButtonStaysOffUtilityTabs() {
-        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .search, isMenuPresented: false))
-        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .favorites, isMenuPresented: false))
+    @Test func contextualAIButtonIsGlobalActionNotTab() {
         #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .home, isMenuPresented: false))
-        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .map, isMenuPresented: false))
-        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .assistant, isMenuPresented: false))
+        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .guide, isMenuPresented: false))
+        #expect(RootTabView.shouldShowContextualAIButton(selectedTab: .map, isMenuPresented: false))
+        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .saved, isMenuPresented: false))
         #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .more, isMenuPresented: false))
-        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .search, isMenuPresented: true))
+        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .guide, isMenuPresented: true))
+        #expect(AppTab.allCases == [.home, .guide, .map, .saved, .more])
     }
 
     @Test func placeLayoutCardWidthSubtractsPaddingAndGap() {

@@ -55,7 +55,7 @@ struct AIContextExpansionTests {
         #expect(context.selectedProvince == "Zuid-Holland")
         #expect(context.selectedCityData?.id == .rotterdam)
         #expect(context.selectedAudience == .tourist)
-        #expect(context.currentScreen == AIContextScreen.assistant.rawValue)
+        #expect(context.currentScreen == AIContextScreen.search.rawValue)
         #expect(context.places.isEmpty == false)
         #expect(context.places.allSatisfy { $0.cityId == "Rotterdam" })
         #expect(context.foodGuide.contains { $0.title == "Restaurants in Rotterdam" })
