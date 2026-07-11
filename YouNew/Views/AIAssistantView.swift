@@ -102,6 +102,7 @@ struct AIAssistantView: View {
     @FocusState private var isInputFocused: Bool
     @State private var measuredComposerHeight: CGFloat = 86
     @State private var activeAssistantDestination: AppDestination?
+    @StateObject private var voiceInput = VoiceInputController()
     let mapToolDestination: AppDestination?
     let onOpenMap: () -> Void
     let onNavigate: (AppDestination) -> Void
@@ -459,6 +460,23 @@ struct AIAssistantView: View {
                 .padding(.top, 0)
 
             HStack(alignment: .center, spacing: 8) {
+                Button {
+#if canImport(UIKit)
+                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
+#endif
+                    voiceInput.toggle(language: lang)
+                } label: {
+                    Image(systemName: voiceInput.isListening ? "waveform" : "mic")
+                        .font(.system(size: 15, weight: .bold))
+                        .foregroundStyle(voiceInput.isListening ? Color.white : AppColors.textSecondary)
+                        .frame(width: 38, height: 38)
+                        .background(voiceInput.isListening ? AppColors.error : AppColors.card.opacity(0.94), in: Circle())
+                        .symbolEffect(.variableColor.iterative, options: .repeating, isActive: voiceInput.isListening)
+                }
+                .buttonStyle(AppPressableButtonStyle())
+                .accessibilityLabel(voiceInput.isListening ? voiceStopLabel : voiceStartLabel)
+                .accessibilityIdentifier("assistant.voice")
+
                 ZStack(alignment: .leading) {
                     if viewModel.input.isEmpty {
                         Text(assistantInputPlaceholder)
@@ -543,6 +561,21 @@ struct AIAssistantView: View {
             .background(Color.clear)
             .frame(maxWidth: 760)
             .frame(maxWidth: .infinity)
+        }
+        .onChange(of: voiceInput.transcript) { _, transcript in
+            guard !transcript.isEmpty else { return }
+            viewModel.input = String(transcript.prefix(Self.inputCharacterLimit))
+        }
+        .overlay(alignment: .top) {
+            if case .unavailable(let message) = voiceInput.state {
+                Text(message)
+                    .font(AppTypography.caption)
+                    .foregroundStyle(AppColors.warning)
+                    .padding(.horizontal, 12)
+                    .padding(.vertical, 8)
+                    .background(AppColors.card.opacity(0.96), in: Capsule())
+                    .offset(y: -42)
+            }
         }
     }
 
@@ -1946,6 +1979,14 @@ struct AIAssistantView: View {
         case .dutch: return "Deel geen BSN, paspoortnummers of medische gegevens."
         case .english: return "Don’t share BSN, passport numbers, or medical details."
         }
+    }
+
+    private var voiceStartLabel: String {
+        switch lang { case .russian: "Начать голосовой ввод"; case .dutch: "Spraakinvoer starten"; case .english: "Start voice input" }
+    }
+
+    private var voiceStopLabel: String {
+        switch lang { case .russian: "Остановить голосовой ввод"; case .dutch: "Spraakinvoer stoppen"; case .english: "Stop voice input" }
     }
 
     private var emptyInputHintTitle: String {

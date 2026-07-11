@@ -9,6 +9,7 @@ struct RootHomeView: View {
     @EnvironmentObject private var router: TabRouter
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @State private var isHeaderSearchExpanded = false
+    @StateObject private var connectivity = ConnectivityStatus.shared
 
     private var language: AppLanguage { languageManager.appLanguage }
     private var selectedCity: String { ProvinceCatalog.localizedCityName(appState.selectedCity, language) }
@@ -35,7 +36,10 @@ struct RootHomeView: View {
                 LazyVStack(alignment: .leading, spacing: 18) {
                     Color.clear.frame(height: 1).id("home.top")
                     premiumHeader.staggeredAppear(index: 0)
-                    cityHeader.staggeredAppear(index: 1)
+                    if !connectivity.isOnline {
+                        offlineStatus.staggeredAppear(index: 1)
+                    }
+                    cityHeader.staggeredAppear(index: 2)
                     globalSearch.staggeredAppear(index: 2)
                     urgentHelp.staggeredAppear(index: 3)
                     nextActions.staggeredAppear(index: 4)
@@ -164,6 +168,20 @@ struct RootHomeView: View {
         .buttonStyle(.plain)
         .immersiveTilt(intensity: 3.2)
         .accessibilityIdentifier("home.currentCity")
+    }
+
+    private var offlineStatus: some View {
+        Label(
+            localized(en: "Offline · local guides and saved content remain available", nl: "Offline · lokale gidsen en opgeslagen inhoud blijven beschikbaar", ru: "Офлайн · локальные гайды и сохранённое доступны"),
+            systemImage: "wifi.slash"
+        )
+        .font(AppTypography.captionStrong)
+        .foregroundStyle(AppColors.warning)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .padding(.horizontal, 14)
+        .padding(.vertical, 10)
+        .background(AppColors.warning.opacity(0.10), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+        .accessibilityIdentifier("home.offlineStatus")
     }
 
     private var globalSearch: some View {

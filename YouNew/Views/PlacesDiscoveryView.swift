@@ -639,6 +639,7 @@ struct PlacesDiscoveryView: View {
                     }
                 }
             }
+            .mapStyle(.standard(elevation: .realistic))
             .frame(height: 470)
 
             HStack {
