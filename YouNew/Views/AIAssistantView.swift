@@ -1174,19 +1174,28 @@ struct AIAssistantView: View {
 
     private func promptLandmark(for prompt: String) -> String {
         let lowercased = prompt.lowercased()
-        if lowercased.contains("bsn") || lowercased.contains("gemeente") || lowercased.contains("tax") || lowercased.contains("belasting") {
+        if lowercased.contains("duo") || lowercased.contains("student") || lowercased.contains("stud") || lowercased.contains("onderwijs") || lowercased.contains("transport") || lowercased.contains("vervoer") {
+            return "home_language_classroom"
+        }
+        if lowercased.contains("housing") || lowercased.contains("huisvest") || lowercased.contains("wonen") || lowercased.contains("жиль") {
+            return "premium_home_housing"
+        }
+        if lowercased.contains("short stay") || lowercased.contains("kort verblijf") || lowercased.contains("корот") || lowercased.contains("tourist") || lowercased.contains("toerist") || lowercased.contains("турист") {
+            return "netherlands_map_base"
+        }
+        if lowercased.contains("bsn") || lowercased.contains("gemeente") || lowercased.contains("tax") || lowercased.contains("belasting") || lowercased.contains("30%-regeling") {
             return "home_documents_city_hall"
         }
-        if lowercased.contains("штраф") || lowercased.contains("fine") || lowercased.contains("boete") {
+        if lowercased.contains("штраф") || lowercased.contains("fine") || lowercased.contains("boete") || lowercased.contains("letters") || lowercased.contains("brieven") {
             return "premium_home_documents"
         }
         if lowercased.contains("huisarts") || lowercased.contains("doctor") || lowercased.contains("врач") {
             return "premium_home_healthcare"
         }
-        if lowercased.contains("работ") || lowercased.contains("employer") || lowercased.contains("werk") {
+        if lowercased.contains("работ") || lowercased.contains("employer") || lowercased.contains("werk") || lowercased.contains("contract") || lowercased.contains("loonstrook") || lowercased.contains("payslip") {
             return "premium_home_work"
         }
-        return "ai_prompt_generated_placeholder"
+        return "premium_home_documents"
     }
 
     private var assistantBadgeText: String {
