@@ -2,7 +2,12 @@ import Foundation
 import Combine
 
 final class SavedItemsStore: ObservableObject {
-    private struct PersistedSavedItem: Codable {
+    private struct CanonicalPersistedSavedItem: Codable {
+        let id: ContentID
+        let savedAt: Date
+    }
+
+    private struct LegacyPersistedSavedItem: Codable {
         let id: String
         let kind: SavedItemKind
         let title: String
@@ -118,6 +123,13 @@ final class SavedItemsStore: ObservableObject {
         let savedAt: Date
 
         func displayTitle(_ language: AppLanguage) -> String {
+            if let content = ContentRepository.shared.item(id: id) {
+                switch language {
+                case .english: return content.title
+                case .dutch: return content.localTitle["nl"] ?? content.title
+                case .russian: return content.localTitle["ru"] ?? content.title
+                }
+            }
             switch destination {
             case .checklist(let id):
                 return MockChecklistData.items.first(where: { $0.id == id })?.title(language) ?? title
@@ -141,6 +153,14 @@ final class SavedItemsStore: ObservableObject {
         }
 
         func displaySubtitle(_ language: AppLanguage) -> String? {
+            if let content = ContentRepository.shared.item(id: id),
+               let category = Category.canonical.first(where: { $0.id == content.primaryCategoryID }) {
+                switch language {
+                case .english: return category.title
+                case .dutch: return category.localTitle["nl"] ?? category.title
+                case .russian: return category.localTitle["ru"] ?? category.title
+                }
+            }
             switch destination {
             case .checklist(let id):
                 return MockChecklistData.items.first(where: { $0.id == id })?.category.localized(language) ?? subtitle
@@ -255,12 +275,8 @@ final class SavedItemsStore: ObservableObject {
 
     private func persistSavedItems() {
         let payload = savedItemsByID.values.map { item in
-            PersistedSavedItem(
+            CanonicalPersistedSavedItem(
                 id: item.id,
-                kind: item.kind,
-                title: item.title,
-                subtitle: item.subtitle,
-                destination: Self.persistedDestination(from: item.destination),
                 savedAt: item.savedAt
             )
         }
@@ -270,21 +286,49 @@ final class SavedItemsStore: ObservableObject {
     }
 
     private static func loadSavedItems() -> [String: SavedItem] {
-        guard let data = UserDefaults.standard.data(forKey: savedItemsStorageKey),
-              let payload = try? JSONDecoder().decode([PersistedSavedItem].self, from: data) else {
+        guard let data = UserDefaults.standard.data(forKey: savedItemsStorageKey) else {
             return [:]
         }
 
-        return payload.reduce(into: [:]) { result, item in
-            guard !item.id.isEmpty, !item.title.isEmpty else { return }
+        if let payload = try? JSONDecoder().decode([CanonicalPersistedSavedItem].self, from: data) {
+            return payload.reduce(into: [:]) { result, item in
+                guard !item.id.isEmpty else { return }
+                let content = ContentRepository.shared.item(id: item.id)
+                result[item.id] = SavedItem(
+                    id: item.id,
+                    kind: savedItemKind(for: content?.contentType),
+                    title: content?.title ?? item.id,
+                    subtitle: content?.primaryCategoryID,
+                    destination: ContentRepository.shared.legacyDestination(id: item.id),
+                    savedAt: item.savedAt
+                )
+            }
+        }
+
+        guard let legacyPayload = try? JSONDecoder().decode([LegacyPersistedSavedItem].self, from: data) else {
+            return [:]
+        }
+        return legacyPayload.reduce(into: [:]) { result, item in
+            guard !item.id.isEmpty else { return }
+            let content = ContentRepository.shared.item(id: item.id)
             result[item.id] = SavedItem(
                 id: item.id,
-                kind: item.kind,
-                title: item.title,
-                subtitle: item.subtitle,
-                destination: destination(from: item.destination),
+                kind: content.map { savedItemKind(for: $0.contentType) } ?? item.kind,
+                title: content?.title ?? item.title,
+                subtitle: content?.primaryCategoryID ?? item.subtitle,
+                destination: ContentRepository.shared.legacyDestination(id: item.id) ?? destination(from: item.destination),
                 savedAt: item.savedAt
             )
+        }
+    }
+
+    private static func savedItemKind(for contentType: ContentType?) -> SavedItemKind {
+        switch contentType {
+        case .city: return .city
+        case .place: return .place
+        case .officialService: return .institution
+        case .externalResource: return .resource
+        default: return .other
         }
     }
 

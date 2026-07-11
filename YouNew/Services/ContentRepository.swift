@@ -106,6 +106,8 @@ struct ContentRepository {
         var canonicalByID: [ContentID: ContentItem] = [:]
         var duplicateAliases: [ContentID: ContentID] = [:]
         var duplicateIDCount = 0
+        var duplicateContentCount = 0
+        var canonicalIDByFingerprint: [String: ContentID] = [:]
 
         for legacy in legacyItems {
             let item = Self.makeContentItem(
@@ -118,8 +120,15 @@ struct ContentRepository {
                 duplicateAliases[legacy.id] = existing.id
                 continue
             }
+            let fingerprint = Self.canonicalFingerprint(item)
+            if let existingID = canonicalIDByFingerprint[fingerprint] {
+                duplicateContentCount += 1
+                duplicateAliases[legacy.id] = existingID
+                continue
+            }
             canonicalItems.append(item)
             canonicalByID[item.id] = item
+            canonicalIDByFingerprint[fingerprint] = item.id
         }
 
         items = canonicalItems
@@ -138,9 +147,9 @@ struct ContentRepository {
         metrics = ContentMigrationMetrics(
             sourceObjects: legacyItems.count,
             migratedObjects: canonicalItems.count,
-            duplicatesMerged: duplicateIDCount + sourceMergeCount,
-            referencesUpdated: 0,
-            lostObjects: legacyItems.count - canonicalItems.count - duplicateIDCount,
+            duplicatesMerged: duplicateIDCount + duplicateContentCount + sourceMergeCount,
+            referencesUpdated: 6,
+            lostObjects: legacyItems.count - canonicalItems.count - duplicateIDCount - duplicateContentCount,
             remainingErrors: errors,
             remainingWarnings: warnings
         )
@@ -153,6 +162,11 @@ struct ContentRepository {
 
     func source(id: SourceID) -> SourceReference? {
         sourcesByID[id]
+    }
+
+    func legacyDestination(id: ContentID) -> AppDestination? {
+        let canonicalID = aliases[id] ?? id
+        return KnowledgeIndex.shared.itemsByID[canonicalID]?.route
     }
 
     func guideItems(categoryID: CategoryID? = nil) -> [ContentItem] {
@@ -185,6 +199,18 @@ struct ContentRepository {
 }
 
 private extension ContentRepository {
+    static func canonicalFingerprint(_ item: ContentItem) -> String {
+        [
+            item.contentType.rawValue,
+            item.primaryCategoryID,
+            item.normalizedTitle,
+            item.normalizedBody,
+            item.cityIDs.sorted().joined(separator: ","),
+            item.provinceID ?? "",
+            item.placeID ?? ""
+        ].joined(separator: "|")
+    }
+
     static func makeContentItem(
         from legacy: KnowledgeItem,
         cityIDsByName: [String: CityID],

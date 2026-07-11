@@ -9,8 +9,8 @@ struct ContentRepositoryTests {
         let repository = ContentRepository.shared
         print("CONTENT_MIGRATION_METRICS \(repository.metrics)")
         #expect(repository.metrics.lostObjects == 0)
-        #expect(repository.metrics.sourceObjects == repository.metrics.migratedObjects)
-        #expect(repository.items.count == KnowledgeIndex.shared.items.count)
+        #expect(repository.metrics.sourceObjects == repository.metrics.migratedObjects + repository.aliases.count)
+        #expect(repository.items.count + repository.aliases.count == KnowledgeIndex.shared.items.count)
     }
 
     @Test("Every canonical item has a known category and country")
@@ -66,6 +66,41 @@ struct ContentRepositoryTests {
         #expect(kinds.contains(.duplicateNormalizedBody))
         #expect(kinds.contains(.unknownCategory))
         #expect(kinds.contains(.unknownCity))
+    }
+
+    @Test("Search uses canonical items and audience does not gate")
+    func canonicalSearchIsUniversal() {
+        let engine = AppSearchEngine()
+        let student = engine.searchContent("BSN", language: .english, activePersona: .student, limit: 5_000)
+        let tourist = engine.searchContent("BSN", language: .english, activePersona: .tourist, limit: 5_000)
+
+        #expect(Set(student.map(\.id)) == Set(tourist.map(\.id)))
+        #expect(student.allSatisfy { ContentRepository.shared.item(id: $0.id) != nil })
+    }
+
+    @Test("AI context returns canonical IDs and deep links")
+    func assistantReturnsCanonicalReferences() {
+        let answer = AppSearchEngine().answerContentContext(for: "health insurance", language: .english)
+        #expect(!answer.contentIDs.isEmpty)
+        #expect(answer.contentIDs.allSatisfy { ContentRepository.shared.item(id: $0) != nil })
+        #expect(answer.deepLinks.count == answer.contentIDs.count)
+    }
+
+    @Test("Saved persistence stores IDs and timestamps only")
+    func savedPersistenceIsReferenceOnly() throws {
+        let key = "SavedItemsStore.savedItems.v1"
+        let defaults = UserDefaults.standard
+        defaults.removeObject(forKey: key)
+        let store = SavedItemsStore()
+        let contentID = try #require(ContentRepository.shared.items.first?.id)
+        store.toggle(id: contentID, kind: .other, title: "Snapshot must not persist")
+
+        let data = try #require(defaults.data(forKey: key))
+        let object = try #require(JSONSerialization.jsonObject(with: data) as? [[String: Any]])
+        let record = try #require(object.first)
+        #expect(Set(record.keys) == ["id", "savedAt"])
+        #expect(record["id"] as? String == contentID)
+        defaults.removeObject(forKey: key)
     }
 
     private func fixture(id: String, categoryID: String, cityIDs: [CityID]) -> ContentItem {
