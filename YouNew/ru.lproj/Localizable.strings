@@ -376,7 +376,7 @@
 "checklist.category.housing" = "Жильё";
 "checklist.category.education" = "Образование";
 "checklist.category.transport" = "Транспорт";
-"ai.input_placeholder" = "Задайте вопрос…";
+"ai.input_placeholder" = "Спросите без персональных данных…";
 "map.cluster_accessibility" = "Сгруппировано мест: %ld";
 "map.no_places_title" = "Места не найдены";
 "map.no_places_subtitle" = "Попробуйте другой поиск или категорию";
