@@ -1,3 +1,5 @@
 "CFBundleDisplayName" = "YouNew";
 "NSCameraUsageDescription" = "YouNew.nl uses the camera to scan documents you choose to save locally on your device.";
 "NSLocationWhenInUseUsageDescription" = "YouNew.nl uses your location to show nearby municipalities, healthcare, transport, and official services.";
+"NSMicrophoneUsageDescription" = "YouNew uses the microphone only when you tap voice input in the assistant.";
+"NSSpeechRecognitionUsageDescription" = "YouNew converts speech to text only when you explicitly start voice input.";

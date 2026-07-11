@@ -175,18 +175,14 @@ struct BrandAssetTests {
         #expect(AppIcons.Metrics.minimumTouchTarget >= 44)
     }
 
-    @Test func russianTabLabelsRemainCompact() {
+    @Test func russianTabLabelsMatchCanonicalFiveTabNavigation() {
         #expect(L10n.t("tab.home", .russian) == "Главная")
-        #expect(L10n.t("tab.search", .russian) == "Поиск")
-        #expect(L10n.t("tab.map", .russian) == "Places")
-        #expect(L10n.t("tab.saved", .russian) == "Сохран.")
-        #expect(L10n.t("tab.explain", .russian) == "Помощь")
+        #expect(L10n.t("tab.guide", .russian) == "Гид")
+        #expect(L10n.t("tab.map", .russian) == "Карта")
+        #expect(L10n.t("tab.saved", .russian) == "Избранное")
         #expect(L10n.t("tab.more", .russian) == "Ещё")
 
-        let labels = ["tab.home", "tab.search", "tab.map", "tab.saved", "tab.explain", "tab.more"]
-            .map { L10n.t($0, .russian) }
-
-        #expect(labels.allSatisfy { $0.count <= 7 }, "Russian tab labels are too long: \(labels)")
+        #expect(AppTab.allCases == [.home, .guide, .map, .saved, .more])
     }
 
     @Test func rightSideMenuLocalizationKeysExist() {

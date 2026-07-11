@@ -214,6 +214,9 @@ struct AIAssistantView: View {
         .onAppear {
             applyPendingOrDefaultContext()
         }
+        .onDisappear {
+            voiceInput.stop()
+        }
         .onChange(of: appState.selectedUserStatus) { _, _ in
             viewModel.updateContext(from: appState, language: lang)
         }
