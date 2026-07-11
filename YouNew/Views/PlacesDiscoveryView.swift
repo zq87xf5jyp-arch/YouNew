@@ -325,6 +325,7 @@ struct PlacesDiscoveryView: View {
                 .frame(width: 44, height: 44)
         }
         .accessibilityLabel(inputSubmitLabel)
+        .accessibilityIdentifier("map.nearbyButton")
     }
 
     @ViewBuilder
@@ -361,7 +362,7 @@ struct PlacesDiscoveryView: View {
                 }
                 moreFilterMenu
             }
-            .accessibilityIdentifier("places.filters")
+            .accessibilityIdentifier("map.categoryFilter")
         } else {
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
@@ -372,7 +373,7 @@ struct PlacesDiscoveryView: View {
                 }
                 .padding(.vertical, 2)
             }
-            .accessibilityIdentifier("places.filters")
+            .accessibilityIdentifier("map.categoryFilter")
         }
     }
 
@@ -455,6 +456,7 @@ struct PlacesDiscoveryView: View {
                 .foregroundStyle(AppColors.textSecondary)
                 .lineLimit(usesAccessibilityLayout ? 3 : 2)
                 .fixedSize(horizontal: false, vertical: true)
+                .accessibilityIdentifier("map.resultSummary")
         }
     }
 
@@ -614,6 +616,7 @@ struct PlacesDiscoveryView: View {
         .padding(14)
         .background(.black.opacity(0.26), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
         .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(Color.white.opacity(0.12), lineWidth: 0.8))
+        .accessibilityIdentifier("map.cityFilter")
     }
 
     private var mapPanel: some View {
@@ -1607,7 +1610,44 @@ struct PlacesDiscoveryView: View {
         }
     }
     private var sourceNoteText: String { "Information only. Opening hours, prices, eligibility, and availability must be verified with the official source or business." }
-    private var resultSummary: String { "\(places.count + partners.count) results in \(ProvinceCatalog.localizedCityName(mapViewModel.selectedCity, lang))" }
+    private var resultSummary: String {
+        let count = places.count + partners.count
+        let city = ProvinceCatalog.localizedCityName(mapViewModel.selectedCity, lang)
+        let key: String
+        switch lang {
+        case .russian:
+            let lastTwo = count % 100
+            let last = count % 10
+            if (11...14).contains(lastTwo) {
+                key = "map.result.count.many"
+            } else if last == 1 {
+                key = "map.result.count.one"
+            } else if (2...4).contains(last) {
+                key = "map.result.count.few"
+            } else {
+                key = count == 0 ? "map.result.count.zero" : "map.result.count.many"
+            }
+        case .english, .dutch:
+            key = count == 0 ? "map.result.count.zero" : count == 1 ? "map.result.count.one" : "map.result.count.other"
+        }
+
+        let template = mapCatalogString(key)
+        let base: String
+        if count == 0 {
+            base = String(format: template, locale: Locale(identifier: lang.rawValue), city)
+        } else {
+            base = String(format: template, locale: Locale(identifier: lang.rawValue), count, city)
+        }
+        guard selectedFilter != .all else { return base }
+        return String(format: mapCatalogString("map.result.filtered"), locale: Locale(identifier: lang.rawValue), base, selectedFilter.title(lang))
+    }
+
+    private func mapCatalogString(_ key: String) -> String {
+        guard let path = Bundle.main.path(forResource: lang.rawValue, ofType: "lproj"),
+              let bundle = Bundle(path: path)
+        else { return Bundle.main.localizedString(forKey: key, value: key, table: "Map") }
+        return bundle.localizedString(forKey: key, value: key, table: "Map")
+    }
     private var nearbySectionTitle: String { lang == .russian ? "Рядом" : lang == .dutch ? "Dichtbij" : "Nearby" }
     private var nearbySectionSubtitle: String { lang == .russian ? "Самое полезное рядом с выбранным городом." : lang == .dutch ? "De nuttigste plekken rond de gekozen stad." : "The most useful places around the selected city." }
     private var localPartnersSectionTitle: String { "Local Partners" }
