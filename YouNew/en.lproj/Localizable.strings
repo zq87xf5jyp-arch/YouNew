@@ -213,7 +213,7 @@
 "marketing.screenshot.5" = "One guide for life in the Netherlands";
 "marketing.brand_palette" = "Brand colors";
 "marketing.icon_preview" = "Icon preview";
-"marketing.icon_note" = "Placeholder icon concept: navy background, teal route path, orange point.";
+"marketing.icon_note" = "App icon preview: navy background, teal route path, orange point.";
 "marketing.icon_checklist_title" = "Icon size checklist";
 "marketing.icon_checklist_detail" = "Prepared sizes: 16, 32, 64, 128, 256, 512, 1024 px. AppIcon is assigned in Assets.xcassets.";
 
