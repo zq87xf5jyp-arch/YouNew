@@ -76,12 +76,6 @@ struct PublishedCitiesDataReleaseTests {
         #expect(routeID == "article:data-project:museum.rijksmuseum")
         #expect(AppNavigationResolver.destination(for: routeID) == museum.route)
         #expect(
-            GuideContent.article(
-                sectionID: GuideContent.dataProjectSectionID,
-                articleID: museum.id
-            ) != nil
-        )
-        #expect(
             RelatedContentEngine.isVisible(
                 try #require(museum.route),
                 for: .tourist

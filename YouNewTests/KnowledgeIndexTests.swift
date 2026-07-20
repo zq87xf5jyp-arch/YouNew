@@ -477,7 +477,14 @@ struct KnowledgeIndexTests {
 
             switch route {
             case .guideArticle(let sectionID, let articleID):
-                #expect(GuideContent.article(sectionID: sectionID, articleID: articleID) != nil, "Dead guide article route for \(item.id)")
+                if sectionID == GuideContent.dataProjectSectionID {
+                    #expect(
+                        ContentRepository.shared.item(id: articleID)?.status == .published,
+                        "Dead DataProject article route for \(item.id)"
+                    )
+                } else {
+                    #expect(GuideContent.article(sectionID: sectionID, articleID: articleID) != nil, "Dead guide article route for \(item.id)")
+                }
             case .guideSection(let sectionID):
                 #expect(GuideContent.section(id: sectionID) != nil, "Dead guide section route for \(item.id)")
             case .beginnerGuide(let id):

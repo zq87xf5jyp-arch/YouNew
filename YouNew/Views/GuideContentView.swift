@@ -151,18 +151,13 @@ enum GuideContent {
     }
 
     nonisolated static func article(sectionID: String, articleID: String) -> (GuideArticle, Color)? {
-        if sectionID == dataProjectSectionID,
-           let item = ContentRepository.shared.item(id: articleID),
-           item.status == .published {
-            return (dataProjectArticle(from: item), .blue)
-        }
         guard let sec = section(id: sectionID),
               let art = sec.articles.first(where: { $0.id == articleID })
         else { return nil }
         return (art, sec.tint)
     }
 
-    nonisolated static func dataProjectArticle(from item: ContentItem) -> GuideArticle {
+    static func dataProjectArticle(from item: ContentItem) -> GuideArticle {
         let links = item.allSourceURLs.enumerated().map { index, url in
             ExternalLink(
                 id: "\(item.id)-source-\(index)",
@@ -188,9 +183,6 @@ enum GuideContent {
     }
 
     nonisolated static func article(sectionID: String, articleID: String, activePersona: PersonaTag?, scope: PersonaSearchScope = .currentAndUniversal) -> (GuideArticle, Color)? {
-        if sectionID == dataProjectSectionID {
-            return article(sectionID: sectionID, articleID: articleID)
-        }
         guard let sec = section(id: sectionID, activePersona: activePersona, scope: scope),
               let art = sec.articles.first(where: { $0.id == articleID && $0.isVisible(for: activePersona, scope: scope) })
         else { return nil }

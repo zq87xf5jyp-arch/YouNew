@@ -220,6 +220,10 @@ enum AppNavigationResolver {
             guard parts.count >= 3 else { return nil }
             let sectionID = parts[1]
             let articleID = parts.dropFirst(2).joined(separator: ":")
+            if sectionID == GuideContent.dataProjectSectionID,
+               ContentRepository.shared.item(id: articleID)?.status == .published {
+                return .guideArticle(sectionID: sectionID, articleID: articleID)
+            }
             guard GuideContent.article(sectionID: sectionID, articleID: articleID) != nil else {
                 return nil
             }
