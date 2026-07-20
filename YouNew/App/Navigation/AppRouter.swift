@@ -217,10 +217,13 @@ enum AppNavigationResolver {
             if sectionID == "transport" { return .transportSection(.overview) }
             return GuideContent.section(id: sectionID) == nil ? nil : .guideSection(sectionID)
         case "article":
-            guard parts.count >= 3,
-                  GuideContent.article(sectionID: parts[1], articleID: parts[2]) != nil
-            else { return nil }
-            return .guideArticle(sectionID: parts[1], articleID: parts[2])
+            guard parts.count >= 3 else { return nil }
+            let sectionID = parts[1]
+            let articleID = parts.dropFirst(2).joined(separator: ":")
+            guard GuideContent.article(sectionID: sectionID, articleID: articleID) != nil else {
+                return nil
+            }
+            return .guideArticle(sectionID: sectionID, articleID: articleID)
         case "scam":
             return uuidDestination(parts, 1, in: MockScamWarningsData.items.map(\.id), AppDestination.scamWarning)
         case "mapFocus":
