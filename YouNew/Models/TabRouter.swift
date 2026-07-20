@@ -29,7 +29,7 @@ enum TabItem: String, CaseIterable, Hashable {
 }
 
 final class TabRouter: ObservableObject {
-    @Published var selectedTab: TabItem
+    var selectedTab: TabItem
 
     let homeScrollTop = PassthroughSubject<Void, Never>()
     let guideScrollTop = PassthroughSubject<Void, Never>()

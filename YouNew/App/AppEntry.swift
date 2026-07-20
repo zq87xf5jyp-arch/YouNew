@@ -78,6 +78,12 @@ struct YouNewApp: App {
                         appState.selectedLanguage = languageManager.appLanguage.rawValue
                         LaunchDiagnostics.mark("selectedCity loaded \(appState.selectedCity)")
                         LaunchDiagnostics.mark("selectedAudience loaded \(appState.selectedUserStatus?.rawValue ?? "nil")")
+                        // RootHomeView observes this shared monitor. Create it after
+                        // the first frame is visible so the first Home selection does
+                        // not synchronously construct and start NWPathMonitor.
+                        LaunchDiagnostics.measure("connectivity monitor prewarm") {
+                            _ = ConnectivityStatus.shared
+                        }
                         // The guide and search surfaces both depend on the canonical
                         // repository. Build it away from the main actor as soon as the
                         // first screen is visible so a first tab selection never pays

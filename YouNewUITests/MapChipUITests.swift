@@ -427,6 +427,14 @@ final class MapChipUITests: XCTestCase {
         let average = allDurations.reduce(0, +) / Double(allDurations.count)
         let homeAverage = homeDurations.reduce(0, +) / Double(homeDurations.count)
         let mapAverage = mapDurations.reduce(0, +) / Double(mapDurations.count)
+        let homeSamples = homeDurations
+            .map { String(format: "%.1f", $0 * 1_000) }
+            .joined(separator: ",")
+        let mapSamples = mapDurations
+            .map { String(format: "%.1f", $0 * 1_000) }
+            .joined(separator: ",")
+
+        print("UX_NAVIGATION_SAMPLES homeMs=[\(homeSamples)] mapMs=[\(mapSamples)]")
 
         print(
             String(

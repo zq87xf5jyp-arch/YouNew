@@ -81,11 +81,8 @@ private enum GlobalAIMode: String, CaseIterable, Identifiable {
 
 struct RootTabView: View {
     @State private var selectedTab: AppTab
-    @State private var previousContentTab: AppTab
     @State private var isMenuPresented = false
     @State private var activeMenuDestination: AppDestination? = nil
-    @State private var lastTappedTab: AppTab? = nil
-    @State private var lastTabTapDate: Date? = nil
     @State private var pendingTabNavigationDestination: AppTab? = nil
     @State private var pendingTabNavigationStartedAt: TimeInterval? = nil
     @State private var completedTabNavigationSequence = 0
@@ -139,7 +136,6 @@ struct RootTabView: View {
             : .home
 
         _selectedTab = State(initialValue: initialTab)
-        _previousContentTab = State(initialValue: initialTab)
         _isMenuPresented = State(initialValue: false)
         _activeMenuDestination = State(initialValue: nil)
         _tabRouter = StateObject(wrappedValue: TabRouter(initialTab: initialTab.tabItem))
@@ -293,7 +289,6 @@ struct RootTabView: View {
 
         didApplyInitialTestingDestination = true
         selectedTab = .home
-        previousContentTab = .home
         activeMenuDestination = nil
         if horizontalSizeClass == .regular && menuPosition == .automatic {
             regularNavPath.append(destination)
@@ -1279,9 +1274,7 @@ struct RootTabView: View {
                 resetTabToRoot(.more)
                 return
             }
-            registerTabTap(.more)
             activeMenuDestination = nil
-            previousContentTab = .more
             commitTabNavigation(to: .more)
             tabRouter.select(TabItem.more)
             return
@@ -1296,9 +1289,7 @@ struct RootTabView: View {
             return
         }
 
-        registerTabTap(tab)
         activeMenuDestination = nil
-        previousContentTab = tab
         commitTabNavigation(to: tab)
         tabRouter.select(tab)
     }
@@ -1333,12 +1324,6 @@ struct RootTabView: View {
         completedTabNavigationSequence += 1
     }
 
-    private func registerTabTap(_ tab: AppTab) {
-        let now = Date()
-        lastTappedTab = tab
-        lastTabTapDate = now
-    }
-
     private func resetTabToRoot(_ tab: AppTab) {
         activeMenuDestination = nil
         isMenuPresented = false
@@ -1352,18 +1337,13 @@ struct RootTabView: View {
 #else
         clearPath(for: tab)
 #endif
-        previousContentTab = tab
         selectedTab = tab
         tabRouter.select(tab)
-        registerTabTap(tab)
     }
 
     private func openMenu() {
         AppHaptics.lightImpact()
         isGlobalAIModeLauncherExpanded = false
-        if selectedTab != .more {
-            previousContentTab = selectedTab
-        }
         isMenuPresented = true
     }
 
@@ -1408,7 +1388,6 @@ struct RootTabView: View {
     private func openFeedbackAssistant() {
         isMenuPresented = false
         activeMenuDestination = .supportFeedback
-        previousContentTab = .home
         selectedTab = .home
         navigateFromMenu(to: .supportFeedback)
     }
@@ -1417,14 +1396,12 @@ struct RootTabView: View {
         switch destination.tab {
         case .some(let tab):
             if selectedTab == tab, activeMenuDestination == nil {
-                previousContentTab = tab
                 selectedTab = tab
                 tabRouter.selectedTab = tab.tabItem
                 return
             }
             activeMenuDestination = nil
             clearPath(for: tab)
-            previousContentTab = tab
             selectedTab = tab
             tabRouter.selectedTab = tab.tabItem
         case .none:
@@ -1438,7 +1415,6 @@ struct RootTabView: View {
 
     private func navigateFromMenu(to destination: AppDestination) {
         activeMenuDestination = destination
-        previousContentTab = .home
         selectedTab = .home
         tabRouter.selectedTab = TabItem.home
         if horizontalSizeClass == .regular && menuPosition == .automatic {
@@ -1462,7 +1438,6 @@ struct RootTabView: View {
         isMenuPresented = false
         isGlobalAIModeLauncherExpanded = false
         activeMenuDestination = nil
-        previousContentTab = .guide
         selectedTab = .guide
         tabRouter.selectedTab = .guide
         if horizontalSizeClass == .regular && menuPosition == .automatic {
@@ -1565,7 +1540,6 @@ struct RootTabView: View {
         isMenuPresented = false
         isGlobalAIModeLauncherExpanded = false
         activeMenuDestination = nil
-        previousContentTab = .guide
         selectedTab = .guide
         tabRouter.selectedTab = .guide
         if horizontalSizeClass == .regular && menuPosition == .automatic {
