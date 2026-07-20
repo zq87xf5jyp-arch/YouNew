@@ -483,7 +483,7 @@ final class CategoryRoutingRuntimeUITests: XCTestCase {
     private func verifyDiscoveryGalleryCategory() {
         let app = launchHome()
         let menu = app.descendants(matching: .any)["home.discoveryMenu"]
-        XCTAssertTrue(menu.waitForExistence(timeout: 8), "Discovery menu trigger is missing")
+        XCTAssertTrue(menu.waitForExistence(timeout: 8), "Discovery menu trigger is missing for \(item.chip)")
         menu.tap()
 
         let chip = app.descendants(matching: .any)["sideMenu.gallery"]
@@ -562,10 +562,26 @@ final class CategoryRoutingRuntimeUITests: XCTestCase {
             app.terminate()
             return
         }
+
+        XCTAssertTrue(
+            waitForHittable(menu, timeout: 4),
+            "Discovery menu trigger is not hittable for \(item.chip)"
+        )
+        guard menu.isHittable else {
+            app.terminate()
+            return
+        }
         menu.tap()
 
+        let overlay = app.descendants(matching: .any)["sideMenu.overlay"]
+        XCTAssertTrue(overlay.waitForExistence(timeout: 4), "Discovery menu did not open for \(item.chip)")
+        guard overlay.exists else {
+            app.terminate()
+            return
+        }
+
         let group = app.descendants(matching: .any)[item.group]
-        scrollToElement(group, in: app)
+        scrollToElement(group, in: overlay)
         XCTAssertTrue(group.waitForExistence(timeout: 4), "Discovery group is missing: \(item.group)")
         XCTAssertTrue(group.isHittable, "Discovery group is not hittable: \(item.group)")
         guard group.exists && group.isHittable else {
@@ -896,6 +912,25 @@ final class CategoryRoutingRuntimeUITests: XCTestCase {
         for _ in 0..<18 where !element.exists || !element.isHittable {
             app.swipeDown(velocity: .fast)
         }
+    }
+
+    @MainActor
+    private func scrollToElement(_ element: XCUIElement, in container: XCUIElement) {
+        for _ in 0..<18 where !element.exists || !element.isHittable {
+            container.swipeUp(velocity: .fast)
+        }
+        for _ in 0..<18 where !element.exists || !element.isHittable {
+            container.swipeDown(velocity: .fast)
+        }
+    }
+
+    @MainActor
+    private func waitForHittable(_ element: XCUIElement, timeout: TimeInterval) -> Bool {
+        let expectation = XCTNSPredicateExpectation(
+            predicate: NSPredicate(format: "isHittable == true"),
+            object: element
+        )
+        return XCTWaiter.wait(for: [expectation], timeout: timeout) == .completed
     }
 
     @MainActor

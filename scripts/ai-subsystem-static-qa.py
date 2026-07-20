@@ -578,7 +578,7 @@ def main() -> None:
         [
             "boundedScenarioUsesExistingKnowledgeIndexRecordsAndRoutes",
             "parserAcceptsOnlyBoundedLiveGPT56Response",
-            "parserRejectsNonGPT56Metadata",
+            "parserRejectsModelsOutsideYouNewSolPolicy",
             "parserRejectsSourceOrRouteOutsideServerContract",
             "unavailableBackendUsesExplicitDeterministicFallback",
             "legacyPersistedResponseCannotBecomeLiveByDecoding",

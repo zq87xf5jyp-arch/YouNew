@@ -36,7 +36,7 @@ struct BuildWeekNewcomerDemoTests {
         #expect(response.quickActions.filter { $0.kind == .openGuide }.count == 4)
     }
 
-    @Test func parserRejectsNonGPT56Metadata() throws {
+    @Test func parserRejectsModelsOutsideYouNewSolPolicy() throws {
         #expect(BuildWeekNewcomerDemo.isAllowedModel("gpt-5.6"))
         #expect(BuildWeekNewcomerDemo.isAllowedModel("gpt-5.6-sol"))
 

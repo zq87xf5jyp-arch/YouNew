@@ -268,6 +268,12 @@ export async function handleRequest(request, env = {}, dependencies = {}) {
       return errorResponse("invalid_upstream_response", 502, requestId);
     }
 
+    // An HTTP-successful Response can still be incomplete or provider-failed.
+    // Do not expose its structured-looking partial output as a live answer.
+    if (!isCompletedOpenAIResponse(data)) {
+      return errorResponse("invalid_upstream_response", 502, requestId);
+    }
+
     const actualModel = typeof data?.model === "string" ? data.model : "";
     if (!isExpectedActualModel(env.OPENAI_MODEL.trim(), actualModel)) {
       return errorResponse("upstream_model_mismatch", 502, requestId);
@@ -535,6 +541,18 @@ function isExpectedActualModel(configuredModel, actualModel) {
     return actualModel === "gpt-5.6" || actualModel === "gpt-5.6-sol";
   }
   return actualModel === configuredModel;
+}
+
+function isCompletedOpenAIResponse(data) {
+  return (
+    data !== null &&
+    typeof data === "object" &&
+    !Array.isArray(data) &&
+    data.object === "response" &&
+    data.status === "completed" &&
+    data.error === null &&
+    data.incomplete_details === null
+  );
 }
 
 function hasExactKnowledgeContext(value) {

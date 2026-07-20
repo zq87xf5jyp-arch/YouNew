@@ -172,7 +172,11 @@ final class ContentCompletionRuntimeUITests: XCTestCase {
 
     @MainActor
     private func assertNoUnfinishedVisibleCopy(in app: XCUIApplication, context: String) {
-        let text = visibleText(in: app)
+        assertNoUnfinishedVisibleCopy(visibleLabels(in: app), context: context)
+    }
+
+    private func assertNoUnfinishedVisibleCopy(_ labels: [String], context: String) {
+        let text = labels.joined(separator: "\n")
         XCTAssertFalse(text.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, "[\(context)] Visible content is empty.")
         assertNoRawLocalizationKeys(in: text, context: context)
 
@@ -205,9 +209,13 @@ final class ContentCompletionRuntimeUITests: XCTestCase {
 
     @MainActor
     private func assertCompletedVisibleState(in app: XCUIApplication, context: String) {
-        assertNoUnfinishedVisibleCopy(in: app, context: context)
+        // Each full accessibility-tree snapshot is expensive on dense surfaces.
+        // Reuse one snapshot for both independent assertions so this test does not
+        // create duplicate global queries after every scroll.
+        let labels = visibleLabels(in: app)
+        assertNoUnfinishedVisibleCopy(labels, context: context)
 
-        let meaningfulLabels = visibleLabels(in: app)
+        let meaningfulLabels = labels
             .filter { label in
                 let trimmed = label.trimmingCharacters(in: .whitespacesAndNewlines)
                 guard trimmed.count >= 2 else { return false }
@@ -219,11 +227,6 @@ final class ContentCompletionRuntimeUITests: XCTestCase {
             3,
             "[\(context)] Too little meaningful visible content after scrolling: \(meaningfulLabels.joined(separator: " | "))"
         )
-    }
-
-    @MainActor
-    private func visibleText(in app: XCUIApplication) -> String {
-        visibleLabels(in: app).joined(separator: "\n")
     }
 
     @MainActor

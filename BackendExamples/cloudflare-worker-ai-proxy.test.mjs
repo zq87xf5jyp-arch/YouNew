@@ -55,6 +55,10 @@ function upstreamResponse({
   payload = generatedPayload(),
   status = 200,
   requestId = "req_openai_safe_123",
+  responseObject = "response",
+  responseStatus = "completed",
+  error = null,
+  incompleteDetails = null,
   rawText,
   useOutputArray = false,
 } = {}) {
@@ -63,7 +67,11 @@ function upstreamResponse({
     body = rawText;
   } else if (useOutputArray) {
     body = JSON.stringify({
+      object: responseObject,
       model,
+      status: responseStatus,
+      error,
+      incomplete_details: incompleteDetails,
       output: [
         {
           type: "message",
@@ -72,7 +80,14 @@ function upstreamResponse({
       ],
     });
   } else {
-    body = JSON.stringify({ model, output_text: JSON.stringify(payload) });
+    body = JSON.stringify({
+      object: responseObject,
+      model,
+      status: responseStatus,
+      error,
+      incomplete_details: incompleteDetails,
+      output_text: JSON.stringify(payload),
+    });
   }
 
   return new Response(body, {
@@ -347,6 +362,45 @@ test("invalid JSON, reordered records, and unsafe timelines are rejected", async
       (await response.json()).error.code,
       "invalid_upstream_response",
     );
+  }
+});
+
+test("incomplete or provider-failed Responses objects cannot receive a live result", async () => {
+  const providerText = "provider detail must stay private";
+  const cases = [
+    { responseStatus: "in_progress" },
+    {
+      responseStatus: "incomplete",
+      incompleteDetails: { reason: "max_output_tokens" },
+    },
+    {
+      responseStatus: "failed",
+      error: { code: "provider_error", message: providerText },
+    },
+    {
+      responseStatus: "completed",
+      error: { code: "provider_error", message: providerText },
+    },
+    {
+      responseStatus: "completed",
+      incompleteDetails: { reason: "content_filter" },
+    },
+  ];
+
+  for (const options of cases) {
+    const response = await handleRequest(
+      requestFor(),
+      ENV,
+      dependencies(async () => upstreamResponse(options)),
+    );
+
+    assert.equal(response.status, 502);
+    const text = await response.text();
+    assert.equal(text.includes(providerText), false);
+    assert.equal(text.includes(ENV.OPENAI_API_KEY), false);
+    const body = JSON.parse(text);
+    assert.equal(body.error.code, "invalid_upstream_response");
+    assert.equal(body.requestId, "req_openai_safe_123");
   }
 });
 
