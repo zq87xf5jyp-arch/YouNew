@@ -11,7 +11,7 @@ const FIXED_UUID = "11111111-2222-4333-8444-555555555555";
 const LOCAL_REQUEST_ID = `yn_req_${FIXED_UUID}`;
 const ENV = Object.freeze({
   OPENAI_API_KEY: "test-key-never-returned",
-  OPENAI_MODEL: "gpt-5.6-terra",
+  OPENAI_MODEL: "gpt-5.6-sol",
 });
 
 function validBody(overrides = {}) {
@@ -51,7 +51,7 @@ function generatedPayload(overrides = {}) {
 }
 
 function upstreamResponse({
-  model = "gpt-5.6-terra",
+  model = "gpt-5.6-sol",
   payload = generatedPayload(),
   status = 200,
   requestId = "req_openai_safe_123",
@@ -229,7 +229,7 @@ test("successful request uses the Responses API and returns the exact public con
   assert.equal(capturedOptions.headers["X-Client-Request-Id"], LOCAL_REQUEST_ID);
 
   const upstreamBody = JSON.parse(capturedOptions.body);
-  assert.equal(upstreamBody.model, "gpt-5.6-terra");
+  assert.equal(upstreamBody.model, "gpt-5.6-sol");
   assert.equal(upstreamBody.store, false);
   assert.equal(upstreamBody.max_output_tokens, 1_200);
   assert.equal(upstreamBody.text.format.type, "json_schema");
@@ -244,7 +244,7 @@ test("successful request uses the Responses API and returns the exact public con
     "summary",
     "warnings",
   ]);
-  assert.equal(body.model, "gpt-5.6-terra");
+  assert.equal(body.model, "gpt-5.6-sol");
   assert.equal(body.requestId, "req_openai_safe_123");
   assert.equal(body.steps.length, 4);
   assert.deepEqual(Object.keys(body.steps[0]).sort(), [
@@ -287,7 +287,7 @@ test("gpt-5.6 alias accepts only its Sol resolution and returns actual metadata"
 });
 
 test("successful response rejects a non-GPT-5.6 or wrong configured variant", async () => {
-  for (const model of ["gpt-4.1-mini", "gpt-5.6-sol", "gpt-5.6-luna"]) {
+  for (const model of ["gpt-4.1-mini", "gpt-5.6", "gpt-5.6-luna"]) {
     const response = await handleRequest(
       requestFor(),
       ENV,

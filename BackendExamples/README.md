@@ -11,8 +11,9 @@ deployed or that the configured OpenAI account can access a GPT-5.6 model.
 - Endpoint: `POST /v1/newcomer-demo`
 - Required Worker secret: `OPENAI_API_KEY`
 - Required Worker variable: `OPENAI_MODEL`
-- Allowed model values: `gpt-5.6`, `gpt-5.6-sol`, `gpt-5.6-terra`, or
-  `gpt-5.6-luna`
+- Allowed model values: `gpt-5.6` or `gpt-5.6-sol`. The backend returns the
+  actually used model and accepts the alias only when OpenAI reports
+  `gpt-5.6-sol`.
 - No default model and no silent model fallback
 - Scenario: `BuildWeekNewcomerDemo`
 - Context version: `newcomer-after-address.v1`

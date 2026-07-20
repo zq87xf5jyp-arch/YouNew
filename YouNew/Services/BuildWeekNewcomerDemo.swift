@@ -10,9 +10,7 @@ enum BuildWeekNewcomerDemo {
     static let contextVersion = "newcomer-after-address.v1"
     static let allowedModels: Set<String> = [
         "gpt-5.6",
-        "gpt-5.6-sol",
-        "gpt-5.6-terra",
-        "gpt-5.6-luna"
+        "gpt-5.6-sol"
     ]
 
     struct StepContract: Equatable {

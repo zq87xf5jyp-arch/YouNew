@@ -37,7 +37,15 @@ struct BuildWeekNewcomerDemoTests {
     }
 
     @Test func parserRejectsNonGPT56Metadata() throws {
-        for rejectedModel in ["gpt-4.1-mini", "gpt-5.6-unlisted"] {
+        #expect(BuildWeekNewcomerDemo.isAllowedModel("gpt-5.6"))
+        #expect(BuildWeekNewcomerDemo.isAllowedModel("gpt-5.6-sol"))
+
+        for rejectedModel in [
+            "gpt-4.1-mini",
+            "gpt-5.6-unlisted",
+            "gpt-5.6-terra",
+            "gpt-5.6-luna"
+        ] {
             var payload = Self.validJSONObject()
             payload["model"] = rejectedModel
             let data = try JSONSerialization.data(withJSONObject: payload)
