@@ -133,7 +133,11 @@ struct RootTabView: View {
     }
 
     init(initialTab overrideInitialTab: AppTab? = nil) {
-        let initialTab = overrideInitialTab ?? Self.initialSelectedTab()
+        let initialTestingDestination = Self.initialTestingDestination()
+        let initialTab = initialTestingDestination == nil
+            ? (overrideInitialTab ?? Self.initialSelectedTab())
+            : .home
+
         _selectedTab = State(initialValue: initialTab)
         _previousContentTab = State(initialValue: initialTab)
         _isMenuPresented = State(initialValue: false)
@@ -291,8 +295,9 @@ struct RootTabView: View {
         selectedTab = .home
         previousContentTab = .home
         activeMenuDestination = nil
-        Task { @MainActor in
-            await Task.yield()
+        if horizontalSizeClass == .regular && menuPosition == .automatic {
+            regularNavPath.append(destination)
+        } else {
             homeNavPath.append(destination)
         }
 #endif

@@ -1135,7 +1135,6 @@ struct SearchView: View {
             language: lang
         )
         .accessibilityElement(children: .combine)
-        .accessibilityIdentifier("search.directResult.\(result.id)")
     }
 
     private func matches(_ query: String, _ values: [String]) -> Bool {

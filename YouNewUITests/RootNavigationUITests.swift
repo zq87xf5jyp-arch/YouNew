@@ -88,7 +88,7 @@ final class RootNavigationUITests: XCTestCase {
 
             let last = element(item.last, in: app)
             for _ in 0..<14
-            where !last.isHittable || last.frame.maxY + 8 > tabBar.frame.minY {
+            where !last.exists || !last.isHittable || last.frame.maxY + 8 > tabBar.frame.minY {
                 app.swipeUp(velocity: .fast)
             }
             XCTAssertTrue(last.exists, "[\(item.tab)] last element does not exist")
@@ -116,7 +116,7 @@ final class RootNavigationUITests: XCTestCase {
     private func launch(startTab: String, accessibilitySize: Bool = false) -> XCUIApplication {
         let app = XCUIApplication()
         app.launchArguments = [
-            "-uiTesting", "-launchLanguage", "en",
+            "-uiTesting", "-resetUITestState", "-launchLanguage", "en",
             "-uiTestingStartTab", startTab, "-uiTestingCity", "Leiden",
             "-uiTestingStatus", "worker"
         ]

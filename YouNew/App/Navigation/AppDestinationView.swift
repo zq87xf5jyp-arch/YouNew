@@ -824,16 +824,16 @@ private struct ReleaseRouteFallbackView: View {
 }
 
 private struct AssistantHubRoot: View {
-    @State private var assistantPath = NavigationPath()
+    @State private var assistantDestination: AppDestination?
 
     var body: some View {
-        NavigationStack(path: $assistantPath) {
-            AIAssistantView(
-                mapToolDestination: .mapHub,
-                onOpenMap: { },
-                onNavigate: { assistantPath.append($0) }
-            )
-            .navigationDestination(for: AppDestination.self) { AppDestinationView(destination: $0) }
+        AIAssistantView(
+            mapToolDestination: .mapHub,
+            onOpenMap: { },
+            onNavigate: { assistantDestination = $0 }
+        )
+        .navigationDestination(item: $assistantDestination) { destination in
+            AppDestinationView(destination: destination)
         }
     }
 }

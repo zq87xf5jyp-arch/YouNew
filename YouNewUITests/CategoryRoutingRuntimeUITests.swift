@@ -890,10 +890,11 @@ final class CategoryRoutingRuntimeUITests: XCTestCase {
 
     @MainActor
     private func scrollToElement(_ element: XCUIElement, in app: XCUIApplication) {
-        var attempts = 0
-        while (!element.exists || !element.isHittable), attempts < 36 {
+        for _ in 0..<18 where !element.exists || !element.isHittable {
             app.swipeUp(velocity: .fast)
-            attempts += 1
+        }
+        for _ in 0..<18 where !element.exists || !element.isHittable {
+            app.swipeDown(velocity: .fast)
         }
     }
 
