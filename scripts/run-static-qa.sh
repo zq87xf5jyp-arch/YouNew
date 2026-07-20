@@ -25,10 +25,10 @@ python3 scripts/ai-subsystem-static-qa.py
 python3 scripts/persona-ia-static-qa.py
 python3 scripts/content-static-qa.py
 python3 scripts/data-project-qa.py
+python3 scripts/generate-data-observability.py
 python3 scripts/data-project-import-static-qa.py
 python3 scripts/generate-data-dashboard.py
 python3 scripts/data-dashboard-static-qa.py
-python3 scripts/generate-data-observability.py
 python3 scripts/data-observability-static-qa.py
 python3 scripts/generate-data-operations.py
 python3 scripts/data-operations-static-qa.py

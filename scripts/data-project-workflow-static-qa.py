@@ -8,6 +8,7 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "data-project-health.yml"
 README = ROOT / "DataProject" / "README.md"
+AGGREGATE_QA = ROOT / "scripts" / "run-static-qa.sh"
 
 
 def fail(message: str) -> None:
@@ -22,6 +23,7 @@ def require(condition: bool, message: str) -> None:
 
 workflow = WORKFLOW.read_text(encoding="utf-8")
 readme = README.read_text(encoding="utf-8")
+aggregate_qa = AGGREGATE_QA.read_text(encoding="utf-8")
 
 required_workflow_fragments = (
     'cron: "17 2 * * *"',
@@ -33,6 +35,7 @@ required_workflow_fragments = (
     "python3 scripts/generate-data-dashboard.py",
     "python3 scripts/data-dashboard-static-qa.py",
     "python3 scripts/generate-data-observability.py",
+    "python3 scripts/data-project-import-static-qa.py",
     "python3 scripts/data-observability-static-qa.py",
     "python3 scripts/generate-data-operations.py",
     "python3 scripts/data-operations-static-qa.py",
@@ -53,11 +56,21 @@ require(workflow.count('"scripts/data-dashboard-static-qa.py"') == 2, "coverage-
 require(workflow.count('"scripts/data-health-gate.py"') == 2, "health-gate edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/data-project-workflow-static-qa.py"') == 2, "workflow-contract edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/generate-data-observability.py"') == 2, "observability generator edits must trigger push and pull-request QA")
+require(workflow.count('"scripts/data-project-import-static-qa.py"') == 2, "import-QA edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/data-observability-static-qa.py"') == 2, "observability QA edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/generate-data-operations.py"') == 2, "operations generator edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/data-operations-static-qa.py"') == 2, "operations QA edits must trigger push and pull-request QA")
 require("timeout-minutes: 30" in workflow, "nightly network job must have a bounded timeout")
 require("cancel-in-progress: true" in workflow, "duplicate health runs must be cancelled")
+
+observability_generation = "python3 scripts/generate-data-observability.py"
+import_validation = "python3 scripts/data-project-import-static-qa.py"
+require(observability_generation in aggregate_qa, "aggregate QA must generate release manifests")
+require(import_validation in aggregate_qa, "aggregate QA must validate the governed importer")
+require(
+    aggregate_qa.index(observability_generation) < aggregate_qa.index(import_validation),
+    "aggregate QA must generate release manifests before importer validation",
+)
 
 for forbidden in (r"\bgit\s+push\b", r"\bgit\s+commit\b", r"\bgh\s+release\b", r"publication_status.*published"):
     require(re.search(forbidden, workflow, flags=re.IGNORECASE) is None, f"workflow must not publish data automatically: {forbidden}")
@@ -72,4 +85,4 @@ for fragment in required_readme_fragments:
     require(fragment in readme, f"README is missing the operational contract: {fragment}")
 
 print("DATA PROJECT workflow static QA passed")
-print("- Nightly schedule, health gate, evidence retention and no-auto-publish policy verified")
+print("- Nightly schedule, clean-clone manifest ordering, evidence retention and no-auto-publish policy verified")

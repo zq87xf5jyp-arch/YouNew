@@ -8,6 +8,7 @@ on:
       - "scripts/generate-data-dashboard.py"
       - "scripts/data-dashboard-static-qa.py"
       - "scripts/generate-data-observability.py"
+      - "scripts/data-project-import-static-qa.py"
       - "scripts/data-observability-static-qa.py"
       - "scripts/generate-data-operations.py"
       - "scripts/data-operations-static-qa.py"
@@ -22,6 +23,7 @@ on:
       - "scripts/generate-data-dashboard.py"
       - "scripts/data-dashboard-static-qa.py"
       - "scripts/generate-data-observability.py"
+      - "scripts/data-project-import-static-qa.py"
       - "scripts/data-observability-static-qa.py"
       - "scripts/generate-data-operations.py"
       - "scripts/data-operations-static-qa.py"
@@ -61,6 +63,9 @@ jobs:
       - name: Generate read-only Data Observability and release manifests
         if: always()
         run: python3 scripts/generate-data-observability.py
+      - name: Validate governed import and runtime bridge
+        if: always()
+        run: python3 scripts/data-project-import-static-qa.py
       - name: Validate Data Observability contracts
         if: always()
         run: python3 scripts/data-observability-static-qa.py
