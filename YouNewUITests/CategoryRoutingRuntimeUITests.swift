@@ -483,7 +483,7 @@ final class CategoryRoutingRuntimeUITests: XCTestCase {
     private func verifyDiscoveryGalleryCategory() {
         let app = launchHome()
         let menu = app.descendants(matching: .any)["home.discoveryMenu"]
-        XCTAssertTrue(menu.waitForExistence(timeout: 8), "Discovery menu trigger is missing for \(item.chip)")
+        XCTAssertTrue(menu.waitForExistence(timeout: 8), "Discovery menu trigger is missing for Gallery")
         menu.tap()
 
         let chip = app.descendants(matching: .any)["sideMenu.gallery"]
