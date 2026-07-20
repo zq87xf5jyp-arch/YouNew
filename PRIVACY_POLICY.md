@@ -1,6 +1,8 @@
 # YouNew Privacy Policy
 
-Effective date: 2026-05-28
+Status: **owner/legal-review draft; not a verified hosted policy**.
+
+Draft date: 2026-07-20
 
 YouNew is a local-first informational app for newcomers in the Netherlands.
 
@@ -12,7 +14,16 @@ Imported document files remain in app-managed local storage. Privacy export incl
 
 ## AI Assistance
 
-YouNew may use a configured AI proxy for assistant requests. When the user sends a question to the AI assistant, the question, limited app context, and recent conversation messages may be sent to that proxy to generate a response.
+For the named Build Week newcomer scenario only, YouNew may use a separately
+configured backend. The bounded client request contains the question, app locale,
+scenario/context version, and a fixed set of knowledge-record identifiers. It does
+not contain an OpenAI credential, documents, precise location, full user profile,
+saved items, or conversation history. No deployed backend, live GPT-5.6 request,
+hosting region, or provider retention behavior is proven by this repository.
+
+When the backend is unavailable or its response fails validation, the app uses a
+deterministic local guide and labels it as local guide mode. Safety/privacy checks
+run before the original user text is appended to local conversation history.
 
 Users should not enter BSN numbers, passport numbers, medical records, financial account numbers, or other sensitive personal data into the assistant.
 
@@ -36,6 +47,9 @@ YouNew links to official institutions and trusted external websites. External we
 
 ## Contact
 
-Support email: support@younew.app
+Candidate support email: support@younew.nl
 
-Production submission requires a publicly hosted privacy policy URL in App Store Connect.
+Candidate public URL: https://younew.nl/privacy/
+
+The owner must verify both before distribution and reconcile this draft with the
+final binary, backend, retention, GDPR roles, and App Store disclosures.

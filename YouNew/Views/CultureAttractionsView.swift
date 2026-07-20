@@ -40,6 +40,7 @@ struct CultureAttractionsView: View {
         .appSceneBackground(.city)
         .navigationTitle(titleText)
         .nlNavigationInline()
+        .accessibilityIdentifier("culture.screen")
     }
 
     private var headerSection: some View {

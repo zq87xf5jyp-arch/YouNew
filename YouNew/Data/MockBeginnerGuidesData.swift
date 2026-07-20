@@ -68,9 +68,9 @@ enum MockBeginnerGuidesData {
                 .russian: "DigiD — цифровой идентификатор голландского правительства для безопасного входа на сотни государственных и медицинских сайтов."
             ],
             simpleAnswerByLanguage: [
-                .english: "Apply for DigiD on digid.nl after you have your BSN. You'll receive an activation code by post in 5-7 days.",
-                .dutch: "Vraag DigiD aan op digid.nl nadat u uw BSN heeft. U ontvangt een activatiecode per post binnen 5-7 dagen.",
-                .russian: "Подайте заявку на DigiD на digid.nl после получения BSN. Код активации придёт почтой через 5–7 дней."
+                .english: "Apply for DigiD on digid.nl after you have your BSN. DigiD sends the activation-code letter to your registered address within 5 working days.",
+                .dutch: "Vraag DigiD aan op digid.nl nadat u uw BSN heeft. DigiD stuurt de brief met activeringscode binnen 5 werkdagen naar uw inschrijfadres.",
+                .russian: "Подайте заявку на DigiD на digid.nl после получения BSN. DigiD отправляет письмо с кодом активации на адрес регистрации в течение 5 рабочих дней."
             ],
             whyItMattersByLanguage: [
                 .english: "DigiD is required to access your healthcare insurer portal, tax return (Belastingdienst), toeslagen (benefits), and most government online services.",
@@ -78,9 +78,9 @@ enum MockBeginnerGuidesData {
                 .russian: "DigiD нужен для доступа к порталу страховщика, налоговой декларации, toeslagen и большинства государственных сервисов."
             ],
             whatToCheckByLanguage: [
-                .english: ["BSN received", "Dutch address for postal delivery", "Email address", "Dutch mobile number (for SMS verification)"],
-                .dutch: ["BSN ontvangen", "Nederlands adres voor postlevering", "E-mailadres", "Nederlands mobiel nummer (voor sms-verificatie)"],
-                .russian: ["BSN получен", "Нидерландский адрес для почты", "Email", "Нидерландский мобильный номер"]
+                .english: ["BSN received", "Address registered with your municipality", "Email address", "Mobile phone that can receive SMS"],
+                .dutch: ["BSN ontvangen", "Adres waarop u bij de gemeente staat ingeschreven", "E-mailadres", "Mobiele telefoon die sms kan ontvangen"],
+                .russian: ["BSN получен", "Адрес регистрации в муниципалитете", "Email", "Мобильный телефон, принимающий SMS"]
             ],
             commonMistakeByLanguage: [
                 .english: "Trying to apply for DigiD before having a BSN and Dutch address. The activation letter is sent by post to your registered address.",
@@ -646,7 +646,7 @@ enum MockBeginnerGuidesData {
                 .russian: "Ищите на Funda.nl, Pararius.nl или Kamernet.nl. Для социального жилья зарегистрируйтесь в очереди муниципалитета заранее."
             ],
             officialSourceName: "Rijksoverheid — Housing",
-            officialSourceURL: URL(string: "https://www.rijksoverheid.nl/onderwerpen/huurwoning"),
+            officialSourceURL: URL(string: "https://www.rijksoverheid.nl/themas/bouwen-en-wonen/woning-huren"),
             keywordsByLanguage: [
                 .english: ["housing", "renting", "huurwoning", "sociale huur", "vrije sector", "Funda", "deposit"],
                 .dutch: ["huurwoning", "sociale huur", "vrije sector", "borg", "huurcontract"],
@@ -816,29 +816,29 @@ enum MockBeginnerGuidesData {
                 .russian: "Inburgering — курс интеграции в Нидерланды"
             ],
             descriptionByLanguage: [
-                .english: "Inburgering is the mandatory civic integration programme for most non-EU newcomers. It includes Dutch language learning and Dutch society knowledge.",
-                .dutch: "Inburgering is het verplichte inburgeringsprogramma voor de meeste niet-EU-nieuwkomers.",
-                .russian: "Inburgering — обязательная программа гражданской интеграции для большинства граждан не-ЕС."
+                .english: "Some newcomers are required to integrate. The applicable learning track, language level, exams, and start date are stated by DUO and in the personal integration and participation plan (PIP).",
+                .dutch: "Sommige nieuwkomers moeten inburgeren. Het leertraject, taalniveau, de examens en startdatum staan in de brieven van DUO en het persoonlijk plan inburgering en participatie (PIP).",
+                .russian: "Некоторые новые жители обязаны пройти интеграцию. Учебный маршрут, языковой уровень, экзамены и дата начала указаны в письмах DUO и личном плане интеграции и участия (PIP)."
             ],
             simpleAnswerByLanguage: [
-                .english: "Most newcomers must pass the inburgering exam within 3 years of getting a residence permit. It includes Dutch language (B1 level), Dutch society knowledge (KNM), and participation declaration (PVT).",
-                .dutch: "De meeste nieuwkomers moeten het inburgeringsexamen halen binnen 3 jaar. Dit omvat Nederlands (B1), KNM en PVT.",
-                .russian: "Большинство новичков обязаны сдать inburgering в течение 3 лет. Включает нидерландский (B1), KNM и PVT."
+                .english: "If DUO says you must integrate, the integration period is normally 3 years. Check Mijn Inburgering and your PIP for your start date, learning track, and required exams.",
+                .dutch: "Als DUO aangeeft dat u moet inburgeren, duurt de inburgeringstermijn normaal 3 jaar. Controleer Mijn Inburgering en uw PIP voor startdatum, leerroute en examens.",
+                .russian: "Если DUO указало, что вы обязаны пройти интеграцию, срок обычно составляет 3 года. Проверьте дату начала, маршрут и экзамены в Mijn Inburgering и PIP."
             ],
             whyItMattersByLanguage: [
-                .english: "Failing to complete inburgering on time can jeopardize your residence permit renewal.",
-                .dutch: "Het niet op tijd afronden kan uw verblijfsvergunningverlenging in gevaar brengen.",
-                .russian: "Невыполнение inburgering вовремя может поставить под угрозу продление ВНЖ."
+                .english: "DUO can impose consequences when a person who is required to integrate does not meet the applicable obligations. Verify your own deadline and requirements in Mijn Inburgering.",
+                .dutch: "DUO kan gevolgen opleggen als iemand die moet inburgeren niet aan de geldende verplichtingen voldoet. Controleer uw eigen termijn en eisen in Mijn Inburgering.",
+                .russian: "DUO может применить меры, если обязанный пройти интеграцию человек не выполняет требования. Проверяйте свой срок и условия в Mijn Inburgering."
             ],
             whatToCheckByLanguage: [
-                .english: ["Check if inburgering is mandatory for your permit type", "3-year deadline from permit issuance", "DUO lening (loan) for course costs", "Language components: Listening, Reading, Speaking, Writing", "KNM (Dutch society knowledge) exam"],
-                .dutch: ["Of inburgering verplicht is voor uw type", "3-jarige deadline", "DUO-lening voor cursuskosten", "Taalonderdelen: Luisteren, Lezen, Spreken, Schrijven", "KNM-examen"],
-                .russian: ["Обязателен ли inburgering для вашего типа ВНЖ", "3-летний дедлайн", "Займ DUO на курсы", "Языковые компоненты", "Экзамен KNM"]
+                .english: ["Whether DUO says you must integrate", "Start date and deadline shown in Mijn Inburgering", "Learning track stated in your PIP", "Exams listed for your personal route", "Current finance options shown by DUO"],
+                .dutch: ["Of DUO aangeeft dat u moet inburgeren", "Startdatum en termijn in Mijn Inburgering", "Leerroute in uw PIP", "Examens voor uw persoonlijke route", "Actuele financieringsopties bij DUO"],
+                .russian: ["Указало ли DUO обязанность интеграции", "Дата начала и срок в Mijn Inburgering", "Маршрут в PIP", "Экзамены именно для вашего маршрута", "Актуальные варианты финансирования DUO"]
             ],
             commonMistakeByLanguage: [
-                .english: "Underestimating the time needed. B1 Dutch from scratch can take 12-18 months of serious study.",
-                .dutch: "De benodigde tijd onderschatten. B1-niveau vanuit het niets kan 12-18 maanden vergen.",
-                .russian: "Недооценивать нужное время. Нидерландский до B1 с нуля занимает 12–18 месяцев."
+                .english: "Following a generic checklist instead of the DUO letters and the PIP created for your own situation.",
+                .dutch: "Een algemene checklist volgen in plaats van de DUO-brieven en het PIP voor uw eigen situatie.",
+                .russian: "Следовать общей памятке вместо писем DUO и PIP, составленного для вашей ситуации."
             ],
             safeNextStepByLanguage: [
                 .english: "Check if inburgering applies to you on inburgering.nl. Contact your municipality for a personal integration plan.",

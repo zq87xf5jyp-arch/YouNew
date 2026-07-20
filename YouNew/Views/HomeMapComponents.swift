@@ -108,6 +108,7 @@ struct HomeRealisticNetherlandsMapSurface: View {
 
     @State private var selectedProvinceID: String?
     @State private var tooltipProvinceID: String?
+    @State private var isProvinceMapPressed = false
     @State private var selectedMode: PremiumMapDisplayMode = .cities
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
 
@@ -140,8 +141,9 @@ struct HomeRealisticNetherlandsMapSurface: View {
             )
             .allowsHitTesting(false)
 
-            GeometryReader { proxy in
-                let mapRect = PremiumNetherlandsMapCanvas.mapRect(in: proxy.size)
+            GeometryReader { mapProxy in
+                let mapRect = PremiumNetherlandsMapCanvas.mapRect(in: mapProxy.size)
+
                 ZStack {
                     PremiumNetherlandsMapCanvas(
                         selectedProvinceID: selectedProvinceID,
@@ -149,30 +151,57 @@ struct HomeRealisticNetherlandsMapSurface: View {
                         glowPhase: selectedProvinceID == nil ? glowPhase : 0.90,
                         displayMode: selectedMode
                     )
-                    .padding(.top, 92)
-                    .padding(.bottom, 78)
-                    .allowsHitTesting(false)
+                    .scaleEffect(isProvinceMapPressed ? 0.997 : 1)
+                    .brightness(isProvinceMapPressed ? -0.015 : 0)
+                    .animation(AppAnimations.tactilePress, value: isProvinceMapPressed)
+                    .contentShape(Rectangle())
+                    .onLongPressGesture(
+                        minimumDuration: 60,
+                        maximumDistance: 10,
+                        perform: {},
+                        onPressingChanged: { isPressing in
+                            isProvinceMapPressed = isPressing && selectedMode == .provinces
+                        }
+                    )
+                    .simultaneousGesture(
+                        provinceTapGesture(in: mapRect),
+                        including: selectedMode == .provinces ? .all : .none
+                    )
+                    .accessibilityElement(children: .contain)
+                    .accessibilityChildren {
+                        if selectedMode == .provinces {
+                            ZStack {
+                                ForEach(ProvinceCatalog.all) { province in
+                                    let center = PremiumProvinceHitTesting.representativePoint(
+                                        for: province.id,
+                                        in: mapRect
+                                    ) ?? CGPoint(x: mapRect.midX, y: mapRect.midY)
 
-                    if selectedMode == .provinces {
-                        ForEach(ProvinceHitZones.all) { zone in
-                            Rectangle()
-                                .fill(Color.white.opacity(0.001))
-                                .frame(
-                                    width: mapRect.width * zone.normalizedFrame.width,
-                                    height: mapRect.height * zone.normalizedFrame.height
-                                )
-                                .position(
-                                    x: mapRect.minX + mapRect.width * zone.normalizedFrame.midX,
-                                    y: mapRect.minY + mapRect.height * zone.normalizedFrame.midY
-                                )
-                                .onTapGesture {
-                                    selectProvince(zone)
+                                    Button {
+                                        selectProvince(province.id)
+                                    } label: {
+                                        Text(province.localizedName(language))
+                                    }
+                                    .frame(
+                                        width: AppButtonMetrics.minTouchSize,
+                                        height: AppButtonMetrics.minTouchSize
+                                    )
+                                    .position(center)
+                                    .accessibilityIdentifier(
+                                        provinceAccessibilityIdentifier(province.id)
+                                    )
+                                    .accessibilityAddTraits(
+                                        selectedProvinceID == province.id ? .isSelected : []
+                                    )
                                 }
-                                .accessibilityHidden(true)
+                            }
+                            .frame(width: mapProxy.size.width, height: mapProxy.size.height)
                         }
                     }
                 }
             }
+            .padding(.top, 92)
+            .padding(.bottom, 78)
 
             LinearGradient(
                 colors: [
@@ -251,13 +280,27 @@ struct HomeRealisticNetherlandsMapSurface: View {
         .shadow(color: AppColors.cyanGlow.opacity(0.14), radius: 28, x: 0, y: 18)
     }
 
-    private func selectProvince(_ hit: ProvinceHitZone) {
-        withAnimation(.easeInOut(duration: 0.18)) {
-            selectedProvinceID = hit.id
-            tooltipProvinceID = hit.id
+    private func provinceTapGesture(in mapRect: CGRect) -> some Gesture {
+        SpatialTapGesture(coordinateSpace: .local)
+            .onEnded { value in
+                guard let provinceID = PremiumProvinceHitTesting.hitTest(
+                    value.location,
+                    in: mapRect
+                ) else { return }
+
+                selectProvince(provinceID)
+            }
+    }
+
+    private func selectProvince(_ provinceID: String) {
+        AppHaptics.selection()
+
+        withAnimation(AppAnimations.tactilePress) {
+            selectedProvinceID = provinceID
+            tooltipProvinceID = provinceID
         }
 
-        let selectedID = hit.id
+        let selectedID = provinceID
         Task { @MainActor in
             try? await Task.sleep(nanoseconds: 2_500_000_000)
             guard !Task.isCancelled else { return }
@@ -267,6 +310,14 @@ struct HomeRealisticNetherlandsMapSurface: View {
                 }
             }
         }
+    }
+
+    private func provinceAccessibilityIdentifier(_ provinceID: String) -> String {
+        let segment = provinceID
+            .replacingOccurrences(of: "-", with: "_")
+            .replacingOccurrences(of: " ", with: "_")
+            .lowercased()
+        return "provinces.map.zone.\(segment)"
     }
 
     private var mapHeader: some View {
@@ -326,7 +377,9 @@ struct HomeRealisticNetherlandsMapSurface: View {
         let shadow = isSelected ? AppColors.dutchOrange.opacity(0.22) : Color.clear
 
         return Button {
-            withAnimation(.easeInOut(duration: 0.18)) {
+            guard selectedMode != mode else { return }
+            AppHaptics.selection()
+            withAnimation(AppAnimations.tactilePress) {
                 selectedMode = mode
                 if mode != .provinces {
                     selectedProvinceID = nil
@@ -346,7 +399,7 @@ struct HomeRealisticNetherlandsMapSurface: View {
                 .overlay(Capsule().stroke(stroke, lineWidth: 0.7))
                 .shadow(color: shadow, radius: 10, x: 0, y: 4)
         }
-        .buttonStyle(.plain)
+        .buttonStyle(AppPressableButtonStyle())
         .accessibilityIdentifier("home.map.mode.\(mode.rawValue)")
     }
 
@@ -366,7 +419,10 @@ struct HomeRealisticNetherlandsMapSurface: View {
     }
 
     private var openMapButton: some View {
-        Button(action: onOpenMap) {
+        Button {
+            AppHaptics.lightImpact()
+            onOpenMap()
+        } label: {
             Label(openMapLabel, systemImage: "arrow.right")
                 .font(.system(size: 12, weight: .black, design: .rounded))
                 .foregroundStyle(AppColors.cyanGlow)
@@ -379,7 +435,7 @@ struct HomeRealisticNetherlandsMapSurface: View {
                 .overlay(Capsule().stroke(AppColors.cyanGlow.opacity(0.20), lineWidth: 0.7))
                 .contentShape(Rectangle())
         }
-        .buttonStyle(.plain)
+        .buttonStyle(AppPressableButtonStyle())
     }
 
     private func legendDot(color: Color, title: String) -> some View {
@@ -463,7 +519,6 @@ struct PremiumNetherlandsMapCanvas: View {
                 drawCities(in: &context, rect: rect)
             }
         }
-        .allowsHitTesting(false)
     }
 
     private static var mapPadding: EdgeInsets {

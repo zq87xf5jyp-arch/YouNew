@@ -171,8 +171,10 @@ struct KnowledgeIndexTests {
 
         for section in GuideContent.sections {
             let sectionID = "guide:\(section.id)"
+            let expectedDestination = KnowledgeIndexBuilder.guideSectionDestination(for: section.id)
             #expect(itemIDs.contains(sectionID), "Missing guide section in KnowledgeIndex: \(sectionID)")
-            #expect(AppNavigationResolver.destination(for: sectionID) == .guideSection(section.id))
+            #expect(index.itemsByID[sectionID]?.route == expectedDestination)
+            #expect(AppNavigationResolver.destination(for: sectionID) == expectedDestination)
 
             for article in section.articles {
                 let articleID = "article:\(section.id):\(article.id)"
@@ -188,9 +190,10 @@ struct KnowledgeIndexTests {
         }
 
         for city in NLCity.all {
-            let cityID = "city:\(KnowledgeNormalizer.slug(city.id))"
+            let legacyCityID = "city:\(KnowledgeNormalizer.slug(city.id))"
+            let cityID = NetherlandsKnowledgeDatabase.shared.canonicalID(for: legacyCityID)
             #expect(itemIDs.contains(cityID), "Missing city in KnowledgeIndex: \(cityID)")
-            #expect(AppNavigationResolver.destination(for: cityID) == .nlCityDetail(city.id))
+            #expect(index.itemsByID[cityID]?.route == .nlCityDetail(city.id))
         }
 
         for province in NLProvince.all {
@@ -728,7 +731,13 @@ struct KnowledgeIndexTests {
         }
         #expect(final?.workflow == nil)
         #expect(final?.response.sections.contains { $0.title == "Workflow result" } == true)
-        #expect(final?.response.quickActions.contains { $0.kind == .openGuide || $0.kind == .openScreen } == true)
+        let healthGuide = final?.response.quickActions.first { $0.kind == .openGuide }
+        #expect(healthGuide?.destinationID == "practicalGuide:healthInsuranceBasics")
+        #expect(
+            AppNavigationResolver.destination(for: healthGuide?.destinationID)
+                == .practicalGuide(.healthInsuranceBasics)
+        )
+        #expect(final?.response.quickActions.contains { $0.destinationID?.hasPrefix("city:") == true } == false)
     }
 
     @Test func bsnWorkflowRoutesThroughMunicipalityDocumentsAndDigiD() {

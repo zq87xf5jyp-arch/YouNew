@@ -12,11 +12,11 @@ final class ContentCompletionRuntimeUITests: XCTestCase {
     @MainActor
     func testPrimaryTabsRenderCompletedSurfacesWithoutPlaceholderCopy() throws {
         let cases: [(tab: String, requiredIdentifiers: [String])] = [
-            ("home", ["home.product.hero", "home.hero.chooseJourney"]),
-            ("places", ["places.universalInput", "places.filters", "places.premiumNetherlandsMap"]),
-            ("assistant", ["assistant.input"]),
-            ("favorites", ["saved.hero", "saved.empty.dashboard"]),
-            ("more", ["more.screen", "more.intro"])
+            ("home", ["screen.home", "home.currentCity"]),
+            ("guide", ["screen.guide", "guide.lastElement"]),
+            ("map", ["map.hub", "places.premiumNetherlandsMap"]),
+            ("saved", ["favorites.screen", "saved.hero", "saved.empty.dashboard"]),
+            ("more", ["screen.more"])
         ]
 
         for testCase in cases {
@@ -41,7 +41,7 @@ final class ContentCompletionRuntimeUITests: XCTestCase {
             ("transport", ["practicalGuide.transportBasics"]),
             ("education", ["institutions.screen"]),
             ("institutions", ["institutions.screen"]),
-            ("businessGrowth", ["business.pricing"]),
+            ("businessGrowth", ["business.landing"]),
             ("calendar", ["calendar.screen"]),
             ("settings", ["settings.screen"]),
             ("localPartners", ["localPartners.hero"]),
@@ -68,7 +68,7 @@ final class ContentCompletionRuntimeUITests: XCTestCase {
             ("housing", ["practicalGuide.housingBasics"], 4),
             ("transport", ["practicalGuide.transportBasics"], 4),
             ("education", ["institutions.screen"], 4),
-            ("businessGrowth", ["business.pricing"], 4),
+            ("businessGrowth", ["business.landing"], 4),
             ("calendar", ["calendar.screen"], 3),
             ("settings", ["settings.screen"], 4),
             ("localPartners", ["localPartners.hero"], 4),
@@ -93,7 +93,11 @@ final class ContentCompletionRuntimeUITests: XCTestCase {
     @MainActor
     private func launchApp(startTab: String) -> XCUIApplication {
         let app = baseApp()
-        app.launchArguments += ["-uiTestingStartTab", startTab]
+        if startTab == "assistant" || startTab == "search" {
+            app.launchArguments += ["-uiTestingDestination", startTab]
+        } else {
+            app.launchArguments += ["-uiTestingStartTab", startTab]
+        }
         app.launch()
         app.activate()
         return app
@@ -102,7 +106,11 @@ final class ContentCompletionRuntimeUITests: XCTestCase {
     @MainActor
     private func launchApp(destination: String) -> XCUIApplication {
         let app = baseApp()
-        app.launchArguments += ["-uiTestingDestination", destination]
+        if destination == "map" {
+            app.launchArguments += ["-uiTestingStartTab", "map"]
+        } else {
+            app.launchArguments += ["-uiTestingDestination", destination]
+        }
         app.launch()
         app.activate()
         return app
@@ -229,11 +237,9 @@ final class ContentCompletionRuntimeUITests: XCTestCase {
 
         return textCarryingQueries.flatMap { query in
             query.allElementsBoundByIndex.prefix(120).compactMap { element in
-                guard element.exists,
-                      !element.frame.isEmpty,
-                      element.frame.maxX > 0,
-                      element.frame.maxY > 0
-                else { return nil }
+                guard element.exists else { return nil }
+                let frame = element.frame
+                guard !frame.isEmpty, frame.maxX > 0, frame.maxY > 0 else { return nil }
                 let label = element.label.trimmingCharacters(in: .whitespacesAndNewlines)
                 return label.isEmpty ? nil : label
             }

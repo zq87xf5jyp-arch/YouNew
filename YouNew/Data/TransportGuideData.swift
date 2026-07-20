@@ -181,7 +181,7 @@ nonisolated enum TransportGuideData {
             source("source.ret", "RET Rotterdam", "RET", "https://www.ret.nl", "official operator", "NL/EN"),
             source("source.htm", "HTM The Hague", "HTM", "https://www.htm.nl", "official operator", "NL/EN"),
             source("source.uov", "U-OV Utrecht", "U-OV", "https://www.u-ov.info", "official operator", "NL"),
-            source("source.arriva", "Arriva", "Arriva", "https://www.arriva.nl", "official operator", "NL"),
+            source("source.arriva", "Arriva", "Arriva", "https://webshop.arriva.nl/", "official operator", "NL"),
             source("source.qbuzz", "Qbuzz", "Qbuzz", "https://www.qbuzz.nl", "official operator", "NL"),
             source("source.government.bicycles", "Bicycles", "Government.nl", "https://www.government.nl/themes/transport/bicycles", "official government", "EN"),
             source("source.schiphol", "Schiphol airport information", "Schiphol", "https://www.schiphol.nl/en", "official airport", "EN/NL")

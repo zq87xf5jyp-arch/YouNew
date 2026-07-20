@@ -74,6 +74,7 @@ struct InstitutionDetailView: View {
         .appSceneBackground()
         .navigationTitle(institution.name)
         .nlNavigationInline()
+        .accessibilityIdentifier("institution.detail.\(KnowledgeNormalizer.slug(institution.name))")
         .toolbar {
             ToolbarItem(placement: .automatic) {
                 SaveItemButton(

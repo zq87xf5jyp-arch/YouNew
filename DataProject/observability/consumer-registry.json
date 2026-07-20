@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "measurement_mode": "read_only",
+  "description": "Consumer definitions used to detect exact stable entity ID references outside DATA PROJECT. Generic runtime ingestion requires separate explicit evidence and is never inferred.",
+  "consumers": [
+    {
+      "id": "ai",
+      "label": "AI",
+      "paths": ["YouNew/Services/AI*.swift", "YouNew/Services/Knowledge*.swift", "YouNew/Views/AIAssistantView.swift"]
+    },
+    {
+      "id": "search",
+      "label": "Search",
+      "paths": ["YouNew/Services/AppSearchEngine.swift", "YouNew/Services/KnowledgeIndex.swift", "YouNew/Views/Search*.swift"]
+    },
+    {
+      "id": "home",
+      "label": "Home",
+      "paths": ["YouNew/Features/Home/**/*.swift", "YouNew/Views/Home*.swift", "YouNew/Data/MockDashboard*.swift"]
+    },
+    {
+      "id": "places",
+      "label": "Places",
+      "paths": ["YouNew/Views/Places*.swift", "YouNew/Data/*Place*.swift", "YouNew/Data/NetherlandsData.swift"]
+    },
+    {
+      "id": "guide",
+      "label": "Guide",
+      "paths": ["YouNew/Views/*Guide*.swift", "YouNew/Data/*Guide*.swift", "YouNew/Views/SurvivalNavigatorView.swift"]
+    },
+    {
+      "id": "saved",
+      "label": "Saved",
+      "paths": ["YouNew/Views/FavoritesView.swift", "YouNew/Views/Saved*.swift"]
+    },
+    {
+      "id": "business",
+      "label": "Business",
+      "paths": ["YouNew/Models/Business*.swift", "YouNew/Services/HomeBusiness*.swift", "YouNew/Views/Business*.swift"]
+    },
+    {
+      "id": "api",
+      "label": "API",
+      "paths": ["YouNew/Services/**/*API*.swift", "YouNew/Services/ContentRepository.swift", "YouNew/Services/Network*.swift"]
+    }
+  ],
+  "explicit_observations": []
+}

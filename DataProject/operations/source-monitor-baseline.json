@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "status": "not_established",
+  "checked_at": null,
+  "sources": [],
+  "note": "A reviewed canonical URL snapshot is required before source URL changes can be detected."
+}

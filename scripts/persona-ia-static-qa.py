@@ -351,7 +351,11 @@ require("private var mapSuggestionDestination: AppDestination?" in search_view, 
 require("RelatedContentEngine.isVisible(destination, for: appState.selectedUserStatus?.personaTag)" in section_between(search_view, "private var mapSuggestionDestination", re.escape("init(viewModel:")), "SearchView map suggestion is not filtered by active persona")
 require("NavigationLink(value: mapSuggestionDestination)" in search_view, "SearchView map suggestion still links to raw map focus")
 direct_results_builder = section_between(search_view, "private func buildDirectResults()", "private func selectedCategoryAllows")
-require(".filter { RelatedContentEngine.isVisible($0.destination, for: activePersona) }" in direct_results_builder, "SearchView direct results are not persona-route filtered")
+require(
+    ".filter" in direct_results_builder
+    and "RelatedContentEngine.isVisible(result.destination, for: activePersona)" in direct_results_builder,
+    "SearchView direct results are not persona-route filtered",
+)
 require("func isVisible(for persona: PersonaTag?)" in search_answer, "SearchCategory missing persona visibility policy")
 search_category_student = section_between(search_answer, r"case \.student:", r"case \.worker")
 for forbidden in [".taxes", ".work", ".immigration", ".legalHelp"]:
@@ -438,11 +442,17 @@ require(
     "nonisolated static func isVisible(tags: Set<PersonaTag>, activePersona: PersonaTag?, scope: PersonaSearchScope) -> Bool {\n        true\n    }" in persona_tag,
     "Persona visibility policy must not hide Guide content",
 )
-require("GuideContent.article(sectionID: sectionID, articleID: articleID, activePersona: appState.selectedUserStatus?.personaTag)" in app_destination_view, "Guide article routes do not filter by active persona")
+require(
+    "activePersona: appState.selectedUserStatus?.personaTag" in section_between(app_destination_view, "case .guideArticle", r"\n        }\n        }"),
+    "Guide article routes do not filter by active persona",
+)
 require("MockSearchAnswersData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag" in app_destination_view, "Search answer detail routes do not filter by active persona")
 require("MockBeginnerGuidesData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag" in app_destination_view, "Beginner guide detail routes do not filter by active persona")
 require("MockResourcesData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag" in app_destination_view, "Resource detail routes do not filter by active persona")
-require("MockInstitutionsData.items.first(where: { $0.name.caseInsensitiveCompare(name) == .orderedSame && $0.isVisible(for: appState.selectedUserStatus?.personaTag" in app_destination_view, "Institution detail routes do not filter by active persona")
+require(
+    "$0.isVisible(for: appState.selectedUserStatus?.personaTag" in section_between(app_destination_view, "case .institution", "case .searchAnswer"),
+    "Institution detail routes do not filter by active persona",
+)
 require("MockNewcomerMistakesData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag" in app_destination_view, "Mistake detail routes do not filter by active persona")
 require("appState.checklistItems.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag" in app_destination_view, "Checklist detail routes do not filter by active persona")
 require("MockDutchTermsData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag" in app_destination_view, "Dutch term detail routes do not filter by active persona")
@@ -669,10 +679,26 @@ require("activePersonaTag: appState?.selectedUserStatus?.personaTag" in ai_build
 require("let activePersona = appState?.selectedUserStatus?.personaTag" in ai_builder, "AIContextBuilder expansion search does not read active persona")
 for expansion_filter in ["$0.isVisible(for: activePersona, scope: .currentAndUniversal)", "topic.personaTags", "scenario.personaTags", "service.personaTags"]:
     require(expansion_filter in ai_builder or expansion_filter in knowledge_index, f"Missing AI/search expansion persona filter: {expansion_filter}")
-require("let activePersonaTag: String?" in ai_client, "AI client retrieval payload lacks activePersonaTag")
-require("activePersonaTag = context.activePersonaTag?.rawValue" in ai_client, "AI client does not serialize activePersonaTag")
-require("let personaSearchScope: String" in ai_client, "AI client retrieval payload lacks personaSearchScope")
-require("personaSearchScope = context.personaSearchScope.rawValue" in ai_client, "AI client does not serialize personaSearchScope")
+bounded_demo_request = section_between(
+    ai_client,
+    r"struct NewcomerRequestBody: Encodable, Equatable \{",
+    r"\n    let endpoint:",
+)
+if bounded_demo_request:
+    # BuildWeekNewcomerDemo is not a generic retrieval endpoint. Its privacy
+    # contract intentionally sends only the selected locale plus the complete,
+    # versioned knowledge-ID set; persona/profile state must remain on-device.
+    for field in ["question", "locale", "scenario", "contextVersion", "knowledgeRecordIDs"]:
+        require(re.search(rf"\blet {field}:\s*", bounded_demo_request) is not None, f"Bounded AI request lacks {field}")
+    for private_field in ["activePersonaTag", "personaSearchScope", "selectedCity", "userSituation", "conversation"]:
+        require(private_field not in bounded_demo_request, f"Bounded AI request leaks private context field {private_field}")
+    require("BuildWeekNewcomerDemo.matches(userMessage)" in ai_client, "Bounded AI client does not reject generic chat requests")
+    require("BuildWeekNewcomerDemo.knowledgeRecordIDs" in bounded_demo_request, "Bounded AI request does not use the fixed knowledge context")
+else:
+    require("let activePersonaTag: String?" in ai_client, "Generic AI retrieval payload lacks activePersonaTag")
+    require("activePersonaTag = context.activePersonaTag?.rawValue" in ai_client, "Generic AI client does not serialize activePersonaTag")
+    require("let personaSearchScope: String" in ai_client, "Generic AI retrieval payload lacks personaSearchScope")
+    require("personaSearchScope = context.personaSearchScope.rawValue" in ai_client, "Generic AI client does not serialize personaSearchScope")
 require("personaSafeResponse(response, context: context)" in ai_service, "AIService does not sanitize backend responses by persona before returning")
 require("private func personaSafeResponse(_ response: AIResponse, context: AIContext)" in ai_service, "AIService lacks persona-safe response sanitizer")
 require("AppNavigationResolver.destination(for: destinationID, visibleFor: context.activePersonaTag)" in ai_service, "AIService sanitizer does not use persona-visible navigation")
@@ -743,7 +769,9 @@ require("func isVisible(for persona: PersonaTag?" in nearby_place, "NearbyPlace 
 require("case .duo, .studentHelp:" in nearby_place and "return [.student]" in section_between(nearby_place, r"case \.duo, \.studentHelp:", r"case \.uwv:"), "Student map places are not isolated")
 require("case .uwv:" in nearby_place and ".student" not in section_between(nearby_place, r"case \.uwv:", r"case \.ind"), "Student can see UWV map places")
 require("case .ind, .immigrationSupport:" in nearby_place and ".student" not in section_between(nearby_place, r"case \.ind, \.immigrationSupport:", r"case \.expatCenter:"), "Student can see IND/immigration map places")
-require("place.personaTags" in knowledge_index, "KnowledgeIndex nearby-place entries do not use explicit place personaTags")
+netherlands_data = read("YouNew/Data/NetherlandsData.swift")
+require("personaTags: place.personaTags" in netherlands_data, "Canonical nearby-place entities do not preserve explicit place personaTags")
+require("if let explicitPersonaTags { return explicitPersonaTags }" in netherlands_data, "Canonical knowledge projection does not prioritize explicit personaTags")
 require("@Published var activePersona: PersonaTag?" in map_view_model, "MapViewModel does not track active persona")
 require("$0.city == selectedCity && $0.isVisible(for: activePersona)" in map_view_model, "MapViewModel city places are not persona-filtered")
 require("&& $0.isVisible(for: activePersona)" in map_view_model, "MapViewModel place focus can restore outside-persona places")

@@ -3374,9 +3374,219 @@ struct NetherlandsMiniMapView: View {
     }
 }
 
+/// Exact hit geometry for the bundled 100 x 160 schematic SVG map.
+/// The visible asset and the resolver share these same polygon vertices, so
+/// the compact directory map does not borrow coordinates from the realistic
+/// Netherlands canvas.
+enum ProvinceSchematicHitTesting {
+    private struct Geometry {
+        let id: String
+        let normalizedPoints: [CGPoint]
+        let normalizedPath: Path
+        let normalizedBounds: CGRect
+        let normalizedCenter: CGPoint
+    }
+
+    private struct Candidate {
+        let id: String
+        let distanceSquared: CGFloat
+        let area: CGFloat
+    }
+
+    private static let geometries: [Geometry] = rawPolygons.map { id, points in
+        let normalizedPoints = points.map {
+            CGPoint(x: $0.x / 100, y: $0.y / 160)
+        }
+        let path = Path.preciseClosed(normalizedPoints)
+        let center = normalizedPoints.reduce(CGPoint.zero) { partial, point in
+            CGPoint(x: partial.x + point.x, y: partial.y + point.y)
+        }
+        let divisor = CGFloat(max(1, normalizedPoints.count))
+        return Geometry(
+            id: id,
+            normalizedPoints: normalizedPoints,
+            normalizedPath: path,
+            normalizedBounds: path.boundingRect,
+            normalizedCenter: CGPoint(x: center.x / divisor, y: center.y / divisor)
+        )
+    }
+
+    private static let byID = Dictionary(
+        uniqueKeysWithValues: geometries.map { ($0.id, $0) }
+    )
+
+    static func hitTest(
+        _ point: CGPoint,
+        in mapRect: CGRect,
+        minimumTouchSize: CGFloat = AppButtonMetrics.minTouchSize,
+        fallbackTolerance: CGFloat = 6
+    ) -> String? {
+        guard point.x.isFinite,
+              point.y.isFinite,
+              mapRect.width > 0,
+              mapRect.height > 0
+        else { return nil }
+
+        let normalizedPoint = CGPoint(
+            x: (point.x - mapRect.minX) / mapRect.width,
+            y: (point.y - mapRect.minY) / mapRect.height
+        )
+
+        if let exact = geometries
+            .filter({ $0.normalizedPath.contains(normalizedPoint) })
+            .min(by: { lhs, rhs in
+                let lhsArea = lhs.normalizedBounds.width * lhs.normalizedBounds.height
+                let rhsArea = rhs.normalizedBounds.width * rhs.normalizedBounds.height
+                return lhsArea == rhsArea ? lhs.id < rhs.id : lhsArea < rhsArea
+            }) {
+            return exact.id
+        }
+
+        let candidates = geometries.compactMap { geometry -> Candidate? in
+            let bounds = projected(geometry.normalizedBounds, in: mapRect)
+            let minimumExpansion = max(
+                0,
+                max(
+                    (minimumTouchSize - bounds.width) / 2,
+                    (minimumTouchSize - bounds.height) / 2
+                )
+            )
+            let radius = max(minimumExpansion, max(0, fallbackTolerance))
+            guard bounds.insetBy(dx: -radius, dy: -radius).contains(point) else {
+                return nil
+            }
+
+            let distanceSquared = boundaryDistanceSquared(
+                from: point,
+                to: geometry.normalizedPoints,
+                in: mapRect
+            )
+            guard distanceSquared <= radius * radius else { return nil }
+            return Candidate(
+                id: geometry.id,
+                distanceSquared: distanceSquared,
+                area: bounds.width * bounds.height
+            )
+        }
+
+        return candidates.min { lhs, rhs in
+            if lhs.distanceSquared != rhs.distanceSquared {
+                return lhs.distanceSquared < rhs.distanceSquared
+            }
+            if lhs.area != rhs.area {
+                return lhs.area < rhs.area
+            }
+            return lhs.id < rhs.id
+        }?.id
+    }
+
+    static func representativePoint(for provinceID: String, in mapRect: CGRect) -> CGPoint? {
+        guard mapRect.width > 0,
+              mapRect.height > 0,
+              let geometry = byID[provinceID]
+        else { return nil }
+
+        return CGPoint(
+            x: mapRect.minX + geometry.normalizedCenter.x * mapRect.width,
+            y: mapRect.minY + geometry.normalizedCenter.y * mapRect.height
+        )
+    }
+
+    private static func projected(_ bounds: CGRect, in mapRect: CGRect) -> CGRect {
+        CGRect(
+            x: mapRect.minX + bounds.minX * mapRect.width,
+            y: mapRect.minY + bounds.minY * mapRect.height,
+            width: bounds.width * mapRect.width,
+            height: bounds.height * mapRect.height
+        )
+    }
+
+    private static func boundaryDistanceSquared(
+        from point: CGPoint,
+        to normalizedPoints: [CGPoint],
+        in mapRect: CGRect
+    ) -> CGFloat {
+        guard normalizedPoints.count >= 2 else { return .greatestFiniteMagnitude }
+
+        var closest = CGFloat.greatestFiniteMagnitude
+        for index in normalizedPoints.indices {
+            let nextIndex = normalizedPoints.index(after: index)
+            let start = project(normalizedPoints[index], in: mapRect)
+            let end = project(
+                nextIndex == normalizedPoints.endIndex
+                    ? normalizedPoints[normalizedPoints.startIndex]
+                    : normalizedPoints[nextIndex],
+                in: mapRect
+            )
+            closest = min(closest, pointToSegmentDistanceSquared(point, start: start, end: end))
+        }
+        return closest
+    }
+
+    private static func project(_ point: CGPoint, in mapRect: CGRect) -> CGPoint {
+        CGPoint(
+            x: mapRect.minX + point.x * mapRect.width,
+            y: mapRect.minY + point.y * mapRect.height
+        )
+    }
+
+    private static func pointToSegmentDistanceSquared(
+        _ point: CGPoint,
+        start: CGPoint,
+        end: CGPoint
+    ) -> CGFloat {
+        let dx = end.x - start.x
+        let dy = end.y - start.y
+        let lengthSquared = dx * dx + dy * dy
+        guard lengthSquared > .ulpOfOne else {
+            return squaredDistance(point, start)
+        }
+
+        let projection = (
+            (point.x - start.x) * dx + (point.y - start.y) * dy
+        ) / lengthSquared
+        let clamped = min(max(projection, 0), 1)
+        return squaredDistance(
+            point,
+            CGPoint(x: start.x + clamped * dx, y: start.y + clamped * dy)
+        )
+    }
+
+    private static func squaredDistance(_ lhs: CGPoint, _ rhs: CGPoint) -> CGFloat {
+        let dx = lhs.x - rhs.x
+        let dy = lhs.y - rhs.y
+        return dx * dx + dy * dy
+    }
+
+    // Vertices are copied from `netherlands_map_provinces.svg`; the order also
+    // matches each individual `map_<province>.svg` overlay.
+    private static let rawPolygons: [(String, [CGPoint])] = [
+        ("Groningen", [p(58, 8), p(86, 12), p(90, 30), p(68, 34), p(48, 24)]),
+        ("Friesland", [p(30, 14), p(60, 8), p(68, 34), p(40, 47), p(18, 35)]),
+        ("Drenthe", [p(58, 34), p(83, 32), p(89, 60), p(58, 69), p(44, 49)]),
+        ("Overijssel", [p(44, 66), p(81, 60), p(93, 88), p(56, 100), p(38, 84)]),
+        ("Flevoland", [p(37, 49), p(57, 67), p(42, 86), p(22, 74), p(24, 54)]),
+        ("Noord-Holland", [p(18, 34), p(44, 47), p(36, 88), p(11, 80), p(7, 56)]),
+        ("Utrecht", [p(30, 80), p(50, 94), p(38, 114), p(15, 106), p(9, 85)]),
+        ("Gelderland", [p(52, 91), p(88, 85), p(94, 115), p(58, 129), p(37, 114)]),
+        ("Zuid-Holland", [p(16, 104), p(41, 112), p(31, 134), p(7, 128), p(3, 113)]),
+        ("Noord-Brabant", [p(32, 120), p(86, 114), p(90, 142), p(34, 150), p(16, 135)]),
+        ("Limburg", [p(70, 137), p(88, 142), p(81, 158), p(66, 154)]),
+        ("Zeeland", [p(8, 123), p(26, 133), p(18, 146), p(3, 139)])
+    ]
+
+    private static func p(_ x: CGFloat, _ y: CGFloat) -> CGPoint {
+        CGPoint(x: x, y: y)
+    }
+}
+
 struct ProvinceInteractiveMapView: View {
+    @EnvironmentObject private var languageManager: LanguageManager
     @Binding var selectedProvinceID: String?
     var showLabels: Bool = false
+    @State private var isProvinceMapPressed = false
+
+    private var lang: AppLanguage { languageManager.appLanguage }
 
     private var selectedProvince: ProvinceItem? {
         selectedProvinceID.map { ProvinceCatalog.item(id: $0) }
@@ -3384,43 +3594,72 @@ struct ProvinceInteractiveMapView: View {
 
     var body: some View {
         GeometryReader { proxy in
-            ZStack {
-                ProvinceHighlightMapView(
-                    provinceID: selectedProvinceID,
-                    highlightColor: selectedProvince?.mapHighlightColor ?? AppColors.dutchOrange,
-                    showLabels: showLabels
-                )
-                .allowsHitTesting(false)
+            let mapRect = ProvinceHighlightMapView.renderedMapRect(in: proxy.size)
 
-                ForEach(ProvinceHitZones.all) { zone in
-                    Rectangle()
-                        .fill(Color.clear)
-                        .frame(
-                            width: proxy.size.width * zone.normalizedFrame.width,
-                            height: proxy.size.height * zone.normalizedFrame.height
-                        )
-                        .contentShape(Rectangle())
-                        .position(
-                            x: proxy.size.width * zone.normalizedFrame.midX,
-                            y: proxy.size.height * zone.normalizedFrame.midY
-                        )
-                        .onTapGesture {
-                            selectProvince(zone)
+            ProvinceHighlightMapView(
+                provinceID: selectedProvinceID,
+                highlightColor: selectedProvince?.mapHighlightColor ?? AppColors.dutchOrange,
+                showLabels: showLabels
+            )
+            .scaleEffect(isProvinceMapPressed ? 0.997 : 1)
+            .brightness(isProvinceMapPressed ? -0.015 : 0)
+            .animation(AppAnimations.tactilePress, value: isProvinceMapPressed)
+            .contentShape(Rectangle())
+            .onLongPressGesture(
+                minimumDuration: 60,
+                maximumDistance: 10,
+                perform: {},
+                onPressingChanged: { isProvinceMapPressed = $0 }
+            )
+            .simultaneousGesture(provinceTapGesture(in: mapRect))
+            .accessibilityElement(children: .contain)
+            .accessibilityChildren {
+                ZStack {
+                    ForEach(ProvinceMapShape.allCases) { province in
+                        let center = ProvinceSchematicHitTesting.representativePoint(
+                            for: province.id,
+                            in: mapRect
+                        ) ?? CGPoint(x: mapRect.midX, y: mapRect.midY)
+
+                        Button {
+                            selectProvince(province.id)
+                        } label: {
+                            Text(ProvinceCatalog.item(id: province.id).localizedName(lang))
                         }
-                        .accessibilityIdentifier(zone.accessibilityIdentifier)
+                        .frame(
+                            width: AppButtonMetrics.minTouchSize,
+                            height: AppButtonMetrics.minTouchSize
+                        )
+                        .position(center)
+                        .accessibilityIdentifier("provinces.map.zone.\(province.id.snakeCasedProvinceID)")
+                        .accessibilityAddTraits(
+                            selectedProvinceID == province.id ? .isSelected : []
+                        )
+                    }
                 }
+                .frame(width: proxy.size.width, height: proxy.size.height)
             }
         }
     }
 
-    private func selectProvince(_ hitZone: ProvinceHitZone) {
-        withAnimation(AppAnimations.standard) {
-            selectedProvinceID = hitZone.id
+    private func provinceTapGesture(in mapRect: CGRect) -> some Gesture {
+        SpatialTapGesture(coordinateSpace: .local)
+            .onEnded { value in
+                guard let provinceID = ProvinceSchematicHitTesting.hitTest(
+                    value.location,
+                    in: mapRect
+                ) else { return }
+
+                selectProvince(provinceID)
+            }
+    }
+
+    private func selectProvince(_ provinceID: String) {
+        withAnimation(AppAnimations.tactilePress) {
+            selectedProvinceID = provinceID
         }
 
-        #if canImport(UIKit)
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        #endif
+        AppHaptics.selection()
     }
 }
 
@@ -3469,6 +3708,23 @@ struct ProvinceHighlightMapView: View {
             }
         }
         .drawingGroup()
+    }
+
+    /// The bundled map SVGs use a 100x160 viewBox and `.scaledToFit()`.
+    /// Sharing this fitted rect with hit testing keeps the touch geometry in
+    /// the same coordinate space as the pixels rendered on screen.
+    static func renderedMapRect(in size: CGSize) -> CGRect {
+        guard size.width > 0, size.height > 0 else { return .zero }
+
+        let aspect: CGFloat = 100 / 160
+        let fittedHeight = min(size.height, size.width / aspect)
+        let fittedWidth = fittedHeight * aspect
+        return CGRect(
+            x: (size.width - fittedWidth) / 2,
+            y: (size.height - fittedHeight) / 2,
+            width: fittedWidth,
+            height: fittedHeight
+        )
     }
 
     private func fallbackVectorMap(size: CGSize) -> some View {
@@ -3543,45 +3799,6 @@ enum AssetAvailability {
         cache[name] = exists
         lock.unlock()
         return exists
-    }
-}
-
-// MARK: - Hit Zones
-
-struct ProvinceHitZone: Identifiable, Hashable {
-    let id: String
-    let normalizedFrame: CGRect
-
-    var area: CGFloat {
-        normalizedFrame.width * normalizedFrame.height
-    }
-
-    var accessibilityIdentifier: String {
-        "provinces.map.zone.\(id.snakeCasedProvinceID)"
-    }
-}
-
-enum ProvinceHitZones {
-    static let all: [ProvinceHitZone] = [
-        ProvinceHitZone(id: "Groningen", normalizedFrame: CGRect(x: 0.58, y: 0.07, width: 0.31, height: 0.18)),
-        ProvinceHitZone(id: "Friesland", normalizedFrame: CGRect(x: 0.35, y: 0.07, width: 0.28, height: 0.23)),
-        ProvinceHitZone(id: "Drenthe", normalizedFrame: CGRect(x: 0.57, y: 0.23, width: 0.26, height: 0.29)),
-        ProvinceHitZone(id: "Noord-Holland", normalizedFrame: CGRect(x: 0.17, y: 0.10, width: 0.22, height: 0.47)),
-        ProvinceHitZone(id: "Flevoland", normalizedFrame: CGRect(x: 0.39, y: 0.32, width: 0.20, height: 0.24)),
-        ProvinceHitZone(id: "Overijssel", normalizedFrame: CGRect(x: 0.55, y: 0.44, width: 0.31, height: 0.26)),
-        ProvinceHitZone(id: "Utrecht", normalizedFrame: CGRect(x: 0.35, y: 0.52, width: 0.18, height: 0.18)),
-        ProvinceHitZone(id: "Gelderland", normalizedFrame: CGRect(x: 0.46, y: 0.57, width: 0.32, height: 0.27)),
-        ProvinceHitZone(id: "Zuid-Holland", normalizedFrame: CGRect(x: 0.13, y: 0.58, width: 0.30, height: 0.20)),
-        ProvinceHitZone(id: "Zeeland", normalizedFrame: CGRect(x: 0.07, y: 0.76, width: 0.28, height: 0.15)),
-        ProvinceHitZone(id: "Noord-Brabant", normalizedFrame: CGRect(x: 0.25, y: 0.78, width: 0.51, height: 0.16)),
-        ProvinceHitZone(id: "Limburg", normalizedFrame: CGRect(x: 0.66, y: 0.79, width: 0.20, height: 0.20))
-    ]
-
-    static func hitTest(_ point: CGPoint) -> ProvinceHitZone? {
-        all
-            .filter { $0.normalizedFrame.contains(point) }
-            .sorted { $0.area < $1.area }
-            .first
     }
 }
 

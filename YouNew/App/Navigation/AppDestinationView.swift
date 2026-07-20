@@ -5,8 +5,12 @@ struct AppDestinationView: View {
     @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var documentStore: DocumentStore
+    @State private var isPreviewingOutsideProfile = false
 
     private var lang: AppLanguage { languageManager.appLanguage }
+    private var accessScope: PersonaSearchScope {
+        isPreviewingOutsideProfile ? .allContentWithOutsidePathWarning : .currentAndUniversal
+    }
 
     var body: some View {
         Group {
@@ -23,31 +27,36 @@ struct AppDestinationView: View {
     @ViewBuilder
     private var destinationContent: some View {
         let activePersona = appState.selectedUserStatus?.personaTag
-        if !RelatedContentEngine.isVisible(destination, for: activePersona) {
-            notFoundView
+        if !RelatedContentEngine.isVisible(destination, for: activePersona) && !isPreviewingOutsideProfile {
+            ReleaseRouteFallbackView(destination: destination) {
+                isPreviewingOutsideProfile = true
+            }
         } else {
             switch destination {
         case .checklist(let id):
-            if let item = appState.checklistItems.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) })
-                ?? MockChecklistData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }) {
+            if let item = appState.checklistItems.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: accessScope) })
+                ?? MockChecklistData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: accessScope) }) {
                 ChecklistItemDetailView(item: item)
             } else {
                 notFoundView
             }
         case .dutchTerm(let id): 
-            if let term = MockDutchTermsData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }) {
+            if let term = MockDutchTermsData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: accessScope) }) {
                 DutchTermDetailView(term: term)
             } else {
                 notFoundView
             }
         case .fineInfo(let id):
-            if let fine = MockFineInfoData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }) {
+            if let fine = MockFineInfoData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: accessScope) }) {
                 FineInfoDetailView(item: fine)
             } else {
                 notFoundView
             }
         case .institution(let name):
-            if let institution = MockInstitutionsData.items.first(where: { $0.name.caseInsensitiveCompare(name) == .orderedSame && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }) {
+            if let institution = MockInstitutionsData.items.first(where: {
+                $0.name.caseInsensitiveCompare(name) == .orderedSame
+                    && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: accessScope)
+            }) {
                 InstitutionDetailView(institution: institution)
             } else {
                 notFoundView
@@ -74,7 +83,7 @@ struct AppDestinationView: View {
                 notFoundView
             }
         case .beginnerGuide(let id):
-            if let item = MockBeginnerGuidesData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }) {
+            if let item = MockBeginnerGuidesData.items.first(where: { $0.id == id && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: accessScope) }) {
                 BeginnerGuideDetailView(item: item)
             } else {
                 notFoundView
@@ -148,8 +157,49 @@ struct AppDestinationView: View {
             } else {
                 notFoundView
             }
-        case .homeExploreList(let id):
-            HomeExploreListView(listID: id)
+        case .placeList(let city):
+            HomeExploreListView(listID: "places", cityID: city)
+        case .museumList(let city):
+            HomeExploreListView(listID: "museums", cityID: city)
+        case .natureList(let city):
+            HomeExploreListView(listID: "nature", cityID: city)
+        case .landmarkList(let city):
+            HomeExploreListView(listID: "landmarks", cityID: city)
+        case .eventList(let city):
+            HomeExploreListView(listID: "events", cityID: city)
+        case .restaurantList(let city):
+            HomeExploreListView(listID: "restaurants", cityID: city)
+        case .cafeList(let city):
+            HomeExploreListView(listID: "cafes", cityID: city)
+        case .discoveryList(let city, let type):
+            HomeExploreListView(listID: type.rawValue, cityID: city)
+        case .restaurantDetail(let city, let itemID):
+            foodGuideDetail(city: city, itemID: itemID, allowedCategories: [.restaurant, .localFood, .market, .vegetarian, .budget, .fineDining])
+        case .cafeDetail(let city, let itemID):
+            foodGuideDetail(city: city, itemID: itemID, allowedCategories: [.cafe, .breakfast])
+        case .housingSection(let type):
+            TypedCategorySectionView(section: .housing(type))
+        case .governmentSection(let type):
+            TypedCategorySectionView(section: .government(type))
+        case .transportSection(let type):
+            TypedCategorySectionView(section: .transport(type))
+        case .educationSection(let type):
+            TypedCategorySectionView(section: .education(type))
+        case .workSection(let type):
+            TypedCategorySectionView(section: .work(type))
+        case .healthSection(let type):
+            TypedCategorySectionView(section: .health(type))
+        case .leisureSection(let city, let type):
+            switch type {
+            case .nightlife:
+                HomeExploreListView(listID: "nightlife", cityID: city)
+            case .weekend:
+                HomeExploreListView(listID: "weekend", cityID: city)
+            case .family:
+                HomeExploreListView(listID: "family-activities", cityID: city)
+            case .architecture:
+                HomeExploreListView(listID: "architecture", cityID: city)
+            }
 
         case .checklistList:    ChecklistView()
         case .institutionsList: InstitutionsView()
@@ -191,8 +241,10 @@ struct AppDestinationView: View {
         case .practicalGuide(let topic):
             if topic == .transportBasics {
                 TransportGuideView()
+                    .accessibilityIdentifier("practicalGuide.\(topic.rawValue)")
             } else {
                 PracticalGuideView(topic: topic)
+                    .accessibilityIdentifier("practicalGuide.\(topic.rawValue)")
             }
         case .netherlandsOverview:
             NetherlandsOverviewView()
@@ -256,14 +308,23 @@ struct AppDestinationView: View {
         case .dutchFigures:   GreatDutchFiguresView()
         case .dutchMonarchy:  DutchMonarchyView()
         case .guideSection(let id):
-            if let section = GuideContent.section(id: id, activePersona: appState.selectedUserStatus?.personaTag) {
+            if let section = GuideContent.section(id: id, activePersona: appState.selectedUserStatus?.personaTag, scope: accessScope) {
                 GuideSectionView(section: section)
             } else {
                 notFoundView
             }
         case .guideArticle(let sectionID, let articleID):
-            if let (article, tint) = GuideContent.article(sectionID: sectionID, articleID: articleID, activePersona: appState.selectedUserStatus?.personaTag) {
+            if let (article, tint) = GuideContent.article(
+                sectionID: sectionID,
+                articleID: articleID,
+                activePersona: appState.selectedUserStatus?.personaTag,
+                scope: accessScope
+            ) {
                 GuideArticleView(article: article, sectionTint: tint)
+            } else if sectionID == GuideContent.dataProjectSectionID,
+                      let item = ContentRepository.shared.item(id: articleID),
+                      item.status == .published {
+                GuideArticleView(article: GuideContent.dataProjectArticle(from: item), sectionTint: .blue)
             } else {
                 notFoundView
             }
@@ -272,12 +333,29 @@ struct AppDestinationView: View {
     }
 
     private var notFoundView: some View {
-        ReleaseRouteFallbackView(destination: destination)
+        ReleaseRouteFallbackView(destination: destination, onPreview: nil)
+    }
+
+    @ViewBuilder
+    private func foodGuideDetail(
+        city: CityId,
+        itemID: String,
+        allowedCategories: Set<FoodGuideCategory>
+    ) -> some View {
+        let dashboardCity = CityDashboardContentData.city(for: city)
+        let audience = UserContentCategory.from(persona: appState.selectedUserStatus?.personaTag)
+        if let item = CityDashboardContentData.foodGuideItems(for: dashboardCity, audience: audience, limit: nil)
+            .first(where: { $0.id == itemID && allowedCategories.contains($0.category) }) {
+            FoodGuideItemDetailView(item: item, city: dashboardCity)
+        } else {
+            notFoundView
+        }
     }
 }
 
 private struct ReleaseRouteFallbackView: View {
     let destination: AppDestination
+    let onPreview: (() -> Void)?
     @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var languageManager: LanguageManager
     @Environment(\.dismiss) private var dismiss
@@ -296,6 +374,19 @@ private struct ReleaseRouteFallbackView: View {
 
                     VStack(alignment: .leading, spacing: AppSpacing.small) {
                         if isHiddenForProfile {
+                            if let onPreview {
+                                Button(action: onPreview) {
+                                    fallbackRow(
+                                        title: previewTitle,
+                                        subtitle: previewSubtitle,
+                                        icon: "eye.fill",
+                                        tint: AppColors.accent
+                                    )
+                                }
+                                .buttonStyle(.plain)
+                                .accessibilityIdentifier("profileGate.preview")
+                            }
+
                             Button(action: goBack) {
                                 fallbackRow(
                                     title: goBackTitle,
@@ -461,9 +552,9 @@ private struct ReleaseRouteFallbackView: View {
     private var title: String {
         if isHiddenForProfile {
             switch lang {
-            case .russian: return "Недоступно для этого профиля"
-            case .dutch: return "Niet beschikbaar voor dit profiel"
-            case .english: return "Not available for this profile"
+            case .russian: return "Материал для другого профиля"
+            case .dutch: return "Inhoud voor een ander profiel"
+            case .english: return "Content for another profile"
             }
         }
         switch lang {
@@ -476,9 +567,9 @@ private struct ReleaseRouteFallbackView: View {
     private var subtitle: String {
         if isHiddenForProfile {
             switch lang {
-            case .russian: return "Этот раздел для другого профиля. Смените профиль или вернитесь назад."
-            case .dutch: return "Deze sectie is voor een ander profiel. Wissel van profiel of ga terug."
-            case .english: return "This section is for another user profile. Switch profile or go back."
+            case .russian: return "Можно временно открыть материал только для чтения или изменить профиль."
+            case .dutch: return "Bekijk de inhoud tijdelijk alleen-lezen of wijzig uw profiel."
+            case .english: return "Preview it temporarily in read-only mode or change your profile."
             }
         }
         switch lang {
@@ -513,6 +604,18 @@ private struct ReleaseRouteFallbackView: View {
         case .dutch: return "Terug"
         case .english: return "Go back"
         }
+    }
+
+    private var previewTitle: String {
+        localized(en: "Preview read-only", nl: "Alleen-lezen bekijken", ru: "Посмотреть без изменения профиля")
+    }
+
+    private var previewSubtitle: String {
+        localized(
+            en: "Your current profile stays unchanged. Check eligibility before acting.",
+            nl: "Uw huidige profiel blijft ongewijzigd. Controleer eerst of dit voor u geldt.",
+            ru: "Текущий профиль не изменится. Перед действиями проверьте применимость информации."
+        )
     }
 
     private var goBackSubtitle: String {
@@ -644,7 +747,7 @@ private struct ReleaseRouteFallbackView: View {
                 AppColors.softBlue,
                 .cityList
             )
-        case .guideSection, .guideArticle:
+        case .guideSection, .guideArticle, .workSection, .healthSection:
             return (
                 localized(en: "Guide sections", nl: "Gidssecties", ru: "Разделы гида"),
                 localized(en: "Open the organized category hub.", nl: "Open de georganiseerde categoriehub.", ru: "Откройте упорядоченные категории."),

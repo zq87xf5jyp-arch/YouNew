@@ -400,7 +400,7 @@ enum MockNetherlandsUnderstandingData {
         "government-municipalities": InfoSourceMetadata(id: "government-municipalities", title: "Municipalities", institution: "Government.nl", url: AppURL.make("https://www.government.nl/topics/municipalities"), sourceType: "official government"),
         "holland-leiden": InfoSourceMetadata(id: "holland-leiden", title: "Leiden - City of Discoveries", institution: "Holland.com", url: AppURL.make("https://www.holland.com/global/tourism/discover-the-netherlands/visit-the-cities/leiden"), sourceType: "official tourism"),
         "delft-tourists": InfoSourceMetadata(id: "delft-tourists", title: "Tourists", institution: "Municipality Delft", url: AppURL.make("https://www.delft.nl/en/tourists"), sourceType: "municipality"),
-        "binnenhof-renovation": InfoSourceMetadata(id: "binnenhof-renovation", title: "Binnenhof Renovation Information Centre", institution: "The Hague Partners", url: AppURL.make("https://thehague.com/partners/en/news/binnenhof-renovation-information-centre-opens-its-doors"), sourceType: "city partner"),
+        "binnenhof-renovation": InfoSourceMetadata(id: "binnenhof-renovation", title: "Binnenhof Renovation", institution: "Municipality of The Hague", url: AppURL.make("https://www.denhaag.nl/nl/projecten-in-den-haag/binnenhof-renovatiewerkzaamheden/"), sourceType: "municipality"),
         "unesco-kinderdijk": InfoSourceMetadata(id: "unesco-kinderdijk", title: "Mill Network at Elshout", institution: "UNESCO World Heritage Centre", url: AppURL.make("https://whc.unesco.org/en/list/818"), sourceType: "UNESCO"),
         "delta-works-official": InfoSourceMetadata(id: "delta-works-official", title: "Delta Works", institution: "Deltawerken", url: AppURL.make("https://www.deltawerken.com/Deltaworks/23.html"), sourceType: "heritage information"),
         "rotterdam-tourism": InfoSourceMetadata(id: "rotterdam-tourism", title: "Travel trade and tourism", institution: "Rotterdam Partners", url: AppURL.make("https://www.rotterdam.info/en/visit/travel-trade"), sourceType: "official tourism"),
@@ -419,7 +419,7 @@ enum MockNetherlandsUnderstandingData {
         "u-ov": InfoSourceMetadata(id: "u-ov", title: "Utrecht public transport", institution: "U-OV", url: AppURL.make("https://www.u-ov.info"), sourceType: "transport"),
         "hermes": InfoSourceMetadata(id: "hermes", title: "Eindhoven regional transport", institution: "Hermes", url: AppURL.make("https://www.hermes.nl"), sourceType: "transport"),
         "qbuzz": InfoSourceMetadata(id: "qbuzz", title: "Groningen regional transport", institution: "Qbuzz", url: AppURL.make("https://www.qbuzz.nl"), sourceType: "transport"),
-        "arriva": InfoSourceMetadata(id: "arriva", title: "Limburg regional transport", institution: "Arriva", url: AppURL.make("https://www.arriva.nl"), sourceType: "transport"),
+        "arriva": InfoSourceMetadata(id: "arriva", title: "Limburg regional transport", institution: "Arriva", url: AppURL.make("https://webshop.arriva.nl/"), sourceType: "transport"),
         "iamsterdam": InfoSourceMetadata(id: "iamsterdam", title: "Amsterdam visitor information", institution: "I amsterdam", url: AppURL.make("https://www.iamsterdam.com"), sourceType: "official tourism")
     ]
 

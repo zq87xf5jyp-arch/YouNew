@@ -129,10 +129,28 @@ struct ContentExpansionCompletenessTests {
             #expect(!partner.sourceReliabilityNote.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty, "Missing source note for \(partner.name)")
 
             let mediaRoles = Set(partner.media.allAssets.map(\.role))
-            #expect(mediaRoles.isSuperset(of: Set(LocalPartnerVisualRole.allCases)), "Missing visual roles for \(partner.name)")
+            let requiredMediaRoles: Set<LocalPartnerVisualRole> = [.hero, .gallery, .thumbnail, .mapPreview]
+            #expect(mediaRoles.isSuperset(of: requiredMediaRoles), "Missing required visual roles for \(partner.name)")
+            if partner.media.logo != nil {
+                #expect(mediaRoles.contains(.logo), "Logo role mismatch for \(partner.name)")
+            }
             #expect(partner.media.allAssets.allSatisfy { $0.url.scheme == "https" }, "Visual source URLs must be HTTPS for \(partner.name)")
             #expect(partner.media.allAssets.allSatisfy { !$0.altText.isEmpty }, "Missing visual alt text for \(partner.name)")
         }
+    }
+
+    @Test func priorityPartnersUseDistinctLicensedPhotography() {
+        let licensedPartners = MockLocalPartnersData.partners.filter { partner in
+            partner.media.hero.licenseNote.localizedCaseInsensitiveContains("CC")
+        }
+        let heroURLs = licensedPartners.map { $0.media.hero.url.absoluteString }
+
+        #expect(licensedPartners.count >= 6)
+        #expect(Set(heroURLs).count == heroURLs.count)
+        #expect(licensedPartners.allSatisfy { partner in
+            partner.media.hero.sourceTitle.localizedCaseInsensitiveContains("Wikimedia Commons")
+                && !partner.media.hero.altText.isEmpty
+        })
     }
 
     @Test func expandedSearchFindsNewCategoryAndPartnerContent() {

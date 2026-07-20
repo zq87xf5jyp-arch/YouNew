@@ -490,7 +490,10 @@ private extension AIWorkflowEngine {
         switch kind {
         case .healthInsurance:
             actions = [
-                .openGuide(title: t("Open Health Guide", "Open zorggids", "Открыть гид по медицине", language), destinationID: "healthcare"),
+                .openGuide(
+                    title: t("Open Health Insurance Guide", "Open zorgverzekeringsgids", "Открыть гид по медицинской страховке", language),
+                    destinationID: "practicalGuide:healthInsuranceBasics"
+                ),
                 .openScreen(title: t("Find Healthcare Nearby", "Zorg dichtbij zoeken", "Найти медицину рядом", language), destinationID: "mapFocus:healthcare"),
                 .relatedTopic(t("Huisarts", "Huisarts", "Huisarts", language), query: "huisarts")
             ]
@@ -553,7 +556,7 @@ private extension AIWorkflowEngine {
 
     static func fallbackDestinationID(for kind: AIWorkflowKind) -> String {
         switch kind {
-        case .healthInsurance: return "healthcare"
+        case .healthInsurance: return "practicalGuide:healthInsuranceBasics"
         case .bsnRegistration, .digid: return "journeyDocuments"
         case .fineLetter: return "fines"
         case .housing: return "housing"
@@ -626,8 +629,8 @@ private extension AIWorkflowEngine {
         case .askFollowUp: return 0
         case .openCity, .openProvince: return 1
         case .openGuide, .openScreen: return 2
-        case .openSource: return 3
-        case .save, .share, .relatedTopic: return 4
+        case .openSource, .relatedTopic: return 3
+        case .save, .share: return 4
         }
     }
 

@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-14",
+  "counting_rule": "Current counts include all governed DATA PROJECT records; published counts are reported separately. Legacy runtime data is excluded until audited and migrated.",
+  "targets": [
+    {"key": "cities", "label": "Cities", "entity_types": ["city"], "target": 50, "work_package": "WP-06"},
+    {"key": "museums", "label": "Museums", "entity_types": ["museum"], "target": 500, "work_package": "WP-07"},
+    {"key": "restaurants", "label": "Restaurants", "entity_types": ["restaurant"], "target": 1000, "work_package": "WP-08"},
+    {"key": "cafes", "label": "Cafés", "entity_types": ["cafe"], "target": 500, "work_package": "WP-09"},
+    {"key": "hotels", "label": "Hotels", "entity_types": ["hotel"], "target": 300, "work_package": "WP-10"},
+    {"key": "nature", "label": "Nature and parks", "entity_types": ["nature"], "target": 300, "work_package": "WP-12"},
+    {"key": "government", "label": "Government topics", "entity_types": ["government_service", "document"], "target": 1000, "work_package": "WP-01"},
+    {"key": "housing", "label": "Housing topics", "entity_types": ["knowledge_topic"], "target": 500, "work_package": "WP-02"},
+    {"key": "healthcare", "label": "Healthcare topics", "entity_types": ["knowledge_topic"], "target": 500, "work_package": "WP-03"},
+    {"key": "transport", "label": "Transport topics", "entity_types": ["knowledge_topic"], "target": 500, "work_package": "WP-04"},
+    {"key": "education", "label": "Education topics", "entity_types": ["knowledge_topic"], "target": 500, "work_package": "WP-05"},
+    {"key": "partners", "label": "Local partners", "entity_types": ["local_partner"], "target": 1000, "work_package": "WP-13"},
+    {"key": "events", "label": "Active events", "entity_types": ["event"], "target": 1000, "work_package": "WP-11"},
+    {"key": "images", "label": "Verified media assets", "entity_types": ["*media_assets"], "target": 10000, "work_package": "WP-14"}
+  ]
+}

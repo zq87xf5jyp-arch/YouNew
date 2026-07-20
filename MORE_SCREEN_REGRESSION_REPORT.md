@@ -92,8 +92,8 @@ Verification:
 
 Passed:
 - `scripts/run-static-qa.sh`
-- `xcodebuild -project YouNew.xcodeproj -scheme YouNew -destination id=DD6314A8-FA00-4A38-9D9C-3E6C1D3D3CC1 -derivedDataPath /private/tmp/YouNewDerivedDataLayoutRegression -parallel-testing-enabled NO -only-testing:YouNewUITests/YouNewUITests/testMoreMenuLayoutKeepsHeroBoundedAndAIHidden test`
-- `xcodebuild -project YouNew.xcodeproj -scheme YouNew -destination id=DD6314A8-FA00-4A38-9D9C-3E6C1D3D3CC1 -derivedDataPath /private/tmp/YouNewDerivedDataLayoutRegression build-for-testing`
+- `xcodebuild -project YouNew.xcodeproj -scheme YouNew -destination id=<SIMULATOR_UDID> -derivedDataPath <TEMP_DIR>/LayoutRegression -parallel-testing-enabled NO -only-testing:YouNewUITests/YouNewUITests/testMoreMenuLayoutKeepsHeroBoundedAndAIHidden test`
+- `xcodebuild -project YouNew.xcodeproj -scheme YouNew -destination id=<SIMULATOR_UDID> -derivedDataPath <TEMP_DIR>/LayoutRegression build-for-testing`
 
 ## Remaining Release Risk
 

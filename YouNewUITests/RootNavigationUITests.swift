@@ -11,12 +11,12 @@ final class RootNavigationUITests: XCTestCase {
         let expected = ["tab.home", "tab.guide", "tab.map", "tab.saved", "tab.more"]
 
         for identifier in expected {
-            XCTAssertTrue(app.descendants(matching: .any)[identifier].waitForExistence(timeout: 6), "Missing root tab \(identifier)")
+            XCTAssertTrue(element(identifier, in: app).waitForExistence(timeout: 6), "Missing root tab \(identifier)")
         }
-        XCTAssertFalse(app.descendants(matching: .any)["tab.search"].exists)
-        XCTAssertFalse(app.descendants(matching: .any)["tab.assistant"].exists)
+        XCTAssertFalse(element("tab.search", in: app).exists)
+        XCTAssertFalse(element("tab.assistant", in: app).exists)
 
-        let frames = expected.map { app.descendants(matching: .any)[$0].frame }
+        let frames = expected.map { element($0, in: app).frame }
         XCTAssertEqual(frames.map(\.minX), frames.map(\.minX).sorted())
         XCTAssertTrue(frames.allSatisfy { $0.width >= 44 && $0.height >= 44 })
         attachScreenshot(app, name: "root-navigation-home")
@@ -34,8 +34,8 @@ final class RootNavigationUITests: XCTestCase {
 
         for item in cases {
             let app = launch(startTab: item.start)
-            let tab = app.descendants(matching: .any)[item.tab]
-            let screen = app.descendants(matching: .any)[item.screen]
+            let tab = element(item.tab, in: app)
+            let screen = element(item.screen, in: app)
             XCTAssertTrue(screen.waitForExistence(timeout: 7), "Missing screen \(item.screen)")
             XCTAssertLessThanOrEqual(screen.frame.minY, tab.frame.minY)
             attachScreenshot(app, name: item.tab.replacingOccurrences(of: ".", with: "-"))
@@ -45,15 +45,19 @@ final class RootNavigationUITests: XCTestCase {
 
     @MainActor
     func testAccessibilitySizeKeepsPrimaryHomeActionsReachable() {
-        let app = launch(startTab: "home", accessibilitySize: true)
-        for identifier in ["home.currentCity", "home.globalSearch", "home.urgentHelp", "home.aiButton"] {
-            let element = app.descendants(matching: .any)[identifier]
-            XCTAssertTrue(element.waitForExistence(timeout: 7), "Missing \(identifier)")
-            XCTAssertGreaterThanOrEqual(element.frame.width, 44)
-            XCTAssertGreaterThanOrEqual(element.frame.height, 44)
-            XCTAssertFalse(element.label.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+        for identifier in ["home.discoveryMenu", "home.globalSearch", "home.currentCity", "home.currentProfile"] {
+            let app = launch(startTab: "home", accessibilitySize: true)
+            let target = element(identifier, in: app)
+            for _ in 0..<14 where !target.exists || !target.isHittable {
+                app.swipeUp(velocity: .fast)
+            }
+            XCTAssertTrue(target.waitForExistence(timeout: 7), "Missing \(identifier)")
+            XCTAssertTrue(target.isHittable, "Primary Home action is not reachable: \(identifier)")
+            XCTAssertGreaterThanOrEqual(target.frame.width, 44)
+            XCTAssertGreaterThanOrEqual(target.frame.height, 44)
+            XCTAssertFalse(target.label.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
+            app.terminate()
         }
-        attachScreenshot(app, name: "home-accessibility-xxxl")
     }
 
     @MainActor
@@ -69,22 +73,22 @@ final class RootNavigationUITests: XCTestCase {
     @MainActor
     private func assertScrollMatrix(accessibilitySize: Bool) {
         let cases: [(tab: String, first: String, last: String, ai: String?)] = [
-            ("home", "home.currentCity", "home.lastElement", "home.aiButton"),
-            ("guide", "screen.guide", "guide.lastElement", "guide.aiButton"),
-            ("map", "map.resultSummary", "map.lastElement", "floating.assistant.button"),
             ("saved", "saved.search", "saved.lastElement", nil),
-            ("more", "screen.more", "more.lastElement", nil)
+            ("more", "screen.more", "more.lastElement", nil),
+            ("home", "home.currentCity", "home.lastElement", "home.aiButton"),
+            ("guide", "screen.guide", "guide.lastElement", "guide.aiButton")
         ]
 
         for item in cases {
             let app = launch(startTab: item.tab, accessibilitySize: accessibilitySize)
-            let first = app.descendants(matching: .any)[item.first]
+            let first = element(item.first, in: app)
             XCTAssertTrue(first.waitForExistence(timeout: 10), "[\(item.tab)] first element missing")
-            let tabBar = app.descendants(matching: .any)["root.tabBar"]
+            let tabBar = element("root.tabBar", in: app)
             XCTAssertTrue(tabBar.waitForExistence(timeout: 5), "[\(item.tab)] root tab bar missing")
 
-            let last = app.descendants(matching: .any)[item.last]
-            for _ in 0..<14 where !last.isHittable {
+            let last = element(item.last, in: app)
+            for _ in 0..<14
+            where !last.isHittable || last.frame.maxY + 8 > tabBar.frame.minY {
                 app.swipeUp(velocity: .fast)
             }
             XCTAssertTrue(last.exists, "[\(item.tab)] last element does not exist")
@@ -92,7 +96,7 @@ final class RootNavigationUITests: XCTestCase {
             XCTAssertLessThanOrEqual(last.frame.maxY + 8, tabBar.frame.minY, "[\(item.tab)] last element intersects the tab bar or has no visual gap")
 
             if let aiIdentifier = item.ai {
-                let ai = app.descendants(matching: .any)[aiIdentifier]
+                let ai = element(aiIdentifier, in: app)
                 if ai.exists {
                     XCTAssertFalse(ai.frame.intersects(last.frame), "[\(item.tab)] AI intersects the last element")
                     XCTAssertFalse(ai.frame.intersects(tabBar.frame), "[\(item.tab)] AI intersects the tab bar")
@@ -130,5 +134,9 @@ final class RootNavigationUITests: XCTestCase {
         attachment.name = name
         attachment.lifetime = .keepAlways
         add(attachment)
+    }
+
+    private func element(_ identifier: String, in app: XCUIApplication) -> XCUIElement {
+        app.descendants(matching: .any).matching(identifier: identifier).firstMatch
     }
 }

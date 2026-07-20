@@ -147,6 +147,15 @@ final class DirectImageLoader: ObservableObject {
     func cancel() {
         task?.cancel()
         task = nil
+        switch state {
+        case .loading:
+            currentURLString = nil
+            state = .idle
+        case .failed:
+            currentURLString = nil
+        case .idle, .success:
+            break
+        }
     }
 
     func load(_ urlString: String?, targetWidth: CGFloat = 900, debugContext: ImageDebugContext? = nil) {
@@ -303,6 +312,7 @@ struct CityImageView: View {
     var debugContext: ImageDebugContext? = nil
     var renderRole: CityImageRenderRole = .hero
     var targetPixelWidth: CGFloat? = nil
+    var showsReadableOverlay = true
 
     @StateObject private var loader = DirectImageLoader()
 
@@ -324,8 +334,12 @@ struct CityImageView: View {
             switch renderRole {
             case .hero:
                 asset = LocalNetherlandsImagePackRegistry.cityHero(placeId: placeId)
-            case .card, .thumbnail, .mapPreview:
+            case .card:
                 asset = LocalNetherlandsImagePackRegistry.cityCard(placeId: placeId)
+                    ?? LocalNetherlandsImagePackRegistry.cityHero(placeId: placeId)
+            case .thumbnail, .mapPreview:
+                asset = LocalNetherlandsImagePackRegistry.cityShortcut(placeId: placeId)
+                    ?? LocalNetherlandsImagePackRegistry.cityCard(placeId: placeId)
                     ?? LocalNetherlandsImagePackRegistry.cityHero(placeId: placeId)
             }
         }
@@ -386,6 +400,10 @@ struct CityImageView: View {
                     FallbackCityView(cityName: cityName, color: fallbackColor, height: height)
                 }
             }
+
+            if showsReadableOverlay {
+                readablePhotoOverlay
+            }
         }
         .frame(maxWidth: .infinity)
         .frame(height: height)
@@ -441,6 +459,21 @@ struct CityImageView: View {
             modelID: context.modelID,
             cacheHit: bundledAssetName != nil || loader.resolvedFromCache
         )
+    }
+
+    private var readablePhotoOverlay: some View {
+        LinearGradient(
+            colors: [
+                Color.black.opacity(0.00),
+                Color.black.opacity(0.14),
+                Color.black.opacity(renderRole == .hero ? 0.54 : 0.46)
+            ],
+            startPoint: .top,
+            endPoint: .bottom
+        )
+        .frame(maxWidth: .infinity)
+        .frame(height: height)
+        .allowsHitTesting(false)
     }
 
     private func resolveHeroURL(placeId: String?, entityURL: String?) -> String? {

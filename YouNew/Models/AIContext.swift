@@ -65,6 +65,18 @@ enum AIResponseConfidence: String, Codable, Equatable {
     case low
 }
 
+enum AIResponseOrigin: String, Codable, Equatable {
+    /// A response validated against the bounded backend contract and carrying
+    /// actual GPT-5.6 model/request metadata.
+    case liveOpenAI
+    /// Deterministic guidance composed entirely from bundled app content.
+    case localGuide
+    /// A response that did not satisfy the live or grounded-local contract.
+    case unverified
+    /// A locally generated safety or privacy warning.
+    case safety
+}
+
 struct AIContext: Codable, Equatable {
     let screen: AIContextScreen
     let category: String?
@@ -204,6 +216,9 @@ struct AIResponse: Codable, Equatable {
     let isVerified: Bool
     let cacheKey: String?
     let confidence: AIResponseConfidence
+    let origin: AIResponseOrigin
+    let model: String?
+    let requestID: String?
 
     private enum CodingKeys: String, CodingKey {
         case answer
@@ -217,6 +232,9 @@ struct AIResponse: Codable, Equatable {
         case isVerified
         case cacheKey
         case confidence
+        case origin
+        case model
+        case requestID = "requestId"
     }
 
     init(
@@ -230,7 +248,10 @@ struct AIResponse: Codable, Equatable {
         appDestinationID: String? = nil,
         isVerified: Bool = true,
         cacheKey: String? = nil,
-        confidence: AIResponseConfidence? = nil
+        confidence: AIResponseConfidence? = nil,
+        origin: AIResponseOrigin = .localGuide,
+        model: String? = nil,
+        requestID: String? = nil
     ) {
         self.answer = answer
         self.sources = sources
@@ -243,6 +264,9 @@ struct AIResponse: Codable, Equatable {
         self.isVerified = isVerified
         self.cacheKey = cacheKey
         self.confidence = confidence ?? (isVerified ? .high : .low)
+        self.origin = origin
+        self.model = model
+        self.requestID = requestID
     }
 
     init(from decoder: Decoder) throws {
@@ -258,6 +282,20 @@ struct AIResponse: Codable, Equatable {
         isVerified = try container.decodeIfPresent(Bool.self, forKey: .isVerified) ?? false
         cacheKey = try container.decodeIfPresent(String.self, forKey: .cacheKey)
         confidence = try container.decodeIfPresent(AIResponseConfidence.self, forKey: .confidence) ?? (isVerified ? .high : .low)
+        // Persisted responses created before this field existed must never be
+        // promoted to a live response merely because they were cached.
+        origin = try container.decodeIfPresent(AIResponseOrigin.self, forKey: .origin) ?? .localGuide
+        model = try container.decodeIfPresent(String.self, forKey: .model)
+        requestID = try container.decodeIfPresent(String.self, forKey: .requestID)
+    }
+
+    var isLiveOpenAI: Bool {
+        guard origin == .liveOpenAI,
+              let model,
+              let requestID,
+              !requestID.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        else { return false }
+        return BuildWeekNewcomerDemo.isAllowedModel(model)
     }
 
     static func empty(language: AppLanguage) -> AIResponse {
@@ -285,7 +323,8 @@ struct AIResponse: Codable, Equatable {
                 AIResponseAction.share(title: shareTitle, itemID: "empty-response"),
                 AIResponseAction.relatedTopic(relatedTitle, query: relatedTitle)
             ],
-            isVerified: false
+            isVerified: false,
+            origin: .unverified
         )
     }
 
@@ -352,7 +391,8 @@ struct AIResponse: Codable, Equatable {
                 destinationTitle: nextDestTitle
             ),
             appDestinationID: "search",
-            isVerified: false
+            isVerified: false,
+            origin: .unverified
         )
     }
 

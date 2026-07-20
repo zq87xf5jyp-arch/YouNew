@@ -68,7 +68,7 @@ extension View {
 
     func appSceneBackground(_ style: YouNewScreenBackgroundStyle) -> some View {
         background {
-            GlobalBackgroundView()
+            AppSceneBackgroundLayer()
         }
     }
 }
@@ -215,6 +215,8 @@ struct AppPressableCardButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
+            .frame(minWidth: AppButtonMetrics.minTouchSize, minHeight: AppButtonMetrics.minTouchSize)
+            .contentShape(Rectangle())
             .scaleEffect(!reduceMotion && configuration.isPressed ? 0.97 : 1.0)
             .opacity(configuration.isPressed ? 0.92 : 1.0)
             .brightness(configuration.isPressed ? -0.018 : 0)
@@ -243,6 +245,7 @@ struct AppPressableButtonStyle: ButtonStyle {
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
             .frame(minWidth: AppButtonMetrics.minTouchSize, minHeight: AppButtonMetrics.minTouchSize)
+            .contentShape(Rectangle())
             .scaleEffect(!reduceMotion && configuration.isPressed ? 0.97 : 1.0)
             .opacity(!isEnabled ? 0.56 : (configuration.isPressed ? 0.90 : 1.0))
             .brightness(configuration.isPressed ? -0.02 : 0)

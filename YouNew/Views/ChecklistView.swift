@@ -89,8 +89,10 @@ struct ChecklistView: View {
         }
         .appSceneBackground()
         .navigationTitle(L10n.t("checklist.title", lang))
+        .accessibilityIdentifier("checklist.screen")
         .overlay {
             AchievementConfetti(visible: showCompletionConfetti)
+                .allowsHitTesting(false)
         }
         .onChange(of: progress) { oldValue, newValue in
             if oldValue < 1, newValue == 1 {

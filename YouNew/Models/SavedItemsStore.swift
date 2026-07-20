@@ -38,6 +38,23 @@ final class SavedItemsStore: ObservableObject {
         case provinceCities(String)
         case cityDetail(String, String)
         case homeExploreList(String)
+        case placeList(String)
+        case museumList(String)
+        case natureList(String)
+        case landmarkList(String)
+        case eventList(String)
+        case restaurantList(String)
+        case cafeList(String)
+        case discoveryList(String, String)
+        case restaurantDetail(String, String)
+        case cafeDetail(String, String)
+        case housingSection(String)
+        case governmentSection(String)
+        case transportSection(String)
+        case educationSection(String)
+        case workSection(String)
+        case healthSection(String)
+        case leisureSection(String, String)
         case checklistList
         case institutionsList
         case finesList
@@ -293,13 +310,14 @@ final class SavedItemsStore: ObservableObject {
         if let payload = try? JSONDecoder().decode([CanonicalPersistedSavedItem].self, from: data) {
             return payload.reduce(into: [:]) { result, item in
                 guard !item.id.isEmpty else { return }
-                let content = ContentRepository.shared.item(id: item.id)
+                let canonicalID = NetherlandsKnowledgeDatabase.shared.canonicalID(for: item.id)
+                let content = ContentRepository.shared.item(id: canonicalID)
                 result[item.id] = SavedItem(
-                    id: item.id,
+                    id: canonicalID,
                     kind: savedItemKind(for: content?.contentType),
-                    title: content?.title ?? item.id,
+                    title: content?.title ?? NetherlandsKnowledgeDatabase.shared.entity(id: canonicalID)?.title ?? canonicalID,
                     subtitle: content?.primaryCategoryID,
-                    destination: ContentRepository.shared.legacyDestination(id: item.id),
+                    destination: ContentRepository.shared.destination(id: canonicalID) ?? NetherlandsKnowledgeDatabase.shared.entity(id: canonicalID)?.route,
                     savedAt: item.savedAt
                 )
             }
@@ -310,13 +328,14 @@ final class SavedItemsStore: ObservableObject {
         }
         return legacyPayload.reduce(into: [:]) { result, item in
             guard !item.id.isEmpty else { return }
-            let content = ContentRepository.shared.item(id: item.id)
-            result[item.id] = SavedItem(
-                id: item.id,
+            let canonicalID = NetherlandsKnowledgeDatabase.shared.canonicalID(for: item.id)
+            let content = ContentRepository.shared.item(id: canonicalID)
+            result[canonicalID] = SavedItem(
+                id: canonicalID,
                 kind: content.map { savedItemKind(for: $0.contentType) } ?? item.kind,
-                title: content?.title ?? item.title,
+                title: content?.title ?? NetherlandsKnowledgeDatabase.shared.entity(id: canonicalID)?.title ?? item.title,
                 subtitle: content?.primaryCategoryID ?? item.subtitle,
-                destination: ContentRepository.shared.legacyDestination(id: item.id) ?? destination(from: item.destination),
+                destination: ContentRepository.shared.destination(id: canonicalID) ?? NetherlandsKnowledgeDatabase.shared.entity(id: canonicalID)?.route ?? destination(from: item.destination),
                 savedAt: item.savedAt
             )
         }
@@ -355,7 +374,23 @@ final class SavedItemsStore: ObservableObject {
         case .provinceDetail(let provinceName): return .provinceDetail(provinceName)
         case .provinceCities(let provinceName): return .provinceCities(provinceName)
         case .cityDetail(let province, let city): return .cityDetail(province, city)
-        case .homeExploreList(let id): return .homeExploreList(id)
+        case .placeList(let city): return .placeList(city.rawValue)
+        case .museumList(let city): return .museumList(city.rawValue)
+        case .natureList(let city): return .natureList(city.rawValue)
+        case .landmarkList(let city): return .landmarkList(city.rawValue)
+        case .eventList(let city): return .eventList(city.rawValue)
+        case .restaurantList(let city): return .restaurantList(city.rawValue)
+        case .cafeList(let city): return .cafeList(city.rawValue)
+        case .discoveryList(let city, let type): return .discoveryList(city.rawValue, type.rawValue)
+        case .restaurantDetail(let city, let itemID): return .restaurantDetail(city.rawValue, itemID)
+        case .cafeDetail(let city, let itemID): return .cafeDetail(city.rawValue, itemID)
+        case .housingSection(let type): return .housingSection(type.rawValue)
+        case .governmentSection(let type): return .governmentSection(type.rawValue)
+        case .transportSection(let type): return .transportSection(type.rawValue)
+        case .educationSection(let type): return .educationSection(type.rawValue)
+        case .workSection(let type): return .workSection(type.rawValue)
+        case .healthSection(let type): return .healthSection(type.rawValue)
+        case .leisureSection(let city, let type): return .leisureSection(city.rawValue, type.rawValue)
         case .checklistList: return .checklistList
         case .institutionsList: return .institutionsList
         case .finesList: return .finesList
@@ -451,9 +486,9 @@ final class SavedItemsStore: ObservableObject {
             return restoredUUIDDestination(id, in: MockResourcesData.items.map(\.id), AppDestination.resource)
         case .document(let id): return UUID(uuidString: id).map(AppDestination.document)
         case .placeDetail(let id):
-            return DashboardPlacesData.places.contains(where: { $0.id == id }) ? .placeDetail(id) : nil
+            return DashboardPlacesData.detailPlace(id: id) != nil ? .placeDetail(id) : nil
         case .calendarEvent(let id):
-            return DashboardCalendarData.events.contains(where: { $0.id == id }) ? .calendarEvent(id) : nil
+            return DashboardCalendarData.detailEvent(id: id) != nil ? .calendarEvent(id) : nil
         case .provinceList: return .provinceList
         case .cityList: return .cityList
         case .provinceDetail(let provinceName):
@@ -464,7 +499,32 @@ final class SavedItemsStore: ObservableObject {
             guard let provinceItem = ProvinceCatalog.provinceIfFound(matching: province),
                   ProvinceCatalog.cityIfFound(named: city, provinceID: provinceItem.id) != nil else { return nil }
             return .cityDetail(province: province, city: city)
-        case .homeExploreList(let id): return id.isEmpty ? nil : .homeExploreList(id)
+        case .homeExploreList: return nil
+        case .placeList(let city): return CityId(rawValue: city).map(AppDestination.placeList)
+        case .museumList(let city): return CityId(rawValue: city).map(AppDestination.museumList)
+        case .natureList(let city): return CityId(rawValue: city).map(AppDestination.natureList)
+        case .landmarkList(let city): return CityId(rawValue: city).map(AppDestination.landmarkList)
+        case .eventList(let city): return CityId(rawValue: city).map(AppDestination.eventList)
+        case .restaurantList(let city): return CityId(rawValue: city).map(AppDestination.restaurantList)
+        case .cafeList(let city): return CityId(rawValue: city).map(AppDestination.cafeList)
+        case .discoveryList(let city, let type):
+            guard let cityID = CityId(rawValue: city), let listType = DiscoveryListType(rawValue: type) else { return nil }
+            return .discoveryList(city: cityID, type: listType)
+        case .restaurantDetail(let city, let itemID):
+            guard let cityID = CityId(rawValue: city), !itemID.isEmpty else { return nil }
+            return .restaurantDetail(city: cityID, itemID: itemID)
+        case .cafeDetail(let city, let itemID):
+            guard let cityID = CityId(rawValue: city), !itemID.isEmpty else { return nil }
+            return .cafeDetail(city: cityID, itemID: itemID)
+        case .housingSection(let type): return HousingSectionType(rawValue: type).map(AppDestination.housingSection)
+        case .governmentSection(let type): return GovernmentSectionType(rawValue: type).map(AppDestination.governmentSection)
+        case .transportSection(let type): return TransportSectionType(rawValue: type).map(AppDestination.transportSection)
+        case .educationSection(let type): return EducationSectionType(rawValue: type).map(AppDestination.educationSection)
+        case .workSection(let type): return WorkSectionType(rawValue: type).map(AppDestination.workSection)
+        case .healthSection(let type): return HealthSectionType(rawValue: type).map(AppDestination.healthSection)
+        case .leisureSection(let city, let type):
+            guard let cityID = CityId(rawValue: city), let sectionType = LeisureSectionType(rawValue: type) else { return nil }
+            return .leisureSection(city: cityID, type: sectionType)
         case .checklistList: return .checklistList
         case .institutionsList: return .institutionsList
         case .finesList: return .finesList
@@ -527,8 +587,17 @@ final class SavedItemsStore: ObservableObject {
         case .scamWarningsList: return .scamWarningsList
         case .scamWarning(let id):
             return restoredUUIDDestination(id, in: MockScamWarningsData.items.map(\.id), AppDestination.scamWarning)
-        case .guideSection(let id): return GuideContent.section(id: id) == nil ? nil : .guideSection(id)
+        case .guideSection(let id):
+            if id == "work" { return .workSection(.overview) }
+            if id == "healthcare" { return .healthSection(.overview) }
+            if id == "housing" { return .housingSection(.overview) }
+            if id == "transport" { return .transportSection(.overview) }
+            return GuideContent.section(id: id) == nil ? nil : .guideSection(id)
         case .guideArticle(let sectionID, let articleID):
+            if sectionID == GuideContent.dataProjectSectionID,
+               ContentRepository.shared.item(id: articleID)?.status == .published {
+                return .guideArticle(sectionID: sectionID, articleID: articleID)
+            }
             return GuideContent.article(sectionID: sectionID, articleID: articleID) == nil ? nil : .guideArticle(sectionID: sectionID, articleID: articleID)
         case .dutchHolidays: return .dutchHolidays
         case .dutchFigures: return .dutchFigures

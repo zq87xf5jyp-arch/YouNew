@@ -41,6 +41,12 @@ struct HomeView: View {
 
     private var lang: AppLanguage { languageManager.appLanguage }
     private var cityName: String { ProvinceCatalog.localizedCityName(cityDashboard.cityName, lang) }
+    private var selectedCityID: CityId {
+        guard let cityID = CityId.resolve(cityDashboard.cityName) else {
+            preconditionFailure("Home category routing requires an explicit supported city: \(cityDashboard.cityName)")
+        }
+        return cityID
+    }
     private var cityDashboard: CityDashboardContent {
         CityDashboardContentData.content(for: appState.selectedCity)
     }
@@ -178,10 +184,10 @@ struct HomeView: View {
     private var stayPlanningActions: [HomeCityGuideActionItem] {
         [
             travelAction(.booking, title: "Hotels in \(cityDashboard.cityName)", subtitle: "Open Booking.com", symbol: "bed.double.fill", provider: "Booking", cta: "Find stays"),
-            searchAction(id: "plan-restaurants", title: "Restaurants", subtitle: "Food guide", query: cityDashboard.city.restaurantQuery, symbol: "fork.knife", tint: AppColors.dutchOrange),
-            searchAction(id: "plan-cafes", title: "Cafes", subtitle: "Coffee & breakfast", query: cityDashboard.city.cafeQuery, symbol: "cup.and.saucer.fill", tint: AppColors.warning),
-            HomeCityGuideActionItem(id: "plan-places", title: "Places", subtitle: "Museums & landmarks", symbol: "building.columns.fill", tint: AppColors.cyanGlow, url: nil, destination: cityDashboard.mapFocus, provider: nil, cta: nil, externalLink: nil),
-            HomeCityGuideActionItem(id: "plan-transport", title: "Transport", subtitle: "OV, bikes, routes", symbol: "tram.fill", tint: AppColors.emerald, url: nil, destination: .practicalGuide(.transportBasics), provider: nil, cta: nil, externalLink: nil),
+            routeAction(id: "plan-restaurants", title: "Restaurants", subtitle: "Food guide", symbol: "fork.knife", tint: AppColors.dutchOrange, destination: .restaurantList(city: selectedCityID)),
+            routeAction(id: "plan-cafes", title: "Cafes", subtitle: "Coffee & breakfast", symbol: "cup.and.saucer.fill", tint: AppColors.warning, destination: .cafeList(city: selectedCityID)),
+            HomeCityGuideActionItem(id: "plan-places", title: "Places", subtitle: "Museums & landmarks", symbol: "building.columns.fill", tint: AppColors.cyanGlow, url: nil, destination: .placeList(city: selectedCityID), provider: nil, cta: nil, externalLink: nil),
+            HomeCityGuideActionItem(id: "plan-transport", title: "Transport", subtitle: "OV, bikes, routes", symbol: "tram.fill", tint: AppColors.emerald, url: nil, destination: .transportSection(.overview), provider: nil, cta: nil, externalLink: nil),
             HomeCityGuideActionItem(id: "plan-emergency", title: "Emergency", subtitle: "112 and urgent help", symbol: "phone.fill", tint: AppColors.error, url: nil, destination: .emergencyHub, provider: nil, cta: nil, externalLink: nil)
         ].compactMap { $0 }
     }
@@ -190,49 +196,49 @@ struct HomeView: View {
     }
     private var refugeeEssentialsActions: [HomeCityGuideActionItem] {
         [
-            routeAction(id: "refugee-ind", title: "IND", subtitle: "Status and documents", symbol: "building.columns.fill", tint: AppColors.softBlue, destination: .governmentHub),
-            routeAction(id: "refugee-municipality", title: "Municipality", subtitle: "Registration and local support", symbol: "building.2.fill", tint: AppColors.cyanGlow, destination: .governmentHub),
-            routeAction(id: "refugee-housing", title: "Housing", subtitle: "Home and address basics", symbol: "house.fill", tint: AppColors.violet, destination: .practicalGuide(.housingBasics)),
-            routeAction(id: "refugee-benefits", title: "Benefits", subtitle: "Official support routes", symbol: "creditcard.fill", tint: AppColors.dutchOrange, destination: .officialSources),
-            routeAction(id: "refugee-healthcare", title: "Healthcare", subtitle: "GP, insurance, urgent care", symbol: "cross.case.fill", tint: AppColors.emerald, destination: .practicalGuide(.healthcareBasics)),
+            routeAction(id: "refugee-ind", title: "IND", subtitle: "Status and documents", symbol: "building.columns.fill", tint: AppColors.softBlue, destination: .governmentSection(.ind)),
+            routeAction(id: "refugee-municipality", title: "Municipality", subtitle: "Registration and local support", symbol: "building.2.fill", tint: AppColors.cyanGlow, destination: .governmentSection(.municipality)),
+            routeAction(id: "refugee-housing", title: "Housing", subtitle: "Home and address basics", symbol: "house.fill", tint: AppColors.violet, destination: .housingSection(.overview)),
+            routeAction(id: "refugee-benefits", title: "Benefits", subtitle: "Official support routes", symbol: "creditcard.fill", tint: AppColors.dutchOrange, destination: .governmentSection(.taxes)),
+            routeAction(id: "refugee-healthcare", title: "Healthcare", subtitle: "GP, insurance, urgent care", symbol: "cross.case.fill", tint: AppColors.emerald, destination: .governmentSection(.healthcare)),
             routeAction(id: "refugee-documents", title: "Documents", subtitle: "Papers and official steps", symbol: "doc.text.fill", tint: AppColors.warning, destination: .journeyDocuments)
         ]
     }
     private var studentEssentialsActions: [HomeCityGuideActionItem] {
         [
-            routeAction(id: "student-transport", title: "Transport", subtitle: "OV, bikes, routes", symbol: "tram.fill", tint: AppColors.emerald, destination: .practicalGuide(.transportBasics)),
-            routeAction(id: "student-housing", title: "Housing", subtitle: "Rooms and address basics", symbol: "house.fill", tint: AppColors.violet, destination: .practicalGuide(.housingBasics)),
-            routeAction(id: "student-education", title: "Education", subtitle: "Schools and institutions", symbol: "graduationcap.fill", tint: AppColors.softBlue, destination: .institutionsList),
-            HomeCityGuideActionItem(id: "student-places", title: "City places", subtitle: "Museums & landmarks", symbol: "building.columns.fill", tint: AppColors.cyanGlow, url: nil, destination: cityDashboard.mapFocus, provider: nil, cta: nil, externalLink: nil),
-            searchAction(id: "student-cafes", title: "Cafes", subtitle: "Coffee & study breaks", query: cityDashboard.city.cafeQuery, symbol: "cup.and.saucer.fill", tint: AppColors.warning),
+            routeAction(id: "student-transport", title: "Transport", subtitle: "OV, bikes, routes", symbol: "tram.fill", tint: AppColors.emerald, destination: .transportSection(.overview)),
+            routeAction(id: "student-housing", title: "Housing", subtitle: "Rooms and address basics", symbol: "house.fill", tint: AppColors.violet, destination: .housingSection(.studentHousing)),
+            routeAction(id: "student-education", title: "Education", subtitle: "Schools and institutions", symbol: "graduationcap.fill", tint: AppColors.softBlue, destination: .educationSection(.universities)),
+            HomeCityGuideActionItem(id: "student-places", title: "City places", subtitle: "Museums & landmarks", symbol: "building.columns.fill", tint: AppColors.cyanGlow, url: nil, destination: .placeList(city: selectedCityID), provider: nil, cta: nil, externalLink: nil),
+            routeAction(id: "student-cafes", title: "Cafes", subtitle: "Coffee & study breaks", symbol: "cup.and.saucer.fill", tint: AppColors.warning, destination: .cafeList(city: selectedCityID)),
             routeAction(id: "student-emergency", title: "Emergency", subtitle: "112 and urgent help", symbol: "phone.fill", tint: AppColors.error, destination: .emergencyHub)
         ]
     }
     private var businessEssentialsActions: [HomeCityGuideActionItem] {
         [
-            routeAction(id: "business-setup", title: "Business setup", subtitle: "Municipality and KVK basics", symbol: "building.columns.fill", tint: AppColors.softBlue, destination: .officialSources),
-            routeAction(id: "business-taxes", title: "Taxes", subtitle: "Business tax basics", symbol: "percent", tint: AppColors.dutchOrange, destination: .guideSection("work")),
-            routeAction(id: "business-transport", title: "Transport", subtitle: "Routes and local travel", symbol: "tram.fill", tint: AppColors.emerald, destination: .practicalGuide(.transportBasics)),
+            routeAction(id: "business-setup", title: "Business setup", subtitle: "Municipality and KVK basics", symbol: "building.columns.fill", tint: AppColors.softBlue, destination: .governmentSection(.municipality)),
+            routeAction(id: "business-taxes", title: "Taxes", subtitle: "Business tax basics", symbol: "percent", tint: AppColors.dutchOrange, destination: .governmentSection(.taxes)),
+            routeAction(id: "business-transport", title: "Transport", subtitle: "Routes and local travel", symbol: "tram.fill", tint: AppColors.emerald, destination: .transportSection(.overview)),
             travelAction(.booking, title: "Hotels in \(cityDashboard.cityName)", subtitle: "Business stays", symbol: "bed.double.fill", provider: "Booking"),
-            searchAction(id: "business-restaurants", title: "Restaurants", subtitle: "Business meals", query: cityDashboard.city.restaurantQuery, symbol: "fork.knife", tint: AppColors.warning),
+            routeAction(id: "business-restaurants", title: "Restaurants", subtitle: "Business meals", symbol: "fork.knife", tint: AppColors.warning, destination: .restaurantList(city: selectedCityID)),
             routeAction(id: "business-emergency", title: "Emergency", subtitle: "112 and urgent help", symbol: "phone.fill", tint: AppColors.error, destination: .emergencyHub)
         ].compactMap { $0 }
     }
     private var generalEssentialsActions: [HomeCityGuideActionItem] {
         [
             HomeCityGuideActionItem(id: "general-city-guide", title: "City guide", subtitle: "\(cityDashboard.cityName) essentials", symbol: "map.fill", tint: AppColors.cyanGlow, url: nil, destination: .nlCityDetail(cityDashboard.routeCityId), provider: nil, cta: nil, externalLink: nil),
-            HomeCityGuideActionItem(id: "general-places", title: "Places", subtitle: "Museums & landmarks", symbol: "building.columns.fill", tint: AppColors.softBlue, url: nil, destination: cityDashboard.mapFocus, provider: nil, cta: nil, externalLink: nil),
-            routeAction(id: "general-transport", title: "Transport", subtitle: "OV, bikes, routes", symbol: "tram.fill", tint: AppColors.emerald, destination: .practicalGuide(.transportBasics)),
+            HomeCityGuideActionItem(id: "general-places", title: "Places", subtitle: "Museums & landmarks", symbol: "building.columns.fill", tint: AppColors.softBlue, url: nil, destination: .placeList(city: selectedCityID), provider: nil, cta: nil, externalLink: nil),
+            routeAction(id: "general-transport", title: "Transport", subtitle: "OV, bikes, routes", symbol: "tram.fill", tint: AppColors.emerald, destination: .transportSection(.overview)),
             routeAction(id: "general-emergency", title: "Emergency", subtitle: "112 and urgent help", symbol: "phone.fill", tint: AppColors.error, destination: .emergencyHub)
         ]
     }
     private var residentEssentialsActions: [HomeCityGuideActionItem] {
         [
             routeAction(id: "resident-documents", title: "Documents", subtitle: "BSN, DigiD, local steps", symbol: "doc.text.fill", tint: AppColors.softBlue, destination: .journeyDocuments),
-            routeAction(id: "resident-municipality", title: "Municipality", subtitle: "Address and city services", symbol: "building.2.fill", tint: AppColors.cyanGlow, destination: .governmentHub),
-            routeAction(id: "resident-housing", title: "Housing", subtitle: "Rent and address basics", symbol: "house.fill", tint: AppColors.violet, destination: .practicalGuide(.housingBasics)),
-            routeAction(id: "resident-healthcare", title: "Healthcare", subtitle: "GP and insurance basics", symbol: "cross.case.fill", tint: AppColors.emerald, destination: .practicalGuide(.healthcareBasics)),
-            routeAction(id: "resident-transport", title: "Transport", subtitle: "OV, bikes, routes", symbol: "tram.fill", tint: AppColors.dutchOrange, destination: .practicalGuide(.transportBasics)),
+            routeAction(id: "resident-municipality", title: "Municipality", subtitle: "Address and city services", symbol: "building.2.fill", tint: AppColors.cyanGlow, destination: .governmentSection(.municipality)),
+            routeAction(id: "resident-housing", title: "Housing", subtitle: "Rent and address basics", symbol: "house.fill", tint: AppColors.violet, destination: .housingSection(.overview)),
+            routeAction(id: "resident-healthcare", title: "Healthcare", subtitle: "GP and insurance basics", symbol: "cross.case.fill", tint: AppColors.emerald, destination: .governmentSection(.healthcare)),
+            routeAction(id: "resident-transport", title: "Transport", subtitle: "OV, bikes, routes", symbol: "tram.fill", tint: AppColors.dutchOrange, destination: .transportSection(.overview)),
             routeAction(id: "resident-emergency", title: "Emergency", subtitle: "112 and urgent help", symbol: "phone.fill", tint: AppColors.error, destination: .emergencyHub)
         ]
     }
@@ -276,7 +282,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "Explore the map", nl: "Verken de kaart", ru: "Открыть карту"),
                 symbol: "map.fill",
                 tint: AppColors.routeLine,
-                destination: .homeExploreList("places")
+                destination: .placeList(city: selectedCityID)
             ),
             HomeExploreItem(
                 id: "transport",
@@ -284,7 +290,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "OV, trains, bikes, routes", nl: "OV, trein, fiets, routes", ru: "OV, поезда, велосипед, маршруты"),
                 symbol: "tram.fill",
                 tint: AppColors.emerald,
-                destination: .practicalGuide(.transportBasics)
+                destination: .transportSection(.overview)
             ),
             HomeExploreItem(
                 id: "healthcare",
@@ -292,7 +298,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "GP, pharmacies, urgent care", nl: "Huisarts, apotheek, spoedzorg", ru: "Huisarts, аптеки, срочная помощь"),
                 symbol: "cross.case.fill",
                 tint: AppColors.error,
-                destination: .practicalGuide(.healthcareBasics)
+                destination: .governmentSection(.healthcare)
             ),
             HomeExploreItem(
                 id: "government",
@@ -300,7 +306,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "Municipality and official services", nl: "Gemeente en officiële diensten", ru: "Gemeente и официальные службы"),
                 symbol: "building.columns.fill",
                 tint: AppColors.softBlue,
-                destination: .governmentHub
+                destination: .governmentSection(.municipality)
             ),
             HomeExploreItem(
                 id: "food",
@@ -308,7 +314,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "Food, cafés, local spots", nl: "Eten, cafés, lokale plekken", ru: "Еда, кафе, локальные места"),
                 symbol: "fork.knife",
                 tint: AppColors.dutchOrange,
-                destination: .homeExploreList("restaurants")
+                destination: .restaurantList(city: selectedCityID)
             ),
             HomeExploreItem(
                 id: "museums",
@@ -316,7 +322,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "Culture and attractions", nl: "Cultuur en attracties", ru: "Культура и достопримечательности"),
                 symbol: "building.columns",
                 tint: AppColors.violet,
-                destination: .homeExploreList("museums")
+                destination: .museumList(city: selectedCityID)
             ),
             HomeExploreItem(
                 id: "events",
@@ -324,7 +330,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "Holidays and city moments", nl: "Feestdagen en stadsmomenten", ru: "Праздники и городские события"),
                 symbol: "calendar",
                 tint: AppColors.warning,
-                destination: .homeExploreList("events")
+                destination: .eventList(city: selectedCityID)
             ),
             HomeExploreItem(
                 id: "nature",
@@ -332,7 +338,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "Parks, beaches, green routes", nl: "Parken, stranden, groene routes", ru: "Парки, пляжи, зелёные маршруты"),
                 symbol: "leaf.fill",
                 tint: AppColors.success,
-                destination: .homeExploreList("nature")
+                destination: .natureList(city: selectedCityID)
             ),
             HomeExploreItem(
                 id: "shopping",
@@ -347,66 +353,66 @@ struct HomeView: View {
 
     private var officialServicesItems: [HomeExploreItem] {
         [
-            HomeExploreItem(id: "municipality", title: "Municipality", subtitle: localizedText(en: "City services and registration", nl: "Gemeentezaken en inschrijving", ru: "Городские услуги и регистрация"), symbol: "building.2.fill", tint: AppColors.cyanGlow, destination: .governmentHub),
-            HomeExploreItem(id: "ind", title: "IND", subtitle: localizedText(en: "Residence and immigration", nl: "Verblijf en immigratie", ru: "ВНЖ и иммиграция"), symbol: "building.columns.fill", tint: AppColors.softBlue, destination: .governmentHub),
-            HomeExploreItem(id: "digid", title: "DigiD", subtitle: localizedText(en: "Digital access to services", nl: "Digitale toegang tot diensten", ru: "Цифровой доступ к сервисам"), symbol: "lock.shield.fill", tint: AppColors.violet, destination: .officialSources),
-            HomeExploreItem(id: "belastingdienst", title: "Belastingdienst", subtitle: localizedText(en: "Taxes and benefits", nl: "Belasting en toeslagen", ru: "Налоги и пособия"), symbol: "percent", tint: AppColors.dutchOrange, destination: .officialSources),
-            HomeExploreItem(id: "duo", title: "DUO", subtitle: localizedText(en: "Study finance and exams", nl: "Studiefinanciering en examens", ru: "Учёба, финансирование, экзамены"), symbol: "graduationcap.fill", tint: AppColors.emerald, destination: .officialSources),
+            HomeExploreItem(id: "municipality", title: "Municipality", subtitle: localizedText(en: "City services and registration", nl: "Gemeentezaken en inschrijving", ru: "Городские услуги и регистрация"), symbol: "building.2.fill", tint: AppColors.cyanGlow, destination: .governmentSection(.municipality)),
+            HomeExploreItem(id: "ind", title: "IND", subtitle: localizedText(en: "Residence and immigration", nl: "Verblijf en immigratie", ru: "ВНЖ и иммиграция"), symbol: "building.columns.fill", tint: AppColors.softBlue, destination: .governmentSection(.ind)),
+            HomeExploreItem(id: "digid", title: "DigiD", subtitle: localizedText(en: "Digital access to services", nl: "Digitale toegang tot diensten", ru: "Цифровой доступ к сервисам"), symbol: "lock.shield.fill", tint: AppColors.violet, destination: .governmentSection(.digid)),
+            HomeExploreItem(id: "belastingdienst", title: "Belastingdienst", subtitle: localizedText(en: "Taxes and benefits", nl: "Belasting en toeslagen", ru: "Налоги и пособия"), symbol: "percent", tint: AppColors.dutchOrange, destination: .governmentSection(.taxes)),
+            HomeExploreItem(id: "duo", title: "DUO", subtitle: localizedText(en: "Study finance and exams", nl: "Studiefinanciering en examens", ru: "Учёба, финансирование, экзамены"), symbol: "graduationcap.fill", tint: AppColors.emerald, destination: .educationSection(.duo)),
             HomeExploreItem(id: "emergency", title: localizedText(en: "Emergency", nl: "Noodhulp", ru: "Экстренно"), subtitle: "112", symbol: "phone.fill", tint: AppColors.error, destination: .emergencyHub)
         ]
     }
 
     private var placesToVisitItems: [HomeExploreItem] {
         [
-            HomeExploreItem(id: "museums", title: localizedText(en: "Museums", nl: "Musea", ru: "Музеи"), subtitle: localizedText(en: "Culture and collections", nl: "Cultuur en collecties", ru: "Культура и коллекции"), symbol: "building.columns.fill", tint: AppColors.violet, destination: .homeExploreList("museums")),
-            HomeExploreItem(id: "nature", title: localizedText(en: "Nature", nl: "Natuur", ru: "Природа"), subtitle: localizedText(en: "Parks and green routes", nl: "Parken en groene routes", ru: "Парки и зелёные маршруты"), symbol: "leaf.fill", tint: AppColors.success, destination: .homeExploreList("nature")),
-            HomeExploreItem(id: "historic", title: localizedText(en: "Historic places", nl: "Historische plekken", ru: "Исторические места"), subtitle: localizedText(en: "Canals, squares, landmarks", nl: "Grachten, pleinen, monumenten", ru: "Каналы, площади, памятники"), symbol: "clock.fill", tint: AppColors.cyanGlow, destination: .homeExploreList("historic")),
-            HomeExploreItem(id: "restaurants", title: localizedText(en: "Restaurants", nl: "Restaurants", ru: "Рестораны"), subtitle: localizedText(en: "Food and local spots", nl: "Eten en lokale plekken", ru: "Еда и локальные места"), symbol: "fork.knife", tint: AppColors.dutchOrange, destination: .homeExploreList("restaurants")),
-            HomeExploreItem(id: "cafes", title: localizedText(en: "Cafes", nl: "Cafés", ru: "Кафе"), subtitle: localizedText(en: "Coffee and breakfast", nl: "Koffie en ontbijt", ru: "Кофе и завтраки"), symbol: "cup.and.saucer.fill", tint: AppColors.warning, destination: .homeExploreList("cafes")),
-            HomeExploreItem(id: "events", title: localizedText(en: "Events", nl: "Events", ru: "События"), subtitle: localizedText(en: "What is happening nearby", nl: "Wat er dichtbij gebeurt", ru: "Что происходит рядом"), symbol: "calendar", tint: AppColors.softBlue, destination: .homeExploreList("events"))
+            HomeExploreItem(id: "museums", title: localizedText(en: "Museums", nl: "Musea", ru: "Музеи"), subtitle: localizedText(en: "Culture and collections", nl: "Cultuur en collecties", ru: "Культура и коллекции"), symbol: "building.columns.fill", tint: AppColors.violet, destination: .museumList(city: selectedCityID)),
+            HomeExploreItem(id: "nature", title: localizedText(en: "Nature", nl: "Natuur", ru: "Природа"), subtitle: localizedText(en: "Parks and green routes", nl: "Parken en groene routes", ru: "Парки и зелёные маршруты"), symbol: "leaf.fill", tint: AppColors.success, destination: .natureList(city: selectedCityID)),
+            HomeExploreItem(id: "historic", title: localizedText(en: "Historic places", nl: "Historische plekken", ru: "Исторические места"), subtitle: localizedText(en: "Canals, squares, landmarks", nl: "Grachten, pleinen, monumenten", ru: "Каналы, площади, памятники"), symbol: "clock.fill", tint: AppColors.cyanGlow, destination: .landmarkList(city: selectedCityID)),
+            HomeExploreItem(id: "restaurants", title: localizedText(en: "Restaurants", nl: "Restaurants", ru: "Рестораны"), subtitle: localizedText(en: "Food and local spots", nl: "Eten en lokale plekken", ru: "Еда и локальные места"), symbol: "fork.knife", tint: AppColors.dutchOrange, destination: .restaurantList(city: selectedCityID)),
+            HomeExploreItem(id: "cafes", title: localizedText(en: "Cafes", nl: "Cafés", ru: "Кафе"), subtitle: localizedText(en: "Coffee and breakfast", nl: "Koffie en ontbijt", ru: "Кофе и завтраки"), symbol: "cup.and.saucer.fill", tint: AppColors.warning, destination: .cafeList(city: selectedCityID)),
+            HomeExploreItem(id: "events", title: localizedText(en: "Events", nl: "Events", ru: "События"), subtitle: localizedText(en: "What is happening nearby", nl: "Wat er dichtbij gebeurt", ru: "Что происходит рядом"), symbol: "calendar", tint: AppColors.softBlue, destination: .eventList(city: selectedCityID))
         ]
     }
 
     private var housingItems: [HomeExploreItem] {
         [
-            HomeExploreItem(id: "rent", title: localizedText(en: "Rent", nl: "Huren", ru: "Аренда"), subtitle: localizedText(en: "Rules and first checks", nl: "Regels en eerste checks", ru: "Правила и первые проверки"), symbol: "key.fill", tint: AppColors.warning, destination: .practicalGuide(.housingBasics)),
-            HomeExploreItem(id: "buy", title: localizedText(en: "Buy", nl: "Kopen", ru: "Покупка"), subtitle: localizedText(en: "Ownership basics", nl: "Basis van kopen", ru: "Основы покупки"), symbol: "house.fill", tint: AppColors.cyanGlow, destination: .practicalGuide(.housingBasics)),
-            HomeExploreItem(id: "student-housing", title: localizedText(en: "Student housing", nl: "Studentenwoning", ru: "Студенческое жильё"), subtitle: localizedText(en: "Rooms and registration", nl: "Kamers en inschrijving", ru: "Комнаты и регистрация"), symbol: "graduationcap.fill", tint: AppColors.emerald, destination: .practicalGuide(.housingBasics)),
-            HomeExploreItem(id: "social-housing", title: localizedText(en: "Social rent", nl: "Sociale huur", ru: "Соц. аренда"), subtitle: localizedText(en: "Waiting lists and rules", nl: "Wachtlijsten en regels", ru: "Очереди и правила"), symbol: "person.3.fill", tint: AppColors.softBlue, destination: .officialSources),
-            HomeExploreItem(id: "housing-tips", title: localizedText(en: "Housing tips", nl: "Woontips", ru: "Советы по жилью"), subtitle: localizedText(en: "Avoid common mistakes", nl: "Voorkom veelgemaakte fouten", ru: "Избежать типичных ошибок"), symbol: "lightbulb.fill", tint: AppColors.violet, destination: .practicalGuide(.housingBasics)),
+            HomeExploreItem(id: "rent", title: localizedText(en: "Rent", nl: "Huren", ru: "Аренда"), subtitle: localizedText(en: "Rules and first checks", nl: "Regels en eerste checks", ru: "Правила и первые проверки"), symbol: "key.fill", tint: AppColors.warning, destination: .housingSection(.rent)),
+            HomeExploreItem(id: "buy", title: localizedText(en: "Buy", nl: "Kopen", ru: "Покупка"), subtitle: localizedText(en: "Ownership basics", nl: "Basis van kopen", ru: "Основы покупки"), symbol: "house.fill", tint: AppColors.cyanGlow, destination: .housingSection(.buy)),
+            HomeExploreItem(id: "student-housing", title: localizedText(en: "Student housing", nl: "Studentenwoning", ru: "Студенческое жильё"), subtitle: localizedText(en: "Rooms and registration", nl: "Kamers en inschrijving", ru: "Комнаты и регистрация"), symbol: "graduationcap.fill", tint: AppColors.emerald, destination: .housingSection(.studentHousing)),
+            HomeExploreItem(id: "social-housing", title: localizedText(en: "Social rent", nl: "Sociale huur", ru: "Соц. аренда"), subtitle: localizedText(en: "Waiting lists and rules", nl: "Wachtlijsten en regels", ru: "Очереди и правила"), symbol: "person.3.fill", tint: AppColors.softBlue, destination: .housingSection(.socialHousing)),
+            HomeExploreItem(id: "housing-tips", title: localizedText(en: "Housing tips", nl: "Woontips", ru: "Советы по жилью"), subtitle: localizedText(en: "Avoid common mistakes", nl: "Voorkom veelgemaakte fouten", ru: "Избежать типичных ошибок"), symbol: "lightbulb.fill", tint: AppColors.violet, destination: .housingSection(.overview)),
             HomeExploreItem(id: "real-estate", title: localizedText(en: "Agents", nl: "Makelaars", ru: "Агенты"), subtitle: localizedText(en: "Featured local services", nl: "Uitgelichte lokale diensten", ru: "Локальные сервисы"), symbol: "storefront.fill", tint: AppColors.dutchOrange, destination: .localPartners)
         ]
     }
 
     private var transportItems: [HomeExploreItem] {
         [
-            HomeExploreItem(id: "train", title: localizedText(en: "Train", nl: "Trein", ru: "Поезд"), subtitle: localizedText(en: "NS and stations", nl: "NS en stations", ru: "NS и вокзалы"), symbol: "train.side.front.car", tint: AppColors.dutchOrange, destination: .practicalGuide(.transportBasics)),
-            HomeExploreItem(id: "bus", title: localizedText(en: "Bus", nl: "Bus", ru: "Автобус"), subtitle: localizedText(en: "Local and regional routes", nl: "Lokale en regionale routes", ru: "Городские и региональные маршруты"), symbol: "bus.fill", tint: AppColors.emerald, destination: .practicalGuide(.transportBasics)),
-            HomeExploreItem(id: "metro", title: "Metro", subtitle: localizedText(en: "City networks", nl: "Stadsnetwerken", ru: "Городские сети"), symbol: "tram.fill", tint: AppColors.softBlue, destination: .practicalGuide(.transportBasics)),
-            HomeExploreItem(id: "bike", title: localizedText(en: "Bike", nl: "Fiets", ru: "Велосипед"), subtitle: localizedText(en: "Rules and repairs", nl: "Regels en reparatie", ru: "Правила и ремонт"), symbol: "bicycle", tint: AppColors.success, destination: .practicalGuide(.transportBasics)),
-            HomeExploreItem(id: "parking", title: localizedText(en: "Parking", nl: "Parkeren", ru: "Парковка"), subtitle: localizedText(en: "City rules and fines", nl: "Stadsregels en boetes", ru: "Правила и штрафы"), symbol: "parkingsign.circle.fill", tint: AppColors.warning, destination: .finesList),
-            HomeExploreItem(id: "planner", title: localizedText(en: "Planner", nl: "Planner", ru: "Маршруты"), subtitle: localizedText(en: "Routes and transfers", nl: "Routes en overstappen", ru: "Маршруты и пересадки"), symbol: "location.fill", tint: AppColors.cyanGlow, destination: .mapHub)
+            HomeExploreItem(id: "train", title: localizedText(en: "Train", nl: "Trein", ru: "Поезд"), subtitle: localizedText(en: "NS and stations", nl: "NS en stations", ru: "NS и вокзалы"), symbol: "train.side.front.car", tint: AppColors.dutchOrange, destination: .transportSection(.train)),
+            HomeExploreItem(id: "bus", title: localizedText(en: "Bus", nl: "Bus", ru: "Автобус"), subtitle: localizedText(en: "Local and regional routes", nl: "Lokale en regionale routes", ru: "Городские и региональные маршруты"), symbol: "bus.fill", tint: AppColors.emerald, destination: .transportSection(.bus)),
+            HomeExploreItem(id: "metro", title: "Metro", subtitle: localizedText(en: "City networks", nl: "Stadsnetwerken", ru: "Городские сети"), symbol: "tram.fill", tint: AppColors.softBlue, destination: .transportSection(.metro)),
+            HomeExploreItem(id: "bike", title: localizedText(en: "Bike", nl: "Fiets", ru: "Велосипед"), subtitle: localizedText(en: "Rules and repairs", nl: "Regels en reparatie", ru: "Правила и ремонт"), symbol: "bicycle", tint: AppColors.success, destination: .transportSection(.bike)),
+            HomeExploreItem(id: "parking", title: localizedText(en: "Parking", nl: "Parkeren", ru: "Парковка"), subtitle: localizedText(en: "City rules and fines", nl: "Stadsregels en boetes", ru: "Правила и штрафы"), symbol: "parkingsign.circle.fill", tint: AppColors.warning, destination: .transportSection(.parking)),
+            HomeExploreItem(id: "planner", title: localizedText(en: "Planner", nl: "Planner", ru: "Маршруты"), subtitle: localizedText(en: "Routes and transfers", nl: "Routes en overstappen", ru: "Маршруты и пересадки"), symbol: "location.fill", tint: AppColors.cyanGlow, destination: .transportSection(.journeyPlanner))
         ]
     }
 
     private var leisureItems: [HomeExploreItem] {
         [
-            HomeExploreItem(id: "nightlife", title: localizedText(en: "Nightlife", nl: "Nachtleven", ru: "Вечерний досуг"), subtitle: localizedText(en: "Bars, venues, and late routes", nl: "Bars, podia en late routes", ru: "Бары, площадки и поздние маршруты"), symbol: "moon.stars.fill", tint: AppColors.violet, destination: .homeExploreList("nightlife")),
-            HomeExploreItem(id: "sports", title: localizedText(en: "Sports", nl: "Sport", ru: "Спорт"), subtitle: localizedText(en: "Clubs and activities", nl: "Clubs en activiteiten", ru: "Клубы и активности"), symbol: "figure.run", tint: AppColors.emerald, destination: .homeExploreList("sports")),
-            HomeExploreItem(id: "festivals", title: localizedText(en: "Festivals", nl: "Festivals", ru: "Фестивали"), subtitle: localizedText(en: "Music, culture, and city events", nl: "Muziek, cultuur en stadsevents", ru: "Музыка, культура и городские события"), symbol: "party.popper.fill", tint: AppColors.softBlue, destination: .homeExploreList("festivals")),
-            HomeExploreItem(id: "family-activities", title: localizedText(en: "Family", nl: "Gezin", ru: "Семья"), subtitle: localizedText(en: "Easy options for children", nl: "Makkelijke opties met kinderen", ru: "Простые варианты с детьми"), symbol: "figure.2.and.child.holdinghands", tint: AppColors.success, destination: .homeExploreList("family-activities")),
-            HomeExploreItem(id: "free-activities", title: localizedText(en: "Free", nl: "Gratis", ru: "Бесплатно"), subtitle: localizedText(en: "Low-cost city ideas", nl: "Goedkope stadsopties", ru: "Бюджетные идеи в городе"), symbol: "ticket.fill", tint: AppColors.dutchOrange, destination: .homeExploreList("free-activities")),
-            HomeExploreItem(id: "weekend", title: localizedText(en: "Weekend", nl: "Weekend", ru: "Выходные"), subtitle: localizedText(en: "Explore without planning stress", nl: "Ontdek zonder planningsstress", ru: "Исследовать без перегруза"), symbol: "sparkles", tint: AppColors.cyanGlow, destination: .homeExploreList("weekend"))
+            HomeExploreItem(id: "nightlife", title: localizedText(en: "Nightlife", nl: "Nachtleven", ru: "Вечерний досуг"), subtitle: localizedText(en: "Bars, venues, and late routes", nl: "Bars, podia en late routes", ru: "Бары, площадки и поздние маршруты"), symbol: "moon.stars.fill", tint: AppColors.violet, destination: .leisureSection(city: selectedCityID, type: .nightlife)),
+            HomeExploreItem(id: "sports", title: localizedText(en: "Sports", nl: "Sport", ru: "Спорт"), subtitle: localizedText(en: "Clubs and activities", nl: "Clubs en activiteiten", ru: "Клубы и активности"), symbol: "figure.run", tint: AppColors.emerald, destination: .discoveryList(city: selectedCityID, type: .sports)),
+            HomeExploreItem(id: "festivals", title: localizedText(en: "Festivals", nl: "Festivals", ru: "Фестивали"), subtitle: localizedText(en: "Music, culture, and city events", nl: "Muziek, cultuur en stadsevents", ru: "Музыка, культура и городские события"), symbol: "party.popper.fill", tint: AppColors.softBlue, destination: .discoveryList(city: selectedCityID, type: .festivals)),
+            HomeExploreItem(id: "family-activities", title: localizedText(en: "Family", nl: "Gezin", ru: "Семья"), subtitle: localizedText(en: "Easy options for children", nl: "Makkelijke opties met kinderen", ru: "Простые варианты с детьми"), symbol: "figure.2.and.child.holdinghands", tint: AppColors.success, destination: .leisureSection(city: selectedCityID, type: .family)),
+            HomeExploreItem(id: "free-activities", title: localizedText(en: "Free", nl: "Gratis", ru: "Бесплатно"), subtitle: localizedText(en: "Low-cost city ideas", nl: "Goedkope stadsopties", ru: "Бюджетные идеи в городе"), symbol: "ticket.fill", tint: AppColors.dutchOrange, destination: .discoveryList(city: selectedCityID, type: .freeActivities)),
+            HomeExploreItem(id: "weekend", title: localizedText(en: "Weekend", nl: "Weekend", ru: "Выходные"), subtitle: localizedText(en: "Explore without planning stress", nl: "Ontdek zonder planningsstress", ru: "Исследовать без перегруза"), symbol: "sparkles", tint: AppColors.cyanGlow, destination: .leisureSection(city: selectedCityID, type: .weekend))
         ]
     }
 
     private var educationItems: [HomeExploreItem] {
         [
-            HomeExploreItem(id: "universities", title: localizedText(en: "Universities", nl: "Universiteiten", ru: "Университеты"), subtitle: localizedText(en: "Institutions and study paths", nl: "Instellingen en studieroutes", ru: "Учебные заведения"), symbol: "graduationcap.fill", tint: AppColors.emerald, destination: .institutionsList),
-            HomeExploreItem(id: "language-schools", title: localizedText(en: "Language schools", nl: "Taalscholen", ru: "Языковые школы"), subtitle: localizedText(en: "Dutch learning options", nl: "Nederlands leren", ru: "Изучение Dutch"), symbol: "text.book.closed.fill", tint: AppColors.violet, destination: .dutchA1A2),
-            HomeExploreItem(id: "driving-schools", title: localizedText(en: "Driving schools", nl: "Rijscholen", ru: "Автошколы"), subtitle: localizedText(en: "Lessons and local partners", nl: "Lessen en lokale partners", ru: "Уроки и партнёры"), symbol: "car.fill", tint: AppColors.dutchOrange, destination: .localPartners),
-            HomeExploreItem(id: "duo-education", title: "DUO", subtitle: localizedText(en: "Study finance and exams", nl: "Studiefinanciering en examens", ru: "Учёба и экзамены"), symbol: "building.columns.fill", tint: AppColors.softBlue, destination: .officialSources),
-            HomeExploreItem(id: "student-benefits", title: localizedText(en: "Student benefits", nl: "Studentenvoordelen", ru: "Студенческие льготы"), subtitle: localizedText(en: "Public sources and tips", nl: "Bronnen en tips", ru: "Источники и советы"), symbol: "creditcard.fill", tint: AppColors.warning, destination: .officialSources)
+            HomeExploreItem(id: "universities", title: localizedText(en: "Universities", nl: "Universiteiten", ru: "Университеты"), subtitle: localizedText(en: "Institutions and study paths", nl: "Instellingen en studieroutes", ru: "Учебные заведения"), symbol: "graduationcap.fill", tint: AppColors.emerald, destination: .educationSection(.universities)),
+            HomeExploreItem(id: "language-schools", title: localizedText(en: "Language schools", nl: "Taalscholen", ru: "Языковые школы"), subtitle: localizedText(en: "Dutch learning options", nl: "Nederlands leren", ru: "Изучение Dutch"), symbol: "text.book.closed.fill", tint: AppColors.violet, destination: .educationSection(.languageSchools)),
+            HomeExploreItem(id: "driving-schools", title: localizedText(en: "Driving schools", nl: "Rijscholen", ru: "Автошколы"), subtitle: localizedText(en: "Lessons and local partners", nl: "Lessen en lokale partners", ru: "Уроки и партнёры"), symbol: "car.fill", tint: AppColors.dutchOrange, destination: .educationSection(.drivingSchools)),
+            HomeExploreItem(id: "duo-education", title: "DUO", subtitle: localizedText(en: "Study finance and exams", nl: "Studiefinanciering en examens", ru: "Учёба и экзамены"), symbol: "building.columns.fill", tint: AppColors.softBlue, destination: .educationSection(.duo)),
+            HomeExploreItem(id: "student-benefits", title: localizedText(en: "Student benefits", nl: "Studentenvoordelen", ru: "Студенческие льготы"), subtitle: localizedText(en: "Public sources and tips", nl: "Bronnen en tips", ru: "Источники и советы"), symbol: "creditcard.fill", tint: AppColors.warning, destination: .educationSection(.studentFinance))
         ]
     }
 
@@ -475,7 +481,7 @@ struct HomeView: View {
     }
 
     private func routeAction(id: String, title: String, subtitle: String, symbol: String, tint: Color, destination: AppDestination) -> HomeCityGuideActionItem {
-        HomeCityGuideActionItem(
+        return HomeCityGuideActionItem(
             id: id,
             title: title,
             subtitle: subtitle,
@@ -522,29 +528,25 @@ struct HomeView: View {
     }
 
     private func foodGuideAction(_ item: FoodGuideItem) -> HomeCityGuideActionItem {
-        HomeCityGuideActionItem(
+        let destination: AppDestination
+        switch item.category {
+        case .cafe, .breakfast:
+            destination = .cafeDetail(city: item.cityId, itemID: item.id)
+        case .restaurant, .localFood, .market, .vegetarian, .budget, .fineDining:
+            destination = .restaurantDetail(city: item.cityId, itemID: item.id)
+        }
+
+        return HomeCityGuideActionItem(
             id: item.id,
             title: item.title,
             subtitle: item.description,
             symbol: item.icon,
             tint: foodGuideTint(item.category),
-            url: item.externalUrl,
-            destination: nil,
+            url: nil,
+            destination: destination,
             provider: item.source?.institution,
             cta: nil,
-            externalLink: item.externalUrl.map {
-                DashboardExternalLink(
-                    id: "\(item.id)-external",
-                    provider: .googleMaps,
-                    title: item.title,
-                    url: $0,
-                    cityId: item.cityId,
-                    audience: item.audience,
-                    category: foodExternalCategory(item.category),
-                    source: item.source?.title,
-                    lastChecked: item.lastChecked
-                )
-            }
+            externalLink: nil
         )
     }
 
@@ -588,18 +590,13 @@ struct HomeView: View {
 
                                 productHomeHero
 
-                                homePhotoGallerySection
-
+                                // Current profile
                                 productHomeStatus
 
-                                // What to do now
-                                // home.product.askAI
-                                compactAISection
-
-                                // Essentials
+                                // Official and practical actions only. Immersive
+                                // discovery belongs to city and Discover pages.
                                 officialServicesSection
 
-                                // Your city
                                 placesToVisitHomeSection
 
                                 housingHomeSection
@@ -609,6 +606,9 @@ struct HomeView: View {
                                 leisureHomeSection
 
                                 educationHomeSection
+
+                                // Compact help, never a full discovery feed.
+                                compactAISection
 
                                 localPartnersHomeSection
 
@@ -665,9 +665,151 @@ struct HomeView: View {
             fallbackCategory: .city,
             accent: AppColors.cyanGlow,
             overlayPolicy: .balanced,
-            height: dynamicTypeSize.isAccessibilitySize ? 520 : PremiumVisualMetrics.Hero.regularHeight,
+            height: dynamicTypeSize.isAccessibilitySize ? 420 : 238,
             accessibilityIdentifier: "home.product.hero"
         )
+    }
+
+    private var referenceFeatureGrid: some View {
+        VStack(alignment: .leading, spacing: 12) {
+            HStack(alignment: .lastTextBaseline, spacing: 12) {
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(localizedText(en: "Everything you need", nl: "Alles wat u nodig hebt", ru: "Всё необходимое"))
+                        .font(.system(size: 22, weight: .bold, design: .rounded))
+                        .foregroundStyle(AppColors.textPrimary)
+
+                    Text(localizedText(en: "Clear answers for everyday life", nl: "Duidelijke antwoorden voor elke dag", ru: "Понятно о жизни в Нидерландах"))
+                        .font(.system(size: 12, weight: .semibold, design: .rounded))
+                        .foregroundStyle(AppColors.textSecondary)
+                }
+
+                Spacer(minLength: 8)
+
+                NavigationLink(value: AppDestination.categoriesHub) {
+                    Text(localizedText(en: "All", nl: "Alles", ru: "Все"))
+                        .font(.system(size: 13, weight: .bold, design: .rounded))
+                        .foregroundStyle(AppColors.dutchOrange)
+                }
+                .buttonStyle(.plain)
+            }
+
+            LazyVGrid(
+                columns: [
+                    GridItem(.flexible(minimum: 0), spacing: 10),
+                    GridItem(.flexible(minimum: 0), spacing: 10)
+                ],
+                spacing: 10
+            ) {
+                ForEach(Array(referenceFeatureCategories.enumerated()), id: \.element.id) { index, category in
+                    NavigationLink(value: category.destination) {
+                        referenceFeatureCard(category)
+                    }
+                    .buttonStyle(AppPressableCardButtonStyle())
+                    .staggeredAppear(index: index)
+                    .accessibilityElement(children: .combine)
+                    .accessibilityLabel(category.title(lang))
+                    .accessibilityIdentifier("home.referenceFeature.\(category.id)")
+                }
+            }
+        }
+        .accessibilityIdentifier("home.referenceFeatureGrid")
+    }
+
+    private var referenceFeatureCategories: [HomeCategoryItem] {
+        let catalog = Dictionary(uniqueKeysWithValues: defaultHomeCategories.map { ($0.id, $0) })
+        return [
+            catalog["rules_fines"],
+            referenceAssistantCategory,
+            catalog["documents"],
+            catalog["emergency_112"],
+            catalog["transport"],
+            referenceHousingHealthCategory,
+            catalog["places"],
+            catalog["work_taxes"]
+        ]
+        .compactMap { $0 }
+    }
+
+    private var referenceAssistantCategory: HomeCategoryItem {
+        HomeCategoryItem(
+            id: "assistant",
+            titleRU: "AI помощник",
+            titleNL: "AI-assistent",
+            titleEN: "AI assistant",
+            icon: "sparkles",
+            gradient: [AppColors.violet, Color(red: 72/255, green: 48/255, blue: 154/255)],
+            destination: .assistantHub,
+            audienceTags: [.universal],
+            priority: 1
+        )
+    }
+
+    private var referenceHousingHealthCategory: HomeCategoryItem {
+        HomeCategoryItem(
+            id: "housing-health",
+            titleRU: "Жильё и здоровье",
+            titleNL: "Wonen & zorg",
+            titleEN: "Housing & health",
+            icon: "house.and.flag.fill",
+            gradient: AppColors.gradHealth,
+            destination: .categoriesHub,
+            audienceTags: [.universal],
+            priority: 2
+        )
+    }
+
+    private func referenceFeatureCard(_ category: HomeCategoryItem) -> some View {
+        HStack(spacing: 10) {
+            Image(systemName: category.icon)
+                .font(.system(size: 18, weight: .bold))
+                .foregroundStyle(.white)
+                .frame(width: 42, height: 42)
+                .background(Color.white.opacity(0.14), in: RoundedRectangle(cornerRadius: 11, style: .continuous))
+
+            Text(category.title(lang))
+                .font(.system(size: 14, weight: .bold, design: .rounded))
+                .foregroundStyle(.white)
+                .lineLimit(2)
+                .minimumScaleFactor(0.78)
+                .frame(maxWidth: .infinity, alignment: .leading)
+
+            Image(systemName: "chevron.right")
+                .font(.system(size: 10, weight: .heavy))
+                .foregroundStyle(Color.white.opacity(0.58))
+        }
+        .padding(.horizontal, 11)
+        .frame(maxWidth: .infinity, minHeight: dynamicTypeSize.isAccessibilitySize ? 112 : 76, alignment: .leading)
+        .background(
+            LinearGradient(
+                colors: category.gradient,
+                startPoint: .topLeading,
+                endPoint: .bottomTrailing
+            )
+        )
+        .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: 16, style: .continuous)
+                .stroke(Color.white.opacity(0.14), lineWidth: 0.8)
+        )
+        .shadow(color: (category.gradient.first ?? AppColors.dutchOrange).opacity(0.18), radius: 12, x: 0, y: 7)
+    }
+
+    private var referenceLibraryShortcut: some View {
+        NavigationLink(value: AppDestination.resourcesHub) {
+            PremiumMenuRow(
+                icon: "books.vertical.fill",
+                color: AppColors.accent,
+                title: localizedText(en: "Reference library", nl: "Naslagbibliotheek", ru: "База знаний"),
+                subtitle: localizedText(
+                    en: "Rules, letters, fines, Dutch terms and official sources in one searchable catalog.",
+                    nl: "Regels, brieven, boetes, Nederlandse termen en officiële bronnen in één catalogus.",
+                    ru: "Правила, письма, штрафы, нидерландские термины и официальные источники в едином каталоге."
+                )
+            )
+            .background(AppColors.cardElevated.opacity(0.86), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
+        }
+        .buttonStyle(AppPressableCardButtonStyle())
+        .accessibilityIdentifier("home.referenceLibrary")
     }
 
     private var heroJourneyCTA: some View {
@@ -694,8 +836,8 @@ struct HomeView: View {
         homeContentSection(
             title: localizedText(en: "Official services", nl: "Officiële diensten", ru: "Государственные сервисы"),
             subtitle: localizedText(en: "Municipality, IND, DigiD, taxes, study finance, work support, healthcare, and emergency help.", nl: "Gemeente, IND, DigiD, belasting, studiefinanciering, werkhulp, zorg en noodhulp.", ru: "Gemeente, IND, DigiD, налоги, DUO, UWV, медицина и экстренная помощь."),
-            viewAllDestination: .officialSources,
-            items: officialServicesItems
+            viewAllDestination: .governmentSection(.municipality),
+            items: Array(officialServicesItems.prefix(4))
         )
     }
 
@@ -715,7 +857,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "Museums, nature, food", nl: "Musea, natuur, eten", ru: "Музеи, природа, еда"),
                 asset: ContentMediaRegistry.cultureWideHero ?? ContentMediaRegistry.dailyCultureImage,
                 fallbackCategory: .map,
-                destination: .homeExploreList("places")
+                destination: .placeList(city: selectedCityID)
             ),
             HomePhotoGalleryItem(
                 id: "housing",
@@ -723,7 +865,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "Rent and address basics", nl: "Huur en adresbasis", ru: "Аренда и адрес"),
                 asset: ContentMediaRegistry.premiumHousingImage ?? ContentMediaRegistry.housingTerracedHousesImage,
                 fallbackCategory: .housing,
-                destination: .practicalGuide(.housingBasics)
+                destination: .housingSection(.overview)
             ),
             HomePhotoGalleryItem(
                 id: "transport",
@@ -731,7 +873,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "OV, bikes, routes", nl: "OV, fiets, routes", ru: "OV, велосипед, маршруты"),
                 asset: ContentMediaRegistry.transportStationHero ?? ContentMediaRegistry.transportHero,
                 fallbackCategory: .transport,
-                destination: .practicalGuide(.transportBasics)
+                destination: .transportSection(.overview)
             ),
             HomePhotoGalleryItem(
                 id: "official",
@@ -739,7 +881,7 @@ struct HomeView: View {
                 subtitle: localizedText(en: "Sources and services", nl: "Bronnen en diensten", ru: "Источники и сервисы"),
                 asset: ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.governmentBasicsImage,
                 fallbackCategory: .government,
-                destination: .officialSources
+                destination: .governmentSection(.municipality)
             )
         ]
     }
@@ -779,8 +921,8 @@ struct HomeView: View {
         homeContentSection(
             title: localizedText(en: "Places to visit", nl: "Plekken om te bezoeken", ru: "Куда сходить"),
             subtitle: localizedText(en: "Museums, nature, historic places, food, shopping, and events on the map.", nl: "Musea, natuur, historische plekken, eten, winkels en events op de kaart.", ru: "Музеи, природа, история, еда, покупки и события на карте."),
-            viewAllDestination: .mapHub,
-            items: placesToVisitItems
+            viewAllDestination: .placeList(city: selectedCityID),
+            items: Array(placesToVisitItems.prefix(4))
         )
     }
 
@@ -788,8 +930,8 @@ struct HomeView: View {
         homeContentSection(
             title: localizedText(en: "Housing", nl: "Wonen", ru: "Жильё"),
             subtitle: localizedText(en: "Rent, buying, student housing, social housing, useful websites, and real-estate partners.", nl: "Huren, kopen, studentenwoningen, sociale huur, websites en makelaars.", ru: "Аренда, покупка, студенческое жильё, social housing, сайты и партнёры."),
-            viewAllDestination: .practicalGuide(.housingBasics),
-            items: housingItems
+            viewAllDestination: .housingSection(.overview),
+            items: Array(housingItems.prefix(4))
         )
     }
 
@@ -797,8 +939,8 @@ struct HomeView: View {
         homeContentSection(
             title: localizedText(en: "Transport", nl: "Vervoer", ru: "Транспорт"),
             subtitle: localizedText(en: "Train, bus, metro, bikes, parking, airports, OV-chipkaart, and journey planning.", nl: "Trein, bus, metro, fiets, parkeren, luchthavens, OV-chipkaart en reisplanning.", ru: "Поезда, автобусы, метро, велосипед, парковка, аэропорты, OV-chipkaart и маршруты."),
-            viewAllDestination: .practicalGuide(.transportBasics),
-            items: transportItems
+            viewAllDestination: .transportSection(.overview),
+            items: Array(transportItems.prefix(4))
         )
     }
 
@@ -807,7 +949,7 @@ struct HomeView: View {
             title: localizedText(en: "Leisure", nl: "Vrije tijd", ru: "Досуг"),
             subtitle: localizedText(en: "Nightlife, sport, local culture, family activities, and relaxed weekend ideas.", nl: "Nachtleven, sport, lokale cultuur, gezinsactiviteiten en rustige weekendideeen.", ru: "Вечерний досуг, спорт, локальная культура, семейные активности и идеи на выходные."),
             viewAllDestination: .cultureAttractions,
-            items: leisureItems
+            items: Array(leisureItems.prefix(4))
         )
     }
 
@@ -815,8 +957,8 @@ struct HomeView: View {
         homeContentSection(
             title: localizedText(en: "Education", nl: "Onderwijs", ru: "Образование"),
             subtitle: localizedText(en: "Universities, language schools, driving schools, DUO, and student benefits.", nl: "Universiteiten, taalscholen, rijscholen, DUO en studentenvoordelen.", ru: "Университеты, языковые школы, автошколы, DUO и студенческие льготы."),
-            viewAllDestination: .institutionsList,
-            items: educationItems
+            viewAllDestination: .educationSection(.universities),
+            items: Array(educationItems.prefix(4))
         )
     }
 
@@ -1542,8 +1684,8 @@ struct HomeView: View {
 
     private var homeTopChrome: some View {
         HomeTopChromeBar(
-            title: "YouNew.nl",
-            tagline: localizedText(en: "Netherlands guide", nl: "Gids voor Nederland", ru: "Гид по Нидерландам"),
+            title: "YouNew",
+            tagline: localizedText(en: "Your guide to life in the Netherlands", nl: "Uw gids voor het leven in Nederland", ru: "Ваш гид по жизни в Нидерландах"),
             menuAccessibilityLabel: L10n.t("accessibility.openMenu", lang),
             style: .standard,
             onOpenMenu: onOpenMenu
@@ -1676,28 +1818,28 @@ struct HomeView: View {
         case .tourist:
             return [
                 routeAction(id: "release-emergency", title: quickActionTitle(.emergency), subtitle: quickActionSubtitle(.emergency), symbol: "phone.fill", tint: AppColors.error, destination: .emergencyHub),
-                routeAction(id: "release-transport", title: quickActionTitle(.transport), subtitle: quickActionSubtitle(.transport), symbol: "tram.fill", tint: AppColors.emerald, destination: .practicalGuide(.transportBasics)),
-                HomeCityGuideActionItem(id: "release-places", title: quickActionTitle(.places), subtitle: quickActionSubtitle(.places), symbol: "mappin.and.ellipse", tint: AppColors.cyanGlow, url: nil, destination: cityDashboard.mapFocus, provider: nil, cta: nil, externalLink: nil),
+                routeAction(id: "release-transport", title: quickActionTitle(.transport), subtitle: quickActionSubtitle(.transport), symbol: "tram.fill", tint: AppColors.emerald, destination: .transportSection(.overview)),
+                HomeCityGuideActionItem(id: "release-places", title: quickActionTitle(.places), subtitle: quickActionSubtitle(.places), symbol: "mappin.and.ellipse", tint: AppColors.cyanGlow, url: nil, destination: .placeList(city: selectedCityID), provider: nil, cta: nil, externalLink: nil),
                 HomeCityGuideActionItem(id: "release-ai", title: quickActionTitle(.aiAssistant), subtitle: quickActionSubtitle(.aiAssistant), symbol: "sparkles", tint: AppColors.violet, url: nil, destination: .assistantHub, provider: nil, cta: nil, externalLink: nil)
             ]
         case .refugee:
             return [
                 routeAction(id: "release-emergency", title: quickActionTitle(.emergency), subtitle: quickActionSubtitle(.emergency), symbol: "phone.fill", tint: AppColors.error, destination: .emergencyHub),
                 routeAction(id: "release-documents", title: quickActionTitle(.documentsGovernment), subtitle: quickActionSubtitle(.documentsGovernment), symbol: "doc.text.fill", tint: AppColors.softBlue, destination: .journeyDocuments),
-                routeAction(id: "release-transport", title: quickActionTitle(.transport), subtitle: quickActionSubtitle(.transport), symbol: "tram.fill", tint: AppColors.emerald, destination: .practicalGuide(.transportBasics)),
+                routeAction(id: "release-transport", title: quickActionTitle(.transport), subtitle: quickActionSubtitle(.transport), symbol: "tram.fill", tint: AppColors.emerald, destination: .transportSection(.overview)),
                 HomeCityGuideActionItem(id: "release-ai", title: quickActionTitle(.aiAssistant), subtitle: quickActionSubtitle(.aiAssistant), symbol: "sparkles", tint: AppColors.violet, url: nil, destination: .assistantHub, provider: nil, cta: nil, externalLink: nil)
             ]
         case .student:
             return [
-                routeAction(id: "release-transport", title: quickActionTitle(.transport), subtitle: quickActionSubtitle(.transport), symbol: "tram.fill", tint: AppColors.emerald, destination: .practicalGuide(.transportBasics)),
-                routeAction(id: "release-housing", title: quickActionTitle(.housing), subtitle: quickActionSubtitle(.housing), symbol: "house.fill", tint: AppColors.violet, destination: .practicalGuide(.housingBasics)),
-                HomeCityGuideActionItem(id: "release-places", title: quickActionTitle(.places), subtitle: quickActionSubtitle(.places), symbol: "mappin.and.ellipse", tint: AppColors.cyanGlow, url: nil, destination: cityDashboard.mapFocus, provider: nil, cta: nil, externalLink: nil),
+                routeAction(id: "release-transport", title: quickActionTitle(.transport), subtitle: quickActionSubtitle(.transport), symbol: "tram.fill", tint: AppColors.emerald, destination: .transportSection(.overview)),
+                routeAction(id: "release-housing", title: quickActionTitle(.housing), subtitle: quickActionSubtitle(.housing), symbol: "house.fill", tint: AppColors.violet, destination: .housingSection(.studentHousing)),
+                HomeCityGuideActionItem(id: "release-places", title: quickActionTitle(.places), subtitle: quickActionSubtitle(.places), symbol: "mappin.and.ellipse", tint: AppColors.cyanGlow, url: nil, destination: .placeList(city: selectedCityID), provider: nil, cta: nil, externalLink: nil),
                 HomeCityGuideActionItem(id: "release-ai", title: quickActionTitle(.aiAssistant), subtitle: quickActionSubtitle(.aiAssistant), symbol: "sparkles", tint: AppColors.violet, url: nil, destination: .assistantHub, provider: nil, cta: nil, externalLink: nil)
             ]
         default:
             return [
                 routeAction(id: "release-emergency", title: quickActionTitle(.emergency), subtitle: quickActionSubtitle(.emergency), symbol: "phone.fill", tint: AppColors.error, destination: .emergencyHub),
-                routeAction(id: "release-transport", title: quickActionTitle(.transport), subtitle: quickActionSubtitle(.transport), symbol: "tram.fill", tint: AppColors.emerald, destination: .practicalGuide(.transportBasics)),
+                routeAction(id: "release-transport", title: quickActionTitle(.transport), subtitle: quickActionSubtitle(.transport), symbol: "tram.fill", tint: AppColors.emerald, destination: .transportSection(.overview)),
                 routeAction(id: "release-documents", title: quickActionTitle(.documentsGovernment), subtitle: quickActionSubtitle(.documentsGovernment), symbol: "doc.text.fill", tint: AppColors.softBlue, destination: .journeyDocuments),
                 HomeCityGuideActionItem(id: "release-ai", title: quickActionTitle(.aiAssistant), subtitle: quickActionSubtitle(.aiAssistant), symbol: "sparkles", tint: AppColors.violet, url: nil, destination: .assistantHub, provider: nil, cta: nil, externalLink: nil)
             ]
@@ -1895,6 +2037,10 @@ struct HomeView: View {
         case .eindhoven: return Color(hex: "#2E2B44")
         case .maastricht: return Color(hex: "#302A3D")
         case .groningen: return Color(hex: "#17303A")
+        case .nijmegen: return Color(hex: "#1A2410")
+        case .arnhem: return Color(hex: "#1A1A0A")
+        case .delft: return Color(hex: "#2A1A10")
+        case .haarlem: return Color(hex: "#1A1020")
         }
     }
 
@@ -1960,9 +2106,7 @@ struct HomeView: View {
     }
 
     private func selectCityPill(_ city: String) {
-        #if canImport(UIKit)
-        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-        #endif
+        AppHaptics.selection()
         withAnimation(.spring(response: 0.4, dampingFraction: 0.75)) {
             appState.selectedCity = city
             selectedPlaceFilter = nil
@@ -3072,51 +3216,51 @@ struct HomeView: View {
         switch appState.selectedUserStatus?.personaTag {
         case .student:
             return [
-                scenario(id: "universities", title: "Universities", subtitle: "MBO, HBO, research universities", asset: "premium_home_language", accent: AppColors.emerald, destination: .institutionsList),
-                scenario(id: "student-housing", title: "Student Housing", subtitle: "Rooms, contracts, registration", asset: "premium_home_housing", accent: AppColors.violet, destination: .practicalGuide(.housingBasics)),
-                scenario(id: "duo", title: "DUO", subtitle: "Study finance, insurance, transport", asset: "premium_home_documents", accent: AppColors.softBlue, destination: .officialSources)
+                scenario(id: "universities", title: "Universities", subtitle: "MBO, HBO, research universities", asset: "premium_home_language", accent: AppColors.emerald, destination: .educationSection(.universities)),
+                scenario(id: "student-housing", title: "Student Housing", subtitle: "Rooms, contracts, registration", asset: "premium_home_housing", accent: AppColors.violet, destination: .housingSection(.studentHousing)),
+                scenario(id: "duo", title: "DUO", subtitle: "Study finance, insurance, transport", asset: "premium_home_documents", accent: AppColors.softBlue, destination: .educationSection(.duo))
             ]
         case .worker, .highlySkilledMigrant:
             return [
                 scenario(id: "work-contracts", title: "Work Contracts", subtitle: "Salary, rights, conditions", asset: "premium_home_work", accent: AppColors.violet, destination: .institutionsList),
                 scenario(id: "bsn-digid", title: "BSN and DigiD", subtitle: "Registration and identity", asset: "premium_home_documents", accent: AppColors.cyanGlow, destination: .checklistList),
-                scenario(id: "taxes", title: "Taxes", subtitle: "Tax and work basics", asset: "premium_home_work", accent: AppColors.emerald, destination: .officialSources)
+                scenario(id: "taxes", title: "Taxes", subtitle: "Tax and work basics", asset: "premium_home_work", accent: AppColors.emerald, destination: .governmentSection(.taxes))
             ]
         case .refugee:
             return [
-                scenario(id: "ind", title: "IND", subtitle: "Status, documents, permissions", asset: "premium_home_documents", accent: AppColors.softBlue, destination: .governmentHub),
-                scenario(id: "municipality", title: "Municipality", subtitle: "Registration, benefits, local support", asset: "home_documents_city_hall", accent: AppColors.cyanGlow, destination: .governmentHub),
+                scenario(id: "ind", title: "IND", subtitle: "Status, documents, permissions", asset: "premium_home_documents", accent: AppColors.softBlue, destination: .governmentSection(.ind)),
+                scenario(id: "municipality", title: "Municipality", subtitle: "Registration, benefits, local support", asset: "home_documents_city_hall", accent: AppColors.cyanGlow, destination: .governmentSection(.municipality)),
                 scenario(id: "integration", title: "Integration", subtitle: "Language, healthcare, education access", asset: "premium_home_language", accent: AppColors.emerald, destination: .languageHub)
             ]
         case .family:
             return [
-                scenario(id: "schools", title: "Schools", subtitle: "Education for children", asset: "premium_home_language", accent: AppColors.emerald, destination: .institutionsList),
+                scenario(id: "schools", title: "Schools", subtitle: "Education for children", asset: "premium_home_language", accent: AppColors.emerald, destination: .educationSection(.universities)),
                 scenario(id: "childcare", title: "Childcare", subtitle: "Kinderopvang and SVB", asset: "premium_home_housing", accent: AppColors.softBlue, destination: .officialSources),
-                scenario(id: "family-healthcare", title: "Healthcare", subtitle: "Family care and activities", asset: "premium_home_healthcare", accent: AppColors.dutchOrange, destination: .practicalGuide(.healthcareBasics))
+                scenario(id: "family-healthcare", title: "Healthcare", subtitle: "Family care and activities", asset: "premium_home_healthcare", accent: AppColors.dutchOrange, destination: .governmentSection(.healthcare))
             ]
         case .tourist:
             return [
                 scenario(id: "stay-rules", title: "Stay Rules", subtitle: "Short stay and documents", asset: "premium_home_documents", accent: AppColors.softBlue, destination: .officialSources),
-                scenario(id: "transport", title: "Transport", subtitle: "OV, city travel, places", asset: ContentMediaRegistry.transportHero, accent: AppColors.dutchOrange, destination: .practicalGuide(.transportBasics)),
+                scenario(id: "transport", title: "Transport", subtitle: "OV, city travel, places", asset: ContentMediaRegistry.transportHero, accent: AppColors.dutchOrange, destination: .transportSection(.overview)),
                 scenario(id: "emergency", title: "Emergency", subtitle: "112, urgent care, lost documents", asset: "premium_home_emergency", accent: AppColors.error, destination: .emergencyHub)
             ]
         case .entrepreneur:
             return [
-                scenario(id: "kvk", title: "KVK", subtitle: "Business registration", asset: "premium_home_work", accent: AppColors.softBlue, destination: .officialSources),
-                scenario(id: "vat", title: "VAT / BTW", subtitle: "Tax and banking basics", asset: "premium_home_documents", accent: AppColors.dutchOrange, destination: .officialSources),
-                scenario(id: "permits", title: "Permits", subtitle: "Municipality rules", asset: "home_documents_city_hall", accent: AppColors.violet, destination: .governmentHub)
+                scenario(id: "kvk", title: "KVK", subtitle: "Business registration", asset: "premium_home_work", accent: AppColors.softBlue, destination: .governmentSection(.municipality)),
+                scenario(id: "vat", title: "VAT / BTW", subtitle: "Tax and banking basics", asset: "premium_home_documents", accent: AppColors.dutchOrange, destination: .governmentSection(.taxes)),
+                scenario(id: "permits", title: "Permits", subtitle: "Municipality rules", asset: "home_documents_city_hall", accent: AppColors.violet, destination: .governmentSection(.municipality))
             ]
         case .lgbt:
             return [
                 scenario(id: "safety", title: "Safety", subtitle: "Rights and legal support", asset: "premium_home_documents", accent: AppColors.softBlue, destination: .lgbtqSupport),
-                scenario(id: "healthcare", title: "Healthcare", subtitle: "Inclusive care and mental health", asset: "premium_home_healthcare", accent: AppColors.emerald, destination: .practicalGuide(.healthcareBasics)),
+                scenario(id: "healthcare", title: "Healthcare", subtitle: "Inclusive care and mental health", asset: "premium_home_healthcare", accent: AppColors.emerald, destination: .governmentSection(.healthcare)),
                 scenario(id: "community", title: "Community", subtitle: "Support, services, safe places", asset: ContentMediaRegistry.officialSourcesHero ?? ContentMediaRegistry.premiumHousingImage, accent: AppColors.dutchOrange, destination: .lgbtqSupport)
             ]
         case .eu, .nonEU, .universal, nil:
             return [
-                scenario(id: "registration", title: "Registration", subtitle: "Municipality, BSN, DigiD", asset: "premium_home_documents", accent: AppColors.cyanGlow, destination: .checklistList),
-                scenario(id: "healthcare", title: "Healthcare", subtitle: "GP and insurance", asset: "premium_home_healthcare", accent: AppColors.emerald, destination: .practicalGuide(.healthcareBasics)),
-                scenario(id: "housing", title: "Housing", subtitle: "Renting safely", asset: "premium_home_housing", accent: AppColors.violet, destination: .practicalGuide(.housingBasics))
+                scenario(id: "registration", title: "Registration", subtitle: "Municipality, BSN, DigiD", asset: "premium_home_documents", accent: AppColors.cyanGlow, destination: .governmentSection(.municipality)),
+                scenario(id: "healthcare", title: "Healthcare", subtitle: "GP and insurance", asset: "premium_home_healthcare", accent: AppColors.emerald, destination: .governmentSection(.healthcare)),
+                scenario(id: "housing", title: "Housing", subtitle: "Renting safely", asset: "premium_home_housing", accent: AppColors.violet, destination: .housingSection(.overview))
             ]
         }
     }
@@ -4006,12 +4150,12 @@ struct HomeView: View {
     private var cityMoments: [HomeCityMoment] {
         [
             HomeCityMoment(id: "weather", titleRU: "Погода", titleNL: "Weer", titleEN: "Weather", subtitleRU: "Проверьте день перед выходом", subtitleNL: "Check je dag voor vertrek", subtitleEN: "Check your day before leaving", asset: selectedHeroCityAsset, accent: AppColors.softBlue, destination: nil),
-            HomeCityMoment(id: "transport", titleRU: "Транспорт", titleNL: "Openbaar vervoer", titleEN: "Transport", subtitleRU: "OV, поезд, велосипед и маршруты рядом", subtitleNL: "OV, trein, fiets en routes dichtbij", subtitleEN: "OV, trains, bikes, and nearby routes", asset: ContentMediaRegistry.transportHero, accent: AppColors.emerald, destination: .practicalGuide(.transportBasics)),
-            HomeCityMoment(id: "municipality", titleRU: "Муниципалитет", titleNL: "Gemeente", titleEN: "Municipality", subtitleRU: "Адрес, BSN и городские услуги", subtitleNL: "Adres, BSN en stadsdiensten", subtitleEN: "Address, BSN, and city services", asset: ContentMediaRegistry.municipalityCityHallImage, accent: AppColors.cyanGlow, destination: .governmentHub),
+            HomeCityMoment(id: "transport", titleRU: "Транспорт", titleNL: "Openbaar vervoer", titleEN: "Transport", subtitleRU: "OV, поезд, велосипед и маршруты рядом", subtitleNL: "OV, trein, fiets en routes dichtbij", subtitleEN: "OV, trains, bikes, and nearby routes", asset: ContentMediaRegistry.transportHero, accent: AppColors.emerald, destination: .transportSection(.overview)),
+            HomeCityMoment(id: "municipality", titleRU: "Муниципалитет", titleNL: "Gemeente", titleEN: "Municipality", subtitleRU: "Адрес, BSN и городские услуги", subtitleNL: "Adres, BSN en stadsdiensten", subtitleEN: "Address, BSN, and city services", asset: ContentMediaRegistry.municipalityCityHallImage, accent: AppColors.cyanGlow, destination: .governmentSection(.municipality)),
             HomeCityMoment(id: "emergency", titleRU: "Экстренно", titleNL: "Noodhulp", titleEN: "Emergency", subtitleRU: "112 и помощь рядом", subtitleNL: "112 en hulp dichtbij", subtitleEN: "112 and nearby help", asset: premiumLocalImage(id: "premium-home-emergency", localAssetName: "premium_home_emergency", title: "Dutch emergency services"), accent: AppColors.error, destination: .emergencyHub),
-            HomeCityMoment(id: "events", titleRU: "События", titleNL: "Evenementen", titleEN: "Events", subtitleRU: "Что происходит в городе", subtitleNL: "Wat er in de stad gebeurt", subtitleEN: "What is happening nearby", asset: selectedHeroCityAsset, accent: AppColors.dutchOrange, destination: .mapFocus(.city(cityDashboard.cityName))),
+            HomeCityMoment(id: "events", titleRU: "События", titleNL: "Evenementen", titleEN: "Events", subtitleRU: "Что происходит в городе", subtitleNL: "Wat er in de stad gebeurt", subtitleEN: "What is happening nearby", asset: selectedHeroCityAsset, accent: AppColors.dutchOrange, destination: .eventList(city: selectedCityID)),
             HomeCityMoment(id: "tip", titleRU: "Совет дня", titleNL: "Tip van de dag", titleEN: "Local tip", subtitleRU: "Маленький шаг, который поможет сегодня", subtitleNL: "Een kleine stap voor vandaag", subtitleEN: "A small step that helps today", asset: ContentMediaRegistry.officialSourcesHero, accent: AppColors.violet, destination: nil),
-            HomeCityMoment(id: "official", titleRU: "Официальные сервисы", titleNL: "Officiële diensten", titleEN: "Official services", subtitleRU: "Источники для проверки следующего шага", subtitleNL: "Bronnen om je volgende stap te controleren", subtitleEN: "Sources to check before your next step", asset: ContentMediaRegistry.officialSourcesHero, accent: AppColors.cyanGlow, destination: .officialSources)
+            HomeCityMoment(id: "official", titleRU: "Официальные сервисы", titleNL: "Officiële diensten", titleEN: "Official services", subtitleRU: "Источники для проверки следующего шага", subtitleNL: "Bronnen om je volgende stap te controleren", subtitleEN: "Sources to check before your next step", asset: ContentMediaRegistry.officialSourcesHero, accent: AppColors.cyanGlow, destination: .governmentSection(.municipality))
         ]
     }
 

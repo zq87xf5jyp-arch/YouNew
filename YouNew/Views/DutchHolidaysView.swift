@@ -31,6 +31,7 @@ struct DutchHolidaysView: View {
         .appSceneBackground(.more)
         .navigationTitle(navTitle)
         .nlNavigationInline()
+        .accessibilityIdentifier("holidays.screen")
     }
 
     // MARK: - Sections
@@ -93,10 +94,13 @@ struct DutchHolidaysView: View {
                         if isExpanded {
                             holidayExpandedDetails(holiday)
                                 .transition(.opacity.combined(with: .move(edge: .top)))
+                                .accessibilityIdentifier("holiday.detail.\(holiday.id)")
                         }
                     }
                 }
                 .buttonStyle(.plain)
+                .accessibilityIdentifier("holiday.card.\(holiday.id)")
+                .accessibilityValue(isExpanded ? "expanded" : "collapsed")
             }
         }
     }

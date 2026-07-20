@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-14",
+  "allowed_statuses": ["planned", "active", "qa", "complete"],
+  "required_gates": ["build", "static", "duplicate", "source", "media", "search", "ai"],
+  "work_packages": [
+    {"id": "WP-01", "name": "Government", "domains": ["government", "documents"], "status": "active"},
+    {"id": "WP-02", "name": "Housing", "domains": ["housing"], "status": "active"},
+    {"id": "WP-03", "name": "Healthcare", "domains": ["healthcare"], "status": "active"},
+    {"id": "WP-04", "name": "Transport", "domains": ["transport"], "status": "active"},
+    {"id": "WP-05", "name": "Education", "domains": ["education"], "status": "active"},
+    {"id": "WP-06", "name": "Cities", "domains": ["cities", "places"], "status": "active"},
+    {"id": "WP-07", "name": "Museums", "domains": ["museums"], "status": "planned"},
+    {"id": "WP-08", "name": "Restaurants", "domains": ["restaurants"], "status": "planned"},
+    {"id": "WP-09", "name": "Cafes", "domains": ["cafes"], "status": "planned"},
+    {"id": "WP-10", "name": "Hotels", "domains": ["hotels"], "status": "planned"},
+    {"id": "WP-11", "name": "Events", "domains": ["events"], "status": "planned"},
+    {"id": "WP-12", "name": "Nature", "domains": ["nature"], "status": "planned"},
+    {"id": "WP-13", "name": "Partners", "domains": ["local_partners"], "status": "planned"},
+    {"id": "WP-14", "name": "Media", "domains": ["media"], "status": "active"},
+    {"id": "WP-15", "name": "Knowledge Graph", "domains": ["knowledge_graph"], "status": "active"},
+    {"id": "WP-16", "name": "Data Observability & Release Layer", "domains": ["data_observability", "data_releases"], "status": "active"},
+    {"id": "WP-17", "name": "Data Operations", "domains": ["data_operations", "editorial_workflow"], "status": "active"}
+  ]
+}

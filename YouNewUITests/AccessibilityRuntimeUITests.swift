@@ -15,13 +15,15 @@ final class AccessibilityRuntimeUITests: XCTestCase {
         try requireAppWindow(in: app)
 
         let requiredIdentifiers = [
-            "home.product.hero",
-            "home.statusCard",
-            "home.status.change",
+            "home.discoveryMenu",
+            "home.currentCity",
+            "home.globalSearch",
+            "home.currentProfile",
             "tab.home",
-            "tab.search",
+            "tab.guide",
             "tab.map",
-            "tab.assistant"
+            "tab.saved",
+            "tab.more"
         ]
 
         for identifier in requiredIdentifiers {
@@ -29,9 +31,9 @@ final class AccessibilityRuntimeUITests: XCTestCase {
             assertAccessibleElement(element, identifier: identifier)
         }
 
-        let changeButton = app.descendants(matching: .any)["home.status.change"]
+        let changeButton = app.descendants(matching: .any)["home.currentCity"]
         scrollToElement(changeButton, in: app)
-        assertAboveFloatingTab(changeButton, in: app, identifier: "home.status.change")
+        assertAboveFloatingTab(changeButton, in: app, identifier: "home.currentCity")
     }
 
     @MainActor
@@ -46,14 +48,18 @@ final class AccessibilityRuntimeUITests: XCTestCase {
         assertAccessibleElement(submit, identifier: "search.submit")
 
         input.tap()
-        input.typeText("BSN")
+        input.typeText("BS")
+        input.typeText("N")
+        let completeQuery = NSPredicate(format: "value == %@", "BSN")
+        expectation(for: completeQuery, evaluatedWith: input)
+        waitForExpectations(timeout: 3)
         submit.tap()
 
-        let result = app.descendants(matching: .any)["search.result.card"]
+        let result = app.descendants(matching: .any)["search.directResult.link.essential-bsn-registration"]
         XCTAssertTrue(result.waitForExistence(timeout: 5), "Search result card should appear at accessibility text size.")
         XCTAssertFalse(result.frame.isEmpty, "Search result card has an empty frame at accessibility text size.")
         scrollToElement(result, in: app)
-        assertAboveFloatingTab(result, in: app, identifier: "search.result.card")
+        assertAboveFloatingTab(result, in: app, identifier: "search.directResult.link.essential-bsn-registration")
     }
 
     @MainActor
@@ -79,7 +85,7 @@ final class AccessibilityRuntimeUITests: XCTestCase {
         XCTAssertTrue(mapHub.waitForExistence(timeout: 8), "Map hub should render at accessibility text size.")
         XCTAssertFalse(mapHub.frame.isEmpty, "Map hub has an empty frame at accessibility text size.")
 
-        let chipRow = revealChipRow(in: mapApp)
+        let chipRow = revealCityFilter(in: mapApp)
         XCTAssertTrue(chipRow.waitForExistence(timeout: 6), "Map chip row should render at accessibility text size.")
         XCTAssertFalse(chipRow.frame.isEmpty, "Map chip row has an empty frame at accessibility text size.")
     }
@@ -91,10 +97,14 @@ final class AccessibilityRuntimeUITests: XCTestCase {
             "-uiTesting",
             "-resetUITestState",
             "-launchLanguage", "en",
-            "-uiTestingStartTab", startTab,
             "-uiTestingCity", "Leiden",
             "-uiTestingStatus", "worker"
         ]
+        if startTab == "assistant" || startTab == "search" {
+            app.launchArguments += ["-uiTestingDestination", startTab]
+        } else {
+            app.launchArguments += ["-uiTestingStartTab", startTab]
+        }
         app.launchEnvironment["UIPreferredContentSizeCategoryName"] = "UICTContentSizeCategoryAccessibilityXXXL"
         app.launch()
         app.activate()
@@ -127,7 +137,7 @@ final class AccessibilityRuntimeUITests: XCTestCase {
 
     @MainActor
     private func assertAboveFloatingTab(_ element: XCUIElement, in app: XCUIApplication, identifier: String) {
-        let tab = app.descendants(matching: .any)["tab.search"]
+        let tab = app.descendants(matching: .any)["tab.guide"]
         XCTAssertTrue(tab.waitForExistence(timeout: 4), "Floating tab bar is missing while checking \(identifier).")
         XCTAssertLessThanOrEqual(
             element.frame.maxY,
@@ -138,7 +148,7 @@ final class AccessibilityRuntimeUITests: XCTestCase {
 
     @MainActor
     private func scrollToElement(_ element: XCUIElement, in app: XCUIApplication) {
-        let tab = app.descendants(matching: .any)["tab.search"]
+        let tab = app.descendants(matching: .any)["tab.guide"]
         var attempts = 0
         while element.exists, tab.exists, element.frame.maxY > tab.frame.minY - 4, attempts < 6 {
             app.swipeUp()
@@ -147,8 +157,8 @@ final class AccessibilityRuntimeUITests: XCTestCase {
     }
 
     @MainActor
-    private func revealChipRow(in app: XCUIApplication) -> XCUIElement {
-        let chipRow = app.descendants(matching: .any)["map.chip.row"]
+    private func revealCityFilter(in app: XCUIApplication) -> XCUIElement {
+        let chipRow = app.descendants(matching: .any)["map.city.leiden"]
         for _ in 0..<5 {
             if chipRow.exists && !chipRow.frame.isEmpty {
                 return chipRow

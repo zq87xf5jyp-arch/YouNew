@@ -63,28 +63,32 @@ struct FavoritesView: View {
     }
 
     var body: some View {
+        let visibleItems = visibleSavedItems
+        let itemsByKind = Dictionary(grouping: visibleItems, by: \.kind)
+
         ScrollViewReader { scrollProxy in
             ScrollView {
                 ResponsiveContentContainer(maxWidth: 920) {
-                    VStack(alignment: .leading, spacing: AppSpacing.medium) {
+                    LazyVStack(alignment: .leading, spacing: AppSpacing.medium) {
                         Color.clear
                             .frame(height: 0)
                             .id("favoritesTop")
 
                         savedControls
 
-                        if visibleSavedItems.isEmpty {
+                        if visibleItems.isEmpty {
                             emptySavedDashboard
                         } else {
                             savedHero
                             ForEach(SavedItemsStore.SavedItemKind.allCases, id: \.rawValue) { kind in
-                                let items = visibleSavedItems.filter { $0.kind == kind }
+                                let items = itemsByKind[kind] ?? []
                                 if !items.isEmpty {
-                                    VStack(alignment: .leading, spacing: AppSpacing.small) {
-                                        SectionHeader(title: title(for: kind))
+                                    Section {
                                         ForEach(items) { item in
                                             favoriteRow(item)
                                         }
+                                    } header: {
+                                        SectionHeader(title: title(for: kind))
                                     }
                                 }
                             }
@@ -198,7 +202,11 @@ struct FavoritesView: View {
                         emptyActionCard(action)
                     }
                     .buttonStyle(AppPressableCardButtonStyle())
-                    .accessibilityIdentifier("saved.empty.action.\(action.id)")
+                    .accessibilityIdentifier(
+                        action.id == emptyActions.last?.id
+                            ? "saved.lastElement"
+                            : "saved.empty.action.\(action.id)"
+                    )
                 }
             }
         }
@@ -340,7 +348,7 @@ struct FavoritesView: View {
 
     @ViewBuilder
     private func favoriteRow(_ item: SavedItemsStore.SavedItem) -> some View {
-        if let destination = item.destination ?? ContentRepository.shared.legacyDestination(id: item.id) {
+        if let destination = item.destination ?? ContentRepository.shared.destination(id: item.id) {
             NavigationLink(value: destination) {
                 rowContent(item)
             }

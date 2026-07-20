@@ -141,6 +141,10 @@ enum CityId: String, CaseIterable, Codable, Hashable, Identifiable {
     case eindhoven
     case maastricht
     case groningen
+    case nijmegen
+    case arnhem
+    case delft
+    case haarlem
 
     var id: String { rawValue }
 
@@ -154,6 +158,10 @@ enum CityId: String, CaseIterable, Codable, Hashable, Identifiable {
         case .eindhoven: return "Eindhoven"
         case .maastricht: return "Maastricht"
         case .groningen: return "Groningen"
+        case .nijmegen: return "Nijmegen"
+        case .arnhem: return "Arnhem"
+        case .delft: return "Delft"
+        case .haarlem: return "Haarlem"
         }
     }
 
@@ -308,7 +316,7 @@ enum PlacePriceHint: String, Codable, Hashable {
     case unknown
 }
 
-struct PlaceCoordinate: Codable, Hashable {
+nonisolated struct PlaceCoordinate: Codable, Hashable {
     let lat: Double
     let lng: Double
 
@@ -438,9 +446,10 @@ struct CalendarEvent: Identifiable, Codable, Equatable {
     let draft: Bool
 
     func isVisible(cityId selectedCityId: String, audience selectedAudience: UserContentCategory?, now: Date = Date()) -> Bool {
-        !hidden
+        let activeThrough = endDate ?? date
+        return !hidden
             && !draft
-            && date >= CalendarEventData.calendar.startOfDay(for: now)
+            && activeThrough >= CalendarEventData.calendar.startOfDay(for: now)
             && (cityId == nil || cityId?.caseInsensitiveCompare(selectedCityId) == .orderedSame)
             && !audience.isEmpty
             && source != nil

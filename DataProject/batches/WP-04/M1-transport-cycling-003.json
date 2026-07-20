@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-04-M1-transport-cycling-003",
+  "work_package": "WP-04",
+  "milestone": "WP-04-M1",
+  "target_release": "transport-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator test build and admin production build succeeded.",
+    "static": "Full static QA and DATA PROJECT validation succeeded.",
+    "duplicate": "No duplicate IDs, normalized titles, canonical websites or media IDs detected.",
+    "source": "Official source pages were reviewed and the network audit found 0 confirmed broken URLs across 1054 checked URLs.",
+    "media": "Knowledge topics intentionally contain no media assets; no unverified or unlicensed assets are present.",
+    "search": "Every record has at least three unique search terms and all related entity IDs resolve.",
+    "ai": "Every AI summary passes length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "transport.cycling-rules",
+      "entity_type": "knowledge_topic",
+      "category": "cycling",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Learn the basic rules for cycling in Dutch traffic",
+      "description": "Cyclists must follow road signs, priority rules, traffic lights and designated cycle infrastructure while remaining visible and predictable around pedestrians and motor vehicles.",
+      "images": [],
+      "official_source": {
+        "title": "Participating in Dutch traffic",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/documents/reports/2024/02/09/participating-in-dutch-traffic",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/documents/reports/2024/02/09/participating-in-dutch-traffic",
+      "related_entity_ids": [
+        "transport.bicycle-lights",
+        "transport.ebike-rules",
+        "transport.child-on-bike"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Use designated cycle paths where required, signal turns clearly and approach unfamiliar junctions defensively. Road design does not remove the cyclist's duty to obey signs, lights and priority markings.",
+      "search_keywords": [
+        "Dutch cycling rules",
+        "cycle path",
+        "bike priority",
+        "traffic signs",
+        "safe cycling"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Cycling and bicycle services"
+      }
+    },
+    {
+      "id": "transport.bicycle-lights",
+      "entity_type": "knowledge_topic",
+      "category": "cycling",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use legal bicycle lights and reflectors",
+      "description": "In darkness or poor visibility a bicycle needs a white or yellow front light, red rear light and the prescribed reflectors, with restrictions on flashing and placement.",
+      "images": [],
+      "official_source": {
+        "title": "Rules for bicycle lights and reflectors",
+        "publisher": "Rijksoverheid",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/fiets/wat-zijn-de-regels-voor-fietsverlichting-en-reflectie-op-een-fiets",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/fiets/wat-zijn-de-regels-voor-fietsverlichting-en-reflectie-op-een-fiets",
+      "related_entity_ids": [
+        "transport.cycling-rules",
+        "transport.ebike-rules",
+        "transport.bike-theft"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Test both lights before evening travel and keep spare removable lights available. Ensure reflectors are visible and lights face the correct direction without flashing or dazzling other road users.",
+      "search_keywords": [
+        "bike lights",
+        "fietsverlichting",
+        "bicycle reflector",
+        "cycling at night",
+        "red rear light"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Cycling and bicycle services"
+      }
+    },
+    {
+      "id": "transport.ebike-rules",
+      "entity_type": "knowledge_topic",
+      "category": "cycling",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Distinguish a legal e-bike from faster motor vehicles",
+      "description": "A standard Dutch e-bike requires pedalling, has assistance limited to the legal speed and motor power, and follows ordinary bicycle rules; modified or faster vehicles can fall under other categories.",
+      "images": [],
+      "official_source": {
+        "title": "Rules for electric bicycles and fatbikes",
+        "publisher": "Rijksoverheid",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/fiets/welke-regels-gelden-voor-mijn-elektrische-fiets-e-bike",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/fiets/welke-regels-gelden-voor-mijn-elektrische-fiets-e-bike",
+      "related_entity_ids": [
+        "transport.cycling-rules",
+        "transport.speed-pedelec-helmet",
+        "transport.bicycle-lights"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Confirm the motor power, assistance cutoff and throttle behaviour before using an e-bike or fatbike on public roads. An altered vehicle may require registration, insurance, a licence and a helmet.",
+      "search_keywords": [
+        "e-bike rules",
+        "fatbike law",
+        "250 watt",
+        "25 kmh",
+        "electric bicycle"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Cycling and bicycle services"
+      }
+    },
+    {
+      "id": "transport.speed-pedelec-helmet",
+      "entity_type": "knowledge_topic",
+      "category": "cycling",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Wear an approved helmet on a speed-pedelec",
+      "description": "A speed-pedelec is legally treated differently from an ordinary bicycle, and riders and passengers must use an approved helmet that carries the required certification.",
+      "images": [],
+      "official_source": {
+        "title": "Helmet requirement for speed-pedelecs",
+        "publisher": "Rijksoverheid",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/verkeersveiligheid/helmplicht-brommer-snorfiets-speedpedelec",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/verkeersveiligheid/helmplicht-brommer-snorfiets-speedpedelec",
+      "related_entity_ids": [
+        "transport.ebike-rules",
+        "transport.cycling-rules",
+        "transport.child-on-bike"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Check that the helmet certification is accepted for a speed-pedelec and fasten it correctly before every trip. Also verify registration, insurance and road-position rules for the vehicle category.",
+      "search_keywords": [
+        "speed pedelec helmet",
+        "NTA 8776",
+        "fast e-bike",
+        "helmet law",
+        "45 kmh bicycle"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Cycling and bicycle services"
+      }
+    },
+    {
+      "id": "transport.child-on-bike",
+      "entity_type": "knowledge_topic",
+      "category": "cycling",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Carry a young child safely on a bicycle",
+      "description": "Children younger than eight carried on a bicycle need a safe seat with adequate support for the back, hands and feet, including protection against feet entering the spokes.",
+      "images": [],
+      "official_source": {
+        "title": "Child passenger on a bicycle",
+        "publisher": "Rijksoverheid",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/voertuigen-op-de-weg/moet-mijn-kind-achterop-een-fiets-snorfiets-of-bromfiets-in-een-fietsstoeltje",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/voertuigen-op-de-weg/moet-mijn-kind-achterop-een-fiets-snorfiets-of-bromfiets-in-een-fietsstoeltje",
+      "related_entity_ids": [
+        "transport.cycling-rules",
+        "transport.bicycle-lights",
+        "transport.speed-pedelec-helmet"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Use a correctly fitted seat suitable for the child's size, secure the harness and provide footrests with robust spoke protection. Recheck mounting points and balance before riding.",
+      "search_keywords": [
+        "child bike seat",
+        "fietsstoeltje",
+        "spoke guard",
+        "child passenger bicycle",
+        "bike safety"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Cycling and bicycle services"
+      }
+    },
+    {
+      "id": "transport.cycling-alcohol",
+      "entity_type": "knowledge_topic",
+      "category": "cycling",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Do not cycle while impaired by alcohol",
+      "description": "Cycling under the influence is prohibited and a cyclist who creates danger or obstruction can be prosecuted even though the consequences for a driving licence differ from motor-vehicle cases.",
+      "images": [],
+      "official_source": {
+        "title": "Drunk cycling and driving licences",
+        "publisher": "Rijksoverheid",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/rijbewijs/raak-ik-mijn-rijbewijs-kwijt-als-ik-dronken-op-de-fiets-word-aangehouden-door-de-politie",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/rijbewijs/raak-ik-mijn-rijbewijs-kwijt-als-ik-dronken-op-de-fiets-word-aangehouden-door-de-politie",
+      "related_entity_ids": [
+        "transport.cycling-rules",
+        "transport.bicycle-lights",
+        "transport.ebike-rules"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Choose walking, public transport or a sober rider after drinking. Alcohol reduces balance, judgement and reaction time, and bicycle status does not make impaired participation safe or lawful.",
+      "search_keywords": [
+        "cycling alcohol",
+        "drunk bicycle",
+        "fiets alcohol",
+        "traffic impairment",
+        "safe ride home"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Cycling and bicycle services"
+      }
+    },
+    {
+      "id": "transport.bike-theft",
+      "entity_type": "knowledge_topic",
+      "category": "cycling",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Report a stolen bicycle",
+      "description": "The police advises checking whether a municipality removed the bicycle before filing a theft report and including the frame number so the bicycle can enter the theft register.",
+      "images": [],
+      "official_source": {
+        "title": "Report bicycle theft",
+        "publisher": "Politie Nederland",
+        "url": "https://www.politie.nl/aangifte-of-melding-doen/aangifte-van-diefstal-fiets.html",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.politie.nl/aangifte-of-melding-doen/aangifte-van-diefstal-fiets.html",
+      "related_entity_ids": [
+        "transport.bike-storage",
+        "transport.cycling-rules",
+        "transport.ov-fiets"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Keep the frame number, purchase evidence and clear photos separately. Check the municipal depot first, then report confirmed theft through the official police route and retain the report number.",
+      "search_keywords": [
+        "bicycle theft",
+        "stolen bike report",
+        "frame number",
+        "police aangifte",
+        "fietsdepot"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Cycling and bicycle services"
+      }
+    },
+    {
+      "id": "transport.ov-fiets",
+      "entity_type": "knowledge_topic",
+      "category": "cycling",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Rent and return an OV-fiets",
+      "description": "OV-fiets provides station-area bicycle rental using an eligible personal OV-chipkaart and subscription, with the rental ending only when the lock is closed correctly at return.",
+      "images": [],
+      "official_source": {
+        "title": "How to rent an OV-fiets",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/door-to-door/ov-fiets/how-it-works.html",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/door-to-door/ov-fiets/how-it-works.html",
+      "related_entity_ids": [
+        "transport.bike-storage",
+        "transport.bike-on-train",
+        "transport.personal-ov-chipkaart"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Confirm availability and eligibility before arrival, inspect the bicycle and open it with the registered card. Return it to the correct location, close the lock and verify that the rental ended.",
+      "search_keywords": [
+        "OV-fiets",
+        "station bike rental",
+        "rental bicycle",
+        "last mile bike",
+        "NS bicycle"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Cycling and bicycle services"
+      }
+    },
+    {
+      "id": "transport.bike-on-train",
+      "entity_type": "knowledge_topic",
+      "category": "cycling",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Take a bicycle on an NS train",
+      "description": "Non-folding bicycles generally need the current bicycle ticket and must follow time, space and train restrictions, while folded bicycles are treated under separate luggage conditions.",
+      "images": [],
+      "official_source": {
+        "title": "Bringing your bike on the train",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/travel/on-the-train/bikes-on-the-train",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/travel/on-the-train/bikes-on-the-train",
+      "related_entity_ids": [
+        "transport.ov-fiets",
+        "transport.bike-storage",
+        "transport.journey-planning"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Check the current time restrictions and buy the required bicycle product before boarding. Use designated spaces, follow staff instructions and consider OV-fiets when capacity is limited.",
+      "search_keywords": [
+        "bike on train",
+        "bicycle ticket",
+        "Fietskaart Dal",
+        "folding bike",
+        "NS bicycle space"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Cycling and bicycle services"
+      }
+    },
+    {
+      "id": "transport.bike-storage",
+      "entity_type": "knowledge_topic",
+      "category": "cycling",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use secure bicycle storage at railway stations",
+      "description": "NS station bicycle facilities include guarded storage, self-service options, lockers and repair services, with local tariffs and access methods that vary by facility.",
+      "images": [],
+      "official_source": {
+        "title": "Bicycle storage at the train station",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/bicycle-storage",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/bicycle-storage",
+      "related_entity_ids": [
+        "transport.ov-fiets",
+        "transport.bike-theft",
+        "transport.bike-on-train"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Check the specific station's opening hours, access method and free period before leaving a bicycle. Lock it, retain entry evidence and collect it before higher charges or local limits apply.",
+      "search_keywords": [
+        "bicycle storage",
+        "fietsenstalling",
+        "station bike parking",
+        "guarded bike storage",
+        "bike locker"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Cycling and bicycle services"
+      }
+    }
+  ]
+}

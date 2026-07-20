@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "work_package": "WP-17",
+  "mode": "plan_then_approve",
+  "automatic_actions": [
+    "scan",
+    "classify",
+    "prioritize",
+    "create_local_queue_item",
+    "generate_report"
+  ],
+  "approval_required_actions": [
+    "change_entity_lifecycle",
+    "change_verification_status",
+    "archive_event",
+    "replace_source",
+    "replace_media",
+    "publish_release",
+    "rollback_release",
+    "create_external_issue"
+  ],
+  "forbidden_automatic_actions": [
+    "publish",
+    "rollback",
+    "delete",
+    "retire",
+    "edit_canonical_data",
+    "create_github_issue"
+  ],
+  "queue_priorities": ["critical", "high", "medium", "low"],
+  "ownership": {
+    "detection": "WP-17",
+    "canonical_data_changes": "owning_domain_work_package",
+    "publication": "explicit_release_approval",
+    "external_issue_creation": "explicit_user_approval"
+  }
+}

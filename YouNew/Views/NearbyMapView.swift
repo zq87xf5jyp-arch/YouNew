@@ -23,7 +23,6 @@ struct NearbyMapView: View {
     @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var savedItemsStore: SavedItemsStore
     @EnvironmentObject private var languageManager: LanguageManager
-    @State private var mapCameraPosition: MapCameraPosition = .automatic
     @State private var selectedProvinceID: String?
     @State private var didConfigureInitialState = false
     @State private var showInteractiveMap = false
@@ -186,7 +185,6 @@ struct NearbyMapView: View {
             applyExternalFocus(focusToApply, clearAfterApply: initialFocus == nil)
         } else if MockNearbyPlacesData.supportedCities.contains(appState.selectedCity) {
             viewModel.selectedCity = appState.selectedCity
-            viewModel.applyCityCenter()
         }
 
         let targetAnchor: MapScrollAnchor
@@ -288,7 +286,7 @@ struct NearbyMapView: View {
                 }
                 .contentShape(Rectangle())
             }
-            .buttonStyle(.plain)
+            .buttonStyle(AppPressableButtonStyle())
 
             Text(L10n.t("nearby.choose_region", lang))
                 .font(AppTypography.footnote)
@@ -323,6 +321,8 @@ struct NearbyMapView: View {
             LazyVGrid(columns: [GridItem(.flexible()), GridItem(.flexible()), GridItem(.flexible())], spacing: 8) {
                 ForEach(provinceOverviewItems) { province in
                     Button {
+                        guard selectedProvinceID != province.id else { return }
+                        AppHaptics.selection()
                         withAnimation(AppAnimations.standard) {
                             selectedProvinceID = province.id
                             visiblePlacesLimit = 6
@@ -331,7 +331,7 @@ struct NearbyMapView: View {
                     } label: {
                         provinceOverviewChip(province)
                     }
-                    .buttonStyle(.plain)
+                    .buttonStyle(AppPressableCardButtonStyle())
                 }
             }
         }
@@ -440,7 +440,7 @@ struct NearbyMapView: View {
                         )
                         .clipShape(Capsule())
                     }
-                    .buttonStyle(.plain)
+                    .buttonStyle(AppPressableCardButtonStyle())
                     .accessibilityLabel(ProvinceCatalog.localizedCityName(city.name, lang))
                     .accessibilityIdentifier("map.city.\(city.name.nearbyMapAccessibilityIDSegment)")
                 }
@@ -544,6 +544,8 @@ struct NearbyMapView: View {
                 }
             } else {
                 Button {
+                    guard !isSelected else { return }
+                    AppHaptics.selection()
                     withAnimation(AppAnimations.softSpring) {
                         route.apply(viewModel)
                     }
@@ -606,6 +608,7 @@ struct NearbyMapView: View {
                         .foregroundStyle(Palette.textSecondary)
                 }
                 Button(locationOpenSettingsLabel) {
+                    AppHaptics.lightImpact()
 #if os(iOS)
                     if let url = URL(string: UIApplication.openSettingsURLString) {
                         UIApplication.shared.open(url)
@@ -616,9 +619,10 @@ struct NearbyMapView: View {
                 .foregroundStyle(AppColors.accent)
                 .frame(minHeight: AppButtonMetrics.minTouchSize)
                 .contentShape(Rectangle())
-                .buttonStyle(.plain)
+                .buttonStyle(AppPressableButtonStyle())
             } else {
                 Button(L10n.t("map.use_location", lang)) {
+                    AppHaptics.lightImpact()
                     viewModel.useMyLocation()
                 }
                 .font(.system(size: 14, weight: .bold, design: .rounded))
@@ -675,8 +679,9 @@ struct NearbyMapView: View {
             Menu {
                 ForEach(MockNearbyPlacesData.supportedCities, id: \.self) { city in
                     Button(ProvinceCatalog.localizedCityName(city, lang)) {
+                        guard viewModel.selectedCity != city else { return }
+                        AppHaptics.selection()
                         viewModel.selectedCity = city
-                        viewModel.applyCityCenter()
                     }
                 }
             } label: {
@@ -753,7 +758,11 @@ struct NearbyMapView: View {
         accessibilityIdentifier: String,
         action: @escaping () -> Void
     ) -> some View {
-        Button(action: action) {
+        Button {
+            guard !isSelected else { return }
+            AppHaptics.selection()
+            action()
+        } label: {
             HStack(spacing: 6) {
                 Image(systemName: symbol)
                     .font(.system(size: 13, weight: .semibold))
@@ -901,6 +910,8 @@ struct NearbyMapView: View {
         let isSelected = action.matches(viewModel)
 
         return Button {
+            guard !isSelected else { return }
+            AppHaptics.selection()
             withAnimation(AppAnimations.standard) {
                 action.apply(viewModel)
             }
@@ -962,37 +973,12 @@ struct NearbyMapView: View {
     private var mapSection: some View {
         Group {
             if showInteractiveMap {
-                Map(position: $mapCameraPosition) {
-                    if viewModel.mapOverlayRouteCoordinates.count > 1 {
-                        MapPolyline(coordinates: viewModel.mapOverlayRouteCoordinates)
-                            .stroke(AppColors.routeLine, style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round, dash: [7, 6]))
-                    }
-
-                    ForEach(viewModel.clusteredPlaces) { cluster in
-                        if cluster.count == 1, let place = cluster.places.first {
-                            Annotation(place.name, coordinate: place.coordinate) {
-                                placeAnnotation(for: place)
-                            }
-                        } else {
-                            Annotation("Cluster", coordinate: cluster.coordinate) {
-                                clusterAnnotation(cluster)
-                            }
-                        }
-                    }
-
-                    if let userCoordinate = viewModel.userCoordinate {
-                        Annotation(userLocationTitle, coordinate: userCoordinate) {
-                            UserLocationMapAnnotation()
-                        }
-                    }
-                }
-                .allowsHitTesting(false)
-                .onAppear {
-                    mapCameraPosition = .region(viewModel.region)
-                }
-                .onReceive(viewModel.$region) { newRegion in
-                    mapCameraPosition = .region(newRegion)
-                }
+                NearbyInteractiveMapViewport(
+                    viewModel: viewModel,
+                    lang: lang,
+                    annotationColor: annotationColor(for:),
+                    userLocationTitle: userLocationTitle
+                )
             } else {
                 LightweightNearbyMapPlaceholder(
                     selectedCity: viewModel.selectedCity,
@@ -1007,20 +993,23 @@ struct NearbyMapView: View {
         .overlay(
             RoundedRectangle(cornerRadius: Layout.cornerRadius, style: .continuous)
                 .stroke(Palette.stroke, lineWidth: 1)
+                .allowsHitTesting(false)
         )
         .overlay(alignment: .topTrailing) {
             Button {
+                AppHaptics.lightImpact()
                 showFullScreenMap = true
             } label: {
                 Label(fullScreenMapLabel, systemImage: "arrow.up.left.and.arrow.down.right")
                     .font(.system(size: 12, weight: .bold, design: .rounded))
                     .foregroundStyle(.white)
                     .padding(.horizontal, 11)
-                    .padding(.vertical, 8)
+                    .frame(minHeight: AppButtonMetrics.minTouchSize)
+                    .contentShape(Capsule())
                     .background(.ultraThinMaterial, in: Capsule())
                     .overlay(Capsule().stroke(Color.white.opacity(0.18), lineWidth: 0.8))
             }
-            .buttonStyle(.plain)
+            .buttonStyle(AppPressableButtonStyle())
             .padding(10)
         }
         .overlay(alignment: .topLeading) {
@@ -1042,6 +1031,7 @@ struct NearbyMapView: View {
         }
         .overlay {
             mapCityRouteAccessibilityLayer
+                .allowsHitTesting(false)
         }
     }
 
@@ -1060,27 +1050,6 @@ struct NearbyMapView: View {
                 .position(x: city.x * geo.size.width, y: city.y * geo.size.height)
             }
         }
-    }
-
-    private func clusterAnnotation(_ cluster: MapViewModel.PlaceCluster) -> some View {
-        Button {
-            viewModel.selectCluster(cluster)
-        } label: {
-            ZStack {
-                Circle()
-                    .fill(annotationColor(for: cluster.topCategory).opacity(0.9))
-                    .frame(width: 42, height: 42)
-                Circle()
-                    .stroke(Color.white.opacity(0.85), lineWidth: 2)
-                    .frame(width: 42, height: 42)
-                Text("\(cluster.count)")
-                    .font(AppTypography.bodyStrong)
-                    .foregroundStyle(.white)
-            }
-            .shadow(color: annotationColor(for: cluster.topCategory).opacity(0.35), radius: 8, x: 0, y: 4)
-        }
-        .buttonStyle(AppPressableCardButtonStyle())
-        .accessibilityLabel(String(format: L10n.t("map.cluster_accessibility", lang), cluster.count))
     }
 
     private var journeyGuideSection: some View {
@@ -1162,6 +1131,7 @@ struct NearbyMapView: View {
             }
             if viewModel.filteredPlaces.count > visiblePlacesLimit {
                 Button {
+                    AppHaptics.lightImpact()
                     withAnimation(AppAnimations.standard) {
                         visiblePlacesLimit += 6
                     }
@@ -1174,7 +1144,7 @@ struct NearbyMapView: View {
                         .background(AppColors.chipBackground.opacity(0.78))
                         .clipShape(RoundedRectangle(cornerRadius: 14, style: .continuous))
                 }
-                .buttonStyle(.plain)
+                .buttonStyle(AppPressableButtonStyle())
             }
             if viewModel.filteredPlaces.isEmpty {
                 noPlacesDashboard
@@ -1338,6 +1308,7 @@ struct NearbyMapView: View {
 
     private func placeRow(_ place: NearbyPlace) -> some View {
         Button {
+            AppHaptics.selection()
             viewModel.selectPlace(place)
             appState.addRecentlyViewedTopic(place.name)
         } label: {
@@ -1434,48 +1405,7 @@ struct NearbyMapView: View {
                     .stroke(AppColors.stroke.opacity(0.72), lineWidth: 0.8)
             )
         }
-        .buttonStyle(.plain)
-    }
-
-    private func placeAnnotation(for place: NearbyPlace) -> some View {
-        let isSelected = viewModel.selectedPlace?.id == place.id
-        return Button {
-            viewModel.selectPlace(place)
-        } label: {
-            VStack(spacing: 4) {
-                ZStack {
-                    if isSelected {
-                        Circle()
-                            .fill(annotationColor(for: place.category).opacity(0.22))
-                            .frame(width: 46, height: 46)
-                    }
-                    Circle()
-                        .fill(annotationColor(for: place.category))
-                        .frame(width: 36, height: 36)
-                    Circle()
-                        .stroke(Color.white.opacity(0.85), lineWidth: 2)
-                        .frame(width: 36, height: 36)
-                    Image(systemName: place.category.systemImageName)
-                        .font(.subheadline.weight(.semibold))
-                        .foregroundColor(.white)
-                }
-                .scaleEffect(isSelected ? 1.12 : 1)
-                .shadow(color: annotationColor(for: place.category).opacity(isSelected ? 0.5 : 0.28), radius: isSelected ? 11 : 6, x: 0, y: 3)
-
-                if isSelected {
-                    Text(place.name)
-                        .font(.caption2)
-                        .lineLimit(1)
-                        .padding(.horizontal, 7)
-                        .padding(.vertical, 4)
-                        .background(AppColors.card.opacity(0.96))
-                        .clipShape(Capsule())
-                }
-            }
-        }
         .buttonStyle(AppPressableCardButtonStyle())
-        .animation(AppAnimations.softSpring, value: isSelected)
-                    .accessibilityLabel("\(place.localizedName(lang)), \(place.category.localized(lang))")
     }
 
     private func annotationColor(for category: PlaceCategory) -> Color {
@@ -1901,6 +1831,140 @@ private struct CompactCityRouteBackground: View {
     }
 }
 
+private struct NearbyInteractiveMapViewport: View {
+    @ObservedObject var viewModel: MapViewModel
+    let lang: AppLanguage
+    let annotationColor: (PlaceCategory) -> Color
+    let userLocationTitle: String
+    @State private var cameraPosition: MapCameraPosition = .automatic
+
+    var body: some View {
+        Map(position: $cameraPosition, interactionModes: .all) {
+            if viewModel.mapOverlayRouteCoordinates.count > 1 {
+                MapPolyline(coordinates: viewModel.mapOverlayRouteCoordinates)
+                    .stroke(
+                        AppColors.routeLine,
+                        style: StrokeStyle(
+                            lineWidth: 4,
+                            lineCap: .round,
+                            lineJoin: .round,
+                            dash: [7, 6]
+                        )
+                    )
+            }
+
+            ForEach(viewModel.clusteredPlaces) { cluster in
+                if cluster.count == 1, let place = cluster.places.first {
+                    Annotation(place.name, coordinate: place.coordinate) {
+                        placeAnnotation(for: place)
+                    }
+                } else {
+                    Annotation("Cluster", coordinate: cluster.coordinate) {
+                        clusterAnnotation(cluster)
+                    }
+                }
+            }
+
+            if let userCoordinate = viewModel.userCoordinate {
+                Annotation(userLocationTitle, coordinate: userCoordinate) {
+                    UserLocationMapAnnotation()
+                }
+            }
+        }
+        .onAppear {
+            cameraPosition = .region(viewModel.region)
+        }
+        .onReceive(viewModel.$region) { newRegion in
+            cameraPosition = .region(newRegion)
+        }
+    }
+
+    private func placeAnnotation(for place: NearbyPlace) -> some View {
+        let isSelected = viewModel.selectedPlace?.id == place.id
+
+        return Button {
+            AppHaptics.selection()
+            viewModel.selectPlace(place)
+        } label: {
+            VStack(spacing: 4) {
+                ZStack {
+                    if isSelected {
+                        Circle()
+                            .fill(annotationColor(place.category).opacity(0.22))
+                            .frame(width: 46, height: 46)
+                    }
+                    Circle()
+                        .fill(annotationColor(place.category))
+                        .frame(width: 36, height: 36)
+                    Circle()
+                        .stroke(Color.white.opacity(0.85), lineWidth: 2)
+                        .frame(width: 36, height: 36)
+                    Image(systemName: place.category.systemImageName)
+                        .font(.subheadline.weight(.semibold))
+                        .foregroundColor(.white)
+                }
+                .scaleEffect(isSelected ? 1.12 : 1)
+                .shadow(
+                    color: annotationColor(place.category).opacity(isSelected ? 0.5 : 0.28),
+                    radius: isSelected ? 11 : 6,
+                    x: 0,
+                    y: 3
+                )
+
+                if isSelected {
+                    Text(place.name)
+                        .font(.caption2)
+                        .lineLimit(1)
+                        .padding(.horizontal, 7)
+                        .padding(.vertical, 4)
+                        .background(AppColors.card.opacity(0.96))
+                        .clipShape(Capsule())
+                }
+            }
+            .frame(
+                minWidth: AppButtonMetrics.minTouchSize,
+                minHeight: AppButtonMetrics.minTouchSize
+            )
+            .contentShape(Rectangle())
+        }
+        .buttonStyle(AppPressableCardButtonStyle())
+        .animation(AppAnimations.softSpring, value: isSelected)
+        .accessibilityLabel("\(place.localizedName(lang)), \(place.category.localized(lang))")
+    }
+
+    private func clusterAnnotation(_ cluster: MapViewModel.PlaceCluster) -> some View {
+        Button {
+            AppHaptics.selection()
+            viewModel.selectCluster(cluster)
+        } label: {
+            ZStack {
+                Circle()
+                    .fill(annotationColor(cluster.topCategory).opacity(0.9))
+                    .frame(width: 42, height: 42)
+                Circle()
+                    .stroke(Color.white.opacity(0.85), lineWidth: 2)
+                    .frame(width: 42, height: 42)
+                Text("\(cluster.count)")
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(.white)
+            }
+            .frame(
+                minWidth: AppButtonMetrics.minTouchSize,
+                minHeight: AppButtonMetrics.minTouchSize
+            )
+            .contentShape(Circle())
+            .shadow(
+                color: annotationColor(cluster.topCategory).opacity(0.35),
+                radius: 8,
+                x: 0,
+                y: 4
+            )
+        }
+        .buttonStyle(AppPressableCardButtonStyle())
+        .accessibilityLabel(String(format: L10n.t("map.cluster_accessibility", lang), cluster.count))
+    }
+}
+
 private struct LightweightNearbyMapPlaceholder: View {
     let selectedCity: String
     let cityName: String
@@ -1944,6 +2008,7 @@ private struct LightweightNearbyMapPlaceholder: View {
             .padding(.horizontal, 34)
             .padding(.vertical, 18)
             .opacity(0.92)
+            .allowsHitTesting(false)
             .accessibilityHidden(true)
 
             LinearGradient(
@@ -2005,7 +2070,7 @@ private struct NearbyFullScreenMapView: View {
 
     var body: some View {
         ZStack(alignment: .topTrailing) {
-            Map(position: $cameraPosition) {
+            Map(position: $cameraPosition, interactionModes: .all) {
                 if viewModel.mapOverlayRouteCoordinates.count > 1 {
                     MapPolyline(coordinates: viewModel.mapOverlayRouteCoordinates)
                         .stroke(AppColors.routeLine, style: StrokeStyle(lineWidth: 4, lineCap: .round, lineJoin: .round, dash: [7, 6]))
@@ -2014,6 +2079,7 @@ private struct NearbyFullScreenMapView: View {
                 ForEach(viewModel.filteredPlaces) { place in
                     Annotation(place.localizedName(lang), coordinate: place.coordinate) {
                         Button {
+                            AppHaptics.selection()
                             viewModel.selectPlace(place)
                         } label: {
                             ZStack {
@@ -2027,9 +2093,11 @@ private struct NearbyFullScreenMapView: View {
                                     .font(.subheadline.weight(.semibold))
                                     .foregroundColor(.white)
                             }
+                            .frame(width: AppButtonMetrics.minTouchSize, height: AppButtonMetrics.minTouchSize)
+                            .contentShape(Circle())
                             .shadow(color: annotationColor(place.category).opacity(0.32), radius: 7, x: 0, y: 3)
                         }
-                        .buttonStyle(.plain)
+                        .buttonStyle(AppPressableButtonStyle())
                     }
                 }
 
@@ -2047,7 +2115,10 @@ private struct NearbyFullScreenMapView: View {
                 cameraPosition = .region(newRegion)
             }
 
-            Button(action: onDismiss) {
+            Button {
+                AppHaptics.lightImpact()
+                onDismiss()
+            } label: {
                 Image(systemName: "xmark")
                     .font(.system(size: 15, weight: .bold))
                     .foregroundStyle(.white)
@@ -2055,7 +2126,7 @@ private struct NearbyFullScreenMapView: View {
                     .background(.ultraThinMaterial, in: Circle())
                     .overlay(Circle().stroke(Color.white.opacity(0.18), lineWidth: 0.8))
             }
-            .buttonStyle(.plain)
+            .buttonStyle(AppPressableButtonStyle())
             .padding(18)
         }
     }

@@ -1,0 +1,124 @@
+name: DATA PROJECT Health
+
+on:
+  pull_request:
+    paths:
+      - "DataProject/**"
+      - "scripts/data-project-qa.py"
+      - "scripts/generate-data-dashboard.py"
+      - "scripts/data-dashboard-static-qa.py"
+      - "scripts/generate-data-observability.py"
+      - "scripts/data-observability-static-qa.py"
+      - "scripts/generate-data-operations.py"
+      - "scripts/data-operations-static-qa.py"
+      - "scripts/check-external-links.py"
+      - "scripts/data-health-gate.py"
+      - "scripts/data-project-workflow-static-qa.py"
+      - ".github/workflows/data-project-health.yml"
+  push:
+    paths:
+      - "DataProject/**"
+      - "scripts/data-project-qa.py"
+      - "scripts/generate-data-dashboard.py"
+      - "scripts/data-dashboard-static-qa.py"
+      - "scripts/generate-data-observability.py"
+      - "scripts/data-observability-static-qa.py"
+      - "scripts/generate-data-operations.py"
+      - "scripts/data-operations-static-qa.py"
+      - "scripts/check-external-links.py"
+      - "scripts/data-health-gate.py"
+      - "scripts/data-project-workflow-static-qa.py"
+      - ".github/workflows/data-project-health.yml"
+  schedule:
+    - cron: "17 2 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: data-project-health-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  publication-gates:
+    name: Offline publication gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate work packages, milestones, releases and batches
+        run: python3 scripts/data-project-qa.py
+      - name: Generate Coverage, Quality Score and Data Health
+        if: always()
+        run: python3 scripts/generate-data-dashboard.py
+      - name: Validate volume and coverage dimensions
+        if: always()
+        run: python3 scripts/data-dashboard-static-qa.py
+      - name: Generate read-only Data Observability and release manifests
+        if: always()
+        run: python3 scripts/generate-data-observability.py
+      - name: Validate Data Observability contracts
+        if: always()
+        run: python3 scripts/data-observability-static-qa.py
+      - name: Generate plan-only Data Operations queue and KPIs
+        if: always()
+        run: python3 scripts/generate-data-operations.py
+      - name: Validate Data Operations safety contracts
+        if: always()
+        run: python3 scripts/data-operations-static-qa.py
+      - name: Enforce structural Data Health
+        if: always()
+        run: python3 scripts/data-health-gate.py
+      - name: Upload Data Dashboard
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-project-dashboard
+          path: DataProject/reports/
+          retention-days: 30
+
+  nightly-source-health:
+    name: Nightly source health
+    if: always() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    needs: publication-gates
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Check runtime and DATA PROJECT links
+        run: python3 scripts/check-external-links.py
+      - name: Regenerate Data Health with network evidence
+        if: always()
+        run: python3 scripts/generate-data-dashboard.py
+      - name: Regenerate Data Observability with network evidence
+        if: always()
+        run: python3 scripts/generate-data-observability.py
+      - name: Validate Data Observability contracts
+        if: always()
+        run: python3 scripts/data-observability-static-qa.py
+      - name: Regenerate plan-only Data Operations queue and KPIs
+        if: always()
+        run: python3 scripts/generate-data-operations.py
+      - name: Validate Data Operations safety contracts
+        if: always()
+        run: python3 scripts/data-operations-static-qa.py
+      - name: Enforce nightly Data Health
+        if: always()
+        run: python3 scripts/data-health-gate.py --require-network
+      - name: Upload nightly health evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-project-nightly-health
+          path: |
+            DataProject/reports/
+            knowledge_data_health.json
+            broken_links.csv
+          retention-days: 30

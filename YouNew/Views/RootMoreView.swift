@@ -3,6 +3,7 @@ import SwiftUI
 struct RootMoreView: View {
     @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var languageManager: LanguageManager
+    @Environment(\.openDiscoveryMenu) private var openDiscoveryMenu
 
     private var language: AppLanguage { languageManager.appLanguage }
 
@@ -16,6 +17,29 @@ struct RootMoreView: View {
                     .fixedSize(horizontal: false, vertical: true)
                     .accessibilityIdentifier("screen.more")
 
+                Button { openDiscoveryMenu() } label: {
+                    HStack(spacing: 14) {
+                        Image(systemName: "map.fill")
+                            .font(.headline.bold())
+                            .foregroundStyle(AppColors.dutchOrange)
+                            .frame(width: 40, height: 40)
+                            .background(AppColors.dutchOrange.opacity(0.13), in: RoundedRectangle(cornerRadius: 11))
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(localized(en: "Local discovery menu", nl: "Lokaal ontdekkingsmenu", ru: "Меню мест и событий"))
+                                .font(AppTypography.bodyStrong).foregroundStyle(AppColors.textPrimary)
+                            Text(localized(en: "Places, food, events, gallery and business", nl: "Plekken, eten, events, galerij en zakelijk", ru: "Места, еда, события, галерея и бизнес"))
+                                .font(AppTypography.caption).foregroundStyle(AppColors.textSecondary)
+                        }
+                        Spacer()
+                        Image(systemName: "chevron.right").foregroundStyle(AppColors.textTertiary)
+                    }
+                    .padding(13)
+                    .background(AppColors.glassSurfaceElevated, in: RoundedRectangle(cornerRadius: 14))
+                    .overlay(RoundedRectangle(cornerRadius: 14).stroke(AppColors.dutchOrange.opacity(0.24), lineWidth: 0.8))
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("more.discoveryMenu")
+
                 settingsGroup(localized(en: "PROFILE", nl: "PROFIEL", ru: "ПРОФИЛЬ")) {
                     row("person.crop.circle", localized(en: "Profile", nl: "Profiel", ru: "Профиль"), .profileSelection)
                     row("location.fill", localized(en: "Current city", nl: "Huidige stad", ru: "Текущий город"), .cityList, detail: ProvinceCatalog.localizedCityName(appState.selectedCity, language))
@@ -27,6 +51,11 @@ struct RootMoreView: View {
                     row("bell.fill", localized(en: "Notifications", nl: "Meldingen", ru: "Уведомления"), .settings)
                     row("circle.lefthalf.filled", localized(en: "Appearance", nl: "Weergave", ru: "Оформление"), .settings)
                     row("arrow.down.circle.fill", localized(en: "Offline materials", nl: "Offline materiaal", ru: "Офлайн-материалы"), .resourcesHub)
+                }
+
+                settingsGroup(localized(en: "FOR BUSINESSES", nl: "VOOR BEDRIJVEN", ru: "ДЛЯ БИЗНЕСА")) {
+                    row("storefront.fill", localized(en: "YouNew Business", nl: "YouNew Business", ru: "YouNew Business"), .businessGrowth)
+                    row("person.crop.circle.badge.checkmark", localized(en: "Business login", nl: "Zakelijk inloggen", ru: "Вход для бизнеса"), .businessLogin)
                 }
 
                 settingsGroup(localized(en: "INFORMATION", nl: "INFORMATIE", ru: "ИНФОРМАЦИЯ")) {

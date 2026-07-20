@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-04-M1-transport-payment-002",
+  "work_package": "WP-04",
+  "milestone": "WP-04-M1",
+  "target_release": "transport-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator test build and admin production build succeeded.",
+    "static": "Full static QA and DATA PROJECT validation succeeded.",
+    "duplicate": "No duplicate IDs, normalized titles, canonical websites or media IDs detected.",
+    "source": "Official source pages were reviewed and the network audit found 0 confirmed broken URLs across 1054 checked URLs.",
+    "media": "Knowledge topics intentionally contain no media assets; no unverified or unlicensed assets are present.",
+    "search": "Every record has at least three unique search terms and all related entity IDs resolve.",
+    "ai": "Every AI summary passes length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "transport.payment-card",
+      "entity_type": "knowledge_topic",
+      "category": "public_transport_payment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Travel with a contactless payment card",
+      "description": "OVpay allows occasional travellers to check in and out with the same supported contactless debit card, credit card, phone or smartwatch without first buying a separate card.",
+      "images": [],
+      "official_source": {
+        "title": "Payment card",
+        "publisher": "OVpay",
+        "url": "https://www.ovpay.nl/en/paymentcard",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ovpay.nl/en/paymentcard",
+      "related_entity_ids": [
+        "transport.travel-history",
+        "transport.missed-checkout",
+        "transport.check-in-out"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Remove the chosen card from a wallet before tapping and use exactly the same physical card or device to check out. A phone wallet and its underlying plastic card can have different identifiers.",
+      "search_keywords": [
+        "OVpay",
+        "debit card transit",
+        "contactless travel",
+        "phone check in",
+        "public transport payment"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "OV-chipkaart and OVpay"
+      }
+    },
+    {
+      "id": "transport.ov-pas",
+      "entity_type": "knowledge_topic",
+      "category": "public_transport_payment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand the new OV-pas",
+      "description": "The OV-pas is the new dedicated public-transport card within OVpay and is being introduced as the successor option while existing OV-chipkaarts continue during the transition.",
+      "images": [],
+      "official_source": {
+        "title": "About OVpay",
+        "publisher": "OVpay",
+        "url": "https://www.ovpay.nl/en/about-ovpay",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ovpay.nl/en/about-ovpay",
+      "related_entity_ids": [
+        "transport.personal-ov-chipkaart",
+        "transport.payment-card",
+        "transport.travel-history"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Use the official switch guidance to decide whether a payment card or OV-pas fits current subscriptions and discounts. Do not discard an existing card until products and balances are handled.",
+      "search_keywords": [
+        "OV-pas",
+        "OVpay card",
+        "OV-chipkaart replacement",
+        "transit card transition",
+        "public transport card"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "OV-chipkaart and OVpay"
+      }
+    },
+    {
+      "id": "transport.personal-ov-chipkaart",
+      "entity_type": "knowledge_topic",
+      "category": "public_transport_payment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use a personal OV-chipkaart",
+      "description": "A personal OV-chipkaart is registered to its holder and can support subscriptions, age-related discounts, automatic reload and recovery options after loss or theft.",
+      "images": [],
+      "official_source": {
+        "title": "Personal OV-chipkaart",
+        "publisher": "OV-chipkaart",
+        "url": "https://www.ov-chipkaart.nl/en/personal-ov-chipkaart",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ov-chipkaart.nl/en/personal-ov-chipkaart",
+      "related_entity_ids": [
+        "transport.automatic-reload",
+        "transport.lost-card",
+        "transport.card-expiry"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Choose a personal card when a named subscription, automatic reload or recoverability is required. Keep contact details current so expiry and service messages reach the cardholder.",
+      "search_keywords": [
+        "personal OV-chipkaart",
+        "named transit card",
+        "travel product",
+        "card subscription",
+        "OV card"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "OV-chipkaart and OVpay"
+      }
+    },
+    {
+      "id": "transport.automatic-reload",
+      "entity_type": "knowledge_topic",
+      "category": "public_transport_payment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Configure automatic OV-chipkaart reload",
+      "description": "Automatic reload adds a chosen amount to a personal OV-chipkaart when its balance is insufficient and later collects that amount by direct debit.",
+      "images": [],
+      "official_source": {
+        "title": "Automatic reload",
+        "publisher": "OV-chipkaart",
+        "url": "https://www.ov-chipkaart.nl/en/automatic-reload",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ov-chipkaart.nl/en/automatic-reload",
+      "related_entity_ids": [
+        "transport.personal-ov-chipkaart",
+        "transport.balance-refund",
+        "transport.travel-history"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Verify the linked IBAN and chosen reload amount, then collect or activate the order as instructed. Monitor travel history and direct debits so failed or unexpected reloads are addressed quickly.",
+      "search_keywords": [
+        "automatic reload",
+        "OV balance",
+        "auto top up",
+        "OV-chipkaart credit",
+        "direct debit"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "OV-chipkaart and OVpay"
+      }
+    },
+    {
+      "id": "transport.travel-history",
+      "entity_type": "knowledge_topic",
+      "category": "public_transport_payment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Review OVpay journeys and charges",
+      "description": "The official OVpay service lets a traveller retrieve recent journeys and charges using the payment reference and amount, or the identifiers of an OV-pas.",
+      "images": [],
+      "official_source": {
+        "title": "Service without account",
+        "publisher": "OVpay",
+        "url": "https://www.ovpay.nl/en/regelen-zonder-account",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ovpay.nl/en/regelen-zonder-account",
+      "related_entity_ids": [
+        "transport.payment-card",
+        "transport.missed-checkout",
+        "transport.ov-privacy"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Find the NLOV reference in the bank statement and compare each journey with actual travel. Use the official service to correct missing taps and generate expense evidence where available.",
+      "search_keywords": [
+        "OVpay travel history",
+        "NLOV reference",
+        "travel charge",
+        "journey overview",
+        "expense claim"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "OV-chipkaart and OVpay"
+      }
+    },
+    {
+      "id": "transport.missed-checkout",
+      "entity_type": "knowledge_topic",
+      "category": "public_transport_payment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Correct a missed public-transport check-out",
+      "description": "A missing check-out can create a correction or boarding charge, and the recovery route depends on whether travel used OVpay, OV-chipkaart, NS Flex or another operator.",
+      "images": [],
+      "official_source": {
+        "title": "Forgot to check in or check out",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/service-and-contact/refunds/forgot-to-check-in-or-check-out",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/service-and-contact/refunds/forgot-to-check-in-or-check-out",
+      "related_entity_ids": [
+        "transport.travel-history",
+        "transport.check-in-out",
+        "transport.balance-refund"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Wait until the journey is available, select the correct payment method and operator, and submit the missing destination through the official channel. Check the bank or card history for the refund.",
+      "search_keywords": [
+        "missed checkout",
+        "uitcheck gemist",
+        "correction fare",
+        "boarding fee",
+        "OV refund"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "OV-chipkaart and OVpay"
+      }
+    },
+    {
+      "id": "transport.card-expiry",
+      "entity_type": "knowledge_topic",
+      "category": "public_transport_payment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Handle an expiring OV-chipkaart",
+      "description": "OV-chipkaart provides expiry reminders and balance-recovery guidance, with automatic notices for personal cards and an optional email reminder for anonymous cards.",
+      "images": [],
+      "official_source": {
+        "title": "OV-chipkaart email service",
+        "publisher": "OV-chipkaart",
+        "url": "https://www.ov-chipkaart.nl/en/email-service",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ov-chipkaart.nl/en/email-service",
+      "related_entity_ids": [
+        "transport.personal-ov-chipkaart",
+        "transport.balance-refund",
+        "transport.ov-pas"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check the printed expiry date and arrange replacement, product transfer and balance recovery before relying on the card for travel. Use the transition guidance when selecting a newer payment method.",
+      "search_keywords": [
+        "OV-chipkaart expiry",
+        "renew travel card",
+        "anonymous card expiry",
+        "card reminder",
+        "OV transition"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "OV-chipkaart and OVpay"
+      }
+    },
+    {
+      "id": "transport.lost-card",
+      "entity_type": "knowledge_topic",
+      "category": "public_transport_payment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Block or replace a lost OV-chipkaart",
+      "description": "A lost or stolen personal OV-chipkaart should be reported promptly so it can be blocked and eligible products or remaining balance can be handled through the official process.",
+      "images": [],
+      "official_source": {
+        "title": "Frequently asked questions",
+        "publisher": "OV-chipkaart",
+        "url": "https://www.ov-chipkaart.nl/en/frequently-asked-questions",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ov-chipkaart.nl/en/frequently-asked-questions",
+      "related_entity_ids": [
+        "transport.personal-ov-chipkaart",
+        "transport.balance-refund",
+        "transport.ov-privacy"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Block a named card through the official account or customer service as soon as possible. Record the card number separately and follow the stated replacement and product-transfer steps.",
+      "search_keywords": [
+        "lost OV-chipkaart",
+        "stolen transit card",
+        "block OV card",
+        "replace card",
+        "recover balance"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "OV-chipkaart and OVpay"
+      }
+    },
+    {
+      "id": "transport.balance-refund",
+      "entity_type": "knowledge_topic",
+      "category": "public_transport_payment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Request an OV-chipkaart balance refund",
+      "description": "Official OV-chipkaart forms cover reclaiming remaining credit from expired, broken or terminated cards, with different routes depending on card type and balance.",
+      "images": [],
+      "official_source": {
+        "title": "OV-chipkaart forms",
+        "publisher": "OV-chipkaart",
+        "url": "https://www.ov-chipkaart.nl/en/forms",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ov-chipkaart.nl/en/forms",
+      "related_entity_ids": [
+        "transport.card-expiry",
+        "transport.lost-card",
+        "transport.automatic-reload"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Choose the form matching personal or anonymous card status and whether the card is expired, broken or active. Verify bank details carefully and retain confirmation until the credit arrives.",
+      "search_keywords": [
+        "OV balance refund",
+        "card credit refund",
+        "expired OV-chipkaart",
+        "terminate card",
+        "travel balance"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "OV-chipkaart and OVpay"
+      }
+    },
+    {
+      "id": "transport.ov-privacy",
+      "entity_type": "knowledge_topic",
+      "category": "public_transport_payment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand payment and journey data in OV systems",
+      "description": "Translink explains how identity, card, payment and journey information is processed for card services, transaction handling, refunds, security and customer support.",
+      "images": [],
+      "official_source": {
+        "title": "Privacy",
+        "publisher": "OV-chipkaart",
+        "url": "https://www.ov-chipkaart.nl/en/privacy",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ov-chipkaart.nl/en/privacy",
+      "related_entity_ids": [
+        "transport.travel-history",
+        "transport.personal-ov-chipkaart",
+        "transport.payment-card"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Use official accounts and protect card identifiers, payment references and travel history. Review privacy controls before exporting expenses or sharing a journey overview with another party.",
+      "search_keywords": [
+        "OV privacy",
+        "travel data",
+        "card number privacy",
+        "journey history data",
+        "Translink GDPR"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "OV-chipkaart and OVpay"
+      }
+    }
+  ]
+}

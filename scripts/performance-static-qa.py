@@ -14,19 +14,23 @@ ALLOWED_TASK_SLEEP = {
     ("YouNew/Views/AIAssistantView.swift", 192),
     ("YouNew/Views/AIAssistantView.swift", 2460),
     ("YouNew/Views/NearbyMapView.swift", 254),
-    ("YouNew/Views/HomeMapComponents.swift", 262),
+    ("YouNew/Views/HomeMapComponents.swift", 305),
     ("YouNew/Views/HomeView.swift", 474),
     ("YouNew/Views/HomeView.swift", 846),
     ("YouNew/Views/HomeView.swift", 6229),
     ("YouNew/Views/SearchView.swift", 486),
     ("YouNew/ViewModels/AppStateViewModel.swift", 251),
-    ("YouNew/ViewModels/SearchViewModel.swift", 183),
+    ("YouNew/ViewModels/SearchViewModel.swift", 267),
+    ("YouNew/Views/PlacesDiscoveryView.swift", 1900),
     ("YouNew/Core/DesignSystem/Components/NLDesignSystem.swift", 1693),
 }
 
 ALLOWED_SYNC_DATA_READS = {
     ("YouNew/Core/Imaging/ImageLoader.swift", 38),
     ("YouNew/ViewModels/DocumentStore.swift", 152),
+    # One-time, memory-mapped read of the bundled canonical dataset. The
+    # loader has no network path and falls back safely if decoding fails.
+    ("YouNew/Services/DataProjectRuntimeLoader.swift", 30),
 }
 
 ALLOWED_ASYNC_IMAGE = {

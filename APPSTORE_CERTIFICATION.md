@@ -50,7 +50,7 @@ The App Store runtime certification cannot be granted because only a partial ins
 | Third post-block resumed check unchanged | A third later resumed check again showed YouNew visually on Search, while writable-cache `simctl list devices available` failed, `xcrun devicectl list devices` timed out waiting for CoreDeviceService, and Computer Use click returned `noWindowsAvailable` |
 | Physical device unavailable | `xcrun devicectl list devices` timed out waiting for CoreDeviceService to fully initialize |
 | Instruments unavailable | `xcrun xctrace list devices` crashed because it could not write to its cache directory in the sandbox |
-| Runnable simulator artifact found but not installable | `/private/tmp/YouNewDerivedDataScreenshotRegression/Build/Products/Debug-iphonesimulator/YouNew.app` exists and has bundle ID `nl.younew.app`, but install failed |
+| Runnable simulator artifact found but not installable | `<TEMP_DIR>/ScreenshotRegression/Build/Products/Debug-iphonesimulator/YouNew.app` exists and has bundle ID `nl.younew.app`, but install failed |
 
 ## App Store Outcome
 

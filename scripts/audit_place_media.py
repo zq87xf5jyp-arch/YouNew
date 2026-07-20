@@ -7,6 +7,7 @@ from urllib.parse import quote, urlparse
 ROOT = Path(__file__).resolve().parents[1]
 CATALOG = ROOT / "YouNew" / "Views" / "ProvinceDirectoryView.swift"
 REGISTRY = ROOT / "YouNew" / "Data" / "VerifiedPlaceMediaRegistry.swift"
+CURATED_HERO_REGISTRY = ROOT / "YouNew" / "Data" / "CuratedPlaceHeroMediaRegistry.swift"
 
 ALLOWED_EXTENSIONS = {".svg", ".png", ".jpg", ".jpeg", ".webp"}
 TRUSTED_HOST_MARKERS = ("wikimedia.org", "wikidata.org")
@@ -48,7 +49,7 @@ def read(path: Path) -> str:
 
 
 def find_places(catalog_text: str):
-    province_ids = re.findall(r'ProvinceItem\(id:\s*"([^"]+)"', catalog_text)
+    province_ids = re.findall(r'ProvinceItem\(\s*id:\s*"([^"]+)"', catalog_text)
     cities = re.findall(r'city\("([^"]+)",\s*"[^"]*",\s*"[^"]*",\s*"([^"]+)"', catalog_text)
     return province_ids, cities
 
@@ -93,6 +94,17 @@ def has_asset(block: str, slot: str) -> bool:
     return re.search(rf'{factory_slot}:\s*"[^"]+"', block) is not None
 
 
+def curated_hero_ids(curated_text: str):
+    dictionary_match = re.search(
+        r'mediaByPlaceId:\s*\[String:\s*CuratedPlaceHeroMedia\]\s*=\s*\[(.*?)(?=\n\s*\])',
+        curated_text,
+        re.S,
+    )
+    if dictionary_match is None:
+        return set()
+    return set(re.findall(r'"(nl-(?:city|province)-[^"]+)"\s*:', dictionary_match.group(1)))
+
+
 def validate_url(place_id: str, url: str):
     problems = []
     parsed = urlparse(url)
@@ -120,8 +132,10 @@ def production_text_files():
 def main() -> int:
     catalog_text = read(CATALOG)
     registry_text = read(REGISTRY)
+    curated_text = read(CURATED_HERO_REGISTRY)
     province_ids, cities = find_places(catalog_text)
     blocks = registry_blocks(registry_text)
+    curated_heroes = curated_hero_ids(curated_text)
     if not blocks:
         errors = ["Verified place media registry parser found zero entries"]
     else:
@@ -157,7 +171,11 @@ def main() -> int:
             if marker in text:
                 errors.append(f"{path.relative_to(ROOT)} contains production debug marker: {marker}")
 
-    missing_hero = [place_id for place_id in sorted(expected_ids) if not has_asset(blocks.get(place_id, ""), "heroImage")]
+    missing_hero = [
+        place_id
+        for place_id in sorted(expected_ids)
+        if not has_asset(blocks.get(place_id, ""), "heroImage") and place_id not in curated_heroes
+    ]
     missing_flag = [place_id for place_id in sorted(expected_ids) if not has_asset(blocks.get(place_id, ""), "flag")]
     missing_coat = [place_id for place_id in sorted(expected_ids) if not has_asset(blocks.get(place_id, ""), "coatOfArms")]
     orphan_registry = sorted(set(blocks) - expected_ids)
@@ -172,7 +190,11 @@ def main() -> int:
     print(f"- provinces in catalog: {len(province_ids)}")
     print(f"- cities in catalog: {len(cities)}")
     print(f"- registry entries: {len(blocks)}")
-    print(f"- places with hero image: {sum(has_asset(block, 'heroImage') for block in blocks.values())}")
+    hero_count = sum(
+        has_asset(blocks.get(place_id, ""), "heroImage") or place_id in curated_heroes
+        for place_id in expected_ids
+    )
+    print(f"- places with hero image: {hero_count}")
     print(f"- places with flag: {sum(has_asset(block, 'flag') for block in blocks.values())}")
     print(f"- places with coat of arms: {sum(has_asset(block, 'coatOfArms') for block in blocks.values())}")
     print(f"- missing hero image: {len(missing_hero)}")

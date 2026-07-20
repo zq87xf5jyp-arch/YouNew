@@ -151,7 +151,7 @@ struct CityPlacesCalendarRegressionTests {
             scope: .currentAndUniversal,
             limit: 12
         )
-        let placeResults = results.filter { $0.item.id.hasPrefix("visitPlace:") }
+        let placeResults = results.filter { $0.item.id.hasPrefix("place:") }
 
         #expect(!placeResults.isEmpty)
         #expect(placeResults.allSatisfy { $0.item.city == "Rotterdam" })

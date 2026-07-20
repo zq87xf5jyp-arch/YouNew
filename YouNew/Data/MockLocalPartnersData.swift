@@ -56,7 +56,7 @@ enum MockLocalPartnersData {
             coordinate: CLLocationCoordinate2D(latitude: 52.3676, longitude: 4.9041),
             phone: "+31 88 659 9111",
             email: "klantenservice@ah.nl",
-            website: AppURL.make("https://www.ah.nl/winkelzoeker"),
+            website: AppURL.make("https://www.ah.nl/winkels"),
             openingHours: "Varies by store; verify in the official store finder",
             languages: ["Dutch"],
             lastVerified: "2026-07-02",
@@ -75,7 +75,7 @@ enum MockLocalPartnersData {
             coordinate: CLLocationCoordinate2D(latitude: 52.3676, longitude: 4.9041),
             phone: "+31 20 709 5039",
             email: "klantenservice@lidl.nl",
-            website: AppURL.make("https://www.lidl.nl/c/service-winkelzoeker/s10020321"),
+            website: AppURL.make("https://www.lidl.nl/s/nl-NL/winkel/"),
             openingHours: "Varies by store; verify in the official store finder",
             languages: ["Dutch"],
             lastVerified: "2026-07-02",
@@ -94,12 +94,12 @@ enum MockLocalPartnersData {
             coordinate: CLLocationCoordinate2D(latitude: 52.3676, longitude: 4.9041),
             phone: "+31 88 022 0161",
             email: "klantenservice@jumbo.com",
-            website: AppURL.make("https://www.jumbo.com/winkelzoeker"),
+            website: AppURL.make("https://www.jumbo.com/winkel"),
             openingHours: "Varies by store; verify in the official store finder",
             languages: ["Dutch"],
             lastVerified: "2026-07-02",
             isOpenNow: true,
-            officialSource: OfficialSource(title: "Jumbo store finder", url: AppURL.make("https://www.jumbo.com/winkelzoeker"), institution: "Jumbo")
+            officialSource: OfficialSource(title: "Jumbo store finder", url: AppURL.make("https://www.jumbo.com/winkel"), institution: "Jumbo")
         ),
         LocalPartner(
             id: "ikea-amsterdam",
@@ -212,12 +212,12 @@ enum MockLocalPartnersData {
             coordinate: CLLocationCoordinate2D(latitude: 52.3676, longitude: 4.9041),
             phone: "+31 88 043 0430",
             email: "Use the official IND contact form",
-            website: AppURL.make("https://ind.nl/en/service-contact/contact-with-ind/make-an-appointment-at-an-ind-desk"),
+            website: AppURL.make("https://ind.nl/en/service-contact/make-an-appointment-with-the-ind"),
             openingHours: "By appointment; verify desk, time, and required documents on IND.nl",
             languages: ["Dutch", "English"],
             lastVerified: "2026-07-02",
             isOpenNow: false,
-            officialSource: OfficialSource(title: "IND desk appointments", url: AppURL.make("https://ind.nl/en/service-contact/contact-with-ind/make-an-appointment-at-an-ind-desk"), institution: "IND")
+            officialSource: OfficialSource(title: "IND desk appointments", url: AppURL.make("https://ind.nl/en/service-contact/make-an-appointment-with-the-ind"), institution: "IND")
         ),
         LocalPartner(
             id: "amsterdam-umc-amc",
@@ -236,7 +236,8 @@ enum MockLocalPartnersData {
             openingHours: "Hospital services vary by department; call 112 for life-threatening emergencies",
             languages: ["Dutch", "English"],
             lastVerified: "2026-07-02",
-            isOpenNow: true
+            isOpenNow: true,
+            media: LicensedPartnerMediaRegistry.amsterdamUMC
         ),
         LocalPartner(
             id: "erasmus-mc-rotterdam",
@@ -256,7 +257,8 @@ enum MockLocalPartnersData {
             languages: ["Dutch", "English"],
             lastVerified: "2026-07-02",
             isOpenNow: true,
-            officialSource: OfficialSource(title: "Erasmus MC official website", url: AppURL.make("https://www.erasmusmc.nl/en/"), institution: "Erasmus MC")
+            officialSource: OfficialSource(title: "Erasmus MC official website", url: AppURL.make("https://www.erasmusmc.nl/en/"), institution: "Erasmus MC"),
+            media: LicensedPartnerMediaRegistry.erasmusMC
         ),
         LocalPartner(
             id: "leiden-university",
@@ -275,7 +277,8 @@ enum MockLocalPartnersData {
             openingHours: "University services vary by faculty and desk; verify before visiting",
             languages: ["Dutch", "English"],
             lastVerified: "2026-07-02",
-            isOpenNow: true
+            isOpenNow: true,
+            media: LicensedPartnerMediaRegistry.leidenUniversity
         ),
         LocalPartner(
             id: "municipality-eindhoven-service-center",
@@ -290,12 +293,12 @@ enum MockLocalPartnersData {
             coordinate: CLLocationCoordinate2D(latitude: 51.4381, longitude: 5.4784),
             phone: "+31 40 238 6000",
             email: "Use the official Eindhoven contact form",
-            website: AppURL.make("https://www.eindhoven.nl/en/city-and-living/contact"),
+            website: AppURL.make("https://english.eindhoven.nl/en/how-to"),
             openingHours: "By appointment for many services; verify on the official municipality website",
             languages: ["Dutch", "English"],
             lastVerified: "2026-07-02",
             isOpenNow: false,
-            officialSource: OfficialSource(title: "Municipality Eindhoven contact", url: AppURL.make("https://www.eindhoven.nl/en/city-and-living/contact"), institution: "Gemeente Eindhoven")
+            officialSource: OfficialSource(title: "Municipality Eindhoven contact", url: AppURL.make("https://english.eindhoven.nl/en/how-to"), institution: "Gemeente Eindhoven")
         ),
         LocalPartner(
             id: "lumc-leiden",
@@ -314,7 +317,8 @@ enum MockLocalPartnersData {
             openingHours: "Hospital services vary by department; call 112 for life-threatening emergencies",
             languages: ["Dutch", "English"],
             lastVerified: "2026-07-02",
-            isOpenNow: true
+            isOpenNow: true,
+            media: LicensedPartnerMediaRegistry.lumcLeiden
         ),
         LocalPartner(
             id: "everaert-advocaten-amsterdam",
@@ -428,7 +432,8 @@ enum MockLocalPartnersData {
             openingHours: "Varies by station and store; verify in the official store locator",
             languages: ["English", "Dutch"],
             lastVerified: "2026-07-02",
-            isOpenNow: true
+            isOpenNow: true,
+            media: LicensedPartnerMediaRegistry.leidenCentralContext
         ),
         LocalPartner(
             id: "macbike-amsterdam",
@@ -675,7 +680,8 @@ enum MockLocalPartnersData {
             openingHours: "University services vary by desk and faculty; verify before visiting",
             languages: ["Dutch", "English"],
             lastVerified: "2026-07-02",
-            isOpenNow: true
+            isOpenNow: true,
+            media: LicensedPartnerMediaRegistry.utrechtUniversity
         ),
         LocalPartner(
             id: "helpling-eindhoven",
@@ -752,6 +758,102 @@ enum MockLocalPartnersData {
             languages: ["Dutch", "English"],
             lastVerified: "2026-07-02",
             isOpenNow: true
+        ),
+        LocalPartner(
+            id: "han-university-arnhem",
+            name: "HAN University of Applied Sciences Arnhem",
+            category: .education,
+            subcategory: "Universities",
+            plan: .freeListing,
+            description: "Public university-of-applied-sciences campus with an International Office and student support in Arnhem. This is an independent editorial listing, not evidence of a commercial partnership.",
+            photoSymbols: ["graduationcap.fill", "building.columns.fill", "person.2.fill"],
+            address: "Ruitenberglaan 31, 6826 CC Arnhem",
+            city: "Arnhem",
+            coordinate: CLLocationCoordinate2D(latitude: 51.98784, longitude: 5.95011),
+            phone: "+31 26 365 8132",
+            email: "ask@han.nl",
+            website: AppURL.make("https://www.hanuniversity.com/en/study-and-living/studying-at-han/arnhem-campus/"),
+            openingHours: "Campus and desk hours vary; verify the official locations page before visiting",
+            languages: ["Dutch", "English"],
+            lastVerified: "2026-07-20",
+            isOpenNow: false,
+            officialSource: OfficialSource(
+                title: "HAN Arnhem campus",
+                url: AppURL.make("https://www.hanuniversity.com/en/about-us/contact/locations/index.xml"),
+                institution: "HAN University of Applied Sciences"
+            )
+        ),
+        LocalPartner(
+            id: "inholland-delft",
+            name: "Inholland University of Applied Sciences Delft",
+            category: .education,
+            subcategory: "Universities",
+            plan: .freeListing,
+            description: "University-of-applied-sciences campus offering international study support in Delft. This is an independent editorial listing, not evidence of a commercial partnership.",
+            photoSymbols: ["graduationcap.fill", "airplane", "building.columns.fill"],
+            address: "Rotterdamseweg 141, 2628 AL Delft",
+            city: "Delft",
+            coordinate: CLLocationCoordinate2D(latitude: 52.000918, longitude: 4.368768),
+            phone: "+31 15 251 9200",
+            email: "servicepunt.delft@inholland.nl",
+            website: AppURL.make("https://www.inholland.nl/inhollandcom/about-inholland/contact-us/"),
+            openingHours: "Campus and desk hours vary; verify the official contact page before visiting",
+            languages: ["Dutch", "English"],
+            lastVerified: "2026-07-20",
+            isOpenNow: false,
+            officialSource: OfficialSource(
+                title: "Inholland Delft contact page",
+                url: AppURL.make("https://www.inholland.nl/inhollandcom/about-inholland/contact-us/"),
+                institution: "Inholland University of Applied Sciences"
+            )
+        ),
+        LocalPartner(
+            id: "inholland-haarlem",
+            name: "Inholland University of Applied Sciences Haarlem",
+            category: .education,
+            subcategory: "Universities",
+            plan: .freeListing,
+            description: "University-of-applied-sciences campus with international programmes and a student service desk in Haarlem. This is an independent editorial listing, not evidence of a commercial partnership.",
+            photoSymbols: ["graduationcap.fill", "laptopcomputer", "person.2.fill"],
+            address: "Bijdorplaan 15, 2015 CE Haarlem",
+            city: "Haarlem",
+            coordinate: CLLocationCoordinate2D(latitude: 52.389152, longitude: 4.611213),
+            phone: "+31 23 541 2412",
+            email: "servicepunt.haarlem@inholland.nl",
+            website: AppURL.make("https://www.inholland.nl/inhollandcom/about-inholland/our-locations/"),
+            openingHours: "Campus and desk hours vary; verify the official contact page before visiting",
+            languages: ["Dutch", "English"],
+            lastVerified: "2026-07-20",
+            isOpenNow: false,
+            officialSource: OfficialSource(
+                title: "Inholland Haarlem contact page",
+                url: AppURL.make("https://www.inholland.nl/inhollandcom/about-inholland/contact-us/"),
+                institution: "Inholland University of Applied Sciences"
+            )
+        ),
+        LocalPartner(
+            id: "radboud-university-nijmegen",
+            name: "Radboud University",
+            category: .education,
+            subcategory: "Universities",
+            plan: .freeListing,
+            description: "Public research university with a central student desk and international offices in Nijmegen. This is an independent editorial listing, not evidence of a commercial partnership.",
+            photoSymbols: ["graduationcap.fill", "building.columns.fill", "globe.europe.africa.fill"],
+            address: "Houtlaan 4, 6525 XZ Nijmegen",
+            city: "Nijmegen",
+            coordinate: CLLocationCoordinate2D(latitude: 51.8168716, longitude: 5.8654045),
+            phone: "+31 24 361 2345",
+            email: "centralstudentdesk@ru.nl",
+            website: AppURL.make("https://www.ru.nl/en/about-us"),
+            openingHours: "Student desk and faculty hours vary; verify the official contact page before visiting",
+            languages: ["Dutch", "English"],
+            lastVerified: "2026-07-20",
+            isOpenNow: false,
+            officialSource: OfficialSource(
+                title: "Radboud University contact information",
+                url: AppURL.make("https://www.ru.nl/en/about-us"),
+                institution: "Radboud University"
+            )
         )
     ]
 

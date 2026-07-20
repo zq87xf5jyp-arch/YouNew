@@ -40,6 +40,7 @@ struct CitiesDirectoryView: View {
         .appSceneBackground(.province)
         .navigationTitle(titleText)
         .nlNavigationInline()
+        .accessibilityIdentifier("cities.screen")
     }
 
     private var headerSection: some View {
@@ -87,6 +88,7 @@ struct CitiesDirectoryView: View {
                             cityTile(spotlight)
                         }
                         .buttonStyle(NLTileButtonStyle())
+                        .accessibilityIdentifier("cities.detailLink.\(spotlight.id)")
                     }
                 }
             }
@@ -106,6 +108,7 @@ struct CitiesDirectoryView: View {
                             cityRow(spotlight)
                         }
                         .buttonStyle(NLTileButtonStyle())
+                        .accessibilityIdentifier("cities.detailLink.\(spotlight.id)")
                     }
                 }
             }

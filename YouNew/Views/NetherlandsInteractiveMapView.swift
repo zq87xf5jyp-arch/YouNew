@@ -34,7 +34,7 @@ struct NetherlandsMapHubView: View {
                 mapContent(viewport: proxy.size)
             }
         }
-        .animation(.spring(response: 0.38, dampingFraction: 0.86), value: selectedProvinceID)
+        .animation(.easeOut(duration: 0.10), value: selectedProvinceID)
         .onReceive(router.mapReset) { _ in
             resetMapInteractionState()
         }
@@ -56,7 +56,7 @@ struct NetherlandsMapHubView: View {
     }
 
     private func resetMapInteractionState() {
-        withAnimation(.spring(response: 0.32, dampingFraction: 0.84)) {
+        withAnimation(.easeOut(duration: 0.10)) {
             selectedProvinceID = "Noord-Holland"
             selectedTerritory = nil
             mapScale = 1
@@ -179,9 +179,8 @@ struct NetherlandsMapHubView: View {
 
                 ZStack {
                     PremiumProvinceMapCanvas(
-                        selectedProvinceID: selectedProvinceID
+                        selectedProvinceID: $selectedProvinceID
                     )
-                    .allowsHitTesting(false)
 
                     ProvinceMapLabelLayer(
                         selectedProvinceID: selectedProvinceID,
@@ -189,8 +188,9 @@ struct NetherlandsMapHubView: View {
                     )
                     .allowsHitTesting(false)
 
-                    CityDotMapLayer()
-                        .allowsHitTesting(false)
+                    CityDotMapLayer(
+                        navigationEnabled: selectedProvinceID == nil
+                    )
 
                     MapLandmarkLayer()
                         .opacity(0.46)
@@ -199,10 +199,6 @@ struct NetherlandsMapHubView: View {
                     MapDecorationLayer()
                         .allowsHitTesting(false)
 
-                    ProvinceTapLayer(selectedProvinceID: $selectedProvinceID)
-
-                    CityNavigationTapLayer()
-                        .allowsHitTesting(selectedProvinceID == nil)
                 }
                 .padding(.horizontal, 8)
                 .padding(.top, 8)
@@ -464,7 +460,8 @@ struct NetherlandsMapHubView: View {
     private var mapSideToolbar: some View {
         VStack(spacing: 18) {
             mapToolbarButton("square.3.layers.3d.down.right", accessibilityLabel: "Show all provinces") {
-                withAnimation(.spring(response: 0.32, dampingFraction: 0.84)) {
+                AppHaptics.selection()
+                withAnimation(.easeOut(duration: 0.10)) {
                     selectedProvinceID = nil
                 }
             }
@@ -472,7 +469,8 @@ struct NetherlandsMapHubView: View {
                 resetMapInteractionState()
             }
             mapToolbarButton("ruler", accessibilityLabel: "Select North Holland") {
-                withAnimation(.spring(response: 0.32, dampingFraction: 0.84)) {
+                AppHaptics.selection()
+                withAnimation(.easeOut(duration: 0.10)) {
                     selectedProvinceID = "Noord-Holland"
                 }
             }
@@ -680,44 +678,6 @@ struct NetherlandsMapHubView: View {
 
 // MARK: - Premium Province Canvas
 
-private struct ProvinceTapLayer: View {
-    @Binding var selectedProvinceID: String?
-
-    var body: some View {
-        ZStack {
-            Color.clear
-                .contentShape(Rectangle())
-                .onTapGesture {
-                    withAnimation(.spring(response: 0.35)) {
-                        selectedProvinceID = nil
-                    }
-                }
-
-            ForEach(RealProvinceMapData.provinces, id: \.id) { province in
-                ProvinceRealMapShape(provinceID: province.id)
-                    .fill(Color.clear)
-                    .contentShape(ProvinceRealMapShape(provinceID: province.id))
-                    .onTapGesture {
-                        if selectedProvinceID == province.id {
-                            withAnimation(.spring(response: 0.35)) {
-                                selectedProvinceID = nil
-                            }
-                        } else {
-                            withAnimation(.spring(response: 0.35)) {
-                                selectedProvinceID = province.id
-                            }
-#if canImport(UIKit)
-                            UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-#endif
-                        }
-                    }
-                    .accessibilityLabel(ProvinceCatalog.item(id: province.id).localizedName(.english))
-                    .accessibilityIdentifier("provinces.map.zone.\(province.id.snakeCasedProvinceID)")
-            }
-        }
-    }
-}
-
 private struct CartographicGridLayer: View {
     var body: some View {
         Canvas { context, size in
@@ -786,19 +746,114 @@ private struct OceanWaveTextureLayer: View {
 }
 
 private struct PremiumProvinceMapCanvas: View {
-    let selectedProvinceID: String?
+    @EnvironmentObject private var languageManager: LanguageManager
+    @Binding var selectedProvinceID: String?
+    @State private var isProvinceMapPressed = false
+
+    private var lang: AppLanguage { languageManager.appLanguage }
 
     var body: some View {
-        Canvas { context, size in
-            drawSeaShelf(ctx: context, size: size)
-            drawCountrySilhouette(ctx: context, size: size)
-            for shape in ProvinceMapShape.allCases {
-                drawProvince(ctx: context, size: size, shape: shape)
+        GeometryReader { proxy in
+            let mapRect = CGRect(origin: .zero, size: proxy.size)
+
+            Canvas { context, size in
+                drawSeaShelf(ctx: context, size: size)
+                drawCountrySilhouette(ctx: context, size: size)
+                for shape in ProvinceMapShape.allCases {
+                    drawProvince(ctx: context, size: size, shape: shape)
+                }
+                drawProvinceAtmosphere(ctx: context, size: size)
+                drawDeltaAndRouteNetwork(ctx: context, size: size)
+                drawWaterBodies(ctx: context, size: size)
+                drawCoastline(ctx: context, size: size)
             }
-            drawProvinceAtmosphere(ctx: context, size: size)
-            drawDeltaAndRouteNetwork(ctx: context, size: size)
-            drawWaterBodies(ctx: context, size: size)
-            drawCoastline(ctx: context, size: size)
+            .scaleEffect(isProvinceMapPressed ? 0.997 : 1)
+            .brightness(isProvinceMapPressed ? -0.015 : 0)
+            .animation(AppAnimations.tactilePress, value: isProvinceMapPressed)
+            .contentShape(Rectangle())
+            .onLongPressGesture(
+                minimumDuration: 60,
+                maximumDistance: 10,
+                perform: {},
+                onPressingChanged: { isProvinceMapPressed = $0 }
+            )
+            .simultaneousGesture(provinceTapGesture(in: mapRect))
+            .accessibilityElement(children: .contain)
+            .accessibilityChildren {
+                ZStack {
+                    ForEach(RealProvinceMapData.provinces, id: \.id) { province in
+                        let center = PremiumProvinceHitTesting.representativePoint(
+                            for: province.id,
+                            in: mapRect
+                        ) ?? CGPoint(x: mapRect.midX, y: mapRect.midY)
+
+                        Button {
+                            selectProvince(province.id)
+                        } label: {
+                            Text(ProvinceCatalog.item(id: province.id).localizedName(lang))
+                        }
+                        .frame(
+                            width: AppButtonMetrics.minTouchSize,
+                            height: AppButtonMetrics.minTouchSize
+                        )
+                        .position(center)
+                        .accessibilityIdentifier("provinces.map.zone.\(province.id.snakeCasedProvinceID)")
+                        .accessibilityAddTraits(
+                            selectedProvinceID == province.id ? .isSelected : []
+                        )
+                    }
+                }
+                .frame(width: proxy.size.width, height: proxy.size.height)
+            }
+        }
+    }
+
+    private func provinceTapGesture(in mapRect: CGRect) -> some Gesture {
+        SpatialTapGesture(coordinateSpace: .local)
+            .onEnded { value in
+                guard !hasPriorityCityTarget(at: value.location, in: mapRect) else {
+                    return
+                }
+
+                if let provinceID = PremiumProvinceHitTesting.hitTest(
+                    value.location,
+                    in: mapRect
+                ) {
+                    selectProvince(provinceID)
+                } else {
+                    withAnimation(AppAnimations.tactilePress) {
+                        selectedProvinceID = nil
+                    }
+                }
+            }
+    }
+
+    private func hasPriorityCityTarget(at point: CGPoint, in mapRect: CGRect) -> Bool {
+        guard selectedProvinceID == nil else { return false }
+
+        return CityDotMapLayer.cities.contains { city in
+            let center = CGPoint(
+                x: mapRect.minX + city.x * mapRect.width,
+                y: mapRect.minY + city.y * mapRect.height
+            )
+            let radius: CGFloat
+            switch city.size {
+            case .capital:
+                radius = 31
+            case .major:
+                radius = 28
+            case .medium:
+                radius = 25
+            }
+            return hypot(point.x - center.x, point.y - center.y) <= radius
+        }
+    }
+
+    private func selectProvince(_ provinceID: String) {
+        AppHaptics.selection()
+
+        withAnimation(AppAnimations.tactilePress) {
+            selectedProvinceID = selectedProvinceID == provinceID ? nil : provinceID
         }
     }
 
@@ -1523,17 +1578,16 @@ private struct MapOverseasTerritoriesCarousel: View {
     private func territoryTile(_ territory: OverseasTerritory) -> some View {
         VStack(alignment: .leading, spacing: 0) {
             ZStack(alignment: .bottomLeading) {
-                if let urlString = territoryPhotoURL(territory), let url = URL(string: urlString) {
-                    AsyncImage(url: url) { phase in
-                        switch phase {
-                        case .success(let image):
-                            image
-                                .resizable()
-                                .scaledToFill()
-                        default:
-                            territoryImageFallback(territory)
-                        }
-                    }
+                if let urlString = territoryPhotoURL(territory) {
+                    CityImageView(
+                        urlString: urlString,
+                        height: 54,
+                        cityName: territory.name,
+                        fallbackColor: territory.color,
+                        renderRole: .thumbnail,
+                        targetPixelWidth: 320,
+                        showsReadableOverlay: false
+                    )
                 } else {
                     territoryImageFallback(territory)
                 }
@@ -1606,7 +1660,7 @@ private struct MapOverseasTerritoriesCarousel: View {
         case "Aruba":
             return "https://commons.wikimedia.org/wiki/Special:FilePath/Eagle%20Beach%2C%20Aruba.jpg?width=800"
         case "Curaçao":
-            return "https://commons.wikimedia.org/wiki/Special:FilePath/Willemstad%2C%20Curacao.jpg?width=800"
+            return "https://commons.wikimedia.org/wiki/Special:FilePath/Willemstad%20-%20Curacao.jpg?width=800"
         case "Sint Maarten":
             return "https://commons.wikimedia.org/wiki/Special:FilePath/Sint%20Maarten%20-%20Great%20Bay.jpg?width=800"
         case "Bonaire":
@@ -2357,71 +2411,105 @@ private struct CityDotMapLayer: View {
         }
     }
 
+    let navigationEnabled: Bool
+
     var body: some View {
         GeometryReader { geo in
             ForEach(Self.cities, id: \.name) { city in
                 let x = city.x * geo.size.width
                 let y = city.y * geo.size.height
-                ZStack {
-                    if city.isUserCity {
-                        HStack(spacing: 4) {
-                            Image(systemName: "sparkle")
-                                .font(.system(size: 7, weight: .black))
-                            Text(city.name)
-                                .font(.system(size: 9.4, weight: .heavy, design: .rounded))
+                Group {
+                    if navigationEnabled {
+                        NavigationLink(
+                            value: AppDestination.cityDetail(
+                                province: city.provinceID,
+                                city: city.name
+                            )
+                        ) {
+                            cityMarker(city)
+                                .frame(
+                                    width: tapDiameter(for: city.size),
+                                    height: tapDiameter(for: city.size)
+                                )
+                                .contentShape(Circle())
                         }
-                        .foregroundStyle(AppColors.dutchOrange)
-                        .padding(.horizontal, 6.8)
-                        .padding(.vertical, 3)
-                        .background(Color(hex: "#2A160B").opacity(0.96))
-                        .clipShape(Capsule())
-                        .overlay(Capsule().stroke(AppColors.dutchOrange.opacity(0.84), lineWidth: 0.75))
-                        .shadow(color: AppColors.dutchOrange.opacity(0.32), radius: 5, x: 0, y: 0)
-                        .shadow(color: Color.black.opacity(0.68), radius: 4, x: 0, y: 2)
-                        .offset(city.labelOffset)
+                        .buttonStyle(AppPressableButtonStyle())
+                        .simultaneousGesture(
+                            TapGesture().onEnded {
+                                AppHaptics.mediumImpact()
+                            }
+                        )
+                        .accessibilityLabel(city.name)
+                        .accessibilityIdentifier("map.city.\(city.name.snakeCasedProvinceID)")
                     } else {
-                        let dotSize = dotSize(for: city.size)
-                        if city.size == .capital {
-                            Circle()
-                                .fill(Color(hex: "#7DD3FC").opacity(0.22))
-                                .frame(width: 14, height: 14)
-                            Circle()
-                                .stroke(Color.white.opacity(0.20), lineWidth: 0.6)
-                                .frame(width: 9, height: 9)
-                            Circle()
-                                .fill(Color(hex: "#7DD3FC"))
-                                .frame(width: 6.2, height: 6.2)
-                                .shadow(color: Color(hex: "#7DD3FC").opacity(0.50), radius: 3, x: 0, y: 0)
-                            Circle()
-                                .fill(.white)
-                                .frame(width: 2.2, height: 2.2)
-                        } else {
-                            Circle()
-                                .fill(Color(hex: "#7DD3FC").opacity(city.size == .major ? 0.18 : 0.13))
-                                .frame(width: city.size == .major ? 14 : 11, height: city.size == .major ? 14 : 11)
-                            Circle()
-                                .fill(Color(hex: "#7DD3FC").opacity(city.size == .major ? 0.92 : 0.80))
-                                .frame(width: dotSize, height: dotSize)
-                                .shadow(color: Color(hex: "#7DD3FC").opacity(0.44), radius: 3, x: 0, y: 0)
-                        }
-                    }
-
-                    if !city.isUserCity {
-                        Text(city.name)
-                            .font(.system(
-                                size: city.size == .capital ? 9.4 : city.size == .major ? 8.2 : 7.1,
-                                weight: city.size == .capital ? .bold : .semibold,
-                                design: .rounded
-                            ))
-                            .foregroundStyle(.white.opacity(city.size == .medium ? 0.72 : city.size == .capital ? 0.94 : 0.82))
-                            .shadow(color: .black.opacity(0.96), radius: 2.4, x: 0, y: 1)
-                            .shadow(color: .black.opacity(0.82), radius: 0.7, x: 0, y: 0)
-                            .offset(city.labelOffset)
-                            .fixedSize()
+                        cityMarker(city)
                             .allowsHitTesting(false)
                     }
                 }
                 .position(x: x, y: y)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func cityMarker(_ city: CityPoint) -> some View {
+        ZStack {
+            if city.isUserCity {
+                HStack(spacing: 4) {
+                    Image(systemName: "sparkle")
+                        .font(.system(size: 7, weight: .black))
+                    Text(city.name)
+                        .font(.system(size: 9.4, weight: .heavy, design: .rounded))
+                }
+                .foregroundStyle(AppColors.dutchOrange)
+                .padding(.horizontal, 6.8)
+                .padding(.vertical, 3)
+                .background(Color(hex: "#2A160B").opacity(0.96))
+                .clipShape(Capsule())
+                .overlay(Capsule().stroke(AppColors.dutchOrange.opacity(0.84), lineWidth: 0.75))
+                .shadow(color: AppColors.dutchOrange.opacity(0.32), radius: 5, x: 0, y: 0)
+                .shadow(color: Color.black.opacity(0.68), radius: 4, x: 0, y: 2)
+                .offset(city.labelOffset)
+            } else {
+                let dotSize = dotSize(for: city.size)
+                if city.size == .capital {
+                    Circle()
+                        .fill(Color(hex: "#7DD3FC").opacity(0.22))
+                        .frame(width: 14, height: 14)
+                    Circle()
+                        .stroke(Color.white.opacity(0.20), lineWidth: 0.6)
+                        .frame(width: 9, height: 9)
+                    Circle()
+                        .fill(Color(hex: "#7DD3FC"))
+                        .frame(width: 6.2, height: 6.2)
+                        .shadow(color: Color(hex: "#7DD3FC").opacity(0.50), radius: 3, x: 0, y: 0)
+                    Circle()
+                        .fill(.white)
+                        .frame(width: 2.2, height: 2.2)
+                } else {
+                    Circle()
+                        .fill(Color(hex: "#7DD3FC").opacity(city.size == .major ? 0.18 : 0.13))
+                        .frame(width: city.size == .major ? 14 : 11, height: city.size == .major ? 14 : 11)
+                    Circle()
+                        .fill(Color(hex: "#7DD3FC").opacity(city.size == .major ? 0.92 : 0.80))
+                        .frame(width: dotSize, height: dotSize)
+                        .shadow(color: Color(hex: "#7DD3FC").opacity(0.44), radius: 3, x: 0, y: 0)
+                }
+            }
+
+            if !city.isUserCity {
+                Text(city.name)
+                    .font(.system(
+                        size: city.size == .capital ? 9.4 : city.size == .major ? 8.2 : 7.1,
+                        weight: city.size == .capital ? .bold : .semibold,
+                        design: .rounded
+                    ))
+                    .foregroundStyle(.white.opacity(city.size == .medium ? 0.72 : city.size == .capital ? 0.94 : 0.82))
+                    .shadow(color: .black.opacity(0.96), radius: 2.4, x: 0, y: 1)
+                    .shadow(color: .black.opacity(0.82), radius: 0.7, x: 0, y: 0)
+                    .offset(city.labelOffset)
+                    .fixedSize()
+                    .allowsHitTesting(false)
             }
         }
     }
@@ -2433,27 +2521,8 @@ private struct CityDotMapLayer: View {
         case .medium: return 4.8
         }
     }
-}
 
-private struct CityNavigationTapLayer: View {
-    var body: some View {
-        GeometryReader { geo in
-            ForEach(CityDotMapLayer.cities, id: \.name) { city in
-                NavigationLink(value: AppDestination.cityDetail(province: city.provinceID, city: city.name)) {
-                    Circle()
-                        .fill(Color.white.opacity(0.001))
-                        .frame(width: tapDiameter(for: city.size), height: tapDiameter(for: city.size))
-                        .contentShape(Circle())
-                }
-                .buttonStyle(.plain)
-                .accessibilityLabel(city.name)
-                .accessibilityIdentifier("map.city.\(city.name.snakeCasedProvinceID)")
-                .position(x: city.x * geo.size.width, y: city.y * geo.size.height)
-            }
-        }
-    }
-
-    private func tapDiameter(for size: CityDotMapLayer.CitySize) -> CGFloat {
+    private func tapDiameter(for size: CitySize) -> CGFloat {
         switch size {
         case .capital: return 62
         case .major: return 56

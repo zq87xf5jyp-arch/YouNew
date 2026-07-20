@@ -17,6 +17,7 @@ struct AppSearchEngine {
         scope: PersonaSearchScope = .currentAndUniversal,
         limit: Int = 8
     ) -> [KnowledgeSearchResult] {
+        var seenCanonicalIDs = Set<ContentID>()
         return index.search(
             query,
             language: language,
@@ -26,7 +27,10 @@ struct AppSearchEngine {
             limit: limit
         )
         .filter { result in
-            repository.item(id: result.item.id)?.isSearchable == true
+            guard let canonical = repository.item(id: result.item.id), canonical.isSearchable else {
+                return false
+            }
+            return seenCanonicalIDs.insert(canonical.id).inserted
         }
         .prefix(limit)
         .map { $0 }
@@ -44,7 +48,7 @@ struct AppSearchEngine {
         let queryTokens = normalizedQuery.split(separator: " ").map(String.init)
         let persona = activePersona ?? context?.activePersonaTag
         let personaID = persona?.rawValue
-        let contextCity = context?.selectedCity.map(ContentNormalization.text)
+        let contextCity = context?.selectedCity.map { ContentNormalization.text($0) }
 
         return repository.searchableItems().compactMap { item -> ContentSearchResult? in
             let localizedTitle = localizedTitle(item, language: language)
@@ -68,7 +72,7 @@ struct AppSearchEngine {
                 score += 80
                 fields.append("title")
             }
-            if item.keywords.map(ContentNormalization.text).contains(normalizedQuery) {
+            if item.keywords.map({ ContentNormalization.text($0) }).contains(normalizedQuery) {
                 score += 120
                 fields.append("keyword")
             }

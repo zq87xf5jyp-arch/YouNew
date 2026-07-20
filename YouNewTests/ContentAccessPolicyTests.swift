@@ -51,24 +51,31 @@ struct ContentAccessPolicyTests {
     }
 
     @Test func homeScreenPrioritizesPrimaryActionsBeforeSecondaryTools() throws {
-        let source = try homeViewSource()
+        let source = try rootHomeViewSource()
         let bodyStart = try requireRange("var body: some View", in: source)
-        let bodyEnd = try requireRange("disclaimerFooter", in: source, after: bodyStart.lowerBound)
+        let bodyEnd = try requireRange("discoverNetherlandsSection", in: source, after: bodyStart.lowerBound)
         let bodyFlow = String(source[bodyStart.lowerBound...bodyEnd.upperBound])
-        let topChrome = try requireRange("homeTopChrome", in: bodyFlow)
-        let hero = try requireRange("productHomeHero", in: bodyFlow)
-        let status = try requireRange("productHomeStatus", in: bodyFlow)
-        let askAI = try requireRange("compactAISection", in: bodyFlow)
-        let essentials = try requireRange("officialServicesSection", in: bodyFlow)
-        let library = try requireRange("referenceLibraryShortcut", in: bodyFlow)
-        let footer = try requireRange("disclaimerFooter", in: bodyFlow)
+        let approvedSections = [
+            "premiumHeader",
+            "cityHeader",
+            "currentProfileSection",
+            "officialServicesSection",
+            "placesToVisitSection",
+            "housingSection",
+            "transportSection",
+            "leisureSection",
+            "educationSection",
+            "compactAISection",
+            "localPartnersSection",
+            "discoverNetherlandsSection"
+        ]
+        let ranges = try approvedSections.map { try requireRange($0, in: bodyFlow) }
 
-        #expect(topChrome.lowerBound < hero.lowerBound)
-        #expect(hero.lowerBound < status.lowerBound)
-        #expect(status.lowerBound < askAI.lowerBound)
-        #expect(askAI.lowerBound < essentials.lowerBound)
-        #expect(essentials.lowerBound < library.lowerBound)
-        #expect(library.lowerBound < footer.lowerBound)
+        for pair in zip(ranges, ranges.dropFirst()) {
+            #expect(pair.0.lowerBound < pair.1.lowerBound)
+        }
+        #expect(!bodyFlow.contains("homePhotoGallerySection"))
+        #expect(!bodyFlow.contains("referenceFeatureGrid"))
     }
 
     @Test func homeHeroKeepsBureaucracyOutOfTouristShortcuts() throws {
@@ -193,6 +200,13 @@ struct ContentAccessPolicyTests {
         let projectRoot = testFile.deletingLastPathComponent().deletingLastPathComponent()
         let homeView = projectRoot.appendingPathComponent("YouNew/Views/HomeView.swift")
         return try String(contentsOf: homeView, encoding: .utf8)
+    }
+
+    private func rootHomeViewSource() throws -> String {
+        let testFile = URL(fileURLWithPath: #filePath)
+        let projectRoot = testFile.deletingLastPathComponent().deletingLastPathComponent()
+        let rootHomeView = projectRoot.appendingPathComponent("YouNew/Views/RootHomeView.swift")
+        return try String(contentsOf: rootHomeView, encoding: .utf8)
     }
 
     private func searchViewSource() throws -> String {

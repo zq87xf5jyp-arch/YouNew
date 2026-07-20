@@ -1,0 +1,277 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-01-M1-government-core-006",
+  "work_package": "WP-01",
+  "milestone": "WP-01-M1",
+  "target_release": "government-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator test build, admin TypeScript check and admin production build succeeded.",
+    "static": "Full scripts/run-static-qa.sh suite and DATA PROJECT validation succeeded with 68 governed records.",
+    "duplicate": "No duplicate IDs, normalized titles, canonical websites or media IDs detected.",
+    "source": "All eight records use exact official pages; the full network audit checked 905 URLs and reported zero confirmed broken URLs after replacing one stale legacy Dutch Terms link.",
+    "media": "Government records contain no optional media assets; there are no unverified or unlicensed assets.",
+    "search": "Every record has at least three unique search terms and all related entity IDs resolve across the six batches.",
+    "ai": "Every AI summary passes minimum length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "government.legalise-dutch-document",
+      "entity_type": "government_service",
+      "category": "document_legalisation",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Legalise a Dutch document for use abroad",
+      "description": "A Dutch document such as a diploma, civil-status record or medical certificate may need legalisation before it can be used abroad. The required route depends on the document type and destination country, including whether an apostille is accepted.",
+      "images": [],
+      "official_source": {
+        "title": "Legalisation of Dutch documents for use abroad",
+        "publisher": "NetherlandsWorldwide",
+        "url": "https://www.netherlandsworldwide.nl/legalisation/dutch-documents",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.netherlandsworldwide.nl/legalisation/dutch-documents",
+      "related_entity_ids": ["government.foreign-document-legalisation", "government.civil-status-extract", "government.credential-evaluation"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Select the document type and destination country before arranging legalisation. Check whether an apostille, Consular Service Centre legalisation, certified copy or sworn translation is required, and use the correct issuing authority.",
+      "search_keywords": ["legalise Dutch document", "apostille Netherlands", "document use abroad", "Dutch certificate legalisation", "CDC legalisation"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "NetherlandsWorldwide and competent legalisation authority",
+        "destination_scope": "Use of Dutch documents abroad"
+      }
+    },
+    {
+      "id": "government.anw-survivor-benefit",
+      "entity_type": "government_service",
+      "category": "social_security",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check eligibility for Anw survivor benefit",
+      "description": "A surviving partner may qualify for an Anw survivor benefit when the deceased was insured under the Dutch scheme and the survivor meets the additional statutory conditions. Income and living situation can affect entitlement and the amount.",
+      "images": [],
+      "official_source": {
+        "title": "What are the qualifying conditions for an Anw survivor benefit?",
+        "publisher": "Social Insurance Bank",
+        "url": "https://www.svb.nl/en/anw/what-are-the-conditions/what-are-the-qualifying-conditions-for-an-anw-survivor-benefit",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.svb.nl/en/anw/what-are-the-conditions/what-are-the-qualifying-conditions-for-an-anw-survivor-benefit",
+      "related_entity_ids": ["government.aow-pension", "government.after-death-checklist", "government.inheritance-choice"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Check whether the deceased was insured for Anw and whether the survivor satisfies the age and additional qualifying conditions. Report income and household changes because both can reduce or end the benefit.",
+      "search_keywords": ["Anw survivor benefit", "nabestaandenuitkering", "surviving partner benefit", "SVB Anw", "widow benefit Netherlands"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Social Insurance Bank",
+        "common_abbreviation": "Anw"
+      }
+    },
+    {
+      "id": "government.rent-tribunal",
+      "entity_type": "government_service",
+      "category": "housing",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Resolve a rental dispute through the Rent Tribunal",
+      "description": "The independent Rent Tribunal can decide qualifying disputes between residential tenants and landlords about rent levels, maintenance, service charges and certain rent increases. Its scope does not include every type of housing conflict.",
+      "images": [],
+      "official_source": {
+        "title": "Rented housing",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/building-and-housing/housing/rented-housing",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/building-and-housing/housing/rented-housing",
+      "related_entity_ids": ["government.housing-permit", "government.housing-benefit", "government.subsidised-legal-aid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "First identify whether the dispute falls within the Rent Tribunal's residential-housing jurisdiction. Preserve the tenancy agreement, notices, payment records and evidence of maintenance or service-charge issues before starting proceedings.",
+      "search_keywords": ["Rent Tribunal", "Huurcommissie", "rental dispute", "rent increase challenge", "service charges tenant"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Rent Tribunal",
+        "dispute_scope": "Residential rent, maintenance and service charges"
+      }
+    },
+    {
+      "id": "government.going-to-court",
+      "entity_type": "government_service",
+      "category": "justice",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand the Dutch court process",
+      "description": "Dutch court proceedings involve parties with different rights and duties, including suspects, defendants, victims and witnesses. The applicable steps, representation requirements, deadlines and appeal options depend on the type of case.",
+      "images": [],
+      "official_source": {
+        "title": "Going to court",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/justice-security-and-defence/administration-of-justice-and-dispute-settlement/going-to-court",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/justice-security-and-defence/administration-of-justice-and-dispute-settlement/going-to-court",
+      "related_entity_ids": ["government.subsidised-legal-aid", "government.report-crime", "government.tax-disagreement"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Determine whether negotiation, mediation, a complaints body or court proceedings fit the conflict. If court action is needed, verify the competent court, legal representation rules, costs, evidence and any appeal deadline.",
+      "search_keywords": ["going to court Netherlands", "Dutch court process", "court appeal", "victim witness rights", "resolve legal conflict"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Dutch judiciary and Ministry of Justice and Security",
+        "process_scope": "Civil, administrative and criminal justice information"
+      }
+    },
+    {
+      "id": "government.emergency-kit",
+      "entity_type": "government_service",
+      "category": "safety",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Prepare a household emergency kit",
+      "description": "A household emergency kit should contain supplies needed during a disruption or disaster, including water, shelf-stable food, lighting, power, radio, first aid, hygiene items, cash and copies of important information.",
+      "images": [],
+      "official_source": {
+        "title": "What does the emergency kit contain?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/faq/the-emergency-kit",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/faq/the-emergency-kit",
+      "related_entity_ids": ["government.nl-alert", "government.emergency-number-112"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Assemble the official emergency-kit essentials for everyone in the household and store them accessibly. Periodically check water, food, batteries, medicines, contact details and copies of identity documents for expiry or changes.",
+      "search_keywords": ["emergency kit Netherlands", "disaster supplies", "noodpakket", "emergency water food", "household preparedness"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Government of the Netherlands",
+        "preparedness_scope": "Household emergency supplies"
+      }
+    },
+    {
+      "id": "government.voting-abroad",
+      "entity_type": "government_service",
+      "category": "elections",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Register and vote as a Dutch voter abroad",
+      "description": "Dutch nationals living outside the Netherlands must register with the municipality of The Hague to vote from abroad. Depending on the election and circumstances, voting may be possible by post, proxy or at a polling station in the Netherlands.",
+      "images": [],
+      "official_source": {
+        "title": "Voting from abroad",
+        "publisher": "NetherlandsWorldwide",
+        "url": "https://www.netherlandsworldwide.nl/voting-abroad",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.netherlandsworldwide.nl/voting-abroad",
+      "related_entity_ids": ["government.municipal-election-voting", "government.parliamentary-democracy", "government.passport-id-card"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Register with The Hague as a Dutch voter abroad and keep personal details and identity documents current. Before each election, check eligible elections, document deadlines and whether postal, proxy or in-person voting is available.",
+      "search_keywords": ["vote abroad Netherlands", "Dutch voter abroad", "register The Hague election", "postal vote", "stemmen buitenland"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality of The Hague",
+        "voting_methods": "Post, proxy or polling station when available"
+      }
+    },
+    {
+      "id": "government.legal-product-guarantee",
+      "entity_type": "government_service",
+      "category": "consumer_rights",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use the statutory guarantee for a defective product",
+      "description": "Consumers have a statutory right to a product that performs as reasonably expected. If a normally used purchase fails too soon, the seller may have to repair or replace it free of charge or provide a refund when an adequate solution is not delivered.",
+      "images": [],
+      "official_source": {
+        "title": "Garantie",
+        "publisher": "ACM ConsuWijzer",
+        "url": "https://consument.acm.nl/garantie-reparatie-geld-terug/garantie",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://consument.acm.nl/garantie-reparatie-geld-terug/garantie",
+      "related_entity_ids": ["government.consumer-complaint", "government.subsidised-legal-aid", "government.privacy-rights"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Contact the seller promptly, explain the defect and request a free repair or replacement under the statutory guarantee. Keep the purchase evidence and communication; the seller remains responsible even when a manufacturer warranty has expired.",
+      "search_keywords": ["statutory guarantee Netherlands", "wettelijke garantie", "defective product", "free repair replacement", "consumer refund"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Authority for Consumers and Markets",
+        "primary_responsible_party": "Seller"
+      }
+    },
+    {
+      "id": "government.inheritance-tax-return",
+      "entity_type": "government_service",
+      "category": "inheritance",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "File an inheritance tax return",
+      "description": "The value of an inheritance and the applicable exemption determine whether an heir must file and pay Dutch inheritance tax. The Tax Administration handles the return, and the official deadline is stated in the applicable rules or return letter.",
+      "images": [],
+      "official_source": {
+        "title": "Filing an inheritance tax return",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/taxes-benefits-and-allowances/inheritance-tax/filing-an-inheritance-tax-return",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/taxes-benefits-and-allowances/inheritance-tax/filing-an-inheritance-tax-return",
+      "related_entity_ids": ["government.inheritance-choice", "government.after-death-checklist", "government.digid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check the inheritance value, relationship-based exemption and return deadline before filing. Gather the deceased person's details, will, asset and debt values, information about all heirs and the Tax Administration return letter.",
+      "search_keywords": ["inheritance tax return", "erfbelasting", "inheritance exemption", "Belastingdienst inheritance", "estate tax Netherlands"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Netherlands Tax Administration",
+        "tax_type": "Inheritance tax"
+      }
+    }
+  ]
+}

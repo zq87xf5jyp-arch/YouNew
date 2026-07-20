@@ -101,7 +101,6 @@ struct AIAssistantView: View {
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
     @FocusState private var isInputFocused: Bool
     @State private var measuredComposerHeight: CGFloat = 86
-    @State private var activeAssistantDestination: AppDestination?
     let mapToolDestination: AppDestination?
     let onOpenMap: () -> Void
     let onNavigate: (AppDestination) -> Void
@@ -130,6 +129,11 @@ struct AIAssistantView: View {
         viewModel.conversation.messages
     }
 
+    private var latestAssistantMessageID: AIMessage.ID? {
+        guard !viewModel.isLoading else { return nil }
+        return visibleMessages.last(where: { $0.role == .assistant && $0.status != .sending })?.id
+    }
+
     private var latestAssistantMessageAnchor: UnitPoint {
         UnitPoint(x: 0.5, y: -0.04)
     }
@@ -137,9 +141,7 @@ struct AIAssistantView: View {
     var body: some View {
         GeometryReader { proxy in
             ZStack {
-                GlobalBackgroundView()
-                    .ignoresSafeArea()
-                    .allowsHitTesting(false)
+                AppSceneBackgroundLayer()
 
                 VStack(spacing: 0) {
                     ScrollViewReader { scrollProxy in
@@ -244,28 +246,6 @@ struct AIAssistantView: View {
                 }
             }
 
-#if os(iOS)
-            ToolbarItemGroup(placement: .keyboard) {
-                Spacer()
-                Button(L10n.t("common.done", lang)) {
-                    dismissKeyboard()
-                }
-            }
-#endif
-        }
-        .navigationDestination(
-            isPresented: Binding(
-                get: { activeAssistantDestination != nil },
-                set: { isPresented in
-                    if !isPresented {
-                        activeAssistantDestination = nil
-                    }
-                }
-            )
-        ) {
-            if let activeAssistantDestination {
-                AppDestinationView(destination: activeAssistantDestination)
-            }
         }
     }
 
@@ -532,6 +512,8 @@ struct AIAssistantView: View {
                         .frame(width: 38, height: 38)
                         .background { sendButtonBackground }
                         .clipShape(Circle())
+                        .frame(width: 44, height: 44)
+                        .contentShape(Circle())
                 }
                 .buttonStyle(.plain)
                 .disabled(!viewModel.isLoading && viewModel.input.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
@@ -754,9 +736,11 @@ struct AIAssistantView: View {
                 response: response,
                 accent: AppColors.dutchOrange,
                 destination: destination(for: response),
+                accessibilityNamespace: String(describing: message.id),
+                usesCanonicalActionIdentifiers: message.id == latestAssistantMessageID,
                 onDestinationAction: { destination in
                     isInputFocused = false
-                    activeAssistantDestination = destination
+                    onNavigate(destination)
                 },
                 onQueryAction: { query in
                     Task { await viewModel.useQuickPrompt(query) }
@@ -1466,20 +1450,21 @@ struct AIAssistantView: View {
         let answer = content.first ?? strippingAssistantSectionPrefix(text.trimmingCharacters(in: .whitespacesAndNewlines))
 
         var sections = [
-            AssistantAnswerSection(title: assistantAnswerTitle, body: answer, symbol: "checkmark.circle.fill", sourceURL: nil, lastChecked: nil)
+            AssistantAnswerSection(id: "answer", title: assistantAnswerTitle, body: answer, symbol: "checkmark.circle.fill", sourceURL: nil, lastChecked: nil)
         ]
 
         if let why = content.dropFirst().first {
-            sections.append(AssistantAnswerSection(title: assistantWhyTitle, body: why, symbol: "exclamationmark.circle.fill", sourceURL: nil, lastChecked: nil))
+            sections.append(AssistantAnswerSection(id: "why", title: assistantWhyTitle, body: why, symbol: "exclamationmark.circle.fill", sourceURL: nil, lastChecked: nil))
         }
 
         if let next = content.dropFirst(2).first {
-            sections.append(AssistantAnswerSection(title: assistantNextStepTitle, body: next, symbol: "arrow.right.circle.fill", sourceURL: nil, lastChecked: nil))
+            sections.append(AssistantAnswerSection(id: "next", title: assistantNextStepTitle, body: next, symbol: "arrow.right.circle.fill", sourceURL: nil, lastChecked: nil))
         }
 
         if let official {
             sections.append(
                 AssistantAnswerSection(
+                    id: "official-source",
                     title: assistantOfficialSourceTitle,
                     body: cleanedVisibleSourceText(strippingAssistantSectionPrefix(official)),
                     symbol: "building.columns.fill",
@@ -2038,7 +2023,7 @@ private struct AssistantComposerHeightPreferenceKey: PreferenceKey {
 }
 
 private struct AssistantAnswerSection: Identifiable {
-    let id = UUID()
+    let id: String
     let title: String
     let body: String
     let symbol: String
@@ -2054,6 +2039,8 @@ private struct AssistantStructuredResponseCard: View {
     let response: AIResponse
     let accent: Color
     let destination: AppDestination?
+    let accessibilityNamespace: String
+    let usesCanonicalActionIdentifiers: Bool
     let onDestinationAction: (AppDestination) -> Void
     let onQueryAction: (String) -> Void
 
@@ -2099,6 +2086,41 @@ private struct AssistantStructuredResponseCard: View {
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
+            HStack(alignment: .top, spacing: 9) {
+                Image(systemName: responseOriginSymbol)
+                    .font(.system(size: 12, weight: .bold))
+                    .foregroundStyle(responseOriginColor)
+                    .frame(width: 20, height: 20)
+
+                VStack(alignment: .leading, spacing: 3) {
+                    Text(responseOriginLabel)
+                        .font(.system(size: 12, weight: .bold, design: .rounded))
+                        .foregroundStyle(responseOriginColor)
+
+                    if response.isLiveOpenAI, let model = response.model {
+                        Text(model)
+                            .font(.system(size: 11, weight: .medium, design: .monospaced))
+                            .foregroundStyle(AppColors.textSecondary)
+                            .accessibilityIdentifier("assistant.response.model")
+                    }
+
+                    if response.isLiveOpenAI, let requestID = response.requestID {
+                        Text("Request ID: \(requestID)")
+                            .font(.system(size: 10, weight: .regular, design: .monospaced))
+                            .foregroundStyle(AppColors.textSecondary)
+                            .lineLimit(2)
+                            .accessibilityIdentifier("assistant.response.requestId")
+                    }
+                }
+                Spacer(minLength: 0)
+            }
+            .padding(.vertical, 10)
+            .accessibilityElement(children: .contain)
+            .accessibilityIdentifier(responseOriginIdentifier)
+
+            Divider()
+                .overlay(Color.white.opacity(0.08))
+
             ForEach(Array(displaySections.prefix(4).enumerated()), id: \.offset) { index, section in
                 HStack(alignment: .top, spacing: 11) {
                     Image(systemName: section.symbol ?? defaultSymbol(for: index))
@@ -2123,6 +2145,7 @@ private struct AssistantStructuredResponseCard: View {
                     .frame(maxWidth: .infinity, alignment: .leading)
                 }
                 .padding(.vertical, 10)
+                .accessibilityIdentifier("assistant.response.step.\(index + 1)")
 
                 if index < min(displaySections.count, 4) - 1 {
                     Divider()
@@ -2186,8 +2209,9 @@ private struct AssistantStructuredResponseCard: View {
                         .textCase(.uppercase)
                         .padding(.top, 10)
 
-                    LazyVGrid(columns: [GridItem(.adaptive(minimum: 138), spacing: 8)], alignment: .leading, spacing: 8) {
-                        ForEach(response.quickActions.prefix(8)) { action in
+                    let actions = Array(response.quickActions.prefix(8))
+                    VStack(spacing: 8) {
+                        ForEach(actions) { action in
                             quickActionView(action)
                         }
                     }
@@ -2279,7 +2303,65 @@ private struct AssistantStructuredResponseCard: View {
                     lineWidth: 0.8
                 )
         )
+        .accessibilityElement(children: .contain)
         .accessibilityIdentifier("assistant.response.structured")
+    }
+
+    private var responseOriginLabel: String {
+        if response.isLiveOpenAI {
+            switch lang {
+            case .russian: return "Live OpenAI · подтверждённый backend"
+            case .dutch: return "Live OpenAI · bevestigde backend"
+            case .english: return "Live OpenAI · verified backend"
+            }
+        }
+        switch response.origin {
+        case .localGuide:
+            switch lang {
+            case .russian: return "Локальный guide mode"
+            case .dutch: return "Lokale gidsmodus"
+            case .english: return "Local guide mode"
+            }
+        case .safety:
+            switch lang {
+            case .russian: return "Локальная проверка безопасности"
+            case .dutch: return "Lokale veiligheidscontrole"
+            case .english: return "Local safety guidance"
+            }
+        case .liveOpenAI, .unverified:
+            switch lang {
+            case .russian: return "Неподтверждённый источник ответа"
+            case .dutch: return "Onbevestigde antwoordbron"
+            case .english: return "Unverified response source"
+            }
+        }
+    }
+
+    private var responseOriginIdentifier: String {
+        if response.isLiveOpenAI { return "assistant.response.origin.live" }
+        switch response.origin {
+        case .localGuide: return "assistant.response.origin.localGuide"
+        case .safety: return "assistant.response.origin.safety"
+        case .liveOpenAI, .unverified: return "assistant.response.origin.unverified"
+        }
+    }
+
+    private var responseOriginSymbol: String {
+        if response.isLiveOpenAI { return "network.badge.shield.half.filled" }
+        switch response.origin {
+        case .localGuide: return "iphone.and.arrow.forward"
+        case .safety: return "hand.raised.fill"
+        case .liveOpenAI, .unverified: return "questionmark.diamond.fill"
+        }
+    }
+
+    private var responseOriginColor: Color {
+        if response.isLiveOpenAI { return AppColors.cyanGlow }
+        switch response.origin {
+        case .localGuide: return AppColors.success
+        case .safety: return AppColors.warning
+        case .liveOpenAI, .unverified: return AppColors.textSecondary
+        }
     }
 
     private var quickActionsLabel: String {
@@ -2292,21 +2374,21 @@ private struct AssistantStructuredResponseCard: View {
 
     @ViewBuilder
     private func quickActionView(_ action: AIResponseAction) -> some View {
-        if let destination = AppNavigationResolver.destination(for: action.destinationID, visibleFor: appState.selectedUserStatus?.personaTag) {
+        if AppNavigationResolver.destination(for: action.destinationID, visibleFor: appState.selectedUserStatus?.personaTag) != nil {
             Button {
+                guard let destination = AppNavigationResolver.destination(
+                    for: action.destinationID,
+                    visibleFor: appState.selectedUserStatus?.personaTag
+                ) else { return }
                 onDestinationAction(destination)
             } label: {
                 actionLabel(action)
             }
-                .buttonStyle(.plain)
-                .simultaneousGesture(
-                    TapGesture().onEnded {
-                        onDestinationAction(destination)
-                    }
-                )
-                .accessibilityElement(children: .combine)
-                .accessibilityLabel(action.title)
-                .accessibilityIdentifier(actionIdentifier(action))
+            .buttonStyle(.plain)
+            .accessibilityElement(children: .combine)
+            .accessibilityLabel(action.title)
+            .accessibilityIdentifier(actionIdentifier(action))
+            .id(actionIdentifier(action))
         } else if let url = AppURL.validatedWebURL(action.url) {
             Button {
                 openURL(url)
@@ -2365,7 +2447,9 @@ private struct AssistantStructuredResponseCard: View {
             ?? action.itemID
             ?? action.query
             ?? action.title
-        return "assistant.quickAction.\(action.kind.rawValue).\(identifierSegment(rawTarget))"
+        let canonical = "assistant.quickAction.\(action.kind.rawValue).\(identifierSegment(rawTarget))"
+        guard !usesCanonicalActionIdentifiers else { return canonical }
+        return "\(canonical).history.\(identifierSegment(accessibilityNamespace))"
     }
 
     private func identifierSegment(_ raw: String?) -> String {

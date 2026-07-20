@@ -1,0 +1,27 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://younew.nl/schemas/data-release-manifest.schema.json",
+  "title": "YouNew Data Release Manifest",
+  "type": "object",
+  "required": ["schema_version", "release_id", "version", "status", "dataset", "records", "qa", "consumers", "migration", "generated_at"],
+  "properties": {
+    "schema_version": {"const": 1},
+    "release_id": {"type": "string", "minLength": 1},
+    "version": {"type": "string", "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"},
+    "status": {"enum": ["planned", "qa", "published", "retired"]},
+    "dataset": {"type": "string", "minLength": 1},
+    "records": {
+      "type": "object",
+      "required": ["governed", "published", "verified"],
+      "properties": {
+        "governed": {"type": "integer", "minimum": 0},
+        "published": {"type": "integer", "minimum": 0},
+        "verified": {"type": "integer", "minimum": 0}
+      }
+    },
+    "qa": {"type": "object"},
+    "consumers": {"type": "array", "items": {"type": "string"}},
+    "migration": {"type": "object"},
+    "generated_at": {"type": "string", "format": "date-time"}
+  }
+}

@@ -4,6 +4,8 @@ struct RootGuideView: View {
     var onAskAI: () -> Void = {}
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var router: TabRouter
+    @State private var popularItems: [ContentItem] = []
+    @State private var recentlyUpdatedItems: [ContentItem] = []
 
     private var language: AppLanguage { languageManager.appLanguage }
     private let columns = [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)]
@@ -34,6 +36,22 @@ struct RootGuideView: View {
             }
         }
         .appSceneBackground(.search)
+        .task {
+            guard popularItems.isEmpty, recentlyUpdatedItems.isEmpty else { return }
+            let snapshot = await Task.detached(priority: .userInitiated) {
+                let allItems = ContentRepository.shared.guideItems()
+                let recentItems = allItems
+                    .filter { $0.lastVerifiedAt != nil }
+                    .sorted { ($0.lastVerifiedAt ?? .distantPast) > ($1.lastVerifiedAt ?? .distantPast) }
+                return GuideContentSnapshot(
+                    popular: Array(allItems.prefix(4)),
+                    recentlyUpdated: Array(recentItems.prefix(3))
+                )
+            }.value
+            guard !Task.isCancelled else { return }
+            popularItems = snapshot.popular
+            recentlyUpdatedItems = snapshot.recentlyUpdated
+        }
     }
 
     private var header: some View {
@@ -122,17 +140,14 @@ struct RootGuideView: View {
     private var popularContent: some View {
         contentSection(
             title: localized(en: "Popular guides", nl: "Populaire gidsen", ru: "Популярные материалы"),
-            items: Array(ContentRepository.shared.guideItems().prefix(4))
+            items: popularItems
         )
     }
 
     private var recentlyUpdated: some View {
-        let items = ContentRepository.shared.guideItems()
-            .filter { $0.lastVerifiedAt != nil }
-            .sorted { ($0.lastVerifiedAt ?? .distantPast) > ($1.lastVerifiedAt ?? .distantPast) }
-        return contentSection(
+        contentSection(
             title: localized(en: "Recently updated", nl: "Recent bijgewerkt", ru: "Недавно обновлено"),
-            items: Array(items.prefix(3))
+            items: recentlyUpdatedItems
         )
     }
 
@@ -150,7 +165,7 @@ struct RootGuideView: View {
                     .appGlassCardStyle(padding: 0, cornerRadius: 17, accent: AppColors.softBlue)
             } else {
                 ForEach(items) { item in
-                    if let destination = ContentRepository.shared.legacyDestination(id: item.id) {
+                    if let destination = ContentRepository.shared.destination(id: item.id) {
                         NavigationLink(value: destination) { guideContentRow(item) }
                             .buttonStyle(.plain)
                     } else {
@@ -221,13 +236,14 @@ struct RootGuideView: View {
     private func destination(for categoryID: String) -> AppDestination {
         switch categoryID {
         case "getting-started": return .firstSteps
-        case "housing": return .practicalGuide(.housingBasics)
-        case "official-services": return .officialSources
-        case "work-money": return .guideSection("work")
-        case "study": return .languageHub
-        case "health-safety": return .practicalGuide(.healthcareBasics)
-        case "transport": return .practicalGuide(.transportBasics)
-        default: return .cultureAttractions
+        case "housing": return .housingSection(.overview)
+        case "official-services": return .governmentSection(.overview)
+        case "work-money": return .workSection(.overview)
+        case "study": return .educationSection(.overview)
+        case "health-safety": return .healthSection(.overview)
+        case "transport": return .transportSection(.overview)
+        case "explore": return .discoverNetherlands
+        default: preconditionFailure("Unknown canonical Guide category: \(categoryID)")
         }
     }
 
@@ -276,4 +292,9 @@ struct RootGuideView: View {
         case .russian: return ru
         }
     }
+}
+
+private struct GuideContentSnapshot: Sendable {
+    let popular: [ContentItem]
+    let recentlyUpdated: [ContentItem]
 }

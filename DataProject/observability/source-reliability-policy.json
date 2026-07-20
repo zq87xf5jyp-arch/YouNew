@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "measurement_mode": "read_only",
+  "score_scale": "0_to_100",
+  "weights": {
+    "officiality": 35,
+    "validity": 25,
+    "freshness": 25,
+    "stability": 15
+  },
+  "network_classification": {
+    "confirmed_broken": "penalize_validity_and_stability",
+    "access_restricted": "neutral_retry_required",
+    "transient_failure": "neutral_retry_required",
+    "reachable": "positive_evidence"
+  },
+  "minimum_sample_for_publisher_score": 3,
+  "note": "Rate limits and access restrictions remain visible but do not automatically reduce source trust."
+}

@@ -1,14 +1,17 @@
 # YouNew App Store Package
 
+Status: **owner-review draft; not submitted and not approved release metadata**.
+
 ## App Identity
 
 - App name: YouNew
-- Bundle identifier: `com.company.younew`
-- Version: `1.0`
-- Build: `1`
+- Bundle identifier: `nl.younew.app`
+- Version: `1.1`
+- Build: `5`
 - Primary category: Reference
 - Secondary category: Travel
-- Age rating recommendation: 12+ due to informational content about legal, healthcare, safety, fines, and emergency topics.
+- Age rating: owner must complete the current App Store Connect questionnaire;
+  this repository does not certify a rating.
 
 ## Subtitle
 
@@ -32,31 +35,35 @@ Calendar events are added through the iOS event editor when available; the app d
 
 YouNew is not affiliated with the Dutch government and does not provide legal, immigration, tax, medical, financial, employment, housing, or emergency advice. The AI assistant provides guidance based on the app's knowledge base and official sources where available. AI-generated informational assistance may contain inaccuracies. Always verify important information with official institutions or qualified professionals.
 
-## Privacy Nutrition Label Draft
+## Privacy nutrition label review notes
 
-Current local-first build with no configured AI proxy:
+The deterministic assistant and its history are local-first. The app also contains
+features that can access external official sites and public weather/place/event
+services. The owner must inspect the final binary and answer App Store Connect's
+current questions; the bullets below are not a completed privacy label.
 
-- Data collected: none
-- Tracking: no
-- Third-party advertising: no
-- Analytics SDKs: no
-- Location: processed on device for nearby support if permission is granted
-- User content/documents: stored locally in app-managed storage
+- No advertising, tracking, or analytics SDK is identified in the current audit.
+- Approximate location can be processed for nearby support after permission.
+- User content/documents and assistant state are designed for local app storage.
+- External services receive normal network metadata under their own policies.
 
-If `YOUNEW_AI_PROXY_URL` is configured for production:
+If `YOUNEW_AI_BACKEND_URL` is configured for a deployed bounded backend:
 
-- Declare user content / messages and any transmitted context according to final proxy behavior.
+- Review and declare the question and bounded request metadata according to the
+  final hosting, retention, and data-processing behavior.
 - Update Privacy Policy URL and App Store privacy labels before submission.
 
 ## Required URLs
 
-- Privacy Policy URL: `https://younew.app/privacy`
-- Support URL: `https://younew.app/support`
-- Terms URL: `https://younew.app/terms`
-- Contact email: `support@younew.app`
+- Candidate Privacy Policy URL: `https://younew.nl/privacy/`
+- Candidate Support URL: `https://younew.nl/support/`
+- Candidate Terms URL: `https://younew.nl/terms/`
+- Candidate contact email: `support@younew.nl`
 
-These URLs must be publicly hosted and verified before App Store submission.
+These endpoints and the mailbox were not verified during this audit. The owner
+must confirm control, public availability, and final content before submission.
 
 ## Copyright
 
-Copyright 2026 YouNew. All rights reserved.
+Copyright remains with the applicable rights holders. See `LICENSE` and
+`MEDIA_ATTRIBUTION.md`; unresolved media must not be included in a release package.

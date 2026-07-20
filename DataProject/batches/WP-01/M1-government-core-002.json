@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-01-M1-government-core-002",
+  "work_package": "WP-01",
+  "milestone": "WP-01-M1",
+  "target_release": "government-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator test build, admin TypeScript check and admin production build succeeded.",
+    "static": "Full scripts/run-static-qa.sh suite and DATA PROJECT validation succeeded with 24 governed records.",
+    "duplicate": "No duplicate IDs, normalized titles, canonical websites or media IDs detected.",
+    "source": "All 12 records use exact official pages; the full network audit checked 861 URLs and reported zero confirmed broken URLs.",
+    "media": "Government and document records contain no optional media assets; there are no unverified or unlicensed assets.",
+    "search": "Every record has at least three unique search terms and all related entity IDs resolve across the two batches.",
+    "ai": "Every AI summary passes minimum length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "government.rni-registration",
+      "entity_type": "government_service",
+      "category": "municipal_registration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Non-residents Records Database registration (RNI)",
+      "description": "People who will stay in the Netherlands for less than four months, or who live abroad but have dealings with Dutch authorities, can register as a non-resident in the Personal Records Database. Registration is handled by an RNI municipality and results in a citizen service number if one has not already been assigned.",
+      "images": [],
+      "official_source": {
+        "title": "When should I register with the Personal Records Database as a resident?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/faq/when-should-i-register-with-the-personal-records-database-as-a-resident",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/faq/when-should-i-register-with-the-personal-records-database-as-a-resident",
+      "related_entity_ids": ["government.bsn", "government.brp-registration"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Use RNI registration when the stay in the Netherlands is shorter than four months or when a person living abroad needs a Dutch government registration. Longer stays normally require resident registration with the municipality.",
+      "search_keywords": ["RNI", "non-resident registration", "Register Niet-Ingezetenen", "short stay Netherlands", "BSN non-resident"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "RNI municipality",
+        "register_name_nl": "Registratie Niet-Ingezetenen"
+      }
+    },
+    {
+      "id": "government.change-address",
+      "entity_type": "government_service",
+      "category": "municipal_registration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Report a change of address",
+      "description": "A move must be reported to the municipality at the new address. It may be reported from four weeks before the move until five days afterwards, and the municipality records the new address in the Personal Records Database.",
+      "images": [],
+      "official_source": {
+        "title": "Hoe kan ik mijn verhuizing doorgeven aan de gemeente?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/gemeenten/hoe-kan-ik-mijn-verhuizing-doorgeven-aan-de-gemeente",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/gemeenten/hoe-kan-ik-mijn-verhuizing-doorgeven-aan-de-gemeente",
+      "related_entity_ids": ["government.brp-registration", "government.mijnoverheid", "government.bsn"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Report the move to the municipality where the new home is located and provide valid identification plus evidence of occupancy. Reporting on time helps keep the BRP address correct for government services and correspondence.",
+      "search_keywords": ["change address", "report move", "verhuizing doorgeven", "gemeente address", "BRP move"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality at the new address",
+        "reporting_window": "From four weeks before until five days after the move"
+      }
+    },
+    {
+      "id": "government.vog",
+      "entity_type": "document",
+      "category": "certificates",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Certificate of Conduct (VOG)",
+      "description": "A Certificate of Conduct states that a person's judicial history does not prevent them from carrying out a specific job, task or purpose. Justis assesses the application against the relevant screening profile.",
+      "images": [],
+      "official_source": {
+        "title": "Wat is een VOG?",
+        "publisher": "Justis",
+        "url": "https://www.justis.nl/producten/verklaring-omtrent-het-gedrag/wat-is-een-vog",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.justis.nl/producten/verklaring-omtrent-het-gedrag/wat-is-een-vog",
+      "related_entity_ids": ["government.bsn", "government.digid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "A VOG is requested for a defined role or purpose, often after an employer or organisation starts the application. Justis checks relevant judicial information and issues the certificate when no objection exists for that purpose.",
+      "search_keywords": ["VOG", "certificate of conduct", "verklaring omtrent gedrag", "Justis", "background screening"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Justis",
+        "document_name_nl": "Verklaring Omtrent het Gedrag"
+      }
+    },
+    {
+      "id": "government.driving-licence-application",
+      "entity_type": "document",
+      "category": "driving_licence",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Apply for or renew a Dutch driving licence",
+      "description": "Applications and renewals for a Dutch driving licence are normally handled by the municipality where the applicant is registered. The applicable requirements depend on the licence category and the applicant's circumstances.",
+      "images": [],
+      "official_source": {
+        "title": "Applying for or renewing a driving licence",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/transport/driving-licence/applying-or-renewing-a-driving-licence",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/transport/driving-licence/applying-or-renewing-a-driving-licence",
+      "related_entity_ids": ["government.bsn", "government.brp-registration", "government.foreign-driving-licence-exchange"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Use the municipality procedure to apply for a first Dutch driving licence or renew an existing one. Check the official requirements for identification, photographs, collection and any medical assessment that applies.",
+      "search_keywords": ["Dutch driving licence", "renew driving licence", "rijbewijs aanvragen", "rijbewijs verlengen", "municipality licence"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality",
+        "document_name_nl": "Rijbewijs"
+      }
+    },
+    {
+      "id": "government.child-benefit",
+      "entity_type": "government_service",
+      "category": "benefits",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Child benefit (kinderbijslag)",
+      "description": "Child benefit is a payment from the Social Insurance Bank towards the costs of raising eligible children. The official service explains eligibility, application steps, payment dates and changes that must be reported.",
+      "images": [],
+      "official_source": {
+        "title": "Child benefit",
+        "publisher": "Social Insurance Bank",
+        "url": "https://www.svb.nl/en/child-benefit",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.svb.nl/en/child-benefit",
+      "related_entity_ids": ["government.birth-registration", "government.digid", "government.child-budget"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "The SVB administers child benefit for eligible children. After a birth or another change in family circumstances, use the official service to check whether an application is needed and keep relevant details current.",
+      "search_keywords": ["child benefit", "kinderbijslag", "SVB", "benefit for children", "family allowance"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Social Insurance Bank",
+        "common_abbreviation": "SVB"
+      }
+    },
+    {
+      "id": "government.unemployment-benefit",
+      "entity_type": "government_service",
+      "category": "social_security",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Apply for unemployment benefit (WW)",
+      "description": "Eligible employees who become unemployed can apply to UWV for unemployment benefit through Mijn UWV. The application window opens one week before the first day of unemployment and normally closes one week after that date.",
+      "images": [],
+      "official_source": {
+        "title": "Applying for unemployment benefit",
+        "publisher": "Employee Insurance Agency",
+        "url": "https://www.uwv.nl/en/individuals/unemployment-benefit/applying-for",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.uwv.nl/en/individuals/unemployment-benefit/applying-for",
+      "related_entity_ids": ["government.digid", "government.income-tax-return", "government.mijnoverheid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Apply through Mijn UWV close to the first unemployment date and have DigiD or a recognised European login ready. Employment details, a recent payslip, the employment contract and a bank account may be needed.",
+      "search_keywords": ["unemployment benefit", "WW uitkering", "UWV", "apply WW", "lost job Netherlands"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Employee Insurance Agency",
+        "application_channel": "Mijn UWV"
+      }
+    },
+    {
+      "id": "government.aow-pension",
+      "entity_type": "government_service",
+      "category": "social_security",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "AOW state pension",
+      "description": "AOW is the Dutch basic state pension for people who reached the applicable AOW pension age. Entitlement is built through insured years, usually by living or working in the Netherlands, and the amount also depends on the person's living situation.",
+      "images": [],
+      "official_source": {
+        "title": "What is AOW?",
+        "publisher": "Social Insurance Bank",
+        "url": "https://www.svb.nl/en/aow-pension/what-is-aow/what-is-aow",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.svb.nl/en/aow-pension/what-is-aow/what-is-aow",
+      "related_entity_ids": ["government.bsn", "government.digid", "government.mijnoverheid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "AOW provides a basic state pension from the applicable pension age. People living in the Netherlands are normally contacted before that age, while periods lived or worked abroad can affect entitlement and the final amount.",
+      "search_keywords": ["AOW", "state pension", "Dutch pension", "SVB pension", "AOW age"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Social Insurance Bank",
+        "benefit_type": "Basic state pension"
+      }
+    },
+    {
+      "id": "government.student-finance",
+      "entity_type": "government_service",
+      "category": "education_finance",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Apply for student finance",
+      "description": "Students in eligible secondary vocational or higher education programmes can apply to DUO for student finance. Available components can include a basic grant, supplementary grant, student travel product and loan, depending on the programme and personal eligibility.",
+      "images": [],
+      "official_source": {
+        "title": "Student finance: apply",
+        "publisher": "DUO",
+        "url": "https://www.duo.nl/particulier/student-finance/apply.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.duo.nl/particulier/student-finance/apply.jsp",
+      "related_entity_ids": ["government.digid", "government.bsn"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Apply through Mijn DUO, preferably before the programme starts, and request the supplementary grant as part of the application so DUO can assess it. Students without digital access can use the official forms.",
+      "search_keywords": ["student finance", "studiefinanciering", "DUO", "student grant", "student travel product"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "DUO",
+        "application_channel": "Mijn DUO"
+      }
+    },
+    {
+      "id": "government.birth-registration",
+      "entity_type": "government_service",
+      "category": "civil_status",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Register a birth",
+      "description": "A child born in the Netherlands must be registered with the municipality where the birth took place within three days. The municipality records the birth and issues a birth certificate as the official proof of registration.",
+      "images": [],
+      "official_source": {
+        "title": "Rules for registering a birth",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/family-health-and-care/registering-a-birth-and-name-of-child/rules-for-registering-a-birth",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/family-health-and-care/registering-a-birth-and-name-of-child/rules-for-registering-a-birth",
+      "related_entity_ids": ["government.brp-registration", "government.bsn", "government.child-benefit"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Register the child at the municipality of birth within the official three-day period. The person making the declaration should check who is authorised to register the birth and which identification or supporting documents are required.",
+      "search_keywords": ["register birth", "birth certificate", "geboorteaangifte", "newborn Netherlands", "municipality birth"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality where the child was born",
+        "deadline": "Within three days after birth"
+      }
+    },
+    {
+      "id": "government.marriage-registered-partnership",
+      "entity_type": "government_service",
+      "category": "civil_status",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Notify a municipality of marriage or registered partnership",
+      "description": "Couples planning to marry or enter into a registered partnership notify the municipality where the ceremony will take place. The municipality checks the arrangements, required documents, witnesses and any local procedure or fees.",
+      "images": [],
+      "official_source": {
+        "title": "What do I need to take into account if I decide to marry or enter into a civil partnership?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/faq/what-do-i-need-to-take-into-account-if-i-decide-to-marry-or-enter-into-a-civil-partnership",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/faq/what-do-i-need-to-take-into-account-if-i-decide-to-marry-or-enter-into-a-civil-partnership",
+      "related_entity_ids": ["government.brp-registration", "government.change-address", "government.bsn"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Contact the ceremony municipality and provide notice at least two weeks in advance under the national guidance. The couple must arrange adult witnesses and follow the municipality's process for documents, scheduling and costs.",
+      "search_keywords": ["marriage Netherlands", "registered partnership", "civil partnership", "trouwen gemeente", "marriage notice"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Ceremony municipality",
+        "minimum_notice": "At least two weeks"
+      }
+    },
+    {
+      "id": "government.donor-register",
+      "entity_type": "government_service",
+      "category": "healthcare_registration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Record a choice in the Donor Register",
+      "description": "The Donor Register records a person's decision about organ and tissue donation after death. A choice can be recorded or changed through the official register, including online with DigiD or by using the official paper form.",
+      "images": [],
+      "official_source": {
+        "title": "How do I record my choice?",
+        "publisher": "Donorregister",
+        "url": "https://english.donorregister.nl/recording-your-choise/how-do-i-record-my-choice",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://english.donorregister.nl/recording-your-choise/how-do-i-record-my-choice",
+      "related_entity_ids": ["government.digid", "government.brp-registration"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Use the official Donor Register to record or update the organ and tissue donation choice. Online access uses DigiD, while the official paper form provides an alternative route for recording the decision.",
+      "search_keywords": ["Donor Register", "organ donation", "tissue donation", "donor choice", "Donorregister DigiD"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Donorregister",
+        "online_authentication": "DigiD"
+      }
+    },
+    {
+      "id": "government.child-budget",
+      "entity_type": "government_service",
+      "category": "benefits",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Child budget (kindgebonden budget)",
+      "description": "Child budget is an income-related contribution towards the costs of children under 18. Eligibility depends on current conditions including child benefit entitlement, household income and assets, and the service is administered by Dienst Toeslagen.",
+      "images": [],
+      "official_source": {
+        "title": "Kindgebonden budget",
+        "publisher": "Dienst Toeslagen",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/kindgebonden-budget/kindgebonden-budget",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.belastingdienst.nl/wps/wcm/connect/nl/kindgebonden-budget/kindgebonden-budget",
+      "related_entity_ids": ["government.child-benefit", "government.digid", "government.income-tax-return", "government.childcare-benefit"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Check the current income, asset and child benefit conditions for kindgebonden budget. Dienst Toeslagen may grant it automatically in some situations; otherwise the household can review and manage eligibility through Mijn Toeslagen.",
+      "search_keywords": ["kindgebonden budget", "child budget", "benefit for children", "Dienst Toeslagen", "Mijn Toeslagen"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Dienst Toeslagen",
+        "application_channel": "Mijn Toeslagen"
+      }
+    }
+  ]
+}

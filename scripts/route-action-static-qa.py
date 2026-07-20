@@ -147,6 +147,7 @@ def main() -> None:
     app_destination = read("YouNew/App/Navigation/AppDestination.swift")
     app_destination_view = read("YouNew/App/Navigation/AppDestinationView.swift")
     root_tab = read("YouNew/App/AppTabView.swift")
+    tab_router = read("YouNew/Models/TabRouter.swift")
     navigation_resolver = read("YouNew/App/Navigation/AppRouter.swift")
     saved_items_store = read("YouNew/Models/SavedItemsStore.swift")
     guide_content = read("YouNew/Views/GuideContentView.swift")
@@ -280,8 +281,13 @@ def main() -> None:
         "Assistant app-destination route must open Map through AppDestination.mapHub instead of an ad hoc sheet",
     )
     expect(
-        root_tab.count("mapToolDestination: .mapHub") == 3,
-        "Root assistant tabs must open the Map tool through AppDestination.mapHub so the Assistant tab stays active",
+        enum_cases(tab_router, "AppTab") == {"home", "guide", "map", "saved", "more"}
+        and enum_cases(tab_router, "TabItem") == {"home", "guide", "map", "saved", "more"},
+        "Root navigation must expose exactly Home, Guide, Map, Saved, and More",
+    )
+    expect(
+        "guideNavPath.append(AppDestination.assistantHub)" in root_tab,
+        "The global Assistant action must route through the canonical Guide navigation path",
     )
     expect(
         ".sheet(isPresented: $showMap)" not in app_destination_view and "showMap = true" not in app_destination_view,

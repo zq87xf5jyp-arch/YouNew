@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-01-M1-government-core-004",
+  "work_package": "WP-01",
+  "milestone": "WP-01-M1",
+  "target_release": "government-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator test build, admin TypeScript check and admin production build succeeded.",
+    "static": "Full scripts/run-static-qa.sh suite and DATA PROJECT validation succeeded with 48 governed records.",
+    "duplicate": "No duplicate IDs, normalized titles, canonical websites or media IDs detected.",
+    "source": "All 12 records use exact official pages; the full network audit checked 886 URLs and reported zero confirmed broken URLs.",
+    "media": "Government records contain no optional media assets; there are no unverified or unlicensed assets.",
+    "search": "Every record has at least three unique search terms and all related entity IDs resolve across the four batches.",
+    "ai": "Every AI summary passes minimum length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "government.housing-permit",
+      "entity_type": "government_service",
+      "category": "housing",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check whether you need a housing permit",
+      "description": "Some municipalities require a housing permit before a person can occupy a social rental home. The municipality decides whether a permit is used and sets local conditions concerning income, household size or regional connection.",
+      "images": [],
+      "official_source": {
+        "title": "Heb ik een huisvestingsvergunning nodig om in een sociale huurwoning te wonen?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/heb-ik-een-huisvestingsvergunning-nodig-om-een-huurwoning-te-krijgen",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/heb-ik-een-huisvestingsvergunning-nodig-om-een-huurwoning-te-krijgen",
+      "related_entity_ids": ["government.housing-benefit", "government.brp-registration", "government.municipal-taxes"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Check the rules of the municipality where the social rental home is located. If a housing permit is required, apply to that municipality and verify its current income, household and local-connection conditions.",
+      "search_keywords": ["housing permit", "huisvestingsvergunning", "social rental permit", "municipality housing rules", "huurwoning vergunning"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality",
+        "scope": "Local rules for social rental housing"
+      }
+    },
+    {
+      "id": "government.municipal-taxes",
+      "entity_type": "government_service",
+      "category": "local_services",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand municipal taxes and charges",
+      "description": "Municipalities may levy taxes and service charges authorised by law, including property tax, waste and sewer charges, parking tax and fees. The municipal council determines local rates each year, so amounts differ by municipality.",
+      "images": [],
+      "official_source": {
+        "title": "Welke belastingen heft de gemeente?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/gemeenten/welke-belastingen-heft-de-gemeente",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/gemeenten/welke-belastingen-heft-de-gemeente",
+      "related_entity_ids": ["government.brp-registration", "government.change-address", "government.housing-permit"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Consult the municipality for the taxes, charges and current rates that apply locally. A resident may challenge an assessment or valuation in qualifying circumstances, but local tax types and amounts are not uniform nationwide.",
+      "search_keywords": ["municipal taxes", "gemeentelijke belastingen", "OZB", "waste charge", "sewer charge Netherlands"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipal council and municipality",
+        "rate_cycle": "Set locally each year"
+      }
+    },
+    {
+      "id": "government.report-crime",
+      "entity_type": "government_service",
+      "category": "justice",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Report a crime to the Netherlands Police",
+      "description": "Victims can report a crime to the Netherlands Police through the route matching their situation. The available process differs for residents, visitors and people abroad who were affected by a Dutch person or company.",
+      "images": [],
+      "official_source": {
+        "title": "Report a crime",
+        "publisher": "Netherlands Police",
+        "url": "https://www.politie.nl/en/topics/report-a-crime.html",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.politie.nl/en/topics/report-a-crime.html",
+      "related_entity_ids": ["government.emergency-number-112", "government.digid", "government.privacy-rights"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Use the official Police reporting route that matches where you live or stay. Call 112 when urgent help is required; for non-emergency police assistance use the official general number or the reporting options shown by Police.",
+      "search_keywords": ["report crime Netherlands", "police report", "aangifte", "Netherlands Police", "crime victim"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Netherlands Police",
+        "non_emergency_number": "0900-8844"
+      }
+    },
+    {
+      "id": "government.subsidised-legal-aid",
+      "entity_type": "government_service",
+      "category": "legal_aid",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check eligibility for subsidised legal aid",
+      "description": "Judicial proceedings can involve court, lawyer, bailiff, mediator and expert costs. In qualifying cases the government contributes to court fees and the cost of assigned legal counsel or mediation, depending on income and assets.",
+      "images": [],
+      "official_source": {
+        "title": "Costs of judicial proceedings",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/justice-security-and-defence/administration-of-justice-and-dispute-settlement/costs-of-judicial-proceedings",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/justice-security-and-defence/administration-of-justice-and-dispute-settlement/costs-of-judicial-proceedings",
+      "related_entity_ids": ["government.report-crime", "government.vog", "government.income-tax-return"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Estimate the costs of the relevant type of proceedings and check whether subsidised legal aid applies. Eligibility and the personal contribution depend on income, assets and the case; costs awarded to the other party are not covered.",
+      "search_keywords": ["subsidised legal aid", "rechtsbijstand", "court costs Netherlands", "legal aid income", "lawyer costs"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Ministry of Justice and Security",
+        "eligibility_basis": "Income, assets and case conditions"
+      }
+    },
+    {
+      "id": "government.emergency-number-112",
+      "entity_type": "government_service",
+      "category": "emergencies",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Call emergency number 112",
+      "description": "The emergency number 112 is for urgent or potentially life-threatening situations, serious injury and serious crimes in progress. The operator asks what happened, what help is needed and whether police, fire or ambulance assistance is required.",
+      "images": [],
+      "official_source": {
+        "title": "When can I call 112?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/faq/emergency-number-112/when-can-i-call-112",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/faq/emergency-number-112/when-can-i-call-112",
+      "related_entity_ids": ["government.report-crime", "government.nl-alert"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Call 112 when every second counts or a situation presents immediate serious danger. Tell the operator what happened, the help needed and the relevant emergency service; use non-emergency channels when no urgent danger remains.",
+      "search_keywords": ["112 Netherlands", "emergency number", "ambulance police fire", "urgent help", "life threatening emergency"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "National emergency services",
+        "telephone_number": "112"
+      }
+    },
+    {
+      "id": "government.nl-alert",
+      "entity_type": "government_service",
+      "category": "safety",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Respond to an NL-Alert warning",
+      "description": "NL-Alert is the Dutch public warning system for harmful and life-threatening situations such as major fires, severe weather, epidemics or attacks. Alerts explain the danger and the action people in the affected area should take.",
+      "images": [],
+      "official_source": {
+        "title": "NL-Alert in English",
+        "publisher": "NL-Alert",
+        "url": "https://www.nl-alert.nl/english",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.nl-alert.nl/english",
+      "related_entity_ids": ["government.emergency-number-112", "government.report-crime"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Read an NL-Alert immediately, follow its instructions and help others nearby. Alerts use cell broadcast, are free and anonymous, require no registration and can also appear on public digital signs.",
+      "search_keywords": ["NL-Alert", "public warning Netherlands", "emergency alert", "cell broadcast", "safety warning"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Dutch public warning system",
+        "delivery_technology": "Cell broadcast"
+      }
+    },
+    {
+      "id": "government.municipal-election-voting",
+      "entity_type": "government_service",
+      "category": "elections",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Vote in Dutch municipal elections",
+      "description": "Eligible residents vote for their municipal council using a voting pass and accepted identity document. Eligibility depends on age, registration in the Personal Records Database and nationality or qualifying lawful residence.",
+      "images": [],
+      "official_source": {
+        "title": "What do I need to vote in the municipal elections?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/faq/elections/what-do-i-need-to-vote-in-the-municipal-elections",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/faq/elections/what-do-i-need-to-vote-in-the-municipal-elections",
+      "related_entity_ids": ["government.brp-registration", "government.passport-id-card", "government.parliamentary-democracy"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Before an election, verify the current eligibility rules and polling information. Bring the voting pass and an accepted identity document; residents who cannot vote personally may be able to authorise another voter under the proxy rules.",
+      "search_keywords": ["municipal elections", "vote Netherlands", "stempas", "gemeenteraadsverkiezingen", "polling station"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality and Electoral Council",
+        "required_documents": "Voting pass and accepted identity document"
+      }
+    },
+    {
+      "id": "government.parliamentary-democracy",
+      "entity_type": "government_service",
+      "category": "democracy",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "How Dutch parliamentary democracy works",
+      "description": "The Netherlands is a parliamentary democracy in which people elect representatives to make decisions on their behalf. Representation operates nationally and through provincial, municipal and water-authority government.",
+      "images": [],
+      "official_source": {
+        "title": "The workings of democracy",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/government-and-democracy/democracy/the-workings-of-democracy",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/government-and-democracy/democracy/the-workings-of-democracy",
+      "related_entity_ids": ["government.municipal-election-voting", "government.naturalisation"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Dutch voters elect representatives who scrutinise government and make public decisions. Democratic representation exists at national, provincial, municipal and water-authority levels, with responsibilities divided across those levels.",
+      "search_keywords": ["Dutch democracy", "parliamentary democracy", "House of Representatives", "elected representatives", "government levels Netherlands"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Dutch democratic institutions",
+        "government_form": "Parliamentary democracy"
+      }
+    },
+    {
+      "id": "government.consumer-complaint",
+      "entity_type": "government_service",
+      "category": "consumer_rights",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Report a consumer problem to ACM ConsuWijzer",
+      "description": "Consumers can report a company they believe is breaking consumer rules to ACM ConsuWijzer. Reports help the regulator identify patterns and decide where to intervene, although an individual report does not always lead to an investigation.",
+      "images": [],
+      "official_source": {
+        "title": "Doe uw melding bij ACM ConsuWijzer",
+        "publisher": "ACM ConsuWijzer",
+        "url": "https://consument.acm.nl/doe-uw-melding-bij-acm-consuwijzer",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://consument.acm.nl/doe-uw-melding-bij-acm-consuwijzer",
+      "related_entity_ids": ["government.privacy-rights", "government.digid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Try to resolve the problem with the company and retain supporting evidence. Report suspected rule-breaking to ACM ConsuWijzer; the regulator uses reports for supervision but may not provide an individual follow-up unless more information is needed.",
+      "search_keywords": ["consumer complaint", "ACM ConsuWijzer", "report company", "consumentenrecht", "misleading business"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Authority for Consumers and Markets",
+        "common_abbreviation": "ACM"
+      }
+    },
+    {
+      "id": "government.privacy-rights",
+      "entity_type": "government_service",
+      "category": "privacy_data",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Exercise your privacy rights under the GDPR",
+      "description": "People have rights over personal data used by organisations, including information, access, rectification, erasure and data portability. If an organisation refuses a valid request, a complaint can be filed with the Dutch Data Protection Authority or the matter can go to court.",
+      "images": [],
+      "official_source": {
+        "title": "Your privacy rights",
+        "publisher": "Autoriteit Persoonsgegevens",
+        "url": "https://www.autoriteitpersoonsgegevens.nl/en/node/4316",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.autoriteitpersoonsgegevens.nl/en/node/4316",
+      "related_entity_ids": ["government.digid", "government.mijnoverheid", "government.consumer-complaint"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Send the organisation a clear written request identifying the privacy right being exercised and keep a copy. If it does not respond properly, contact its privacy officer and consider a complaint to the Dutch Data Protection Authority.",
+      "search_keywords": ["privacy rights", "GDPR Netherlands", "right of access", "delete personal data", "Autoriteit Persoonsgegevens"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Autoriteit Persoonsgegevens",
+        "legal_framework": "General Data Protection Regulation"
+      }
+    },
+    {
+      "id": "government.after-death-checklist",
+      "entity_type": "government_service",
+      "category": "death",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Arrange official matters after a death",
+      "description": "After a death, the next of kin may need to arrange registration of the death, the funeral and administrative matters involving organisations, accounts, benefits and contracts. Which steps apply depends on the deceased person's circumstances.",
+      "images": [],
+      "official_source": {
+        "title": "After a death: what do I need to arrange?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/faq/death-and-bereavement/after-a-death-what-do-i-need-to-arrange",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/faq/death-and-bereavement/after-a-death-what-do-i-need-to-arrange",
+      "related_entity_ids": ["government.civil-status-extract", "government.donor-register", "government.inheritance-choice"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Start with the official death registration and funeral arrangements, then identify the organisations, benefits, accounts and contracts that need attention. Use the government checklist to tailor the steps to the deceased person's situation.",
+      "search_keywords": ["after a death Netherlands", "death checklist", "overlijden regelen", "register death", "bereavement administration"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality and relevant public organisations",
+        "process_type": "Bereavement administration checklist"
+      }
+    },
+    {
+      "id": "government.inheritance-choice",
+      "entity_type": "government_service",
+      "category": "inheritance",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Choose whether to accept an inheritance",
+      "description": "An heir can accept an inheritance outright, accept it under benefit of inventory or refuse it. The choice affects responsibility for debts, and accepting under benefit of inventory or refusing requires a declaration at the district court.",
+      "images": [],
+      "official_source": {
+        "title": "Do I have to accept an inheritance?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/faq/do-i-have-to-accept-an-inheritance",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/faq/do-i-have-to-accept-an-inheritance",
+      "related_entity_ids": ["government.after-death-checklist", "government.civil-status-extract", "government.income-tax-return"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Before acting on estate assets, determine whether the estate may contain debts and choose the appropriate form of acceptance or refusal. Benefit-of-inventory acceptance and refusal require a district-court declaration and can involve costs.",
+      "search_keywords": ["accept inheritance", "refuse inheritance", "benefit of inventory", "erfenis", "inheritance debts Netherlands"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "District court for formal declarations",
+        "available_choices": "Outright acceptance, benefit of inventory or refusal"
+      }
+    }
+  ]
+}

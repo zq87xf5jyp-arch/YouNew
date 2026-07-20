@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "measurement_mode": "read_only",
+  "default_review_days": 90,
+  "expiry_action": "needs_review",
+  "rules": [
+    {"id": "events-daily", "entity_types": ["event"], "review_days": 1},
+    {"id": "restaurants-monthly", "entity_types": ["restaurant", "cafe", "hotel"], "review_days": 30},
+    {"id": "government-quarterly", "work_packages": ["WP-01"], "review_days": 90},
+    {"id": "housing-quarterly", "work_packages": ["WP-02"], "review_days": 90},
+    {"id": "healthcare-quarterly", "work_packages": ["WP-03"], "review_days": 90},
+    {"id": "transport-quarterly", "work_packages": ["WP-04"], "review_days": 90},
+    {"id": "education-quarterly", "work_packages": ["WP-05"], "review_days": 90},
+    {"id": "museums-half-year", "entity_types": ["museum"], "review_days": 180},
+    {"id": "nature-half-year", "entity_types": ["nature"], "review_days": 180},
+    {"id": "partners-quarterly", "entity_types": ["local_partner"], "review_days": 90},
+    {"id": "media-half-year", "entity_types": ["media"], "review_days": 180},
+    {"id": "cities-yearly", "entity_types": ["city"], "review_days": 365}
+  ]
+}

@@ -60,8 +60,9 @@ struct YouNewApp: App {
     var body: some Scene {
         WindowGroup {
             ZStack {
-                GlobalBackgroundView()
+                GlobalBackgroundView(animatesAmbientLayer: true)
                 ContentView()
+                    .environment(\.appRootBackgroundInstalled, true)
                     .environmentObject(appState)
                     .environmentObject(savedItemsStore)
                     .environmentObject(languageManager)
@@ -77,15 +78,23 @@ struct YouNewApp: App {
                         appState.selectedLanguage = languageManager.appLanguage.rawValue
                         LaunchDiagnostics.mark("selectedCity loaded \(appState.selectedCity)")
                         LaunchDiagnostics.mark("selectedAudience loaded \(appState.selectedUserStatus?.rawValue ?? "nil")")
+                        // The guide and search surfaces both depend on the canonical
+                        // repository. Build it away from the main actor as soon as the
+                        // first screen is visible so a first tab selection never pays
+                        // the migration/indexing cost synchronously.
+                        Task.detached(priority: .utility) {
+                            LaunchDiagnostics.mark("content repository prewarm start")
+                            _ = ContentRepository.shared.items.count
+                            LaunchDiagnostics.mark("content repository prewarm end")
+                        }
                         if !Self.isUITesting {
                             LaunchDiagnostics.mark("data seed prewarm scheduled")
-                            Task(priority: .utility) {
+                            DispatchQueue.global(qos: .utility).async {
                                 LaunchDiagnostics.mark("data seed loading start")
                                 DashboardPlacesData.prewarm()
                                 DashboardCalendarData.prewarm()
                                 LaunchDiagnostics.mark("data seed loading end")
                             }
-                            KnowledgeIndex.prewarmShared()
                         }
                     }
                     .onChange(of: languageManager.appLanguage) { _, newLanguage in
@@ -108,7 +117,9 @@ struct YouNewApp: App {
             appState.recentlyViewedTopics = []
         }
 
-        appState.hasCompletedQuestionnaire = !shouldResetUITestState
+        // Resetting persisted test data must not route navigation/scroll tests
+        // back into onboarding. Onboarding is opt-in for its own UI tests.
+        appState.hasCompletedQuestionnaire = !arguments.contains("-uiTestingShowOnboarding")
         if let cityIndex = arguments.firstIndex(of: "-uiTestingCity"),
            arguments.indices.contains(cityIndex + 1),
            MockNearbyPlacesData.supportedCities.contains(arguments[cityIndex + 1]) {

@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "updated_at": "2026-07-14",
+  "axes": [
+    {
+      "key": "education-topic-families",
+      "label": "Education topic families",
+      "target_key": "education",
+      "work_package": "WP-05",
+      "field": "category",
+      "minimum_records_per_value": 10,
+      "required_values": [
+        {"key": "schools", "label": "Schools and compulsory education", "match_values": ["schools"]},
+        {"key": "higher-education", "label": "Universities and higher education", "match_values": ["higher_education"]},
+        {"key": "duo", "label": "DUO and student administration", "match_values": ["duo"]},
+        {"key": "civic-integration", "label": "Civic integration", "match_values": ["civic_integration"]}
+      ]
+    },
+    {
+      "key": "transport-topic-families",
+      "label": "Transport topic families",
+      "target_key": "transport",
+      "work_package": "WP-04",
+      "field": "category",
+      "minimum_records_per_value": 10,
+      "required_values": [
+        {"key": "rail-travel", "label": "NS and rail travel", "match_values": ["rail_travel"]},
+        {"key": "public-transport-payment", "label": "OV-chipkaart and OVpay", "match_values": ["public_transport_payment"]},
+        {"key": "cycling", "label": "Cycling and bicycle services", "match_values": ["cycling"]},
+        {"key": "parking", "label": "Car parking", "match_values": ["parking"]}
+      ]
+    },
+    {
+      "key": "healthcare-topic-families",
+      "label": "Healthcare topic families",
+      "target_key": "healthcare",
+      "work_package": "WP-03",
+      "field": "category",
+      "minimum_records_per_value": 10,
+      "required_values": [
+        {"key": "primary-care", "label": "GP and primary care", "match_values": ["primary_care"]},
+        {"key": "health-insurance", "label": "Health insurance", "match_values": ["health_insurance"]},
+        {"key": "hospitals-specialists", "label": "Hospitals and specialist care", "match_values": ["hospitals_specialists"]},
+        {"key": "emergency-care", "label": "Emergency and urgent care", "match_values": ["emergency_care"]}
+      ]
+    },
+    {
+      "key": "housing-topic-families",
+      "label": "Housing topic families",
+      "target_key": "housing",
+      "work_package": "WP-02",
+      "field": "category",
+      "minimum_records_per_value": 10,
+      "required_values": [
+        {"key": "renting", "label": "Renting a home", "match_values": ["renting"]},
+        {"key": "home-buying", "label": "Buying a home", "match_values": ["home_buying"]},
+        {"key": "tenant-rights", "label": "Tenant rights", "match_values": ["tenant_rights"]},
+        {"key": "utilities", "label": "Utilities", "match_values": ["utilities"]}
+      ]
+    },
+    {
+      "key": "government-topic-families",
+      "label": "Government topic families",
+      "target_key": "government",
+      "work_package": "WP-01",
+      "field": "category",
+      "minimum_records_per_value": 5,
+      "required_values": [
+        {"key": "identity-registration", "label": "Identity and registration", "match_values": ["identity", "municipal_registration", "identification_documents"]},
+        {"key": "digital-government", "label": "Digital government", "match_values": ["digital_identity", "digital_government"]},
+        {"key": "immigration-residency", "label": "Immigration and residency", "match_values": ["immigration"]},
+        {"key": "citizenship-integration", "label": "Citizenship and integration", "match_values": ["citizenship", "integration"]},
+        {"key": "taxes", "label": "Taxes", "match_values": ["taxes"]},
+        {"key": "benefits-allowances", "label": "Benefits and allowances", "match_values": ["benefits"]},
+        {"key": "employment-unemployment", "label": "Employment and unemployment", "match_values": ["employment"]},
+        {"key": "business-entrepreneurship", "label": "Business and entrepreneurship", "match_values": ["business"]},
+        {"key": "health-insurance", "label": "Health and insurance", "match_values": ["healthcare", "healthcare_registration"]},
+        {"key": "family-parenthood", "label": "Family and parenthood", "match_values": ["civil_status", "family_leave"]},
+        {"key": "education-finance", "label": "Education and student finance", "match_values": ["education_finance"]},
+        {"key": "driving-transport", "label": "Driving and transport documents", "match_values": ["driving_licence", "driving_documents"]},
+        {"key": "documents-certificates", "label": "Documents and certificates", "match_values": ["certificates", "document_legalisation"]},
+        {"key": "pensions-social-security", "label": "Pensions and social security", "match_values": ["social_security"]},
+        {"key": "housing-local-services", "label": "Housing and local services", "match_values": ["housing", "local_services"]},
+        {"key": "justice-legal-aid", "label": "Justice and legal aid", "match_values": ["justice", "legal_aid"]},
+        {"key": "safety-emergencies", "label": "Safety and emergencies", "match_values": ["safety", "emergencies"]},
+        {"key": "voting-democracy", "label": "Voting and democracy", "match_values": ["elections", "democracy"]},
+        {"key": "consumer-privacy", "label": "Consumer rights and privacy", "match_values": ["consumer_rights", "privacy_data"]},
+        {"key": "death-inheritance", "label": "Death and inheritance", "match_values": ["death", "inheritance"]}
+      ]
+    },
+    {
+      "key": "cities-provinces",
+      "label": "Province representation",
+      "target_key": "cities",
+      "work_package": "WP-06",
+      "field": "province_id",
+      "required_values": [
+        {"key": "drenthe", "label": "Drenthe", "match_values": ["drenthe"]},
+        {"key": "flevoland", "label": "Flevoland", "match_values": ["flevoland"]},
+        {"key": "friesland", "label": "Friesland", "match_values": ["friesland", "fryslan"]},
+        {"key": "gelderland", "label": "Gelderland", "match_values": ["gelderland"]},
+        {"key": "groningen", "label": "Groningen", "match_values": ["groningen"]},
+        {"key": "limburg", "label": "Limburg", "match_values": ["limburg"]},
+        {"key": "noord-brabant", "label": "Noord-Brabant", "match_values": ["noord-brabant", "noord_brabant"]},
+        {"key": "noord-holland", "label": "Noord-Holland", "match_values": ["noord-holland", "noord_holland"]},
+        {"key": "overijssel", "label": "Overijssel", "match_values": ["overijssel"]},
+        {"key": "utrecht", "label": "Utrecht", "match_values": ["utrecht"]},
+        {"key": "zeeland", "label": "Zeeland", "match_values": ["zeeland"]},
+        {"key": "zuid-holland", "label": "Zuid-Holland", "match_values": ["zuid-holland", "zuid_holland"]}
+      ]
+    },
+    {
+      "key": "museums-provinces",
+      "label": "Province representation",
+      "target_key": "museums",
+      "work_package": "WP-07",
+      "field": "province_id",
+      "required_values_from": "cities-provinces"
+    },
+    {
+      "key": "restaurants-provinces",
+      "label": "Province representation",
+      "target_key": "restaurants",
+      "work_package": "WP-08",
+      "field": "province_id",
+      "required_values_from": "cities-provinces"
+    },
+    {
+      "key": "cafes-provinces",
+      "label": "Province representation",
+      "target_key": "cafes",
+      "work_package": "WP-09",
+      "field": "province_id",
+      "required_values_from": "cities-provinces"
+    },
+    {
+      "key": "hotels-provinces",
+      "label": "Province representation",
+      "target_key": "hotels",
+      "work_package": "WP-10",
+      "field": "province_id",
+      "required_values_from": "cities-provinces"
+    },
+    {
+      "key": "events-provinces",
+      "label": "Province representation",
+      "target_key": "events",
+      "work_package": "WP-11",
+      "field": "province_id",
+      "required_values_from": "cities-provinces"
+    },
+    {
+      "key": "nature-provinces",
+      "label": "Province representation",
+      "target_key": "nature",
+      "work_package": "WP-12",
+      "field": "province_id",
+      "required_values_from": "cities-provinces"
+    },
+    {
+      "key": "partners-provinces",
+      "label": "Province representation",
+      "target_key": "partners",
+      "work_package": "WP-13",
+      "field": "province_id",
+      "required_values_from": "cities-provinces"
+    }
+  ]
+}

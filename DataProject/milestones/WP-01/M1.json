@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "WP-01-M1",
+  "work_package": "WP-01",
+  "name": "Government Core",
+  "status": "active",
+  "target_release": "government-v1.0.0",
+  "target_records": 200,
+  "scope": [
+    "national government services",
+    "municipal registration and identity",
+    "taxes and benefits",
+    "immigration and residence",
+    "official documents and procedures"
+  ],
+  "definition_of_done": {
+    "records_published": 200,
+    "unresolved_relations": 0,
+    "duplicate_entities": 0,
+    "unverified_sources": 0,
+    "unlicensed_media": 0,
+    "all_publication_gates_passed": true
+  }
+}

@@ -364,15 +364,26 @@ enum CanonicalPlaceImageResolver {
         entityName: String,
         fallback: ResolvedPlaceImage
     ) -> ResolvedPlaceImage {
-        if role == .card || role == .thumbnail,
-           let localAsset = LocalNetherlandsImagePackRegistry.cityCard(placeId: placeId) {
-            return resolvedLocalImage(
-                localAsset,
-                fallbackLevel: .curatedCity,
-                sourceRegistry: "LocalNetherlandsImagePackRegistry.cityCard",
-                fallbackSymbolName: "building.2.crop.circle",
-                modelID: "\(placeId)#\(role.rawValue)"
-            )
+        if role == .thumbnail {
+            if let localAsset = LocalNetherlandsImagePackRegistry.cityShortcut(placeId: placeId) {
+                return resolvedLocalImage(
+                    localAsset,
+                    fallbackLevel: .curatedCity,
+                    sourceRegistry: "LocalNetherlandsImagePackRegistry.cityShortcut",
+                    fallbackSymbolName: "building.2.crop.circle",
+                    modelID: "\(placeId)#\(role.rawValue)"
+                )
+            }
+        } else if role == .card {
+            if let localAsset = LocalNetherlandsImagePackRegistry.cityCard(placeId: placeId) {
+                return resolvedLocalImage(
+                    localAsset,
+                    fallbackLevel: .curatedCity,
+                    sourceRegistry: "LocalNetherlandsImagePackRegistry.cityCard",
+                    fallbackSymbolName: "building.2.crop.circle",
+                    modelID: "\(placeId)#\(role.rawValue)"
+                )
+            }
         }
 
         guard let visual = CuratedPlaceHeroMediaRegistry.cityVisual(for: placeId, role: role),

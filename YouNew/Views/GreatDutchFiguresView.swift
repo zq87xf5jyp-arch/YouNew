@@ -91,9 +91,7 @@ struct GreatDutchFiguresView: View {
             ForEach(filtered) { figure in
                 let isExpanded = expandedID == figure.id
                 Button {
-                    #if canImport(UIKit)
-                    UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                    #endif
+                    AppHaptics.selection()
                     withAnimation(.spring(response: 0.3, dampingFraction: 0.85)) {
                         expandedID = expandedID == figure.id ? nil : figure.id
                     }

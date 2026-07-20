@@ -25,7 +25,7 @@ enum MockDutchHolidaysData {
             practicalEN: "All public services, shops, and banks are closed. Public transport runs on a reduced Sunday schedule.",
             practicalNL: "Alle overheidsdiensten, winkels en banken zijn gesloten. Openbaar vervoer rijdt op zondagsdienstregeling.",
             practicalRU: "Все госслужбы, магазины и банки закрыты. Общественный транспорт работает по воскресному расписанию.",
-            sourceURL: URL(string: "https://www.government.nl/topics/public-holidays"),
+            sourceURL: URL(string: "https://www.government.nl/faq/work/public-holidays-in-the-netherlands"),
             lastChecked: "June 2026"
         ),
         DutchHoliday(
@@ -48,7 +48,7 @@ enum MockDutchHolidaysData {
             practicalEN: "Not an automatic day off — check your CAO or employment contract. Banks and some schools typically close.",
             practicalNL: "Geen automatische vrije dag — controleer uw CAO of arbeidscontract. Banken en sommige scholen zijn doorgaans gesloten.",
             practicalRU: "Не автоматический выходной — проверьте CAO или трудовой договор. Банки и некоторые школы обычно закрыты.",
-            sourceURL: URL(string: "https://www.government.nl/topics/public-holidays"),
+            sourceURL: URL(string: "https://www.government.nl/faq/work/public-holidays-in-the-netherlands"),
             lastChecked: "June 2026"
         ),
         DutchHoliday(
@@ -71,7 +71,7 @@ enum MockDutchHolidaysData {
             practicalEN: "Official public holiday. Most shops and services are closed. Public transport follows Sunday schedules.",
             practicalNL: "Officiële feestdag. De meeste winkels en diensten zijn gesloten. Openbaar vervoer rijdt op zondagsrooster.",
             practicalRU: "Официальный государственный праздник. Большинство магазинов и служб закрыто. Транспорт по воскресному расписанию.",
-            sourceURL: URL(string: "https://www.government.nl/topics/public-holidays"),
+            sourceURL: URL(string: "https://www.government.nl/faq/work/public-holidays-in-the-netherlands"),
             lastChecked: "June 2026"
         ),
         DutchHoliday(
@@ -94,7 +94,7 @@ enum MockDutchHolidaysData {
             practicalEN: "Official public holiday — shops, banks, and government services closed.",
             practicalNL: "Officiële feestdag — winkels, banken en overheidsdiensten gesloten.",
             practicalRU: "Официальный выходной — магазины, банки и госслужбы закрыты.",
-            sourceURL: URL(string: "https://www.government.nl/topics/public-holidays"),
+            sourceURL: URL(string: "https://www.government.nl/faq/work/public-holidays-in-the-netherlands"),
             lastChecked: "June 2026"
         ),
         DutchHoliday(
@@ -117,7 +117,7 @@ enum MockDutchHolidaysData {
             practicalEN: "Official public holiday. Cities host huge free markets (vrijmarkt), street concerts, and boat parades. Everyone wears orange. Banks and government offices are closed.",
             practicalNL: "Officiële feestdag. Steden houden grote vrijmarkten, straatconcerten en bootenparades. Iedereen draagt oranje. Banken en overheid zijn gesloten.",
             practicalRU: "Официальный выходной. В городах проходят огромные блошиные рынки (vrijmarkt), уличные концерты и парады лодок. Все в оранжевом. Банки и госструктуры закрыты.",
-            sourceURL: URL(string: "https://www.royal-house.nl/topics/kings-day"),
+            sourceURL: URL(string: "https://www.royal-house.nl/topics/monarchy/king%E2%80%99s-day"),
             lastChecked: "June 2026"
         ),
         DutchHoliday(
@@ -163,7 +163,7 @@ enum MockDutchHolidaysData {
             practicalEN: "Official public holiday (Thursday). Government, banks, and many businesses are closed. Expect reduced transport schedules.",
             practicalNL: "Officiële feestdag (donderdag). Overheid, banken en veel bedrijven gesloten. Verwacht verminderd openbaar vervoer.",
             practicalRU: "Официальный государственный праздник (четверг). Госструктуры, банки и многие предприятия закрыты. Ожидается сокращённый транспорт.",
-            sourceURL: URL(string: "https://www.government.nl/topics/public-holidays"),
+            sourceURL: URL(string: "https://www.government.nl/faq/work/public-holidays-in-the-netherlands"),
             lastChecked: "June 2026"
         ),
         DutchHoliday(
@@ -186,7 +186,7 @@ enum MockDutchHolidaysData {
             practicalEN: "Official public holiday. Shops, banks, and government offices closed.",
             practicalNL: "Officiële feestdag. Winkels, banken en overheidskantoren gesloten.",
             practicalRU: "Официальный государственный праздник. Магазины, банки и госучреждения закрыты.",
-            sourceURL: URL(string: "https://www.government.nl/topics/public-holidays"),
+            sourceURL: URL(string: "https://www.government.nl/faq/work/public-holidays-in-the-netherlands"),
             lastChecked: "June 2026"
         ),
         DutchHoliday(
@@ -209,7 +209,7 @@ enum MockDutchHolidaysData {
             practicalEN: "Official public holiday — shops, banks, and government services closed.",
             practicalNL: "Officiële feestdag — winkels, banken en overheidsdiensten gesloten.",
             practicalRU: "Официальный выходной — магазины, банки и госслужбы закрыты.",
-            sourceURL: URL(string: "https://www.government.nl/topics/public-holidays"),
+            sourceURL: URL(string: "https://www.government.nl/faq/work/public-holidays-in-the-netherlands"),
             lastChecked: "June 2026"
         ),
         DutchHoliday(
@@ -232,7 +232,7 @@ enum MockDutchHolidaysData {
             practicalEN: "Official public holiday. All government services, banks, and most shops closed. Public transport on reduced schedule.",
             practicalNL: "Officiële feestdag. Alle overheidsdiensten, banken en de meeste winkels gesloten. Openbaar vervoer op beperkt schema.",
             practicalRU: "Официальный государственный праздник. Все госслужбы, банки и большинство магазинов закрыты. Транспорт по сокращённому расписанию.",
-            sourceURL: URL(string: "https://www.government.nl/topics/public-holidays"),
+            sourceURL: URL(string: "https://www.government.nl/faq/work/public-holidays-in-the-netherlands"),
             lastChecked: "June 2026"
         ),
         DutchHoliday(
@@ -255,7 +255,7 @@ enum MockDutchHolidaysData {
             practicalEN: "Official public holiday — shops, banks, and government services closed.",
             practicalNL: "Officiële feestdag — winkels, banken en overheidsdiensten gesloten.",
             practicalRU: "Официальный выходной — магазины, банки и госслужбы закрыты.",
-            sourceURL: URL(string: "https://www.government.nl/topics/public-holidays"),
+            sourceURL: URL(string: "https://www.government.nl/faq/work/public-holidays-in-the-netherlands"),
             lastChecked: "June 2026"
         )
     ]

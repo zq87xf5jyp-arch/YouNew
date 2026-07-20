@@ -536,9 +536,17 @@ struct NLTileButtonStyle: ButtonStyle {
 
     func makeBody(configuration: Configuration) -> some View {
         configuration.label
-            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.975 : 1.0)
-            .opacity(!isEnabled ? 0.58 : (configuration.isPressed ? 0.92 : 1.0))
-            .brightness(configuration.isPressed ? -0.02 : 0)
+            .frame(minWidth: AppButtonMetrics.minTouchSize, minHeight: AppButtonMetrics.minTouchSize)
+            .contentShape(Rectangle())
+            .scaleEffect(!reduceMotion && configuration.isPressed ? 0.97 : 1.0)
+            .opacity(!isEnabled ? 0.58 : (configuration.isPressed ? 0.91 : 1.0))
+            .brightness(configuration.isPressed ? -0.018 : 0)
+            .shadow(
+                color: configuration.isPressed ? AppColors.cyanGlow.opacity(0.10) : .clear,
+                radius: configuration.isPressed ? 8 : 0,
+                x: 0,
+                y: configuration.isPressed ? 4 : 0
+            )
             .animation(reduceMotion ? nil : AppAnimations.tactilePress, value: configuration.isPressed)
     }
 }
@@ -611,6 +619,15 @@ extension View {
     func nlScrollDismissesKeyboardInteractively() -> some View {
 #if os(iOS)
         self.scrollDismissesKeyboard(.interactively)
+#else
+        self
+#endif
+    }
+
+    @ViewBuilder
+    func nlScrollKeepsKeyboardVisible() -> some View {
+#if os(iOS)
+        self.scrollDismissesKeyboard(.never)
 #else
         self
 #endif
@@ -907,9 +924,9 @@ enum PremiumImageOverlayPolicy {
 
     private static let cardGradient = LinearGradient(
         colors: [
-            Color.black.opacity(0.02),
-            AppColors.navyDeep.opacity(0.16),
-            AppColors.navyDeep.opacity(0.40)
+            Color.black.opacity(0.00),
+            AppColors.navyDeep.opacity(0.12),
+            AppColors.navyDeep.opacity(0.48)
         ],
         startPoint: .top,
         endPoint: .bottom
@@ -917,9 +934,9 @@ enum PremiumImageOverlayPolicy {
 
     private static let balancedGradient = LinearGradient(
         colors: [
-            Color.black.opacity(0.02),
-            AppColors.navyDeep.opacity(0.16),
-            AppColors.navyDeep.opacity(0.40)
+            Color.black.opacity(0.00),
+            AppColors.navyDeep.opacity(0.14),
+            AppColors.navyDeep.opacity(0.50)
         ],
         startPoint: .top,
         endPoint: .bottom

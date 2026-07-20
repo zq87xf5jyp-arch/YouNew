@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-05-M1-education-higher-002",
+  "work_package": "WP-05",
+  "milestone": "WP-05-M1",
+  "target_release": "education-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator build-for-testing and admin production build succeeded.",
+    "static": "Full static QA and DATA PROJECT schema validation passed.",
+    "duplicate": "No duplicate entity IDs, canonical websites or unresolved relations.",
+    "source": "Official sources reviewed; 1091 external URLs checked with 0 confirmed broken.",
+    "media": "Knowledge topics intentionally require no media; empty media fields validated.",
+    "search": "Search keywords are unique, descriptive and backed by resolvable related entities.",
+    "ai": "AI summaries are actionable, source-aligned and free of unsupported personal conclusions."
+  },
+  "records": [
+    {
+      "id": "education.higher-education-system",
+      "entity_type": "knowledge_topic",
+      "category": "higher_education",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand Dutch higher education",
+      "description": "Dutch higher education includes professionally oriented HBO at universities of applied sciences and research-oriented WO at universities, with associate, bachelor, master and doctoral qualifications.",
+      "images": [],
+      "official_source": {
+        "title": "Higher education",
+        "publisher": "Nuffic",
+        "url": "https://www.nuffic.nl/en/education-systems/the-netherlands/higher-education",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.nuffic.nl/en/education-systems/the-netherlands/higher-education",
+      "related_entity_ids": [
+        "education.hbo-wo-choice",
+        "education.degree-levels",
+        "education.studielink-enrolment"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Compare learning style, entry requirements, study load and career goal rather than translating every institution as a university. HBO and WO can lead to degrees at the same framework level but have different orientation.",
+      "search_keywords": [
+        "Dutch higher education",
+        "HBO",
+        "WO",
+        "university applied sciences",
+        "research university"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Universities and higher education"
+      }
+    },
+    {
+      "id": "education.hbo-wo-choice",
+      "entity_type": "knowledge_topic",
+      "category": "higher_education",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Compare HBO and WO study orientation",
+      "description": "The Dutch system distinguishes practice-oriented higher professional education from theory and research-oriented university education, with different programme structures and typical admission routes.",
+      "images": [],
+      "official_source": {
+        "title": "The Dutch education system",
+        "publisher": "Nuffic",
+        "url": "https://www.nuffic.nl/en/education-systems/the-netherlands",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.nuffic.nl/en/education-systems/the-netherlands",
+      "related_entity_ids": [
+        "education.higher-education-system",
+        "education.degree-levels",
+        "education.foreign-diploma-admission"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Review programme content, internships, assessment and progression rather than choosing by name alone. Ask the institution how a prior diploma fits its own admission decision.",
+      "search_keywords": [
+        "HBO versus WO",
+        "hogeschool",
+        "research university",
+        "study orientation",
+        "Dutch degree"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Universities and higher education"
+      }
+    },
+    {
+      "id": "education.programme-recognition",
+      "entity_type": "knowledge_topic",
+      "category": "higher_education",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check whether an institution and programme are recognised",
+      "description": "Recognition and accreditation should be verified before enrolment, particularly for private providers or programmes marketed internationally, because funding and degree status can differ.",
+      "images": [],
+      "official_source": {
+        "title": "Educational institutions and study programmes",
+        "publisher": "National Commission Code of Conduct Higher Education",
+        "url": "https://www.internationalstudy.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.internationalstudy.nl/en/",
+      "related_entity_ids": [
+        "education.accreditation-check",
+        "education.studielink-enrolment",
+        "education.tuition-and-fees"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Confirm both the institution and the exact programme, location and study mode in official registers. Marketing language alone is not proof that a programme is accredited or government funded.",
+      "search_keywords": [
+        "recognised university",
+        "accredited programme",
+        "Dutch institution",
+        "degree recognition",
+        "education register"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Universities and higher education"
+      }
+    },
+    {
+      "id": "education.degree-levels",
+      "entity_type": "knowledge_topic",
+      "category": "higher_education",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Compare Dutch diploma and qualification levels",
+      "description": "Dutch associate, bachelor, master and doctoral awards map to defined NLQF and EQF levels, while the framework level describes learning outcomes rather than identical content or professional rights.",
+      "images": [],
+      "official_source": {
+        "title": "Level of Dutch diplomas",
+        "publisher": "Nuffic",
+        "url": "https://www.nuffic.nl/en/education-systems/the-netherlands/level-of-dutch-diplomas",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.nuffic.nl/en/education-systems/the-netherlands/level-of-dutch-diplomas",
+      "related_entity_ids": [
+        "education.higher-education-system",
+        "education.foreign-diploma-admission",
+        "education.credential-evaluation"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Use qualification levels as a comparison tool, then check programme content and admission or professional requirements separately. Equal framework levels do not make two qualifications interchangeable.",
+      "search_keywords": [
+        "NLQF",
+        "EQF",
+        "Dutch diploma level",
+        "bachelor level",
+        "master level"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Universities and higher education"
+      }
+    },
+    {
+      "id": "education.foreign-diploma-admission",
+      "entity_type": "knowledge_topic",
+      "category": "higher_education",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Apply to study with a foreign diploma",
+      "description": "Applicants with foreign qualifications should check the institution's entry requirements and may need translations or a credential evaluation, but the institution makes the final admission decision.",
+      "images": [],
+      "official_source": {
+        "title": "Studying with a foreign diploma",
+        "publisher": "Nuffic",
+        "url": "https://www.nuffic.nl/en/study-and-work-in-the-netherlands/studying-in-the-netherlands-with-a-foreign-diploma",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.nuffic.nl/en/study-and-work-in-the-netherlands/studying-in-the-netherlands-with-a-foreign-diploma",
+      "related_entity_ids": [
+        "education.credential-evaluation",
+        "education.application-process",
+        "education.studielink-enrolment"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Ask the programme which diploma, transcript, language and translation evidence it accepts before ordering evaluations. Submit documents early enough for both central enrolment and institutional review.",
+      "search_keywords": [
+        "foreign diploma university",
+        "international admission",
+        "credential study",
+        "diploma translation",
+        "Dutch university entry"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Universities and higher education"
+      }
+    },
+    {
+      "id": "education.credential-evaluation",
+      "entity_type": "knowledge_topic",
+      "category": "higher_education",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand higher-education credential evaluation",
+      "description": "A credential evaluation compares a foreign qualification with Dutch levels and is advisory; it supports understanding but does not itself guarantee admission, employment or professional recognition.",
+      "images": [],
+      "official_source": {
+        "title": "Applying for a credential evaluation",
+        "publisher": "Nuffic",
+        "url": "https://www.nuffic.nl/en/study-and-work-in-the-netherlands/applying-for-a-credential-evaluation",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.nuffic.nl/en/study-and-work-in-the-netherlands/applying-for-a-credential-evaluation",
+      "related_entity_ids": [
+        "education.foreign-diploma-admission",
+        "education.degree-levels",
+        "education.programme-recognition"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "First establish whether an institution or authority actually requires an evaluation. Prepare complete diplomas, transcripts and translations and distinguish academic admission from regulated-profession recognition.",
+      "search_keywords": [
+        "credential evaluation",
+        "diploma comparison",
+        "Nuffic evaluation",
+        "foreign qualification",
+        "IDW"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Universities and higher education"
+      }
+    },
+    {
+      "id": "education.studielink-enrolment",
+      "entity_type": "knowledge_topic",
+      "category": "higher_education",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use Studielink for higher-education enrolment",
+      "description": "Studielink is the central application and enrolment service for many Dutch higher-education programmes, used together with institution-specific portals, documents and selection steps.",
+      "images": [],
+      "official_source": {
+        "title": "Studielink",
+        "publisher": "Studielink",
+        "url": "https://www.studielink.nl/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.studielink.nl/",
+      "related_entity_ids": [
+        "education.application-process",
+        "education.foreign-diploma-admission",
+        "education.tuition-and-fees"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Create one accurate account, select the exact programme and start date, and monitor both Studielink and institution messages. A Studielink request alone may not complete admission or enrolment.",
+      "search_keywords": [
+        "Studielink",
+        "university enrolment",
+        "higher education application",
+        "study programme registration",
+        "Dutch admission"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Universities and higher education"
+      }
+    },
+    {
+      "id": "education.application-process",
+      "entity_type": "knowledge_topic",
+      "category": "higher_education",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Plan an international higher-education application",
+      "description": "International applicants must coordinate programme research, admission requirements, language evidence, deadlines, finances, housing and any immigration steps with the chosen institution.",
+      "images": [],
+      "official_source": {
+        "title": "How to apply",
+        "publisher": "Study in NL",
+        "url": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+      "related_entity_ids": [
+        "education.studielink-enrolment",
+        "education.foreign-diploma-admission",
+        "education.programme-recognition"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Build a deadline list from the programme's official page and distinguish application, document, selection, visa and enrolment dates. Keep institution confirmations and do not rely on a generic national deadline.",
+      "search_keywords": [
+        "study in Netherlands apply",
+        "international student application",
+        "admission deadline",
+        "programme documents",
+        "Study in NL"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Universities and higher education"
+      }
+    },
+    {
+      "id": "education.accreditation-check",
+      "entity_type": "knowledge_topic",
+      "category": "higher_education",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Verify higher-education accreditation",
+      "description": "NVAO explains the Dutch higher-education system, accreditation and the official CROHO register, helping applicants verify whether a programme and institution are officially recognised.",
+      "images": [],
+      "official_source": {
+        "title": "The Netherlands",
+        "publisher": "NVAO",
+        "url": "https://www.nvao.net/en/the-netherlands",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.nvao.net/en/the-netherlands",
+      "related_entity_ids": [
+        "education.programme-recognition",
+        "education.degree-levels",
+        "education.studielink-enrolment"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Use the NVAO guidance to identify the applicable Dutch accreditation route and follow the official CROHO register reference. Match the exact programme, institution, location and study variant before paying or enrolling.",
+      "search_keywords": [
+        "NVAO",
+        "programme accreditation",
+        "accredited degree",
+        "higher education quality",
+        "official programme"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Universities and higher education"
+      }
+    },
+    {
+      "id": "education.international-student-code",
+      "entity_type": "knowledge_topic",
+      "category": "higher_education",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check protections for international students",
+      "description": "Institutions that participate in the Code of Conduct for International Students commit to standards on recruitment, admission, information and services for students from abroad.",
+      "images": [],
+      "official_source": {
+        "title": "Code of Conduct for international students",
+        "publisher": "Nuffic",
+        "url": "https://www.nuffic.nl/en/education-systems/the-netherlands/educational-institutions-and-study-programmes",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.nuffic.nl/en/education-systems/the-netherlands/educational-institutions-and-study-programmes",
+      "related_entity_ids": [
+        "education.programme-recognition",
+        "education.application-process",
+        "education.foreign-diploma-admission"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Check whether the institution is listed under the current code and compare promised services with official admission information. The code complements, but does not replace, programme accreditation checks.",
+      "search_keywords": [
+        "international student code",
+        "Dutch university conduct",
+        "student protection",
+        "international admission standard",
+        "Nuffic code"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Universities and higher education"
+      }
+    }
+  ]
+}

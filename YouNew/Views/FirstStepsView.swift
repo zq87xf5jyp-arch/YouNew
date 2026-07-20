@@ -78,7 +78,7 @@ struct FirstStepsView: View {
                 title: localized(en: "Housing basics", nl: "Wonen basis", ru: "Жильё: основы"),
                 subtitle: localized(en: "Check rental terms, address registration permission, deposits, and city rules.", nl: "Controleer huurvoorwaarden, inschrijfmogelijkheid, borg en stadsregels.", ru: "Проверьте договор, возможность регистрации, депозит и городские правила."),
                 destination: .practicalGuide(.housingBasics),
-                sourceURL: AppURL.make("https://www.government.nl/topics/housing"),
+                sourceURL: AppURL.make("https://www.government.nl/themes/building-and-housing/housing"),
                 tint: AppColors.violet
             ),
             FirstStepItem(
@@ -142,6 +142,7 @@ struct FirstStepsView: View {
         .appSceneBackground()
         .navigationTitle(titleText)
         .nlNavigationInline()
+        .accessibilityIdentifier("firstSteps.screen")
     }
 
     private var headerSection: some View {
@@ -198,6 +199,7 @@ struct FirstStepsView: View {
                         actionLabel(localized(en: "Open guide", nl: "Open gids", ru: "Открыть гид"), icon: "arrow.right.circle.fill")
                     }
                     .buttonStyle(.plain)
+                    .accessibilityIdentifier("firstSteps.detailLink.\(item.id)")
                 }
 
                 if let sourceURL = AppURL.validatedWebURL(item.sourceURL) {
@@ -1019,7 +1021,7 @@ private extension PracticalGuideTopic {
                 sourceTitle: sourceTitle(lang),
                 sourceName: "Government.nl",
                 sourceDescription: text(lang, "Official information about housing and renting in the Netherlands.", "Officiële informatie over wonen en huren in Nederland.", "Официальная информация о жилье и аренде в Нидерландах."),
-                sourceURL: AppURL.make("https://www.government.nl/topics/housing"),
+                sourceURL: AppURL.make("https://www.government.nl/themes/building-and-housing/housing"),
                 mapFocus: nil
             )
         case .officialSourcesChecklist:

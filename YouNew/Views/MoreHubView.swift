@@ -622,18 +622,18 @@ struct MoreHubView: View {
         switch appState.selectedUserStatus?.personaTag {
         case .student:
             categoryLink(icon: "graduationcap.fill", color: AppColors.emerald, title: moreStudentStudyTitle, subtitle: moreStudentStudySubtitle, destination: .beginnerGuidesList)
-            categoryLink(icon: "house.fill", color: AppColors.warning, title: moreStudentHousingTitle, subtitle: moreStudentHousingSubtitle, destination: .guideSection("housing"))
+            categoryLink(icon: "house.fill", color: AppColors.warning, title: moreStudentHousingTitle, subtitle: moreStudentHousingSubtitle, destination: .housingSection(.studentHousing))
             categoryLink(icon: "text.book.closed.fill", color: AppColors.accent, title: languageLearningTitle, subtitle: languageLearningSubtitle, destination: .dutchA1A2)
             categoryLink(icon: "tram.fill", color: AppColors.dutchOrange, title: categoryTransportTitle, subtitle: moreStudentTransportSubtitle, destination: .practicalGuide(.transportBasics))
         case .worker, .highlySkilledMigrant:
-            categoryLink(icon: "briefcase.fill", color: AppColors.softBlue, title: categoryWorkTitle, subtitle: categoryWorkSubtitle, destination: .guideSection("work"))
+            categoryLink(icon: "briefcase.fill", color: AppColors.softBlue, title: categoryWorkTitle, subtitle: categoryWorkSubtitle, destination: .workSection(.overview))
             categoryLink(icon: "building.columns.fill", color: AppColors.softBlue, title: categoryGovTitle, subtitle: categoryGovSubtitle, destination: .governmentHub)
-            categoryLink(icon: "cross.case.fill", color: AppColors.success, title: categoryHealthTitle, subtitle: categoryHealthSubtitle, destination: .guideSection("healthcare"))
-            categoryLink(icon: "house.fill", color: AppColors.warning, title: categoryHousingTitle, subtitle: categoryHousingSubtitle, destination: .guideSection("housing"))
+            categoryLink(icon: "cross.case.fill", color: AppColors.success, title: categoryHealthTitle, subtitle: categoryHealthSubtitle, destination: .healthSection(.overview))
+            categoryLink(icon: "house.fill", color: AppColors.warning, title: categoryHousingTitle, subtitle: categoryHousingSubtitle, destination: .housingSection(.overview))
             categoryLink(icon: "tram.fill", color: AppColors.accent, title: categoryTransportTitle, subtitle: categoryTransportSubtitle, destination: .practicalGuide(.transportBasics))
         case .refugee:
             categoryLink(icon: "building.columns.fill", color: AppColors.softBlue, title: moreRefugeeIndMunicipalityTitle, subtitle: moreRefugeeIndMunicipalitySubtitle, destination: .governmentHub)
-            categoryLink(icon: "house.fill", color: AppColors.warning, title: categoryHousingTitle, subtitle: moreRefugeeHousingSubtitle, destination: .guideSection("housing"))
+            categoryLink(icon: "house.fill", color: AppColors.warning, title: categoryHousingTitle, subtitle: moreRefugeeHousingSubtitle, destination: .housingSection(.overview))
             categoryLink(icon: "person.2.fill", color: AppColors.emerald, title: moreRefugeeIntegrationTitle, subtitle: moreRefugeeIntegrationSubtitle, destination: .guideSection("integration"))
             categoryLink(icon: "text.book.closed.fill", color: AppColors.accent, title: languageLearningTitle, subtitle: languageLearningSubtitle, destination: .dutchA1A2)
             categoryLink(icon: "doc.text.fill", color: AppColors.softBlue, title: categoryDocsTitle, subtitle: categoryDocsSubtitle, destination: .guideSection("documents"))
@@ -642,13 +642,13 @@ struct MoreHubView: View {
             categoryLink(icon: "graduationcap.fill", color: AppColors.emerald, title: moreFamilySchoolsTitle, subtitle: moreFamilySchoolsSubtitle, destination: .beginnerGuidesList)
             categoryLink(icon: "figure.and.child.holdinghands", color: AppColors.softBlue, title: moreFamilyChildcareTitle, subtitle: moreFamilyChildcareSubtitle, destination: .officialSources)
             categoryLink(icon: "building.columns.fill", color: AppColors.dutchOrange, title: moreFamilyBenefitsTitle, subtitle: moreFamilyBenefitsSubtitle, destination: .officialSources)
-            categoryLink(icon: "cross.case.fill", color: AppColors.success, title: categoryHealthTitle, subtitle: categoryHealthSubtitle, destination: .guideSection("healthcare"))
-            categoryLink(icon: "house.fill", color: AppColors.warning, title: categoryHousingTitle, subtitle: categoryHousingSubtitle, destination: .guideSection("housing"))
+            categoryLink(icon: "cross.case.fill", color: AppColors.success, title: categoryHealthTitle, subtitle: categoryHealthSubtitle, destination: .healthSection(.overview))
+            categoryLink(icon: "house.fill", color: AppColors.warning, title: categoryHousingTitle, subtitle: categoryHousingSubtitle, destination: .housingSection(.overview))
         case .tourist:
-            categoryLink(icon: "tram.fill", color: AppColors.accent, title: categoryTransportTitle, subtitle: categoryTransportSubtitle, destination: .practicalGuide(.transportBasics))
-            categoryLink(icon: "phone.circle.fill", color: AppColors.error, title: categoryEmergencyTitle, subtitle: categoryEmergencySubtitle, destination: .emergencyHub)
+            canonicalCategoryLink(.transport)
+            canonicalCategoryLink(.emergency)
             categoryLink(icon: "map.circle.fill", color: AppColors.softBlue, title: categoryProvinceTitle, subtitle: categoryProvinceSubtitle, destination: .provinceList)
-            categoryLink(icon: "cross.case.fill", color: AppColors.success, title: categoryHealthTitle, subtitle: moreTouristHealthSubtitle, destination: .guideSection("healthcare"))
+            canonicalCategoryLink(.healthcare)
         case .entrepreneur:
             categoryLink(icon: "building.columns.fill", color: AppColors.softBlue, title: moreEntrepreneurKvkTitle, subtitle: moreEntrepreneurKvkSubtitle, destination: .officialSources)
             categoryLink(icon: "percent", color: AppColors.dutchOrange, title: moreEntrepreneurTaxTitle, subtitle: moreEntrepreneurTaxSubtitle, destination: .officialSources)
@@ -656,16 +656,27 @@ struct MoreHubView: View {
             categoryLink(icon: "doc.text.fill", color: AppColors.warning, title: moreEntrepreneurPermitsTitle, subtitle: moreEntrepreneurPermitsSubtitle, destination: .governmentHub)
         case .lgbt:
             categoryLink(icon: "heart.text.square.fill", color: AppColors.violet, title: moreLGBTSupportTitle, subtitle: moreLGBTSupportSubtitle, destination: .lgbtqSupport)
-            categoryLink(icon: "cross.case.fill", color: AppColors.success, title: categoryHealthTitle, subtitle: moreLGBTHealthSubtitle, destination: .guideSection("healthcare"))
+            categoryLink(icon: "cross.case.fill", color: AppColors.success, title: categoryHealthTitle, subtitle: moreLGBTHealthSubtitle, destination: .healthSection(.overview))
             categoryLink(icon: "figure.mind.and.body", color: AppColors.emerald, title: emotionalSupportTitle, subtitle: emotionalSupportSubtitle, destination: .emotionalSupport)
-            categoryLink(icon: "house.fill", color: AppColors.warning, title: moreLGBTHousingTitle, subtitle: moreLGBTHousingSubtitle, destination: .guideSection("housing"))
+            categoryLink(icon: "house.fill", color: AppColors.warning, title: moreLGBTHousingTitle, subtitle: moreLGBTHousingSubtitle, destination: .housingSection(.overview))
         case .eu, .nonEU, .universal, nil:
-            categoryLink(icon: "doc.text.fill", color: AppColors.softBlue, title: categoryDocsTitle, subtitle: categoryDocsSubtitle, destination: .guideSection("documents"))
-            categoryLink(icon: "cross.case.fill", color: AppColors.success, title: categoryHealthTitle, subtitle: categoryHealthSubtitle, destination: .guideSection("healthcare"))
-            categoryLink(icon: "house.fill", color: AppColors.warning, title: categoryHousingTitle, subtitle: categoryHousingSubtitle, destination: .guideSection("housing"))
-            categoryLink(icon: "tram.fill", color: AppColors.accent, title: categoryTransportTitle, subtitle: categoryTransportSubtitle, destination: .practicalGuide(.transportBasics))
-            categoryLink(icon: "building.columns.fill", color: AppColors.softBlue, title: categoryGovTitle, subtitle: categoryGovSubtitle, destination: .governmentHub)
+            canonicalCategoryLink(.documentsGovernment)
+            canonicalCategoryLink(.healthcare)
+            canonicalCategoryLink(.housing)
+            canonicalCategoryLink(.transport)
         }
+    }
+
+    private func canonicalCategoryLink(_ section: IASection) -> some View {
+        let category = CanonicalContentRegistry.category(section)
+        return categoryLink(
+            icon: category.symbol,
+            color: category.accent,
+            title: category.title(lang),
+            subtitle: category.subtitle(lang),
+            destination: category.destination
+        )
+        .accessibilityIdentifier("more.category.\(category.id)")
     }
 
     private func categoryAction(

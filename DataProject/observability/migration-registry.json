@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "measurement_mode": "read_only",
+  "allowed_statuses": ["discovered", "mapped", "migrated", "verified", "retired"],
+  "legacy_baseline": {
+    "release_id": "legacy-runtime-unversioned",
+    "status": "not_established",
+    "record_count": null,
+    "checked_at": "2026-07-14",
+    "note": "A governed legacy inventory is required before migration progress can have a denominator."
+  },
+  "mappings": [
+    {
+      "legacy_id": "city:amsterdam",
+      "canonical_id": "city.amsterdam",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "city:den-haag",
+      "canonical_id": "city.den-haag",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "city:eindhoven",
+      "canonical_id": "city.eindhoven",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "city:rotterdam",
+      "canonical_id": "city.rotterdam",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "city:utrecht",
+      "canonical_id": "city.utrecht",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "local-partner:van-der-valk-amsterdam-amstel",
+      "canonical_id": "local_partner.van-der-valk-hotel-amsterdam-amstel",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "local-partner:citizenm-amsterdam-south",
+      "canonical_id": "local_partner.citizenm-amsterdam-south",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "local-partner:ikea-amsterdam",
+      "canonical_id": "local_partner.ikea-amsterdam",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "local-partner:everaert-advocaten-amsterdam",
+      "canonical_id": "local_partner.everaert-advocaten",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "local-partner:ing-netherlands",
+      "canonical_id": "local_partner.ing-group",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "local-partner:macbike-amsterdam",
+      "canonical_id": "local_partner.macbike-amsterdam",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "local-partner:tca-taxi-amsterdam",
+      "canonical_id": "local_partner.tca-taxi-amsterdam",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "local-partner:funda-netherlands",
+      "canonical_id": "local_partner.funda",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "local-partner:uva-talen-amsterdam",
+      "canonical_id": "local_partner.uva-talen",
+      "status": "migrated"
+    },
+    {
+      "legacy_id": "local-partner:rob-peetoom-amsterdam",
+      "canonical_id": "local_partner.rob-peetoom-amsterdam",
+      "status": "migrated"
+    }
+  ]
+}

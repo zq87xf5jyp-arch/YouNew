@@ -134,7 +134,7 @@ enum LifeTimelineBuilder {
             return ("Government.nl", AppURL.make("https://www.government.nl/topics/health-insurance"))
         }
         if status == .tourist {
-            return ("Government.nl", AppURL.make("https://www.government.nl/topics/tourism-and-recreation"))
+            return ("Government.nl", AppURL.make("https://www.government.nl/themes/migration-and-travel"))
         }
         return ("Government.nl", AppURL.make("https://www.government.nl/topics/municipalities"))
     }

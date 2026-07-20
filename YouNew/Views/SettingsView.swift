@@ -451,13 +451,28 @@ struct SettingsView: View {
             }
             .buttonStyle(.plain)
 
+            Link(destination: AppPublicLinks.website) {
+                settingsRow(icon: "globe", title: publicWebsiteTitle)
+            }
+            .buttonStyle(.plain)
+
             NavigationLink(value: AppDestination.privacyDataControl) {
                 settingsRow(icon: "lock.shield.fill", title: privacyDataControlTitle)
             }
             .buttonStyle(.plain)
 
+            Link(destination: AppPublicLinks.privacyPolicy) {
+                settingsRow(icon: "hand.raised.fill", title: publicPrivacyTitle)
+            }
+            .buttonStyle(.plain)
+
             NavigationLink(value: AppDestination.termsOfUse) {
                 settingsRow(icon: "doc.text.fill", title: termsTitle)
+            }
+            .buttonStyle(.plain)
+
+            Link(destination: AppPublicLinks.termsOfUse) {
+                settingsRow(icon: "safari.fill", title: publicTermsTitle)
             }
             .buttonStyle(.plain)
 
@@ -468,6 +483,11 @@ struct SettingsView: View {
 
             NavigationLink(value: AppDestination.supportFeedback) {
                 settingsRow(icon: "lifepreserver.fill", title: supportFeedbackTitle)
+            }
+            .buttonStyle(.plain)
+
+            Link(destination: AppPublicLinks.support) {
+                settingsRow(icon: "questionmark.circle.fill", title: publicSupportTitle)
             }
             .buttonStyle(.plain)
 
@@ -605,6 +625,38 @@ struct SettingsView: View {
         case .russian: return "Приватность и данные"
         case .english: return "Privacy and data"
         case .dutch: return "Privacy en gegevensbeheer"
+        }
+    }
+
+    private var publicWebsiteTitle: String {
+        switch lang {
+        case .russian: return "Сайт YouNew.nl"
+        case .english: return "YouNew.nl website"
+        case .dutch: return "YouNew.nl website"
+        }
+    }
+
+    private var publicPrivacyTitle: String {
+        switch lang {
+        case .russian: return "Публичная Privacy Policy"
+        case .english: return "Public Privacy Policy"
+        case .dutch: return "Openbaar privacybeleid"
+        }
+    }
+
+    private var publicTermsTitle: String {
+        switch lang {
+        case .russian: return "Публичные условия"
+        case .english: return "Public Terms of Use"
+        case .dutch: return "Openbare gebruiksvoorwaarden"
+        }
+    }
+
+    private var publicSupportTitle: String {
+        switch lang {
+        case .russian: return "Сайт поддержки"
+        case .english: return "Support website"
+        case .dutch: return "Supportwebsite"
         }
     }
 

@@ -1,36 +1,87 @@
 .DS_Store
+.AppleDouble
 
-# Xcode user state
+# Xcode user state and local build/index output
 xcuserdata/
 *.xcuserstate
 *.xcuserdatad/
 YouNew.xcodeproj/project.xcworkspace/xcuserdata/
 YouNew.xcodeproj/xcuserdata/
-
-# Local build and index output
 DerivedData/
 .DerivedData*/
 .derivedData*/
 .SwiftModuleCache/
 .SwiftTypecheckModuleCache/
+*.xcresult
+*.xcarchive
+*.dSYM
+*.dSYM.zip
+*.ipa
 
-# Local verification output
+# Local verification output; source evidence remains visible to Git
+/TestArtifacts/
 test.log
+*.log
 VISUAL_AUDIT_GALLERY.html
 .visual-audit/
 scripts/__pycache__/
+**/__pycache__/
+*.py[cod]
 
-# Accidental duplicate audit exports
-* 2.md
+# Environment files and signing material. Examples are intentionally tracked.
+.env
+.env.*
+!.env.example
+!**/.env.example
+.dev.vars
+.dev.vars.*
+!.dev.vars.example
+.wrangler/
+*.p12
+*.pfx
+*.pem
+*.key
+*.mobileprovision
+*.provisionprofile
+*.cer
+*.crt
+*.der
 
 # Local package/cache output
 .pnpm-store/
-admin-dashboard/
+admin-dashboard/*
+!admin-dashboard/public-site/
+!admin-dashboard/public-site/**
+admin-dashboard/public-site/.next/
+admin-dashboard/public-site/out/
+admin-dashboard/public-site/node_modules/
+admin-dashboard/public-site/.openai/
+admin-dashboard/public-site/public/
+*.tsbuildinfo
 
-# Generated image-pack staging output
-netherlands_app_images/
-netherlands_app_images_v*.zip
+# Generated/raw media workspaces. Curated app assets live in Assets.xcassets.
+/netherlands_app_images/
+/netherlands_app_images_v*.zip
+/IA_Audit_Screenshots/
 
-# One-off local audit exports
-*_AUDIT.md
-*_REPORT.md
+# Historical local audit exports are not part of the curated Build Week packet.
+# BuildWeekAudit/ and BuildWeekFix/ remain explicitly visible below.
+/Audit/
+
+# Generated DataProject staging cache; canonical batches/schema/releases remain visible.
+/DataProject/staging/
+/DataProject/reports/
+
+# Generated network-link evidence. Offline static QA uses an explicit sentinel;
+# scheduled network jobs regenerate these files as CI artifacts.
+/knowledge_data_health.json
+/broken_links.csv
+
+# Accidental duplicate exports, never canonical evidence.
+* 2.md
+
+# Build Week evidence must not be hidden by generic report patterns.
+!BuildWeekAudit/
+!BuildWeekAudit/**
+!BuildWeekFix/
+!BuildWeekFix/**

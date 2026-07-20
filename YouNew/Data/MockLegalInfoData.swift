@@ -287,7 +287,7 @@ enum MockLegalInfoData {
             short: [.english: "Rental agreements include rights and obligations for both sides.", .dutch: "Huurovereenkomsten bevatten rechten en plichten voor beide partijen.", .russian: "Договор аренды содержит обязанности и условия для обеих сторон."],
             explanation: [.english: "Read notice period, rent increase terms, and extra costs before signing. If terms are unclear, check official housing guidance and legal help channels.", .dutch: "Lees opzegtermijn, huurverhoging en bijkomende kosten goed voor je tekent. Bij onduidelijkheid controleer officiële wooninformatie en rechtshulpkanalen.", .russian: "Перед подписанием проверьте срок уведомления, условия повышения аренды и дополнительные платежи. Если не уверены, проверьте официальные разъяснения и обратитесь за юридической помощью."],
             sourceName: "Government.nl",
-            url: "https://www.government.nl/topics/housing",
+            url: "https://www.government.nl/themes/building-and-housing/housing",
             institution: "Huurcommissie",
             risk: .medium,
             keywords: ["huurcontract", "аренда", "договор", "housing", "huurrecht"]
@@ -298,7 +298,7 @@ enum MockLegalInfoData {
             short: [.english: "Social housing often has long waiting lists.", .dutch: "Voor sociale huur zijn wachtlijsten vaak lang.", .russian: "На социальное жилье обычно действует длинная очередь."],
             explanation: [.english: "Registration and eligibility differ by city and housing corporation. Check local rules early if social housing is your main option.", .dutch: "Inschrijving en voorwaarden verschillen per stad en woningcorporatie. Controleer lokale regels op tijd als sociale huur je hoofdoptie is.", .russian: "Регистрация и условия зависят от города и woningcorporatie. Если это ваш основной вариант, лучше заранее проверить местные правила."],
             sourceName: "Government.nl",
-            url: "https://www.government.nl/topics/housing",
+            url: "https://www.government.nl/themes/building-and-housing/housing",
             institution: "Municipality / Woningcorporatie",
             risk: .medium,
             keywords: ["wachtlijst", "social housing", "социальное жилье", "аренда", "жилье"]

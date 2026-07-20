@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-05-M1-education-schools-001",
+  "work_package": "WP-05",
+  "milestone": "WP-05-M1",
+  "target_release": "education-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator build-for-testing and admin production build succeeded.",
+    "static": "Full static QA and DATA PROJECT schema validation passed.",
+    "duplicate": "No duplicate entity IDs, canonical websites or unresolved relations.",
+    "source": "Official sources reviewed; 1091 external URLs checked with 0 confirmed broken.",
+    "media": "Knowledge topics intentionally require no media; empty media fields validated.",
+    "search": "Search keywords are unique, descriptive and backed by resolvable related entities.",
+    "ai": "AI summaries are actionable, source-aligned and free of unsupported personal conclusions."
+  },
+  "records": [
+    {
+      "id": "education.school-system",
+      "entity_type": "knowledge_topic",
+      "category": "schools",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand primary and secondary school stages",
+      "description": "Dutch school education moves from primary education into differentiated secondary pathways, with school boards responsible for admission policies and families comparing schools, support and local arrangements.",
+      "images": [],
+      "official_source": {
+        "title": "Primary education",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/education/primary-education",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/education/primary-education",
+      "related_entity_ids": [
+        "education.secondary-pathways",
+        "education.compulsory-education",
+        "education.school-support"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Start school orientation early, read each school guide and ask about admission, language support, care and waiting lists. Registration with a municipality does not automatically enrol a child in a school.",
+      "search_keywords": [
+        "Dutch school system",
+        "primary school",
+        "basisschool",
+        "school admission",
+        "education stages"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Schools and compulsory education"
+      }
+    },
+    {
+      "id": "education.secondary-pathways",
+      "entity_type": "knowledge_topic",
+      "category": "schools",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Compare VMBO, HAVO and VWO pathways",
+      "description": "Secondary education includes VMBO, HAVO and VWO routes with different durations, curricula and progression options toward MBO, HBO or research university education.",
+      "images": [],
+      "official_source": {
+        "title": "Secondary education",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/education/secondary-education",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/education/secondary-education",
+      "related_entity_ids": [
+        "education.school-system",
+        "education.school-costs-secondary",
+        "education.higher-education-system"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Discuss the school recommendation, available bridge classes and progression routes with the primary and secondary school. A pathway is important but later movement and further study routes can remain possible.",
+      "search_keywords": [
+        "VMBO",
+        "HAVO",
+        "VWO",
+        "secondary school",
+        "school pathway"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Schools and compulsory education"
+      }
+    },
+    {
+      "id": "education.compulsory-education",
+      "entity_type": "knowledge_topic",
+      "category": "schools",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Follow compulsory education and qualification duties",
+      "description": "Children living in the Netherlands generally must attend school from the applicable age and continue education until the compulsory or qualification-duty endpoint is reached.",
+      "images": [],
+      "official_source": {
+        "title": "Compulsory school attendance",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/education/compulsory-school-attendance",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/education/compulsory-school-attendance",
+      "related_entity_ids": [
+        "education.school-absence",
+        "education.school-holidays",
+        "education.school-system"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Register a child with a suitable school promptly and report moves or attendance problems to the school and municipality. Do not assume home circumstances or travel automatically create an exemption.",
+      "search_keywords": [
+        "compulsory education",
+        "leerplicht",
+        "qualification duty",
+        "school attendance",
+        "child education"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Schools and compulsory education"
+      }
+    },
+    {
+      "id": "education.school-absence",
+      "entity_type": "knowledge_topic",
+      "category": "schools",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Request or report authorised school absence",
+      "description": "Illness, important family events, education abroad and certain exceptional circumstances have specific reporting or exemption routes through the school head or municipality.",
+      "images": [],
+      "official_source": {
+        "title": "Exemptions from compulsory school attendance",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/education/compulsory-school-attendance/exemptions-from-compulsory-school-attendance",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/education/compulsory-school-attendance/exemptions-from-compulsory-school-attendance",
+      "related_entity_ids": [
+        "education.compulsory-education",
+        "education.school-holidays",
+        "education.school-complaints"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Notify illness within the school's deadline and request planned leave in writing before absence. For broader exemptions, confirm the responsible authority and required evidence with the municipality.",
+      "search_keywords": [
+        "school absence",
+        "vrijstelling leerplicht",
+        "authorised leave",
+        "report illness school",
+        "attendance exemption"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Schools and compulsory education"
+      }
+    },
+    {
+      "id": "education.school-support",
+      "entity_type": "knowledge_topic",
+      "category": "schools",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Arrange appropriate education and additional support",
+      "description": "Schools have a duty of care to seek an appropriate educational place for pupils who need extra support, whether at the current school, another mainstream school or special education.",
+      "images": [],
+      "official_source": {
+        "title": "Appropriate education at primary school",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/education/primary-education/appropriate-education-at-primary-school",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/education/primary-education/appropriate-education-at-primary-school",
+      "related_entity_ids": [
+        "education.school-system",
+        "education.school-complaints",
+        "education.school-inspection"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Describe support needs during application and ask for the school's support profile and written decisions. Keep assessment and communication records when another placement or specialist help is proposed.",
+      "search_keywords": [
+        "appropriate education",
+        "passend onderwijs",
+        "special education",
+        "school support",
+        "duty of care"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Schools and compulsory education"
+      }
+    },
+    {
+      "id": "education.school-costs-primary",
+      "entity_type": "knowledge_topic",
+      "category": "schools",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand primary-school costs and voluntary contributions",
+      "description": "Primary education has no tuition fee, while schools may request voluntary contributions for extras and parents may separately pay for childcare or certain supervision arrangements.",
+      "images": [],
+      "official_source": {
+        "title": "Primary school costs",
+        "publisher": "Rijksoverheid",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/basisonderwijs/kosten-basisschool-kind",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/basisonderwijs/kosten-basisschool-kind",
+      "related_entity_ids": [
+        "education.school-system",
+        "education.school-costs-secondary",
+        "education.school-complaints"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Read the school guide to separate required learning materials from voluntary extras. A child must not be excluded from school-organised extra activities solely because a voluntary contribution was not paid.",
+      "search_keywords": [
+        "primary school costs",
+        "ouderbijdrage",
+        "voluntary contribution",
+        "school materials",
+        "basisschool fees"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Schools and compulsory education"
+      }
+    },
+    {
+      "id": "education.school-costs-secondary",
+      "entity_type": "knowledge_topic",
+      "category": "schools",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand secondary-school materials and costs",
+      "description": "Secondary education does not charge ordinary tuition to school-age pupils and schools provide most textbooks, while families may pay for personal materials and genuinely voluntary extras.",
+      "images": [],
+      "official_source": {
+        "title": "Secondary education fees and costs",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/education/secondary-education/secondary-education-fees-and-other-educational-costs",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/education/secondary-education/secondary-education-fees-and-other-educational-costs",
+      "related_entity_ids": [
+        "education.secondary-pathways",
+        "education.school-costs-primary",
+        "education.school-complaints"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Ask the school for an itemised materials list and identify which costs are mandatory, personal or voluntary. Verify separate rules when a learner is 18 or attends adult or vocational education.",
+      "search_keywords": [
+        "secondary school costs",
+        "textbooks",
+        "school fees",
+        "voluntary parent contribution",
+        "education materials"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Schools and compulsory education"
+      }
+    },
+    {
+      "id": "education.school-holidays",
+      "entity_type": "knowledge_topic",
+      "category": "schools",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check official school-holiday regions and dates",
+      "description": "Primary and secondary school holidays are distributed across national regions, with fixed main holiday periods and advisory dates that schools publish in their own calendars.",
+      "images": [],
+      "official_source": {
+        "title": "School holidays",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/education/school-holidays",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/education/school-holidays",
+      "related_entity_ids": [
+        "education.school-absence",
+        "education.compulsory-education",
+        "education.school-system"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Identify the school's holiday region and compare national dates with its own school guide. Do not book travel outside the published calendar without written permission where required.",
+      "search_keywords": [
+        "school holidays Netherlands",
+        "holiday region",
+        "school calendar",
+        "summer holiday",
+        "school leave"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Schools and compulsory education"
+      }
+    },
+    {
+      "id": "education.school-complaints",
+      "entity_type": "knowledge_topic",
+      "category": "schools",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use the formal school complaint route",
+      "description": "Parents and pupils should normally raise a concern with the teacher or school leadership before using the school board, confidential adviser or complaints committee named in the school guide.",
+      "images": [],
+      "official_source": {
+        "title": "School complaints",
+        "publisher": "Rijksoverheid",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/basisonderwijs/klacht-indienen-over-school",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/basisonderwijs/klacht-indienen-over-school",
+      "related_entity_ids": [
+        "education.school-support",
+        "education.school-inspection",
+        "education.school-absence"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Write down the facts, desired resolution and responses, then follow the school's published complaint process in order. Serious safety, discrimination or abuse concerns can require specialist reporting routes.",
+      "search_keywords": [
+        "school complaint",
+        "klachtencommissie",
+        "school board complaint",
+        "education dispute",
+        "parent concern"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Schools and compulsory education"
+      }
+    },
+    {
+      "id": "education.school-inspection",
+      "entity_type": "knowledge_topic",
+      "category": "schools",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check school quality and the role of the inspectorate",
+      "description": "The Inspectorate of Education supervises educational quality and publishes reports, while individual complaints usually remain with the school complaint route unless a specific reporting function applies.",
+      "images": [],
+      "official_source": {
+        "title": "Inspectorate of Education",
+        "publisher": "Rijksoverheid",
+        "url": "https://www.rijksoverheid.nl/service/contact/contactgids/i/inspectie-van-het-onderwijs-onderwijsinspectie",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/service/contact/contactgids/i/inspectie-van-het-onderwijs-onderwijsinspectie",
+      "related_entity_ids": [
+        "education.school-complaints",
+        "education.school-support",
+        "education.school-system"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Use inspection reports as one input when comparing schools, and address personal disputes through the school's formal route. Contact a confidential inspector for the serious categories identified by the authority.",
+      "search_keywords": [
+        "education inspectorate",
+        "school quality report",
+        "Onderwijsinspectie",
+        "confidential inspector",
+        "school supervision"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Schools and compulsory education"
+      }
+    }
+  ]
+}

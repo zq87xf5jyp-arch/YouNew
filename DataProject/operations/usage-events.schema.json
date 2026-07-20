@@ -1,0 +1,16 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://younew.nl/schemas/data-usage-event.schema.json",
+  "title": "YouNew Data Usage Event",
+  "type": "object",
+  "required": ["event_id", "occurred_at", "entity_id", "consumer", "event_type", "release_id"],
+  "properties": {
+    "event_id": {"type": "string", "minLength": 1},
+    "occurred_at": {"type": "string", "format": "date-time"},
+    "entity_id": {"type": "string", "minLength": 1},
+    "consumer": {"enum": ["ai", "search", "home", "places", "guide", "saved", "business", "api"]},
+    "event_type": {"enum": ["indexed", "impression", "open", "search_result", "ai_context", "save", "api_read"]},
+    "release_id": {"type": "string", "minLength": 1}
+  },
+  "additionalProperties": false
+}

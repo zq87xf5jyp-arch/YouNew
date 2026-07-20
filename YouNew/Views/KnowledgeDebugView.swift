@@ -255,12 +255,22 @@ struct KnowledgeDebugView: View {
     }
 
     private var aiStatus: String {
-        guard let raw = Bundle.main.object(forInfoDictionaryKey: "YOUNEW_AI_PROXY_URL") as? String,
-              !raw.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
-              AppURL.validatedWebURL(URL(string: raw.trimmingCharacters(in: .whitespacesAndNewlines))) != nil else {
+        guard let raw = Bundle.main.object(forInfoDictionaryKey: "YOUNEW_AI_BACKEND_URL") as? String,
+              !raw.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
             return "Local fallback"
         }
-        return "Proxy configured"
+#if DEBUG
+        let endpoint = AIClient.validatedEndpoint(
+            raw.trimmingCharacters(in: .whitespacesAndNewlines),
+            allowInsecureLoopback: true
+        )
+#else
+        let endpoint = AIClient.validatedEndpoint(
+            raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        )
+#endif
+        guard endpoint != nil else { return "Local fallback" }
+        return "Bounded backend configured"
     }
 
     private var privacyManifestPresent: Bool {

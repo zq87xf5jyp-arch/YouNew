@@ -3,9 +3,10 @@ import SwiftUI
 enum AppAnimations {
 
     // MARK: - Core
+    static let tactilePressDuration: TimeInterval = 0.08
     static let standard:        Animation = .easeInOut(duration: 0.22)
     static let softSpring:      Animation = .spring(response: 0.34, dampingFraction: 0.85)
-    static let tactilePress:    Animation = .spring(response: 0.26, dampingFraction: 0.78, blendDuration: 0.1)
+    static let tactilePress:    Animation = .easeOut(duration: tactilePressDuration)
     static let smoothTransition: Animation = .easeInOut(duration: 0.28)
 
     // MARK: - Premium Card & Reveal

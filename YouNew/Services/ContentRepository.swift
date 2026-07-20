@@ -1,15 +1,16 @@
 import Foundation
 
-enum ContentValidationSeverity: String, Codable, Hashable {
+enum ContentValidationSeverity: String, Codable, Hashable, Sendable {
     case error
     case warning
 }
 
-enum ContentValidationKind: String, Codable, Hashable {
+enum ContentValidationKind: String, Codable, Hashable, Sendable {
     case duplicateID
     case duplicateCanonicalURL
     case duplicateNormalizedTitle
     case duplicateNormalizedBody
+    case semanticDuplicateBody
     case unknownCategory
     case unknownCity
     case missingSource
@@ -19,7 +20,7 @@ enum ContentValidationKind: String, Codable, Hashable {
     case invalidCoordinates
 }
 
-struct ContentValidationIssue: Identifiable, Codable, Hashable {
+struct ContentValidationIssue: Identifiable, Codable, Hashable, Sendable {
     let id: String
     let severity: ContentValidationSeverity
     let kind: ContentValidationKind
@@ -27,7 +28,7 @@ struct ContentValidationIssue: Identifiable, Codable, Hashable {
     let detail: String
 }
 
-struct ContentMigrationMetrics: Codable, Hashable {
+struct ContentMigrationMetrics: Codable, Hashable, Sendable {
     let sourceObjects: Int
     let migratedObjects: Int
     let duplicatesMerged: Int
@@ -37,7 +38,7 @@ struct ContentMigrationMetrics: Codable, Hashable {
     let remainingWarnings: Int
 }
 
-struct ContentRepository {
+struct ContentRepository: Sendable {
     static let netherlands = Country(
         id: "nl",
         name: "Netherlands",
@@ -45,14 +46,31 @@ struct ContentRepository {
         isoCode: "NL"
     )
 
-    static let shared = ContentRepository(legacyItems: KnowledgeIndex.shared.items)
+    nonisolated static let shared = ContentRepository(
+        legacyItems: KnowledgeIndex.shared.items,
+        performsValidation: runtimePerformsValidation
+    )
+
+    private static let canonicalPlaces = makePlaces(cities: makeCities())
+
+    private static var runtimePerformsValidation: Bool {
+#if DEBUG
+        // Unit/static QA constructs repositories directly and retains full
+        // validation. The app runtime only opts in explicitly, avoiding the
+        // quadratic semantic-duplicate audit during normal Debug launches.
+        return ProcessInfo.processInfo.arguments.contains("-validateContentRepository")
+#else
+        // Release content has passed the publication/static-QA gates already.
+        return false
+#endif
+    }
 
     let items: [ContentItem]
     let categories: [Category]
     let countries: [Country]
     let provinces: [Province]
     let cities: [City]
-    let places: [Place]
+    var places: [Place] { Self.canonicalPlaces }
     let sources: [SourceReference]
     let relations: [ContentRelation]
     let aliases: [ContentID: ContentID]
@@ -61,13 +79,14 @@ struct ContentRepository {
 
     private let itemsByID: [ContentID: ContentItem]
     private let sourcesByID: [SourceID: SourceReference]
+    private let searchableItemsSnapshot: [ContentItem]
+    private let mapItemsSnapshot: [ContentItem]
 
-    init(legacyItems: [KnowledgeItem], now: Date = Date()) {
+    init(legacyItems: [KnowledgeItem], now: Date = Date(), performsValidation: Bool = true) {
         categories = Category.canonical
         countries = [Self.netherlands]
         provinces = Self.makeProvinces()
         cities = Self.makeCities()
-        places = []
         relations = []
 
         let cityIDsByName = cities.reduce(into: [String: CityID]()) { result, city in
@@ -133,14 +152,20 @@ struct ContentRepository {
 
         items = canonicalItems
         itemsByID = canonicalByID
+        searchableItemsSnapshot = canonicalItems.filter { $0.status == .published && $0.isSearchable }
+        mapItemsSnapshot = canonicalItems.filter {
+            $0.status == .published && $0.isMapVisible && $0.coordinates?.isValid == true
+        }
         aliases = duplicateAliases
-        validationIssues = ContentRepositoryValidator.validate(
-            items: canonicalItems,
-            categories: categories,
-            cities: cities,
-            sources: sources,
-            now: now
-        )
+        validationIssues = performsValidation
+            ? ContentRepositoryValidator.validate(
+                items: canonicalItems,
+                categories: categories,
+                cities: cities,
+                sources: sources,
+                now: now
+            )
+            : []
 
         let errors = validationIssues.filter { $0.severity == .error }.count
         let warnings = validationIssues.filter { $0.severity == .warning }.count
@@ -148,7 +173,7 @@ struct ContentRepository {
             sourceObjects: legacyItems.count,
             migratedObjects: canonicalItems.count,
             duplicatesMerged: duplicateIDCount + duplicateContentCount + sourceMergeCount,
-            referencesUpdated: 6,
+            referencesUpdated: duplicateAliases.count,
             lostObjects: legacyItems.count - canonicalItems.count - duplicateIDCount - duplicateContentCount,
             remainingErrors: errors,
             remainingWarnings: warnings
@@ -169,7 +194,16 @@ struct ContentRepository {
         return KnowledgeIndex.shared.itemsByID[canonicalID]?.route
     }
 
-    func guideItems(categoryID: CategoryID? = nil) -> [ContentItem] {
+    func destination(id: ContentID) -> AppDestination? {
+        let canonicalID = aliases[id] ?? id
+        if let route = KnowledgeIndex.shared.itemsByID[canonicalID]?.route {
+            return route
+        }
+        guard let item = itemsByID[canonicalID], item.status == .published else { return nil }
+        return .guideArticle(sectionID: GuideContent.dataProjectSectionID, articleID: canonicalID)
+    }
+
+    nonisolated func guideItems(categoryID: CategoryID? = nil) -> [ContentItem] {
         items.filter { item in
             item.status == .published && (categoryID == nil || item.primaryCategoryID == categoryID)
         }
@@ -177,13 +211,11 @@ struct ContentRepository {
     }
 
     func searchableItems() -> [ContentItem] {
-        items.filter { $0.status == .published && $0.isSearchable }
+        searchableItemsSnapshot
     }
 
     func mapItems() -> [ContentItem] {
-        items.filter { item in
-            item.status == .published && item.isMapVisible && item.coordinates?.isValid == true
-        }
+        mapItemsSnapshot
     }
 
     func homeReferences(audienceTags: Set<String>, limit: Int = 12) -> [ContentID] {
@@ -201,8 +233,6 @@ struct ContentRepository {
 private extension ContentRepository {
     static func canonicalFingerprint(_ item: ContentItem) -> String {
         [
-            item.contentType.rawValue,
-            item.primaryCategoryID,
             item.normalizedTitle,
             item.normalizedBody,
             item.cityIDs.sorted().joined(separator: ","),
@@ -327,17 +357,47 @@ private extension ContentRepository {
             result[ContentNormalization.text(province.name)] = province.id
             result[ContentNormalization.text(province.localName)] = province.id
         }
-        return NLCity.all.compactMap { city in
-            guard let provinceID = provinceByName[ContentNormalization.text(city.province)] else { return nil }
+        return ProvinceCatalog.mapCities.compactMap { city in
+            let normalizedProvince = ContentNormalization.text(city.province)
+            let provinceID = provinceByName[normalizedProvince]
+                ?? provinceByName.first(where: { key, _ in
+                    key.contains(normalizedProvince) || normalizedProvince.contains(key)
+                })?.value
+            guard let provinceID else { return nil }
             return City(
-                id: city.placeId,
+                id: city.id,
                 countryID: netherlands.id,
                 provinceID: provinceID,
                 name: city.name,
                 localName: city.name,
-                center: parseCoordinates(city.coordinates)
+                center: GeoCoordinates(latitude: city.latitude, longitude: city.longitude)
             )
         }
+    }
+
+    static func makePlaces(cities: [City]) -> [Place] {
+        let citiesByName = cities.reduce(into: [String: City]()) { result, city in
+            result[ContentNormalization.text(city.name)] = city
+            result[ContentNormalization.text(city.localName)] = city
+        }
+
+        return CanonicalPlaceCatalog.items.compactMap { item in
+            guard let coordinates = item.coordinates,
+                  let city = citiesByName[ContentNormalization.text(item.cityId)]
+            else { return nil }
+
+            return Place(
+                id: item.id,
+                countryID: netherlands.id,
+                provinceID: city.provinceID,
+                cityID: city.id,
+                name: item.title,
+                localName: item.shortTitle,
+                coordinates: GeoCoordinates(latitude: coordinates.lat, longitude: coordinates.lng),
+                officialSourceID: nil
+            )
+        }
+        .sorted { $0.id < $1.id }
     }
 
     static func parseCoordinates(_ value: String) -> GeoCoordinates? {
@@ -365,8 +425,9 @@ enum ContentRepositoryValidator {
         let cityIDs = Set(cities.map(\.id))
 
         issues += duplicateIssues(items, key: \.id, kind: .duplicateID, severity: .error)
-        issues += duplicateIssues(items.filter { !$0.normalizedTitle.isEmpty }, key: \.normalizedTitle, kind: .duplicateNormalizedTitle, severity: .warning)
-        issues += duplicateIssues(items.filter { !$0.normalizedBody.isEmpty }, key: \.normalizedBody, kind: .duplicateNormalizedBody, severity: .warning)
+        issues += duplicateTitleIssues(items)
+        issues += duplicateBodyIssues(items)
+        issues += semanticDuplicateIssues(items)
         issues += duplicateIssues(sources, key: \.canonicalURL, kind: .duplicateCanonicalURL, severity: .error)
 
         for item in items {
@@ -399,6 +460,91 @@ enum ContentRepositoryValidator {
 
     private static func requiresSource(_ item: ContentItem) -> Bool {
         item.contentType == .officialService || item.contentType == .emergencyAction || item.emergencyLevel != .none
+    }
+
+    private static func semanticDuplicateIssues(_ items: [ContentItem]) -> [ContentValidationIssue] {
+        let candidates = items.compactMap { item -> (ContentItem, Set<String>)? in
+            let tokens = Set(item.normalizedBody.split(separator: " ").map(String.init))
+            return tokens.count >= 8 ? (item, tokens) : nil
+        }
+        var results: [ContentValidationIssue] = []
+        for leftIndex in candidates.indices {
+            for rightIndex in candidates.index(after: leftIndex)..<candidates.endIndex {
+                let left = candidates[leftIndex]
+                let right = candidates[rightIndex]
+                guard left.0.id != right.0.id,
+                      left.0.normalizedBody != right.0.normalizedBody,
+                      geographicScopeKey(left.0) == geographicScopeKey(right.0)
+                else { continue }
+                let union = left.1.union(right.1)
+                guard !union.isEmpty else { continue }
+                let similarity = Double(left.1.intersection(right.1).count) / Double(union.count)
+                if similarity >= 0.86 {
+                    results.append(issue(
+                        .warning,
+                        .semanticDuplicateBody,
+                        [left.0.id, right.0.id].sorted(),
+                        "Near-duplicate descriptions (Jaccard \(String(format: "%.2f", similarity)))"
+                    ))
+                }
+            }
+        }
+        return results
+    }
+
+    private static func duplicateTitleIssues(_ items: [ContentItem]) -> [ContentValidationIssue] {
+        let titleGroups = Dictionary(
+            grouping: items.filter { !$0.normalizedTitle.isEmpty },
+            by: \.normalizedTitle
+        )
+        var results: [ContentValidationIssue] = []
+
+        for group in titleGroups.values where group.count > 1 {
+            let scopedGroups = Dictionary(grouping: group) { item in
+                geographicScopeKey(item)
+            }
+            for scopedGroup in scopedGroups.values where scopedGroup.count > 1 {
+                let ids = scopedGroup.map(\.id).sorted()
+                results.append(issue(
+                    .warning,
+                    .duplicateNormalizedTitle,
+                    ids,
+                    "Duplicate normalized title within the same geographic scope"
+                ))
+            }
+        }
+        return results
+    }
+
+    private static func duplicateBodyIssues(_ items: [ContentItem]) -> [ContentValidationIssue] {
+        let bodyGroups = Dictionary(
+            grouping: items.filter { !$0.normalizedBody.isEmpty },
+            by: \.normalizedBody
+        )
+        var results: [ContentValidationIssue] = []
+
+        for group in bodyGroups.values where group.count > 1 {
+            let scopedGroups = Dictionary(grouping: group, by: geographicScopeKey)
+            for scopedGroup in scopedGroups.values where scopedGroup.count > 1 {
+                results.append(issue(
+                    .warning,
+                    .duplicateNormalizedBody,
+                    scopedGroup.map(\.id).sorted(),
+                    "Duplicate normalized body within the same geographic scope"
+                ))
+            }
+        }
+        return results
+    }
+
+    nonisolated private static func geographicScopeKey(_ item: ContentItem) -> String {
+        if !item.cityIDs.isEmpty {
+            return "cities:\(item.cityIDs.sorted().joined(separator: ","))"
+        }
+        if let provinceID = item.provinceID {
+            return "province:\(provinceID)"
+        }
+        return "national"
     }
 
     private static func duplicateIssues<T, Key: Hashable>(

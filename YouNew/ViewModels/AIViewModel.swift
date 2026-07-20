@@ -124,7 +124,13 @@ final class AIViewModel: ObservableObject {
     }
 
     func displayedQuickPrompts(for language: AppLanguage) -> [String] {
-        Array(uniquedPrompts(contextQuickPrompts + fallbackQuickPrompts(for: language)).prefix(4))
+        let demoPrompt = activeContext?.activePersonaTag == .tourist
+            ? []
+            : [BuildWeekNewcomerDemo.prompt(for: language)]
+        return Array(
+            uniquedPrompts(demoPrompt + contextQuickPrompts + fallbackQuickPrompts(for: language))
+                .prefix(4)
+        )
     }
 
     private func uniquedPrompts(_ prompts: [String]) -> [String] {
@@ -246,24 +252,16 @@ final class AIViewModel: ObservableObject {
 
         let language = currentLanguage
         let context = activeContext ?? fallbackContext(language: language)
-        let userMessage = appendUserMessage(message, context: context)
-        activeUserMessageID = userMessage.id
-        let loadingMessage = appendLoadingAssistantMessage(replyingTo: userMessage.id, context: context, language: language)
-        activeAssistantMessageID = loadingMessage.id
-        canRetryLastMessage = false
-        input = ""
 
-        switch AISafetyFilter.evaluate(message, language: currentLanguage) {
+        switch AISafetyFilter.evaluate(message, language: language) {
         case .allowed:
             break
         case .blocked(let warning), .privacyWarning(let warning):
-            replaceAssistantMessage(
-                loadingMessage.id,
-                text: warning,
-                response: safetyWarningResponse(warning, language: language),
-                status: .error,
-                context: context
-            )
+            // Do not persist the original input when it triggered a safety or
+            // privacy rule. The warning remains visible as a standalone local
+            // assistant message, without retaining sensitive user text.
+            input = ""
+            appendStandaloneSafetyWarning(warning, context: context, language: language)
             requestState = .failed(warning)
             canRetryLastMessage = false
             activeUserMessageID = nil
@@ -271,11 +269,67 @@ final class AIViewModel: ObservableObject {
             return
         }
 
+        let userMessage = appendUserMessage(message, context: context)
+        activeUserMessageID = userMessage.id
+        let loadingMessage = appendLoadingAssistantMessage(replyingTo: userMessage.id, context: context, language: language)
+        activeAssistantMessageID = loadingMessage.id
+        canRetryLastMessage = false
+        input = ""
+
         sendTask?.cancel()
         let requestID = UUID()
         activeRequestID = requestID
         withAnimation(AppAnimations.standard) {
             requestState = .loading
+        }
+
+        if BuildWeekNewcomerDemo.matches(message) {
+            // The named demo intentionally bypasses local intent interception and
+            // the answer cache: a live badge must represent this request, while
+            // every backend failure is shown as deterministic local guide mode.
+            activeWorkflow = nil
+            persistActiveWorkflow()
+            sendTask = Task {
+                defer {
+                    if activeRequestID == requestID {
+                        sendTask = nil
+                        withAnimation(AppAnimations.standard) {
+                            if case .loading = requestState { requestState = .idle }
+                        }
+                    }
+                }
+
+                let response: AIResponse
+                do {
+                    let candidate = try await service.sendMessage(
+                        userMessage: message,
+                        context: context,
+                        conversation: []
+                    )
+                    response = candidate.isLiveOpenAI
+                        ? candidate
+                        : BuildWeekNewcomerDemo.localResponse(language: language)
+                } catch {
+                    response = BuildWeekNewcomerDemo.localResponse(language: language)
+                }
+
+                guard activeRequestID == requestID, !Task.isCancelled else { return }
+                withAnimation(AppAnimations.standard) {
+                    applyAIResponse(
+                        response,
+                        language: language,
+                        replyingTo: userMessage.id,
+                        replacing: loadingMessage.id,
+                        context: context
+                    )
+                    requestState = .idle
+                }
+                suggestedResources = response.sources.compactMap(resourceLink(from:))
+                suggestedMapCategory = .municipality
+                activeUserMessageID = nil
+                activeAssistantMessageID = nil
+            }
+            return
         }
 
         let cacheKey = Self.buildCacheKey(message: message, language: language, context: context)
@@ -380,7 +434,7 @@ final class AIViewModel: ObservableObject {
                     context: context,
                     conversation: conversation.messages
                 )
-                if response.isVerified {
+                if response.isLiveOpenAI {
                     cacheResponse(response, for: cacheKey)
                 }
             } catch {
@@ -461,6 +515,7 @@ final class AIViewModel: ObservableObject {
         withAnimation(AppAnimations.standard) {
             conversation.clear()
             structuredResponses.removeAll()
+            answerCache.removeAll()
             suggestedResources = []
             responseSources = []
             suggestedActions = []
@@ -474,6 +529,7 @@ final class AIViewModel: ObservableObject {
         }
         persistConversation()
         UserDefaults.standard.removeObject(forKey: structuredResponsesStorageKey)
+        UserDefaults.standard.removeObject(forKey: answerCacheStorageKey)
     }
 
     func retryLastMessage() async {
@@ -618,7 +674,10 @@ final class AIViewModel: ObservableObject {
             appDestinationID: appDestinationID,
             isVerified: response.isVerified,
             cacheKey: response.cacheKey,
-            confidence: response.confidence
+            confidence: response.confidence,
+            origin: response.origin,
+            model: response.model,
+            requestID: response.requestID
         )
     }
 
@@ -803,8 +862,26 @@ final class AIViewModel: ObservableObject {
                 AIResponseSection(title: safetyTitle(for: language), body: warning, symbol: "shield.lefthalf.filled")
             ],
             isVerified: false,
-            confidence: .low
+            confidence: .low,
+            origin: .safety
         )
+    }
+
+    private func appendStandaloneSafetyWarning(
+        _ warning: String,
+        context: AIContext,
+        language: AppLanguage
+    ) {
+        let response = safetyWarningResponse(warning, language: language)
+        let message = conversation.appendAssistant(
+            warning,
+            status: .error,
+            metadata: messageMetadata(context: context, confidence: response.confidence)
+        )
+        structuredResponses[message.id] = response
+        safetyNote = warning
+        persistConversation()
+        persistStructuredResponses()
     }
 
     private func updateContextLabels(_ context: AIContext) {

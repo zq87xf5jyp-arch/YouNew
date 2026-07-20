@@ -424,6 +424,8 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "YouNew uses calendar access only when you choose to review and save a deadline reminder.";
+				INFOPLIST_KEY_NSCalendarsWriteOnlyAccessUsageDescription = "YouNew adds a calendar event only after you review and confirm it.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "YouNew uses the camera only to scan documents you choose to save locally on your device.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "YouNew uses your location only to show nearby services and places. Your location is not stored.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -436,6 +438,8 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_YOUNEW_AI_BACKEND_URL = "$(YOUNEW_AI_BACKEND_URL)";
+				INFOPLIST_KEY_YOUNEW_API_BASE_URL = "$(YOUNEW_API_BASE_URL)";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";
@@ -473,6 +477,8 @@
 				ENABLE_USER_SELECTED_FILES = readonly;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "YouNew uses calendar access only when you choose to review and save a deadline reminder.";
+				INFOPLIST_KEY_NSCalendarsWriteOnlyAccessUsageDescription = "YouNew adds a calendar event only after you review and confirm it.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "YouNew uses the camera only to scan documents you choose to save locally on your device.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "YouNew uses your location only to show nearby services and places. Your location is not stored.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
@@ -485,6 +491,8 @@
 				"INFOPLIST_KEY_UIStatusBarStyle[sdk=iphonesimulator*]" = UIStatusBarStyleDefault;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_YOUNEW_AI_BACKEND_URL = "$(YOUNEW_AI_BACKEND_URL)";
+				INFOPLIST_KEY_YOUNEW_API_BASE_URL = "$(YOUNEW_API_BASE_URL)";
 				IPHONEOS_DEPLOYMENT_TARGET = 17.6;
 				LD_RUNPATH_SEARCH_PATHS = "@executable_path/Frameworks";
 				"LD_RUNPATH_SEARCH_PATHS[sdk=macosx*]" = "@executable_path/../Frameworks";

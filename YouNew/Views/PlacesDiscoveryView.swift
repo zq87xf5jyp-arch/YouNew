@@ -146,26 +146,361 @@ private enum PlacesDiscoveryFilter: String, CaseIterable, Identifiable {
     }
 }
 
+/// A single visible map surface owns drawing, touch resolution, press feedback,
+/// accessibility, and the opt-in DEBUG probe. Keeping these concerns in one
+/// local coordinate space removes the former transparent overlay and `-92 pt`
+/// conversion while keeping the parent ScrollView free to handle real drags.
+private struct PremiumProvinceMapInteractionSurface: View {
+    let canvasSize: CGSize
+    let mapRect: CGRect
+    let selectedProvinceID: String?
+    let selectedCity: String
+    let activeCityMarker: PremiumMapCityMarker?
+    let language: AppLanguage
+    let accessibilityLabel: String
+    let showsDebugOverlay: Bool
+    let onSelectProvince: (String) -> Void
+    let onOpenCity: (String) -> Void
+
+    @State private var isPressed = false
+    @State private var lastHitPoint: CGPoint?
+    @State private var lastResolvedProvinceID: String?
+    @State private var lastTouchHandlingMilliseconds: Double?
+    @State private var touchSerial = 0
+
+    private static let fallbackTolerance: CGFloat = 6
+
+    var body: some View {
+        PremiumNetherlandsMapCanvas(
+            selectedProvinceID: selectedProvinceID,
+            selectedCity: selectedCity,
+            glowPhase: 0.82,
+            displayMode: .provinces
+        )
+        .frame(width: canvasSize.width, height: canvasSize.height)
+        .scaleEffect(isPressed ? 0.997 : 1)
+        .opacity(isPressed ? 0.985 : 1)
+        .brightness(isPressed ? -0.01 : 0)
+        .animation(AppAnimations.tactilePress, value: isPressed)
+        .contentShape(Rectangle())
+        .onLongPressGesture(
+            minimumDuration: 60,
+            maximumDistance: 10,
+            pressing: { isPressed = $0 },
+            perform: {}
+        )
+        .simultaneousGesture(mapSelectionGesture)
+        .overlay { debugOverlay }
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel(accessibilityLabel)
+        .accessibilityValue(touchAccessibilityValue)
+        .accessibilityHint(debugAccessibilityHint)
+        .accessibilityIdentifier("map.provinceInteractionSurface")
+        .accessibilityChildren { provinceAccessibilityControls }
+    }
+
+    /// SpatialTapGesture owns selection because it completes independently of
+    /// the press-feedback drag while naturally failing when the user scrolls.
+    /// The release location is resolved directly in the visible map's local
+    /// coordinate space, so no overlay or coordinate conversion is involved.
+    private var mapSelectionGesture: some Gesture {
+        SpatialTapGesture(coordinateSpace: .local)
+            .onEnded(handleMapTap)
+    }
+
+    private func handleMapTap(_ value: SpatialTapGesture.Value) {
+        let handlingStartedAt = ProcessInfo.processInfo.systemUptime
+        let point = value.location
+        let provinceID = resolveProvince(at: point)
+
+        if showsDebugOverlay {
+            touchSerial += 1
+            lastHitPoint = point
+            lastResolvedProvinceID = provinceID
+        }
+
+        if let activeCityMarker,
+           isActiveCityHit(point, marker: activeCityMarker) {
+            onOpenCity(activeCityMarker.name)
+            recordTouchHandlingDuration(since: handlingStartedAt)
+            return
+        }
+
+        guard let provinceID else {
+            recordTouchHandlingDuration(since: handlingStartedAt)
+            return
+        }
+        onSelectProvince(provinceID)
+        recordTouchHandlingDuration(since: handlingStartedAt)
+    }
+
+    private func recordTouchHandlingDuration(since startedAt: TimeInterval) {
+#if DEBUG
+        guard showsDebugOverlay else { return }
+        lastTouchHandlingMilliseconds = max(
+            0,
+            (ProcessInfo.processInfo.systemUptime - startedAt) * 1_000
+        )
+#endif
+    }
+
+    private func resolveProvince(at point: CGPoint) -> String? {
+        PremiumProvinceHitTesting.hitTest(
+            point,
+            in: mapRect,
+            fallbackTolerance: Self.fallbackTolerance
+        )
+    }
+
+    private func activeCityHitTargets(
+        for marker: PremiumMapCityMarker
+    ) -> (marker: CGRect, label: CGRect) {
+        let markerCenter = CGPoint(
+            x: mapRect.minX + marker.normalizedPosition.x * mapRect.width,
+            y: mapRect.minY + marker.normalizedPosition.y * mapRect.height
+        )
+        let labelCenter = CGPoint(
+            x: mapRect.minX + marker.normalizedLabelPosition.x * mapRect.width,
+            y: mapRect.minY + marker.normalizedLabelPosition.y * mapRect.height
+        )
+        // On this compact province canvas, a 48 pt circle reaches deep enough
+        // into Zuid-Holland to compete with an intentional province tap. Keep
+        // the city at the platform minimum without consuming that nearby map
+        // interior; the separately rendered label retains its 88 x 48 pt target.
+        let markerSize = AppButtonMetrics.minTouchSize
+        return (
+            CGRect(
+                x: markerCenter.x - markerSize / 2,
+                y: markerCenter.y - markerSize / 2,
+                width: markerSize,
+                height: markerSize
+            ),
+            CGRect(
+                x: labelCenter.x - 44,
+                y: labelCenter.y - 24,
+                width: 88,
+                height: 48
+            )
+        )
+    }
+
+    private func isActiveCityHit(
+        _ point: CGPoint,
+        marker: PremiumMapCityMarker
+    ) -> Bool {
+        let targets = activeCityHitTargets(for: marker)
+        if targets.label.contains(point) { return true }
+
+        let deltaX = point.x - targets.marker.midX
+        let deltaY = point.y - targets.marker.midY
+        let radius = targets.marker.width / 2
+        return deltaX * deltaX + deltaY * deltaY <= radius * radius
+    }
+
+    @ViewBuilder
+    private var provinceAccessibilityControls: some View {
+        ZStack {
+            ForEach(ProvinceCatalog.all) { province in
+                Button {
+                    onSelectProvince(province.id)
+                } label: {
+                    Text(province.localizedName(language))
+                }
+                .frame(
+                    width: AppButtonMetrics.minTouchSize,
+                    height: AppButtonMetrics.minTouchSize
+                )
+                .position(accessibilityCenter(for: province.id))
+                .accessibilityIdentifier(provinceAccessibilityIdentifier(province.id))
+                .accessibilityAddTraits(selectedProvinceID == province.id ? .isSelected : [])
+            }
+
+            if let activeCityMarker {
+                let cityTargets = activeCityHitTargets(for: activeCityMarker)
+                // Mirror the complete rendered target (marker plus label) in
+                // the virtual accessibility child. This does not add a visual
+                // or transparent physical hit layer; the map surface remains
+                // the sole owner of ordinary touch handling.
+                let accessibleCityTarget = cityTargets.marker.union(cityTargets.label)
+                Button {
+                    onOpenCity(activeCityMarker.name)
+                } label: {
+                    Text(ProvinceCatalog.localizedCityName(activeCityMarker.name, language))
+                }
+                .frame(
+                    width: accessibleCityTarget.width,
+                    height: accessibleCityTarget.height
+                )
+                .position(
+                    x: accessibleCityTarget.midX,
+                    y: accessibleCityTarget.midY
+                )
+                .accessibilityIdentifier("map.visualMarker.\(KnowledgeNormalizer.slug(activeCityMarker.name))")
+            }
+        }
+        .frame(width: canvasSize.width, height: canvasSize.height)
+    }
+
+    private func accessibilityCenter(for provinceID: String) -> CGPoint {
+        PremiumProvinceHitTesting.representativePoint(for: provinceID, in: mapRect)
+            ?? CGPoint(x: mapRect.midX, y: mapRect.midY)
+    }
+
+    private func provinceAccessibilityIdentifier(_ provinceID: String) -> String {
+        let segment = provinceID
+            .replacingOccurrences(of: "-", with: "_")
+            .replacingOccurrences(of: " ", with: "_")
+            .lowercased()
+        return "provinces.map.zone.\(segment)"
+    }
+
+    @ViewBuilder
+    private var debugOverlay: some View {
+#if DEBUG
+        if showsDebugOverlay {
+            ProvinceMapHitDebugOverlay(
+                mapRect: mapRect,
+                hitPoint: lastHitPoint,
+                resolvedProvinceID: lastResolvedProvinceID,
+                selectedProvinceID: selectedProvinceID,
+                touchSerial: touchSerial
+            )
+        }
+#endif
+    }
+
+    private var debugAccessibilityHint: String {
+#if DEBUG
+        guard showsDebugOverlay else { return "" }
+        let point = lastHitPoint.map { String(format: "%.1f,%.1f", $0.x, $0.y) } ?? "none"
+        return "touchSerial=\(touchSerial); point=\(point); resolved=\(lastResolvedProvinceID ?? "none")"
+#else
+        return ""
+#endif
+    }
+
+    private var touchAccessibilityValue: String {
+#if DEBUG
+        if showsDebugOverlay {
+            let handlingValue = lastTouchHandlingMilliseconds.map {
+                String(format: "%.3f", locale: Locale(identifier: "en_US_POSIX"), $0)
+            } ?? "none"
+            let pointValue = lastHitPoint.map {
+                String(
+                    format: "%.3f,%.3f",
+                    locale: Locale(identifier: "en_US_POSIX"),
+                    $0.x,
+                    $0.y
+                )
+            } ?? "none"
+            return "province=\(selectedProvinceID ?? "");sequence=\(touchSerial);resolved=\(lastResolvedProvinceID ?? "none");point=\(pointValue);handlingMs=\(handlingValue)"
+        }
+#endif
+        return selectedProvinceID ?? ""
+    }
+}
+
+#if DEBUG
+private struct ProvinceMapHitDebugOverlay: View {
+    let mapRect: CGRect
+    let hitPoint: CGPoint?
+    let resolvedProvinceID: String?
+    let selectedProvinceID: String?
+    let touchSerial: Int
+
+    var body: some View {
+        Canvas { context, _ in
+            for province in RealProvinceMapData.provinces {
+                guard let path = PremiumProvinceHitTesting.exactPath(
+                    for: province.id,
+                    in: mapRect
+                ) else { continue }
+
+                let radius = PremiumProvinceHitTesting.fallbackRadius(
+                    for: province.id,
+                    in: mapRect,
+                    minimumTouchSize: AppButtonMetrics.minTouchSize,
+                    fallbackTolerance: 6
+                ) ?? 0
+                if radius > 0 {
+                    let touchArea = path.strokedPath(
+                        StrokeStyle(lineWidth: radius * 2, lineCap: .round, lineJoin: .round)
+                    )
+                    context.fill(touchArea, with: .color(AppColors.dutchOrange.opacity(0.10)))
+                }
+
+                let isResolved = resolvedProvinceID == province.id
+                let isSelected = selectedProvinceID == province.id
+                context.stroke(
+                    path,
+                    with: .color(
+                        isResolved
+                            ? AppColors.dutchOrange.opacity(0.98)
+                            : isSelected
+                                ? AppColors.cyanGlow.opacity(0.90)
+                                : Color.white.opacity(0.48)
+                    ),
+                    lineWidth: isResolved ? 2.4 : isSelected ? 1.8 : 0.7
+                )
+            }
+
+            if let hitPoint {
+                let dot = CGRect(x: hitPoint.x - 4, y: hitPoint.y - 4, width: 8, height: 8)
+                context.fill(Path(ellipseIn: dot), with: .color(Color.red))
+                var crosshair = Path()
+                crosshair.move(to: CGPoint(x: hitPoint.x - 10, y: hitPoint.y))
+                crosshair.addLine(to: CGPoint(x: hitPoint.x + 10, y: hitPoint.y))
+                crosshair.move(to: CGPoint(x: hitPoint.x, y: hitPoint.y - 10))
+                crosshair.addLine(to: CGPoint(x: hitPoint.x, y: hitPoint.y + 10))
+                context.stroke(crosshair, with: .color(Color.red.opacity(0.94)), lineWidth: 1)
+            }
+        }
+        .overlay(alignment: .topLeading) {
+            Text("#\(touchSerial) · \(resolvedProvinceID ?? "no hit")")
+                .font(.system(size: 10, weight: .bold, design: .monospaced))
+                .foregroundStyle(.white)
+                .padding(.horizontal, 8)
+                .frame(minHeight: 24)
+                .background(.black.opacity(0.78), in: Capsule())
+                .padding(6)
+        }
+        .allowsHitTesting(false)
+        .accessibilityHidden(true)
+    }
+}
+#endif
+
 struct PlacesDiscoveryView: View {
     @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var savedItemsStore: SavedItemsStore
     @EnvironmentObject private var router: TabRouter
+    @Environment(\.openDiscoveryMenu) private var openDiscoveryMenu
     @Environment(\.dynamicTypeSize) private var dynamicTypeSize
-    @StateObject private var mapViewModel = MapViewModel()
+    // This screen configures language, persona, city and partner visibility on
+    // appear. Deferring the default snapshot avoids doing the same synchronous
+    // city-data rebuild once in init and again before the first interactive frame.
+    @StateObject private var mapViewModel = MapViewModel(loadInitialData: false)
     @State private var displayMode: PlacesDisplayMode = .map
     @State private var selectedFilter: PlacesDiscoveryFilter = .all
     @State private var query = ""
+    @State private var mapSearchSyncTask: Task<Void, Never>?
     @State private var selectedPlace: NearbyPlace?
     @State private var selectedProvinceID: String?
     @State private var isCityMapOpen = false
-    @State private var premiumMapGlowPhase: Double = 0.42
     @FocusState private var isInputFocused: Bool
 
     let onNavigate: (AppDestination) -> Void
     let onAskAI: (String) -> Void
 
     private var lang: AppLanguage { languageManager.appLanguage }
+    private var discoveryMenuAccessibilityLabel: String {
+        switch lang {
+        case .english: return "Open discovery menu"
+        case .dutch: return "Open ontdekkingsmenu"
+        case .russian: return "Открыть меню мест"
+        }
+    }
     private var partners: [LocalPartner] {
         MockLocalPartnersData.partners(in: mapViewModel.selectedCity).filter { selectedFilter.matches($0) }
     }
@@ -184,16 +519,13 @@ struct PlacesDiscoveryView: View {
     private var placesBottomReserve: CGFloat {
         usesAccessibilityLayout ? AppSpacing.tabBarScrollReserveLarge + 44 : AppSpacing.tabBarScrollReserve
     }
-    private var mapCameraPosition: Binding<MapCameraPosition> {
-        Binding {
-            .region(mapViewModel.region)
-        } set: { position in
-            if let region = position.region {
-                mapViewModel.region = region
-            }
-        }
+    private var showsMapHitDebugOverlay: Bool {
+#if DEBUG
+        ProcessInfo.processInfo.arguments.contains("-mapHitDebug")
+#else
+        false
+#endif
     }
-
     var body: some View {
         GeometryReader { proxy in
             let horizontalPadding = AppSpacing.screenHorizontal
@@ -233,9 +565,23 @@ struct PlacesDiscoveryView: View {
                 }
             }
         }
-        .appSceneBackground(.map)
+        .accessibilityIdentifier("map.hub")
         .navigationTitle(title)
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            ToolbarItem(placement: .topBarLeading) {
+                Button {
+                    openDiscoveryMenu()
+                } label: {
+                    Image(systemName: "line.3.horizontal")
+                        .frame(width: AppButtonMetrics.minTouchSize, height: AppButtonMetrics.minTouchSize)
+                        .contentShape(Rectangle())
+                }
+                .buttonStyle(AppPressableButtonStyle())
+                .accessibilityLabel(discoveryMenuAccessibilityLabel)
+                .accessibilityIdentifier("places.discoveryMenu")
+            }
+        }
         .onAppear(perform: configure)
         .onChange(of: appState.selectedCity) { _, city in
             guard MockNearbyPlacesData.supportedCities.contains(city) else { return }
@@ -248,7 +594,10 @@ struct PlacesDiscoveryView: View {
             mapViewModel.activePersona = newStatus?.personaTag
         }
         .onChange(of: query) { _, newValue in
-            mapViewModel.searchText = newValue
+            scheduleMapSearchSync(newValue)
+        }
+        .onDisappear {
+            mapSearchSyncTask?.cancel()
         }
         .sheet(item: $selectedPlace) { place in
             NavigationStack {
@@ -280,16 +629,14 @@ struct PlacesDiscoveryView: View {
     }
 
     private func configure() {
-        mapViewModel.language = lang
-        mapViewModel.activePersona = appState.selectedUserStatus?.personaTag
-        if MockNearbyPlacesData.supportedCities.contains(appState.selectedCity) {
-            mapViewModel.selectedCity = appState.selectedCity
-        }
+        AppHaptics.prepare()
+        mapViewModel.configure(
+            language: lang,
+            activePersona: appState.selectedUserStatus?.personaTag,
+            selectedCity: appState.selectedCity,
+            showLocalPartners: true
+        )
         selectedProvinceID = provinceID(forCity: mapViewModel.selectedCity)
-        mapViewModel.showLocalPartners = true
-        withAnimation(AppAnimations.gentleBreathe) {
-            premiumMapGlowPhase = 0.92
-        }
     }
 
     @ViewBuilder
@@ -331,6 +678,7 @@ struct PlacesDiscoveryView: View {
                 .foregroundStyle(AppColors.dutchOrange)
                 .frame(width: 44, height: 44)
         }
+        .buttonStyle(AppPressableButtonStyle())
         .accessibilityLabel(inputSubmitLabel)
         .accessibilityIdentifier("map.nearbyButton")
     }
@@ -341,20 +689,19 @@ struct PlacesDiscoveryView: View {
         stack {
             ForEach(PlacesDisplayMode.allCases) { mode in
                 Button {
-                    withAnimation(AppAnimations.standard) {
-                        displayMode = mode
-                    }
+                    selectDisplayMode(mode)
                 } label: {
                     Label(mode.title(lang), systemImage: mode == .map ? "map.fill" : "list.bullet")
                         .font(AppTypography.captionStrong)
                         .lineLimit(usesAccessibilityLayout ? 2 : 1)
                         .minimumScaleFactor(0.86)
                         .frame(maxWidth: .infinity)
-                        .padding(.vertical, 11)
+                        .frame(minHeight: AppButtonMetrics.minTouchSize)
+                        .contentShape(Rectangle())
                         .foregroundStyle(displayMode == mode ? .white : AppColors.textPrimary)
                         .background(displayMode == mode ? AppColors.accent : AppColors.chipBackground, in: RoundedRectangle(cornerRadius: 12, style: .continuous))
                 }
-                .buttonStyle(.plain)
+                .buttonStyle(AppPressableButtonStyle())
             }
         }
         .accessibilityIdentifier("places.displayMode")
@@ -388,9 +735,7 @@ struct PlacesDiscoveryView: View {
         Menu {
             ForEach(moreFilters) { filter in
                 Button {
-                    withAnimation(AppAnimations.standard) {
-                        selectedFilter = filter
-                    }
+                    selectFilter(filter)
                 } label: {
                     Label(filter.title(lang), systemImage: filter.symbol)
                 }
@@ -403,17 +748,16 @@ struct PlacesDiscoveryView: View {
                 .foregroundStyle(moreFilters.contains(selectedFilter) ? .white : AppColors.textPrimary)
                 .frame(maxWidth: usesAccessibilityLayout ? .infinity : nil, alignment: .center)
                 .padding(.horizontal, 12)
-                .padding(.vertical, 9)
+                .frame(minHeight: AppButtonMetrics.minTouchSize)
+                .contentShape(Capsule())
                 .background(moreFilters.contains(selectedFilter) ? AppColors.routeLine : AppColors.chipBackground, in: Capsule())
         }
-        .buttonStyle(.plain)
+        .buttonStyle(AppPressableButtonStyle())
     }
 
     private func filterChip(_ filter: PlacesDiscoveryFilter) -> some View {
         Button {
-            withAnimation(AppAnimations.standard) {
-                selectedFilter = filter
-            }
+            selectFilter(filter)
         } label: {
             Label(filter.title(lang), systemImage: filter.symbol)
                 .font(AppTypography.captionStrong)
@@ -422,10 +766,11 @@ struct PlacesDiscoveryView: View {
                 .foregroundStyle(selectedFilter == filter ? .white : AppColors.textPrimary)
                 .frame(maxWidth: usesAccessibilityLayout ? .infinity : nil, alignment: .center)
                 .padding(.horizontal, 12)
-                .padding(.vertical, 9)
+                .frame(minHeight: AppButtonMetrics.minTouchSize)
+                .contentShape(Capsule())
                 .background(selectedFilter == filter ? AppColors.routeLine : AppColors.chipBackground, in: Capsule())
         }
-        .buttonStyle(.plain)
+        .buttonStyle(AppPressableButtonStyle())
     }
 
     private var explorationPanel: some View {
@@ -450,7 +795,6 @@ struct PlacesDiscoveryView: View {
                 listPanel
             }
         }
-        .accessibilityIdentifier("places.explorationPanel")
     }
 
     private var explorationHeaderText: some View {
@@ -458,6 +802,7 @@ struct PlacesDiscoveryView: View {
             Text(exploreMapTitle)
                 .font(.system(.title3, design: .rounded).weight(.bold))
                 .foregroundStyle(AppColors.textPrimary)
+                .accessibilityIdentifier("places.explorationPanel")
             Text(resultSummary)
                 .font(AppTypography.caption)
                 .foregroundStyle(AppColors.textSecondary)
@@ -492,34 +837,35 @@ struct PlacesDiscoveryView: View {
             )
 
             GeometryReader { proxy in
-                let mapRect = PremiumNetherlandsMapCanvas.mapRect(in: proxy.size)
-                PremiumNetherlandsMapCanvas(
+                let mapTopInset: CGFloat = 92
+                // Keep the map completely above the interactive selector tray.
+                // The tray is ~248 pt at default Dynamic Type because its menu
+                // uses the premium 44 pt control plus vertical padding.
+                let mapBottomInset: CGFloat = usesAccessibilityLayout ? 300 : 254
+                let mapCanvasSize = CGSize(
+                    width: proxy.size.width,
+                    height: max(1, proxy.size.height - mapTopInset - mapBottomInset)
+                )
+                let mapRect = PremiumNetherlandsMapCanvas.mapRect(in: mapCanvasSize)
+                let activeCityMarker = PremiumNetherlandsMapModel.marker(
+                    named: mapViewModel.selectedCity,
+                    selectedCity: mapViewModel.selectedCity,
+                    mode: .provinces
+                )
+
+                PremiumProvinceMapInteractionSurface(
+                    canvasSize: mapCanvasSize,
+                    mapRect: mapRect,
                     selectedProvinceID: selectedProvinceID,
                     selectedCity: mapViewModel.selectedCity,
-                    glowPhase: selectedProvinceID == nil ? premiumMapGlowPhase : max(0.78, premiumMapGlowPhase),
-                    displayMode: .provinces
+                    activeCityMarker: activeCityMarker,
+                    language: lang,
+                    accessibilityLabel: countryMapInteractionLabel,
+                    showsDebugOverlay: showsMapHitDebugOverlay,
+                    onSelectProvince: chooseProvince,
+                    onOpenCity: chooseCity
                 )
-                .padding(.top, 88)
-                .padding(.bottom, 112)
-                .allowsHitTesting(false)
-
-                ForEach(ProvinceHitZones.all) { zone in
-                    Rectangle()
-                        .fill(Color.white.opacity(0.001))
-                        .frame(
-                            width: mapRect.width * zone.normalizedFrame.width,
-                            height: mapRect.height * zone.normalizedFrame.height
-                        )
-                        .position(
-                            x: mapRect.minX + mapRect.width * zone.normalizedFrame.midX,
-                            y: mapRect.minY + mapRect.height * zone.normalizedFrame.midY
-                        )
-                        .onTapGesture {
-                            chooseProvince(zone.id)
-                        }
-                        .accessibilityLabel(provinceName(zone.id))
-                        .accessibilityIdentifier("places.province.\(zone.id)")
-                }
+                .offset(y: mapTopInset)
             }
 
             VStack(alignment: .leading, spacing: 14) {
@@ -530,6 +876,7 @@ struct PlacesDiscoveryView: View {
                             .foregroundStyle(.white)
                             .lineLimit(usesAccessibilityLayout ? 2 : 1)
                             .minimumScaleFactor(0.84)
+                            .accessibilityIdentifier("places.premiumNetherlandsMap")
                         Text(countryMapSubtitle)
                             .font(AppTypography.body)
                             .foregroundStyle(Color.white.opacity(0.72))
@@ -558,11 +905,11 @@ struct PlacesDiscoveryView: View {
             }
             .padding(18)
         }
-        .frame(height: usesAccessibilityLayout ? 600 : 520)
+        .frame(height: usesAccessibilityLayout ? 700 : 640)
         .clipShape(RoundedRectangle(cornerRadius: 26, style: .continuous))
         .overlay(
-            RoundedRectangle(cornerRadius: 26, style: .continuous)
-                .stroke(
+                RoundedRectangle(cornerRadius: 26, style: .continuous)
+                    .stroke(
                     LinearGradient(
                         colors: [
                             Color.white.opacity(0.20),
@@ -573,11 +920,11 @@ struct PlacesDiscoveryView: View {
                         startPoint: .topLeading,
                         endPoint: .bottomTrailing
                     ),
-                    lineWidth: 1
-                )
+                        lineWidth: 1
+                    )
+                    .allowsHitTesting(false)
         )
         .shadow(color: AppColors.cyanGlow.opacity(0.16), radius: 28, x: 0, y: 16)
-        .accessibilityIdentifier("places.premiumNetherlandsMap")
     }
 
     private var selectedProvinceTray: some View {
@@ -588,20 +935,57 @@ struct PlacesDiscoveryView: View {
                     .foregroundStyle(.white)
                     .lineLimit(usesAccessibilityLayout ? 2 : 1)
                     .minimumScaleFactor(0.84)
+                    .accessibilityIdentifier("map.cityFilter")
                 Spacer()
-                Button {
-                    withAnimation(AppAnimations.standard) {
-                        isCityMapOpen = true
+                Menu {
+                    ForEach(selectedProvinceCities, id: \.self) { city in
+                        Button {
+                            chooseCity(city)
+                        } label: {
+                            Label(
+                                ProvinceCatalog.localizedCityName(city, lang),
+                                systemImage: city.caseInsensitiveCompare(mapViewModel.selectedCity) == .orderedSame
+                                    ? "checkmark.circle.fill"
+                                    : "building.2"
+                            )
+                        }
+                        .accessibilityIdentifier("map.cityMenu.\(KnowledgeNormalizer.slug(city))")
                     }
                 } label: {
-                    Label(openCityMapTitle, systemImage: "arrow.up.left.and.arrow.down.right")
+                    Label(chooseCityTitle, systemImage: "building.2.fill")
                         .font(AppTypography.captionStrong)
                         .lineLimit(usesAccessibilityLayout ? 2 : 1)
                         .minimumScaleFactor(0.84)
                 }
                 .buttonStyle(SecondaryPremiumButtonStyle())
+                .accessibilityIdentifier("map.cityMenu")
             }
 
+            selectorRowLabel(provinceSelectorLabel)
+            ScrollView(.horizontal, showsIndicators: false) {
+                HStack(spacing: 8) {
+                    ForEach(ProvinceCatalog.all) { province in
+                        Button {
+                            chooseProvince(province.id)
+                        } label: {
+                            Text(province.localizedName(lang))
+                                .font(AppTypography.captionStrong)
+                                .lineLimit(1)
+                                .foregroundStyle(province.id == selectedProvinceID ? .white : AppColors.textPrimary)
+                                .padding(.horizontal, 12)
+                                .frame(minHeight: 44)
+                                .contentShape(Capsule())
+                                .background(province.id == selectedProvinceID ? AppColors.routeLine : AppColors.glassSurfaceElevated, in: Capsule())
+                        }
+                        .buttonStyle(AppPressableButtonStyle())
+                        .accessibilityLabel(province.localizedName(lang))
+                        .accessibilityIdentifier("places.provincePicker.\(KnowledgeNormalizer.slug(province.id))")
+                    }
+                }
+            }
+            .accessibilityIdentifier("places.provincePicker")
+
+            selectorRowLabel(citySelectorLabel)
             ScrollView(.horizontal, showsIndicators: false) {
                 HStack(spacing: 8) {
                     ForEach(selectedProvinceCities, id: \.self) { city in
@@ -612,41 +996,47 @@ struct PlacesDiscoveryView: View {
                                 .font(AppTypography.captionStrong)
                                 .foregroundStyle(city.caseInsensitiveCompare(mapViewModel.selectedCity) == .orderedSame ? .white : AppColors.textPrimary)
                                 .padding(.horizontal, 12)
-                                .padding(.vertical, 9)
+                                .frame(minHeight: 44)
+                                .contentShape(Capsule())
                                 .background(city.caseInsensitiveCompare(mapViewModel.selectedCity) == .orderedSame ? AppColors.dutchOrange : AppColors.glassSurfaceElevated, in: Capsule())
                         }
-                        .buttonStyle(.plain)
+                        .buttonStyle(AppPressableButtonStyle())
+                        .accessibilityIdentifier("map.city.\(KnowledgeNormalizer.slug(city))")
                     }
                 }
             }
+            .accessibilityIdentifier("places.cityPicker")
         }
         .padding(14)
         .background(.black.opacity(0.26), in: RoundedRectangle(cornerRadius: 20, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(Color.white.opacity(0.12), lineWidth: 0.8))
-        .accessibilityIdentifier("map.cityFilter")
+        .overlay {
+            RoundedRectangle(cornerRadius: 20, style: .continuous)
+                .stroke(Color.white.opacity(0.12), lineWidth: 0.8)
+                .allowsHitTesting(false)
+        }
+    }
+
+    private func selectorRowLabel(_ title: String) -> some View {
+        Text(title)
+            .font(.system(size: 10, weight: .bold, design: .rounded))
+            .foregroundStyle(Color.white.opacity(0.58))
+            .textCase(.uppercase)
+            .tracking(0.7)
     }
 
     private var mapPanel: some View {
         ZStack(alignment: .bottomLeading) {
-            Map(position: mapCameraPosition) {
-                UserAnnotation()
-                ForEach(mapAnnotations) { item in
-                    Annotation(item.title, coordinate: item.coordinate) {
-                        Button {
-                            handleAnnotation(item)
-                        } label: {
-                            Image(systemName: item.symbol)
-                                .font(.caption.weight(.bold))
-                                .foregroundStyle(.white)
-                                .frame(width: 30, height: 30)
-                                .background(item.tint, in: Circle())
-                                .shadow(color: .black.opacity(0.18), radius: 6, x: 0, y: 3)
-                        }
-                        .buttonStyle(.plain)
-                    }
+            PlacesInteractiveMapViewport(
+                cameraSeed: PlacesMapCameraSeed(mapViewModel.region),
+                annotations: mapAnnotations,
+                onAnnotation: handleAnnotation,
+                onCameraSettled: { region in
+                    guard !PlacesMapCameraSeed(mapViewModel.region)
+                        .isApproximatelyEqual(to: PlacesMapCameraSeed(region))
+                    else { return }
+                    mapViewModel.region = region
                 }
-            }
-            .mapStyle(.standard(elevation: .realistic))
+            )
             .frame(height: 470)
 
             HStack {
@@ -660,22 +1050,30 @@ struct PlacesDiscoveryView: View {
                 }
                 Spacer()
                 Button {
+                    AppHaptics.lightImpact()
                     onNavigate(.mapHub)
                 } label: {
                     Image(systemName: "arrow.up.left.and.arrow.down.right")
                         .font(.caption.weight(.bold))
                         .foregroundStyle(.white)
-                        .frame(width: 34, height: 34)
+                        .frame(width: AppButtonMetrics.minTouchSize, height: AppButtonMetrics.minTouchSize)
+                        .contentShape(Circle())
                         .background(.white.opacity(0.18), in: Circle())
                 }
+                .buttonStyle(AppPressableButtonStyle())
                 .accessibilityLabel(openFullMapTitle)
+                .accessibilityIdentifier("map.expand")
             }
             .padding(14)
             .background(.black.opacity(0.28), in: RoundedRectangle(cornerRadius: 18, style: .continuous))
             .padding(14)
         }
         .clipShape(RoundedRectangle(cornerRadius: 22, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 22, style: .continuous).stroke(AppColors.stroke.opacity(0.8), lineWidth: 0.8))
+        .overlay {
+            RoundedRectangle(cornerRadius: 22, style: .continuous)
+                .stroke(AppColors.stroke.opacity(0.8), lineWidth: 0.8)
+                .allowsHitTesting(false)
+        }
         .accessibilityIdentifier("places.mapMode")
     }
 
@@ -1339,6 +1737,9 @@ struct PlacesDiscoveryView: View {
     private func handleUniversalInput() {
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard !trimmed.isEmpty else { return }
+        mapSearchSyncTask?.cancel()
+        mapSearchSyncTask = nil
+        AppHaptics.lightImpact()
         isInputFocused = false
 
         if let partner = cityPartners.first(where: { partnerMatches($0, query: trimmed) }) {
@@ -1386,8 +1787,30 @@ struct PlacesDiscoveryView: View {
 
     private func askAIFromInput() {
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
+        mapSearchSyncTask?.cancel()
+        mapSearchSyncTask = nil
         isInputFocused = false
         onAskAI(trimmed.isEmpty ? "Help me discover useful places, services, and local partners in \(mapViewModel.selectedCity)." : trimmed)
+    }
+
+    private func scheduleMapSearchSync(_ value: String) {
+        mapSearchSyncTask?.cancel()
+        let trimmed = value.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty else {
+            mapSearchSyncTask = nil
+            mapViewModel.searchText = ""
+            return
+        }
+
+        mapSearchSyncTask = Task { @MainActor in
+            do {
+                try await ContinuousClock().sleep(for: .milliseconds(180))
+            } catch {
+                return
+            }
+            guard !Task.isCancelled else { return }
+            mapViewModel.searchText = value
+        }
     }
 
     private func isNaturalLanguageQuestion(_ text: String) -> Bool {
@@ -1432,25 +1855,50 @@ struct PlacesDiscoveryView: View {
     private func handleAnnotation(_ item: PlacesMapAnnotation) {
         switch item.kind {
         case .place(let place):
+            AppHaptics.selection()
             selectedPlace = place
         case .partner(let partner):
+            AppHaptics.lightImpact()
             onNavigate(.localPartnerDetail(partner.id))
         }
     }
 
-    private func chooseProvince(_ provinceID: String) {
-        withAnimation(.easeInOut(duration: 0.22)) {
-            selectedProvinceID = provinceID
+    private func selectDisplayMode(_ mode: PlacesDisplayMode) {
+        guard displayMode != mode else { return }
+        AppHaptics.selection()
+        withAnimation(AppAnimations.standard) {
+            displayMode = mode
         }
     }
 
-    private func chooseCity(_ city: String) {
+    private func selectFilter(_ filter: PlacesDiscoveryFilter) {
+        guard selectedFilter != filter else { return }
+        AppHaptics.selection()
         withAnimation(AppAnimations.standard) {
+            selectedFilter = filter
+        }
+    }
+
+    private func chooseProvince(_ provinceID: String) {
+        AppHaptics.selection()
+        guard selectedProvinceID != provinceID else { return }
+        // Commit the selection synchronously. Finger-down animation is owned by
+        // the map surface and must never delay the selected-state update.
+        selectedProvinceID = provinceID
+    }
+
+    private func chooseCity(_ city: String) {
+        AppHaptics.mediumImpact()
+        // Commit the visible route first. Give SwiftUI a run-loop turn and one
+        // display interval before the shared app-state mutation, so the city
+        // snapshot rebuild is not performed inside the original tap handler.
+        selectedProvinceID = provinceID(forCity: city)
+        displayMode = .map
+        isCityMapOpen = true
+        Task { @MainActor in
+            await Task.yield()
+            try? await Task.sleep(for: .milliseconds(16))
             appState.selectedCity = city
-            mapViewModel.selectedCity = city
-            selectedProvinceID = provinceID(forCity: city)
-            isCityMapOpen = true
-            displayMode = .map
         }
     }
 
@@ -1464,8 +1912,7 @@ struct PlacesDiscoveryView: View {
 
     private var selectedProvinceCities: [String] {
         let provinceID = selectedProvinceID ?? provinceID(forCity: mapViewModel.selectedCity)
-        return (citiesByProvince[provinceID] ?? [mapViewModel.selectedCity])
-            .filter { MockNearbyPlacesData.supportedCities.contains($0) }
+        return ProvinceCatalog.item(id: provinceID).cities.map(\.name)
     }
 
     private func provinceID(forCity city: String) -> String {
@@ -1474,20 +1921,9 @@ struct PlacesDiscoveryView: View {
     }
 
     private var citiesByProvince: [String: [String]] {
-        [
-            "Noord-Holland": ["Amsterdam", "Haarlem", "Alkmaar", "Hoorn", "Zaanstad", "Amstelveen", "Purmerend"],
-            "Zuid-Holland": ["Leiden", "Rotterdam", "Den Haag", "Delft"],
-            "Utrecht": ["Utrecht", "Amersfoort"],
-            "Noord-Brabant": ["Eindhoven", "Tilburg", "Breda", "s-Hertogenbosch"],
-            "Gelderland": ["Arnhem", "Nijmegen"],
-            "Limburg": ["Maastricht", "Venlo"],
-            "Overijssel": ["Zwolle"],
-            "Flevoland": ["Almere", "Lelystad"],
-            "Groningen": ["Groningen"],
-            "Friesland": ["Leeuwarden"],
-            "Drenthe": ["Assen"],
-            "Zeeland": ["Middelburg"]
-        ]
+        Dictionary(uniqueKeysWithValues: ProvinceCatalog.all.map { province in
+            (province.id, province.cities.map(\.name))
+        })
     }
 
     private var cityProvinceLookup: [String: String] {
@@ -1597,12 +2033,20 @@ struct PlacesDiscoveryView: View {
     private var listTitle: String { "Nearby places" }
     private var openTitle: String { lang == .russian ? "Открыть" : lang == .dutch ? "Open" : "Open" }
     private var openFullMapTitle: String { "Open full map" }
-    private var openCityMapTitle: String { lang == .russian ? "Карта города" : lang == .dutch ? "Stadskaart" : "City map" }
+    private var chooseCityTitle: String { lang == .russian ? "Выбрать город" : lang == .dutch ? "Kies stad" : "Choose city" }
     private var countryMapTitle: String {
         switch lang {
         case .russian: return "Нидерланды"
         case .dutch: return "Nederland"
         case .english: return "Netherlands"
+        }
+    }
+
+    private var countryMapInteractionLabel: String {
+        switch lang {
+        case .english: return "Interactive province map"
+        case .dutch: return "Interactieve provinciekaart"
+        case .russian: return "Интерактивная карта провинций"
         }
     }
     private var countryMapSubtitle: String {
@@ -1617,6 +2061,22 @@ struct PlacesDiscoveryView: View {
         case .russian: return "провинций"
         case .dutch: return "provincies"
         case .english: return "provinces"
+        }
+    }
+
+    private var provinceSelectorLabel: String {
+        switch lang {
+        case .english: return "Province"
+        case .dutch: return "Provincie"
+        case .russian: return "Провинция"
+        }
+    }
+
+    private var citySelectorLabel: String {
+        switch lang {
+        case .english: return "City"
+        case .dutch: return "Stad"
+        case .russian: return "Город"
         }
     }
     private var sourceNoteText: String { "Information only. Opening hours, prices, eligibility, and availability must be verified with the official source or business." }
@@ -1747,6 +2207,93 @@ private struct PlacesMapAnnotation: Identifiable {
             tint = AppColors.routeLine
         }
         kind = .partner(partner)
+    }
+}
+
+/// Equatable camera input used to keep MapKit's high-frequency pan/zoom state
+/// inside the small map subtree instead of invalidating PlacesDiscoveryView.
+private struct PlacesMapCameraSeed: Equatable {
+    let latitude: CLLocationDegrees
+    let longitude: CLLocationDegrees
+    let latitudeDelta: CLLocationDegrees
+    let longitudeDelta: CLLocationDegrees
+
+    init(_ region: MKCoordinateRegion) {
+        latitude = region.center.latitude
+        longitude = region.center.longitude
+        latitudeDelta = region.span.latitudeDelta
+        longitudeDelta = region.span.longitudeDelta
+    }
+
+    var region: MKCoordinateRegion {
+        MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: latitude, longitude: longitude),
+            span: MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
+        )
+    }
+
+    func isApproximatelyEqual(to other: PlacesMapCameraSeed) -> Bool {
+        let tolerance = 0.000_000_1
+        return abs(latitude - other.latitude) <= tolerance
+            && abs(longitude - other.longitude) <= tolerance
+            && abs(latitudeDelta - other.latitudeDelta) <= tolerance
+            && abs(longitudeDelta - other.longitudeDelta) <= tolerance
+    }
+}
+
+private struct PlacesInteractiveMapViewport: View {
+    let cameraSeed: PlacesMapCameraSeed
+    let annotations: [PlacesMapAnnotation]
+    let onAnnotation: (PlacesMapAnnotation) -> Void
+    let onCameraSettled: (MKCoordinateRegion) -> Void
+
+    @State private var cameraPosition: MapCameraPosition
+
+    init(
+        cameraSeed: PlacesMapCameraSeed,
+        annotations: [PlacesMapAnnotation],
+        onAnnotation: @escaping (PlacesMapAnnotation) -> Void,
+        onCameraSettled: @escaping (MKCoordinateRegion) -> Void
+    ) {
+        self.cameraSeed = cameraSeed
+        self.annotations = annotations
+        self.onAnnotation = onAnnotation
+        self.onCameraSettled = onCameraSettled
+        _cameraPosition = State(initialValue: .region(cameraSeed.region))
+    }
+
+    var body: some View {
+        Map(position: $cameraPosition, interactionModes: .all) {
+            UserAnnotation()
+            ForEach(annotations) { item in
+                Annotation(item.title, coordinate: item.coordinate) {
+                    Button {
+                        onAnnotation(item)
+                    } label: {
+                        ZStack {
+                            Circle()
+                                .fill(item.tint)
+                                .frame(width: 32, height: 32)
+                            Image(systemName: item.symbol)
+                                .font(.caption.weight(.bold))
+                                .foregroundStyle(.white)
+                        }
+                        .frame(width: 48, height: 48)
+                        .contentShape(Circle())
+                        .shadow(color: .black.opacity(0.18), radius: 6, x: 0, y: 3)
+                    }
+                    .buttonStyle(AppPressableButtonStyle())
+                    .accessibilityIdentifier("map.annotation.\(KnowledgeNormalizer.slug(item.title))")
+                }
+            }
+        }
+        .mapStyle(.standard(elevation: .realistic))
+        .onChange(of: cameraSeed) { _, newSeed in
+            cameraPosition = .region(newSeed.region)
+        }
+        .onMapCameraChange(frequency: .onEnd) { context in
+            onCameraSettled(context.region)
+        }
     }
 }
 

@@ -272,10 +272,10 @@ struct CitySymbolValidationTests {
         #expect(RootTabView.resolvedMenuPosition(menuPosition: .right, horizontalSizeClass: .regular) == .right)
     }
 
-    @Test func contextualAIButtonIsGlobalActionNotTab() {
+    @Test func contextualAIButtonNeverOverlaysPrimaryTabContent() {
         #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .home, isMenuPresented: false))
         #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .guide, isMenuPresented: false))
-        #expect(RootTabView.shouldShowContextualAIButton(selectedTab: .map, isMenuPresented: false))
+        #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .map, isMenuPresented: false))
         #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .saved, isMenuPresented: false))
         #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .more, isMenuPresented: false))
         #expect(!RootTabView.shouldShowContextualAIButton(selectedTab: .guide, isMenuPresented: true))

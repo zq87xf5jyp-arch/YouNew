@@ -10,7 +10,7 @@ macOS runtime is not accepted as a replacement for this pass. A macOS build/test
 
 ## Preflight
 ```bash
-cd "/Users/ivan/Library/Mobile Documents/com~apple~CloudDocs/Desktop/app/YouNew"
+cd "<REPO_ROOT>"
 
 xcode-select -p
 xcrun simctl list devices available

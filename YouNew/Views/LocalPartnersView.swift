@@ -47,6 +47,7 @@ struct LocalPartnersView: View {
                 height: 238,
                 language: lang
             )
+            .accessibilityElement(children: .combine)
             .accessibilityIdentifier("localPartners.hero")
 
             Text(disclosure)
@@ -646,22 +647,7 @@ struct BusinessGrowthView: View {
     private var lang: AppLanguage { languageManager.appLanguage }
 
     var body: some View {
-        ScrollView {
-            ResponsiveContentContainer(maxWidth: 860) {
-                VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
-                    businessHero
-                    section("Why partner with us?", ["Local visibility", "Relevant audience", "Transparent listing", "Measurable contact actions", "Contextual discovery"], symbol: "chart.line.uptrend.xyaxis")
-                    section("Partnership options", ["Free Listing", "Business Profile", "Featured Partner", "Premium Placement", "City Sponsor"], symbol: "storefront.fill")
-                    serviceFitSection
-                    pricingSection
-                    contactCard
-                }
-                .padding(.horizontal, AppSpacing.screenHorizontal)
-                .padding(.vertical, AppSpacing.medium)
-            }
-        }
-        .appSceneBackground(.more)
-        .navigationTitle("For Business")
+        BusinessPortalLandingView()
     }
 
     private var businessHero: some View {
@@ -851,22 +837,7 @@ struct BusinessLoginView: View {
     }
 
     var body: some View {
-        ScrollView {
-            ResponsiveContentContainer(maxWidth: 760) {
-                VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
-                    loginHero
-                    if didSubmit {
-                        verifiedPanel
-                    } else {
-                        loginForm
-                    }
-                }
-                .padding(.horizontal, AppSpacing.screenHorizontal)
-                .padding(.vertical, AppSpacing.medium)
-            }
-        }
-        .appSceneBackground(.more)
-        .navigationTitle(lang == .russian ? "Вход для бизнеса" : "Business Login")
+        BusinessPortalLoginView()
     }
 
     private var loginHero: some View {
@@ -993,15 +964,7 @@ struct BusinessLoginView: View {
 
 struct BusinessDashboardView: View {
     var body: some View {
-        ScrollView {
-            ResponsiveContentContainer(maxWidth: 860) {
-                BusinessDashboardContent()
-                    .padding(.horizontal, AppSpacing.screenHorizontal)
-                    .padding(.vertical, AppSpacing.medium)
-            }
-        }
-        .appSceneBackground(.more)
-        .navigationTitle("Business Dashboard")
+        BusinessPortalDashboardView()
     }
 }
 

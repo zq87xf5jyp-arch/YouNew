@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-04-M1-transport-rail-001",
+  "work_package": "WP-04",
+  "milestone": "WP-04-M1",
+  "target_release": "transport-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator test build and admin production build succeeded.",
+    "static": "Full static QA and DATA PROJECT validation succeeded.",
+    "duplicate": "No duplicate IDs, normalized titles, canonical websites or media IDs detected.",
+    "source": "Official source pages were reviewed and the network audit found 0 confirmed broken URLs across 1054 checked URLs.",
+    "media": "Knowledge topics intentionally contain no media assets; no unverified or unlicensed assets are present.",
+    "search": "Every record has at least three unique search terms and all related entity IDs resolve.",
+    "ai": "Every AI summary passes length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "transport.journey-planning",
+      "entity_type": "knowledge_topic",
+      "category": "rail_travel",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Plan an NS train journey",
+      "description": "Use the official NS journey planner to compare departure and arrival times, transfers, platform information and live changes before leaving and again shortly before boarding.",
+      "images": [],
+      "official_source": {
+        "title": "NS journey planner",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/journeyplanner/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/journeyplanner/",
+      "related_entity_ids": [
+        "transport.disruptions",
+        "transport.app-notifications",
+        "transport.station-information"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Plan door to door and allow time for transfers. Recheck the itinerary shortly before departure because platform assignments, engineering work and disruption advice can change.",
+      "search_keywords": [
+        "journey planner",
+        "NS route",
+        "train times",
+        "platform",
+        "transfer"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "NS and rail travel"
+      }
+    },
+    {
+      "id": "transport.disruptions",
+      "entity_type": "knowledge_topic",
+      "category": "rail_travel",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check railway disruptions and engineering work",
+      "description": "NS publishes current disruptions and scheduled engineering work, including alternative routes and replacement transport advice when normal train services are affected.",
+      "images": [],
+      "official_source": {
+        "title": "Current situation on the tracks",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/travel-information/current-situation-on-the-tracks",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/travel-information/current-situation-on-the-tracks",
+      "related_entity_ids": [
+        "transport.journey-planning",
+        "transport.delay-refund",
+        "transport.app-notifications"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check both current incidents and scheduled works for the full route. Follow the operator's alternative travel advice and preserve journey details if the arrival delay may qualify for compensation.",
+      "search_keywords": [
+        "NS disruption",
+        "engineering work",
+        "replacement bus",
+        "train cancelled",
+        "rail status"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "NS and rail travel"
+      }
+    },
+    {
+      "id": "transport.check-in-out",
+      "entity_type": "knowledge_topic",
+      "category": "rail_travel",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check in and out correctly with NS",
+      "description": "Train passengers using a card or travel product must use the correct operator reader at the start and end of travel and may need to switch operators during a transfer.",
+      "images": [],
+      "official_source": {
+        "title": "Checking in and out",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/travel/check-in-check-out",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/travel/check-in-check-out",
+      "related_entity_ids": [
+        "transport.e-tickets",
+        "transport.missed-checkout",
+        "transport.journey-planning"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Use the same card or device throughout the journey and verify the display and beep. At an operator change, check out with the first company before checking in with the next.",
+      "search_keywords": [
+        "NS check in",
+        "check out",
+        "train gate",
+        "operator transfer",
+        "valid ticket"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "NS and rail travel"
+      }
+    },
+    {
+      "id": "transport.e-tickets",
+      "entity_type": "knowledge_topic",
+      "category": "rail_travel",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use an NS mobile or printed e-ticket",
+      "description": "An NS e-ticket must be bought before travel, loaded in the official app or printed as instructed, and shown with valid identification when the ticket is personal.",
+      "images": [],
+      "official_source": {
+        "title": "Buy a train ticket online",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/travel/check-in-check-out/mobile-tickets",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/travel/check-in-check-out/mobile-tickets",
+      "related_entity_ids": [
+        "transport.check-in-out",
+        "transport.journey-planning",
+        "transport.delay-refund"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Open the ticket in the NS app or carry the valid printout and keep the phone charged. Do not check in with an e-ticket; scan its code only to pass gates and show it during inspection.",
+      "search_keywords": [
+        "NS e-ticket",
+        "mobile ticket",
+        "train ticket online",
+        "QR gate",
+        "ticket ID"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "NS and rail travel"
+      }
+    },
+    {
+      "id": "transport.season-tickets",
+      "entity_type": "knowledge_topic",
+      "category": "rail_travel",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Compare NS season tickets and discounts",
+      "description": "NS season tickets combine travel-on-account with different peak, off-peak, weekend or route-based benefits, so the best option depends on travel frequency and check-in time.",
+      "images": [],
+      "official_source": {
+        "title": "NS season tickets",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/season-tickets",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/season-tickets",
+      "related_entity_ids": [
+        "transport.check-in-out",
+        "transport.journey-planning",
+        "transport.e-tickets"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Compare the subscription price with expected monthly journeys and read the current time-window rules. Confirm that the chosen product is active before relying on a discount.",
+      "search_keywords": [
+        "NS Flex",
+        "season ticket",
+        "train discount",
+        "off peak",
+        "subscription"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "NS and rail travel"
+      }
+    },
+    {
+      "id": "transport.delay-refund",
+      "entity_type": "knowledge_topic",
+      "category": "rail_travel",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Request compensation for an NS delay",
+      "description": "Passengers whose domestic NS journey arrives late may submit a delay-refund request under the current thresholds and conditions using their ticket or travel-card details.",
+      "images": [],
+      "official_source": {
+        "title": "Refunds for delays on a domestic route",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/service-and-contact/refunds/refunds-for-delays-on-a-domestic-route",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/service-and-contact/refunds/refunds-for-delays-on-a-domestic-route",
+      "related_entity_ids": [
+        "transport.disruptions",
+        "transport.journey-planning",
+        "transport.e-tickets"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Record the planned route, actual arrival and ticket used, then submit the official claim after the journey data becomes available. Different ticket types and international journeys follow different routes.",
+      "search_keywords": [
+        "NS delay refund",
+        "train compensation",
+        "delayed journey",
+        "refund form",
+        "money back"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "NS and rail travel"
+      }
+    },
+    {
+      "id": "transport.travel-assistance",
+      "entity_type": "knowledge_topic",
+      "category": "rail_travel",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Arrange NS Travel Assistance",
+      "description": "Travellers with a disability can request NS Travel Assistance for supported journeys and should check station accessibility, booking conditions and meeting instructions in advance.",
+      "images": [],
+      "official_source": {
+        "title": "NS Travel Assistance",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/travel-information/traveling-with-a-disability/ns-travel-assistance.html",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/travel-information/traveling-with-a-disability/ns-travel-assistance.html",
+      "related_entity_ids": [
+        "transport.station-information",
+        "transport.journey-planning",
+        "transport.disruptions"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check whether both stations support the required assistance and book within the stated notice period. Arrive at the agreed meeting point early and monitor service changes.",
+      "search_keywords": [
+        "NS accessibility",
+        "travel assistance",
+        "wheelchair train",
+        "station help",
+        "accessible rail"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "NS and rail travel"
+      }
+    },
+    {
+      "id": "transport.station-information",
+      "entity_type": "knowledge_topic",
+      "category": "rail_travel",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check station facilities and accessibility",
+      "description": "Official station pages list addresses, opening information, platforms and available facilities such as lifts, toilets, lockers, bicycle storage and service points.",
+      "images": [],
+      "official_source": {
+        "title": "Station information",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/station-information",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/station-information",
+      "related_entity_ids": [
+        "transport.travel-assistance",
+        "transport.journey-planning",
+        "transport.app-notifications"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Review the departure and transfer stations, especially lift access and walking routes. Allow extra time where construction, a long interchange or limited facilities affect the journey.",
+      "search_keywords": [
+        "NS station",
+        "station facilities",
+        "platform map",
+        "lift access",
+        "train station"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "NS and rail travel"
+      }
+    },
+    {
+      "id": "transport.app-notifications",
+      "entity_type": "knowledge_topic",
+      "category": "rail_travel",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use NS app journey notifications",
+      "description": "The NS app can notify travellers about delays, cancellations, platform changes, crowd expectations and alternative advice for a saved planned journey.",
+      "images": [],
+      "official_source": {
+        "title": "Notifications in the NS app",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/travel/ns-app/notifications",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/travel/ns-app/notifications",
+      "related_entity_ids": [
+        "transport.journey-planning",
+        "transport.disruptions",
+        "transport.station-information"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Save the exact journey and enable relevant notifications before departure. Treat alerts as live guidance and reopen the planner when a train is cancelled or a connection becomes uncertain.",
+      "search_keywords": [
+        "NS app",
+        "journey alert",
+        "platform change",
+        "train notification",
+        "travel update"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "NS and rail travel"
+      }
+    },
+    {
+      "id": "transport.lost-property",
+      "entity_type": "knowledge_topic",
+      "category": "rail_travel",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Report or search for property lost on an NS journey",
+      "description": "NS provides a formal process for reporting items lost in trains or at stations and matching them with property handed to staff.",
+      "images": [],
+      "official_source": {
+        "title": "Lost and found items",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/customer-service/lost-or-stolen/lost-and-found-items.html",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/customer-service/lost-or-stolen/lost-and-found-items.html",
+      "related_entity_ids": [
+        "transport.station-information",
+        "transport.journey-planning",
+        "transport.travel-assistance"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Submit a precise description, journey, date and contact details through the official channel. Do not share passwords or unnecessary sensitive data and verify collection instructions before travelling.",
+      "search_keywords": [
+        "NS lost property",
+        "lost on train",
+        "station lost found",
+        "missing luggage",
+        "report item"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "NS and rail travel"
+      }
+    }
+  ]
+}

@@ -1,0 +1,192 @@
+{
+  "document": {
+    "status": "DRAFT",
+    "evidence_cutoff_date": "2026-07-20",
+    "timezone": "Europe/Amsterdam",
+    "final_ui_rerun": "PENDING",
+    "clean_clone_proof": "PENDING"
+  },
+  "project": {
+    "name": "YouNew",
+    "platform": "iOS",
+    "language": "Swift 5",
+    "ui_framework": "SwiftUI",
+    "bundle_identifier": "nl.younew.app",
+    "version": "1.1",
+    "build_number": "5",
+    "minimum_ios_version": "17.6"
+  },
+  "git": {
+    "branch": "build-week-readiness",
+    "baseline_commit": "b15a2f2913911763c989f9880f8ce376f903fc6e",
+    "remote_configured": false,
+    "working_tree_curated_and_committed": false,
+    "working_tree_status": "DIRTY_MIXED_OWNER_AND_READINESS_CHANGES",
+    "push_performed": false,
+    "release_performed": false
+  },
+  "overall": {
+    "readiness": "NOT_READY",
+    "production_ready": false,
+    "submission_ready": false,
+    "judge_safe_repository": false,
+    "reason": "Final UI and clean-clone proof are pending, live GPT-5.6 is not verified, the repository snapshot is not curated, and media rights remain incomplete."
+  },
+  "dimensions": {
+    "build": {
+      "status": "PASS_CURRENT_WORKING_TREE_FINAL_PROOF_PENDING",
+      "clean_debug_simulator_build_passed": true,
+      "clean_clone_build_passed": false,
+      "evidence_boundary": "Current working tree only"
+    },
+    "unit_tests": {
+      "status": "STAGE_2_PASS_FINAL_RERUN_PENDING",
+      "stage_2_total": 450,
+      "stage_2_passed": 450,
+      "stage_2_failed": 0,
+      "stage_2_skipped": 0,
+      "named_demo_tests_added_after_stage_2": 7,
+      "expanded_complete_suite_closed": false
+    },
+    "static_qa": {
+      "status": "PASS_CURRENT_WORKING_TREE",
+      "commands_total": 40,
+      "commands_passed": 40,
+      "commands_failed": 0,
+      "clean_clone_repeat": "PENDING"
+    },
+    "data_project_and_import": {
+      "status": "PASS",
+      "scope": "Current local snapshot",
+      "universal_live_link_claim": false
+    },
+    "ui_tests": {
+      "status": "PENDING",
+      "frozen_baseline_total": 86,
+      "frozen_baseline_passed": 80,
+      "frozen_baseline_failed": 6,
+      "original_failures_diagnosed_and_remediated": 6,
+      "targeted_original_failure_rerun": "PENDING",
+      "post_fix_source_test_inventory": 87,
+      "complete_post_fix_suite": "PENDING",
+      "newcomer_fallback_targeted_test": {
+        "total": 1,
+        "passed": 1,
+        "failed": 0,
+        "uses_live_backend": false
+      }
+    },
+    "ai_assistant": {
+      "status": "AVAILABLE_PARTIAL",
+      "deterministic_local_fallback_available": true,
+      "fallback_label": "Local guide mode",
+      "fallback_presented_as_gpt": false,
+      "client_contains_openai_api_key": false,
+      "named_demo_scenario": "BuildWeekNewcomerDemo"
+    },
+    "gpt_5_6_proof": {
+      "status": "BLOCKED_NOT_VERIFIED",
+      "bounded_integration_present": true,
+      "official_api_contract_reviewed": true,
+      "backend_contract_tests": {
+        "total": 12,
+        "passed": 12,
+        "openai_upstream_mocked": true
+      },
+      "deployed_backend_verified": false,
+      "configured_live_environment_verified": false,
+      "live_openai_request_performed": false,
+      "actual_runtime_model": null,
+      "actual_provider_request_id_captured": false,
+      "silent_model_substitution_allowed": false
+    },
+    "repository_safety": {
+      "status": "PARTIAL_NOT_JUDGE_SAFE",
+      "essential_untracked_files_inventoried": true,
+      "curated_snapshot_committed": false,
+      "targeted_secret_scan_confirmed_secrets": 0,
+      "dedicated_secret_scanner_available": false,
+      "comprehensive_binary_ocr_exif_review_completed": false,
+      "owner_metadata_and_fixture_review_completed": false,
+      "license_status": "RESTRICTIVE_DRAFT_OWNER_APPROVAL_REQUIRED"
+    },
+    "clean_clone": {
+      "status": "PENDING_NOT_PROVEN",
+      "separate_clone_created": false,
+      "build_completed": false,
+      "unit_tests_completed": false,
+      "static_qa_completed": false,
+      "ui_tests_completed": false,
+      "fallback_completed": false,
+      "live_ai_completed": false
+    },
+    "readme": {
+      "status": "PREPARED_FINAL_VERIFICATION_PENDING",
+      "requested_topics_covered": 23,
+      "final_clean_clone_commands_verified": false,
+      "judge_ready_screenshots_present": false
+    },
+    "media_rights": {
+      "status": "PARTIAL_BLOCKED",
+      "asset_catalog_imagesets": 170,
+      "manifest_backed_nl_assets": 72,
+      "manifest_entries_requiring_attribution": 65,
+      "manifest_entries_missing_license_url": 1,
+      "non_manifest_imagesets": 98,
+      "app_icon_cleared": false,
+      "blanket_public_redistribution_cleared": false
+    },
+    "demo_readiness": {
+      "status": "PARTIAL_LIVE_MAIN_FLOW_BLOCKED",
+      "named_flow_implemented": true,
+      "structured_four_step_contract_implemented": true,
+      "local_fallback_ui_test_passed": true,
+      "related_bsn_app_section_opened_in_test": true,
+      "official_source_action_present_in_test": true,
+      "external_official_source_open_runtime_verified": false,
+      "live_gpt_5_6_main_flow_verified": false,
+      "final_video_present": false,
+      "fixture_may_be_presented_as_live": false
+    },
+    "submission_readiness": {
+      "status": "NOT_READY",
+      "github_remote_verified": false,
+      "judge_access_verified": false,
+      "testflight_verified": false,
+      "app_store_release_verified": false,
+      "demo_video_verified": false,
+      "submission_receipt_verified": false
+    }
+  },
+  "safe_public_claims": [
+    "YouNew is a SwiftUI iOS guide for newcomers to the Netherlands.",
+    "The repository contains implementation and reports consistent with the documented Codex-assisted workflow.",
+    "The current working tree completed a clean Debug simulator build.",
+    "The complete Stage 2 unit suite passed 450 of 450; the expanded final suite remains pending.",
+    "The current working-tree static aggregate passed 40 of 40; clean-clone repetition remains pending.",
+    "The local deterministic assistant is available and explicitly labelled local guide mode.",
+    "The repository contains a bounded GPT-5.6 Responses API integration, but live GPT-5.6 access and deployment have not been runtime-verified.",
+    "Media rights are partially documented and do not support a blanket redistribution claim."
+  ],
+  "claims_not_verified": [
+    "All mandatory gates are green.",
+    "The complete post-fix UI suite passes 87 of 87.",
+    "YouNew performs live GPT-5.6 inference in the verified runtime.",
+    "The backend example is deployed or production-ready.",
+    "A GitHub remote or judge-accessible repository exists.",
+    "A current TestFlight or App Store release is available.",
+    "All repository media are cleared for public redistribution.",
+    "All 34 content categories are fully populated.",
+    "The project is production-ready or submission-ready."
+  ],
+  "remaining_blockers": [
+    "Close the targeted six-test UI rerun and complete post-fix UI suite.",
+    "Close the expanded complete unit suite on the frozen source snapshot.",
+    "Curate and commit the intended product snapshot without unresolved artifacts or owner work.",
+    "Complete build, unit, static, UI where supported, and fallback checks from a separate clean clone.",
+    "Obtain owner-approved backend credentials and deployment approval before any live GPT-5.6 verification.",
+    "Resolve or exclude media with incomplete or conflicting provenance.",
+    "Complete owner review of licensing, privacy, legal and medical content, personal metadata, fixtures, screenshots, and repository visibility.",
+    "Create judge access, rights-cleared captures, the final video, and the submission only through explicit owner actions."
+  ]
+}

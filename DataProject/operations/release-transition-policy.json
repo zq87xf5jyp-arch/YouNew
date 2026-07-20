@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "states": ["planned", "qa", "published", "retired"],
+  "allowed_transitions": [
+    {"from": "planned", "to": "qa", "requires": ["seven_qa_gates_passed"]},
+    {"from": "qa", "to": "published", "requires": ["seven_qa_gates_passed", "explicit_release_approval"]},
+    {"from": "qa", "to": "planned", "requires": ["documented_qa_failure"]},
+    {"from": "published", "to": "retired", "requires": ["replacement_release", "explicit_release_approval"]}
+  ],
+  "published_releases_immutable": true,
+  "rollback_strategy": "publish_new_patch_release",
+  "rollback_requires_explicit_approval": true,
+  "automatic_transition_allowed": false
+}

@@ -188,29 +188,61 @@ struct HomeBusinessPartnerPromoCard: View {
 struct HomeLocalPartnersSection: View {
     let partners: ArraySlice<LocalPartner>
     let language: AppLanguage
+    var totalCount: Int? = nil
+    var accessibilityIdentifier: String = "home.localPartners"
 
+    @ViewBuilder
     var body: some View {
-        VStack(alignment: .leading, spacing: AppSpacing.small) {
-            header
+        if !partners.isEmpty {
+            VStack(alignment: .leading, spacing: AppSpacing.small) {
+                header
 
-            ScrollView(.horizontal, showsIndicators: false) {
-                HStack(spacing: 12) {
-                    ForEach(partners) { partner in
-                        NavigationLink(value: AppDestination.localPartnerDetail(partner.id)) {
-                            HomeLocalPartnerCard(partner: partner, language: language)
+                NavigationLink(value: AppDestination.localPartners) {
+                    VStack(alignment: .leading, spacing: 12) {
+                        Text(localizedText(en: "Top verified partners", nl: "Top geverifieerde partners", ru: "Лучшие проверенные партнёры"))
+                            .font(AppTypography.footnote)
+                            .foregroundStyle(AppColors.textSecondary)
+
+                        HStack(spacing: 8) {
+                            ForEach(partners.prefix(3)) { partner in
+                                partnerPreview(partner)
+                            }
                         }
-                        .buttonStyle(AppPressableCardButtonStyle())
+
+                        HStack {
+                            Text(localizedText(
+                                en: "\(totalCount ?? partners.count) verified in this city",
+                                nl: "\(totalCount ?? partners.count) geverifieerd in deze stad",
+                                ru: "Проверено в городе: \(totalCount ?? partners.count)"
+                            ))
+                            .font(AppTypography.captionStrong)
+                            .foregroundStyle(AppColors.warning)
+                            Spacer()
+                            Label(localizedText(en: "View partners", nl: "Bekijk partners", ru: "Открыть партнёров"), systemImage: "arrow.right")
+                                .font(AppTypography.captionStrong)
+                                .foregroundStyle(AppColors.textPrimary)
+                        }
                     }
+                    .padding(15)
+                    .background(
+                        LinearGradient(
+                            colors: [AppColors.cardElevated.opacity(0.96), AppColors.warning.opacity(0.10), AppColors.navyDeep.opacity(0.92)],
+                            startPoint: .topLeading,
+                            endPoint: .bottomTrailing
+                        ),
+                        in: RoundedRectangle(cornerRadius: 20, style: .continuous)
+                    )
+                    .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(AppColors.warning.opacity(0.24), lineWidth: 0.8))
                 }
-                .padding(.horizontal, 1)
+                .buttonStyle(AppPressableCardButtonStyle())
+                .accessibilityIdentifier(accessibilityIdentifier)
             }
         }
-        .accessibilityIdentifier("home.localPartners")
     }
 
     private var header: some View {
         HStack {
-            Text(localizedText(en: "Local Partners", nl: "Local Partners", ru: "Local Partners"))
+            Text(localizedText(en: "Local Partners", nl: "Lokale partners", ru: "Local Partners"))
                 .font(AppTypography.cardTitle)
                 .foregroundStyle(AppColors.textPrimary)
 
@@ -221,6 +253,70 @@ struct HomeLocalPartnersSection: View {
                     .font(AppTypography.captionStrong)
                     .foregroundStyle(AppColors.accent)
             }
+            .accessibilityIdentifier("\(accessibilityIdentifier).seeAll")
+        }
+    }
+
+    private func partnerPreview(_ partner: LocalPartner) -> some View {
+        VStack(alignment: .leading, spacing: 7) {
+            partnerThumbnail(partner)
+                .frame(maxWidth: .infinity)
+                .frame(height: 52)
+                .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+            Text(partner.name)
+                .font(AppTypography.metadata)
+                .foregroundStyle(AppColors.textPrimary)
+                .lineLimit(2)
+            Text(partner.category.title(language))
+                .font(AppTypography.metadata)
+                .foregroundStyle(AppColors.textSecondary)
+                .lineLimit(1)
+        }
+        .frame(maxWidth: .infinity, minHeight: 130, alignment: .topLeading)
+        .padding(9)
+        .background(.white.opacity(0.05), in: RoundedRectangle(cornerRadius: 12, style: .continuous))
+    }
+
+    @ViewBuilder
+    private func partnerThumbnail(_ partner: LocalPartner) -> some View {
+        let asset = partner.media.thumbnail
+        CityImageView(
+            urlString: asset.url.absoluteString,
+            height: 52,
+            fallbackColor: partnerAccent(partner).opacity(0.72),
+            renderRole: .thumbnail,
+            targetPixelWidth: 320,
+            showsReadableOverlay: false
+        )
+        .accessibilityLabel(asset.altText)
+    }
+
+    private func partnerThumbnailFallback(_ partner: LocalPartner) -> some View {
+        LinearGradient(
+            colors: [partnerAccent(partner).opacity(0.72), AppColors.navyDeep],
+            startPoint: .topLeading,
+            endPoint: .bottomTrailing
+        )
+        .overlay {
+            Image(systemName: partner.category.symbol)
+                .font(.headline.weight(.bold))
+                .foregroundStyle(.white)
+        }
+    }
+
+    private func partnerAccent(_ partner: LocalPartner) -> Color {
+        switch partner.category {
+        case .stay: return AppColors.softBlue
+        case .foodDrinks: return AppColors.dutchOrange
+        case .legal: return AppColors.violet
+        case .finance: return AppColors.success
+        case .healthcare: return AppColors.emerald
+        case .education: return AppColors.cyanGlow
+        case .jobs: return AppColors.gradWork[0]
+        case .home: return AppColors.gradHousing[0]
+        case .transport: return AppColors.routeLine
+        case .shopping: return AppColors.gradDocs[0]
+        case .leisure: return AppColors.orangeGlow
         }
     }
 

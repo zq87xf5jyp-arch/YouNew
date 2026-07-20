@@ -50,9 +50,12 @@ enum YouNewScreenBackgroundStyle: String, CaseIterable, Identifiable {
 }
 
 struct GlobalBackgroundView: View {
+    var animatesAmbientLayer = false
+
     @Environment(\.accessibilityReduceMotion) private var reduceMotion
     @Environment(\.accessibilityReduceTransparency) private var reduceTransparency
     @Environment(\.colorScheme) private var colorScheme
+    @Environment(\.scenePhase) private var scenePhase
 
     var body: some View {
         ZStack {
@@ -61,6 +64,7 @@ struct GlobalBackgroundView: View {
                 reduceTransparency: reduceTransparency
             )
             AppAmbientMotionLayer(
+                animates: animatesAmbientLayer && scenePhase == .active,
                 reduceMotion: reduceMotion,
                 reduceTransparency: reduceTransparency
             )
@@ -77,6 +81,34 @@ struct GlobalBackgroundView: View {
         .ignoresSafeArea()
         .allowsHitTesting(false)
         .accessibilityHidden(true)
+    }
+}
+
+private struct AppRootBackgroundInstalledKey: EnvironmentKey {
+    static let defaultValue = false
+}
+
+extension EnvironmentValues {
+    var appRootBackgroundInstalled: Bool {
+        get { self[AppRootBackgroundInstalledKey.self] }
+        set { self[AppRootBackgroundInstalledKey.self] = newValue }
+    }
+}
+
+/// Uses the window-level atmosphere when the app has installed one, while
+/// retaining a full fallback for isolated previews and standalone hosts.
+struct AppSceneBackgroundLayer: View {
+    @Environment(\.appRootBackgroundInstalled) private var rootBackgroundInstalled
+
+    var body: some View {
+        if rootBackgroundInstalled {
+            Color.clear
+                .ignoresSafeArea()
+                .allowsHitTesting(false)
+                .accessibilityHidden(true)
+        } else {
+            GlobalBackgroundView()
+        }
     }
 }
 
@@ -110,35 +142,45 @@ private struct AppAmsterdamEveningBackground: View {
             )
         }
     }
+
 }
 
 struct AppAmbientMotionLayer: View {
+    let animates: Bool
     let reduceMotion: Bool
     let reduceTransparency: Bool
 
+    @ViewBuilder
     var body: some View {
-        TimelineView(.animation) { timeline in
-            Canvas { context, size in
-                let time = reduceMotion ? 0 : timeline.date.timeIntervalSinceReferenceDate
-                let drift = CGFloat(sin(time / 7.0)) * (reduceMotion ? 0 : 18)
-                let pulse = reduceTransparency ? 0.020 : 0.040 + 0.012 * sin(time / 5.5)
-
-                drawAura(
-                    &context,
-                    size: size,
-                    center: CGPoint(x: size.width * 0.18 + drift, y: size.height * 0.20),
-                    radius: max(size.width, size.height) * 0.46,
-                    color: AppColors.cyanGlow.opacity(pulse)
-                )
-
-                drawAura(
-                    &context,
-                    size: size,
-                    center: CGPoint(x: size.width * 0.86 - drift * 0.55, y: size.height * 0.76),
-                    radius: max(size.width, size.height) * 0.52,
-                    color: AppColors.dutchOrange.opacity(reduceTransparency ? 0.012 : 0.026)
-                )
+        if animates && !reduceMotion {
+            TimelineView(.animation(minimumInterval: 1.0 / 15.0)) { timeline in
+                ambientCanvas(time: timeline.date.timeIntervalSinceReferenceDate)
             }
+        } else {
+            ambientCanvas(time: 0)
+        }
+    }
+
+    private func ambientCanvas(time: TimeInterval) -> some View {
+        Canvas(opaque: false, colorMode: .linear, rendersAsynchronously: true) { context, size in
+            let drift = CGFloat(sin(time / 7.0)) * 18
+            let pulse = reduceTransparency ? 0.020 : 0.040 + 0.012 * sin(time / 5.5)
+
+            drawAura(
+                &context,
+                size: size,
+                center: CGPoint(x: size.width * 0.18 + drift, y: size.height * 0.20),
+                radius: max(size.width, size.height) * 0.46,
+                color: AppColors.cyanGlow.opacity(pulse)
+            )
+
+            drawAura(
+                &context,
+                size: size,
+                center: CGPoint(x: size.width * 0.86 - drift * 0.55, y: size.height * 0.76),
+                radius: max(size.width, size.height) * 0.52,
+                color: AppColors.dutchOrange.opacity(reduceTransparency ? 0.012 : 0.026)
+            )
         }
         .opacity(reduceTransparency ? 0.42 : 1.0)
         .allowsHitTesting(false)
@@ -159,8 +201,19 @@ struct AppAmbientMotionLayer: View {
             height: radius * 2
         )
 
-        context.addFilter(.blur(radius: reduceTransparency ? 30 : 72))
-        context.fill(Path(ellipseIn: rect), with: .color(color))
+        context.fill(
+            Path(ellipseIn: rect),
+            with: .radialGradient(
+                Gradient(stops: [
+                    .init(color: color, location: 0),
+                    .init(color: color.opacity(0.55), location: 0.46),
+                    .init(color: .clear, location: 1)
+                ]),
+                center: center,
+                startRadius: 0,
+                endRadius: radius
+            )
+        )
     }
 }
 

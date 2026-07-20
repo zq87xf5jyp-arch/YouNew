@@ -33,6 +33,7 @@ struct PlaceItemDetailView: View {
         .appSceneBackground(.more)
         .navigationTitle(place.shortTitle ?? place.title)
         .nlNavigationInline()
+        .accessibilityIdentifier("place.detail.\(place.id)")
         .toolbar {
             ToolbarItem(placement: savedToolbarPlacement) {
                 Button(action: toggleSaved) {
@@ -313,6 +314,7 @@ struct NetherlandsCalendarView: View {
     @EnvironmentObject private var languageManager: LanguageManager
     @State private var selectedType: CalendarEventType?
     @State private var monthOffset = 0
+    @StateObject private var leidenCalendarModel = VisitLeidenCalendarModel()
 
     private var lang: AppLanguage { languageManager.appLanguage }
     private var selectedAudience: UserContentCategory? { UserContentCategory.from(persona: appState.selectedUserStatus?.personaTag) }
@@ -321,13 +323,27 @@ struct NetherlandsCalendarView: View {
         CalendarEventData.calendar.date(byAdding: .month, value: monthOffset, to: Date()) ?? Date()
     }
     private var events: [CalendarEvent] {
-        DashboardCalendarData.upcomingEvents(cityId: selectedDashboardCity.name, audience: selectedAudience, limit: nil)
+        mergedEvents
             .filter { event in
                 selectedType == nil || event.type == selectedType
             }
             .filter { event in
                 CalendarEventData.calendar.isDate(event.date, equalTo: monthDate, toGranularity: .month)
             }
+    }
+
+    private var mergedEvents: [CalendarEvent] {
+        let stored = DashboardCalendarData.upcomingEvents(
+            cityId: selectedDashboardCity.name,
+            audience: selectedAudience,
+            limit: nil
+        )
+        guard selectedDashboardCity.id == .leiden else { return stored }
+
+        var seen = Set<String>()
+        return (leidenCalendarModel.events + stored)
+            .filter { seen.insert($0.id).inserted }
+            .sorted { $0.date == $1.date ? $0.priority < $1.priority : $0.date < $1.date }
     }
 
     var body: some View {
@@ -348,6 +364,12 @@ struct NetherlandsCalendarView: View {
         .navigationTitle(title)
         .nlNavigationInline()
         .accessibilityIdentifier("calendar.screen")
+        .task(id: selectedDashboardCity.id) {
+            await leidenCalendarModel.load(cityID: selectedDashboardCity.name)
+        }
+        .refreshable {
+            await leidenCalendarModel.load(cityID: selectedDashboardCity.name, forceRefresh: true)
+        }
     }
 
     private var header: some View {
@@ -511,6 +533,7 @@ struct CalendarEventDetailView: View {
         .appSceneBackground(.more)
         .navigationTitle(event.title)
         .nlNavigationInline()
+        .accessibilityIdentifier("event.detail.\(event.id)")
     }
 
     private func detailBlock(title: String, text: String, icon: String) -> some View {

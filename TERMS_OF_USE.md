@@ -1,6 +1,8 @@
 # YouNew Terms of Use
 
-Effective date: 2026-05-28
+Status: **owner/legal-review draft; not verified published terms**.
+
+Draft date: 2026-07-20
 
 YouNew provides informational onboarding guidance for newcomers in the Netherlands.
 
@@ -28,6 +30,9 @@ The app may link to third-party websites. YouNew is not responsible for external
 
 ## Contact
 
-Support email: support@younew.app
+Candidate support email: support@younew.nl
 
-Production submission requires a publicly hosted terms/support page if this text is used as the public terms of use.
+Candidate public URL: https://younew.nl/terms/
+
+The owner must confirm the contact, URL, governing terms, and legal suitability
+before distribution. This engineering draft is not legal advice.

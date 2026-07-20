@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "release_policy": "Semantic versions are scoped to a dataset. Published releases are immutable; corrections create a patch release.",
+  "runtime": {
+    "release_id": "legacy-runtime-unversioned",
+    "version": "unversioned",
+    "status": "published",
+    "published_at": null,
+    "record_count": null,
+    "note": "Existing Swift runtime data predates DATA PROJECT release governance. Its audited baseline must be captured before assigning v1.0.0."
+  },
+  "releases": [
+    {
+      "id": "amsterdam-v0.1.0",
+      "work_package": "WP-06",
+      "dataset": "Amsterdam City 01",
+      "version": "0.1.0",
+      "status": "published",
+      "milestone": "WP-06-M2",
+      "target_records": 184,
+      "published_records": 183,
+      "published_at": "2026-07-18",
+      "publication_timestamp": "2026-07-18T11:35:00+02:00",
+      "approver": "user-approved-via-codex",
+      "qa": {
+        "build": "passed",
+        "static": "passed",
+        "duplicate": "passed",
+        "source": "passed",
+        "media": "passed",
+        "search": "passed",
+        "ai": "passed"
+      }
+    },
+    {
+      "id": "cities-v0.1.0",
+      "work_package": "WP-06",
+      "dataset": "Cities Database",
+      "version": "0.1.0",
+      "status": "published",
+      "milestone": "WP-06-M1",
+      "target_records": 5,
+      "published_records": 5,
+      "published_at": "2026-07-14",
+      "publication_timestamp": "2026-07-14T19:32:59+02:00",
+      "approver": "user-approved-via-codex",
+      "release_fingerprint": "c1e752e04ccb539d8b71ba5bddadb5e83ac9449df1953f68d07b321b208c30d0",
+      "qa": {
+        "build": "passed",
+        "static": "passed",
+        "duplicate": "passed",
+        "source": "passed",
+        "media": "passed",
+        "search": "passed",
+        "ai": "passed"
+      }
+    },
+    {
+      "id": "education-v1.0.0",
+      "work_package": "WP-05",
+      "dataset": "Education Database",
+      "version": "1.0.0",
+      "status": "qa",
+      "milestone": "WP-05-M1",
+      "target_records": 40,
+      "published_records": 0,
+      "published_at": null,
+      "qa": {
+        "build": "passed",
+        "static": "passed",
+        "duplicate": "passed",
+        "source": "passed",
+        "media": "passed",
+        "search": "passed",
+        "ai": "passed"
+      }
+    },
+    {
+      "id": "transport-v1.0.0",
+      "work_package": "WP-04",
+      "dataset": "Transport Database",
+      "version": "1.0.0",
+      "status": "qa",
+      "milestone": "WP-04-M1",
+      "target_records": 40,
+      "published_records": 0,
+      "published_at": null,
+      "qa": {
+        "build": "passed",
+        "static": "passed",
+        "duplicate": "passed",
+        "source": "passed",
+        "media": "passed",
+        "search": "passed",
+        "ai": "passed"
+      }
+    },
+    {
+      "id": "healthcare-v1.0.0",
+      "work_package": "WP-03",
+      "dataset": "Healthcare Database",
+      "version": "1.0.0",
+      "status": "qa",
+      "milestone": "WP-03-M1",
+      "target_records": 40,
+      "published_records": 0,
+      "published_at": null,
+      "qa": {
+        "build": "passed",
+        "static": "passed",
+        "duplicate": "passed",
+        "source": "passed",
+        "media": "passed",
+        "search": "passed",
+        "ai": "passed"
+      }
+    },
+    {
+      "id": "housing-v1.0.0",
+      "work_package": "WP-02",
+      "dataset": "Housing Database",
+      "version": "1.0.0",
+      "status": "qa",
+      "milestone": "WP-02-M1",
+      "target_records": 40,
+      "published_records": 0,
+      "published_at": null,
+      "qa": {
+        "build": "passed",
+        "static": "passed",
+        "duplicate": "passed",
+        "source": "passed",
+        "media": "passed",
+        "search": "passed",
+        "ai": "passed"
+      }
+    },
+    {
+      "id": "government-v1.0.0",
+      "work_package": "WP-01",
+      "dataset": "Government Database",
+      "version": "1.0.0",
+      "status": "planned",
+      "milestone": "WP-01-M1",
+      "target_records": 200,
+      "published_records": 0,
+      "published_at": null,
+      "qa": {
+        "build": "pending",
+        "static": "pending",
+        "duplicate": "pending",
+        "source": "pending",
+        "media": "pending",
+        "search": "pending",
+        "ai": "pending"
+      }
+    }
+  ]
+}

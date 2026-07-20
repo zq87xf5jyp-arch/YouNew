@@ -1,0 +1,8 @@
+{
+  "name": "younew-build-week-backend-example",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test cloudflare-worker-ai-proxy.test.mjs"
+  }
+}

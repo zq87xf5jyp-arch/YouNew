@@ -189,15 +189,15 @@ Live simulator top-state screenshots reviewed: {len(LIVE_SCREENSHOT_SURFACES)}
 - `python3 scripts/user-visible-completeness-static-qa.py`
 - `python3 scripts/visible-image-remote-qa.py --offline`
 - `scripts/run-static-qa.sh`
-- `xcodebuild -project YouNew.xcodeproj -scheme YouNew -destination 'generic/platform=iOS Simulator' -derivedDataPath /private/tmp/YouNewCodexContentCompletionBuildDerivedData build`
-- `xcodebuild build-for-testing -quiet -project YouNew.xcodeproj -scheme YouNew -destination 'generic/platform=iOS Simulator' -derivedDataPath /private/tmp/YouNewCodexContentCompletionBuildDerivedData`
-- `xcodebuild test-without-building -project YouNew.xcodeproj -scheme YouNew -destination 'platform=iOS Simulator,id=4B87FB55-45B1-4C30-A696-3FC6F53D988C' -derivedDataPath /private/tmp/YouNewCodexContentCompletionBuildDerivedData -only-testing:YouNewUITests/ContentCompletionRuntimeUITests/testRequiredContentSurfacesStayCompletedWhileScrolling` (started after removing full-tree `.any` scans, but the Xcode UI runner still stalled on the first route and was interrupted)
-- `xcrun simctl install booted /private/tmp/YouNewCodexContentCompletionBuildDerivedData/Build/Products/Debug-iphonesimulator/YouNew.app`
+- `xcodebuild -project YouNew.xcodeproj -scheme YouNew -destination 'generic/platform=iOS Simulator' -derivedDataPath <TEMP_DIR>/ContentCompletion/DerivedData build`
+- `xcodebuild build-for-testing -quiet -project YouNew.xcodeproj -scheme YouNew -destination 'generic/platform=iOS Simulator' -derivedDataPath <TEMP_DIR>/ContentCompletion/DerivedData`
+- `xcodebuild test-without-building -project YouNew.xcodeproj -scheme YouNew -destination 'platform=iOS Simulator,id=<SIMULATOR_UDID>' -derivedDataPath <TEMP_DIR>/ContentCompletion/DerivedData -only-testing:YouNewUITests/ContentCompletionRuntimeUITests/testRequiredContentSurfacesStayCompletedWhileScrolling` (started after removing full-tree `.any` scans, but the Xcode UI runner still stalled on the first route and was interrupted)
+- `xcrun simctl install booted <TEMP_DIR>/ContentCompletion/DerivedData/Build/Products/Debug-iphonesimulator/YouNew.app`
 - `xcrun simctl launch --terminate-running-process booted nl.younew.app`
 - `xcrun simctl launch --terminate-running-process booted nl.younew.app -uiTesting -resetUITestState -launchLanguage en -uiTestingCity Leiden -uiTestingStatus worker -uiTestingDestination education`
-- `xcrun simctl io booted screenshot /private/tmp/younew-live-*.png`
-- `/private/tmp/younew-live-contact-sheet.png`
-- `/private/tmp/younew-live-contact-sheet-2.png`
+- `xcrun simctl io booted screenshot <TEMP_DIR>/younew-live-*.png`
+- `<TEMP_DIR>/younew-live-contact-sheet.png`
+- `<TEMP_DIR>/younew-live-contact-sheet-2.png`
 
 ## Remaining Honest Risks
 

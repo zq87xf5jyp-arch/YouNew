@@ -137,7 +137,7 @@ struct PremiumImageView: View {
     var accessibilityLabel: String? = nil
     var targetPixelWidth: CGFloat? = nil
     var role: PremiumImageRole = .card
-    var overlayPolicy: PremiumImageOverlayPolicy = .none
+    var overlayPolicy: PremiumImageOverlayPolicy = .adaptive
     var focalPoint: PremiumImageFocalPoint = .center
 
     var body: some View {

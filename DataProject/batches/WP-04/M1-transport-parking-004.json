@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-04-M1-transport-parking-004",
+  "work_package": "WP-04",
+  "milestone": "WP-04-M1",
+  "target_release": "transport-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator test build and admin production build succeeded.",
+    "static": "Full static QA and DATA PROJECT validation succeeded.",
+    "duplicate": "No duplicate IDs, normalized titles, canonical websites or media IDs detected.",
+    "source": "Official source pages were reviewed and the network audit found 0 confirmed broken URLs across 1054 checked URLs.",
+    "media": "Knowledge topics intentionally contain no media assets; no unverified or unlicensed assets are present.",
+    "search": "Every record has at least three unique search terms and all related entity IDs resolve.",
+    "ai": "Every AI summary passes length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "transport.parking-signs",
+      "entity_type": "knowledge_topic",
+      "category": "parking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Read Dutch parking signs and blue-zone rules",
+      "description": "Parking legality depends on national traffic signs, road markings and local restrictions, including permit zones, disabled spaces and blue-line areas where a parking disc may be required.",
+      "images": [],
+      "official_source": {
+        "title": "Road Traffic Signs and Regulations in the Netherlands",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/site/binaries/site-content/collections/documents/2024/02/09/road-traffic-signs-and-regulations-in-the-netherlands/Road%2BTraffic%2BSigns%2Band%2BRegulations%2Bin%2Bthe%2BNetherlands.pdf",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/site/binaries/site-content/collections/documents/2024/02/09/road-traffic-signs-and-regulations-in-the-netherlands/Road%2BTraffic%2BSigns%2Band%2BRegulations%2Bin%2Bthe%2BNetherlands.pdf",
+      "related_entity_ids": [
+        "transport.paid-parking",
+        "transport.municipal-parking-rules",
+        "transport.disabled-parking"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Read every sign at the exact space and check arrows, time panels, permit codes and road markings. In a blue zone set an approved disc to the arrival time and respect the displayed maximum stay.",
+      "search_keywords": [
+        "parking signs",
+        "blue zone",
+        "parking disc",
+        "permit zone",
+        "Dutch parking rules"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Car parking"
+      }
+    },
+    {
+      "id": "transport.paid-parking",
+      "entity_type": "knowledge_topic",
+      "category": "parking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check local paid-parking hours and tariffs",
+      "description": "Municipalities set street-parking zones, chargeable hours and tariffs, which can vary by street and change over time even within the same city.",
+      "images": [],
+      "official_source": {
+        "title": "Parking costs",
+        "publisher": "Gemeente Utrecht",
+        "url": "https://www.utrecht.nl/wonen-en-leven/parkeren/kosten",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.utrecht.nl/wonen-en-leven/parkeren/kosten",
+      "related_entity_ids": [
+        "transport.parking-signs",
+        "transport.municipal-parking-rules",
+        "transport.parking-fines"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Use the municipality's current map or meter for the exact zone, register the correct number plate and confirm the paid end time. Do not rely on an old app tariff or a nearby street's rules.",
+      "search_keywords": [
+        "paid parking",
+        "parking tariff",
+        "street parking zone",
+        "parking meter",
+        "kenteken parkeren"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Car parking"
+      }
+    },
+    {
+      "id": "transport.park-and-ride",
+      "entity_type": "knowledge_topic",
+      "category": "parking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use P+R with onward public transport",
+      "description": "NS Park and Ride locations let drivers transfer to rail, with free and paid sites and possible traveller discounts that depend on the same-day train journey and payment method.",
+      "images": [],
+      "official_source": {
+        "title": "P+R parking",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/door-to-door/park-and-ride",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/door-to-door/park-and-ride",
+      "related_entity_ids": [
+        "transport.journey-planning",
+        "transport.paid-parking",
+        "transport.station-parking"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check availability, maximum discounted duration and the accepted proof of train travel before entering. At departure, validate the eligible travel card or ticket before paying the parking charge.",
+      "search_keywords": [
+        "P+R Netherlands",
+        "park and ride",
+        "station car park",
+        "train parking discount",
+        "NS parking"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Car parking"
+      }
+    },
+    {
+      "id": "transport.resident-parking-permit",
+      "entity_type": "knowledge_topic",
+      "category": "parking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Apply for a municipal resident parking permit",
+      "description": "Residents of paid-parking areas may qualify for a digital permit subject to address, vehicle, private-space and local waiting-list rules set by the municipality.",
+      "images": [],
+      "official_source": {
+        "title": "Resident parking permit",
+        "publisher": "Gemeente Rotterdam",
+        "url": "https://www.rotterdam.nl/parkeervergunning-bewoner-aanvragen",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rotterdam.nl/parkeervergunning-bewoner-aanvragen",
+      "related_entity_ids": [
+        "transport.municipal-parking-rules",
+        "transport.visitor-parking",
+        "transport.paid-parking"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check eligibility before buying or leasing a vehicle, especially private-space and waiting-list conditions. Keep the registered number plate current and monitor municipal messages about approval or renewal.",
+      "search_keywords": [
+        "resident parking permit",
+        "parkeervergunning",
+        "municipal permit",
+        "license plate permit",
+        "paid area resident"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Car parking"
+      }
+    },
+    {
+      "id": "transport.visitor-parking",
+      "entity_type": "knowledge_topic",
+      "category": "parking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Register visitor parking or a local discount",
+      "description": "Some municipalities offer resident-managed visitor parking sessions or discount codes, with the applicable zone, time, number plate and payment registered digitally.",
+      "images": [],
+      "official_source": {
+        "title": "Guide to parking discounts",
+        "publisher": "Gemeente Utrecht",
+        "url": "https://www.utrecht.nl/city-of-utrecht/mobility/guide-to-parking-discounts",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.utrecht.nl/city-of-utrecht/mobility/guide-to-parking-discounts",
+      "related_entity_ids": [
+        "transport.resident-parking-permit",
+        "transport.paid-parking",
+        "transport.municipal-parking-rules"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Register the visitor's correct number plate, start and end time, and eligible area before leaving the vehicle. Confirm who pays and whether a prepaid session can be changed or ended early.",
+      "search_keywords": [
+        "visitor parking",
+        "parking discount",
+        "guest permit",
+        "license plate session",
+        "bezoekersparkeren"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Car parking"
+      }
+    },
+    {
+      "id": "transport.disabled-parking",
+      "entity_type": "knowledge_topic",
+      "category": "parking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Combine a disability card with local parking rules",
+      "description": "A European disability parking card does not automatically create identical payment rights in every municipality, and some cities require an additional digital permit linked to a number plate.",
+      "images": [],
+      "official_source": {
+        "title": "Disabled parking permit",
+        "publisher": "Gemeente Utrecht",
+        "url": "https://www.utrecht.nl/city-of-utrecht/mobility/disabled-parking-permit",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.utrecht.nl/city-of-utrecht/mobility/disabled-parking-permit",
+      "related_entity_ids": [
+        "transport.parking-signs",
+        "transport.paid-parking",
+        "transport.municipal-parking-rules"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check the destination municipality before travel and distinguish use of the physical disability card from any local digital permit. Display or register the required proof and obey time limits and reserved-space signs.",
+      "search_keywords": [
+        "disabled parking",
+        "European parking card",
+        "GPK permit",
+        "accessible parking",
+        "number plate permit"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Car parking"
+      }
+    },
+    {
+      "id": "transport.parking-fines",
+      "entity_type": "knowledge_topic",
+      "category": "parking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check and challenge a municipal parking charge correctly",
+      "description": "A parking tax assessment or enforcement notice should be checked against the number plate, zone, payment record and stated objection route before the deadline expires.",
+      "images": [],
+      "official_source": {
+        "title": "Parking frequently asked questions",
+        "publisher": "Gemeente Utrecht",
+        "url": "https://www.utrecht.nl/wonen-en-leven/parkeren/veelgestelde-vragen",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.utrecht.nl/wonen-en-leven/parkeren/veelgestelde-vragen",
+      "related_entity_ids": [
+        "transport.paid-parking",
+        "transport.parking-signs",
+        "transport.municipal-parking-rules"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Keep the parking receipt, app confirmation, photographs of signs and location, and the notice itself. Follow the issuer's objection procedure rather than assuming every parking charge is a traffic fine.",
+      "search_keywords": [
+        "parking fine",
+        "parking tax assessment",
+        "naheffingsaanslag",
+        "parking objection",
+        "payment evidence"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Car parking"
+      }
+    },
+    {
+      "id": "transport.municipal-parking-rules",
+      "entity_type": "knowledge_topic",
+      "category": "parking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Verify parking rules with the responsible municipality",
+      "description": "Local parking policy can control permits, paid zones, garages, loading areas, environmental access and vehicle-specific restrictions beyond the national traffic-sign framework.",
+      "images": [],
+      "official_source": {
+        "title": "Parking rules",
+        "publisher": "Gemeente Utrecht",
+        "url": "https://www.utrecht.nl/wonen-en-leven/parkeren/regels",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.utrecht.nl/wonen-en-leven/parkeren/regels",
+      "related_entity_ids": [
+        "transport.parking-signs",
+        "transport.paid-parking",
+        "transport.resident-parking-permit"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Identify the responsible municipality and check its official map and current rules for the exact address. Recheck when moving house, changing vehicle or entering a newly regulated area.",
+      "search_keywords": [
+        "municipal parking",
+        "local parking rules",
+        "parking map",
+        "permit area",
+        "city parking policy"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Car parking"
+      }
+    },
+    {
+      "id": "transport.airport-parking",
+      "entity_type": "knowledge_topic",
+      "category": "parking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Choose official short- or long-stay airport parking",
+      "description": "Schiphol publishes official short-stay, long-stay and valet options with distinct locations, transfer times, reservation conditions and vehicle-access instructions.",
+      "images": [],
+      "official_source": {
+        "title": "Official Schiphol parking",
+        "publisher": "Royal Schiphol Group",
+        "url": "https://www.schiphol.nl/en/parking/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.schiphol.nl/en/parking/",
+      "related_entity_ids": [
+        "transport.paid-parking",
+        "transport.parking-signs",
+        "transport.journey-planning"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Match the parking product to trip length, terminal access and vehicle size, then save the reservation and entry method. Verify the official location and change rules before driving to the airport.",
+      "search_keywords": [
+        "Schiphol parking",
+        "airport car park",
+        "long stay parking",
+        "parking reservation",
+        "official airport parking"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Car parking"
+      }
+    },
+    {
+      "id": "transport.station-parking",
+      "entity_type": "knowledge_topic",
+      "category": "parking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use station parking with an NS Business Card",
+      "description": "Eligible NS Business Card users can activate P+R door-to-door parking, enter supported sites and receive costs through the business invoice, with traveller discounts subject to conditions.",
+      "images": [],
+      "official_source": {
+        "title": "Parking at P+R with the NS-Business Card",
+        "publisher": "Nederlandse Spoorwegen",
+        "url": "https://www.ns.nl/en/business/door-to-door/park-and-ride",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ns.nl/en/business/door-to-door/park-and-ride",
+      "related_entity_ids": [
+        "transport.park-and-ride",
+        "transport.journey-planning",
+        "transport.paid-parking"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Confirm that the employer enabled the P+R service and check the site's availability and rate. Follow the correct validation sequence at payment so an eligible same-day train discount is applied.",
+      "search_keywords": [
+        "NS Business parking",
+        "P+R business card",
+        "station parking",
+        "traveller discount",
+        "parking invoice"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Car parking"
+      }
+    }
+  ]
+}

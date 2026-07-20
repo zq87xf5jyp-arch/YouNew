@@ -600,8 +600,16 @@ struct AILetterGeneratorView: View {
 }
 
 struct DiscoverNetherlandsView: View {
+    @EnvironmentObject private var appState: AppStateViewModel
     @EnvironmentObject private var languageManager: LanguageManager
     private var lang: AppLanguage { languageManager.appLanguage }
+
+    private var selectedCityID: CityId {
+        guard let cityID = CityId.resolve(appState.selectedCity) else {
+            preconditionFailure("Discover Netherlands requires an explicit supported city for typed category routing")
+        }
+        return cityID
+    }
 
     var body: some View {
         GeometryReader { proxy in
@@ -611,12 +619,17 @@ struct DiscoverNetherlandsView: View {
             ScrollView {
                 VStack(alignment: .leading, spacing: AppSpacing.sectionGap) {
                     discoverHero
-                    VStack(spacing: AppSpacing.small) {
+                    LazyVGrid(
+                        columns: [GridItem(.adaptive(minimum: 156), spacing: AppSpacing.small)],
+                        alignment: .leading,
+                        spacing: AppSpacing.small
+                    ) {
                         ForEach(Array(discoverItems.enumerated()), id: \.offset) { _, item in
                             NavigationLink(value: item.destination) {
                                 discoverCard(item)
                             }
                             .buttonStyle(AppPressableCardButtonStyle())
+                            .accessibilityIdentifier("discoverNetherlands.category.\(item.id)")
                         }
                     }
                 }
@@ -628,14 +641,17 @@ struct DiscoverNetherlandsView: View {
         }
         .appSceneBackground(.more)
         .navigationTitle(title)
+        .accessibilityIdentifier("discoverNetherlands.screen")
     }
 
-    private var title: String { lang == .russian ? "Discover Netherlands" : "Discover Netherlands" }
-    private var subtitle: String { lang == .russian ? "Культурный контент находится отдельно от основного практического пути." : "Culture and history are here, outside the primary action flow." }
-    private var historySubtitle: String { lang == .russian ? "Контекст страны и общества." : "Country and society context." }
-    private var figuresSubtitle: String { lang == .russian ? "Известные нидерландские личности." : "Notable Dutch people." }
-    private var cultureSubtitle: String { lang == .russian ? "Музеи, привычки и повседневная культура." : "Museums, habits, and daily culture." }
-    private var holidaysSubtitle: String { lang == .russian ? "Праздники и календарь." : "Holidays and calendar." }
+    private var title: String { localized(en: "Discover Netherlands", nl: "Ontdek Nederland", ru: "Откройте Нидерланды") }
+    private var subtitle: String {
+        localized(
+            en: "Visual stories, remarkable places and reasons to explore beyond the everyday essentials.",
+            nl: "Visuele verhalen, bijzondere plekken en redenen om verder te kijken dan het dagelijks leven.",
+            ru: "Визуальные истории, необычные места и причины исследовать Нидерланды глубже."
+        )
+    }
     private var discoverHero: some View {
         ZStack(alignment: .bottomLeading) {
             PremiumImageView(
@@ -689,40 +705,86 @@ struct DiscoverNetherlandsView: View {
         .clipShape(RoundedRectangle(cornerRadius: AppCornerRadius.hero, style: .continuous))
     }
 
-    private var discoverBadge: String { lang == .russian ? "Культура" : (lang == .dutch ? "Cultuur" : "Culture") }
+    private var allDiscoverAttractions: [Attraction] {
+        NLCity.all.flatMap(\.attractions)
+    }
 
-    private var discoverItems: [(title: String, subtitle: String, symbol: String, destination: AppDestination, accent: Color)] {
+    private var discoverItems: [(id: String, title: String, subtitle: String, count: Int, symbol: String, destination: AppDestination, accent: Color, asset: AppImageAsset?)] {
         [
-            ("History", historySubtitle, "clock.arrow.circlepath", .netherlandsHistory, AppColors.softBlue),
-            ("Dutch Figures", figuresSubtitle, "person.text.rectangle", .dutchFigures, AppColors.violet),
-            ("Culture", cultureSubtitle, "building.columns", .cultureAttractions, AppColors.dutchOrange),
-            ("Dutch Holidays", holidaysSubtitle, "calendar", .dutchHolidays, AppColors.emerald)
+            ("cities", localized(en: "Cities", nl: "Steden", ru: "Города"), localized(en: "Canals, neighbourhoods and distinct city character.", nl: "Grachten, wijken en een eigen stedelijk karakter.", ru: "Каналы, районы и характер разных городов."), NLCity.all.count, "building.2.crop.circle", .cityList, AppColors.cyanGlow, ContentMediaRegistry.canalsCityCentresImage),
+            ("museums", localized(en: "Museums", nl: "Musea", ru: "Музеи"), localized(en: "Dutch masters, modern design and living heritage.", nl: "Hollandse meesters, modern design en levend erfgoed.", ru: "Голландские мастера, современный дизайн и живое наследие."), count(.museums), "building.columns.fill", .museumList(city: selectedCityID), AppColors.dutchOrange, ContentMediaRegistry.museumsCultureImage),
+            ("nature", localized(en: "Nature", nl: "Natuur", ru: "Природа"), localized(en: "Dunes, wetlands, forests and the coast.", nl: "Duinen, wetlands, bossen en de kust.", ru: "Дюны, водно-болотные угодья, леса и побережье."), count(.nature, .parks, .beaches), "leaf.fill", .natureList(city: selectedCityID), AppColors.emerald, ContentMediaRegistry.natureImage),
+            ("architecture", localized(en: "Architecture", nl: "Architectuur", ru: "Архитектура"), localized(en: "Canal houses, historic centres and bold modern forms.", nl: "Grachtenpanden, historische centra en moderne vormen.", ru: "Канальные дома, исторические центры и современная архитектура."), count(.topAttractions), "building.2.fill", .leisureSection(city: selectedCityID, type: .architecture), AppColors.softBlue, ContentMediaRegistry.delftHistoricCentreImage),
+            ("history", localized(en: "History", nl: "Geschiedenis", ru: "История"), localized(en: "Historic centres, castles and UNESCO heritage.", nl: "Historische centra, kastelen en UNESCO-erfgoed.", ru: "Исторические центры, замки и наследие ЮНЕСКО."), count(.historicCentres, .castles, .unescoSites), "clock.arrow.circlepath", .netherlandsHistory, AppColors.violet, ContentMediaRegistry.leidenCanalsHero),
+            ("culture", localized(en: "Culture", nl: "Cultuur", ru: "Культура"), localized(en: "Art, design and traditions that shape Dutch life.", nl: "Kunst, design en tradities die het Nederlandse leven vormen.", ru: "Искусство, дизайн и традиции, формирующие жизнь страны."), count(.museums, .historicCentres), "theatermasks.fill", .cultureAttractions, AppColors.dutchOrange, ContentMediaRegistry.cultureWideHero),
+            ("seasonal", localized(en: "Seasonal Netherlands", nl: "Nederland per seizoen", ru: "Нидерланды по сезонам"), localized(en: "Tulips, festivals, autumn light and winter traditions.", nl: "Tulpen, festivals, herfstlicht en wintertradities.", ru: "Тюльпаны, фестивали, осенний свет и зимние традиции."), seasonalAttractionCount, "calendar.badge.clock", .dutchHolidays, AppColors.warning, ContentMediaRegistry.calendarImage)
         ]
     }
 
-    private func discoverCard(_ item: (title: String, subtitle: String, symbol: String, destination: AppDestination, accent: Color)) -> some View {
-        VStack(alignment: .leading, spacing: 10) {
-            ProductSymbolTile(symbol: item.symbol, accent: item.accent, size: 46)
-            Text(item.title)
-                .font(AppTypography.bodyStrong)
-                .foregroundStyle(AppColors.textPrimary)
-                .lineLimit(2)
-                .minimumScaleFactor(0.84)
-            Text(item.subtitle)
-                .font(AppTypography.caption)
-                .foregroundStyle(AppColors.textSecondary)
-                .lineLimit(3)
-                .fixedSize(horizontal: false, vertical: true)
-            Spacer(minLength: 0)
-            Image(systemName: AppIcons.forward)
-                .font(AppTypography.captionStrong)
-                .foregroundStyle(AppColors.textSecondary)
-                .frame(maxWidth: .infinity, alignment: .trailing)
+    private func count(_ categories: TourismCategory...) -> Int {
+        allDiscoverAttractions.filter { categories.contains($0.category) }.count
+    }
+
+    private var seasonalAttractionCount: Int {
+        allDiscoverAttractions.filter { !$0.bestSeason.localizedCaseInsensitiveContains("year-round") }.count
+    }
+
+    private func discoverCard(_ item: (id: String, title: String, subtitle: String, count: Int, symbol: String, destination: AppDestination, accent: Color, asset: AppImageAsset?)) -> some View {
+        ZStack(alignment: .bottomLeading) {
+            PremiumImageView(
+                asset: item.asset,
+                language: lang,
+                height: 220,
+                aspectRatio: nil,
+                mode: .fill,
+                cornerRadius: 20,
+                overlayStyle: .none,
+                fallbackCategory: .city,
+                accessibilityLabel: item.title,
+                targetPixelWidth: 900,
+                role: .card,
+                overlayPolicy: .none,
+                focalPoint: .center
+            )
+
+            LinearGradient(
+                colors: [.clear, AppColors.navyDeep.opacity(0.94)],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+
+            VStack(alignment: .leading, spacing: 7) {
+                LandmarkSymbolBadge(symbol: item.symbol, accent: item.accent, size: 40)
+                Text(item.title)
+                    .font(AppTypography.bodyStrong)
+                    .foregroundStyle(.white)
+                    .lineLimit(2)
+                if item.count > 0 {
+                    Text(localized(en: "\(item.count) places", nl: "\(item.count) plekken", ru: "Мест: \(item.count)"))
+                        .font(AppTypography.captionStrong)
+                        .foregroundStyle(item.accent)
+                }
+                Text(item.subtitle)
+                    .font(AppTypography.caption)
+                    .foregroundStyle(.white.opacity(0.82))
+                    .lineLimit(3)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            .padding(14)
         }
-        .frame(maxWidth: .infinity, minHeight: 116, alignment: .topLeading)
-        .padding(14)
-        .background(AppColors.glassSurfaceElevated, in: RoundedRectangle(cornerRadius: 18, style: .continuous))
-        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(AppColors.stroke.opacity(0.72), lineWidth: 0.8))
-        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+        .frame(maxWidth: .infinity, minHeight: 220, maxHeight: 220, alignment: .bottomLeading)
+        .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
+        .overlay(RoundedRectangle(cornerRadius: 20, style: .continuous).stroke(Color.white.opacity(0.16), lineWidth: 0.8))
+        .shadow(color: item.accent.opacity(0.16), radius: 14, x: 0, y: 8)
+        .accessibilityElement(children: .combine)
+        .accessibilityLabel("\(item.title). \(item.count). \(item.subtitle)")
+    }
+
+    private func localized(en: String, nl: String, ru: String) -> String {
+        switch lang {
+        case .english: return en
+        case .dutch: return nl
+        case .russian: return ru
+        }
     }
 }

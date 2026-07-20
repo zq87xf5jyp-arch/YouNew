@@ -1,0 +1,17 @@
+{
+  "schema_version": 1,
+  "issue_types": [
+    {"id": "broken_link", "default_priority": "high", "owner": "source"},
+    {"id": "source_changed", "default_priority": "medium", "owner": "source"},
+    {"id": "wrong_city", "default_priority": "high", "owner": "geography"},
+    {"id": "duplicate", "default_priority": "high", "owner": "duplicate"},
+    {"id": "outdated", "default_priority": "medium", "owner": "freshness"},
+    {"id": "expired_event", "default_priority": "high", "owner": "events"},
+    {"id": "missing_image", "default_priority": "medium", "owner": "media"},
+    {"id": "broken_image", "default_priority": "high", "owner": "media"},
+    {"id": "low_quality_image", "default_priority": "low", "owner": "media"},
+    {"id": "missing_license", "default_priority": "critical", "owner": "media"},
+    {"id": "orphan_data", "default_priority": "low", "owner": "usage"},
+    {"id": "publication_candidate", "default_priority": "medium", "owner": "release"}
+  ]
+}

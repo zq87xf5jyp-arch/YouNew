@@ -24,6 +24,16 @@ python3 scripts/visual-report-static-qa.py
 python3 scripts/ai-subsystem-static-qa.py
 python3 scripts/persona-ia-static-qa.py
 python3 scripts/content-static-qa.py
+python3 scripts/data-project-qa.py
+python3 scripts/data-project-import-static-qa.py
+python3 scripts/generate-data-dashboard.py
+python3 scripts/data-dashboard-static-qa.py
+python3 scripts/generate-data-observability.py
+python3 scripts/data-observability-static-qa.py
+python3 scripts/generate-data-operations.py
+python3 scripts/data-operations-static-qa.py
+python3 scripts/data-health-gate.py
+python3 scripts/data-project-workflow-static-qa.py
 python3 scripts/knm-static-qa.py
 python3 scripts/dutch-course-static-qa.py
 python3 scripts/user-visible-completeness-static-qa.py

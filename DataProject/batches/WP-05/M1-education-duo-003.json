@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-05-M1-education-duo-003",
+  "work_package": "WP-05",
+  "milestone": "WP-05-M1",
+  "target_release": "education-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator build-for-testing and admin production build succeeded.",
+    "static": "Full static QA and DATA PROJECT schema validation passed.",
+    "duplicate": "No duplicate entity IDs, canonical websites or unresolved relations.",
+    "source": "Official sources reviewed; 1091 external URLs checked with 0 confirmed broken.",
+    "media": "Knowledge topics intentionally require no media; empty media fields validated.",
+    "search": "Search keywords are unique, descriptive and backed by resolvable related entities.",
+    "ai": "AI summaries are actionable, source-aligned and free of unsupported personal conclusions."
+  },
+  "records": [
+    {
+      "id": "education.duo-account",
+      "entity_type": "knowledge_topic",
+      "category": "duo",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use DUO services as an international student",
+      "description": "DUO provides education administration, student-finance and diploma services, with international visitors using official public guidance and Mijn DUO for personal decisions and messages.",
+      "images": [],
+      "official_source": {
+        "title": "International visitor",
+        "publisher": "DUO",
+        "url": "https://duo.nl/particulier/international-visitor.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://duo.nl/particulier/international-visitor.jsp",
+      "related_entity_ids": [
+        "education.student-finance-overview",
+        "education.graduation-changes",
+        "education.diploma-register"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Use only official DUO domains and sign in through the official portal with DigiD when possible. Save decision letters and keep study, address and contact information current.",
+      "search_keywords": [
+        "DUO international",
+        "Mijn DUO",
+        "education administration",
+        "international student DUO",
+        "official student portal"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "DUO and student administration"
+      }
+    },
+    {
+      "id": "education.student-finance-overview",
+      "entity_type": "knowledge_topic",
+      "category": "duo",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand the components of student finance",
+      "description": "Dutch student finance can include grants, a student travel product and interest-bearing loans, with eligibility depending on programme, enrolment, age, nationality or equivalent rights.",
+      "images": [],
+      "official_source": {
+        "title": "Student finance overview",
+        "publisher": "DUO",
+        "url": "https://duo.nl/particulier/student-finance/index.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://duo.nl/particulier/student-finance/index.jsp",
+      "related_entity_ids": [
+        "education.supplementary-grant",
+        "education.student-loan",
+        "education.student-travel-product"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check eligibility for every component separately and apply for the supplementary grant even when parental income may appear too high. Treat every loan component as repayable debt unless DUO confirms conversion to a gift.",
+      "search_keywords": [
+        "student finance",
+        "studiefinanciering",
+        "basic grant",
+        "student loan",
+        "DUO finance"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "DUO and student administration"
+      }
+    },
+    {
+      "id": "education.supplementary-grant",
+      "entity_type": "knowledge_topic",
+      "category": "duo",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Apply for and maintain the supplementary grant",
+      "description": "The supplementary grant is calculated using parental income and personal circumstances, and DUO can reassess eligibility when relevant income information changes.",
+      "images": [],
+      "official_source": {
+        "title": "Supplementary grant",
+        "publisher": "DUO",
+        "url": "https://duo.nl/particulier/student-finance/supplementary-grant.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://duo.nl/particulier/student-finance/supplementary-grant.jsp",
+      "related_entity_ids": [
+        "education.student-finance-overview",
+        "education.finance-amounts",
+        "education.student-loan"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Apply once through Mijn DUO and respond promptly if income or parent information is requested. Review the decision and conditions under which the grant becomes a gift after obtaining a diploma.",
+      "search_keywords": [
+        "supplementary grant",
+        "aanvullende beurs",
+        "parental income",
+        "DUO grant",
+        "student allowance"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "DUO and student administration"
+      }
+    },
+    {
+      "id": "education.tuition-and-fees",
+      "entity_type": "knowledge_topic",
+      "category": "duo",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use a tuition-fee loan when eligible",
+      "description": "Eligible HBO and university students may borrow specifically toward tuition fees, with the maximum linked to statutory or documented institutional tuition and added to student debt.",
+      "images": [],
+      "official_source": {
+        "title": "Tuition fees loan",
+        "publisher": "DUO",
+        "url": "https://duo.nl/particulier/student-finance/tuition-fees-loan.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://duo.nl/particulier/student-finance/tuition-fees-loan.jsp",
+      "related_entity_ids": [
+        "education.student-finance-overview",
+        "education.student-loan",
+        "education.programme-recognition"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Confirm the actual tuition charged by the institution and upload evidence when institutional fees apply. Borrow only the amount needed and remember that the tuition-fee loan accrues interest.",
+      "search_keywords": [
+        "tuition fee loan",
+        "collegegeldkrediet",
+        "institutional tuition",
+        "DUO fees loan",
+        "study costs"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "DUO and student administration"
+      }
+    },
+    {
+      "id": "education.student-loan",
+      "entity_type": "knowledge_topic",
+      "category": "duo",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand borrowing and interest through DUO",
+      "description": "An interest-bearing DUO loan can be changed monthly but creates student debt, accrues interest and must be repaid under the rules applying after study.",
+      "images": [],
+      "official_source": {
+        "title": "Borrowing",
+        "publisher": "DUO",
+        "url": "https://www.duo.nl/particulier/student-finance/regular-loan.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.duo.nl/particulier/student-finance/regular-loan.jsp",
+      "related_entity_ids": [
+        "education.student-finance-overview",
+        "education.repay-student-debt",
+        "education.tuition-and-fees"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check grants before borrowing, review the current interest rate and estimate later repayments. Adjust or stop the monthly loan before the stated cut-off when circumstances change.",
+      "search_keywords": [
+        "DUO loan",
+        "student debt",
+        "interest bearing loan",
+        "borrow for study",
+        "studieschuld"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "DUO and student administration"
+      }
+    },
+    {
+      "id": "education.student-travel-product",
+      "entity_type": "knowledge_topic",
+      "category": "duo",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Manage the student public-transport product",
+      "description": "Eligible full-time students can receive a weekday or weekend student travel product, which must be linked and collected correctly and stopped when entitlement ends.",
+      "images": [],
+      "official_source": {
+        "title": "Student travel product",
+        "publisher": "DUO",
+        "url": "https://duo.nl/particulier/student-travel-product/index.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://duo.nl/particulier/student-travel-product/index.jsp",
+      "related_entity_ids": [
+        "education.student-finance-overview",
+        "education.graduation-changes",
+        "education.duo-account"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Follow the linking and collection instructions for the personal travel card and confirm the activation date. Stop the product promptly when DUO entitlement ends to avoid a travel-product debt.",
+      "search_keywords": [
+        "student travel product",
+        "studentenreisproduct",
+        "weekend OV",
+        "weekday OV",
+        "DUO travel"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "DUO and student administration"
+      }
+    },
+    {
+      "id": "education.finance-amounts",
+      "entity_type": "knowledge_topic",
+      "category": "duo",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check current DUO payment and loan amounts",
+      "description": "DUO publishes current maximum grants, loans and student-finance amounts by education type and living situation, which can change by period.",
+      "images": [],
+      "official_source": {
+        "title": "Student finance amounts",
+        "publisher": "DUO",
+        "url": "https://duo.nl/particulier/student-finance/amounts.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://duo.nl/particulier/student-finance/amounts.jsp",
+      "related_entity_ids": [
+        "education.student-finance-overview",
+        "education.supplementary-grant",
+        "education.student-loan"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Use the amount table for the correct month, programme and living situation, then verify the personal award in Mijn DUO. A published maximum is not a guarantee of individual entitlement.",
+      "search_keywords": [
+        "DUO amounts",
+        "student finance rates",
+        "grant amount",
+        "loan maximum",
+        "monthly study finance"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "DUO and student administration"
+      }
+    },
+    {
+      "id": "education.repay-student-debt",
+      "entity_type": "knowledge_topic",
+      "category": "duo",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Prepare to repay a DUO student debt",
+      "description": "After the study and any start phase, DUO calculates repayment under the applicable rules, using interest, debt size and income information to determine obligations.",
+      "images": [],
+      "official_source": {
+        "title": "Repaying your student loan",
+        "publisher": "DUO",
+        "url": "https://duo.nl/particulier/repaying-your-student-loan/index.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://duo.nl/particulier/repaying-your-student-loan/index.jsp",
+      "related_entity_ids": [
+        "education.student-loan",
+        "education.graduation-changes",
+        "education.duo-account"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check which repayment rules and fixed-interest period apply, keep foreign and Dutch addresses current, and contact DUO early when payment difficulty arises rather than missing instalments.",
+      "search_keywords": [
+        "repay student debt",
+        "DUO repayment",
+        "studieschuld betalen",
+        "student loan interest",
+        "monthly repayment"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "DUO and student administration"
+      }
+    },
+    {
+      "id": "education.graduation-changes",
+      "entity_type": "knowledge_topic",
+      "category": "duo",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Update education and finance after graduating",
+      "description": "Graduation and disenrolment can affect student finance, travel products and fees on different dates, so students must check which changes are reported automatically and which require action.",
+      "images": [],
+      "official_source": {
+        "title": "What to arrange after graduation",
+        "publisher": "DUO",
+        "url": "https://duo.nl/particulier/you-graduated/what-do-you-need-to-arrange.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://duo.nl/particulier/you-graduated/what-do-you-need-to-arrange.jsp",
+      "related_entity_ids": [
+        "education.student-travel-product",
+        "education.repay-student-debt",
+        "education.diploma-register"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Confirm the formal disenrolment date, stop any products that do not end automatically and retain proof. Do not use the graduation ceremony date as a substitute for the registered end date.",
+      "search_keywords": [
+        "after graduation DUO",
+        "disenrol study",
+        "stop student finance",
+        "graduate checklist",
+        "end travel product"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "DUO and student administration"
+      }
+    },
+    {
+      "id": "education.diploma-register",
+      "entity_type": "knowledge_topic",
+      "category": "duo",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Retrieve proof from the Dutch diploma register",
+      "description": "DUO's diploma register provides digital information or extracts for many officially recorded Dutch diplomas, while coverage depends on education type and year.",
+      "images": [],
+      "official_source": {
+        "title": "Diploma register",
+        "publisher": "DUO",
+        "url": "https://duo.nl/particulier/diplomas-and-certificates/diploma-register.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://duo.nl/particulier/diplomas-and-certificates/diploma-register.jsp",
+      "related_entity_ids": [
+        "education.graduation-changes",
+        "education.duo-account",
+        "education.credential-evaluation"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check whether the qualification and graduation year are covered and download the official digital proof through the secure route. Contact the institution if a recent or eligible diploma is missing.",
+      "search_keywords": [
+        "DUO diploma register",
+        "Mijn diploma",
+        "digital diploma",
+        "education certificate",
+        "proof graduation"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "DUO and student administration"
+      }
+    }
+  ]
+}

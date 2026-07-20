@@ -18,6 +18,7 @@ struct SearchView: View {
     @State private var invalidLinkMessage: String?
     @State private var directResultsCache: [InformationSearchResult] = []
     @State private var directResultsTask: Task<Void, Never>?
+    @State private var searchEditingIntent = false
     @FocusState private var isSearchFocused: Bool
 
     private var lang: AppLanguage { languageManager.appLanguage }
@@ -157,13 +158,15 @@ struct SearchView: View {
                                     directResultCard(result)
                                 }
                                 .buttonStyle(.plain)
-                                .accessibilityIdentifier(index == 0 ? "search.result.card" : "search.directResult.button.\(result.id)")
+                                .accessibilityIdentifier("search.directResult.button.\(result.id)")
                             } else {
-                                NavigationLink(value: result.destination) {
+                                NavigationLink {
+                                    AppDestinationView(destination: result.destination)
+                                } label: {
                                     directResultCard(result)
                                 }
                                 .buttonStyle(.plain)
-                                .accessibilityIdentifier(index == 0 ? "search.result.card" : "search.directResult.link.\(result.id)")
+                                .accessibilityIdentifier("search.directResult.link.\(result.id)")
                             }
                         }
                     }
@@ -220,8 +223,9 @@ struct SearchView: View {
             .safeAreaInset(edge: .top, spacing: 0) {
                 pinnedSearchBar
             }
-            .nlScrollDismissesKeyboardInteractively()
+            .nlScrollKeepsKeyboardVisible()
             .onReceive(router.searchScrollTop) { _ in
+                searchEditingIntent = false
                 isSearchFocused = false
                 withAnimation(.easeInOut(duration: 0.24)) {
                     scrollProxy.scrollTo("searchTop", anchor: .top)
@@ -229,16 +233,26 @@ struct SearchView: View {
             }
             .onChange(of: viewModel.query) { _, _ in
                 scheduleDirectResultsRefresh()
-                scrollToSearchTop(scrollProxy)
             }
             .onChange(of: viewModel.selectedCategory) { _, _ in
                 refreshDirectResults()
                 scrollToSearchTop(scrollProxy)
             }
+            .onReceive(viewModel.$displayedResults.dropFirst()) { _ in
+                restoreSearchFocusIfNeeded()
+            }
         }
         .animation(AppAnimations.standard, value: viewModel.selectedCategory)
         .onAppear {
             viewModel.language = lang
+#if DEBUG
+            let arguments = ProcessInfo.processInfo.arguments
+            if arguments.contains("-uiTesting"),
+               let queryIndex = arguments.firstIndex(of: "-uiTestingSearchQuery"),
+               arguments.indices.contains(queryIndex + 1) {
+                viewModel.setQuery(arguments[queryIndex + 1])
+            }
+#endif
             refreshDirectResults()
         }
         .onChange(of: lang) { _, newLanguage in
@@ -246,6 +260,7 @@ struct SearchView: View {
             refreshDirectResults()
         }
         .onDisappear {
+            searchEditingIntent = false
             directResultsTask?.cancel()
         }
         .appSceneBackground(.search)
@@ -260,44 +275,57 @@ struct SearchView: View {
                         .font(.system(size: 15, weight: .medium))
                         .foregroundStyle(AppColors.accentLight)
                     TextField(L10n.t("search.placeholder", lang), text: $viewModel.query)
+                        .id("search.input.editor")
                         .font(AppTypography.body)
                         .frame(minHeight: 44)
                         .submitLabel(.search)
                         .onSubmit {
+                            searchEditingIntent = false
                             isSearchFocused = false
                             viewModel.performSearch()
+                            refreshDirectResults()
                         }
                         .autocorrectionDisabled(true)
                         .focused($isSearchFocused)
+                        .onChange(of: isSearchFocused) { _, focused in
+                            if focused {
+                                searchEditingIntent = true
+                            }
+                        }
                         .contentShape(Rectangle())
                         .onTapGesture {
+                            searchEditingIntent = true
                             isSearchFocused = true
                         }
                         .accessibilityLabel(L10n.t("search.placeholder", lang))
                         .accessibilityIdentifier("search.input")
-                    if !viewModel.query.isEmpty {
-                        Button {
-                            viewModel.query = ""
-                        } label: {
-                            Image(systemName: "xmark.circle.fill")
-                                .font(.system(size: 14))
-                                .foregroundStyle(AppColors.textTertiary)
-                                .frame(minWidth: 44, minHeight: 44)
-                                .contentShape(Rectangle())
-                        }
-                        .buttonStyle(.plain)
-                        .accessibilityLabel(L10n.t("common.clear", lang))
+                    Button {
+                        viewModel.query = ""
+                    } label: {
+                        Image(systemName: "xmark.circle.fill")
+                            .font(.system(size: 14))
+                            .foregroundStyle(AppColors.textTertiary)
+                            .frame(minWidth: 44, minHeight: 44)
+                            .contentShape(Rectangle())
                     }
+                    .buttonStyle(.plain)
+                    .opacity(viewModel.query.isEmpty ? 0 : 1)
+                    .disabled(viewModel.query.isEmpty)
+                    .accessibilityHidden(viewModel.query.isEmpty)
+                    .accessibilityLabel(L10n.t("common.clear", lang))
                 }
                 .contentShape(Rectangle())
                 .onTapGesture {
+                    searchEditingIntent = true
                     isSearchFocused = true
                 }
                 .appInputStyle()
 
                 Button {
+                    searchEditingIntent = false
                     isSearchFocused = false
                     viewModel.performSearch()
+                    refreshDirectResults()
                 } label: {
                     Image(systemName: "arrow.right")
                         .font(.system(size: 15, weight: .semibold))
@@ -333,6 +361,7 @@ struct SearchView: View {
                         let applySuggestion = {
                             viewModel.setQuery(suggestion.query)
                             refreshDirectResults()
+                            searchEditingIntent = false
                             isSearchFocused = false
                         }
 
@@ -483,9 +512,24 @@ struct SearchView: View {
         }
 
         directResultsTask = Task { @MainActor in
-            try? await Task.sleep(nanoseconds: 140_000_000)
+            try? await ContinuousClock().sleep(for: .milliseconds(260))
             guard !Task.isCancelled else { return }
             directResultsCache = buildDirectResults()
+            restoreSearchFocusIfNeeded()
+        }
+    }
+
+    private func restoreSearchFocusIfNeeded() {
+        guard searchEditingIntent else { return }
+        Task { @MainActor in
+            await Task.yield()
+            guard searchEditingIntent else { return }
+            // Result-tree replacement can recreate the underlying UITextField.
+            // Reset the binding so the replacement immediately becomes first responder.
+            isSearchFocused = false
+            await Task.yield()
+            guard searchEditingIntent else { return }
+            isSearchFocused = true
         }
     }
 
@@ -493,7 +537,7 @@ struct SearchView: View {
         let q = viewModel.query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard q.count >= 2 else { return [] }
         let normalized = q.lowercased()
-        let allowsKNMResults = matches(normalized, knmSearchAliases)
+        let allowsKNMResults = KNMSearchContract.matches(normalized)
         let selectedCategory = viewModel.selectedCategory ?? directIntentCategory(for: normalized)
         var results: [InformationSearchResult] = []
 
@@ -501,8 +545,22 @@ struct SearchView: View {
             results.append(essentialResult)
         }
 
-        if selectedCategory == nil || selectedCategory == .general {
+        if selectedCategory == nil || selectedCategory == .general || !viewModel.netherlandsResults.isEmpty {
             results += viewModel.netherlandsResults.compactMap(netherlandsResult)
+        }
+
+        for item in canonicalSearchResults(query: normalized) {
+            guard let destination = ContentRepository.shared.destination(id: item.id) else { continue }
+            results.append(InformationSearchResult(
+                id: "canonical-\(item.id)",
+                type: canonicalTypeLabel(item.contentType),
+                title: localizedTitle(item),
+                subtitle: item.shortDescription,
+                icon: canonicalSymbol(item.contentType),
+                tint: canonicalTint(item.primaryCategoryID),
+                destination: destination,
+                externalURL: nil
+            ))
         }
 
         for section in InformationArchitecture.canonicalSections
@@ -626,38 +684,105 @@ struct SearchView: View {
             }
         }
 
-        let places = DashboardPlacesData.visiblePlaces(cityId: selectedCity.name, audience: selectedAudience, limit: nil)
-        for place in places where shouldSearchPlaces(selectedCategory) && matches(normalized, [place.title, place.shortTitle ?? "", place.description, place.cityId, place.address ?? "", "places", "visit", "museum", "museums", "landmark", "park", "attraction", "attractions", "places to visit"] + place.category.map(\.rawValue)) {
-            results.append(InformationSearchResult(
-                id: "visit-place-\(place.id)",
-                type: localized(en: "Places", nl: "Plekken", ru: "Места"),
-                title: place.title,
-                subtitle: place.description,
-                icon: place.primaryCategory.symbol,
-                tint: place.primaryCategory.accent,
-                destination: place.destination,
-                externalURL: nil
-            ))
+        if shouldSearchPlaces(selectedCategory) {
+            let places = DashboardPlacesData.visiblePlaces(cityId: selectedCity.name, audience: selectedAudience, limit: nil)
+            for place in places where matches(normalized, [place.title, place.shortTitle ?? "", place.description, place.cityId, place.address ?? "", "places", "visit", "museum", "museums", "landmark", "park", "attraction", "attractions", "places to visit"] + place.category.map(\.rawValue)) {
+                results.append(InformationSearchResult(
+                    id: "visit-place-\(place.id)",
+                    type: localized(en: "Places", nl: "Plekken", ru: "Места"),
+                    title: place.title,
+                    subtitle: place.description,
+                    icon: place.primaryCategory.symbol,
+                    tint: place.primaryCategory.accent,
+                    destination: place.destination,
+                    externalURL: nil
+                ))
+            }
         }
 
-        let events = DashboardCalendarData.upcomingEvents(cityId: selectedCity.name, audience: selectedAudience, limit: nil)
-        for event in events where shouldSearchCalendar(selectedCategory) && matches(normalized, [event.title, event.localTitle ?? "", event.description ?? "", event.impact ?? "", "holiday", "holidays", "calendar", "event", "events", "public holiday", "king day", "kings day"]) {
-            results.append(InformationSearchResult(
-                id: "calendar-event-\(event.id)",
-                type: localized(en: "Calendar", nl: "Kalender", ru: "Календарь"),
-                title: event.title,
-                subtitle: event.impact ?? event.type.title(lang),
-                icon: event.type.symbol,
-                tint: event.type.accent,
-                destination: .calendarEvent(event.id),
-                externalURL: nil
-            ))
+        if shouldSearchCalendar(selectedCategory) {
+            let events = DashboardCalendarData.upcomingEvents(cityId: selectedCity.name, audience: selectedAudience, limit: nil)
+            for event in events where matches(normalized, [event.title, event.localTitle ?? "", event.description ?? "", event.impact ?? "", "holiday", "holidays", "calendar", "event", "events", "public holiday", "king day", "kings day"]) {
+                results.append(InformationSearchResult(
+                    id: "calendar-event-\(event.id)",
+                    type: localized(en: "Calendar", nl: "Kalender", ru: "Календарь"),
+                    title: event.title,
+                    subtitle: event.impact ?? event.type.title(lang),
+                    icon: event.type.symbol,
+                    tint: event.type.accent,
+                    destination: .calendarEvent(event.id),
+                    externalURL: nil
+                ))
+            }
         }
 
         let activePersona = appState.selectedUserStatus?.personaTag
-        return Array(results
-            .filter { RelatedContentEngine.isVisible($0.destination, for: activePersona) }
-            .prefix(8))
+        var seenDestinations = Set<AppDestination>()
+        let visibleResults = results.filter { result in
+            RelatedContentEngine.isVisible(result.destination, for: activePersona)
+                && seenDestinations.insert(result.destination).inserted
+        }
+        let rankedResults = visibleResults.enumerated().sorted { lhs, rhs in
+            let lhsPriority = KNMSearchContract.priority(resultID: lhs.element.id, query: normalized)
+            let rhsPriority = KNMSearchContract.priority(resultID: rhs.element.id, query: normalized)
+            return lhsPriority == rhsPriority ? lhs.offset < rhs.offset : lhsPriority < rhsPriority
+        }.map(\.element)
+        return Array(rankedResults.prefix(8))
+    }
+
+    private func canonicalSearchResults(query: String) -> [ContentItem] {
+        let tokens = ContentNormalization.text(query).split(separator: " ").map(String.init)
+        guard !tokens.isEmpty else { return [] }
+        return ContentRepository.shared.searchableItems()
+            .filter { item in
+                let searchable = ContentNormalization.text(
+                    ([item.title, item.shortDescription, item.fullDescription] + item.keywords).joined(separator: " ")
+                )
+                return tokens.allSatisfy(searchable.contains)
+            }
+            .sorted { ($0.priority, $0.title) > ($1.priority, $1.title) }
+            .prefix(8)
+            .map { $0 }
+    }
+
+    private func localizedTitle(_ item: ContentItem) -> String {
+        switch lang {
+        case .english: return item.title
+        case .dutch: return item.localTitle["nl"] ?? item.title
+        case .russian: return item.localTitle["ru"] ?? item.title
+        }
+    }
+
+    private func canonicalTypeLabel(_ type: ContentType) -> String {
+        switch type {
+        case .place: return localized(en: "Place", nl: "Plek", ru: "Место")
+        case .city: return localized(en: "City", nl: "Stad", ru: "Город")
+        case .province: return localized(en: "Province", nl: "Provincie", ru: "Провинция")
+        case .officialService: return localized(en: "Official service", nl: "Officiële dienst", ru: "Государственная услуга")
+        default: return localized(en: "Guide", nl: "Gids", ru: "Гайд")
+        }
+    }
+
+    private func canonicalSymbol(_ type: ContentType) -> String {
+        switch type {
+        case .place: return "mappin.and.ellipse"
+        case .city: return "building.2.fill"
+        case .province: return "map.fill"
+        case .officialService: return "building.columns.fill"
+        case .checklist: return "checklist"
+        case .emergencyAction: return "cross.case.fill"
+        default: return "doc.text.fill"
+        }
+    }
+
+    private func canonicalTint(_ categoryID: String) -> Color {
+        switch categoryID {
+        case "health-safety": return AppColors.success
+        case "transport": return AppColors.softBlue
+        case "official-services": return AppColors.violet
+        case "housing": return AppColors.dutchOrange
+        default: return AppColors.cyanGlow
+        }
     }
 
     private func directIntentCategory(for normalized: String) -> SearchCategory? {
@@ -667,7 +792,7 @@ struct SearchView: View {
         if matches(normalized, dutchCourseSearchAliases) {
             return .education
         }
-        if matches(normalized, knmSearchAliases) {
+        if KNMSearchContract.matches(normalized) {
             return .education
         }
         return nil
@@ -773,7 +898,7 @@ struct SearchView: View {
         case .emergency:
             return ["emergency", "112", "police", "ambulance", "urgent", "экстренно", "полиция", "noodhulp"]
         case .documentsGovernment:
-            return ["documents", "government", "bsn", "digid", "gemeente", "ind", "official", "документы", "государство"]
+            return ["documents", "government", "bsn", "digid", "gemeente", "toeslagen", "ind", "official", "документы", "государство"]
         case .housing:
             return ["housing", "rent", "address", "deposit", "landlord", "жилье", "жильё", "huur", "wonen"]
         case .healthcare:
@@ -1010,7 +1135,7 @@ struct SearchView: View {
             language: lang
         )
         .accessibilityElement(children: .combine)
-        .accessibilityIdentifier("search.directResult.card.\(result.id)")
+        .accessibilityIdentifier("search.directResult.\(result.id)")
     }
 
     private func matches(_ query: String, _ values: [String]) -> Bool {
@@ -1198,6 +1323,10 @@ struct SearchView: View {
     }
 
     private func scrollToSearchTop(_ scrollProxy: ScrollViewProxy) {
+        // Programmatic scrolling participates in interactive keyboard dismissal.
+        // Category inference can change while the user is typing, so preserve the
+        // active editor and only reposition content after editing has ended.
+        guard !isSearchFocused else { return }
         guard !viewModel.query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else { return }
         withAnimation(.easeOut(duration: 0.18)) {
             scrollProxy.scrollTo("searchTop", anchor: .top)
@@ -1569,14 +1698,6 @@ struct SearchView: View {
         }
     }
 
-    private var knmSearchAliases: [String] {
-        [
-            "knm", "kennis van de nederlandse maatschappij", "knowledge of dutch society",
-            "знание нидерландского общества", "inburgering knm", "duo knm",
-            "huisarts", "toeslagen", "gemeente", "112"
-        ]
-    }
-
     private var dutchCourseSearchAliases: [String] {
         [
             "dutch a1", "dutch a2", "dutch a1-a2", "dutch a1 a2",
@@ -1687,6 +1808,52 @@ private struct InformationSearchResult: Identifiable {
         self.tint = tint
         self.destination = destination
         self.externalURL = externalURL
+    }
+}
+
+/// Stable search contract for the first-class KNM destination.
+/// Kept independent from localized display copy so routing and ranking do not
+/// change when UI strings change.
+enum KNMSearchContract {
+    static let entityID = "knm"
+    static let aliases = [
+        "knm",
+        "civic integration",
+        "inburgering",
+        "integration exam",
+        "kennis nederlandse maatschappij",
+        "kennis van de nederlandse maatschappij",
+        "knowledge of dutch society",
+        "inburgering knm",
+        "duo knm",
+        "знание нидерландского общества"
+    ]
+
+    static func matches(_ rawQuery: String) -> Bool {
+        let query = normalize(rawQuery)
+        guard query.count >= 2 else { return false }
+        return aliases.contains { rawAlias in
+            let alias = normalize(rawAlias)
+            if query == alias { return true }
+            if query.count >= 3, alias.contains(query) { return true }
+            if alias.count >= 3, query.contains(alias) { return true }
+            return false
+        }
+    }
+
+    static func priority(resultID: String, query: String) -> Int {
+        guard matches(query) else { return 0 }
+        if resultID == entityID { return 0 }
+        if resultID.hasPrefix("knm-") { return 1 }
+        return 2
+    }
+
+    private static func normalize(_ value: String) -> String {
+        value
+            .trimmingCharacters(in: .whitespacesAndNewlines)
+            .lowercased()
+            .split(whereSeparator: { $0.isWhitespace })
+            .joined(separator: " ")
     }
 }
 

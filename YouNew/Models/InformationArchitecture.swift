@@ -106,19 +106,19 @@ enum IASection: String, CaseIterable, Codable, Hashable, Identifiable {
         switch destination {
         case .firstSteps, .checklistList, .beginnerGuidesList, .practicalGuide(.firstStepsNetherlands):
             return .startHere
-        case .placeDetail, .homeExploreList, .localPartners, .localPartnerDetail, .businessGrowth, .businessLogin, .businessDashboard, .cityList, .provinceList, .provinceDetail, .provinceCities, .cityDetail, .nlCityDetail, .netherlandsOverview, .cultureAttractions, .mapHub, .mapFocus:
+        case .placeDetail, .discoveryList, .localPartners, .localPartnerDetail, .businessGrowth, .businessLogin, .businessDashboard, .cityList, .provinceList, .provinceDetail, .provinceCities, .cityDetail, .nlCityDetail, .netherlandsOverview, .cultureAttractions, .mapHub, .mapFocus:
             return .places
-        case .practicalGuide(.transportBasics):
+        case .practicalGuide(.transportBasics), .transportSection:
             return .transport
         case .emergencyHub:
             return .emergency
-        case .journeyDocuments, .governmentHub, .officialSources, .legalHelp, .lettersList, .document, .practicalGuide(.digidSafety), .practicalGuide(.municipalityRegistration), .practicalGuide(.officialSourcesChecklist), .finesAndLettersHub, .finesList:
+        case .journeyDocuments, .governmentHub, .governmentSection, .officialSources, .legalHelp, .lettersList, .document, .practicalGuide(.digidSafety), .practicalGuide(.municipalityRegistration), .practicalGuide(.officialSourcesChecklist), .finesAndLettersHub, .finesList:
             return .documentsGovernment
-        case .practicalGuide(.housingBasics):
+        case .practicalGuide(.housingBasics), .housingSection:
             return .housing
-        case .practicalGuide(.healthcareBasics), .practicalGuide(.findingHuisarts), .practicalGuide(.healthInsuranceBasics):
+        case .practicalGuide(.healthcareBasics), .practicalGuide(.findingHuisarts), .practicalGuide(.healthInsuranceBasics), .healthSection:
             return .healthcare
-        case .institutionsList, .knm, .knmModule, .dutchA1A2, .dutchA1A2Module, .languageHub, .practicalGuide(.bankingBasics):
+        case .institutionsList, .knm, .knmModule, .dutchA1A2, .dutchA1A2Module, .languageHub, .educationSection, .workSection, .practicalGuide(.bankingBasics):
             return .workStudy
         case .netherlandsCalendar, .calendarEvent, .dutchHolidays:
             return .calendarEvents
@@ -209,5 +209,79 @@ enum InformationArchitecture {
 
     static func canShow(destination: AppDestination, persona: PersonaTag?) -> Bool {
         userMode(for: persona).canSee(section(for: destination))
+    }
+}
+
+/// Canonical metadata for every top-level content category.
+/// Views render shortcuts from an ID and never own a second title, subtitle, icon or route.
+struct CanonicalContentCategory: Identifiable, Hashable {
+    let section: IASection
+    let destination: AppDestination
+
+    var id: String { section.id }
+    var symbol: String { section.symbol }
+    var accent: Color { section.accent }
+
+    func title(_ language: AppLanguage) -> String { section.title(language) }
+
+    func subtitle(_ language: AppLanguage) -> String {
+        switch (section, language) {
+        case (.startHere, .english): return "First steps and practical checklists"
+        case (.startHere, .dutch): return "Eerste stappen en praktische checklists"
+        case (.startHere, .russian): return "Первые шаги и практические чек-листы"
+        case (.places, .english): return "Cities, sights and nearby services"
+        case (.places, .dutch): return "Steden, bezienswaardigheden en diensten dichtbij"
+        case (.places, .russian): return "Города, достопримечательности и сервисы рядом"
+        case (.transport, .english): return "OV, trains, bikes and route planning"
+        case (.transport, .dutch): return "OV, trein, fiets en reisplanning"
+        case (.transport, .russian): return "OV, поезда, велосипед и маршруты"
+        case (.emergency, .english): return "112 and urgent help"
+        case (.emergency, .dutch): return "112 en dringende hulp"
+        case (.emergency, .russian): return "112 и срочная помощь"
+        case (.documentsGovernment, .english): return "Municipality, DigiD and official sources"
+        case (.documentsGovernment, .dutch): return "Gemeente, DigiD en officiële bronnen"
+        case (.documentsGovernment, .russian): return "Gemeente, DigiD и официальные источники"
+        case (.housing, .english): return "Rent, address and housing basics"
+        case (.housing, .dutch): return "Huur, adres en wonen"
+        case (.housing, .russian): return "Аренда, адрес и основы жилья"
+        case (.healthcare, .english): return "GP, insurance and urgent care"
+        case (.healthcare, .dutch): return "Huisarts, verzekering en spoedzorg"
+        case (.healthcare, .russian): return "Huisarts, страховка и срочная помощь"
+        case (.workStudy, .english): return "Work, education and language"
+        case (.workStudy, .dutch): return "Werk, onderwijs en taal"
+        case (.workStudy, .russian): return "Работа, учеба и язык"
+        case (.foodLifestyle, .english): return "Food, culture and free time"
+        case (.foodLifestyle, .dutch): return "Eten, cultuur en vrije tijd"
+        case (.foodLifestyle, .russian): return "Еда, культура и досуг"
+        case (.calendarEvents, .english): return "Holidays and local events"
+        case (.calendarEvents, .dutch): return "Feestdagen en lokale events"
+        case (.calendarEvents, .russian): return "Праздники и местные события"
+        case (.aiAssistant, .english): return "Ask for a personalized next step"
+        case (.aiAssistant, .dutch): return "Vraag om een persoonlijke volgende stap"
+        case (.aiAssistant, .russian): return "Персональная помощь со следующим шагом"
+        }
+    }
+}
+
+enum CanonicalContentRegistry {
+    static let all: [CanonicalContentCategory] = [
+        .init(section: .startHere, destination: .firstSteps),
+        .init(section: .places, destination: .mapHub),
+        .init(section: .transport, destination: .practicalGuide(.transportBasics)),
+        .init(section: .emergency, destination: .emergencyHub),
+        .init(section: .documentsGovernment, destination: .officialSources),
+        .init(section: .housing, destination: .practicalGuide(.housingBasics)),
+        .init(section: .healthcare, destination: .practicalGuide(.healthcareBasics)),
+        .init(section: .workStudy, destination: .institutionsList),
+        .init(section: .foodLifestyle, destination: .cultureAttractions),
+        .init(section: .calendarEvents, destination: .netherlandsCalendar),
+        .init(section: .aiAssistant, destination: .assistantHub)
+    ]
+
+    static func category(_ section: IASection) -> CanonicalContentCategory {
+        guard let category = all.first(where: { $0.section == section }) else {
+            preconditionFailure("Missing canonical category: \(section.rawValue)")
+        }
+        return category
     }
 }

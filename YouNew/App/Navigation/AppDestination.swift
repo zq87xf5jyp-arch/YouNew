@@ -135,6 +135,85 @@ nonisolated enum PracticalGuideTopic: String, CaseIterable, Hashable, Sendable {
     case bankingBasics
 }
 
+nonisolated enum HousingSectionType: String, CaseIterable, Hashable, Sendable {
+    case overview
+    case rent
+    case buy
+    case studentHousing
+    case socialHousing
+}
+
+nonisolated enum GovernmentSectionType: String, CaseIterable, Hashable, Sendable {
+    case overview
+    case municipality
+    case ind
+    case digid
+    case taxes
+    case healthcare
+}
+
+nonisolated enum TransportSectionType: String, CaseIterable, Hashable, Sendable {
+    case overview
+    case train
+    case bus
+    case metro
+    case bike
+    case parking
+    case journeyPlanner
+    case ovChipkaart
+}
+
+nonisolated enum EducationSectionType: String, CaseIterable, Hashable, Sendable {
+    case overview
+    case universities
+    case duo
+    case languageSchools
+    case drivingSchools
+    case studentFinance
+}
+
+nonisolated enum WorkSectionType: String, CaseIterable, Hashable, Sendable {
+    case overview
+    case permitsAndRights = "permits-and-rights"
+    case salaryTaxes = "salary-taxes"
+    case jobSearch = "job-search"
+}
+
+nonisolated enum HealthSectionType: String, CaseIterable, Hashable, Sendable {
+    case overview
+    case insurance
+    case huisarts
+    case urgentCare = "urgent-care"
+}
+
+nonisolated enum LeisureSectionType: String, CaseIterable, Hashable, Sendable {
+    case nightlife
+    case weekend
+    case family
+    case architecture
+}
+
+nonisolated enum DiscoveryListType: String, CaseIterable, Hashable, Sendable {
+    case sports
+    case festivals
+    case freeActivities = "free-activities"
+    case freePlaces = "free-places"
+    case localFood = "local-food"
+    case vegetarian
+    case breakfast
+    case hotels
+    case shopping
+    case eventsWeekend = "events-weekend"
+    case eventsWeek = "events-week"
+    case eventsFree = "events-free"
+    case eventsFamily = "events-family"
+    case eventsMusic = "events-music"
+    case eventsMuseums = "events-museums"
+    case eventsMarkets = "events-markets"
+    case eventsFestivals = "events-festivals"
+    case gallery
+}
+
 nonisolated enum AppDestination: Hashable, Sendable {
 
     // MARK: - Individual Items
@@ -158,7 +237,27 @@ nonisolated enum AppDestination: Hashable, Sendable {
     case provinceDetail(String)
     case provinceCities(String)
     case cityDetail(province: String, city: String)
-    case homeExploreList(String)
+
+    // MARK: - Typed Category Lists
+    case placeList(city: CityId)
+    case museumList(city: CityId)
+    case natureList(city: CityId)
+    case landmarkList(city: CityId)
+    case eventList(city: CityId)
+    case restaurantList(city: CityId)
+    case cafeList(city: CityId)
+    case discoveryList(city: CityId, type: DiscoveryListType)
+    case restaurantDetail(city: CityId, itemID: String)
+    case cafeDetail(city: CityId, itemID: String)
+
+    // MARK: - Typed Category Sections
+    case housingSection(HousingSectionType)
+    case governmentSection(GovernmentSectionType)
+    case transportSection(TransportSectionType)
+    case educationSection(EducationSectionType)
+    case workSection(WorkSectionType)
+    case healthSection(HealthSectionType)
+    case leisureSection(city: CityId, type: LeisureSectionType)
 
     // MARK: - Lists
     case checklistList

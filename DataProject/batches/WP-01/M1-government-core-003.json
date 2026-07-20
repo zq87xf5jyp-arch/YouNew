@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-01-M1-government-core-003",
+  "work_package": "WP-01",
+  "milestone": "WP-01-M1",
+  "target_release": "government-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator test build, admin TypeScript check and admin production build succeeded.",
+    "static": "Full scripts/run-static-qa.sh suite and DATA PROJECT validation succeeded with 36 governed records.",
+    "duplicate": "No duplicate IDs, normalized titles, canonical websites or media IDs detected.",
+    "source": "All 12 records use exact official pages; the full network audit checked 873 URLs and reported zero confirmed broken URLs.",
+    "media": "Government and document records contain no optional media assets; there are no unverified or unlicensed assets.",
+    "search": "Every record has at least three unique search terms and all related entity IDs resolve across the three batches.",
+    "ai": "Every AI summary passes minimum length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "government.health-insurance",
+      "entity_type": "government_service",
+      "category": "healthcare",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Take out Dutch health insurance",
+      "description": "People who live or work in the Netherlands normally have to take out Dutch basic health insurance. The policy should cover them from the day the obligation begins and must generally be arranged within four months.",
+      "images": [],
+      "official_source": {
+        "title": "Taking out compulsory health insurance",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/taking-out-compulsory-health-insurance",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/taking-out-compulsory-health-insurance",
+      "related_entity_ids": ["government.brp-registration", "government.bsn", "government.healthcare-benefit"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Arrange a basic policy with a Dutch health insurer when the insurance obligation applies. Basic insurance is compulsory, while supplementary insurance is optional; children must also be registered with an insurer.",
+      "search_keywords": ["Dutch health insurance", "basic insurance", "zorgverzekering", "compulsory insurance", "health insurer Netherlands"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Ministry of Health, Welfare and Sport",
+        "policy_type": "Compulsory basic health insurance"
+      }
+    },
+    {
+      "id": "government.civic-integration",
+      "entity_type": "government_service",
+      "category": "integration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Civic integration (inburgering)",
+      "description": "New residents who are required to integrate learn Dutch and about living and working in the Netherlands. DUO sends an official letter stating the obligation, and Mijn Inburgering shows the applicable route, period and examinations.",
+      "images": [],
+      "official_source": {
+        "title": "Integration in the Netherlands",
+        "publisher": "DUO",
+        "url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/index.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inburgeren.nl/en/integration-in-the-netherlands/index.jsp",
+      "related_entity_ids": ["government.residence-permit", "government.bsn", "government.brp-registration", "government.naturalisation"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Wait for the DUO letter that confirms whether civic integration is required, then use Mijn Inburgering to follow the assigned route and deadlines. Requirements can differ under the applicable integration act.",
+      "search_keywords": ["inburgering", "civic integration", "integration exam", "Mijn Inburgering", "DUO integration"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "DUO and municipality",
+        "service_portal": "Mijn Inburgering"
+      }
+    },
+    {
+      "id": "government.permanent-residence",
+      "entity_type": "government_service",
+      "category": "immigration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Apply for permanent residence",
+      "description": "The IND assesses applications for regular permanent residence and long-term EU resident status. Applicants normally need a qualifying non-temporary residence purpose and five consecutive years of lawful main residence, subject to the official exceptions and detailed conditions.",
+      "images": [],
+      "official_source": {
+        "title": "Permanent residence permit",
+        "publisher": "Immigration and Naturalisation Service",
+        "url": "https://ind.nl/en/replace-extend-renew-and-change/permanent-residency/permanent-residence-permit",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://ind.nl/en/replace-extend-renew-and-change/permanent-residency/permanent-residence-permit",
+      "related_entity_ids": ["government.residence-permit", "government.civic-integration", "government.digid", "government.foreign-document-legalisation"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Check the IND requirements before applying, including residence history, current permit purpose, main residence, income and integration conditions where applicable. The IND first considers long-term EU resident status.",
+      "search_keywords": ["permanent residence", "permanent residency Netherlands", "IND permanent permit", "long-term EU resident", "verblijfsvergunning onbepaalde tijd"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Immigration and Naturalisation Service",
+        "common_abbreviation": "IND"
+      }
+    },
+    {
+      "id": "government.partner-residence-permit",
+      "entity_type": "government_service",
+      "category": "immigration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Residence permit for a partner",
+      "description": "A foreign spouse, registered partner or unmarried partner may need a residence permit to live with their sponsor in the Netherlands. The IND route sets requirements for the relationship, age, shared address, sponsor status and income.",
+      "images": [],
+      "official_source": {
+        "title": "Residence permit for partner",
+        "publisher": "Immigration and Naturalisation Service",
+        "url": "https://ind.nl/en/residence-permits/family-and-partner/residence-permit-for-partner",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://ind.nl/en/residence-permits/family-and-partner/residence-permit-for-partner",
+      "related_entity_ids": ["government.residence-permit", "government.brp-registration", "government.marriage-registered-partnership", "government.foreign-document-legalisation"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Use the IND partner route that matches the relationship and sponsor circumstances. Check whether an MVV is also required, collect legalised or translated documents where necessary and verify the current income requirement.",
+      "search_keywords": ["partner residence permit", "family reunification", "IND partner", "MVV partner", "verblijf bij partner"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Immigration and Naturalisation Service",
+        "possible_entry_visa": "Provisional residence permit (MVV)"
+      }
+    },
+    {
+      "id": "government.work-permit",
+      "entity_type": "government_service",
+      "category": "employment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Work permits for foreign workers",
+      "description": "Many workers from outside the European Economic Area and Switzerland require authorisation to work in the Netherlands. The two main forms are an employment permit (TWV) and a combined residence and work permit (GVVA), with exemptions for specified groups.",
+      "images": [],
+      "official_source": {
+        "title": "What permits do foreign workers need?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/faq/foreign-citizens-working-in-the-netherlands/what-permits-do-foreign-workers-need",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/faq/foreign-citizens-working-in-the-netherlands/what-permits-do-foreign-workers-need",
+      "related_entity_ids": ["government.residence-permit", "government.partner-residence-permit", "government.bsn"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Determine whether the worker is exempt or needs a TWV or GVVA before employment begins. EEA and Swiss nationals generally do not need a work permit, while the employer commonly handles applications for other workers.",
+      "search_keywords": ["work permit Netherlands", "TWV", "GVVA", "foreign worker permit", "tewerkstellingsvergunning"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "UWV and Immigration and Naturalisation Service",
+        "permit_types": "TWV and GVVA"
+      }
+    },
+    {
+      "id": "government.business-registration",
+      "entity_type": "government_service",
+      "category": "business",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Register a business with KVK",
+      "description": "Businesses and legal entities operating in the Netherlands generally register in the Dutch Business Register maintained by KVK. Registration establishes the official business record and normally also sends the relevant details to the Netherlands Tax Administration.",
+      "images": [],
+      "official_source": {
+        "title": "Register your business in the Business Register",
+        "publisher": "Business.gov.nl",
+        "url": "https://business.gov.nl/regulations/register-your-business-in-the-business-register/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://business.gov.nl/regulations/register-your-business-in-the-business-register/",
+      "related_entity_ids": ["government.bsn", "government.digid", "government.rni-registration", "government.income-tax-return"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Prepare the business details, legal structure, Dutch address and personal identification, then complete the KVK registration process. A BSN is required, and an in-person identity check may form part of registration.",
+      "search_keywords": ["KVK registration", "Business Register", "Handelsregister", "start business Netherlands", "register company"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Netherlands Chamber of Commerce",
+        "common_abbreviation": "KVK"
+      }
+    },
+    {
+      "id": "government.parental-leave",
+      "entity_type": "government_service",
+      "category": "family_leave",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Apply for parental leave",
+      "description": "Employees who meet the conditions can request parental leave for a child under eight. The statutory entitlement is based on weekly working hours, and the request is submitted in writing to the employer with the proposed schedule.",
+      "images": [],
+      "official_source": {
+        "title": "Applying for parental leave",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/work/parental-leave-for-partners/applying-for-parental-leave",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/work/parental-leave-for-partners/applying-for-parental-leave",
+      "related_entity_ids": ["government.birth-registration", "government.acknowledge-child", "government.brp-registration", "government.maternity-pay"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Submit a written request to the employer at least two months before the planned leave and state the hours, working days and dates. Eligibility and any paid portion should be checked against the current rules.",
+      "search_keywords": ["parental leave", "ouderschapsverlof", "apply parental leave", "leave for child", "employer leave request"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Employer under Dutch leave law",
+        "request_channel": "Written request to employer"
+      }
+    },
+    {
+      "id": "government.maternity-pay",
+      "entity_type": "government_service",
+      "category": "family_leave",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Maternity pay and leave",
+      "description": "Pregnant workers, benefit recipients and self-employed people may qualify for maternity pay through different UWV routes. Eligibility, the applicant and the procedure depend on whether the person has an employment contract, receives a benefit or is self-employed.",
+      "images": [],
+      "official_source": {
+        "title": "Maternity pay",
+        "publisher": "Employee Insurance Agency",
+        "url": "https://www.uwv.nl/en/individuals/maternity-and-parental-leave/maternity-pay",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.uwv.nl/en/individuals/maternity-and-parental-leave/maternity-pay",
+      "related_entity_ids": ["government.parental-leave", "government.birth-registration", "government.unemployment-benefit", "government.digid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Choose the UWV procedure matching employment or benefit status. For employees the employer usually applies, while benefit recipients and self-employed applicants follow their own routes and must check the applicable timing and documents.",
+      "search_keywords": ["maternity pay", "maternity leave", "zwangerschapsuitkering", "WAZO", "UWV pregnancy"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Employee Insurance Agency",
+        "common_abbreviation": "UWV"
+      }
+    },
+    {
+      "id": "government.acknowledge-child",
+      "entity_type": "government_service",
+      "category": "civil_status",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Acknowledge legal parenthood of a child",
+      "description": "Acknowledgment can establish legal parenthood when it does not arise automatically through marriage or registered partnership. It can be arranged through a Dutch municipality or civil-law notary, including before the child is born.",
+      "images": [],
+      "official_source": {
+        "title": "Birth of a child",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/family-health-and-care/family-law/birth-of-a-child",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/family-health-and-care/family-law/birth-of-a-child",
+      "related_entity_ids": ["government.birth-registration", "government.parental-leave", "government.brp-registration"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Check whether legal parenthood already follows automatically from the parents' legal relationship. If not, acknowledgment can be recorded with a municipality or notary, with consent and supporting documents where required.",
+      "search_keywords": ["acknowledge child", "legal parenthood", "erkenning kind", "acknowledgment parenthood", "municipality child recognition"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality or civil-law notary",
+        "legal_effect": "Establishes legal parenthood"
+      }
+    },
+    {
+      "id": "government.deregister-moving-abroad",
+      "entity_type": "government_service",
+      "category": "municipal_registration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Deregister when moving abroad",
+      "description": "A resident who will live outside the Netherlands for more than eight months within a year must deregister from the municipality. The resident record then moves to the non-residents section of the Personal Records Database.",
+      "images": [],
+      "official_source": {
+        "title": "When should I deregister from the Personal Records Database?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/faq/when-should-i-deregister-from-the-personal-records-database",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/faq/when-should-i-deregister-from-the-personal-records-database",
+      "related_entity_ids": ["government.brp-registration", "government.rni-registration", "government.change-address", "government.residence-permit"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Notify the municipality shortly before departure when the period abroad exceeds the official threshold. Request proof of deregistration if needed and separately check IND obligations when holding a residence permit.",
+      "search_keywords": ["deregister Netherlands", "moving abroad", "BRP deregistration", "uitschrijven gemeente", "RNI after departure"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality",
+        "threshold": "More than eight months abroad within one year"
+      }
+    },
+    {
+      "id": "government.foreign-document-legalisation",
+      "entity_type": "document",
+      "category": "document_legalisation",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Legalise a foreign document for use in the Netherlands",
+      "description": "Foreign official documents may need legalisation or an apostille before they can be accepted in the Netherlands. The procedure depends on the country and type of document and is normally completed in the country where the document was issued.",
+      "images": [],
+      "official_source": {
+        "title": "Legalisation of foreign documents for use in the Netherlands",
+        "publisher": "NetherlandsWorldwide",
+        "url": "https://www.netherlandsworldwide.nl/legalisation/foreign-documents",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.netherlandsworldwide.nl/legalisation/foreign-documents",
+      "related_entity_ids": ["government.partner-residence-permit", "government.permanent-residence", "government.marriage-registered-partnership", "government.birth-registration"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Select the issuing country and document type on the official service to determine whether legalisation, an apostille or no action is required. A sworn translation may also be necessary depending on the language.",
+      "search_keywords": ["legalise foreign document", "apostille Netherlands", "document legalisation", "foreign certificate", "NetherlandsWorldwide legalisation"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Ministry of Foreign Affairs",
+        "guidance_portal": "NetherlandsWorldwide"
+      }
+    },
+    {
+      "id": "government.civil-status-extract",
+      "entity_type": "document",
+      "category": "civil_status",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Request a civil status record extract",
+      "description": "Official copies and extracts are available for registered births, deaths, marriages, divorces and registered partnerships. The request is made to the municipality where the civil status record was drawn up and requires valid identification and a qualifying interest.",
+      "images": [],
+      "official_source": {
+        "title": "How can I request an extract or an official copy of a civil status record?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/faq/how-can-i-request-an-extract-or-an-official-copy-of-a-civil-status-record",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/faq/how-can-i-request-an-extract-or-an-official-copy-of-a-civil-status-record",
+      "related_entity_ids": ["government.birth-registration", "government.marriage-registered-partnership", "government.foreign-document-legalisation"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Request the copy or extract from the municipality that created the original record. The permitted requester, evidence of identity and form of the document depend on whether an official copy or a shorter extract is needed.",
+      "search_keywords": ["civil status extract", "birth certificate copy", "marriage certificate extract", "death certificate copy", "burgerlijke stand uittreksel"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality holding the record",
+        "record_types": "Birth, death, marriage, divorce and registered partnership"
+      }
+    }
+  ]
+}

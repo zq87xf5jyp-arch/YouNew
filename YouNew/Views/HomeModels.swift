@@ -326,7 +326,7 @@ enum HomeDefaultCategoryCatalog {
                 titleEN: "Work & taxes",
                 icon: "briefcase.fill",
                 gradient: AppColors.gradWork,
-                destination: .guideSection("work"),
+                destination: .workSection(.salaryTaxes),
                 audienceTags: [.worker, .student, .entrepreneur, .eu, .nonEU, .highlySkilledMigrant],
                 priority: 2
             ),

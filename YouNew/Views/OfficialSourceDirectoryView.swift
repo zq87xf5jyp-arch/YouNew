@@ -619,6 +619,7 @@ struct OfficialSourceDirectoryView: View {
                     title: L10n.t("official_sources.title", lang),
                     subtitle: String(format: L10n.t("official_sources.subtitle", lang), visibleSourceCount)
                 )
+                .accessibilityElement(children: .combine)
                 .accessibilityIdentifier("officialSources.screen")
 
                 TextField(L10n.t("official_sources.search_placeholder", lang), text: $searchText)

@@ -1,6 +1,23 @@
 import Foundation
 
 enum AIResponseParser {
+    struct NewcomerBackendResponse: Decodable {
+        let summary: String
+        let steps: [NewcomerBackendStep]
+        let warnings: [String]
+        let model: String
+        let requestId: String
+    }
+
+    struct NewcomerBackendStep: Decodable {
+        let title: String
+        let reason: String
+        let action: String
+        let sourceTitle: String
+        let sourceURL: String
+        let appDestination: String
+    }
+
     struct BackendResponse: Decodable {
         let answer: String
         let sections: [BackendSection]?
@@ -52,6 +69,10 @@ enum AIResponseParser {
     }
 
     static func parse(_ data: Data, language: AppLanguage) throws -> AIResponse {
+        if let newcomer = try? JSONDecoder().decode(NewcomerBackendResponse.self, from: data) {
+            return parseNewcomerResponse(newcomer, language: language)
+        }
+
         let decoded = try JSONDecoder().decode(BackendResponse.self, from: data)
 
         let sources = (decoded.sources ?? []).compactMap(makeSource)
@@ -92,12 +113,120 @@ enum AIResponseParser {
             nextStep: normalizedNextStep,
             appDestinationID: appDestinationID,
             isVerified: true,
-            cacheKey: decoded.cacheKey
+            cacheKey: decoded.cacheKey,
+            origin: .unverified
         )
         guard AIResponseLanguageGuard.isResponseAcceptable(response, for: language) else {
             return AIResponse.unverified(language: language)
         }
         return response
+    }
+
+    private static func parseNewcomerResponse(
+        _ decoded: NewcomerBackendResponse,
+        language: AppLanguage
+    ) -> AIResponse {
+        let model = decoded.model.trimmingCharacters(in: .whitespacesAndNewlines)
+        let requestID = decoded.requestId.trimmingCharacters(in: .whitespacesAndNewlines)
+        let requestIDPattern = #"^[A-Za-z0-9][A-Za-z0-9._:-]{7,199}$"#
+        guard BuildWeekNewcomerDemo.isAllowedModel(model),
+              requestID.range(of: requestIDPattern, options: .regularExpression) != nil,
+              decoded.steps.count == BuildWeekNewcomerDemo.steps.count,
+              decoded.warnings.count <= 6
+        else {
+            return AIResponse.unverified(language: language)
+        }
+
+        let summary = limitedBody(decoded.summary, maximumCharacters: 1_200)
+        guard !summary.isEmpty else {
+            return AIResponse.unverified(language: language)
+        }
+
+        var sources: [OfficialSource] = []
+        var sections: [AIResponseSection] = []
+        var guideActions: [AIResponseAction] = []
+        var sourceActions: [AIResponseAction] = []
+        var suggestedActions: [String] = []
+
+        for (index, pair) in zip(decoded.steps, BuildWeekNewcomerDemo.steps).enumerated() {
+            let (step, contract) = pair
+            let title = limitedBody(step.title, maximumCharacters: 160)
+            let reason = limitedBody(step.reason, maximumCharacters: 700)
+            let action = limitedBody(step.action, maximumCharacters: 700)
+            guard !title.isEmpty,
+                  !reason.isEmpty,
+                  !action.isEmpty,
+                  step.sourceTitle == contract.sourceTitle,
+                  step.sourceURL == contract.sourceURL.absoluteString,
+                  step.appDestination == contract.appDestination,
+                  AppNavigationResolver.destination(for: step.appDestination) != nil
+            else {
+                return AIResponse.unverified(language: language)
+            }
+
+            let source = OfficialSource(
+                title: contract.sourceTitle,
+                url: contract.sourceURL,
+                institution: contract.id == "digid" ? "DigiD" : "Government of the Netherlands"
+            )
+            sources.append(source)
+            sections.append(
+                AIResponseSection(
+                    title: title,
+                    body: "\(reason)\n\n\(action)",
+                    symbol: newcomerStepSymbol(index)
+                )
+            )
+            guideActions.append(
+                .openGuide(title: title, destinationID: contract.appDestination)
+            )
+            sourceActions.append(
+                .openSource(title: contract.sourceTitle, url: contract.sourceURL)
+            )
+            suggestedActions.append(action)
+        }
+
+        let warnings = decoded.warnings.compactMap { warning -> String? in
+            let value = limitedBody(warning, maximumCharacters: 500)
+            return value.isEmpty ? nil : value
+        }
+        let response = AIResponse(
+            answer: summary,
+            sources: sources,
+            safetyNote: warnings.isEmpty ? nil : warnings.joined(separator: "\n• "),
+            suggestedActions: suggestedActions,
+            quickActions: guideActions + sourceActions,
+            sections: sections,
+            nextStep: AINextStep(
+                title: sections[0].title,
+                detail: suggestedActions[0],
+                destinationID: BuildWeekNewcomerDemo.steps[0].appDestination,
+                destinationTitle: sections[0].title
+            ),
+            appDestinationID: BuildWeekNewcomerDemo.steps[0].appDestination,
+            isVerified: true,
+            confidence: .medium,
+            origin: .liveOpenAI,
+            model: model,
+            requestID: requestID
+        )
+        guard AIResponseLanguageGuard.isResponseAcceptable(response, for: language) else {
+            return AIResponse.unverified(language: language)
+        }
+        return response
+    }
+
+    nonisolated private static func limitedBody(_ text: String, maximumCharacters: Int) -> String {
+        String(sanitizedBody(text).prefix(maximumCharacters))
+    }
+
+    nonisolated private static func newcomerStepSymbol(_ index: Int) -> String {
+        switch index {
+        case 0: return "number.circle.fill"
+        case 1: return "lock.shield.fill"
+        case 2: return "cross.case.fill"
+        default: return "stethoscope"
+        }
     }
 
     nonisolated private static func makeSource(_ source: BackendSource) -> OfficialSource? {

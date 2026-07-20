@@ -1,3 +1,4 @@
+import Foundation
 import SwiftUI
 #if canImport(UIKit)
 import UIKit
@@ -85,6 +86,11 @@ struct RootTabView: View {
     @State private var activeMenuDestination: AppDestination? = nil
     @State private var lastTappedTab: AppTab? = nil
     @State private var lastTabTapDate: Date? = nil
+    @State private var pendingTabNavigationDestination: AppTab? = nil
+    @State private var pendingTabNavigationStartedAt: TimeInterval? = nil
+    @State private var completedTabNavigationSequence = 0
+    @State private var lastCompletedTabNavigationDestination: AppTab? = nil
+    @State private var lastCompletedTabNavigationDelayMilliseconds: Double? = nil
     @State private var isGlobalAIModeLauncherExpanded = false
     @State private var didApplyInitialTestingDestination = false
     @StateObject private var tabRouter: TabRouter
@@ -131,7 +137,7 @@ struct RootTabView: View {
         _selectedTab = State(initialValue: initialTab)
         _previousContentTab = State(initialValue: initialTab)
         _isMenuPresented = State(initialValue: false)
-        _activeMenuDestination = State(initialValue: Self.initialTestingDestination())
+        _activeMenuDestination = State(initialValue: nil)
         _tabRouter = StateObject(wrappedValue: TabRouter(initialTab: initialTab.tabItem))
 
 #if os(iOS)
@@ -167,15 +173,37 @@ struct RootTabView: View {
         return .home
     }
 
+    private static var isUITesting: Bool {
+#if DEBUG
+        ProcessInfo.processInfo.arguments.contains("-uiTesting")
+#else
+        false
+#endif
+    }
+
     private static func initialTestingDestination() -> AppDestination? {
 #if DEBUG
         let arguments = ProcessInfo.processInfo.arguments
-        guard arguments.contains("-uiTesting"),
-              let destinationIndex = arguments.firstIndex(of: "-uiTestingDestination"),
-              arguments.indices.contains(destinationIndex + 1)
-        else { return nil }
+        guard arguments.contains("-uiTesting") else { return nil }
 
-        return AppNavigationResolver.destination(for: arguments[destinationIndex + 1])
+        if let destinationIndex = arguments.firstIndex(of: "-uiTestingDestination"),
+           arguments.indices.contains(destinationIndex + 1) {
+            return AppNavigationResolver.destination(for: arguments[destinationIndex + 1])
+        }
+
+        // Search and Assistant are destinations inside the consolidated Guide
+        // area, not independent release tabs. Preserve the legacy UI-test
+        // launch contract without reintroducing obsolete tab items.
+        if let tabIndex = arguments.firstIndex(of: "-uiTestingStartTab"),
+           arguments.indices.contains(tabIndex + 1) {
+            switch arguments[tabIndex + 1] {
+            case "search": return AppNavigationResolver.destination(for: "search")
+            case "assistant": return AppNavigationResolver.destination(for: "assistant")
+            default: break
+            }
+        }
+
+        return nil
 #else
         return nil
 #endif
@@ -186,10 +214,9 @@ struct RootTabView: View {
     var body: some View {
 #if os(iOS)
         GeometryReader { proxy in
+            let rootWidth = proxy.size.width.isFinite ? max(0, proxy.size.width) : 0
+            let rootHeight = proxy.size.height.isFinite ? max(0, proxy.size.height) : 0
             ZStack(alignment: .bottom) {
-                unifiedRootBackground
-                    .ignoresSafeArea()
-
                 Group {
                     if horizontalSizeClass == .regular && menuPosition == .automatic {
                         regularWidthLayout
@@ -199,18 +226,15 @@ struct RootTabView: View {
                 }
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .frame(width: proxy.size.width, height: proxy.size.height)
+            .frame(width: rootWidth, height: rootHeight)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(.clear)
         .overlay {
             if isMenuPresented {
-                RightSideMenuOverlay(
-                    selectedTab: selectedTab,
-                    activeDestination: activeMenuDestination,
-                    sections: menuSections,
+                DiscoverySideMenuOverlay(
                     onClose: closeMenu,
-                    onSelect: handleMenuSelection
+                    onNavigate: navigateFromDiscoveryMenu
                 )
                 .transition(.opacity)
                 .zIndex(50)
@@ -218,9 +242,26 @@ struct RootTabView: View {
         }
         .overlay(alignment: .bottomTrailing) { contextualAIButton }
         .overlay(alignment: .bottom) { toastOverlay }
+        .overlay(alignment: .topLeading) { tabNavigationMetricProbe }
         .animation(AppAnimations.standard, value: appState.toastMessage)
         .animation(AppAnimations.standard, value: isMenuPresented)
-        .onAppear(perform: applyInitialTestingDestinationIfNeeded)
+        .onAppear {
+            AppHaptics.prepare()
+            applyInitialTestingDestinationIfNeeded()
+        }
+        .environment(\.openDiscoveryMenu, OpenDiscoveryMenuAction(openMenu))
+        .simultaneousGesture(
+            DragGesture(minimumDistance: 18)
+                .onEnded { value in
+                    guard !isMenuPresented,
+                          selectedTab != .map,
+                          value.startLocation.x <= 24,
+                          value.translation.width >= 76,
+                          abs(value.translation.height) < abs(value.translation.width)
+                    else { return }
+                    openMenu()
+                }
+        )
         .environmentObject(tabRouter)
 #else
         ZStack {
@@ -230,8 +271,12 @@ struct RootTabView: View {
             .background(.clear)
             .overlay(alignment: .bottomTrailing) { contextualAIButton }
             .overlay(alignment: .bottom) { toastOverlay }
+            .overlay(alignment: .topLeading) { tabNavigationMetricProbe }
             .animation(AppAnimations.standard, value: appState.toastMessage)
-            .onAppear(perform: applyInitialTestingDestinationIfNeeded)
+            .onAppear {
+                AppHaptics.prepare()
+                applyInitialTestingDestinationIfNeeded()
+            }
             .environmentObject(tabRouter)
 #endif
     }
@@ -246,7 +291,10 @@ struct RootTabView: View {
         selectedTab = .home
         previousContentTab = .home
         activeMenuDestination = nil
-        homeNavPath.append(destination)
+        Task { @MainActor in
+            await Task.yield()
+            homeNavPath.append(destination)
+        }
 #endif
     }
 
@@ -257,11 +305,6 @@ struct RootTabView: View {
         case .map: return .map
         case .saved: return .saved
         }
-    }
-
-    private var unifiedRootBackground: some View {
-        GlobalBackgroundView()
-            .allowsHitTesting(false)
     }
 
     @ViewBuilder
@@ -287,10 +330,38 @@ struct RootTabView: View {
     }
 
     static func shouldShowContextualAIButton(selectedTab: AppTab, isMenuPresented: Bool) -> Bool {
-        !isMenuPresented
-            && selectedTab != .more
-            && selectedTab != .saved
-            && selectedTab == .map
+        false
+    }
+
+    @ViewBuilder
+    private var tabNavigationMetricProbe: some View {
+#if DEBUG
+        if Self.isUITesting {
+            Color.clear
+                .frame(width: 1, height: 1)
+                .accessibilityElement(children: .ignore)
+                .accessibilityIdentifier("root.tabNavigationMetric")
+                .accessibilityLabel("Root tab navigation metric")
+                .accessibilityValue(tabNavigationMetricAccessibilityValue)
+                .allowsHitTesting(false)
+        }
+#endif
+    }
+
+    private var tabNavigationMetricAccessibilityValue: String {
+        guard let destination = lastCompletedTabNavigationDestination,
+              let delayMilliseconds = lastCompletedTabNavigationDelayMilliseconds
+        else {
+            return "sequence=0;tab=none;delayMs=0.000"
+        }
+
+        return String(
+            format: "sequence=%d;tab=%@;delayMs=%.3f",
+            locale: Locale(identifier: "en_US_POSIX"),
+            completedTabNavigationSequence,
+            destination.rawValue,
+            delayMilliseconds
+        )
     }
 
     private var contextualAIButtonBottomPadding: CGFloat {
@@ -387,6 +458,7 @@ struct RootTabView: View {
             axis: .horizontal,
             onSelect: handleTabSelection
         )
+        .accessibilityElement(children: .contain)
         .accessibilityIdentifier("root.tabBar")
         .padding(.horizontal, FloatingTabBarMetrics.horizontalPadding)
         .padding(.top, edge == .top ? 8 : 0)
@@ -453,7 +525,7 @@ struct RootTabView: View {
         }
         .scrollContentBackground(.hidden)
         .background {
-            GlobalBackgroundView()
+            AppSceneBackgroundLayer()
                 .overlay(.ultraThinMaterial.opacity(0.30))
         }
         .navigationTitle("")
@@ -644,15 +716,24 @@ struct RootTabView: View {
     @ViewBuilder
     private var regularTabContent: some View {
         switch selectedTab {
-        case .home: RootHomeView(selectedTab: $selectedTab)
-        case .guide: RootGuideView()
+        case .home:
+            RootHomeView(selectedTab: $selectedTab)
+                .onAppear { completeTabNavigation(to: .home) }
+        case .guide:
+            RootGuideView()
+                .onAppear { completeTabNavigation(to: .guide) }
         case .map:
             PlacesDiscoveryView(
                 onNavigate: { regularNavPath.append($0) },
                 onAskAI: { openPlacesAI($0) }
             )
-        case .saved: FavoritesView()
-        case .more: RootMoreView()
+            .onAppear { completeTabNavigation(to: .map) }
+        case .saved:
+            FavoritesView()
+                .onAppear { completeTabNavigation(to: .saved) }
+        case .more:
+            RootMoreView()
+                .onAppear { completeTabNavigation(to: .more) }
         }
     }
 #endif
@@ -662,20 +743,32 @@ struct RootTabView: View {
     @ViewBuilder
     private var tabContent: some View {
         ZStack {
+            selectedTabContent
+        }
+        .background(Color.clear)
+    }
+
+    @ViewBuilder
+    private var selectedTabContent: some View {
+        Group {
             switch selectedTab {
             case .home:
                 homeTabStack
+                    .onAppear { completeTabNavigation(to: .home) }
             case .guide:
                 guideTabStack
+                    .onAppear { completeTabNavigation(to: .guide) }
             case .map:
                 mapTabStack
+                    .onAppear { completeTabNavigation(to: .map) }
             case .saved:
                 savedTabStack
+                    .onAppear { completeTabNavigation(to: .saved) }
             case .more:
                 moreTabStack
+                    .onAppear { completeTabNavigation(to: .more) }
             }
         }
-        .background(Color.clear)
     }
 
 #if os(iOS)
@@ -1092,9 +1185,9 @@ struct RootTabView: View {
                     SideMenuItemModel(id: "law",          titleKey: "guide.law",                                                        systemIcon: "building.columns.fill",   destination: .governmentHub, tint: AppColors.softBlue),
                     SideMenuItemModel(id: "documents",     titleKey: "sideMenu.documents",  systemIcon: "doc.text.fill",                destination: .guideSection("documents"), tint: AppColors.cyanGlow),
                     SideMenuItemModel(id: "digid", titleKey: "sideMenu.digidSafety", systemIcon: "lock.shield.fill", destination: .firstSteps(section: .digidSafety), tint: AppColors.cyanGlow),
-                    SideMenuItemModel(id: "housing", titleKey: "sideMenu.housing", systemIcon: "house.fill", destination: .guideSection("housing"), tint: AppColors.violet),
-                    SideMenuItemModel(id: "transport",      titleKey: "sideMenu.transport",        subtitleKey: "sideMenu.subtitle.transport",        systemIcon: "tram.fill",             destination: .guideSection("transport"),                      tint: AppColors.dutchOrange),
-                    SideMenuItemModel(id: "healthcare",     titleKey: "sideMenu.healthcare",       subtitleKey: "sideMenu.subtitle.healthcare",       systemIcon: "cross.case",            destination: .guideSection("healthcare"),                      tint: AppColors.error),
+                    SideMenuItemModel(id: "housing", titleKey: "sideMenu.housing", systemIcon: "house.fill", destination: .housingSection(.overview), tint: AppColors.violet),
+                    SideMenuItemModel(id: "transport",      titleKey: "sideMenu.transport",        subtitleKey: "sideMenu.subtitle.transport",        systemIcon: "tram.fill",             destination: .transportSection(.overview),                    tint: AppColors.dutchOrange),
+                    SideMenuItemModel(id: "healthcare",     titleKey: "sideMenu.healthcare",       subtitleKey: "sideMenu.subtitle.healthcare",       systemIcon: "cross.case",            destination: .healthSection(.overview),                       tint: AppColors.error),
                     SideMenuItemModel(id: "official", titleKey: "sideMenu.officialSources", systemIcon: "checkmark.shield.fill", destination: .officialSources, tint: AppColors.success),
                     SideMenuItemModel(id: "police",          titleKey: "guide.police",          systemIcon: "shield.lefthalf.filled",              destination: .police,          tint: AppColors.softBlue),
                     SideMenuItemModel(id: "municipality",   titleKey: "sideMenu.registration",    subtitleKey: "sideMenu.subtitle.registration",    systemIcon: "building.columns",      destination: .firstSteps(section: .municipalityRegistration), tint: AppColors.routeLine),
@@ -1140,7 +1233,7 @@ struct RootTabView: View {
             titleOverride: [.russian: "Работа", .dutch: "Werk", .english: "Work"],
             subtitleOverride: [.russian: "Разрешения, зарплата, поиск", .dutch: "Vergunningen, loon, zoeken", .english: "Permits, salary, search"],
             systemIcon: "briefcase.fill",
-            destination: .guideSection("work"),
+            destination: .workSection(.overview),
             tint: AppColors.softBlue
         )
     }
@@ -1170,6 +1263,7 @@ struct RootTabView: View {
     }
 
     private func handleTabSelection(_ tab: AppTab) {
+        AppHaptics.selection()
         isGlobalAIModeLauncherExpanded = false
         if tab == .more {
             if isMenuPresented {
@@ -1183,7 +1277,7 @@ struct RootTabView: View {
             registerTabTap(.more)
             activeMenuDestination = nil
             previousContentTab = .more
-            selectedTab = .more
+            commitTabNavigation(to: .more)
             tabRouter.select(TabItem.more)
             return
         }
@@ -1200,8 +1294,38 @@ struct RootTabView: View {
         registerTabTap(tab)
         activeMenuDestination = nil
         previousContentTab = tab
-        selectedTab = tab
+        commitTabNavigation(to: tab)
         tabRouter.select(tab)
+    }
+
+    /// Records only genuine root-tab changes during UI calibration. The interval
+    /// starts immediately before the SwiftUI selection state is mutated and ends
+    /// when that tab's root view appears.
+    private func commitTabNavigation(to tab: AppTab) {
+        guard selectedTab != tab else { return }
+        if Self.isUITesting {
+            pendingTabNavigationDestination = tab
+            pendingTabNavigationStartedAt = ProcessInfo.processInfo.systemUptime
+        }
+        selectedTab = tab
+    }
+
+    private func completeTabNavigation(to tab: AppTab) {
+        guard Self.isUITesting,
+              pendingTabNavigationDestination == tab,
+              let startedAt = pendingTabNavigationStartedAt
+        else { return }
+
+        // Clear the pending sample first so the state update below cannot
+        // record the same appearance more than once.
+        pendingTabNavigationDestination = nil
+        pendingTabNavigationStartedAt = nil
+        lastCompletedTabNavigationDestination = tab
+        lastCompletedTabNavigationDelayMilliseconds = max(
+            0,
+            (ProcessInfo.processInfo.systemUptime - startedAt) * 1_000
+        )
+        completedTabNavigationSequence += 1
     }
 
     private func registerTabTap(_ tab: AppTab) {
@@ -1230,20 +1354,34 @@ struct RootTabView: View {
     }
 
     private func openMenu() {
+        AppHaptics.lightImpact()
         isGlobalAIModeLauncherExpanded = false
         if selectedTab != .more {
             previousContentTab = selectedTab
         }
-        tabRouter.selectedTab = TabItem.more
-        selectedTab = previousContentTab
         isMenuPresented = true
     }
 
     private func closeMenu() {
         isGlobalAIModeLauncherExpanded = false
         isMenuPresented = false
-        selectedTab = previousContentTab
-        tabRouter.selectedTab = previousContentTab.tabItem
+    }
+
+    private func navigateFromDiscoveryMenu(_ destination: AppDestination) {
+        AppHaptics.lightImpact()
+        isMenuPresented = false
+        activeMenuDestination = destination
+        if horizontalSizeClass == .regular && menuPosition == .automatic {
+            regularNavPath.append(destination)
+            return
+        }
+        switch selectedTab {
+        case .home: homeNavPath.append(destination)
+        case .guide: guideNavPath.append(destination)
+        case .map: mapNavPath.append(destination)
+        case .saved: savedNavPath.append(destination)
+        case .more: moreNavPath.append(destination)
+        }
     }
 
     private func isMenuItemVisibleForPersona(_ item: SideMenuItemModel) -> Bool {
@@ -1492,6 +1630,10 @@ private enum MenuDestination: Equatable {
     case socialService
     case scamWarnings
     case placesToVisit
+    case housingSection(HousingSectionType)
+    case transportSection(TransportSectionType)
+    case workSection(WorkSectionType)
+    case healthSection(HealthSectionType)
     case guideSection(String)
 
     var tab: AppTab? {
@@ -1542,6 +1684,10 @@ private enum MenuDestination: Equatable {
         case .governmentHub: return .governmentHub
         case .scamWarnings: return .scamWarningsList
         case .placesToVisit: return .cultureAttractions
+        case .housingSection(let type): return .housingSection(type)
+        case .transportSection(let type): return .transportSection(type)
+        case .workSection(let type): return .workSection(type)
+        case .healthSection(let type): return .healthSection(type)
         case .guideSection(let id): return .guideSection(id)
         case .feedback: return .supportFeedback
         case .home, .search, .map, .saved, .help: return nil
@@ -1726,7 +1872,7 @@ struct HistoricalFigure: Identifiable {
             shortBioRU: "Мастер света и домашних интерьеров. «Девушка с жемчужной серёжкой» находится в Маурицхёйсе в Гааге. Создал всего 34–36 известных картин, каждая бесценна.",
             emoji: "💎",
             accentColor: "#60A5FA",
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Johannes_Vermeer_-_Girl_with_a_Pearl_Earring.jpg?width=900",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Girl_with_a_Pearl_Earring.jpg?width=900",
             birthCity: "Delft",
             deathCity: "Delft",
             knownFor: "Girl with a Pearl Earring",
@@ -1794,7 +1940,7 @@ struct HistoricalFigure: Identifiable {
             shortBioRU: "Отец Нидерландов. Возглавил восстание против испанского владычества и основал Нидерландскую республику. Убит в Делфте в 1584 году — первый глава государства, застреленный из пистолета в истории.",
             emoji: "👑",
             accentColor: "#F97316",
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/William_I%2C_Prince_of_Orange_%28Michiel_Jansz._van_Mierevelt%29.jpg?width=900",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Portrait_of_William_I%2C_Prince_of_Orange_Mauritshuis_96.jpg?width=900",
             birthCity: "Dillenburg",
             deathCity: "Delft",
             knownFor: "Founded the Dutch Republic (1581)",
@@ -1921,10 +2067,8 @@ private struct HistoricalFigureCard: View {
 
     var body: some View {
         Button {
+            AppHaptics.selection()
             onToggle()
-            #if canImport(UIKit)
-            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-            #endif
         } label: {
             VStack(alignment: .leading, spacing: 0) {
                 HStack(spacing: 10) {
@@ -3278,7 +3422,7 @@ private struct RightSideMenuOverlay: View {
         [
             premiumMenuItem(id: "documents", title: languageMap(ru: "Документы", nl: "Documenten", en: "Documents"), subtitle: languageMap(ru: "BSN, DigiD, ВНЖ", nl: "BSN, DigiD, vergunningen", en: "BSN, DigiD, permits"), icon: "doc.text.fill", destination: .journeyDocuments, tint: AppColors.softBlue),
             premiumMenuItem(id: "housing", title: languageMap(ru: "Жильё", nl: "Wonen", en: "Housing"), subtitle: languageMap(ru: "Аренда, покупка, коммунальные", nl: "Huur, koop, nutsvoorzieningen", en: "Rent, buy, utilities"), icon: "house.fill", destination: .firstSteps(section: .housingBasics), tint: AppColors.violet),
-            premiumMenuItem(id: "work", title: languageMap(ru: "Работа", nl: "Werk", en: "Work"), subtitle: languageMap(ru: "Разрешения, зарплата, поиск", nl: "Vergunningen, loon, zoeken", en: "Permits, salary, search"), icon: "briefcase.fill", destination: .guideSection("work"), tint: AppColors.softBlue),
+            premiumMenuItem(id: "work", title: languageMap(ru: "Работа", nl: "Werk", en: "Work"), subtitle: languageMap(ru: "Разрешения, зарплата, поиск", nl: "Vergunningen, loon, zoeken", en: "Permits, salary, search"), icon: "briefcase.fill", destination: .workSection(.overview), tint: AppColors.softBlue),
             premiumMenuItem(id: "transport", title: languageMap(ru: "Транспорт", nl: "Vervoer", en: "Transport"), subtitle: languageMap(ru: "OV, велосипед, парковка", nl: "OV, fiets, parkeren", en: "OV, bike, parking"), icon: "tram.fill", destination: .firstSteps(section: .transportBasics), tint: AppColors.emerald),
             premiumMenuItem(id: "healthcare", title: languageMap(ru: "Медицина", nl: "Zorg", en: "Healthcare"), subtitle: languageMap(ru: "Huisarts, страховка, аптека", nl: "Huisarts, verzekering, apotheek", en: "GP, insurance, pharmacy"), icon: "cross.case.fill", destination: .firstSteps(section: .healthcareBasics), tint: AppColors.error),
             premiumMenuItem(id: "emergencyGuide", title: languageMap(ru: "Экстренно", nl: "Noodhulp", en: "Emergency"), subtitle: languageMap(ru: "112, полиция, врач", nl: "112, politie, huisarts", en: "112, police, GP"), icon: "phone.fill", destination: .guideSection("emergency"), tint: AppColors.error)
@@ -3324,7 +3468,7 @@ private struct RightSideMenuOverlay: View {
             itemFromMenu(id: "municipality", fallback: dashboardItem(id: "municipality", title: languageMap(ru: "Муниципалитет", nl: "Gemeente", en: "Municipality"), icon: "building.columns.fill", destination: .governmentHub, tint: AppColors.softBlue), tint: AppColors.softBlue),
             itemFromMenu(id: "documents", fallback: dashboardItem(id: "documents", title: languageMap(ru: "Документы и DigiD", nl: "Documenten & DigiD", en: "Documents & DigiD"), icon: "doc.text.fill", destination: .journeyDocuments, tint: AppColors.softBlue), tint: AppColors.softBlue),
             itemFromMenu(id: "healthcare", fallback: dashboardItem(id: "healthcare", title: languageMap(ru: "Медицина", nl: "Zorg", en: "Healthcare"), icon: "cross.case.fill", destination: .firstSteps(section: .healthcareBasics), tint: AppColors.softBlue), tint: AppColors.softBlue),
-            itemFromMenu(id: "work", fallback: dashboardItem(id: "work", title: languageMap(ru: "Работа", nl: "Werk", en: "Work"), icon: "briefcase.fill", destination: .guideSection("work"), tint: AppColors.softBlue), tint: AppColors.softBlue),
+            itemFromMenu(id: "work", fallback: dashboardItem(id: "work", title: languageMap(ru: "Работа", nl: "Werk", en: "Work"), icon: "briefcase.fill", destination: .workSection(.overview), tint: AppColors.softBlue), tint: AppColors.softBlue),
             itemFromMenu(id: "transport", fallback: dashboardItem(id: "transport", title: languageMap(ru: "Транспорт", nl: "Vervoer", en: "Transport"), icon: "tram.fill", destination: .firstSteps(section: .transportBasics), tint: AppColors.softBlue), tint: AppColors.softBlue),
             itemFromMenu(id: "emergencyGuide", fallback: dashboardItem(id: "emergencyGuide", title: languageMap(ru: "Экстренно", nl: "Noodhulp", en: "Emergency"), icon: "phone.fill", destination: .guideSection("emergency"), tint: AppColors.error), tint: AppColors.error),
             itemFromMenu(id: "police", fallback: dashboardItem(id: "police", title: languageMap(ru: "Полиция", nl: "Politie", en: "Police"), icon: "shield.fill", destination: .police, tint: AppColors.softBlue), tint: AppColors.softBlue),
@@ -4641,9 +4785,7 @@ private struct GlobalAIModeLauncher: View {
                 VStack(alignment: .trailing, spacing: 7) {
                     ForEach(modes) { mode in
                         Button {
-#if canImport(UIKit)
-                            UIImpactFeedbackGenerator(style: .light).impactOccurred()
-#endif
+                            AppHaptics.selection()
                             withAnimation(AppAnimations.tactilePress) {
                                 isExpanded = false
                             }
@@ -4675,9 +4817,7 @@ private struct GlobalAIModeLauncher: View {
             }
 
             Button {
-#if canImport(UIKit)
-                UIImpactFeedbackGenerator(style: .light).impactOccurred()
-#endif
+                AppHaptics.lightImpact()
                 withAnimation(AppAnimations.tactilePress) {
                     isExpanded.toggle()
                 }
@@ -4858,7 +4998,7 @@ private struct FloatingTabBar: View {
         }
         .compositingGroup()
         .shadow(color: Color.black.opacity(0.24), radius: 16, x: 0, y: 8)
-        .animation(.spring(response: 0.28, dampingFraction: 0.7), value: selectedTab)
+        .animation(AppAnimations.tactilePress, value: selectedTab)
     }
 
     @ViewBuilder
@@ -4877,12 +5017,10 @@ private struct FloatingTabBar: View {
     private var buttons: some View {
         ForEach(items) { item in
             Button {
-#if canImport(UIKit)
-                UIImpactFeedbackGenerator(style: .light).impactOccurred()
-#endif
-                withAnimation(AppAnimations.tactilePress) {
-                    onSelect(item.tab)
-                }
+                // The button style owns pressed feedback. Keep the tab content
+                // state change outside an animation transaction so navigation
+                // begins immediately and does not animate the entire root tree.
+                onSelect(item.tab)
             } label: {
                 FloatingTabBarButton(
                     item: item,
@@ -4891,7 +5029,7 @@ private struct FloatingTabBar: View {
                     namespace: selectionNS
                 )
             }
-            .buttonStyle(.plain)
+            .buttonStyle(AppPressableButtonStyle())
             .frame(minWidth: AppIcons.Metrics.minimumTouchTarget, minHeight: AppIcons.Metrics.minimumTouchTarget)
             .contentShape(Rectangle())
             .accessibilityLabel(item.tab == .more ? L10n.t("accessibility.openMenu", lang) : item.title)
@@ -4952,6 +5090,10 @@ private struct FloatingTabBarButton: View {
                         .frame(width: 40, height: 25)
                         .matchedGeometryEffect(id: "tabSelectionPill", in: namespace)
                         .shadow(color: AppColors.dutchOrange.opacity(0.22), radius: 12, x: 0, y: 4)
+                        // The moving selection pill is visual only. Without
+                        // this guard its transient geometry can briefly sit
+                        // above the next tab and absorb a rapid follow-up tap.
+                        .allowsHitTesting(false)
                 }
 
                 Image(systemName: isSelected ? item.selectedSymbol : item.symbol)
@@ -4997,7 +5139,7 @@ private struct FloatingTabBarButton: View {
         .frame(minWidth: AppIcons.Metrics.minimumTouchTarget, minHeight: AppIcons.Metrics.minimumTouchTarget)
         .contentShape(Rectangle())
         .animation(
-            reduceMotion ? nil : .spring(response: 0.28, dampingFraction: 0.7),
+            reduceMotion ? nil : AppAnimations.tactilePress,
             value: isSelected
         )
     }

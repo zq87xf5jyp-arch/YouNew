@@ -1,0 +1,107 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://younew.nl/schemas/data-project/entity.schema.json",
+  "title": "YouNew canonical knowledge entity",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id", "entity_type", "category", "city_id", "province_id", "coordinates",
+    "title", "description", "images", "official_source", "website",
+    "related_entity_ids", "last_checked", "review_frequency_days", "verification_status", "ai_summary",
+    "search_keywords", "lifecycle_status"
+  ],
+  "properties": {
+    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)+$"},
+    "entity_type": {
+      "type": "string",
+      "enum": ["government_service", "city", "place", "museum", "restaurant", "cafe", "hotel", "nature", "event", "local_partner", "housing", "healthcare", "education", "transport", "document", "knowledge_topic", "media"]
+    },
+    "category": {"type": "string", "minLength": 2},
+    "city_id": {"type": ["string", "null"]},
+    "province_id": {"type": ["string", "null"]},
+    "coordinates": {
+      "oneOf": [
+        {"type": "null"},
+        {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["latitude", "longitude"],
+          "properties": {
+            "latitude": {"type": "number", "minimum": 50.7, "maximum": 53.7},
+            "longitude": {"type": "number", "minimum": 3.2, "maximum": 7.3}
+          }
+        }
+      ]
+    },
+    "title": {"type": "string", "minLength": 2},
+    "description": {"type": "string", "minLength": 40},
+    "images": {
+      "type": "array",
+      "items": {"$ref": "#/$defs/media"}
+    },
+    "official_source": {"$ref": "#/$defs/source"},
+    "website": {"type": ["string", "null"], "format": "uri"},
+    "related_entity_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+    "last_checked": {"type": "string", "format": "date"},
+    "review_frequency_days": {"type": "integer", "minimum": 1, "maximum": 400},
+    "verification_status": {"type": "string", "enum": ["pending", "needs_review", "verified", "outdated", "rejected"]},
+    "ai_summary": {"type": "string", "minLength": 40},
+    "search_keywords": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"type": "string", "minLength": 2}},
+    "lifecycle_status": {"type": "string", "enum": ["draft", "qa", "published", "retired"]},
+    "attributes": {"type": "object", "additionalProperties": {"type": "string"}}
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {"entity_type": {"const": "local_partner"}},
+        "required": ["entity_type"]
+      },
+      "then": {
+        "required": ["attributes"],
+        "properties": {
+          "attributes": {
+            "type": "object",
+            "required": ["subcategory", "plan", "verified", "sponsored"],
+            "properties": {
+              "subcategory": {"type": "string", "minLength": 2},
+              "plan": {"type": "string", "minLength": 2},
+              "verified": {"type": "string", "enum": ["true", "false"]},
+              "sponsored": {"type": "string", "enum": ["true", "false"]}
+            }
+          }
+        }
+      }
+    }
+  ],
+  "$defs": {
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "publisher", "url", "is_official", "checked_at", "status"],
+      "properties": {
+        "title": {"type": "string", "minLength": 2},
+        "publisher": {"type": "string", "minLength": 2},
+        "url": {"type": "string", "format": "uri"},
+        "is_official": {"type": "boolean"},
+        "checked_at": {"type": "string", "format": "date"},
+        "status": {"type": "string", "enum": ["pending", "verified_opened", "access_restricted", "rejected"]}
+      }
+    },
+    "media": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "role", "source_page_url", "asset_url", "license", "license_url", "attribution", "verified", "retrieved_at"],
+      "properties": {
+        "id": {"type": "string", "minLength": 3},
+        "role": {"type": "string", "enum": ["hero", "gallery", "thumbnail", "map_preview", "category_cover"]},
+        "source_page_url": {"type": "string", "format": "uri"},
+        "asset_url": {"type": "string", "format": "uri"},
+        "license": {"type": "string", "minLength": 2},
+        "license_url": {"type": "string", "format": "uri"},
+        "attribution": {"type": "string", "minLength": 2},
+        "verified": {"type": "boolean"},
+        "retrieved_at": {"type": "string", "format": "date"}
+      }
+    }
+  }
+}

@@ -21,9 +21,9 @@ enum AIContextBuilder {
         switch selectedTab {
         case .home:
             context = assistantHomeContext(appState: appState, language: language)
-        case .places, .search, .map:
+        case .guide, .map:
             context = build(
-                screen: .map,
+                screen: selectedTab == .map ? .map : .search,
                 language: language,
                 appState: appState,
                 category: localizedCategory("Places discovery", "Plaatsen ontdekken", "Поиск мест", language),
@@ -38,7 +38,7 @@ enum AIContextBuilder {
                     OfficialSource(title: "Government.nl", url: URL(string: "https://www.government.nl"), institution: "Government of the Netherlands")
                 ]
             )
-        case .favorites:
+        case .saved:
             context = build(
                 screen: .saved,
                 language: language,
@@ -52,7 +52,7 @@ enum AIContextBuilder {
                     language
                 )
             )
-        case .assistant, .more:
+        case .more:
             context = assistantHomeContext(appState: appState, language: language)
         }
         return enriched(context, currentRouteID: currentRouteID, appState: appState)
@@ -470,7 +470,7 @@ enum AIContextBuilder {
             sources = [
                 OfficialSource(title: "UWV", url: URL(string: "https://www.uwv.nl"), institution: "UWV"),
                 OfficialSource(title: "Belastingdienst", url: URL(string: "https://www.belastingdienst.nl"), institution: "Tax Authority"),
-                OfficialSource(title: "Government.nl employment", url: URL(string: "https://www.government.nl/topics/employment-contracts-and-cao"), institution: "Government of the Netherlands")
+                OfficialSource(title: "Government.nl employment", url: URL(string: "https://www.government.nl/themes/work/employment-contract-and-a-collective-labour-agreement-cao"), institution: "Government of the Netherlands")
             ]
         case .refugee:
             topicSummary = localizedCategory(
@@ -493,7 +493,7 @@ enum AIContextBuilder {
             )
             sources = [
                 OfficialSource(title: "SVB", url: URL(string: "https://www.svb.nl"), institution: "SVB"),
-                OfficialSource(title: "Government.nl childcare", url: URL(string: "https://www.government.nl/topics/childcare"), institution: "Government of the Netherlands"),
+                OfficialSource(title: "Government.nl childcare", url: URL(string: "https://www.government.nl/themes/family-health-and-care/childcare"), institution: "Government of the Netherlands"),
                 OfficialSource(title: "Government.nl education", url: URL(string: "https://www.government.nl/topics/primary-education"), institution: "Government of the Netherlands")
             ]
         case .highlySkilledMigrant:
@@ -505,7 +505,7 @@ enum AIContextBuilder {
             )
             sources = [
                 OfficialSource(title: "IND highly skilled migrant", url: URL(string: "https://ind.nl/en/residence-permits/work/highly-skilled-migrant"), institution: "IND"),
-                OfficialSource(title: "Belastingdienst 30% facility", url: URL(string: "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/30-percent-facility"), institution: "Belastingdienst"),
+                OfficialSource(title: "Belastingdienst expat scheme", url: URL(string: "https://www.belastingdienst.nl/wps/wcm/connect/nl/buitenland/content/ik-kom-in-nederland-werken-30-procent-regeling-aanvragen"), institution: "Belastingdienst"),
                 OfficialSource(title: "Business.gov.nl recognised sponsor", url: URL(string: "https://business.gov.nl/regulation/recognised-sponsor/"), institution: "Business.gov.nl")
             ]
         case .eu:
@@ -516,7 +516,7 @@ enum AIContextBuilder {
                 language
             )
             sources = [
-                OfficialSource(title: "Government.nl EU citizens", url: URL(string: "https://www.government.nl/topics/immigration-to-the-netherlands/question-and-answer/eu-eea-or-swiss-citizens-living-in-the-netherlands"), institution: "Government of the Netherlands"),
+                OfficialSource(title: "Government.nl EU citizens", url: URL(string: "https://www.government.nl/themes/migration-and-travel/immigration-to-the-netherlands/freedom-of-movement-and-residence-within-the-eu-eea-and-switzerland"), institution: "Government of the Netherlands"),
                 OfficialSource(title: "DigiD", url: URL(string: "https://www.digid.nl"), institution: "Logius"),
                 OfficialSource(title: "Belastingdienst", url: URL(string: "https://www.belastingdienst.nl"), institution: "Tax Authority")
             ]
@@ -540,7 +540,7 @@ enum AIContextBuilder {
                 language
             )
             sources = [
-                OfficialSource(title: "Government.nl short stay", url: URL(string: "https://www.government.nl/topics/immigration-to-the-netherlands/short-stay-visas"), institution: "Government of the Netherlands"),
+                OfficialSource(title: "Government.nl short stay", url: URL(string: "https://www.government.nl/themes/migration-and-travel/holidays-and-travels/check-visa-netherlands"), institution: "Government of the Netherlands"),
                 OfficialSource(title: "Netherlands Worldwide", url: URL(string: "https://www.netherlandsworldwide.nl"), institution: "Ministry of Foreign Affairs"),
                 OfficialSource(title: "9292", url: URL(string: "https://9292.nl/en"), institution: "9292")
             ]
@@ -841,7 +841,7 @@ enum AIContextBuilder {
             ),
             officialSources: [
                 OfficialSource(title: "Huurcommissie", url: URL(string: "https://www.huurcommissie.nl"), institution: "Huurcommissie"),
-                OfficialSource(title: "Government.nl", url: URL(string: "https://www.government.nl/themes/housing"), institution: "Government of the Netherlands")
+                OfficialSource(title: "Government.nl", url: URL(string: "https://www.government.nl/themes/building-and-housing/housing"), institution: "Government of the Netherlands")
             ]
         )
     }
@@ -1060,11 +1060,9 @@ enum AIContextBuilder {
     private static func tabTitle(_ tab: AppTab, language: AppLanguage) -> String {
         switch tab {
         case .home: return L10n.t("tab.home", language)
-        case .places: return "Places"
-        case .search: return L10n.t("tab.search", language)
+        case .guide: return language == .dutch ? "Gids" : language == .russian ? "Гид" : "Guide"
         case .map: return L10n.t("tab.map", language)
-        case .favorites: return L10n.t("tab.saved", language)
-        case .assistant: return L10n.t("tab.explain", language)
+        case .saved: return L10n.t("tab.saved", language)
         case .more: return L10n.t("tab.more", language)
         }
     }
@@ -1283,11 +1281,9 @@ private extension AppTab {
     var destinationForAIContext: AppDestination {
         switch self {
         case .home: return .firstSteps
-        case .places: return .mapHub
-        case .search: return .searchList
+        case .guide: return .categoriesHub
         case .map: return .mapHub
-        case .favorites: return .checklistList
-        case .assistant: return .assistantHub
+        case .saved: return .checklistList
         case .more: return .helpHub
         }
     }

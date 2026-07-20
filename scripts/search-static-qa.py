@@ -60,7 +60,10 @@ def main() -> None:
     expect("searchRefreshTask?.cancel()" in view_model, "SearchViewModel does not cancel pending search refresh tasks")
     expect("Task.sleep(nanoseconds: 220_000_000)" in view_model, "SearchViewModel debounce interval changed or is missing")
     expect("directResultsTask?.cancel()" in search_view, "SearchView direct-results task cancellation is missing")
-    expect("Task.sleep(nanoseconds: 140_000_000)" in search_view, "Search direct-results debounce interval changed or is missing")
+    expect(
+        "ContinuousClock().sleep(for: .milliseconds(260))" in search_view,
+        "Search direct-results debounce interval changed or is missing",
+    )
     expect(
         "private func openOfficialSource(_ url: URL)" in search_view
         and "AppURL.validatedWebURL(url)" in search_view

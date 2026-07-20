@@ -138,12 +138,12 @@ final class AppStateViewModel: ObservableObject {
         switch section {
         case .startHere: return .statusDirection(selectedUserStatus ?? .worker)
         case .dailyLife: return .informationHub
-        case .transport: return .guideSection("transport")
+        case .transport: return .transportSection(.overview)
         case .documents: return .guideSection("documents")
         case .finesAndRules: return .finesList
-        case .workAndTaxes: return .guideSection("work")
-        case .housing: return .guideSection("housing")
-        case .healthcare: return .guideSection("healthcare")
+        case .workAndTaxes: return .workSection(.salaryTaxes)
+        case .housing: return .housingSection(.overview)
+        case .healthcare: return .healthSection(.overview)
         case .government: return .governmentHub
         case .emergency: return .emergencyHub
         case .helpNearby: return .mapHub
@@ -278,6 +278,7 @@ final class AppStateViewModel: ObservableObject {
     }
 
     func showToast(_ message: String) {
+        AppHaptics.notificationSuccess()
         toastDismissTimer?.invalidate()
         toastMessage = message
         toastDismissTimer = Timer.scheduledTimer(withTimeInterval: 2.5, repeats: false) { [weak self] _ in
@@ -304,16 +305,18 @@ final class AppStateViewModel: ObservableObject {
         guard let routeID,
               !routeID.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
         else { return }
-        recentRouteIDs = [routeID] + recentRouteIDs.filter { $0 != routeID }
-        recentRouteIDs = Array(recentRouteIDs.prefix(12))
+        let updated = Array(([routeID] + recentRouteIDs.filter { $0 != routeID }).prefix(12))
+        guard updated != recentRouteIDs else { return }
+        recentRouteIDs = updated
     }
 
     func markGuideCompleted(routeID: String?) {
         guard let routeID,
               routeID.hasPrefix("guide:") || routeID.hasPrefix("article:")
         else { return }
-        completedGuideIDs = [routeID] + completedGuideIDs.filter { $0 != routeID }
-        completedGuideIDs = Array(completedGuideIDs.prefix(40))
+        let updated = Array(([routeID] + completedGuideIDs.filter { $0 != routeID }).prefix(40))
+        guard updated != completedGuideIDs else { return }
+        completedGuideIDs = updated
     }
 
     func displayTitle(forRecentlyViewedTopic topic: String, language: AppLanguage) -> String {

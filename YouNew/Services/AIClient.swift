@@ -20,103 +20,45 @@ enum AIClientError: LocalizedError, Equatable {
     }
 }
 
+/// Minimal native client for the bounded BuildWeekNewcomerDemo backend.
+///
+/// OpenAI credentials, system instructions, source URLs, route allowlists, and
+/// grounding text intentionally do not exist in the request or app bundle.
 struct AIClient {
     static let requestTimeoutSeconds: TimeInterval = 12
     static let resourceTimeoutSeconds: TimeInterval = 16
+    static let endpointPath = "/v1/newcomer-demo"
+    static let maximumQuestionLength = 800
+    static let maximumQuestionBytes = 1_600
+    static let maximumResponseBytes = 64 * 1_024
 
-    struct RequestBody: Encodable {
-        let userMessage: String
-        let language: String
-        let appLocale: String
-        let assistantLocale: String
-        let screen: AIContextScreen
-        let contextRetrieval: RetrievalContext
-        let responseFormat: String
-        let policy: RequestPolicy
-        let policyVersion = "v1"
-        let systemPrompt: String
-        let conversation: [ConversationTurn]
-    }
+    struct NewcomerRequestBody: Encodable, Equatable {
+        let question: String
+        let locale: String
+        let scenario: String
+        let contextVersion: String
+        let knowledgeRecordIDs: [String]
 
-    struct RetrievalContext: Encodable {
-        let sourceTitles: [String]
-        let sourceCount: Int
-        let userSituation: String?
-        let activePersonaTag: String?
-        let secondaryPersonaTags: [String]
-        let personaSearchScope: String
-        let selectedCity: String?
-        let selectedProvince: String?
-        let selectedSection: String?
-        let category: String?
-        let topicTitle: String?
-        let topicSummary: String?
-        let preferredDestination: String?
-        let currentRouteID: String?
-        let recentRouteIDs: [String]
-        let lastSearches: [String]
-        let completedChecklistItemIDs: [String]
-        let completedGuideIDs: [String]
-        let journeyProgress: String?
-        let savedItemTitles: [String]
-        let savedItemIDs: [String]
-        let savedItemKinds: [String]
-
-        init(context: AIContext) {
-            sourceTitles = context.officialSources.map(\.title)
-            sourceCount = context.officialSources.count
-            userSituation = context.userSituation
-            activePersonaTag = context.activePersonaTag?.rawValue
-            secondaryPersonaTags = context.secondaryPersonaTags.map(\.rawValue)
-            personaSearchScope = context.personaSearchScope.rawValue
-            selectedCity = context.selectedCity
-            selectedProvince = context.selectedProvince
-            selectedSection = context.selectedSection?.rawValue
-            category = context.category
-            topicTitle = context.topicTitle
-            topicSummary = context.topicSummary
-            preferredDestination = context.screen.rawValue
-            currentRouteID = context.currentRouteID
-            recentRouteIDs = context.recentRouteIDs
-            lastSearches = context.lastSearches
-            completedChecklistItemIDs = context.completedChecklistItemIDs
-            completedGuideIDs = context.completedGuideIDs
-            journeyProgress = context.journeyProgress
-            savedItemTitles = context.savedItemTitles
-            savedItemIDs = context.savedItemIDs
-            savedItemKinds = context.savedItemKinds
+        init(question: String, language: AppLanguage) {
+            self.question = AIClient.boundedQuestion(question)
+            locale = language.rawValue
+            scenario = BuildWeekNewcomerDemo.scenarioID
+            contextVersion = BuildWeekNewcomerDemo.contextVersion
+            knowledgeRecordIDs = BuildWeekNewcomerDemo.knowledgeRecordIDs
         }
-
-        var isVerified: Bool {
-            sourceCount > 0
-        }
-    }
-
-    struct ConversationTurn: Encodable {
-        let role: String
-        let content: String
-
-        init(_ message: AIMessage) {
-            self.role = message.role == .assistant ? "assistant" : "user"
-            self.content = message.text
-        }
-    }
-
-    struct RequestPolicy: Encodable {
-        let backendMustRetrieveVerifiedContext = true
-        let strictJSONOnly = true
-        let noPrivateData = true
-        let fallbackAnswer = AIResponse.unverifiedAnswer
-        let maxSourceCount = 8
-        let maxConversationTurns = 6
-        let requestTimeoutSeconds = Int(AIClient.requestTimeoutSeconds)
     }
 
     let endpoint: URL?
     var session: URLSession
     let timeoutInterval: TimeInterval
 
-    init(endpoint: URL? = Self.configuredEndpoint(), session: URLSession = Self.defaultSession(), timeoutInterval: TimeInterval = requestTimeoutSeconds) {
+    var isConfigured: Bool { endpoint != nil }
+
+    init(
+        endpoint: URL? = Self.configuredEndpoint(),
+        session: URLSession = Self.defaultSession(),
+        timeoutInterval: TimeInterval = requestTimeoutSeconds
+    ) {
         self.endpoint = endpoint
         self.session = session
         self.timeoutInterval = timeoutInterval
@@ -125,36 +67,38 @@ struct AIClient {
     func send(
         userMessage: String,
         context: AIContext,
-        conversation: [AIMessage]
+        conversation _: [AIMessage]
     ) async throws -> AIResponse {
+        guard BuildWeekNewcomerDemo.matches(userMessage) else {
+            // This endpoint is intentionally not a general-purpose chat proxy.
+            throw AIClientError.invalidRequest
+        }
         guard let endpoint else { throw AIClientError.backendNotConfigured }
+
         var request = URLRequest(url: endpoint)
         request.httpMethod = "POST"
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
         request.timeoutInterval = timeoutInterval
-
         request.httpBody = try JSONEncoder().encode(
-            RequestBody(
-                userMessage: String(userMessage.prefix(2_000)),
-                language: context.userLanguage.rawValue,
-                appLocale: context.userLanguage.rawValue,
-                assistantLocale: context.userLanguage.rawValue,
-                screen: context.screen,
-                contextRetrieval: RetrievalContext(context: context),
-                responseFormat: "younew.ai.response.v1.strict_json",
-                policy: RequestPolicy(),
-                systemPrompt: Self.systemPrompt,
-                conversation: conversation.suffix(6).map(ConversationTurn.init)
-            )
+            NewcomerRequestBody(question: userMessage, language: context.userLanguage)
         )
 
         do {
             let (data, response) = try await session.data(for: request)
-            guard let http = response as? HTTPURLResponse else { throw AIClientError.invalidRequest }
+            guard let http = response as? HTTPURLResponse else {
+                throw AIClientError.invalidRequest
+            }
             switch http.statusCode {
             case 200..<300:
-                guard !data.isEmpty else { throw AIClientError.emptyResponse }
-                return try AIResponseParser.parse(data, language: context.userLanguage)
+                guard !data.isEmpty,
+                      data.count <= Self.maximumResponseBytes
+                else { throw AIClientError.emptyResponse }
+                let parsed = try AIResponseParser.parse(data, language: context.userLanguage)
+                guard parsed.isLiveOpenAI else { throw AIClientError.emptyResponse }
+                return parsed
+            case 400..<500 where http.statusCode != 429:
+                throw AIClientError.invalidRequest
             case 429:
                 throw AIClientError.rateLimited
             default:
@@ -169,64 +113,62 @@ struct AIClient {
         }
     }
 
+    static func validatedEndpoint(
+        _ raw: String,
+        allowInsecureLoopback: Bool = false
+    ) -> URL? {
+        let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
+        guard !trimmed.isEmpty,
+              let components = URLComponents(string: trimmed),
+              let host = components.host,
+              !host.isEmpty,
+              components.user == nil,
+              components.password == nil,
+              components.query == nil,
+              components.fragment == nil,
+              components.path == endpointPath
+        else { return nil }
+
+        if components.scheme == "https" {
+            return components.url
+        }
+
+        let loopbackHosts = Set(["localhost", "127.0.0.1", "::1"])
+        if allowInsecureLoopback,
+           components.scheme == "http",
+           loopbackHosts.contains(host.lowercased()) {
+            return components.url
+        }
+        return nil
+    }
+
+    private static func boundedQuestion(_ question: String) -> String {
+        var bounded = String(question.prefix(maximumQuestionLength))
+        while bounded.utf8.count > maximumQuestionBytes {
+            bounded.removeLast()
+        }
+        return bounded
+    }
+
     private static func defaultSession() -> URLSession {
         let configuration = URLSessionConfiguration.ephemeral
         configuration.timeoutIntervalForRequest = requestTimeoutSeconds
         configuration.timeoutIntervalForResource = resourceTimeoutSeconds
         configuration.requestCachePolicy = .reloadIgnoringLocalCacheData
         configuration.waitsForConnectivity = false
+        configuration.httpShouldSetCookies = false
+        configuration.urlCredentialStorage = nil
         return URLSession(configuration: configuration)
     }
 
     private static func configuredEndpoint() -> URL? {
-        guard let raw = Bundle.main.object(forInfoDictionaryKey: "YOUNEW_AI_PROXY_URL") as? String,
-              !raw.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty else {
+        guard let raw = Bundle.main.object(forInfoDictionaryKey: "YOUNEW_AI_BACKEND_URL") as? String else {
             return nil
         }
-        let trimmed = raw.trimmingCharacters(in: .whitespacesAndNewlines)
-        return AppURL.validatedWebURL(URL(string: trimmed))
+#if DEBUG
+        return validatedEndpoint(raw, allowInsecureLoopback: true)
+#else
+        return validatedEndpoint(raw)
+#endif
     }
-
-    private static let systemPrompt = """
-    You are YouNew AI Assistant inside a city guidance app.
-
-    You help users with practical city information based on the app context.
-
-    You must use:
-    - selectedCity
-    - selectedAudience
-    - currentScreen
-    - selectedCategory
-    - verified in-app content
-    - official sources only when provided
-
-    Rules:
-    1. Answer only for the selected city unless the user asks otherwise.
-    2. Respect selectedAudience. If audience is tourist, answer for tourists.
-    3. Do not provide resident-only, business-only, or student-only flows unless the user asks or changes audience.
-    4. Do not invent official sources.
-    5. If no verified source is available, say so.
-    6. If the question is unclear, ask one short clarifying question.
-    7. Do not use generic template answers.
-    8. Do not ask for BSN, passport numbers, medical data, bank data, or other sensitive personal data.
-    9. Give short, practical answers.
-    10. Use the app’s available actions when possible.
-
-    For tourist mode, prioritize:
-    - emergency help
-    - lost documents
-    - transport
-    - rules and fines
-    - healthcare
-    - places
-    - weather
-    - official help
-
-    Response format:
-    - answer: direct answer
-    - whyItMatters: only if useful
-    - nextSteps: 1-3 practical steps
-    - officialSource: only if provided by app context
-    - confidence: high, medium, or low
-    """
 }

@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-05-M1-education-integration-004",
+  "work_package": "WP-05",
+  "milestone": "WP-05-M1",
+  "target_release": "education-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator build-for-testing and admin production build succeeded.",
+    "static": "Full static QA and DATA PROJECT schema validation passed.",
+    "duplicate": "No duplicate entity IDs, canonical websites or unresolved relations.",
+    "source": "Official sources reviewed; 1091 external URLs checked with 0 confirmed broken.",
+    "media": "Knowledge topics intentionally require no media; empty media fields validated.",
+    "search": "Search keywords are unique, descriptive and backed by resolvable related entities.",
+    "ai": "AI summaries are actionable, source-aligned and free of unsupported personal conclusions."
+  },
+  "records": [
+    {
+      "id": "education.integration-obligation",
+      "entity_type": "knowledge_topic",
+      "category": "civic_integration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand the Dutch civic-integration process",
+      "description": "People required to integrate receive DUO and municipal instructions that identify the applicable law, start date, period, learning route and personal integration and participation plan.",
+      "images": [],
+      "official_source": {
+        "title": "Create a personal integration step-by-step plan",
+        "publisher": "Inburgeren.nl / DUO",
+        "url": "https://www.inburgeren.nl/en/step-by-step-plans-several-languages.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inburgeren.nl/en/step-by-step-plans-several-languages.jsp",
+      "related_entity_ids": [
+        "education.integration-pip-routes",
+        "education.integration-school",
+        "education.integration-deadline"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Treat the DUO letters, Mijn Inburgering and municipal PIP as authoritative for the personal route. Do not copy another person's exam list or deadline because different laws and circumstances apply.",
+      "search_keywords": [
+        "civic integration",
+        "inburgering",
+        "DUO letter",
+        "integration period",
+        "Mijn Inburgering"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Civic integration"
+      }
+    },
+    {
+      "id": "education.integration-pip-routes",
+      "entity_type": "knowledge_topic",
+      "category": "civic_integration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Follow the PIP and assigned learning route",
+      "description": "Under the current system the municipality conducts a broad intake and records a B1, education or self-reliance route and required activities in the personal integration and participation plan.",
+      "images": [],
+      "official_source": {
+        "title": "Choosing an integration course",
+        "publisher": "Inburgeren.nl / DUO",
+        "url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/choosing-course.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inburgeren.nl/en/integration-in-the-netherlands/choosing-course.jsp",
+      "related_entity_ids": [
+        "education.integration-obligation",
+        "education.integration-school",
+        "education.integration-exams"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Ask the municipality to explain every PIP component, language level and participation activity before signing. Report changes or barriers early and keep the final plan with DUO correspondence.",
+      "search_keywords": [
+        "PIP inburgering",
+        "B1 route",
+        "education route",
+        "self reliance route",
+        "integration course"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Civic integration"
+      }
+    },
+    {
+      "id": "education.integration-school",
+      "entity_type": "knowledge_topic",
+      "category": "civic_integration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Choose an accredited integration school",
+      "description": "Some participants choose their own course provider while others receive a municipal choice, and DUO-linked financing can depend on using a school in the recognised register.",
+      "images": [],
+      "official_source": {
+        "title": "Choosing an integration school",
+        "publisher": "Inburgeren.nl / DUO",
+        "url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/choosing-school.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inburgeren.nl/en/integration-in-the-netherlands/choosing-school.jsp",
+      "related_entity_ids": [
+        "education.integration-pip-routes",
+        "education.integration-costs",
+        "education.integration-exams"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Verify accreditation in the official school register, compare lesson hours, group level, total price and cancellation terms, and ensure the course matches the PIP or applicable exam level.",
+      "search_keywords": [
+        "integration school",
+        "inburgeringsschool",
+        "Blik op Werk",
+        "Dutch course",
+        "choose language school"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Civic integration"
+      }
+    },
+    {
+      "id": "education.integration-exams",
+      "entity_type": "knowledge_topic",
+      "category": "civic_integration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Identify the integration exams required personally",
+      "description": "Required language and knowledge exams depend on the civic-integration law, start date and learning route, with Mijn Inburgering and the PIP listing the applicable components.",
+      "images": [],
+      "official_source": {
+        "title": "Taking the integration exam",
+        "publisher": "Inburgeren.nl / DUO",
+        "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/index.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inburgeren.nl/en/taking-the-integration-exam/index.jsp",
+      "related_entity_ids": [
+        "education.integration-register-exam",
+        "education.integration-knowledge",
+        "education.integration-results"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Create an exam checklist from Mijn Inburgering rather than a generic list. Match each registration to the required language level and keep confirmations, payment evidence and exam rules.",
+      "search_keywords": [
+        "integration exam",
+        "inburgeringsexamen",
+        "language exam",
+        "KNM",
+        "exam requirements"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Civic integration"
+      }
+    },
+    {
+      "id": "education.integration-register-exam",
+      "entity_type": "knowledge_topic",
+      "category": "civic_integration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Prepare for the integration exam location",
+      "description": "DUO publishes the current locations for A2 language and knowledge exams, while B1 and B2 state exams use their own official location information.",
+      "images": [],
+      "official_source": {
+        "title": "Integration exam locations",
+        "publisher": "Inburgeren.nl / DUO",
+        "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/locations.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inburgeren.nl/en/taking-the-integration-exam/locations.jsp",
+      "related_entity_ids": [
+        "education.integration-exams",
+        "education.integration-costs",
+        "education.integration-results"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Verify the location in the DUO invitation and official location list, plan enough travel time and bring the required identification. Check the separate Nt2 route for B1 or B2 exams.",
+      "search_keywords": [
+        "integration exam location",
+        "DUO exam centre",
+        "A2 exam address",
+        "KNM location",
+        "inburgering travel"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Civic integration"
+      }
+    },
+    {
+      "id": "education.integration-knowledge",
+      "entity_type": "knowledge_topic",
+      "category": "civic_integration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Complete the required knowledge and participation components",
+      "description": "Civic integration can include Knowledge of Dutch Society and, depending on the applicable law and route, municipal participation or labour-market components such as PVT, MAP or ONA.",
+      "images": [],
+      "official_source": {
+        "title": "Knowledge exams",
+        "publisher": "Inburgeren.nl / DUO",
+        "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/content-knowledge-exams.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inburgeren.nl/en/taking-the-integration-exam/content-knowledge-exams.jsp",
+      "related_entity_ids": [
+        "education.integration-exams",
+        "education.integration-pip-routes",
+        "education.integration-diploma"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check which knowledge components appear in the PIP and Mijn Inburgering and whether the municipality or DUO records completion. Do not register for an obsolete component based on another person's route.",
+      "search_keywords": [
+        "KNM",
+        "PVT",
+        "MAP",
+        "ONA",
+        "knowledge Dutch society"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Civic integration"
+      }
+    },
+    {
+      "id": "education.integration-costs",
+      "entity_type": "knowledge_topic",
+      "category": "civic_integration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check who pays for integration courses and exams",
+      "description": "Integration costs depend on the applicable act and residence situation, with municipalities, personal payment or a DUO loan covering different courses and attempts under defined conditions.",
+      "images": [],
+      "official_source": {
+        "title": "Paying for integration",
+        "publisher": "Inburgeren.nl / DUO",
+        "url": "https://www.inburgeren.nl/en/paying-for-integration/index.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inburgeren.nl/en/paying-for-integration/index.jsp",
+      "related_entity_ids": [
+        "education.integration-school",
+        "education.integration-register-exam",
+        "education.integration-deadline"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Confirm the applicable act and funding route before signing a course contract or borrowing. Check whether the chosen school and exam attempt qualify, and retain invoices and DUO decisions.",
+      "search_keywords": [
+        "integration costs",
+        "DUO integration loan",
+        "course payment",
+        "exam fee",
+        "inburgering finance"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Civic integration"
+      }
+    },
+    {
+      "id": "education.integration-results",
+      "entity_type": "knowledge_topic",
+      "category": "civic_integration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check integration exam results",
+      "description": "DUO reports A2 language and knowledge exam results by letter and in Mijn Inburgering, while Nt2 B1 and B2 results follow the state-exam process.",
+      "images": [],
+      "official_source": {
+        "title": "Integration exam results",
+        "publisher": "Inburgeren.nl / DUO",
+        "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/results.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inburgeren.nl/en/taking-the-integration-exam/results.jsp",
+      "related_entity_ids": [
+        "education.integration-exams",
+        "education.integration-diploma",
+        "education.integration-register-exam"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Monitor Mijn Inburgering and official post after the stated processing period and verify that every passed component is recorded. Keep result letters until the diploma or certificate is available.",
+      "search_keywords": [
+        "integration result",
+        "exam result DUO",
+        "inburgering passed",
+        "Mijn Inburgering result",
+        "Nt2 result"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Civic integration"
+      }
+    },
+    {
+      "id": "education.integration-diploma",
+      "entity_type": "knowledge_topic",
+      "category": "civic_integration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Retrieve an integration diploma or route certificate",
+      "description": "After completing all required components, eligible participants can obtain a digital integration diploma through the official portal, while the self-reliance route ends with a municipal certificate.",
+      "images": [],
+      "official_source": {
+        "title": "Integration diploma",
+        "publisher": "Inburgeren.nl / DUO",
+        "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/diploma.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inburgeren.nl/en/taking-the-integration-exam/diploma.jsp",
+      "related_entity_ids": [
+        "education.integration-results",
+        "education.integration-knowledge",
+        "education.diploma-register"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Download and preserve the digital diploma through the secure portal and use it digitally as instructed. For a self-reliance-route certificate or missing record, contact the responsible municipality or DUO.",
+      "search_keywords": [
+        "integration diploma",
+        "inburgeringsdiploma",
+        "digital diploma",
+        "Z route certificate",
+        "proof integration"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Civic integration"
+      }
+    },
+    {
+      "id": "education.integration-deadline",
+      "entity_type": "knowledge_topic",
+      "category": "civic_integration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Respond to an integration deadline or fine notice",
+      "description": "DUO may impose consequences when a required participant does not finish within the personal integration period and no valid extension or other relief applies.",
+      "images": [],
+      "official_source": {
+        "title": "Integration fines",
+        "publisher": "Inburgeren.nl / DUO",
+        "url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/fines.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inburgeren.nl/en/integration-in-the-netherlands/fines.jsp",
+      "related_entity_ids": [
+        "education.integration-obligation",
+        "education.integration-costs",
+        "education.integration-results"
+      ],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Check the personal end date frequently and contact the municipality or DUO as soon as illness, waiting time or another obstacle threatens progress. Respond to preliminary notices with supporting evidence by the deadline.",
+      "search_keywords": [
+        "integration deadline",
+        "inburgering fine",
+        "termijnoverschrijding",
+        "DUO penalty",
+        "extension integration"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "coverage_family": "Civic integration"
+      }
+    }
+  ]
+}

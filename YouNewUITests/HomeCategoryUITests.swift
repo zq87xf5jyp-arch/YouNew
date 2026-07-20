@@ -2,17 +2,30 @@ import XCTest
 
 final class HomeCategoryUITests: XCTestCase {
     private let releaseHomeIdentifiers = [
-        "home.product.hero",
-        "home.statusCard",
-        "home.status.change"
+        "home.currentCity",
+        "home.globalSearch",
+        "home.currentProfile"
+    ]
+
+    private let approvedCompactHomeIdentifiers = [
+        "home.currentProfile",
+        "home.officialServices",
+        "home.placesToVisit",
+        "home.housing",
+        "home.transport",
+        "home.leisure",
+        "home.education",
+        "home.compactAI",
+        "home.localPartners.focused",
+        "home.discoverNetherlands"
     ]
 
     private let floatingTabIdentifiers = [
         "tab.home",
-        "tab.search",
+        "tab.guide",
         "tab.map",
-        "tab.favorites",
-        "tab.assistant"
+        "tab.saved",
+        "tab.more"
     ]
 
     override func setUpWithError() throws {
@@ -40,6 +53,28 @@ final class HomeCategoryUITests: XCTestCase {
             assertReleaseHomeFirstViewport(in: app)
             app.terminate()
         }
+    }
+
+    @MainActor
+    func testHomeUsesApprovedCompactArchitecture() throws {
+        let app = launchApp(language: "en")
+        try requireAppWindow(in: app)
+
+        for identifier in approvedCompactHomeIdentifiers {
+            let element = app.descendants(matching: .any)[identifier]
+            scrollToElement(element, in: app)
+            assertExists(element, named: identifier)
+            XCTAssertFalse(element.frame.isEmpty, "Compact Home section has an empty frame: \(identifier)")
+        }
+
+        XCTAssertFalse(
+            app.descendants(matching: .any)["home.cityGallery"].exists,
+            "The immersive city gallery belongs on city pages, not Home."
+        )
+        XCTAssertFalse(
+            app.descendants(matching: .any)["home.photoGallery"].exists,
+            "Long photo galleries must not be restored on Home."
+        )
     }
 
     // MARK: - Tab Bar: No Duplicate
@@ -114,7 +149,7 @@ final class HomeCategoryUITests: XCTestCase {
         try requireAppWindow(in: app)
 
         let tabsToTest: [(id: String, waitId: String)] = [
-            ("tab.search", "tab.search"),
+            ("tab.guide",  "tab.guide"),
             ("tab.map",    "tab.map"),
             ("tab.home",   "tab.home")
         ]
@@ -141,12 +176,12 @@ final class HomeCategoryUITests: XCTestCase {
         XCTAssertTrue(suggestion.waitForExistence(timeout: 4), "BSN search suggestion is missing")
         suggestion.tap()
 
-        let result = app.descendants(matching: .any)["search.result.card"]
+        let result = app.descendants(matching: .any)["search.directResult.link.essential-bsn-registration"]
         XCTAssertTrue(result.waitForExistence(timeout: 4), "Search should return at least one result for BSN")
         XCTAssertFalse(result.frame.isEmpty, "Search result has an empty frame")
 
-        let searchTab = app.descendants(matching: .any)["tab.search"]
-        XCTAssertTrue(searchTab.waitForExistence(timeout: 2), "Search tab is missing")
+        let searchTab = app.descendants(matching: .any)["tab.guide"]
+        XCTAssertTrue(searchTab.waitForExistence(timeout: 2), "Guide tab is missing below the Search destination")
         XCTAssertLessThanOrEqual(
             result.frame.maxY,
             searchTab.frame.minY - 8,
@@ -178,10 +213,14 @@ final class HomeCategoryUITests: XCTestCase {
             "-uiTesting",
             "-resetUITestState",
             "-launchLanguage", language,
-            "-uiTestingStartTab", startTab,
             "-uiTestingCity", "Leiden",
             "-uiTestingStatus", "worker"
         ]
+        if startTab == "assistant" || startTab == "search" {
+            app.launchArguments += ["-uiTestingDestination", startTab]
+        } else {
+            app.launchArguments += ["-uiTestingStartTab", startTab]
+        }
         app.launch()
         app.activate()
         return app
@@ -204,13 +243,10 @@ final class HomeCategoryUITests: XCTestCase {
             XCTAssertGreaterThanOrEqual(element.frame.width, 44, "Release Home element touch width is too small: \(identifier)")
         }
 
-        let statusCard = app.descendants(matching: .any)["home.statusCard"]
-        let changeButton = app.descendants(matching: .any)["home.status.change"]
-
-        XCTAssertLessThan(statusCard.frame.minY, changeButton.frame.minY, "Status card must appear before profile change.")
-        XCTAssertTrue(changeButton.isHittable, "Change button must be hittable in the first viewport.")
-        XCTAssertGreaterThanOrEqual(changeButton.frame.height, 44, "Change button touch height is too small.")
-        XCTAssertGreaterThanOrEqual(changeButton.frame.width, 44, "Change button touch width is too small.")
+        let city = app.descendants(matching: .any)["home.currentCity"]
+        let search = app.descendants(matching: .any)["home.globalSearch"]
+        XCTAssertLessThanOrEqual(search.frame.minY, city.frame.minY, "Search must remain available before the city hero.")
+        XCTAssertTrue(search.isHittable, "Search button must be hittable in the first viewport.")
     }
 
     @MainActor
@@ -221,8 +257,8 @@ final class HomeCategoryUITests: XCTestCase {
     @MainActor
     private func scrollToElement(_ element: XCUIElement, in app: XCUIApplication) {
         var attempts = 0
-        while !element.isHittable && attempts < 5 {
-            app.swipeUp()
+        while !element.isHittable && attempts < 30 {
+            app.swipeUp(velocity: .fast)
             attempts += 1
         }
     }

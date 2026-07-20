@@ -536,6 +536,7 @@ struct SaveItemButton: View {
                 .symbolEffect(.bounce, value: store.isSaved(itemID))
         }
         .buttonStyle(.plain)
+        .accessibilityIdentifier("saved.toggle.\(itemID)")
         .accessibilityLabel(
             store.isSaved(itemID)
                 ? L10n.t("common.remove_bookmark", languageManager.appLanguage)

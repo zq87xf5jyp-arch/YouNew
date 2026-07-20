@@ -29,7 +29,7 @@ struct OnboardingQuestionnaireView: View {
     @State private var hasBankAccount = false
     @State private var hasRegisteredAddress = false
 
-    private let totalSteps = 5
+    private let totalSteps = 4
     private var priorityOptions: [(id: String, icon: String)] {
         priorityOptions(for: selectedPersona)
     }
@@ -80,7 +80,6 @@ struct OnboardingQuestionnaireView: View {
                         case 2:   currentSituationStep
                         case 3:   prioritiesStep
                         case 4:   cityStep
-                        case 5:   optionalInterestsStep
                         default:  readyStep
                         }
                     }
@@ -111,7 +110,7 @@ struct OnboardingQuestionnaireView: View {
     // MARK: - Background
 
     private var backgroundLayer: some View {
-        GlobalBackgroundView()
+        AppSceneBackgroundLayer()
     }
 
     private var decorativeArc: some View {
@@ -644,7 +643,6 @@ struct OnboardingQuestionnaireView: View {
             appState.userProfile.priorities = selectedPriorities.compactMap { .init(rawValue: $0) }
         }
         appState.userProfile.selectedRegionOrProvince = selectedRegion
-        appState.userProfile.optionalInterests = Array(selectedInterests).sorted { $0.rawValue < $1.rawValue }
         if selectedRegion == "currentLocation" {
             appState.useCurrentLocationForMap = true
         }

@@ -57,6 +57,22 @@ enum LocalNetherlandsImagePackRegistry {
         }
     }
 
+    static func cityShortcut(placeId: String) -> AppImageAsset? {
+        switch placeId {
+        case "nl-city-noord_holland-amsterdam": return asset("nl_amsterdam_canals_landmark_01", title: "Amsterdam canals", width: 1600, height: 1200, type: .cardThumbnail)
+        case "nl-city-zuid_holland-rotterdam": return asset("nl_erasmus_bridge_landmark_01", title: "Erasmus Bridge", width: 1600, height: 1200, type: .cardThumbnail)
+        case "nl-city-zuid_holland-den_haag": return asset("nl_binnenhof_landmark_01", title: "Binnenhof", width: 1600, height: 1200, type: .cardThumbnail)
+        case "nl-city-utrecht-utrecht": return asset("nl_dom_tower_landmark_01", title: "Dom Tower Utrecht", width: 1600, height: 1200, type: .cardThumbnail)
+        case "nl-city-zuid_holland-leiden": return asset("nl_leiden_canals_landmark_01", title: "Leiden canals", width: 1600, height: 1200, type: .cardThumbnail)
+        case "nl-city-zuid_holland-delft": return asset("nl_delft_markt_landmark_01", title: "Delft Markt and Nieuwe Kerk", width: 1600, height: 1200, type: .cardThumbnail)
+        case "nl-city-zuid_holland-gouda": return asset("nl_gouda_town_hall_landmark_01", title: "Gouda Town Hall", width: 1600, height: 1200, type: .cardThumbnail)
+        case "nl-city-limburg-maastricht": return asset("nl_vrijthof_landmark_01", title: "Vrijthof Maastricht", width: 1600, height: 1200, type: .cardThumbnail)
+        case "nl-city-gelderland-arnhem": return asset("nl_hoge_veluwe_landmark_01", title: "De Hoge Veluwe National Park", width: 1600, height: 1200, type: .cardThumbnail)
+        case "nl-city-noord_holland-haarlem": return asset("nl_keukenhof_landmark_01", title: "Keukenhof gardens", width: 1600, height: 1200, type: .cardThumbnail)
+        default: return nil
+        }
+    }
+
     static func provinceHero(placeId: String) -> AppImageAsset? {
         switch placeId {
         case "nl-province-noord_holland": return asset("nl_north_holland_province_01", title: "North Holland", width: 1920, height: 1080, type: .provinceHero)

@@ -163,15 +163,26 @@ struct AIAssistantAnswerEngineTests {
         })
     }
 
-    @Test func emptyInputIsNotSent() async {
+    @Test func emptyInputIsNotSentAndClearRemovesAnswerCache() async {
+        let defaults = UserDefaults.standard
+        defaults.set(Data("{}".utf8), forKey: AssistantStorage.answerCacheStorageKey)
         let viewModel = AIViewModel(service: StaticAIService())
         viewModel.clearConversation()
+        #expect(defaults.object(forKey: AssistantStorage.answerCacheStorageKey) == nil)
         viewModel.updateContext(Self.touristContext(city: "Amsterdam"))
         viewModel.input = "   "
 
         await viewModel.sendCurrentMessage()
 
         #expect(viewModel.conversation.messages.isEmpty)
+
+        viewModel.input = "My BSN is 123456789, what should I do?"
+        await viewModel.sendCurrentMessage()
+
+        #expect(!viewModel.conversation.messages.contains { $0.role == .user })
+        #expect(viewModel.conversation.messages.count == 1)
+        #expect(viewModel.conversation.messages.first?.role == .assistant)
+        viewModel.clearConversation()
     }
 
     @Test func twoDifferentMessagesProduceDifferentAssistantResponses() async throws {

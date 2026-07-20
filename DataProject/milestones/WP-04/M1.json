@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "WP-04-M1",
+  "work_package": "WP-04",
+  "name": "Transport Core",
+  "status": "qa",
+  "target_release": "transport-v1.0.0",
+  "target_records": 40,
+  "scope": [
+    "NS and rail travel",
+    "OV-chipkaart and OVpay",
+    "cycling and bicycle services",
+    "car parking"
+  ],
+  "definition_of_done": {
+    "records_qa_ready": 40,
+    "minimum_records_per_topic_family": 10,
+    "required_topic_families": 4,
+    "unresolved_relations": 0,
+    "duplicate_entities": 0,
+    "unverified_sources": 0,
+    "all_publication_gates_passed": true,
+    "publication_requires_explicit_approval": true
+  }
+}

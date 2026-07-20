@@ -26,7 +26,7 @@ struct ContentView: View {
                 LaunchDiagnostics.mark("Root view loaded")
             }
             .fullScreenCover(isPresented: Binding(
-                get: { appState.requiresPersonaSelection },
+                get: { shouldPresentOnboarding },
                 set: { _ in }
             )) {
                 OnboardingQuestionnaireView()
@@ -41,5 +41,16 @@ struct ContentView: View {
         RootTabView()
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(.clear)
+    }
+
+    private var shouldPresentOnboarding: Bool {
+#if DEBUG
+        let arguments = ProcessInfo.processInfo.arguments
+        if arguments.contains("-uiTesting"),
+           !arguments.contains("-uiTestingShowOnboarding") {
+            return false
+        }
+#endif
+        return appState.requiresPersonaSelection
     }
 }

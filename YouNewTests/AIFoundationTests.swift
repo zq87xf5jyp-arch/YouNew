@@ -264,56 +264,43 @@ struct AIFoundationTests {
         #expect(response.quickActions.allSatisfy { AIResponseLanguageGuard.isVisibleTextAcceptable($0.title, for: .russian) })
     }
 
-    @Test func aiClientRetrievalContextSerializesPersonaFields() throws {
-        let context = AIContext(
-            screen: .home,
-            category: "Personal guide",
-            topicTitle: "Student dashboard",
-            topicSummary: "DUO, universities, housing, language, and student work",
-            officialSources: [],
-            lastReviewed: nil,
-            userLanguage: .english,
-            userSituation: "Student",
-            selectedCity: "Amsterdam",
-            selectedProvince: "Noord-Holland",
-            savedItemTitles: [],
-            disclaimer: "Informational guidance only.",
-            activePersonaTag: .student,
-            secondaryPersonaTags: [.nonEU],
-            personaSearchScope: .currentPersonaOnly
+    @Test func aiClientRequestContainsOnlyBoundedNewcomerFields() throws {
+        let body = AIClient.NewcomerRequestBody(
+            question: BuildWeekNewcomerDemo.prompt(for: .english),
+            language: .english
         )
-
-        let retrieval = AIClient.RetrievalContext(context: context)
-        let data = try JSONEncoder().encode(retrieval)
+        let data = try JSONEncoder().encode(body)
         let object = try JSONSerialization.jsonObject(with: data) as? [String: Any]
 
-        #expect(object?["activePersonaTag"] as? String == "student")
-        #expect(object?["personaSearchScope"] as? String == "currentPersonaOnly")
-        #expect(object?["secondaryPersonaTags"] as? [String] == ["nonEU"])
+        #expect(Set(object?.keys.map { $0 } ?? []) == Set([
+            "question", "locale", "scenario", "contextVersion", "knowledgeRecordIDs"
+        ]))
+        #expect(object?["scenario"] as? String == BuildWeekNewcomerDemo.scenarioID)
+        #expect(object?["contextVersion"] as? String == BuildWeekNewcomerDemo.contextVersion)
+        #expect(object?["knowledgeRecordIDs"] as? [String] == BuildWeekNewcomerDemo.knowledgeRecordIDs)
+        #expect(object?["systemPrompt"] == nil)
+        #expect(object?["conversation"] == nil)
+        #expect(object?["savedItemIDs"] == nil)
+
+        let oversizedBody = AIClient.NewcomerRequestBody(
+            question: String(repeating: "🧭", count: 900),
+            language: .english
+        )
+        #expect(oversizedBody.question.count <= AIClient.maximumQuestionLength)
+        #expect(oversizedBody.question.utf8.count <= AIClient.maximumQuestionBytes)
     }
 
     @Test func aiClientRequestUsesAppLocaleAsAssistantLocale() throws {
-        let context = AIContext.empty(language: .russian)
-        let body = AIClient.RequestBody(
-            userMessage: "Проверить следующий шаг",
-            language: context.userLanguage.rawValue,
-            appLocale: context.userLanguage.rawValue,
-            assistantLocale: context.userLanguage.rawValue,
-            screen: context.screen,
-            contextRetrieval: AIClient.RetrievalContext(context: context),
-            responseFormat: "younew.ai.response.v1.strict_json",
-            policy: AIClient.RequestPolicy(),
-            systemPrompt: AISafetyRules.systemPrompt,
-            conversation: []
+        let body = AIClient.NewcomerRequestBody(
+            question: BuildWeekNewcomerDemo.prompt(for: .russian),
+            language: .russian
         )
 
         let data = try JSONEncoder().encode(body)
         let object = try JSONSerialization.jsonObject(with: data) as? [String: Any]
 
-        #expect(object?["language"] as? String == "ru")
-        #expect(object?["appLocale"] as? String == "ru")
-        #expect(object?["assistantLocale"] as? String == "ru")
-        #expect(object?["assistantLocale"] as? String == object?["appLocale"] as? String)
+        #expect(object?["locale"] as? String == "ru")
+        #expect(object?["question"] as? String == BuildWeekNewcomerDemo.prompt(for: .russian))
     }
 
     @Test func responseParserAcceptsTypedQuickActions() throws {
@@ -633,6 +620,34 @@ struct AIFoundationTests {
         #expect(response.quickActions.contains { $0.kind == .openSource })
         #expect(response.quickActions.contains { $0.kind == .save })
         #expect(response.quickActions.contains { $0.kind == .share })
+    }
+
+    @Test func housingWorkflowKeepsScamWarningInsideVisibleQuickActions() throws {
+        let context = AIContext.empty(language: .english)
+        let started = AIWorkflowEngine.startIfNeeded(
+            query: "I need housing",
+            language: .english,
+            context: context
+        )
+        let workflow = try #require(started?.workflow)
+        let completed = AIWorkflowEngine.advance(
+            workflow: workflow,
+            answer: "rental problem",
+            language: .english,
+            context: context
+        )
+        let response = try #require(completed?.response)
+        let visibleActions = Array(response.quickActions.prefix(8))
+
+        #expect(visibleActions.contains {
+            $0.kind == .relatedTopic && $0.query == "housing scam"
+        })
+        #expect(visibleActions.contains {
+            $0.kind == .openGuide && $0.destinationID == "housing"
+        })
+        #expect(visibleActions.contains {
+            $0.kind == .openScreen && $0.destinationID == "government"
+        })
     }
 
     // MARK: Context builder - Province

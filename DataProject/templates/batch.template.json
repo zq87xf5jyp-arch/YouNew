@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-XX-MN-slug",
+  "work_package": "WP-XX",
+  "milestone": "WP-XX-MN",
+  "target_release": "dataset-v0.0.0",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "qa_evidence": {
+    "checked_at": null,
+    "build": null,
+    "static": null,
+    "duplicate": null,
+    "source": null,
+    "media": null,
+    "search": null,
+    "ai": null
+  },
+  "records": []
+}

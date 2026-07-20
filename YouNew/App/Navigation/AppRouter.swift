@@ -27,7 +27,23 @@ enum AppNavigationResolver {
         case .provinceDetail(let province): return "province:\(KnowledgeNormalizer.slug(province))"
         case .provinceCities(let province): return "provinceCities:\(KnowledgeNormalizer.slug(province))"
         case .cityDetail(let province, let city): return "cityDetail:\(KnowledgeNormalizer.slug(province)):\(KnowledgeNormalizer.slug(city))"
-        case .homeExploreList(let id): return "homeExploreList:\(KnowledgeNormalizer.slug(id))"
+        case .placeList(let city): return "placeList:\(city.rawValue)"
+        case .museumList(let city): return "museumList:\(city.rawValue)"
+        case .natureList(let city): return "natureList:\(city.rawValue)"
+        case .landmarkList(let city): return "landmarkList:\(city.rawValue)"
+        case .eventList(let city): return "eventList:\(city.rawValue)"
+        case .restaurantList(let city): return "restaurantList:\(city.rawValue)"
+        case .cafeList(let city): return "cafeList:\(city.rawValue)"
+        case .discoveryList(let city, let type): return "discoveryList:\(city.rawValue):\(type.rawValue)"
+        case .restaurantDetail(let city, let itemID): return "restaurantDetail:\(city.rawValue):\(itemID)"
+        case .cafeDetail(let city, let itemID): return "cafeDetail:\(city.rawValue):\(itemID)"
+        case .housingSection(let type): return "housingSection:\(type.rawValue)"
+        case .governmentSection(let type): return "governmentSection:\(type.rawValue)"
+        case .transportSection(let type): return "transportSection:\(type.rawValue)"
+        case .educationSection(let type): return "educationSection:\(type.rawValue)"
+        case .workSection(let type): return "workSection:\(type.rawValue)"
+        case .healthSection(let type): return "healthSection:\(type.rawValue)"
+        case .leisureSection(let city, let type): return "leisureSection:\(city.rawValue):\(type.rawValue)"
         case .nlCityDetail(let cityID): return "city:\(KnowledgeNormalizer.slug(cityID))"
         case .knmModule(let id): return "knmModule:\(id)"
         case .dutchA1A2Module(let id): return "dutchCourseModule:\(id)"
@@ -89,10 +105,10 @@ enum AppNavigationResolver {
             return uuidPart(parts, 1).map(AppDestination.document)
         case "placeDetail":
             let id = valuePart(parts, 1)
-            return DashboardPlacesData.places.contains(where: { $0.id == id }) ? .placeDetail(id) : nil
+            return DashboardPlacesData.detailPlace(id: id) != nil ? .placeDetail(id) : nil
         case "calendarEvent":
             let id = valuePart(parts, 1)
-            return DashboardCalendarData.events.contains(where: { $0.id == id }) ? .calendarEvent(id) : nil
+            return DashboardCalendarData.detailEvent(id: id) != nil ? .calendarEvent(id) : nil
         case "statusDirection":
             return UserStatus(rawValue: valuePart(parts, 1)).map(AppDestination.statusDirection)
         case "province":
@@ -129,9 +145,52 @@ enum AppNavigationResolver {
                 return nil
             }
             return .cityDetail(province: province.id, city: spotlight.city.name)
-        case "homeExploreList":
-            let id = valuePart(parts, 1)
-            return id.isEmpty ? nil : .homeExploreList(id)
+        case "placeList":
+            return cityListDestination(parts, AppDestination.placeList)
+        case "museumList":
+            return cityListDestination(parts, AppDestination.museumList)
+        case "natureList":
+            return cityListDestination(parts, AppDestination.natureList)
+        case "landmarkList":
+            return cityListDestination(parts, AppDestination.landmarkList)
+        case "eventList":
+            return cityListDestination(parts, AppDestination.eventList)
+        case "restaurantList":
+            return cityListDestination(parts, AppDestination.restaurantList)
+        case "cafeList":
+            return cityListDestination(parts, AppDestination.cafeList)
+        case "discoveryList":
+            guard parts.count == 3,
+                  let city = CityId(rawValue: parts[1]),
+                  let type = DiscoveryListType(rawValue: parts[2])
+            else { return nil }
+            return .discoveryList(city: city, type: type)
+        case "restaurantDetail":
+            return foodGuideDetailDestination(parts, categories: [.restaurant, .localFood, .market, .vegetarian, .budget, .fineDining]) {
+                .restaurantDetail(city: $0, itemID: $1)
+            }
+        case "cafeDetail":
+            return foodGuideDetailDestination(parts, categories: [.cafe, .breakfast]) {
+                .cafeDetail(city: $0, itemID: $1)
+            }
+        case "housingSection":
+            return enumSectionDestination(parts, HousingSectionType.self, AppDestination.housingSection)
+        case "governmentSection":
+            return enumSectionDestination(parts, GovernmentSectionType.self, AppDestination.governmentSection)
+        case "transportSection":
+            return enumSectionDestination(parts, TransportSectionType.self, AppDestination.transportSection)
+        case "educationSection":
+            return enumSectionDestination(parts, EducationSectionType.self, AppDestination.educationSection)
+        case "workSection":
+            return enumSectionDestination(parts, WorkSectionType.self, AppDestination.workSection)
+        case "healthSection":
+            return enumSectionDestination(parts, HealthSectionType.self, AppDestination.healthSection)
+        case "leisureSection":
+            guard parts.count == 3,
+                  let city = CityId(rawValue: parts[1]),
+                  let type = LeisureSectionType(rawValue: parts[2])
+            else { return nil }
+            return .leisureSection(city: city, type: type)
         case "city":
             let slug = valuePart(parts, 1)
             guard let city = NLCity.all.first(where: { KnowledgeNormalizer.slug($0.id) == slug || KnowledgeNormalizer.slug($0.name) == slug }) else {
@@ -150,7 +209,12 @@ enum AppNavigationResolver {
         case "practicalGuide":
             return PracticalGuideTopic(rawValue: valuePart(parts, 1)).map(AppDestination.practicalGuide)
         case "guide":
+            guard parts.count == 2 else { return nil }
             let sectionID = valuePart(parts, 1)
+            if sectionID == "work" { return .workSection(.overview) }
+            if sectionID == "healthcare" { return .healthSection(.overview) }
+            if sectionID == "housing" { return .housingSection(.overview) }
+            if sectionID == "transport" { return .transportSection(.overview) }
             return GuideContent.section(id: sectionID) == nil ? nil : .guideSection(sectionID)
         case "article":
             guard parts.count >= 3,
@@ -186,6 +250,43 @@ enum AppNavigationResolver {
     ) -> AppDestination? {
         guard let uuid = uuidPart(parts, index), validIDs.contains(uuid) else { return nil }
         return destination(uuid)
+    }
+
+    private static func cityListDestination(
+        _ parts: [String],
+        _ destination: (CityId) -> AppDestination
+    ) -> AppDestination? {
+        guard parts.count == 2, let city = CityId(rawValue: parts[1]) else { return nil }
+        return destination(city)
+    }
+
+    private static func foodGuideDetailDestination(
+        _ parts: [String],
+        categories: Set<FoodGuideCategory>,
+        _ destination: (CityId, String) -> AppDestination
+    ) -> AppDestination? {
+        guard parts.count >= 3,
+              let city = CityId(rawValue: parts[1])
+        else { return nil }
+
+        let itemID = parts.dropFirst(2).joined(separator: ":")
+        guard !itemID.isEmpty else { return nil }
+
+        let dashboardCity = CityDashboardContentData.city(for: city)
+        guard CityDashboardContentData.foodGuideItems(for: dashboardCity, audience: nil, limit: nil).contains(where: {
+            $0.id == itemID && categories.contains($0.category)
+        }) else { return nil }
+
+        return destination(city, itemID)
+    }
+
+    private static func enumSectionDestination<Value: RawRepresentable>(
+        _ parts: [String],
+        _ type: Value.Type,
+        _ destination: (Value) -> AppDestination
+    ) -> AppDestination? where Value.RawValue == String {
+        guard parts.count == 2, let value = Value(rawValue: parts[1]) else { return nil }
+        return destination(value)
     }
 
     nonisolated private static func valuePart(_ parts: [String], _ index: Int) -> String {

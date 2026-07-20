@@ -225,7 +225,7 @@ enum MockResourcesData {
             description: "Official guidance on rental rights, address registration, tenant protections, and rental allowance.",
             whoItHelps: "Renters and newcomers looking for housing guidance",
             sourceLabel: "Official source",
-            url: AppURL.make("https://www.government.nl/topics/housing"),
+            url: AppURL.make("https://www.government.nl/themes/building-and-housing/housing"),
             isOfficial: true,
             reminder: "Local municipality rules may differ from national guidelines — check your gemeente.",
             personaTags: [.student, .worker, .refugee, .family, .eu, .highlySkilledMigrant, .entrepreneur, .lgbt]
@@ -369,7 +369,7 @@ enum MockResourcesData {
             description: "Overview of registration, BSN, residence, and first steps for newcomers arriving in the Netherlands.",
             whoItHelps: "Anyone newly arriving and starting life in the Netherlands",
             sourceLabel: "Official source",
-            url: AppURL.make("https://www.government.nl/topics/moving-to-the-netherlands"),
+            url: AppURL.make("https://www.government.nl/themes/life-events/life-events-coming-to-the-netherlands"),
             isOfficial: true,
             reminder: "Steps and timelines can vary by nationality and purpose of stay.",
             personaTags: [.worker, .refugee, .family, .eu, .nonEU, .highlySkilledMigrant]

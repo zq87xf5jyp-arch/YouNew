@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "WP-06-M1",
+  "work_package": "WP-06",
+  "name": "Priority Cities Governance Baseline",
+  "status": "qa",
+  "target_release": "cities-v0.1.0",
+  "target_records": 5,
+  "scope": [
+    "migrate five existing priority cities into DATA PROJECT governance",
+    "verify exact official municipality sources",
+    "attach four licensed and attributed media roles per city",
+    "preserve stable runtime city identifiers"
+  ],
+  "definition_of_done": {
+    "records_qa_ready": 5,
+    "unique_hero_media": 5,
+    "required_media_roles_per_city": 4,
+    "unresolved_relations": 0,
+    "duplicate_entities": 0,
+    "unverified_sources": 0,
+    "all_publication_gates_passed": true,
+    "publication_requires_explicit_approval": true
+  }
+}

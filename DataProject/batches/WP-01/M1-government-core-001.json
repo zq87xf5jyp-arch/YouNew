@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-01-M1-government-core-001",
+  "work_package": "WP-01",
+  "milestone": "WP-01-M1",
+  "target_release": "government-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator test build and admin production build succeeded.",
+    "static": "Full scripts/run-static-qa.sh suite and DATA PROJECT validation succeeded.",
+    "duplicate": "No duplicate IDs, normalized titles, canonical websites or media IDs detected.",
+    "source": "All 12 exact official source pages opened; the network audit reported no confirmed broken URL in this batch.",
+    "media": "Government and document records contain no optional media assets; there are no unverified or unlicensed assets.",
+    "search": "Every record has at least three unique search terms and all related entity IDs resolve.",
+    "ai": "Every AI summary passes minimum length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "government.bsn",
+      "entity_type": "government_service",
+      "category": "identity",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Citizen service number (BSN)",
+      "description": "The citizen service number is the unique personal number used in contacts with Dutch public authorities. It is assigned automatically when a person is registered in the Personal Records Database.",
+      "images": [],
+      "official_source": {
+        "title": "Citizen service number (BSN)",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn",
+      "related_entity_ids": ["government.brp-registration", "government.digid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Registering in the BRP normally creates a BSN automatically. The number is then used to identify the person across government, healthcare and education services.",
+      "search_keywords": ["BSN", "citizen service number", "burgerservicenummer", "personal number", "government registration"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality and Dutch government",
+        "primary_prerequisite": "Registration in the BRP"
+      }
+    },
+    {
+      "id": "government.brp-registration",
+      "entity_type": "government_service",
+      "category": "municipal_registration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Personal Records Database registration (BRP)",
+      "description": "The Personal Records Database contains the official personal details of residents and non-residents connected to the Netherlands. Municipalities maintain resident records and register important changes such as an address move.",
+      "images": [],
+      "official_source": {
+        "title": "Basisregistratie Personen (BRP)",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/privacy-en-persoonsgegevens/basisregistratie-personen-brp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/privacy-en-persoonsgegevens/basisregistratie-personen-brp",
+      "related_entity_ids": ["government.bsn", "government.digid", "government.mijnoverheid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "People staying in the Netherlands for the longer term register with their municipality. The BRP record supports a BSN and keeps official address and civil-status information available to authorised organisations.",
+      "search_keywords": ["BRP", "municipal registration", "personal records database", "register address", "gemeente"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality",
+        "register_name_nl": "Basisregistratie Personen"
+      }
+    },
+    {
+      "id": "government.digid",
+      "entity_type": "government_service",
+      "category": "digital_identity",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Apply for a DigiD",
+      "description": "DigiD is the personal digital identity used to arrange matters online with Dutch government bodies and participating healthcare, education and pension organisations. A standard application requires a BSN, a municipal registration address and a mobile phone.",
+      "images": [],
+      "official_source": {
+        "title": "Apply for a DigiD",
+        "publisher": "DigiD",
+        "url": "https://www.digid.nl/en/apply-and-activate/apply-digid",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.digid.nl/en/apply-and-activate/apply-digid",
+      "related_entity_ids": ["government.bsn", "government.brp-registration", "government.mijnoverheid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Apply through the official DigiD form using your BSN and registered address. An activation letter is sent to the address recorded by the municipality, after which the account must be activated.",
+      "search_keywords": ["DigiD", "digital identity", "government login", "apply DigiD", "activate DigiD"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Logius",
+        "delivery_method": "Activation code by post"
+      }
+    },
+    {
+      "id": "government.mijnoverheid",
+      "entity_type": "government_service",
+      "category": "digital_government",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "MijnOverheid and Berichtenbox",
+      "description": "MijnOverheid provides access to personal information and digital correspondence from participating Dutch public authorities. Its Berichtenbox is the secure mailbox used for messages about matters such as taxes, benefits and pensions.",
+      "images": [],
+      "official_source": {
+        "title": "Welke informatie kan ik vinden op MijnOverheid?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/digitale-overheid/wat-is-mijnoverheid",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/digitale-overheid/wat-is-mijnoverheid",
+      "related_entity_ids": ["government.digid", "government.brp-registration", "government.income-tax-return"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "Activate MijnOverheid and use DigiD to view personal government information and messages. Notification preferences determine which participating organisations send correspondence to the Berichtenbox.",
+      "search_keywords": ["MijnOverheid", "Berichtenbox", "government messages", "digital mailbox", "DigiD mail"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "authentication": "DigiD",
+        "service_type": "Personal government portal"
+      }
+    },
+    {
+      "id": "government.passport-id-card",
+      "entity_type": "document",
+      "category": "identification_documents",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Dutch passport or identity card",
+      "description": "Dutch citizens apply for a passport or identity card through the municipality where they are registered. Applicants must appear in person, provide an acceptable colour photograph and present their current identity documents.",
+      "images": [],
+      "official_source": {
+        "title": "Passports, identity cards and Dutch citizenship certificates",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/justice-security-and-defence/identification-documents/passports-identity-cards-and-dutch-nationality-certificates",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/justice-security-and-defence/identification-documents/passports-identity-cards-and-dutch-nationality-certificates",
+      "related_entity_ids": ["government.bsn", "government.naturalisation"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 180,
+      "verification_status": "verified",
+      "ai_summary": "A Dutch passport and identity card prove identity and can be used for travel under their applicable rules. Applications in the Netherlands are handled by the registered municipality and require an in-person appointment.",
+      "search_keywords": ["Dutch passport", "identity card", "ID card", "travel document", "passport application"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality",
+        "eligibility": "Dutch citizens"
+      }
+    },
+    {
+      "id": "government.residence-permit",
+      "entity_type": "government_service",
+      "category": "immigration",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Residence permits",
+      "description": "The residence permit required for a stay in the Netherlands depends on the applicant's purpose and circumstances. The Immigration and Naturalisation Service publishes the available permit routes and the requirements for each application.",
+      "images": [],
+      "official_source": {
+        "title": "Residence permits",
+        "publisher": "Immigration and Naturalisation Service",
+        "url": "https://ind.nl/en/residence-permits",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://ind.nl/en/residence-permits",
+      "related_entity_ids": ["government.brp-registration", "government.naturalisation"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Select the IND permit route that matches the purpose of stay, such as work, study or family. Requirements, required documents, sponsorship and the application procedure differ between routes.",
+      "search_keywords": ["residence permit", "IND", "immigration", "verblijfsvergunning", "move to Netherlands"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Immigration and Naturalisation Service",
+        "common_abbreviation": "IND"
+      }
+    },
+    {
+      "id": "government.healthcare-benefit",
+      "entity_type": "government_service",
+      "category": "benefits",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Healthcare benefit (zorgtoeslag)",
+      "description": "Healthcare benefit is a government contribution towards the cost of Dutch health insurance. Eligibility depends on factors including age, having qualifying Dutch health insurance, income and assets.",
+      "images": [],
+      "official_source": {
+        "title": "Zorgtoeslag",
+        "publisher": "Dienst Toeslagen",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/zorgtoeslag/zorgtoeslag",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.belastingdienst.nl/wps/wcm/connect/nl/zorgtoeslag/zorgtoeslag",
+      "related_entity_ids": ["government.digid", "government.income-tax-return", "government.housing-benefit", "government.childcare-benefit"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Check the current income, asset, age and insurance conditions before applying. The allowance is managed through Mijn Toeslagen, and changes in income or household circumstances should be reported promptly.",
+      "search_keywords": ["zorgtoeslag", "healthcare benefit", "health insurance allowance", "toeslagen", "Mijn Toeslagen"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Dienst Toeslagen",
+        "application_channel": "Mijn Toeslagen"
+      }
+    },
+    {
+      "id": "government.housing-benefit",
+      "entity_type": "government_service",
+      "category": "benefits",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Housing benefit (huurtoeslag)",
+      "description": "Housing benefit is a contribution towards rent for eligible tenants. The amount and eligibility depend on current rules and personal circumstances such as the home, rent, household, income and assets.",
+      "images": [],
+      "official_source": {
+        "title": "Kan ik huurtoeslag krijgen?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/kan-ik-huurtoeslag-krijgen",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/kan-ik-huurtoeslag-krijgen",
+      "related_entity_ids": ["government.digid", "government.income-tax-return", "government.healthcare-benefit"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Use the official eligibility check and trial calculation because housing-benefit rules and amounts can change. Applications are submitted through Mijn Toeslagen with DigiD and remain valid while the conditions continue to be met.",
+      "search_keywords": ["huurtoeslag", "housing benefit", "rent allowance", "rental support", "Mijn Toeslagen"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Dienst Toeslagen",
+        "application_channel": "Mijn Toeslagen"
+      }
+    },
+    {
+      "id": "government.childcare-benefit",
+      "entity_type": "government_service",
+      "category": "benefits",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Childcare benefit (kinderopvangtoeslag)",
+      "description": "Childcare benefit contributes to eligible childcare costs. The official service explains eligibility, applications, approved childcare, payment calculations and changes that must be reported.",
+      "images": [],
+      "official_source": {
+        "title": "Kinderopvangtoeslag",
+        "publisher": "Dienst Toeslagen",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/kinderopvangtoeslag/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.belastingdienst.nl/wps/wcm/connect/nl/kinderopvangtoeslag/",
+      "related_entity_ids": ["government.digid", "government.income-tax-return", "government.healthcare-benefit"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Confirm that the childcare provider and location are approved, then check the current work, study and household conditions. Keep hours, costs, income and family changes current in Mijn Toeslagen.",
+      "search_keywords": ["kinderopvangtoeslag", "childcare benefit", "daycare allowance", "registered childcare", "Mijn Toeslagen"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Dienst Toeslagen",
+        "application_channel": "Mijn Toeslagen"
+      }
+    },
+    {
+      "id": "government.income-tax-return",
+      "entity_type": "government_service",
+      "category": "taxes",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "File an income tax return",
+      "description": "Dutch income tax returns are generally filed digitally with the Tax Administration. The official guidance distinguishes resident and non-resident situations and explains the available filing routes.",
+      "images": [],
+      "official_source": {
+        "title": "Tax return",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/taxes-benefits-and-allowances/income-tax/filing-a-tax-return",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/taxes-benefits-and-allowances/income-tax/filing-a-tax-return",
+      "related_entity_ids": ["government.digid", "government.mijnoverheid", "government.healthcare-benefit", "government.housing-benefit"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Determine whether the resident or non-resident filing route applies and follow the current Tax Administration instructions. DigiD and Mijn Belastingdienst are commonly used for online filing and correspondence.",
+      "search_keywords": ["income tax", "tax return", "Belastingdienst", "aangifte inkomstenbelasting", "Mijn Belastingdienst"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Tax Administration",
+        "common_name_nl": "Belastingdienst"
+      }
+    },
+    {
+      "id": "government.naturalisation",
+      "entity_type": "government_service",
+      "category": "citizenship",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Dutch citizenship through naturalisation",
+      "description": "Eligible adults can apply for Dutch nationality through naturalisation at their municipality. The Immigration and Naturalisation Service assesses the application and publishes the current requirements, documents, costs and procedure.",
+      "images": [],
+      "official_source": {
+        "title": "Becoming a Dutch national through naturalisation",
+        "publisher": "Immigration and Naturalisation Service",
+        "url": "https://ind.nl/en/dutch-citizenship/becoming-a-dutch-national-through-naturalisation",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://ind.nl/en/dutch-citizenship/becoming-a-dutch-national-through-naturalisation",
+      "related_entity_ids": ["government.residence-permit", "government.brp-registration", "government.passport-id-card"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Check the latest IND requirements before applying through the municipality. A positive decision alone is not the final step: the applicant must attend the naturalisation ceremony and make the declaration of solidarity.",
+      "search_keywords": ["naturalisation", "Dutch citizenship", "Nederlander worden", "IND citizenship", "naturalisation ceremony"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Immigration and Naturalisation Service",
+        "application_channel": "Municipality"
+      }
+    },
+    {
+      "id": "government.foreign-driving-licence-exchange",
+      "entity_type": "government_service",
+      "category": "driving_documents",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Exchange a foreign driving licence",
+      "description": "Residents may be able to exchange a valid foreign driving licence for a Dutch licence. Eligibility depends on where the licence was issued and other conditions, and the application is submitted through the municipality.",
+      "images": [],
+      "official_source": {
+        "title": "Exchanging a foreign driving licence",
+        "publisher": "RDW",
+        "url": "https://www.rdw.nl/en/driving-licence/foreign-driving-licence/exchanging-a-foreign-driving-licence",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rdw.nl/en/driving-licence/foreign-driving-licence/exchanging-a-foreign-driving-licence",
+      "related_entity_ids": ["government.brp-registration", "government.passport-id-card"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Use the RDW eligibility rules to determine whether exchange is possible, then apply at the municipality with the required documents. If exchange is not permitted, Dutch theory and practical tests are normally required.",
+      "search_keywords": ["foreign driving licence", "driving licence exchange", "RDW", "rijbewijs omwisselen", "Dutch driving licence"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "RDW",
+        "application_channel": "Municipality"
+      }
+    }
+  ]
+}

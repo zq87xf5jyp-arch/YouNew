@@ -209,7 +209,11 @@ struct DashboardContentPolicyTests {
             .utrecht: ["Canals", "Student city", "Dom Tower", "Old town"],
             .eindhoven: ["Design", "Tech", "Innovation", "Nightlife"],
             .maastricht: ["History", "Food", "Architecture", "Shopping"],
-            .groningen: ["Student city", "Cycling", "Culture", "Nightlife"]
+            .groningen: ["Student city", "Cycling", "Culture", "Nightlife"],
+            .nijmegen: ["Roman history", "Student city", "Waal", "Green city"],
+            .arnhem: ["WWII history", "Veluwe", "Nature", "Museums"],
+            .delft: ["Vermeer", "Delftware", "Canals", "University"],
+            .haarlem: ["Museums", "Historic centre", "Tulip region", "Coast"]
         ]
 
         for cityId in CityDashboardContentData.supportedCityIds {
@@ -271,11 +275,15 @@ struct DashboardContentPolicyTests {
             .amsterdam: ["Rijksmuseum", "Van Gogh Museum", "Anne Frank House", "Vondelpark", "Dam Square", "Jordaan", "NEMO Science Museum", "Albert Cuyp Market", "Amsterdam Canals"],
             .rotterdam: ["Markthal", "Erasmus Bridge", "Cube Houses", "Museum Boijmans area", "Euromast", "Maritime Museum", "Delfshaven"],
             .denHaag: ["Binnenhof area", "Mauritshuis", "Scheveningen Beach", "Peace Palace", "Madurodam", "Escher in Het Paleis"],
-            .leiden: ["Leiden canals", "Museum De Lakenhal", "Hortus Botanicus", "Burcht van Leiden", "National Museum of Antiquities"],
+            .leiden: ["Museum De Lakenhal", "Hortus Botanicus", "Burcht van Leiden", "Rijksmuseum van Oudheden", "Naturalis Biodiversity Center", "Rijksmuseum Boerhaave", "Wereldmuseum Leiden", "Molen de Valk", "Japanmuseum SieboldHuis", "Pieterskerk Leiden"],
             .utrecht: ["Dom Tower", "Oudegracht", "Museum Speelklok", "Centraal Museum", "Rietveld Schroder House"],
             .eindhoven: ["Strijp-S", "Van Abbemuseum", "Philips Museum", "Evoluon", "Downtown Eindhoven"],
             .maastricht: ["Vrijthof", "Basilica of Saint Servatius", "Bonnefanten Museum", "St. Pietersberg Caves", "Maastricht old town"],
-            .groningen: ["Martinitoren", "Groninger Museum", "Noorderplantsoen", "Grote Markt", "Forum Groningen"]
+            .groningen: ["Martinitoren", "Groninger Museum", "Noorderplantsoen", "Grote Markt", "Forum Groningen"],
+            .nijmegen: ["Museum Het Valkhof", "Waalbrug", "Valkhof Park"],
+            .arnhem: ["John Frost Bridge", "De Hoge Veluwe National Park", "Kröller-Müller Museum"],
+            .delft: ["Nieuwe Kerk", "Royal Delft", "Prinsenhof Museum", "Delftse Hout"],
+            .haarlem: ["Frans Hals Museum", "Teylers Museum", "Sint-Bavokerk", "Haarlemmerhout"]
         ]
 
         for cityId in CityDashboardContentData.supportedCityIds {
@@ -292,11 +300,11 @@ struct DashboardContentPolicyTests {
     @Test func leidenDashboardPlacesUseDistinctSpecificImages() throws {
         let places = DashboardPlacesData.visiblePlaces(cityId: "Leiden", audience: .tourist, limit: nil)
         let requiredTitles = [
-            "Leiden canals",
             "Museum De Lakenhal",
             "Hortus Botanicus",
             "Burcht van Leiden",
-            "National Museum of Antiquities"
+            "Rijksmuseum van Oudheden",
+            "Molen de Valk"
         ]
         let requiredPlaces = try requiredTitles.map { title in
             try #require(places.first { $0.title == title }, "Missing Leiden place: \(title)")
@@ -308,7 +316,31 @@ struct DashboardContentPolicyTests {
         #expect(imageURLs.allSatisfy { $0.hasPrefix("https://") })
         #expect(imageURLs.allSatisfy { !$0.localizedCaseInsensitiveContains("kinderdijk") })
         #expect(imageURLs.allSatisfy { !$0.localizedCaseInsensitiveContains("windmill") })
-        #expect(imageURLs.allSatisfy { !$0.localizedCaseInsensitiveContains("de%20valk") })
+    }
+
+    @Test func leidenPlacesUseRealAddressesCoordinatesAndOfficialDestinations() throws {
+        let places = DashboardPlacesData.visiblePlaces(cityId: "Leiden", audience: .tourist, limit: nil)
+        let expectedTitles = [
+            "Museum De Lakenhal",
+            "Hortus Botanicus",
+            "Burcht van Leiden",
+            "Rijksmuseum van Oudheden",
+            "Naturalis Biodiversity Center",
+            "Rijksmuseum Boerhaave",
+            "Wereldmuseum Leiden",
+            "Molen de Valk",
+            "Japanmuseum SieboldHuis",
+            "Pieterskerk Leiden"
+        ]
+        let realPlaces = try expectedTitles.map { title in
+            try #require(places.first { $0.title == title }, "Missing real Leiden place: \(title)")
+        }
+        let coordinates = try realPlaces.map { try #require($0.coordinates) }
+
+        #expect(realPlaces.allSatisfy { $0.address?.contains("Leiden") == true })
+        #expect(realPlaces.allSatisfy { $0.address != "Leiden, Netherlands" })
+        #expect(realPlaces.allSatisfy { $0.externalUrl?.scheme == "https" })
+        #expect(Set(coordinates).count == realPlaces.count)
     }
 
     @Test func dashboardFoodAndStaySeedAreNotEmptyForSupportedCities() {
@@ -317,11 +349,15 @@ struct DashboardContentPolicyTests {
             let food = CityDashboardContentData.foodGuideItems(for: city, audience: .tourist)
             let links = CityDashboardContentData.travelLinks(for: city)
 
-            #expect(food.contains { $0.title == "Restaurants in \(city.name)" })
-            #expect(food.contains { $0.title == "Cafes in \(city.name)" })
-            #expect(food.contains { $0.title == "Breakfast spots" })
-            #expect(food.contains { $0.title == "Food markets" || $0.title == "Market Hall area" })
-            #expect(food.contains { $0.title == "Local food" || $0.title == "Local Dutch food" || $0.title == "Harbor food spots" })
+            if cityId == .leiden {
+                #expect(food.count == 8)
+                #expect(Set([.restaurant, .cafe, .breakfast, .localFood, .market]).isSubset(of: Set(food.map(\.category))))
+            } else {
+                #expect(Set(food.map(\.category)) == Set(FoodGuideCategory.allCases))
+                #expect(food.count == FoodGuideCategory.allCases.count)
+            }
+            #expect(food.allSatisfy { $0.cityId == cityId })
+            #expect(food.allSatisfy { $0.externalUrl?.scheme == "https" })
             #expect(links.contains { $0.kind == .booking && $0.title == "Booking.com" })
         }
     }
@@ -398,14 +434,22 @@ struct DashboardContentPolicyTests {
             let city = CityDashboardContentData.city(for: cityId)
             let items = CityDashboardContentData.foodGuideItems(for: city, audience: .tourist)
 
-            #expect(Set(items.map(\.category)) == expectedCategories)
             #expect(items.count == 8)
             #expect(items.allSatisfy { $0.cityId == cityId })
             #expect(items.allSatisfy { !$0.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
             #expect(items.allSatisfy { $0.externalUrl?.scheme == "https" })
-            #expect(items.allSatisfy { $0.externalUrl?.host == "www.google.com" })
-            #expect(items.allSatisfy { $0.query?.localizedCaseInsensitiveContains(city.name) == true })
             #expect(items.allSatisfy { !$0.audience.isEmpty })
+
+            if cityId == .leiden {
+                #expect(Set([.restaurant, .cafe, .breakfast, .localFood, .market]).isSubset(of: Set(items.map(\.category))))
+                #expect(items.allSatisfy { $0.source?.institution == "Visit Leiden" })
+                #expect(items.allSatisfy { $0.externalUrl?.host == "www.visitleiden.nl" })
+                #expect(items.allSatisfy { $0.lastChecked == "July 2026" })
+            } else {
+                #expect(Set(items.map(\.category)) == expectedCategories)
+                #expect(items.allSatisfy { $0.externalUrl?.host == "www.google.com" })
+                #expect(items.allSatisfy { $0.query?.localizedCaseInsensitiveContains(city.name) == true })
+            }
 
             if cityId != .amsterdam {
                 #expect(items.allSatisfy { item in
@@ -440,11 +484,12 @@ struct DashboardContentPolicyTests {
         #expect(!content.aiSummary.contains("Amsterdam"))
     }
 
-    @Test func unsupportedCityDoesNotFallbackToAmsterdam() {
+    @Test func formerlyUnsupportedHaarlemUsesItsOwnTypedDashboard() {
         let content = CityDashboardContentData.content(for: "Haarlem")
 
-        #expect(content.city.id == .leiden)
-        #expect(content.cityName == "Leiden")
+        #expect(content.city.id == .haarlem)
+        #expect(content.cityName == "Haarlem")
+        #expect(content.places.allSatisfy { $0.cityId == "Haarlem" })
         #expect(content.city.heroImage?.localizedCaseInsensitiveContains("amsterdam") != true)
         #expect(content.travelLinks.allSatisfy { !$0.url.absoluteString.localizedCaseInsensitiveContains("amsterdam") })
     }

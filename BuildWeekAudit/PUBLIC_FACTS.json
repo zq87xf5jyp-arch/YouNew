@@ -1,0 +1,264 @@
+{
+  "generated_at": "2026-07-20T01:04:43+02:00",
+  "project": {
+    "status": "VERIFIED",
+    "scope": "Current local project configuration",
+    "name": "YouNew",
+    "bundle_identifier": "nl.younew.app",
+    "platform": "iOS",
+    "minimum_ios_version": "17.6",
+    "language": "Swift 5",
+    "ui_framework": "SwiftUI",
+    "architecture": "Hybrid SwiftUI MVVM-style view models with services, repository and typed routing",
+    "targets": [
+      "YouNew",
+      "YouNewTests",
+      "YouNewUITests"
+    ],
+    "version": "1.1",
+    "build_number": "5",
+    "configurations": [
+      "Debug",
+      "Release"
+    ]
+  },
+  "ai_assistant": {
+    "status": "MOCK/PARTIAL",
+    "effective_runtime": "Local deterministic guided assistant over bundled/local knowledge",
+    "entry_view": "AIAssistantView",
+    "request_handler": "AIViewModel.sendCurrentMessage",
+    "local_components": [
+      "AIWorkflowEngine",
+      "AssistantAnswerEngine",
+      "AIResponseComposer",
+      "AppSearchEngine",
+      "KnowledgeIndex"
+    ],
+    "live_openai_call_verified": false,
+    "client_direct_openai_call": false,
+    "deployed_backend_verified": false,
+    "configured_endpoint_verified": false,
+    "gpt_5_6_verified": false,
+    "only_explicit_example_model": "gpt-4.1-mini",
+    "model_evidence_scope": "Undeployed backend example only",
+    "client_api_key_found": false,
+    "retrieval": "Local lexical retrieval; not vector RAG",
+    "citations": "Structured local source cards are implemented",
+    "verified_only_grounding": "PARTIAL",
+    "messages_persisted": "Local UserDefaults history",
+    "blocked_or_warned_input_persisted_before_safety_check": true,
+    "demo_without_backend": true,
+    "exact_combined_newcomer_scenario_verified": false,
+    "safest_demo": "Local BSN to address to DigiD guided flow"
+  },
+  "repository": {
+    "local_git_repository": true,
+    "branch": "fix/ui-regression",
+    "remote_configured": false,
+    "github_repository_verified": false,
+    "visibility": "UNKNOWN",
+    "commit_count": 56,
+    "first_available_commit": "2026-05-21T14:06:29+02:00",
+    "last_available_commit": "2026-07-12T00:11:14+02:00",
+    "working_tree_status": "DIRTY",
+    "pre_audit_output_modified_paths": 119,
+    "pre_audit_output_deleted_paths": 2,
+    "pre_audit_output_untracked_paths": 323,
+    "clean_clone_current_state_verified": false,
+    "readme": "PARTIAL",
+    "license": "NOT_IMPLEMENTED",
+    "ios_ci": "NOT_IMPLEMENTED",
+    "data_ci": "PARTIAL",
+    "data_ci_scope": "Workflow exists locally but is untracked",
+    "secret_scan": "PARTIAL",
+    "secret_scan_result": "No true secret confirmed by targeted current/history patterns",
+    "safe_for_judges": false
+  },
+  "tests": {
+    "fresh_clean_debug_build": {
+      "status": "PASS",
+      "warnings": 0,
+      "errors": 0,
+      "verified_at": "2026-07-19T23:39:13+02:00",
+      "duration_seconds": 111.98,
+      "source_cutoff": "2026-07-19T23:35:52+02:00"
+    },
+    "fresh_unit_tests": {
+      "status": "FAIL",
+      "xcresult_total": 450,
+      "passed": 446,
+      "failed": 4,
+      "skipped": 0,
+      "verified_at": "2026-07-19T23:43:18+02:00",
+      "action_duration_seconds": 152.402,
+      "source_cutoff": "2026-07-19T23:35:52+02:00"
+    },
+    "fresh_ui_tests": {
+      "status": "FAIL",
+      "source_method_inventory": 86,
+      "xcresult_total": 86,
+      "passed": 80,
+      "failed": 6,
+      "skipped": 0,
+      "expected_failures": 0,
+      "started_at": "2026-07-19T23:43:53.702+02:00",
+      "ended_at": "2026-07-20T00:55:51.457+02:00",
+      "action_duration_seconds": 4317.755,
+      "source_cutoff": "2026-07-19T23:35:52+02:00",
+      "failed_cases": [
+        "AccessibilityRuntimeUITests.testAccessibilityTextSizeKeepsHomeControlsReachable",
+        "RootNavigationUITests.testAccessibilitySizeKeepsPrimaryHomeActionsReachable",
+        "ContentCompletionRuntimeUITests.testRequiredContentDestinationsRenderCompletedSurfacesWithoutPlaceholderCopy",
+        "ContentCompletionRuntimeUITests.testRequiredContentSurfacesStayCompletedWhileScrolling",
+        "PublishedCitiesRuntimeUITests.testPublishedAmsterdamMuseumFlowsFromSearchToGuideAndSaved",
+        "YouNewUITests.testSearchAfspraakFindsDutchCourse"
+      ],
+      "narrow_ai_ui_paths_passed": true,
+      "exact_combined_newcomer_scenario_verified": false
+    },
+    "static_qa": {
+      "status": "FAIL",
+      "commands_passed": 35,
+      "commands_failed": 5,
+      "distinct_failure_groups": 4,
+      "failed_gates": [
+        "static-qa",
+        "brand-static-qa",
+        "apple-review-static-qa",
+        "persona-ia-static-qa",
+        "content-static-qa"
+      ],
+      "performance_static_qa": "PASS",
+      "source_cutoff": "2026-07-19T23:35:52+02:00"
+    },
+    "data_project_qa": {
+      "status": "VERIFIED",
+      "result": "PASS",
+      "scope": "Temporary non-mutating snapshot of the current working tree"
+    },
+    "import_validation": {
+      "status": "VERIFIED",
+      "result": "PASS",
+      "scope": "DataProject import validation in the temporary current-tree snapshot"
+    },
+    "data_project_structural_broken_relations": {
+      "status": "VERIFIED",
+      "count": 0,
+      "scope": "Current cities import and DataProject structural validation; not a universal live-link claim"
+    },
+    "current_all_tests_green": false,
+    "claims_42_unit_and_55_ui_zero_failures": "NOT_VERIFIED"
+  },
+  "content_releases": {
+    "cities_v0_1_0": {
+      "status": "VERIFIED",
+      "scope": "Local untracked manifest/release/import/runtime evidence",
+      "release_state": "published",
+      "manifest_generated_date": "2026-07-18",
+      "publication_date_in_metadata": "2026-07-14",
+      "target_cities": [
+        "Amsterdam",
+        "Rotterdam",
+        "Den Haag",
+        "Utrecht",
+        "Eindhoven"
+      ],
+      "eligible_records": 5,
+      "imported_or_mapped_records": 5,
+      "excluded_records": 0,
+      "technical_duplicates": 0,
+      "broken_relations": 0,
+      "fingerprint_present": true,
+      "fingerprint_value_published": false,
+      "approval_marker_present": true
+    },
+    "historical_2026_07_17_audit": {
+      "sections": 23,
+      "pass": 2,
+      "partial": 14,
+      "empty": 7,
+      "managed_records": 450,
+      "published_records": 5,
+      "media_files": 587,
+      "average_domain_completeness_percent": 5.6,
+      "classification": "HISTORICAL_NOT_CURRENT"
+    },
+    "latest_local_runtime_records": 188,
+    "latest_local_report_overall_status": "NOT_READY"
+  },
+  "codex_evidence": [
+    {
+      "area": "Premium image system",
+      "status": "PARTIAL",
+      "evidence": "Role-aware fallback, downsampling, bounded caching, actor coalescing, stale-UI suppression and readability policy"
+    },
+    {
+      "area": "Interactive Netherlands map",
+      "status": "PARTIAL",
+      "evidence": "Vector map model and hit-testing tests"
+    },
+    {
+      "area": "Content platform",
+      "status": "PARTIAL",
+      "evidence": "Governed records, manifests, imports, health and observability gates"
+    },
+    {
+      "area": "cities-v0.1.0",
+      "status": "PARTIAL",
+      "evidence": "Five-city manifest and deterministic import evidence"
+    },
+    {
+      "area": "QA automation",
+      "status": "PARTIAL",
+      "evidence": "Unit, UI, accessibility, routing, media, content and release gates"
+    }
+  ],
+  "verified_public_claims": [
+    "YouNew is a SwiftUI iOS application for Netherlands newcomer information.",
+    "The local app identity is nl.younew.app version 1.1 build 5.",
+    "The current assistant is a deterministic local guided assistant over bundled/local knowledge.",
+    "The current assistant can be demonstrated without an API key or deployed backend.",
+    "The repository contains implementation and reports consistent with the documented Codex-assisted workflow.",
+    "The current dirty working tree completes a clean Debug simulator build.",
+    "The current unit suite is not green: 446 of 450 xcresult entries pass.",
+    "The current UI suite is not green: 80 of 86 tests pass.",
+    "A local cities-v0.1.0 manifest contains Amsterdam, Rotterdam, Den Haag, Utrecht and Eindhoven."
+  ],
+  "unverified_claims": [
+    "The app uses GPT-5.6.",
+    "The app currently performs live OpenAI inference.",
+    "The backend example is deployed or used by the effective runtime path.",
+    "The requested combined newcomer scenario is stable end to end.",
+    "A GitHub repository exists for the current state.",
+    "The repository is public or private.",
+    "A current TestFlight build is active.",
+    "A public App Store version is available.",
+    "All tests and static QA pass.",
+    "Codex authored specific source lines or commits.",
+    "The owner personally wrote application code."
+  ],
+  "required_owner_evidence": [
+    "App Store Connect app/version/status screenshot",
+    "TestFlight build processing and tester-group screenshot",
+    "Public App Store listing URL or screenshot if one exists",
+    "Final GitHub remote URL and visibility evidence",
+    "Clean-clone build and test transcript tied to a final commit",
+    "Complete code and media license/attribution package",
+    "ChatGPT and Codex session exports showing requirements, review and iteration",
+    "Owner-attributed simulator and physical-device review evidence",
+    "Final uncut demo video tied to the final build",
+    "Live provider/model logs only if a live AI claim is made"
+  ],
+  "submission_blockers": [
+    "Effective AI claim does not support GPT-5.6 or live-model marketing",
+    "Current unit suite has four failures",
+    "Current static QA has five failing commands across four distinct issues",
+    "Current UI/accessibility baseline is not green",
+    "Essential source, data and CI files are untracked",
+    "No Git remote or clean-clone proof",
+    "No repository license and incomplete media-rights evidence",
+    "No current distribution archive, TestFlight or App Store proof",
+    "README is not judge-ready",
+    "No demo video or submission receipt"
+  ]
+}

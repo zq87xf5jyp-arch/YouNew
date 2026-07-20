@@ -106,19 +106,16 @@ enum PersonaContentPolicy {
     }
 
     nonisolated static func isVisible(tags: Set<PersonaTag>, activePersona: PersonaTag?, scope: PersonaSearchScope) -> Bool {
-        ContentAccessPolicy.canShowToUser(audience: tags, selectedPersona: activePersona, scope: scope)
+        true
     }
 
     nonisolated static func isOutsidePersonaQuery(_ query: String, for persona: PersonaTag?) -> Bool {
-        guard let persona else { return false }
-        return containsOutsidePersonaTerms(query, for: persona)
+        false
     }
 
     nonisolated static func sanitizedPendingAIPrompt(_ prompt: String, context: AIContext) -> String {
         let trimmed = prompt.trimmingCharacters(in: .whitespacesAndNewlines)
-        guard !trimmed.isEmpty, let persona = context.activePersonaTag else { return trimmed }
-        guard containsOutsidePersonaTerms(trimmed, for: persona) else { return trimmed }
-        return defaultAIPrompt(for: persona, language: context.userLanguage)
+        return trimmed
     }
 
     private nonisolated static func containsOutsidePersonaTerms(_ prompt: String, for persona: PersonaTag) -> Bool {

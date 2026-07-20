@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "WP-05-M1",
+  "work_package": "WP-05",
+  "name": "Education Core",
+  "status": "qa",
+  "target_release": "education-v1.0.0",
+  "target_records": 40,
+  "scope": [
+    "schools and compulsory education",
+    "universities and higher education",
+    "DUO and student administration",
+    "civic integration"
+  ],
+  "definition_of_done": {
+    "records_qa_ready": 40,
+    "minimum_records_per_topic_family": 10,
+    "required_topic_families": 4,
+    "unresolved_relations": 0,
+    "duplicate_entities": 0,
+    "unverified_sources": 0,
+    "all_publication_gates_passed": true,
+    "publication_requires_explicit_approval": true
+  }
+}

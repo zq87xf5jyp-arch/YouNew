@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "levels": [
+    {"level": 1, "id": "collected", "label": "Collected"},
+    {"level": 2, "id": "verified", "label": "Verified"},
+    {"level": 3, "id": "published", "label": "Published"},
+    {"level": 4, "id": "observed", "label": "Observed"},
+    {"level": 5, "id": "operational", "label": "Operational"},
+    {"level": 6, "id": "intelligent", "label": "Intelligent"}
+  ],
+  "capability_evidence": {
+    "collected": ["governed_entity_schema", "work_packages"],
+    "verified": ["seven_qa_gates", "data_health"],
+    "published": ["publication_gate", "release_manifest_schema"],
+    "observed": ["wp16_observability", "read_only_kpis"],
+    "operational": ["wp17_scheduler", "editorial_queue", "release_plans"],
+    "intelligent": ["predictive_prioritization", "automated_source_change_resolution"]
+  },
+  "sequential_data_state": true,
+  "note": "Capability maturity and the actual lifecycle state of governed records are reported separately."
+}

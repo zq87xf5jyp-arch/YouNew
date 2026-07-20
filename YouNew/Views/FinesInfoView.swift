@@ -473,6 +473,7 @@ struct RuleTopicDetailView: View {
     let topic: RuleGuideTopic
     @EnvironmentObject private var languageManager: LanguageManager
     @ObservedObject private var savedStore = SavedItemsStore.shared
+    @State private var expandedSections: Set<String> = ["what"]
 
     private var lang: AppLanguage { languageManager.appLanguage }
 
@@ -480,15 +481,15 @@ struct RuleTopicDetailView: View {
         ScrollView {
             VStack(alignment: .leading, spacing: AppSpacing.medium) {
                 topMetaCard
-                detailCard(L10n.t("rule.section.what_is", lang),       topic.rule,            icon: "book.fill",                   color: AppColors.softBlue)
-                detailCard(L10n.t("rule.section.why", lang),           topic.reason,          icon: "lightbulb.fill",              color: AppColors.warning)
-                detailCard(L10n.t("rule.section.mistake", lang),       topic.commonMistake,   icon: "person.crop.circle.badge.exclamationmark", color: AppColors.dutchOrange)
-                detailCard(L10n.t("rule.section.fine_amount", lang),   topic.estimatedFineRange, icon: "eurosign.circle.fill",      color: AppColors.fineGold)
-                detailCard(L10n.t("rule.section.consequence", lang),   topic.consequence,     icon: "exclamationmark.triangle.fill", color: AppColors.error)
-                detailCard(L10n.t("rule.section.authority", lang),     topic.authority,       icon: "building.columns.fill",       color: AppColors.accent)
-                detailCard(L10n.t("rule.section.already_fined", lang), topic.alreadyFinedAction, icon: "list.bullet.clipboard.fill", color: AppColors.accentLight)
-                detailCard(L10n.t("rule.section.example", lang),       topic.realLifeExample, icon: "bubble.left.and.bubble.right.fill", color: AppColors.softBlue)
-                detailCard(L10n.t("rule.section.avoid", lang),         topic.avoidWarning,    icon: "shield.lefthalf.filled",      color: AppColors.success)
+                expandableDetailCard("what", L10n.t("rule.section.what_is", lang), topic.rule, icon: "book.fill", color: AppColors.softBlue)
+                expandableDetailCard("why", L10n.t("rule.section.why", lang), topic.reason, icon: "lightbulb.fill", color: AppColors.warning)
+                expandableDetailCard("mistake", L10n.t("rule.section.mistake", lang), topic.commonMistake, icon: "person.crop.circle.badge.exclamationmark", color: AppColors.dutchOrange)
+                expandableDetailCard("fine", L10n.t("rule.section.fine_amount", lang), topic.estimatedFineRange, icon: "eurosign.circle.fill", color: AppColors.fineGold)
+                expandableDetailCard("consequence", L10n.t("rule.section.consequence", lang), topic.consequence, icon: "exclamationmark.triangle.fill", color: AppColors.error)
+                expandableDetailCard("authority", L10n.t("rule.section.authority", lang), topic.authority, icon: "building.columns.fill", color: AppColors.accent)
+                expandableDetailCard("action", L10n.t("rule.section.already_fined", lang), topic.alreadyFinedAction, icon: "list.bullet.clipboard.fill", color: AppColors.accentLight)
+                expandableDetailCard("example", L10n.t("rule.section.example", lang), topic.realLifeExample, icon: "bubble.left.and.bubble.right.fill", color: AppColors.softBlue)
+                expandableDetailCard("avoid", L10n.t("rule.section.avoid", lang), topic.avoidWarning, icon: "shield.lefthalf.filled", color: AppColors.success)
 
                 relatedTopicsCard
                 safeWordingCard
@@ -543,6 +544,29 @@ struct RuleTopicDetailView: View {
                     .lineSpacing(2)
             }
         }
+        .nlCard()
+    }
+
+    private func expandableDetailCard(_ id: String, _ title: String, _ body: String, icon: String, color: Color) -> some View {
+        DisclosureGroup(
+            isExpanded: Binding(
+                get: { expandedSections.contains(id) },
+                set: { isExpanded in
+                    if isExpanded { expandedSections.insert(id) } else { expandedSections.remove(id) }
+                }
+            )
+        ) {
+            Text(body)
+                .font(.system(size: 14, design: .rounded))
+                .foregroundStyle(Color.white.opacity(0.84))
+                .padding(.top, 10)
+                .fixedSize(horizontal: false, vertical: true)
+        } label: {
+            Label(title, systemImage: icon)
+                .font(.system(size: 13, weight: .semibold, design: .rounded))
+                .foregroundStyle(color)
+        }
+        .tint(color)
         .nlCard()
     }
 

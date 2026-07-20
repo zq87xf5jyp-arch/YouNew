@@ -85,7 +85,11 @@ enum AISafetyFilter {
             nextStep: response.nextStep,
             appDestinationID: response.appDestinationID,
             isVerified: response.isVerified,
-            cacheKey: response.cacheKey
+            cacheKey: response.cacheKey,
+            confidence: response.confidence,
+            origin: response.origin,
+            model: response.model,
+            requestID: response.requestID
         )
     }
 }

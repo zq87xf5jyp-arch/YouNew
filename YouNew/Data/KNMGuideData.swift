@@ -8,7 +8,7 @@ nonisolated enum KNMGuideData {
         source("duo-practice", "DUO / Inburgeren - Practice exams", "DUO / Inburgeren - Oefenen", "DUO / Inburgeren - тренировочные экзамены", "https://www.inburgeren.nl/examen-doen/oefenen.jsp", "Official practice information", "nl"),
         source("duo-register", "DUO / Inburgeren - Registering for an exam", "DUO / Inburgeren - Aanmelden examen", "DUO / Inburgeren - запись на экзамен", "https://www.inburgeren.nl/examen-doen/aanmelden-examen.jsp", "Official exam registration", "nl"),
         source("government-municipalities", "Government.nl - Municipalities", "Government.nl - Gemeenten", "Government.nl - муниципалитеты", "https://www.government.nl/topics/municipalities", "Government topic page", "en"),
-        source("government-housing", "Government.nl - Housing", "Government.nl - Wonen", "Government.nl - жильё", "https://www.government.nl/topics/housing", "Government topic page", "en"),
+        source("government-housing", "Government.nl - Housing", "Government.nl - Wonen", "Government.nl - жильё", "https://www.government.nl/themes/building-and-housing/housing", "Government topic page", "en"),
         source("belastingdienst", "Belastingdienst - Income tax and benefits", "Belastingdienst - belasting en toeslagen", "Belastingdienst - налоги и toeslagen", "https://www.belastingdienst.nl/wps/wcm/connect/en/home/home", "Official tax authority", "en"),
         source("zorgverzekering", "Government.nl - Health insurance", "Government.nl - Zorgverzekering", "Government.nl - медицинская страховка", "https://www.government.nl/topics/health-insurance", "Government topic page", "en"),
         source("politie", "Politie.nl", "Politie.nl", "Politie.nl", "https://www.politie.nl/en", "Official police", "en"),

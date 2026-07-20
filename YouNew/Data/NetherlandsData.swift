@@ -315,7 +315,7 @@ extension NLProvince {
             description: "The most economically important province, home to Amsterdam, Schiphol Airport, and the iconic tulip fields of the Bollenstreek. The IJsselmeer and North Sea coastline give it a distinctive maritime character.",
             history: "The heartland of the Dutch Republic and the VOC empire. North Holland's merchant class built the canal rings of Amsterdam and funded the Dutch Golden Age. Alkmaar's famous cheese market dates to 1365.",
             highlights: ["🌷 Keukenhof — 7 million tulips, 32 hectares", "✈️ Amsterdam Schiphol — 3rd busiest EU airport", "🧀 Alkmaar Kaasmarkt — oldest cheese market (1365)", "🌊 Zandvoort aan Zee — Formula 1 Dutch Grand Prix circuit", "🏛️ Haarlem — Frans Hals Museum, medieval city center"],
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Keukenhof%20tulips%20and%20windmill.jpg?width=2400",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Keukenhof%2C_view_to_the_windmill.jpg?width=2400",
             flag: CityFlag(colors: ["#AE1C28","#F5D020"], description: "Rood-geel, provincievlag Noord-Holland", emoji: "🏴", svgStripes: [FlagStripe(color: "#AE1C28", heightFraction: 0.5), FlagStripe(color: "#F5D020", heightFraction: 0.5)]),
             germanBorder: false, belgianBorder: false, coastline: true
         ),
@@ -343,7 +343,7 @@ extension NLProvince {
             description: "The geographic and logistical center of the Netherlands. Utrecht Centraal is the country's busiest railway station, connecting all major cities. The province has a high concentration of universities, tech companies, and insurance/financial services.",
             history: "Roman fortress Trajectum (47 AD) grew into a medieval bishopric that controlled northern Netherlands for centuries. The Union of Utrecht (1579) — founding document of the Dutch Republic — was signed here.",
             highlights: ["🛤️ Utrecht Centraal — busiest station in NL", "⛪ Dom Tower — 112m, tallest church tower in NL", "📜 Union of Utrecht (1579) — Dutch Declaration of Independence", "🏢 Rabobank & NS headquarters", "🌿 Utrechtse Heuvelrug — national park, glacial ridges"],
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Dom_Tower_Utrecht.jpg?width=2400",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Domtoren_Utrecht.jpg?width=2400",
             flag: CityFlag(colors: ["#FFFFFF","#AE1C28","#FFFFFF"], description: "Wit-rood-wit, kruis van Utrecht", emoji: "🏴", svgStripes: [FlagStripe(color: "#FFFFFF", heightFraction: 0.333), FlagStripe(color: "#AE1C28", heightFraction: 0.334), FlagStripe(color: "#FFFFFF", heightFraction: 0.333)]),
             germanBorder: false, belgianBorder: false, coastline: false
         ),
@@ -357,7 +357,7 @@ extension NLProvince {
             description: "The largest Dutch province by land area, stretching from the Rhine delta to the German border. Known for Arnhem's WWII history (Operation Market Garden), the Veluwe national park, and Nijmegen — the oldest city in the Netherlands.",
             history: "Nijmegen was the oldest city in the Netherlands, with Roman origins (19 BC). The medieval Duchy of Gelderland was one of the most powerful territories in the Low Countries. The Battle of Arnhem (September 1944) — 'A Bridge Too Far' — is the most famous WWII battle on Dutch soil.",
             highlights: ["🌉 Arnhem — 'A Bridge Too Far' (1944), John Frost Bridge", "🏛️ Nijmegen — oldest city in Netherlands (19 BC)", "🌲 De Hoge Veluwe — largest national park in NL, Kröller-Müller Museum", "🎨 Kröller-Müller Museum — world's 2nd largest Van Gogh collection", "🍺 Grolsch and Heineken breweries nearby"],
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Nationaal%20Park%20De%20Hoge%20Veluwe%20-%20De%20Pollen%20-%20panoramio.jpg?width=2400",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/De_Hoge_Veluwe_landscape.jpg?width=2400",
             flag: CityFlag(colors: ["#003DA5","#F5D020"], description: "Blauw-geel, provincievlag Gelderland", emoji: "🏴", svgStripes: [FlagStripe(color: "#003DA5", heightFraction: 0.5), FlagStripe(color: "#F5D020", heightFraction: 0.5)]),
             germanBorder: true, belgianBorder: false, coastline: false
         ),
@@ -371,7 +371,7 @@ extension NLProvince {
             description: "The industrial and design powerhouse of the southern Netherlands. Home to ASML, Philips (founded Eindhoven), and the Dutch Design capital. Distinctive Burgundian culture, excellent food, and famous carnival celebrations.",
             history: "Part of the historical Duchy of Brabant, which straddled modern Netherlands and Belgium. Den Bosch (founded 1185) was Hieronymus Bosch's birthplace. The province was under Spanish-Habsburg control for most of the Dutch Golden Age, giving it a distinct Catholic and Burgundian culture.",
             highlights: ["🔬 Eindhoven/Brainport — ASML, Philips, more patents/km² than Silicon Valley", "🎨 Hieronymus Bosch Center, Den Bosch — medieval master of surreal art", "🎭 Tilburg Carnival — one of NL's largest, 500,000 visitors", "⛪ Sint-Janskathedraal — finest Gothic cathedral in the Netherlands", "🏞️ Biesbosch — national park, largest freshwater tidal wetland in Europe"],
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Biesbosch%20National%20Park%20Netherlands.jpg?width=2400",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/De_Biesbosch_P1290080.jpg?width=2400",
             flag: CityFlag(colors: ["#AE1C28", "#FFFFFF"], description: "Red and white, Brabant colors", emoji: "🏴", svgStripes: [FlagStripe(color: "#AE1C28", heightFraction: 0.5), FlagStripe(color: "#FFFFFF", heightFraction: 0.5)]),
             germanBorder: false, belgianBorder: true, coastline: false
         ),
@@ -385,7 +385,7 @@ extension NLProvince {
             description: "The northernmost mainland province, bordering Germany and the Wadden Sea. Famous for its distinctive Gronings culture, language (Grönnens), and the now-closed natural gas field that made the Netherlands one of Europe's richest countries.",
             history: "Groningen's wealth came from controlling Baltic grain trade via the Hanseatic League. The city's Martinitoren (1482) was a beacon for North Sea navigation for centuries. Natural gas discovered 1959 — the world's largest onshore field — extracted until 2023 amid thousands of induced earthquakes.",
             highlights: ["⛽ Groningen gas field — largest in world, closed 2023", "🎓 57,000 students — RUG and Hanze Hogeschool", "🌊 Wadden Sea — UNESCO World Heritage mudflats", "⛪ Martinitoren (1482) — 97m, icon of the north", "🎵 Eurosonic Noorderslag — premier European new music festival"],
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Groningen_-_Martinikerk_en_-toren.jpg?width=2400",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Martinitoren_Groningen.jpg?width=2400",
             flag: CityFlag(colors: ["#AE1C28", "#FFFFFF"], description: "Rood-wit, provincievlag Groningen", emoji: "🏴", svgStripes: [FlagStripe(color: "#AE1C28", heightFraction: 0.5), FlagStripe(color: "#FFFFFF", heightFraction: 0.5)]),
             germanBorder: true, belgianBorder: false, coastline: true
         ),
@@ -399,7 +399,7 @@ extension NLProvince {
             description: "The southernmost and most culturally distinct Dutch province. Wedged between Belgium and Germany, Limburg has rolling hills (the Vaalserberg — highest point in Netherlands at 322m), Maastricht's Roman heritage, and a vibrant carnival tradition.",
             history: "Named after Limbourg castle in modern Belgium. Limburg was a Duchy until Napoleon absorbed it into France (1795). After Waterloo it became a complex contested territory — Belgian from 1830–1839 before being divided between Netherlands and Belgium by the Treaty of London.",
             highlights: ["📜 Maastricht Treaty (1992) — created the European Union", "🏔️ Vaalserberg — highest point in Netherlands (322m)", "🗿 Caves of Saint Peter — 280km of marl caves", "⛪ Basilica of St Servatius — oldest church in Netherlands", "🍫 Chocolaterie industry — Merci and other brands nearby"],
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Limburg%20hills%20near%20Vijlen.jpg?width=2400",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/South_Limburg_landscape.jpg?width=2400",
             flag: CityFlag(colors: ["#F5D020","#FFFFFF"], description: "Goud-wit, provincievlag Limburg", emoji: "🏴", svgStripes: [FlagStripe(color: "#F5D020", heightFraction: 0.5), FlagStripe(color: "#FFFFFF", heightFraction: 0.5)]),
             germanBorder: true, belgianBorder: true, coastline: false
         ),
@@ -413,7 +413,7 @@ extension NLProvince {
             description: "A province with its own language (Frisian — co-official with Dutch), its own culture, and a fierce sense of identity. Home to the legendary Elfstedentocht ice-skating race (11 cities, 200km), and Leeuwarden — 2018 European Capital of Culture.",
             history: "Friesland was never fully conquered by Rome and maintained independence until the 16th century. The Frisians are an ancient Germanic people, and their language — West Frisian — is the closest living relative to English. The Elfstedentocht (Eleven Cities Tour) ice-skating race, held when canals freeze, is the most iconic Dutch sporting event.",
             highlights: ["⛸️ Elfstedentocht — legendary 200km ice-skating race (rare, last 1997)", "🗣️ Frisian language — second official language in NL", "🏛️ Leeuwarden — European Capital of Culture 2018, Escher birthplace", "🐄 Holstein Frisian cattle — the world's most common dairy breed", "🌊 Wadden Sea islands — Texel, Vlieland, Terschelling"],
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Leeuwarden_2019.jpg?width=2400",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Skyline_Leeuwarden_-_panoramio.jpg?width=2400",
             flag: CityFlag(colors: ["#003DA5", "#FFFFFF"], description: "Blue with diagonal white stripes and red lily-pads", emoji: "🏴", svgStripes: [FlagStripe(color: "#003DA5", heightFraction: 0.333), FlagStripe(color: "#FFFFFF", heightFraction: 0.334), FlagStripe(color: "#003DA5", heightFraction: 0.333)]),
             germanBorder: false, belgianBorder: false, coastline: true
         ),
@@ -427,7 +427,7 @@ extension NLProvince {
             description: "Eastern province known for medieval Hanseatic cities (Zwolle, Deventer, Kampen), the lake district of Overijssel (Weerribben-Wieden national park — largest lowland fen in NW Europe), and the textile history of Enschede and Almelo.",
             history: "Overijssel's Hanseatic cities dominated Baltic trade in the Middle Ages. Deventer's manuscript copying industry made it a center of early printing. Enschede's textile industry collapsed in the 20th century; the devastating Enschede fireworks disaster (2000) destroyed an entire neighborhood.",
             highlights: ["🏰 Zwolle — perfectly preserved medieval Hanseatic city", "📚 Deventer — medieval book fair, Dickens Festival (December)", "🌿 Weerribben-Wieden — largest lowland fen in NW Europe", "🏭 Enschede — recovering post-industrial city, Twente campus", "🛶 Giethoorn — 'Dutch Venice', no roads, only waterways"],
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Giethoorn_2019.jpg?width=2400",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Giethoorn%2C_Netherlands.jpg?width=2400",
             flag: CityFlag(colors: ["#AE1C28","#F5D020"], description: "Rood-geel, provincievlag Overijssel", emoji: "🏴", svgStripes: [FlagStripe(color: "#AE1C28", heightFraction: 0.5), FlagStripe(color: "#F5D020", heightFraction: 0.5)]),
             germanBorder: true, belgianBorder: false, coastline: false
         ),
@@ -441,7 +441,7 @@ extension NLProvince {
             description: "The least densely populated province in the Netherlands, known for prehistoric megalithic tombs (hunebedden), national cycling routes, and the Van Gogh connection — he lived here in 1883 and painted the peat landscapes.",
             history: "Drenthe's hunebedden (dolmen burial chambers) built 5,000 years ago are among the oldest monuments in the Netherlands. The province remained largely agricultural until the 20th century. Vincent van Gogh lived in the village of Nieuw-Amsterdam for several months in 1883, producing dark paintings of peat workers.",
             highlights: ["🗿 Hunebedden — 54 megalithic tombs, 5,000 years old", "🎨 Van Gogh in Drenthe — painted peat landscapes (1883)", "🚴 National cycling park — 5,000km of bike routes", "🏡 Kamp Westerbork — WWII deportation camp memorial", "🌿 Dwingelderveld — largest continuous heath in NL"],
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Hunebed_D27_Borger.jpg?width=2400",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/D_27_Borger%2C_de_grootste_hunnebed_van_Nederland.jpg?width=2400",
             flag: CityFlag(colors: ["#AE1C28", "#FFFFFF"], description: "Red on white, Drenthe arms", emoji: "🏴", svgStripes: [FlagStripe(color: "#AE1C28", heightFraction: 0.5), FlagStripe(color: "#FFFFFF", heightFraction: 0.5)]),
             germanBorder: true, belgianBorder: false, coastline: false
         ),
@@ -455,7 +455,7 @@ extension NLProvince {
             description: "Sea-land — a province of islands and peninsulas, shaped entirely by water. Home to the Delta Works (the largest flood protection project in world history), beautiful beaches, and a devastating history of floods including the 1953 North Sea Flood that killed 1,836 people.",
             history: "Zeeland's history is defined by the eternal struggle against the sea. The 1953 North Sea Flood — which struck on February 1, killing 1,836 Dutch — shocked the world and led directly to the Delta Works, one of the seven modern wonders of the world. The province was also home to Admiral Michiel de Ruyter, who defeated the English and French fleets in the 17th century.",
             highlights: ["🛡️ Delta Works — world's largest flood protection system", "🏖️ Zeelandse beaches — pristine, quieter than North Holland", "📜 1953 flood memorial — remembering 1,836 victims", "⚓ Admiral de Ruyter — born in Flushing (Vlissingen)", "🦞 Zeeland seafood — mussels, oysters, lobster"],
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Oosterscheldekering_2014.jpg?width=2400",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Oosterscheldekering.jpg?width=2400",
             flag: CityFlag(colors: ["#003DA5","#F5D020"], description: "Blauw-goud, provincievlag Zeeland", emoji: "🏴", svgStripes: [FlagStripe(color: "#003DA5", heightFraction: 0.5), FlagStripe(color: "#F5D020", heightFraction: 0.5)]),
             germanBorder: false, belgianBorder: true, coastline: true
         ),
@@ -469,7 +469,7 @@ extension NLProvince {
             description: "The newest province in the Netherlands (1986) and in the world — entirely reclaimed from the IJsselmeer between 1942–1968. Flevoland is the largest artificial land area ever created, a testament to Dutch mastery of water engineering.",
             history: "Flevoland didn't exist until the 20th century. The Zuiderzee Works (1927–1975) drained the former inland sea (Zuiderzee), creating 1,650 km² of new land. The Flevopolder and Oostelijk Flevoland were reclaimed in the 1940s–50s. Flevoland became the 12th province in 1986 — the most recent territorial addition to the Netherlands.",
             highlights: ["🌊 Largest artificial land in world — 1,650 km² reclaimed from sea", "🏙️ Almere — fastest-growing city in the Netherlands", "✈️ Lelystad Airport — expanding to relieve Schiphol", "🎨 Batavia Stad — fashion outlet and replica 17th-century VOC ship", "🌱 Most fertile agricultural land — built on seabed soil"],
-            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Flevoland_polder_aerial.jpg?width=2400",
+            imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Snowy_fields_with_wind_turbines%2C_in_the_mist_over_Flevopolder%2C_Holland_%289443815526%29.jpg?width=2400",
             flag: CityFlag(colors: ["#003DA5","#F5D020"], description: "Blauw-geel, provincievlag Flevoland", emoji: "🏴", svgStripes: [FlagStripe(color: "#003DA5", heightFraction: 0.5), FlagStripe(color: "#F5D020", heightFraction: 0.5)]),
             germanBorder: false, belgianBorder: false, coastline: false
         )
@@ -1133,7 +1133,7 @@ extension NLCity {
         attractions: [
             Attraction(id: "hortusleiden", name: "Hortus Botanicus", type: "Garden", description: "Historic botanical garden with thousands of plant species and university heritage.", openHours: "Daily 10:00–18:00", admission: "Check current price", imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Hortus%20botanicus%20Leiden%20New%20greenhouse.JPG?width=1600"),
             Attraction(id: "devalk", name: "Molen de Valk", type: "Windmill", description: "An 18th-century grain windmill and museum showing miller life and work.", openHours: "Tue–Sat 10:00–17:00, Sun 13:00–17:00", admission: "Check current price", imageURL: "https://commons.wikimedia.org/wiki/Special:FilePath/Leiden%2C%20stellingmolen%20De%20Valk%20RM25655%20IMG%209942%202021-08-02%2015.40.jpg?width=1600"),
-            Attraction(id: "oudheden", name: "Rijksmuseum van Oudheden", type: "Museum", description: "National museum of antiquities with Egyptian, Greek, Roman, and Dutch archaeology.", openHours: "Tue–Sun 10:00–17:00", admission: "Check current price", imageURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Rijksmuseum_van_Oudheden.jpg/1280px-Rijksmuseum_van_Oudheden.jpg")
+            Attraction(id: "oudheden", name: "Rijksmuseum van Oudheden", type: "Museum", description: "National museum of antiquities with Egyptian, Greek, Roman, and Dutch archaeology.", openHours: "Tue–Sun 10:00–17:00", admission: "Check current price", imageURL: "https://upload.wikimedia.org/wikipedia/commons/b/b4/Rijksmuseum_van_Oudheden.jpg")
         ],
         facts: [CityFact(icon: "🎓", label: "Students", value: "30,000"), CityFact(icon: "🌊", label: "Canals", value: "28 km"), CityFact(icon: "🏆", label: "Nobel prizes", value: "16"), CityFact(icon: "🏰", label: "Hofjes", value: "35"), CityFact(icon: "🎨", label: "Rembrandt", value: "Born 1606"), CityFact(icon: "⛵", label: "Mayflower", value: "1609–1620")],
         services: ["Gemeente Leiden", "DUO", "Sociale Dienst", "IND Den Haag nearby"],
@@ -1474,6 +1474,7 @@ struct NetherlandsKnowledgeEntity: Identifiable {
     let route: AppDestination?
     let attributes: [String: String]
     let keywords: [String]
+    let explicitPersonaTags: Set<PersonaTag>?
 }
 
 struct NetherlandsKnowledgeDatabaseReport {
@@ -1511,12 +1512,18 @@ struct NetherlandsKnowledgeDatabase {
     let relations: [KnowledgeRelation]
 
     private let entitiesByID: [String: NetherlandsKnowledgeEntity]
+    private let migrationRegistry: [String: DataProjectMigration]
 
-    init(entities: [NetherlandsKnowledgeEntity], relations: [KnowledgeRelation]) {
+    init(
+        entities: [NetherlandsKnowledgeEntity],
+        relations: [KnowledgeRelation],
+        migrationRegistry: [String: DataProjectMigration] = [:]
+    ) {
         var seen = Set<String>()
         let uniqueEntities = entities.filter { seen.insert($0.id).inserted }
         self.entities = uniqueEntities
         self.entitiesByID = Dictionary(uniqueKeysWithValues: uniqueEntities.map { ($0.id, $0) })
+        self.migrationRegistry = migrationRegistry
 
         var seenRelations = Set<String>()
         self.relations = relations.filter { relation in
@@ -1525,7 +1532,11 @@ struct NetherlandsKnowledgeDatabase {
     }
 
     func entity(id: String) -> NetherlandsKnowledgeEntity? {
-        entitiesByID[id]
+        entitiesByID[canonicalID(for: id)]
+    }
+
+    func canonicalID(for id: String) -> String {
+        migrationRegistry[id]?.canonicalID ?? id
     }
 
     func entities(kind: NetherlandsEntityKind) -> [NetherlandsKnowledgeEntity] {
@@ -1537,14 +1548,16 @@ struct NetherlandsKnowledgeDatabase {
     }
 
     func knowledgeItems() -> [KnowledgeItem] {
-        entities.map { entity in
+        publishedEntities.filter { $0.kind != .officialSource }.map { entity in
             KnowledgeItem(
                 id: entity.knowledgeItemID,
                 type: entity.knowledgeItemType,
                 title: LocalizedKnowledgeText(entity.title),
                 summary: LocalizedKnowledgeText(entity.aiSummary.isEmpty ? entity.summary : entity.aiSummary),
-                category: entity.category,
-                city: entity.cityId,
+                category: entity.kind == .localPartner
+                    ? (entity.attributes["subcategory"] ?? entity.category)
+                    : entity.category,
+                city: entity.kind == .city ? entity.title : entity.cityId,
                 province: entity.provinceId,
                 keywords: entity.searchKeywords,
                 route: entity.route,
@@ -1574,23 +1587,39 @@ struct NetherlandsKnowledgeDatabase {
     }
 
     private static func build() -> NetherlandsKnowledgeDatabase {
-        var entities: [NetherlandsKnowledgeEntity] = []
+        var legacyEntities: [NetherlandsKnowledgeEntity] = []
         var relations: [KnowledgeRelation] = []
 
-        entities.append(countryEntity())
-        entities += officialSourceEntities()
-        entities += provinceEntities()
-        entities += cityEntities()
-        entities += attractionEntities()
-        entities += dashboardPlaceEntities()
-        entities += nearbyPlaceEntities()
-        entities += institutionEntities()
-        entities += localPartnerEntities()
-        entities += calendarEventEntities()
-        entities += coreKnowledgeTopicEntities()
+        legacyEntities.append(countryEntity())
+        legacyEntities += officialSourceEntities()
+        legacyEntities += PremiumKnowledgeSeedData.entities
+        legacyEntities += VerifiedLeidenVenueData.entities
+        legacyEntities += provinceEntities()
+        legacyEntities += cityEntities()
+        legacyEntities += attractionEntities()
+        legacyEntities += dashboardPlaceEntities()
+        legacyEntities += nearbyPlaceEntities()
+        legacyEntities += institutionEntities()
+        legacyEntities += localPartnerEntities()
+        legacyEntities += calendarEventEntities()
+        legacyEntities += coreKnowledgeTopicEntities()
+
+        let runtime = DataProjectRuntimeLoader.load()
+        let canonicalIDs = Set(runtime.entities.map(\.id))
+        let retiredLegacyIDs = Set(runtime.migrationRegistry.compactMap { legacyID, migration in
+            migration.retiresLegacyRuntimeRecord && canonicalIDs.contains(migration.canonicalID) ? legacyID : nil
+        })
+        let remainingLegacy = legacyEntities.filter { entity in
+            !canonicalIDs.contains(entity.id) && !retiredLegacyIDs.contains(entity.id)
+        }
+        let entities = runtime.entities + remainingLegacy
 
         relations += buildRelations(for: entities)
-        return NetherlandsKnowledgeDatabase(entities: entities, relations: relations)
+        return NetherlandsKnowledgeDatabase(
+            entities: entities,
+            relations: relations,
+            migrationRegistry: runtime.migrationRegistry
+        )
     }
 
     private static func countryEntity() -> NetherlandsKnowledgeEntity {
@@ -1642,7 +1671,7 @@ struct NetherlandsKnowledgeDatabase {
 
     private static func provinceEntities() -> [NetherlandsKnowledgeEntity] {
         NLProvince.all.map { province in
-            entity(
+            return entity(
                 id: "province:\(KnowledgeNormalizer.slug(province.id))",
                 kind: .province,
                 title: province.nameEN,
@@ -1744,7 +1773,17 @@ struct NetherlandsKnowledgeDatabase {
     }
 
     private static func dashboardPlaceEntities() -> [NetherlandsKnowledgeEntity] {
-        DashboardPlacesData.places.map { place in
+        let attractionKeys = Set(NLCity.all.flatMap { city in
+            city.attractions.map { attraction in
+                "\(KnowledgeNormalizer.slug(city.name))::\(KnowledgeNormalizer.slug(attraction.name))"
+            }
+        })
+
+        return DashboardPlacesData.places
+            .filter { place in
+                !attractionKeys.contains("\(KnowledgeNormalizer.slug(place.cityId))::\(KnowledgeNormalizer.slug(place.title))")
+            }
+            .map { place in
             entity(
                 id: "place:\(KnowledgeNormalizer.slug(place.id))",
                 kind: kind(forVisitCategory: place.primaryCategory),
@@ -1768,7 +1807,7 @@ struct NetherlandsKnowledgeDatabase {
                 ],
                 keywords: [place.title, place.shortTitle ?? "", place.description, place.cityId, place.address ?? ""] + place.category.map(\.rawValue)
             )
-        }
+            }
     }
 
     private static func nearbyPlaceEntities() -> [NetherlandsKnowledgeEntity] {
@@ -1785,7 +1824,7 @@ struct NetherlandsKnowledgeDatabase {
                 source: place.websiteURL.map { OfficialSource(title: place.sourceLabel, url: $0, institution: place.name) },
                 lastChecked: place.lastUpdated,
                 images: visualSet(id: "nearby-place:\(place.saveKey)", title: place.name, url: nil, localAssetName: nil, category: .nearbyHelp),
-                aiSummary: place.localizedUseCase(.english),
+                aiSummary: "\(place.localizedDescription(.english)) This entry is scoped to \(place.city).",
                 relatedEntityIDs: ["city:\(KnowledgeNormalizer.slug(place.city))"] + place.relatedLinks.map { "topic:\(KnowledgeNormalizer.slug($0.title))" },
                 route: .mapFocus(.place(place.saveKey)),
                 attributes: [
@@ -1795,7 +1834,8 @@ struct NetherlandsKnowledgeDatabase {
                     "website": place.websiteURL?.absoluteString ?? "",
                     "trustNote": place.trustNote
                 ],
-                keywords: [place.name, place.address, place.city, place.category.rawValue, place.description, place.newcomerUseCase, place.sourceLabel]
+                keywords: [place.name, place.address, place.city, place.category.rawValue, place.description, place.newcomerUseCase, place.sourceLabel],
+                personaTags: place.personaTags
             )
         }
     }
@@ -1859,8 +1899,23 @@ struct NetherlandsKnowledgeDatabase {
     }
 
     private static func calendarEventEntities() -> [NetherlandsKnowledgeEntity] {
-        DashboardCalendarData.events.map { event in
-            entity(
+        let today = CalendarEventData.calendar.startOfDay(for: Date())
+        return DashboardCalendarData.events
+            .filter { event in
+                !event.hidden
+                    && !event.draft
+                    && event.source?.url != nil
+                    && (event.endDate ?? event.date) >= today
+            }
+            .map { event in
+            let eventSpecificSummary = [event.description, event.impact]
+                .compactMap { $0 }
+                .filter { !$0.isEmpty }
+                .reduce(into: [String]()) { parts, text in
+                    if !parts.contains(text) { parts.append(text) }
+                }
+                .joined(separator: " ")
+            return entity(
                 id: "event:\(KnowledgeNormalizer.slug(event.id))",
                 kind: .event,
                 title: event.localTitle ?? event.title,
@@ -1871,10 +1926,14 @@ struct NetherlandsKnowledgeDatabase {
                 source: event.source,
                 lastChecked: event.lastChecked ?? "2026-07-05",
                 images: visualSet(id: "event:\(event.id)", title: event.title, url: nil, localAssetName: nil, category: .city),
-                aiSummary: event.impact ?? event.description ?? "Check the official source for current event details.",
+                aiSummary: eventSpecificSummary.isEmpty
+                    ? "Check the official source for current details about \(event.localTitle ?? event.title)."
+                    : eventSpecificSummary,
                 relatedEntityIDs: [event.cityId.map { "city:\(KnowledgeNormalizer.slug($0))" }, event.source.map { "source:\(KnowledgeNormalizer.slug($0.title))" }].compactMap { $0 },
                 route: .calendarEvent(event.id),
                 attributes: [
+                    "startDate": ISO8601DateFormatter().string(from: event.date),
+                    "endDate": event.endDate.map { ISO8601DateFormatter().string(from: $0) } ?? "",
                     "official": String(event.official),
                     "affectsServices": event.affectsServices.map(String.init) ?? "",
                     "affectsTransport": event.affectsTransport.map(String.init) ?? ""
@@ -1952,7 +2011,8 @@ struct NetherlandsKnowledgeDatabase {
         relatedEntityIDs: [String] = [],
         route: AppDestination? = nil,
         attributes: [String: String] = [:],
-        keywords: [String] = []
+        keywords: [String] = [],
+        personaTags: Set<PersonaTag>? = nil
     ) -> NetherlandsKnowledgeEntity {
         NetherlandsKnowledgeEntity(
             id: id,
@@ -1970,7 +2030,8 @@ struct NetherlandsKnowledgeDatabase {
             relatedEntityIDs: relatedEntityIDs,
             route: route,
             attributes: attributes,
-            keywords: keywords
+            keywords: keywords,
+            explicitPersonaTags: personaTags
         )
     }
 
@@ -2215,6 +2276,7 @@ private extension NetherlandsKnowledgeEntity {
     }
 
     var personaTags: Set<PersonaTag> {
+        if let explicitPersonaTags { return explicitPersonaTags }
         switch kind {
         case .country, .province, .city, .place, .attraction, .museum, .park, .restaurant, .cafe, .hotel, .transport, .officialSource, .knowledgeTopic, .event:
             return [.universal]

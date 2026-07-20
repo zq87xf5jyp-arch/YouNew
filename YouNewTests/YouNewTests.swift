@@ -4,6 +4,21 @@ import Foundation
 
 @MainActor
 struct YouNewTests {
+    @Test func assistantKeyboardComposerAvoidsInvalidAccessoryLayout() throws {
+        let sourceURL = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .appendingPathComponent("YouNew/Views/AIAssistantView.swift")
+        let source = try String(contentsOf: sourceURL, encoding: .utf8)
+
+        #expect(!source.contains("ToolbarItemGroup(placement: .keyboard)"))
+        #expect(!source.contains("ToolbarItem(placement: .keyboard)"))
+        #expect(source.contains("private var assistantInputBar"))
+        #expect(source.contains("TextField(\"\", text: $viewModel.input, axis: .vertical)"))
+        #expect(source.contains(".focused($isInputFocused)"))
+        #expect(source.contains("sendCurrentMessageAndDismissKeyboard()"))
+    }
+
 
     @Test func aiSafetyBlocksLegalGuaranteesInEveryLanguage() {
         let english = AISafetyRules.blockedResponseIfNeeded(

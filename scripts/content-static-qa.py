@@ -28,7 +28,7 @@ def main():
     fines_view = read("YouNew/Views/FinesInfoView.swift")
     app_destination_view = read("YouNew/App/Navigation/AppDestinationView.swift")
     search_view = read("YouNew/Views/SearchView.swift")
-    home_view = read("YouNew/Views/HomeView.swift")
+    home_view = read("YouNew/Views/RootHomeView.swift")
     more_view = read("YouNew/Views/MoreHubView.swift")
     ai_context_builder = read("YouNew/Services/AIContextBuilder.swift")
     ai_view_model = read("YouNew/ViewModels/AIViewModel.swift")

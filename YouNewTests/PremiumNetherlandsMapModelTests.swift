@@ -1,4 +1,6 @@
 import CoreGraphics
+import CoreLocation
+import MapKit
 import Testing
 @testable import YouNew
 
@@ -133,6 +135,22 @@ struct PremiumNetherlandsMapModelTests {
 
             #expect(model.filteredPlaces.allSatisfy { !noCoordinateTitles.contains($0.name) })
             #expect(model.filteredPlaces.allSatisfy { $0.city == city })
+        }
+    }
+
+    @Test func provincePickerDataIncludesAllTwelveProvincesAndCities() {
+        #expect(ProvinceCatalog.all.count == 12)
+        #expect(Set(ProvinceCatalog.all.map(\.id)).count == 12)
+        #expect(ProvinceCatalog.all.allSatisfy { !$0.cities.isEmpty })
+    }
+
+    @Test func mapViewModelCanCenterEveryCatalogCity() {
+        let model = MapViewModel()
+
+        for spotlight in ProvinceCatalog.citySpotlights {
+            model.selectedCity = spotlight.city.name
+            #expect(abs(model.region.center.latitude - spotlight.city.latitude) < 0.000_001)
+            #expect(abs(model.region.center.longitude - spotlight.city.longitude) < 0.000_001)
         }
     }
 }

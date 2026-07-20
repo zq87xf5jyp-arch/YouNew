@@ -14,7 +14,9 @@ struct NetherlandsSearchResult: Identifiable {
     let province: NLProvince?
 
     static func city(_ city: NLCity) -> NetherlandsSearchResult {
-        NetherlandsSearchResult(id: "nl-city-\(city.id)", kind: .city, city: city, province: nil)
+        let legacyID = "city:\(city.id)"
+        let canonicalID = NetherlandsKnowledgeDatabase.shared.canonicalID(for: legacyID)
+        return NetherlandsSearchResult(id: canonicalID, kind: .city, city: city, province: nil)
     }
 
     static func province(_ province: NLProvince) -> NetherlandsSearchResult {
@@ -30,28 +32,33 @@ struct NetherlandsSearchResult: Identifiable {
 final class SearchViewModel: ObservableObject {
     @Published var language: AppLanguage {
         didSet {
+            guard oldValue != language else { return }
             scheduleSearchRefresh(immediate: true)
         }
     }
     @Published var query = "" {
         didSet {
+            guard oldValue != query else { return }
             alignCategoryWithExplicitQuery()
             scheduleSearchRefresh(immediate: query.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty)
         }
     }
     @Published var selectedCategory: SearchCategory? = nil {
         didSet {
+            guard oldValue != selectedCategory else { return }
             guard !isAligningCategoryWithQuery else { return }
             refreshSearchResults()
         }
     }
     @Published var activePersona: PersonaTag? {
         didSet {
+            guard oldValue != activePersona else { return }
             refreshSearchState()
         }
     }
     @Published var personaSearchScope: PersonaSearchScope {
         didSet {
+            guard oldValue != personaSearchScope else { return }
             refreshSearchState()
         }
     }
@@ -64,6 +71,82 @@ final class SearchViewModel: ObservableObject {
     private let allAnswers = MockSearchAnswersData.items
     private var searchRefreshTask: Task<Void, Never>?
     private var isAligningCategoryWithQuery = false
+    private static let searchSynonyms: [String: String] = [
+        "дигид": "digid",
+        "цифровой логин": "digital login",
+        "госуслуги": "government services",
+        "бсн": "bsn",
+        "номер bsn": "bsn",
+        "регистрация": "registration",
+        "штраф": "fine",
+        "оплатить штраф": "pay fine",
+        "налоговая": "belastingdienst",
+        "налог": "tax",
+        "налоги": "taxes",
+        "административное": "registration",
+        "иммиграция": "immigration",
+        "пособия": "social benefits",
+        "субсидии": "social benefits",
+        "транспорт": "transport",
+        "письмо": "letter",
+        "письмо от overheid": "government letter",
+        "официальное письмо": "government letter",
+        "муниципалитет": "municipality",
+        "gemeente": "municipality",
+        "gemeent": "municipality",
+        "gemeete": "municipality",
+        "мэрия": "municipality",
+        "велосипед": "bicycle",
+        "велик": "bicycle",
+        "фонари": "lights",
+        "аренда": "rent",
+        "жилье": "housing",
+        "жильё": "housing",
+        "депозит": "deposit",
+        "страховка": "insurance",
+        "медстраховка": "health insurance",
+        "врач": "huisarts",
+        "семейный врач": "huisarts",
+        "аптека": "pharmacy",
+        "мусор": "waste",
+        "переработка": "recycling",
+        "зарплата": "salary",
+        "работа": "work",
+        "расчетный лист": "payslip",
+        "расчётный лист": "payslip",
+        "увольнение": "dismissal",
+        "банк": "bank",
+        "счет": "account",
+        "счёт": "account",
+        "общественный транспорт": "public transport",
+        "поезд": "train",
+        "boete": "fine",
+        "belasting": "tax",
+        "belastingen": "taxes",
+        "toeslag": "allowance",
+        "toeslagen": "allowances",
+        "afval": "waste",
+        "huur": "rent",
+        "zorgverzekering": "health insurance",
+        "zorgverzek": "health insurance",
+        "zorgverzkering": "health insurance",
+        "loonstrook": "payslip",
+        "fiets": "bicycle",
+        "werk": "work",
+        "uitkering": "benefits",
+        "нидерландский a1": "dutch a1",
+        "нидерландский a2": "dutch a2",
+        "знание нидерландского общества": "knowledge of dutch society",
+        "слова": "words",
+        "грамматика": "grammar",
+        "отделяемые глаголы": "separable verbs",
+        "afspraak": "appointment",
+        "de het": "articles",
+        "hebben zijn": "verbs"
+    ]
+    private static let searchSynonymReplacements = searchSynonyms.sorted {
+        $0.key.count > $1.key.count
+    }
 
     init(
         initialQuery: String = "",
@@ -103,10 +186,10 @@ final class SearchViewModel: ObservableObject {
            PersonaContentPolicy.isOutsidePersonaQuery(trimmed, for: activePersona) {
             return []
         }
-        let q = trimmed.lowercased()
+        let normalizedQuery = normalizeSearchText(trimmed)
 
         let scored: [(answer: SearchAnswer, score: Int)] = base.map { answer in
-            (answer: answer, score: relevanceScore(answer: answer, query: q))
+            (answer: answer, score: relevanceScore(answer: answer, normalizedQuery: normalizedQuery))
         }
 
         let relevant = scored.filter { $0.score > 0 }
@@ -141,6 +224,7 @@ final class SearchViewModel: ObservableObject {
     }
 
     func performSearch() {
+        searchRefreshTask?.cancel()
         let trimmed = query.trimmingCharacters(in: .whitespacesAndNewlines)
         refreshSearchState()
         guard !trimmed.isEmpty else { return }
@@ -283,8 +367,7 @@ final class SearchViewModel: ObservableObject {
         netherlandsResults = results
     }
 
-    private func relevanceScore(answer: SearchAnswer, query: String) -> Int {
-        let normalizedQuery = normalizeSearchText(query)
+    private func relevanceScore(answer: SearchAnswer, normalizedQuery: String) -> Int {
         let question = normalizeSearchText(answer.title(language).lowercased())
         let short = normalizeSearchText(answer.shortAnswer(language).lowercased())
         let institution = normalizeSearchText(answer.relatedInstitution?.lowercased() ?? "")
@@ -379,82 +462,8 @@ final class SearchViewModel: ObservableObject {
 
     private func normalizeSearchText(_ value: String) -> String {
         let lowered = value.lowercased()
-        let synonyms: [String: String] = [
-            "дигид": "digid",
-            "цифровой логин": "digital login",
-            "госуслуги": "government services",
-            "бсн": "bsn",
-            "номер bsn": "bsn",
-            "регистрация": "registration",
-            "штраф": "fine",
-            "оплатить штраф": "pay fine",
-            "налоговая": "belastingdienst",
-            "налог": "tax",
-            "налоги": "taxes",
-            "административное": "registration",
-            "иммиграция": "immigration",
-            "пособия": "social benefits",
-            "субсидии": "social benefits",
-            "транспорт": "transport",
-            "письмо": "letter",
-            "письмо от overheid": "government letter",
-            "официальное письмо": "government letter",
-            "муниципалитет": "municipality",
-            "gemeente": "municipality",
-            "gemeent": "municipality",
-            "gemeete": "municipality",
-            "мэрия": "municipality",
-            "велосипед": "bicycle",
-            "велик": "bicycle",
-            "фонари": "lights",
-            "аренда": "rent",
-            "жилье": "housing",
-            "жильё": "housing",
-            "депозит": "deposit",
-            "страховка": "insurance",
-            "медстраховка": "health insurance",
-            "врач": "huisarts",
-            "семейный врач": "huisarts",
-            "аптека": "pharmacy",
-            "мусор": "waste",
-            "переработка": "recycling",
-            "зарплата": "salary",
-            "работа": "work",
-            "расчетный лист": "payslip",
-            "расчётный лист": "payslip",
-            "увольнение": "dismissal",
-            "банк": "bank",
-            "счет": "account",
-            "счёт": "account",
-            "общественный транспорт": "public transport",
-            "поезд": "train",
-            "boete": "fine",
-            "belasting": "tax",
-            "belastingen": "taxes",
-            "toeslag": "allowance",
-            "toeslagen": "allowances",
-            "afval": "waste",
-            "huur": "rent",
-            "zorgverzekering": "health insurance",
-            "zorgverzek": "health insurance",
-            "zorgverzkering": "health insurance",
-            "loonstrook": "payslip",
-            "fiets": "bicycle",
-            "werk": "work",
-            "uitkering": "benefits",
-            "нидерландский a1": "dutch a1",
-            "нидерландский a2": "dutch a2",
-            "знание нидерландского общества": "knowledge of dutch society",
-            "слова": "words",
-            "грамматика": "grammar",
-            "отделяемые глаголы": "separable verbs",
-            "afspraak": "appointment",
-            "de het": "articles",
-            "hebben zijn": "verbs"
-        ]
-
         var normalized = lowered
-        for (source, target) in synonyms {
+        for (source, target) in Self.searchSynonymReplacements {
             normalized = normalized.replacingOccurrences(of: source, with: target)
         }
         return normalized

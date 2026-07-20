@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-01-M1-government-core-009",
+  "work_package": "WP-01",
+  "milestone": "WP-01-M1",
+  "target_release": "government-v1.0.0",
+  "publication_status": "qa",
+  "qa": {"build":"passed","static":"passed","duplicate":"passed","source":"passed","media":"passed","search":"passed","ai":"passed"},
+  "qa_evidence": {
+    "checked_at":"2026-07-14",
+    "build":"Generic iOS Simulator test build, admin TypeScript check and admin production build succeeded.",
+    "static":"Full scripts/run-static-qa.sh suite and DATA PROJECT validation succeeded with 102 governed records.",
+    "duplicate":"No duplicate IDs, normalized titles, canonical websites or media IDs detected across nine batches.",
+    "source":"All ten records use exact official primary-source pages; the full network audit checked 937 URLs and reported zero confirmed broken URLs.",
+    "media":"Government records contain no optional media assets; there are no unverified or unlicensed assets.",
+    "search":"Every record has at least three unique search terms and all related entity IDs resolve across the nine batches.",
+    "ai":"Every AI summary passes minimum length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "government.claim-aow-pension", "entity_type": "government_service", "category": "social_security", "city_id": null, "province_id": null, "coordinates": null,
+      "title": "Claim an AOW pension in the Netherlands",
+      "description": "People living in the Netherlands normally receive instructions from the Social Insurance Bank shortly before reaching their AOW pension age. The claim can be submitted during the official application window using the method in that notice.",
+      "images": [],
+      "official_source": {"title":"How to claim an AOW pension if you live in the Netherlands","publisher":"Social Insurance Bank","url":"https://www.svb.nl/en/aow-pension/arranging-your-affairs/applying-for-an-aow-pension-if-you-live-in-the-netherlands","is_official":true,"checked_at":"2026-07-14","status":"verified_opened"},
+      "website": "https://www.svb.nl/en/aow-pension/arranging-your-affairs/applying-for-an-aow-pension-if-you-live-in-the-netherlands",
+      "related_entity_ids": ["government.aow-pension","government.mijnoverheid","government.certificate-of-life"], "last_checked": "2026-07-14", "review_frequency_days": 60, "verification_status": "verified",
+      "ai_summary": "Check the personal AOW pension age and look for the SVB claim letter in post or the MijnOverheid Message Box. Apply within the stated window, disclose periods lived or worked abroad and respond to requests for evidence.",
+      "search_keywords": ["claim AOW pension","apply state pension","SVB AOW application","retirement Netherlands","AOW claim letter"], "lifecycle_status": "qa",
+      "attributes": {"responsible_authority":"Social Insurance Bank","usual_notice_time":"About four months before AOW pension age"}
+    },
+    {
+      "id": "government.orphan-benefit", "entity_type": "government_service", "category": "social_security", "city_id": null, "province_id": null, "coordinates": null,
+      "title": "Check entitlement to an orphan’s benefit",
+      "description": "A child whose last living parent has died may qualify for an orphan's benefit under the Anw scheme. Entitlement depends on the parent's insurance, the child's residence and age-related education or household conditions.",
+      "images": [],
+      "official_source": {"title":"Additional qualifying conditions for an orphan’s benefit","publisher":"Social Insurance Bank","url":"https://www.svb.nl/en/orphan-s-benefit/additional-qualifying-conditions-for-an-orphan-s-benefit","is_official":true,"checked_at":"2026-07-14","status":"verified_opened"},
+      "website": "https://www.svb.nl/en/orphan-s-benefit/additional-qualifying-conditions-for-an-orphan-s-benefit",
+      "related_entity_ids": ["government.anw-survivor-benefit","government.child-benefit","government.after-death-checklist"], "last_checked": "2026-07-14", "review_frequency_days": 60, "verification_status": "verified",
+      "ai_summary": "Check whether the last living parent was insured under Anw and whether residence requirements are met. Review the child's age-specific school, full-time education or household conditions and report relevant changes to the SVB.",
+      "search_keywords": ["orphan benefit Netherlands","wezenuitkering","SVB orphan benefit","Anw child benefit","parent died social security"], "lifecycle_status": "qa",
+      "attributes": {"responsible_authority":"Social Insurance Bank","scheme":"National Survivor Benefits Act (Anw)"}
+    },
+    {
+      "id": "government.warning-siren", "entity_type": "government_service", "category": "safety", "city_id": null, "province_id": null, "coordinates": null,
+      "title": "Respond to the public warning siren",
+      "description": "A public warning siren outside the regular test signals an emergency. People should go indoors, close doors, windows and ventilation openings, and follow official regional radio, television, internet or NL-Alert instructions.",
+      "images": [],
+      "official_source": {"title":"What should I do when the public warning siren sounds?","publisher":"Government of the Netherlands","url":"https://www.government.nl/faq/what-to-do-when-the-public-warning-siren-sounds","is_official":true,"checked_at":"2026-07-14","status":"verified_opened"},
+      "website": "https://www.government.nl/faq/what-to-do-when-the-public-warning-siren-sounds",
+      "related_entity_ids": ["government.nl-alert","government.emergency-number-112","government.emergency-kit"], "last_checked": "2026-07-14", "review_frequency_days": 90, "verification_status": "verified",
+      "ai_summary": "If the siren is not the scheduled monthly test, enter the nearest building immediately, help others shelter and close external openings and ventilation. Follow official regional information and remain inside until an all-clear is announced.",
+      "search_keywords": ["warning siren Netherlands","public emergency siren","luchtalarm","go indoors close windows","siren first Monday"], "lifecycle_status": "qa",
+      "attributes": {"responsible_authority":"Safety region and emergency services","regular_test":"First Monday of the month at noon"}
+    },
+    {
+      "id": "government.crisis-information", "entity_type": "government_service", "category": "safety", "city_id": null, "province_id": null, "coordinates": null,
+      "title": "Find official information during a crisis or disaster",
+      "description": "National and regional authorities coordinate crisis response and publish public safety information through official channels. Instructions can be distributed through safety-region websites, regional broadcasters, NL-Alert and national crisis information services.",
+      "images": [],
+      "official_source": {"title":"Preventing crises and disasters","publisher":"Government of the Netherlands","url":"https://www.government.nl/themes/justice-security-and-defence/counterterrorism-and-national-security/preventing-crises-and-disasters","is_official":true,"checked_at":"2026-07-14","status":"verified_opened"},
+      "website": "https://www.government.nl/themes/justice-security-and-defence/counterterrorism-and-national-security/preventing-crises-and-disasters",
+      "related_entity_ids": ["government.warning-siren","government.nl-alert","government.emergency-kit"], "last_checked": "2026-07-14", "review_frequency_days": 90, "verification_status": "verified",
+      "ai_summary": "During an incident, use the safety region, regional public broadcaster, NL-Alert and official crisis channels for current instructions. Avoid unverified social posts, keep emergency supplies accessible and follow evacuation or shelter directions from authorities.",
+      "search_keywords": ["crisis information Netherlands","disaster official instructions","safety region","Nederland veilig","NCTV crisis response"], "lifecycle_status": "qa",
+      "attributes": {"responsible_authority":"National Coordinator for Counterterrorism and Security and safety regions","public_channels":"Official websites, broadcasters and NL-Alert"}
+    },
+    {
+      "id": "government.proxy-vote", "entity_type": "government_service", "category": "elections", "city_id": null, "province_id": null, "coordinates": null,
+      "title": "Authorise another voter to cast a proxy vote",
+      "description": "A voter unable to attend can personally authorise another eligible voter through the voting pass or a written proxy. Rules govern identity evidence, municipality, simultaneous voting and the number of proxy votes one person may cast.",
+      "images": [],
+      "official_source": {"title":"Can I let someone else cast my vote for me?","publisher":"Government of the Netherlands","url":"https://www.government.nl/faq/elections/can-i-let-someone-else-cast-my-vote-for-me","is_official":true,"checked_at":"2026-07-14","status":"verified_opened"},
+      "website": "https://www.government.nl/faq/elections/can-i-let-someone-else-cast-my-vote-for-me",
+      "related_entity_ids": ["government.municipal-election-voting","government.voting-abroad","government.replacement-voting-pass"], "last_checked": "2026-07-14", "review_frequency_days": 30, "verification_status": "verified",
+      "ai_summary": "The voter must choose and ask the proxy personally. Use the back of the voting pass when the private-proxy rules fit, or apply for a written proxy through the municipality before its deadline, and provide the required identity evidence.",
+      "search_keywords": ["proxy vote Netherlands","volmacht stemmen","authorise voter","written proxy election","vote for someone else"], "lifecycle_status": "qa",
+      "attributes": {"responsible_authority":"Municipality","maximum_proxy_votes":"Two other voters per proxy holder"}
+    },
+    {
+      "id": "government.replacement-voting-pass", "entity_type": "government_service", "category": "elections", "city_id": null, "province_id": null, "coordinates": null,
+      "title": "Request a replacement voting pass",
+      "description": "A voter who did not receive or has lost a voting pass can request a replacement from the municipality where they were registered on nomination day. Written and in-person applications have election-specific deadlines.",
+      "images": [],
+      "official_source": {"title":"Stempas","publisher":"Electoral Council (Kiesraad)","url":"https://www.kiesraad.nl/verkiezingen/tweede-kamer/stemmen/stempas","is_official":true,"checked_at":"2026-07-14","status":"verified_opened"},
+      "website": "https://www.kiesraad.nl/verkiezingen/tweede-kamer/stemmen/stempas",
+      "related_entity_ids": ["government.municipal-election-voting","government.proxy-vote","government.brp-registration"], "last_checked": "2026-07-14", "review_frequency_days": 30, "verification_status": "verified",
+      "ai_summary": "Contact the municipality of registration as soon as the voting pass is missing. Choose its written, digital or in-person request route, provide valid identification and meet the election-specific deadline before relying on postal delivery.",
+      "search_keywords": ["replacement voting pass","vervangende stempas","lost voting pass","Kiesraad stempas","municipality election document"], "lifecycle_status": "qa",
+      "attributes": {"responsible_authority":"Municipality","legal_reference":"Elections Act article J 8"}
+    },
+    {
+      "id": "government.cooling-off-period", "entity_type": "government_service", "category": "consumer_rights", "city_id": null, "province_id": null, "coordinates": null,
+      "title": "Use the cooling-off period for a distance purchase",
+      "description": "Consumers often have a statutory cooling-off period after buying online, by telephone, at the door or in the street. Exceptions apply, and cancellation must be communicated to the seller before returning a product.",
+      "images": [],
+      "official_source": {"title":"Bedenktijd","publisher":"ACM ConsuWijzer","url":"https://consument.acm.nl/aankoop-dienst-annuleren/bedenktijd","is_official":true,"checked_at":"2026-07-14","status":"verified_opened"},
+      "website": "https://consument.acm.nl/aankoop-dienst-annuleren/bedenktijd",
+      "related_entity_ids": ["government.legal-product-guarantee","government.consumer-complaint","government.cancel-subscription"], "last_checked": "2026-07-14", "review_frequency_days": 60, "verification_status": "verified",
+      "ai_summary": "Confirm that the purchase qualifies and calculate the cooling-off deadline from delivery or contract formation. Tell the seller clearly that the agreement is cancelled, keep proof of sending and return the product within the applicable period.",
+      "search_keywords": ["cooling-off period Netherlands","bedenktijd online purchase","cancel distance contract","14 day return","consumer withdrawal right"], "lifecycle_status": "qa",
+      "attributes": {"responsible_authority":"Authority for Consumers and Markets","usual_period":"Fourteen days for qualifying purchases"}
+    },
+    {
+      "id": "government.cancel-subscription", "entity_type": "government_service", "category": "consumer_rights", "city_id": null, "province_id": null, "coordinates": null,
+      "title": "Cancel a consumer subscription",
+      "description": "Consumers can cancel most subscriptions after the fixed term subject to a limited notice period. A subscription concluded online must also be cancellable online, and evidence of cancellation should be retained.",
+      "images": [],
+      "official_source": {"title":"Abonnement opzeggen","publisher":"ACM ConsuWijzer","url":"https://consument.acm.nl/aankoop-dienst-annuleren/abonnement-opzeggen","is_official":true,"checked_at":"2026-07-14","status":"verified_opened"},
+      "website": "https://consument.acm.nl/aankoop-dienst-annuleren/abonnement-opzeggen",
+      "related_entity_ids": ["government.cooling-off-period","government.consumer-complaint","government.legal-product-guarantee"], "last_checked": "2026-07-14", "review_frequency_days": 60, "verification_status": "verified",
+      "ai_summary": "Check the fixed term, renewal and notice clause before cancelling. Use a method allowed by law and the contract, request written confirmation, preserve proof of delivery and challenge any notice period exceeding the applicable consumer rules.",
+      "search_keywords": ["cancel subscription Netherlands","abonnement opzeggen","notice period consumer","online cancellation","automatic renewal rights"], "lifecycle_status": "qa",
+      "attributes": {"responsible_authority":"Authority for Consumers and Markets","usual_maximum_notice":"One month for most renewed subscriptions"}
+    },
+    {
+      "id": "government.report-death-abroad", "entity_type": "government_service", "category": "death", "city_id": null, "province_id": null, "coordinates": null,
+      "title": "Report a death that occurred abroad",
+      "description": "A death abroad must be reported to local authorities and may also need notification to Dutch municipalities and public bodies. A foreign death certificate, and sometimes legalisation or translation, is generally required.",
+      "images": [],
+      "official_source": {"title":"If someone has died outside the Netherlands who do I need to inform?","publisher":"NetherlandsWorldwide","url":"https://www.netherlandsworldwide.nl/death-abroad/death-report","is_official":true,"checked_at":"2026-07-14","status":"verified_opened"},
+      "website": "https://www.netherlandsworldwide.nl/death-abroad/death-report",
+      "related_entity_ids": ["government.after-death-checklist","government.foreign-document-legalisation","government.inheritance-choice"], "last_checked": "2026-07-14", "review_frequency_days": 90, "verification_status": "verified",
+      "ai_summary": "Report the death to the local authority and obtain several official death-certificate copies. Check legalisation and translation requirements, then notify the Dutch municipality and every relevant benefits, tax, insurance or pension organisation.",
+      "search_keywords": ["report death abroad","foreign death certificate Netherlands","death Dutch national overseas","register death municipality","legalise death certificate"], "lifecycle_status": "qa",
+      "attributes": {"responsible_authority":"Local authority and relevant Dutch public bodies","usual_core_document":"Foreign death certificate"}
+    },
+    {
+      "id": "government.european-certificate-succession", "entity_type": "government_service", "category": "inheritance", "city_id": null, "province_id": null, "coordinates": null,
+      "title": "Apply for a European Certificate of Succession",
+      "description": "An heir, executor, estate administrator or legatee may need a European Certificate of Succession to prove authority in a cross-border EU estate. In the Netherlands, the application is made through a civil-law notary.",
+      "images": [],
+      "official_source": {"title":"Applying for a European Certificate of Succession","publisher":"Government of the Netherlands","url":"https://www.government.nl/themes/taxes-benefits-and-allowances/inheritance-tax/applying-for-a-european-certificate-of-succession","is_official":true,"checked_at":"2026-07-14","status":"verified_opened"},
+      "website": "https://www.government.nl/themes/taxes-benefits-and-allowances/inheritance-tax/applying-for-a-european-certificate-of-succession",
+      "related_entity_ids": ["government.inheritance-choice","government.inheritance-tax-return","government.report-death-abroad"], "last_checked": "2026-07-14", "review_frequency_days": 90, "verification_status": "verified",
+      "ai_summary": "Ask a Dutch civil-law notary whether the estate falls under Dutch jurisdiction and whether the European certificate is appropriate. Gather the will, death certificate, heir details and foreign asset information needed to establish authority.",
+      "search_keywords": ["European Certificate of Succession","EU inheritance certificate","cross-border estate","verklaring van erfrecht EU","civil-law notary inheritance"], "lifecycle_status": "qa",
+      "attributes": {"responsible_authority":"Civil-law notary","geographic_scope":"Cross-border succession within participating EU states"}
+    }
+  ]
+}

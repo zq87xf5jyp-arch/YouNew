@@ -82,9 +82,7 @@ struct HomePrimaryHeroButtonStyle: ButtonStyle {
             .animation(.spring(response: 0.28, dampingFraction: 0.68), value: configuration.isPressed)
             .onChange(of: configuration.isPressed) { _, pressed in
                 if pressed {
-#if canImport(UIKit)
-                    UIImpactFeedbackGenerator(style: .medium).impactOccurred()
-#endif
+                    AppHaptics.lightImpact()
                 }
             }
     }

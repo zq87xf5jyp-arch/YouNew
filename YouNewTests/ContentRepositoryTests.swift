@@ -8,6 +8,28 @@ struct ContentRepositoryTests {
     func migrationIsLossless() {
         let repository = ContentRepository.shared
         print("CONTENT_MIGRATION_METRICS \(repository.metrics)")
+        let issueCounts = Dictionary(grouping: repository.validationIssues, by: \.kind)
+            .mapValues(\.count)
+        print("CONTENT_VALIDATION_BREAKDOWN \(issueCounts)")
+        let duplicateKinds: Set<ContentValidationKind> = [
+            .duplicateNormalizedTitle,
+            .duplicateNormalizedBody,
+            .semanticDuplicateBody
+        ]
+        let duplicateIDs = Set(
+            repository.validationIssues
+                .filter { duplicateKinds.contains($0.kind) }
+                .flatMap(\.contentIDs)
+        )
+        print("CONTENT_UNIQUENESS_METRICS validated=\(repository.items.count) duplicateAffected=\(duplicateIDs.count) uniqueValidated=\(repository.items.count - duplicateIDs.count)")
+        let itemsByID = Dictionary(uniqueKeysWithValues: repository.items.map { ($0.id, $0) })
+        for issue in repository.validationIssues where duplicateKinds.contains(issue.kind) {
+            let scopes = issue.contentIDs.compactMap { id -> String? in
+                guard let item = itemsByID[id] else { return nil }
+                return "\(id){title=\(item.title);category=\(item.primaryCategoryID);cities=\(item.cityIDs.joined(separator: ","));body=\(item.normalizedBody.prefix(90))}"
+            }
+            print("CANONICAL_DUPLICATE_GROUP kind=\(issue.kind.rawValue) \(scopes.joined(separator: " || "))")
+        }
         #expect(repository.metrics.lostObjects == 0)
         #expect(repository.metrics.sourceObjects == repository.metrics.migratedObjects + repository.aliases.count)
         #expect(repository.items.count + repository.aliases.count == KnowledgeIndex.shared.items.count)
@@ -32,6 +54,19 @@ struct ContentRepositoryTests {
 
         #expect(published.isSubset(of: guide))
         #expect(published.isSubset(of: search))
+        #expect(published.allSatisfy { repository.destination(id: $0) != nil })
+    }
+
+    @Test("Published coordinate records project into the existing map and Saved route")
+    func publishedItemsHaveAutomaticConsumerRoutes() throws {
+        let repository = ContentRepository.shared
+        for item in repository.mapItems() {
+            let cityID = try #require(item.cityIDs.first)
+            let city = try #require(repository.cities.first(where: { $0.id == cityID }))
+            let place = try #require(NearbyPlace(canonicalContent: item, city: city))
+            #expect(place.saveKey == item.id)
+            #expect(place.relatedLinks.first?.destination == repository.destination(id: item.id))
+        }
     }
 
     @Test("Map projection contains only valid coordinates")
@@ -66,6 +101,45 @@ struct ContentRepositoryTests {
         #expect(kinds.contains(.duplicateNormalizedBody))
         #expect(kinds.contains(.unknownCategory))
         #expect(kinds.contains(.unknownCity))
+    }
+
+    @Test("Validator detects semantic description reuse")
+    func validatorFindsSemanticDuplicates() {
+        let first = fixture(
+            id: "semantic-a",
+            description: "Use the official municipality website to register your address and verify the required documents before your appointment."
+        )
+        let second = fixture(
+            id: "semantic-b",
+            description: "Use the official municipality website to register your address and verify the required documents before your appointment carefully."
+        )
+        let issues = ContentRepositoryValidator.validate(
+            items: [first, second],
+            categories: Category.canonical,
+            cities: [],
+            sources: []
+        )
+        #expect(issues.contains { $0.kind == .semanticDuplicateBody })
+    }
+
+    @Test("Canonical place catalog is shared and geographically consistent")
+    func canonicalPlacesAreUniqueAndGeographicallyConsistent() {
+        let repository = ContentRepository.shared
+        let placeIDs = repository.places.map(\.id)
+        let canonicalIDs = CanonicalPlaceCatalog.items.compactMap { item in
+            item.coordinates.map { _ in item.id }
+        }
+        let cityIDs = Set(repository.cities.map(\.id))
+        let provinceIDs = Set(repository.provinces.map(\.id))
+
+        #expect(!repository.places.isEmpty)
+        #expect(Set(placeIDs).count == placeIDs.count)
+        #expect(Set(placeIDs) == Set(canonicalIDs))
+        #expect(repository.places.allSatisfy { place in
+            place.coordinates.isValid
+                && place.cityID.map(cityIDs.contains) == true
+                && place.provinceID.map(provinceIDs.contains) == true
+        })
     }
 
     @Test("Validator covers source freshness reachability and usage gates")
@@ -138,6 +212,7 @@ struct ContentRepositoryTests {
         id: String,
         categoryID: String = "getting-started",
         cityIDs: [CityID] = [],
+        description: String = "Fixture body",
         contentType: ContentType = .article,
         lastVerifiedAt: Date? = nil,
         coordinates: GeoCoordinates? = nil,
@@ -151,8 +226,8 @@ struct ContentRepositoryTests {
             contentType: contentType,
             title: "Fixture",
             localTitle: [:],
-            shortDescription: "Fixture body",
-            fullDescription: "Fixture body",
+            shortDescription: description,
+            fullDescription: description,
             primaryCategoryID: categoryID,
             subcategoryIDs: [],
             audienceTags: [],

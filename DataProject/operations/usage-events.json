@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "status": "not_established",
+  "collection_enabled": false,
+  "privacy_note": "No personal identifiers are accepted. Events are aggregate product telemetry keyed only by canonical entity and release.",
+  "events": []
+}

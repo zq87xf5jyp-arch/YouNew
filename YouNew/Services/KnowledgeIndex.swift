@@ -58,6 +58,8 @@ struct KnowledgeIndex {
     private let normalizedProvinceEnglishByName: [String: String]
     private let normalizedKeywordsByID: [String: [String]]
     private let normalizedSourcesByID: [String: [String]]
+    private let personaTagsByID: [String: Set<PersonaTag>]
+    private let itemIDsByToken: [String: Set<String>]
 
     init(items: [KnowledgeItem]) {
         self.items = items
@@ -98,9 +100,22 @@ struct KnowledgeIndex {
             }
             return (item.id, sources)
         })
+        self.personaTagsByID = Dictionary(uniqueKeysWithValues: items.map { ($0.id, $0.personaTags) })
+
+        var itemIDsByToken: [String: Set<String>] = [:]
+        for item in items {
+            guard let searchableText = searchableTextByID[item.id] else { continue }
+            for token in searchableText.split(separator: " ") {
+                itemIDsByToken[String(token), default: []].insert(item.id)
+            }
+        }
+        self.itemIDsByToken = itemIDsByToken
     }
 
-    static let shared = KnowledgeIndex(items: KnowledgeIndexBuilder.buildItems())
+    // Immutable process-wide index. Construction is deliberately allowed from
+    // the repository's background prewarm path rather than inheriting the
+    // target's default MainActor isolation.
+    nonisolated static let shared = KnowledgeIndex(items: KnowledgeIndexBuilder.buildItems())
 
     static func prewarmShared() {
         DispatchQueue.global(qos: .utility).async {
@@ -128,8 +143,19 @@ struct KnowledgeIndex {
             return []
         }
 
-        let scored = items.compactMap { item -> (KnowledgeItem, Double, [String])? in
-            guard item.isVisible(for: persona, scope: searchScope) else { return nil }
+        var candidateIDs = Set<String>()
+        for token in queryTokens {
+            if let matchingIDs = itemIDsByToken[token] {
+                candidateIDs.formUnion(matchingIDs)
+            }
+        }
+        let candidateItems = candidateIDs.isEmpty
+            ? items
+            : candidateIDs.compactMap { itemsByID[$0] }
+
+        let scored = candidateItems.compactMap { item -> (KnowledgeItem, Double, [String])? in
+            let tags = personaTagsByID[item.id] ?? []
+            guard PersonaContentPolicy.isVisible(tags: tags, activePersona: persona, scope: searchScope) else { return nil }
             if item.type == .nearbyPlace,
                let contextCity,
                let itemCity = item.city,
@@ -145,8 +171,7 @@ struct KnowledgeIndex {
             }
             let localPartnerQueryMatched: Bool
             if item.type == .localPartner,
-               let itemCity = item.city {
-                let normalizedItemCity = KnowledgeNormalizer.normalize(itemCity)
+               let normalizedItemCity = normalizedCityByID[item.id] {
                 let serviceTokens = queryTokens.filter { $0 != normalizedItemCity }
                 localPartnerQueryMatched = !normalizedItemCity.isEmpty
                     && normalizedQuery.contains(normalizedItemCity)
@@ -187,8 +212,7 @@ struct KnowledgeIndex {
             }
 
             if !normalizedTitle.isEmpty,
-               let itemCity = item.city {
-                let normalizedItemCity = KnowledgeNormalizer.normalize(itemCity)
+               let normalizedItemCity = normalizedCityByID[item.id] {
                 if normalizedQuery.contains(normalizedTitle),
                    !normalizedItemCity.isEmpty,
                    normalizedQuery.contains(normalizedItemCity) {
@@ -224,8 +248,7 @@ struct KnowledgeIndex {
                 }
             }
 
-            if let itemCity = item.city {
-                let normalizedItemCity = KnowledgeNormalizer.normalize(itemCity)
+            if let normalizedItemCity = normalizedCityByID[item.id] {
                 if !normalizedItemCity.isEmpty, normalizedQuery.contains(normalizedItemCity) {
                     score += 64
                     fields.append("query-city")
@@ -254,7 +277,6 @@ struct KnowledgeIndex {
                 }
             }
 
-            let tags = item.effectivePersonaTags(language: language)
             if let persona {
                 if tags.contains(persona) {
                     score += 40
@@ -271,14 +293,14 @@ struct KnowledgeIndex {
             if let city = contextCity,
                let itemCity = item.city,
                itemCity.caseInsensitiveCompare(city) == .orderedSame {
-                score += 16
+                score += 160
                 fields.append("city")
             }
 
             if let province = contextProvince,
                let itemProvince = item.province,
                itemProvince.caseInsensitiveCompare(province) == .orderedSame {
-                score += 10
+                score += 120
                 fields.append("province")
             }
 
@@ -317,6 +339,7 @@ enum KnowledgeIndexBuilder {
         items += lifeScenarios()
         items += profileScenarioItems()
         items += officialServices()
+        items += institutions()
         items += documents()
         items += municipalities()
         items += reminders()
@@ -325,7 +348,6 @@ enum KnowledgeIndexBuilder {
         items += guideContent()
         items += checklist()
         items += fines()
-        items += institutions()
         items += dutchTerms()
         items += letters()
         items += mistakes()
@@ -335,10 +357,9 @@ enum KnowledgeIndexBuilder {
         items += legalInfo()
         items += dailyLife()
         items += lgbtqSupport()
-        items += dashboardPlaces()
-        items += localPartners()
-        items += dashboardCalendarEvents()
-        items += nearbyPlaces()
+        // NetherlandsKnowledgeDatabase already projects canonical places,
+        // nearby services, partners and calendar events. Re-adding the legacy
+        // adapters here created parallel IDs for the same visible entities.
         items += resources()
         items += knmModules()
         items += dutchCourseModules()
@@ -418,7 +439,7 @@ enum KnowledgeIndexBuilder {
 
     private static func knowledgeTopics() -> [KnowledgeItem] {
         MockExpansionData.knowledgeTopics.map { topic in
-            KnowledgeItem(
+            return KnowledgeItem(
                 id: "topic:\(KnowledgeNormalizer.slug(topic.title))",
                 type: .topic,
                 title: LocalizedKnowledgeText(topic.title),
@@ -509,7 +530,7 @@ enum KnowledgeIndexBuilder {
             KnowledgeItem(
                 id: "source:\(KnowledgeNormalizer.slug(service.name))",
                 type: .officialService,
-                title: LocalizedKnowledgeText(service.name),
+                title: LocalizedKnowledgeText("Official service: \(service.name)"),
                 summary: LocalizedKnowledgeText("\(service.purpose) \(service.whenToUse)"),
                 category: "Official Service",
                 city: nil,
@@ -553,7 +574,11 @@ enum KnowledgeIndexBuilder {
             KnowledgeItem(
                 id: "municipality:\(KnowledgeNormalizer.slug(municipality.name))",
                 type: .officialService,
-                title: LocalizedKnowledgeText(municipality.name),
+                title: LocalizedKnowledgeText(
+                    "\(municipality.name) municipality",
+                    dutch: "Gemeente \(municipality.name)",
+                    russian: "Муниципалитет \(municipality.name)"
+                ),
                 summary: LocalizedKnowledgeText(municipality.registrationInfo),
                 category: "Municipality",
                 city: municipality.name,
@@ -649,7 +674,7 @@ enum KnowledgeIndexBuilder {
                 city: nil,
                 province: nil,
                 keywords: [section.title, section.subtitle, section.id],
-                route: .guideSection(section.id),
+                route: guideSectionDestination(for: section.id),
                 routeID: nil,
                 sources: [],
                 lastReviewed: nil,
@@ -681,6 +706,16 @@ enum KnowledgeIndexBuilder {
             }
         }
         return items
+    }
+
+    nonisolated static func guideSectionDestination(for sectionID: String) -> AppDestination {
+        switch sectionID {
+        case "work": return .workSection(.overview)
+        case "healthcare": return .healthSection(.overview)
+        case "housing": return .housingSection(.overview)
+        case "transport": return .transportSection(.overview)
+        default: return .guideSection(sectionID)
+        }
     }
 
     private static func checklist() -> [KnowledgeItem] {
@@ -774,7 +809,11 @@ enum KnowledgeIndexBuilder {
             KnowledgeItem(
                 id: "dutchTerm:\(term.id.uuidString)",
                 type: .dutchTerm,
-                title: LocalizedKnowledgeText(term.dutchTerm),
+                title: LocalizedKnowledgeText(
+                    "Dutch term: \(term.dutchTerm)",
+                    dutch: "Nederlandse term: \(term.dutchTerm)",
+                    russian: "Нидерландский термин: \(term.dutchTerm)"
+                ),
                 summary: LocalizedKnowledgeText(
                     term.localizedNewcomerExplanation(.english),
                     dutch: term.localizedNewcomerExplanation(.dutch),
@@ -1011,124 +1050,6 @@ enum KnowledgeIndexBuilder {
         }
     }
 
-    private static func nearbyPlaces() -> [KnowledgeItem] {
-        MockNearbyPlacesData.places.map { place in
-            KnowledgeItem(
-                id: "nearbyPlace:\(KnowledgeNormalizer.slug(place.saveKey))",
-                type: .nearbyPlace,
-                title: LocalizedKnowledgeText(place.localizedName(.english), dutch: place.localizedName(.dutch), russian: place.localizedName(.russian)),
-                summary: LocalizedKnowledgeText(place.localizedDescription(.english), dutch: place.localizedDescription(.dutch), russian: place.localizedDescription(.russian)),
-                category: place.category.rawValue,
-                city: place.city,
-                province: nil,
-                keywords: [place.name, place.address, place.city, place.category.rawValue, place.description, place.newcomerUseCase, place.sourceLabel, place.trustNote, place.emergencyNote ?? ""] + place.relatedLinks.map(\.title),
-                route: .mapFocus(.place(place.saveKey)),
-                routeID: nil,
-                sources: place.websiteURL.map { [OfficialSource(title: place.sourceLabel, url: $0, institution: place.name)] } ?? [],
-                lastReviewed: nil,
-                safetyLevel: place.emergencyNote == nil ? (place.isOfficialSource ? .officialSourceRecommended : .general) : .emergency,
-                sourcePath: "YouNew/Data/MockNearbyPlacesData.swift",
-                personaTags: place.personaTags
-            )
-        }
-    }
-
-    private static func dashboardPlaces() -> [KnowledgeItem] {
-        DashboardPlacesData.places.map { place in
-            KnowledgeItem(
-                id: "visitPlace:\(KnowledgeNormalizer.slug(place.id))",
-                type: .nearbyPlace,
-                title: LocalizedKnowledgeText(place.title),
-                summary: LocalizedKnowledgeText(place.description),
-                category: place.primaryCategory.rawValue,
-                city: place.cityId,
-                province: nil,
-                keywords: [
-                    place.title,
-                    place.shortTitle ?? "",
-                    place.description,
-                    place.cityId,
-                    place.address ?? "",
-                    "places to visit",
-                    "tourist place",
-                    "attraction"
-                ] + place.category.map(\.rawValue),
-                route: place.destination,
-                routeID: AppNavigationResolver.routeID(from: place.destination),
-                sources: place.source.map { [$0] } ?? [],
-                lastReviewed: nil,
-                safetyLevel: place.source == nil ? .general : .officialSourceRecommended,
-                sourcePath: "YouNew/Data/MockDashboardDiscoveryData.swift",
-                personaTags: place.audience
-            )
-        }
-    }
-
-    private static func localPartners() -> [KnowledgeItem] {
-        MockLocalPartnersData.partners.map { partner in
-            KnowledgeItem(
-                id: "localPartner:\(partner.id)",
-                type: .localPartner,
-                title: LocalizedKnowledgeText(partner.name),
-                summary: LocalizedKnowledgeText(partner.description),
-                category: partner.subcategory,
-                city: partner.city,
-                province: ProvinceCatalog.provinceID(containingCity: partner.city),
-                keywords: [
-                    partner.name,
-                    partner.category.title(.english),
-                    partner.subcategory,
-                    partner.description,
-                    partner.address,
-                    partner.city,
-                    partner.openingHours,
-                    partner.sourceReliabilityNote,
-                    partner.officialSource.title,
-                    partner.officialSource.institution ?? "",
-                    partner.media.allAssets.map(\.altText).joined(separator: " ")
-                ] + partner.languages + partner.photoSymbols,
-                route: .localPartnerDetail(partner.id),
-                routeID: AppNavigationResolver.routeID(from: .localPartnerDetail(partner.id)),
-                sources: [partner.officialSource],
-                lastReviewed: nil,
-                safetyLevel: partner.plan == .freeListing ? .general : .officialSourceRecommended,
-                sourcePath: "YouNew/Data/MockLocalPartnersData.swift",
-                personaTags: [.student, .worker, .family, .tourist, .entrepreneur, .eu, .nonEU, .highlySkilledMigrant, .lgbt]
-            )
-        }
-    }
-
-    private static func dashboardCalendarEvents() -> [KnowledgeItem] {
-        DashboardCalendarData.events.map { event in
-            KnowledgeItem(
-                id: "calendarEvent:\(KnowledgeNormalizer.slug(event.id))",
-                type: .deadline,
-                title: LocalizedKnowledgeText(event.title),
-                summary: LocalizedKnowledgeText(event.impact ?? event.description ?? event.type.rawValue),
-                category: event.type.rawValue,
-                city: event.cityId,
-                province: nil,
-                keywords: [
-                    event.title,
-                    event.localTitle ?? "",
-                    event.description ?? "",
-                    event.impact ?? "",
-                    "holiday",
-                    "calendar",
-                    "public holiday",
-                    "netherlands"
-                ],
-                route: .calendarEvent(event.id),
-                routeID: AppNavigationResolver.routeID(from: .calendarEvent(event.id)),
-                sources: event.source.map { [$0] } ?? [],
-                lastReviewed: nil,
-                safetyLevel: event.source == nil ? .general : .officialSourceRecommended,
-                sourcePath: "YouNew/Data/MockDashboardDiscoveryData.swift",
-                personaTags: event.audience
-            )
-        }
-    }
-
     private static func resources() -> [KnowledgeItem] {
         MockResourcesData.items.map { resource in
             KnowledgeItem(
@@ -1155,7 +1076,11 @@ enum KnowledgeIndexBuilder {
             KnowledgeItem(
                 id: "knmModule:\(module.id)",
                 type: .knmModule,
-                title: LocalizedKnowledgeText(module.title.value(.english), dutch: module.title.value(.dutch), russian: module.title.value(.russian)),
+                title: LocalizedKnowledgeText(
+                    "KNM: \(module.title.value(.english))",
+                    dutch: "KNM: \(module.title.value(.dutch))",
+                    russian: "KNM: \(module.title.value(.russian))"
+                ),
                 summary: LocalizedKnowledgeText(module.summary.value(.english), dutch: module.summary.value(.dutch), russian: module.summary.value(.russian)),
                 category: "KNM",
                 city: nil,
@@ -1179,7 +1104,11 @@ enum KnowledgeIndexBuilder {
             KnowledgeItem(
                 id: "dutchCourseModule:\(module.id)",
                 type: .dutchCourseModule,
-                title: LocalizedKnowledgeText(module.title.value(.english), dutch: module.title.value(.dutch), russian: module.title.value(.russian)),
+                title: LocalizedKnowledgeText(
+                    "Dutch course: \(module.title.value(.english))",
+                    dutch: "Cursus Nederlands: \(module.title.value(.dutch))",
+                    russian: "Курс нидерландского: \(module.title.value(.russian))"
+                ),
                 summary: LocalizedKnowledgeText(module.summary.value(.english), dutch: module.summary.value(.dutch), russian: module.summary.value(.russian)),
                 category: module.level.rawValue,
                 city: nil,
@@ -1241,9 +1170,13 @@ enum KnowledgeIndexBuilder {
     }
 
     private static func cities() -> [KnowledgeItem] {
-        NLCity.all.map { city in
-            KnowledgeItem(
-                id: "city:\(KnowledgeNormalizer.slug(city.id))",
+        NLCity.all.compactMap { city in
+            let legacyID = "city:\(KnowledgeNormalizer.slug(city.id))"
+            guard NetherlandsKnowledgeDatabase.shared.canonicalID(for: legacyID) == legacyID else {
+                return nil
+            }
+            return KnowledgeItem(
+                id: legacyID,
                 type: .city,
                 title: LocalizedKnowledgeText(city.name),
                 summary: LocalizedKnowledgeText(city.shortDescription),
@@ -1267,7 +1200,7 @@ enum KnowledgeIndexBuilder {
         if normalized.contains("housing") || normalized.contains("rent") { return .practicalGuide(.housingBasics) }
         if normalized.contains("transport") || normalized.contains("bicycle") { return .practicalGuide(.transportBasics) }
         if normalized.contains("tax") || normalized.contains("government") || normalized.contains("registration") || normalized.contains("digid") { return .governmentHub }
-        if normalized.contains("work") { return .guideSection("work") }
+        if normalized.contains("work") { return .workSection(.overview) }
         return .searchList
     }
 

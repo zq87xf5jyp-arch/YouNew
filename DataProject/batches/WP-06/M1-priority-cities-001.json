@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-06-M1-priority-cities-001",
+  "work_package": "WP-06",
+  "milestone": "WP-06-M1",
+  "target_release": "cities-v0.1.0",
+  "publication_status": "published",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Clean generic iOS Simulator build succeeded for the YouNew scheme with CODE_SIGNING_ALLOWED=NO.",
+    "static": "Full scripts/run-static-qa.sh suite and DATA PROJECT validation succeeded with 267 governed records.",
+    "duplicate": "No duplicate entity IDs, normalized city titles, canonical municipality websites or media IDs were detected across 26 batches.",
+    "source": "Five exact official municipality pages were opened and the network audit checked 1,141 URLs with zero confirmed broken links.",
+    "media": "Twenty Wikimedia Commons assets have direct asset URLs, source pages, compatible license metadata, attribution and verified hero, gallery, thumbnail and map-preview roles.",
+    "search": "Each city has five distinct search terms and every related government entity ID resolves.",
+    "ai": "Each summary is grounded in the cited municipality source, avoids unsupported mutable claims and passes static AI content validation."
+  },
+  "records": [
+    {
+      "id": "city.amsterdam",
+      "entity_type": "city",
+      "category": "municipality",
+      "city_id": "amsterdam",
+      "province_id": "noord-holland",
+      "coordinates": {"latitude": 52.3676, "longitude": 4.9041},
+      "title": "Amsterdam",
+      "description": "Amsterdam is a municipality in Noord-Holland. Its official municipal portal provides resident and business services and explains the city government, district organisation, policy areas and public-space responsibilities.",
+      "images": [
+        {
+          "id": "media.city.amsterdam.hero.damrak",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Canal_houses_and_Oude_Kerk_at_blue_hour_with_water_reflection_in_Damrak_Amsterdam_Netherlands.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/4/44/Canal_houses_and_Oude_Kerk_at_blue_hour_with_water_reflection_in_Damrak_Amsterdam_Netherlands.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Basile Morin",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.amsterdam.gallery.rijksmuseum",
+          "role": "gallery",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Rijksmuseum_from_Museumplein_2523.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/4/47/Rijksmuseum_from_Museumplein_2523.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "C messier",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.amsterdam.thumbnail.van-gogh-museum",
+          "role": "thumbnail",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Van_Gogh_Museum_Amsterdam.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/0/08/Van_Gogh_Museum_Amsterdam.jpg",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+          "attribution": "Wladyslaw",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.amsterdam.map-preview.anne-frank-house",
+          "role": "map_preview",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Amsterdam_(NL),_Anne-Frank-Huis,_2022_(1).jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Amsterdam_%28NL%29%2C_Anne-Frank-Huis%2C_2022_%281%29.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Lệ Xuân",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        }
+      ],
+      "official_source": {
+        "title": "Governance and Organisation – Amsterdam City Hall",
+        "publisher": "City of Amsterdam",
+        "url": "https://www.amsterdam.nl/en/governance/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.amsterdam.nl/en/governance/",
+      "related_entity_ids": ["government.brp-registration", "government.change-address", "government.municipal-taxes"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Use the City of Amsterdam portal as the primary source for municipal administration, resident services and local policy. Check the exact service page before acting because procedures and appointment requirements can change.",
+      "search_keywords": ["Amsterdam municipality", "Gemeente Amsterdam", "Amsterdam city services", "Amsterdam Noord-Holland", "Amsterdam resident registration"],
+      "lifecycle_status": "published",
+      "attributes": {
+        "municipality": "Gemeente Amsterdam",
+        "runtime_city_id": "amsterdam",
+        "coordinate_source": "Existing NLCity runtime baseline audited during governance migration",
+        "transport_context": "National rail, metro, tram, bus, ferry and cycling networks",
+        "notable_places": "Damrak, Rijksmuseum, Van Gogh Museum and Anne Frank House"
+      }
+    },
+    {
+      "id": "city.rotterdam",
+      "entity_type": "city",
+      "category": "municipality",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": {"latitude": 51.9244, "longitude": 4.4777},
+      "title": "Rotterdam",
+      "description": "Rotterdam is a municipality in Zuid-Holland. The official municipal portal identifies the City Council and Municipal Executive as the governing bodies and provides practical services for residents and businesses.",
+      "images": [
+        {
+          "id": "media.city.rotterdam.hero.erasmusbrug",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Erasmusbrug_seen_from_Euromast.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/f/f8/Erasmusbrug_seen_from_Euromast.jpg",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+          "attribution": "Mlefter",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.rotterdam.gallery.markthal",
+          "role": "gallery",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Interior_of_Markthal_(Rotterdam).jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/e4/Interior_of_Markthal_%28Rotterdam%29.jpg",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0",
+          "attribution": "Thomas Dahlstrøm Nielsen",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.rotterdam.thumbnail.oudehaven",
+          "role": "thumbnail",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:De_besneeuwde_Oudehaven_en_Witte_Huis_vanaf_de_Kubuswoningen_(2021).jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/6d/De_besneeuwde_Oudehaven_en_Witte_Huis_vanaf_de_Kubuswoningen_%282021%29.jpg",
+          "license": "CC BY 4.0",
+          "license_url": "https://creativecommons.org/licenses/by/4.0",
+          "attribution": "MatteoNL97",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.rotterdam.map-preview.euromast",
+          "role": "map_preview",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Euromast_@_Erasmus_Bridge_@_Rotterdam_(29930786523).jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/9/9b/Euromast_%40_Erasmus_Bridge_%40_Rotterdam_%2829930786523%29.jpg",
+          "license": "CC BY 2.0",
+          "license_url": "https://creativecommons.org/licenses/by/2.0",
+          "attribution": "Guilhem Vellut",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        }
+      ],
+      "official_source": {
+        "title": "City government",
+        "publisher": "Municipality of Rotterdam",
+        "url": "https://www.rotterdam.nl/en/city-government",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rotterdam.nl/en/city-government",
+      "related_entity_ids": ["government.brp-registration", "government.change-address", "government.municipal-taxes"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Use Rotterdam's official municipal portal for city-government information and resident procedures. Confirm the current product page, eligibility and appointment requirements before submitting a municipal request.",
+      "search_keywords": ["Rotterdam municipality", "Gemeente Rotterdam", "Rotterdam city government", "Rotterdam Zuid-Holland", "Rotterdam resident services"],
+      "lifecycle_status": "published",
+      "attributes": {
+        "municipality": "Gemeente Rotterdam",
+        "runtime_city_id": "rotterdam",
+        "coordinate_source": "Existing NLCity runtime baseline audited during governance migration",
+        "transport_context": "National rail, metro, tram, bus, water transport and cycling networks",
+        "notable_places": "Erasmusbrug, Markthal, Oude Haven and Euromast"
+      }
+    },
+    {
+      "id": "city.den-haag",
+      "entity_type": "city",
+      "category": "municipality",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": {"latitude": 52.0705, "longitude": 4.3007},
+      "title": "Den Haag",
+      "description": "Den Haag is a municipality in Zuid-Holland. Its official English portal brings together settling-in guidance, municipal contact, documents, housing, taxes, public-space reporting and other resident services.",
+      "images": [
+        {
+          "id": "media.city.den-haag.hero.peace-palace",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Friedenspalast_Den_Haag.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/3/32/Friedenspalast_Den_Haag.jpg",
+          "license": "CC BY-SA 3.0 DE",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+          "attribution": "Thomas Wolf, www.foto-tw.de",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.den-haag.gallery.binnenhof",
+          "role": "gallery",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Den_Haag_-_Buitenhof_-_View_on_Hofvijver_%26_Binnenhof.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Den_Haag_-_Buitenhof_-_View_on_Hofvijver_%26_Binnenhof.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Txllxt TxllxT",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.den-haag.thumbnail.vredespaleis",
+          "role": "thumbnail",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Vredespaleis_Den_Haag.JPG",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/d/da/Vredespaleis_Den_Haag.JPG",
+          "license": "CC BY-SA 3.0 NL",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+          "attribution": "Peegmehh",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.den-haag.map-preview.scheveningen",
+          "role": "map_preview",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Den_Haag-Scheveningen,_de_Pier_IMG_0095_2021-08-04_10.46.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/2/29/Den_Haag-Scheveningen%2C_de_Pier_IMG_0095_2021-08-04_10.46.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Michielverbeek",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        }
+      ],
+      "official_source": {
+        "title": "The Hague municipal services",
+        "publisher": "Municipality of The Hague",
+        "url": "https://www.denhaag.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.denhaag.nl/en/",
+      "related_entity_ids": ["government.brp-registration", "government.change-address", "government.municipal-taxes"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Start with The Hague's official English portal for registration, documents, taxes, housing and municipal contact. Open the exact service page and verify current evidence and appointment requirements before applying.",
+      "search_keywords": ["Den Haag municipality", "The Hague city services", "Gemeente Den Haag", "Den Haag Zuid-Holland", "The Hague resident registration"],
+      "lifecycle_status": "published",
+      "attributes": {
+        "municipality": "Gemeente Den Haag",
+        "runtime_city_id": "den-haag",
+        "coordinate_source": "Existing NLCity runtime baseline audited during governance migration",
+        "transport_context": "National rail, tram, bus and cycling networks with coastal connections",
+        "notable_places": "Peace Palace, Binnenhof, Hofvijver and Scheveningen"
+      }
+    },
+    {
+      "id": "city.utrecht",
+      "entity_type": "city",
+      "category": "municipality",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": {"latitude": 52.0907, "longitude": 5.1214},
+      "title": "Utrecht",
+      "description": "Utrecht is a municipality in the province of Utrecht. The official city portal provides municipal contact, service-desk support and City Hall information for residents who need help using local public services.",
+      "images": [
+        {
+          "id": "media.city.utrecht.hero.domtoren-oudegracht",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Utrecht,_de_Domtoren_(RM36075)_vanaf_de_Oudegracht_230_ongeveer_foto5_2015-11-01_08.56.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Utrecht%2C_de_Domtoren_%28RM36075%29_vanaf_de_Oudegracht_230_ongeveer_foto5_2015-11-01_08.56.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Michielverbeek",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.utrecht.gallery.domtoren",
+          "role": "gallery",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Domtoren_Utrecht_-_1.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Domtoren_Utrecht_-_1.jpg",
+          "license": "CC BY-SA 3.0 NL",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+          "attribution": "ErikHonig",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.utrecht.thumbnail.oudegracht",
+          "role": "thumbnail",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:20130401_5_Utrecht.JPG",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/8/8d/20130401_5_Utrecht.JPG",
+          "license": "CC BY-SA 3.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+          "attribution": "Mark Ahsmann",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.utrecht.map-preview.speelklok",
+          "role": "map_preview",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Wilhelm_Bruder_S%C3%B6hne_-_2,_Museum_Speelklok.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/2/20/Wilhelm_Bruder_S%C3%B6hne_-_2,_Museum_Speelklok.jpg",
+          "license": "CC BY-SA 2.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+          "attribution": "bertknot",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        }
+      ],
+      "official_source": {
+        "title": "Contact us",
+        "publisher": "Municipality of Utrecht",
+        "url": "https://www.utrecht.nl/city-of-utrecht/contact-us",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.utrecht.nl/city-of-utrecht/contact-us",
+      "related_entity_ids": ["government.brp-registration", "government.change-address", "government.municipal-taxes"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Use Utrecht's official city portal for municipal contact and service support, especially when language or digital access is a barrier. Verify the exact service page and current appointment process before visiting City Hall.",
+      "search_keywords": ["Utrecht municipality", "Gemeente Utrecht", "Utrecht City Hall", "Utrecht resident services", "Utrecht municipal contact"],
+      "lifecycle_status": "published",
+      "attributes": {
+        "municipality": "Gemeente Utrecht",
+        "runtime_city_id": "utrecht",
+        "coordinate_source": "Existing NLCity runtime baseline audited during governance migration",
+        "transport_context": "National rail hub with tram, bus and cycling networks",
+        "notable_places": "Dom Tower, Oudegracht and Museum Speelklok"
+      }
+    },
+    {
+      "id": "city.eindhoven",
+      "entity_type": "city",
+      "category": "municipality",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": {"latitude": 51.4416, "longitude": 5.4697},
+      "title": "Eindhoven",
+      "description": "Eindhoven is a municipality in Noord-Brabant. Its official portal provides appointments, contact, moving and registration services, identity documents, local projects and practical information for residents.",
+      "images": [
+        {
+          "id": "media.city.eindhoven.hero.witte-dame",
+          "role": "hero",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Eindhoven-Witte_Dame_(5).jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/Eindhoven-Witte_Dame_%285%29.jpg",
+          "license": "CC0 1.0",
+          "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+          "attribution": "Romaine",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.eindhoven.gallery.philips-museum",
+          "role": "gallery",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Philips_Museum_werkplaats_(2025)_(1).jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/f/f2/Philips_Museum_werkplaats_%282025%29_%281%29.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "S. Perquin",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.eindhoven.thumbnail.evoluon",
+          "role": "thumbnail",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Cmglee_Evoluon_side.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/b/bb/Cmglee_Evoluon_side.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Cmglee",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        },
+        {
+          "id": "media.city.eindhoven.map-preview.van-abbe-museum",
+          "role": "map_preview",
+          "source_page_url": "https://commons.wikimedia.org/wiki/File:Uitbreiding_Van_Abbemuseum.jpg",
+          "asset_url": "https://upload.wikimedia.org/wikipedia/commons/b/bd/Uitbreiding_Van_Abbemuseum.jpg",
+          "license": "CC BY-SA 4.0",
+          "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Choinowski",
+          "verified": true,
+          "retrieved_at": "2026-07-14"
+        }
+      ],
+      "official_source": {
+        "title": "Home",
+        "publisher": "Gemeente Eindhoven",
+        "url": "https://www.eindhoven.nl/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.eindhoven.nl/",
+      "related_entity_ids": ["government.brp-registration", "government.change-address", "government.municipal-taxes"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Use Eindhoven's official municipal portal for moving, registration, appointments, identity documents and contact. Open the relevant service page and confirm current documents and appointment rules before taking action.",
+      "search_keywords": ["Eindhoven municipality", "Gemeente Eindhoven", "Eindhoven city services", "Eindhoven Noord-Brabant", "Eindhoven resident registration"],
+      "lifecycle_status": "published",
+      "attributes": {
+        "municipality": "Gemeente Eindhoven",
+        "runtime_city_id": "eindhoven",
+        "coordinate_source": "Existing NLCity runtime baseline audited during governance migration",
+        "transport_context": "National rail, regional bus, airport and cycling networks",
+        "notable_places": "Witte Dame, Philips Museum, Evoluon and Van Abbemuseum"
+      }
+    }
+  ]
+}

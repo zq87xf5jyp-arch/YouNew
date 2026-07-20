@@ -13,7 +13,7 @@ final class LanguageManager: ObservableObject {
     var appLanguage: AppLanguage {
         get { storedAppLanguage }
         set {
-            objectWillChange.send()
+            guard storedAppLanguage != newValue else { return }
             storedAppLanguage = newValue
         }
     }

@@ -1,34 +1,45 @@
 import Combine
 import Foundation
 
-enum AppTab: Hashable {
+enum AppTab: String, CaseIterable, Hashable, Identifiable {
     case home
-    case places
-    case search
+    case guide
     case map
-    case favorites
-    case assistant
+    case saved
     case more
+
+    var id: String { rawValue }
+
+    // Source-compatible aliases while old deep links and tests migrate.
+    static let places = AppTab.guide
+    static let search = AppTab.guide
+    static let favorites = AppTab.saved
+    static let assistant = AppTab.guide
 }
 
-enum TabItem: Hashable {
+enum TabItem: String, CaseIterable, Hashable {
     case home
-    case places
+    case guide
+    case map
     case saved
-    case ai
     case more
+
+    static let places = TabItem.guide
+    static let ai = TabItem.guide
 }
 
 final class TabRouter: ObservableObject {
     @Published var selectedTab: TabItem
 
     let homeScrollTop = PassthroughSubject<Void, Never>()
-    let placesScrollTop = PassthroughSubject<Void, Never>()
-    let searchScrollTop = PassthroughSubject<Void, Never>()
+    let guideScrollTop = PassthroughSubject<Void, Never>()
     let mapReset = PassthroughSubject<Void, Never>()
     let savedScrollTop = PassthroughSubject<Void, Never>()
-    let aiScrollTop = PassthroughSubject<Void, Never>()
     let moreScrollTop = PassthroughSubject<Void, Never>()
+
+    var placesScrollTop: PassthroughSubject<Void, Never> { guideScrollTop }
+    var searchScrollTop: PassthroughSubject<Void, Never> { guideScrollTop }
+    var aiScrollTop: PassthroughSubject<Void, Never> { guideScrollTop }
 
     init(initialTab: TabItem = .home) {
         selectedTab = initialTab
@@ -50,12 +61,12 @@ final class TabRouter: ObservableObject {
         switch tab {
         case .home:
             homeScrollTop.send()
-        case .places:
-            placesScrollTop.send()
+        case .guide:
+            guideScrollTop.send()
+        case .map:
+            mapReset.send()
         case .saved:
             savedScrollTop.send()
-        case .ai:
-            aiScrollTop.send()
         case .more:
             moreScrollTop.send()
         }
@@ -66,11 +77,9 @@ extension AppTab {
     var tabItem: TabItem {
         switch self {
         case .home: return .home
-        case .places: return .places
-        case .search: return .places
-        case .map: return .places
-        case .favorites: return .saved
-        case .assistant: return .ai
+        case .guide: return .guide
+        case .map: return .map
+        case .saved: return .saved
         case .more: return .more
         }
     }

@@ -18,9 +18,9 @@ final class LocalizationRegressionUITests: XCTestCase {
             let app = launchApp(language: language)
             try requireAppWindow(in: app)
 
-            let hero = app.descendants(matching: .any)["home.product.hero"]
-            let statusCard = app.descendants(matching: .any)["home.statusCard"]
-            let changeButton = app.descendants(matching: .any)["home.status.change"]
+            let hero = app.descendants(matching: .any)["home.premiumHeader"]
+            let statusCard = app.descendants(matching: .any)["home.globalSearch"]
+            let changeButton = app.descendants(matching: .any)["home.currentCity"]
 
             XCTAssertTrue(hero.waitForExistence(timeout: 4), "[\(language)] hero missing")
             XCTAssertTrue(statusCard.waitForExistence(timeout: 4), "[\(language)] status card missing")
@@ -39,8 +39,8 @@ final class LocalizationRegressionUITests: XCTestCase {
             ("search", "search.input"),
             ("map", "map.hub"),
             ("assistant", "assistant.input"),
-            ("more", "rightMenu.panel"),
-            ("home", "home.statusCard")
+            ("more", "screen.more"),
+            ("home", "home.currentCity")
         ]
 
         for route in routes {
@@ -74,7 +74,7 @@ final class LocalizationRegressionUITests: XCTestCase {
         XCTAssertTrue(suggestion.waitForExistence(timeout: 4), "BSN suggestion missing")
         suggestion.tap()
 
-        let result = app.descendants(matching: .any).matching(identifier: "search.result.card").firstMatch
+        let result = app.descendants(matching: .any)["search.directResult.link.essential-bsn-registration"]
         XCTAssertTrue(result.waitForExistence(timeout: 4), "Search result card missing")
         XCTAssertFalse(result.frame.isEmpty, "Search result card has empty frame")
     }
@@ -101,7 +101,7 @@ final class LocalizationRegressionUITests: XCTestCase {
         XCTAssertTrue(moreTab.isHittable, "More tab is not hittable")
         moreTab.tap()
 
-        let moreScreen = app.descendants(matching: .any).matching(identifier: "more.screen").firstMatch
+        let moreScreen = app.descendants(matching: .any).matching(identifier: "screen.more").firstMatch
         XCTAssertTrue(moreScreen.waitForExistence(timeout: 4), "More screen missing")
         XCTAssertFalse(moreScreen.frame.isEmpty, "More screen has empty frame")
     }
@@ -113,10 +113,14 @@ final class LocalizationRegressionUITests: XCTestCase {
             "-uiTesting",
             "-resetUITestState",
             "-launchLanguage", language,
-            "-uiTestingStartTab", startTab,
             "-uiTestingCity", "Leiden",
             "-uiTestingStatus", "worker"
         ]
+        if startTab == "assistant" || startTab == "search" {
+            app.launchArguments += ["-uiTestingDestination", startTab]
+        } else {
+            app.launchArguments += ["-uiTestingStartTab", startTab]
+        }
         app.launch()
         app.activate()
         return app
@@ -131,7 +135,7 @@ final class LocalizationRegressionUITests: XCTestCase {
 
     @MainActor
     private func openHighRiskTabs(in app: XCUIApplication) {
-        for identifier in ["tab.home", "tab.search", "tab.map", "tab.assistant"] {
+        for identifier in ["tab.home", "tab.guide", "tab.map", "tab.saved", "tab.more"] {
             let element = app.descendants(matching: .any)[identifier]
             if element.waitForExistence(timeout: 2), element.isHittable {
                 element.tap()

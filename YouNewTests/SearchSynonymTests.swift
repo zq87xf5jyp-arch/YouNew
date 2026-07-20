@@ -4,6 +4,29 @@ import Foundation
 
 @MainActor
 struct SearchSynonymTests {
+    @Test func knmContractRecognizesRequiredAliasesAndRanksRootFirst() {
+        let aliases = [
+            "KNM",
+            "civic integration",
+            "inburgering",
+            "integration exam",
+            "kennis Nederlandse maatschappij"
+        ]
+
+        for query in aliases {
+            #expect(KNMSearchContract.matches(query), "Expected KNM alias to resolve: \(query)")
+            #expect(KNMSearchContract.priority(resultID: "knm", query: query) == 0)
+            #expect(KNMSearchContract.priority(resultID: "knm-health", query: query) == 1)
+            #expect(KNMSearchContract.priority(resultID: "guide-healthcare", query: query) == 2)
+        }
+    }
+
+    @Test func knmContractRejectsUnrelatedHighRiskQueries() {
+        for query in ["huisarts", "toeslagen", "gemeente", "112"] {
+            #expect(!KNMSearchContract.matches(query), "Unrelated query must not expose KNM: \(query)")
+        }
+    }
+
     @Test func requiredEnglishRussianAndDutchQueriesReturnResults() {
         let queries = [
             "BSN", "DigiD", "huisarts", "gemeente", "taxes", "toeslagen",

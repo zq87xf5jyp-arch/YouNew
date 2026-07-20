@@ -130,10 +130,11 @@ def main() -> None:
     expect(
         "private var shouldShowContextualAIButton: Bool" in root_tab
         and "static func shouldShowContextualAIButton(selectedTab: AppTab, isMenuPresented: Bool) -> Bool" in root_tab
-        and "!isMenuPresented" in root_tab
-        and "selectedTab != .more" in root_tab
-        and "selectedTab != .saved" in root_tab,
-        "global AI launcher must hide while the menu, More tab, or Saved tab is active",
+        and re.search(
+            r"->\s*Bool\s*\{\s*(?:return\s+)?false\s*$",
+            root_tab.split("static func shouldShowContextualAIButton", 1)[1].split("\n    }", 1)[0],
+        ) is not None,
+        "global AI launcher must remain disabled while the root layout uses no reserved overlay space",
     )
     expect(
         ".safeAreaInset(edge: .bottom, spacing: 0)" in root_tab
@@ -146,7 +147,7 @@ def main() -> None:
         "global AI launcher overlay z-index must be explicit",
     )
     expect(
-        ".zIndex(50)" in root_tab.split("RightSideMenuOverlay", 1)[1].split(".overlay(alignment: .bottomTrailing)", 1)[0],
+        ".zIndex(50)" in root_tab.split("DiscoverySideMenuOverlay", 1)[1].split(".overlay(alignment: .bottomTrailing)", 1)[0],
         "side menu overlay must stay above the global AI launcher",
     )
     for function_name in ["handleTabSelection", "resetTabToRoot", "openMenu", "closeMenu", "openGlobalAssistant"]:

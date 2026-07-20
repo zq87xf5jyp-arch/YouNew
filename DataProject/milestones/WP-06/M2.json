@@ -1,0 +1,24 @@
+{
+  "schema_version": 1,
+  "id": "WP-06-M2",
+  "work_package": "WP-06",
+  "name": "Amsterdam City 01 QA Candidate",
+  "status": "qa",
+  "target_release": "amsterdam-v0.1.0",
+  "target_records": 184,
+  "scope": [
+    "reuse the governed city.amsterdam record and add Amsterdam-only domain records",
+    "meet the requested minimum coverage across places, services, institutions, events and partners",
+    "attach at least 150 licensed, attributed and non-reused hero assets",
+    "keep every record in draft or qa until explicit publication approval"
+  ],
+  "definition_of_done": {
+    "records_qa_ready": 184,
+    "unique_hero_media_minimum": 150,
+    "unresolved_relations": 0,
+    "duplicate_entities": 0,
+    "unverified_sources": 0,
+    "all_publication_gates_passed": true,
+    "publication_requires_explicit_approval": true
+  }
+}

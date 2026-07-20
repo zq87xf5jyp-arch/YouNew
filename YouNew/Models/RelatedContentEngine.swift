@@ -41,13 +41,30 @@ enum RelatedContentEngine {
         case .ruleScenario(let id):
             return MockRulesGuideData.scenarios.contains { $0.id == id }
         case .guideSection(let id):
-            return GuideContent.section(id: id, activePersona: persona) != nil
+            return GuideContent.section(id: id) != nil
         case .guideArticle(let sectionID, let articleID):
-            return GuideContent.article(sectionID: sectionID, articleID: articleID, activePersona: persona) != nil
+            if sectionID == GuideContent.dataProjectSectionID {
+                return ContentRepository.shared.item(id: articleID)?.status == .published
+            }
+            return GuideContent.article(sectionID: sectionID, articleID: articleID) != nil
+        case .workSection(let type):
+            switch type {
+            case .overview: return GuideContent.section(id: "work") != nil
+            case .permitsAndRights: return GuideContent.article(sectionID: "work", articleID: "working-permit") != nil
+            case .salaryTaxes: return GuideContent.article(sectionID: "work", articleID: "salary-taxes") != nil
+            case .jobSearch: return GuideContent.article(sectionID: "work", articleID: "job-search-nl") != nil
+            }
+        case .healthSection(let type):
+            switch type {
+            case .overview: return GuideContent.section(id: "healthcare") != nil
+            case .insurance: return GuideContent.article(sectionID: "healthcare", articleID: "insurance") != nil
+            case .huisarts: return GuideContent.article(sectionID: "healthcare", articleID: "huisarts") != nil
+            case .urgentCare: return GuideContent.article(sectionID: "healthcare", articleID: "urgent-care") != nil
+            }
         case .placeDetail(let id):
-            return DashboardPlacesData.places.contains { $0.id == id }
+            return DashboardPlacesData.detailPlace(id: id) != nil
         case .calendarEvent(let id):
-            return DashboardCalendarData.events.contains { $0.id == id }
+            return DashboardCalendarData.detailEvent(id: id) != nil
         case .mapFocus(.place(let placeID)):
             return MockNearbyPlacesData.places.contains { $0.saveKey == placeID || $0.id.uuidString == placeID }
                 || MockLocalPartnersData.partners.contains { $0.mapPlace.saveKey == placeID || $0.id == placeID }
@@ -106,7 +123,7 @@ enum RelatedContentEngine {
             return isPracticalGuide(topic, visibleFor: persona)
         case .netherlandsOverview, .netherlandsHistory, .historyKNMHub, .dutchHolidays, .dutchFigures, .dutchMonarchy:
             return isPersona(persona, in: [.tourist, .family, .refugee, .eu, .nonEU])
-        case .cultureAttractions, .cityList, .provinceList, .provinceDetail, .provinceCities, .cityDetail, .homeExploreList, .nlCityDetail:
+        case .cultureAttractions, .cityList, .provinceList, .provinceDetail, .provinceCities, .cityDetail, .discoveryList, .nlCityDetail:
             return true
         case .netherlandsCalendar:
             return isPersona(persona, in: [.tourist, .student, .worker, .refugee, .family, .entrepreneur, .eu, .nonEU, .highlySkilledMigrant, .lgbt])

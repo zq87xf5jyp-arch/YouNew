@@ -1,0 +1,401 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-01-M1-government-core-005",
+  "work_package": "WP-01",
+  "milestone": "WP-01-M1",
+  "target_release": "government-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-07-14",
+    "build": "Generic iOS Simulator test build, admin TypeScript check and admin production build succeeded.",
+    "static": "Full scripts/run-static-qa.sh suite and DATA PROJECT validation succeeded with 60 governed records.",
+    "duplicate": "No duplicate IDs, normalized titles, canonical websites or media IDs detected.",
+    "source": "All 12 records use exact official pages; the full network audit checked 898 URLs and reported zero confirmed broken URLs after replacing one stale legacy AI-context link.",
+    "media": "Government records contain no optional media assets; there are no unverified or unlicensed assets.",
+    "search": "Every record has at least three unique search terms and all related entity IDs resolve across the five batches.",
+    "ai": "Every AI summary passes minimum length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "government.vat-numbers",
+      "entity_type": "government_service",
+      "category": "taxes",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Use Dutch VAT identification and tax numbers",
+      "description": "Entrepreneurs assessed as liable for VAT receive a public VAT identification number and a separate VAT tax number for contact with the Tax Administration. The numbers have different purposes and should not be used interchangeably.",
+      "images": [],
+      "official_source": {
+        "title": "Numbers for VAT",
+        "publisher": "Business.gov.nl",
+        "url": "https://business.gov.nl/finance-and-taxes/vat/numbers-for-vat/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://business.gov.nl/finance-and-taxes/vat/numbers-for-vat/",
+      "related_entity_ids": ["government.business-registration", "government.income-tax-return", "government.eherkenning"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Use the VAT ID on invoices, websites and in communication with customers and suppliers. Use the VAT tax number only for contact with the Tax Administration and check the business portal if either number is missing.",
+      "search_keywords": ["VAT ID Netherlands", "BTW identification number", "VAT tax number", "omzetbelastingnummer", "business VAT"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Netherlands Tax Administration",
+        "number_types": "VAT identification number and VAT tax number"
+      }
+    },
+    {
+      "id": "government.tax-disagreement",
+      "entity_type": "government_service",
+      "category": "taxes",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Challenge or discuss a Tax Administration decision",
+      "description": "A person who disagrees with the Netherlands Tax Administration may have options including correcting a return, filing an objection, appealing, making a complaint or using mediation. The correct route depends on the decision and applicable deadline.",
+      "images": [],
+      "official_source": {
+        "title": "Disagreement with the Tax Administration",
+        "publisher": "Netherlands Tax Administration",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/standaard_functies/individuals/contact/you_do_not_agree/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/standaard_functies/individuals/contact/you_do_not_agree/",
+      "related_entity_ids": ["government.income-tax-return", "government.digid", "government.subsidised-legal-aid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Read the decision and deadline before taking action, because a corrected return may be sufficient in some cases while others require a formal objection. Keep copies of the assessment, supporting documents and submitted correspondence.",
+      "search_keywords": ["tax objection Netherlands", "disagree tax assessment", "Belastingdienst bezwaar", "tax appeal", "tax complaint"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Netherlands Tax Administration",
+        "possible_routes": "Correction, objection, appeal, complaint or mediation"
+      }
+    },
+    {
+      "id": "government.minimum-wage",
+      "entity_type": "government_service",
+      "category": "employment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check entitlement to the statutory minimum wage",
+      "description": "Employees and several other categories of paid workers are entitled to at least the applicable statutory minimum hourly wage. The rate depends on age and is adjusted over time, so the current official amount should always be checked.",
+      "images": [],
+      "official_source": {
+        "title": "Will I receive the minimum wage?",
+        "publisher": "Government of the Netherlands",
+        "url": "https://www.government.nl/themes/work/minimum-wage/entitlement-to-statutory-minimum-wage",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.government.nl/themes/work/minimum-wage/entitlement-to-statutory-minimum-wage",
+      "related_entity_ids": ["government.employment-contract", "government.work-permit", "government.subsidised-legal-aid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Compare the hourly wage and payslip with the current official rate for the worker's age. Minimum-wage protection covers temporary, permanent, agency, standby and several other paid-work arrangements, subject to official exceptions.",
+      "search_keywords": ["minimum wage Netherlands", "minimum hourly wage", "minimumloon", "underpaid employee", "statutory wage"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Ministry of Social Affairs and Employment",
+        "rate_basis": "Statutory hourly rate by age"
+      }
+    },
+    {
+      "id": "government.employment-contract",
+      "entity_type": "government_service",
+      "category": "employment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand a Dutch employment contract",
+      "description": "An employment contract records the agreements between an employee and employer, including the work, pay and employment conditions. Contracts may be fixed-term or permanent and mandatory information must be provided in writing.",
+      "images": [],
+      "official_source": {
+        "title": "Employment contract",
+        "publisher": "Business.gov.nl",
+        "url": "https://business.gov.nl/regulations/contract-employment/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://business.gov.nl/regulations/contract-employment/",
+      "related_entity_ids": ["government.minimum-wage", "government.work-permit", "government.parental-leave"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Review whether the contract is fixed-term or permanent and confirm the written details covering duties, salary, hours, leave and applicable collective agreement. Contract rules can also affect renewal and conversion to permanent employment.",
+      "search_keywords": ["employment contract Netherlands", "arbeidsovereenkomst", "fixed term contract", "permanent contract", "employment conditions"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Ministry of Social Affairs and Employment",
+        "contract_types": "Fixed-term and permanent"
+      }
+    },
+    {
+      "id": "government.business-legal-structure",
+      "entity_type": "government_service",
+      "category": "business",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Choose a Dutch business legal structure",
+      "description": "Every new Dutch business selects a legal structure. The choice determines matters such as personal liability, formation requirements, taxation, governance and whether a civil-law notary is required.",
+      "images": [],
+      "official_source": {
+        "title": "Business structures in the Netherlands: overview",
+        "publisher": "Business.gov.nl",
+        "url": "https://business.gov.nl/running-your-business/legal-forms-and-governance/business-structures-in-the-netherlands-overview/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://business.gov.nl/running-your-business/legal-forms-and-governance/business-structures-in-the-netherlands-overview/",
+      "related_entity_ids": ["government.business-registration", "government.ubo-register", "government.vat-numbers"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Compare legal structures before KVK registration, focusing on liability, partners, tax treatment and formation costs. A sole proprietorship, partnership and private limited company have materially different legal and financial consequences.",
+      "search_keywords": ["business structure Netherlands", "legal form", "eenmanszaak", "BV company", "choose business entity"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Netherlands Chamber of Commerce",
+        "decision_factors": "Liability, taxation, governance and formation"
+      }
+    },
+    {
+      "id": "government.ubo-register",
+      "entity_type": "government_service",
+      "category": "business",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Register an ultimate beneficial owner",
+      "description": "Many Dutch companies and legal entities must record at least one ultimate beneficial owner in the UBO register. Registration and later changes are handled through KVK by an authorised signatory or civil-law notary.",
+      "images": [],
+      "official_source": {
+        "title": "UBO register for ultimate beneficial owner",
+        "publisher": "Business.gov.nl",
+        "url": "https://business.gov.nl/regulations/ubo-register-ultimate-beneficial-owner/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://business.gov.nl/regulations/ubo-register-ultimate-beneficial-owner/",
+      "related_entity_ids": ["government.business-registration", "government.business-legal-structure", "government.digid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Check whether the organisation's legal structure has a UBO registration duty and identify the person or people who own or effectively control it. Register new UBOs and report qualifying changes through KVK on time.",
+      "search_keywords": ["UBO register", "ultimate beneficial owner", "KVK UBO", "register company owner", "beneficial ownership Netherlands"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Netherlands Chamber of Commerce",
+        "common_abbreviation": "UBO"
+      }
+    },
+    {
+      "id": "government.tuition-fees",
+      "entity_type": "government_service",
+      "category": "education_finance",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Check higher-education tuition fees",
+      "description": "Students at a university or university of applied sciences pay either statutory or institutional tuition fees. The applicable type depends on the programme, prior qualifications, nationality or residence status and other official conditions.",
+      "images": [],
+      "official_source": {
+        "title": "Tuition fees",
+        "publisher": "DUO",
+        "url": "https://www.duo.nl/particulier/tuition-fees.jsp",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.duo.nl/particulier/tuition-fees.jsp",
+      "related_entity_ids": ["government.student-finance", "government.credential-evaluation", "government.digid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Use Mijn DUO and the educational institution to confirm whether statutory or institutional tuition applies. Check the current academic-year amount and whether a tuition-fee loan or another financing route is available.",
+      "search_keywords": ["tuition fees Netherlands", "collegegeld", "statutory tuition", "institutional tuition", "DUO fees"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "DUO and educational institution",
+        "fee_types": "Statutory and institutional tuition fees"
+      }
+    },
+    {
+      "id": "government.credential-evaluation",
+      "entity_type": "government_service",
+      "category": "education_finance",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Request evaluation of a foreign diploma",
+      "description": "International Credential Evaluation compares an eligible foreign diploma or study programme with the Dutch education system. The resulting evaluation is advisory and may support study, employment or integration procedures.",
+      "images": [],
+      "official_source": {
+        "title": "International credential evaluation",
+        "publisher": "International Credential Evaluation",
+        "url": "https://www.idw.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.idw.nl/en/",
+      "related_entity_ids": ["government.tuition-fees", "government.student-finance", "government.foreign-document-legalisation"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Check that the foreign diploma and programme are eligible, then prepare colour copies of the diploma, grades, valid identification and any required sworn translation. The evaluation compares levels but does not itself create legal rights.",
+      "search_keywords": ["foreign diploma evaluation", "IDW Netherlands", "credential evaluation", "diplomawaardering", "Dutch education level"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Nuffic and SBB through IDW",
+        "result_type": "Advisory credential evaluation"
+      }
+    },
+    {
+      "id": "government.lost-driving-licence",
+      "entity_type": "government_service",
+      "category": "driving_documents",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Report a lost or stolen Dutch driving licence",
+      "description": "A lost, stolen or misused Dutch driving licence should be reported to RDW or the municipality. An online report immediately and permanently invalidates the licence, after which a replacement must be requested.",
+      "images": [],
+      "official_source": {
+        "title": "Reporting loss or theft of driving licence",
+        "publisher": "RDW",
+        "url": "https://www.rdw.nl/en/driving-licence/dutch-driving-licence-lost-or-stolen",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rdw.nl/en/driving-licence/dutch-driving-licence-lost-or-stolen",
+      "related_entity_ids": ["government.driving-licence-application", "government.foreign-driving-licence-exchange", "government.digid"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Report the missing Dutch licence promptly through RDW with DigiD when eligible, or contact the municipality. Once reported, the licence cannot be reactivated even if found, so apply for a replacement afterward.",
+      "search_keywords": ["lost driving licence", "stolen rijbewijs", "report licence RDW", "replace driving licence", "missing licence Netherlands"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "RDW or municipality",
+        "online_identity": "DigiD"
+      }
+    },
+    {
+      "id": "government.eherkenning",
+      "entity_type": "government_service",
+      "category": "digital_government",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Apply for eHerkenning for a business",
+      "description": "eHerkenning is the Dutch electronic identification method businesses use to access many government organisations online. A company obtains it from an approved supplier at the assurance level required by the service.",
+      "images": [],
+      "official_source": {
+        "title": "Applying for eHerkenning",
+        "publisher": "Business.gov.nl",
+        "url": "https://business.gov.nl/regulations/applying-for-eherkenning/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://business.gov.nl/regulations/applying-for-eherkenning/",
+      "related_entity_ids": ["government.business-registration", "government.digid", "government.vat-numbers"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 90,
+      "verification_status": "verified",
+      "ai_summary": "Identify the government service and assurance level needed before choosing an approved eHerkenning supplier. Arrange authorisation for the people who will act for the company and allow time for supplier verification.",
+      "search_keywords": ["eHerkenning", "business government login", "electronic identification company", "EH3", "apply eHerkenning"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Netherlands Enterprise Agency",
+        "identity_scope": "Businesses and organisations"
+      }
+    },
+    {
+      "id": "government.uninsured-health-insurance",
+      "entity_type": "government_service",
+      "category": "healthcare",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Respond to a CAK uninsured notice",
+      "description": "A person who receives a CAK letter stating that they are uninsured must act within the stated period. Depending on their situation, they may need Dutch basic insurance or an SVB Wlz assessment proving that the insurance obligation does not apply.",
+      "images": [],
+      "official_source": {
+        "title": "Uninsured",
+        "publisher": "CAK",
+        "url": "https://www.hetcak.nl/en/uninsured/",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://www.hetcak.nl/en/uninsured/",
+      "related_entity_ids": ["government.health-insurance", "government.bsn", "government.healthcare-benefit"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Do not ignore a CAK uninsured notice. Take out qualifying Dutch basic insurance when required, or request an SVB Wlz assessment if an exception may apply, and keep evidence of the action taken.",
+      "search_keywords": ["CAK uninsured letter", "Dutch health insurance notice", "Wlz assessment", "onverzekerd", "health insurance fine"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "CAK and Social Insurance Bank",
+        "possible_actions": "Dutch basic insurance or Wlz assessment"
+      }
+    },
+    {
+      "id": "government.option-procedure",
+      "entity_type": "government_service",
+      "category": "citizenship",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Become a Dutch national through option",
+      "description": "The option procedure is a faster route to Dutch citizenship for people in specific legally defined situations. An eligible applicant makes an option declaration at their municipality and supplies the required identity, nationality and supporting documents.",
+      "images": [],
+      "official_source": {
+        "title": "Becoming a Dutch national through option",
+        "publisher": "Immigration and Naturalisation Service",
+        "url": "https://ind.nl/en/dutch-citizenship/becoming-a-dutch-national-through-option",
+        "is_official": true,
+        "checked_at": "2026-07-14",
+        "status": "verified_opened"
+      },
+      "website": "https://ind.nl/en/dutch-citizenship/becoming-a-dutch-national-through-option",
+      "related_entity_ids": ["government.naturalisation", "government.brp-registration", "government.foreign-document-legalisation"],
+      "last_checked": "2026-07-14",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Check the IND eligibility situations before booking a municipal appointment, because option is available only to specified groups. Prepare valid identity and nationality evidence, legalised or translated documents where required and proof of the qualifying situation.",
+      "search_keywords": ["Dutch citizenship option", "option procedure", "optieprocedure", "become Dutch citizen", "IND option"],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality and Immigration and Naturalisation Service",
+        "application_method": "Option declaration at municipality"
+      }
+    }
+  ]
+}

@@ -23,6 +23,7 @@ struct TransportGuideView: View {
                 .padding(.vertical, AppSpacing.medium)
             }
         }
+        .accessibilityIdentifier("transport.screen")
         .appSceneBackground(.map)
         .navigationTitle(guide.title.value(lang))
         .nlNavigationInline()

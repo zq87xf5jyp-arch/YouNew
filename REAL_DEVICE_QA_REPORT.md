@@ -14,7 +14,7 @@ No code changes were made in this pass.
 
 | Evidence | Status | Notes |
 | --- | --- | --- |
-| `/Users/ivan/Downloads/ScreenRecording_06-11-2026 16-29-11_1.MP4` | Partial | File exists, 128 MB, duration readable as 77.38s, frame decode failed |
+| `<LOCAL_ARTIFACT>/ScreenRecording_06-11-2026 16-29-11_1.MP4` | Partial | File exists, 128 MB, duration readable as 77.38s, frame decode failed |
 | Simulator appshot | Usable | Shows iPhone 17 Pro Simulator home screen |
 | Live Simulator via `simctl` | Unavailable | CoreSimulatorService connection refused |
 | Physical iPhone instrumentation | Unavailable | No connected physical-device control or screenshots available through tools |

@@ -4,7 +4,7 @@ import CoreLocation
 enum CityNewcomerPlacesData {
     static let priorityCities = [
         "Amsterdam", "Leiden", "Rotterdam", "Den Haag", "Utrecht", "Eindhoven", "Groningen", "Maastricht",
-        "Haarlem", "Arnhem", "Nijmegen", "Zwolle", "Assen", "Leeuwarden", "Middelburg", "Almere"
+        "Haarlem", "Arnhem", "Nijmegen", "Delft", "Zwolle", "Assen", "Leeuwarden", "Middelburg", "Almere"
     ]
 
     static func places(for cityId: String) -> [NewcomerPlace] {
@@ -61,6 +61,7 @@ enum CityNewcomerPlacesData {
         "Haarlem": "https://www.haarlem.nl",
         "Arnhem": "https://www.arnhem.nl",
         "Nijmegen": "https://www.nijmegen.nl",
+        "Delft": "https://www.delft.nl",
         "Zwolle": "https://www.zwolle.nl",
         "Assen": "https://www.assen.nl",
         "Leeuwarden": "https://www.leeuwarden.nl",
@@ -79,7 +80,8 @@ enum CityNewcomerPlacesData {
         "Maastricht": CLLocationCoordinate2D(latitude: 50.8514, longitude: 5.6910),
         "Haarlem": CLLocationCoordinate2D(latitude: 52.3874, longitude: 4.6462),
         "Arnhem": CLLocationCoordinate2D(latitude: 51.9851, longitude: 5.8987),
-        "Nijmegen": CLLocationCoordinate2D(latitude: 51.8126, longitude: 5.8372),
+        "Nijmegen": CLLocationCoordinate2D(latitude: 51.8426, longitude: 5.8528),
+        "Delft": CLLocationCoordinate2D(latitude: 52.0116, longitude: 4.3571),
         "Zwolle": CLLocationCoordinate2D(latitude: 52.5168, longitude: 6.0830),
         "Assen": CLLocationCoordinate2D(latitude: 52.9928, longitude: 6.5642),
         "Leeuwarden": CLLocationCoordinate2D(latitude: 53.2012, longitude: 5.7999),
@@ -122,7 +124,7 @@ enum CityNewcomerPlacesData {
             hospitalName = "UMCG"
         case "Maastricht":
             libraryURL = "https://www.centreceramique.nl"
-            transportURL = "https://www.arriva.nl"
+            transportURL = "https://webshop.arriva.nl/"
             hospitalName = "Maastricht UMC+"
         default:
             libraryURL = nil

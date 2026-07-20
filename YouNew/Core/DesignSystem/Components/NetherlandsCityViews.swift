@@ -213,6 +213,9 @@ struct NetherlandsCityDetailView: View {
                 LazyVStack(spacing: 0) {
                     hero(height: premiumHeroHeight(viewport: proxy.size))
 
+                    CityImmersiveGallery(city: city, lang: lang)
+                        .padding(.top, 16)
+
                     CityTabSelector(
                         selected: $selectedTab,
                         tabs: [
@@ -426,8 +429,24 @@ struct CityAttractionsTab: View {
     let city: NLCity
     let lang: AppLanguage
 
+    private var cityID: CityId {
+        guard let cityID = CityId.resolve(city.id) ?? CityId.resolve(city.name) else {
+            preconditionFailure("Typed city category routing requires a supported city id: \(city.id)")
+        }
+        return cityID
+    }
+
     var body: some View {
-        LazyVStack(spacing: 14) {
+        LazyVStack(alignment: .leading, spacing: 14) {
+            CityDiscoveryLinks(
+                lang: lang,
+                items: [
+                    ("museums", cityDiscoveryText(en: "Museums", nl: "Musea", ru: "Музеи", lang: lang), "building.columns.fill", .museumList(city: cityID)),
+                    ("restaurants", cityDiscoveryText(en: "Restaurants", nl: "Restaurants", ru: "Рестораны", lang: lang), "fork.knife", .restaurantList(city: cityID)),
+                    ("events", cityDiscoveryText(en: "Events", nl: "Evenementen", ru: "События", lang: lang), "calendar", .eventList(city: cityID))
+                ]
+            )
+
             ForEach(city.attractions) { attraction in
                 AttractionCard(attraction: attraction, lang: lang)
             }
@@ -539,7 +558,105 @@ struct CityLivingTab: View {
             InfoBlock(title: "📮 \(cityDetailText(.postalCode, lang))", content: city.postalCode)
             InfoBlock(title: "📍 \(cityDetailText(.coordinates, lang))", content: city.coordinates)
             InfoBlock(title: "📞 \(cityDetailText(.phone, lang))", content: city.phoneHint)
+            CityDiscoveryLinks(
+                lang: lang,
+                items: [
+                    ("government", cityDiscoveryText(en: "Government", nl: "Overheid", ru: "Государственные сервисы", lang: lang), "building.columns.fill", .governmentSection(.municipality)),
+                    ("ask-ai", cityDiscoveryText(en: "Ask AI", nl: "Vraag AI", ru: "Спросить AI", lang: lang), "sparkles", .assistantHub),
+                    ("local-partners", cityDiscoveryText(en: "Local Partners", nl: "Lokale partners", ru: "Local Partners", lang: lang), "person.2.fill", .localPartners)
+                ]
+            )
         }
+    }
+}
+
+private struct CityImmersiveGallery: View {
+    let city: NLCity
+    let lang: AppLanguage
+
+    var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
+            Text(cityDiscoveryText(en: "Gallery", nl: "Galerij", ru: "Галерея", lang: lang))
+                .font(.system(size: 20, weight: .bold, design: .rounded))
+                .foregroundStyle(.white)
+                .padding(.horizontal, 20)
+
+            ScrollView(.horizontal, showsIndicators: false) {
+                LazyHStack(spacing: 12) {
+                    ForEach(Array(city.attractions.prefix(6))) { attraction in
+                        let resolvedImage = CanonicalPlaceImageResolver.resolvePlaceImage(place: attraction)
+                        ZStack(alignment: .bottomLeading) {
+                            CityImageView(
+                                urlString: attraction.imageURL,
+                                height: 172,
+                                cityName: attraction.name,
+                                fallbackColor: Color(hex: city.heroColor),
+                                fallbackURLStrings: resolvedImage.fallbackURLStrings,
+                                debugContext: resolvedImage.debugContext(
+                                    screen: "City immersive gallery",
+                                    entityType: "place",
+                                    entityName: attraction.name
+                                ),
+                                renderRole: .card
+                            )
+                            .frame(width: 252, height: 172)
+                            .clipped()
+
+                            LinearGradient(colors: [.clear, .black.opacity(0.86)], startPoint: .center, endPoint: .bottom)
+
+                            VStack(alignment: .leading, spacing: 3) {
+                                Text(attraction.name)
+                                    .font(.system(size: 16, weight: .bold, design: .rounded))
+                                    .foregroundStyle(.white)
+                                    .lineLimit(2)
+                                Text(attraction.category.title)
+                                    .font(.system(size: 10, weight: .semibold))
+                                    .foregroundStyle(.white.opacity(0.72))
+                            }
+                            .padding(13)
+                        }
+                        .frame(width: 252, height: 172)
+                        .clipShape(RoundedRectangle(cornerRadius: 18, style: .continuous))
+                        .overlay(RoundedRectangle(cornerRadius: 18, style: .continuous).stroke(.white.opacity(0.12), lineWidth: 0.8))
+                    }
+                }
+                .padding(.horizontal, 20)
+                .scrollTargetLayout()
+            }
+            .scrollTargetBehavior(.viewAligned)
+        }
+        .accessibilityIdentifier("city.gallery")
+    }
+}
+
+private struct CityDiscoveryLinks: View {
+    let lang: AppLanguage
+    let items: [(id: String, title: String, symbol: String, destination: AppDestination)]
+
+    var body: some View {
+        LazyVGrid(columns: [GridItem(.adaptive(minimum: 138), spacing: 10)], spacing: 10) {
+            ForEach(Array(items.enumerated()), id: \.offset) { _, item in
+                NavigationLink(value: item.destination) {
+                    Label(item.title, systemImage: item.symbol)
+                        .font(.system(size: 13, weight: .semibold, design: .rounded))
+                        .foregroundStyle(.white)
+                        .frame(maxWidth: .infinity, minHeight: 48, alignment: .leading)
+                        .padding(.horizontal, 12)
+                        .background(Color.white.opacity(0.07), in: RoundedRectangle(cornerRadius: 14, style: .continuous))
+                        .overlay(RoundedRectangle(cornerRadius: 14, style: .continuous).stroke(Color.white.opacity(0.09), lineWidth: 0.7))
+                }
+                .buttonStyle(.plain)
+                .accessibilityIdentifier("city.category.\(item.id)")
+            }
+        }
+    }
+}
+
+private func cityDiscoveryText(en: String, nl: String, ru: String, lang: AppLanguage) -> String {
+    switch lang {
+    case .english: return en
+    case .dutch: return nl
+    case .russian: return ru
     }
 }
 
@@ -552,9 +669,7 @@ private struct CityTabSelector: View {
             HStack(spacing: 8) {
                 ForEach(Array(tabs.enumerated()), id: \.offset) { index, tab in
                     Button {
-                        #if canImport(UIKit)
-                        UIImpactFeedbackGenerator(style: .light).impactOccurred()
-                        #endif
+                        AppHaptics.selection()
                         withAnimation(.spring(response: 0.28, dampingFraction: 0.78)) {
                             selected = index
                         }
@@ -587,6 +702,7 @@ private struct CityTabSelector: View {
                     }
                     .buttonStyle(.plain)
                     .pressable(scale: 0.94)
+                    .accessibilityIdentifier("city.tab.\(index)")
                 }
             }
             .padding(.horizontal, 20)

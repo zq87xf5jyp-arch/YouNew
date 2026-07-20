@@ -1,12 +1,144 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "map.result.count.few" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld places in %@" } }, "nl" : { "stringUnit" : { "state" : "translated", "value" : "%lld plaatsen in %@" } }, "ru" : { "stringUnit" : { "state" : "translated", "value" : "%lld места в г. %@" } } } },
-    "map.result.count.many" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld places in %@" } }, "nl" : { "stringUnit" : { "state" : "translated", "value" : "%lld plaatsen in %@" } }, "ru" : { "stringUnit" : { "state" : "translated", "value" : "%lld мест в г. %@" } } } },
-    "map.result.count.one" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld place in %@" } }, "nl" : { "stringUnit" : { "state" : "translated", "value" : "%lld plaats in %@" } }, "ru" : { "stringUnit" : { "state" : "translated", "value" : "%lld место в г. %@" } } } },
-    "map.result.count.other" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%lld places in %@" } }, "nl" : { "stringUnit" : { "state" : "translated", "value" : "%lld plaatsen in %@" } }, "ru" : { "stringUnit" : { "state" : "translated", "value" : "%lld мест в г. %@" } } } },
-    "map.result.count.zero" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "No places found in %@" } }, "nl" : { "stringUnit" : { "state" : "translated", "value" : "Geen plaatsen gevonden in %@" } }, "ru" : { "stringUnit" : { "state" : "translated", "value" : "В г. %@ ничего не найдено" } } } },
-    "map.result.filtered" : { "localizations" : { "en" : { "stringUnit" : { "state" : "translated", "value" : "%@ · Category: %@" } }, "nl" : { "stringUnit" : { "state" : "translated", "value" : "%@ · Categorie: %@" } }, "ru" : { "stringUnit" : { "state" : "translated", "value" : "%@ · Категория: %@" } } } }
+    "map.result.count.few" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld places in %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld plaatsen in %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld места в г. %@"
+          }
+        }
+      }
+    },
+    "map.result.count.many" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld places in %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld plaatsen in %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld мест в г. %@"
+          }
+        }
+      }
+    },
+    "map.result.count.one" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld place in %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld plaats in %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld место в г. %@"
+          }
+        }
+      }
+    },
+    "map.result.count.other" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld places in %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld plaatsen in %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%lld мест в г. %@"
+          }
+        }
+      }
+    },
+    "map.result.count.zero" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No places found in %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geen plaatsen gevonden in %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "В г. %@ ничего не найдено"
+          }
+        }
+      }
+    },
+    "map.result.filtered" : {
+      "extractionState" : "stale",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · Category: %@"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · Categorie: %@"
+          }
+        },
+        "ru" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "%@ · Категория: %@"
+          }
+        }
+      }
+    }
   },
   "version" : "1.0"
 }

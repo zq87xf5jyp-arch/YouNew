@@ -73,6 +73,7 @@ struct NetherlandsHistoryView: View {
         .appSceneBackground(.documents)
         .navigationTitle(pageTitle)
         .nlNavigationInline()
+        .accessibilityIdentifier("history.screen")
         .sheet(isPresented: $showingSources) {
             NetherlandsHistorySourcesView(language: lang)
         }

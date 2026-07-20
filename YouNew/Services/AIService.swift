@@ -20,6 +20,7 @@ struct AIService: AIServiceProtocol {
         context: AIContext,
         conversation: [AIMessage]
     ) async throws -> AIResponse {
+        let isNewcomerDemo = BuildWeekNewcomerDemo.matches(userMessage)
         switch AISafetyFilter.evaluate(userMessage, language: context.userLanguage) {
         case .allowed:
             break
@@ -30,7 +31,9 @@ struct AIService: AIServiceProtocol {
         }
 
         guard usageLimiter.canSend() else {
-            return AIResponse.unverified(language: context.userLanguage)
+            return isNewcomerDemo
+                ? BuildWeekNewcomerDemo.localResponse(language: context.userLanguage)
+                : AIResponse.unverified(language: context.userLanguage)
         }
         usageLimiter.recordSend()
 
@@ -41,16 +44,28 @@ struct AIService: AIServiceProtocol {
                 conversation: conversation
             )
 
-            guard response.isVerified, !response.sources.isEmpty else { return AIResponse.unverified(language: context.userLanguage) }
+            if isNewcomerDemo {
+                guard response.isLiveOpenAI else {
+                    return BuildWeekNewcomerDemo.localResponse(language: context.userLanguage)
+                }
+            } else {
+                guard response.isVerified, !response.sources.isEmpty else {
+                    return AIResponse.unverified(language: context.userLanguage)
+                }
+            }
 
             return AISafetyFilter.enforceResponseSafety(
                 personaSafeResponse(response, context: context),
                 context: context
             )
         } catch AIClientError.backendNotConfigured {
-            return AIResponse.unverified(language: context.userLanguage)
+            return isNewcomerDemo
+                ? BuildWeekNewcomerDemo.localResponse(language: context.userLanguage)
+                : AIResponse.unverified(language: context.userLanguage)
         } catch {
-            return AIResponse.unverified(language: context.userLanguage)
+            return isNewcomerDemo
+                ? BuildWeekNewcomerDemo.localResponse(language: context.userLanguage)
+                : AIResponse.unverified(language: context.userLanguage)
         }
     }
 
@@ -98,7 +113,11 @@ struct AIService: AIServiceProtocol {
             nextStep: nextStep,
             appDestinationID: appDestinationID,
             isVerified: response.isVerified,
-            cacheKey: response.cacheKey
+            cacheKey: response.cacheKey,
+            confidence: response.confidence,
+            origin: response.origin,
+            model: response.model,
+            requestID: response.requestID
         )
     }
 

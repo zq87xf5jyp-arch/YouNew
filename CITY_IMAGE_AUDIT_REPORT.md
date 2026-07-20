@@ -8,10 +8,10 @@ Audited every city surfaced through the current city catalog, province pages, ci
 
 Primary evidence and file references:
 
-- Screenshot evidence: `/Users/ivan/Desktop/Simulator Screenshot - iPhone 17 Pro - 2026-06-10 at 16.07.23.png`
-- Screenshot evidence: `/Users/ivan/Desktop/Simulator Screenshot - iPhone 17 Pro - 2026-06-10 at 16.07.29.png`
-- Screenshot evidence: `/Users/ivan/Desktop/Simulator Screenshot - iPhone 17 Pro - 2026-06-10 at 20.47.01.png`
-- Screenshot evidence: `/Users/ivan/Desktop/Simulator Screenshot - iPhone 17 Pro - 2026-06-10 at 20.47.07.png`
+- Screenshot evidence: `<LOCAL_ARTIFACT>/city-image-audit-01.png`
+- Screenshot evidence: `<LOCAL_ARTIFACT>/city-image-audit-02.png`
+- Screenshot evidence: `<LOCAL_ARTIFACT>/city-image-audit-03.png`
+- Screenshot evidence: `<LOCAL_ARTIFACT>/city-image-audit-04.png`
 - City/province image registry: `YouNew/Data/CuratedPlaceHeroMediaRegistry.swift:14`
 - City fallback loader: `YouNew/Components/ImageLoader.swift:216`
 - Shared content fallback: `YouNew/Components/AppContentImageView.swift:21`

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "id": "WP-02-M1",
+  "work_package": "WP-02",
+  "name": "Housing Core",
+  "status": "qa",
+  "target_release": "housing-v1.0.0",
+  "target_records": 40,
+  "scope": [
+    "renting a home",
+    "buying a home",
+    "tenant rights and dispute routes",
+    "energy, water and municipal utilities"
+  ],
+  "definition_of_done": {
+    "records_qa_ready": 40,
+    "publication_requires_explicit_approval": true,
+    "minimum_records_per_topic_family": 10,
+    "required_topic_families": 4,
+    "unresolved_relations": 0,
+    "duplicate_entities": 0,
+    "unverified_sources": 0,
+    "all_publication_gates_passed": true
+  }
+}

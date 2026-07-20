@@ -79,6 +79,7 @@ final class MapViewModel: ObservableObject {
     @Published var selectedCity: String = "Leiden" {
         didSet {
             guard oldValue != selectedCity else { return }
+            guard !isBatchConfiguring else { return }
             resetCityScopedState()
             applyCityCenter()
             rebuildCityData()
@@ -133,6 +134,7 @@ final class MapViewModel: ObservableObject {
     @Published var activePersona: PersonaTag? {
         didSet {
             guard oldValue != activePersona else { return }
+            guard !isBatchConfiguring else { return }
             rebuildCityData()
             if let selectedCategory, !cityHubPlaces.contains(where: { $0.category == selectedCategory }) {
                 self.selectedCategory = nil
@@ -145,12 +147,14 @@ final class MapViewModel: ObservableObject {
     @Published var showLocalPartners: Bool = false {
         didSet {
             guard oldValue != showLocalPartners else { return }
+            guard !isBatchConfiguring else { return }
             rebuildCityData()
         }
     }
     @Published var language: AppLanguage = .english {
         didSet {
             guard oldValue != language else { return }
+            guard !isBatchConfiguring else { return }
             rebuildSearchSuggestions()
             rebuildRouteData()
         }
@@ -177,8 +181,9 @@ final class MapViewModel: ObservableObject {
     private let selectedJourneyKey = "map_selected_journey_v1"
     private var isResettingCityScopedState = false
     private var isBatchUpdatingFilters = false
+    private var isBatchConfiguring = false
 
-    init() {
+    init(loadInitialData: Bool = true) {
         recentSearches = UserDefaults.standard.stringArray(forKey: recentSearchesKey) ?? []
         if let city = UserDefaults.standard.string(forKey: selectedCityKey),
            MockNearbyPlacesData.supportedCities.contains(city) {
@@ -190,8 +195,10 @@ final class MapViewModel: ObservableObject {
         if let journeyRaw = UserDefaults.standard.string(forKey: selectedJourneyKey) {
             activeJourneyPreset = JourneyPreset(rawValue: journeyRaw)
         }
-        applyCityCenter()
-        rebuildCityData()
+        if loadInitialData {
+            applyCityCenter()
+            rebuildCityData()
+        }
 
         locationService.$location
             .compactMap { $0 }
@@ -232,6 +239,41 @@ final class MapViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+    }
+
+    /// Applies the screen's initial inputs with one derived-data rebuild.
+    /// Setting these properties independently used to rebuild the full city
+    /// snapshot up to three times during the first Map-tab frame.
+    func configure(
+        language: AppLanguage,
+        activePersona: PersonaTag?,
+        selectedCity requestedCity: String?,
+        showLocalPartners: Bool
+    ) {
+        let city = requestedCity.flatMap { candidate in
+            MockNearbyPlacesData.supportedCities.contains(candidate) ? candidate : nil
+        } ?? selectedCity
+        let cityChanged = city != selectedCity
+        let requiresRebuild = cityChanged
+            || activePersona != self.activePersona
+            || showLocalPartners != self.showLocalPartners
+            || language != self.language
+        guard requiresRebuild else { return }
+
+        isBatchConfiguring = true
+        if cityChanged {
+            resetCityScopedState()
+        }
+        self.language = language
+        self.activePersona = activePersona
+        selectedCity = city
+        self.showLocalPartners = showLocalPartners
+        isBatchConfiguring = false
+
+        if cityChanged {
+            applyCityCenter()
+        }
+        rebuildCityData()
     }
 
     private func makeFilteredPlaces() -> [NearbyPlace] {
@@ -278,6 +320,8 @@ final class MapViewModel: ObservableObject {
     private func makeCityHubPlaces() -> [NearbyPlace] {
         let effectivePersona = activePersona ?? .tourist
         let audience = UserContentCategory.from(persona: effectivePersona) ?? .tourist
+        let repository = ContentRepository.shared
+        let citiesByID = Dictionary(uniqueKeysWithValues: repository.cities.map { ($0.id, $0) })
         let dashboardPlaces = DashboardPlacesData.visiblePlaces(cityId: selectedCity, audience: audience, limit: nil)
             .compactMap(NearbyPlace.init(dashboardPlace:))
             .filter { $0.city == selectedCity && $0.isVisible(for: activePersona) }
@@ -287,7 +331,16 @@ final class MapViewModel: ObservableObject {
         let partnerPlaces = showLocalPartners
             ? MockLocalPartnersData.partners(in: selectedCity).map(\.mapPlace)
             : []
-        return dashboardPlaces + servicePlaces + partnerPlaces
+        let canonicalPlaces = repository.mapItems().compactMap { item -> NearbyPlace? in
+            guard let cityID = item.cityIDs.first,
+                  let city = citiesByID[cityID],
+                  city.name.caseInsensitiveCompare(selectedCity) == .orderedSame
+            else { return nil }
+            return NearbyPlace(canonicalContent: item, city: city)
+        }
+        let canonicalIDs = Set(canonicalPlaces.map(\.saveKey))
+        let legacyPlaces = (dashboardPlaces + servicePlaces + partnerPlaces).filter { !canonicalIDs.contains($0.saveKey) }
+        return canonicalPlaces + legacyPlaces
     }
 
     private func makeCategoryCounts() -> [(PlaceCategory, Int)] {
@@ -376,7 +429,6 @@ final class MapViewModel: ObservableObject {
         let places = makeFilteredPlaces()
         filteredPlaces = places
         clusteredPlaces = makeClusteredPlaces(from: places)
-        mapOverlayRouteCoordinates = makeMapOverlayRouteCoordinates()
     }
 
     private func rebuildSearchSuggestions() {
@@ -493,26 +545,8 @@ final class MapViewModel: ObservableObject {
     }
 
     func applyCityCenter() {
-        let centers: [String: CLLocationCoordinate2D] = [
-            "Amsterdam": CLLocationCoordinate2D(latitude: 52.3676, longitude: 4.9041),
-            "Rotterdam": CLLocationCoordinate2D(latitude: 51.9225, longitude: 4.4792),
-            "Den Haag": CLLocationCoordinate2D(latitude: 52.0705, longitude: 4.3007),
-            "Utrecht": CLLocationCoordinate2D(latitude: 52.0907, longitude: 5.1214),
-            "Leiden": CLLocationCoordinate2D(latitude: 52.1601, longitude: 4.4970),
-            "Eindhoven": CLLocationCoordinate2D(latitude: 51.4416, longitude: 5.4697),
-            "Groningen": CLLocationCoordinate2D(latitude: 53.2194, longitude: 6.5665),
-            "Maastricht": CLLocationCoordinate2D(latitude: 50.8514, longitude: 5.6910),
-            "Haarlem": CLLocationCoordinate2D(latitude: 52.3874, longitude: 4.6462),
-            "Arnhem": CLLocationCoordinate2D(latitude: 51.9851, longitude: 5.8987),
-            "Nijmegen": CLLocationCoordinate2D(latitude: 51.8126, longitude: 5.8372),
-            "Zwolle": CLLocationCoordinate2D(latitude: 52.5168, longitude: 6.0830),
-            "Assen": CLLocationCoordinate2D(latitude: 52.9928, longitude: 6.5642),
-            "Leeuwarden": CLLocationCoordinate2D(latitude: 53.2012, longitude: 5.7999),
-            "Middelburg": CLLocationCoordinate2D(latitude: 51.4988, longitude: 3.6100),
-            "Almere": CLLocationCoordinate2D(latitude: 52.3508, longitude: 5.2647)
-        ]
-        if let center = centers[selectedCity] {
-            region.center = center
+        if let city = ProvinceCatalog.citySpotlight(matching: selectedCity)?.city {
+            region.center = CLLocationCoordinate2D(latitude: city.latitude, longitude: city.longitude)
             region.span = MKCoordinateSpan(latitudeDelta: 0.18, longitudeDelta: 0.18)
         }
     }

@@ -29,7 +29,7 @@ struct HelpHubView: View {
         switch activePersona {
         case .student:
             return [
-                help("student-housing", "Student housing", "Studentenhuisvesting", "Студенческое жилье", "house.fill", AppColors.violet, .guideSection("housing")),
+                help("student-housing", "Student housing", "Studentenhuisvesting", "Студенческое жилье", "house.fill", AppColors.violet, .housingSection(.studentHousing)),
                 help("student-health", "Student insurance", "Studentenverzekering", "Студенческая страховка", "cross.case.fill", AppColors.success, .practicalGuide(.healthcareBasics)),
                 help("student-transport", "Public transport discounts", "OV-korting", "Скидки на транспорт", "tram.fill", AppColors.cyanGlow, .practicalGuide(.transportBasics)),
                 help("student-language", "Dutch language courses", "Nederlandse taalcursussen", "Курсы нидерландского", "text.book.closed.fill", AppColors.violet, .dutchA1A2),
@@ -39,7 +39,7 @@ struct HelpHubView: View {
         case .worker, .highlySkilledMigrant:
             return [
                 help("worker-documents", "BSN and DigiD", "BSN en DigiD", "BSN и DigiD", "doc.text.fill", AppColors.softBlue, .guideSection("documents")),
-                help("worker-work", "Work contracts", "Arbeidscontracten", "Рабочие контракты", "briefcase.fill", AppColors.dutchOrange, .guideSection("work")),
+                help("worker-work", "Work contracts", "Arbeidscontracten", "Рабочие контракты", "briefcase.fill", AppColors.dutchOrange, .workSection(.permitsAndRights)),
                 help("worker-taxes", "Taxes and salary", "Belasting en salaris", "Налоги и зарплата", "banknote.fill", AppColors.warning, .officialSources),
                 help("worker-health", "Health insurance", "Zorgverzekering", "Медицинская страховка", "cross.case.fill", AppColors.success, .practicalGuide(.healthcareBasics)),
                 help("worker-housing", "Housing", "Wonen", "Жилье", "house.fill", AppColors.violet, .practicalGuide(.housingBasics)),

@@ -55,6 +55,7 @@ struct NearbyPlace: Identifiable {
         trustNote: String = "Reference data — verify details with official sources before visiting.",
         emergencyNote: String? = nil,
         relatedLinks: [PlaceRelatedLink] = [],
+        saveKey: String? = nil,
         isReferenceLocation: Bool = false
     ) {
         self.name = name
@@ -77,12 +78,60 @@ struct NearbyPlace: Identifiable {
         self.trustNote = trustNote
         self.emergencyNote = emergencyNote
         self.relatedLinks = relatedLinks
-        self.saveKey = "\(city.lowercased())::\(category.rawValue)::\(name.lowercased())"
+        self.saveKey = saveKey ?? "\(city.lowercased())::\(category.rawValue)::\(name.lowercased())"
         self.isReferenceLocation = isReferenceLocation
     }
 }
 
 extension NearbyPlace {
+    init?(canonicalContent item: ContentItem, city: City) {
+        guard item.status == .published,
+              item.isMapVisible,
+              let coordinates = item.coordinates,
+              coordinates.isValid
+        else { return nil }
+
+        let category: PlaceCategory
+        switch item.contentType {
+        case .officialService: category = .municipality
+        case .emergencyAction: category = .police
+        default:
+            switch item.primaryCategoryID {
+            case "health-safety": category = .healthcare
+            case "transport": category = .transport
+            case "study": category = .education
+            case "official-services": category = .municipality
+            default: category = .communitySupport
+            }
+        }
+
+        self.init(
+            name: item.title,
+            category: category,
+            description: item.shortDescription,
+            newcomerUseCase: item.fullDescription,
+            coordinate: CLLocationCoordinate2D(latitude: coordinates.latitude, longitude: coordinates.longitude),
+            address: city.name,
+            websiteURL: item.officialSourceURL,
+            phone: nil,
+            isOfficialSource: item.officialSourceURL != nil,
+            sourceLabel: item.officialSourceURL?.host ?? "DATA PROJECT",
+            lastUpdated: item.lastVerifiedAt?.formatted(date: .abbreviated, time: .omitted) ?? "Verified publication",
+            city: city.name,
+            trustNote: item.officialSourceURL == nil ? "Verified DATA PROJECT record." : "Verified with the linked official source.",
+            relatedLinks: [
+                PlaceRelatedLink(
+                    title: "Open details",
+                    subtitle: item.title,
+                    symbol: "doc.text.fill",
+                    destination: ContentRepository.shared.destination(id: item.id) ?? .searchList
+                )
+            ],
+            saveKey: item.id,
+            isReferenceLocation: false
+        )
+    }
+
     var discoverySymbolName: String {
         let text = discoveryText
         if text.contains("museum") || text.contains("rijksmuseum") || text.contains("lakenhal") || text.contains("oudheden") {

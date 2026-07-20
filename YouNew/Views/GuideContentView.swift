@@ -128,6 +128,7 @@ struct ExternalLink: Identifiable {
 // MARK: - Content Registry
 
 enum GuideContent {
+    nonisolated static let dataProjectSectionID = "data-project"
     nonisolated static let sections: [GuideSection] = [
         documentsSection,
         touristDocumentsSection,
@@ -154,6 +155,31 @@ enum GuideContent {
               let art = sec.articles.first(where: { $0.id == articleID })
         else { return nil }
         return (art, sec.tint)
+    }
+
+    static func dataProjectArticle(from item: ContentItem) -> GuideArticle {
+        let links = item.allSourceURLs.enumerated().map { index, url in
+            ExternalLink(
+                id: "\(item.id)-source-\(index)",
+                title: index == 0 ? "Official source" : "Additional source \(index + 1)",
+                urlString: url.absoluteString,
+                institution: url.host ?? "Source"
+            )
+        }
+        return GuideArticle(
+            id: item.id,
+            title: item.title,
+            summary: item.shortDescription,
+            blocks: [.paragraph(item.fullDescription)],
+            links: links,
+            updatedDate: item.lastVerifiedAt.map { ISO8601DateFormatter().string(from: $0) },
+            readingMinutes: max(1, item.fullDescription.split(separator: " ").count / 200),
+            isOfficial: item.officialSourceURL != nil,
+            titleEN: item.title,
+            summaryEN: item.shortDescription,
+            blocksEN: [.paragraph(item.fullDescription)],
+            personaTags: []
+        )
     }
 
     nonisolated static func article(sectionID: String, articleID: String, activePersona: PersonaTag?, scope: PersonaSearchScope = .currentAndUniversal) -> (GuideArticle, Color)? {
@@ -602,8 +628,8 @@ private extension GuideContent {
                 .term(dutch: "Gemeente", meaning: "Муниципалитет — местный административный орган")
             ],
             links: [
-                ExternalLink(id: "bsn-gov", title: "BSN — Rijksoverheid", urlString: "https://www.rijksoverheid.nl/onderwerpen/persoonsgegevens/burgerservicenummer-bsn", institution: "Rijksoverheid"),
-                ExternalLink(id: "expat-center", title: "Expat Center Amsterdam", urlString: "https://www.iamsterdam.com/en/live-work-study/in-amsterdam/official-matters/registration-at-the-municipality", institution: "City of Amsterdam")
+                ExternalLink(id: "bsn-gov", title: "BSN — Rijksoverheid", urlString: "https://www.rijksoverheid.nl/vraag-en-antwoord/privacy-en-persoonsgegevens/hoe-kom-ik-aan-een-burgerservicenummer-bsn", institution: "Rijksoverheid"),
+                ExternalLink(id: "expat-center", title: "Expat Center Amsterdam", urlString: "https://www.iamsterdam.com/en/live-work-study/living/official-procedures/registration", institution: "City of Amsterdam")
             ]
         )
     }
@@ -798,7 +824,7 @@ private extension GuideContent {
             ],
             links: [
                 ExternalLink(id: "fietsdiefstal", title: "Регистрация велосипеда — Nationaal Register", urlString: "https://www.nationaalregisterfietsdiefstal.nl", institution: "Nationaal Register Fietsdiefstal"),
-                ExternalLink(id: "marktplaats-fiets", title: "Подержанные велосипеды — Marktplaats", urlString: "https://www.marktplaats.nl/l/fietsen-en-brommers/fietsen-heren/", institution: "Marktplaats")
+                ExternalLink(id: "marktplaats-fiets", title: "Подержанные велосипеды — Marktplaats", urlString: "https://www.marktplaats.nl/l/fietsen-en-brommers/fietsen-heren-herenfietsen/", institution: "Marktplaats")
             ]
         )
     }
@@ -822,7 +848,7 @@ private extension GuideContent {
             ],
             links: [
                 ExternalLink(id: "ns-site", title: "Официальный сайт NS", urlString: "https://www.ns.nl", institution: "NS"),
-                ExternalLink(id: "dal-voordeel", title: "Dal-voordeel подписка", urlString: "https://www.ns.nl/producten/voordeelurenabonnement", institution: "NS")
+                ExternalLink(id: "dal-voordeel", title: "Dal-voordeel подписка", urlString: "https://www.ns.nl/abonnementen/dal-voordeel.htm", institution: "NS")
             ]
         )
     }
@@ -885,7 +911,7 @@ private extension GuideContent {
             ],
             links: [
                 ExternalLink(id: "zorgkaart", title: "Найти huisarts — Zorgkaart", urlString: "https://www.zorgkaartnederland.nl/huisarts", institution: "Zorgkaart Nederland"),
-                ExternalLink(id: "huisarts-rijksoverheid", title: "Совет по поиску — Rijksoverheid", urlString: "https://www.rijksoverheid.nl/onderwerpen/zorgverzekering/vraag-en-antwoord/geen-huisarts-wat-te-doen", institution: "Rijksoverheid")
+                ExternalLink(id: "huisarts-rijksoverheid", title: "Советы по zorgverzekering — Rijksoverheid", urlString: "https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/tips-zorgverzekering", institution: "Rijksoverheid")
             ]
         )
     }
@@ -908,7 +934,7 @@ private extension GuideContent {
                 .term(dutch: "Triage", meaning: "Первичная оценка тяжести состояния по симптомам")
             ],
             links: [
-                ExternalLink(id: "emergency-112", title: "Экстренная служба 112", urlString: "https://www.politie.nl/onderwerpen/112-bellen.html", institution: "Politie / Overheid"),
+                ExternalLink(id: "emergency-112", title: "Экстренная служба 112", urlString: "https://www.politie.nl/onderwerpen/contact-met-112.html", institution: "Politie / Overheid"),
                 ExternalLink(id: "crisis-113", title: "Телефон доверия 113", urlString: "https://www.113.nl", institution: "113 Zelfmoordpreventie")
             ]
         )
@@ -946,7 +972,7 @@ private extension GuideContent {
                 .term(dutch: "Fietsenstalling", meaning: "Официальная велопарковка — там штрафы не выписывают")
             ],
             links: [
-                ExternalLink(id: "boetes-om", title: "Таблица штрафов — Openbaar Ministerie", urlString: "https://www.om.nl/onderwerpen/verkeersboetes/boetebedragen", institution: "Openbaar Ministerie"),
+                ExternalLink(id: "boetes-om", title: "Таблица штрафов — Openbaar Ministerie", urlString: "https://www.om.nl/onderwerpen/b/boetebase", institution: "Openbaar Ministerie"),
                 ExternalLink(id: "cjib-fiets", title: "CJIB — оплата штрафов", urlString: "https://www.cjib.nl", institution: "CJIB")
             ]
         )
@@ -1036,8 +1062,8 @@ private extension GuideContent {
             ],
             links: [
                 ExternalLink(id: "ind-work", title: "IND — Work in the Netherlands", urlString: "https://ind.nl/en/work", institution: "IND"),
-                ExternalLink(id: "uwv-work-permit", title: "UWV — Work permits", urlString: "https://www.uwv.nl/en/work-permit", institution: "UWV"),
-                ExternalLink(id: "government-work", title: "Government.nl — Coming to work", urlString: "https://www.government.nl/topics/immigration-to-the-netherlands/question-and-answer/coming-to-the-netherlands-to-work", institution: "Government.nl")
+                ExternalLink(id: "uwv-work-permit", title: "UWV — Work permits", urlString: "https://www.uwv.nl/en/employers/work-permits", institution: "UWV"),
+                ExternalLink(id: "government-work", title: "Government.nl — Coming to work", urlString: "https://www.government.nl/faq/foreign-citizens-working-in-the-netherlands/as-a-foreign-worker-can-i-work-in-the-netherlands", institution: "Government.nl")
             ],
             updatedDate: "June 2025",
             readingMinutes: 5,
@@ -1077,9 +1103,9 @@ private extension GuideContent {
                 .tip("30% ruling может дать заметную экономию на 5 лет, но требования зависят от зарплаты, навыков и того, были ли вы наняты из-за рубежа.")
             ],
             links: [
-                ExternalLink(id: "belastingdienst-income", title: "Belastingdienst — Income tax", urlString: "https://www.belastingdienst.nl/wps/wcm/connect/en/income-in-the-netherlands/income-in-the-netherlands", institution: "Belastingdienst"),
+                ExternalLink(id: "belastingdienst-income", title: "Belastingdienst — Income tax", urlString: "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/filing-an-online-tax-return-in-4-steps", institution: "Belastingdienst"),
                 ExternalLink(id: "government-minimum-wage", title: "Government.nl — Minimum wage", urlString: "https://www.government.nl/topics/minimum-wage", institution: "Government.nl"),
-                ExternalLink(id: "30-percent-ruling", title: "Belastingdienst — 30% facility", urlString: "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/30-percent-facility", institution: "Belastingdienst")
+                ExternalLink(id: "30-percent-ruling", title: "Belastingdienst — Expat scheme", urlString: "https://www.belastingdienst.nl/wps/wcm/connect/nl/buitenland/content/ik-kom-in-nederland-werken-30-procent-regeling-aanvragen", institution: "Belastingdienst")
             ],
             updatedDate: "June 2025",
             readingMinutes: 6,
@@ -1220,7 +1246,7 @@ private extension GuideContent {
                 .tip("Слова gezellig, afspraak, borrel и op tijd полезны не меньше, чем грамматика: они объясняют социальные ожидания.")
             ],
             links: [
-                ExternalLink(id: "government-living", title: "Government.nl — Living in the Netherlands", urlString: "https://www.government.nl/topics/immigration-to-the-netherlands", institution: "Government.nl"),
+                ExternalLink(id: "government-living", title: "Government.nl — Living in the Netherlands", urlString: "https://www.government.nl/themes/migration-and-travel/immigration-to-the-netherlands", institution: "Government.nl"),
                 ExternalLink(id: "iwcn", title: "International Welcome Center North", urlString: "https://iwcn.nl", institution: "IWCN"),
                 ExternalLink(id: "access-nl", title: "ACCESS Netherlands", urlString: "https://access-nl.org", institution: "ACCESS")
             ],
@@ -1552,6 +1578,20 @@ struct GuideArticleView: View {
         .appSceneBackground()
         .navigationTitle(article.localizedTitle(lang))
         .nlNavigationInline()
+        .toolbar {
+            if let item = ContentRepository.shared.item(id: article.id),
+               let destination = ContentRepository.shared.destination(id: item.id) {
+                ToolbarItem(placement: .topBarTrailing) {
+                    SaveItemButton(
+                        itemID: item.id,
+                        kind: item.contentType == .place ? .place : .other,
+                        title: item.title,
+                        subtitle: item.primaryCategoryID,
+                        destination: destination
+                    )
+                }
+            }
+        }
         .accessibilityIdentifier(articleAccessibilityIdentifier)
     }
 
