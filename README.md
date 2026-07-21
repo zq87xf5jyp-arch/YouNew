@@ -222,8 +222,9 @@ owner actions, and final status.
 
 The public repository is available at
 [github.com/zq87xf5jyp-arch/YouNew](https://github.com/zq87xf5jyp-arch/YouNew).
-The documented candidate video remains a local review artifact until the owner
-approves the exact recorded SHA-256 and authorizes its YouTube upload.
+The owner approved the reviewed 2:20 candidate and its exact SHA-256. The public
+[Build Week demo](https://youtu.be/6YAxsAX7qdw) includes English captions and
+the required media attribution.
 
 ## License
 

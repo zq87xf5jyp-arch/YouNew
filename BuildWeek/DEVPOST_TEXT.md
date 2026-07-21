@@ -11,7 +11,7 @@ A local-first iOS guide that turns practical newcomer questions into structured 
 ## Links
 
 - GitHub repository: https://github.com/zq87xf5jyp-arch/YouNew
-- Demo video: Pending owner-approved YouTube upload
+- Demo video: https://youtu.be/6YAxsAX7qdw
 
 ## Inspiration
 

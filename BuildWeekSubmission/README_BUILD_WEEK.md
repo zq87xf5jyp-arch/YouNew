@@ -209,8 +209,8 @@ AppIcon, identity symbols, and legacy captures. Follow
 - No complete physical-device/VoiceOver certification.
 - The current full 87-test UI aggregate is finalized at 79 PASS / 8 FAIL / 0 skipped. Isolated reruns do not replace that aggregate.
 - The public `origin/main` repository is the judge-facing source of truth after
-  the final release-readiness handoff. The rendered video remains a local review
-  artifact until separately approved and uploaded by the owner.
+  the final release-readiness handoff. The reviewed video was owner-approved and
+  published at https://youtu.be/6YAxsAX7qdw with English captions.
 
 The tracked detail and owner actions are in
 [KNOWN_LIMITATIONS.md](KNOWN_LIMITATIONS.md).

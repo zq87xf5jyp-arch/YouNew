@@ -14,7 +14,7 @@ Status: **copy prepared; external fields and final Submit remain owner actions**
 | What we learned | `BuildWeek/DEVPOST_TEXT.md` | Ready |
 | What's next | `BuildWeek/DEVPOST_TEXT.md` | Ready |
 | GitHub | https://github.com/zq87xf5jyp-arch/YouNew | Public judge access confirmed |
-| Demo video | YouTube URL | Pending final upload |
+| Demo video | https://youtu.be/6YAxsAX7qdw | Public 2:20 playback and English captions verified |
 | Images | Screenshots 01–07 | Eligible only with attribution block; screenshot 08 excluded by default |
 | Codex evidence | `HOW_CODEX_WAS_USED.md` | Ready; add a session ID only if the form requests it and the owner verifies it |
 | Known limitations | `KNOWN_LIMITATIONS.md` | Ready |

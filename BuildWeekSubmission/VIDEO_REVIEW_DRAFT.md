@@ -1,7 +1,7 @@
 # Build Week video candidate
 
 Recorded and rendered: 2026-07-21 (Europe/Amsterdam)
-Status: **LOCAL CANDIDATE READY FOR OWNER REVIEW — NOT UPLOADED**
+Status: **OWNER-APPROVED AND PUBLICLY VERIFIED**
 
 ## Verified render
 
@@ -17,8 +17,10 @@ Status: **LOCAL CANDIDATE READY FOR OWNER REVIEW — NOT UPLOADED**
 | SHA-256 | `cd6258122aa717532ab68d8bce54ca6bcae279dd12e62c8234d763ec7b25eec3` |
 | Local output | `BuildWeekVideo/out/YouNew-BuildWeek-candidate-polished.mp4` |
 
-The MP4 and raw clips are intentionally ignored by Git. They are retained only
-in the local workspace. No upload, publication or submission was performed.
+The MP4 and raw clips remain intentionally ignored by Git and retained only in
+the local workspace. The owner reviewed the full candidate, approved the SHA-256,
+and authorized publication. The verified public video is
+https://youtu.be/6YAxsAX7qdw.
 
 ## Verified inputs
 
@@ -62,11 +64,20 @@ Frames were also extracted from the encoded MP4 at 1.2, 10.5 and 138 seconds
 and visually inspected, confirming that the opening, main product layout,
 burned-in captions and final card survived encoding as intended.
 
+## Publication verification
+
+- Public YouTube URL: https://youtu.be/6YAxsAX7qdw
+- Public duration: 2:20 (140 seconds)
+- Source filename shown by YouTube Studio: `YouNew-BuildWeek-candidate-polished`
+- English timed captions: published
+- Title, project description, disclaimer, GitHub URL, and media attribution:
+  published and externally checked
+
 ## Current limitations
 
-- The file has not yet received an end-to-end human playback approval from the
-  owner. Representative-frame inspection and media metadata validation do not
-  replace that approval.
+- YouTube transcodes the uploaded file, so the public stream does not preserve
+  the local MP4 byte hash; approval remains tied to the locally reviewed source
+  SHA-256 recorded above.
 - The Government.nl segment is network-dependent evidence captured on
   2026-07-21; it does not prove universal or permanent external-link health.
 - The owner confirmed the custom simplified map provenance and bounded public
@@ -74,9 +85,9 @@ burned-in captions and final card survived encoding as intended.
 - The local binary inputs are not in Git, so a clean clone cannot reproduce this
   MP4 unless the retained clips are restored.
 
-## Remaining owner gates
+## Completed and remaining owner gates
 
-1. Watch the complete MP4 with sound and captions.
-2. Approve this exact SHA-256 for upload.
-3. Approve YouTube publication separately.
-4. Approve Devpost submission separately.
+1. Complete MP4 playback with sound and captions: **complete**.
+2. Exact SHA-256 approval: **complete**.
+3. YouTube publication and public playback verification: **complete**.
+4. Devpost final submission approval: **pending**.
