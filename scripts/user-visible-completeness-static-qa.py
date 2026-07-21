@@ -964,7 +964,17 @@ def main():
         "FIXME",
         "Lorem",
     ]
-    combined = "\n".join([app_destination_view, root_menu, search, l10n, culture_data, province_view, official_sources, netherlands_overview])
+    combined = "\n".join([
+        app_destination_view,
+        root_menu,
+        search,
+        l10n,
+        culture_data,
+        province_view,
+        official_sources,
+        netherlands_overview,
+        read("YouNew/Views/RootGuideView.swift"),
+    ])
     visible_views_with_home = "\n".join([combined, read("YouNew/Views/HomeView.swift"), settings_view, app_content])
     for needle in forbidden_visible_literals:
         if needle in visible_views_with_home:

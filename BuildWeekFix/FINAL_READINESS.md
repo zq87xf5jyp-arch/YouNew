@@ -1,149 +1,154 @@
-# Final Build Week readiness — draft
+# Build Week readiness evidence — superseded interim report
 
-Evidence cutoff: 2026-07-20 (Europe/Amsterdam)
+Evidence cutoff: 2026-07-21 (Europe/Amsterdam)
+
 Branch: `build-week-readiness`
+
 Baseline commit: `b15a2f2913911763c989f9880f8ce376f903fc6e`
-Document status: **DRAFT — final UI rerun and clean-clone proof are PENDING**
+
+Current product/test commit: `da8c3fe22e7a5d99b2187aab1141700b2d34f508`
+
+Document status: **HISTORICAL INTERIM EVIDENCE — SUPERSEDED**
+
+Canonical demo-handoff decision: `BuildWeek/FINAL_STATUS.md`.
+
+This file preserves the stricter pre-freeze release audit chronology. It is not the
+current Build Week packaging verdict and must not override the later targeted
+Map/Guide/search evidence. No new runtime cycle is required by the final packaging
+scope.
+
+## Evidence chronology
+
+This report does not merge results across commits.
+
+| Snapshot | Closed evidence | UI boundary |
+|---|---|---|
+| Audit baseline `b15a2f29` | Build PASS; unit 446/450; static 35/40; UI 80/86 | Baseline only |
+| Historical `61e7ce11` | Detailed remediation record retained | 82/87 RED; historical only |
+| Last fully closed clean clone `efd1a7c5` | Build, unit, offline static, import, and mocked backend checks passed | **84/87 RED** |
+| Post-hardening `9b74a236` | Independent clean clone: build PASS, unit 460/460, offline static 40/40 | No complete serial UI aggregate |
+| Current working tree over `da8c3fe2` | Adds four narrow product fixes: root-tab event delivery, Guide loading state, input hit testing, and one media URL correction | Targeted Map/Guide/search evidence is preserved; no complete post-fix aggregate claim |
 
 ## Overall decision
 
-**Overall readiness: NOT READY for submission.**
+**Historical release decision: NOT PRODUCTION READY. Current Build Week decision: READY FOR DEMO HANDOFF.**
 
-The repository now contains the named demo implementation, a bounded backend
-contract, an explicit deterministic fallback, remediated unit/static failures,
-judge-oriented documentation, and repository-safety evidence. It is not yet safe
-to call production-ready or submission-ready. The final UI gate has not closed,
-the candidate has not been proven from a clean clone, live GPT-5.6 has not been
-runtime-verified, the working tree has not been curated into a reproducible
-snapshot, and media rights remain incomplete.
-
-This draft uses categorical evidence states rather than an invented readiness
-percentage. A PASS below applies only to the stated evidence boundary.
+The deterministic local assistant and existing product flow are sufficient for the
+frozen Build Week demo. Live GPT-5.6 is not part of the candidate claim. Broken
+external links, incomplete media rights, and bounded aggregate UI evidence remain
+honest production/distribution limitations; they do not reopen feature work or
+invalidate the targeted-verified primary demo path.
 
 ## Readiness matrix
 
-| Dimension | Current status | Evidence | Remaining gate |
-|---|---|---|---|
-| Build | **PASS — current working tree checkpoint** | A clean Debug simulator build completed locally. | **PENDING:** repeat from the curated clean clone and tie the result to the tested source snapshot. |
-| Unit tests | **STAGE 2 PASS / FINAL RERUN PENDING** | The complete Stage 2 suite closed at 450/450 passed, with no skipped or expected failures. Focused AI tests also passed, but later contract hardening changed the final source snapshot. | **PENDING:** close the expanded complete unit suite on the final source snapshot and record the result bundle totals. |
-| Static QA | **PASS — current working tree** | The current 40-command aggregate completed at 40/40; DataProject/import validation also passed. | Repeat in the clean clone and preserve the exact command/result record. |
-| UI tests | **PENDING** | Frozen baseline: 80/86. All six failures were individually diagnosed and remediated. The separate newcomer fallback UI test passed 1/1. | **PENDING:** close the targeted six-test rerun, then the complete post-fix 87-test suite; do not infer PASS from an in-progress run. |
-| AI Assistant | **AVAILABLE / PARTIAL** | The existing local deterministic assistant remains available and is visibly labelled local guide mode. The named flow fails closed to that fallback. | Complete final unit/UI reruns and verify the fallback again from the clean clone. |
-| GPT-5.6 proof | **BLOCKED / NOT VERIFIED** | The iOS-to-backend implementation, exact model allowlist, structured-response validation, mocked backend tests (12/12), and official API-contract review exist. | A deployed owner-approved backend, protected credentials, actual allowed model metadata, provider request ID, and an anonymized live runtime check are absent. No live claim is permitted. |
-| Repository safety | **PARTIAL / NOT JUDGE-SAFE YET** | Ignore rules, restrictive license draft, security/privacy documents, a targeted secret scan, essential-file inventory, and a proposed commit allowlist exist. No confirmed secret was found in the bounded scan. | Curate and review the mixed dirty tree, review staged content/history and personal metadata, decide the unresolved screenshot deletion, confirm licensing, and create the tested local snapshot. No remote or push is authorized. |
-| Clean clone | **PENDING / NOT PROVEN** | No final clean-clone result exists yet. | Clone the curated local commit into a separate temporary directory; run documented build, unit, static, UI where supported, and fallback checks there. Record all closed results. |
-| README | **PREPARED / FINAL VERIFICATION PENDING** | The README covers the requested 23 judge-facing topics and explicitly distinguishes local fallback from unverified live AI. | Reconcile its gate table and setup instructions with the final tested snapshot and clean-clone transcript. Add only rights-cleared final screenshots. |
-| Media rights | **PARTIAL / BLOCKED** | A manifest-backed inventory covers 72 `nl_*` assets; 65 require attribution. | Confirm the missing license URL for one manifest item and reconcile 98 non-manifest imagesets plus AppIcon. Unknown rights must not be converted into guessed licenses or blanket redistribution claims. |
-| Demo readiness | **PARTIAL / LIVE MAIN FLOW BLOCKED** | `BuildWeekNewcomerDemo` is implemented. The separate no-backend fallback test passed and opens a linked BSN guide. | Live GPT-5.6 response proof, an external official-source opening, final-snapshot capture, and an uncut judge video are missing. A fixture must not be shown as live. |
-| Submission readiness | **NOT READY** | Technical remediation and evidence preparation are materially advanced. | Requires green mandatory gates on a reproducible snapshot, live-claim alignment, repository/media approval, judge access, rights-cleared captures, final video, and owner submission. |
+| Dimension | Status | Evidence boundary / remaining gate |
+|---|---|---|
+| Build | **PASS, recorded** | Final candidate status records a successful Xcode build; earlier independent clone at `9b74a236` also built with 0 errors/warnings. |
+| Unit tests | **PASS — 460/460, bounded** | Independent clone at `9b74a236`; 0 failed, skipped, or expected failures. Later product diffs have targeted rather than aggregate evidence. |
+| Static QA | **PASS — offline 40/40, bounded** | Independent report-free clone at `9b74a236`; zero image-network requests. It is not a fresh external-link audit. |
+| DataProject/import | **STRUCTURAL PASS / RELEASE-DATA BLOCKED** | Import and offline structural gates pass; separate generated network evidence contains 18 confirmed broken URLs in shipped runtime data. |
+| UI tests | **TARGETED PRIMARY FIXES PASS / AGGREGATE BOUNDED** | Map blocker: 3/3 and 10/10 first-tap transitions; Guide 1/1; search focus 5/5. No all-UI-green claim. |
+| AI Assistant | **AVAILABLE** | Deterministic local guide mode is explicit and retained. |
+| GPT-5.6 proof | **NOT VERIFIED / OUTSIDE CANDIDATE CLAIM** | Optional bounded code exists; no deployed backend, credentials, provider request ID, or live model metadata. |
+| Repository safety | **PREPARED LOCAL HANDOFF** | No remote, push, deployment, or publication was performed. |
+| Clean clone | **BOUNDED PRIOR PROOF** | Build/unit/static evidence is preserved; later targeted product fixes do not receive an aggregate claim. |
+| README | **PREPARED** | Root GitHub README and the complete `BuildWeek/` package are present. |
+| Media rights | **PARTIAL / BLOCKED** | 39 tracked raster captures (91,034,208 B), 98 non-manifest imagesets, AppIcon, one missing manifest license URL, and seven untracked public-site files remain unresolved. |
+| Demo readiness | **READY FOR HANDOFF** | The main flow uses the local assistant; live model proof is not required or claimed. |
+| Submission readiness | **PACKAGE READY / EXTERNAL STEPS PENDING** | Repository narrative, demo plan, checklist, Devpost text, and owner handoff are prepared. |
 
-## Gate detail
+## Current technical evidence
 
-### Build
+### Build, units, static, and clean clone
 
-The current working tree has a passing local Debug simulator build. This proves that
-the in-place project can compile in the audited environment; it does not prove that
-all essential untracked files are captured or that a judge can reproduce it. Build
-status must remain scoped to the current working tree until the clean-clone run
-closes.
-
-### Unit, static, and data gates
-
-The four frozen unit failures were classified and corrected without disabling
-tests, weakening assertions, or changing expected values merely to obtain green.
-The last complete Stage 2 unit suite closed at 450/450. Seven named-demo tests were
-added later, and the final expanded suite is still a required rerun.
-
-The five frozen static-command failures were corrected through product fixes and
-contract-aware matcher repairs. The current aggregate is 40/40. DataProject schema,
-import, migration, and runtime validation pass in the current local snapshot.
+An independent clone outside the owner working directory was created at `9b74a236`.
+It built successfully, ran **460/460** unit tests with no skipped or expected-failure
+tests, and completed the offline structural static aggregate. The Worker contract
+ran locally with mocked upstream behavior and passed **13/13** after canonical
+Responses-completion validation was added. These results do not prove live OpenAI,
+external-link health, or production deployment.
 
 ### UI gate
 
-The frozen UI baseline was 80/86. The six failures cover a real 44-point touch-
-target defect and stale canonical route/result identifiers. The ledger in
-`BuildWeekFix/TEST_REMEDIATION.md` records each cause and change. A separate new UI
-test proves the named demo's explicit local fallback without a backend. The final
-targeted and complete post-fix reruns are **PENDING**; therefore the UI gate is not
-green in this draft.
+The last closed complete clean-clone UI snapshot, `efd1a7c5`, is **RED at 84/87**.
+Later narrow fixes have separate evidence: Map/root navigation passed 3/3 with
+10/10 first-tap transitions, the Guide completion state passed 1/1, and search focus
+passed five targeted repetitions. Cafe routing was not reproduced after multiple
+focused attempts, so routing code was not changed speculatively. These results
+close the demonstrated blockers without supporting an all-UI-green claim.
 
-### AI and GPT-5.6
+### Shipped runtime link health
 
-The named iOS flow sends a bounded request only to an owner-configured backend. It
-does not contain an OpenAI key, does not send conversation/profile state, validates
-the response shape, model, request ID, sources, routes, language, and size, and
-falls back to the deterministic local guide on every invalid or unavailable live
-path. The backend example stores the key only in an environment variable, calls the
-Responses API with structured output and `store: false`, applies limits/timeouts,
-and does not log request or answer bodies.
+Current ignored/generated network evidence reports **18 confirmed broken URLs** in
+tracked `YouNew/Resources/Data/younew-runtime-data.json`: 30 published
+`amsterdam-v0.1.0` entities and 85 runtime field occurrences are affected. The
+offline sentinel in a clean clone means “network not run”, not “links healthy”.
+The correct remediation is a reviewed, versioned release overlay plus fresh network
+verification—not deleting or bypassing the evidence. See
+`BuildWeekFix/DATA_HEALTH_BLOCKER.md`.
 
-The implementation is not runtime proof. At the evidence cutoff, the three required
-environment variables were unset, the backend was undeployed, and no live provider
-response had been captured. GPT-5.6 status is therefore **NOT VERIFIED / BLOCKED**,
-with no silent model substitution allowed.
+### AI Assistant and GPT-5.6
 
-### Repository, privacy, and secrets
+The iOS client contains no OpenAI key and sends only bounded scenario fields to an
+owner-controlled backend URL. The Worker reference uses an environment-only key,
+strict `gpt-5.6`/`gpt-5.6-sol` policy, structured output, timeout, limits, safe
+errors, request ID, `store: false`, and no prompt/answer body logging. It now rejects
+HTTP-200 but incomplete or provider-failed Responses objects. Any unavailable,
+invalid, or unverified path visibly falls back to deterministic **Local guide mode**.
 
-The repository remains a mixed dirty working tree inherited from owner work. The
-readiness work did not discard those changes. Essential product sources, tests,
-DataProject inputs, scripts, backend files, and evidence have been inventoried; build
-products, result bundles, dependencies, local hosting metadata, signing material,
-and local environment files are excluded by policy.
+Live status remains **BLOCKED**: the environment has no configured backend URL or
+provider credential, no approved deployment occurred, and no real request/model/
+provider request ID was captured. A fixture or another model must never be shown as
+live GPT-5.6.
 
-The bounded current-tree/history pattern scan found no confirmed secret. Dedicated
-secret scanners, comprehensive binary/OCR/EXIF review, full personal-data review,
-and deployed-secret-store review were not available. Git author metadata, signing-
-team metadata, fixtures, institutional contact data, and legal/medical content still
-require owner review. The safe claim is targeted-scan evidence, not security
-certification.
+### Repository, privacy, secrets, and media
 
-### Media
+No remote, push, deployment, release, TestFlight action, or submission occurred.
+Filename-only secret/signing scans found no confirmed credential, certificate, or
+provisioning file; the one OpenAI-shaped pattern match was a benign scam-warning
+stable ID. This is a bounded scan, not public-release clearance. OCR/EXIF, history,
+personal-data, legal/medical, and owner metadata review remain open.
 
-Media is the principal public-redistribution blocker. The 72 manifest-backed assets
-are not a complete catalog clearance: one lacks a recorded license URL, 98
-non-manifest imagesets and AppIcon remain outside that reviewed manifest, and some
-provenance records conflict. Unresolved assets must be proven, replaced, or excluded
-from public repository and demo material.
+Media cannot be relicensed by the repository notice. Unverified assets must be
+replaced, rights-cleared, or excluded from public repository, screenshots, video,
+TestFlight, and submission. The current `.gitignore` does not protect the seven
+untracked public-site media files; exact-path staging is mandatory.
 
-## Current safe public claims
+## Safe public claims
 
 - YouNew is a SwiftUI iOS guide for newcomers to the Netherlands.
-- The repository contains implementation and reports consistent with the documented Codex-assisted workflow.
-- The current working tree has completed a clean Debug simulator build.
-- The complete Stage 2 unit suite passed 450/450, while the expanded final suite remains pending.
-- The current static aggregate passes 40/40, with clean-clone repetition pending.
-- The local deterministic assistant is available and explicitly labelled local guide mode.
-- The repository contains a bounded GPT-5.6 Responses API integration, but live GPT-5.6 access and deployment have not been runtime-verified.
-- Media rights are only partially documented and do not support a blanket redistribution claim.
+- The repository contains implementation and reports consistent with the documented
+  Codex-assisted workflow.
+- An independent clone built the bounded product snapshot and passed 460/460 unit
+  tests and offline structural static QA.
+- The deterministic assistant fallback is available and explicitly labelled local
+  guide mode.
+- The Map → Home first-tap blocker is fixed and targeted-verified: 3/3 checks and
+  10/10 first-tap transitions in the recorded configuration.
+- The repository contains bounded GPT-5.6 Responses API integration code; live
+  GPT-5.6 access and deployment are not runtime-verified.
+- Media rights are partially documented and do not support blanket redistribution.
 
-## Claims that remain prohibited
+## Prohibited claims
 
-- production-ready, submission-ready, or all mandatory gates green;
-- UI 87/87 until the closed complete post-fix result exists;
-- live GPT-5.6, production OpenAI inference, or deployed backend;
-- public/private GitHub repository, current TestFlight, or App Store availability;
-- repository-wide media clearance or complete rights ownership;
-- full population of all 34 content categories;
-- legal, medical, insurance, residence, eligibility, or timing guarantees.
+- Production-ready, submission-ready, all gates green, or judge-ready repository.
+- A green current UI gate.
+- Live GPT-5.6 inference, deployed backend, provider access, or model substitution.
+- A GitHub remote, judge access, TestFlight, App Store release, or submitted entry.
+- Repository-wide media clearance, ownership, or license grant.
+- Current external-link health, full population of all 34 categories, or legal,
+  medical, immigration, insurance, eligibility, entitlement, or timing guarantees.
 
-## Remaining blockers
+## Frozen non-demo limitations
 
-1. Final targeted and complete UI results are **PENDING**.
-2. Final expanded unit result on the frozen source snapshot is **PENDING**.
-3. Curated local commit and clean-clone proof are **PENDING**.
-4. Live GPT-5.6 runtime verification is **BLOCKED** pending owner backend access,
-   credentials, deployment approval, and a safe runtime check.
-5. Media rights remain **PARTIAL / BLOCKED**, including 98 non-manifest imagesets,
-   AppIcon, and one incomplete manifest license record.
-6. The owner must review license, privacy, legal/medical content, personal metadata,
-   fixtures, screenshots, and public visibility.
-7. No Git remote, push, deployment, TestFlight/App Store release, video, or
-   submission has been performed.
+- Full post-fix aggregate UI evidence is not claimed.
+- Eighteen shipped external URLs are recorded as broken in point-in-time evidence.
+- Live GPT-5.6 is neither verified nor needed for the documented local demo.
+- Media rights are partially documented and do not support blanket redistribution.
+- Remote hosting, video publication, links, and submission remain owner-controlled.
 
 ## Finalization rule
 
-Replace every PENDING field only from a closed artifact tied to the same curated
-source snapshot. If a required gate remains red or unavailable, retain the exact
-technical limitation and demonstrate the deterministic fallback honestly. Do not
-upgrade this verdict to submission-ready until the clean-clone and mandatory test
-gates are green and all owner-only release decisions are complete.
+`BuildWeek/FINAL_STATUS.md` is the canonical packaging verdict. This historical
+report remains the source for bounded audit evidence only. No publish, push,
+deployment, release, or submission action is authorized by this report.

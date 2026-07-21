@@ -30,10 +30,11 @@ final class HomeCategoryUITests: XCTestCase {
 
     override func setUpWithError() throws {
         continueAfterFailure = false
+        terminateAppIfNeeded()
     }
 
     override func tearDownWithError() throws {
-        XCUIApplication().terminate()
+        terminateAppIfNeeded()
     }
 
     // MARK: - Release Home
@@ -51,7 +52,7 @@ final class HomeCategoryUITests: XCTestCase {
             let app = launchApp(language: language)
             try requireAppWindow(in: app)
             assertReleaseHomeFirstViewport(in: app)
-            app.terminate()
+            terminate(app)
         }
     }
 
@@ -138,7 +139,7 @@ final class HomeCategoryUITests: XCTestCase {
                 nativeTabBars.count, 0,
                 "[\(language)] Native tab bar visible — double tab bar detected. Count: \(nativeTabBars.count)"
             )
-            app.terminate()
+            terminate(app)
         }
     }
 
@@ -209,6 +210,10 @@ final class HomeCategoryUITests: XCTestCase {
     @MainActor
     private func launchApp(language: String, startTab: String = "home") -> XCUIApplication {
         let app = XCUIApplication()
+        if app.state != .notRunning {
+            terminate(app)
+        }
+
         app.launchArguments = [
             "-uiTesting",
             "-resetUITestState",
@@ -224,6 +229,16 @@ final class HomeCategoryUITests: XCTestCase {
         app.launch()
         app.activate()
         return app
+    }
+
+    private func terminateAppIfNeeded() {
+        terminate(XCUIApplication())
+    }
+
+    private func terminate(_ app: XCUIApplication) {
+        guard app.state != .notRunning else { return }
+        app.terminate()
+        XCTAssertTrue(app.wait(for: .notRunning, timeout: 5), "App did not terminate before the next UI test launch.")
     }
 
     @MainActor

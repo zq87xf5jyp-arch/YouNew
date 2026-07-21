@@ -11,7 +11,7 @@
     "search_keywords", "lifecycle_status"
   ],
   "properties": {
-    "id": {"type": "string", "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)+$"},
+    "id": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)+$"},
     "entity_type": {
       "type": "string",
       "enum": ["government_service", "city", "place", "museum", "restaurant", "cafe", "hotel", "nature", "event", "local_partner", "housing", "healthcare", "education", "transport", "document", "knowledge_topic", "media"]
@@ -48,7 +48,8 @@
     "ai_summary": {"type": "string", "minLength": 40},
     "search_keywords": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"type": "string", "minLength": 2}},
     "lifecycle_status": {"type": "string", "enum": ["draft", "qa", "published", "retired"]},
-    "attributes": {"type": "object", "additionalProperties": {"type": "string"}}
+    "attributes": {"type": "object", "additionalProperties": {"type": "string"}},
+    "practical_guide": {"$ref": "#/$defs/practicalGuide"}
   },
   "allOf": [
     {
@@ -74,6 +75,311 @@
     }
   ],
   "$defs": {
+    "practicalGuide": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema_version", "id", "slug", "locale", "title", "status"],
+      "properties": {
+        "schema_version": {"type": "integer", "enum": [1, 2]},
+        "id": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)+$"},
+        "slug": {"type": "string", "maxLength": 120, "pattern": "^[a-z0-9]+(?:-[a-z0-9]+)*$"},
+        "locale": {"type": "string", "pattern": "^[a-z]{2}(?:-[A-Z]{2})?$"},
+        "title": {"type": "string", "minLength": 2, "maxLength": 120},
+        "short_summary": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sourcedBlock"}]},
+        "audience_profiles": {
+          "type": "array",
+          "uniqueItems": true,
+          "maxItems": 6,
+          "items": {"type": "string", "enum": ["tourist", "student", "expat", "refugee", "worker", "resident"]}
+        },
+        "who_this_is_for": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sourcedBlock"}]},
+        "when_you_need_it": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/sourcedBlock"}]},
+        "applicability": {"$ref": "#/$defs/applicability"},
+        "jurisdiction": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/jurisdiction"}]},
+        "prerequisites": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/sourcedBlock"}},
+        "required_documents": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/sourcedBlock"}},
+        "estimated_time": {"$ref": "#/$defs/estimatedValue"},
+        "estimated_cost": {"$ref": "#/$defs/estimatedCost"},
+        "numbered_steps": {"type": "array", "maxItems": 25, "items": {"$ref": "#/$defs/numberedStep"}},
+        "warnings": {"type": "array", "maxItems": 15, "items": {"$ref": "#/$defs/sourcedBlock"}},
+        "common_mistakes": {"type": "array", "maxItems": 15, "items": {"$ref": "#/$defs/sourcedBlock"}},
+        "tips": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/sourcedBlock"}},
+        "checklist": {"type": "array", "maxItems": 30, "items": {"$ref": "#/$defs/sourcedBlock"}},
+        "faqs": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/guideFAQ"}},
+        "emergency_information": {"type": "array", "maxItems": 10, "items": {"$ref": "#/$defs/sourcedBlock"}},
+        "sections": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/guideSection"}},
+        "official_sources": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/guideSource"}},
+        "contact_options": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/contactOption"}},
+        "related_guide_ids": {
+          "type": "array",
+          "uniqueItems": true,
+          "maxItems": 20,
+          "items": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)+$"}
+        },
+        "next_actions": {"type": "array", "maxItems": 20, "items": {"$ref": "#/$defs/sourcedBlock"}},
+        "verified_at": {"type": ["string", "null"], "format": "date"},
+        "updated_at": {"type": ["string", "null"], "format": "date"},
+        "reviewer": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/reviewer"}]},
+        "reading_time_minutes": {"type": ["integer", "null"], "minimum": 1, "maximum": 120},
+        "difficulty": {"type": ["string", "null"], "enum": ["basic", "intermediate", "advanced", null]},
+        "confidence_level": {"type": ["string", "null"], "enum": ["low", "medium", "high", null]},
+        "tags": {"type": "array", "maxItems": 20, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 60}},
+        "publication_gate": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/publicationGate"}]},
+        "disclaimer": {"type": ["string", "null"], "maxLength": 2000},
+        "seo": {"oneOf": [{"type": "null"}, {"$ref": "#/$defs/guideSEO"}]},
+        "synonyms": {"type": "array", "maxItems": 40, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 120}},
+        "common_questions": {"type": "array", "maxItems": 40, "uniqueItems": true, "items": {"type": "string", "minLength": 4, "maxLength": 240}},
+        "status": {"type": "string", "enum": ["draft", "qa", "review", "published", "archived"]}
+      },
+      "allOf": [
+        {
+          "if": {
+            "properties": {"status": {"const": "published"}},
+            "required": ["status"]
+          },
+          "then": {
+            "required": [
+              "short_summary", "audience_profiles", "who_this_is_for", "when_you_need_it", "applicability", "jurisdiction",
+              "prerequisites", "required_documents", "estimated_time", "estimated_cost",
+              "numbered_steps", "warnings", "common_mistakes", "tips", "checklist", "faqs", "emergency_information", "sections",
+              "official_sources", "contact_options", "related_guide_ids", "next_actions",
+              "verified_at", "updated_at", "reviewer", "reading_time_minutes", "difficulty", "confidence_level", "tags",
+              "publication_gate", "disclaimer", "seo", "synonyms", "common_questions"
+            ],
+            "properties": {
+              "schema_version": {"const": 2},
+              "short_summary": {"$ref": "#/$defs/sourcedBlock"},
+              "audience_profiles": {"minItems": 1},
+              "who_this_is_for": {"$ref": "#/$defs/sourcedBlock"},
+              "when_you_need_it": {"$ref": "#/$defs/sourcedBlock"},
+              "jurisdiction": {"$ref": "#/$defs/jurisdiction"},
+              "prerequisites": {"minItems": 1},
+              "required_documents": {"minItems": 1},
+              "estimated_time": {
+                "allOf": [{"$ref": "#/$defs/estimatedValue"}],
+                "properties": {"note": {"type": "string", "minLength": 2, "maxLength": 1000}}
+              },
+              "estimated_cost": {
+                "allOf": [{"$ref": "#/$defs/estimatedCost"}],
+                "properties": {"note": {"type": "string", "minLength": 2, "maxLength": 1000}}
+              },
+              "numbered_steps": {"minItems": 1},
+              "warnings": {"minItems": 1},
+              "common_mistakes": {"minItems": 1},
+              "tips": {"minItems": 1},
+              "checklist": {"minItems": 1},
+              "faqs": {"minItems": 3},
+              "sections": {"minItems": 1},
+              "emergency_information": {"minItems": 1},
+              "official_sources": {"minItems": 1},
+              "contact_options": {"minItems": 1},
+              "related_guide_ids": {"minItems": 1},
+              "next_actions": {"minItems": 1},
+              "reading_time_minutes": {"type": "integer", "minimum": 1, "maximum": 120},
+              "difficulty": {"type": "string", "enum": ["basic", "intermediate", "advanced"]},
+              "confidence_level": {"const": "high"},
+              "tags": {"minItems": 2},
+              "publication_gate": {"$ref": "#/$defs/passedPublicationGate"},
+              "synonyms": {"minItems": 1},
+              "common_questions": {"minItems": 1},
+              "verified_at": {"type": "string", "format": "date"},
+              "updated_at": {"type": "string", "format": "date"},
+              "reviewer": {"$ref": "#/$defs/reviewer"},
+              "disclaimer": {"type": "string", "minLength": 10},
+              "seo": {"$ref": "#/$defs/guideSEO"}
+            }
+          }
+        }
+      ]
+    },
+    "sourcedBlock": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "text", "source_ids"],
+      "properties": {
+        "id": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)*$"},
+        "text": {"type": "string", "minLength": 2, "maxLength": 2000},
+        "source_ids": {"type": "array", "minItems": 1, "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 160}}
+      }
+    },
+    "guideFAQ": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "question", "answer", "source_ids"],
+      "properties": {
+        "id": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)*$"},
+        "question": {"type": "string", "minLength": 4, "maxLength": 240},
+        "answer": {"type": "string", "minLength": 10, "maxLength": 3000},
+        "source_ids": {"type": "array", "minItems": 1, "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 160}}
+      }
+    },
+    "publicationGateChecks": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["schema", "factual_sources", "links", "language", "media", "duplicate_content", "accessibility"],
+      "properties": {
+        "schema": {"type": "boolean"},
+        "factual_sources": {"type": "boolean"},
+        "links": {"type": "boolean"},
+        "language": {"type": "boolean"},
+        "media": {"type": "boolean"},
+        "duplicate_content": {"type": "boolean"},
+        "accessibility": {"type": "boolean"}
+      }
+    },
+    "publicationGate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "checked_at", "checks", "notes", "evidence_ids"],
+      "properties": {
+        "status": {"type": "string", "enum": ["pending", "failed", "passed"]},
+        "checked_at": {"type": ["string", "null"], "format": "date"},
+        "checks": {"$ref": "#/$defs/publicationGateChecks"},
+        "notes": {"type": "string", "minLength": 10, "maxLength": 2000},
+        "evidence_ids": {"type": "array", "minItems": 1, "maxItems": 20, "uniqueItems": true, "items": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)+$"}}
+      }
+    },
+    "passedPublicationGate": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["status", "checked_at", "checks", "notes", "evidence_ids"],
+      "properties": {
+        "status": {"const": "passed"},
+        "checked_at": {"type": "string", "format": "date"},
+        "checks": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": ["schema", "factual_sources", "links", "language", "media", "duplicate_content", "accessibility"],
+          "properties": {
+            "schema": {"const": true},
+            "factual_sources": {"const": true},
+            "links": {"const": true},
+            "language": {"const": true},
+            "media": {"const": true},
+            "duplicate_content": {"const": true},
+            "accessibility": {"const": true}
+          }
+        },
+        "notes": {"type": "string", "minLength": 10, "maxLength": 2000},
+        "evidence_ids": {"type": "array", "minItems": 1, "maxItems": 20, "uniqueItems": true, "items": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)+$"}}
+      }
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["city_ids", "province_ids"],
+      "properties": {
+        "city_ids": {"type": "array", "maxItems": 40, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 160}},
+        "province_ids": {"type": "array", "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 160}}
+      }
+    },
+    "jurisdiction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["level", "country_code", "municipality_dependent", "note", "source_ids"],
+      "properties": {
+        "level": {"type": "string", "enum": ["national", "provincial", "municipal", "mixed", "undetermined"]},
+        "country_code": {"type": "string", "const": "NL"},
+        "municipality_dependent": {"type": ["boolean", "null"]},
+        "note": {"type": ["string", "null"], "maxLength": 5000},
+        "source_ids": {"type": "array", "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 160}}
+      }
+    },
+    "estimatedValue": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "value", "note", "source_ids"],
+      "properties": {
+        "state": {"type": "string", "enum": ["unknown", "not_applicable", "varies", "known"]},
+        "value": {"type": ["string", "null"], "maxLength": 240},
+        "note": {"type": ["string", "null"], "maxLength": 1000},
+        "source_ids": {"type": "array", "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 160}}
+      }
+    },
+    "estimatedCost": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["state", "value", "note", "currency", "source_ids"],
+      "properties": {
+        "state": {"type": "string", "enum": ["unknown", "not_applicable", "varies", "known"]},
+        "value": {"type": ["string", "null"], "maxLength": 240},
+        "note": {"type": ["string", "null"], "maxLength": 1000},
+        "currency": {"type": ["string", "null"], "pattern": "^[A-Z]{3}$"},
+        "source_ids": {"type": "array", "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 160}}
+      }
+    },
+    "numberedStep": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "position", "title", "body", "source_ids", "municipality_dependent"],
+      "properties": {
+        "id": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)*$"},
+        "position": {"type": "integer", "minimum": 1},
+        "title": {"type": "string", "minLength": 2, "maxLength": 120},
+        "body": {"type": "string", "minLength": 10, "maxLength": 4000},
+        "source_ids": {"type": "array", "minItems": 1, "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 160}},
+        "municipality_dependent": {"type": "boolean"}
+      }
+    },
+    "guideSection": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "body", "source_ids"],
+      "properties": {
+        "id": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)*$"},
+        "title": {"type": "string", "minLength": 2, "maxLength": 120},
+        "body": {"type": "string", "minLength": 10, "maxLength": 5000},
+        "source_ids": {"type": "array", "minItems": 1, "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 160}}
+      }
+    },
+    "guideSource": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "title", "publisher", "url", "is_official", "checked_at", "status"],
+      "properties": {
+        "id": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)*$"},
+        "title": {"type": "string", "minLength": 2, "maxLength": 300},
+        "publisher": {"type": "string", "minLength": 2, "maxLength": 160},
+        "url": {"type": "string", "format": "uri", "maxLength": 2048},
+        "is_official": {"type": "boolean"},
+        "checked_at": {"type": "string", "format": "date"},
+        "status": {"type": "string", "enum": ["pending", "verified_opened", "access_restricted", "rejected"]}
+      }
+    },
+    "contactOption": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "kind", "label", "value", "source_ids"],
+      "properties": {
+        "id": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)*$"},
+        "kind": {"type": "string", "enum": ["phone", "email", "url", "in_person", "other"]},
+        "label": {"type": "string", "minLength": 2, "maxLength": 160},
+        "value": {"type": "string", "minLength": 2, "maxLength": 500},
+        "source_ids": {"type": "array", "minItems": 1, "maxItems": 12, "uniqueItems": true, "items": {"type": "string", "minLength": 2, "maxLength": 160}}
+      }
+    },
+    "reviewer": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["id", "name", "role", "reviewer_type", "reviewed_at"],
+      "properties": {
+        "id": {"type": "string", "maxLength": 160, "pattern": "^[a-z0-9]+(?:[._:-][a-z0-9]+)+$"},
+        "name": {"type": "string", "minLength": 2, "maxLength": 120},
+        "role": {"type": "string", "minLength": 2, "maxLength": 160},
+        "reviewer_type": {"type": "string", "enum": ["human_editor", "subject_matter_expert", "official_owner"]},
+        "reviewed_at": {"type": "string", "format": "date"}
+      }
+    },
+    "guideSEO": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["title", "description", "canonical_path"],
+      "properties": {
+        "title": {"type": "string", "minLength": 10, "maxLength": 70},
+        "description": {"type": "string", "minLength": 40, "maxLength": 180},
+        "canonical_path": {"type": "string", "maxLength": 180, "pattern": "^/guides/[a-z0-9]+(?:-[a-z0-9]+)*/?$"}
+      }
+    },
     "source": {
       "type": "object",
       "additionalProperties": false,
@@ -92,13 +398,15 @@
       "additionalProperties": false,
       "required": ["id", "role", "source_page_url", "asset_url", "license", "license_url", "attribution", "verified", "retrieved_at"],
       "properties": {
-        "id": {"type": "string", "minLength": 3},
+        "id": {"type": "string", "minLength": 3, "maxLength": 160},
         "role": {"type": "string", "enum": ["hero", "gallery", "thumbnail", "map_preview", "category_cover"]},
-        "source_page_url": {"type": "string", "format": "uri"},
-        "asset_url": {"type": "string", "format": "uri"},
-        "license": {"type": "string", "minLength": 2},
-        "license_url": {"type": "string", "format": "uri"},
-        "attribution": {"type": "string", "minLength": 2},
+        "source_page_url": {"type": "string", "format": "uri", "maxLength": 2048},
+        "asset_url": {"type": "string", "format": "uri", "maxLength": 2048},
+        "public_asset_path": {"type": "string", "maxLength": 240, "pattern": "^/images/[A-Za-z0-9](?:[A-Za-z0-9._/-]*[A-Za-z0-9])?\\.(?:avif|gif|jpe?g|png|svg|webp)$"},
+        "license": {"type": "string", "minLength": 2, "maxLength": 80},
+        "license_url": {"type": "string", "format": "uri", "maxLength": 2048},
+        "attribution": {"type": "string", "minLength": 2, "maxLength": 500},
+        "alt": {"type": "string", "minLength": 2, "maxLength": 300},
         "verified": {"type": "boolean"},
         "retrieved_at": {"type": "string", "format": "date"}
       }

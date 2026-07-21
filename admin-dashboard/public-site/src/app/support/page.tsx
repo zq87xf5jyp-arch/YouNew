@@ -1,12 +1,9 @@
-import type { Metadata } from "next";
 import { Mail, MessageCircle } from "lucide-react";
 import { ContentPage } from "@/components/content-page";
 import { links } from "@/lib/site-data";
+import { metadataForPage } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Support",
-  description: "Contact YouNew.nl support, report incorrect information or ask a privacy question."
-};
+export const metadata = metadataForPage("Support", "Contact YouNew support, report incorrect information or ask a privacy question.", "/support");
 
 export default function SupportPage() {
   return (
@@ -15,12 +12,12 @@ export default function SupportPage() {
       <p>
         Email <a href={`mailto:${links.contactEmail}`}>{links.contactEmail}</a> with your question, feedback or correction request.
       </p>
-      <div className="not-prose mt-6 grid gap-3 sm:grid-cols-2">
-        <a href={`mailto:${links.contactEmail}`} className="inline-flex items-center justify-center gap-2 rounded-full bg-orange-brand px-5 py-4 text-sm font-extrabold text-white">
+      <div className="support-actions">
+        <a href={`mailto:${links.contactEmail}`} className="button button-primary">
           <Mail className="size-4" aria-hidden />
           Email support
         </a>
-        <a href={links.telegram} className="inline-flex items-center justify-center gap-2 rounded-full border border-white/12 bg-white/[0.07] px-5 py-4 text-sm font-extrabold text-white">
+        <a href={links.telegram} className="button button-outline">
           <MessageCircle className="size-4" aria-hidden />
           Follow updates
         </a>

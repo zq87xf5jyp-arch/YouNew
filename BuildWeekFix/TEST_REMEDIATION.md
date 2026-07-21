@@ -1,8 +1,30 @@
 # Stage 2 — test remediation ledger
 
-Date: 2026-07-20 (Europe/Amsterdam)
+Date: 2026-07-21 (Europe/Amsterdam)
 Branch: `build-week-readiness`
 Baseline commit: `b15a2f2913911763c989f9880f8ce376f903fc6e`
+
+## 2026-07-21 evidence chronology
+
+This ledger preserves earlier findings rather than rewriting them as current facts.
+
+- Frozen audit baseline: UI **80/86 RED**.
+- Historical source `61e7ce11`: serial UI **82/87 RED**; the failure details below
+  remain historical diagnostics.
+- Last fully closed clean-clone snapshot:
+  `efd1a7c50bf7b5e2f82be047b084b6d73cb009a7`, serial UI **84/87 RED**.
+- The current working tree over product/test source
+  `da8c3fe22e7a5d99b2187aab1141700b2d34f508` adds narrow root-tab, Guide,
+  input-hit-testing, and media-URL fixes. The preserved targeted results close the
+  primary Map → Home blocker (3/3 checks; 10/10 first-tap transitions), the Guide
+  placeholder (1/1), and search focus (5/5). Category routing was not reproduced
+  after repeated focused passes, so routing code was not changed speculatively.
+- A current local Data Health report also records 18 confirmed broken URLs in
+  shipped runtime data. This is a release-data blocker, not a reason to skip,
+  weaken, or reclassify UI tests.
+
+No targeted result replaces a complete serial UI aggregate. The Build Week freeze
+therefore reports the targeted evidence exactly and makes no all-UI-green claim.
 
 This ledger classifies every failure from the frozen `BuildWeekAudit` baseline. No test was skipped or disabled, no assertion was removed, and no delay was added. Expected values were changed only where a current independent product contract demonstrated that the recorded expectation was stale.
 
@@ -61,8 +83,17 @@ The full `YouNewUnitTests` rerun completed with **450/450 passed, 0 failed, 0 sk
 
 ### 2. `python3 scripts/brand-static-qa.py`
 
-- Cause, classification, fix, files, and rationale: same root issue as static gate 1; it is listed separately because it was a separate failing command in the 40-command ledger.
-- Rerun: PASS individually and in the aggregate.
+- Cause: this direct command used the same exact-string matcher as the aggregate
+  gate and therefore rejected the configured
+  `TimelineView(.animation(minimumInterval: 1 / 15))` ambient layer.
+- Classification: stale static matcher.
+- Fix: accept the `TimelineView(.animation` call prefix while retaining the
+  per-card-loop prohibition.
+- Files: `scripts/brand-static-qa.py`.
+- Why correct: the check still verifies one app-wide ambient animation and still
+  rejects motion loops in individual cards; it now accepts the configured framework
+  invocation.
+- Rerun: PASS individually and in the 40-command aggregate.
 
 ### 3. `python3 scripts/apple-review-static-qa.py`
 
@@ -136,7 +167,13 @@ correctly rejected by `data-health-gate.py --require-network` as stale. The full
 
 ### 2. `RootNavigationUITests/testAccessibilitySizeKeepsPrimaryHomeActionsReachable()`
 
-- Cause, classification, fix, files, and rationale: the same independently reproduced 42-point product defect as UI failure 1.
+- Cause: the same `home.currentProfile` control was fixed at 42×42 points, below
+  the shared 44-point minimum touch target.
+- Classification: product accessibility bug.
+- Fix: size the control with `AppIcons.Metrics.minimumTouchTarget`.
+- Files: `YouNew/Views/HomePremiumInformationCard.swift`.
+- Why correct: the shared design-system token preserves the control, label, and
+  action while satisfying the minimum reachable target requirement.
 - Rerun: **PASS**, 39.034 s in the same closed bundle.
 
 ### 3. `ContentCompletionRuntimeUITests/testRequiredContentDestinationsRenderCompletedSurfacesWithoutPlaceholderCopy()`
@@ -150,7 +187,16 @@ correctly rejected by `data-health-gate.py --require-network` as stale. The full
 
 ### 4. `ContentCompletionRuntimeUITests/testRequiredContentSurfacesStayCompletedWhileScrolling()`
 
-- Cause, classification, fix, files, and rationale: same canonical-identifier mismatch as UI failure 3; scrolling and placeholder assertions remain enabled.
+- Cause: the test searched for the inner legacy `transport.screen` identifier even
+  though the active typed route exposes the stable outer
+  `practicalGuide.transportBasics` identifier.
+- Classification: stale UI-test contract.
+- Fix: assert `practicalGuide.transportBasics` while retaining the scrolling and
+  placeholder-content assertions.
+- Files: `YouNewUITests/ContentCompletionRuntimeUITests.swift`.
+- Why correct: the revised assertion validates the current typed destination and
+  still proves that the completed transport surface remains available while
+  scrolling.
 - Rerun: **PASS**, 4,164.856 s in the same closed bundle. The long duration
   reflects real accessibility-tree traversal across all 13 destinations; it was
   not shortened with sleeps, skips, or reduced assertions.
@@ -239,7 +285,255 @@ being hidden by a broader assertion.
 The final focused Rijksmuseum Search → Guide → Saved flow is now **1/1 passed** in
 20.867 s in the local `PublishedHarnessFixTest-20260720T1204.xcresult` artifact.
 Its focused route contract is **4/4 passed** in the local
-`YouNewBuildWeekRouteUnit-20260720-3.xcresult` artifact. A complete post-fix
-inventory of **87 UI tests** is still required; the additional test is the explicit
-no-backend `BuildWeekNewcomerDemo` fallback path. No in-progress console output or
-the interrupted `ENOSPC` attempt is treated as a PASS.
+`YouNewBuildWeekRouteUnit-20260720-3.xcresult` artifact. The earlier complete
+serial post-fix snapshot at `49acdc66` executed **87 tests: 86 passed, 1 failed,
+0 skipped**. A later authoritative clean-clone serial run at `61e7ce11` is closed
+**RED at 82 passed, 5 failed, 0 skipped, 0 expected failures**. The later result is
+the release gate; historical 86/87 evidence is retained only for diagnosis. No
+in-progress console output or the interrupted `ENOSPC` attempt is treated as a
+PASS.
+
+### Follow-up UI diagnostics — content scrolling and Discovery presentation
+
+1. **`ContentCompletionRuntimeUITests.testRequiredContentSurfacesStayCompletedWhileScrolling()`**
+   - Real cause: the test took two independent global accessibility snapshots after
+     every scroll. In the closed 84/87 clean-clone bundle, the second snapshot
+     stalled on a dense Documents surface and later starved the next route query;
+     the completed content itself was already present.
+   - Classification: test-implementation/performance defect amplified by
+     XCUITest/Simulator accessibility-query instability, not a proven product
+     content defect or stale expected value.
+   - Fix: capture visible labels once per state and reuse the same labels for the
+     unchanged unfinished-copy/raw-localization and meaningful-content assertions.
+   - Files: `YouNewUITests/ContentCompletionRuntimeUITests.swift`.
+   - Why correct: every destination, scroll count, forbidden-copy check, raw-key
+     check, and minimum-content assertion remains. The change removes only the
+     duplicate expensive query; it adds no sleep, skip, retry, or weaker expected
+     value.
+   - Rerun: **PASS — 1/1, 2,145.578 s** in
+     `FocusedUI.xcresult` on iPhone 17 Pro / iOS Simulator 26.5.
+
+2. **`CategoryRoutingRuntimeUITests.testRequestedDiscoveryChipsReachTheirTypedDetailAndReturn()`**
+   - Real observations: the initial closed 84/87 bundle did not observe the menu
+     after a synthetic tap. The first follow-up proved the menu can open; after
+     synchronization it reached multiple real Place/Discovery routes (including
+     Nature) before a later fresh launch again failed at menu presentation.
+   - Classification: a narrow test synchronization/targeting defect was corrected,
+     but the remaining menu-presentation observation is an **unresolved UI
+     reliability issue most consistent with intermittent Simulator/XCUITest input
+     delivery**. A product presentation defect is not excluded.
+   - Fix: wait for the existing trigger to become hittable, require the existing
+     overlay after tapping, and use that verified overlay as the gesture container
+     for Discovery-group scrolling. Failure messages now include the requested
+     chip. No group/chip/detail/back assertion, data fixture, expected route,
+     accessibility check, or product behavior was removed.
+   - Files: `YouNewUITests/CategoryRoutingRuntimeUITests.swift`.
+   - Why correct: existence alone was not a proof that the trigger could receive a
+     synthetic event, and the SwiftUI `ScrollView` itself is not exposed as a
+     standalone accessibility element. The already-visible overlay is the stable
+     enclosing gesture surface; this is not an added retry or delay.
+   - Rerun: **RED — 0/1, 294.928 s** in
+     `CategoryRoutingUIOverlay.xcresult`; after several real routes it again
+     reported that the menu did not open. This focused result is diagnostic only
+     and cannot replace the required full clean-clone aggregate.
+
+No further test-contract changes are retained for this finding without new
+device/hit-test evidence. The required next proof is a physical-device or
+instrumented hit-test run that records receipt of the menu action; increasing waits,
+adding repeated taps, or skipping the scenario would conceal the release risk.
+
+### Post-fix failure — `MapChipUITests/testRootTabNavigationLatency()`
+
+- Name: `MapChipUITests.testRootTabNavigationLatency`.
+- Real cause: the first cold Map → Home transition can include initial
+  `RootHomeView`/`NavigationStack` construction and exceed the test's 100 ms bound;
+  later transitions in the same run are materially faster. The audited simulator
+  also emitted duplicate Accessibility-loader warnings, and one rebooted optimized
+  run failed because the synthetic Home tap was not committed at all.
+- Classification: **product performance bug amplified by an environment issue**.
+  It is not a stale baseline or a test bug: the threshold and outcome assertions
+  remain unchanged.
+- Fix attempted and retained: remove unnecessary published root-tab selection
+  invalidation and dead tab bookkeeping, and prewarm the existing connectivity
+  monitor after the first frame. Add state-semantics unit coverage and print exact
+  latency samples for evidence. No user feature was removed.
+- Files: `YouNew/App/AppEntry.swift`, `YouNew/App/AppTabView.swift`,
+  `YouNew/Models/TabRouter.swift`, `YouNewTests/TabRouterTests.swift`, and
+  `YouNewUITests/MapChipUITests.swift`.
+- Why correct: tab selection is an imperative navigation cursor, not view content;
+  removing its unused `@Published` invalidation preserves selection/reset behavior
+  while avoiding a root-hierarchy notification. The added diagnostics do not
+  change the assertion, threshold, timeout, or execution count.
+- Rejected experiments: native/persistent tab variants made transitions slower;
+  the persistent-tabs run completed all ten transitions but still failed at
+  144.067 ms (66.8 ms average). Lazy/`AnyView` wrapping delayed or lost Home, and
+  model-metadata prewarming produced a non-repeatable isolated pass. All were
+  reverted rather than retained as speculative changes.
+- Rerun evidence: the earlier reliable complete serial result failed at a 103.455 ms
+  maximum. Later exact Debug samples still showed cold maxima of 129–138 ms while
+  warm samples were approximately 26–39 ms. One optimized run passed with a 96.5 ms
+  maximum, but a full simulator reboot then lost the synthetic Home tap and never
+  produced a valid metric. Neither outcome is promoted to a green gate. The
+  historical `61e7ce11` clean-clone serial run failed at **102.043 ms**; it
+  remains a mandatory historical aggregate result, not a result for current code.
+- Minimal safe demo workaround: cold-launch directly on Home and run the judge demo
+  on one controlled simulator or physical device; do not include the Map → Home
+  stress calibration in the main take. This is a demonstration workaround, not a
+  release-gate PASS.
+
+### Current-source UI — `CategoryRoutingRuntimeUITests.testEveryLeisureSectionReachesDetailAndReturns()`
+
+1. **Failure:** after tapping `home.exploreList.action.family-museums`, the expected
+   `category.list.museums.leiden` did not appear; the source
+   `category.list.family-activities.leiden` remained active.
+2. **Real cause:** XCTest observed no navigation push after the synthetic tap.
+   Product mapping is unambiguous: the standard `NavigationLink(value:)` maps this
+   action to `.museumList(city: .leiden)`, which renders
+   `category.list.museums.leiden`. There is no evidence of a push to the wrong
+   destination.
+3. **Classification:** **environment/UI-automation event-delivery issue is the
+   best-supported classification; a product bug is not proven**. The expected
+   destination is correct and the baseline is not stale. The assertion message
+   says “wrong nested list,” but its checked contract remains valid and was not
+   weakened.
+4. **Fix:** production code, expected value, timeout, and assertion were not
+   changed. One isolated diagnostic rerun of the same test is performed after the
+   full serial suite, without a retry policy, sleeps, skips, or altered expectations.
+5. **Changed files:** none for this finding.
+6. **Why correct:** replacing a standard navigation link, increasing waits, or
+   repeating the tap would mask an unproven cause. The identical test/routing/view
+   source passed in the earlier clean-clone Category suite (15/15; this case
+   77.885 s), and those files are byte-identical between `49acdc66` and `61e7ce11`.
+7. **Rerun:** **PASS — 1/1, 75.775 s** on the same clean-clone binary and
+   simulator. It demonstrates that the route works and that the full-run observation
+   is nondeterministic; it cannot erase the failure in the mandatory 82/87
+   aggregate or prove that a product bug is impossible.
+
+### Current-source UI — `CategoryRoutingRuntimeUITests.testEveryHousingAndGovernmentSectionReachesDetailAndReturns()`
+
+1. **Failure:** after the municipality detail appeared, the Back action did not
+   return to `category.section.government.municipality` within the unchanged six
+   second contract.
+2. **Real observation:** the test had already proved that the exact municipality
+   detail existed before it invoked the shared navigation-bar/edge-swipe Back helper.
+   The full bundle contains no evidence of a wrong destination or changed expected
+   value; it only records the missing return to the typed list.
+3. **Classification:** **unresolved UI navigation reliability issue**. It is not a
+   stale baseline or a proven test bug. The prior `49acdc66` complete suite passed
+   this unchanged route, but a product Back-state defect cannot be excluded from a
+   single failed automation observation.
+4. **Fix:** no speculative source or test change was retained. No timeout, gesture,
+   assertion, or expected destination was weakened.
+5. **Changed files:** none for this finding.
+6. **Why correct:** changing the helper to repeat a tap or use a longer wait would
+   mask exactly the navigation reliability contract the test protects.
+7. **Result:** full clean-clone result remains **FAIL**. A physical-device/profile
+   investigation with navigation hierarchy evidence is required before calling this
+   an environment-only issue.
+
+### Current-source UI — `YouNewUITests.testAssistantHealthInsuranceWorkflowOpensHealthcareMapFocus()`
+
+1. **Failure:** the test found both required health-insurance follow-up actions and
+   `assistant.quickAction.openScreen.mapfocus.healthcare`, tapped it, then did not
+   observe `map.screen` within the unchanged six-second contract.
+2. **Real observation:** all prerequisite deterministic Assistant workflow steps
+   completed in the full run; the failure occurred only after the synthetic map
+   action. The same app route resolves `mapFocus:healthcare` to
+   `NearbyMapView(initialFocus: .healthcare)`.
+3. **Classification:** **environment/UI-automation event or transition-delivery
+   issue is the best-supported classification; product defect not excluded**. The
+   action's contract is current and was not relaxed.
+4. **Fix:** no production or test code changed for this isolated observation.
+5. **Changed files:** none for this finding.
+6. **Why correct:** modifying the Assistant route, adding delay, or retrying the
+   tap would hide a non-reproduced failure rather than establish its cause.
+7. **Rerun:** **PASS — 1/1** as part of the post-full-run two-test Assistant
+   diagnostic (25.041 s for this case). The full aggregate remains red.
+
+### Current-source UI — `YouNewUITests.testBuildWeekNewcomerDemoUsesExplicitLocalFallbackWithoutBackend()`
+
+1. **Failure:** the test could not find `assistant.input`. Its full-run hierarchy
+   showed a Russian `map.hub`, selected Map tab, and root metric `tab=map` even
+   though the test requested English plus `-uiTestingDestination assistant`.
+2. **Real observation:** this is a launch-state mismatch before the fallback prompt
+   or fallback assertions ran. It is not evidence that the deterministic fallback
+   returned a wrong origin, missing step, or wrong guide action.
+3. **Classification:** **environment/XCTest process launch-state contamination is
+   the best-supported classification; a product launch-routing defect is not fully
+   excluded**. The explicit launch arguments and fallback assertions remain valid.
+4. **Fix:** no product behavior or test contract changed. The test retains the
+   reset argument, Assistant destination, local-origin assertion, four steps,
+   source action, and BSN guide navigation.
+5. **Changed files:** none for this finding.
+6. **Why correct:** accepting the Map snapshot, removing reset, or replacing the
+   Assistant assertion would conceal the exact demo guarantee.
+7. **Rerun:** **PASS — 1/1** as the second case in the paired Assistant diagnostic
+   (26.892 s; pair total 51.933 s). It does not overwrite the 82/87 full result.
+
+## Clean-clone findings after the original failure set
+
+These findings were exposed only after the intended product files were committed
+and cloned without the source workspace's ignored generated state. They are not
+retroactively folded into the original 4/5/6 baseline counts.
+
+### Aggregate static QA: missing release manifest in a fresh clone
+
+- Failure: `data-project-import-static-qa.py` stopped with
+  `Release cities-v0.1.0 has no generated release manifest`.
+- Cause: `scripts/run-static-qa.sh` invoked importer validation before
+  `generate-data-observability.py`, while the required release manifests correctly
+  live under ignored `DataProject/reports/`.
+- Classification: **reproducibility/product-pipeline bug** hidden by generated local
+  state, not a network or test-expectation failure.
+- Fix: generate observability/release manifests before importer validation; add an
+  ordering assertion; run import validation in the offline GitHub publication gate
+  after manifest generation.
+- Files: `scripts/run-static-qa.sh`,
+  `scripts/data-project-workflow-static-qa.py`, and
+  `.github/workflows/data-project-health.yml`.
+- Why correct: the importer still requires a governed manifest and retains every
+  assertion. The producer now runs before the consumer in a fresh repository; no
+  ignored artifact is checked in and no validation is bypassed.
+- Rerun: authoritative report-free clean clone **40/40 PASS**; DataProject/import
+  validation PASS; post-run tracked tree clean.
+
+### `KnowledgeIndexTests/allIndexedRoutesResolveToLiveDestinations()`
+
+- Cause: published DataProject place-like records intentionally use
+  `article:data-project:<canonical-id>`. The UI, visibility engine, and Saved
+  restoration accepted that route, but the central string resolver checked only
+  the static `GuideContent` registry. The test's second existence assertion also
+  used that static registry for a dynamic repository article.
+- Classification: **product bug** in route restoration plus a **test datasource
+  bug** introduced by the new dynamic article architecture.
+- Fix: resolve published `data-project` article IDs through `ContentRepository` in
+  the main-actor navigation resolver; retain static `GuideContent` validation for
+  ordinary guide articles; make the integrity test validate each route against its
+  authoritative store.
+- Files: `YouNew/App/Navigation/AppRouter.swift`,
+  `YouNewTests/KnowledgeIndexTests.swift`, and
+  `YouNewTests/PublishedCitiesDataReleaseTests.swift`.
+- Why correct: the expected route and existence requirement were not weakened.
+  The test still rejects unpublished/missing dynamic records and dead static
+  articles, while string deep links now round-trip to the exact published record.
+- Rerun: affected KnowledgeIndex and city-release suites **39/39 PASS**; the earlier
+  resolver snapshot completed **458/458**. The current authoritative source commit
+  independently passes **460/460**, with 0 skipped/expected failures.
+
+### `KnowledgeIndexTests/navigationResolverRoundTripsIndexedDestinations()`
+
+- Cause: same missing dynamic-article branch in `AppNavigationResolver`; the first
+  reported route was `article:data-project:cafe.back-to-black`.
+- Classification: **product bug**.
+- Fix/files/correctness: same resolver correction above, plus a direct
+  Rijksmuseum string-route regression in `PublishedCitiesDataReleaseTests`.
+- Rerun: **PASS** in the 39-test focused rerun and the earlier 458-test complete
+  rerun; it remains covered by the current 460/460 complete suite.
+
+### Actor-isolation warning found during the route fix
+
+An intermediate centralization attempt compiled but emitted three synchronous
+nonisolated-to-main-actor warnings. It was not accepted as the final fix. Dynamic
+repository lookup was moved back to the main-actor resolver, the static guide
+registry kept its nonisolated contract, and the authoritative clean build completed
+with **0 errors, 0 warnings, and 0 analyzer warnings**.

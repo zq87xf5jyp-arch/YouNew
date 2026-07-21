@@ -72,6 +72,22 @@ xcodebuild test -project YouNew.xcodeproj -scheme YouNew -destination 'platform=
 
 The importer must preserve stable IDs. Renaming a title must never silently create a new entity.
 
+### Practical-guide depth
+
+`practical_guide` is an optional, backward-compatible extension of a canonical entity. Existing short records remain valid without it, and schema-version 1 scaffolds remain valid as non-public editorial drafts. A production guide must use schema version 2. Version 2 adds sourced audience and use-case statements, checklist, tips, three or more FAQ answers, reading time, difficulty, confidence, tags, emergency information, and an explicit publication gate. Every factual block and FAQ answer identifies its supporting `source_ids`.
+
+A practical guide reaches the runtime artifact only when both the parent entity and the nested guide are published, the parent is verified, all required guide fields are present, every fact resolves to an opened official source, review dates are current, and the jurisdiction is resolved. Publication additionally requires high confidence, a dated human editor/subject-matter/official-owner review, at least one sourced emergency-information block, an explicit supported `attributes.publicWebCategory`, and a verified media asset with authored alt text plus a safe local `public_asset_path`. Passing schema, source, link, language, media, duplicate-content, and accessibility evidence is mandatory. `draft`, `qa`, `review`, and `archived` guides are omitted while the parent short record may continue to publish.
+
+The editorial state transition is `Draft -> QA -> Human Reviewer -> Publish`. Automated research or generation may prepare a draft or QA packet, but it cannot populate a fictional reviewer or authorize publication.
+
+Human authorization and gate evidence are resolved through `operations/reviewer-registry.json` and `operations/guide-evidence-registry.json`. The reviewer registry accepts only active named human roles with explicit locale/category scope. Each evidence record must point to a repository-local QA artifact whose SHA-256 digest matches and whose checks cover the complete publication gate. Both registries intentionally start empty: an empty registry is a release blocker, never implicit approval.
+
+`staging/practical-guides-wave-1.json` is a curated editorial queue, not a runtime input or a second content database. Its scaffolds point to existing governed entity IDs where relevant and document evidence gaps without copying unreviewed instructions. Validate the queue and the fail-closed runtime projection with:
+
+```sh
+python3 scripts/practical-guide-static-qa.py
+```
+
 ## Measurement
 
 Coverage counts all governed DATA PROJECT records so QA progress is visible before publication. The dashboard reports `Published` separately, so reviewed coverage is never confused with the version currently shipped to users. Existing runtime Swift data is explicitly marked `legacy-runtime-unversioned` until it is audited and migrated; it is never silently presented as verified DATA PROJECT coverage.

@@ -11,49 +11,62 @@
    `IA_Audit_Screenshots/strict-reference-pass/02-refined-home.png` войти в
    repository snapshot. Не восстанавливать и не фиксировать это удаление по
    умолчанию.
-3. Подтвердить права на собственный код и contributor contributions, затем одобрить
+3. Решить судьбу всех 39 уже tracked captures (13 IA Audit, 5 QA Baseline и 21
+   Runtime, около 91 MB) после OCR/privacy/media review; правило `.gitignore`
+   не исключит их из будущего remote. Отдельно подтвердить или отклонить текущие
+   public-site, `.gitignore`, lockfile и семь untracked public-site media changes,
+   которые не входят в evidence commit.
+4. Подтвердить права на собственный код и contributor contributions, затем одобрить
    текущий restrictive `LICENSE` либо предоставить юридически проверенную замену.
-4. Предоставить доказательства происхождения и условий использования AppIcon,
+5. Предоставить доказательства происхождения и условий использования AppIcon,
    screenshots и всех unresolved media; всё неподтверждённое заменить
    rights-cleared материалом или исключить из public repository и demo.
-5. Одобрить финальные privacy, legal, medical и media disclosures, включая
+- Принять release-data решение по 18 подтверждённым недоступным URL в shipped
+  runtime data (30 published entities, 85 field occurrences): подтвердить
+  проверенные replacement sources/media или разрешить их исключение, затем
+  одобрить versioned `amsterdam-v0.1.1` remediation и fresh network verification.
+  Нельзя удалять или обнулять generated link evidence ради зелёного отчёта.
+6. Одобрить финальные privacy, legal, medical и media disclosures, включая
    применимые GDPR-роли, retention policy, support URL и privacy-policy URL.
 
 ## GitHub and judge access
 
-6. Выбрать окончательное имя и private/public visibility repository.
-7. Вручную создать GitHub repository без автоматической генерации расходящихся
+7. Выбрать окончательное имя и private/public visibility repository.
+8. Вручную создать GitHub repository без автоматической генерации расходящихся
    README, license или ignore-файлов.
-8. После проверки curated snapshot вручную добавить remote и отдельно подтвердить
+9. После проверки curated snapshot вручную добавить remote и отдельно подтвердить
    первый push. Ни remote, ни push не должны выполняться по подразумеваемому
    согласию.
-9. Настроить branch protection и предоставить судьям минимальный Read-доступ по
+10. Настроить branch protection и предоставить судьям минимальный Read-доступ по
    официально подтверждённым аккаунтам.
-10. Подтвердить, допустимы ли для публикации Git author metadata, signing-team
+11. Подтвердить, допустимы ли для публикации Git author metadata, signing-team
     metadata и выбранный security contact.
 
 ## Live AI backend
 
-11. Предоставить backend credential только через защищённое secret-хранилище
+12. Предоставить backend credential только через защищённое secret-хранилище
     выбранного hosting provider; не передавать credential в repository, iOS bundle,
     отчёт, screenshot или чат.
-12. Подтвердить, что используемый OpenAI account имеет реальный доступ к выбранной
-    GPT-5.6 model configuration.
-13. Выбрать hosting account, region, retention, access-control, rate-limit и abuse
-    policy, затем отдельной командой разрешить backend deployment.
-14. Предоставить owner-approved HTTPS endpoint для финальной конфигурации demo и
-    разрешить обезличенную runtime-проверку фактически возвращённых model metadata
-    и request ID.
+13. Подтвердить, что используемый OpenAI account имеет реальный доступ к выбранной
+    модели `gpt-5.6-sol`; для runtime proof не использовать недоказанную подмену
+    модели или fixture как live ответ.
+14. Выбрать privacy-safe design для стабильного `safety_identifier` (например,
+    opaque per-install ID с документированным reset), hosting account, region,
+    retention, access-control, rate-limit и abuse policy, затем отдельной командой
+    разрешить backend deployment.
+15. Предоставить owner-approved HTTPS endpoint для финальной конфигурации demo и
+    разрешить обезличенную runtime-проверку фактически возвращённых `gpt-5.6-sol`
+    metadata и request ID.
 
 ## Distribution and submission
 
-15. Настроить Apple signing, certificates и provisioning вне repository, если
+16. Настроить Apple signing, certificates и provisioning вне repository, если
     нужен device, TestFlight или App Store build.
-16. Предоставить финальные rights-cleared App Store/TestFlight screenshots и
+17. Предоставить финальные rights-cleared App Store/TestFlight screenshots и
     заполнить обязательные privacy/distribution declarations.
-17. Записать основной live demo video и отдельное fallback evidence без credentials,
+18. Записать основной live demo video и отдельное fallback evidence без credentials,
     personal data, notifications или неподтверждённых media.
-18. Отдельно подтвердить и вручную выполнить требуемые upload, TestFlight/App Store
+19. Отдельно подтвердить и вручную выполнить требуемые upload, TestFlight/App Store
     release actions и OpenAI Build Week submission.
 
 Создание remote, push, deployment, release и submission требуют отдельного явного

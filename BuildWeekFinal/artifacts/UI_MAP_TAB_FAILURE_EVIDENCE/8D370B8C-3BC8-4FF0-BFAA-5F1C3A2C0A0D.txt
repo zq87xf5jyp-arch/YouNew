@@ -1,0 +1,127 @@
+Application, 0x123ade580, pid: 62789, label: 'YouNew' <App element pid: 62789>
+  Window (Main), 0x123add400, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4402874368.4>
+    Other, 0x123adea80, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4459611136.5>
+      Other, 0x123addb80, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4459050112.6>
+        Other, 0x123addcc0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4402873344.7>
+          Other, 0x123adde00, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4458686080.8>
+            Image, 0x123adf200, {{-454.7, 0.0}, {1311.3, 874.0}}, label: 'app_amsterdam_evening_background' <AX element pid: 62789, elementOrHash.elementID: 4403163840.9>
+            Other, 0x123adc640, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4459226304.10>
+            Other, 0x123ade080, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4458713920.250>
+              NavigationBar, 0x123adef80, {{0.0, 62.0}, {402.0, 54.0}}, identifier: 'Map' <AX element pid: 62789, elementOrHash.elementID: 4868084224.251>
+                Other, 0x123add2c0, {{20.0, 66.0}, {44.0, 36.0}}, identifier: 'places.discoveryMenu', label: 'Open discovery menu' <AX element pid: 62789, elementOrHash.elementID: 4402795520.254>
+                  Other, 0x123ade300, {{20.0, 66.0}, {44.0, 36.0}} <AX element pid: 62789, elementOrHash.elementID: 4458688768.258>
+                    Button, 0x123ade440, {{20.0, 62.0}, {44.0, 44.0}}, identifier: 'places.discoveryMenu', label: 'Open discovery menu' <AX element pid: 62789, elementOrHash.elementID: 4458687424.260>
+                StaticText, 0x123adc8c0, {{183.7, 73.7}, {34.7, 20.7}}, label: 'Map' <AX element pid: 62789, elementOrHash.elementID: 4402862208.255>
+              Other, 0x123ade940, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4458713472.252>
+                Other, 0x123add180, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4458691456.256>
+                  Other, 0x123adf480, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4402856832.259>
+                    Other, 0x123adf5c0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4404004160.261>
+                      ScrollView, 0x123adf700, {{0.0, 0.0}, {402.0, 874.0}}, identifier: 'map.hub' <AX element pid: 62789, elementOrHash.elementID: 4402383872.262>
+                        Other, 0x123adfc00, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4458714816.263>
+                          Other, 0x123adee40, {{0.0, 0.0}, {402.0, 170.8}} <AX element pid: 62789, elementOrHash.elementID: 4458748032.267>
+                        Other, 0x123adca00, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4458715264.264>
+                        Other, 0x123adcb40, {{0.0, 124.0}, {402.0, 6116.0}} <AX element pid: 62789, elementOrHash.elementID: 4865806848.265>
+                          Other, 0x123addf40, {{17.6, 194.0}, {366.4, 3465.0}} <AX element pid: 62789, elementOrHash.elementID: 4404004608.268>
+                            Image, 0x123adfe80, {{34.0, 207.7}, {16.3, 16.7}}, identifier: 'places.universalInput', label: 'Search' <AX element pid: 62789, elementOrHash.elementID: 4458846336.270>
+                            TextField, 0x123adf840, {{62.3, 205.0}, {253.7, 22.0}}, identifier: 'places.universalInput', placeholderValue: 'Search places and services' <AX element pid: 62789, elementOrHash.elementID: 4402791680.271>
+                            Button, 0x123b44000, {{326.0, 194.0}, {44.0, 44.0}}, identifier: 'places.universalInput', label: 'Search' <AX element pid: 62789, elementOrHash.elementID: 4458848128.272>
+                            Other, 0x123b44140, {{18.0, 376.0}, {366.0, 294.0}}, identifier: 'map.provinceInteractionSurface', label: 'Interactive province map', value: Zuid-Holland <AX element pid: 62789, elementOrHash.elementID: 4458854848.273>
+                              Button, 0x123b44280, {{163.0, 466.3}, {44.0, 44.0}}, identifier: 'provinces.map.zone.noord_holland', label: 'North Holland' <AX element pid: 62789, elementOrHash.elementID: 4458848576.296>
+                              Button, 0x123b443c0, {{170.3, 524.3}, {44.0, 44.0}}, identifier: 'provinces.map.zone.zuid_holland', label: 'South Holland', Selected <AX element pid: 62789, elementOrHash.elementID: 4458849024.297>
+                              Button, 0x123b44500, {{182.0, 505.3}, {44.0, 44.0}}, identifier: 'provinces.map.zone.utrecht', label: 'Utrecht' <AX element pid: 62789, elementOrHash.elementID: 4458849472.298>
+                              Button, 0x123b44640, {{204.7, 506.3}, {44.0, 44.0}}, identifier: 'provinces.map.zone.gelderland', label: 'Gelderland' <AX element pid: 62789, elementOrHash.elementID: 4458849920.299>
+                              Button, 0x123b44780, {{190.3, 557.0}, {44.1, 44.0}}, identifier: 'provinces.map.zone.noord_brabant', label: 'North Brabant' <AX element pid: 62789, elementOrHash.elementID: 4458850816.300>
+                              Button, 0x123b448c0, {{207.0, 583.7}, {44.0, 44.0}}, identifier: 'provinces.map.zone.limburg', label: 'Limburg' <AX element pid: 62789, elementOrHash.elementID: 4458851264.301>
+                              Button, 0x123b44a00, {{224.0, 471.7}, {44.0, 44.0}}, identifier: 'provinces.map.zone.overijssel', label: 'Overijssel' <AX element pid: 62789, elementOrHash.elementID: 4458851712.302>
+                              Button, 0x123b44b40, {{193.3, 467.3}, {44.0, 44.0}}, identifier: 'provinces.map.zone.flevoland', label: 'Flevoland' <AX element pid: 62789, elementOrHash.elementID: 4458852160.303>
+                              Button, 0x123b44c80, {{231.0, 390.3}, {44.0, 44.0}}, identifier: 'provinces.map.zone.groningen', label: 'Groningen' <AX element pid: 62789, elementOrHash.elementID: 4458852608.304>
+                              Button, 0x123b44dc0, {{199.0, 411.3}, {44.0, 44.0}}, identifier: 'provinces.map.zone.friesland', label: 'Friesland' <AX element pid: 62789, elementOrHash.elementID: 4458853056.305>
+                              Button, 0x123b44f00, {{231.3, 429.3}, {44.0, 44.0}}, identifier: 'provinces.map.zone.drenthe', label: 'Drenthe' <AX element pid: 62789, elementOrHash.elementID: 4458853504.306>
+                              Button, 0x123b45040, {{123.7, 561.3}, {44.0, 44.0}}, identifier: 'provinces.map.zone.zeeland', label: 'Zeeland' <AX element pid: 62789, elementOrHash.elementID: 4458853952.307>
+                              Button, 0x123b45180, {{107.0, 492.0}, {88.0, 63.3}}, identifier: 'map.visualMarker.leiden', label: 'Leiden' <AX element pid: 62789, elementOrHash.elementID: 4458854400.308>
+                            StaticText, 0x123b452c0, {{36.0, 302.0}, {174.3, 33.7}}, identifier: 'places.premiumNetherlandsMap', label: 'Netherlands' <AX element pid: 62789, elementOrHash.elementID: 4458855744.274>
+                            StaticText, 0x123b45400, {{36.0, 340.7}, {203.7, 42.3}}, label: 'Choose a province, then a city to open the working map.' <AX element pid: 62789, elementOrHash.elementID: 4458719744.275>
+                            Image, 0x123b45540, {{293.0, 313.0}, {12.3, 12.3}}, identifier: 'location.fill', label: 'Location Services' <AX element pid: 62789, elementOrHash.elementID: 4458720640.276>
+                            StaticText, 0x123b45680, {{293.0, 312.1}, {61.0, 14.3}}, label: 'Leiden' <AX element pid: 62789, elementOrHash.elementID: 4458721088.277>
+                            StaticText, 0x123b457c0, {{284.3, 332.4}, {69.7, 14.3}}, label: '12 provinces' <AX element pid: 62789, elementOrHash.elementID: 4458721536.278>
+                            Image, 0x123b45900, {{52.0, 698.0}, {17.7, 16.7}}, identifier: 'map.cityFilter', label: 'Show Map' <AX element pid: 62789, elementOrHash.elementID: 4458721984.279>
+                            StaticText, 0x123b45a40, {{52.0, 695.8}, {138.7, 20.3}}, identifier: 'map.cityFilter', label: 'South Holland' <AX element pid: 62789, elementOrHash.elementID: 4458722432.280>
+                            Button, 0x123b45b80, {{227.7, 672.0}, {124.3, 68.0}}, identifier: 'map.cityMenu', label: 'Choose city' <AX element pid: 62789, elementOrHash.elementID: 4403151744.281>
+                              Button, 0x123b45cc0, {{227.7, 672.0}, {124.3, 68.0}} <AX element pid: 62789, elementOrHash.elementID: 4402864000.309>
+                                Image, 0x123b45e00, {{244.3, 698.0}, {13.3, 16.0}}, identifier: 'building.2.fill', label: 'Business' <AX element pid: 62789, elementOrHash.elementID: 4458722880.319>
+                                StaticText, 0x123b45f40, {{244.3, 698.0}, {91.7, 16.0}}, label: 'Choose city' <AX element pid: 62789, elementOrHash.elementID: 4458723776.320>
+                            StaticText, 0x123b46080, {{50.0, 750.0}, {59.7, 12.0}}, label: 'Province' <AX element pid: 62789, elementOrHash.elementID: 4403150848.282>
+                            ScrollView, 0x123b461c0, {{50.0, 772.0}, {302.0, 44.0}}, identifier: 'places.provincePicker' <AX element pid: 62789, elementOrHash.elementID: 4402386944.283>
+                              Other, 0x123b46300, {{50.0, 772.0}, {1097.0, 44.0}} <AX element pid: 62789, elementOrHash.elementID: 4866211840.310>
+                                Button, 0x123b46440, {{50.0, 772.0}, {104.7, 44.0}}, identifier: 'places.provincePicker.noord-holland', label: 'North Holland' <AX element pid: 62789, elementOrHash.elementID: 4403162496.321>
+                                Button, 0x123b46580, {{162.7, 772.0}, {106.0, 44.0}}, identifier: 'places.provincePicker.zuid-holland', label: 'South Holland' <AX element pid: 62789, elementOrHash.elementID: 4403162944.322>
+                                Button, 0x123b466c0, {{276.7, 772.0}, {68.0, 44.0}}, identifier: 'places.provincePicker.utrecht', label: 'Utrecht' <AX element pid: 62789, elementOrHash.elementID: 4403164736.323>
+                                Button, 0x123b46800, {{352.7, 772.0}, {87.7, 44.0}}, identifier: 'places.provincePicker.gelderland', label: 'Gelderland' <AX element pid: 62789, elementOrHash.elementID: 4403165184.324>
+                                Button, 0x123b46940, {{448.3, 772.0}, {105.7, 44.0}}, identifier: 'places.provincePicker.noord-brabant', label: 'North Brabant' <AX element pid: 62789, elementOrHash.elementID: 4403165632.325>
+                                Button, 0x123b46a80, {{562.0, 772.0}, {71.7, 44.0}}, identifier: 'places.provincePicker.limburg', label: 'Limburg' <AX element pid: 62789, elementOrHash.elementID: 4403166080.326>
+                                Button, 0x123b46bc0, {{641.7, 772.0}, {81.7, 44.0}}, identifier: 'places.provincePicker.overijssel', label: 'Overijssel' <AX element pid: 62789, elementOrHash.elementID: 4403161152.327>
+                                Button, 0x123b46d00, {{731.3, 772.0}, {80.0, 44.0}}, identifier: 'places.provincePicker.flevoland', label: 'Flevoland' <AX element pid: 62789, elementOrHash.elementID: 4403159808.328>
+                                Button, 0x123b46e40, {{819.3, 772.0}, {84.3, 44.0}}, identifier: 'places.provincePicker.groningen', label: 'Groningen' <AX element pid: 62789, elementOrHash.elementID: 4403160704.329>
+                                Button, 0x123b46f80, {{911.7, 772.0}, {77.7, 44.0}}, identifier: 'places.provincePicker.friesland', label: 'Friesland' <AX element pid: 62789, elementOrHash.elementID: 4403160256.330>
+                                Button, 0x123b470c0, {{997.3, 772.0}, {70.7, 44.0}}, identifier: 'places.provincePicker.drenthe', label: 'Drenthe' <AX element pid: 62789, elementOrHash.elementID: 4403988224.331>
+                                Button, 0x123b47200, {{1076.0, 772.0}, {71.0, 44.0}}, identifier: 'places.provincePicker.zeeland', label: 'Zeeland' <AX element pid: 62789, elementOrHash.elementID: 4404001216.332>
+                            StaticText, 0x123b47340, {{50.0, 826.0}, {27.7, 12.0}}, label: 'City' <AX element pid: 62789, elementOrHash.elementID: 4403999872.284>
+                            ScrollView, 0x123b47480, {{50.0, 848.0}, {302.0, 44.0}}, identifier: 'places.cityPicker' <AX element pid: 62789, elementOrHash.elementID: 4402380800.285>
+                              Other, 0x123b475c0, {{50.0, 848.0}, {311.0, 44.0}} <AX element pid: 62789, elementOrHash.elementID: 4866218496.311>
+                                Button, 0x123b47700, {{50.0, 848.0}, {85.0, 44.0}}, identifier: 'map.city.rotterdam', label: 'Rotterdam' <AX element pid: 62789, elementOrHash.elementID: 4403999424.333>
+                                Button, 0x123b47840, {{143.0, 848.0}, {86.7, 44.0}}, identifier: 'map.city.den-haag', label: 'The Hague' <AX element pid: 62789, elementOrHash.elementID: 4404000768.334>
+                                Button, 0x123b47980, {{237.7, 848.0}, {63.0, 44.0}}, identifier: 'map.city.leiden', label: 'Leiden' <AX element pid: 62789, elementOrHash.elementID: 4403994048.335>
+                                Button, 0x123b47ac0, {{308.7, 848.0}, {52.3, 44.0}}, identifier: 'map.city.delft', label: 'Delft' <AX element pid: 62789, elementOrHash.elementID: 4403993152.336>
+                            StaticText, 0x123b47c00, {{34.0, 958.0}, {57.7, 15.7}}, identifier: 'places.supportSections', label: 'Nearby' <AX element pid: 62789, elementOrHash.elementID: 4403992256.286>
+                            StaticText, 0x123b47d40, {{34.0, 978.7}, {265.3, 14.3}}, identifier: 'places.supportSections', label: 'The most useful places around the selected city.' <AX element pid: 62789, elementOrHash.elementID: 4403991360.287>
+                            Other, 0x123b47e80, {{18.0, 1005.0}, {366.0, 804.0}}, identifier: 'places.supportSections' <AX element pid: 62789, elementOrHash.elementID: 4404009088.288>
+                              Button, 0x123b20000, {{18.0, 1005.0}, {366.0, 260.0}}, label: 'Museum De Lakenhal, Museum · In selected city, (summary) Opening hours, menus and access can change; verify the latest details on the official website before visiting.' <AX element pid: 62789, elementOrHash.elementID: 4403995392.312>
+                                Image, 0x123b20140, {{32.0, 1019.0}, {338.0, 92.0}}, label: 'Museum De Lakenhal' <AX element pid: 62789, elementOrHash.elementID: 4403987776.337>
+                                Image, 0x123b20280, {{32.0, 1019.0}, {338.0, 92.0}}, identifier: 'building.columns.fill', label: 'Building' <AX element pid: 62789, elementOrHash.elementID: 4403990464.338>
+                                StaticText, 0x123b203c0, {{32.0, 1121.0}, {167.7, 20.3}}, label: 'Museum De Lakenhal' <AX element pid: 62789, elementOrHash.elementID: 4403986432.339>
+                                StaticText, 0x123b20500, {{32.0, 1151.3}, {140.0, 14.3}}, label: 'Museum · In selected city' <AX element pid: 62789, elementOrHash.elementID: 4403987328.340>
+                                StaticText, 0x123b20640, {{32.0, 1175.7}, {337.0, 33.7}}, label: '(summary) Opening hours, menus and access can change; verify the latest details on the official website before visiting.' <AX element pid: 62789, elementOrHash.elementID: 4403994944.341>
+                              Button, 0x123b20780, {{18.0, 1277.0}, {366.0, 260.0}}, label: 'Naturalis Biodiversity Center, Municipality · In selected city, (summary) Opening hours, menus and access can change; verify the latest details on the official website before visiting.' <AX element pid: 62789, elementOrHash.elementID: 4403997632.313>
+                                Image, 0x123b208c0, {{32.0, 1291.0}, {338.0, 92.0}}, label: 'Naturalis Biodiversity Center' <AX element pid: 62789, elementOrHash.elementID: 4403995840.342>
+                                Image, 0x123b20a00, {{32.0, 1291.0}, {338.0, 92.0}}, identifier: 'building.2.fill', label: 'Business' <AX element pid: 62789, elementOrHash.elementID: 4403996736.343>
+                                StaticText, 0x123b20b40, {{32.0, 1393.0}, {224.0, 20.3}}, label: 'Naturalis Biodiversity Center' <AX element pid: 62789, elementOrHash.elementID: 4403998080.344>
+                                StaticText, 0x123b20c80, {{32.0, 1423.3}, {159.7, 14.3}}, label: 'Municipality · In selected city' <AX element pid: 62789, elementOrHash.elementID: 4403998528.345>
+                                StaticText, 0x123b20dc0, {{32.0, 1447.7}, {337.0, 33.7}}, label: '(summary) Opening hours, menus and access can change; verify the latest details on the official website before visiting.' <AX element pid: 62789, elementOrHash.elementID: 4403998976.346>
+                              Button, 0x123b20f00, {{18.0, 1549.0}, {366.0, 260.0}}, label: 'De Burcht, Attraction · In selected city, (summary) Opening hours, menus and access can change; verify the latest details on the official website before visiting.' <AX element pid: 62789, elementOrHash.elementID: 4404008640.314>
+                                Image, 0x123b21040, {{32.0, 1563.0}, {338.0, 92.0}}, label: 'De Burcht' <AX element pid: 62789, elementOrHash.elementID: 4403994496.347>
+                                Image, 0x123b21180, {{32.0, 1563.0}, {338.0, 92.0}}, identifier: 'camera.viewfinder', label: 'Screenshot' <AX element pid: 62789, elementOrHash.elementID: 4404001664.348>
+                                StaticText, 0x123b212c0, {{32.0, 1665.0}, {78.0, 20.3}}, label: 'De Burcht' <AX element pid: 62789, elementOrHash.elementID: 4404014016.349>
+                                StaticText, 0x123b21400, {{32.0, 1695.3}, {147.0, 14.3}}, label: 'Attraction · In selected city' <AX element pid: 62789, elementOrHash.elementID: 4404013120.350>
+                                StaticText, 0x123b21540, {{32.0, 1719.7}, {337.0, 33.7}}, label: '(summary) Opening hours, menus and access can change; verify the latest details on the official website before visiting.' <AX element pid: 62789, elementOrHash.elementID: 4404007744.351>
+                            Button, 0x123b21680, {{17.6, 2364.6}, {100.8, 68.8}}, identifier: 'places.supportSections', label: 'View all' <AX element pid: 62789, elementOrHash.elementID: 4404010432.289>
+                              Image, 0x123b217c0, {{35.3, 2394.0}, {12.3, 9.3}}, identifier: 'list.bullet', label: 'List' <AX element pid: 62789, elementOrHash.elementID: 4404008192.315>
+                              StaticText, 0x123b21900, {{35.3, 2391.8}, {66.7, 14.3}}, label: 'View all' <AX element pid: 62789, elementOrHash.elementID: 4404009536.316>
+                            StaticText, 0x123b21a40, {{34.0, 2467.0}, {125.3, 15.7}}, identifier: 'places.supportSections', label: 'Local Partners' <AX element pid: 62789, elementOrHash.elementID: 4404011328.290>
+                            StaticText, 0x123b21b80, {{34.0, 2487.7}, {214.7, 14.3}}, identifier: 'places.supportSections', label: 'Commercial listings are clearly labeled.' <AX element pid: 62789, elementOrHash.elementID: 4404012224.291>
+                            Other, 0x123b21cc0, {{0.0, 0.0}, {0.0, 0.0}}, identifier: 'places.supportSections' <AX element pid: 62789, elementOrHash.elementID: 4404010880.292>
+                            StaticText, 0x123b21e00, {{34.0, 3624.0}, {120.7, 15.7}}, identifier: 'places.supportSections', label: 'Today's Events' <AX element pid: 62789, elementOrHash.elementID: 4404012672.293>
+                            StaticText, 0x123b21f40, {{34.0, 3644.7}, {208.3, 14.3}}, identifier: 'places.supportSections', label: 'Check current details with the source.' <AX element pid: 62789, elementOrHash.elementID: 4404009984.294>
+                            Other, 0x123b22080, {{0.0, 0.0}, {0.0, 0.0}}, identifier: 'places.supportSections' <AX element pid: 62789, elementOrHash.elementID: 4404003264.295>
+                        Other, 0x123b221c0, {{369.0, 124.0}, {30.0, 688.0}}, label: 'Вертикальная полоса прокрутки, 9 страниц', value: 0 % <AX element pid: 62789, elementOrHash.elementID: 4868754944.266>
+                          Other, 0x123b22300, {{396.0, 127.0}, {3.0, 97.3}} <AX element pid: 62789, elementOrHash.elementID: 4458744896.269>
+                        Other, 0x123b22440, {{369.0, 124.0}, {30.0, 688.0}}, label: 'Вертикальная полоса прокрутки, 9 страниц', value: 0 % <AX element pid: 62789, elementOrHash.elementID: 4868754944.266>
+                          Other, 0x123b22580, {{396.0, 127.0}, {3.0, 97.3}} <AX element pid: 62789, elementOrHash.elementID: 4458744896.269>
+              Other, 0x123b226c0, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4865808384.253>
+                Other, 0x123b22800, {{0.0, 0.0}, {402.0, 874.0}} <AX element pid: 62789, elementOrHash.elementID: 4865810432.257>
+            Other, 0x123b22940, {{11.6, 797.6}, {378.8, 66.8}}, identifier: 'root.tabBar' <AX element pid: 62789, elementOrHash.elementID: 4458685184.12>
+              Button, 0x123b22a80, {{16.0, 806.7}, {74.0, 48.7}}, identifier: 'tab.home', label: 'Home' <AX element pid: 62789, elementOrHash.elementID: 4458677568.17>
+                Image, 0x123b22bc0, {{42.0, 809.3}, {22.3, 19.7}}, identifier: 'house', label: 'Home' <AX element pid: 62789, elementOrHash.elementID: 4458676224.26>
+                StaticText, 0x123b22d00, {{16.0, 806.7}, {74.0, 48.7}}, label: 'Home' <AX element pid: 62789, elementOrHash.elementID: 4458677120.27>
+              Button, 0x123b22e40, {{90.0, 806.7}, {74.0, 48.7}}, identifier: 'tab.guide', label: 'Guide' <AX element pid: 62789, elementOrHash.elementID: 4458679360.18>
+                Image, 0x123b22f80, {{117.7, 809.7}, {19.0, 19.0}}, identifier: 'safari', label: 'Safari' <AX element pid: 62789, elementOrHash.elementID: 4458678016.28>
+                StaticText, 0x123b230c0, {{90.0, 806.7}, {74.0, 48.7}}, label: 'Guide' <AX element pid: 62789, elementOrHash.elementID: 4458678464.29>
+              Button, 0x123b23200, {{164.0, 806.7}, {74.0, 48.7}}, identifier: 'tab.map', label: 'Map', Selected <AX element pid: 62789, elementOrHash.elementID: 4458681600.19>
+                Image, 0x123b23340, {{190.2, 808.9}, {21.6, 20.5}}, identifier: 'map.fill', label: 'Show Map' <AX element pid: 62789, elementOrHash.elementID: 4458679808.30>
+                StaticText, 0x123b23480, {{164.0, 806.7}, {74.0, 48.7}}, label: 'Map' <AX element pid: 62789, elementOrHash.elementID: 4458680704.31>
+              Button, 0x123b235c0, {{238.0, 806.7}, {74.0, 48.7}}, identifier: 'tab.saved', label: 'Saved' <AX element pid: 62789, elementOrHash.elementID: 4458683392.20>
+                Image, 0x123b23700, {{265.7, 810.7}, {18.7, 17.3}}, identifier: 'heart', label: 'Love' <AX element pid: 62789, elementOrHash.elementID: 4458682048.32>
+                StaticText, 0x123b23840, {{238.0, 806.7}, {74.0, 48.7}}, label: 'Saved' <AX element pid: 62789, elementOrHash.elementID: 4458682496.33>
+              Button, 0x123b23980, {{312.0, 806.7}, {74.0, 48.7}}, identifier: 'tab.more', label: 'Open menu' <AX element pid: 62789, elementOrHash.elementID: 4458684736.21>
+                Image, 0x123b23ac0, {{339.7, 809.7}, {19.0, 19.0}}, identifier: 'ellipsis.circle', label: 'More' <AX element pid: 62789, elementOrHash.elementID: 4458683840.34>
+                StaticText, 0x123b23c00, {{312.0, 806.7}, {74.0, 48.7}}, label: 'More' <AX element pid: 62789, elementOrHash.elementID: 4458684288.35>
+            Other, 0x123b23d40, {{0.0, 0.0}, {1.0, 1.0}}, identifier: 'root.tabNavigationMetric', label: 'Root tab navigation metric', value: sequence=2;tab=map... <AX element pid: 62789, elementOrHash.elementID: 4458685632.13>

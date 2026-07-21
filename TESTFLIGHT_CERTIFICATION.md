@@ -43,7 +43,7 @@ An installed build launched through Simulator Spotlight, but direct install/laun
 10. `xcodebuild -project YouNew.xcodeproj -list` also hung and was terminated with exit 143.
 11. Resumed GUI check showed YouNew still visible on the Search tab, but Computer Use click on the Search field returned `noWindowsAvailable` and the next state read returned `timeoutReached`.
 12. Resumed `xcodebuild -project YouNew.xcodeproj -list` retry again hung after printing only the command invocation and was terminated with exit 143.
-13. Retrying Xcode with writable `/private/tmp` HOME/cache/module-cache paths allowed project metadata to load, proving the previous metadata hang was partly cache/log related.
+13. Retrying Xcode with writable `<TEMP_DIR>` HOME/cache/module-cache paths allowed project metadata to load, proving the previous metadata hang was partly cache/log related.
 14. The writable-cache simulator build still failed with exit 65 at asset catalog compilation because `actool` could not discover simulator runtimes after CoreSimulatorService/simdiskimaged dropped again.
 15. Computer Use text input into the visible Simulator returned `noWindowsAvailable`; Swift CoreGraphics keyboard events hit a HiServices/XPC connection error and did not change the visible Search screen.
 16. A later resumed check again showed YouNew visually on Search and confirmed writable-cache Xcode metadata still works, but writable-cache `simctl list devices available` still fails with CoreSimulatorService/simdiskimaged connection errors.

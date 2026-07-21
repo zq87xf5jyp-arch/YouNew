@@ -43,6 +43,11 @@ for offline_contract in (
 ):
     require(offline_contract in GENERATOR_SOURCE, f"offline link-evidence contract missing {offline_contract}")
 
+require(
+    '"YouNew/Resources/Data/younew-runtime-data.json:"' in GENERATOR_SOURCE,
+    "governed runtime link failures must not be classified as legacy",
+)
+
 
 dashboard = json.loads(DASHBOARD_JSON.read_text(encoding="utf-8"))
 markdown = DASHBOARD_MD.read_text(encoding="utf-8")

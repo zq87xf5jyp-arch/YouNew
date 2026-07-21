@@ -204,6 +204,7 @@ private struct AppInputModifier: ViewModifier {
             .overlay {
                 RoundedRectangle(cornerRadius: cornerRadius, style: .continuous)
                     .stroke(AppColors.stroke.opacity(0.86), lineWidth: 0.85)
+                    .allowsHitTesting(false)
             }
     }
 }

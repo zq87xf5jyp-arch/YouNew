@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "common_required_fields": ["canonical_id", "content_type", "primary_category_id", "localized_content", "audience_tags", "geography_refs", "search_aliases", "publication_status"],
+  "types": [
+    {"id": "article", "purpose": "Explanatory canonical knowledge", "coordinate_policy": "not_required", "additional_required_fields": ["body", "reviewed_at"], "guide": true, "search": true, "map": "via_related_entities"},
+    {"id": "official_service", "purpose": "A government or formally trusted process/service", "coordinate_policy": "optional", "additional_required_fields": ["provider", "official_source_url", "reviewed_at"], "guide": true, "search": true, "map": "when_coordinates_exist"},
+    {"id": "place", "purpose": "A physical venue, service point or attraction", "coordinate_policy": "required", "additional_required_fields": ["name", "latitude", "longitude", "city_ref"], "guide": true, "search": true, "map": true},
+    {"id": "city", "purpose": "A geographic city entity", "coordinate_policy": "required", "additional_required_fields": ["name", "country_ref", "province_refs"], "guide": true, "search": true, "map": true},
+    {"id": "province", "purpose": "A geographic province entity", "coordinate_policy": "centroid_or_geometry", "additional_required_fields": ["name", "country_ref"], "guide": true, "search": true, "map": true},
+    {"id": "checklist", "purpose": "A reusable ordered set of actions", "coordinate_policy": "not_required", "additional_required_fields": ["items"], "guide": true, "search": true, "map": "via_related_entities"},
+    {"id": "emergency_action", "purpose": "A short, safe and prioritized urgent flow", "coordinate_policy": "optional", "additional_required_fields": ["urgency_level", "steps", "official_source_url", "reviewed_at"], "guide": true, "search": true, "map": "when_related_places_exist"},
+    {"id": "external_resource", "purpose": "A trusted outbound resource without duplicated remote body", "coordinate_policy": "optional", "additional_required_fields": ["publisher", "url", "reviewed_at"], "guide": true, "search": true, "map": "when_coordinates_exist"}
+  ],
+  "storage_rules": {
+    "one_body_per_canonical_id": true,
+    "cards_store_references_only": true,
+    "saved_stores_canonical_ids_only": true,
+    "ai_cites_canonical_ids": true,
+    "map_callouts_store_references_only": true
+  }
+}
+

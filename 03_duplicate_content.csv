@@ -1,0 +1,31 @@
+duplicate_group_id,screen,component,content_id,text,canonical_item,recommended_action
+DUP-001,HomeView,Housing card,legacy-home-housing,Housing shortcut,category-housing,Store only canonical reference
+DUP-001,HelpHubView,Housing row,legacy-help-housing,Housing help,category-housing,Deep-link to canonical
+DUP-001,GuideContentView,Housing section,guide-housing,Housing articles,category-housing,Keep as canonical body
+DUP-002,HomeView,Healthcare card,legacy-home-health,Healthcare shortcut,category-health-safety,Store only canonical reference
+DUP-002,GuideContentView,Healthcare section,guide-healthcare,Healthcare articles,category-health-safety,Keep as canonical body
+DUP-002,NearbyMapView,Healthcare focus,map-healthcare,Nearby healthcare,category-health-safety,Keep geographic projection only
+DUP-003,TransportGuideView,Guide,transport-guide,OV trains bikes,category-transport,Canonical task-oriented landing
+DUP-003,GuideContentView,Transport section,guide-transport,Transport articles,category-transport,Reference canonical landing
+DUP-003,NearbyMapView,Transport map,map-transport,Transport places,category-transport,Geographic projection only
+DUP-004,GuideContentView,Documents section,guide-documents,BSN DigiD BRP,category-official-services,Canonical knowledge
+DUP-004,DocumentOrganizerView,Tool,document-organizer,Document checklist,category-official-services,Keep tool linked from canonical
+DUP-004,LettersView,Reference,letters-list,Official letters,category-official-services,Keep subtype linked from canonical
+DUP-005,GovernmentHubView,Hub,government-hub,Government services,category-official-services,Canonical landing
+DUP-005,InstitutionsView,Directory,institutions-list,Institutions,category-official-services,Make child directory
+DUP-005,OfficialSourceDirectoryView,Directory,official-sources,Official sources,category-official-services,Make child directory
+DUP-006,EmergencyHubView,Actions,emergency-hub,112 urgent help,category-health-safety,Canonical emergency action
+DUP-006,GuideContentView,Emergency section,guide-emergency,Emergency guidance,category-health-safety,Link to emergency action
+DUP-006,HomeView,Emergency shortcut,home-emergency,Emergency,category-health-safety,Shortcut reference only
+DUP-007,NetherlandsHistoryView,Timeline,history-timeline,Dutch history,article-history,Canonical history body
+DUP-007,HistoryKNMHubView,History cards,history-knm,History and KNM,article-history,Course gateway references canonical
+DUP-008,CultureAttractionsView,Attraction cards,culture-attractions,Culture and attractions,category-explore,Canonical national explore
+DUP-008,PlacesDiscoveryView,Places segment,places-culture,Places to visit,category-explore,Projection by geography
+DUP-009,AIAssistantView,Tab launcher,ai-tab,AI Assistant,assistant-action,Remove separate tab; global action
+DUP-009,AppTabView,FloatingAssistantButton,ai-floating,AI,assistant-action,Use shared launcher
+DUP-009,AppTabView,GlobalAIModeLauncher,ai-mode-launcher,Ask/explain/find/translate,assistant-action,Use shared launcher
+DUP-010,HomeProgressComponents,DutchDailyPhrase,phrase-goedemorgen,Goedemorgen!,phrase-dataset,Canonical phrase dataset
+DUP-010,AppTabView,Side menu phrase,phrase-goedemorgen-copy,Goedemorgen!,phrase-dataset,Render canonical phrase
+DUP-011,SurvivalNavigatorView,Journey,survival-navigator,Guided newcomer help,journey-getting-started,Canonical journey
+DUP-011,SurvivalGuideView,Legacy cards,survival-guide,Survival guide,journey-getting-started,Merge and retire duplicate screen
+

@@ -463,9 +463,20 @@ final class MapChipUITests: XCTestCase {
     @MainActor
     private func launchApp(language: String, extraArguments: [String] = []) -> XCUIApplication {
         let app = XCUIApplication()
-        app.launchArguments = ["-uiTesting", "-resetUITestState", "-launchLanguage", language, "-uiTestingStartTab", "map", "-uiTestingCity", "Leiden"] + extraArguments
+        if app.state != .notRunning {
+            app.terminate()
+            XCTAssertTrue(app.wait(for: .notRunning, timeout: 5), "Previous app instance did not terminate before relaunch.")
+        }
+
+        app.launchArguments = [
+            "-uiTesting",
+            "-resetUITestState",
+            "-launchLanguage", language,
+            "-uiTestingStartTab", "map",
+            "-uiTestingCity", "Leiden"
+        ] + extraArguments
         app.launch()
-        app.activate()
+        XCTAssertTrue(app.windows.firstMatch.waitForExistence(timeout: 8), "App window did not appear after launch.")
         return app
     }
 

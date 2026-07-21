@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "snapshotType": "static",
+  "liveMonitoring": false,
+  "checkedAt": "2026-07-20",
+  "website": {
+    "status": "operational",
+    "label": "Website",
+    "summary": "The static YouNew website is available. This status is based on a verified build snapshot, not continuous uptime monitoring."
+  },
+  "content": {
+    "status": "current",
+    "label": "Published content",
+    "asOf": "2026-07-18",
+    "summary": "The canonical content snapshot used by the web experience is current as of 18 July 2026."
+  },
+  "ios": {
+    "status": "unconfirmed",
+    "label": "iOS public distribution",
+    "publicVersion": null,
+    "testedVersion": "1.1",
+    "testedBuild": "5",
+    "summary": "Public App Store or TestFlight availability has not been confirmed. Version 1.1 (build 5) is the latest locally verified application build."
+  },
+  "limitations": [
+    "Public App Store and TestFlight availability has not been confirmed.",
+    "This page is a static snapshot and does not provide live uptime monitoring.",
+    "Saved web items are stored on the current device and do not yet sync with the iOS application.",
+    "Some application-only capabilities are not available in the web experience."
+  ],
+  "webAlternatives": [
+    {
+      "label": "Discover published guidance",
+      "href": "/discover/",
+      "summary": "Browse practical information by profile, city and topic."
+    },
+    {
+      "label": "Search YouNew",
+      "href": "/search/",
+      "summary": "Search the published guide index from a browser."
+    },
+    {
+      "label": "Open saved items",
+      "href": "/saved/",
+      "summary": "Return to guides saved on this device."
+    },
+    {
+      "label": "Contact support",
+      "href": "mailto:support@younew.nl",
+      "summary": "Ask about access, content or the current iOS release."
+    }
+  ]
+}

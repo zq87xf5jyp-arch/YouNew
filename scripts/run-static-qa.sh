@@ -25,6 +25,10 @@ python3 scripts/ai-subsystem-static-qa.py
 python3 scripts/persona-ia-static-qa.py
 python3 scripts/content-static-qa.py
 python3 scripts/data-project-qa.py
+python3 scripts/practical-guide-static-qa.py
+python3 scripts/priority-research-static-qa.py
+python3 scripts/build-priority-1-editorial-handoff.py --check
+python3 scripts/content-readiness-audit.py --check
 python3 scripts/generate-data-observability.py
 python3 scripts/data-project-import-static-qa.py
 python3 scripts/generate-data-dashboard.py

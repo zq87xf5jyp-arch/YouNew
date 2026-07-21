@@ -1,42 +1,15 @@
 import { Brand } from "@/components/brand";
 import { links } from "@/lib/site-data";
+import Link from "next/link";
 
 export function SiteFooter() {
-  const updateLinks = [
-    { label: "Support", href: "/support" },
-    { label: "Email", href: `mailto:${links.contactEmail}` },
-    { label: "Terms", href: "/terms" }
-  ];
-
   return (
-    <footer className="border-t border-white/10 bg-[#020713] py-12">
-      <div className="section-shell grid gap-10 md:grid-cols-[1.3fr_1fr_1fr]">
-        <div>
-          <Brand />
-          <p className="mt-5 max-w-md text-sm leading-6 text-text-muted">
-            YouNew.nl is a premium Netherlands guide for practical life, cities, transport, official resources and clear everyday explanations.
-          </p>
-        </div>
-        <div>
-          <p className="font-bold text-white">Links</p>
-          <div className="mt-4 grid gap-3 text-sm text-text-muted">
-            <a href="/privacy" className="hover:text-white">Privacy Policy</a>
-            <a href="/terms" className="hover:text-white">Terms</a>
-            <a href="/support" className="hover:text-white">Support</a>
-            <a href={`mailto:${links.contactEmail}`} className="hover:text-white">Contact</a>
-          </div>
-        </div>
-        <div>
-          <p className="font-bold text-white">Follow updates</p>
-          <div className="mt-4 flex gap-3">
-            {updateLinks.map((item) => (
-              <a key={item.label} href={item.href} className="rounded-full border border-white/10 bg-white/[0.06] px-4 py-2 text-sm font-semibold text-text-muted hover:text-white">
-                {item.label}
-              </a>
-            ))}
-          </div>
-          <p className="mt-8 text-sm text-text-muted">© 2026 YouNew.nl. All rights reserved.</p>
-        </div>
+    <footer className="site-footer">
+      <div className="section-shell footer-grid">
+        <div><Brand /><p className="footer-copy">A practical web and iPhone guide for tourists, students, expats, refugees and new residents in the Netherlands.</p><div className="locale-status" aria-label="Language availability"><strong>Web:</strong> English reviewed · Nederlands, Русский, Українська and Polski pending content review</div></div>
+        <div className="footer-column"><h2>Explore</h2><nav className="footer-links" aria-label="Explore links"><Link href="/discover">Discover</Link><Link href="/search">Search</Link><Link href="/guides">Guides</Link><Link href="/journeys">Journeys</Link><Link href="/map">Map</Link><Link href="/cities">Cities</Link><Link href="/provinces">Provinces</Link><Link href="/organizations">Organizations</Link></nav></div>
+        <div className="footer-column"><h2>Product</h2><nav className="footer-links" aria-label="Product links"><Link href="/app">iPhone app</Link><Link href="/saved">Saved items</Link><Link href="/emergency">Emergency</Link><Link href="/status">Service status</Link><Link href="/business">Business</Link><Link href="/business/media-kit">Business media kit</Link></nav></div>
+        <div className="footer-column"><h2>Help and legal</h2><nav className="footer-links" aria-label="Help and legal links"><Link href="/privacy">Privacy Policy</Link><Link href="/terms">Terms of Use</Link><Link href="/support">Support</Link><a href={`mailto:${links.contactEmail}`}>{links.contactEmail}</a></nav><p className="copyright">© 2026 YouNew. All rights reserved.</p></div>
       </div>
     </footer>
   );

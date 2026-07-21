@@ -1,10 +1,15 @@
 {
   "document": {
-    "status": "DRAFT",
-    "evidence_cutoff_date": "2026-07-20",
+    "status": "HISTORICAL_INTERIM_SUPERSEDED_BY_BUILD_WEEK_PACKAGE",
+    "superseded_by": "BuildWeek/FINAL_STATUS.md",
+    "evidence_cutoff_date": "2026-07-21",
     "timezone": "Europe/Amsterdam",
-    "final_ui_rerun": "PENDING",
-    "clean_clone_proof": "PENDING"
+    "audit_baseline_commit": "b15a2f2913911763c989f9880f8ce376f903fc6e",
+    "historical_detailed_commit": "61e7ce112669f8a6577b5b7d75f4d7cbdfe18459",
+    "last_complete_clean_clone_commit": "efd1a7c50bf7b5e2f82be047b084b6d73cb009a7",
+    "current_product_test_commit": "da8c3fe22e7a5d99b2187aab1141700b2d34f508",
+    "current_full_ui_aggregate": "NOT_COMPLETED_TARGETED_POST_FIX_EVIDENCE_ONLY",
+    "documentation_commit": "UNCOMMITTED_LOCAL_HANDOFF"
   },
   "project": {
     "name": "YouNew",
@@ -18,63 +23,73 @@
   },
   "git": {
     "branch": "build-week-readiness",
-    "baseline_commit": "b15a2f2913911763c989f9880f8ce376f903fc6e",
     "remote_configured": false,
-    "working_tree_curated_and_committed": false,
-    "working_tree_status": "DIRTY_MIXED_OWNER_AND_READINESS_CHANGES",
     "push_performed": false,
-    "release_performed": false
+    "deployment_performed": false,
+    "release_performed": false,
+    "source_working_tree_clean": false,
+    "owner_unfinished_changes_preserved": true,
+    "curated_product_code_committed": true,
+    "unresolved_unstaged_screenshot_deletions": 1
   },
   "overall": {
-    "readiness": "NOT_READY",
+    "readiness": "BUILD_WEEK_DEMO_HANDOFF_READY_PRODUCTION_NOT_READY",
     "production_ready": false,
     "submission_ready": false,
-    "judge_safe_repository": false,
-    "reason": "Final UI and clean-clone proof are pending, live GPT-5.6 is not verified, the repository snapshot is not curated, and media rights remain incomplete."
+    "judge_safe_public_repository": false,
+    "reason": "The local deterministic demo path and submission package are ready for owner handoff. Aggregate UI evidence, live GPT-5.6, external link health, media rights, and production distribution remain explicitly outside the candidate claim."
   },
   "dimensions": {
     "build": {
-      "status": "PASS_CURRENT_WORKING_TREE_FINAL_PROOF_PENDING",
-      "clean_debug_simulator_build_passed": true,
-      "clean_clone_build_passed": false,
-      "evidence_boundary": "Current working tree only"
+      "status": "PASS_BOUNDED_CLEAN_CLONE",
+      "tested_commit": "9b74a236a235124dd2ca12addda6ee49aef07466",
+      "errors": 0,
+      "warnings": 0,
+      "analyzer_warnings": 0,
+      "simulator": "iPhone 17 Pro / iOS 26.5"
     },
     "unit_tests": {
-      "status": "STAGE_2_PASS_FINAL_RERUN_PENDING",
-      "stage_2_total": 450,
-      "stage_2_passed": 450,
-      "stage_2_failed": 0,
-      "stage_2_skipped": 0,
-      "named_demo_tests_added_after_stage_2": 7,
-      "expanded_complete_suite_closed": false
+      "status": "PASS_BOUNDED_CLEAN_CLONE",
+      "tested_commit": "9b74a236a235124dd2ca12addda6ee49aef07466",
+      "historical_stage_2_total": 450,
+      "historical_stage_2_passed": 450,
+      "total": 460,
+      "passed": 460,
+      "failed": 0,
+      "skipped": 0,
+      "expected_failures": 0,
+      "swift_testing_subsummary": 453,
+      "xctest_cases": 7
     },
     "static_qa": {
-      "status": "PASS_CURRENT_WORKING_TREE",
+      "status": "PASS_OFFLINE_STRUCTURAL_BOUNDED",
+      "tested_commit": "9b74a236a235124dd2ca12addda6ee49aef07466",
       "commands_total": 40,
       "commands_passed": 40,
-      "commands_failed": 0,
-      "clean_clone_repeat": "PENDING"
+      "visible_image_remote_requests": 0,
+      "external_reachability_proven": false,
+      "current_network_health_blocker": "18 confirmed broken shipped runtime URLs"
     },
     "data_project_and_import": {
-      "status": "PASS",
-      "scope": "Current local snapshot",
-      "universal_live_link_claim": false
+      "status": "STRUCTURAL_PASS_NETWORK_HEALTH_BLOCKED",
+      "governed_records": 450,
+      "published_runtime_entities": 188,
+      "network_health_confirmed_broken_urls": 18,
+      "network_health_affected_published_entities": 30,
+      "network_health_runtime_field_occurrences": 85,
+      "network_health_evidence_is_point_in_time": true
     },
     "ui_tests": {
-      "status": "PENDING",
-      "frozen_baseline_total": 86,
-      "frozen_baseline_passed": 80,
-      "frozen_baseline_failed": 6,
-      "original_failures_diagnosed_and_remediated": 6,
-      "targeted_original_failure_rerun": "PENDING",
-      "post_fix_source_test_inventory": 87,
-      "complete_post_fix_suite": "PENDING",
-      "newcomer_fallback_targeted_test": {
-        "total": 1,
-        "passed": 1,
-        "failed": 0,
-        "uses_live_backend": false
-      }
+      "status": "TARGETED_PRIMARY_FIXES_PASS_AGGREGATE_BOUNDED",
+      "historical_baseline": "80_of_86_red",
+      "historical_61e7ce11": "82_of_87_red",
+      "last_complete_clean_clone": "84_of_87_red",
+      "last_complete_clean_clone_commit": "efd1a7c50bf7b5e2f82be047b084b6d73cb009a7",
+      "current_commit": "da8c3fe22e7a5d99b2187aab1141700b2d34f508",
+      "current_complete_aggregate": "not_completed",
+      "focused_content_scrolling": "pass_1_of_1_not_aggregate_replacement",
+      "focused_category_routing": "red_not_aggregate_replacement",
+      "map_root_tab_navigation": "fixed_targeted_verified_3_of_3_and_10_of_10_first_tap"
     },
     "ai_assistant": {
       "status": "AVAILABLE_PARTIAL",
@@ -88,11 +103,13 @@
       "status": "BLOCKED_NOT_VERIFIED",
       "bounded_integration_present": true,
       "official_api_contract_reviewed": true,
-      "backend_contract_tests": {
-        "total": 12,
-        "passed": 12,
+      "local_mocked_backend_contract_tests": {
+        "total": 13,
+        "passed": 13,
+        "failed": 0,
         "openai_upstream_mocked": true
       },
+      "historical_clean_clone_backend_contract_tests": "12_of_12_mocked",
       "deployed_backend_verified": false,
       "configured_live_environment_verified": false,
       "live_openai_request_performed": false,
@@ -101,29 +118,29 @@
       "silent_model_substitution_allowed": false
     },
     "repository_safety": {
-      "status": "PARTIAL_NOT_JUDGE_SAFE",
-      "essential_untracked_files_inventoried": true,
-      "curated_snapshot_committed": false,
+      "status": "CURATED_LOCAL_PUBLIC_HANDOFF_BLOCKED",
       "targeted_secret_scan_confirmed_secrets": 0,
+      "certificate_or_provisioning_filenames_found": 0,
       "dedicated_secret_scanner_available": false,
       "comprehensive_binary_ocr_exif_review_completed": false,
       "owner_metadata_and_fixture_review_completed": false,
-      "license_status": "RESTRICTIVE_DRAFT_OWNER_APPROVAL_REQUIRED"
+      "license_status": "RESTRICTIVE_NO_GRANT_NOTICE_OWNER_APPROVAL_REQUIRED"
     },
     "clean_clone": {
-      "status": "PENDING_NOT_PROVEN",
-      "separate_clone_created": false,
-      "build_completed": false,
-      "unit_tests_completed": false,
-      "static_qa_completed": false,
+      "status": "NON_UI_PROOF_PASS_UI_PENDING",
+      "separate_clone_created": true,
+      "build_completed": true,
+      "unit_tests_completed": true,
+      "static_qa_completed": true,
+      "data_project_import_completed": true,
+      "backend_tests_completed": true,
       "ui_tests_completed": false,
-      "fallback_completed": false,
+      "fallback_completed": "focused_only",
       "live_ai_completed": false
     },
     "readme": {
-      "status": "PREPARED_FINAL_VERIFICATION_PENDING",
+      "status": "JUDGE_ORIENTED_EVIDENCE_IN_PROGRESS",
       "requested_topics_covered": 23,
-      "final_clean_clone_commands_verified": false,
       "judge_ready_screenshots_present": false
     },
     "media_rights": {
@@ -134,17 +151,17 @@
       "manifest_entries_missing_license_url": 1,
       "non_manifest_imagesets": 98,
       "app_icon_cleared": false,
+      "tracked_raster_captures": 39,
+      "tracked_raster_capture_bytes": 91034208,
+      "untracked_public_site_media_files": 7,
       "blanket_public_redistribution_cleared": false
     },
     "demo_readiness": {
       "status": "PARTIAL_LIVE_MAIN_FLOW_BLOCKED",
       "named_flow_implemented": true,
       "structured_four_step_contract_implemented": true,
-      "local_fallback_ui_test_passed": true,
-      "related_bsn_app_section_opened_in_test": true,
-      "official_source_action_present_in_test": true,
-      "external_official_source_open_runtime_verified": false,
       "live_gpt_5_6_main_flow_verified": false,
+      "external_official_source_open_runtime_verified": false,
       "final_video_present": false,
       "fixture_may_be_presented_as_live": false
     },
@@ -161,32 +178,28 @@
   "safe_public_claims": [
     "YouNew is a SwiftUI iOS guide for newcomers to the Netherlands.",
     "The repository contains implementation and reports consistent with the documented Codex-assisted workflow.",
-    "The current working tree completed a clean Debug simulator build.",
-    "The complete Stage 2 unit suite passed 450 of 450; the expanded final suite remains pending.",
-    "The current working-tree static aggregate passed 40 of 40; clean-clone repetition remains pending.",
+    "An independent clone built a bounded source snapshot and passed 460 of 460 unit tests and offline structural static QA.",
     "The local deterministic assistant is available and explicitly labelled local guide mode.",
-    "The repository contains a bounded GPT-5.6 Responses API integration, but live GPT-5.6 access and deployment have not been runtime-verified.",
-    "Media rights are partially documented and do not support a blanket redistribution claim."
+    "The repository contains bounded GPT-5.6 Responses API integration code, but live GPT-5.6 access and deployment have not been runtime-verified.",
+    "Media rights are partially documented and do not support blanket redistribution."
   ],
   "claims_not_verified": [
-    "All mandatory gates are green.",
-    "The complete post-fix UI suite passes 87 of 87.",
-    "YouNew performs live GPT-5.6 inference in the verified runtime.",
-    "The backend example is deployed or production-ready.",
+    "All submission gates are green.",
+    "The current complete UI suite passes.",
+    "YouNew performs live GPT-5.6 inference in a verified runtime.",
+    "The backend is deployed or production-ready.",
     "A GitHub remote or judge-accessible repository exists.",
     "A current TestFlight or App Store release is available.",
     "All repository media are cleared for public redistribution.",
-    "All 34 content categories are fully populated.",
+    "Current shipped external links are healthy.",
     "The project is production-ready or submission-ready."
   ],
   "remaining_blockers": [
-    "Close the targeted six-test UI rerun and complete post-fix UI suite.",
-    "Close the expanded complete unit suite on the frozen source snapshot.",
-    "Curate and commit the intended product snapshot without unresolved artifacts or owner work.",
-    "Complete build, unit, static, UI where supported, and fallback checks from a separate clean clone.",
-    "Obtain owner-approved backend credentials and deployment approval before any live GPT-5.6 verification.",
+    "Close and diagnose the current full serial UI aggregate without weakening contracts.",
+    "Implement a reviewed versioned release remediation for 18 broken URLs in shipped runtime data and rerun a fresh network check.",
+    "Obtain owner-approved backend credentials, deployment approval, exact GPT-5.6 Sol access, privacy/abuse controls, and live runtime proof.",
     "Resolve or exclude media with incomplete or conflicting provenance.",
-    "Complete owner review of licensing, privacy, legal and medical content, personal metadata, fixtures, screenshots, and repository visibility.",
-    "Create judge access, rights-cleared captures, the final video, and the submission only through explicit owner actions."
+    "Complete owner review of licensing, privacy, legal and medical content, personal metadata, fixtures, screenshots, contacts, and repository visibility.",
+    "Create GitHub repository, remote, judge access, rights-cleared captures, demo video, and submission only through explicit owner actions."
   ]
 }

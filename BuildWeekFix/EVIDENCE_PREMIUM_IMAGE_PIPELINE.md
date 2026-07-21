@@ -2,7 +2,15 @@
 
 Status: **VERIFIED implementation / PARTIAL runtime and rights evidence**
 
-Evidence date: 2026-07-20 (Europe/Amsterdam)
+Evidence date: 2026-07-21 (Europe/Amsterdam)
+
+## 2026-07-21 evidence boundary update
+
+Implementation and static image checks do not grant redistribution rights. Public
+handoff remains blocked by 39 tracked raster captures (91,034,208 bytes), 98
+non-manifest imagesets, the AppIcon, one missing manifest license URL, and seven
+untracked public-site media files not protected by the current ignore rules. No
+blanket ownership or license claim is made for any unresolved item.
 
 ## Original problem
 
@@ -33,14 +41,17 @@ Provide one reusable image path for local and remote media with role-aware layou
 - `YouNewTests/MediaRegistryTests.swift`
 - `YouNewTests/PriorityCityHeroMediaTests.swift`
 - Image, media, visual-system, and performance checks invoked by `scripts/run-static-qa.sh`
-- The last closed complete Stage 2 snapshot is **450/450 unit tests passed** and
-  **40/40 static commands passed**. Additional Build Week AI/demo checks were added
-  later, so the expanded final-snapshot reruns remain pending. These totals cover
-  more than the image subsystem and are not image-only counts.
+- The authoritative clean-clone snapshot is **460/460 unit tests passed** and
+  **40/40 static commands passed**. These totals cover more than the image subsystem
+  and are not image-only counts.
 
 ## Measurable result
 
 The frozen offline media audit recorded 294 visible assignments, 294 unique URLs, and zero duplicate URL groups. This is a structural/offline result, not a live availability or visual-quality guarantee. The implementation also exposes the explicit cache and timeout limits listed above.
+
+The clean-clone visible-image check reused no verified URL cache entries and made
+zero network requests. Its PASS therefore proves structural coverage only; it does
+not prove current remote reachability.
 
 ## Owner decision
 

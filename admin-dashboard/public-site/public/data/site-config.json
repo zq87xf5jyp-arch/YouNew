@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "statusBanner": {
+    "enabled": true,
+    "id": "ios-public-distribution-unconfirmed-2026-07",
+    "tone": "information",
+    "message": "Public iOS download availability has not been confirmed. You can use YouNew on the web in the meantime.",
+    "action": {
+      "label": "View status",
+      "href": "/status/"
+    }
+  }
+}

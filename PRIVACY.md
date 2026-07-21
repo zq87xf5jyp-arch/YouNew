@@ -1,6 +1,6 @@
 # YouNew privacy notes
 
-Last reviewed: 2026-07-20
+Last reviewed: 2026-07-21
 
 Scope: the repository and Build Week demonstration build, not a legal privacy
 certification or App Store privacy-label filing.
@@ -15,10 +15,13 @@ document metadata rather than document contents.
 
 Conversation history is stored locally so the assistant can preserve continuity.
 The pre-remediation audit found that raw text could be persisted before all safety
-checks. The current working tree evaluates the safety/privacy decision before
+checks. The current implementation evaluates the safety/privacy decision before
 appending a user message and persists only a standalone warning when input is
-blocked; final full-suite and clean-clone verification of that remediation is still
-pending. Clearing the visible conversation now also clears structured responses,
+blocked. That behavior is covered by the passing 460/460 clean-clone Xcode unit aggregate and
+the explicit no-backend fallback UI test. The overall UI gate remains red for
+multiple independent UI diagnostics; privacy-focused unit/fallback evidence is not
+being claimed as a complete release privacy certification. Clearing the visible
+conversation now also clears structured responses,
 workflow state, the in-memory answer cache, and its persisted cache entry. Users
 should still not enter passport numbers, BSNs, bank details, medical records, exact
 addresses, credentials, or other sensitive data; broader release verification of

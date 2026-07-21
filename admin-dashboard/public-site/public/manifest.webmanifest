@@ -1,0 +1,56 @@
+{
+  "name": "YouNew",
+  "short_name": "YouNew",
+  "description": "A practical guide for a clearer start in the Netherlands.",
+  "id": "/",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#050c1b",
+  "theme_color": "#050c1b",
+  "lang": "en",
+  "dir": "ltr",
+  "categories": ["travel", "education", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Discover guidance",
+      "short_name": "Discover",
+      "url": "/discover/"
+    },
+    {
+      "name": "Search YouNew",
+      "short_name": "Search",
+      "url": "/search/"
+    },
+    {
+      "name": "Service status",
+      "short_name": "Status",
+      "url": "/status/"
+    },
+    {
+      "name": "Practical journeys",
+      "short_name": "Journeys",
+      "url": "/journeys/"
+    },
+    {
+      "name": "Published coverage map",
+      "short_name": "Map",
+      "url": "/map/"
+    }
+  ]
+}

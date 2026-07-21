@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-18T00:00:00Z",
+  "generatorVersion": 1,
+  "source": "../../YouNew/Resources/Data/younew-runtime-data.json",
+  "sourceMode": "production",
+  "sourceSchemaVersion": 1,
+  "datasetFingerprint": "cc667a9471a92e4e21e2c56c4c92e9f6462f1bbfc6e22f304f2fbd3ab1e8a97f",
+  "sourceOutputChecksum": "0ea46579b10238ff4e057e4e311bca31fb2ebfbb3db8943760b870c211302813",
+  "acceptedReleaseIds": [
+    "amsterdam-v0.1.0",
+    "cities-v0.1.0"
+  ],
+  "publicationRules": {
+    "datasetMode": "production",
+    "entityKinds": [
+      "cafe",
+      "city",
+      "event",
+      "governmentService",
+      "healthcare",
+      "knowledgeTopic",
+      "localPartner",
+      "museum",
+      "park",
+      "place",
+      "restaurant",
+      "transport",
+      "university"
+    ],
+    "releaseStatus": "published",
+    "recordLifecycleStatus": "published",
+    "recordVerificationStatus": "verified",
+    "sourceStatus": "verified_opened"
+  },
+  "counts": {
+    "sourceRecords": 188,
+    "acceptedRecords": 188,
+    "excludedRecords": 0
+  }
+}

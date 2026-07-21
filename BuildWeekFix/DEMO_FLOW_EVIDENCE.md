@@ -1,12 +1,24 @@
 # BuildWeekNewcomerDemo evidence
 
-Evidence cutoff: 2026-07-20 (Europe/Amsterdam)
+Evidence cutoff: 2026-07-21 (Europe/Amsterdam)
 
 Branch: `build-week-readiness`
 
 Named flow: `BuildWeekNewcomerDemo`
 
 Context version: `newcomer-after-address.v1`
+
+## 2026-07-21 evidence boundary update
+
+The prior `61e7ce11` UI aggregate is historical only. The last fully closed
+clean-clone UI snapshot is `efd1a7c5` at **84/87 RED**; the current product/test
+source `da8c3fe2` requires its own complete serial result. The focused fallback
+evidence below remains useful for deterministic mode but does not certify the full
+UI gate or a live response.
+
+The local Worker contract now passes **13/13** mocked-upstream tests after a
+canonical Responses-completion check was added. The earlier clean-clone 12/12
+result remains historical. Neither count is live OpenAI proof.
 
 ## Demo readiness verdict
 
@@ -27,7 +39,7 @@ The contract fixture in `GPT56_INTEGRATION_EVIDENCE.md` is test data only. It mu
 | 7 | Show health insurance. | Step 3 marks applicability as situation-dependent and binds the health-insurance guide/source. | Implemented; fallback UI test exposes step 3. |
 | 8 | Show huisarts. | Step 4 marks huisarts registration as recommended and locally variable, with an emergency caveat. | Implemented; fallback UI test exposes step 4. |
 | 9 | Open at least one related app section. | Quick actions use allowlisted app destinations. Targeted UI coverage taps the BSN guide action and reaches `practicalGuide.municipalityRegistration`. | **PASS in targeted fallback UI test.** Live-run capture pending. |
-| 10 | Open at least one confirmed official source. | Every step includes a server-owned HTTPS source action. Targeted UI coverage verifies that a source action is present but does not tap through to the external browser. | Action implemented; external-open runtime capture pending. |
+| 10 | Open at least one confirmed official source. | Every step includes a server-owned HTTPS source action. A separate read-only cutoff check reached all four expected Government.nl/DigiD pages; targeted UI coverage verifies the action but does not tap through to the external browser. | URLs confirmed at cutoff; external-open runtime capture pending. |
 | 11 | Demonstrate network fallback separately. | Missing backend and all live-path failures return a four-step `.localGuide` response with no model/request ID and a visible local badge. | **PASS in separate targeted UI test.** Keep it out of the main live video. |
 
 ## Stable demonstration script
@@ -75,15 +87,21 @@ These controls prevent a stored fixture from masquerading as live. They do not p
 
 | Layer | Check | Result | What it proves / does not prove |
 |---|---|---|---|
-| iOS unit | `BuildWeekNewcomerDemoTests` plus focused AI tests | **Checkpoint PASS — 62/62** | Existing KnowledgeIndex records/routes, accepted/rejected response contracts, exact fallback origin, legacy-cache behavior, and endpoint rules. The checkpoint preceded final endpoint/path and request-byte alignment; current-tree/full-suite rerun is pending. |
-| Backend | Node syntax + Worker contract tests | **PASS — 12/12** | Exact request/response keys, GPT-5.6-only configuration, actual-model metadata, native-only CORS behavior (`OPTIONS` → 405, `Allow: POST`, no `Access-Control-Allow-Origin`), source/route contract, sensitive-input rejection, safe errors, timeout, and upstream body cap. Provider fetch is mocked; not live proof. |
-| Static QA | `scripts/ai-subsystem-static-qa.py` | **Checkpoint PASS** | Cross-file client/backend/source/route/fallback invariants. Not runtime proof. |
-| iOS UI | `testBuildWeekNewcomerDemoUsesExplicitLocalFallbackWithoutBackend` | **PASS — 1/1 (34.172 s)** | Visible local origin, four structured steps, source-action presence, and navigation to the BSN guide without backend configuration. |
-| Build | Local simulator build | **Checkpoint PASS** | The implementation compiles in the local workspace. Not clean-clone or live proof. |
+| iOS unit | `BuildWeekNewcomerDemoTests` plus full unit suite | **PASS — included in clean-clone 460/460** | Existing KnowledgeIndex records/routes, accepted/rejected response contracts, exact fallback origin, legacy-cache behavior, endpoint rules, and final route integrity. |
+| Backend | Node syntax + Worker contract tests | **PASS — local 13/13; historical clean-clone 12/12** | Exact request/response keys, GPT-5.6-only configuration, actual-model metadata, canonical Responses completion, native-only CORS behavior (`OPTIONS` → 405, `Allow: POST`, no `Access-Control-Allow-Origin`), source/route contract, sensitive-input rejection, safe errors, timeout, and upstream body cap. Provider fetch is mocked; not live proof. |
+| Static QA | `scripts/ai-subsystem-static-qa.py` | **PASS — included in clean-clone 40/40** | Cross-file client/backend/source/route/fallback invariants. Not runtime proof. |
+| iOS UI | `testBuildWeekNewcomerDemoUsesExplicitLocalFallbackWithoutBackend` | **PASS — 1/1 historical target; PASS in later 2/2 Assistant diagnostic** | The paired 51.933-second diagnostic (same clean clone/simulator) also passed healthcare map focus and named fallback, proving visible local origin, four structured steps, source-action presence, and BSN-guide navigation without a backend. It does not replace the red full-suite aggregate. |
+| Build | Clean-clone simulator build | **PASS — 0 errors/warnings** | The implementation compiles from the curated source snapshot. Not live proof. |
 
 Targeted UI result bundle: `<TEMP_DIR>/YouNewBuildWeekFixStage3/NewcomerFallbackUI.xcresult`.
 
-The targeted test intentionally covers fallback, not a fake live response. It confirms source-action presence but does not open an external browser. Full current-tree unit/UI results and clean-clone proof must be recorded separately after their result bundles close.
+The targeted test intentionally covers fallback, not a fake live response. It
+confirms source-action presence but does not open an external browser. Complete
+clean-clone totals are recorded separately in `CLEAN_CLONE_PROOF.md`. The old
+one-time serial suite at `61e7ce11` is closed red at 82/87; the later full
+clean-clone snapshot is red at 84/87. Its fallback failure showed an already running
+Map/Russian launch state rather than the requested Assistant destination, while the
+later paired diagnostic passed. No live or full-suite PASS is inferred.
 
 ## Files in the demo path
 

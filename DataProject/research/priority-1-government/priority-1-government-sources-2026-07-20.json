@@ -1,0 +1,1073 @@
+{
+  "schema_version": 1,
+  "dossier_id": "priority-1-government-sources-2026-07-20",
+  "status": "research_draft",
+  "locale": "en",
+  "verified_at": "2026-07-20",
+  "reviewer": null,
+  "publication_authorized": false,
+  "purpose": "Source dossier for editorial drafting of Priority-1 practical guides. This file is research input only and is not part of the published content pipeline.",
+  "source_policy": {
+    "allowed": [
+      "Dutch central-government websites",
+      "Dutch executive-agency websites",
+      "Dutch municipality websites"
+    ],
+    "excluded": [
+      "blogs",
+      "forums",
+      "commercial explainers",
+      "AI-generated statements without a primary source"
+    ],
+    "fact_rule": "Every factual statement below maps to one or more opened official sources. Human editorial and subject-matter review is still required before publication.",
+    "fail_closed": true
+  },
+  "sources": [
+    {
+      "id": "src.gov.brp-resident",
+      "title": "When should I register with the Personal Records Database as a resident?",
+      "publisher": "Government of the Netherlands",
+      "url": "https://www.government.nl/faq/when-should-i-register-with-the-personal-records-database-as-a-resident",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "REG-001",
+        "REG-002",
+        "REG-003",
+        "REG-004",
+        "REG-005",
+        "MOVE-004"
+      ],
+      "caveats": [
+        "The national page establishes the resident/non-resident split but does not provide each municipality's appointment method or complete document list.",
+        "Identity and lawful-residence checks can make an individual case take longer."
+      ]
+    },
+    {
+      "id": "src.nww.rni-register",
+      "title": "How can I register in the Non-residents Records Database (RNI)?",
+      "publisher": "NetherlandsWorldwide, Government of the Netherlands",
+      "url": "https://www.netherlandsworldwide.nl/non-residents-records-database/register",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "REG-005",
+        "REG-006",
+        "REG-007",
+        "BSN-002",
+        "DIG-006"
+      ],
+      "caveats": [
+        "Desk eligibility changed by nationality and must be rechecked shortly before publication or travel.",
+        "The page describes exceptional registration through certain government organisations; those routes are situation-specific."
+      ]
+    },
+    {
+      "id": "src.gov.bsn-overview",
+      "title": "Citizen service number (BSN)",
+      "publisher": "Government of the Netherlands",
+      "url": "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "BSN-001",
+        "BSN-004"
+      ],
+      "caveats": [
+        "This is an overview page; it does not replace the resident BRP or non-resident RNI procedure."
+      ]
+    },
+    {
+      "id": "src.nww.bsn-get",
+      "title": "How can I get a citizen service number (BSN) if I live abroad?",
+      "publisher": "NetherlandsWorldwide, Government of the Netherlands",
+      "url": "https://www.netherlandsworldwide.nl/bsn/how-to-get",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "BSN-002",
+        "BSN-003",
+        "BSN-004",
+        "REG-006",
+        "REG-007"
+      ],
+      "caveats": [
+        "The page is primarily for people living abroad; residents moving to the Netherlands use municipal BRP registration.",
+        "Government-organisation routes to a BSN apply only to listed circumstances."
+      ]
+    },
+    {
+      "id": "src.digid.apply",
+      "title": "Apply for a DigiD",
+      "publisher": "DigiD / Logius",
+      "url": "https://www.digid.nl/en/apply-and-activate/apply-digid",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "DIG-001",
+        "DIG-002",
+        "DIG-003",
+        "DIG-005"
+      ],
+      "caveats": [
+        "The page's summary mentions 3 business days while its detailed procedure says a maximum of 5 working days. The dossier uses the more conservative maximum of 5 working days.",
+        "People living abroad follow a different activation route."
+      ]
+    },
+    {
+      "id": "src.digid.activate",
+      "title": "Activate your DigiD",
+      "publisher": "DigiD / Logius",
+      "url": "https://www.digid.nl/en/apply-and-activate/activate-your-digid",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "DIG-003",
+        "DIG-004"
+      ],
+      "caveats": [
+        "Activation options depend on whether the user has a phone and the DigiD app.",
+        "Operational timeframes should be rechecked before publication."
+      ]
+    },
+    {
+      "id": "src.digid.abroad",
+      "title": "I live abroad",
+      "publisher": "DigiD / Logius",
+      "url": "https://www.digid.nl/en/living-abroad/",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "DIG-006"
+      ],
+      "caveats": [
+        "Activation may require an ID check, video call, service desk or other route depending on the person's document and location.",
+        "A driving licence is not accepted as the identity document for the listed abroad application requirements."
+      ]
+    },
+    {
+      "id": "src.ind.residence-permits",
+      "title": "Residence permits",
+      "publisher": "Immigration and Naturalisation Service (IND)",
+      "url": "https://ind.nl/en/residence-permits",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "RES-001",
+        "RES-003",
+        "BUS-004"
+      ],
+      "caveats": [
+        "This is a route selector, not a single application procedure.",
+        "Requirements, sponsor responsibilities, fees and decision periods differ by residence purpose and nationality."
+      ]
+    },
+    {
+      "id": "src.ind.eu-registration",
+      "title": "Registering with the IND as an EU, EEA or Swiss citizen",
+      "publisher": "Immigration and Naturalisation Service (IND)",
+      "url": "https://ind.nl/en/residence-permits/eu-eea-or-swiss-citizens/registering-with-the-ind-as-an-eu-eea-or-swiss-citizen",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": "2026-06-17",
+      "supports_fact_ids": [
+        "RES-002",
+        "RES-003"
+      ],
+      "caveats": [
+        "This page covers the specific IND-registration situation described on the page; it is not a complete statement of every EU-law residence scenario.",
+        "Non-EU family members of Union citizens use a different IND route."
+      ]
+    },
+    {
+      "id": "src.ind.collect-document",
+      "title": "Appointment to collect document",
+      "publisher": "Immigration and Naturalisation Service (IND)",
+      "url": "https://ind.nl/en/appointment-to-collect-document",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": "2026-06-01",
+      "supports_fact_ids": [
+        "RES-004",
+        "RES-005"
+      ],
+      "caveats": [
+        "Collection locations and appointment channels differ by the location stated in the IND message.",
+        "Type W2 document collection requires calling the IND rather than booking online."
+      ]
+    },
+    {
+      "id": "src.ind.lost-stolen-card",
+      "title": "Residence permit lost or stolen",
+      "publisher": "Immigration and Naturalisation Service (IND)",
+      "url": "https://ind.nl/en/replace-extend-renew-and-change/residence-permit-lost-or-stolen",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": "2026-06-12",
+      "supports_fact_ids": [
+        "RES-006",
+        "RES-007",
+        "RES-008",
+        "RES-009",
+        "RES-010"
+      ],
+      "caveats": [
+        "This procedure is for a valid document that is lost or stolen; damaged documents and renewal use other pages.",
+        "The actual fee must be read from the current IND fee page and is deliberately not copied into this dossier.",
+        "Return-travel requirements after a loss abroad depend on nationality and circumstances."
+      ]
+    },
+    {
+      "id": "src.gov.tax-return",
+      "title": "Tax return",
+      "publisher": "Government of the Netherlands",
+      "url": "https://www.government.nl/themes/taxes-benefits-and-allowances/income-tax/filing-a-tax-return",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "TAX-001",
+        "TAX-002",
+        "TAX-009"
+      ],
+      "caveats": [
+        "Some numeric thresholds on the English page may not match the current tax year and must not be copied without a tax-year-specific check.",
+        "Cross-border taxation depends on treaties and individual facts."
+      ]
+    },
+    {
+      "id": "src.taxadmin.filing-methods",
+      "title": "Aangifte inkomstenbelasting doen: online, met de app of op papier",
+      "publisher": "Netherlands Tax Administration (Belastingdienst)",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/belastingaangifte/content/hoe-aangifte-inkomstenbelasting-doen",
+      "language": "nl",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "TAX-002",
+        "TAX-003",
+        "TAX-004"
+      ],
+      "caveats": [
+        "The page currently describes the 2025 return filed in 2026; year labels, availability dates and form rules must be updated for later tax years.",
+        "It is a Dutch-language operational page; legal or technical terms require checked translation before English publication."
+      ]
+    },
+    {
+      "id": "src.toeslagen.how-benefits-work",
+      "title": "How do benefits work?",
+      "publisher": "Dienst Toeslagen",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/individuals/benefits/how_do_benefits_work/",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "TAX-005",
+        "TAX-006",
+        "TAX-007",
+        "TAX-009"
+      ],
+      "caveats": [
+        "Eligibility is benefit-specific; this overview does not establish that a particular user qualifies.",
+        "Amounts, income and asset limits, and application deadlines are intentionally omitted."
+      ]
+    },
+    {
+      "id": "src.toeslagen.report-changes",
+      "title": "Wijzigingen doorgeven voor uw toeslag",
+      "publisher": "Dienst Toeslagen",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontentnl/belastingdienst/prive/toeslagen/wijzigingen_doorgeven/",
+      "language": "nl",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "TAX-007",
+        "TAX-008"
+      ],
+      "caveats": [
+        "The four-week rule is stated on the current Dutch page and should be rechecked before publication.",
+        "Only changes relevant to the amount need reporting; the page notes that a move already reported to the municipality need not be reported again to Dienst Toeslagen."
+      ]
+    },
+    {
+      "id": "src.gov.change-address",
+      "title": "How do I inform the municipality of a change of address?",
+      "publisher": "Government of the Netherlands",
+      "url": "https://www.government.nl/faq/how-do-i-inform-the-municipality-of-a-change-of-address",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "MOVE-001",
+        "MOVE-002",
+        "MOVE-003",
+        "MOVE-004",
+        "MOVE-005"
+      ],
+      "caveats": [
+        "Submission channels and any additional evidence are set by the receiving municipality.",
+        "Municipal services under Wmo or social assistance do not necessarily transfer automatically."
+      ]
+    },
+    {
+      "id": "src.gov.foreign-national-move",
+      "title": "As a foreign national, do I need to inform the Immigration and Naturalisation Service (IND) if I move?",
+      "publisher": "Government of the Netherlands",
+      "url": "https://www.government.nl/faq/as-a-foreign-national-do-i-need-to-inform-the-immigration-and-naturalisation-service-ind-if-i-move",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "MOVE-006"
+      ],
+      "caveats": [
+        "The rule applies to foreign nationals with residence permits; people under EU law or another status should confirm their own reporting obligations.",
+        "Moving abroad is a different process from moving within the Netherlands."
+      ]
+    },
+    {
+      "id": "src.businessgov.start-plan",
+      "title": "Step-by-step plan: How to start a business in the Netherlands",
+      "publisher": "Business.gov.nl / Netherlands Enterprise Agency (RVO), with KVK, Belastingdienst and CBS",
+      "url": "https://business.gov.nl/starting-your-business/preparations/step-by-step-plan-how-to-start-a-business-in-the-netherlands/",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": "2025-12-19",
+      "supports_fact_ids": [
+        "BUS-001",
+        "BUS-003",
+        "BUS-010"
+      ],
+      "caveats": [
+        "The page explicitly describes itself as a general guideline; it cannot establish the complete requirements for every business.",
+        "Sector, location, staff, products and the founder's immigration position can add requirements."
+      ]
+    },
+    {
+      "id": "src.businessgov.register-kvk",
+      "title": "Register your Dutch business with KVK",
+      "publisher": "Business.gov.nl / Netherlands Enterprise Agency (RVO)",
+      "url": "https://business.gov.nl/starting-your-business/registering-your-business/registration-at-the-netherlands-chamber-of-commerce-kvk/",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "BUS-002",
+        "BUS-003",
+        "BUS-004",
+        "BUS-005",
+        "BUS-006",
+        "BUS-007",
+        "BUS-008",
+        "BUS-011"
+      ],
+      "caveats": [
+        "Residence-permit language is conditional; users must use the IND route for their nationality and purpose.",
+        "Legal entities and foreign companies can follow materially different registration routes.",
+        "Some Business Register information is public; the current address-shielding rules must be explained before collecting or publishing personal-address details."
+      ]
+    },
+    {
+      "id": "src.kvk.entrepreneur-criteria",
+      "title": "Do you need to register your business with KVK?",
+      "publisher": "Netherlands Chamber of Commerce (KVK)",
+      "url": "https://www.kvk.nl/en/starting/do-you-need-to-register-your-business-with-kvk/",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": "2026-07-15",
+      "supports_fact_ids": [
+        "BUS-002",
+        "BUS-006",
+        "BUS-007",
+        "BUS-008"
+      ],
+      "caveats": [
+        "KVK's entrepreneur criteria and the Tax Administration's criteria are not identical.",
+        "Borderline cases should be directed to KVK or Belastingdienst rather than resolved by YouNew."
+      ]
+    },
+    {
+      "id": "src.kvk.registration-fee-2026",
+      "title": "Registration fee",
+      "publisher": "Netherlands Chamber of Commerce (KVK)",
+      "url": "https://www.kvk.nl/en/registration/registration-fee/",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": "2026-01-01",
+      "supports_fact_ids": [
+        "BUS-009"
+      ],
+      "caveats": [
+        "The fee is updated annually and must be reverified for any publication after 2026 or after a KVK notice of change.",
+        "Optional extracts and notarial work are separate costs."
+      ]
+    },
+    {
+      "id": "src.amsterdam.first-registration",
+      "title": "Moving from abroad (immigration)",
+      "publisher": "City of Amsterdam",
+      "url": "https://www.amsterdam.nl/en/civil-affairs/first-registration/",
+      "language": "en",
+      "jurisdiction": "municipal:amsterdam",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "REG-008",
+        "REG-009",
+        "BSN-002"
+      ],
+      "caveats": [
+        "The procedure and document list are valid only for registration with the City of Amsterdam.",
+        "Student pre-registration and the Weesp appointment exception use separate local instructions.",
+        "Foreign certificates may require legalisation and a sworn translation."
+      ]
+    },
+    {
+      "id": "src.amsterdam.rni",
+      "title": "Registering in the Non-residents Records Database (RNI)",
+      "publisher": "City of Amsterdam",
+      "url": "https://www.amsterdam.nl/en/civil-affairs/registering-rni/",
+      "language": "en",
+      "jurisdiction": "municipal:amsterdam",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "REG-010"
+      ],
+      "caveats": [
+        "Amsterdam currently accepts this local RNI route only for people with an eligible European passport or identity card; others are directed to Breda or Venlo.",
+        "Appointment availability and desk addresses are operational details and can change."
+      ]
+    },
+    {
+      "id": "src.amsterdam.change-address",
+      "title": "Reporting a change of address",
+      "publisher": "City of Amsterdam",
+      "url": "https://www.amsterdam.nl/en/civil-affairs/reporting-change-address/",
+      "language": "en",
+      "jurisdiction": "municipal:amsterdam",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "MOVE-001",
+        "MOVE-003",
+        "MOVE-007",
+        "MOVE-008"
+      ],
+      "caveats": [
+        "The three-week processing estimate and accepted document channels are Amsterdam-specific operational details.",
+        "A resident moving out of Amsterdam reports to the new municipality, not to Amsterdam."
+      ]
+    }
+  ],
+  "facts": [
+    {
+      "id": "REG-001",
+      "statement": "A person who will live in the Netherlands for longer than 4 months must register as a resident in the Personal Records Database (BRP) with the municipality where they live.",
+      "jurisdiction": "national",
+      "source_ids": ["src.gov.brp-resident"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "REG-002",
+      "statement": "A new resident must register within 5 days of arrival; accompanying partner and children must attend, and the municipality assigns a BSN through registration.",
+      "jurisdiction": "national",
+      "source_ids": ["src.gov.brp-resident"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "REG-003",
+      "statement": "Resident registration is at the permanent home address or, when the legal conditions are met, a correspondence address.",
+      "jurisdiction": "national",
+      "source_ids": ["src.gov.brp-resident"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "REG-004",
+      "statement": "BRP registration can require proof of lawful residence and identity verification; extra investigation or evidence may be necessary.",
+      "jurisdiction": "national",
+      "source_ids": ["src.gov.brp-resident"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "REG-005",
+      "statement": "A person who lives outside the Netherlands or will stay in the Netherlands for less than 4 months uses the Non-residents Records Database (RNI), which is part of the BRP, and receives a BSN on registration.",
+      "jurisdiction": "national",
+      "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "REG-006",
+      "statement": "RNI desk registration is in person, free of charge, and requires an eligible desk plus a valid passport or identity card; the current national page lists 19 desks and restricts non-Dutch, non-EU/EEA/Swiss applicants to Breda or Venlo.",
+      "jurisdiction": "national",
+      "source_ids": ["src.nww.rni-register", "src.nww.bsn-get"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-08-20"
+    },
+    {
+      "id": "REG-007",
+      "statement": "For a child under 16, the RNI desk also requires the child's valid passport or identity card and a birth certificate or acknowledgement-of-parentage document; foreign documents may need translation or legalisation.",
+      "jurisdiction": "national",
+      "source_ids": ["src.nww.rni-register", "src.nww.bsn-get"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "REG-008",
+      "statement": "For Amsterdam only, a person moving from abroad for more than 4 months must register with the City within 5 days and bring the locally specified identity, occupancy and civil-status evidence that applies to their case.",
+      "jurisdiction": "municipal:amsterdam",
+      "source_ids": ["src.amsterdam.first-registration"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "REG-009",
+      "statement": "Amsterdam's current first-registration page says registration is in person at a City Office, without an appointment except in Weesp; students follow a separate pre-registration instruction.",
+      "jurisdiction": "municipal:amsterdam",
+      "source_ids": ["src.amsterdam.first-registration"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-08-20"
+    },
+    {
+      "id": "REG-010",
+      "statement": "Amsterdam's current RNI route requires an appointment and eligible European passport or identity card, and says the BSN is issued immediately; applicants without an eligible European document are directed to Breda or Venlo.",
+      "jurisdiction": "municipal:amsterdam",
+      "source_ids": ["src.amsterdam.rni"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-08-20"
+    },
+    {
+      "id": "BSN-001",
+      "statement": "A BSN is a unique personal number automatically allocated to a person registered in the BRP.",
+      "jurisdiction": "national",
+      "source_ids": ["src.gov.bsn-overview"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "BSN-002",
+      "statement": "Residents receive a BSN through municipal BRP registration; eligible non-residents receive one through RNI registration, with limited alternative government-organisation routes for specific situations.",
+      "jurisdiction": "national_with_municipal_execution",
+      "source_ids": ["src.nww.bsn-get", "src.nww.rni-register", "src.amsterdam.first-registration"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "BSN-003",
+      "statement": "Someone who previously lived, worked or studied in the Netherlands may already have a BSN and should check before trying to register for another one.",
+      "jurisdiction": "national",
+      "source_ids": ["src.nww.bsn-get"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "BSN-004",
+      "statement": "For the ordinary resident and RNI routes, the BSN is the result of registration rather than a separate standalone BSN application.",
+      "jurisdiction": "national_with_municipal_execution",
+      "source_ids": ["src.gov.bsn-overview", "src.nww.bsn-get"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "DIG-001",
+      "statement": "DigiD is used to identify oneself when arranging online matters with participating government, education, healthcare and pension organisations.",
+      "jurisdiction": "national",
+      "source_ids": ["src.digid.apply"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "DIG-002",
+      "statement": "The standard Netherlands-resident DigiD application requires a BSN, an address registered with a Dutch municipality, and a mobile phone.",
+      "jurisdiction": "national",
+      "source_ids": ["src.digid.apply"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "DIG-003",
+      "statement": "For the standard resident route, DigiD sends an activation code by post to the address recorded in the BRP; the detailed procedure says to allow up to 5 working days.",
+      "jurisdiction": "national",
+      "source_ids": ["src.digid.apply", "src.digid.activate"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-08-20"
+    },
+    {
+      "id": "DIG-004",
+      "statement": "The DigiD activation code must be used within 21 days; if it expires, the user must apply again.",
+      "jurisdiction": "national",
+      "source_ids": ["src.digid.activate"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-08-20"
+    },
+    {
+      "id": "DIG-005",
+      "statement": "DigiD is personal and must not be applied for or shared on another person's behalf; DigiD Authorisation is the official route for delegated help.",
+      "jurisdiction": "national",
+      "source_ids": ["src.digid.apply"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "DIG-006",
+      "statement": "The abroad application route requires a BSN, RNI registration, a valid passport or identity card, a phone that can receive Dutch SMS messages abroad, and an email address; activation then depends on the available official route.",
+      "jurisdiction": "national",
+      "source_ids": ["src.digid.abroad", "src.nww.rni-register"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "RES-001",
+      "statement": "There is no single universal Dutch residence-permit application: the applicable IND route depends on the person's nationality, purpose of stay, sponsor and circumstances.",
+      "jurisdiction": "national",
+      "source_ids": ["src.ind.residence-permits"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "RES-002",
+      "statement": "Citizens of the EU, EEA or Switzerland do not generally need a residence permit to stay in the Netherlands, although a specific prior-residency situation can require registration with the IND.",
+      "jurisdiction": "national_eu_law",
+      "source_ids": ["src.ind.eu-registration"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "RES-003",
+      "statement": "Requirements, documents, sponsor duties, costs and decision periods must be taken from the current IND page for the selected residence purpose; a generic guide must not merge the routes.",
+      "jurisdiction": "national",
+      "source_ids": ["src.ind.residence-permits", "src.ind.eu-registration"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "RES-004",
+      "statement": "A residence document should be collected only after the IND has said it is ready, at the specific collection location stated in the message, and the holder must collect it in person.",
+      "jurisdiction": "national",
+      "source_ids": ["src.ind.collect-document"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "RES-005",
+      "statement": "The ordinary IND collection checklist includes a valid passport or travel document, the appointment code, and any existing or expired residence document; a police report is required if the prior document was lost or stolen.",
+      "jurisdiction": "national",
+      "source_ids": ["src.ind.collect-document"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "RES-006",
+      "statement": "For a valid residence document that is lost or stolen, the holder must report the loss or theft to the police, obtain a certified copy of the report, and include a copy with the replacement application.",
+      "jurisdiction": "national",
+      "source_ids": ["src.ind.lost-stolen-card"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "RES-007",
+      "statement": "If the document is lost or stolen abroad, the holder must report it to the local police; a report outside Dutch, English, French or German needs a sworn translation, and return travel may require a visa.",
+      "jurisdiction": "national_with_foreign_execution",
+      "source_ids": ["src.ind.lost-stolen-card"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "RES-008",
+      "statement": "A residence document becomes invalid after the police report; if it is later found, it still must be handed in to the IND and a replacement is required.",
+      "jurisdiction": "national",
+      "source_ids": ["src.ind.lost-stolen-card"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "RES-009",
+      "statement": "If a lost or stolen regular residence permit has less than 3 months' validity remaining, the IND says an extension or change application can be filed instead of a replacement for that period, with the police report shown at collection.",
+      "jurisdiction": "national",
+      "source_ids": ["src.ind.lost-stolen-card"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-08-20"
+    },
+    {
+      "id": "RES-010",
+      "statement": "The IND page for replacement after loss or theft states an 8-week decision period that can be extended and says a fee applies; the live fee page must be checked rather than storing a generic amount.",
+      "jurisdiction": "national",
+      "source_ids": ["src.ind.lost-stolen-card"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-08-20"
+    },
+    {
+      "id": "TAX-001",
+      "statement": "A person invited by the Tax Administration to file an income tax return must file; a person without an invitation may still have to file or may file to request a refund.",
+      "jurisdiction": "national",
+      "source_ids": ["src.gov.tax-return"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "TAX-002",
+      "statement": "The filing route depends on residence status and the tax year: people resident abroad for the full year and people who immigrated or emigrated during the year use different return routes.",
+      "jurisdiction": "national",
+      "source_ids": ["src.gov.tax-return", "src.taxadmin.filing-methods"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "TAX-003",
+      "statement": "The current Tax Administration page offers online, app and paper filing routes, with entrepreneurs generally required to file online and stated exceptions for entrepreneurs living abroad.",
+      "jurisdiction": "national",
+      "source_ids": ["src.taxadmin.filing-methods"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2027-01-15"
+    },
+    {
+      "id": "TAX-004",
+      "statement": "Tax partners each use their own DigiD; filing for someone else requires the official authorisation route rather than sharing credentials.",
+      "jurisdiction": "national",
+      "source_ids": ["src.taxadmin.filing-methods"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "TAX-005",
+      "statement": "A resident with health insurance, rented housing or children may be eligible for a government contribution, but eligibility is determined separately for each allowance and is not automatic.",
+      "jurisdiction": "national",
+      "source_ids": ["src.toeslagen.how-benefits-work"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "TAX-006",
+      "statement": "An allowance can be applied for through Mijn toeslagen using DigiD, and Dienst Toeslagen also offers telephone help and assisted appointments.",
+      "jurisdiction": "national",
+      "source_ids": ["src.toeslagen.how-benefits-work"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "TAX-007",
+      "statement": "If the conditions are met, an allowance is paid monthly as an advance and is followed by a final calculation after the year; relevant changes must be reported and an excess may have to be repaid.",
+      "jurisdiction": "national",
+      "source_ids": ["src.toeslagen.how-benefits-work", "src.toeslagen.report-changes"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "TAX-008",
+      "statement": "The current Dienst Toeslagen page says changes affecting the allowance must be reported through Mijn toeslagen within 4 weeks; a move already reported to the municipality does not need to be reported again to Dienst Toeslagen.",
+      "jurisdiction": "national",
+      "source_ids": ["src.toeslagen.report-changes"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-10-20"
+    },
+    {
+      "id": "TAX-009",
+      "statement": "Tax thresholds, allowance amounts, income and asset limits, deadlines and cross-border treatment are tax-year- and situation-specific and must not be presented as permanent generic figures.",
+      "jurisdiction": "national",
+      "source_ids": ["src.gov.tax-return", "src.toeslagen.how-benefits-work"],
+      "fact_status": "editorial_safety_constraint"
+    },
+    {
+      "id": "MOVE-001",
+      "statement": "A change of address within the Netherlands can be reported from 4 weeks before the move until 5 days after it, to the municipality of the new address.",
+      "jurisdiction": "national_with_municipal_execution",
+      "source_ids": ["src.gov.change-address", "src.amsterdam.change-address"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "MOVE-002",
+      "statement": "If a change is reported more than 5 days after the move, the report date can become the official move date; a municipality may impose a fine of up to EUR 325 for failing to report important personal-data changes in time.",
+      "jurisdiction": "national_with_municipal_execution",
+      "source_ids": ["src.gov.change-address"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-10-20"
+    },
+    {
+      "id": "MOVE-003",
+      "statement": "The national baseline documents are valid identity evidence and proof of occupancy, such as a rental contract, purchase contract or consent from the main occupant; the receiving municipality may specify the exact upload or form.",
+      "jurisdiction": "national_with_municipal_execution",
+      "source_ids": ["src.gov.change-address", "src.amsterdam.change-address"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "MOVE-004",
+      "statement": "When moving to another Dutch municipality, the resident reports to the new municipality; the new municipality updates the BRP and the previous municipality deregisters the resident.",
+      "jurisdiction": "national_with_municipal_execution",
+      "source_ids": ["src.gov.brp-resident", "src.gov.change-address"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "MOVE-005",
+      "statement": "Municipal social-support or social-assistance services do not necessarily transfer automatically, so the resident should ask the new municipality what remains available and whether a new application is needed.",
+      "jurisdiction": "municipal",
+      "source_ids": ["src.gov.change-address"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "MOVE-006",
+      "statement": "For a foreign national with a residence permit who reports an in-country move on time, the municipality forwards the new address to the IND; if the municipal report is late, the person must also notify the IND.",
+      "jurisdiction": "national_with_municipal_execution",
+      "source_ids": ["src.gov.foreign-national-move"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "MOVE-007",
+      "statement": "Amsterdam accepts its listed online, City Office and postal routes with locally specified occupancy evidence and currently states processing within 3 weeks after the move date.",
+      "jurisdiction": "municipal:amsterdam",
+      "source_ids": ["src.amsterdam.change-address"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-08-20"
+    },
+    {
+      "id": "MOVE-008",
+      "statement": "A person moving from Amsterdam to another Dutch municipality reports the move to the new municipality, which triggers deregistration from Amsterdam.",
+      "jurisdiction": "municipal:amsterdam",
+      "source_ids": ["src.amsterdam.change-address"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "BUS-001",
+      "statement": "The official national start-up plan is a general guideline; the founder must identify additional rules for their specific immigration status, sector, location, staff, products and starting situation.",
+      "jurisdiction": "national_with_local_and_sector_variants",
+      "source_ids": ["src.businessgov.start-plan"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "BUS-002",
+      "statement": "KVK currently says registration is required when the person independently provides or prepares to provide products or services, charges for income, and regularly supplies people beyond family and friends; borderline cases require KVK assessment.",
+      "jurisdiction": "national",
+      "source_ids": ["src.businessgov.register-kvk", "src.kvk.entrepreneur-criteria"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-10-20"
+    },
+    {
+      "id": "BUS-003",
+      "statement": "A founder must choose a legal structure because it affects liability, tax and registration; a legal entity such as a BV or NV is registered through a civil-law notary, and 'zzp' or 'freelancer' is not itself a legal structure.",
+      "jurisdiction": "national",
+      "source_ids": ["src.businessgov.start-plan", "src.businessgov.register-kvk"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "BUS-004",
+      "statement": "A founder from outside the EU, EEA or Switzerland may need an appropriate residence permit to stay and start a business and must use the IND route for their situation.",
+      "jurisdiction": "national",
+      "source_ids": ["src.businessgov.register-kvk", "src.ind.residence-permits"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "BUS-005",
+      "statement": "The ordinary Dutch KVK route requires a BSN and a Dutch business address; an RNI-registered non-resident must also be able to prove the permanent foreign address and temporary Netherlands address described by the official page.",
+      "jurisdiction": "national",
+      "source_ids": ["src.businessgov.register-kvk"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "BUS-006",
+      "statement": "For the ordinary self-registration route, the founder completes the KVK registration form, makes an appointment, attends with valid identity evidence, and brings any address or other documents listed in the confirmation.",
+      "jurisdiction": "national",
+      "source_ids": ["src.businessgov.register-kvk", "src.kvk.entrepreneur-criteria"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "BUS-007",
+      "statement": "KVK says a business should be registered 1 week before or after activities start; details may be checked up to 3 months before the start date, with final registration taking effect near the start date.",
+      "jurisdiction": "national",
+      "source_ids": ["src.businessgov.register-kvk", "src.kvk.entrepreneur-criteria"],
+      "fact_status": "sourced_research_draft",
+      "reverify_by": "2026-10-20"
+    },
+    {
+      "id": "BUS-008",
+      "statement": "KVK passes ordinary Dutch registration details to the Tax Administration, but KVK's entrepreneur criteria and the Tax Administration's tax criteria differ; tax status is communicated separately.",
+      "jurisdiction": "national",
+      "source_ids": ["src.businessgov.register-kvk", "src.kvk.entrepreneur-criteria"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "BUS-009",
+      "statement": "The one-off KVK fee for a new registration is EUR 85.15 in 2026; KVK updates the fee annually, and optional extracts or notarial costs are separate.",
+      "jurisdiction": "national",
+      "source_ids": ["src.kvk.registration-fee-2026"],
+      "fact_status": "sourced_research_draft",
+      "valid_for_calendar_year": 2026,
+      "reverify_by": "2026-12-15"
+    },
+    {
+      "id": "BUS-010",
+      "statement": "Before opening, a founder must check which permits, registrations, professional requirements and location rules apply to the actual activity; the generic start-up plan cannot answer this without sector and location data.",
+      "jurisdiction": "national_with_local_and_sector_variants",
+      "source_ids": ["src.businessgov.start-plan"],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "BUS-011",
+      "statement": "The Business Register contains public business information; the founder should review the current KVK rules for shielding a visiting address before using a private home address.",
+      "jurisdiction": "national",
+      "source_ids": ["src.businessgov.register-kvk"],
+      "fact_status": "sourced_research_draft"
+    }
+  ],
+  "topic_dossiers": [
+    {
+      "id": "topic.municipality-registration-brp-rni",
+      "target_guide_ids": ["guide.registering-at-a-municipality"],
+      "status": "research_draft",
+      "jurisdiction": "national_with_municipal_execution",
+      "national_fact_ids": ["REG-001", "REG-002", "REG-003", "REG-004", "REG-005", "REG-006", "REG-007"],
+      "municipal_fact_ids": ["REG-008", "REG-009", "REG-010"],
+      "municipal_variants_researched": ["amsterdam"],
+      "publication_blockers": [
+        "A human reviewer has not checked the source-to-step interpretation.",
+        "Only Amsterdam municipal execution has been researched; the guide must route other users to their own municipality.",
+        "Appointment availability and RNI desk eligibility are volatile."
+      ]
+    },
+    {
+      "id": "topic.bsn",
+      "target_guide_ids": ["guide.getting-a-bsn"],
+      "status": "research_draft",
+      "jurisdiction": "national_with_municipal_execution",
+      "national_fact_ids": ["BSN-001", "BSN-002", "BSN-003", "BSN-004", "REG-005", "REG-006"],
+      "municipal_fact_ids": ["REG-008", "REG-010"],
+      "publication_blockers": [
+        "The guide must first ask whether the user is becoming a resident, is a short-stay non-resident, or may already have a BSN.",
+        "No human reviewer is assigned."
+      ]
+    },
+    {
+      "id": "topic.digid",
+      "target_guide_ids": ["guide.applying-for-digid"],
+      "status": "research_draft",
+      "jurisdiction": "national",
+      "national_fact_ids": ["DIG-001", "DIG-002", "DIG-003", "DIG-004", "DIG-005", "DIG-006"],
+      "municipal_fact_ids": [],
+      "publication_blockers": [
+        "Resident and abroad activation paths must be separated in the final guide.",
+        "The official application page contains two delivery-time phrasings; editorial review must retain the conservative maximum.",
+        "No human reviewer is assigned."
+      ]
+    },
+    {
+      "id": "topic.residence-permits-and-card",
+      "target_guide_ids": ["guide.residence-permits"],
+      "status": "research_draft",
+      "jurisdiction": "national",
+      "national_fact_ids": ["RES-001", "RES-002", "RES-003", "RES-004", "RES-005", "RES-006", "RES-007", "RES-008", "RES-009", "RES-010"],
+      "municipal_fact_ids": [],
+      "publication_blockers": [
+        "The broad guide must remain a safe route selector; route-specific legal requirements cannot be collapsed into one checklist.",
+        "The lost-card flow should be a distinct section or guide and must not imply it applies to damaged or expired documents.",
+        "No qualified immigration reviewer is assigned."
+      ]
+    },
+    {
+      "id": "topic.taxes-and-allowances",
+      "target_guide_ids": ["guide.taxes-and-allowances"],
+      "status": "research_draft",
+      "jurisdiction": "national",
+      "national_fact_ids": ["TAX-001", "TAX-002", "TAX-003", "TAX-004", "TAX-005", "TAX-006", "TAX-007", "TAX-008", "TAX-009"],
+      "municipal_fact_ids": [],
+      "publication_blockers": [
+        "Tax-year-specific thresholds, dates and allowance conditions have not been modelled.",
+        "The guide must not determine eligibility or provide personalised tax advice.",
+        "The current operational filing source is Dutch and needs checked English editorial wording.",
+        "No tax-domain reviewer is assigned."
+      ]
+    },
+    {
+      "id": "topic.moving-municipality",
+      "target_guide_ids": ["guide.moving-to-another-municipality"],
+      "status": "research_draft",
+      "jurisdiction": "national_with_municipal_execution",
+      "national_fact_ids": ["MOVE-001", "MOVE-002", "MOVE-003", "MOVE-004", "MOVE-005", "MOVE-006"],
+      "municipal_fact_ids": ["MOVE-007", "MOVE-008"],
+      "municipal_variants_researched": ["amsterdam"],
+      "publication_blockers": [
+        "Only Amsterdam's local submission route has been researched.",
+        "Users receiving municipal support need a separate handoff to their new municipality.",
+        "No human reviewer is assigned."
+      ]
+    },
+    {
+      "id": "topic.starting-business",
+      "target_guide_ids": ["guide.starting-a-business"],
+      "status": "research_draft",
+      "jurisdiction": "national_with_local_and_sector_variants",
+      "national_fact_ids": ["BUS-001", "BUS-002", "BUS-003", "BUS-004", "BUS-005", "BUS-006", "BUS-007", "BUS-008", "BUS-009", "BUS-010", "BUS-011"],
+      "municipal_fact_ids": [],
+      "publication_blockers": [
+        "The final guide needs branching for legal structure, residence status, business location and regulated activity.",
+        "The 2026 fee must not be carried into 2027 without reverification.",
+        "No legal, tax or KVK-domain reviewer is assigned."
+      ]
+    }
+  ],
+  "editorial_handoff": {
+    "safe_next_actions": [
+      "Assign a named human reviewer for each domain.",
+      "Convert each sourced fact into a factual block that retains its source IDs.",
+      "Keep national rules separate from Amsterdam-only instructions.",
+      "Reopen every source with a reverify_by date before review or publication.",
+      "Run the practical-guide fail-closed validator before any lifecycle transition."
+    ],
+    "prohibited_actions": [
+      "Do not set any guide to published from this dossier alone.",
+      "Do not infer personalised eligibility for residence permits, taxes, allowances or business registration.",
+      "Do not copy 2026 fees, deadlines or operational routes into an undated evergreen statement.",
+      "Do not mark a reviewer or confidence level without an actual human review record."
+    ]
+  }
+}

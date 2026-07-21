@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
 import { ContentPage } from "@/components/content-page";
 import { links } from "@/lib/site-data";
+import { metadataForPage } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: "How YouNew.nl handles local app data, AI requests, location, support email and external services."
-};
+export const metadata = metadataForPage("Privacy Policy", "How YouNew handles local app data, AI requests, location, support email and external services.", "/privacy");
 
 export default function PrivacyPage() {
   return (
@@ -40,10 +37,19 @@ export default function PrivacyPage() {
       <p>
         The public website does not require an account and contains no payment flow. When you contact support by email, we receive the address, message and attachments you choose to send. Do not email sensitive identity, medical or financial documents.
       </p>
+      <p>
+        The web version stores saved items, recently viewed pages and your selected profile in this browser. Search history is off by default and is stored locally only if you enable “Remember searches on this device”. The website does not send these values to YouNew or an analytics provider.
+      </p>
+      <p>
+        The business inquiry form validates the details in your browser and prepares an email draft; filling it in does not submit anything to YouNew. If you review and send the draft, YouNew receives the contact and proposal details you chose to include through the participating email services. The form does not accept uploads. Business inquiries are used to evaluate and respond to the proposal, not as blanket consent for unrelated marketing.
+      </p>
 
       <h2>Your controls</h2>
       <p>
         The app’s Privacy &amp; Data Control screen lets you create a local JSON export and delete app-managed personal data. Removing the app may also remove locally stored app data, subject to the device platform’s backup behavior.
+      </p>
+      <p>
+        On the website, open <a href="/saved/">Saved items</a> and use “Clear local web data” to remove saved items, recently viewed pages, optional search history and the selected profile from this browser.
       </p>
 
       <h2>External services</h2>

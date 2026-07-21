@@ -1,8 +1,21 @@
 # Evidence packet — QA automation
 
-Status: **VERIFIED Stage 2 unit/static snapshot / expanded final reruns pending**
+Status: **VERIFIED clean-clone build, unit, static, and backend gates / UI RED**
 
-Evidence date: 2026-07-20 (Europe/Amsterdam)
+Evidence date: 2026-07-21 (Europe/Amsterdam)
+
+## 2026-07-21 evidence boundary update
+
+The `61e7ce11` 82/87 result below is a historical diagnostic, not a result for
+the current product/test source. The last fully closed clean-clone UI snapshot is
+`efd1a7c50bf7b5e2f82be047b084b6d73cb009a7`, **84/87 RED**. Current source
+`da8c3fe22e7a5d99b2187aab1141700b2d34f508` requires a new complete serial UI
+aggregate; focused tests never replace it.
+
+An offline clean-clone structural static run passed, but that does not clear the
+separately captured current network Data Health finding: 18 confirmed broken URLs
+in shipped runtime data. The link-health blocker remains red until a reviewed
+release remediation and fresh network check close it.
 
 ## Original problem
 
@@ -32,24 +45,30 @@ Keep independent build, unit, static, import, accessibility, and UI gates; class
 
 ## Tests
 
-- Last closed complete Stage 2 unit rerun: **450/450 passed, 0 failed, 0
-  skipped, 0 expected failures** on iPhone 17 Pro / iOS 26.5. Additional Build Week
-  AI/demo tests were added afterward and have focused passing evidence; the expanded
-  complete suite still requires a final-snapshot rerun.
-- Last closed aggregate Stage 2 static rerun: **40/40 commands passed**;
-  DataProject import validation also passed. Focused AI QA passed after later changes,
-  but the final aggregate rerun remains a gate.
-- Audit baseline UI run: **80/86 passed, 6 failed, 0 skipped**. One new local
-  fallback UI test passed independently. Fixes are documented, but closed reruns of
-  the original failures and complete post-fix UI suite are still pending; no green
-  UI claim is made.
+- Authoritative clean-clone Xcode unit aggregate: **460/460 passed, 0 failed, 0 skipped,
+  0 expected failures** on iPhone 17 Pro / iOS 26.5.
+- Authoritative clean-clone aggregate static rerun: **40/40 commands passed** from
+  an initially report-free clone; DataProject import validation also passed.
+- The static PASS is bounded: visible-image remote QA checked no cached URLs and
+  made zero network requests; observability reported 0.0% usage coverage and did
+  not establish migration progress.
+- Audit baseline UI run: **80/86 passed, 6 failed, 0 skipped**. The historical
+  serial clean-clone run at `61e7ce11` is **82/87**, with 5 failed,
+  0 skipped, and 0 expected failures. Its retained failures are a municipality Back
+  path, a family-route synthetic tap, root-tab latency, healthcare map focus, and
+  named fallback launch state. The explicit local fallback passed in a later bounded
+  2/2 Assistant diagnostic, but no focused result replaces the red aggregate.
 
 ## Measurable result
 
 Stage 2 moved the original unit gate from 446/450 to 450/450 and static QA from
-35/40 to 40/40 while retaining the original tests and assertions. Later tests do
-not invalidate that historical snapshot, but they expand the final gate. UI
-improvement is not measurable until the closed post-fix summaries exist.
+35/40 to 40/40 while retaining the original tests and assertions. The final suite
+then expanded; the current authoritative Xcode inventory is 460 tests and passed
+completely in the clean clone. Its console also reports a 453-test Swift Testing
+sub-summary; seven XCTest cases make up the aggregate difference. The final
+historical `61e7ce11` UI inventory is 82/87 and remains red. Its latency failure is
+102.043 ms against the unchanged `< 100 ms` contract; the other retained failures
+remain in the ledger rather than being hidden by retry or relaxation.
 
 ## Owner decision
 
@@ -57,9 +76,10 @@ The owner must define the mandatory physical-device, accessibility, language, an
 
 ## Limitations
 
-- The closed Stage 2 unit result bundle is stored outside the repository; a portable
-  redacted summary and a new final-snapshot result still need to be captured.
-- Full post-fix UI status is pending, and no physical-device or complete VoiceOver/contrast/performance matrix is proven.
+- Result bundles are intentionally local artifacts; portable totals, commands, and
+  commit linkage are recorded in `BuildWeekFix/CLEAN_CLONE_PROOF.md`.
+- The historical `61e7ce11` full UI status is red at 82/87. No physical-device or complete
+  VoiceOver/contrast/performance matrix is proven.
 - A passing static matcher proves a source contract, not runtime behavior.
 - GitHub CI and clean-clone results are separate gates and are not implied by local success.
 
@@ -68,9 +88,10 @@ The owner must define the mandatory physical-device, accessibility, language, an
 The repository contains implementation and reports consistent with the documented Codex-assisted workflow.
 
 YouNew has broad automated unit, UI, accessibility, routing, media, content, and
-release checks. The current evidence supports the closed Stage 2 unit/static
-snapshot and focused later AI/fallback checks; it does not yet support green
-expanded final unit/static, full UI, CI, clean-clone, or production-readiness claims.
+release checks. Historical and bounded current evidence supports clean-clone build,
+460/460 unit, offline 40/40 static, DataProject/import, and mocked backend-contract
+gates. It does not
+claim GitHub CI, physical-device certification, live GPT-5.6, or production readiness.
 
 ## Screenshot or log still needed
 

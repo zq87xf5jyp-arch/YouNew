@@ -6,6 +6,10 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parents[1]
 URL = re.compile(r'https?://[^\s"<>\\]+')
 INCOMPLETE_URL_SUFFIXES = ("/wiki/File:", "/wiki/Special:FilePath/")
+NON_DEREFERENCEABLE_IDENTIFIERS = {
+    # JSON Schema $id / runtime schema fingerprint, not a user-facing link.
+    "https://younew.nl/schemas/data-project/entity.schema.json",
+}
 urls = {}
 scan_roots = [ROOT / "YouNew", ROOT / "DataProject" / "batches"]
 for scan_root in scan_roots:
@@ -16,7 +20,7 @@ for scan_root in scan_roots:
         text = path.read_text(encoding="utf-8", errors="ignore")
         for match in URL.finditer(text):
             url = match.group(0).rstrip(".,;]")
-            if url.endswith(INCOMPLETE_URL_SUFFIXES):
+            if url.endswith(INCOMPLETE_URL_SUFFIXES) or url in NON_DEREFERENCEABLE_IDENTIFIERS:
                 continue
             line = text.count("\n", 0, match.start()) + 1
             urls.setdefault(url, f"{path.relative_to(ROOT)}:{line}")
@@ -31,11 +35,15 @@ def check(pair):
             final = response.geturl()
         return url, location, code, final, "" if code < 400 else "http_error"
     except urllib.error.HTTPError as exc:
-        if exc.code in {403, 405, 429}:
+        # Some official/CDN endpoints reject HEAD (occasionally with 404), while
+        # the user-facing GET succeeds. Confirm 404/410 before marking broken.
+        if exc.code in {403, 404, 405, 410, 429}:
             try:
-                req = urllib.request.Request(url, method="GET", headers={"User-Agent":"Mozilla/5.0","Range":"bytes=0-0"})
+                # Do not send Range here: several CMS/CDN routes answer Range
+                # probes with a synthetic 404 although a normal browser GET is valid.
+                req = urllib.request.Request(url, method="GET", headers={"User-Agent":"Mozilla/5.0"})
                 with urllib.request.urlopen(req, timeout=10, context=ctx) as response:
-                    return url, location, response.status, response.geturl(), "restricted_head" if response.status < 400 else "http_error"
+                    return url, location, response.status, response.geturl(), f"head_{exc.code}_get_ok" if response.status < 400 else "http_error"
             except Exception as retry:
                 return url, location, getattr(retry, "code", exc.code), "", type(retry).__name__
         return url, location, exc.code, "", "http_error"

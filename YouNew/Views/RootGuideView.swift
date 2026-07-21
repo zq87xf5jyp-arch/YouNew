@@ -4,8 +4,7 @@ struct RootGuideView: View {
     var onAskAI: () -> Void = {}
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var router: TabRouter
-    @State private var popularItems: [ContentItem] = []
-    @State private var recentlyUpdatedItems: [ContentItem] = []
+    @State private var contentSnapshot: GuideContentSnapshot? = nil
 
     private var language: AppLanguage { languageManager.appLanguage }
     private let columns = [GridItem(.flexible(), spacing: 10), GridItem(.flexible(), spacing: 10)]
@@ -18,8 +17,7 @@ struct RootGuideView: View {
                     header
                     searchAction
                     categoryGrid
-                    popularContent
-                    recentlyUpdated
+                    guideContentSections
                     sourceNote
                     Color.clear.frame(height: AppSpacing.tabBarScrollReserve)
                 }
@@ -37,7 +35,7 @@ struct RootGuideView: View {
         }
         .appSceneBackground(.search)
         .task {
-            guard popularItems.isEmpty, recentlyUpdatedItems.isEmpty else { return }
+            guard contentSnapshot == nil else { return }
             let snapshot = await Task.detached(priority: .userInitiated) {
                 let allItems = ContentRepository.shared.guideItems()
                 let recentItems = allItems
@@ -49,8 +47,7 @@ struct RootGuideView: View {
                 )
             }.value
             guard !Task.isCancelled else { return }
-            popularItems = snapshot.popular
-            recentlyUpdatedItems = snapshot.recentlyUpdated
+            contentSnapshot = snapshot
         }
     }
 
@@ -137,18 +134,29 @@ struct RootGuideView: View {
         }
     }
 
-    private var popularContent: some View {
-        contentSection(
-            title: localized(en: "Popular guides", nl: "Populaire gidsen", ru: "Популярные материалы"),
-            items: popularItems
-        )
-    }
+    @ViewBuilder
+    private var guideContentSections: some View {
+        if let contentSnapshot {
+            if !contentSnapshot.popular.isEmpty {
+                contentSection(
+                    title: localized(en: "Popular guides", nl: "Populaire gidsen", ru: "Популярные материалы"),
+                    items: contentSnapshot.popular
+                )
+            }
 
-    private var recentlyUpdated: some View {
-        contentSection(
-            title: localized(en: "Recently updated", nl: "Recent bijgewerkt", ru: "Недавно обновлено"),
-            items: recentlyUpdatedItems
-        )
+            if !contentSnapshot.recentlyUpdated.isEmpty {
+                contentSection(
+                    title: localized(en: "Recently updated", nl: "Recent bijgewerkt", ru: "Недавно обновлено"),
+                    items: contentSnapshot.recentlyUpdated
+                )
+            }
+
+            if contentSnapshot.popular.isEmpty, contentSnapshot.recentlyUpdated.isEmpty {
+                emptyVerifiedContentState
+            }
+        } else {
+            loadingVerifiedContentState
+        }
     }
 
     private func contentSection(title: String, items: [ContentItem]) -> some View {
@@ -156,24 +164,54 @@ struct RootGuideView: View {
             Text(title)
                 .font(.title3.bold())
                 .foregroundStyle(AppColors.textPrimary)
-            if items.isEmpty {
-                Text(localized(en: "Verified materials will appear here.", nl: "Geverifieerde informatie verschijnt hier.", ru: "Здесь появятся проверенные материалы."))
-                    .font(AppTypography.footnote)
-                    .foregroundStyle(AppColors.textSecondary)
-                    .padding(14)
-                    .frame(maxWidth: .infinity, alignment: .leading)
-                    .appGlassCardStyle(padding: 0, cornerRadius: 17, accent: AppColors.softBlue)
-            } else {
-                ForEach(items) { item in
-                    if let destination = ContentRepository.shared.destination(id: item.id) {
-                        NavigationLink(value: destination) { guideContentRow(item) }
-                            .buttonStyle(.plain)
-                    } else {
-                        guideContentRow(item)
-                    }
+            ForEach(items) { item in
+                if let destination = ContentRepository.shared.destination(id: item.id) {
+                    NavigationLink(value: destination) { guideContentRow(item) }
+                        .buttonStyle(.plain)
+                } else {
+                    guideContentRow(item)
                 }
             }
         }
+    }
+
+    private var loadingVerifiedContentState: some View {
+        HStack(spacing: 12) {
+            ProgressView()
+                .tint(AppColors.cyanGlow)
+            Text(localized(
+                en: "Loading verified guides…",
+                nl: "Geverifieerde gidsen laden…",
+                ru: "Загружаем проверенные материалы…"
+            ))
+            .font(AppTypography.footnote)
+            .foregroundStyle(AppColors.textSecondary)
+        }
+        .padding(14)
+        .frame(maxWidth: .infinity, alignment: .leading)
+        .appGlassCardStyle(padding: 0, cornerRadius: 17, accent: AppColors.softBlue)
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("guide.content.loading")
+    }
+
+    private var emptyVerifiedContentState: some View {
+        NavigationLink(value: AppDestination.officialSources) {
+            Label(
+                localized(
+                    en: "Browse the official source directory",
+                    nl: "Bekijk de officiële bronnengids",
+                    ru: "Открыть каталог официальных источников"
+                ),
+                systemImage: "checkmark.seal.fill"
+            )
+            .font(AppTypography.body.weight(.semibold))
+            .foregroundStyle(AppColors.textPrimary)
+            .padding(14)
+            .frame(maxWidth: .infinity, alignment: .leading)
+            .appGlassCardStyle(padding: 0, cornerRadius: 17, accent: AppColors.softBlue)
+        }
+        .buttonStyle(.plain)
+        .accessibilityIdentifier("guide.content.officialSourcesFallback")
     }
 
     private func guideContentRow(_ item: ContentItem) -> some View {

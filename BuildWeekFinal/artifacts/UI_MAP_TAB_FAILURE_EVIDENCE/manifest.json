@@ -1,0 +1,89 @@
+[
+  {
+    "attachments" : [
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1D538DCE-A487-40C2-801F-811D44D6397D",
+        "deviceName" : "YouNew BuildWeek Shard 3",
+        "exportedFileName" : "8D370B8C-3BC8-4FF0-BFAA-5F1C3A2C0A0D.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "App UI hierarchy for nl.younew_0_15DF3B22-CF3A-4145-8C2F-1A86CF10F3C2.app",
+        "timestamp" : 1784584431.862
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1D538DCE-A487-40C2-801F-811D44D6397D",
+        "deviceName" : "YouNew BuildWeek Shard 3",
+        "exportedFileName" : "E90ECCAA-8F7E-493D-A5A6-9DF492C9C32F",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "UI Snapshot 2026-07-20 at 11.53.51 PM",
+        "timestamp" : 1784584431.862
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1D538DCE-A487-40C2-801F-811D44D6397D",
+        "deviceName" : "YouNew BuildWeek Shard 3",
+        "exportedFileName" : "0A9B63A2-A650-42CE-8B09-9F10812A739E.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"screen.home\" Any`_0_E0CB7D89-A801-4385-A527-7925DFB74785.txt",
+        "timestamp" : 1784584431.563
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1D538DCE-A487-40C2-801F-811D44D6397D",
+        "deviceName" : "YouNew BuildWeek Shard 3",
+        "exportedFileName" : "2BCC8F57-BBD1-4E2C-B6DA-EEF0E9D7B73D.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"screen.home\" Any`_0_E7B8B1FD-C7AC-471C-BEC6-AA580BD1340A.txt",
+        "timestamp" : 1784584430.605
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1D538DCE-A487-40C2-801F-811D44D6397D",
+        "deviceName" : "YouNew BuildWeek Shard 3",
+        "exportedFileName" : "D041D41F-4C57-45BE-887A-68351F93A2F5",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-07-20 at 11.53.49 PM",
+        "timestamp" : 1784584429.49
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1D538DCE-A487-40C2-801F-811D44D6397D",
+        "deviceName" : "YouNew BuildWeek Shard 3",
+        "exportedFileName" : "9CA24FAD-B4E7-4EE5-9D87-0376CAA932C8",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-07-20 at 11.53.47 PM",
+        "timestamp" : 1784584427.228
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1D538DCE-A487-40C2-801F-811D44D6397D",
+        "deviceName" : "YouNew BuildWeek Shard 3",
+        "exportedFileName" : "FB096EDA-B945-45C0-A1B3-5EC4B0413729",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Synthesized Event 2026-07-20 at 11.53.44 PM",
+        "timestamp" : 1784584424.36
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1D538DCE-A487-40C2-801F-811D44D6397D",
+        "deviceName" : "YouNew BuildWeek Shard 3",
+        "exportedFileName" : "BEB60448-5406-4006-BDA2-CA2FFEE2D238.txt",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Debug description for `\"map.hub\" Any`_0_04C32EC9-7E6F-4BBC-A68B-FD54BB4D1CD7.txt",
+        "timestamp" : 1784584418.744
+      },
+      {
+        "configurationName" : "Test Scheme Action",
+        "deviceId" : "1D538DCE-A487-40C2-801F-811D44D6397D",
+        "deviceName" : "YouNew BuildWeek Shard 3",
+        "exportedFileName" : "6894A403-2B11-4938-9C65-D14643208862.mp4",
+        "isAssociatedWithFailure" : false,
+        "suggestedHumanReadableName" : "Screen Recording 2026-07-20 at 11.53.27 PM.mp4",
+        "timestamp" : 1784584407.943
+      }
+    ],
+    "testIdentifier" : "MapChipUITests/testRootTabNavigationLatency()",
+    "testIdentifierURL" : "test://com.apple.xcode/YouNew/YouNewUITests/MapChipUITests/testRootTabNavigationLatency"
+  }
+]

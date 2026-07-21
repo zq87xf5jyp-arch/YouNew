@@ -1,0 +1,25 @@
+{
+  "schema_version": "1.0",
+  "policy": {
+    "purpose": "Ranking, recommendations and optional user-controlled filters only",
+    "may_hide_content": false,
+    "guide_default_scope": "all_published_content",
+    "search_default_scope": "all_published_content",
+    "map_default_scope": "all_coordinate_bearing_published_content",
+    "multi_value": true
+  },
+  "tags": [
+    {"id": "newcomer", "name": "Newcomer", "boosts": ["getting-started", "official-services", "housing", "health-safety"]},
+    {"id": "student", "name": "Student", "boosts": ["study", "housing", "transport", "work-money"]},
+    {"id": "visitor", "name": "Visitor", "boosts": ["explore", "transport", "health-safety"]},
+    {"id": "worker", "name": "Worker", "boosts": ["work-money", "official-services", "health-safety", "housing"]},
+    {"id": "family", "name": "Family", "boosts": ["study", "health-safety", "housing", "official-services"]},
+    {"id": "resident", "name": "Resident", "boosts": ["official-services", "work-money", "health-safety", "explore"]}
+  ],
+  "ranking_contract": {
+    "inputs": ["explicit_query", "urgency", "active_task", "audience_tags", "selected_geography", "recency", "saved_state"],
+    "priority": ["explicit_query", "urgency", "active_task", "selected_geography", "audience_tags", "recency"],
+    "forbidden_inputs": ["audience_access_allowlist", "persona_visibility_gate"]
+  }
+}
+

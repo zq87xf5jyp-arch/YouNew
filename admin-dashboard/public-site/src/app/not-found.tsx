@@ -1,0 +1,14 @@
+import Link from "next/link";
+import type { Metadata } from "next";
+import { ArrowLeft } from "lucide-react";
+import { PageShell } from "@/components/page-shell";
+
+export const metadata: Metadata = {
+  title: "Page not found",
+  description: "The requested YouNew page could not be found.",
+  robots: { index: false, follow: true }
+};
+
+export default function NotFound() {
+  return <PageShell className="content-page"><section className="section-shell content-hero"><p className="section-label orange">404</p><h1>That page isn’t here.</h1><p>The link may be outdated. Search the published guide or return to YouNew.</p><div className="hero-actions"><Link className="button button-primary" href="/"><ArrowLeft aria-hidden /> Back to YouNew</Link><Link className="button button-outline" href="/search">Search content</Link></div></section></PageShell>;
+}

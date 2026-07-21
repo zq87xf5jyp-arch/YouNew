@@ -1,0 +1,61 @@
+old_screen_or_source,old_role,new_primary_category,new_content_type,new_owner,canonical_strategy,status
+HomeView,Dashboard,Mixed,reference,Home,"Replace bodies/cards with canonical references",mapped
+HomeCategoryComponents,Category shortcuts,Mixed,reference,Home,"Reference Guide category IDs",mapped
+HomeMapComponents,Map preview,Explore,reference,Map,"Reference geographic entity IDs",mapped
+HomeAIComponents,AI entry,Mixed,reference,Global AI action,"One shared launcher",mapped
+PlacesDiscoveryView,Places/search/map aggregate,Explore,reference,Guide and Map,"Split thematic browse from geography",mapped
+SearchView,Search UI,Mixed,reference,Global Search,"Index shared repository",mapped
+NetherlandsMapHubView,Country/province map,Explore,province,Map,"Canonical geography IDs",mapped
+NearbyMapView,Nearby services,Mixed,place,Map,"Canonical place/service IDs",mapped
+FavoritesView,Saved library,Mixed,reference,Saved,"Persist canonical IDs only",mapped
+AIAssistantView,Assistant,Mixed,reference,Global AI action,"Cite repository IDs; no separate corpus",mapped
+MoreHubView,Content and settings hub,Mixed,reference,More and Guide,"Move content links to Guide; retain settings",mapped
+RightSideMenuOverlay,Duplicate global catalog,Mixed,reference,More,"Remove full catalog; optional recent shortcuts",mapped
+GuideContentView,Long-form guide,Mixed,article,Guide,"Split records by canonical ID/category",mapped
+CategoriesHubView,Category catalog,Mixed,reference,Guide,"Render eight-category taxonomy",mapped
+InformationHubView,Daily life hub,Getting started,reference,Guide,"Merge entry into category landing",mapped
+FirstStepsView,First-step tasks,Getting started,checklist,Guide,"Canonical journey/checklist records",mapped
+ChecklistView,Task list,Getting started,checklist,Guide,"Stable checklist IDs",mapped
+ChecklistItemDetailView,Task detail,Getting started,article,Guide,"Reference parent checklist",mapped
+SurvivalNavigatorView,Persona journey,Getting started,checklist,Guide,"Canonical journey; audience changes rank",mapped
+SurvivalGuideView,Legacy survival guide,Getting started,article,Guide,"Merge text into navigator canonical items",mapped
+DocumentOrganizerView,Document tool,Official services,checklist,Guide,"Keep tool state; link canonical guidance",mapped
+OfficialSourceDirectoryView,Trusted sources,Official services,external_resource,Guide,"One record per source",mapped
+InstitutionsView,Institution directory,Official services,official_service,Guide and Map,"Service records; coordinates optional",mapped
+GovernmentHubView,Government hub,Official services,reference,Guide,"Category landing",mapped
+LegalInfoView,Legal topics,Official services,article,Guide,"Merge with legal help canonical records",mapped
+LegalDisclaimerView,Product disclaimer,Official services,article,More,"Legal product material remains in More and searchable",mapped
+FinesInfoView,Fines/rules,Official services,article,Guide,"Canonical rule/fine records",mapped
+LettersView,Official letters,Official services,article,Guide,"One record per letter type",mapped
+LetterDetailView,Letter detail,Official services,article,Guide,"Canonical child record",mapped
+ResourcesView,Resource directory,Mixed,external_resource,Guide,"Assign one primary category per resource",mapped
+MunicipalitySupportView,Municipal help,Official services,official_service,Guide and Map,"Merge with municipality service records",mapped
+TransportGuideView,Transport guide,Transport,article,Guide,"Canonical transport landing/articles",mapped
+Fines transport sections,Driving/cycling rules,Transport,article,Guide,"Primary Transport; related Official services",mapped
+CitiesDirectoryView,City directory,Explore,city,Map and Guide,"Canonical city entities",mapped
+ProvinceDirectoryView,Province directory,Explore,province,Map and Guide,"Canonical province entities",mapped
+NetherlandsOverviewView,Country overview,Explore,article,Guide,"Country scope; related Netherlands entity",mapped
+NetherlandsCityDetailView,City detail,Explore,city,Map and Guide,"Canonical city entity with category-linked modules",mapped
+PlaceDetailView,Place detail,Explore,place,Map and Guide,"Canonical place ID and coordinates",mapped
+CultureAttractionsView,Culture/attractions,Explore,article,Guide,"Places referenced rather than copied",mapped
+DutchHolidaysView,Holidays,Explore,article,Guide,"Canonical holiday records",mapped
+CalendarView,Events,Explore,article,Guide and Map,"Event copy canonical; venue references place",mapped
+HistoryKNMHubView,History/KNM gateway,Study,reference,Guide,"Study category landing references canonical modules",mapped
+NetherlandsHistoryView,History timeline,Study,article,Guide,"Canonical history records",mapped
+KNMGuideView,Civic course,Study,article,Guide,"Canonical module IDs",mapped
+LanguageHubView,Language hub,Study,reference,Guide,"Category landing",mapped
+DutchA1A2View,Language course,Study,article,Guide,"Canonical lesson IDs",mapped
+DutchTermsView,Dictionary,Study,article,Guide,"Canonical term IDs and search aliases",mapped
+TranslatorView,Translation tool,Study,reference,AI and Search,"Tool only; no stored duplicate knowledge",mapped
+Work guide section,Employment knowledge,Work and money,article,Guide,"Canonical employment records",mapped
+Banking basics,Banking knowledge,Work and money,article,Guide,"Move out of WorkStudy legacy grouping",mapped
+Housing guide section,Housing knowledge,Housing,article,Guide,"Canonical housing records",mapped
+Healthcare guide section,Healthcare knowledge,Health and safety,article,Guide,"Canonical health records",mapped
+EmergencyHubView,Urgent actions,Health and safety,emergency_action,Guide and Home,"Canonical urgent flows",mapped
+LGBTQSupportView,Support resources,Health and safety,external_resource,Guide,"Audience tag optional; universally accessible",mapped
+EmotionalSupportView,Mental-health support,Health and safety,official_service,Guide and Map,"Canonical support/service records",mapped
+RisksView,Risk guidance,Health and safety,article,Guide,"Merge into safety/scams records",mapped
+SettingsView,Preferences,Not content,utility,More,"Retain screen; no taxonomy record unless help article",mapped
+PrivacyDataControlView,Privacy controls,Not content,utility,More,"Retain screen; explanatory policy searchable",mapped
+OnboardingQuestionnaireView,Preference capture,Not content,utility,More/Home,"Outputs ranking signals only",mapped
+LocalPartnersView,Partner directory,Work and money,place,Guide and Map,"Canonical partner/place IDs with disclosure",mapped

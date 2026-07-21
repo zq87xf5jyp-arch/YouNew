@@ -1,14 +1,28 @@
 # GPT-5.6 integration evidence
 
-Evidence cutoff: 2026-07-20 (Europe/Amsterdam)
+Evidence cutoff: 2026-07-21 (Europe/Amsterdam)
 
 Branch: `build-week-readiness`
 
 Scenario: `BuildWeekNewcomerDemo`
 
+## 2026-07-21 evidence boundary update
+
+The earlier references to a `61e7ce11` UI aggregate are retained as historical
+diagnostics only. The last fully closed clean-clone UI snapshot is
+`efd1a7c50bf7b5e2f82be047b084b6d73cb009a7`, which was **RED at 84/87**. The
+current product/test source is `da8c3fe22e7a5d99b2187aab1141700b2d34f508`; a
+fresh complete serial UI result for that source is in progress and must not inherit
+any earlier aggregate result.
+
+For the same reason, clean-clone static success is an offline structural result,
+not external-link proof. Separate current local network-health evidence reports 18
+confirmed broken URLs in shipped runtime data; it is a release blocker outside the
+GPT contract and is not hidden by the offline clean-clone sentinel.
+
 ## Evidence verdict
 
-The repository contains a bounded iOS-to-backend GPT-5.6 implementation, an undeployed Cloudflare Worker reference, exact structured-response validation, and an explicit deterministic local fallback. Official OpenAI documentation reviewed for this work confirms the GPT-5.6 family, the Responses API, and Structured Outputs contract.
+The repository contains a bounded iOS-to-backend GPT-5.6 implementation, an undeployed Cloudflare Worker reference, exact structured-response validation, and an explicit deterministic local fallback. Official OpenAI documentation reviewed for this work confirms the GPT-5.6 family, the Responses API, and Structured Outputs contract. The documented `gpt-5.6` alias routes to `gpt-5.6-sol`; `gpt-5.6-terra` and `gpt-5.6-luna` are official family variants but are deliberately outside this project's Sol/alias policy.
 
 **Live status: BLOCKED / NOT PROVEN.** At the evidence cutoff, `OPENAI_API_KEY`, `OPENAI_MODEL`, and `YOUNEW_AI_BACKEND_URL` were not configured in the working environment. No backend deployment, live OpenAI request, actual live `model` value, or live provider `requestId` has been captured. Contract fixtures and mocked upstream tests below are not presented as live evidence.
 
@@ -84,7 +98,7 @@ Trust boundaries:
 | Boundary | Name | Required | Treatment |
 |---|---|---:|---|
 | Backend | `OPENAI_API_KEY` | Yes for live | Encrypted platform secret; never put in iOS, plist, source, bundle, report, or Git. |
-| Backend | `OPENAI_MODEL` | Yes for live | Explicitly one of `gpt-5.6`, `gpt-5.6-sol`, `gpt-5.6-terra`, or `gpt-5.6-luna`; there is no default or silent substitution. |
+| Backend | `OPENAI_MODEL` | Yes for live | Explicitly `gpt-5.6` or `gpt-5.6-sol`; public metadata must be the actual allowed GPT-5.6 alias/resolution returned by the provider. For unambiguous runtime proof, configure explicit `gpt-5.6-sol`. There is no default or silent substitution. |
 | iOS build | `YOUNEW_AI_BACKEND_URL` | Yes for live | Full owner-controlled HTTPS URL ending in `/v1/newcomer-demo`; HTTP is accepted only for explicit loopback debug/test use. |
 
 `.env.example` contains empty placeholders only. No values are recorded in this evidence.
@@ -111,12 +125,13 @@ The client does not send conversation history, saved items, completed guides, cu
 
 Model validation is fail-closed:
 
-- backend configuration accepts exactly the four model names listed above;
+- backend configuration accepts exactly the two model names listed above;
 - a configured explicit variant must equal the actual `data.model` returned by OpenAI;
 - the `gpt-5.6` alias may resolve only to `gpt-5.6` or `gpt-5.6-sol` in this contract;
 - the backend copies the actual allowed `data.model` into the public `model` field;
 - the backend uses a safe OpenAI `x-request-id` when present, otherwise its generated opaque request ID;
-- the iOS parser independently accepts the same exact four-model set and requires a bounded request-ID format;
+- an HTTP-200 upstream body is accepted only when it is a canonical completed Responses object (`object: "response"`, `status: "completed"`, `error: null`, and `incomplete_details: null`); partial or provider-failed bodies become a safe error;
+- the iOS parser independently accepts the same exact two-model set and requires a bounded request-ID format;
 - a mismatch becomes a safe error and then local guide mode, never a differently named live response.
 
 ## Bounded grounding
@@ -195,7 +210,7 @@ Response fixture:
   "warnings": [
     "Requirements can depend on the gemeente and the user's residence, work, or study status."
   ],
-  "model": "gpt-5.6-terra",
+  "model": "gpt-5.6-sol",
   "requestId": "req_contract_fixture_0001"
 }
 ```
@@ -214,14 +229,19 @@ Checkpoint results:
 
 | Check | Result | Scope / limitation |
 |---|---|---|
-| Backend syntax and contract tests | **PASS — 12/12** | OpenAI upstream mocked; includes exact model metadata, native-only CORS behavior (`OPTIONS` → 405, `Allow: POST`, no `Access-Control-Allow-Origin`), errors, timeout, and 128 KiB upstream-body cap. Not live access proof. |
-| Focused AI Swift unit checkpoint | **PASS — 62/62** | Includes bounded parser/client/fallback checks. This checkpoint preceded the final endpoint/path and request-byte alignment; final current-tree/full-suite rerun remains a release gate. |
-| AI subsystem static QA checkpoint | **PASS** | Source-contract inspection; not runtime proof. |
+| Backend syntax and contract tests | **PASS — local 13/13 after response-completion hardening; prior clean-clone 12/12** | OpenAI upstream mocked; includes exact model metadata, canonical-completion validation, native-only CORS behavior (`OPTIONS` → 405, `Allow: POST`, no `Access-Control-Allow-Origin`), errors, timeout, and 128 KiB upstream-body cap. Not live access proof. |
+| Full Swift unit suite | **PASS — clean-clone 460/460** | Includes bounded parser/client/fallback checks and final route integrity. No skipped or expected failures. The console's 453-test Swift Testing sub-summary excludes seven XCTest cases included by the machine-readable Xcode aggregate. |
+| AI subsystem static QA | **PASS — offline clean-clone structural aggregate** | Source-contract inspection; not runtime proof and not a network-link-health certification. |
+| Official grounding URLs | **PASS — 4/4 reachable at cutoff** | Read-only checks reached the expected Government.nl and DigiD pages; BSN and health-insurance URLs resolved to their canonical Government.nl theme paths. This is point-in-time link evidence, not legal review or an in-app browser-transition proof. |
 | Targeted fallback UI test | **PASS — 1/1** | Result: `<TEMP_DIR>/YouNewBuildWeekFixStage3/NewcomerFallbackUI.xcresult`; exercises no-backend local mode, four steps, source action presence, and BSN guide navigation. |
-| App build checkpoint | **PASS** | Local simulator build; not clean-clone or live-backend proof. |
+| App build | **PASS — clean clone, 0 errors/warnings** | Reproducible local simulator build; not live-backend proof. |
 | Live OpenAI runtime | **NOT RUN / BLOCKED** | Required variables and deployed backend absent. |
 
-No in-progress console output is counted as a final test result. Final full unit/UI and clean-clone totals belong in the final readiness evidence after closed result bundles exist.
+The older `61e7ce11` serial UI aggregate is closed **RED at 82/87** and is retained
+only as historical diagnostic evidence. The later fully closed clean-clone snapshot
+at `efd1a7c5` is **RED at 84/87**. The named fallback case passed in a bounded 2/2
+Assistant diagnostic, but neither focused evidence nor a historical aggregate can
+replace the current-source full-suite result or imply live OpenAI behavior.
 
 ## Privacy and safety notes
 
@@ -238,11 +258,15 @@ No in-progress console output is counted as a final test result. Final full unit
 
 - The Worker is a reference implementation, not a deployed or production-proven service.
 - There is no live GPT-5.6 response, actual runtime model metadata, provider request ID, latency record, quota/access result, or safe backend environment proof.
+- The working environment was checked only for configuration presence; `OPENAI_API_KEY`, `OPENAI_MODEL`, `YOUNEW_AI_BACKEND_URL`, and Cloudflare deployment variables were absent. No values were read or printed.
 - Client and backend question limits are aligned at 800 characters / 1,600 UTF-8 bytes; the backend also caps the full request body at 8 KiB.
 - Upstream timeout is 12 seconds; client request/resource timeouts are 12/16 seconds; provider output is capped at 1,200 tokens; backend upstream body is capped at 131,072 bytes; client public response is capped at 64 KiB.
 - The reference Worker has no repository-proven deployment authentication, server-side rate limiter, App Attest validation, or platform abuse-control configuration. These are required deployment decisions.
+- The reference does not yet send a stable privacy-preserving `safety_identifier`; that requires an owner-approved privacy design (for example, an opaque per-install identifier with reset behavior) before production or live claims.
 - The native-only reference intentionally emits no browser CORS permission headers. Preflight `OPTIONS` receives 405 with `Allow: POST`, and responses contain no `Access-Control-Allow-Origin`; this reduces browser exposure but is not authentication or abuse protection.
-- Official-link reachability and the external-browser transition still need a captured runtime check in the final environment.
+- The four bounded official pages were reachable in a separate read-only check at
+  the evidence cutoff. The actual iOS external-browser transition still needs a
+  captured runtime check, and future reachability/content is not guaranteed.
 - Local persistence and the narrow BSN pattern are not a substitute for a complete privacy/threat review.
 
 Safe public claim:

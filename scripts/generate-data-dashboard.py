@@ -212,8 +212,13 @@ def main():
     breadth_config = load_json(PROJECT / "coverage-dimensions.json", {"axes": []})
     runtime_health = load_json(ROOT / "knowledge_data_health.json", OFFLINE_LINK_EVIDENCE)
     confirmed_broken = runtime_health.get("confirmedBroken") or []
+    governed_location_prefixes = (
+        "DataProject/",
+        "YouNew/Resources/Data/younew-runtime-data.json:",
+    )
     governed_broken_links = sum(
-        isinstance(item, dict) and str(item.get("location") or "").startswith("DataProject/")
+        isinstance(item, dict)
+        and str(item.get("location") or "").startswith(governed_location_prefixes)
         for item in confirmed_broken
     )
     legacy_broken_links = max(int(runtime_health.get("confirmedBrokenURLs") or 0) - governed_broken_links, 0)

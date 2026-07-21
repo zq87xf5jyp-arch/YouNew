@@ -1,0 +1,1288 @@
+{
+  "schema_version": 1,
+  "collection_id": "practical-guides-wave-1",
+  "purpose": "Editorial staging only. These draft scaffolds are not imported into the runtime artifact.",
+  "status": "draft",
+  "guides": [
+    {
+      "source_entity_ids": [
+        "government.brp-registration",
+        "government.rni-registration",
+        "government_service.first-registration-in-amsterdam"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.registering-at-a-municipality",
+        "slug": "registering-at-a-municipality",
+        "locale": "en",
+        "title": "Registering at a municipality",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "municipality registration",
+          "gemeente registration",
+          "BRP registration"
+        ],
+        "common_questions": [
+          "How do I register at a gemeente?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.bsn",
+        "government.brp-registration",
+        "government.rni-registration"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.getting-a-bsn",
+        "slug": "getting-a-bsn",
+        "locale": "en",
+        "title": "Getting a BSN",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "citizen service number",
+          "burgerservicenummer",
+          "BSN"
+        ],
+        "common_questions": [
+          "How do I get a BSN?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.digid"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.applying-for-digid",
+        "slug": "applying-for-digid",
+        "locale": "en",
+        "title": "Applying for DigiD",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "digital identity",
+          "DigiD aanvragen",
+          "DigiD"
+        ],
+        "common_questions": [
+          "How do I apply for DigiD?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.register-family-doctor",
+        "healthcare.choose-gp",
+        "healthcare.contact-gp-practice"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.finding-a-huisarts",
+        "slug": "finding-a-huisarts",
+        "locale": "en",
+        "title": "Finding a huisarts",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "family doctor",
+          "general practitioner",
+          "huisarts",
+          "GP"
+        ],
+        "common_questions": [
+          "How do I find and register with a huisarts?",
+          "I need a doctor. Where do I start?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.health-insurance",
+        "healthcare.mandatory-insurance",
+        "healthcare.basic-package"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.dutch-health-insurance",
+        "slug": "dutch-health-insurance",
+        "locale": "en",
+        "title": "Dutch health insurance",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "zorgverzekering",
+          "basic health insurance",
+          "Dutch health insurance"
+        ],
+        "common_questions": [
+          "Do I need Dutch health insurance?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "housing.renting-step-by-step",
+        "housing.tenancy-agreement",
+        "housing.rental-deposit"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.renting-a-home",
+        "slug": "renting-a-home",
+        "locale": "en",
+        "title": "Renting a home",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "home rental",
+          "huurwoning",
+          "tenancy agreement"
+        ],
+        "common_questions": [
+          "How do I rent a home in the Netherlands?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "housing.repair-responsibility",
+        "housing.defects-rent-reduction",
+        "housing.huurcommissie-procedure",
+        "housing.landlord-reporting-point"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.reporting-housing-defects",
+        "slug": "reporting-housing-defects",
+        "locale": "en",
+        "title": "Reporting housing defects",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "landlord repair",
+          "rental defect",
+          "woninggebrek",
+          "Huurcommissie"
+        ],
+        "common_questions": [
+          "What can I do if my landlord does not repair a defect?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "transport.payment-card",
+        "transport.ov-pas",
+        "transport.personal-ov-chipkaart",
+        "transport.missed-checkout"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.using-public-transport",
+        "slug": "using-public-transport",
+        "locale": "en",
+        "title": "Using public transport",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "OVpay",
+          "OV-pas",
+          "OV-chipkaart",
+          "public transport"
+        ],
+        "common_questions": [
+          "How do I pay for public transport?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [],
+      "publication_gaps": [
+        "No governed QA record covers the end-to-end task of finding work.",
+        "Work-permit and employment-contract records are adjacent topics, not a substitute for a reviewed job-search guide.",
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.finding-work",
+        "slug": "finding-work",
+        "locale": "en",
+        "title": "Finding work",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "jobs in the Netherlands",
+          "vacatures",
+          "finding employment"
+        ],
+        "common_questions": [
+          "How do I find work in the Netherlands?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.employment-contract"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.understanding-an-employment-contract",
+        "slug": "understanding-an-employment-contract",
+        "locale": "en",
+        "title": "Understanding an employment contract",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "arbeidsovereenkomst",
+          "work contract",
+          "employment terms"
+        ],
+        "common_questions": [
+          "What should I check in a Dutch employment contract?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.income-tax-return",
+        "government.healthcare-benefit",
+        "government.housing-benefit",
+        "government.municipal-taxes"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.taxes-and-allowances",
+        "slug": "taxes-and-allowances",
+        "locale": "en",
+        "title": "Taxes and allowances",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "tax return",
+          "toeslagen",
+          "zorgtoeslag",
+          "huurtoeslag"
+        ],
+        "common_questions": [
+          "Which Dutch taxes and allowances may apply to me?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [],
+      "publication_gaps": [
+        "No governed QA record covers opening a Dutch bank account.",
+        "The published ING partner record is commercial and must not be used as an editorial source.",
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.opening-a-dutch-bank-account",
+        "slug": "opening-a-dutch-bank-account",
+        "locale": "en",
+        "title": "Opening a Dutch bank account",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "bankrekening openen",
+          "Dutch bank account",
+          "IBAN"
+        ],
+        "common_questions": [
+          "How do I open a Dutch bank account?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.emergency-number-112",
+        "healthcare.emergency-112",
+        "healthcare.out-of-hours-gp",
+        "healthcare.emergency-accessibility"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.emergency-numbers-and-urgent-help",
+        "slug": "emergency-numbers-and-urgent-help",
+        "locale": "en",
+        "title": "Emergency numbers and urgent help",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "112",
+          "urgent help",
+          "huisartsenpost",
+          "emergency"
+        ],
+        "common_questions": [
+          "Who should I contact in an emergency?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.residence-permit",
+        "government.partner-residence-permit",
+        "government.student-residence-permit"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.residence-permits",
+        "slug": "residence-permits",
+        "locale": "en",
+        "title": "Residence permits",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "verblijfsvergunning",
+          "IND",
+          "residence card",
+          "residence permit"
+        ],
+        "common_questions": [
+          "Which residence permit information applies to me?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.civic-integration",
+        "government.integration-exam-registration",
+        "education.integration-exams",
+        "education.integration-results"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.dutch-integration-exams",
+        "slug": "dutch-integration-exams",
+        "locale": "en",
+        "title": "Dutch integration exams",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "inburgering",
+          "inburgeringsexamen",
+          "civic integration exam"
+        ],
+        "common_questions": [
+          "Which Dutch integration exams do I need?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "education.higher-education-system",
+        "education.studielink-enrolment",
+        "government.higher-education-enrolment"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.studying-in-the-netherlands",
+        "slug": "studying-in-the-netherlands",
+        "locale": "en",
+        "title": "Studying in the Netherlands",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "higher education",
+          "Studielink",
+          "studeren in Nederland"
+        ],
+        "common_questions": [
+          "How do I start studying in the Netherlands?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [],
+      "publication_gaps": [
+        "No governed QA record covers student-specific housing.",
+        "General renting records must not be presented as student-housing instructions without dedicated review.",
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.student-housing",
+        "slug": "student-housing",
+        "locale": "en",
+        "title": "Student housing",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "studentenkamer",
+          "student accommodation",
+          "student housing"
+        ],
+        "common_questions": [
+          "How do I find student housing?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.change-address",
+        "government.brp-registration",
+        "government_service.moving-within-amsterdam"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.moving-to-another-municipality",
+        "slug": "moving-to-another-municipality",
+        "locale": "en",
+        "title": "Moving to another municipality",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "verhuizing doorgeven",
+          "change address",
+          "moving gemeente"
+        ],
+        "common_questions": [
+          "How do I report a move to another municipality?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.report-discrimination"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.reporting-discrimination",
+        "slug": "reporting-discrimination",
+        "locale": "en",
+        "title": "Reporting discrimination",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "discriminatie melden",
+          "anti-discrimination service",
+          "report discrimination"
+        ],
+        "common_questions": [
+          "Where can I report discrimination?"
+        ],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": [
+        "government.business-registration",
+        "government.business-legal-structure",
+        "government.vat-numbers"
+      ],
+      "publication_gaps": [
+        "No sourced step-by-step content has been reviewed for publication.",
+        "Per-fact source IDs have not been mapped into the practical guide.",
+        "Verification date and reviewer have not been assigned.",
+        "Estimated time and cost have not been verified."
+      ],
+      "practical_guide": {
+        "schema_version": 1,
+        "id": "guide.starting-a-business",
+        "slug": "starting-a-business",
+        "locale": "en",
+        "title": "Starting a business",
+        "short_summary": null,
+        "audience_profiles": [],
+        "applicability": {
+          "city_ids": [],
+          "province_ids": []
+        },
+        "jurisdiction": null,
+        "prerequisites": [],
+        "required_documents": [],
+        "estimated_time": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "source_ids": []
+        },
+        "estimated_cost": {
+          "state": "unknown",
+          "value": null,
+          "note": null,
+          "currency": null,
+          "source_ids": []
+        },
+        "numbered_steps": [],
+        "warnings": [],
+        "common_mistakes": [],
+        "sections": [],
+        "official_sources": [],
+        "contact_options": [],
+        "related_guide_ids": [],
+        "next_actions": [],
+        "verified_at": null,
+        "updated_at": null,
+        "reviewer": null,
+        "disclaimer": null,
+        "seo": null,
+        "synonyms": [
+          "KVK registration",
+          "onderneming starten",
+          "business legal structure"
+        ],
+        "common_questions": [
+          "How do I start a business in the Netherlands?"
+        ],
+        "status": "draft"
+      }
+    }
+  ]
+}

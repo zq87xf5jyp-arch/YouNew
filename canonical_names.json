@@ -1,0 +1,67 @@
+{
+  "schema_version": "1.0",
+  "policy": {
+    "canonical_storage_language": "nl-NL for Dutch geography",
+    "localized_names_separate": true
+  },
+  "names": [
+    {
+      "id": "country-nl",
+      "type": "country",
+      "canonical_name": "Nederland",
+      "local_names": {
+        "en": "The Netherlands",
+        "nl": "Nederland",
+        "ru": "Нидерланды"
+      },
+      "do_not_substitute": "Kingdom of the Netherlands",
+      "verified_source_id": "government-kingdom-parts"
+    },
+    {
+      "id": "kingdom-nl",
+      "type": "kingdom",
+      "canonical_name": "Koninkrijk der Nederlanden",
+      "local_names": {
+        "en": "Kingdom of the Netherlands",
+        "nl": "Koninkrijk der Nederlanden",
+        "ru": "Королевство Нидерландов"
+      },
+      "scope_note": "Not interchangeable with the country The Netherlands.",
+      "verified_source_id": "government-kingdom-parts"
+    },
+    {
+      "id": "province-noord-holland",
+      "type": "province",
+      "canonical_name": "Noord-Holland",
+      "local_names": {
+        "en": "North Holland",
+        "nl": "Noord-Holland",
+        "ru": "Северная Голландия"
+      },
+      "verified_source_id": "province-noord-holland"
+    },
+    {
+      "id": "province-zuid-holland",
+      "type": "province",
+      "canonical_name": "Zuid-Holland",
+      "local_names": {
+        "en": "South Holland",
+        "nl": "Zuid-Holland",
+        "ru": "Южная Голландия"
+      },
+      "verified_source_id": "province-zuid-holland"
+    },
+    {
+      "id": "city-den-haag",
+      "type": "city",
+      "canonical_name": "Den Haag",
+      "official_name": "'s-Gravenhage",
+      "local_names": {
+        "en": "The Hague",
+        "nl": "Den Haag",
+        "ru": "Гаага"
+      },
+      "verified_source_id": "municipality-den-haag"
+    }
+  ]
+}

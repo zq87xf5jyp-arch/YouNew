@@ -1,0 +1,80 @@
+{
+  "recorded_at": "2026-07-21T11:55:00+02:00",
+  "overall_readiness": "candidate_demo_build_not_production_ready",
+  "build": {
+    "status": "pass",
+    "tool": "Xcode BuildProject",
+    "elapsed_seconds": 61.234,
+    "log_path": "/var/folders/wq/v9db0mrx0j71cw3k3c4btgm80000gn/T/ActionArtifacts/EA0F939B-AB2A-4BDA-BF9F-AE7B7C1AE442/BuildProject/BuildProject-Log-20260721-114112.txt"
+  },
+  "tests": {
+    "active_plan": "YouNew",
+    "enabled_total": 547,
+    "disabled_total": 0,
+    "unit_inventory": 460,
+    "ui_inventory": 87,
+    "unit_current": "not_rerun_in_final_attempt_resource_blocked",
+    "unit_prior_evidence": "460/460 PASS documented in BuildWeekFinal/REMAINING_FAILURES.md",
+    "ui_current": "environment_blocked",
+    "ui_current_reason": "Simulator app launch failed with Launchd job spawn failed / Resource temporarily unavailable; latest generated bundle lacked Info.plist",
+    "ui_prior_full_suite": "87 total, 84 passed, 3 failed, 0 skipped before map fix",
+    "ui_targeted_map_after_fix": "3 total, 3 passed, 0 failed, 0 skipped; 10/10 Map/Home first-tap transitions"
+  },
+  "map_tab_blocker": {
+    "status": "fixed_targeted_verified",
+    "report": "BuildWeekFinal/MAP_TAB_BLOCKER_FIX.md",
+    "changed_files": [
+      "YouNew/App/AppTabView.swift"
+    ]
+  },
+  "other_targeted_fixes": [
+    {
+      "area": "Guide placeholder state",
+      "status": "fixed_targeted_verified",
+      "changed_files": [
+        "YouNew/Views/RootGuideView.swift"
+      ]
+    },
+    {
+      "area": "Accessibility search focus",
+      "status": "fixed_targeted_verified",
+      "changed_files": [
+        "YouNew/Core/DesignSystem/Tokens/AppShadows.swift"
+      ]
+    }
+  ],
+  "local_assistant": {
+    "status": "deterministic_local_guided_assistant",
+    "forbidden_claim": "GPT-5.6 or live OpenAI powers the in-app assistant"
+  },
+  "data_import": {
+    "status": "prior_structural_validation_pass",
+    "cities_v0_1_0": [
+      "Amsterdam",
+      "Rotterdam",
+      "Den Haag",
+      "Utrecht",
+      "Eindhoven"
+    ],
+    "known_external_link_health": "18 confirmed HTTP 404 links in prior validation"
+  },
+  "repository": {
+    "branch": "build-week-readiness",
+    "commit": "da8c3fe2",
+    "remote": "none_confirmed_previously",
+    "working_tree": "dirty_with_owner_and_task_changes"
+  },
+  "screenshots": {
+    "status": "not_completed_in_final_attempt",
+    "reason": "Simulator launch/resource exhaustion"
+  },
+  "manual_owner_actions_required": [
+    "Rerun final UI suite or targeted demo smoke after restarting Simulator/Xcode",
+    "Capture final screenshots and demo video",
+    "Confirm or remove media with unclear rights",
+    "Confirm App Store/TestFlight evidence manually",
+    "Run final secret scan before commit/push",
+    "Create GitHub repository and approve commit/push separately",
+    "Submit Build Week entry manually"
+  ]
+}

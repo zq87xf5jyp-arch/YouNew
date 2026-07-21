@@ -1,0 +1,112 @@
+{
+  "schema_version": "1.0",
+  "rules": {
+    "exactly_one_primary_category": true,
+    "secondary_category_references_allowed": true,
+    "audience_may_reorder_not_exclude": true,
+    "geography_is_not_a_category": true
+  },
+  "display_order": [
+    "getting-started", "housing", "official-services", "work-money",
+    "study", "health-safety", "transport", "explore"
+  ],
+  "categories": [
+    {
+      "id": "getting-started",
+      "name": "Getting started",
+      "purpose": "Time-ordered orientation and first actions for beginning or restarting life in the Netherlands.",
+      "allowed_content_types": ["article", "checklist", "official_service", "external_resource", "emergency_action"],
+      "subcategories": ["arrival-first-72-hours", "registration-identity", "first-week", "settling-in-journeys"],
+      "related_categories": ["official-services", "housing", "health-safety", "transport"],
+      "sort_order": 1,
+      "home_rules": "Show incomplete or urgent next actions; maximum two non-emergency cards.",
+      "search_rules": "Boost first-step intent and synonyms; never suppress other categories.",
+      "map_rules": "Only related coordinate-bearing services appear; checklists and articles link from callouts."
+    },
+    {
+      "id": "housing",
+      "name": "Housing",
+      "purpose": "Finding, registering, paying for and safely keeping a home.",
+      "allowed_content_types": ["article", "official_service", "checklist", "external_resource", "place"],
+      "subcategories": ["find-home", "rent-contract", "address-registration", "costs-utilities-benefits", "tenant-rights-disputes"],
+      "related_categories": ["getting-started", "official-services", "work-money", "health-safety"],
+      "sort_order": 2,
+      "home_rules": "Recommend by declared task or saved journey; never hide from non-newcomers.",
+      "search_rules": "Index legal Dutch terms, common English/Russian aliases and official-service names.",
+      "map_rules": "Show housing help desks, municipalities and service places only when coordinates are verified."
+    },
+    {
+      "id": "official-services",
+      "name": "Official services",
+      "purpose": "Canonical access to government processes, documents, institutions and trusted sources.",
+      "allowed_content_types": ["article", "official_service", "checklist", "external_resource", "place", "emergency_action"],
+      "subcategories": ["municipality-brp", "bsn-digid", "immigration-residence", "tax-benefits-portals", "documents-letters-fines", "institutions-sources"],
+      "related_categories": ["getting-started", "housing", "work-money", "study", "health-safety"],
+      "sort_order": 3,
+      "home_rules": "Show deadline-driven or journey-relevant services and verified status reminders.",
+      "search_rules": "Official names and acronyms receive exact-match boost; source freshness is visible.",
+      "map_rules": "Show verified public offices and service points; national digital services remain Guide/Search only."
+    },
+    {
+      "id": "work-money",
+      "name": "Work and money",
+      "purpose": "Employment, income, tax, banking and entrepreneurship guidance.",
+      "allowed_content_types": ["article", "official_service", "checklist", "external_resource", "place"],
+      "subcategories": ["find-work", "contracts-rights", "salary-payslip-tax", "banking-payments", "entrepreneurship"],
+      "related_categories": ["official-services", "housing", "study", "health-safety"],
+      "sort_order": 4,
+      "home_rules": "Rank for worker/entrepreneur signals and active deadlines; do not exclude for other audiences.",
+      "search_rules": "Connect colloquial queries to Dutch legal and payroll terms; deduplicate by canonical ID.",
+      "map_rules": "Show employment desks, tax offices and verified partner places only."
+    },
+    {
+      "id": "study",
+      "name": "Study",
+      "purpose": "Education, childcare, student administration, language and civic learning.",
+      "allowed_content_types": ["article", "official_service", "checklist", "external_resource", "place"],
+      "subcategories": ["schools-childcare", "higher-education", "student-admin-finance", "dutch-language", "integration-knm-history"],
+      "related_categories": ["getting-started", "official-services", "work-money", "explore"],
+      "sort_order": 5,
+      "home_rules": "Recommend current course, student tasks or family education tasks.",
+      "search_rules": "Index course modules, DUO terminology, levels and multilingual learning aliases.",
+      "map_rules": "Show schools, libraries, language centers and student service locations when verified."
+    },
+    {
+      "id": "health-safety",
+      "name": "Health and safety",
+      "purpose": "Routine care, urgent help, personal safety and trusted support.",
+      "allowed_content_types": ["article", "official_service", "checklist", "external_resource", "place", "emergency_action"],
+      "subcategories": ["insurance", "gp-pharmacy-hospital", "mental-social-support", "emergency", "police-scams-discrimination"],
+      "related_categories": ["getting-started", "official-services", "housing", "work-money"],
+      "sort_order": 6,
+      "home_rules": "Emergency action is always available; otherwise rank by active journey and locality.",
+      "search_rules": "Urgent terms bypass ordinary ranking and open safe canonical actions with official sources.",
+      "map_rules": "Show verified emergency and care places; never infer availability from stale data."
+    },
+    {
+      "id": "transport",
+      "name": "Transport",
+      "purpose": "Public transport, cycling, driving and national/international mobility.",
+      "allowed_content_types": ["article", "official_service", "checklist", "external_resource", "place"],
+      "subcategories": ["public-transport", "trains", "cycling", "driving-parking", "airports-international"],
+      "related_categories": ["getting-started", "official-services", "explore"],
+      "sort_order": 7,
+      "home_rules": "Recommend current-city and saved-route guidance, not a full transport catalog.",
+      "search_rules": "Index OV/NS acronyms, ticket products, stations and common route questions.",
+      "map_rules": "Map is the primary spatial projection for stations, stops, parking and mobility places."
+    },
+    {
+      "id": "explore",
+      "name": "Explore",
+      "purpose": "Country orientation, culture, history, events, food and places to visit.",
+      "allowed_content_types": ["article", "external_resource", "place", "city", "province", "checklist"],
+      "subcategories": ["country-overview", "culture-daily-life", "history-holidays", "attractions-food-events", "editorial-city-province-collections"],
+      "related_categories": ["study", "transport", "health-safety"],
+      "sort_order": 8,
+      "home_rules": "Show at most one contextual discovery module after priority tasks.",
+      "search_rules": "Search entities and editorial material separately but merge results by canonical ID.",
+      "map_rules": "Coordinate-bearing places/cities/provinces appear; nonspatial culture articles remain linked context."
+    }
+  ]
+}
+

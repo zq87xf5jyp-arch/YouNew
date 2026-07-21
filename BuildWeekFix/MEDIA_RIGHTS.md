@@ -1,6 +1,6 @@
 # Media-rights readiness
 
-Date: 2026-07-20 (Europe/Amsterdam)
+Date: 2026-07-21 (Europe/Amsterdam)
 
 Verdict: **PARTIAL / BLOCKED FOR BLANKET PUBLIC REDISTRIBUTION**
 
@@ -39,6 +39,20 @@ Verdict: **PARTIAL / BLOCKED FOR BLANKET PUBLIC REDISTRIBUTION**
    screenshots/video/social distribution is permitted under every source term.
 5. OCR/EXIF and reverse-image review were not completed. No owner-signed provenance
    statement or contributor/commission agreement was found.
+6. The current commit already tracks 39 raster captures outside `Assets.xcassets`:
+   13 `IA_Audit_Screenshots/` files (41,411,859 B), five
+   `QA_Baseline_Screenshots/` files (8,214,510 B), and 21
+   `Runtime_Screenshots/` files (41,407,839 B), totalling 91,034,208 B. Ignore
+   rules do not prevent tracked captures from reaching a remote; they require owner
+   approval plus OCR, privacy, device-metadata, and media-rights review. One owner
+   deletion in the IA set remains deliberately unstaged.
+7. The source working tree contains seven untracked public-site images/icons outside
+   the reviewed app-media manifest. A current `.gitignore` modification no longer
+   protects `admin-dashboard/public-site/public/`; exact staging excludes them from
+   the evidence commit, but they must not be published without file-by-file provenance.
+8. The raw machine-readable 72-item manifest is local and ignored. The versioned
+   attribution inventory preserves its human-readable records, but a clean clone
+   cannot independently regenerate or authenticate the raw manifest.
 
 ## Safe remediation
 

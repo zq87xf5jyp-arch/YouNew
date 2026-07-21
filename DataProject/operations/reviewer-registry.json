@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "automated_reviewers_allowed": false,
+    "description": "A published practical guide must reference an active, explicitly registered human reviewer. Adding a reviewer requires owner approval and verifiable identity; generated or placeholder identities are prohibited."
+  },
+  "reviewers": []
+}

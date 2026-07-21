@@ -1,6 +1,6 @@
 # Media attribution and rights inventory
 
-Last reviewed: 2026-07-20
+Last reviewed: 2026-07-21
 
 Status: **partial — not cleared for unrestricted public redistribution**
 
@@ -27,6 +27,18 @@ satisfied in the app, repository, screenshots, social posts, or demo video.
   is covered by this 72-entry manifest. Other repository reports contain partial and
   sometimes conflicting provenance claims for those assets, so they remain outside
   a blanket public-redistribution claim until reconciled.
+- The repository commit contains 39 tracked raster captures outside the asset
+  catalog: 13 IA Audit files (41,411,859 B), five QA Baseline files (8,214,510 B),
+  and 21 Runtime files (41,407,839 B), totalling 91,034,208 B. One IA Audit file
+  is currently deleted in the working tree but remains tracked by `HEAD`. None is
+  covered by this app-asset manifest; ignore rules do not remove tracked captures
+  from a future remote.
+- The source working tree has seven untracked public-site images/icons. A current
+  `.gitignore` modification no longer protects `admin-dashboard/public-site/public/`,
+  so exclusion depends on an exact staged-path allowlist rather than an ignore rule.
+- The raw machine-readable manifest is local and ignored; this versioned inventory
+  is the portable evidence available to a clean clone and is not proof of the raw
+  file's authenticity.
 
 Recorded license distribution: CC BY 2.0 (2), CC BY 3.0 (2), CC BY 4.0 (5),
 CC BY-SA 2.0 (1), CC BY-SA 2.5 (2), CC BY-SA 3.0 (8), CC BY-SA 3.0 de (1),

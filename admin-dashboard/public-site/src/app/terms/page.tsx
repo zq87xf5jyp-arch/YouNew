@@ -1,11 +1,8 @@
-import type { Metadata } from "next";
 import { ContentPage } from "@/components/content-page";
 import { links } from "@/lib/site-data";
+import { metadataForPage } from "@/lib/seo/metadata";
 
-export const metadata: Metadata = {
-  title: "Terms of Use",
-  description: "Terms governing use of the YouNew.nl website and informational app."
-};
+export const metadata = metadataForPage("Terms of Use", "Terms governing use of the YouNew website and informational app.", "/terms");
 
 export default function TermsPage() {
   return (

@@ -1,0 +1,40 @@
+old_screen_or_section,new_screen_or_category,action,canonical_id,notes
+Home category grid,Guide,move,guide-index,Home keeps at most recent/recommended shortcuts
+Home city discovery,Map,move,map-city,Home keeps current-city summary link
+Home history content,Guide/Study,move,article-history,Remove long educational blocks from Home
+Home emergency,Home + Guide/Health and safety,keep_link,emergency-action-112,Keep urgent shortcut
+PlacesDiscoveryView,Guide + Map,split,guide-index/map-root,Separate thematic browse from geography
+Search segment inside Places,Global Search,move,search-root,Available from Home and Guide
+More content categories,Guide,move,guide-index,More becomes settings only
+RightSideMenuOverlay,More/Recent,merge,more-root,Remove second full catalog
+GuideContent documents,Guide/Official services,keep,category-official-services,Canonical articles
+GovernmentHub,Guide/Official services,merge,category-official-services,Landing owner
+InstitutionsView,Guide/Official services,move,directory-institutions,Child directory
+OfficialSourceDirectoryView,Guide/Official services,move,directory-official-sources,Child directory
+FinesInfoView,Guide/Official services,move,article-fines,Link letters and CJIB sources
+LegalInfoView,Guide/Official services,merge,article-legal-help,Resolve orphan
+GuideContent work,Guide/Work and money,keep,category-work-money,Canonical employment knowledge
+Banking basics,Guide/Work and money,move,article-banking,Do not place under WorkStudy
+GuideContent housing,Guide/Housing,keep,category-housing,Canonical
+GuideContent healthcare,Guide/Health and safety,keep,category-health-safety,Canonical
+EmergencyHub,Guide/Health and safety,keep,emergency-action-112,Emergency action subtype
+TransportGuideView,Guide/Transport,keep,category-transport,Canonical landing
+KNMGuideView,Guide/Study,keep,course-knm,Course subtype
+LanguageHubView,Guide/Study,move,category-study-language,Language learning branch
+NetherlandsHistoryView,Guide/Study,keep,article-history,Canonical history
+CultureAttractionsView,Guide/Explore,keep,category-explore,National explore content
+CitiesDirectoryView,Map,move,directory-cities,Geography projection
+ProvinceDirectoryView,Map,move,directory-provinces,Geography projection
+NetherlandsOverviewView,Guide/Explore,keep,geo-country-nl,Country content entity
+NearbyMapView,Map,keep,map-nearby,Service/place projection
+SurvivalNavigatorView,Guide/Getting started,keep,journey-getting-started,Canonical journey
+SurvivalGuideView,Guide/Getting started,merge,journey-getting-started,Retire duplicate view after parity check
+FirstStepsView,Guide/Getting started,merge,journey-first-steps,Task modules
+ChecklistView,Guide/Getting started,keep,checklist-first-steps,Content subtype
+DocumentOrganizerView,Guide/Official services,keep,tool-documents,Contextual tool link
+TranslatorView,AI/Search action,move,action-translate,Resolve orphan; no duplicate content store
+AIAssistantView,Global action,move,assistant-action,Must cite canonical content IDs
+FavoritesView,Saved,keep,saved-root,No content ownership
+SettingsView,More,keep,settings-root,Settings only
+PrivacyDataControlView,More,keep,settings-privacy,No change
+

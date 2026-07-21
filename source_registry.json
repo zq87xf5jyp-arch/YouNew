@@ -1,0 +1,50 @@
+{
+  "generated_at": "2026-07-11",
+  "verification_rule": "verified only after the exact official page was opened during this audit",
+  "sources": [
+    {
+      "id": "government-kingdom-parts",
+      "authority": "Government of the Netherlands",
+      "url": "https://www.government.nl/faq/what-are-the-different-parts-of-the-kingdom-of-the-netherlands",
+      "status": "verified_opened",
+      "last_verified_at": "2026-07-11",
+      "supports": [
+        "Kingdom vs country scope",
+        "Caribbean constitutional structure"
+      ]
+    },
+    {
+      "id": "province-noord-holland",
+      "authority": "Provincie Noord-Holland",
+      "url": "https://www.noord-holland.nl/",
+      "status": "verified_opened",
+      "last_verified_at": "2026-07-11",
+      "supports": [
+        "Canonical Dutch province name Noord-Holland"
+      ]
+    },
+    {
+      "id": "province-zuid-holland",
+      "authority": "Provincie Zuid-Holland",
+      "url": "https://www.zuid-holland.nl/",
+      "status": "verified_opened",
+      "last_verified_at": "2026-07-11",
+      "supports": [
+        "Canonical Dutch province name Zuid-Holland"
+      ]
+    },
+    {
+      "id": "municipality-den-haag",
+      "authority": "Gemeente Den Haag",
+      "url": "https://www.denhaag.nl/en/introducing-the-hague/",
+      "status": "verified_opened",
+      "last_verified_at": "2026-07-11",
+      "supports": [
+        "English display name The Hague",
+        "Dutch/municipal name Den Haag",
+        "official name 's-Gravenhage",
+        "560,000 inhabitants (2023) only"
+      ]
+    }
+  ]
+}

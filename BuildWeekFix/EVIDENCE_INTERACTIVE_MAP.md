@@ -1,8 +1,18 @@
 # Evidence packet — Interactive Netherlands map
 
-Status: **VERIFIED implementation / PARTIAL full-device runtime evidence**
+Status: **VERIFIED implementation / PRIMARY DEMO BLOCKER TARGETED-VERIFIED**
 
-Evidence date: 2026-07-20 (Europe/Amsterdam)
+Evidence date: 2026-07-21 (Europe/Amsterdam)
+
+## 2026-07-21 evidence boundary update
+
+The prior `61e7ce11` 82/87 UI result and its 102.043 ms sample are historical
+diagnostics. The later closed clean-clone snapshot is `efd1a7c5` at **84/87 RED**.
+After that snapshot, the root tab bar was moved to the frontmost interactive
+overlay while retaining a noninteractive safe-area reservation. The preserved
+targeted bundle passed 3/3 checks and delivered 10/10 Map ↔ Home transitions on
+the first tap. This closes the primary demo blocker in the tested configuration;
+it does not establish an all-UI or all-device green result.
 
 ## Original problem
 
@@ -32,22 +42,29 @@ Provide a SwiftUI map with deterministic province geometry, accessible selection
 - `YouNewTests/PremiumProvinceHitTestingTests.swift`
 - `YouNewUITests/MapChipUITests.swift`
 - Map and navigation checks invoked by `scripts/run-static-qa.sh`
-- The map unit tests are included in the last closed complete Stage 2 result of
-  **450/450**. Additional Build Week tests were added afterward, and the expanded
-  final-snapshot unit rerun and full UI rerun have not yet closed; this packet does
-  not claim a green final matrix.
+- The map unit tests are included in a clean-clone **460/460** unit result. The
+  historical `61e7ce11` serial UI result is **82/87**; its 102.043 ms root-tab
+  sample remains diagnostic evidence only. The later `efd1a7c5` aggregate is
+  **84/87 RED**. The later targeted map bundle is **3/3 PASS**, including Leiden,
+  Middelburg, and **10/10 first-tap Map ↔ Home transitions** with a maximum
+  recorded app-side sample of 94.1 ms. The ledger is recorded in
+  `BuildWeekFinal/MAP_TAB_BLOCKER_FIX.md` and `TEST_REMEDIATION.md`.
 
 ## Measurable result
 
 The model test requires all 12 provinces. The hit-testing suite includes exactly 100 seed-driven deterministic interior samples and rejects missed or wrong-province selections. This proves the tested geometry samples, not every possible edge or device gesture.
 
-## Owner decision
+## Build Week freeze decision
 
-The owner should approve the map state used in the judge demo and decide whether the selected-city marker filter is intentional product scope or should expand before submission.
+The current selected-city behavior and targeted-verified Map → Home flow are the
+accepted demo scope. Marker expansion and map redesign are intentionally deferred.
 
 ## Limitations
 
 - Current marker behavior emphasizes the selected city rather than proving simultaneous full-city coverage.
+- Historical runs contained slow or undelivered Map → Home events. The final
+  targeted artifact passed its unchanged contract, but that result must not be
+  generalized to every device or environment.
 - No current ETTrace, physical-device, VoiceOver, Reduce Motion, or complete device/orientation matrix is attached.
 - Unit geometry checks do not substitute for visual inspection of labels, boundaries, gestures, and modal navigation.
 
@@ -55,8 +72,12 @@ The owner should approve the map state used in the judge demo and decide whether
 
 The repository contains implementation and reports consistent with the documented Codex-assisted workflow.
 
-YouNew contains a custom SwiftUI Netherlands map with typed province/city data and deterministic path-based hit-testing tests. Complete physical-device accessibility and performance validation is still pending.
+YouNew contains a custom SwiftUI Netherlands map with typed province/city data,
+deterministic path-based hit-testing tests, and a targeted-verified first-tap return
+to Home in the recorded candidate configuration. This is not all-device
+certification.
 
-## Screenshot or log still needed
+## Packaging boundary
 
-Capture the final build with all 12 province shapes visible, one deterministic province selection, zoom/pan, a city or landmark detail, and back navigation. Attach the closed map UI-test summary and, if performance is claimed, a redacted ETTrace excerpt.
+No additional screenshot automation, trace, or runtime pass is required by the
+engineering freeze. The final owner-recorded demo follows `BuildWeek/DEMO_GUIDE.md`.

@@ -1,0 +1,354 @@
+{
+  "schema_version": 1,
+  "document_type": "build_week_submission_facts",
+  "generated_at": "2026-07-21T10:14:30+02:00",
+  "timezone": "Europe/Amsterdam",
+  "evidence_policy": "Current claims must be supported by repository code, tests, manifests, screenshots, or reports. Historical results are never promoted to current validation.",
+  "repository": {
+    "type": "local_git_repository",
+    "branch": "build-week-readiness",
+    "head_commit": "da8c3fe22e7a5d99b2187aab1141700b2d34f508",
+    "commit_count": 65,
+    "remote_count": 0,
+    "remote_configured": false,
+    "working_tree_clean": false,
+    "working_tree_snapshot": {
+      "captured_at": "2026-07-21T10:14:30+02:00",
+      "counting_mode": "git status --porcelain=v1 --untracked-files=normal; untracked directories may be represented as one status entry",
+      "status_entries": 184,
+      "tracked_entries": 56,
+      "untracked_entries": 128,
+      "modified_entries": 53,
+      "deleted_entries": 3,
+      "added_entries": 0,
+      "renamed_entries": 0,
+      "staged_entries": 0
+    }
+  },
+  "application": {
+    "name": "YouNew",
+    "platform": "iOS",
+    "native_swiftui_implementation": true,
+    "architecture_description": "Native SwiftUI application with typed navigation, environment-provided services, structured content repositories, and deterministic workflow engines.",
+    "production_ready_claim_allowed": false
+  },
+  "assistant": {
+    "type": "local_deterministic_guided",
+    "safe_description": "Local guided assistant using deterministic workflows and indexed YouNew knowledge.",
+    "workflow_engine_implemented": true,
+    "indexed_knowledge_implemented": true,
+    "live_openai_verified": false,
+    "gpt_5_6_runtime_verified": false,
+    "generative_ai_answer_claim_allowed": false,
+    "live_llm_integration_status": "future_work"
+  },
+  "interactive_map": {
+    "implementation": true,
+    "technology": "SwiftUI vector map with typed province and city navigation",
+    "delivery_fix": {
+      "status": "verified_targeted_pass",
+      "first_tap_delivery_targeted_verification": true,
+      "first_tap_transitions_passed": 10,
+      "first_tap_transitions_total": 10,
+      "latency_performance_gate_passed": true,
+      "latency_maximum_milliseconds": 94.1,
+      "latency_contract_milliseconds_exclusive_maximum": 100,
+      "targeted_tests": {
+        "total": 3,
+        "passed": 3,
+        "failed": 0,
+        "skipped": 0,
+        "artifact": "/private/tmp/YouNewBuildWeekMapOverlayFix.xcresult"
+      },
+      "full_ui_suite_status": "pending",
+      "full_ui_suite_total": null,
+      "safe_claim": "The interactive map is implemented, and the tested candidate passed the targeted Leiden, Middelburg, and first-tap root-tab checks. Aggregate UI and physical-device certification remain separate."
+    }
+  },
+  "premium_image_pipeline": {
+    "implementation": true,
+    "rights_status": "partial",
+    "blanket_redistribution_cleared": false,
+    "manifest_backed_assets": 72,
+    "manifest_assets_requiring_attribution": 65,
+    "manifest_assets_missing_license_url": 1,
+    "imagesets_outside_reviewed_manifest": 98,
+    "safe_claim": "YouNew implements a reusable premium image pipeline; media-rights verification remains partial."
+  },
+  "content_platform": {
+    "implementation": true,
+    "governed_releases": true,
+    "structural_import_validation": {
+      "status": "verified_pass",
+      "scope": "Deterministic schema, release, migration, duplicate, relation, and import checks",
+      "network_health_included": false,
+      "final_validation_status": "pending",
+      "final_validation_total": null
+    },
+    "cities_release": {
+      "release_id": "cities-v0.1.0",
+      "version": "0.1.0",
+      "status": "published",
+      "records_governed": 5,
+      "records_published": 5,
+      "records_verified": 5,
+      "qa_gates_passed": 7,
+      "cities": [
+        "Amsterdam",
+        "Rotterdam",
+        "Den Haag",
+        "Utrecht",
+        "Eindhoven"
+      ],
+      "equal_content_depth_claim_allowed": false
+    },
+    "network_data_health": {
+      "status": "attention_required",
+      "checked_at": "2026-07-20T23:29:35.666065+00:00",
+      "total_urls": 2494,
+      "reachable": 1821,
+      "confirmed_broken": 18,
+      "access_restricted": 623,
+      "transient_failures": 32,
+      "all_links_healthy_claim_allowed": false,
+      "fresh_validation": {
+        "checked_at": "2026-07-21T08:33:14.438350+00:00",
+        "total_urls": 2494,
+        "reachable": 1826,
+        "confirmed_broken": 18,
+        "access_restricted": 617,
+        "transient_failures": 33,
+        "status": "fail"
+      }
+    }
+  },
+  "codex_workflow": {
+    "documented": true,
+    "safe_claim": "The repository contains implementation and reports consistent with the documented Codex-assisted workflow.",
+    "human_owner_role": "The human owner defined the product vision, requirements, priorities, visual direction, and final acceptance decisions.",
+    "specific_code_authorship_claim_allowed_without_session_evidence": false
+  },
+  "validation": {
+    "final": {
+      "status": "pending",
+      "clean_build": {
+        "status": "pending",
+        "total": null,
+        "passed": null,
+        "failed": null,
+        "skipped": null,
+        "duration_seconds": null
+      },
+      "unit_tests": {
+        "status": "pass",
+        "total": 460,
+        "passed": 460,
+        "failed": 0,
+        "skipped": 0,
+        "duration_seconds": 857.123,
+        "artifact": "/private/tmp/YouNewBuildWeekFinalUnitD7.xcresult"
+      },
+      "static_qa": {
+        "status": "fail_bounded",
+        "total": 44,
+        "passed": 43,
+        "failed": 1,
+        "skipped": 0,
+        "duration_seconds": 27.785,
+        "failure": "data-health-gate.py: governed_broken_links=18"
+      },
+      "ui_tests": {
+        "status": "pending",
+        "total": null,
+        "passed": null,
+        "failed": null,
+        "skipped": null,
+        "duration_seconds": null
+      },
+      "data_import": {
+        "status": "pass",
+        "total": 5,
+        "passed": 5,
+        "failed": 0,
+        "skipped": 0,
+        "duration_seconds": null,
+        "scope": "cities-v0.1.0 eligible governed records; structural DataProject QA also passed for 450 records"
+      },
+      "secret_scan": {
+        "status": "pass_with_scope",
+        "total": 1039,
+        "passed": 1039,
+        "failed": 0,
+        "skipped": 0,
+        "duration_seconds": null,
+        "high_confidence_hits": 0,
+        "bytes_scanned": 23040033
+      },
+      "broken_reference_validation": {
+        "status": "fail_external",
+        "total": 2494,
+        "passed": 1826,
+        "failed": 18,
+        "skipped": null,
+        "duration_seconds": null,
+        "access_restricted": 617,
+        "transient": 33,
+        "internal_generated_site_references_status": "pass",
+        "internal_generated_site_references": 14953
+      },
+      "manual_demo_smoke": {
+        "status": "pending",
+        "total": null,
+        "passed": null,
+        "failed": null,
+        "skipped": null,
+        "duration_seconds": null
+      }
+    },
+    "historical": [
+      {
+        "label": "user_provided_prior_audit",
+        "status": "historical_not_current",
+        "unit_tests": {
+          "total": 450,
+          "passed": 446,
+          "failed": null,
+          "skipped": null
+        },
+        "static_qa": {
+          "total": 40,
+          "passed": 35,
+          "failed": null,
+          "skipped": null
+        },
+        "ui_tests": {
+          "total": 86,
+          "passed": 80,
+          "failed": null,
+          "skipped": null
+        }
+      },
+      {
+        "label": "last_closed_clean_clone_ui_snapshot",
+        "status": "historical_not_current",
+        "commit": "efd1a7c50bf7b5e2f82be047b084b6d73cb009a7",
+        "ui_tests": {
+          "total": 87,
+          "passed": 84,
+          "failed": 3,
+          "skipped": 0,
+          "duration_seconds": 7249.603
+        },
+        "evidence": "BuildWeekFinal/UI_BASELINE.md"
+      }
+    ]
+  },
+  "external_artifacts": {
+    "github": {
+      "local_remote_configured": false,
+      "external_repository_verified": false,
+      "status": "unverified"
+    },
+    "testflight": {
+      "verified": false,
+      "status": "unverified_owner_evidence_required"
+    },
+    "app_store": {
+      "verified": false,
+      "status": "unverified_owner_evidence_required"
+    },
+    "demo_video": {
+      "verified": false,
+      "created_by_this_workflow": false,
+      "status": "manual_owner_action_required"
+    },
+    "build_week_submission": {
+      "verified": false,
+      "submitted_by_this_workflow": false,
+      "status": "manual_owner_action_required"
+    }
+  },
+  "limitations": [
+    {
+      "id": "live_llm_not_verified",
+      "statement": "The in-app assistant is not verified as live OpenAI or GPT-5.6."
+    },
+    {
+      "id": "final_validation_pending",
+      "statement": "Unit, static, data/import, secret, and reference checks have current results; clean build, aggregate UI, screenshots, and final manual smoke are still pending."
+    },
+    {
+      "id": "map_validation_boundary",
+      "statement": "The map/tab delivery and latency targeted gates pass on the tested iPhone 17 Pro simulator, but this is not all-device or aggregate-UI certification."
+    },
+    {
+      "id": "content_depth_incomplete",
+      "statement": "Published city identity records do not prove equal city-specific content depth."
+    },
+    {
+      "id": "network_data_health",
+      "statement": "The current data-health report records 18 confirmed broken URLs and requires remediation or disclosure."
+    },
+    {
+      "id": "media_rights_partial",
+      "statement": "Media rights are only partially verified; blanket redistribution is not cleared."
+    },
+    {
+      "id": "external_distribution_unverified",
+      "statement": "GitHub, TestFlight, App Store, video, and submission evidence require owner confirmation or manual action."
+    },
+    {
+      "id": "repository_handoff_pending",
+      "statement": "The local working tree is dirty, has no configured remote, and has no staged files in the recorded snapshot."
+    }
+  ],
+  "evidence_paths": {
+    "ui_baseline": "BuildWeekFinal/UI_BASELINE.md",
+    "public_claims": "BuildWeekFinal/PUBLIC_CLAIMS.md",
+    "demo_flow": "BuildWeekFinal/DEMO_FLOW.md",
+    "assistant": [
+      "YouNew/ViewModels/AIViewModel.swift",
+      "YouNew/Services/AIWorkflowEngine.swift",
+      "YouNew/Services/AIResponseComposer.swift",
+      "YouNew/Services/KnowledgeIndex.swift",
+      "YouNew/Views/AIAssistantView.swift"
+    ],
+    "interactive_map": [
+      "BuildWeekFix/EVIDENCE_INTERACTIVE_MAP.md",
+      "YouNew/Views/PlacesDiscoveryView.swift",
+      "YouNew/Views/NetherlandsInteractiveMapView.swift",
+      "YouNew/Models/PremiumNetherlandsMapModel.swift",
+      "YouNew/Core/Interaction/PremiumProvinceHitTesting.swift",
+      "YouNewUITests/MapChipUITests.swift"
+    ],
+    "premium_image_pipeline": [
+      "BuildWeekFix/EVIDENCE_PREMIUM_IMAGE_PIPELINE.md",
+      "BuildWeekFix/MEDIA_RIGHTS.md",
+      "MEDIA_ATTRIBUTION.md",
+      "YouNew/Core/Imaging/ImageLoader.swift",
+      "YouNew/Core/Imaging/AppContentImageView.swift",
+      "YouNew/Data/ContentMediaRegistry.swift",
+      "YouNew/Data/LocalNetherlandsImagePackRegistry.swift"
+    ],
+    "content_platform": [
+      "BuildWeekFix/EVIDENCE_CONTENT_PLATFORM.md",
+      "BuildWeekFix/EVIDENCE_CITIES_RELEASE.md",
+      "DataProject/README.md",
+      "scripts/import-data-project.py"
+    ],
+    "cities_release": [
+      "DataProject/batches/WP-06/M1-priority-cities-001.json",
+      "DataProject/reports/release-manifests/cities-v0.1.0.json",
+      "YouNewTests/PublishedCitiesDataReleaseTests.swift"
+    ],
+    "network_data_health": "DataProject/reports/data-health.json",
+    "qa_automation": [
+      "BuildWeekFix/EVIDENCE_QA_AUTOMATION.md",
+      "scripts/run-static-qa.sh"
+    ],
+    "repository_handoff_inputs": [
+      "BuildWeekFix/SECRET_SCAN.md",
+      "BuildWeekFix/CLEAN_CLONE_PROOF.md"
+    ]
+  }
+}

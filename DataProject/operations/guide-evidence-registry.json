@@ -1,0 +1,8 @@
+{
+  "schema_version": 1,
+  "policy": {
+    "unresolved_evidence_blocks_publication": true,
+    "description": "Every practical-guide publication-gate evidence ID must resolve to a passed, guide-specific local artifact with a recorded SHA-256 digest. Placeholder evidence IDs are prohibited."
+  },
+  "evidence": []
+}

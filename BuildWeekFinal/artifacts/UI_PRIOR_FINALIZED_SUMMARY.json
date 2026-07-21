@@ -1,0 +1,35 @@
+{
+  "artifact": "/private/tmp/YouNewCleanCloneEfd.20260720/FullUIFinal.xcresult",
+  "result": "Failed",
+  "total": 87,
+  "passed": 84,
+  "failed": 3,
+  "skipped": 0,
+  "startTimeUnix": 1784578695.787,
+  "finishTimeUnix": 1784585945.39,
+  "durationSeconds": 7249.603,
+  "device": {
+    "name": "YouNew BuildWeek Shard 3",
+    "model": "iPhone 17 Pro",
+    "platform": "iOS Simulator",
+    "osVersion": "26.5",
+    "osBuild": "23F77",
+    "architecture": "arm64",
+    "udid": "1D538DCE-A487-40C2-801F-811D44D6397D"
+  },
+  "failures": [
+    {
+      "test": "CategoryRoutingRuntimeUITests/testRequestedDiscoveryChipsReachTheirTypedDetailAndReturn",
+      "message": "Discovery group is missing: sideMenu.events"
+    },
+    {
+      "test": "ContentCompletionRuntimeUITests/testRequiredContentSurfacesStayCompletedWhileScrolling",
+      "message": "Failed to get matching snapshots: Timed out while evaluating UI query."
+    },
+    {
+      "test": "MapChipUITests/testRootTabNavigationLatency",
+      "message": "Home destination must become visible on the first tap."
+    }
+  ],
+  "note": "Historical finalized evidence. Do not report as the current final result."
+}

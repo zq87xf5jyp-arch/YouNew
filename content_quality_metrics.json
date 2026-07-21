@@ -1,0 +1,53 @@
+{
+  "generated_at": "2026-07-13T12:00:00+02:00",
+  "confidence": "medium",
+  "content_completeness": {
+    "passed": 990,
+    "total": 990,
+    "percent": 100.0,
+    "evidence": "990 legacy objects accounted for by 930 canonical items plus 60 aliases; lostObjects=0"
+  },
+  "content_uniqueness": {
+    "passed": 908,
+    "total": 930,
+    "percent": 97.6,
+    "evidence": "canonical validator: 22 IDs affected by 10 normalized-title groups; duplicate-body and semantic-body groups are zero"
+  },
+  "navigation_accuracy": {
+    "passed": 40,
+    "total": 40,
+    "percent": 100.0,
+    "verification": "NOT FULLY VERIFIED",
+    "evidence": "39 static typed-route rows and one executed root-navigation UI check passed; deeper route matrix remains unexecuted"
+  },
+  "scroll_stability": {
+    "passed": 4,
+    "total": 4,
+    "percent": 100.0,
+    "verification": "NOT FULLY VERIFIED",
+    "evidence": "Home, Guide, Saved empty state and More passed bottom-gap, hittability and return-to-top checks; 9 deeper scenarios remain unexecuted"
+  },
+  "geo_consistency": {
+    "passed": 41,
+    "total": 41,
+    "percent": 100.0,
+    "evidence": "12 provinces, 29 cities and the shared canonical place catalog passed unit geo-integrity tests"
+  },
+  "official_source_coverage": {
+    "passed": 7,
+    "total": 8,
+    "percent": 87.5,
+    "evidence": "official pages opened and their rendered content inspected; UWV remained inconclusive"
+  },
+  "media_completeness": {
+    "passed": 41,
+    "total": 41,
+    "percent": 100.0,
+    "evidence": "place media audit resolves all 41 catalog entries through an explicit verified hero or the curated licensed hero registry"
+  },
+  "overall_readiness": {
+    "percent": 98.5,
+    "formula": "20% completeness + 10% uniqueness + 25% navigation + 15% scroll + 10% geo + 10% official sources + 10% media",
+    "warning": "Navigation is static-only and scroll runtime did not execute; the score is not a release-pass claim."
+  }
+}

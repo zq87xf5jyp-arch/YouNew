@@ -63,7 +63,7 @@ enum AIWorkflowEngine {
             guard let value = yesNo(normalized) else { return nil }
             workflow.needsDigiD = value
             workflow.step = .finalGuidance
-            let query = value ? "BSN municipality registration DigiD documents" : "BSN municipality registration documents"
+            let query = "BSN and BRP registration"
             return (nil, finalResponse(workflow: workflow, query: query, language: language, context: context))
 
         case (.digid, .asksBSNStatus):

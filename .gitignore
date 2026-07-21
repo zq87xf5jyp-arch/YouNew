@@ -56,7 +56,6 @@ admin-dashboard/public-site/.next/
 admin-dashboard/public-site/out/
 admin-dashboard/public-site/node_modules/
 admin-dashboard/public-site/.openai/
-admin-dashboard/public-site/public/
 *.tsbuildinfo
 
 # Generated/raw media workspaces. Curated app assets live in Assets.xcassets.
@@ -68,8 +67,9 @@ admin-dashboard/public-site/public/
 # BuildWeekAudit/ and BuildWeekFix/ remain explicitly visible below.
 /Audit/
 
-# Generated DataProject staging cache; canonical batches/schema/releases remain visible.
-/DataProject/staging/
+# Generated DataProject staging cache; the curated practical-guide wave remains visible.
+/DataProject/staging/*
+!/DataProject/staging/practical-guides-wave-1.json
 /DataProject/reports/
 
 # Generated network-link evidence. Offline static QA uses an explicit sentinel;

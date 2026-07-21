@@ -1,0 +1,42 @@
+screen,section,card_title,expected_destination,actual_destination,content_entity_id,source_dataset,duplicate_content_found,status
+RootHomeView,line:240,🇳🇱,content,AppDestination.searchList,home.globalSearch,ContentRepository / canonical categories,,correct
+RootHomeView,line:262,Profile,content,AppDestination.profileSelection,home.premiumHeader,ContentRepository / canonical categories,,correct
+RootHomeView,line:293,Your city,city,cityDestination,cityDestination,ContentRepository / canonical categories,,correct
+RootHomeView,line:340,Explore \(selectedCity),content,cityDestination,cityDestination,ContentRepository / canonical categories,,correct
+RootHomeView,line:375,Loading local weather…,content,destination,destination,ContentRepository / canonical categories,,correct
+RootHomeView,line:756,Opens the assistant without starting a search,content,AppDestination.searchList,home.offlineStatus,ContentRepository / canonical categories,,correct
+RootHomeView,line:790,Documents and registration,content,AppDestination.emergencyHub,home.urgentHelp,ContentRepository / canonical categories,,correct
+RootHomeView,line:831,View Guide,content,categoryDestination(category.id,categoryDestination(category.id,ContentRepository / canonical categories,,correct
+RootHomeView,line:869,View all,content,AppDestination.cityList,AppDestination.cityList,ContentRepository / canonical categories,repeated visible title x2,correct
+RootHomeView,line:879,View all,content,AppDestination.cityList,AppDestination.cityList,ContentRepository / canonical categories,repeated visible title x2,correct
+RootHomeView,line:945,Nearby services will appear here.,content,AppDestination.mapFocus(.place(place.saveKey,AppDestination.mapFocus(.place(place.saveKey,ContentRepository / canonical categories,,correct
+RootHomeView,line:1018,Recommended for you,content,destination,destination,ContentRepository / canonical categories,,correct
+RootHomeView,line:1046,dynamic-card@1046,content,destination,destination,ContentRepository / canonical categories,,correct
+RootGuideView,line:77,Open AI assistant,content,AppDestination.searchList,guide.aiButton,ContentRepository / Category.canonical,repeated visible title x2,correct
+RootGuideView,line:113,Open AI assistant,content,destination(for: category.id,guide.category.\(category.id),ContentRepository / Category.canonical,repeated visible title x2,correct
+RootGuideView,line:169,Verified materials will appear here.,content,destination,destination,ContentRepository / Category.canonical,,correct
+RootGuideView,line:224,Sources and last verified dates,content,AppDestination.officialSources,guide.lastElement,ContentRepository / Category.canonical,,correct
+PlacesDiscoveryView,line:1086,dynamic-card@1086,content,AppDestination.localPartnerDetail(partner.id,places.supportSections,MockNearbyPlacesData / ProvinceCatalog,,correct
+PlacesDiscoveryView,line:1155,dynamic-card@1155,content,AppDestination.localPartnerDetail(partner.id,AppDestination.localPartnerDetail(partner.id,MockNearbyPlacesData / ProvinceCatalog,,correct
+PlacesDiscoveryView,line:1169,dynamic-card@1169,content,destination,destination,MockNearbyPlacesData / ProvinceCatalog,,correct
+ProvinceDirectoryView,line:130,dynamic-card@130,content,AppDestination.provinceDetail(province.id,AppDestination.provinceDetail(province.id,ProvinceCatalog,,correct
+ProvinceDirectoryView,line:151,dynamic-card@151,content,AppDestination.provinceDetail(province.id,AppDestination.provinceDetail(province.id,ProvinceCatalog,,correct
+ProvinceDirectoryView,line:571,\(province.cities.count),content,"AppDestination.cityDetail(province: province.id, city: city.name","AppDestination.cityDetail(province: province.id, city: city.name",ProvinceCatalog,,correct
+ProvinceDirectoryView,line:591,dynamic-card@591,content,AppDestination.cultureAttractions,AppDestination.cultureAttractions,ProvinceCatalog,,correct
+ProvinceDirectoryView,line:598,dynamic-card@598,content,AppDestination.firstSteps,AppDestination.firstSteps,ProvinceCatalog,,correct
+ProvinceDirectoryView,line:619,dynamic-card@619,content,AppDestination.mapFocus(.province(province.id,AppDestination.mapFocus(.province(province.id,ProvinceCatalog,,correct
+ProvinceDirectoryView,line:757,dynamic-card@757,content,"AppDestination.cityDetail(province: province.id, city: city.name","AppDestination.cityDetail(province: province.id, city: city.name",ProvinceCatalog,,correct
+ProvinceDirectoryView,line:1270,dynamic-card@1270,content,AppDestination.mapFocus(.city(city.id,city.detail.\(KnowledgeNormalizer.slug(city.name)),ProvinceCatalog,,correct
+ProvinceDirectoryView,line:1351,dynamic-card@1351,content,AppDestination.mapFocus(.city(city.id,city.task.section,ProvinceCatalog,,correct
+ProvinceDirectoryView,line:1424,dynamic-card@1424,content,AppDestination.practicalGuide(topic,AppDestination.practicalGuide(topic,ProvinceCatalog,,correct
+ProvinceDirectoryView,line:1484,dynamic-card@1484,content,destination,city.relatedArticles.dashboard,ProvinceCatalog,,correct
+ProvinceDirectoryView,line:3017,dynamic-card@3017,content,AppDestination.officialSources,city.history.empty.actions,ProvinceCatalog,,correct
+ProvinceDirectoryView,line:3024,dynamic-card@3024,content,AppDestination.searchList,city.history.empty.actions,ProvinceCatalog,,correct
+LocalPartnersView,line:98,dynamic-card@98,content,AppDestination.localPartnerDetail(partner.id,partners.category.support.hero,MockLocalPartnersData,,correct
+FavoritesView,line:197,dynamic-card@197,content,action.destination,saved.empty.visual,SavedItemsStore canonical IDs,,correct
+FavoritesView,line:348,dynamic-card@348,content,destination,destination,SavedItemsStore canonical IDs,,correct
+RootMoreView,line:93,dynamic-card@93,content,destination,destination,AppDestination / KnowledgeIndex,,correct
+TransportGuideView,line:495,dynamic-card@495,content,destination,transport.sources.empty,ContentRepository / Category.canonical,,correct
+GovernmentHubView,line:92,dynamic-card@92,content,AppDestination.assistantHub,AppDestination.assistantHub,KnowledgeIndex / official sources,,correct
+GovernmentHubView,line:125,dynamic-card@125,content,AppDestination.institution(service.institutionName,AppDestination.institution(service.institutionName,KnowledgeIndex / official sources,,correct
+AppDestinationView,line:484,dynamic-card@484,content,destination,destination,AppDestination / KnowledgeIndex,,correct

@@ -1,0 +1,35 @@
+{
+  "generated_at": "2026-07-11",
+  "verdict": "NOT_READY",
+  "evidence_level": "static contracts plus attempted iOS 26.5 runtime tests",
+  "canonical_repository_runtime_test": "blocked: xcodebuild test runner stalled after build and was terminated",
+  "metrics": {
+    "lost_content": null,
+    "orphaned_content": null,
+    "unsearchable_content": null,
+    "profile_blocked_content": 0
+  },
+  "metric_notes": {
+    "lost_content": "A unit assertion exists, but the current QA run did not reach test execution; zero is not claimed.",
+    "orphaned_content": "ContentRepository.guideItems() exposes published objects in memory, but RootGuideView does not render that collection.",
+    "unsearchable_content": "AppSearchEngine.searchContent() indexes canonical items, but SearchView displays a separate legacy/direct-results pipeline.",
+    "profile_blocked_content": "Confirmed by static policy: PersonaContentPolicy and RelatedContentEngine return universal visibility; profile only boosts ordering. Static persona QA passed."
+  },
+  "coverage_contracts": {
+    "guide": "FAIL: canonical repository is not the data source of RootGuideView",
+    "search": "FAIL: canonical search is not the displayed SearchView pipeline",
+    "deep_link": "FAIL: generated younew://content/<id> links have no content route in AppNavigationResolver or onOpenURL handler",
+    "saved": "PARTIAL: persistence stores ID and timestamp only, but canonical rows without legacyDestination are not navigable",
+    "map": "FAIL: ContentRepository.mapItems() is not consumed by the root Map UI",
+    "audience_profiles": "PASS_STATIC: no access filtering"
+  },
+  "release_gate": {
+    "required": {
+      "lost_content": 0,
+      "orphaned_content": 0,
+      "unsearchable_content": 0,
+      "profile_blocked_content": 0
+    },
+    "satisfied": false
+  }
+}

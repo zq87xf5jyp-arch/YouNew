@@ -1,0 +1,4 @@
+Query chain:
+ →Find: Target Application 'nl.younew.app'
+  ↪︎Find: Descendants matching type Any
+    ↪︎Find: Elements matching predicate '"map.hub" IN identifiers'

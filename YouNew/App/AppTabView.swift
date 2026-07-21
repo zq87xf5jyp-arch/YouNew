@@ -94,7 +94,6 @@ struct RootTabView: View {
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var appState: AppStateViewModel
     @Environment(\.horizontalSizeClass) private var horizontalSizeClass
-    @Environment(\.dynamicTypeSize) private var dynamicTypeSize
     @AppStorage("settings.navigationMenuPosition") private var menuPositionRawValue = NavigationMenuPosition.automatic.rawValue
 
     @State private var regularNavPath = NavigationPath()
@@ -442,9 +441,19 @@ struct RootTabView: View {
                 .padding(.trailing, FloatingTabBarMetrics.sideContentInset)
                 .overlay(alignment: .trailing) { verticalMenu(edge: .trailing) }
         case .automatic, .bottom:
+            // Keep the original safe-area proposal for map and scroll layout,
+            // but host the interactive bar as the frontmost root overlay. A
+            // root ScrollView may otherwise keep a full-window gesture region
+            // underneath a bar installed directly by safeAreaInset.
             tabContent
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .safeAreaInset(edge: .bottom, spacing: 0) {
+                    horizontalMenu(edge: .bottom)
+                        .hidden()
+                        .accessibilityHidden(true)
+                        .allowsHitTesting(false)
+                }
+                .overlay(alignment: .bottom) {
                     horizontalMenu(edge: .bottom)
                         .zIndex(3)
                 }
