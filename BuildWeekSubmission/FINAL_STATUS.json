@@ -15,6 +15,13 @@
     "remote_verified_current": false,
     "commit_push_performed": false
   },
+  "github_handoff_after_validation": {
+    "owner_authorized": true,
+    "main_synchronized_to_origin": true,
+    "remote_sha_verified_equal_to_local": true,
+    "visibility_at_verification": "private",
+    "scope_note": "This occurred after the evidence-producing validation pass; no deploy, release, App Store upload, or submission was performed."
+  },
   "validation": {
     "clean_build": {
       "status": "pass",

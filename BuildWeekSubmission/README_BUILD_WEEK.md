@@ -51,7 +51,7 @@ This is not a probability of zero bugs or an App Store score.
 | Content data | Governed releases and import tooling are present; content is not complete. |
 | External links | Current report includes 18 confirmed broken URLs. |
 | Tests | Clean build PASS; unit 460/460 PASS; static 43/44 known gates; full UI 79/87; isolated rerun of the eight failures 5/8. Three UI failures remain reproducible. |
-| Distribution | TestFlight/App Store parity is not verified. A local `origin` tracking `origin/main` is now configured, but this pass did not create it, push, or verify GitHub visibility/content. |
+| Distribution | TestFlight/App Store parity is not verified. After validation, an owner-authorized handoff synchronized `main` to the existing GitHub `origin`; the repository remained Private at verification. |
 | Media | Attribution infrastructure exists; complete rights clearance is still an owner gate. |
 
 ## Main demo flow

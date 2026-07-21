@@ -16,6 +16,12 @@
     "worktree_clean": false,
     "commit_or_push_performed_by_final_pass": false
   },
+  "github_handoff_after_validation": {
+    "owner_authorized": true,
+    "main_synchronized_to_origin": true,
+    "remote_sha_verified_equal_to_local": true,
+    "visibility_at_verification": "private"
+  },
   "current_validation": {
     "clean_build": {
       "status": "pass",

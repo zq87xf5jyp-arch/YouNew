@@ -4,6 +4,11 @@ Inventory refreshed: 21 July 2026, Europe/Amsterdam
 Scope: local Build Week candidate; no commit, remote mutation, push, release, or
 publication was performed by this validation pass.
 
+Post-validation update: the owner separately authorized GitHub CLI access and a
+handoff push. `main` was synchronized to the existing `origin` and the remote SHA
+was verified equal to the local SHA. The repository was still **Private** in the
+GitHub UI. No deploy, release, App Store upload, or submission was performed.
+
 ## Decision
 
 Do not use `git add -A`, `git add .`, or a blanket push. The workspace mixes the

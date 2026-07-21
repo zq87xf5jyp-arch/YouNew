@@ -195,9 +195,11 @@ links the project story, description, feature inventory, technical overview,
 Codex/ChatGPT narratives, demo guide, Devpost copy, checklist, limitations,
 owner actions, and final status.
 
-The current checkout has an existing `origin` and tracks `origin/main`. This final
-validation pass did not create or mutate the remote, commit, push, publish, or
-generate a video, and it did not verify GitHub visibility/content.
+The validation pass itself did not create or mutate the remote, commit, push,
+publish, or generate a video. In a later owner-authorized GitHub handoff, `main`
+was synchronized to the existing `origin` and verified in the GitHub UI. The
+repository remained **Private** at that verification; making it judge-accessible
+is a separate owner visibility decision.
 
 ## License
 
