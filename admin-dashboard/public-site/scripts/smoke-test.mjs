@@ -75,8 +75,13 @@ assert.deepEqual(manifest.icons.map((icon) => icon.sizes), ["192x192", "512x512"
 const serviceWorker = await readFile(join(root, "sw.js"), "utf8");
 assert.match(serviceWorker, /isEmergencyRequest/);
 assert.match(serviceWorker, /isMutableConfiguration/);
+assert.match(serviceWorker, /\.then\(\(\) => self\.skipWaiting\(\)\)/, "A new service worker must activate without waiting for every stale tab to close");
+assert.match(serviceWorker, /fetch\(request, \{ cache: "no-store" \}\)/, "Navigations must bypass stale browser HTTP cache entries");
 assert.match(serviceWorker, /\/static-shell\.js/);
 assert.match(serviceWorker, /\/_next\/static\/css\//, "The install cache must include the generated stylesheet for a styled first offline launch");
+
+const hostingerRules = await readFile(join(root, ".htaccess"), "utf8");
+assert.match(hostingerRules, /FilesMatch "\\\.\(\?:html\|txt\)\$"[\s\S]*?Cache-Control "no-cache, no-store, must-revalidate"/, "Hostinger must revalidate exported HTML instead of serving a previous release");
 
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
 for (const path of ["https://younew.nl", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));

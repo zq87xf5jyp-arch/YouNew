@@ -1,6 +1,6 @@
 # Build Week demo flow
 
-Статус документа: **candidate script; финальная воспроизводимость зависит от post-fix UI validation**  
+Статус документа: **candidate script; bounded flow verified, full UI aggregate 79/87**
 Evidence cutoff: 2026-07-21, Europe/Amsterdam  
 Рекомендуемый язык записи: English — он совпадает с проверяемыми ниже подписями.
 
@@ -63,7 +63,8 @@ Evidence cutoff: 2026-07-21, Europe/Amsterdam
 - Assistant даёт общую ориентацию, а не юридическое, медицинское или индивидуальное решение. Важные действия нужно проверять у официального источника и своей gemeente.
 - Внешний сайт зависит от сети и может менять содержимое, редиректы или доступность. Последний data-health report имеет статус `attention_required` и отдельно фиксирует 18 confirmed broken governed URLs; поэтому нельзя утверждать, что все внешние ссылки здоровы.
 - `cities-v0.1.0` подтверждает пять внутренних city records, но не одинаковую глубину контента по всем городам.
-- Map/root-tab переход допустимо показывать как исправленный только после post-fix targeted и root-navigation результатов. Один сбой первого нажатия — blocker, а не повод сделать второй тап или вырезать паузу.
+- Map/root-tab delivery подтверждён targeted-проверками: blocker gate 3/3, root navigation 5/5, isolated 10/10 и один manual accessibility action PASS. При этом отдельный финальный latency-тест зафиксировал 191.158 ms при неизменённом лимите `<100 ms`; это открытый performance-риск, а не повтор исходного недоставленного нажатия.
+- Не использовать в записи Assistant shortcut **Open Leiden**: в изолированном тесте он не достигает city detail. Не использовать и длинный composite Guide → Transport, который воспроизводимо зависает на UI query после прокрутки.
 - Контент и media rights не завершены для всего приложения; этот сценарий не доказывает production readiness или полную лицензионную очистку.
 
 ## Fallback path

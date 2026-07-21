@@ -27,19 +27,21 @@ YouNew brings those tasks into one navigable iOS experience:
 
 ## Build Week demo
 
-The primary candidate flow uses functionality already implemented in the app:
+The bounded candidate flow uses functionality already implemented and verified in
+the app:
 
-1. Start on Home and frame the newcomer problem.
-2. Cut to the supported newcomer question about what follows after receiving an
-   address.
-3. Show the ordered BSN → DigiD → health insurance → huisarts guidance.
-4. Open the BSN guide and its named official-source action.
-5. Use a 30-second montage for Map, Search, Cities, and Guide categories.
-6. End with the owner’s story: ChatGPT as product and writing partner, Codex as
-   engineering partner, and the human owner retaining the vision and decisions.
+1. Start on Home and open **Open AI assistant**.
+2. Ask **How do I get BSN?**.
+3. Choose **Yes, fixed address**, then **Yes, include DigiD**.
+4. Show the **Local guide mode** response, open the BSN guide, and show one named
+   official-source action.
+5. Open Map, return to Home with one root-tab tap, then open Amsterdam through
+   the stable Map/Home route.
 
-The complete 2:10–2:30 human-first sequence, narration, captions, and fallback plan are in
-[BuildWeek/DEMO_GUIDE.md](BuildWeek/DEMO_GUIDE.md).
+Do not use the Assistant **Open Leiden** shortcut or the long Guide-to-Transport
+composite path; both remain reproducible failures outside the bounded demo. The
+exact sequence, wording, fallbacks, and recording checklist are in
+[BuildWeekSubmission/DEMO_GUIDE.md](BuildWeekSubmission/DEMO_GUIDE.md).
 
 ## Truthful AI positioning
 
@@ -153,17 +155,27 @@ or screenshots.
 This README reports existing evidence; it does not promote historical results to
 universal certification.
 
-- The final candidate status records a successful build.
-- A bounded prior candidate artifact records 460/460 unit checks passing.
-- The targeted Map ↔ Home fix records 3/3 targeted checks and 10/10 first-tap
-  transitions.
+- The current candidate has a successful clean Debug simulator build.
+- The current unit artifact records 460/460 checks passing.
+- The targeted Map ↔ Home fix records 3/3 targeted checks; the isolated final
+  transition gate records 10/10 first-tap transitions.
+- Two preserved 100-tap map calibration runs produced 99/100 followed by an
+  unchanged 100/100 repeat; the first failure remains disclosed.
 - Targeted evidence also covers the Guide loading state and shared search-field
   hit testing.
 - Structural validation covers the governed five-city content release.
+- Static QA has 43/44 known checks passing; the remaining data-health gate reports
+  18 confirmed broken external URLs.
+- Eight simulator screens passed visual smoke inspection. The finalized full UI
+  suite is 79/87; the isolated rerun of those eight failures is 5/8.
+- Three UI failures remain reproducible: Guide scroll/UI-query at Transport,
+  root-tab latency above 100 ms, and the Assistant selected-city shortcut.
 
-See [BuildWeek/FINAL_STATUS.md](BuildWeek/FINAL_STATUS.md) for the decision and
-[BuildWeek/KNOWN_LIMITATIONS.md](BuildWeek/KNOWN_LIMITATIONS.md) for the evidence
-boundary.
+See [BuildWeekSubmission/FINAL_VALIDATION.md](BuildWeekSubmission/FINAL_VALIDATION.md)
+for the decision, [BuildWeekFinal/GLITCH_READINESS.md](BuildWeekFinal/GLITCH_READINESS.md)
+for the 84/100 candidate rubric, and
+[BuildWeekSubmission/KNOWN_LIMITATIONS.md](BuildWeekSubmission/KNOWN_LIMITATIONS.md)
+for the evidence boundary.
 
 ## Privacy, safety, and media
 
@@ -178,13 +190,14 @@ detailed project records.
 
 ## Build Week package
 
-Start with [BuildWeek/README_BUILD_WEEK.md](BuildWeek/README_BUILD_WEEK.md). It
+Start with [BuildWeekSubmission/README_BUILD_WEEK.md](BuildWeekSubmission/README_BUILD_WEEK.md). It
 links the project story, description, feature inventory, technical overview,
 Codex/ChatGPT narratives, demo guide, Devpost copy, checklist, limitations,
 owner actions, and final status.
 
-No remote was created, no push or publication was performed, and no video was
-generated during repository preparation.
+The current checkout has an existing `origin` and tracks `origin/main`. This final
+validation pass did not create or mutate the remote, commit, push, publish, or
+generate a video, and it did not verify GitHub visibility/content.
 
 ## License
 

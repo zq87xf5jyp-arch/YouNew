@@ -1,0 +1,55 @@
+{
+  "recorded_at": "2026-07-21",
+  "timezone": "Europe/Amsterdam",
+  "candidate_head": "7a1f6bc8fcffac84e5798338380bb97aca815b3d",
+  "data_project": {
+    "status": "pass",
+    "work_packages": 17,
+    "milestones": 7,
+    "releases": 7,
+    "batches": 27,
+    "records": 450
+  },
+  "cities_v0_1_0": {
+    "status": "pass",
+    "mode": "dry_run_validation",
+    "eligible": 5,
+    "excluded": 0,
+    "broken_relations": 0,
+    "technical_duplicates": 0,
+    "cities": [
+      "Amsterdam",
+      "Rotterdam",
+      "Den Haag",
+      "Utrecht",
+      "Eindhoven"
+    ]
+  },
+  "internal_generated_site_references": {
+    "status": "pass_existing_output_only",
+    "references": 14953,
+    "html_files": 229,
+    "fresh_site_rebuild": false
+  },
+  "external_url_health": {
+    "status": "fail",
+    "checked": 2494,
+    "reachable": 1821,
+    "confirmed_broken": 18,
+    "restricted": 623,
+    "transient": 32
+  },
+  "secret_scan": {
+    "status": "pass_with_scope",
+    "text_files": 1039,
+    "bytes": 23040033,
+    "high_confidence_hits": 0,
+    "generic_literal_assignment_hits": 0,
+    "scope_note": "Ignored binaries, dependency/generated/media trees and Git history were outside this scan."
+  },
+  "claim_boundary": "Structural data/import validation passes. External URL health does not pass because 18 governed URLs are confirmed broken. The scoped scan is not a guarantee about excluded files or Git history.",
+  "provenance": {
+    "source": "Final validation commands and reports recorded in BuildWeekSubmission/FINAL_VALIDATION.md and BuildWeekSubmission/TESTING_AND_QA.md",
+    "note": "This compact persistent summary reflects the current DataProject/reports/data-health.json after the final static-QA rerun; it does not replace the underlying validators."
+  }
+}

@@ -1,7 +1,7 @@
 # Build Week public claims register
 
 Evidence cutoff: 2026-07-21, Europe/Amsterdam  
-Repository snapshot inspected: branch `build-week-readiness`, HEAD `da8c3fe22e7a5d99b2187aab1141700b2d34f508`  
+Repository snapshot inspected: branch `main`, HEAD `7a1f6bc8fcffac84e5798338380bb97aca815b3d`
 Document status: **judge-safe wording register; final packaging uses bounded preserved evidence**
 
 ## How to use this register
@@ -44,13 +44,13 @@ Every public use should keep the stated boundary. A source file proves implement
 
 **Status:** VERIFIED as a point-in-time local fact.
 
-**Evidence:** At the cutoff, `git rev-list --count HEAD` returned **65**; `git rev-parse HEAD` returned `da8c3fe22e7a5d99b2187aab1141700b2d34f508`; `git remote -v` returned no configured remote. The owner working tree is not clean.
+**Evidence:** At the current cutoff, `git rev-list --count HEAD` returned **66** and `git rev-parse HEAD` returned `7a1f6bc8fcffac84e5798338380bb97aca815b3d`. Branch `main` tracks `origin/main`, and `origin` is configured. The owner working tree is not clean. Reflog records the branch rename and commit at 2026-07-21 13:36 +02:00; this validation pass did not perform them.
 
 **Safe wording:**
 
-> At the evidence cutoff, the local YouNew repository contained 65 commits. No Git remote was configured.
+> At the evidence cutoff, the local YouNew repository contained 66 commits on `main`; an `origin` remote was configured.
 
-**Forbidden wording:** “Approximately 56 commits” as a current number, “public GitHub repository”, “clean repository”, “clone-ready repository”, or “the audited commit has been pushed”. Commit count must be recalculated if HEAD changes before submission.
+**Forbidden wording:** “Approximately 56 commits” as a current number, “verified public GitHub repository”, “clean repository”, “clone-ready repository”, or “the current documentation changes have been pushed”. A configured remote is not proof of public visibility or synchronized working-tree changes. Recalculate if HEAD changes.
 
 ## 4. Local guided assistant
 
@@ -134,13 +134,18 @@ If the final structural/import rerun passes, retain the limitation in the same p
 
 ## 10. QA and validation automation
 
-**Status:** VERIFIED for the presence and breadth of automation; **BOUNDED EVIDENCE** for recorded results.
+**Status:** VERIFIED for the presence and breadth of automation; **CURRENT BOUNDED EVIDENCE** for recorded results.
 
-**Evidence:** [`run-static-qa.sh`](../scripts/run-static-qa.sh) currently enumerates 44 command invocations; [`YouNewTests`](../YouNewTests), [`YouNewUITests`](../YouNewUITests), accessibility scripts/tests, content validators, release validators, and [`UI_BASELINE.md`](UI_BASELINE.md). The baseline explicitly says the current aggregate UI run was interrupted and cannot supply a final pass rate.
+**Evidence:** [`run-static-qa.sh`](../scripts/run-static-qa.sh) currently enumerates 44 command invocations; [`YouNewTests`](../YouNewTests), [`YouNewUITests`](../YouNewUITests), accessibility scripts/tests, content validators, release validators, and the current artifacts summarized in [`../BuildWeekSubmission/FINAL_VALIDATION.md`](../BuildWeekSubmission/FINAL_VALIDATION.md).
 
 **Safe wording:**
 
 > The project includes extensive unit, UI, static, accessibility, content, data, privacy, routing, media, and release-validation automation.
+
+> For the audited candidate, clean build passed, unit tests passed 460/460,
+> static QA passed 43/44 known gates, and the finalized UI suite passed 79/87.
+> An isolated rerun of the eight UI failures passed 5/8; three failures remain
+> reproducible.
 
 Exact totals may be appended only with their snapshot, simulator, date, and artifact boundary. The final Build Week package intentionally does not claim an all-green current aggregate.
 
@@ -174,7 +179,7 @@ Exact totals may be appended only with their snapshot, simulator, date, and arti
 
 **Status:** VERIFIED local-only; public availability not proved.
 
-**Evidence:** No Git remote is configured; no push, publish, deploy, App Store upload, or release action is part of this audit.
+**Evidence:** A local `origin` is configured and `main` tracks `origin/main`; no push, publish, deploy, App Store upload, or release action was performed by this validation pass. Remote visibility and content were not independently verified.
 
 **Safe wording:**
 
@@ -187,7 +192,7 @@ Exact totals may be appended only with their snapshot, simulator, date, and arti
 | Proposed claim | Status | Evidence / reason | Safe replacement | Forbidden wording |
 |---|---|---|---|---|
 | GPT-5.6 powers the in-app assistant. | FORBIDDEN / NOT PROVED | No deployed endpoint, configured live environment, provider request ID, or captured runtime model proof. | “The demo uses a deterministic local guided assistant. Live LLM integration is future work unless separately verified.” | “Powered by GPT-5.6”; “live OpenAI assistant”. |
-| All tests pass. | FORBIDDEN / NOT PROVED | Current final build/unit/static/UI aggregates are not all completed; the control UI bundle was interrupted. | Publish only exact current results from `FINAL_VALIDATION.md`, separated by gate. | “All green”; historical totals presented as current. |
+| All tests pass. | FORBIDDEN / CONTRADICTED | Current unit is 460/460, but static QA is 43/44 and finalized UI is 79/87; three UI failures reproduce in isolation. | Publish exact results from `FINAL_VALIDATION.md`, separated by gate. | “All green”; historical or targeted totals presented as the aggregate. |
 | The app is production ready. | FORBIDDEN / NOT PROVED | Open UI, URL-health, rights, distribution, and owner-review gates remain. | “Build Week candidate focused on a bounded demo flow,” after final candidate validation. | “Production ready”; “App Store ready”. |
 | All content is complete. | FORBIDDEN / NOT PROVED | Coverage depth is uneven and external source health has open issues. | “The app contains governed practical content with documented scope and limitations.” | “Complete Netherlands guide”; “all categories complete”. |
 | All images are fully licensed. | FORBIDDEN / NOT PROVED | Media-rights audit is partial; unresolved assets and attribution gaps remain. | “Media rights are partially documented; the owner must approve the final allowlist.” | “Fully licensed”; “all media cleared”. |
@@ -198,7 +203,7 @@ Exact totals may be appended only with their snapshot, simulator, date, and arti
 ## Pre-publication update checklist
 
 - [ ] Recalculate commit count and record final HEAD.
-- [ ] Copy only completed current build/unit/static/UI/data results from `BuildWeekSubmission/FINAL_VALIDATION.md`.
+- [x] Copy only completed current build/unit/static/UI/data results from `BuildWeekSubmission/FINAL_VALIDATION.md`.
 - [ ] Link each numeric claim to a preserved log or `.xcresult` summary.
 - [ ] Keep the 18-link network-health limitation unless a reviewed remediation and fresh report supersede it.
 - [x] Add only bounded map/root-tab wording backed by `YouNewBuildWeekMapOverlayFix.xcresult` and `MAP_TAB_BLOCKER_FIX.md`.

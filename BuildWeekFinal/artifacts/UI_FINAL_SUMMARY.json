@@ -1,0 +1,68 @@
+{
+  "recorded_at": "2026-07-21T17:15:36+02:00",
+  "candidate_head": "7a1f6bc8fcffac84e5798338380bb97aca815b3d",
+  "result": "failed",
+  "total": 87,
+  "passed": 79,
+  "failed": 8,
+  "skipped": 0,
+  "expected_failures": 0,
+  "start_time": "2026-07-21T15:31:32+02:00",
+  "finish_time": "2026-07-21T17:15:36+02:00",
+  "test_duration_seconds": 6203.559,
+  "xcode_operation_elapsed_seconds": 6242.627,
+  "device": {
+    "name": "YouNew",
+    "model": "iPhone 17 Pro",
+    "platform": "iOS Simulator",
+    "os_version": "26.5",
+    "os_build": "23F77",
+    "architecture": "arm64",
+    "udid": "DD6314A8-FA00-4A38-9D9C-3E6C1D3D3CC1"
+  },
+  "artifact": "/private/tmp/YouNewBuildWeekFullUISerialFinal.xcresult",
+  "failures": [
+    {
+      "test": "CategoryRoutingRuntimeUITests/testGuideHousingGovernmentTransportAndEducationCardsUseTypedRoutes()",
+      "failure": "Timed out while evaluating a UI query."
+    },
+    {
+      "test": "CategoryRoutingRuntimeUITests/testLeisureAndEducationChipsUseIndependentDestinations()",
+      "failure": "home.categoryChip.education.drivingSchools opened the wrong destination; expected category.section.education.drivingSchools."
+    },
+    {
+      "test": "CategoryRoutingRuntimeUITests/testRequestedDiscoveryChipsReachTheirTypedDetailAndReturn()",
+      "failure": "Discovery chip sideMenu.food.breakfast was missing."
+    },
+    {
+      "test": "CategoryRoutingRuntimeUITests/testTransportChipsUseIndependentDestinations()",
+      "failure": "home.categoryChip.transport.train opened the wrong destination; expected category.section.transport.train."
+    },
+    {
+      "test": "MapChipUITests/testRootTabNavigationLatency()",
+      "failure": "All ten transitions were delivered, but one Home sample was 0.220256 s and exceeded the unchanged 0.1 s contract."
+    },
+    {
+      "test": "PublishedCitiesRuntimeUITests/testPublishedCitiesTraverseHomeSearchAIPlacesMapGuideAndDetail()",
+      "failure": "Assistant input lost keyboard focus while traversing the five-city multi-surface route."
+    },
+    {
+      "test": "YouNewUITests/testAssistantBSNWorkflowWithSelectedCityOpensLeiden()",
+      "failure": "The optional selected-city branch did not reach Leiden city detail."
+    },
+    {
+      "test": "YouNewUITests/testAssistantHealthInsuranceWorkflowOpensGuide()",
+      "failure": "The expected registered follow-up action was not found in the workflow."
+    }
+  ],
+  "verified_passes_relevant_to_demo": [
+    "ContentCompletionRuntimeUITests: 3/3",
+    "HomeCategoryUITests: 10/10",
+    "LocalizationRegressionUITests: 6/6",
+    "RootNavigationUITests: 5/5",
+    "Map 100-tap calibration: 100/100 within the full run",
+    "Build Week local deterministic fallback flow: PASS",
+    "BSN/address/DigiD base workflow: PASS"
+  ],
+  "claim_boundary": "This is the current finalized aggregate. It must be reported as 79/87, not as all tests passing. Isolated reruns are supplementary evidence and do not replace this aggregate."
+}

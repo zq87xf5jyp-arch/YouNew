@@ -91,11 +91,31 @@ Compact/bottom layout сохраняет исходный `safeAreaInset`, но 
 - maximum: `94.1 ms` при неизменённом контракте `< 100 ms`;
 - test duration: `67.097 s`; session duration: `73.277 s`.
 
-Расширенный aggregate не входит в финальный Build Week packaging scope. Этот отчёт сохраняет узкую границу доказательства: blocker исправлен и targeted-verified, но результат нельзя описывать как «all UI tests pass».
+Дополнительная последовательная проверка после targeted gate:
+
+- `RootNavigationUITests`: 5/5 PASS;
+- отдельный `testRootTabNavigationLatency`: PASS, 10/10 first-tap transitions, maximum `94.2 ms` при прежнем `< 100 ms`;
+- 100-tap calibration, запуск 1: FAIL — 99 matched, 1 missed, 0 wrong; пропущен самый первый input до изменения `sequence`;
+- тот же тест без изменения кода или порога, чистый повтор: PASS — 100 matched, 0 missed, 0 wrong, maximum app handling `5.053 ms`;
+- оба calibration artifacts сохранены; наблюдение описывается как 199/200, а не как безусловные 200/200.
+
+Artifacts:
+
+- `/private/tmp/YouNewBuildWeekRootNavigationFinal_DD6314_20260721.xcresult`;
+- `/private/tmp/YouNewBuildWeekRootLatencySerialFinal.xcresult`;
+- `/private/tmp/YouNewBuildWeekMapCalibrationSerialFinal.xcresult`;
+- `/private/tmp/YouNewBuildWeekMapCalibrationSerialRepeat.xcresult`.
+
+Финальный полный UI suite завершён с результатом 79/87. В неизменённом
+изолированном повторе latency-теста все переходы были доставлены, но один
+app-side sample занял `191.158 ms` и нарушил существующий лимит `< 100 ms`.
+Следовательно, исходный blocker доставки считается исправленным в проверенной
+конфигурации, а performance-риск остаётся открытым. Результат нельзя описывать
+как «all UI tests pass» или как универсальную sub-100-ms гарантию.
 
 ## Remaining limitations
 
 1. Targeted PASS подтверждает исправление на iPhone 17 Pro / iOS 26.5, но не доказывает поведение на каждом device class.
-2. Полного post-fix aggregate verdict нет; targeted artifact нельзя описывать как «all UI tests pass».
+2. Полный post-fix UI suite завершён: 79/87 PASS, 8 FAIL, 0 skipped. Последний изолированный latency-тест FAIL при `191.158 ms`; первый 99/100 calibration failure также остаётся раскрытым.
 3. Accessibility Dynamic Type и secondary compact screens не входят в подтверждённую границу основного demo.
 4. Временные `.xcresult` под `/private/tmp` являются локальными QA-артефактами. Для handoff сохраняется artifact manifest/summary; многогигабайтные bundles не следует коммитить.

@@ -14,9 +14,10 @@ It does **not** demonstrate live OpenAI inference, GPT-5.6, App Store readiness,
 complete content, or universal external-link availability.
 
 Final build and test status must be read from
-[FINAL_VALIDATION.md](FINAL_VALIDATION.md). The map/root-tab remediation remains a
-candidate delivery gate until the post-fix targeted and final UI artifacts are
-closed.
+[FINAL_VALIDATION.md](FINAL_VALIDATION.md). The map/root-tab remediation is
+verified for event delivery in serialized and manual checks. The finalized full
+UI aggregate is 79/87, and the isolated rerun of its eight failures is 5/8. One
+root-tab latency sample still exceeds the unchanged 100 ms ceiling.
 
 ## Pre-demo checklist
 
@@ -32,6 +33,8 @@ closed.
   reachability.
 - Hide notifications, account names, simulator debug overlays, local paths, and
   credentials before recording.
+- Do not use the Assistant **Open Leiden** shortcut or the long Guide-to-Transport
+  composite route. Both remain reproducible UI failures outside this bounded flow.
 
 ## Primary judge flow
 
@@ -46,7 +49,7 @@ closed.
 | 7 | Return to the assistant response and open its official-source action. | The app hands off to the stored official reference. Read the publisher/domain aloud; do not call the whole data set link-clean. | Government.nl BSN or official DigiD source records. |
 | 8 | Return to YouNew and open **Guide** if it is not already selected. Briefly show the structured guide surface. | Guide content is visible without leaving the app. | `tab.guide` and typed guide routes. |
 | 9 | Tap **Map** in the root tab bar. | The interactive Netherlands map appears. | `tab.map`, `map.hub`. |
-| 10 | Tap **Home once** in the root tab bar. | Home appears on that first tap. This is the visible acceptance check for the map/tab event-delivery fix. | `MapChipUITests.testRootTabNavigationLatency`; final post-fix artifact required. |
+| 10 | Tap **Home once** in the root tab bar. | Home appears on that first tap. This is the visible acceptance check for the map/tab event-delivery fix. | `MapChipUITests.testRootTabNavigationLatency`; `/private/tmp/YouNewBuildWeekRootLatencySerialFinal.xcresult`; screenshot 07. |
 | 11 | Tap **Map** again, choose Noord-Holland, then select **Amsterdam** from the exposed marker or city control. | An Amsterdam city surface/detail opens. Amsterdam is one of the five governed `cities-v0.1.0` records. | `map.city.amsterdam`; `cities-v0.1.0` release manifest. |
 
 The five records in that governed city release are Amsterdam, Rotterdam, Den
@@ -85,6 +88,8 @@ substitutes for a failed delivery gate.
    a city outside `cities-v0.1.0` while describing the five-city release.
 4. If the first Home tap from Map does not work, stop the candidate recording and
    treat it as a blocker. Do not hide it with repeated taps or an edited cut.
+5. Open a city through the demonstrated Map/Home path, not through the Assistant
+   **Open Leiden** shortcut.
 
 ## Screen-recording checklist
 
@@ -111,4 +116,3 @@ substitutes for a failed delivery gate.
 - [YouNewUITests.swift](../YouNewUITests/YouNewUITests.swift)
 - [MapChipUITests.swift](../YouNewUITests/MapChipUITests.swift)
 - [cities-v0.1.0 release manifest](../DataProject/reports/release-manifests/cities-v0.1.0.json)
-

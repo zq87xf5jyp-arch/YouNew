@@ -1,4 +1,4 @@
-const CACHE_VERSION = "younew-web-ce14191a5cab";
+const CACHE_VERSION = "younew-web-8bcd8d3568c0";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const GUIDE_CACHE = `${CACHE_VERSION}-guides`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
@@ -14,7 +14,7 @@ self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(SHELL_CACHE).then(async (cache) => {
       await Promise.all(SHELL_URLS.map((url) => cache.add(url)));
-    })
+    }).then(() => self.skipWaiting())
   );
 });
 
@@ -39,7 +39,7 @@ self.addEventListener("message", (event) => {
 
 const networkFirstNavigation = async (request, url) => {
   try {
-    const response = await fetch(request);
+    const response = await fetch(request, { cache: "no-store" });
     if (response.ok && isGuidePage(url)) {
       const cache = await caches.open(GUIDE_CACHE);
       await cache.put(request, response.clone());

@@ -19,6 +19,11 @@ ErrorDocument 404 /404.html
 </IfModule>
 
 <IfModule mod_headers.c>
+  <FilesMatch "\.(?:html|txt)$">
+    Header always set Cache-Control "no-cache, no-store, must-revalidate"
+    Header always set Pragma "no-cache"
+    Header always set Expires "0"
+  </FilesMatch>
   <FilesMatch "^(sw\.js|manifest\.webmanifest|status\.json|site-config\.json)$">
     Header always set Cache-Control "no-cache, no-store, must-revalidate"
     Header always set Pragma "no-cache"

@@ -183,7 +183,7 @@ Candidate pairs are evidence for editorial review, not automatic deletion. Full 
 
 ## Existing link-health evidence
 
-The repository's existing link report checked **2494** URLs at **2026-07-20T22:19:32.345270+00:00**: **18 confirmed broken**, **597 access-restricted**, and **32 transient failures**. This audit imported those counts but did not perform a new network check.
+The repository's existing link report checked **2494** URLs at **2026-07-20T23:29:35.666065+00:00**: **18 confirmed broken**, **623 access-restricted**, and **32 transient failures**. This audit imported those counts but did not perform a new network check.
 
 ## Audience-path gap
 

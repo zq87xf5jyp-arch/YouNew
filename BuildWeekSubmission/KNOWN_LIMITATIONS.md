@@ -1,47 +1,36 @@
-# Known Limitations
+# Known limitations
 
 Evidence cutoff: 21 July 2026  
-Scope: YouNew Build Week candidate, not a production-readiness assessment
+Scope: bounded YouNew Build Week candidate, not production readiness
 
-## Submission boundary
-
-The candidate should be judged on the implemented local demo flow and the final
-preserved validation artifacts. Historical results, source-code capability, and
-internal release metadata are not substitutes for a current end-to-end result.
-
-| Area | Current limitation | Demo impact / safe handling | Evidence or owner action |
-|---|---|---|---|
-| Live AI | The repository contains optional bounded backend-client code, but no candidate artifact proves a configured backend, a successful OpenAI request, or GPT-5.6 inference. | Demonstrate only the local deterministic guided assistant. Do not use live-AI or generative-answer wording. | [AI_ASSISTANT_TRUTHFUL_DESCRIPTION.md](AI_ASSISTANT_TRUTHFUL_DESCRIPTION.md). A live claim would require separately reviewed backend, privacy, provider, model, and runtime evidence. |
-| Content completeness | Content depth and completion vary by topic, city, and surface. Some non-demo content can be sparse or unfinished. | Keep the judge path to the reproduced BSN → address → DigiD journey, its guide, Map, and one governed city. Do not say all content is complete. | Final manual smoke test; owner editorial review. |
-| External links | `DataProject/reports/data-health.json`, generated 20 July 2026, has status `attention_required`: 18 confirmed broken URLs, 1,821 reachable, 623 access-restricted, and 32 transient failures out of 2,494 checked URLs. | Pre-check the exact BSN/DigiD demo source. A visible stored source record does not prove current reachability. | [data-health.json](../DataProject/reports/data-health.json). Remediate or explicitly retain all remaining broken links. |
-| Map/root-tab delivery | A finalized pre-fix artifact proved interception. The targeted post-fix simulator bundle now passes 3/3, including Leiden, Middelburg, and 10/10 first-tap Map ↔ Home transitions. This is not physical-device or all-map certification. | Use the tested path and repeat one manual first-tap smoke before recording. If it fails, stop the recording and reopen the blocker. | [UI_BASELINE.md](../BuildWeekFinal/UI_BASELINE.md), [MAP_TAB_BLOCKER_FIX.md](../BuildWeekFinal/MAP_TAB_BLOCKER_FIX.md), `/private/tmp/YouNewBuildWeekMapOverlayFix.xcresult`, and [FINAL_VALIDATION.md](FINAL_VALIDATION.md). |
-| Current test totals | The latest HEAD control UI run was interrupted before its `.xcresult` finalized. Earlier counts are historical and cannot be presented as current. Unit, static, UI, and data totals are unresolved until the final candidate run closes. | Never say “all tests pass.” Use only the totals and artifact paths in `FINAL_VALIDATION.md`. | [UI_BASELINE.md](../BuildWeekFinal/UI_BASELINE.md); final build logs and `.xcresult` bundles. |
-| Remaining failures | The Guide placeholder and search-focus defects have targeted fixes and PASS evidence; the city/category activation loss was not reproduced in four focused runs and was not changed. Aggregate confirmation remains pending. | Avoid the non-primary cafés route in the video. Do not hide or disable a failing test. | [REMAINING_FAILURES.md](../BuildWeekFinal/REMAINING_FAILURES.md) and [FINAL_VALIDATION.md](FINAL_VALIDATION.md). |
-| Distribution | No evidence ties this checkout to a current TestFlight or App Store binary. The local Git repository has no configured remote. | Present a local candidate build only. Do not claim the submitted binary is in TestFlight, the App Store, or a public repository. | Owner must supply distribution screenshots and separately approve repository creation, commit, remote, and push. |
-| Media rights | Media manifests and attribution metadata exist, but clearance is not complete for all media surfaces and captures. | Use only owner-reviewed demo media. Do not claim that every image is fully licensed. | Owner rights review; remove or replace disputed assets before publication. |
-| Device coverage | The latest preserved UI evidence used an iPhone 17 Pro simulator on iOS 26.5. A final physical-device matrix and broader OS/device coverage are not yet evidenced. | Describe simulator validation precisely. Do not imply broad device certification. | Record final environment in `FINAL_VALIDATION.md`; owner may add physical-device evidence. |
-| Accessibility | The repository has accessibility checks, but a complete manual VoiceOver pass on a physical device is not evidenced. The interrupted run also observed one large-text search focus failure. | Do not claim full accessibility conformance. Preserve labels, Dynamic Type behavior, and the final known failure status. | Final targeted accessibility tests plus owner VoiceOver/manual review. |
-| External advice | Stored sources and structured guides can change and do not replace legal, medical, immigration, tax, or financial professionals. | Describe the app as practical navigation and source discovery, not official advice. | Re-check critical sources and dates before release. |
-| Repository reproducibility | The owner workspace contains substantial pre-existing modified and untracked work. A current clean-clone build of the final candidate has not yet been established. | Provide the exact candidate commit/tree state and local artifacts. Do not claim clean-clone reproducibility until it is separately proved. | `REPOSITORY_HANDOFF.md` and `FINAL_VALIDATION.md`. |
+| Area | Current limitation | Safe demo handling |
+|---|---|---|
+| Live AI | No candidate artifact proves a configured OpenAI backend, successful provider request, or GPT-5.6 inference. | Call it a deterministic local guided assistant backed by structured workflows and indexed YouNew knowledge. |
+| Full UI | Current finalized aggregate is 79/87, 8 failed, 0 skipped. | Never say all tests pass. Cite `FINAL_VALIDATION.md`. |
+| Reproduced UI failures | Isolated rerun is 5/8. Guide later times out at Transport scroll/UI query; root latency records 191.158 ms against `<100 ms`; Assistant `Open Leiden` does not reach city detail. | Exclude the selected-city shortcut and long Guide-to-Transport composite path. Use the bounded demo flow. |
+| Map/root | The original tab-delivery blocker is fixed, but performance is not universally below 100 ms and one preserved calibration was 99/100 before an unchanged 100/100 repeat. | Say delivery is fixed in the tested simulator configuration; disclose residual latency/startup sensitivity. |
+| Static/link health | Static QA is 43/44 known gates. Current health report has 18 confirmed broken, 623 restricted, and 32 transient among 2,494 URLs. | Pre-check the exact source used in the recording. Do not claim all links work. |
+| Content completeness | Content depth varies; governed records include drafts/review items and explicit gaps. | Demonstrate only the verified BSN/address/DigiD guide and one governed city. |
+| Distribution | No evidence ties this workspace to the current TestFlight or App Store binary. The configured remote was not verified for visibility or synchronization. | Present a local candidate only. Owner must supply distribution evidence. |
+| Media rights | Attribution infrastructure exists, but clearance is incomplete for all media and captures. | Owner must approve recording media or remove disputed assets. |
+| Device/accessibility coverage | Current UI evidence uses one iPhone 17 Pro Simulator on iOS 26.5. No complete physical-device, VoiceOver, older-OS, thermal, memory, or offline matrix exists. | Describe the exact simulator environment; do not claim broad certification or full conformance. |
+| Repository reproducibility | The worktree contains pre-existing and final modified/untracked files. The exact final dirty state has not been clean-clone reproduced. | Owner must review the handoff and approve any future commit/push. |
+| External advice | Stored information can change and does not replace competent legal, medical, immigration, tax, or financial advice. | Keep the informational disclaimer and show official-source actions. |
 
 ## Explicitly unsupported claims
 
 - GPT-5.6 powers the in-app assistant.
-- The candidate uses a live OpenAI assistant.
-- All tests pass.
-- All content is complete or all external links are healthy.
-- All images are fully licensed.
+- The candidate uses a verified live OpenAI assistant.
+- All tests or links pass.
 - The app is production ready.
-- The audited source matches the latest TestFlight or App Store build.
-- The repository can be clean-cloned and built, until that exact candidate is
-  reproduced.
+- All content is complete or all images are fully licensed.
+- The audited source matches the latest TestFlight/App Store build.
+- The exact candidate can be clean-cloned and built.
 
-## Manual gates owned outside this engineering pass
+## Manual owner gates
 
-- Confirm or remove media with unresolved rights.
-- Provide App Store/TestFlight evidence if it is intended for the submission.
-- Run and document a physical-device and VoiceOver review if those claims are
-  desired.
-- Approve the exact candidate commit, GitHub repository creation, remote, and
-  push separately.
-- Record and upload the demo video and submit the final application.
+- Provide App Store/TestFlight screenshots and parity evidence.
+- Confirm media rights or remove disputed media.
+- Review the dirty tree and existing GitHub remote.
+- Explicitly approve a future commit and push.
+- Record/upload the bounded demo video, paste the reviewed Devpost text, and submit.

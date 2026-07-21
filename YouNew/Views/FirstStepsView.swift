@@ -142,7 +142,6 @@ struct FirstStepsView: View {
         .appSceneBackground()
         .navigationTitle(titleText)
         .nlNavigationInline()
-        .accessibilityIdentifier("firstSteps.screen")
     }
 
     private var headerSection: some View {
@@ -155,6 +154,8 @@ struct FirstStepsView: View {
             accent: AppColors.success,
             asset: ContentMediaRegistry.profileImage ?? ContentMediaRegistry.officialSourcesHero
         )
+        .accessibilityElement(children: .combine)
+        .accessibilityIdentifier("firstSteps.screen")
     }
 
     private var stepsSection: some View {

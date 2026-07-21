@@ -1,0 +1,10 @@
+{
+  "recorded_date": "2026-07-21",
+  "result": "Passed",
+  "operation": "clean build",
+  "scheme": "YouNew",
+  "destination": "iPhone 17 Pro Simulator, iOS 26.5",
+  "artifact": "/private/tmp/YouNewBuildWeekCleanBuildPostFixFinal.xcresult",
+  "derived_data": "/private/tmp/YouNewBuildWeekCleanBuildPostFixFinalDD",
+  "note": "The first sandboxed attempt could not resolve github.com; the authorized rerun used cached declared packages and completed BUILD SUCCEEDED."
+}

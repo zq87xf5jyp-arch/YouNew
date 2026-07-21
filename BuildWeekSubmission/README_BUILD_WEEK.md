@@ -37,17 +37,21 @@ authority.
 
 ## Current candidate status
 
+Engineering readiness for the bounded Build Week demo is **84/100** using the
+published rubric in [`../BuildWeekFinal/GLITCH_READINESS.md`](../BuildWeekFinal/GLITCH_READINESS.md).
+This is not a probability of zero bugs or an App Store score.
+
 | Area | Honest status |
 |---|---|
 | iOS application | Native SwiftUI implementation present. Final candidate build result is reported separately. |
 | Main demo | Home → local Assistant → BSN/address/DigiD → Guide/source → Map → first-tap Home → Amsterdam. |
 | Assistant | Local deterministic guided assistant backed by workflow engines and indexed YouNew knowledge. |
 | Live OpenAI / GPT-5.6 | Not verified in candidate runtime; not a public capability claim. |
-| Map/root tabs | The reproduced event-delivery blocker is fixed in a preserved targeted simulator artifact: 3/3 PASS, including 10/10 first-tap Map ↔ Home transitions. Expanded UI totals remain separate. |
+| Map/root tabs | The reproduced delivery blocker is fixed in the tested simulator configuration. All latest isolated taps delivered, but one 191.158 ms sample still fails the unchanged 100 ms latency gate. |
 | Content data | Governed releases and import tooling are present; content is not complete. |
 | External links | Current report includes 18 confirmed broken URLs. |
-| Tests | Extensive suites exist. Current final totals must come only from `FINAL_VALIDATION.md`; no all-tests-pass claim is made here. |
-| Distribution | TestFlight/App Store parity is not verified. No Git remote is configured. |
+| Tests | Clean build PASS; unit 460/460 PASS; static 43/44 known gates; full UI 79/87; isolated rerun of the eight failures 5/8. Three UI failures remain reproducible. |
+| Distribution | TestFlight/App Store parity is not verified. A local `origin` tracking `origin/main` is now configured, but this pass did not create it, push, or verify GitHub visibility/content. |
 | Media | Attribution infrastructure exists; complete rights clearance is still an owner gate. |
 
 ## Main demo flow
@@ -197,12 +201,12 @@ distribution. Do not use “all images are fully licensed” in the submission.
 - No verified live GPT-5.6/OpenAI runtime path.
 - Uneven and incomplete content outside the curated demo.
 - 18 confirmed broken URLs in the current data-health report.
-- Map/root-tab targeted evidence is green; aggregate full-UI evidence remains pending.
+- Map/root delivery evidence is green; the latest isolated latency ceiling is not.
 - No verified TestFlight/App Store parity.
 - Partial media-rights clearance.
 - No complete physical-device/VoiceOver certification.
-- Current final test totals unresolved until the final validation pass closes.
-- No current clean-clone reproducibility claim and no configured Git remote.
+- The current full 87-test UI aggregate is finalized at 79 PASS / 8 FAIL / 0 skipped. Isolated reruns do not replace that aggregate.
+- No current clean-clone reproducibility claim. A configured `origin` exists, but remote contents/visibility were not verified and no push was performed in this pass.
 
 The tracked detail and owner actions are in
 [KNOWN_LIMITATIONS.md](KNOWN_LIMITATIONS.md).

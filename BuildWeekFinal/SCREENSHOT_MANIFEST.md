@@ -1,32 +1,42 @@
 # Screenshot manifest
 
-Recorded: 2026-07-21 (Europe/Amsterdam)
+Recorded: 2026-07-21, 15:25–15:31 (Europe/Amsterdam)
+Environment: dedicated `YouNew` iPhone 17 Pro Simulator, iOS 26.5
+Candidate: branch `main`, HEAD `7a1f6bc8fcffac84e5798338380bb97aca815b3d`, dirty owner workspace
 
-## Status
+## Result
 
-Final simulator screenshots were not captured in this session.
+All eight requested simulator screenshots were captured and visually inspected. They are demo evidence for the rendered screens below, not physical-device, media-rights, external-network, or full-suite certification.
 
-Reason: after the build succeeded, UI test/app launch attempts exhausted the Simulator launch environment. Xcode reported `Launchd job spawn failed. Resource temporarily unavailable`, and the generated UI result bundle did not finalize with an `Info.plist`. Creating screenshots after that would not be reliable evidence.
+| # | File | Screen and acceptance result |
+|---:|---|---|
+| 1 | [`screenshots/01-home.png`](screenshots/01-home.png) | **PASS** — Home content and the root tab bar are visible; no overlap blocks the selected Home control. |
+| 2 | [`screenshots/02-ai-assistant.png`](screenshots/02-ai-assistant.png) | **PASS WITH WORDING BOUNDARY** — Assistant, sources, search, map, KNM, Dutch, privacy warning, and root navigation render without clipping. The screenshot does not itself say “local deterministic”; that truthful runtime boundary is proved by the UI test and submission documentation. |
+| 3 | [`screenshots/03-newcomer-flow.png`](screenshots/03-newcomer-flow.png) | **PASS** — Municipality registration guide visibly includes address registration and BSN-related steps. This is a guide-state screenshot, not a substitute for the serialized BSN → address → DigiD Assistant test. |
+| 4 | [`screenshots/04-guide.png`](screenshots/04-guide.png) | **PASS** — Guide categories render with readable content and no placeholder copy in the visible primary surface. |
+| 5 | [`screenshots/05-official-source.png`](screenshots/05-official-source.png) | **PASS WITH NETWORK BOUNDARY** — Official Source Directory renders and identifies 23 Dutch institutions/services; the warning about changing rules/contact details is visible. This does not prove every external URL is reachable. |
+| 6 | [`screenshots/06-map.png`](screenshots/06-map.png) | **PASS** — interactive Netherlands map, 12 provinces, Amsterdam marker, Noord-Holland selection, city control, and root Map tab are visible. |
+| 7 | [`screenshots/07-map-to-home.png`](screenshots/07-map-to-home.png) | **PASS** — captured after one accessibility activation of `tab.home` from Map. Runtime metric changed to `sequence=1;tab=home;delayMs=95.108`; Home became selected. |
+| 8 | [`screenshots/08-city-detail.png`](screenshots/08-city-detail.png) | **PASS** — governed imported city Amsterdam opens with city identity, province, population, flag, and coat of arms. |
 
-## Required final screenshot set
+## Capture method
 
-Owner should capture these after restarting Xcode/Simulator or rebooting the machine:
+- App routes were launched with the existing `-uiTesting`, `-resetUITestState`, `-launchLanguage`, `-uiTestingStartTab`, `-uiTestingDestination`, and `-uiTestingCity` arguments.
+- PNG files were captured from the simulator display with `simctl io screenshot`.
+- The Map → Home acceptance step was performed through the live Simulator accessibility element `tab.home`, not by relaunching directly on Home.
+- Each key image was visually inspected after capture; no screenshot was generated or edited to conceal a failure.
 
-| Screen | Required path | Acceptance check |
-|---|---|---|
-| Home | `BuildWeekFinal/screenshots/01-home.png` | Home content visible; root tab bar visible and not overlapped |
-| AI Assistant | `BuildWeekFinal/screenshots/02-ai-assistant.png` | Assistant clearly described as local/guided/deterministic, not GPT-5.6 |
-| Newcomer BSN/address/DigiD flow | `BuildWeekFinal/screenshots/03-newcomer-flow.png` | BSN/address/DigiD journey state visible |
-| Guide/content route | `BuildWeekFinal/screenshots/04-guide.png` | Verified guide/content section visible; no placeholder copy such as `will appear here` |
-| Official source | `BuildWeekFinal/screenshots/05-official-source.png` | At least one official source visible |
-| Map | `BuildWeekFinal/screenshots/06-map.png` | Interactive Netherlands map visible |
-| Root tab return | `BuildWeekFinal/screenshots/07-map-to-home.png` | Home visible after one root tab tap from Map |
-| Imported city detail | `BuildWeekFinal/screenshots/08-city-detail.png` | One imported city detail visible: Amsterdam, Rotterdam, Den Haag, Utrecht, or Eindhoven |
+## Evidence boundaries
 
-## Current evidence instead of screenshots
+- The serialized Assistant test is `/private/tmp/YouNewBuildWeekBSNFlowCleanSerial.xcresult` (1/1 PASS). Screenshot 3 only records the resulting guide surface.
+- The serialized root navigation test is `/private/tmp/YouNewBuildWeekRootLatencySerialFinal.xcresult` (10/10 first-tap transitions). Screenshot 7 adds one manual UI activation.
+- Known external-link health remains 18 confirmed broken responses among 2,494 checked URLs. Screenshot 5 proves the directory UI, not network health.
+- Owner media-rights review is still required before these images or a video are published.
 
-- Build evidence: `BuildWeekSubmission/FINAL_VALIDATION.md`.
-- Map/root tab fix evidence: `BuildWeekFinal/MAP_TAB_BLOCKER_FIX.md`.
-- Demo steps: `BuildWeekFinal/DEMO_FLOW.md` and `BuildWeekSubmission/DEMO_GUIDE.md`.
+## Recording checklist
 
-Do not claim final screenshot evidence until the files above are actually captured.
+- Reproduce Home → local Assistant → BSN/address/DigiD → guide/source → Map → one-tap Home → Map → Amsterdam in one continuous take.
+- Keep the “local guided assistant” wording; do not say GPT-5.6 or live OpenAI.
+- Do not enter real BSN, address, account, health, or identity data.
+- Verify the exact official source used in the video on the recording network.
+- Stop and reopen the blocker if Map → Home does not work on the first tap.

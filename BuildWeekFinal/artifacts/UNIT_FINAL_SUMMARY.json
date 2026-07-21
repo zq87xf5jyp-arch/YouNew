@@ -1,0 +1,21 @@
+{
+  "recorded_date": "2026-07-21",
+  "result": "Passed",
+  "total": 460,
+  "passed": 460,
+  "failed": 0,
+  "skipped": 0,
+  "duration_seconds": 141.594,
+  "device": {
+    "name": "YouNew",
+    "model": "iPhone 17 Pro",
+    "platform": "iOS Simulator",
+    "os_version": "26.5",
+    "os_build": "23F77",
+    "architecture": "arm64",
+    "udid": "DD6314A8-FA00-4A38-9D9C-3E6C1D3D3CC1"
+  },
+  "artifact": "/private/tmp/YouNewBuildWeekUnitFinalPreserved.xcresult",
+  "source": "xcrun xcresulttool get test-results summary",
+  "claim_boundary": "Current verified unit result only; it does not imply that static or UI suites are all green."
+}

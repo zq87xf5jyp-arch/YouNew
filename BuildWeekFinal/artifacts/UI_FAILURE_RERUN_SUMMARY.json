@@ -1,0 +1,45 @@
+{
+  "recorded_date": "2026-07-21",
+  "scope": "Unchanged isolated rerun of the eight failures from the finalized 87-test aggregate",
+  "result": "Failed",
+  "total": 8,
+  "passed": 5,
+  "failed": 3,
+  "skipped": 0,
+  "duration_seconds": 1777.498,
+  "passed_tests": [
+    "CategoryRoutingRuntimeUITests/testLeisureAndEducationChipsUseIndependentDestinations()",
+    "CategoryRoutingRuntimeUITests/testRequestedDiscoveryChipsReachTheirTypedDetailAndReturn()",
+    "CategoryRoutingRuntimeUITests/testTransportChipsUseIndependentDestinations()",
+    "PublishedCitiesRuntimeUITests/testPublishedCitiesTraverseHomeSearchAIPlacesMapGuideAndDetail()",
+    "YouNewUITests/testAssistantHealthInsuranceWorkflowOpensGuide()"
+  ],
+  "failed_tests": [
+    {
+      "test": "CategoryRoutingRuntimeUITests/testGuideHousingGovernmentTransportAndEducationCardsUseTypedRoutes()",
+      "failure": "Getting Started opened the wrong destination",
+      "follow_up": "Manual inspection proved the destination opened but firstSteps.screen was absent from the accessibility tree. A local hero accessibility marker fixes that first assertion. The expanded test now reproducibly reaches a separate Guide scroll/UI-query timeout at Transport."
+    },
+    {
+      "test": "MapChipUITests/testRootTabNavigationLatency()",
+      "failure": "0.191158 seconds is not less than the unchanged 0.1-second ceiling",
+      "follow_up": "All root-tab taps were delivered. This remains a performance failure, not the original map/tab delivery blocker."
+    },
+    {
+      "test": "YouNewUITests/testAssistantBSNWorkflowWithSelectedCityOpensLeiden()",
+      "failure": "The Open Leiden action did not reach city.detail.leiden",
+      "follow_up": "Two local navigation alternatives were tested and reverted because neither produced a verified improvement. The branch is excluded from the primary demo."
+    }
+  ],
+  "device": {
+    "name": "YouNew",
+    "model": "iPhone 17 Pro",
+    "platform": "iOS Simulator",
+    "os_version": "26.5",
+    "os_build": "23F77",
+    "architecture": "arm64",
+    "udid": "DD6314A8-FA00-4A38-9D9C-3E6C1D3D3CC1"
+  },
+  "artifact": "/private/tmp/YouNewBuildWeekEightFailuresRerun.xcresult",
+  "claim_boundary": "Supplementary rerun evidence. The current full-suite aggregate remains 79/87 and must not be replaced by 5/8."
+}
