@@ -39,7 +39,7 @@
   English captions, description, and media attribution.
 - [x] Add the GitHub URL to the prepared submission materials.
 - [x] Add the final YouTube URL to the Devpost copy.
-- [ ] Submit the completed entry on Devpost.
+- [x] Confirm the completed entry is submitted to OpenAI Build Week on Devpost.
 
 Submission links:
 

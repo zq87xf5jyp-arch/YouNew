@@ -90,4 +90,4 @@ burned-in captions and final card survived encoding as intended.
 1. Complete MP4 playback with sound and captions: **complete**.
 2. Exact SHA-256 approval: **complete**.
 3. YouTube publication and public playback verification: **complete**.
-4. Devpost final submission approval: **pending**.
+4. Devpost submission: **complete; public page verified**.

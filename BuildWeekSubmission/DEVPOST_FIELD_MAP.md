@@ -1,6 +1,6 @@
 # Devpost field map
 
-Status: **copy prepared; external fields and final Submit remain owner actions**
+Status: **submitted to OpenAI Build Week; public project page verified**
 
 | Devpost field | Source | Current state |
 |---|---|---|
@@ -21,11 +21,11 @@ Status: **copy prepared; external fields and final Submit remain owner actions**
 
 ## Final form check
 
-- [ ] Every required field is populated and renders correctly.
-- [ ] GitHub access works in a signed-out/judge-equivalent session.
-- [ ] YouTube playback, captions, audio, description and attribution are correct.
-- [ ] No claim says GPT-5.6/live OpenAI powers the app.
-- [ ] No claim says all tests, links, content or media are complete.
-- [ ] Screenshot 08 and unresolved raster assets are absent unless separately cleared.
-- [ ] The preview shows the correct title, thumbnail and project links.
-- [ ] Owner explicitly approves the final **Submit** action.
+- [x] Every required field is populated and renders correctly.
+- [x] GitHub access works in a signed-out/judge-equivalent session.
+- [x] YouTube playback, captions, audio, description and attribution are correct.
+- [x] No claim says GPT-5.6/live OpenAI powers the app.
+- [x] No claim says all tests, links, content or media are complete.
+- [x] The public media gallery uses the bounded approved submission set.
+- [x] The public page shows the correct project, video and repository links.
+- [x] Devpost shows **Project submitted** and **Submitted to OpenAI Build Week**.
