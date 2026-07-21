@@ -52,6 +52,7 @@ scripts/__pycache__/
 admin-dashboard/*
 !admin-dashboard/public-site/
 !admin-dashboard/public-site/**
+admin-dashboard/public-site/.DS_Store
 admin-dashboard/public-site/.next/
 admin-dashboard/public-site/out/
 admin-dashboard/public-site/node_modules/
