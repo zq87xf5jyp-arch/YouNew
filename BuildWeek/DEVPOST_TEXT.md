@@ -10,8 +10,8 @@ A local-first iOS guide that turns practical newcomer questions into structured 
 
 ## Links
 
-- GitHub repository: `{{GITHUB_REPOSITORY_URL}}`
-- Demo video: `{{YOUTUBE_VIDEO_URL}}`
+- GitHub repository: https://github.com/zq87xf5jyp-arch/YouNew
+- Demo video: Pending owner-approved YouTube upload
 
 ## Inspiration
 

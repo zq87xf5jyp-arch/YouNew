@@ -33,6 +33,11 @@ root-tab latency sample still exceeds the unchanged 100 ms ceiling.
   reachability.
 - Hide notifications, account names, simulator debug overlays, local paths, and
   credentials before recording.
+- Use only the media allowlist in
+  [MEDIA_RIGHTS_AND_ATTRIBUTION.md](MEDIA_RIGHTS_AND_ATTRIBUTION.md). Do not open
+  category cards that expose the eleven unresolved high-use raster assets.
+- Prepare the exact Leiden, Haarlem, and Amsterdam credit block from
+  `BuildWeekFinal/MEDIA_RIGHTS_FINAL.md` for the video description/end card.
 - Do not use the Assistant **Open Leiden** shortcut or the long Guide-to-Transport
   composite route. Both remain reproducible UI failures outside this bounded flow.
 
@@ -50,7 +55,7 @@ root-tab latency sample still exceeds the unchanged 100 ms ceiling.
 | 8 | Return to YouNew and open **Guide** if it is not already selected. Briefly show the structured guide surface. | Guide content is visible without leaving the app. | `tab.guide` and typed guide routes. |
 | 9 | Tap **Map** in the root tab bar. | The interactive Netherlands map appears. | `tab.map`, `map.hub`. |
 | 10 | Tap **Home once** in the root tab bar. | Home appears on that first tap. This is the visible acceptance check for the map/tab event-delivery fix. | `MapChipUITests.testRootTabNavigationLatency`; `/private/tmp/YouNewBuildWeekRootLatencySerialFinal.xcresult`; screenshot 07. |
-| 11 | Tap **Map** again, choose Noord-Holland, then select **Amsterdam** from the exposed marker or city control. | An Amsterdam city surface/detail opens. Amsterdam is one of the five governed `cities-v0.1.0` records. | `map.city.amsterdam`; `cities-v0.1.0` release manifest. |
+| 11 | Tap **Map** again, choose Noord-Holland, then select **Amsterdam** from the exposed marker or city control. Hold on the Amsterdam hero/name; do not use the flag/coat tiles as promotional artwork. | An Amsterdam city surface/detail opens. Amsterdam is one of the five governed `cities-v0.1.0` records. | `map.city.amsterdam`; `cities-v0.1.0` release manifest; `BuildWeekFinal/MEDIA_RIGHTS_FINAL.md`. |
 
 The five records in that governed city release are Amsterdam, Rotterdam, Den
 Haag, Utrecht, and Eindhoven. Show one only; Amsterdam is recommended because it
@@ -100,6 +105,9 @@ substitutes for a failed delivery gate.
 - Show the guide title and one official-source action.
 - Capture Map → one-tap Home → Map as an uninterrupted sequence.
 - Show the Amsterdam name on the city surface/detail.
+- Add the complete photo attribution block to the video description or end card.
+- Do not use screenshot 08 as standalone promotional artwork unless the owner has
+  accepted the official-symbol boundary; prefer a hero/name-only replacement.
 - Do not enter a real BSN, address, email, phone number, account, or credential.
 - Do not show backend configuration, provider secrets, TestFlight metadata, or
   unreviewed media-rights material.
@@ -116,3 +124,4 @@ substitutes for a failed delivery gate.
 - [YouNewUITests.swift](../YouNewUITests/YouNewUITests.swift)
 - [MapChipUITests.swift](../YouNewUITests/MapChipUITests.swift)
 - [cities-v0.1.0 release manifest](../DataProject/reports/release-manifests/cities-v0.1.0.json)
+- [Media rights and attribution](MEDIA_RIGHTS_AND_ATTRIBUTION.md)

@@ -8,19 +8,20 @@
   },
   "repository": {
     "branch": "main",
-    "head": "7a1f6bc8fcffac84e5798338380bb97aca815b3d",
-    "reachable_commits": 66,
+    "validation_head": "2723960c3c15383cf76b4166fed13e6143eda293",
+    "reachable_commits_at_validation": 69,
     "remote_configured": true,
     "remote_url": "https://github.com/zq87xf5jyp-arch/YouNew.git",
-    "remote_content_verified": false,
-    "worktree_clean": false,
-    "commit_or_push_performed_by_final_pass": false
+    "remote_content_verified": true,
+    "worktree_clean_before_media_review": true,
+    "judge_source_of_truth": "origin/main"
   },
   "github_handoff_after_validation": {
     "owner_authorized": true,
     "main_synchronized_to_origin": true,
     "remote_sha_verified_equal_to_local": true,
-    "visibility_at_verification": "private"
+    "visibility_at_verification": "public",
+    "release_readiness_handoff": "owner authorized direct synchronization to origin/main"
   },
   "current_validation": {
     "clean_build": {
@@ -58,7 +59,8 @@
     "data_import": "pass",
     "scoped_secret_scan": "pass_with_scope",
     "external_link_health": "fail",
-    "simulator_screenshots": 8
+    "simulator_screenshots": 8,
+    "media_static_qa": "pass"
   },
   "features": {
     "assistant": {
@@ -91,6 +93,15 @@
       ]
     },
     "image_system": "Premium Image System with registries, validation, fallbacks, and attribution metadata",
+    "media_rights": {
+      "repository_wide_clearance": false,
+      "demo_allowlist_prepared": true,
+      "manifest_backed_assets": 72,
+      "unresolved_high_use_raster_assets": 11,
+      "tracked_png_captures": 44,
+      "legacy_captures_excluded_from_public_allowlist": 36,
+      "screenshot_08_default_decision": "exclude_from_promotional_use_pending_official_symbol_review"
+    },
     "qa_automation": "unit, UI, static, accessibility, content, import, link, and release checks"
   },
   "codex": {
@@ -121,7 +132,7 @@
     "Assistant selected-city shortcut does not open Leiden detail",
     "18 governed external URLs are confirmed broken",
     "Live GPT-5.6/OpenAI runtime is not verified",
-    "Content and media-rights coverage are incomplete",
+    "Repository-wide media-rights coverage is incomplete; the bounded demo has a documented allowlist",
     "TestFlight/App Store parity is not verified",
     "No complete physical-device, VoiceOver, or OS matrix"
   ],

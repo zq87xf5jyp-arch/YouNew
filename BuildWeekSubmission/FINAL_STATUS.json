@@ -8,18 +8,17 @@
   },
   "source": {
     "branch": "main",
-    "head": "7a1f6bc8fcffac84e5798338380bb97aca815b3d",
-    "reachable_commits": 66,
-    "worktree_clean": false,
+    "validation_head": "2723960c3c15383cf76b4166fed13e6143eda293",
+    "reachable_commits_at_validation": 69,
     "remote": "https://github.com/zq87xf5jyp-arch/YouNew.git",
-    "remote_verified_current": false,
-    "commit_push_performed": false
+    "remote_verified_current": true,
+    "judge_source_of_truth": "origin/main"
   },
   "github_handoff_after_validation": {
     "owner_authorized": true,
     "main_synchronized_to_origin": true,
     "remote_sha_verified_equal_to_local": true,
-    "visibility_at_verification": "private",
+    "visibility_at_verification": "public",
     "scope_note": "This occurred after the evidence-producing validation pass; no deploy, release, App Store upload, or submission was performed."
   },
   "validation": {

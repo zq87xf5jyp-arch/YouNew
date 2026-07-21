@@ -17,7 +17,7 @@ All eight requested simulator screenshots were captured and visually inspected. 
 | 5 | [`screenshots/05-official-source.png`](screenshots/05-official-source.png) | **PASS WITH NETWORK BOUNDARY** — Official Source Directory renders and identifies 23 Dutch institutions/services; the warning about changing rules/contact details is visible. This does not prove every external URL is reachable. |
 | 6 | [`screenshots/06-map.png`](screenshots/06-map.png) | **PASS** — interactive Netherlands map, 12 provinces, Amsterdam marker, Noord-Holland selection, city control, and root Map tab are visible. |
 | 7 | [`screenshots/07-map-to-home.png`](screenshots/07-map-to-home.png) | **PASS** — captured after one accessibility activation of `tab.home` from Map. Runtime metric changed to `sequence=1;tab=home;delayMs=95.108`; Home became selected. |
-| 8 | [`screenshots/08-city-detail.png`](screenshots/08-city-detail.png) | **PASS** — governed imported city Amsterdam opens with city identity, province, population, flag, and coat of arms. |
+| 8 | [`screenshots/08-city-detail.png`](screenshots/08-city-detail.png) | **UI PASS / MEDIA CONDITIONAL** — governed imported city Amsterdam opens with city identity, province, population, flag, and coat of arms. Exclude this file from standalone promotional use by default until the owner accepts the independent restrictions that may apply to official symbols; prefer a hero/name-only replacement. |
 
 ## Capture method
 
@@ -32,6 +32,9 @@ All eight requested simulator screenshots were captured and visually inspected. 
 - The serialized root navigation test is `/private/tmp/YouNewBuildWeekRootLatencySerialFinal.xcresult` (10/10 first-tap transitions). Screenshot 7 adds one manual UI activation.
 - Known external-link health remains 18 confirmed broken responses among 2,494 checked URLs. Screenshot 5 proves the directory UI, not network health.
 - Owner media-rights review is still required before these images or a video are published.
+- Screenshots 01–07 are eligible only with the attribution block in
+  [`MEDIA_RIGHTS_FINAL.md`](MEDIA_RIGHTS_FINAL.md); screenshot 08 is conditional
+  and excluded from promotional use by default.
 
 ## Recording checklist
 

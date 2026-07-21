@@ -17,8 +17,10 @@ Verdict: **PARTIAL / BLOCKED FOR BLANKET PUBLIC REDISTRIBUTION**
 
 ## Blockers
 
-1. `nl_hoorn_card_01` is marked “Public domain” but its manifest `license_url` is
-   empty. The legal basis must be confirmed from the source before release.
+1. **Resolved 2026-07-21:** `nl_hoorn_card_01` was manually checked on its exact
+   Wikimedia Commons page. The Licensing section records a worldwide
+   public-domain release by the copyright holder, and the raw manifest now links
+   to that section.
 2. Ninety-eight non-`nl_*` imagesets and `AppIcon.appiconset` are outside the
    reviewed 72-entry manifest. They comprise 58 city flag/coat-of-arms assets, 12
    province flags, 14 map assets, three legacy home photos, and eleven high-use

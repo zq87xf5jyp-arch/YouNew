@@ -1,12 +1,35 @@
 # YouNew
 
-YouNew is a local-first SwiftUI guide for people building a life in the
-Netherlands. It turns practical newcomer questions into structured next steps,
-relevant in-app guidance, and stored official-source actions.
+**A local-first iOS guide that turns a newcomer's practical question into an
+ordered next step, relevant in-app guidance, and a named official source.**
+
+YouNew is built in SwiftUI for people starting a life in the Netherlands. The
+Build Week candidate demonstrates one bounded, reproducible journey without an
+API key or deployed backend.
 
 > **Build Week status:** prepared as a polished demonstration candidate. YouNew
 > is not presented as an App Store-ready release, a government service, or a
 > verified live-LLM product.
+
+[Build Week overview](BuildWeek/README_BUILD_WEEK.md) ·
+[2:20 demo guide](BuildWeek/DEMO_GUIDE.md) ·
+[How Codex was used](BuildWeekSubmission/HOW_CODEX_WAS_USED.md) ·
+[Known limitations](BuildWeekSubmission/KNOWN_LIMITATIONS.md)
+
+## Product preview
+
+| Home | Local guided assistant |
+|---|---|
+| ![YouNew Home screen](BuildWeekFinal/screenshots/01-home.png) | ![YouNew Assistant screen](BuildWeekFinal/screenshots/02-ai-assistant.png) |
+
+| Newcomer next steps | Interactive Netherlands map |
+|---|---|
+| ![Structured newcomer guidance](BuildWeekFinal/screenshots/03-newcomer-flow.png) | ![Interactive Netherlands map](BuildWeekFinal/screenshots/06-map.png) |
+
+These screenshots are part of the bounded submission media set. The map is a
+simplified YouNew visualization, not an official government map. Photograph
+credits and license terms are recorded in
+[Media rights and attribution](BuildWeekSubmission/MEDIA_RIGHTS_AND_ATTRIBUTION.md).
 
 ## Why YouNew
 
@@ -183,10 +206,12 @@ YouNew provides educational orientation, not professional or government advice.
 Do not enter real BSNs, addresses, health details, account data, documents, or
 credentials into a demo.
 
-The image system is implemented, but repository-wide media rights are only
-partially reconciled. Historical captures are not automatically approved for
-public use. See `PRIVACY.md`, `SECURITY.md`, and `MEDIA_ATTRIBUTION.md` for the
-detailed project records.
+The image system is implemented, and the Build Week demo has a narrow
+source-backed media allowlist. Repository-wide rights remain only partially
+reconciled; historical captures are not automatically approved for public use.
+See `PRIVACY.md`, `SECURITY.md`, `MEDIA_ATTRIBUTION.md`, and
+[BuildWeekSubmission/MEDIA_RIGHTS_AND_ATTRIBUTION.md](BuildWeekSubmission/MEDIA_RIGHTS_AND_ATTRIBUTION.md)
+for the detailed project records.
 
 ## Build Week package
 
@@ -195,13 +220,13 @@ links the project story, description, feature inventory, technical overview,
 Codex/ChatGPT narratives, demo guide, Devpost copy, checklist, limitations,
 owner actions, and final status.
 
-The validation pass itself did not create or mutate the remote, commit, push,
-publish, or generate a video. In a later owner-authorized GitHub handoff, `main`
-was synchronized to the existing `origin` and verified in the GitHub UI. The
-repository remained **Private** at that verification; making it judge-accessible
-is a separate owner visibility decision.
+The public repository is available at
+[github.com/zq87xf5jyp-arch/YouNew](https://github.com/zq87xf5jyp-arch/YouNew).
+The documented candidate video remains a local review artifact until the owner
+approves the exact recorded SHA-256 and authorizes its YouTube upload.
 
 ## License
 
+This is an **evaluation-only source release**, not an open-source distribution.
 See [LICENSE](LICENSE). Third-party content and media retain their respective
 terms; repository inclusion does not grant redistribution rights.

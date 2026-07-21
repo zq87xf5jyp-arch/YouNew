@@ -50,8 +50,9 @@ Target finish: **2:20**. Let the final YouNew frame breathe; do not fill spare s
 
 ### Final title cards
 
-- **ChatGPT · Product & writing partner**
-- **Codex · Engineering partner**
+- **Product vision and direction: Ivan Chernikov**
+- **Product and writing partner: ChatGPT**
+- **Engineering partner: Codex**
 - **YouNew · A clearer first step in the Netherlands**
 - **Built for OpenAI Build Week**
 

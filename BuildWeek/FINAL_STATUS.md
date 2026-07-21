@@ -1,7 +1,7 @@
 # Final Build Week Status
 
 Status date: 21 July 2026  
-Candidate branch: `build-week-readiness`  
+Candidate branch: `main`
 Decision: **READY FOR BUILD WEEK DEMO HANDOFF — NOT A PRODUCTION RELEASE**
 
 ## Outcome
@@ -64,7 +64,8 @@ App Store-ready release or erase the limitations in
 - Honest Codex and ChatGPT collaboration descriptions
 - Exact 2:10–2:30 human-first screen, caption, and narration plan with a 0:00–0:30
   value hook, 30-second breadth montage, and creator story
-- Ready-to-paste Devpost copy with link placeholders
+- Ready-to-paste Devpost copy with the final public GitHub URL and an explicit
+  pending-video status until owner-approved YouTube publication
 - Known limitations and evidence boundaries
 - Submission checklist
 - Owner-only external actions
@@ -77,9 +78,10 @@ App Store-ready release or erase the limitations in
 | Existing product/demo flow | 92% |
 | Engineering stabilization within the frozen scope | 90% |
 | Documentation and submission package | 100% |
-| External publication/submission completion | 60% |
-| **Overall Build Week participation readiness** | **88%** |
+| GitHub submission package | 100% after the scoped release-readiness push |
+| External publication/submission completion | Pending video approval, YouTube upload, and Devpost preview |
+| **Overall Build Week participation readiness** | **Pending the documented owner publication gates** |
 
-The remaining 12% consists of external publication work, not a request for more
-feature development or another QA cycle. The complete, intentionally short list is
-in [OWNER_ACTIONS.md](OWNER_ACTIONS.md).
+The remaining work is external publication, not feature development or another QA
+cycle. The complete, intentionally short list is in
+[OWNER_ACTIONS.md](OWNER_ACTIONS.md).

@@ -84,11 +84,13 @@ Alternative short form:
 
 **Status:** VERIFIED implementation / rights boundary remains open.
 
-**Evidence:** [`AppContentImageView.swift`](../YouNew/Core/Imaging/AppContentImageView.swift), [`ImageLoader.swift`](../YouNew/Core/Imaging/ImageLoader.swift), [`MediaRegistryTests.swift`](../YouNewTests/MediaRegistryTests.swift), and [`EVIDENCE_PREMIUM_IMAGE_PIPELINE.md`](../BuildWeekFix/EVIDENCE_PREMIUM_IMAGE_PIPELINE.md).
+**Evidence:** [`AppContentImageView.swift`](../YouNew/Core/Imaging/AppContentImageView.swift), [`ImageLoader.swift`](../YouNew/Core/Imaging/ImageLoader.swift), [`MediaRegistryTests.swift`](../YouNewTests/MediaRegistryTests.swift), [`EVIDENCE_PREMIUM_IMAGE_PIPELINE.md`](../BuildWeekFix/EVIDENCE_PREMIUM_IMAGE_PIPELINE.md), and the bounded demo review in [`MEDIA_RIGHTS_FINAL.md`](MEDIA_RIGHTS_FINAL.md).
 
 **Safe wording:**
 
 > YouNew contains a role-aware image pipeline with bounded caches, request timeouts, downsampling, placeholders, and fallback behavior.
+
+> The Build Week demo uses a documented media allowlist with source and license attribution; repository-wide media clearance remains incomplete.
 
 **Forbidden wording:** “All images are fully licensed”, “every remote image is reachable”, “zero image duplication everywhere”, or measured performance-improvement claims without a current rights audit, network run, and Instruments evidence.
 

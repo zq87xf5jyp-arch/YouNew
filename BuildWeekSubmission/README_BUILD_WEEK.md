@@ -51,8 +51,8 @@ This is not a probability of zero bugs or an App Store score.
 | Content data | Governed releases and import tooling are present; content is not complete. |
 | External links | Current report includes 18 confirmed broken URLs. |
 | Tests | Clean build PASS; unit 460/460 PASS; static 43/44 known gates; full UI 79/87; isolated rerun of the eight failures 5/8. Three UI failures remain reproducible. |
-| Distribution | TestFlight/App Store parity is not verified. After validation, an owner-authorized handoff synchronized `main` to the existing GitHub `origin`; the repository remained Private at verification. |
-| Media | Attribution infrastructure exists; complete rights clearance is still an owner gate. |
+| Distribution | The public GitHub `origin/main` is the judge-facing source package. TestFlight/App Store parity is not verified. |
+| Media | Screenshots 01–07 and the bounded demo photographs have an owner-approved, source-backed allowlist; repository-wide clearance remains incomplete. |
 
 ## Main demo flow
 
@@ -191,10 +191,12 @@ boundaries, see [JUDGE_SETUP.md](JUDGE_SETUP.md).
 
 ## Media attribution status
 
-The project has media manifests, license metadata, source references, and image
-QA. That work does not establish complete rights clearance for every asset or
-capture. The owner must confirm rights or remove disputed material before public
-distribution. Do not use “all images are fully licensed” in the submission.
+The bounded demo now has a source-backed allowlist for its Leiden, Haarlem, and
+Amsterdam photographs, including exact attribution and modification wording.
+Repository-wide clearance is still incomplete for eleven high-use raster assets,
+AppIcon, identity symbols, and legacy captures. Follow
+[MEDIA_RIGHTS_AND_ATTRIBUTION.md](MEDIA_RIGHTS_AND_ATTRIBUTION.md); do not use
+“all images are fully licensed” in the submission.
 
 ## Known limitations
 
@@ -203,10 +205,12 @@ distribution. Do not use “all images are fully licensed” in the submission.
 - 18 confirmed broken URLs in the current data-health report.
 - Map/root delivery evidence is green; the latest isolated latency ceiling is not.
 - No verified TestFlight/App Store parity.
-- Partial media-rights clearance.
+- Bounded demo media allowlist prepared; repository-wide clearance remains partial.
 - No complete physical-device/VoiceOver certification.
 - The current full 87-test UI aggregate is finalized at 79 PASS / 8 FAIL / 0 skipped. Isolated reruns do not replace that aggregate.
-- No current clean-clone reproducibility claim. A configured `origin` exists, but remote contents/visibility were not verified and no push was performed in this pass.
+- The public `origin/main` repository is the judge-facing source of truth after
+  the final release-readiness handoff. The rendered video remains a local review
+  artifact until separately approved and uploaded by the owner.
 
 The tracked detail and owner actions are in
 [KNOWN_LIMITATIONS.md](KNOWN_LIMITATIONS.md).

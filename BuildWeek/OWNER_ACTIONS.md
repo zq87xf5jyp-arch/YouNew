@@ -1,7 +1,11 @@
 # Owner Actions
 
-1. Create the GitHub repository for the prepared project.
-2. Record the screen, add the prepared voice-over and burned-in captions, and export the 2:10–2:30 demo using `DEMO_GUIDE.md`.
-3. Upload the demo video to YouTube.
-4. Insert the GitHub and YouTube links into `DEVPOST_TEXT.md`.
-5. Submit the completed entry on Devpost.
+1. Watch the complete local candidate with sound and captions, then approve the
+   exact SHA-256 recorded in `BuildWeekSubmission/VIDEO_REVIEW_DRAFT.md`.
+2. Approve and upload the demo video to YouTube; verify playback and captions.
+3. Insert the YouTube link into `DEVPOST_TEXT.md`, review every field, and submit
+   the completed entry on Devpost.
+
+Completed owner decisions: the GitHub repository is public; screenshots 01–07
+are the bounded public media set; the simplified map/vector statement is
+confirmed; screenshot 08 remains excluded from promotional use.

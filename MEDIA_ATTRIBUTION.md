@@ -21,8 +21,9 @@ satisfied in the app, repository, screenshots, social posts, or demo video.
   `nl_gouda_hero_01`, `nl_eindhoven_hero_01`, `nl_utrecht_card_01`,
   `nl_haarlem_card_01`, `nl_hoorn_card_01`, `nl_markthal_landmark_01`, and
   `nl_zaanse_schans_landmark_01`. They remain listed for provenance.
-- `nl_hoorn_card_01` records “Public domain” but has no `license_url`. Treat it as
-  unresolved until the source page and public-domain basis are manually verified.
+- `nl_hoorn_card_01` was re-verified on 2026-07-21. Its Wikimedia Commons
+  Licensing section records a worldwide public-domain release by the copyright
+  holder. The local raw manifest now links to that exact section.
 - The asset catalog contains another 98 non-`nl_*` imagesets plus the AppIcon; none
   is covered by this 72-entry manifest. Other repository reports contain partial and
   sometimes conflicting provenance claims for those assets, so they remain outside
@@ -80,7 +81,7 @@ follow share-alike, attribution, indication-of-changes, and other applicable ter
 - `nl_haarlem_card_01` (`nl_haarlem_card_01.webp`): File:Hofje van Beresteijn. Binnenplaats, ziende naar het zuiden. NL-HlmNHA 54012082.JPG; Cees de Boer; CC0 — [source](https://commons.wikimedia.org/wiki/File:Hofje_van_Beresteijn._Binnenplaats,_ziende_naar_het_zuiden._NL-HlmNHA_54012082.JPG); license: [`CC0`](http://creativecommons.org/publicdomain/zero/1.0/deed.en).
 - `nl_delft_card_01` (`nl_delft_card_01.webp`): File:Delft, straatzicht de Oude Delft vanaf de Bagijnhofbrug foto6- 2016-03-13 12.08.JPG; Michielverbeek; CC BY-SA 4.0 — [source](https://commons.wikimedia.org/wiki/File:Delft,_straatzicht_de_Oude_Delft_vanaf_de_Bagijnhofbrug_foto6-_2016-03-13_12.08.JPG); license: [`CC BY-SA 4.0`](https://creativecommons.org/licenses/by-sa/4.0).
 - `nl_alkmaar_card_01` (`nl_alkmaar_card_01.webp`): File:Alkmaar, Molen De Groot of de Molen van Piet RM7460 IMG 3485 2024-06-24 15.56.jpg; Michielverbeek; CC BY 4.0 — [source](https://commons.wikimedia.org/wiki/File:Alkmaar,_Molen_De_Groot_of_de_Molen_van_Piet_RM7460_IMG_3485_2024-06-24_15.56.jpg); license: [`CC BY 4.0`](https://creativecommons.org/licenses/by/4.0).
-- `nl_hoorn_card_01` (`nl_hoorn_card_01.webp`): File:Hoorn Oosterkerk 011.jpg; M.Minderhoud; Public domain — [source](https://commons.wikimedia.org/wiki/File:Hoorn_Oosterkerk_011.jpg); license URL: **unresolved**.
+- `nl_hoorn_card_01` (`nl_hoorn_card_01.webp`): File:Hoorn Oosterkerk 011.jpg; M.Minderhoud; Public domain — [source and public-domain statement](https://commons.wikimedia.org/wiki/File:Hoorn_Oosterkerk_011.jpg#Licensing). Re-verified 2026-07-21.
 - `nl_gouda_card_01` (`nl_gouda_card_01.webp`): File:Gouda, toren van de Grote of Sint Janskerk RM16722 positie3 foto7 2017-04-30 11.56.jpg; Michielverbeek; CC BY-SA 4.0 — [source](https://commons.wikimedia.org/wiki/File:Gouda,_toren_van_de_Grote_of_Sint_Janskerk_RM16722_positie3_foto7_2017-04-30_11.56.jpg); license: [`CC BY-SA 4.0`](https://creativecommons.org/licenses/by-sa/4.0).
 - `nl_maastricht_card_01` (`nl_maastricht_card_01.webp`): File:Maastricht, de Servaasbrug RM28026 en de Sint-Martinuskerk RM27823 IMG 0965 2022-04-03 12.44.jpg; Michielverbeek; CC BY-SA 4.0 — [source](https://commons.wikimedia.org/wiki/File:Maastricht,_de_Servaasbrug_RM28026_en_de_Sint-Martinuskerk_RM27823_IMG_0965_2022-04-03_12.44.jpg); license: [`CC BY-SA 4.0`](https://creativecommons.org/licenses/by-sa/4.0).
 - `nl_groningen_card_01` (`nl_groningen_card_01.webp`): File:Academiegebouw Groningen 1224.jpg; C messier; CC BY-SA 4.0 — [source](https://commons.wikimedia.org/wiki/File:Academiegebouw_Groningen_1224.jpg); license: [`CC BY-SA 4.0`](https://creativecommons.org/licenses/by-sa/4.0).
@@ -166,8 +167,9 @@ are:
 reconcile the 98 non-manifest imagesets and AppIcon against exact creator, source,
 license, and modification records; replace or exclude anything that cannot be
 cleared from the public repository and demo capture without removing the underlying
-product capability. The `nl_hoorn_card_01` license URL is a separate manifest defect
-and must also be resolved.
+product capability. The former `nl_hoorn_card_01` license-link defect was resolved
+against the source page on 2026-07-21; this does not clear the unrelated assets
+outside the reviewed records.
 
 ## Redistribution decision
 

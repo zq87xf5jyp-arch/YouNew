@@ -1,210 +1,51 @@
 # Repository handoff
 
-Inventory refreshed: 21 July 2026, Europe/Amsterdam
-Scope: local Build Week candidate; no commit, remote mutation, push, release, or
-publication was performed by this validation pass.
+Updated: 21 July 2026, Europe/Amsterdam
 
-Post-validation update: the owner separately authorized GitHub CLI access and a
-handoff push. `main` was synchronized to the existing `origin` and the remote SHA
-was verified equal to the local SHA. The repository was still **Private** in the
-GitHub UI. No deploy, release, App Store upload, or submission was performed.
+## Current public source
 
-## Decision
+- Repository: https://github.com/zq87xf5jyp-arch/YouNew
+- Branch: `main`, tracking `origin/main`
+- Visibility: public
+- Delivery decision: owner-authorized direct synchronization to `origin/main`
+- Judge source of truth: the public `main` branch
 
-Do not use `git add -A`, `git add .`, or a blanket push. The workspace mixes the
-candidate packet with unrelated owner website work. Branch `main` already tracks
-an existing `origin`; its public visibility and synchronization were not verified.
+The evidence-producing validation runs occurred before the final documentation
+handoff. Their exact artifact paths and bounded results remain recorded in
+`FINAL_VALIDATION.md`; the release-readiness commit does not recharacterize those
+historical results.
 
-The safe handoff is to review and stage exact paths, keep raw test bundles local,
-audit screenshots/media separately, and require a distinct owner confirmation for
-each commit, GitHub creation, remote addition, and push.
+## Intentionally included
 
-## Verified snapshot
+- iOS application source, project, unit tests, and UI-test sources;
+- governed content and import tooling;
+- root README, privacy, security, evaluation-only license, and attribution;
+- Build Week story, demo guide, limitations, validation summaries, submission
+  copy, captions, and media manifests;
+- screenshots 01–07 as the bounded public promotional set.
 
-| Item | Current value |
-|---|---|
-| Branch | `main`, tracking `origin/main` |
-| HEAD | `7a1f6bc8fcffac84e5798338380bb97aca815b3d` |
-| Reachable commits | 66 |
-| Existing remote | `origin` → `https://github.com/zq87xf5jyp-arch/YouNew.git` |
-| Remote verified current/public | No |
-| Staged changes | None |
-| Worktree | Dirty: 21 tracked changes and 8 untracked top-level entries at refresh |
+## Intentionally excluded
 
-Regenerate this inventory immediately before staging. Any different HEAD or file
-set invalidates the commands below until it is reviewed again.
+- unrelated local public-site changes;
+- raw simulator clips, narration MP3s, rendered MP4s, and Remotion workspace;
+- generated Devpost upload variants;
+- local build/test caches, DerivedData, `xcuserdata`, credentials, signing
+  material, and temporary files;
+- screenshot 08 and unresolved raster assets from promotional use.
 
-## Essential tracked files
+The rendered candidate is reviewed and distributed separately using the exact
+SHA-256 in `VIDEO_REVIEW_DRAFT.md`. A clean clone does not reproduce the MP4
+without the intentionally retained local binary inputs.
 
-- `YouNew.xcodeproj/`, `YouNew/`, `YouNewTests/`, and `YouNewUITests/` — app,
-  tests, privacy manifest, localizations, and assets.
-- `DataProject/` and `scripts/` — governed content, import/release tooling, and QA.
-- `BuildWeekFinal/`, `BuildWeekSubmission/`, and `README.md` — evidence and
-  judge-facing handoff.
-- `LICENSE`, `PRIVACY.md`, `SECURITY.md`, `MEDIA_ATTRIBUTION.md` — legal,
-  privacy, security, and attribution context; tracking is not rights clearance.
+## Release verification
 
-The only current unstaged app-source change is
-`YouNew/Views/FirstStepsView.swift`, which moves `firstSteps.screen` to a visible
-hero accessibility element. The map/tab, Guide snapshot, and search-hit-testing
-fixes are already present in the recorded HEAD; verify that fact again before a
-future commit.
+Before and after each approved documentation push:
 
-## Essential untracked candidate files
+1. Confirm the staged paths match the bounded submission scope.
+2. Run whitespace, JSON, Markdown-link, image-path, and scoped secret checks.
+3. Confirm local `main` and `origin/main` resolve to the same commit.
+4. Open the repository from a signed-out session and verify README rendering,
+   screenshots, links, visibility, and absence of placeholders.
 
-Subject to owner review:
-
-- `BuildWeekFinal/GLITCH_READINESS.md`;
-- the five small JSON summaries in `BuildWeekFinal/artifacts/`;
-- the eight files in `BuildWeekFinal/screenshots/`, only after privacy and media
-  approval.
-
-Do not treat the untracked `admin-dashboard/public-site/.DS_Store` as candidate
-content.
-
-## Tracked changes requiring separate classification
-
-Candidate-related:
-
-- Build Week Markdown/JSON reports and `README.md`;
-- `YouNew/Views/FirstStepsView.swift`;
-- `DataProject/quality/content-readiness-matrix.json` and `.md`, regenerated by
-  final static QA.
-
-Owner website work, not reviewed or authorized for this candidate commit:
-
-- `admin-dashboard/public-site/public/.htaccess`;
-- `admin-dashboard/public-site/public/sw.js`;
-- `admin-dashboard/public-site/scripts/smoke-test.mjs`;
-- `admin-dashboard/public-site/younew-site.zip`;
-- `admin-dashboard/public-site/.DS_Store`.
-
-Preserve these files but exclude them from Build Week staging unless the owner
-creates a separate reviewed website commit.
-
-## Files to keep out of ordinary Git
-
-- `DerivedData/`, `.DerivedData*`, `*.xcresult`, `*.xcarchive`, `*.dSYM*`,
-  `*.ipa`, `TestArtifacts/`, `*.log`;
-- `node_modules/`, `.pnpm-store/`, `.next/`, `out/`, `*.tsbuildinfo`;
-- `.DS_Store`, `xcuserdata/`, `*.xcuserstate`;
-- `.env`, tokens, API keys, provider credentials, local backend settings;
-- `*.p12`, `*.pfx`, `*.pem`, `*.key`, `*.mobileprovision`, certificates and
-  signing exports;
-- raw recordings, opaque test attachments, user/device captures, and media with
-  unclear rights;
-- temporary/generated link reports unless the final claim explicitly cites a
-  reviewed, portable summary.
-
-The final `.xcresult` bundles are under `/private/tmp`. Archive them in an
-owner-controlled evidence location if needed, but do not add the multi-gigabyte
-raw bundles to ordinary Git. The small JSON summaries preserve public-safe totals.
-
-## Required safety review
-
-Before any commit or push:
-
-1. Recheck exact status, HEAD, upstream, and `git diff --check`.
-2. Review every staged diff and deletion; confirm that no unrelated website file
-   entered the index.
-3. Scan the staged tree and reachable history for secrets, credentials, local
-   paths, author email/PII, certificates, and signing artifacts.
-4. OCR and metadata-review every screenshot/video for personal or device data.
-5. Approve every displayed image against the media allowlist; remove disputed
-   media rather than assuming tracking implies permission.
-6. Treat legal, medical, immigration, tax, and government-service content as
-   informational; verify the one source shown in the video.
-7. Re-run clean build and the bounded demo checks from the exact proposed commit.
-8. Do not claim clean-clone reproducibility until a separate clean clone of that
-   exact commit succeeds.
-
-## Owner-confirmation commands — do not run automatically
-
-The commands below are templates for four separate owner decisions. Replace every
-`REPLACE_WITH_...` value and inspect each command before running it.
-
-### 1. Commit the reviewed candidate
-
-First stage only exact candidate paths. Extend this list only after reviewing the
-additional exact path:
-
-```sh
-git add -- \
-  README.md \
-  YouNew/Views/FirstStepsView.swift \
-  DataProject/quality/content-readiness-matrix.json \
-  DataProject/quality/content-readiness-matrix.md \
-  BuildWeekFinal/DEMO_FLOW.md \
-  BuildWeekFinal/GLITCH_READINESS.md \
-  BuildWeekFinal/MAP_TAB_BLOCKER_FIX.md \
-  BuildWeekFinal/PUBLIC_CLAIMS.md \
-  BuildWeekFinal/REMAINING_FAILURES.md \
-  BuildWeekFinal/SCREENSHOT_MANIFEST.md \
-  BuildWeekFinal/artifacts/BUILD_FINAL_SUMMARY.json \
-  BuildWeekFinal/artifacts/FINAL_DATA_SECURITY_SUMMARY.json \
-  BuildWeekFinal/artifacts/UI_FAILURE_RERUN_SUMMARY.json \
-  BuildWeekFinal/artifacts/UI_FINAL_SUMMARY.json \
-  BuildWeekFinal/artifacts/UNIT_FINAL_SUMMARY.json \
-  BuildWeekSubmission/DEMO_GUIDE.md \
-  BuildWeekSubmission/FINAL_STATUS.json \
-  BuildWeekSubmission/FINAL_VALIDATION.md \
-  BuildWeekSubmission/KNOWN_LIMITATIONS.md \
-  BuildWeekSubmission/README_BUILD_WEEK.md \
-  BuildWeekSubmission/REPOSITORY_HANDOFF.md \
-  BuildWeekSubmission/SUBMISSION_FACTS.json \
-  BuildWeekSubmission/TESTING_AND_QA.md
-```
-
-Stage screenshots only after a separate rights/privacy approval:
-
-```sh
-git add -- BuildWeekFinal/screenshots
-```
-
-Audit, then commit only with explicit owner confirmation:
-
-```sh
-git diff --cached --name-status
-git diff --cached --check
-git status --short
-git commit -m "Prepare verified Build Week candidate"
-```
-
-### 2. Create a GitHub repository
-
-An `origin` already exists. Do not recreate, delete, or overwrite it. Only if the
-owner deliberately wants a separate repository and has reviewed Git history and
-visibility, create it without pushing:
-
-```sh
-gh repo create REPLACE_WITH_OWNER/REPLACE_WITH_REPOSITORY --private
-```
-
-### 3. Add the separately approved remote
-
-Use a new name so the existing `origin` is not overwritten:
-
-```sh
-git remote add buildweek https://github.com/REPLACE_WITH_OWNER/REPLACE_WITH_REPOSITORY.git
-git remote -v
-```
-
-If the owner instead intends to use existing `origin`, add nothing; inspect it and
-obtain a separate push confirmation.
-
-### 4. Push
-
-After the exact committed tree has been revalidated and the remote/visibility is
-approved, choose exactly one command:
-
-```sh
-git push -u buildweek main
-```
-
-or, for the already configured and separately verified existing remote:
-
-```sh
-git push -u origin main
-```
-
-No command in this section was executed during validation.
+No deploy, App Store upload, or Devpost submission is implied by the GitHub
+handoff.
