@@ -108,7 +108,7 @@
   },
   "manual_owner_actions": [
     "Provide App Store/TestFlight screenshots and verify binary parity",
-    "Confirm media rights or remove disputed media",
+    "Review screenshots, recordings, audio, and public-site media separately; the shipped app asset catalog already passes its rights gate",
     "Review the dirty worktree and existing remote",
     "Explicitly approve a future commit and push",
     "Record and upload the bounded demo video",

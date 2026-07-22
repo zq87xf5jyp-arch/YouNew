@@ -104,9 +104,9 @@ enum VerifiedPlaceMediaRegistry {
         cityMedia("nl-city-noord_holland-alkmaar", hero: nil, flag: "Alkmaar Flag.svg", coat: "Alkmaar wapen.svg", attributionName: "Alkmaar"),
         cityMedia("nl-city-noord_holland-hoorn", hero: nil, flag: "Flag of Hoorn.svg", coat: "Hoorn wapen.svg", attributionName: "Hoorn"),
         cityMedia("nl-city-noord_holland-zaanstad", hero: nil, flag: "Flag of Zaanstad.svg", coat: "Coat of arms of Zaanstad.svg", attributionName: "Zaanstad"),
-        cityMedia("nl-city-noord_holland-amstelveen", hero: nil, flag: "Amstelveen vlag.svg", coat: "Wapen van Amstelveen.svg", attributionName: "Amstelveen"),
+        cityMedia("nl-city-noord_holland-amstelveen", hero: nil, flag: "Amstelveen vlag.svg", coat: "Coat of arms of Amstelveen.svg", attributionName: "Amstelveen"),
         cityMedia("nl-city-noord_holland-purmerend", hero: nil, flag: "Flag of Purmerend.svg", coat: "Purmerend wapen.svg", attributionName: "Purmerend"),
-        cityMedia("nl-city-noord_holland-heerhugowaard", hero: nil, flag: nil, coat: "Heerhugowaard wapen.svg", attributionName: "Heerhugowaard"),
+        cityMedia("nl-city-noord_holland-heerhugowaard", hero: nil, flag: "Flag of Heerhugowaard.svg", coat: "Heerhugowaard wapen.svg", attributionName: "Heerhugowaard"),
 
         cityMedia("nl-city-zuid_holland-rotterdam", hero: "Erasmusbrug seen from Euromast.jpg", flag: "Flag of Rotterdam.svg", coat: "Rotterdam wapen.svg", attributionName: "Rotterdam"),
         cityMedia("nl-city-zuid_holland-den_haag", hero: "Friedenspalast_Den_Haag.jpg", flag: "Flag of The Hague.svg", coat: "Den Haag wapen.svg", attributionName: "Den Haag / The Hague"),
@@ -115,7 +115,7 @@ enum VerifiedPlaceMediaRegistry {
         cityMedia("nl-city-zuid_holland-delft", hero: "00 0781 Canal in Delft (NL).jpg", flag: "Flag of Delft.svg", coat: "Coat of arms of Delft.svg", attributionName: "Delft"),
 
         cityMedia("nl-city-utrecht-utrecht", hero: "Utrecht, de Domtoren (RM36075) vanaf de Oudegracht 230 ongeveer foto5 2015-11-01 08.56.jpg", flag: "Flag of Utrecht city.svg", coat: "Utrecht gemeente wapen.svg", attributionName: "Utrecht city"),
-        cityMedia("nl-city-utrecht-amersfoort", hero: nil, flag: "Flag of Amersfoort.svg", coat: "Coat of arms of Amersfoort.svg", attributionName: "Amersfoort"),
+        cityMedia("nl-city-utrecht-amersfoort", hero: nil, flag: "Amersfoort vlag.svg", coat: "Amersfoort wapen.svg", attributionName: "Amersfoort"),
 
         cityMedia("nl-city-gelderland-arnhem", hero: "Arnhem river 2003 01.jpg", flag: "VlagArnhem.svg", coat: "Coat of arms of Arnhem.svg", attributionName: "Arnhem"),
         cityMedia("nl-city-gelderland-nijmegen", hero: "2009-05-01 in Nijmegen 01.jpg", flag: "Flag of Nijmegen.svg", coat: "Coat of arms of Nijmegen.svg", attributionName: "Nijmegen"),
@@ -123,7 +123,7 @@ enum VerifiedPlaceMediaRegistry {
         cityMedia("nl-city-noord_brabant-eindhoven", hero: "Eindhoven-Witte Dame (5).jpg", flag: "Flag of Eindhoven.svg", coat: "Eindhoven wapen.svg", attributionName: "Eindhoven"),
         cityMedia("nl-city-noord_brabant-tilburg", hero: nil, flag: "Flag of Tilburg.svg", coat: "Tilburg wapen 1817.svg", attributionName: "Tilburg"),
         cityMedia("nl-city-noord_brabant-breda", hero: nil, flag: "Flag of Breda.svg", coat: "Breda wapen.svg", attributionName: "Breda"),
-        cityMedia("nl-city-noord_brabant-s_hertogenbosch", hero: nil, flag: nil, coat: "Wapen van s-Hertogenbosch.svg", attributionName: "'s-Hertogenbosch"),
+        cityMedia("nl-city-noord_brabant-s_hertogenbosch", hero: nil, flag: "Flag of 's-Hertogenbosch.svg", coat: "S-Hertogenbosch wapen.svg", attributionName: "'s-Hertogenbosch"),
 
         cityMedia("nl-city-limburg-maastricht", hero: "2022 Magisch Maastricht (01).jpg", flag: "Flag of Maastricht.svg", coat: "Wapen van Maastricht.svg", attributionName: "Maastricht"),
         cityMedia("nl-city-limburg-venlo", hero: nil, flag: "Venlo vlag.svg", coat: "Coat of arms of Venlo.svg", attributionName: "Venlo"),
@@ -134,7 +134,7 @@ enum VerifiedPlaceMediaRegistry {
         cityMedia("nl-city-groningen-groningen", hero: "20100523 Grote Markt en Martinitoren Groningen NL.jpg", flag: "Flag Groningen city.svg", coat: "Groningen stad wapen.svg", attributionName: "Groningen city"),
         cityMedia("nl-city-friesland-leeuwarden", hero: "Waag, Leeuwarden 1614.jpg", flag: "Flag of Leeuwarden.svg", coat: "Coat of arms of Leeuwarden.svg", attributionName: "Leeuwarden"),
         cityMedia("nl-city-drenthe-assen", hero: "AssenMarkt.JPG", flag: "Flag of Assen.svg", coat: "Assen wapen.svg", attributionName: "Assen"),
-        cityMedia("nl-city-zeeland-middelburg", hero: nil, flag: "Flag of Middelburg.svg", coat: "Middelburg wapen.svg", attributionName: "Middelburg"),
+        cityMedia("nl-city-zeeland-middelburg", hero: nil, flag: "Middelburg vlag.svg", coat: "Coat of arms of Middelburg.svg", attributionName: "Middelburg"),
 
         provinceMedia("nl-province-noord_holland", hero: "North Holland by Sentinel-2, 2018-06-30.jpg", flag: "Flag of North Holland.svg", coat: "Noord-Holland wapen.svg", attributionName: "Noord-Holland"),
         provinceMedia("nl-province-zuid_holland", hero: "South Holland by Sentinel-2, 2018-06-30.jpg", flag: "Flag of Zuid-Holland.svg", coat: "Zuid-holland wapen.svg", attributionName: "Zuid-Holland"),

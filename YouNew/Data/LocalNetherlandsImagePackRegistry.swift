@@ -118,25 +118,28 @@ enum LocalNetherlandsImagePackRegistry {
     }
 
     private static func asset(_ localAssetName: String, title: String, width: Int, height: Int, type: AppImageType) -> AppImageAsset {
-        AppImageAsset(
+        let rights = MediaAttributionRegistry.record(for: localAssetName)
+
+        return AppImageAsset(
             id: localAssetName,
             url: nil,
+            sourcePageURL: rights?.sourcePageURL,
             localAssetName: localAssetName,
             title: title,
             description: nil,
-            sourceName: "Bundled Netherlands image pack",
-            sourceURL: nil,
-            creator: nil,
-            author: nil,
-            license: "See netherlands_app_images metadata",
-            licenseName: "See bundled attribution metadata",
-            licenseURL: nil,
-            attribution: "See netherlands_app_images/metadata/attribution.md",
+            sourceName: "Wikimedia Commons",
+            sourceURL: rights?.sourcePageURL,
+            creator: rights?.creator,
+            author: rights?.creator,
+            license: rights?.licenseName,
+            licenseName: rights?.licenseName,
+            licenseURL: rights?.licenseURL,
+            attribution: rights?.creditLine,
             width: width,
             height: height,
             aspectRatio: Double(width) / Double(height),
             type: type,
-            verified: true,
+            verified: rights != nil,
             retrievedAt: retrievedAt
         )
     }

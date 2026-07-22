@@ -1,10 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
-  <!-- Zwolle flag: blue field with a silver/white teardrop (the famous "druppel van Zwolle") -->
-  <rect width="300" height="200" fill="#003B8E"/>
-  <!-- Large central teardrop (drop of Zwolle, symbol of the city) -->
-  <path d="M150,48 Q196,90 196,130 Q196,168 150,175 Q104,168 104,130 Q104,90 150,48 Z" fill="white"/>
-  <!-- Inner teardrop (blue, for depth) -->
-  <path d="M150,72 Q178,104 178,130 Q178,157 150,162 Q122,157 122,130 Q122,104 150,72 Z" fill="#003B8E"/>
-  <!-- Highlight dot -->
-  <circle cx="140" cy="110" r="8" fill="white" opacity="0.5"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="300" viewBox="0 0 30 20">
+<path d="M0,0H30V20H0z" fill="#005abc"/>
+<path d="M15,0V20M0,10H30" stroke="#fff" stroke-width="6"/>
 </svg>

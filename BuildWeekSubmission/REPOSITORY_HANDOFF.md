@@ -31,7 +31,8 @@ historical results.
 - generated Devpost upload variants;
 - local build/test caches, DerivedData, `xcuserdata`, credentials, signing
   material, and temporary files;
-- screenshot 08 and unresolved raster assets from promotional use.
+- screenshot 08 pending its separate screenshot-release review. The shipped app
+  catalog itself has no unresolved rights records.
 
 The rendered candidate is reviewed and distributed separately using the exact
 SHA-256 in `VIDEO_REVIEW_DRAFT.md`. A clean clone does not reproduce the MP4

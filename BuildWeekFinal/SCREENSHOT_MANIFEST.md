@@ -6,7 +6,7 @@ Candidate: branch `main`, HEAD `7a1f6bc8fcffac84e5798338380bb97aca815b3d`, dirty
 
 ## Result
 
-All eight requested simulator screenshots were captured and visually inspected. They are demo evidence for the rendered screens below, not physical-device, media-rights, external-network, or full-suite certification.
+All eight requested simulator screenshots were captured and visually inspected. They are demo evidence for the rendered screens below, not physical-device, external-network, full-suite, or screenshot-release certification. The underlying shipped asset catalog separately passes its deterministic media-rights gate.
 
 | # | File | Screen and acceptance result |
 |---:|---|---|
@@ -17,7 +17,7 @@ All eight requested simulator screenshots were captured and visually inspected. 
 | 5 | [`screenshots/05-official-source.png`](screenshots/05-official-source.png) | **PASS WITH NETWORK BOUNDARY** — Official Source Directory renders and identifies 23 Dutch institutions/services; the warning about changing rules/contact details is visible. This does not prove every external URL is reachable. |
 | 6 | [`screenshots/06-map.png`](screenshots/06-map.png) | **PASS** — interactive Netherlands map, 12 provinces, Amsterdam marker, Noord-Holland selection, city control, and root Map tab are visible. |
 | 7 | [`screenshots/07-map-to-home.png`](screenshots/07-map-to-home.png) | **PASS** — captured after one accessibility activation of `tab.home` from Map. Runtime metric changed to `sequence=1;tab=home;delayMs=95.108`; Home became selected. |
-| 8 | [`screenshots/08-city-detail.png`](screenshots/08-city-detail.png) | **UI PASS / MEDIA CONDITIONAL** — governed imported city Amsterdam opens with city identity, province, population, flag, and coat of arms. Exclude this file from standalone promotional use by default until the owner accepts the independent restrictions that may apply to official symbols; prefer a hero/name-only replacement. |
+| 8 | [`screenshots/08-city-detail.png`](screenshots/08-city-detail.png) | **UI PASS / SCREENSHOT REVIEW REQUIRED** — governed imported city Amsterdam opens with city identity, province, population, flag, and coat of arms. The catalog symbols are byte-exact Public Domain Commons assets, but this screenshot remains a separate release artifact; use symbols only for identification and do not imply municipality endorsement. |
 
 ## Capture method
 
@@ -31,10 +31,13 @@ All eight requested simulator screenshots were captured and visually inspected. 
 - The serialized Assistant test is `/private/tmp/YouNewBuildWeekBSNFlowCleanSerial.xcresult` (1/1 PASS). Screenshot 3 only records the resulting guide surface.
 - The serialized root navigation test is `/private/tmp/YouNewBuildWeekRootLatencySerialFinal.xcresult` (10/10 first-tap transitions). Screenshot 7 adds one manual UI activation.
 - Known external-link health remains 18 confirmed broken responses among 2,494 checked URLs. Screenshot 5 proves the directory UI, not network health.
-- Owner media-rights review is still required before these images or a video are published.
-- Screenshots 01–07 are eligible only with the attribution block in
-  [`MEDIA_RIGHTS_FINAL.md`](MEDIA_RIGHTS_FINAL.md); screenshot 08 is conditional
-  and excluded from promotional use by default.
+- The shipped 170-asset catalog has complete records and zero unresolved assets.
+  That catalog result does not itself clear these screenshot files or a video.
+- Before publication, review each screenshot/video as a separate release artifact
+  and include the required credit and modification lines from
+  [`MEDIA_RIGHTS_FINAL.md`](MEDIA_RIGHTS_FINAL.md) for every reproduced licensed
+  photograph. For screenshot 08, also avoid any implication of municipality
+  endorsement.
 
 ## Recording checklist
 

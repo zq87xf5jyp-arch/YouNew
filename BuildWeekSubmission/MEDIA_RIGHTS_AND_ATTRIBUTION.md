@@ -1,39 +1,49 @@
 # Media rights and attribution
 
-Status: **bounded demo allowlist prepared; repository-wide clearance incomplete**
+Status: **app asset catalog cleared by deterministic rights gate**
 
-Owner release decision: the simplified YouNew map/vector provenance is confirmed
-for public distribution without any claim that the map is official. Screenshots
-01–07 are the bounded promotional set; screenshot 08 remains excluded by default.
+Last reviewed: 2026-07-22
 
-The Build Week demo uses a narrow set of images with exact Wikimedia Commons
-source pages and recorded open licenses. The app must not be described as having
-fully cleared media rights. The detailed engineering review and exact evidence are
-in [`BuildWeekFinal/MEDIA_RIGHTS_FINAL.md`](../BuildWeekFinal/MEDIA_RIGHTS_FINAL.md).
+The release catalog contains no unresolved provenance records. The canonical
+machine-readable ledger is
+[`BuildWeekFix/ASSET_RIGHTS_STATUS.json`](../BuildWeekFix/ASSET_RIGHTS_STATUS.json),
+validated by `scripts/asset-rights-gate.py` in Product CI.
 
-## Approved demo photographs
+## Submission media basis
 
-- Leiden hero — C messier, CC BY-SA 4.0; cropped/resized and converted.
-- Haarlem City Hall — Jane023, CC BY-SA 3.0; cropped/resized.
-- Amsterdam hero — Basile Morin, CC BY-SA 4.0; cropped/resized and converted.
+- 76 third-party photography records include creator, source page, license link,
+  attribution decision, and modification notice. They are visible inside the app
+  through **More → About YouNew → Media and licenses**.
+- All 58 city flags/coats of arms are exact current Wikimedia Commons revisions
+  marked public domain on their recorded pages; local and Commons SHA-1 values
+  match.
+- AppIcon has a versioned source, deterministic generators, and owner confirmation.
+- Six generated YouNew covers retain OpenAI C2PA/JUMBF structural metadata and
+  owner approval; the offline gate does not claim cryptographic signature-chain
+  validation.
+- Three formerly unverified photographs were replaced with exact byte aliases of
+  those confirmed generated covers.
+- The unused emergency fallback imageset was removed.
 
-Exact source and license URLs are in the final media report and
-[`MEDIA_ATTRIBUTION.md`](../MEDIA_ATTRIBUTION.md).
+## Required public credits
 
-## Excluded by default
-
-- Eleven high-use raster assets whose provenance is not established by the
-  reviewed records.
-- Thirty-six legacy audit/runtime screenshots outside the current eight-shot demo
-  set.
-- Screenshot 08 as promotional artwork until the owner accepts the independent
-  restrictions that can apply to official flags and coats of arms, or replaces it
-  with a hero-only crop.
+Use the exact credit lines from
+[`YouNew/Resources/MediaAttributions.json`](../YouNew/Resources/MediaAttributions.json).
+For video descriptions, screenshot pages, or marketing pages that reproduce a
+licensed photograph, include its creator, license, source link, and the applicable
+resize/crop/conversion notice.
 
 ## Safe public wording
 
-> The Build Week demo uses a documented media allowlist with source and license
-> attribution. Repository-wide media clearance remains incomplete.
+> YouNew ships with a source-backed media-rights ledger and in-app attribution.
+> Third-party photographs retain their individual Creative Commons conditions.
 
-Forbidden wording: “all images are fully licensed,” “all media is project-owned,”
-or “official city symbols are unrestricted.”
+Do not claim municipality endorsement or suggest that the repository license
+relicenses third-party media. Public-domain city symbols are used only for
+informational identification.
+
+## Scope boundary
+
+This clearance applies to `YouNew/Assets.xcassets`. New screenshots, recordings,
+audio, public-site images, or future assets require their own inventory entry and
+review before publication.

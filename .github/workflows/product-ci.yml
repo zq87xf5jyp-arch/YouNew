@@ -8,6 +8,11 @@ on:
       - "YouNewUITests/**"
       - "YouNew.xcodeproj/**"
       - "scripts/**"
+      - "BuildWeekFix/**"
+      - "Design/AppIcon/**"
+      - "ASSET_CREDITS.md"
+      - "MEDIA_ATTRIBUTION.md"
+      - "PLACE_MEDIA_RENDER_AUDIT.md"
       - "admin-dashboard/public-site/**"
       - ".github/workflows/product-ci.yml"
   push:
@@ -17,6 +22,11 @@ on:
       - "YouNewUITests/**"
       - "YouNew.xcodeproj/**"
       - "scripts/**"
+      - "BuildWeekFix/**"
+      - "Design/AppIcon/**"
+      - "ASSET_CREDITS.md"
+      - "MEDIA_ATTRIBUTION.md"
+      - "PLACE_MEDIA_RENDER_AUDIT.md"
       - "admin-dashboard/public-site/**"
       - ".github/workflows/product-ci.yml"
   workflow_dispatch:

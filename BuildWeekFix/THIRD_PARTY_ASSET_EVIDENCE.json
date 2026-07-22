@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-07-22",
+  "source": "Wikimedia Commons API and byte-exact thumbnail retrieval",
+  "records": [
+    {
+      "assetID": "home_documents_city_hall",
+      "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Haarlem_city_hall.JPG",
+      "originalFileURL": "https://upload.wikimedia.org/wikipedia/commons/f/ff/Haarlem_city_hall.JPG",
+      "thumbnailURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/ff/Haarlem_city_hall.JPG/1920px-Haarlem_city_hall.JPG",
+      "creator": "Jane023",
+      "licenseName": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+      "originalSHA1": "80bea387283b2b1236a05d50664dd1dcaf491e11",
+      "originalWidth": 3072,
+      "originalHeight": 2048,
+      "localPath": "YouNew/Assets.xcassets/home_documents_city_hall.imageset/home_documents_city_hall.jpg",
+      "localSHA1": "1b24d6bf39277f45187e4a6f09819966ae43b381",
+      "localWidth": 1920,
+      "localHeight": 1280,
+      "modificationNotice": "Wikimedia Commons width=1920 thumbnail; no additional local crop or edit.",
+      "retrievedAt": "2026-07-22"
+    },
+    {
+      "assetID": "home_healthcare_pharmacy",
+      "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Pharmacy-nl2.JPG",
+      "originalFileURL": "https://upload.wikimedia.org/wikipedia/commons/7/7e/Pharmacy-nl2.JPG",
+      "thumbnailURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Pharmacy-nl2.JPG/1920px-Pharmacy-nl2.JPG",
+      "creator": "Ciell",
+      "licenseName": "CC BY-SA 2.5",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/2.5",
+      "originalSHA1": "cceba05daeb5ef0b8497b280fb9d7daef0bcbce2",
+      "originalWidth": 2272,
+      "originalHeight": 1704,
+      "localPath": "YouNew/Assets.xcassets/home_healthcare_pharmacy.imageset/home_healthcare_pharmacy.jpg",
+      "localSHA1": "395f5cda9e3d2a270005f1ec4e9cfdb9a47c9be6",
+      "localWidth": 1920,
+      "localHeight": 1440,
+      "modificationNotice": "Wikimedia Commons width=1920 thumbnail; no additional local crop or edit.",
+      "retrievedAt": "2026-07-22"
+    },
+    {
+      "assetID": "home_leiden_canals",
+      "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Leiden_Grachten_20.jpg",
+      "originalFileURL": "https://upload.wikimedia.org/wikipedia/commons/1/1a/Leiden_Grachten_20.jpg",
+      "thumbnailURL": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Leiden_Grachten_20.jpg/1920px-Leiden_Grachten_20.jpg",
+      "creator": "Zairon",
+      "licenseName": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "originalSHA1": "7078468169a8dfed8ee0b76c2e36ea141a2e5b43",
+      "originalWidth": 4560,
+      "originalHeight": 2867,
+      "localPath": "YouNew/Assets.xcassets/home_leiden_canals.imageset/home_leiden_canals.jpg",
+      "localSHA1": "d55999c88e00a3290551e0df622fba1ea522505f",
+      "localWidth": 1920,
+      "localHeight": 1207,
+      "modificationNotice": "Wikimedia Commons width=1920 thumbnail; no additional local crop or edit.",
+      "retrievedAt": "2026-07-22"
+    }
+  ]
+}

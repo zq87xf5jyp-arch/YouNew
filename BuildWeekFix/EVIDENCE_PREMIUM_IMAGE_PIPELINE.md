@@ -1,16 +1,16 @@
 # Evidence packet — Premium image pipeline
 
-Status: **VERIFIED implementation / PARTIAL runtime and rights evidence**
+Status: **VERIFIED implementation / CATALOG RIGHTS PASS / PARTIAL runtime visual evidence**
 
-Evidence date: 2026-07-21 (Europe/Amsterdam)
+Evidence date: 2026-07-22 (Europe/Amsterdam)
 
-## 2026-07-21 evidence boundary update
+## 2026-07-22 evidence boundary update
 
-Implementation and static image checks do not grant redistribution rights. Public
-handoff remains blocked by 39 tracked raster captures (91,034,208 bytes), 98
-non-manifest imagesets, the AppIcon, one missing manifest license URL, and seven
-untracked public-site media files not protected by the current ignore rules. No
-blanket ownership or license claim is made for any unresolved item.
+The deterministic media-rights gate now inventories all 170 shipped catalog
+assets and reports zero unresolved records: 58 byte-exact public-domain city
+symbols, 36 documented project-owned assets, and 76 attribution-ready third-party
+assets. Screenshots, recordings, audio, and public-site media remain separate
+inventories; the catalog result does not clear those release artifacts.
 
 ## Original problem
 
@@ -55,13 +55,17 @@ not prove current remote reachability.
 
 ## Owner decision
 
-Before a public repository or submission, the owner must approve the final media allowlist and either document, replace, or exclude every asset whose source or reuse rights remain unresolved.
+The owner confirmed AppIcon and the six generated `premium_home_*` assets on
+2026-07-22. Previously disputed catalog payloads were documented, replaced, or
+removed. See `MEDIA_RIGHTS_OWNER_ATTESTATION.md` and
+`ASSET_RIGHTS_STATUS.json`.
 
 ## Limitations
 
-- Complete license/source evidence is not yet available for every bundled or
-  curated image. In particular, 98 asset-catalog imagesets are outside the reviewed
-  72-entry image-pack manifest, and some identity-asset provenance records conflict.
+- Catalog clearance does not cover screenshots, recordings, audio, public-site
+  media, or future assets; each requires its own inventory and review.
+- Third-party Creative Commons conditions, credits, and modification notices
+  remain mandatory; the repository source-code license does not replace them.
 - There is no fresh per-device crop, contrast, Dynamic Type, and slow-network matrix.
 - No current Instruments trace proves the memory or decode-latency benefit under sustained scrolling.
 - Consumer cancellation prevents stale UI updates but does not prove cancellation of every detached shared network fetch.
@@ -70,7 +74,7 @@ Before a public repository or submission, the owner must approve the final media
 
 The repository contains implementation and reports consistent with the documented Codex-assisted workflow.
 
-YouNew contains a role-aware image-loading pipeline with bounded caches, request timeouts, downsampling, placeholders, and fallback behavior. Media rights and complete runtime visual validation remain separate submission gates.
+YouNew contains a role-aware image-loading pipeline with bounded caches, request timeouts, downsampling, placeholders, and fallback behavior. Its shipped 170-asset catalog has complete deterministic rights records and zero unresolved assets; non-catalog release media and runtime visual validation remain separate gates.
 
 ## Screenshot or log still needed
 

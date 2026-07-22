@@ -87,7 +87,8 @@ Do not use the Assistant `Open Leiden` shortcut or the long Guide-to-Transport c
 1. Full UI is not green: current aggregate 79/87.
 2. Three failures reproduce in isolation: Guide scroll/UI query, root latency, Assistant selected-city route.
 3. Static QA is not green: 18 confirmed broken governed URLs.
-4. Media rights are only partially confirmed.
+4. The shipped 170-asset catalog passes its rights gate; screenshots, recordings,
+   audio, and public-site media remain separate release-review scopes.
 5. TestFlight/App Store parity is unverified.
 6. No live GPT-5.6/OpenAI runtime is proved.
 7. No complete physical-device, VoiceOver, OS/device matrix, soak, or production certification exists.

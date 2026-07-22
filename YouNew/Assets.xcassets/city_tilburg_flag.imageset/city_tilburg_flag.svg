@@ -1,30 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
-  <!-- Tilburg flag: red field with a golden Brabant lion (simplified heraldic) -->
-  <rect width="300" height="200" fill="#B5121B"/>
-  <!-- Lion body (stylized, rampant left) -->
-  <ellipse cx="150" cy="120" rx="28" ry="34" fill="#D4AF37"/>
-  <!-- Head -->
-  <circle cx="150" cy="78" r="22" fill="#D4AF37"/>
-  <!-- Mane (golden ring) -->
-  <circle cx="150" cy="78" r="28" fill="none" stroke="#D4AF37" stroke-width="10"/>
-  <!-- Face -->
-  <circle cx="150" cy="78" r="18" fill="#D4AF37"/>
-  <!-- Eyes -->
-  <circle cx="143" cy="74" r="3" fill="#B5121B"/>
-  <circle cx="157" cy="74" r="3" fill="#B5121B"/>
-  <!-- Nose/snout -->
-  <ellipse cx="150" cy="84" rx="8" ry="5" fill="#C8840A"/>
-  <!-- Left front paw (raised) -->
-  <path d="M122,108 Q100,90 98,75 Q102,65 112,70 Q118,85 126,100" fill="#D4AF37"/>
-  <!-- Claws left -->
-  <path d="M98,75 Q90,68 88,60 M104,68 Q98,60 97,52 M110,68 Q107,60 108,52" stroke="#D4AF37" stroke-width="4" stroke-linecap="round" fill="none"/>
-  <!-- Right front paw -->
-  <path d="M178,108 Q200,90 202,75 Q198,65 188,70 Q182,85 174,100" fill="#D4AF37"/>
-  <!-- Tail (curled up) -->
-  <path d="M178,140 Q210,130 215,110 Q218,92 206,88" stroke="#D4AF37" stroke-width="12" stroke-linecap="round" fill="none"/>
-  <!-- Hind legs -->
-  <line x1="134" y1="150" x2="124" y2="178" stroke="#D4AF37" stroke-width="10" stroke-linecap="round"/>
-  <line x1="166" y1="150" x2="176" y2="178" stroke="#D4AF37" stroke-width="10" stroke-linecap="round"/>
-  <!-- Tongue (red) -->
-  <path d="M146,88 Q150,96 154,88" stroke="#B5121B" stroke-width="4" stroke-linecap="round" fill="none"/>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="300" viewBox="0 0 9 6">
+<path d="M0,0h9v6H0z" fill="#0039a6"/>
+<path d="M4,2h5v2H0v-2h4V0h-2v6h2z" fill="#fccc00"/>
 </svg>

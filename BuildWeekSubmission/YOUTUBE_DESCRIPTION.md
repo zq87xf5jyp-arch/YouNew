@@ -38,5 +38,7 @@ should be verified with the responsible official institution.
 - Licenses: https://creativecommons.org/licenses/by-sa/4.0/ and
   https://creativecommons.org/licenses/by-sa/3.0/.
 
-Media note: the Build Week demo uses a documented, bounded media allowlist.
-Repository-wide media clearance remains incomplete.
+Media note: the shipped 170-asset app catalog passes its deterministic rights gate
+with zero unresolved records. Required third-party credits and modification notices
+remain in force. The final video and screenshots are separate release artifacts and
+require their own review.

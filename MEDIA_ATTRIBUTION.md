@@ -1,22 +1,22 @@
 # Media attribution and rights inventory
 
-Last reviewed: 2026-07-21
+Last reviewed: 2026-07-22
 
-Status: **partial — not cleared for unrestricted public redistribution**
+Status: **complete for the shipped Xcode asset catalog; license conditions apply**
 
-This inventory is derived from the local
-`netherlands_app_images/metadata/manifest.json` and the asset catalog. The raw
-image-production workspace is intentionally ignored; this file preserves the
-human-readable provenance needed for repository review. A manifest entry is
-evidence of recorded provenance, not proof that every license condition has been
-satisfied in the app, repository, screenshots, social posts, or demo video.
+This inventory covers the third-party photography shipped in the asset catalog.
+The machine-readable app resource is `YouNew/Resources/MediaAttributions.json`;
+catalog-wide status and exact hashes are governed by
+`BuildWeekFix/ASSET_RIGHTS_STATUS.json`.
 
 ## Summary
 
 - The Netherlands image-pack manifest contains exactly 72 `nl_*` assets used by the
   local image-pack registry.
-- 65 of those entries are marked `attribution_required: true`; attribution must
-  accompany every applicable distribution and presentation.
+- Four additional UI photographs are recorded for the app background, Haarlem
+  City Hall, a Dutch pharmacy, and Leiden canals.
+- 69 of the 76 records require attribution; attribution must accompany every
+  applicable distribution and presentation.
 - Seven entries are marked as not requiring attribution:
   `nl_gouda_hero_01`, `nl_eindhoven_hero_01`, `nl_utrecht_card_01`,
   `nl_haarlem_card_01`, `nl_hoorn_card_01`, `nl_markthal_landmark_01`, and
@@ -24,26 +24,15 @@ satisfied in the app, repository, screenshots, social posts, or demo video.
 - `nl_hoorn_card_01` was re-verified on 2026-07-21. Its Wikimedia Commons
   Licensing section records a worldwide public-domain release by the copyright
   holder. The local raw manifest now links to that exact section.
-- The asset catalog contains another 98 non-`nl_*` imagesets plus the AppIcon; none
-  is covered by this 72-entry manifest. Other repository reports contain partial and
-  sometimes conflicting provenance claims for those assets, so they remain outside
-  a blanket public-redistribution claim until reconciled.
-- The repository commit contains 39 tracked raster captures outside the asset
-  catalog: 13 IA Audit files (41,411,859 B), five QA Baseline files (8,214,510 B),
-  and 21 Runtime files (41,407,839 B), totalling 91,034,208 B. One IA Audit file
-  is currently deleted in the working tree but remains tracked by `HEAD`. None is
-  covered by this app-asset manifest; ignore rules do not remove tracked captures
-  from a future remote.
-- The source working tree has seven untracked public-site images/icons. A current
-  `.gitignore` modification no longer protects `admin-dashboard/public-site/public/`,
-  so exclusion depends on an exact staged-path allowlist rather than an ignore rule.
-- The raw machine-readable manifest is local and ignored; this versioned inventory
-  is the portable evidence available to a clean clone and is not proof of the raw
-  file's authenticity.
+- The remaining catalog families are covered separately: 58 exact public-domain
+  city symbols, 26 project-owned province/map vectors, AppIcon, six confirmed
+  generated artworks, and three byte-identical aliases.
+- Screenshots, recordings, audio, and public-site files remain separate media
+  inventories and are not cleared by the app-catalog gate.
 
 Recorded license distribution: CC BY 2.0 (2), CC BY 3.0 (2), CC BY 4.0 (5),
-CC BY-SA 2.0 (1), CC BY-SA 2.5 (2), CC BY-SA 3.0 (8), CC BY-SA 3.0 de (1),
-CC BY-SA 3.0 nl (4), CC BY-SA 4.0 (40), CC0 (6), and Public domain (1).
+CC BY-SA 2.0 (1), CC BY-SA 2.5 (3), CC BY-SA 3.0 (9), CC BY-SA 3.0 de (1),
+CC BY-SA 3.0 nl (4), CC BY-SA 4.0 (42), CC0 (6), and Public domain (1).
 The local files are processed WebP assets with final dimensions recorded in the raw
 manifest. The final release must state cropping, resizing, format conversion, or
 other modifications wherever the applicable license requires it.
@@ -126,54 +115,24 @@ follow share-alike, attribution, indication-of-changes, and other applicable ter
 - `nl_groningen_province_01` (`nl_groningen_province_01.webp`): File:Groningen, straatzicht Hoge der Aa bij de Brugstraat foto7 2015-03-22 15.15.jpg; Michielverbeek; CC BY-SA 4.0 — [source](https://commons.wikimedia.org/wiki/File:Groningen,_straatzicht_Hoge_der_Aa_bij_de_Brugstraat_foto7_2015-03-22_15.15.jpg); license: [`CC BY-SA 4.0`](https://creativecommons.org/licenses/by-sa/4.0).
 - `nl_drenthe_province_01` (`nl_drenthe_province_01.webp`): File:Overzicht hunebed D27 - Borger - 20369120 - RCE.jpg; Rijksdienst voor het Cultureel Erfgoed; CC BY-SA 4.0 — [source](https://commons.wikimedia.org/wiki/File:Overzicht_hunebed_D27_-_Borger_-_20369120_-_RCE.jpg); license: [`CC BY-SA 4.0`](https://creativecommons.org/licenses/by-sa/4.0).
 
-## Asset-catalog scope outside the manifest
+## Additional attributed UI photography
 
-The catalog has 170 imagesets in total. The 72 `nl_*` entries above are the only
-ones covered by the reviewed image-pack manifest. The remaining 98 imagesets break
-down as follows:
+- `app_amsterdam_evening_background`: exact byte alias of
+  `nl_amsterdam_hero_01`; Basile Morin; CC BY-SA 4.0.
+- `home_documents_city_hall`: Haarlem City Hall; Jane023; CC BY-SA 3.0;
+  Wikimedia 1920 px resize.
+- `home_healthcare_pharmacy`: Pharmacy-nl2; Ciell; CC BY-SA 2.5; Wikimedia
+  1920 px resize.
+- `home_leiden_canals`: Leiden Grachten 20; Zairon; CC BY-SA 4.0; Wikimedia
+  1920 px resize. The former Willy Horsch / CC BY-SA 3.0 metadata was incorrect
+  and has been replaced.
 
-- 58 `city_*_flag` / `city_*_coat_of_arms` identity assets;
-- 12 province-flag imagesets;
-- 14 map imagesets (`map_*`, `netherlands_map_base`, and
-  `netherlands_map_provinces`);
-- three legacy home photos: `home_documents_city_hall`,
-  `home_healthcare_pharmacy`, and `home_leiden_canals`;
-- eleven high-use background/category/fallback imagesets listed below.
-
-`ASSET_CREDITS.md` describes city/province/map vectors as self-created, while
-`PLACE_MEDIA_RENDER_AUDIT.md` associates many city and province identity assets with
-Wikimedia Commons source pages. Those records are not equivalent to a complete
-license ledger and have not been reconciled. No reviewed owner statement,
-commission/assignment record, or per-file license record establishes a
-repository-wide project-owned media set. Files must not be called “original,”
-“owned,” or relicensed merely because they are in `Assets.xcassets`.
-
-The eleven high-use imagesets without a complete record in the reviewed manifest
-are:
-
-- `app_amsterdam_evening_background`
-- `home_emergency_ambulance`
-- `home_language_classroom`
-- `home_work_zuidas`
-- `premium_home_documents`
-- `premium_home_emergency`
-- `premium_home_healthcare`
-- `premium_home_housing`
-- `premium_home_language`
-- `premium_home_work`
-- `premium_netherlands_emergency_fallback`
-
-`AppIcon.appiconset` is a separate non-imageset blocker. Until evidence is supplied,
-reconcile the 98 non-manifest imagesets and AppIcon against exact creator, source,
-license, and modification records; replace or exclude anything that cannot be
-cleared from the public repository and demo capture without removing the underlying
-product capability. The former `nl_hoorn_card_01` license-link defect was resolved
-against the source page on 2026-07-21; this does not clear the unrelated assets
-outside the reviewed records.
+The exact credit lines and links are included in the bundled JSON and displayed
+through **More → About YouNew → Media and licenses**.
 
 ## Redistribution decision
 
-The repository's `LICENSE` does not relicense third-party media. Public repository,
-screenshots, social posts, demo video, TestFlight, and App Store distribution each
-need an owner review against the applicable source terms. No false license has been
-created for an unknown-origin image.
+The repository's `LICENSE` does not relicense third-party media. Each source license
+and modification notice still applies to repository, screenshot, video, TestFlight,
+and App Store use. Public-domain city symbols are informational and do not imply
+municipality endorsement.

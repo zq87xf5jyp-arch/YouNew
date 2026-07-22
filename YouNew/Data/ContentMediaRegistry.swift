@@ -278,15 +278,15 @@ enum ContentMediaRegistry {
             description: "The historic canal network of Leiden, a university city and one of the key centres for newcomer support in the Netherlands.",
             sourceName: "Wikimedia Commons",
             sourceURL: URL(string: "https://commons.wikimedia.org/wiki/File:Leiden_Grachten_20.jpg"),
-            creator: "Willy Horsch",
-            author: "Willy Horsch",
-            license: "CC BY-SA 3.0",
-            licenseName: "Creative Commons Attribution-Share Alike 3.0 Unported",
-            licenseURL: URL(string: "https://creativecommons.org/licenses/by-sa/3.0/"),
-            attribution: "Willy Horsch, via Wikimedia Commons",
-            width: 2592,
-            height: 1944,
-            aspectRatio: 2592.0 / 1944.0,
+            creator: "Zairon",
+            author: "Zairon",
+            license: "CC BY-SA 4.0",
+            licenseName: "Creative Commons Attribution-Share Alike 4.0 International",
+            licenseURL: URL(string: "https://creativecommons.org/licenses/by-sa/4.0/"),
+            attribution: "Zairon, via Wikimedia Commons",
+            width: 4560,
+            height: 2867,
+            aspectRatio: 4560.0 / 2867.0,
             type: .officialSourcesHero,
             verified: true,
             retrievedAt: "2026-06-01",
@@ -356,12 +356,12 @@ enum ContentMediaRegistry {
         localCover(
             id: "cover-work-zuidas",
             localAssetName: "home_work_zuidas",
-            title: "Amsterdam Zuidas offices",
-            description: "Office-district cover used for work, contracts, and employment topics.",
-            sourceName: "Project bundled visual",
+            title: "Work and contracts in the Netherlands",
+            description: "YouNew-generated cover used for work, contracts, and employment topics.",
+            sourceName: "YouNew AI-generated artwork",
             type: .cardThumbnail,
-            width: 1642,
-            height: 2500
+            width: 1586,
+            height: 992
         )
     }
 
@@ -414,10 +414,10 @@ enum ContentMediaRegistry {
             localAssetName: "home_emergency_ambulance",
             title: "Dutch emergency services",
             description: "Emergency services cover used for urgent help and 112 topics.",
-            sourceName: "Project bundled visual",
+            sourceName: "YouNew AI-generated artwork",
             type: .cardThumbnail,
-            width: 1920,
-            height: 1280
+            width: 1586,
+            height: 992
         )
     }
 

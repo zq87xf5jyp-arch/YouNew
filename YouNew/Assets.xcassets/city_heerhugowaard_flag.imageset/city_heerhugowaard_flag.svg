@@ -1,19 +1,6 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
-  <!-- Heerhugowaard (now Dijk en Waard municipality) flag: -->
-  <!-- Red (top) and white (bottom) bicolor with a blue diagonal canton (diagonal dike/dijk symbol) -->
-  <rect width="300" height="100" fill="#AE1C28"/>
-  <rect y="100" width="300" height="100" fill="#FFFFFF"/>
-  <!-- Blue diagonal band (symbolising the dijk/dike) from top-left -->
-  <polygon points="0,0 160,0 0,120" fill="#003B8E"/>
-  <!-- Golden tulip in center (Noord-Holland flower, agricultural symbol) -->
-  <line x1="210" y1="162" x2="210" y2="120" stroke="#D4AF37" stroke-width="7" stroke-linecap="round"/>
-  <!-- Tulip head -->
-  <path d="M210,120 Q195,100 194,80 Q200,68 210,72 Q220,68 226,80 Q225,100 210,120 Z" fill="#D4AF37"/>
-  <!-- Tulip petals (side) -->
-  <path d="M194,80 Q182,72 180,58 Q186,48 196,54 Q196,66 194,80" fill="#D4AF37"/>
-  <path d="M226,80 Q238,72 240,58 Q234,48 224,54 Q224,66 226,80" fill="#D4AF37"/>
-  <!-- Leaf left -->
-  <path d="M206,138 Q192,128 186,114" stroke="#276B3E" stroke-width="6" stroke-linecap="round" fill="none"/>
-  <!-- Leaf right -->
-  <path d="M214,138 Q228,128 234,114" stroke="#276B3E" stroke-width="6" stroke-linecap="round" fill="none"/>
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="300" viewBox="0 0 9 6">
+<path d="M0,0H9V6H0z" fill="#0039a6"/>
+<path d="M0,0H9V4H0z" fill="#fff"/>
+<path d="M0,0H9V2H0z" fill="#fccc00"/>
 </svg>

@@ -8,6 +8,11 @@ Baseline commit: `b15a2f2913911763c989f9880f8ce376f903fc6e`
 
 Verdict: **no high-confidence secret confirmed; public publication remains blocked**
 
+Media-rights scope update (2026-07-22): the shipped 170-asset Xcode catalog now
+passes its deterministic rights gate with zero unresolved records. The raster
+captures and public-site files discussed below are non-catalog artifacts and still
+require their own OCR, privacy, metadata, and release-media review.
+
 No secret value is reproduced in this report. Results record counts and paths only.
 
 ## Scope and method
@@ -85,7 +90,7 @@ documentation paths are staged; its result is recorded in the final section belo
 - The commit already tracks 39 raster captures outside the asset catalog: 13 IA
   Audit files (41,411,859 B), five QA Baseline files (8,214,510 B), and 21 Runtime
   files (41,407,839 B), totalling 91,034,208 B. Ignore rules do not keep tracked
-  files out of a remote; OCR, EXIF, privacy, and rights review is incomplete. Seven
+  files out of a remote; OCR, EXIF, privacy, and non-catalog release review is incomplete. Seven
   additional untracked public-site images/icons are excluded only by exact staging:
   a current `.gitignore` modification no longer protects their `public/` directory.
 - Screenshots, imported documents, local databases, test fixtures, and legal/medical
