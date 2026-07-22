@@ -12,6 +12,7 @@ AGGREGATE_QA = ROOT / "scripts" / "run-static-qa.sh"
 LINK_CHECKER = ROOT / "scripts" / "check-external-links.py"
 DASHBOARD_GENERATOR = ROOT / "scripts" / "generate-data-dashboard.py"
 IMPORT_QA = ROOT / "scripts" / "data-project-import-static-qa.py"
+PUBLIC_SITE_PREDEPLOY = ROOT / "admin-dashboard" / "public-site" / "scripts" / "pre-deploy.sh"
 
 
 def fail(message: str) -> None:
@@ -30,6 +31,7 @@ aggregate_qa = AGGREGATE_QA.read_text(encoding="utf-8")
 link_checker = LINK_CHECKER.read_text(encoding="utf-8")
 dashboard_generator = DASHBOARD_GENERATOR.read_text(encoding="utf-8")
 import_qa = IMPORT_QA.read_text(encoding="utf-8")
+public_site_predeploy = PUBLIC_SITE_PREDEPLOY.read_text(encoding="utf-8")
 
 required_workflow_fragments = (
     'cron: "17 2 * * *"',
@@ -119,6 +121,22 @@ require(import_validation in aggregate_qa, "aggregate QA must validate the gover
 require(
     aggregate_qa.index(observability_generation) < aggregate_qa.index(import_validation),
     "aggregate QA must generate release manifests before importer validation",
+)
+public_dashboard_generation = "python3 ../../scripts/generate-data-dashboard.py"
+public_observability_generation = "python3 ../../scripts/generate-data-observability.py"
+public_import_validation = "python3 ../../scripts/data-project-import-static-qa.py"
+public_health_gate = "python3 ../../scripts/data-health-gate.py"
+require(public_dashboard_generation in public_site_predeploy, "public-site pre-deploy must generate current Data Health")
+require(public_observability_generation in public_site_predeploy, "public-site pre-deploy must generate release manifests")
+require(public_import_validation in public_site_predeploy, "public-site pre-deploy must validate the governed importer")
+require(public_health_gate in public_site_predeploy, "public-site pre-deploy must enforce current Data Health")
+require(
+    public_site_predeploy.index(public_observability_generation) < public_site_predeploy.index(public_import_validation),
+    "public-site pre-deploy must generate release manifests before importer validation",
+)
+require(
+    public_site_predeploy.index(public_dashboard_generation) < public_site_predeploy.index(public_health_gate),
+    "public-site pre-deploy must generate current Data Health before enforcing the gate",
 )
 
 for forbidden in (r"\bgit\s+push\b", r"\bgit\s+commit\b", r"\bgh\s+release\b", r"publication_status.*published"):
