@@ -17,6 +17,12 @@ current Build Week packaging verdict and must not override the later targeted
 Map/Guide/search evidence. No new runtime cycle is required by the final packaging
 scope.
 
+Scoped media-rights update (2026-07-22): historical unresolved-catalog counts in
+the chronology are superseded by `MEDIA_RIGHTS.md` and
+`ASSET_RIGHTS_STATUS.json`. The shipped 170-asset catalog now passes with zero
+unresolved records. Screenshots, recordings, audio, and public-site media remain
+separate release inventories.
+
 ## Evidence chronology
 
 This report does not merge results across commits.
@@ -35,9 +41,9 @@ This report does not merge results across commits.
 
 The deterministic local assistant and existing product flow are sufficient for the
 frozen Build Week demo. Live GPT-5.6 is not part of the candidate claim. Broken
-external links, incomplete media rights, and bounded aggregate UI evidence remain
-honest production/distribution limitations; they do not reopen feature work or
-invalidate the targeted-verified primary demo path.
+external links, non-catalog release-media review, and bounded aggregate UI evidence
+remain honest production/distribution limitations; they do not reopen feature work
+or invalidate the targeted-verified primary demo path.
 
 ## Readiness matrix
 
@@ -53,7 +59,7 @@ invalidate the targeted-verified primary demo path.
 | Repository safety | **PREPARED LOCAL HANDOFF** | No remote, push, deployment, or publication was performed. |
 | Clean clone | **BOUNDED PRIOR PROOF** | Build/unit/static evidence is preserved; later targeted product fixes do not receive an aggregate claim. |
 | README | **PREPARED** | Root GitHub README and the complete `BuildWeek/` package are present. |
-| Media rights | **PARTIAL / BLOCKED** | 39 tracked raster captures (91,034,208 B), 98 non-manifest imagesets, AppIcon, one missing manifest license URL, and seven untracked public-site files remain unresolved. |
+| Media rights | **PASS — SHIPPED ASSET CATALOG** | All 170 catalog assets have governed records and `unresolved = 0`: 58 public-domain city symbols, 36 documented project-owned assets, and 76 attribution-ready third-party assets. Screenshots, recordings, audio, and public-site media remain separate review scopes. |
 | Demo readiness | **READY FOR HANDOFF** | The main flow uses the local assistant; live model proof is not required or claimed. |
 | Submission readiness | **PACKAGE READY / EXTERNAL STEPS PENDING** | Repository narrative, demo plan, checklist, Devpost text, and owner handoff are prepared. |
 
@@ -109,10 +115,11 @@ provisioning file; the one OpenAI-shaped pattern match was a benign scam-warning
 stable ID. This is a bounded scan, not public-release clearance. OCR/EXIF, history,
 personal-data, legal/medical, and owner metadata review remain open.
 
-Media cannot be relicensed by the repository notice. Unverified assets must be
-replaced, rights-cleared, or excluded from public repository, screenshots, video,
-TestFlight, and submission. The current `.gitignore` does not protect the seven
-untracked public-site media files; exact-path staging is mandatory.
+The repository notice does not relicense third-party media. Catalog credits and
+modification notices remain mandatory. Screenshots, recordings, audio, and
+public-site media are not covered by the catalog PASS and must be separately
+inventoried before publication. Exact-path staging remains mandatory for any
+unreviewed non-catalog files.
 
 ## Safe public claims
 
@@ -127,7 +134,9 @@ untracked public-site media files; exact-path staging is mandatory.
   10/10 first-tap transitions in the recorded configuration.
 - The repository contains bounded GPT-5.6 Responses API integration code; live
   GPT-5.6 access and deployment are not runtime-verified.
-- Media rights are partially documented and do not support blanket redistribution.
+- The shipped 170-asset catalog has complete deterministic rights records and zero
+  unresolved assets; third-party conditions remain in force and non-catalog release
+  media requires separate review.
 
 ## Prohibited claims
 
@@ -144,7 +153,8 @@ untracked public-site media files; exact-path staging is mandatory.
 - Full post-fix aggregate UI evidence is not claimed.
 - Eighteen shipped external URLs are recorded as broken in point-in-time evidence.
 - Live GPT-5.6 is neither verified nor needed for the documented local demo.
-- Media rights are partially documented and do not support blanket redistribution.
+- The shipped asset catalog passes its rights gate; screenshots, recordings, audio,
+  and public-site media remain separate release scopes.
 - Remote hosting, video publication, links, and submission remain owner-controlled.
 
 ## Finalization rule

@@ -1,10 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
-  <!-- Leeuwarden flag: Frisian blue and white alternating wavy horizontal stripes (pompeblêden pattern) -->
-  <!-- Background: white -->
-  <rect width="300" height="200" fill="#FFFFFF"/>
-  <!-- Blue wavy stripes (Frisian style) -->
-  <path d="M0,25 Q37.5,10 75,25 Q112.5,40 150,25 Q187.5,10 225,25 Q262.5,40 300,25 L300,50 Q262.5,65 225,50 Q187.5,35 150,50 Q112.5,65 75,50 Q37.5,35 0,50 Z" fill="#003B8E"/>
-  <path d="M0,75 Q37.5,60 75,75 Q112.5,90 150,75 Q187.5,60 225,75 Q262.5,90 300,75 L300,100 Q262.5,115 225,100 Q187.5,85 150,100 Q112.5,115 75,100 Q37.5,85 0,100 Z" fill="#003B8E"/>
-  <path d="M0,125 Q37.5,110 75,125 Q112.5,140 150,125 Q187.5,110 225,125 Q262.5,140 300,125 L300,150 Q262.5,165 225,150 Q187.5,135 150,150 Q112.5,165 75,150 Q37.5,135 0,150 Z" fill="#003B8E"/>
-  <path d="M0,175 Q37.5,160 75,175 Q112.5,190 150,175 Q187.5,160 225,175 Q262.5,190 300,175 L300,200 L0,200 Z" fill="#003B8E"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="300" viewBox="0 0 6 4"><path fill="#0063be" d="M0 0h6v4H0z"/><path stroke="#fccc00" d="M0 1.5h6m0 2H0"/></svg>

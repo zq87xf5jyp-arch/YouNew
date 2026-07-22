@@ -94,13 +94,17 @@
     },
     "image_system": "Premium Image System with registries, validation, fallbacks, and attribution metadata",
     "media_rights": {
+      "asset_catalog_scope": "YouNew/Assets.xcassets",
+      "asset_catalog_status": "pass",
+      "asset_catalog_assets": 170,
+      "asset_catalog_unresolved": 0,
+      "public_domain_city_symbols": 58,
+      "project_owned_assets": 36,
+      "third_party_attribution_ready_assets": 76,
+      "in_app_attribution_records": 76,
+      "records_requiring_attribution": 69,
       "repository_wide_clearance": false,
-      "demo_allowlist_prepared": true,
-      "manifest_backed_assets": 72,
-      "unresolved_high_use_raster_assets": 11,
-      "tracked_png_captures": 44,
-      "legacy_captures_excluded_from_public_allowlist": 36,
-      "screenshot_08_default_decision": "exclude_from_promotional_use_pending_official_symbol_review"
+      "non_catalog_scope": "Screenshots, recordings, audio, and public-site media require separate inventory and review before publication."
     },
     "qa_automation": "unit, UI, static, accessibility, content, import, link, and release checks"
   },
@@ -132,7 +136,7 @@
     "Assistant selected-city shortcut does not open Leiden detail",
     "18 governed external URLs are confirmed broken",
     "Live GPT-5.6/OpenAI runtime is not verified",
-    "Repository-wide media-rights coverage is incomplete; the bounded demo has a documented allowlist",
+    "The shipped app asset catalog passes its deterministic rights gate; screenshots, recordings, audio, and public-site media remain separate review scopes",
     "TestFlight/App Store parity is not verified",
     "No complete physical-device, VoiceOver, or OS matrix"
   ],

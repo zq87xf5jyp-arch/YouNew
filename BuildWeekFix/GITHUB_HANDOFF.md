@@ -7,6 +7,12 @@ Historical tested source commit: `61e7ce112669f8a6577b5b7d75f4d7cbdfe18459`
 Последний closed clean-clone UI snapshot: `efd1a7c50bf7b5e2f82be047b084b6d73cb009a7` — **84/87 RED**
 Текущий product/test source: `da8c3fe22e7a5d99b2187aab1141700b2d34f508`
 
+> Scoped media-rights update (2026-07-22): all statements below that classify
+> catalog assets as unresolved are historical and are superseded by
+> `BuildWeekFix/MEDIA_RIGHTS.md` and `BuildWeekFix/ASSET_RIGHTS_STATUS.json`.
+> The shipped 170-asset catalog now has `unresolved = 0`. Tracked screenshots,
+> recordings, audio, and public-site media remain separate review scopes.
+
 > Исторический 82/87 result ниже не относится к текущему source. Для `da8c3fe2`
 > требуется отдельный полный serial UI aggregate. Кроме offline clean-clone static
 > evidence, существует отдельный current Data Health blocker: 18 confirmed broken
@@ -39,7 +45,8 @@ history, зелёного clean-clone proof и предоставления су
   duplicate `ConnectivityStatus` symbol/type declaration;
 - удаление `IA_Audit_Screenshots/strict-reference-pass/02-refined-home.png`
   остаётся unresolved owner decision и не должно автоматически попадать в commit;
-- права на часть изображений подтверждены не полностью;
+- shipped asset catalog имеет полный rights ledger и ноль unresolved записей;
+  screenshot/video/audio/public-site файлы остаются отдельным scope;
 - staged scan 308-path source snapshot и последующие targeted checks не нашли
   подтверждённого секрета; dedicated scanner, binary/OCR/EXIF и owner metadata
   review по-прежнему не выполнены;
@@ -467,42 +474,16 @@ screenshots с завершённой атрибуцией.
 `.gitignore` больше не защищает `admin-dashboard/public-site/public/`, поэтому
 исключение обеспечивается только explicit staged-path allowlist, а не ignore policy.
 
-Отдельно заблокированы для blanket public-передачи до file-by-file подтверждения
-происхождения и условий использования:
+Shipped catalog больше не является блокером blanket catalog distribution. Все 170
+assets имеют file-level records: 58 byte-exact Public Domain city symbols, 36
+documented project-owned assets и 76 attribution-ready third-party assets. AppIcon
+и generated covers подтверждены owner attestation и byte-linked C2PA/JUMBF
+structural metadata (без заявления о cryptographic signature validation); unused emergency
+fallback удалён. Для 69 требующих attribution записей необходимо сохранять exact
+credits и modification notices.
 
-```text
-nl_hoorn_card_01
-city_*_flag (29 imagesets)
-city_*_coat_of_arms (29 imagesets)
-noord_holland_flag, zuid_holland_flag, utrecht_flag, gelderland_flag
-noord_brabant_flag, limburg_flag, overijssel_flag, flevoland_flag
-groningen_flag, friesland_flag, drenthe_flag, zeeland_flag
-map_* (12 imagesets)
-netherlands_map_base
-netherlands_map_provinces
-home_documents_city_hall
-home_healthcare_pharmacy
-home_leiden_canals
-app_amsterdam_evening_background
-home_emergency_ambulance
-home_language_classroom
-home_work_zuidas
-premium_home_documents
-premium_home_emergency
-premium_home_healthcare
-premium_home_housing
-premium_home_language
-premium_home_work
-premium_netherlands_emergency_fallback
-AppIcon.appiconset
-```
-
-Первые 72 manifest-backed `nl_*` assets также требуют проверки source-page terms;
-65 из них требуют attribution, а у `nl_hoorn_card_01` отсутствует license URL.
-Перечисленные выше non-`nl_*` группы составляют 98 imagesets вне manifest, плюс
-AppIcon. `ASSET_CREDITS.md` и `PLACE_MEDIA_RENDER_AUDIT.md` дают противоречивое
-описание происхождения части identity assets, поэтому ни один такой конфликт нельзя
-разрешать предположением о project ownership.
+Это не распространяется автоматически на tracked captures, видео, audio и
+public-site media. Их file-by-file release review остаётся отдельной задачей.
 
 Если эти blobs уже присутствуют в Git history, `.gitignore` не устраняет риск.
 Перед public-переходом владелец должен подтвердить права, заменить материалы
@@ -635,7 +616,8 @@ gate на контролируемом macOS runner и приложить точ
 ### Перед возможным переходом в public
 
 Повторить secret/history/PII/media review уже для GitHub snapshot, проверить доступ
-без авторизации, подтвердить лицензию и каждый screenshot/asset, а затем получить
+без авторизации, подтвердить лицензию и каждый выбранный non-catalog release
+artifact; catalog assets проверяются по `ASSET_RIGHTS_STATUS.json`. Затем получить
 отдельное письменное решение владельца. Public visibility не должна включаться
 автоматически и не является обязательным условием технического handoff.
 
@@ -648,7 +630,9 @@ gate на контролируемом macOS runner и приложить точ
   `IA_Audit_Screenshots/strict-reference-pass/02-refined-home.png`; удаление
   `PremiumInteractionServices.swift` уже классифицировано как essential;
 - право лицензировать собственный код и выбранный текст `LICENSE`;
-- права на изображения, app icon, screenshots, видео и third-party content;
+- выбор и права на screenshots, видео, audio, public-site media и другой
+  non-catalog third-party content; AppIcon и shipped catalog уже подтверждены
+  ledger/owner attestation;
 - публичность Git author/signing-team/contact metadata;
 - создание GitHub repository, добавление remote и первый push;
 - аккаунты судей и предоставление им доступа;
@@ -662,7 +646,7 @@ Remote: **ABSENT**.
 Recommended visibility: **PRIVATE UNTIL ALL GATES PASS**.
 Public handoff: **BLOCKED** by the last closed UI snapshot (84/87 RED), the
 current-source UI aggregate requirement, the 18-URL shipped-data health blocker,
-unresolved media rights, 39 tracked raster captures (about 91.0 MB), seven
+non-catalog release-media review for 39 tracked raster captures (about 91.0 MB), seven
 untracked public-site media files whose directory is no longer ignore-protected,
 reachable-history local-path/metadata review, owner review of excluded
 artifacts/license, and live GPT-5.6/runtime evidence.

@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "evidenceType": "embedded_c2pa_container_metadata",
+  "validationLevel": "structural_markers_and_metadata_only",
+  "signatureValidated": false,
+  "limitation": "The offline gate confirms C2PA/JUMBF structural markers, embedded generator metadata, file identity, and owner attestation. It does not cryptographically validate the C2PA signature chain.",
+  "records": [
+    {
+      "assetID": "premium_home_documents",
+      "path": "YouNew/Assets.xcassets/premium_home_documents.imageset/premium_home_documents.png",
+      "sha1": "4dc31837e4b9a5406977d8a8878e362346a72593",
+      "generator": "OpenAI Media Service API",
+      "provider": "OpenAI OpCo, LLC",
+      "xmpInstanceID": "432f0c21-7424-479c-84ad-6328658d06ec",
+      "createdAt": "2026-06-01T00:00:00Z"
+    },
+    {
+      "assetID": "premium_home_emergency",
+      "path": "YouNew/Assets.xcassets/premium_home_emergency.imageset/premium_home_emergency.png",
+      "sha1": "868c7ca4343e9b63d518278218db3afdca8a595e",
+      "generator": "OpenAI Media Service API",
+      "provider": "OpenAI OpCo, LLC",
+      "xmpInstanceID": "dac19cd7-6c6a-465c-94f0-1bba806e5f28",
+      "createdAt": "2026-06-01T00:00:00Z"
+    },
+    {
+      "assetID": "premium_home_healthcare",
+      "path": "YouNew/Assets.xcassets/premium_home_healthcare.imageset/premium_home_healthcare.png",
+      "sha1": "79103c665983c6e57a0823d41b7add1d9bd992a7",
+      "generator": "OpenAI Media Service API",
+      "provider": "OpenAI OpCo, LLC",
+      "xmpInstanceID": "bbaeebbc-66eb-45fd-925d-d02a89268493",
+      "createdAt": "2026-06-01T00:00:00Z"
+    },
+    {
+      "assetID": "premium_home_housing",
+      "path": "YouNew/Assets.xcassets/premium_home_housing.imageset/premium_home_housing.png",
+      "sha1": "d1180b72effd3619e761519f4e067ddfa4833804",
+      "generator": "OpenAI Media Service API",
+      "provider": "OpenAI OpCo, LLC",
+      "xmpInstanceID": "0b029130-09d3-4841-aebe-6e7a70c271c1",
+      "createdAt": "2026-06-01T00:00:00Z"
+    },
+    {
+      "assetID": "premium_home_language",
+      "path": "YouNew/Assets.xcassets/premium_home_language.imageset/premium_home_language.png",
+      "sha1": "ea6a82c1c6c0113f5ddf4f94811055c22715db13",
+      "generator": "OpenAI Media Service API",
+      "provider": "OpenAI OpCo, LLC",
+      "xmpInstanceID": "5d76dbbe-8e08-4c17-a68a-2bb388208852",
+      "createdAt": "2026-06-01T00:00:00Z"
+    },
+    {
+      "assetID": "premium_home_work",
+      "path": "YouNew/Assets.xcassets/premium_home_work.imageset/premium_home_work.png",
+      "sha1": "bf13b91911f7fbaa649c2b8efb6638625bfb2a97",
+      "generator": "OpenAI Media Service API",
+      "provider": "OpenAI OpCo, LLC",
+      "xmpInstanceID": "fe11fb18-9564-443c-9b5a-c1cea8dea7e2",
+      "createdAt": "2026-06-01T00:00:00Z"
+    }
+  ]
+}

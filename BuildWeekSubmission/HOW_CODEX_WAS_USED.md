@@ -44,7 +44,7 @@ publishing it.
 | Verification | [MediaRegistryTests.swift](../YouNewTests/MediaRegistryTests.swift), [PriorityCityHeroMediaTests.swift](../YouNewTests/PriorityCityHeroMediaTests.swift), and the image checks invoked by [run-static-qa.sh](../scripts/run-static-qa.sh). Final execution status belongs in `FINAL_VALIDATION.md`. |
 | Measurable result | The source contains typed image roles and focal points, a 12-second remote request timeout, a 160-object/80 MB content-image memory cache, a separate 100-object/200 MB loader cache, target-pixel downsampling, disk thumbnails, and in-flight request coalescing. These are implementation bounds, not measured performance gains. |
 | Owner review | The tracked visual audits compare the supplied reference direction with Home, Guide, Map, Saved, More, Government, and partner surfaces. |
-| Limitation | No current Instruments trace proves a memory or decode-latency improvement, and complete media-rights clearance is not established. |
+| Limitation | No current Instruments trace proves a memory or decode-latency improvement. The shipped 170-asset catalog passes its rights gate; screenshots, recordings, audio, and public-site media remain separate review scopes. |
 
 Supporting packet:
 [EVIDENCE_PREMIUM_IMAGE_PIPELINE.md](../BuildWeekFix/EVIDENCE_PREMIUM_IMAGE_PIPELINE.md).
@@ -129,4 +129,3 @@ Supporting packet:
 - Final preserved build and test artifacts linked to the submitted snapshot.
 - Owner confirmation of the human-role wording.
 - Owner confirmation of media rights, distribution status, and final acceptance.
-

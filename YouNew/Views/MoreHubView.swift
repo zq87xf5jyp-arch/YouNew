@@ -1198,13 +1198,18 @@ struct AboutYouNewView: View {
                             trailingSymbol: "number.circle"
                         )
                         Divider().padding(.leading, 70)
-                        PremiumMenuRow(
-                            icon: "doc.text.magnifyingglass",
-                            color: AppColors.textSecondary,
-                            title: aboutSourcesTitle,
-                            subtitle: aboutSourcesDetail,
-                            trailingSymbol: "doc.text"
-                        )
+                        NavigationLink {
+                            MediaCreditsView()
+                        } label: {
+                            PremiumMenuRow(
+                                icon: "doc.text.magnifyingglass",
+                                color: AppColors.textSecondary,
+                                title: aboutSourcesTitle,
+                                subtitle: aboutSourcesDetail
+                            )
+                        }
+                        .buttonStyle(.plain)
+                        .accessibilityIdentifier("about.mediaCredits")
                     }
                 }
 

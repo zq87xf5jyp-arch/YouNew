@@ -2,30 +2,9 @@ name: DATA PROJECT Health
 
 on:
   pull_request:
-    paths:
-      - "DataProject/**"
-      - "scripts/data-project-qa.py"
-      - "scripts/generate-data-dashboard.py"
-      - "scripts/data-dashboard-static-qa.py"
-      - "scripts/generate-data-observability.py"
-      - "scripts/data-project-import-static-qa.py"
-      - "scripts/data-observability-static-qa.py"
-      - "scripts/generate-data-operations.py"
-      - "scripts/data-operations-static-qa.py"
-      - "scripts/check-external-links.py"
-      - "scripts/data-health-gate.py"
-      - "scripts/data-project-workflow-static-qa.py"
-      - "scripts/effective_release.py"
-      - "scripts/import-data-project.py"
-      - "scripts/run-static-qa.sh"
-      - "scripts/tests/**"
-      - "YouNew/**"
-      - "source_registry.json"
-      - "admin-dashboard/public-site/src/generated/public-content.json"
-      - "admin-dashboard/public-site/public/data/search-index.json"
-      - "admin-dashboard/public-site/public/data/content-provenance.json"
-      - ".github/workflows/data-project-health.yml"
   push:
+    branches:
+      - main
     paths:
       - "DataProject/**"
       - "scripts/data-project-qa.py"
@@ -66,10 +45,10 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
       - name: Validate work packages, milestones, releases and batches
@@ -108,7 +87,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: data-project-dashboard
+          name: data-project-dashboard-${{ github.run_id }}-${{ github.run_attempt }}
           path: DataProject/reports/
           if-no-files-found: error
           retention-days: 30
@@ -120,10 +99,10 @@ jobs:
     runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
-      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
       - name: Check runtime and DATA PROJECT links
@@ -150,7 +129,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: data-project-nightly-health
+          name: data-project-nightly-health-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             DataProject/reports/
             knowledge_data_health.json

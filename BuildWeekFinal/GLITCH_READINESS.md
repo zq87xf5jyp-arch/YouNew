@@ -7,7 +7,7 @@ Scope: bounded OpenAI Build Week demo candidate, not App Store production readin
 
 **84 / 100 — ready for the bounded owner-recorded demo, with disclosed exclusions.**
 
-This is a transparent engineering rubric, not an Xcode metric or a probability of being bug-free. The score is reduced for the finalized UI failures, broken external references, incomplete physical-device/VoiceOver coverage, media-rights gaps, and unverified distribution artifacts.
+This is a transparent engineering rubric, not an Xcode metric or a probability of being bug-free. The score is reduced for the finalized UI failures, broken external references, incomplete physical-device/VoiceOver coverage, separate non-catalog release-media review, and unverified distribution artifacts. The shipped 170-asset catalog itself now passes its deterministic rights gate with zero unresolved records.
 
 | Area | Weight | Earned | Evidence and deduction |
 |---|---:|---:|---|

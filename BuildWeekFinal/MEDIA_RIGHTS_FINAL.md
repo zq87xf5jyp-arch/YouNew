@@ -1,95 +1,48 @@
-# Build Week media-rights gate
+# Final app media-rights gate
 
-Evidence cutoff: 2026-07-21 (Europe/Amsterdam)
-Repository HEAD inspected before this report: `2723960c3c15383cf76b4166fed13e6143eda293`
-Verdict: **DEMO ALLOWLIST AVAILABLE / REPOSITORY-WIDE CLEARANCE NOT PROVED**
+Evidence cutoff: 2026-07-22 (Europe/Amsterdam)
+
+Verdict: **PASS — `YouNew/Assets.xcassets` has complete records and zero unresolved assets**
 
 This is an engineering provenance review, not legal advice.
 
-## Current inventory
+## Verified inventory
 
-- 170 asset-catalog imagesets plus AppIcon.
-- 72 `nl_*` assets have a manifest-backed source, creator, license, and now a
-  resolved license/public-domain link for every record.
-- 98 non-`nl_*` imagesets remain outside that manifest. Three legacy photographs
-  used by the content registry have exact Wikimedia records, but that does not
-  clear the other 95 files or AppIcon.
-- 44 tracked PNG simulator/audit captures exist outside the asset catalog. Only
-  the eight files under `BuildWeekFinal/screenshots/` were reviewed as the current
-  demo set; the 36 older audit/runtime captures are excluded from the public
-  media allowlist.
+| Family | Count | Basis |
+| --- | ---: | --- |
+| Netherlands and UI photography | 76 | Source, creator, license, credit, modification notice, in-app attribution |
+| City flags and coats of arms | 58 | Exact Commons Public Domain originals; local SHA-1 equals Commons SHA-1 |
+| Province flags and maps | 26 | Versioned project-created vectors |
+| AppIcon | 1 | Versioned SVG source, deterministic generators, owner confirmation |
+| Generated covers and exact aliases | 9 | C2PA/JUMBF structural metadata (signature not cryptographically validated here), byte identity, owner confirmation |
+| **Total** | **170** | One governed ledger record per shipped catalog asset |
 
-## Primary-source checks completed
+The unused `premium_netherlands_emergency_fallback` was removed. The former
+ambulance, classroom, and Zuidas photos were replaced by exact copies of confirmed
+generated artwork. The former Leiden credit was corrected to Zairon, CC BY-SA 4.0.
 
-| Material | Source result | Conditions / boundary | Decision |
-|---|---|---|---|
-| Leiden hero `nl_leiden_hero_01` | Wikimedia Commons identifies C messier and CC BY-SA 4.0. | Credit, license link, change note; ShareAlike if the crop is an adaptation. | Allowed for the bounded demo with the credit below. |
-| Haarlem City Hall `home_documents_city_hall` | Wikimedia Commons identifies Jane023 and offers CC BY-SA 3.0 (or GFDL). | Use the CC BY-SA 3.0 option; credit, license link, and crop/resize note. | Allowed for the bounded demo with the credit below. |
-| Amsterdam hero `nl_amsterdam_hero_01` | Wikimedia Commons identifies Basile Morin and CC BY-SA 4.0. | Credit, license link, change note; ShareAlike if adapted. | Allowed for the bounded demo with the credit below. |
-| Hoorn card `nl_hoorn_card_01` | The exact Commons Licensing section records a worldwide public-domain release by the copyright holder. | Preserve source/provenance even though attribution is not required by that statement. | Metadata defect resolved. |
-| Netherlands/province map | `ASSET_CREDITS.md` records simplified vectors created for YouNew; the owner confirmed this provenance for the release handoff. | Do not call the map official or imply government endorsement. | Allowed for the bounded demo. |
-| Amsterdam flag and coat of arms | Commons marks the displayed files free of known copyright restrictions, while warning that official-symbol restrictions can apply independently. | Informational display only; no endorsement claim; owner/legal review remains advisable. | Conditional. Do not use screenshot 08 as promotional artwork until owner accepts this boundary. |
+## Evidence
 
-## Public demo allowlist
+- `BuildWeekFix/ASSET_RIGHTS_STATUS.json`
+- `BuildWeekFix/CITY_SYMBOL_RIGHTS.json`
+- `BuildWeekFix/C2PA_MEDIA_EVIDENCE.json`
+- `BuildWeekFix/MEDIA_RIGHTS_OWNER_ATTESTATION.md`
+- `YouNew/Resources/MediaAttributions.json`
+- `MEDIA_ATTRIBUTION.md`
+- `ASSET_CREDITS.md`
 
-The current recording may show only:
+## Release enforcement
 
-1. programmatic UI, SF Symbols, and YouNew typography/colour surfaces;
-2. `nl_leiden_hero_01`;
-3. `home_documents_city_hall`;
-4. `nl_amsterdam_hero_01`;
-5. the simplified YouNew map, with the confirmed provenance statement in
-   `ASSET_CREDITS.md` and no official-map claim;
-6. Amsterdam identity symbols only in an informational city-detail shot and only
-   after the owner accepts the official-symbol boundary above.
+`python3 scripts/asset-rights-gate.py` inventories the catalog, recalculates every
+payload SHA-1 and summary count, validates structured evidence, and fails unless
+`unresolved == 0`. Product CI runs the same offline gate.
 
-Do not introduce the eleven unresolved high-use raster assets into the recording:
-`app_amsterdam_evening_background`, `home_emergency_ambulance`,
-`home_language_classroom`, `home_work_zuidas`, `premium_home_documents`,
-`premium_home_emergency`, `premium_home_healthcare`, `premium_home_housing`,
-`premium_home_language`, `premium_home_work`, and
-`premium_netherlands_emergency_fallback`.
+## Distribution conditions
 
-The 36 older tracked screenshots under `IA_Audit_Screenshots/`,
-`QA_Baseline_Screenshots/`, and `Runtime_Screenshots/` are excluded from the
-public handoff allowlist. They should be removed from a future public branch or
-kept in private evidence storage after owner review.
-
-## Required demo/video credits
-
-Include these lines in the video description or end card; do not shorten away the
-creator, license, source, or modification note.
-
-- Leiden hero: “Oude Vest canal, Leiden 6869” by C messier, CC BY-SA 4.0,
-  https://commons.wikimedia.org/wiki/File:Oude_Vest_canal,_Leiden_6869.jpg —
-  cropped/resized and converted for YouNew.
-- Haarlem City Hall by Jane023, CC BY-SA 3.0,
-  https://commons.wikimedia.org/wiki/File:Haarlem_city_hall.JPG — cropped/resized
-  for YouNew.
-- Amsterdam hero: “Water reflection of canal houses at blue hour in Damrak
-  Amsterdam the Netherlands” by Basile Morin, CC BY-SA 4.0,
-  https://commons.wikimedia.org/wiki/File:Water_reflection_of_canal_houses_at_blue_hour_in_Damrak_Amsterdam_the_Netherlands.jpg
-  — cropped/resized and converted for YouNew.
-- Licenses: https://creativecommons.org/licenses/by-sa/4.0/ and
-  https://creativecommons.org/licenses/by-sa/3.0/.
-
-## Screenshot decision
-
-- Screenshots 01–07: eligible for the bounded submission package when the credit
-  block above accompanies their public use.
-- Screenshot 08: **conditional / excluded from promotional use by default** because
-  it visibly includes municipal flag/coat-of-arms imagery with independent symbol
-  restrictions. A replacement crop showing the Amsterdam hero/name without the
-  identity tiles is preferred.
-- All legacy audit/runtime screenshots: excluded from the public allowlist.
-
-## Remaining repository-wide gates
-
-- Confirm or replace AppIcon and all eleven unresolved high-use raster assets.
-- Accept the official-symbol boundary or exclude city identity tiles from the
-  public recording and screenshots.
-- Do not claim “all images are fully licensed.”
-
-Completed release decisions: the simplified map/vector provenance is confirmed;
-the repository is public; screenshots 01–07 form the bounded promotional set;
-screenshot 08 and city identity tiles remain excluded by default.
+- Preserve exact third-party credit lines and modification notices in app and
+  release materials.
+- Do not imply municipality endorsement through city symbols.
+- Do not describe third-party media as covered by the repository's source-code
+  license.
+- Review screenshots, video, audio, and public-site media separately; they are not
+  part of this catalog-only PASS.

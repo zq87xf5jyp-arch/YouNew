@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-07-22",
+  "records": [
+    {
+      "assetID": "drenthe_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/drenthe_flag.imageset/drenthe_flag.svg",
+      "localSHA1": "607671b2d7c42abfd3be924fbd7547c2b8c23035",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    },
+    {
+      "assetID": "flevoland_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/flevoland_flag.imageset/flevoland_flag.svg",
+      "localSHA1": "027785f015b7f9a1290c8c8f1070a122f83663a2",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    },
+    {
+      "assetID": "friesland_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/friesland_flag.imageset/friesland_flag.svg",
+      "localSHA1": "967c520fddcab7c296eb18aac8edc858bcb16a86",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    },
+    {
+      "assetID": "gelderland_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/gelderland_flag.imageset/gelderland_flag.svg",
+      "localSHA1": "e0f12c234b2101b92825a7d87c99fea4a014fe27",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    },
+    {
+      "assetID": "groningen_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/groningen_flag.imageset/groningen_flag.svg",
+      "localSHA1": "9c1267b8e3bfc5b85a7753d6e1eaf9de865b098c",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    },
+    {
+      "assetID": "limburg_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/limburg_flag.imageset/limburg_flag.svg",
+      "localSHA1": "a5cbd20a3943dd655de4dbc2ca9939854b19003e",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    },
+    {
+      "assetID": "map_drenthe",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_drenthe.imageset/map_drenthe.svg",
+      "localSHA1": "577e70ddd5833ead64d4d3e71cbc69e0b653a611",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "map_flevoland",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_flevoland.imageset/map_flevoland.svg",
+      "localSHA1": "8b972e163582daac26c2b90d41ad6870ac8a02a4",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "map_friesland",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_friesland.imageset/map_friesland.svg",
+      "localSHA1": "68a18fdaff2f3685a74b22074d96cd4c5f93bd2f",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "map_gelderland",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_gelderland.imageset/map_gelderland.svg",
+      "localSHA1": "b242ea620cc7f2933b5115a6a6f85f2c2b7cd33c",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "map_groningen",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_groningen.imageset/map_groningen.svg",
+      "localSHA1": "73d19cea8e77e712473e6310b04a6d922a83140e",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "map_limburg",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_limburg.imageset/map_limburg.svg",
+      "localSHA1": "f1e839cbe897df868877631a7fae26ce7be980f9",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "map_noord_brabant",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_noord_brabant.imageset/map_noord_brabant.svg",
+      "localSHA1": "7c719267015bd71d5926534b192e7a26c411ec37",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "map_noord_holland",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_noord_holland.imageset/map_noord_holland.svg",
+      "localSHA1": "64172d421515b5f1cf241cbb0c7266b4f6d2b5cb",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "map_overijssel",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_overijssel.imageset/map_overijssel.svg",
+      "localSHA1": "1f8c8cd2f4cb0106e8b849bb370add67327d435b",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "map_utrecht",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_utrecht.imageset/map_utrecht.svg",
+      "localSHA1": "53614454eb95986e07f4f675d198a2b0b38b74fb",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "map_zeeland",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_zeeland.imageset/map_zeeland.svg",
+      "localSHA1": "e735882de97d01f784d1fd03b171b4dc595b08af",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "map_zuid_holland",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/map_zuid_holland.imageset/map_zuid_holland.svg",
+      "localSHA1": "39b1830d762bfeb77989363adf516eef149e3149",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "netherlands_map_base",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/netherlands_map_base.imageset/netherlands_map_base.svg",
+      "localSHA1": "79d7fd421a788866701e8858f731d751eb562d99",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "netherlands_map_provinces",
+      "family": "project_map",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/netherlands_map_provinces.imageset/netherlands_map_provinces.svg",
+      "localSHA1": "fd3f6e075aa88c955667df1cb276ab7ea8dd6631",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified SVG map vector documented in ASSET_CREDITS.md."
+    },
+    {
+      "assetID": "noord_brabant_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/noord_brabant_flag.imageset/noord_brabant_flag.svg",
+      "localSHA1": "f06897d7b63894eb66713681e54c45000826ba48",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    },
+    {
+      "assetID": "noord_holland_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/noord_holland_flag.imageset/noord_holland_flag.svg",
+      "localSHA1": "2991739a333058731edb13f9210b9a6337ba6424",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    },
+    {
+      "assetID": "overijssel_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/overijssel_flag.imageset/overijssel_flag.svg",
+      "localSHA1": "016735736d4f2c45ea8bcf30f3cea8888718d4fa",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    },
+    {
+      "assetID": "utrecht_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/utrecht_flag.imageset/utrecht_flag.svg",
+      "localSHA1": "78ded31f070e23ab298d99e9df4b2d10ec57d3ff",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    },
+    {
+      "assetID": "zeeland_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/zeeland_flag.imageset/zeeland_flag.svg",
+      "localSHA1": "13f614112c1dbc4e75baf07eba3675f6229bd13e",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    },
+    {
+      "assetID": "zuid_holland_flag",
+      "family": "province_flag",
+      "ownershipBasis": "repository_original",
+      "creator": "YouNew project",
+      "localPath": "YouNew/Assets.xcassets/zuid_holland_flag.imageset/zuid_holland_flag.svg",
+      "localSHA1": "a355367c9b505f03806f3f34e8e67653c59aa294",
+      "evidence": ["ASSET_CREDITS.md"],
+      "note": "Self-created simplified province flag-style SVG documented in ASSET_CREDITS.md; not an official asset."
+    }
+  ]
+}

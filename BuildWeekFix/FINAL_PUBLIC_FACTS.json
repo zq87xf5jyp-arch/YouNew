@@ -3,6 +3,7 @@
     "status": "HISTORICAL_INTERIM_SUPERSEDED_BY_BUILD_WEEK_PACKAGE",
     "superseded_by": "BuildWeek/FINAL_STATUS.md",
     "evidence_cutoff_date": "2026-07-21",
+    "media_rights_update_date": "2026-07-22",
     "timezone": "Europe/Amsterdam",
     "audit_baseline_commit": "b15a2f2913911763c989f9880f8ce376f903fc6e",
     "historical_detailed_commit": "61e7ce112669f8a6577b5b7d75f4d7cbdfe18459",
@@ -37,7 +38,7 @@
     "production_ready": false,
     "submission_ready": false,
     "judge_safe_public_repository": false,
-    "reason": "The local deterministic demo path and submission package are ready for owner handoff. Aggregate UI evidence, live GPT-5.6, external link health, media rights, and production distribution remain explicitly outside the candidate claim."
+    "reason": "The local deterministic demo path and submission package are ready for owner handoff. The shipped asset catalog passes its rights gate; aggregate UI evidence, live GPT-5.6, external link health, non-catalog release media, and production distribution remain explicitly outside the candidate claim."
   },
   "dimensions": {
     "build": {
@@ -144,16 +145,20 @@
       "judge_ready_screenshots_present": false
     },
     "media_rights": {
-      "status": "PARTIAL_BLOCKED",
+      "status": "PASS_SHIPPED_ASSET_CATALOG",
+      "scope": "YouNew/Assets.xcassets",
       "asset_catalog_imagesets": 170,
-      "manifest_backed_nl_assets": 72,
-      "manifest_entries_requiring_attribution": 65,
-      "manifest_entries_missing_license_url": 1,
-      "non_manifest_imagesets": 98,
-      "app_icon_cleared": false,
+      "unresolved_asset_catalog_records": 0,
+      "public_domain_city_symbols": 58,
+      "documented_project_owned_assets": 36,
+      "third_party_attribution_ready_assets": 76,
+      "in_app_attribution_records": 76,
+      "records_requiring_attribution": 69,
+      "app_icon_cleared": true,
       "tracked_raster_captures": 39,
       "tracked_raster_capture_bytes": 91034208,
       "untracked_public_site_media_files": 7,
+      "non_catalog_release_media_review_completed": false,
       "blanket_public_redistribution_cleared": false
     },
     "demo_readiness": {
@@ -181,7 +186,7 @@
     "An independent clone built a bounded source snapshot and passed 460 of 460 unit tests and offline structural static QA.",
     "The local deterministic assistant is available and explicitly labelled local guide mode.",
     "The repository contains bounded GPT-5.6 Responses API integration code, but live GPT-5.6 access and deployment have not been runtime-verified.",
-    "Media rights are partially documented and do not support blanket redistribution."
+    "The shipped 170-asset catalog has complete deterministic rights records and zero unresolved assets; third-party conditions and separate non-catalog media review remain in force."
   ],
   "claims_not_verified": [
     "All submission gates are green.",
@@ -198,7 +203,7 @@
     "Close and diagnose the current full serial UI aggregate without weakening contracts.",
     "Implement a reviewed versioned release remediation for 18 broken URLs in shipped runtime data and rerun a fresh network check.",
     "Obtain owner-approved backend credentials, deployment approval, exact GPT-5.6 Sol access, privacy/abuse controls, and live runtime proof.",
-    "Resolve or exclude media with incomplete or conflicting provenance.",
+    "Inventory and review screenshots, recordings, audio, and public-site media separately before publishing those non-catalog artifacts.",
     "Complete owner review of licensing, privacy, legal and medical content, personal metadata, fixtures, screenshots, contacts, and repository visibility.",
     "Create GitHub repository, remote, judge access, rights-cleared captures, demo video, and submission only through explicit owner actions."
   ]

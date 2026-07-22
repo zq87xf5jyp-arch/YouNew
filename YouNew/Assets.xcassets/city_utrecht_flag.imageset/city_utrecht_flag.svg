@@ -1,13 +1,5 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
-  <!-- Utrecht flag: red field with a white horizontal band (derived from bishop's cross) -->
-  <rect width="300" height="200" fill="#C8102E"/>
-  <!-- White horizontal fess (band) through center -->
-  <rect y="80" width="300" height="40" fill="white"/>
-  <!-- Gold bishop's cross overlaid on the band -->
-  <!-- Vertical bar of cross -->
-  <rect x="143" y="40" width="14" height="120" rx="3" fill="#D4AF37"/>
-  <!-- Horizontal bar of cross (shorter, through center) -->
-  <rect x="100" y="90" width="100" height="14" rx="3" fill="#D4AF37"/>
-  <!-- Cross cap (top of vertical bar) -->
-  <rect x="136" y="32" width="28" height="12" rx="3" fill="#D4AF37"/>
+<?xml version="1.0"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="450" height="300" viewBox="0 0 3 2">
+<path d="M0,0H3V2H0z" fill="#cc112f"/>
+<path d="M0,0H3V2z" fill="#fff"/>
 </svg>

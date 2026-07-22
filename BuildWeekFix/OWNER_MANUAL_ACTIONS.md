@@ -18,9 +18,10 @@
    которые не входят в evidence commit.
 4. Подтвердить права на собственный код и contributor contributions, затем одобрить
    текущий restrictive `LICENSE` либо предоставить юридически проверенную замену.
-5. Предоставить доказательства происхождения и условий использования AppIcon,
-   screenshots и всех unresolved media; всё неподтверждённое заменить
-   rights-cleared материалом или исключить из public repository и demo.
+5. Shipped asset catalog уже имеет 170 governed records и ноль unresolved assets;
+   AppIcon подтверждён owner attestation. Отдельно инвентаризировать screenshots,
+   recordings, audio, public-site media и другой non-catalog release content;
+   неподтверждённое заменить или исключить из публикации/demo.
 - Принять release-data решение по 18 подтверждённым недоступным URL в shipped
   runtime data (30 published entities, 85 field occurrences): подтвердить
   проверенные replacement sources/media или разрешить их исключение, затем
@@ -62,10 +63,12 @@
 
 16. Настроить Apple signing, certificates и provisioning вне repository, если
     нужен device, TestFlight или App Store build.
-17. Предоставить финальные rights-cleared App Store/TestFlight screenshots и
-    заполнить обязательные privacy/distribution declarations.
+17. Предоставить финальные отдельно проверенные App Store/TestFlight screenshots,
+    сохранить требуемые photo credits/modification notices и заполнить обязательные
+    privacy/distribution declarations. Catalog PASS сам по себе не очищает screenshots.
 18. Записать основной live demo video и отдельное fallback evidence без credentials,
-    personal data, notifications или неподтверждённых media.
+    personal data или notifications; провести отдельный release-media review
+    итогового видео и использованных кадров.
 19. Отдельно подтвердить и вручную выполнить требуемые upload, TestFlight/App Store
     release actions и OpenAI Build Week submission.
 

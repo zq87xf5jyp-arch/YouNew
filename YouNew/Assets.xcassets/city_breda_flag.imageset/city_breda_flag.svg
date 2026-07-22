@@ -1,30 +1,83 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
-  <!-- Breda flag: azure (blue) field with golden castle (Kasteel van Breda) -->
-  <rect width="300" height="200" fill="#003082"/>
-  <!-- Castle (simplified medieval castle, Nassau castle style) -->
-  <!-- Central keep -->
-  <rect x="118" y="58" width="64" height="102" rx="4" fill="#D4AF37"/>
-  <!-- Battlements on keep -->
-  <rect x="112" y="42" width="16" height="20" rx="3" fill="#D4AF37"/>
-  <rect x="134" y="42" width="16" height="20" rx="3" fill="#D4AF37"/>
-  <rect x="156" y="42" width="16" height="20" rx="3" fill="#D4AF37"/>
-  <rect x="178" y="42" width="16" height="20" rx="3" fill="#D4AF37"/>
-  <!-- Gate arch -->
-  <path d="M135,160 L135,116 Q150,96 165,116 L165,160 Z" fill="#003082"/>
-  <!-- Windows -->
-  <rect x="124" y="76" width="14" height="18" rx="3" fill="#003082"/>
-  <rect x="162" y="76" width="14" height="18" rx="3" fill="#003082"/>
-  <!-- Left flanking tower -->
-  <rect x="64" y="80" width="56" height="80" rx="4" fill="#D4AF37"/>
-  <rect x="58" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
-  <rect x="76" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
-  <rect x="94" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
-  <!-- Right flanking tower -->
-  <rect x="180" y="80" width="56" height="80" rx="4" fill="#D4AF37"/>
-  <rect x="178" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
-  <rect x="196" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
-  <rect x="214" y="64" width="14" height="20" rx="3" fill="#D4AF37"/>
-  <!-- Connecting wall between towers -->
-  <rect x="64" y="126" width="56" height="16" rx="0" fill="#D4AF37"/>
-  <rect x="180" y="126" width="56" height="16" rx="0" fill="#D4AF37"/>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="1200"
+   height="800"
+   viewBox="0 0 450 300"
+   id="svg3004"
+   version="1.1"
+   inkscape:version="0.48.4 r9939"
+   sodipodi:docname="Flag_of_Breda.svg">
+  <metadata
+     id="metadata3021">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs3019" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1600"
+     inkscape:window-height="837"
+     id="namedview3017"
+     showgrid="false"
+     inkscape:zoom="0.295"
+     inkscape:cx="600"
+     inkscape:cy="400"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg3004" />
+  <rect
+     fill="#fa4139"
+     width="450"
+     height="300"
+     id="rect3006"
+     style="fill:#d90d15;fill-opacity:1" />
+  <g
+     id="x"
+     stroke="#fff"
+     stroke-width="23">
+    <line
+       x1="79"
+       y1="40"
+       x2="148"
+       y2="110"
+       id="line3009" />
+    <line
+       x1="79"
+       y1="110"
+       x2="148"
+       y2="40"
+       id="line3011" />
+  </g>
+  <use
+     x="225"
+     xlink:href="#x"
+     id="use3013" />
+  <use
+     x="111"
+     y="145"
+     xlink:href="#x"
+     id="use3015" />
 </svg>

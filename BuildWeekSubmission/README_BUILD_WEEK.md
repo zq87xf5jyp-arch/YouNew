@@ -52,7 +52,7 @@ This is not a probability of zero bugs or an App Store score.
 | External links | Current report includes 18 confirmed broken URLs. |
 | Tests | Clean build PASS; unit 460/460 PASS; static 43/44 known gates; full UI 79/87; isolated rerun of the eight failures 5/8. Three UI failures remain reproducible. |
 | Distribution | The public GitHub `origin/main` is the judge-facing source package. TestFlight/App Store parity is not verified. |
-| Media | Screenshots 01–07 and the bounded demo photographs have an owner-approved, source-backed allowlist; repository-wide clearance remains incomplete. |
+| Media | The shipped 170-asset catalog passes its deterministic rights gate with zero unresolved records. Screenshots, recordings, audio, and public-site media remain separate release scopes. |
 
 ## Main demo flow
 
@@ -116,8 +116,9 @@ is healthy.
 
 The shared image layer supports role-aware sizing, local/remote candidates,
 fallback states, focal-point policy, downsampling, bounded caches, in-flight
-request coalescing, HTTP validation, and accessibility labels. Complete media
-rights clearance remains separate from implementation quality.
+request coalescing, HTTP validation, and accessibility labels. The shipped app
+catalog passes its deterministic rights gate; non-catalog release media remains
+a separate review scope from implementation quality.
 
 ## How Codex was used
 
@@ -191,12 +192,13 @@ boundaries, see [JUDGE_SETUP.md](JUDGE_SETUP.md).
 
 ## Media attribution status
 
-The bounded demo now has a source-backed allowlist for its Leiden, Haarlem, and
-Amsterdam photographs, including exact attribution and modification wording.
-Repository-wide clearance is still incomplete for eleven high-use raster assets,
-AppIcon, identity symbols, and legacy captures. Follow
-[MEDIA_RIGHTS_AND_ATTRIBUTION.md](MEDIA_RIGHTS_AND_ATTRIBUTION.md); do not use
-“all images are fully licensed” in the submission.
+The shipped Xcode catalog now has 170 governed records and zero unresolved assets:
+58 byte-exact public-domain city symbols, 36 documented project-owned assets, and
+76 attribution-ready third-party assets. Follow
+[MEDIA_RIGHTS_AND_ATTRIBUTION.md](MEDIA_RIGHTS_AND_ATTRIBUTION.md) and preserve
+all required credits and modification notices. Do not extend this catalog-only
+PASS to screenshots, recordings, audio, public-site media, or the unscoped claim
+“all images are fully licensed.”
 
 ## Known limitations
 
@@ -205,7 +207,7 @@ AppIcon, identity symbols, and legacy captures. Follow
 - 18 confirmed broken URLs in the current data-health report.
 - Map/root delivery evidence is green; the latest isolated latency ceiling is not.
 - No verified TestFlight/App Store parity.
-- Bounded demo media allowlist prepared; repository-wide clearance remains partial.
+- Shipped app catalog rights gate PASS; non-catalog release media requires separate review.
 - No complete physical-device/VoiceOver certification.
 - The current full 87-test UI aggregate is finalized at 79 PASS / 8 FAIL / 0 skipped. Isolated reruns do not replace that aggregate.
 - The public `origin/main` repository is the judge-facing source of truth after

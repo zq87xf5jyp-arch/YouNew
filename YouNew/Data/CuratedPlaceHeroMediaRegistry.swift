@@ -52,7 +52,6 @@ enum CuratedPlaceHeroMediaRegistry {
     static let bundledMapFallbackAssetName = "netherlands_map_base"
     static let cityPlaceholderAssetName = bundledNeutralFallbackAssetName
     static let provincePlaceholderAssetName = bundledMapFallbackAssetName
-    static let bundledEmergencyFallbackAssetName = "premium_netherlands_emergency_fallback"
     static let netherlandsPremiumFallbackURL: URL? = nil
 
     static let mediaByPlaceId: [String: CuratedPlaceHeroMedia] = [

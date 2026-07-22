@@ -12,7 +12,7 @@ Scope: bounded YouNew Build Week candidate, not production readiness
 | Static/link health | Static QA is 43/44 known gates. Current health report has 18 confirmed broken, 623 restricted, and 32 transient among 2,494 URLs. | Pre-check the exact source used in the recording. Do not claim all links work. |
 | Content completeness | Content depth varies; governed records include drafts/review items and explicit gaps. | Demonstrate only the verified BSN/address/DigiD guide and one governed city. |
 | Distribution | The GitHub repository is public and judge-accessible, but no evidence ties this workspace to a current TestFlight or App Store binary. | Present the bounded GitHub/demo candidate only; do not claim App Store parity. |
-| Media rights | A source-backed allowlist now covers the bounded demo photographs, and the Hoorn public-domain metadata defect is resolved. Repository-wide clearance is still incomplete for 11 high-use raster assets, AppIcon, identity symbols, and legacy captures. | Follow `MEDIA_RIGHTS_AND_ATTRIBUTION.md`; include exact credits; exclude unresolved assets and screenshot 08 by default. |
+| Media rights | The shipped 170-asset Xcode catalog passes the deterministic rights gate with zero unresolved records: 58 public-domain city symbols, 36 documented project-owned assets, and 76 attribution-ready third-party assets. Screenshots, recordings, audio, and public-site media are separate inventories and are not cleared by the catalog result. | Follow `MEDIA_RIGHTS_AND_ATTRIBUTION.md`; preserve required credits and modification notices; review every non-catalog release artifact separately. |
 | Device/accessibility coverage | Current UI evidence uses one iPhone 17 Pro Simulator on iOS 26.5. No complete physical-device, VoiceOver, older-OS, thermal, memory, or offline matrix exists. | Describe the exact simulator environment; do not claim broad certification or full conformance. |
 | Repository reproducibility | The public release commit intentionally excludes unrelated local public-site work and generated video/audio artifacts. The rendered MP4 is therefore not reproducible from a clean clone without the retained local inputs. | Treat `origin/main` as the judge-facing source package and the separately reviewed MP4 as the upload artifact. |
 | External advice | Stored information can change and does not replace competent legal, medical, immigration, tax, or financial advice. | Keep the informational disclaimer and show official-source actions. |
@@ -23,14 +23,14 @@ Scope: bounded YouNew Build Week candidate, not production readiness
 - The candidate uses a verified live OpenAI assistant.
 - All tests or links pass.
 - The app is production ready.
-- All content is complete or all images are fully licensed.
+- All content is complete or all repository/release media is cleared. The catalog-only PASS does not cover screenshots, recordings, audio, or public-site media.
 - The audited source matches the latest TestFlight/App Store build.
 - The exact candidate can be clean-cloned and built.
 
 ## Manual owner gates
 
 - Provide App Store/TestFlight screenshots and parity evidence.
-- Confirm media rights or remove disputed media.
+- Inventory and review screenshots, recordings, audio, and public-site media before publishing them; the shipped app catalog itself is cleared.
 - Review the dirty tree and existing GitHub remote.
 - Explicitly approve a future commit and push.
 - Record/upload the bounded demo video, paste the reviewed Devpost text, and submit.

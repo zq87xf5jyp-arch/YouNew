@@ -1,11 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 200">
-  <!-- Maastricht flag: white/silver field with a red Latin cross and a red 6-pointed star -->
-  <rect width="300" height="200" fill="#F5F5F5"/>
-  <!-- Red Latin cross (cross of St. Servatius) -->
-  <!-- Vertical bar -->
-  <rect x="136" y="20" width="28" height="160" rx="4" fill="#C8102E"/>
-  <!-- Horizontal bar -->
-  <rect x="75" y="75" width="150" height="28" rx="4" fill="#C8102E"/>
-  <!-- Red 6-pointed star (star of Maastricht) in upper-left canton -->
-  <polygon points="55,28 61,46 78,46 65,57 70,75 55,64 40,75 45,57 32,46 49,46" fill="#C8102E"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="750" height="500"><path fill="#e5352c" d="M0 0h750v500H0"/><path fill="#fff" d="M 267.719,90 170.115,390 425.6,204.747 109.839,204.747 365.323,390"/></svg>

@@ -38,10 +38,17 @@ python3 scripts/generate-data-operations.py
 python3 scripts/data-operations-static-qa.py
 python3 scripts/data-health-gate.py
 python3 scripts/data-project-workflow-static-qa.py
+python3 scripts/repository-governance-static-qa.py
 python3 scripts/knm-static-qa.py
 python3 scripts/dutch-course-static-qa.py
 python3 scripts/user-visible-completeness-static-qa.py
 python3 scripts/public-site-static-qa.py
+python3 scripts/generate-media-attributions-swift.py --check
+python3 scripts/generate-asset-rights-ledger.py --check
+python3 scripts/asset-rights-gate.py
+python3 -m unittest \
+  scripts/tests/test_asset_rights_gate.py \
+  scripts/tests/test_generate_asset_rights_ledger.py
 python3 scripts/media-static-qa.py
 python3 scripts/place-media-static-qa.py
 python3 scripts/history-media-static-qa.py

@@ -1,79 +1,75 @@
 # Media-rights readiness
 
-Date: 2026-07-21 (Europe/Amsterdam)
+Date: 2026-07-22 (Europe/Amsterdam)
 
-Verdict: **PARTIAL / BLOCKED FOR BLANKET PUBLIC REDISTRIBUTION**
+Verdict: **PASS FOR THE SHIPPED ASSET CATALOG**
 
-## Evidence found
+This is an engineering provenance inventory, not legal advice. The repository
+license does not replace the individual third-party licenses recorded below.
 
-- A local manifest records 72 exact `nl_*` assets, their source pages, creator text,
-  license names, and all but one license URL.
-- 65 entries require attribution and seven are marked as not requiring it.
-- The 72 IDs are referenced by `LocalNetherlandsImagePackRegistry`.
-- `MEDIA_ATTRIBUTION.md` carries a repository-visible, manifest-derived inventory.
-- The asset catalog contains 170 imagesets total: 72 manifest-backed `nl_*` items
-  and 98 non-manifest imagesets. The latter count is now explicit rather than being
-  treated as implicitly cleared.
+## Final catalog inventory
 
-## Blockers
+The shipped Xcode catalog contains 170 assets with one ledger record per asset:
 
-1. **Resolved 2026-07-21:** `nl_hoorn_card_01` was manually checked on its exact
-   Wikimedia Commons page. The Licensing section records a worldwide
-   public-domain release by the copyright holder, and the raw manifest now links
-   to that section.
-2. Ninety-eight non-`nl_*` imagesets and `AppIcon.appiconset` are outside the
-   reviewed 72-entry manifest. They comprise 58 city flag/coat-of-arms assets, 12
-   province flags, 14 map assets, three legacy home photos, and eleven high-use
-   background/category/fallback assets. `ASSET_CREDITS.md` calls some vectors
-   project-created while `PLACE_MEDIA_RENDER_AUDIT.md` associates many identity
-   assets with Wikimedia sources; the conflicting provenance must be reconciled
-   file by file.
-3. The eleven high-use non-manifest imagesets include
-   `app_amsterdam_evening_background`, `home_emergency_ambulance`,
-   `home_language_classroom`, `home_work_zuidas`, `premium_home_documents`,
-   `premium_home_emergency`, `premium_home_healthcare`, `premium_home_housing`,
-   `premium_home_language`, `premium_home_work`, and
-   `premium_netherlands_emergency_fallback`. The three legacy home photos are
-   `home_documents_city_hall`, `home_healthcare_pharmacy`, and
-   `home_leiden_canals`.
-4. A manifest does not prove that attribution is visible where required, that
-   modifications are identified, that share-alike obligations are met, or that
-   screenshots/video/social distribution is permitted under every source term.
-5. OCR/EXIF and reverse-image review were not completed. No owner-signed provenance
-   statement or contributor/commission agreement was found.
-6. The current commit already tracks 39 raster captures outside `Assets.xcassets`:
-   13 `IA_Audit_Screenshots/` files (41,411,859 B), five
-   `QA_Baseline_Screenshots/` files (8,214,510 B), and 21
-   `Runtime_Screenshots/` files (41,407,839 B), totalling 91,034,208 B. Ignore
-   rules do not prevent tracked captures from reaching a remote; they require owner
-   approval plus OCR, privacy, device-metadata, and media-rights review. One owner
-   deletion in the IA set remains deliberately unstaged.
-7. The source working tree contains seven untracked public-site images/icons outside
-   the reviewed app-media manifest. A current `.gitignore` modification no longer
-   protects `admin-dashboard/public-site/public/`; exact staging excludes them from
-   the evidence commit, but they must not be published without file-by-file provenance.
-8. The raw machine-readable 72-item manifest is local and ignored. The versioned
-   attribution inventory preserves its human-readable records, but a clean clone
-   cannot independently regenerate or authenticate the raw manifest.
+- 58 city flags/coats of arms replaced with exact current Wikimedia Commons
+  originals whose source pages mark them public domain;
+- 72 Netherlands-pack photographs with complete source/license records;
+- four additional attributed UI photographs;
+- 26 project-owned province/map vectors;
+- AppIcon with versioned source, deterministic generators, and owner confirmation;
+- six OpenAI-generated `premium_home_*` PNGs with byte-linked C2PA/JUMBF
+  structural metadata and owner confirmation (the offline gate does not claim
+  cryptographic signature validation);
+- three compatibility image IDs that are exact byte aliases of those confirmed
+  generated assets.
 
-## Safe remediation
+The unused `premium_netherlands_emergency_fallback` imageset was removed instead
+of assigning it unsupported provenance.
 
-- Verify every source page and license at the final source cutoff; preserve a dated
-  record without copying private account data.
-- Add visible/app-accessible attribution appropriate to each use and identify
-  modifications such as crop, resize, and format conversion where required.
-- Obtain owner-created/source evidence for unresolved files, or replace them with
-  newly commissioned/generated assets whose terms permit the intended distribution.
-- If a blocker cannot be cleared, exclude that media from the public commit and demo
-  capture while retaining the corresponding feature with a rights-cleared fallback.
-- Have the owner or qualified counsel approve the final package. Do not convert an
-  unknown provenance into a guessed license.
+Machine-readable evidence:
 
-## Safe public claim
+- `BuildWeekFix/ASSET_RIGHTS_STATUS.json`
+- `BuildWeekFix/CITY_SYMBOL_RIGHTS.json`
+- `BuildWeekFix/C2PA_MEDIA_EVIDENCE.json`
+- `BuildWeekFix/MEDIA_RIGHTS_OWNER_ATTESTATION.md`
+- `YouNew/Resources/MediaAttributions.json`
 
-“YouNew includes a documented 72-asset manifest-backed image inventory. The catalog
-also contains 98 imagesets outside that manifest; media rights are partially
-verified and unresolved assets remain excluded from a blanket redistribution
-claim.”
+## Remediation completed
 
-This report is an engineering inventory, not legal advice.
+- `governed_broken_links` remains a separate Data Health concern and is already
+  zero in the successful workflow; it does not stand in for this catalog audit.
+- The 53 previously conflicting city-symbol payloads were replaced byte-for-byte
+  with their reconciled Commons revisions. All 58 shipped city symbols now have a
+  local SHA-1 equal to the recorded Commons SHA-1.
+- `app_amsterdam_evening_background` is now an exact alias of the attributed
+  `nl_amsterdam_hero_01` photograph.
+- `home_documents_city_hall`, `home_healthcare_pharmacy`, and
+  `home_leiden_canals` were reconciled to exact Commons sources. Leiden metadata
+  was corrected to Zairon, CC BY-SA 4.0.
+- The unverified ambulance, classroom, and Zuidas photographs were replaced by
+  exact copies of owner-confirmed generated YouNew artwork.
+- App-accessible credits now contain 76 records: the original 72-photo pack plus
+  four additional third-party UI images.
+
+## Release conditions that remain
+
+- Preserve the in-app credit screen and license links for the 69 records that
+  require attribution.
+- Keep modification notices with screenshots, videos, and other redistributed
+  derivatives when the applicable CC license requires them.
+- City symbols are shown only for informational identification. Public-domain
+  copyright status does not imply municipality endorsement and does not override
+  any independent rules governing official symbols.
+- Screenshots, recordings, public-site media, and audio are separate inventories;
+  this PASS applies only to `YouNew/Assets.xcassets`.
+
+## Validation
+
+Run:
+
+```sh
+python3 scripts/asset-rights-gate.py
+```
+
+The release condition is `unresolved = 0`, complete catalog/ledger coverage, and
+exit code 0. The same command is enforced by Product CI.

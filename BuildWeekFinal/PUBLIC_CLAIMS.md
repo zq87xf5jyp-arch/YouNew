@@ -4,6 +4,10 @@ Evidence cutoff: 2026-07-21, Europe/Amsterdam
 Repository snapshot inspected: branch `main`, HEAD `7a1f6bc8fcffac84e5798338380bb97aca815b3d`
 Document status: **judge-safe wording register; final packaging uses bounded preserved evidence**
 
+Media-rights status updated: 2026-07-22. The 170-asset shipped catalog now has
+complete deterministic records and zero unresolved assets. Non-catalog release
+media remains outside that PASS.
+
 ## How to use this register
 
 Statuses:
@@ -82,7 +86,7 @@ Alternative short form:
 
 ## 6. Premium image system
 
-**Status:** VERIFIED implementation / rights boundary remains open.
+**Status:** VERIFIED implementation / shipped catalog rights gate PASS.
 
 **Evidence:** [`AppContentImageView.swift`](../YouNew/Core/Imaging/AppContentImageView.swift), [`ImageLoader.swift`](../YouNew/Core/Imaging/ImageLoader.swift), [`MediaRegistryTests.swift`](../YouNewTests/MediaRegistryTests.swift), [`EVIDENCE_PREMIUM_IMAGE_PIPELINE.md`](../BuildWeekFix/EVIDENCE_PREMIUM_IMAGE_PIPELINE.md), and the bounded demo review in [`MEDIA_RIGHTS_FINAL.md`](MEDIA_RIGHTS_FINAL.md).
 
@@ -90,9 +94,11 @@ Alternative short form:
 
 > YouNew contains a role-aware image pipeline with bounded caches, request timeouts, downsampling, placeholders, and fallback behavior.
 
-> The Build Week demo uses a documented media allowlist with source and license attribution; repository-wide media clearance remains incomplete.
+> The shipped 170-asset catalog has a deterministic source/rights ledger with zero unresolved records: 58 public-domain city symbols, 36 documented project-owned assets, and 76 attribution-ready third-party assets.
 
-**Forbidden wording:** “All images are fully licensed”, “every remote image is reachable”, “zero image duplication everywhere”, or measured performance-improvement claims without a current rights audit, network run, and Instruments evidence.
+> Required third-party credits and modification notices remain in force. Screenshots, recordings, audio, and public-site media require separate review.
+
+**Forbidden wording:** “All repository or release media is cleared”, “the repository license relicenses third-party images”, “municipalities endorse YouNew”, “every remote image is reachable”, “zero image duplication everywhere”, or measured performance-improvement claims without a current network run and Instruments evidence.
 
 ## 7. Governed content and import platform
 
@@ -195,9 +201,9 @@ Exact totals may be appended only with their snapshot, simulator, date, and arti
 |---|---|---|---|---|
 | GPT-5.6 powers the in-app assistant. | FORBIDDEN / NOT PROVED | No deployed endpoint, configured live environment, provider request ID, or captured runtime model proof. | “The demo uses a deterministic local guided assistant. Live LLM integration is future work unless separately verified.” | “Powered by GPT-5.6”; “live OpenAI assistant”. |
 | All tests pass. | FORBIDDEN / CONTRADICTED | Current unit is 460/460, but static QA is 43/44 and finalized UI is 79/87; three UI failures reproduce in isolation. | Publish exact results from `FINAL_VALIDATION.md`, separated by gate. | “All green”; historical or targeted totals presented as the aggregate. |
-| The app is production ready. | FORBIDDEN / NOT PROVED | Open UI, URL-health, rights, distribution, and owner-review gates remain. | “Build Week candidate focused on a bounded demo flow,” after final candidate validation. | “Production ready”; “App Store ready”. |
+| The app is production ready. | FORBIDDEN / NOT PROVED | Open UI, URL-health, non-catalog release-media, distribution, and owner-review gates remain. | “Build Week candidate focused on a bounded demo flow,” after final candidate validation. | “Production ready”; “App Store ready”. |
 | All content is complete. | FORBIDDEN / NOT PROVED | Coverage depth is uneven and external source health has open issues. | “The app contains governed practical content with documented scope and limitations.” | “Complete Netherlands guide”; “all categories complete”. |
-| All images are fully licensed. | FORBIDDEN / NOT PROVED | Media-rights audit is partial; unresolved assets and attribution gaps remain. | “Media rights are partially documented; the owner must approve the final allowlist.” | “Fully licensed”; “all media cleared”. |
+| All images are fully licensed. | FORBIDDEN as an unscoped claim | The shipped catalog passes with zero unresolved records, but third-party conditions still apply and screenshots, recordings, audio, and public-site media are separate scopes. | “The shipped 170-asset catalog has complete rights records and in-app attribution; non-catalog release media is reviewed separately.” | “Fully licensed”; “all repository/release media cleared”. |
 | Latest TestFlight build is verified. | FORBIDDEN / NOT PROVED | No owner-provided current distribution artifact/screenshot links the binary to this snapshot. | “TestFlight status requires owner confirmation.” | Any build number or availability claim without evidence. |
 | Current App Store version matches the audited repository. | FORBIDDEN / NOT PROVED | No source-to-store provenance or binary match is available. | “App Store correspondence has not been verified.” | “The App Store build is this audited build.” |
 | All external links are healthy. | FORBIDDEN / CONTRADICTED | Latest `data-health.json` records 18 confirmed broken governed URLs. | State structural validation and URL health separately with the 18-link limitation. | “Zero broken links”; “all official sources verified live”. |
@@ -209,5 +215,5 @@ Exact totals may be appended only with their snapshot, simulator, date, and arti
 - [ ] Link each numeric claim to a preserved log or `.xcresult` summary.
 - [ ] Keep the 18-link network-health limitation unless a reviewed remediation and fresh report supersede it.
 - [x] Add only bounded map/root-tab wording backed by `YouNewBuildWeekMapOverlayFix.xcresult` and `MAP_TAB_BLOCKER_FIX.md`.
-- [ ] Obtain owner confirmation for role, media rights, TestFlight/App Store status, repository visibility, and final submission wording.
+- [ ] Obtain owner confirmation for role, selected non-catalog release media, TestFlight/App Store status, repository visibility, and final submission wording. Catalog ownership evidence is already recorded in the rights ledger/attestation.
 - [ ] Do not replace bounded wording with marketing superlatives during Devpost editing.

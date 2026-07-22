@@ -2,10 +2,15 @@
 
 [![Product CI](https://github.com/zq87xf5jyp-arch/YouNew/actions/workflows/product-ci.yml/badge.svg?branch=main)](https://github.com/zq87xf5jyp-arch/YouNew/actions/workflows/product-ci.yml)
 [![DATA PROJECT Health](https://github.com/zq87xf5jyp-arch/YouNew/actions/workflows/data-project-health.yml/badge.svg?branch=main)](https://github.com/zq87xf5jyp-arch/YouNew/actions/workflows/data-project-health.yml)
+[![Secret Scan](https://github.com/zq87xf5jyp-arch/YouNew/actions/workflows/secret-scan.yml/badge.svg?branch=main)](https://github.com/zq87xf5jyp-arch/YouNew/actions/workflows/secret-scan.yml)
 
 [Website](https://younew.nl) ·
 [App Store](https://apps.apple.com/app/id6782617312) ·
 [Support](https://younew.nl/support/)
+
+[Repository governance](docs/REPOSITORY_GOVERNANCE.md) documents protected
+`main`, short-lived branches, required pull-request checks, verified backups, and
+the release journal.
 
 **A local-first iOS guide that turns a newcomer's practical question into an
 ordered next step, relevant in-app guidance, and a named official source.**
