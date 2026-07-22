@@ -24,6 +24,8 @@ versions follow semantic versioning.
   `governed_broken_links` gate result.
 - Hardened GitHub Actions with immutable action SHAs, scoped credentials,
   reproducible runner images, and always-present pull-request checks.
+- Made event health tests independent of the calendar date while retaining
+  explicit coverage for seeded events and active-event counters.
 - Made public-site validation safe for a clean clone.
 - Closed the shipped app-media rights gate with deterministic evidence.
 
