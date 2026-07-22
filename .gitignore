@@ -46,6 +46,15 @@ scripts/__pycache__/
 *.cer
 *.crt
 *.der
+*.p8
+AuthKey_*.p8
+id_rsa
+id_ed25519
+.netrc
+.npmrc
+!.npmrc.example
+Secrets.xcconfig
+*.xcconfig.local
 
 # Local package/cache output
 .pnpm-store/

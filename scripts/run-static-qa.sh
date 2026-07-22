@@ -38,6 +38,7 @@ python3 scripts/generate-data-operations.py
 python3 scripts/data-operations-static-qa.py
 python3 scripts/data-health-gate.py
 python3 scripts/data-project-workflow-static-qa.py
+python3 scripts/repository-governance-static-qa.py
 python3 scripts/knm-static-qa.py
 python3 scripts/dutch-course-static-qa.py
 python3 scripts/user-visible-completeness-static-qa.py

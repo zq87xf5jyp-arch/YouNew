@@ -33,6 +33,10 @@ The maintainer will arrange a safer channel if sensitive evidence is necessary.
 - `.env`, signing certificates, private keys, provisioning profiles, archives,
   result bundles, and local logs are excluded from Git.
 - `.env.example` contains names only and is safe to copy locally.
+- The `Secret Scan` workflow checks pull requests, pushes to `main`, the full
+  reachable history each week, and manual runs with a pinned Gitleaks action.
+- GitHub native secret scanning and push protection are complementary repository
+  controls and should remain enabled; neither replaces credential rotation.
 - If a credential is exposed, revoke and rotate it first; removing the text from a
   later commit is not sufficient.
 
@@ -50,8 +54,9 @@ that request.
 No penetration test, dependency-vulnerability attestation, production backend
 review, app attestation, abuse test, or end-to-end privacy certification is claimed.
 Repository media-rights and historical-capture reviews remain separate from this
-security contact policy. See `BuildWeekFix/SECRET_SCAN.md` for the bounded scan
-and `MEDIA_ATTRIBUTION.md` for the current media-rights inventory.
+security contact policy. `BuildWeekFix/SECRET_SCAN.md` is preserved historical
+evidence and is not the current automation status. See the `Secret Scan` workflow
+for current checks and `MEDIA_ATTRIBUTION.md` for the media-rights inventory.
 
 Please allow a reasonable remediation window before public disclosure. The
 maintainer will acknowledge receipt, assess impact, and share a coordinated

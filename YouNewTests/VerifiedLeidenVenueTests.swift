@@ -40,10 +40,16 @@ struct VerifiedLeidenVenueTests {
     }
 
     @Test func healthSnapshotTracksEventsLinksAndMediaDebt() {
-        let snapshot = KnowledgeDataHealthService.snapshot()
+        let database = NetherlandsKnowledgeDatabase.shared
+        let now = Date(timeIntervalSince1970: 1_784_721_600)
+        let snapshot = KnowledgeDataHealthService.snapshot(database: database, now: now)
+        let expectedActiveEvents = database.publishedEntities.filter {
+            $0.kind == .event && $0.isActiveEvent(now: now)
+        }.count
+
         #expect(snapshot.totalRecords >= snapshot.publishableRecords)
         #expect(snapshot.publishableRecords > 0)
-        #expect(snapshot.activeEvents > 0)
+        #expect(snapshot.activeEvents == expectedActiveEvents)
         #expect(snapshot.missingPhotoLicenses >= 0)
         #expect(snapshot.duplicatePrimaryPhotos >= 0)
     }
