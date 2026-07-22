@@ -1,0 +1,45 @@
+name: Feature request
+description: Propose a focused improvement for newcomers in the Netherlands.
+title: "[Feature]: "
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Newcomer problem
+      description: What practical problem is difficult today, and for whom?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed outcome
+      description: Describe the result, not only a preferred implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Official sources or evidence
+      description: Link current authoritative sources when the request affects guidance.
+  - type: dropdown
+    id: area
+    attributes:
+      label: Product area
+      options:
+        - Home and navigation
+        - Guided assistant
+        - Search and saved items
+        - City and map experience
+        - Official-source content
+        - Accessibility and localization
+        - Public website
+        - Developer tooling
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Safety confirmation
+      options:
+        - label: This request contains no personal data, secrets, or rights-restricted attachments.
+          required: true

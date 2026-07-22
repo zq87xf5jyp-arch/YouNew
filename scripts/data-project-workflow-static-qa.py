@@ -55,6 +55,7 @@ required_workflow_fragments = (
     "knowledge_data_health.json",
     "broken_links.csv",
     "retention-days: 30",
+    "data-project-health-${{ github.event_name }}-${{ github.ref }}",
 )
 for fragment in required_workflow_fragments:
     require(fragment in workflow, f"missing workflow contract: {fragment}")
@@ -65,14 +66,36 @@ require(workflow.count('"scripts/data-health-gate.py"') == 2, "health-gate edits
 require(workflow.count('"scripts/data-project-workflow-static-qa.py"') == 2, "workflow-contract edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/effective_release.py"') == 2, "release-resolver edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/import-data-project.py"') == 2, "importer edits must trigger push and pull-request QA")
+require(workflow.count('"scripts/run-static-qa.sh"') == 2, "aggregate-QA edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/tests/**"') == 2, "Data Project test edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/generate-data-observability.py"') == 2, "observability generator edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/data-project-import-static-qa.py"') == 2, "import-QA edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/data-observability-static-qa.py"') == 2, "observability QA edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/generate-data-operations.py"') == 2, "operations generator edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/data-operations-static-qa.py"') == 2, "operations QA edits must trigger push and pull-request QA")
+require(workflow.count('"YouNew/**"') == 2, "app source and runtime edits must trigger push and pull-request QA")
+require(workflow.count('"source_registry.json"') == 2, "source-registry edits must trigger push and pull-request QA")
+for published_artifact in (
+    '"admin-dashboard/public-site/src/generated/public-content.json"',
+    '"admin-dashboard/public-site/public/data/search-index.json"',
+    '"admin-dashboard/public-site/public/data/content-provenance.json"',
+):
+    require(workflow.count(published_artifact) == 2, f"published artifact edits must trigger QA: {published_artifact}")
 require("timeout-minutes: 30" in workflow, "nightly network job must have a bounded timeout")
 require("cancel-in-progress: true" in workflow, "duplicate health runs must be cancelled")
+require(workflow.count("runs-on: ubuntu-24.04") == 2, "health jobs must use the reviewed Ubuntu image")
+require(workflow.count("persist-credentials: false") == 2, "checkout credentials must not persist")
+require(workflow.count("if-no-files-found: error") == 2, "missing health evidence must fail artifact upload")
+for action, expected_count in (
+    ("actions/checkout", 2),
+    ("actions/setup-python", 2),
+    ("actions/upload-artifact", 2),
+):
+    immutable_uses = re.findall(rf"uses:\s+{re.escape(action)}@([0-9a-f]{{40}})\b", workflow)
+    require(
+        len(immutable_uses) == expected_count,
+        f"{action} must be used {expected_count} time(s) with an immutable 40-character SHA",
+    )
 
 require(
     "effective_release_heads(PROJECT)" in link_checker,

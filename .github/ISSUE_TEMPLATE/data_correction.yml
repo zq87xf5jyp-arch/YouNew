@@ -1,0 +1,47 @@
+name: Official-source or data correction
+description: Report outdated guidance, a broken official URL, or an incorrect governed record.
+title: "[Data]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Provide public official evidence only. Do not submit personal documents or
+        ask for an allowlist, skip, warning, or weaker health gate.
+  - type: input
+    id: source_id
+    attributes:
+      label: Record or source ID
+      description: Stable governed ID when known; leave blank if you only know the public page.
+      placeholder: "source ID, entity ID, guide ID, or page route"
+  - type: input
+    id: current_url
+    attributes:
+      label: Current URL
+      placeholder: "https://…"
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is outdated or incorrect?
+      description: Include the observed status, redirect, changed requirement, or incorrect wording.
+    validations:
+      required: true
+  - type: input
+    id: official_replacement
+    attributes:
+      label: Current official source
+      description: Prefer a Dutch government, municipality, public-service, or institution page; leave blank if no replacement exists.
+      placeholder: "https://… or no replacement found"
+  - type: input
+    id: checked_at
+    attributes:
+      label: Date checked
+      placeholder: "YYYY-MM-DD"
+    validations:
+      required: true
+  - type: checkboxes
+    id: confirmation
+    attributes:
+      label: Confirmation
+      options:
+        - label: This report contains public source evidence only and no personal or secret data.
+          required: true

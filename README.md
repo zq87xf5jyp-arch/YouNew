@@ -1,5 +1,12 @@
 # YouNew
 
+[![Product CI](https://github.com/zq87xf5jyp-arch/YouNew/actions/workflows/product-ci.yml/badge.svg?branch=main)](https://github.com/zq87xf5jyp-arch/YouNew/actions/workflows/product-ci.yml)
+[![DATA PROJECT Health](https://github.com/zq87xf5jyp-arch/YouNew/actions/workflows/data-project-health.yml/badge.svg?branch=main)](https://github.com/zq87xf5jyp-arch/YouNew/actions/workflows/data-project-health.yml)
+
+[Website](https://younew.nl) ·
+[App Store](https://apps.apple.com/app/id6782617312) ·
+[Support](https://younew.nl/support/)
+
 **A local-first iOS guide that turns a newcomer's practical question into an
 ordered next step, relevant in-app guidance, and a named official source.**
 
@@ -7,9 +14,10 @@ YouNew is built in SwiftUI for people starting a life in the Netherlands. The
 Build Week candidate demonstrates one bounded, reproducible journey without an
 API key or deployed backend.
 
-> **Build Week status:** prepared as a polished demonstration candidate. YouNew
-> is not presented as an App Store-ready release, a government service, or a
-> verified live-LLM product.
+> **Release status:** YouNew 1.0 is publicly available on the App Store. The
+> committed `main` branch contains the next 1.1 source candidate and remains
+> subject to release validation. YouNew is not a government service and does not
+> claim a verified live-LLM runtime.
 
 [Build Week overview](BuildWeek/README_BUILD_WEEK.md) ·
 [2:20 demo guide](BuildWeek/DEMO_GUIDE.md) ·
@@ -127,7 +135,8 @@ persistence. See
 | Platform | Native iOS |
 | Language and UI | Swift 5, SwiftUI |
 | Bundle identifier | `nl.younew.app` |
-| Version | 1.1 (5) |
+| Public App Store release | 1.0 (published 2026-06-24) |
+| Committed `main` source candidate | 1.1 (5) |
 | Minimum deployment target | iOS 17.6 |
 | Demonstrated assistant | Local deterministic guide |
 | Backend required for demo | No |
@@ -175,8 +184,8 @@ or screenshots.
 
 ## Preserved readiness evidence
 
-This README reports existing evidence; it does not promote historical results to
-universal certification.
+This README separates preserved Build Week evidence from current automated
+health evidence; neither is a universal security or release certification.
 
 - The current candidate has a successful clean Debug simulator build.
 - The current unit artifact records 460/460 checks passing.
@@ -187,8 +196,11 @@ universal certification.
 - Targeted evidence also covers the Guide loading state and shared search-field
   hit testing.
 - Structural validation covers the governed five-city content release.
-- Static QA has 43/44 known checks passing; the remaining data-health gate reports
-  18 confirmed broken external URLs.
+- The preserved Build Week snapshot recorded 43/44 static checks and 18 broken
+  external URLs. After source remediation, the current
+  [DATA PROJECT Health run #6](https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/29904201000)
+  checked 2,488 URLs, reports `confirmed_broken=0`, and passes the enforced Data
+  Health gate.
 - Eight simulator screens passed visual smoke inspection. The finalized full UI
   suite is 79/87; the isolated rerun of those eight failures is 5/8.
 - Three UI failures remain reproducible: Guide scroll/UI-query at Transport,
@@ -225,6 +237,16 @@ The public repository is available at
 The owner approved the reviewed 2:20 candidate and its exact SHA-256. The public
 [Build Week demo](https://youtu.be/6YAxsAX7qdw) includes English captions and
 the required media attribution.
+
+## Contributing and support
+
+- Read [CONTRIBUTING.md](CONTRIBUTING.md) before opening a pull request.
+- Use the GitHub issue forms for reproducible bugs, feature requests, and
+  official-source corrections. Never attach a BSN, identity document, address,
+  medical record, credential, or other personal data.
+- For ordinary support, visit [younew.nl/support](https://younew.nl/support/) or
+  email [support@younew.nl](mailto:support@younew.nl). Report security issues by
+  following [SECURITY.md](SECURITY.md), not through a public issue.
 
 ## License
 

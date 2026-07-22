@@ -17,7 +17,13 @@ on:
       - "scripts/data-project-workflow-static-qa.py"
       - "scripts/effective_release.py"
       - "scripts/import-data-project.py"
+      - "scripts/run-static-qa.sh"
       - "scripts/tests/**"
+      - "YouNew/**"
+      - "source_registry.json"
+      - "admin-dashboard/public-site/src/generated/public-content.json"
+      - "admin-dashboard/public-site/public/data/search-index.json"
+      - "admin-dashboard/public-site/public/data/content-provenance.json"
       - ".github/workflows/data-project-health.yml"
   push:
     paths:
@@ -35,7 +41,13 @@ on:
       - "scripts/data-project-workflow-static-qa.py"
       - "scripts/effective_release.py"
       - "scripts/import-data-project.py"
+      - "scripts/run-static-qa.sh"
       - "scripts/tests/**"
+      - "YouNew/**"
+      - "source_registry.json"
+      - "admin-dashboard/public-site/src/generated/public-content.json"
+      - "admin-dashboard/public-site/public/data/search-index.json"
+      - "admin-dashboard/public-site/public/data/content-provenance.json"
       - ".github/workflows/data-project-health.yml"
   schedule:
     - cron: "17 2 * * *"
@@ -45,17 +57,19 @@ permissions:
   contents: read
 
 concurrency:
-  group: data-project-health-${{ github.ref }}
+  group: data-project-health-${{ github.event_name }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   publication-gates:
     name: Offline publication gates
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 10
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: "3.12"
       - name: Validate work packages, milestones, releases and batches
@@ -92,21 +106,24 @@ jobs:
         run: python3 scripts/data-health-gate.py
       - name: Upload Data Dashboard
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: data-project-dashboard
           path: DataProject/reports/
+          if-no-files-found: error
           retention-days: 30
 
   nightly-source-health:
     name: Nightly source health
     if: always() && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
     needs: publication-gates
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     timeout-minutes: 30
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@a309ff8b426b58ec0e2a45f0f869d46889d02405 # v6.2.0
         with:
           python-version: "3.12"
       - name: Check runtime and DATA PROJECT links
@@ -131,11 +148,12 @@ jobs:
         run: python3 scripts/data-health-gate.py --require-network
       - name: Upload nightly health evidence
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: data-project-nightly-health
           path: |
             DataProject/reports/
             knowledge_data_health.json
             broken_links.csv
+          if-no-files-found: error
           retention-days: 30

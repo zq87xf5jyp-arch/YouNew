@@ -1,0 +1,12 @@
+# Default review owner
+* @zq87xf5jyp-arch
+
+# Release, governance, automation, and security-sensitive areas
+/.github/ @zq87xf5jyp-arch
+/DataProject/ @zq87xf5jyp-arch
+/scripts/ @zq87xf5jyp-arch
+/YouNew.xcodeproj/ @zq87xf5jyp-arch
+/SECURITY.md @zq87xf5jyp-arch
+/PRIVACY.md @zq87xf5jyp-arch
+/PRIVACY_POLICY.md @zq87xf5jyp-arch
+/LICENSE @zq87xf5jyp-arch

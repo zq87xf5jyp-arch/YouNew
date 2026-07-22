@@ -1,0 +1,63 @@
+name: Bug report
+description: Report a reproducible app, website, data, or repository-automation problem.
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for reporting a problem. Do not attach a BSN, identity document,
+        address, medical information, credential, or unredacted private screenshot.
+  - type: dropdown
+    id: surface
+    attributes:
+      label: Affected surface
+      options:
+        - iPhone app
+        - iPad app
+        - Public website
+        - Data or official-source content
+        - Repository automation
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Version or commit
+      description: App version/build, website date, or commit SHA.
+      placeholder: "App Store 1.0, build … or commit …"
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Device and operating system
+      placeholder: "iPhone 17 Pro, iOS 26.5, language English"
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: |
+        1. Open …
+        2. Tap …
+        3. Observe …
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: Actual behavior
+    validations:
+      required: true
+  - type: checkboxes
+    id: privacy
+    attributes:
+      label: Privacy and rights confirmation
+      options:
+        - label: I removed personal data, secrets, and rights-restricted material from this report.
+          required: true

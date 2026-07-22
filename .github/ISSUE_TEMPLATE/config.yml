@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Product support
+    url: https://younew.nl/support/
+    about: Get help using YouNew without posting personal data publicly.
+  - name: Security vulnerability
+    url: https://github.com/zq87xf5jyp-arch/YouNew/security/policy
+    about: Read the private reporting instructions before sharing security details.

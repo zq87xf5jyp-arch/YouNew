@@ -1,24 +1,30 @@
 # Security policy
 
-## Current support status
+## Supported versions and source
 
-YouNew has no published production release or security-supported version in this
-repository. The `build-week-readiness` branch is under release-readiness review;
-it must not be treated as production-ready until the final gates and clean-clone
-proof are complete.
+YouNew 1.0 is publicly available on the App Store. Security reports are accepted
+for the current App Store release and for the latest commit on `main`. The source
+candidate on `main` may be newer than the public binary and is not evidence that
+an App Store update has shipped.
+
+| Version or branch | Report intake |
+|---|---|
+| Current App Store release | Supported |
+| Latest `main` | Supported as pre-release source |
+| Older builds and commits | Best effort |
 
 ## Reporting a vulnerability
 
 Do not post credentials, personal data, unpublished vulnerabilities, or exploit
-details in a public issue. No verified public security contact or repository
-private-reporting channel is configured yet. Until the owner creates one, share a
-minimal non-sensitive description directly with the repository owner through a
-previously verified private channel. The owner must publish a durable security
-contact before making the repository public.
+details in a public issue. Email [support@younew.nl](mailto:support@younew.nl)
+with the subject `SECURITY: YouNew` and begin with a minimal, non-sensitive
+description. If GitHub shows a **Report a vulnerability** button for this
+repository, its private report form is also an appropriate channel.
 
 Include the affected version or commit, platform, reproduction steps, impact, and
 whether personal data could be involved. Do not include real newcomer documents,
-addresses, identifiers, API keys, or health information in a report.
+addresses, identifiers, API keys, or health information in the initial report.
+The maintainer will arrange a safer channel if sensitive evidence is necessary.
 
 ## Secret handling
 
@@ -39,9 +45,14 @@ logging. The deterministic local guide remains the fallback. A response must not
 be labelled live GPT-5.6 unless the backend returns validated model metadata for
 that request.
 
-## Security scope not yet certified
+## Security scope and disclosure
 
 No penetration test, dependency-vulnerability attestation, production backend
 review, app attestation, abuse test, or end-to-end privacy certification is claimed.
-Git history author metadata and Xcode signing-team configuration also require owner
-review before publication. See `BuildWeekFix/SECRET_SCAN.md` for the bounded scan.
+Repository media-rights and historical-capture reviews remain separate from this
+security contact policy. See `BuildWeekFix/SECRET_SCAN.md` for the bounded scan
+and `MEDIA_ATTRIBUTION.md` for the current media-rights inventory.
+
+Please allow a reasonable remediation window before public disclosure. The
+maintainer will acknowledge receipt, assess impact, and share a coordinated
+disclosure plan when the report is reproducible and in scope.

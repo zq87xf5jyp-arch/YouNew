@@ -16,7 +16,7 @@ const generator = (await import(new URL("scripts/generate-public-content.mjs", s
 
 test("generated public content comes only from governed production releases", () => {
   assert.equal(provenance.sourceMode, "production");
-  assert.deepEqual(provenance.acceptedReleaseIds, ["amsterdam-v0.1.0", "cities-v0.1.0"]);
+  assert.deepEqual(provenance.acceptedReleaseIds, ["amsterdam-v0.1.1", "cities-v0.1.0"]);
   assert.equal(content.stats.entities, provenance.counts.acceptedRecords);
   assert.equal(content.entities.length, content.stats.entities);
   assert.ok(content.entities.every((entity: { status: string; releaseId: string; trust: { sourceChecked: boolean } }) =>
