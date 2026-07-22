@@ -33,6 +33,33 @@
       }
     },
     {
+      "id": "amsterdam-v0.1.1",
+      "work_package": "WP-06",
+      "dataset": "Amsterdam City 01",
+      "version": "0.1.1",
+      "status": "published",
+      "milestone": "WP-06-M2",
+      "target_records": 184,
+      "published_records": 183,
+      "published_at": "2026-07-22",
+      "publication_timestamp": "2026-07-22T09:52:37+02:00",
+      "approver": "user-approved-via-codex",
+      "base_release_id": "amsterdam-v0.1.0",
+      "supersedes": "amsterdam-v0.1.0",
+      "base_batch_sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07",
+      "overlay_path": "DataProject/overlays/WP-06/amsterdam-v0.1.1.json",
+      "acceptance_lock_path": "DataProject/releases/acceptance-locks/amsterdam-v0.1.0.json",
+      "qa": {
+        "build": "passed",
+        "static": "passed",
+        "duplicate": "passed",
+        "source": "passed",
+        "media": "passed",
+        "search": "passed",
+        "ai": "passed"
+      }
+    },
+    {
       "id": "cities-v0.1.0",
       "work_package": "WP-06",
       "dataset": "Cities Database",

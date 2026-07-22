@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-18T00:00:00Z",
-  "datasetFingerprint": "cc667a9471a92e4e21e2c56c4c92e9f6462f1bbfc6e22f304f2fbd3ab1e8a97f",
+  "generatedAt": "2026-07-22T00:00:00Z",
+  "datasetFingerprint": "15154a987cb41b4677a37543adbecc11ea2bf491c27fceb75fc06ba058973853",
   "locale": "en",
   "documents": [
     {
@@ -1756,7 +1756,7 @@
         "food-drink"
       ],
       "narrowCategory": "restaurant",
-      "organization": "BREDA",
+      "organization": "I amsterdam",
       "audienceProfiles": [],
       "numberedSteps": [],
       "requiredDocuments": [],
@@ -1767,7 +1767,7 @@
       "tags": [],
       "synonyms": [],
       "officialOrganizationNames": [
-        "BREDA"
+        "I amsterdam"
       ],
       "terminology": [],
       "commonQuestions": []

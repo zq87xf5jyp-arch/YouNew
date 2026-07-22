@@ -8,6 +8,8 @@ from datetime import date, datetime, timedelta, timezone
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from effective_release import EffectiveReleaseError, effective_release_heads, resolve_release
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / "DataProject"
@@ -75,18 +77,20 @@ def normalized(value) -> str:
 
 def load_batches():
     rows = []
-    batch_count = 0
-    for path in sorted((PROJECT / "batches").glob("**/*.json")):
-        batch = load_json(path, {})
-        batch_count += 1
-        for record in batch.get("records", []):
-            if not isinstance(record, dict):
-                continue
+    batch_count = len(list((PROJECT / "batches").glob("**/*.json")))
+    try:
+        release_ids = effective_release_heads(PROJECT)
+        effective_releases = [resolve_release(PROJECT, release_id) for release_id in release_ids]
+    except EffectiveReleaseError as error:
+        raise SystemExit(f"Data dashboard failed: effective release resolution failed: {error}") from error
+    for effective in effective_releases:
+        source_label = ", ".join(str(path.relative_to(ROOT)) for path in effective.input_paths)
+        for record in effective.records:
             enriched = dict(record)
-            enriched["_work_package"] = batch.get("work_package")
-            enriched["_milestone"] = batch.get("milestone")
-            enriched["_target_release"] = batch.get("target_release")
-            enriched["_batch"] = str(path.relative_to(ROOT))
+            enriched["_work_package"] = effective.release.get("work_package")
+            enriched["_milestone"] = effective.release.get("milestone")
+            enriched["_target_release"] = effective.release_id
+            enriched["_batch"] = source_label
             rows.append(enriched)
     return batch_count, rows
 
@@ -214,7 +218,12 @@ def main():
     confirmed_broken = runtime_health.get("confirmedBroken") or []
     governed_location_prefixes = (
         "DataProject/",
+        "effective-release:",
         "YouNew/Resources/Data/younew-runtime-data.json:",
+        "source_registry.json:",
+        "admin-dashboard/public-site/src/generated/public-content.json:",
+        "admin-dashboard/public-site/public/data/search-index.json:",
+        "admin-dashboard/public-site/public/data/content-provenance.json:",
     )
     governed_broken_links = sum(
         isinstance(item, dict)

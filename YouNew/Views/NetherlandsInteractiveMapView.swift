@@ -1668,7 +1668,7 @@ private struct MapOverseasTerritoriesCarousel: View {
         case "Sint Eustatius":
             return "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Quill%2C%20Sint%20Eustatius.jpg?width=800"
         case "Saba":
-            return "https://commons.wikimedia.org/wiki/Special:FilePath/Saba%20island.jpg?width=800"
+            return "https://commons.wikimedia.org/wiki/Special:FilePath/Saba%20Corniche.jpg?width=800"
         default:
             return nil
         }

@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-18T00:00:00Z",
+  "generatedAt": "2026-07-22T00:00:00Z",
   "generatorVersion": 1,
   "source": "../../YouNew/Resources/Data/younew-runtime-data.json",
   "sourceMode": "production",
   "sourceSchemaVersion": 1,
-  "datasetFingerprint": "cc667a9471a92e4e21e2c56c4c92e9f6462f1bbfc6e22f304f2fbd3ab1e8a97f",
-  "sourceOutputChecksum": "0ea46579b10238ff4e057e4e311bca31fb2ebfbb3db8943760b870c211302813",
+  "datasetFingerprint": "15154a987cb41b4677a37543adbecc11ea2bf491c27fceb75fc06ba058973853",
+  "sourceOutputChecksum": "0828335a30d266103f06229907dd57203b535ddd9b5858ebfc87fcc6c53cbf08",
   "acceptedReleaseIds": [
-    "amsterdam-v0.1.0",
+    "amsterdam-v0.1.1",
     "cities-v0.1.0"
   ],
   "publicationRules": {

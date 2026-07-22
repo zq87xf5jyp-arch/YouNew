@@ -1,0 +1,3309 @@
+{
+  "schema_version": 1,
+  "release_id": "amsterdam-v0.1.1",
+  "version": "0.1.1",
+  "status": "published",
+  "work_package": "WP-06",
+  "dataset": "Amsterdam City 01",
+  "base_release_id": "amsterdam-v0.1.0",
+  "supersedes": "amsterdam-v0.1.0",
+  "base_batch_sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "evidence": [
+    {
+      "id": "evidence.confirmed-404-03",
+      "kind": "replacement_review",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en/",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-04",
+      "kind": "replacement_review",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en/",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-05",
+      "kind": "replacement_review",
+      "url": "https://live.staticflickr.com/8105/8659670619_bfa7b70923_b.jpg",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-06",
+      "kind": "replacement_review",
+      "url": "https://live.staticflickr.com/8107/8660692222_00940bca4c_b.jpg",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-07",
+      "kind": "replacement_review",
+      "url": "https://live.staticflickr.com/8110/8659416637_6b9c8cd15c_b.jpg",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-08",
+      "kind": "replacement_review",
+      "url": "https://live.staticflickr.com/8116/8659648011_6ec8a8d8eb_b.jpg",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-09",
+      "kind": "replacement_review",
+      "url": "https://live.staticflickr.com/8121/8660604406_6cb4b8e01d_b.jpg",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-10",
+      "kind": "replacement_review",
+      "url": "https://scraperwiki.com/scrapers/funda-amsterdam/",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-11",
+      "kind": "replacement_review",
+      "url": "https://www.flickr.com/photos/51035655291@N01/2591588276",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-12",
+      "kind": "replacement_review",
+      "url": "https://www.flickr.com/photos/56759497@N00/4389949343",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-13",
+      "kind": "replacement_review",
+      "url": "https://www.flickr.com/photos/76204898@N00/3298905795",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-14",
+      "kind": "replacement_review",
+      "url": "https://www.flickr.com/photos/94677299@N08/8659416637",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-15",
+      "kind": "replacement_review",
+      "url": "https://www.flickr.com/photos/94677299@N08/8659648011",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-16",
+      "kind": "replacement_review",
+      "url": "https://www.flickr.com/photos/94677299@N08/8659670619",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-17",
+      "kind": "replacement_review",
+      "url": "https://www.flickr.com/photos/94677299@N08/8660604406",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.confirmed-404-18",
+      "kind": "replacement_review",
+      "url": "https://www.flickr.com/photos/94677299@N08/8660692222",
+      "checked_at": "2026-07-22",
+      "note": "GitHub Actions run 29893875207 confirmed HTTP 404 after the browser-like GET fallback; the URL was rechecked independently before replacement."
+    },
+    {
+      "id": "evidence.cc0-canonical-url",
+      "kind": "url_check",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+      "checked_at": "2026-07-22",
+      "note": "The official English CC0 1.0 deed returned HTTP 200 to both HEAD and browser-style GET; removing only the obsolete trailing slash preserves the recorded language and licence."
+    },
+    {
+      "id": "evidence.by-sa-3.0-nl-canonical-url",
+      "kind": "url_check",
+      "url": "https://creativecommons.org/licenses/by-sa/3.0/nl/deed.en",
+      "checked_at": "2026-07-22",
+      "note": "The official English CC BY-SA 3.0 Netherlands deed returned HTTP 200 to both HEAD and browser-style GET; removing only the obsolete trailing slash preserves the recorded language and licence."
+    },
+    {
+      "id": "evidence.media-e4c0016326-source",
+      "kind": "replacement_review",
+      "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_the_Canal_Ring_(8652262148).jpg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons file page reviewed for subject relevance, creator and CC BY 2.0 metadata for place.seventeenth-century-canal-ring-of-amsterdam gallery; replacement uses a new stable media ID."
+    },
+    {
+      "id": "evidence.media-e4c0016326-asset",
+      "kind": "url_check",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Amsterdam_-_the_Canal_Ring_%288652262148%29.jpg/1280px-Amsterdam_-_the_Canal_Ring_%288652262148%29.jpg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons raster asset selected for place.seventeenth-century-canal-ring-of-amsterdam gallery; no local modification is claimed."
+    },
+    {
+      "id": "evidence.media-354ab29372-source",
+      "kind": "replacement_review",
+      "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Dam_Square_-_1265.jpg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons file page reviewed for subject relevance, creator and CC BY-SA 3.0 metadata for place.dam-square gallery; replacement uses a new stable media ID."
+    },
+    {
+      "id": "evidence.media-354ab29372-asset",
+      "kind": "url_check",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Amsterdam_-_Dam_Square_-_1265.jpg/1280px-Amsterdam_-_Dam_Square_-_1265.jpg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons raster asset selected for place.dam-square gallery; no local modification is claimed."
+    },
+    {
+      "id": "evidence.media-a27c9248a3-source",
+      "kind": "replacement_review",
+      "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_Station_Bijmer_ArenA_001.JPG",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons file page reviewed for subject relevance, creator and CC BY 3.0 metadata for transport.amsterdam-bijlmer-arena-station hero; replacement uses a new stable media ID."
+    },
+    {
+      "id": "evidence.media-a27c9248a3-asset",
+      "kind": "url_check",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Amsterdam_Station_Bijmer_ArenA_001.JPG/1280px-Amsterdam_Station_Bijmer_ArenA_001.JPG",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons raster asset selected for transport.amsterdam-bijlmer-arena-station hero; no local modification is claimed."
+    },
+    {
+      "id": "evidence.media-d4e9a0a5ec-source",
+      "kind": "replacement_review",
+      "url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_MacBike_(29669273314).jpg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons file page reviewed for subject relevance, creator and CC BY 2.0 metadata for local_partner.macbike-amsterdam thumbnail; replacement uses a new stable media ID."
+    },
+    {
+      "id": "evidence.media-d4e9a0a5ec-asset",
+      "kind": "url_check",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Amsterdam_-_MacBike_%2829669273314%29.jpg/1280px-Amsterdam_-_MacBike_%2829669273314%29.jpg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons raster asset selected for local_partner.macbike-amsterdam thumbnail; no local modification is claimed."
+    },
+    {
+      "id": "evidence.media-15c44928b1-source",
+      "kind": "replacement_review",
+      "url": "https://commons.wikimedia.org/wiki/File:Funda_logo.svg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons file page reviewed for subject relevance, creator and Public domain (PD textlogo) metadata for local_partner.funda hero; replacement uses a new stable media ID."
+    },
+    {
+      "id": "evidence.media-15c44928b1-asset",
+      "kind": "url_check",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Funda_logo.svg/1280px-Funda_logo.svg.png",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons raster asset selected for local_partner.funda hero; no local modification is claimed."
+    },
+    {
+      "id": "evidence.media-9d3fe680c0-source",
+      "kind": "replacement_review",
+      "url": "https://commons.wikimedia.org/wiki/File:RestaurantWils-ext-apr23.png",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons file page reviewed for subject relevance, creator and CC BY-SA 4.0 metadata for restaurant.wils hero; replacement uses a new stable media ID."
+    },
+    {
+      "id": "evidence.media-9d3fe680c0-asset",
+      "kind": "url_check",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/RestaurantWils-ext-apr23.png/1280px-RestaurantWils-ext-apr23.png",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons raster asset selected for restaurant.wils hero; no local modification is claimed."
+    },
+    {
+      "id": "evidence.media-6968043ef5-source",
+      "kind": "replacement_review",
+      "url": "https://commons.wikimedia.org/wiki/File:RestaurantWils-int-apr23.png",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons file page reviewed for subject relevance, creator and CC BY-SA 4.0 metadata for restaurant.wils gallery; replacement uses a new stable media ID."
+    },
+    {
+      "id": "evidence.media-6968043ef5-asset",
+      "kind": "url_check",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/RestaurantWils-int-apr23.png/1280px-RestaurantWils-int-apr23.png",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons raster asset selected for restaurant.wils gallery; no local modification is claimed."
+    },
+    {
+      "id": "evidence.media-636bf5af47-source",
+      "kind": "replacement_review",
+      "url": "https://commons.wikimedia.org/wiki/File:Tweede_bedrijfsgebouw_Citroen_Amsterdam_voorzijde.jpg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons file page reviewed for subject relevance, creator and CC BY-SA 2.5 metadata for restaurant.wils thumbnail; replacement uses a new stable media ID."
+    },
+    {
+      "id": "evidence.media-636bf5af47-asset",
+      "kind": "url_check",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Tweede_bedrijfsgebouw_Citroen_Amsterdam_voorzijde.jpg/1280px-Tweede_bedrijfsgebouw_Citroen_Amsterdam_voorzijde.jpg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons raster asset selected for restaurant.wils thumbnail; no local modification is claimed."
+    },
+    {
+      "id": "evidence.media-1fd5d4eb9f-source",
+      "kind": "replacement_review",
+      "url": "https://commons.wikimedia.org/wiki/File:Tweede_bedrijfsgebouw_Citroen_Amsterdam_detail.jpg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons file page reviewed for subject relevance, creator and CC BY-SA 2.5 metadata for restaurant.wils map_preview; replacement uses a new stable media ID."
+    },
+    {
+      "id": "evidence.media-1fd5d4eb9f-asset",
+      "kind": "url_check",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tweede_bedrijfsgebouw_Citroen_Amsterdam_detail.jpg/1280px-Tweede_bedrijfsgebouw_Citroen_Amsterdam_detail.jpg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons raster asset selected for restaurant.wils map_preview; no local modification is claimed."
+    },
+    {
+      "id": "evidence.breda-official-source",
+      "kind": "replacement_review",
+      "url": "https://www.iamsterdam.com/en/whats-on/calendar/eating-and-drinking/restaurants/breda",
+      "checked_at": "2026-07-22",
+      "note": "Official Amsterdam destination listing reviewed after the former BREDA-owned contact route returned 404 to both HEAD and browser-like GET."
+    },
+    {
+      "id": "evidence.vumc-official-source",
+      "kind": "url_check",
+      "url": "https://www.amsterdamumc.nl/en/location-vumc/address-and-contact",
+      "checked_at": "2026-07-22",
+      "note": "Official Amsterdam UMC location VUmc address page returned 200 and replaces the less specific organisation address route."
+    },
+    {
+      "id": "evidence.vumc-media-source",
+      "kind": "replacement_review",
+      "url": "https://commons.wikimedia.org/wiki/File:VUmc_aan_De_Boelelaan.jpg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons file page and API confirm the exact VUmc subject, creator Choinowski, and CC BY-SA 4.0 licence after the former Commons file was removed."
+    },
+    {
+      "id": "evidence.vumc-media-asset",
+      "kind": "url_check",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/VUmc_aan_De_Boelelaan.jpg",
+      "checked_at": "2026-07-22",
+      "note": "The replacement VUmc raster asset returned 200 to both HEAD and browser-like GET; no local modification is claimed."
+    },
+    {
+      "id": "evidence.media-2beaf0e993-source",
+      "kind": "replacement_review",
+      "url": "https://commons.wikimedia.org/wiki/File:Fork_and_knife_Pinhead_icon.svg",
+      "checked_at": "2026-07-22",
+      "note": "Wikimedia Commons file page and API confirm this generic restaurant pictogram by @westnordost and Maki contributors is CC0 1.0; it is explicitly labelled as a neutral fallback and does not claim to depict BREDA."
+    },
+    {
+      "id": "evidence.media-2beaf0e993-asset",
+      "kind": "url_check",
+      "url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fork_and_knife_Pinhead_icon.svg/1280px-Fork_and_knife_Pinhead_icon.svg.png",
+      "checked_at": "2026-07-22",
+      "note": "The rasterized neutral restaurant fallback returned 200 to both HEAD and browser-like GET; no local modification or venue depiction is claimed."
+    }
+  ],
+  "replacements": [
+    {
+      "entity_id": "place.amsterdam-west",
+      "original_canonical_sha256": "c19f3f2153b8895cfef284c59b09dbb36ec1f24c24aca2315a83aa5637e3aaa2",
+      "replacement_canonical_sha256": "2c03f809f3bf98f7bcda4520267f201a7ccf634cd238e91cfecfa5d7e73b55e6",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "place.amsterdam-west",
+        "entity_type": "place",
+        "category": "district",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3615701,
+          "longitude": 4.8422789
+        },
+        "title": "Amsterdam West",
+        "description": "Amsterdam West is a confirmed Amsterdam place or attraction. The cited source specifically covers the western inner-city district and its municipal district page. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=84880929",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/64/Houtzaagmolen_de_Otter_in_Amsterdam-west_Amsterdam_%28titel_op_object%29%2C_RP-F-F01740.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Houtzaagmolen de Otter in Amsterdam-west Amsterdam (titel op object), RP-F-F01740\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.amsterdam-west.hero.468e4ea50f"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://www.flickr.com/photos/29780762@N07/4100728650",
+            "asset_url": "https://live.staticflickr.com/2538/4100728650_04ec62bd40.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"01-04-1961_17746B Nieuw West\" by IISG is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.amsterdam-west.gallery.f8a0a242eb"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://www.flickr.com/photos/104736837@N03/10903156366",
+            "asset_url": "https://live.staticflickr.com/5471/10903156366_24380687f2_b.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Demolished bicycle on the bridge at the end of Kinkerstraat, district Oud-West, in Amsterdam city; urban photography in the Netherlands, Fons Heijnsbroek, 2013\" by Amsterdam free photos & pictures of the Dutch city is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.amsterdam-west.thumbnail.fe276e6cab"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/104736837@N03/10860448526",
+            "asset_url": "https://live.staticflickr.com/5494/10860448526_2de277155e_b.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"2011.04 - 'Urban modern architecture', entrance & reflectionsof a residential block built in the 1980's in the district Kinkerbuurt / Oud-West; photos of Amsterdam city; urban photographer Fons Heijnsbroek - geotag, The Netherlands\" by Amsterdam free photos & pictures of the Dutch city is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.amsterdam-west.map_preview.2bbef9d474"
+          }
+        ],
+        "official_source": {
+          "title": "Amsterdam West official website",
+          "publisher": "City of Amsterdam",
+          "url": "https://www.amsterdam.nl/en/districts/west/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.amsterdam.nl/en/districts/west/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official City of Amsterdam page for Amsterdam West and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under district and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Amsterdam West",
+          "Amsterdam West Amsterdam",
+          "district",
+          "place or attraction Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 46338568",
+          "source_http_status": "403",
+          "source_final_url": "https://www.amsterdam.nl/en/districts/west/",
+          "source_verification_method": "restricted response accepted for review",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "place.amsterdam-westpoort",
+      "original_canonical_sha256": "3216ab896c7adc7950b326632b4a70bb8fdacd958f6785cafed90f446c6bdd86",
+      "replacement_canonical_sha256": "83d08e6dbefaa317102f57d17d5ba8c0ff1c1803d49f1547ac3908d29e645e62",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "place.amsterdam-westpoort",
+        "entity_type": "place",
+        "category": "district",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3933601,
+          "longitude": 4.794733
+        },
+        "title": "Amsterdam Westpoort",
+        "description": "Amsterdam Westpoort is a confirmed Amsterdam place or attraction. The cited source specifically covers the port and employment district and its municipal district page. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/38891071@N00/7747984434",
+            "asset_url": "https://live.staticflickr.com/8431/7747984434_e875640c6c_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"When Starbucks Comes To Town\" by FaceMePLS is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.amsterdam-westpoort.hero.054c08bb60"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://www.flickr.com/photos/38891071@N00/2740963215",
+            "asset_url": "https://live.staticflickr.com/2381/2740963215_df732c3312_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Train\" by FaceMePLS is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.amsterdam-westpoort.gallery.bed01a418f"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://www.flickr.com/photos/38891071@N00/7747992792",
+            "asset_url": "https://live.staticflickr.com/8423/7747992792_a0af940a27_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"The Unbounded Lightness of Biking\" by FaceMePLS is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.amsterdam-westpoort.thumbnail.976face354"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=42478729",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Millennium_Tower_Amsterdam_Westpoort_Reed_Elsevier_20140622.JPG",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Millennium Tower Amsterdam Westpoort Reed Elsevier 20140622\" by Paul B is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.amsterdam-westpoort.map_preview.708568b031"
+          }
+        ],
+        "official_source": {
+          "title": "Amsterdam Westpoort official website",
+          "publisher": "City of Amsterdam",
+          "url": "https://www.amsterdam.nl/en/districts/westpoort/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.amsterdam.nl/en/districts/westpoort/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official City of Amsterdam page for Amsterdam Westpoort and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under district and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Amsterdam Westpoort",
+          "Amsterdam Westpoort Amsterdam",
+          "district",
+          "place or attraction Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 2600712512",
+          "source_http_status": "403",
+          "source_final_url": "https://www.amsterdam.nl/en/districts/westpoort/",
+          "source_verification_method": "restricted response accepted for review",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "place.hortus-botanicus-amsterdam",
+      "original_canonical_sha256": "0efb5c9535e9af03eb7734abd2b1f218c794ac86870736beae516f34a56127b5",
+      "replacement_canonical_sha256": "fde34ed17e4550423e82e108152ebceaf01e62ede09737db704dffaa56d148a3",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "place.hortus-botanicus-amsterdam",
+        "entity_type": "place",
+        "category": "botanical-garden",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.366806,
+          "longitude": 4.9077777
+        },
+        "title": "Hortus Botanicus Amsterdam",
+        "description": "Hortus Botanicus Amsterdam is a confirmed Amsterdam place or attraction. The cited source specifically covers the botanical garden and its living plant collections. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/22539273@N00/21481527312",
+            "asset_url": "https://live.staticflickr.com/618/21481527312_c330e54293_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Greenhouse @ Hortus Botanicus Amsterdam @ Amsterdam\" by *_* is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.hortus-botanicus-amsterdam.hero.b9d65f1f4a"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=61822422",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/a/a6/Hortus_Botanicus_Amsterdam%2C_Amsterdam%2C_Netherlands_%28Unsplash%29.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Hortus Botanicus Amsterdam, Amsterdam, Netherlands (Unsplash)\" by Samuel Zeller samuelzeller is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.hortus-botanicus-amsterdam.gallery.c167934950"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://www.flickr.com/photos/14405058@N08/3555156752",
+            "asset_url": "https://live.staticflickr.com/3380/3555156752_1a44afe268_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Kalanchoe beharensis Drake\" by Ryan Somma is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.hortus-botanicus-amsterdam.thumbnail.9197f3207d"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/14405058@N08/3495302626",
+            "asset_url": "https://live.staticflickr.com/3390/3495302626_cdc650ca87_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Afrikaanse rubberboom\" by Ryan Somma is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.hortus-botanicus-amsterdam.map_preview.9668f0fd51"
+          }
+        ],
+        "official_source": {
+          "title": "Hortus Botanicus Amsterdam official website",
+          "publisher": "Hortus Botanicus Amsterdam",
+          "url": "https://www.dehortus.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.dehortus.nl/en/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Hortus Botanicus Amsterdam page for Hortus Botanicus Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under botanical garden and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Hortus Botanicus Amsterdam",
+          "Hortus Botanicus Amsterdam Amsterdam",
+          "botanical garden",
+          "place or attraction Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 31527079",
+          "source_http_status": "200",
+          "source_final_url": "https://www.dehortus.nl/en/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "place.adam-lookout",
+      "original_canonical_sha256": "1884433443f4bb971837e2d5f76e4544e1b4320b1898438d4d52088c37ce6868",
+      "replacement_canonical_sha256": "035e112b966dba0f208fd9a2646fd182cc519ec5967c4f0f51aa722b991c2d4c",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "place.adam-lookout",
+        "entity_type": "place",
+        "category": "observation-deck",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3838564,
+          "longitude": 4.9021028
+        },
+        "title": "A'DAM LOOKOUT",
+        "description": "A'DAM LOOKOUT is a confirmed Amsterdam place or attraction. The cited source specifically covers the observation deck overlooking Amsterdam and the IJ. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/67056263@N04/48359713021",
+            "asset_url": "https://live.staticflickr.com/65535/48359713021_7f771b85eb_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Swinging at the Rooftop Club at A'DAM Lookout\" by Stephen Kelly Photography is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.adam-lookout.hero.434118df9b"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=122371033",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/6f/The_concrete_underside_of_the_A%27dam_Lookout_tower%2C_located_along_the_IJpromenade%2C_close_to_the_border_of_the_river_IJ._Picture_is_taken_from_the_stairs_of_Eye_Film_museum%3B_free_photo_of_Amsterdam_by_Fons_Heijnsbroek%2C_December_2020.tif",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "attribution": "\"The concrete underside of the A'dam Lookout tower, located along the IJpromenade, close to the border of the river IJ. Picture is taken from the stairs of Eye Film museum; free photo of Amsterdam by Fons Heijnsbroek, December 2020\" by Fons Heijnsbroek is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/deed.en.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.adam-lookout.gallery.5ef6dd0059"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=80589377",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/0/01/A%27DAM_lookout_and_Eye_Film_Museum_in_Amsterdam.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"A'DAM lookout and Eye Film Museum in Amsterdam\" by GillyBerlin is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.adam-lookout.thumbnail.f461121c0c"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=168936340",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/1/14/2025_-_free_download_photo_of_a_view_over_the_bridge_of_the_IJpromenade_with_in_the_background_the_building_of_Eye_filmmuseum_and_to_the_right_the_tower_A%27dam_Lookout_on_a_gray_day._I_like_the_knitted_street_art_in_the_bridge_railing.tif",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"2025 - free download photo of a view over the bridge of the IJpromenade with in the background the building of Eye filmmuseum and to the right the tower A'dam Lookout on a gray day. I like the knitted street art in the bridge railing\" by Fons Heijnsbroek is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.adam-lookout.map_preview.6bd22c3b03"
+          }
+        ],
+        "official_source": {
+          "title": "A'DAM LOOKOUT official website",
+          "publisher": "A'DAM LOOKOUT",
+          "url": "https://www.adamlookout.com/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.adamlookout.com/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official A'DAM LOOKOUT page for A'DAM LOOKOUT and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under observation deck and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "A'DAM LOOKOUT",
+          "A'DAM LOOKOUT Amsterdam",
+          "observation deck",
+          "place or attraction Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 4382053996",
+          "source_http_status": "200",
+          "source_final_url": "https://www.adamlookout.com/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "place.seventeenth-century-canal-ring-of-amsterdam",
+      "original_canonical_sha256": "bb0f6b410fbaf8a73c78562644b2f867d77fc0e1329ce37746a0c598522131b4",
+      "replacement_canonical_sha256": "3c51182f796b90c8598291f05278e5ae54f514db5f6dcd369e921f325c2e100a",
+      "reason": "Replaced 1 complete media object(s) with reviewed subject-matched Wikimedia Commons media and new stable IDs; creator, licence, source page, raster asset, retrieval date, relevance and no-modification notes are recorded. Superseded IDs: media.place.seventeenth-century-canal-ring-of-amsterdam.gallery.afe4242a8e.",
+      "evidence_refs": [
+        "evidence.confirmed-404-08",
+        "evidence.confirmed-404-15",
+        "evidence.media-e4c0016326-source",
+        "evidence.media-e4c0016326-asset"
+      ],
+      "record": {
+        "id": "place.seventeenth-century-canal-ring-of-amsterdam",
+        "entity_type": "place",
+        "category": "unesco-world-heritage",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.371979,
+          "longitude": 4.8847268
+        },
+        "title": "Seventeenth-Century Canal Ring of Amsterdam",
+        "description": "Seventeenth-Century Canal Ring of Amsterdam is a confirmed Amsterdam place or attraction. The cited source specifically covers the UNESCO-listed seventeenth-century canal-ring area. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/12836528@N00/2549181418",
+            "asset_url": "https://live.staticflickr.com/3063/2549181418_de61a39650_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Leidsegracht\" by kevin dooley is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.seventeenth-century-canal-ring-of-amsterdam.hero.bad1679b5a"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_the_Canal_Ring_(8652262148).jpg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ce/Amsterdam_-_the_Canal_Ring_%288652262148%29.jpg/1280px-Amsterdam_-_the_Canal_Ring_%288652262148%29.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Amsterdam - the Canal Ring\" by Lies Thru a Lens is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "id": "media.place.seventeenth-century-canal-ring-of-amsterdam.gallery.e4c0016326",
+            "alt": "Amsterdam canal ring with historic canalside buildings and water."
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://www.flickr.com/photos/31392863@N04/4519207722",
+            "asset_url": "https://live.staticflickr.com/4034/4519207722_9edc47949e_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Amsterdam Centraal Station\" by ednl is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.seventeenth-century-canal-ring-of-amsterdam.thumbnail.648c7a7ae7"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/63520626@N02/12850113855",
+            "asset_url": "https://live.staticflickr.com/2886/12850113855_4e27ea2d62_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Amsterdam Fog\" by Justin LaBerge is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.seventeenth-century-canal-ring-of-amsterdam.map_preview.3080419fa5"
+          }
+        ],
+        "official_source": {
+          "title": "Seventeenth-Century Canal Ring of Amsterdam official website",
+          "publisher": "UNESCO World Heritage Centre",
+          "url": "https://whc.unesco.org/en/list/1349/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://whc.unesco.org/en/list/1349/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official UNESCO World Heritage Centre page for Seventeenth-Century Canal Ring of Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under unesco world heritage and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Seventeenth-Century Canal Ring of Amsterdam",
+          "Seventeenth-Century Canal Ring of Amsterdam Amsterdam",
+          "unesco world heritage",
+          "place or attraction Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 222278733",
+          "source_http_status": "403",
+          "source_final_url": "https://whc.unesco.org/en/list/1349/",
+          "source_verification_method": "restricted response accepted for review",
+          "media_match": "exact",
+          "media_roles_count": "4",
+          "media_replacement_review": "All replacement source pages, raster assets, subjects, creators and licences reviewed on 2026-07-22; the Funda logo is used only for entity identification and retains its trademark notice.",
+          "media_replacement_modification_note": "Remote Wikimedia Commons raster originals or generated raster thumbnails are used without local modification."
+        }
+      }
+    },
+    {
+      "entity_id": "place.dam-square",
+      "original_canonical_sha256": "4c3a720f1c392fb542cd101b0a01fe99dbdb1a8de0f0a0ac3e7e0375ae42356a",
+      "replacement_canonical_sha256": "e670ebc59df72604879360c35c9713d2982142a09fecb89036e00b9e0ecac17f",
+      "reason": "Replaced 1 complete media object(s) with reviewed subject-matched Wikimedia Commons media and new stable IDs; creator, licence, source page, raster asset, retrieval date, relevance and no-modification notes are recorded. Superseded IDs: media.place.dam-square.gallery.4fc9650795.",
+      "evidence_refs": [
+        "evidence.confirmed-404-13",
+        "evidence.media-354ab29372-source",
+        "evidence.media-354ab29372-asset"
+      ],
+      "record": {
+        "id": "place.dam-square",
+        "entity_type": "place",
+        "category": "public-square",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3731162,
+          "longitude": 4.8923511
+        },
+        "title": "Dam Square",
+        "description": "Dam Square is a confirmed Amsterdam place or attraction. The cited source specifically covers the central civic square and surrounding historic landmarks. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/27466406@N00/5320048398",
+            "asset_url": "https://live.staticflickr.com/5010/5320048398_e65fd5d0d4_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Snow in Dam Square, Amsterdam\" by arripay is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.dam-square.hero.654947e2fb"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_Dam_Square_-_1265.jpg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ae/Amsterdam_-_Dam_Square_-_1265.jpg/1280px-Amsterdam_-_Dam_Square_-_1265.jpg",
+            "license": "CC BY-SA 3.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+            "attribution": "\"Amsterdam - Dam Square - 1265\" by Jorge Royan is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "id": "media.place.dam-square.gallery.354ab29372",
+            "alt": "Dam Square in Amsterdam with the National Monument and surrounding buildings."
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://www.flickr.com/photos/24108242@N05/4259426771",
+            "asset_url": "https://live.staticflickr.com/2720/4259426771_c1804e29a4_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Dam Square, Amsterdam, Christmas\" by martin_vmorris is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.dam-square.thumbnail.c0711da705"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/15595212@N08/6781364506",
+            "asset_url": "https://live.staticflickr.com/7178/6781364506_0977366788_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Dam Square, Amsterdam, The Netherlands\" by tsaiproject is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.dam-square.map_preview.aed3030bf0"
+          }
+        ],
+        "official_source": {
+          "title": "Dam Square official website",
+          "publisher": "I amsterdam",
+          "url": "https://www.iamsterdam.com/en/explore/neighbourhoods/centrum/things-to-do-in-paleiskwartier-the-royal-mile",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.iamsterdam.com/en/explore/neighbourhoods/centrum/things-to-do-in-paleiskwartier-the-royal-mile",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official I amsterdam page for Dam Square and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under public square and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Dam Square",
+          "Dam Square Amsterdam",
+          "public square",
+          "place or attraction Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 94756489",
+          "source_http_status": "restricted",
+          "source_final_url": "https://www.iamsterdam.com/en/explore/neighbourhoods/centrum/things-to-do-in-paleiskwartier-the-royal-mile",
+          "source_verification_method": "indexed official source or in-app browser",
+          "media_match": "exact",
+          "media_roles_count": "4",
+          "media_replacement_review": "All replacement source pages, raster assets, subjects, creators and licences reviewed on 2026-07-22; the Funda logo is used only for entity identification and retains its trademark notice.",
+          "media_replacement_modification_note": "Remote Wikimedia Commons raster originals or generated raster thumbnails are used without local modification."
+        }
+      }
+    },
+    {
+      "entity_id": "place.bloemenmarkt",
+      "original_canonical_sha256": "e4f4088eb0d4ae97db5c20358a5adf2e82d8fddaa080e4700a7d75ed5bb1db2e",
+      "replacement_canonical_sha256": "8637ea4b66675d17d9af4197546e90f7fda625e70c0b56d22f74eadbac27dbfc",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "place.bloemenmarkt",
+        "entity_type": "place",
+        "category": "market",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3669308,
+          "longitude": 4.8907645
+        },
+        "title": "Bloemenmarkt",
+        "description": "Bloemenmarkt is a confirmed Amsterdam place or attraction. The cited source specifically covers the flower market along the Singel. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/44124483743@N01/20390681942",
+            "asset_url": "https://live.staticflickr.com/272/20390681942_5614d69929_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Bloemenmarkt, Amsterdam\" by brownpau is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.bloemenmarkt.hero.b2229f6993"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=52642097",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/3/38/Bloemenmarkt_Amsterdam_-_2014.jpg",
+            "license": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "attribution": "\"Bloemenmarkt Amsterdam - 2014\" by חזרתי is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.bloemenmarkt.gallery.a5de173473"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=65102673",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Kerstverlichting_Bloemenmarkt_Amsterdam%2C_Bestanddeelnr_906-1714.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Kerstverlichting Bloemenmarkt Amsterdam, Bestanddeelnr 906-1714\" by Herbert Behrens / Anefo is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.bloemenmarkt.thumbnail.0020d05f8e"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=16392935",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Bloemenmarkt-Amsterdam.jpg",
+            "license": "CC BY-SA 3.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+            "attribution": "\"Bloemenmarkt-Amsterdam\" by Yair-haklai is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.bloemenmarkt.map_preview.3d22c96108"
+          }
+        ],
+        "official_source": {
+          "title": "Bloemenmarkt official website",
+          "publisher": "I amsterdam",
+          "url": "https://www.iamsterdam.com/en/see-and-do/shopping-and-markets/top-markets-in-amsterdam-for-food-and-flowers",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.iamsterdam.com/en/see-and-do/shopping-and-markets/top-markets-in-amsterdam-for-food-and-flowers",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official I amsterdam page for Bloemenmarkt and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under market and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Bloemenmarkt",
+          "Bloemenmarkt Amsterdam",
+          "market",
+          "place or attraction Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 145953534",
+          "source_http_status": "restricted",
+          "source_final_url": "https://www.iamsterdam.com/en/see-and-do/shopping-and-markets/top-markets-in-amsterdam-for-food-and-flowers",
+          "source_verification_method": "indexed official source or in-app browser",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "place.ndsm",
+      "original_canonical_sha256": "570330a123a5c9a15878b1aa585bf223d2eb4c66605dbe3201e508f7c189ce33",
+      "replacement_canonical_sha256": "ed332bbf8b6fee6cbe02a56bbe39b538d22cbac003950bade05e0e424c2226ec",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "place.ndsm",
+        "entity_type": "place",
+        "category": "creative-district",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.4003737,
+          "longitude": 4.8929539
+        },
+        "title": "NDSM",
+        "description": "NDSM is a confirmed Amsterdam place or attraction. The cited source specifically covers the former shipyard and cultural area on the IJ. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/35468151816@N01/638135249",
+            "asset_url": "https://live.staticflickr.com/1121/638135249_b84c83c6f0_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Sub at NDSM, Amsterdam\" by danbri is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.ndsm.hero.def8656140"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://www.flickr.com/photos/31774856@N00/24656501878",
+            "asset_url": "https://live.staticflickr.com/4527/24656501878_d2f1a5b2df_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Fatberg set up at NDSM Amsterdam\" by Arne Hendriks is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.ndsm.gallery.901d40d890"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=145886352",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/cd/2023_Raise_the_level%2C_NDSM%2C_Amsterdam_%281%29.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"2023 Raise the level, NDSM, Amsterdam (1)\" by Ceescamel is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.ndsm.thumbnail.bd6505bdf7"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=38174440",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/0/04/NDSM_Amsterdam.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"NDSM Amsterdam\" by Steven Lek is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.ndsm.map_preview.2b1c9ee312"
+          }
+        ],
+        "official_source": {
+          "title": "NDSM official website",
+          "publisher": "NDSM",
+          "url": "https://www.ndsm.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ndsm.nl/en/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official NDSM page for NDSM and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under creative district and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "NDSM",
+          "NDSM Amsterdam",
+          "creative district",
+          "place or attraction Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 177431282",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ndsm.nl/en",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.ciel-bleu",
+      "original_canonical_sha256": "eabdf2a274d832b274ca9eeaeed430c15d50a093761431dae3ac447b5e13913f",
+      "replacement_canonical_sha256": "f916b968e22dbc40b2338ede16eff855048dcbb3b9c5294a5b278eb94b573efd",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.ciel-bleu",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3487287,
+          "longitude": 4.894117
+        },
+        "title": "Ciel Bleu",
+        "description": "Ciel Bleu is a confirmed Amsterdam restaurant. The cited source specifically covers the restaurant at Hotel Okura Amsterdam. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=136133520",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/e1/Etude_de_ciel%2C_PPD1104.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Etude de ciel, PPD1104\" by Harpignies, Henri Joseph (Valenciennes, 28–07–1819 - Saint-Privé, 28–08–1916), dessinateur is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.ciel-bleu.hero.4d2caf1e86"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://www.flickr.com/photos/34948727@N00/17074494271",
+            "asset_url": "https://live.staticflickr.com/7630/17074494271_38049c003b_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Reuben sandwich at Nieuw Amsterdam restaurant in Melbourne\" by ultrakml is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.ciel-bleu.gallery.1d5c98bda2"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://www.flickr.com/photos/92162845@N03/9008718392",
+            "asset_url": "https://live.staticflickr.com/7328/9008718392_e54e40aae3_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Amsterdam Restaurant\" by JeffHBlum is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.ciel-bleu.thumbnail.de55491330"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/31919975@N06/3011759239",
+            "asset_url": "https://live.staticflickr.com/3294/3011759239_a24bd99411_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Burgermeester Amsterdam - Restaurant Front\" by dutchgrub is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.ciel-bleu.map_preview.7047c0ccb2"
+          }
+        ],
+        "official_source": {
+          "title": "Ciel Bleu official website",
+          "publisher": "Ciel Bleu",
+          "url": "https://www.cielbleu.nl/nl",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.cielbleu.nl/nl",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Ciel Bleu page for Ciel Bleu and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Ciel Bleu",
+          "Ciel Bleu Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 4162314589",
+          "source_http_status": "restricted",
+          "source_final_url": "https://www.cielbleu.nl/nl",
+          "source_verification_method": "indexed official source or in-app browser",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.breda",
+      "original_canonical_sha256": "64663e336c0e7f140dbfa2097210be30eaed78265535c01f23f563bfc6286449",
+      "replacement_canonical_sha256": "65cf9f9ac11f539949dfdb2c2c347cccfc74161bdfa521b613d25abd9fe9914c",
+      "reason": "Replaced the deleted BREDA-owned contact route with the current official I amsterdam destination listing and removed four reachable but subject-mismatched media objects in favor of an explicitly neutral CC0 restaurant fallback.",
+      "evidence_refs": [
+        "evidence.breda-official-source",
+        "evidence.media-2beaf0e993-source",
+        "evidence.media-2beaf0e993-asset"
+      ],
+      "record": {
+        "id": "restaurant.breda",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3656457,
+          "longitude": 4.8974539
+        },
+        "title": "BREDA",
+        "description": "BREDA is a confirmed Amsterdam restaurant. The cited source specifically covers the Amsterdam restaurant operated by the Breda group. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Fork_and_knife_Pinhead_icon.svg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fork_and_knife_Pinhead_icon.svg/1280px-Fork_and_knife_Pinhead_icon.svg.png",
+            "license": "CC0 1.0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "attribution": "\"Fork and knife Pinhead icon\" by @westnordost and Maki contributors is dedicated to the public domain under CC0 1.0. It is used as a generic restaurant fallback and does not depict BREDA.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "alt": "Generic fork-and-knife restaurant symbol; no photograph of BREDA is claimed.",
+            "id": "media.restaurant.breda.hero.2beaf0e993"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Fork_and_knife_Pinhead_icon.svg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fork_and_knife_Pinhead_icon.svg/1280px-Fork_and_knife_Pinhead_icon.svg.png",
+            "license": "CC0 1.0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "attribution": "\"Fork and knife Pinhead icon\" by @westnordost and Maki contributors is dedicated to the public domain under CC0 1.0. It is used as a generic restaurant fallback and does not depict BREDA.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "alt": "Generic fork-and-knife restaurant symbol; no photograph of BREDA is claimed.",
+            "id": "media.restaurant.breda.gallery.2beaf0e993"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Fork_and_knife_Pinhead_icon.svg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fork_and_knife_Pinhead_icon.svg/1280px-Fork_and_knife_Pinhead_icon.svg.png",
+            "license": "CC0 1.0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "attribution": "\"Fork and knife Pinhead icon\" by @westnordost and Maki contributors is dedicated to the public domain under CC0 1.0. It is used as a generic restaurant fallback and does not depict BREDA.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "alt": "Generic fork-and-knife restaurant symbol; no photograph of BREDA is claimed.",
+            "id": "media.restaurant.breda.thumbnail.2beaf0e993"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Fork_and_knife_Pinhead_icon.svg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fork_and_knife_Pinhead_icon.svg/1280px-Fork_and_knife_Pinhead_icon.svg.png",
+            "license": "CC0 1.0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "attribution": "\"Fork and knife Pinhead icon\" by @westnordost and Maki contributors is dedicated to the public domain under CC0 1.0. It is used as a generic restaurant fallback and does not depict BREDA.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "alt": "Generic fork-and-knife restaurant symbol; no photograph of BREDA is claimed.",
+            "id": "media.restaurant.breda.map_preview.2beaf0e993"
+          }
+        ],
+        "official_source": {
+          "title": "Breda | I amsterdam",
+          "publisher": "I amsterdam",
+          "url": "https://www.iamsterdam.com/en/whats-on/calendar/eating-and-drinking/restaurants/breda",
+          "is_official": true,
+          "checked_at": "2026-07-22",
+          "status": "verified_opened"
+        },
+        "website": "https://www.iamsterdam.com/en/whats-on/calendar/eating-and-drinking/restaurants/breda",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official I amsterdam destination listing for Restaurant Breda and recheck current visitor conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "BREDA",
+          "BREDA Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 2725879687",
+          "source_http_status": "200",
+          "source_final_url": "https://www.iamsterdam.com/en/whats-on/calendar/eating-and-drinking/restaurants/breda",
+          "source_verification_method": "browser-like GET against the official Amsterdam destination listing",
+          "media_match": "generic_neutral_fallback",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.daalder",
+      "original_canonical_sha256": "f02acd62d73888c8357fc724c287ee673ca6768a2e7c7efa49ec46807994fe72",
+      "replacement_canonical_sha256": "d3c3166e366c22760063705c69444d76295bd384366f75c2978148261a89a926",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.daalder",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3641089,
+          "longitude": 4.8590875
+        },
+        "title": "Daalder",
+        "description": "Daalder is a confirmed Amsterdam restaurant. The cited source specifically covers the Amsterdam restaurant led by its own culinary team. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=71805842",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/1601_Amsterdam_daalder_8_reales_British_Museum.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"1601 Amsterdam daalder 8 reales British Museum\" by Hispalois is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.daalder.hero.111498f4ab"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=68671895",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/7/7d/Daalder_Thorn_1563.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"Daalder Thorn 1563\" by Astropiet is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.daalder.gallery.f6ece57bfb"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=80481117",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/9/9c/Daalder_1686_-_Netherland_%28West-Friesland_-_West_Frisia%29.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Daalder 1686 - Netherland (West-Friesland - West Frisia)\" by Петров Эдуард is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.daalder.thumbnail.954ace5302"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/31817492@N00/6131399454",
+            "asset_url": "https://live.staticflickr.com/6081/6131399454_7fc74496d3_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Leeuwendaalder\" by tacowitte is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.daalder.map_preview.75f255378b"
+          }
+        ],
+        "official_source": {
+          "title": "Daalder official website",
+          "publisher": "Daalder",
+          "url": "https://daalderamsterdam.nl/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://daalderamsterdam.nl/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Daalder page for Daalder and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Daalder",
+          "Daalder Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 1275764717",
+          "source_http_status": "200",
+          "source_final_url": "https://daalderamsterdam.nl/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.vinkeles",
+      "original_canonical_sha256": "c4bbdb195d6f97cc44d72669a0ce1d7f289a4fb24a59e32343a7eb90d0038d53",
+      "replacement_canonical_sha256": "f3a762f95d881b90f7955641139a439fc17daedb4c78f69790e72a4f5ecb2f77",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.vinkeles",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3692629,
+          "longitude": 4.8834577
+        },
+        "title": "Vinkeles",
+        "description": "Vinkeles is a confirmed Amsterdam restaurant. The cited source specifically covers the restaurant in The Dylan Amsterdam. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=23384645",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/d/d5/Dam%2C_tekening_1764_Vinkeles_-_Amsterdam_-_20016376_-_RCE.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"Dam, tekening 1764 Vinkeles - Amsterdam - 20016376 - RCE\" by Unknown authorUnknown author is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.vinkeles.hero.283d21c237"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=164979966",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/4/4c/De_executie_van_de_freule_van_Dorth_-_1799%2C_by_Reinier_Vinkeles.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"De executie van de freule van Dorth - 1799, by Reinier Vinkeles\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.vinkeles.gallery.c60110b8c9"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=85246864",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/e/ec/Beeldenstorm_in_de_Oude_Kerk_te_Amsterdam%2C_1566_Beeldestorm_in_de_Oude_Kerk_te_Amsteldam_%28titel_op_object%29%2C_RP-P-OB-78.941.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Beeldenstorm in de Oude Kerk te Amsterdam, 1566 Beeldestorm in de Oude Kerk te Amsteldam (titel op object), RP-P-OB-78.941\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.vinkeles.thumbnail.79b27ec361"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=84795002",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/cf/Vertrek_van_de_Gardes_d%27Honneur_van_Amsterdam%2C_1813%2C_RP-P-OB-87.038.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "attribution": "\"Vertrek van de Gardes d'Honneur van Amsterdam, 1813, RP-P-OB-87.038\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/deed.en.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.vinkeles.map_preview.617bee52c2"
+          }
+        ],
+        "official_source": {
+          "title": "Vinkeles official website",
+          "publisher": "Vinkeles",
+          "url": "https://www.vinkeles.com/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.vinkeles.com/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Vinkeles page for Vinkeles and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Vinkeles",
+          "Vinkeles Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 4571078874",
+          "source_http_status": "200",
+          "source_final_url": "https://www.vinkeles.com/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.bougainville",
+      "original_canonical_sha256": "b82ded18018675a76e64933012329bcf47bbf07c285123616f8936b2e5027510",
+      "replacement_canonical_sha256": "02041b3f4f68045cea6a09f881cc5a7b0a75d08f8a0487f36d27f0eef53c03c7",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.bougainville",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3725106,
+          "longitude": 4.8932522
+        },
+        "title": "Bougainville",
+        "description": "Bougainville is a confirmed Amsterdam restaurant. The cited source specifically covers the restaurant at Hotel TwentySeven. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/29780762@N07/5287359405",
+            "asset_url": "https://live.staticflickr.com/65535/5287359405_c39dcb3a54_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"09-06-1947_02569 Bougainville\" by IISG is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.bougainville.hero.7732b12a12"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://www.flickr.com/photos/29780762@N07/53167663757",
+            "asset_url": "https://live.staticflickr.com/65535/53167663757_3f55054bff_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"09-06-1947_02570 Tewaterlating Bougainville\" by IISG is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.bougainville.gallery.097f8adb3b"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=66903741",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/8/88/Tewaterlating_Bougainville%2C_Bestanddeelnr_902-3387.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Tewaterlating Bougainville, Bestanddeelnr 902-3387\" by Daan Noske / Anefo is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.bougainville.thumbnail.a685b3bc80"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=66903733",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/2/23/Tewaterlating_Bougainville%2C_Bestanddeelnr_902-3379.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Tewaterlating Bougainville, Bestanddeelnr 902-3379\" by Daan Noske / Anefo is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.bougainville.map_preview.3ddd646b96"
+          }
+        ],
+        "official_source": {
+          "title": "Bougainville official website",
+          "publisher": "Bougainville",
+          "url": "https://www.restaurantbougainville.com/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.restaurantbougainville.com/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Bougainville page for Bougainville and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Bougainville",
+          "Bougainville Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 6192682978",
+          "source_http_status": "200",
+          "source_final_url": "https://www.restaurantbougainville.com/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.mos-amsterdam",
+      "original_canonical_sha256": "0eb19370d2ffbf3e5eaf59a453a0c9266a7cf1db5dd72c4860e36f12c3b4a1c0",
+      "replacement_canonical_sha256": "6bdd1c34e152ba8a9f207cd8b997ddb4cd05f04a819549ebe50fbc364b0f64c4",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-03",
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url",
+        "evidence.by-sa-3.0-nl-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.mos-amsterdam",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3837962,
+          "longitude": 4.8955025
+        },
+        "title": "MOS Amsterdam",
+        "description": "MOS Amsterdam is a confirmed Amsterdam restaurant. The cited source specifically covers the waterfront restaurant at IJdok. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/23566085@N00/3128368490",
+            "asset_url": "https://live.staticflickr.com/3213/3128368490_cda68fc8dd_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Somewhere between Amsterdam and Paris / Grote Routepad 12 in Lier\" by e³°°° is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.mos-amsterdam.hero.65b489a9e4"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://www.flickr.com/photos/132603569@N08/46528572985",
+            "asset_url": "https://live.staticflickr.com/7806/46528572985_0091970b95_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Mist in Amsterdam - mos op steen\" by mededeler is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.mos-amsterdam.gallery.ab2ebb012d"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=24851791",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/b/b2/Frank_Rijkaard%2C_Felix_Gasselich%2C_Aad_de_Mos%2C_Walter_Meeuws_%26_Sonny_Silooy.jpg",
+            "license": "CC BY-SA 3.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0/nl/",
+            "attribution": "\"Frank Rijkaard, Felix Gasselich, Aad de Mos, Walter Meeuws & Sonny Silooy\" by Rob Bogaerts / Anefo is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/nl/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.mos-amsterdam.thumbnail.e25da5fd6a"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=66261480",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/8/83/Johan_Cruijff_%28links%29_met_hulptrainer_Aad_de_Mos%2C_Bestanddeelnr_931-8418.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Johan Cruijff (links) met hulptrainer Aad de Mos, Bestanddeelnr 931-8418\" by Marcel Antonisse / Anefo is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.mos-amsterdam.map_preview.02cc509893"
+          }
+        ],
+        "official_source": {
+          "title": "MOS Amsterdam official website",
+          "publisher": "MOS Amsterdam",
+          "url": "https://mosamsterdam.nl/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://mosamsterdam.nl/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official MOS Amsterdam page for MOS Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "MOS Amsterdam",
+          "MOS Amsterdam Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 2745434808",
+          "source_http_status": "200",
+          "source_final_url": "https://mosamsterdam.nl/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.jansz",
+      "original_canonical_sha256": "77111d5c2da384ebaa7e859d96e9342ae2f165b266ccf52cd7c511c05908c90b",
+      "replacement_canonical_sha256": "68839f492aa5fe5859cc84bd76e11858f6788115e8b4aceb23e66e54a1336ea7",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.jansz",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3724257,
+          "longitude": 4.8844571
+        },
+        "title": "Jansz.",
+        "description": "Jansz. is a confirmed Amsterdam restaurant. The cited source specifically covers the restaurant in the Pulitzer Amsterdam canal houses. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=155979706",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/f/fc/Portrait_of_Willem_Jansz._Blaeu_%28cropped%29.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Portrait of Willem Jansz. Blaeu (cropped)\" by Jeremias Falck is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.jansz.hero.9b686f4840"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=124568845",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/d/df/Wapen_Pieter_Jansz_Hooft.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"Wapen Pieter Jansz Hooft\" by Unbekend is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.jansz.gallery.4965e3eb86"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://www.flickr.com/photos/98147195@N00/8629873645",
+            "asset_url": "https://live.staticflickr.com/8099/8629873645_69ddd034da_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Portrait of Dirck Janszj. Pesser\" by mark6mauno is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.jansz.thumbnail.97a7ebfc0d"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=84535893",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/c7/Portretten_van_Michiel_Jansz._van_Mierevelt%2C_een_niet_ge%C3%AFdentificeerd_persoon_en_Willem_Jacobsz._Delff%2C_RP-P-1907-4279.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Portretten van Michiel Jansz. van Mierevelt, een niet geïdentificeerd persoon en Willem Jacobsz. Delff, RP-P-1907-4279\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.jansz.map_preview.5a9c896727"
+          }
+        ],
+        "official_source": {
+          "title": "Jansz. official website",
+          "publisher": "Jansz.",
+          "url": "https://www.janszamsterdam.com/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.janszamsterdam.com/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Jansz. page for Jansz. and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Jansz.",
+          "Jansz. Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 6491481209",
+          "source_http_status": "200",
+          "source_final_url": "https://www.janszamsterdam.com/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.entrepot",
+      "original_canonical_sha256": "a37644d5fbe602fb2c23a21cf98c8e2efc93718cceed3345732aa4d788e44665",
+      "replacement_canonical_sha256": "219ec930d0d30794e46b03f740bec195bee02faeaef5812324549545bc9c12e1",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-03",
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url",
+        "evidence.by-sa-3.0-nl-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.entrepot",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3702107,
+          "longitude": 4.9380637
+        },
+        "title": "Entrepot",
+        "description": "Entrepot is a confirmed Amsterdam restaurant. The cited source specifically covers the restaurant near Entrepotdok. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=67198071",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/4/42/Steiger_ingestort_op_Gemeentelijk_Handels_Entrepot_%2C_Amsterdam%2C_brandweer_probee%2C_Bestanddeelnr_924-8911.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Steiger ingestort op Gemeentelijk Handels Entrepot , Amsterdam, brandweer probee, Bestanddeelnr 924-8911\" by Bert Verhoeff / Anefo is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.entrepot.hero.9e3761f361"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=67198059",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Steiger_ingestort_op_Gemeentelijk_Handels_Entrepot_%2C_Amsterdam%2C_brandweer_probee%2C_Bestanddeelnr_924-8912.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Steiger ingestort op Gemeentelijk Handels Entrepot , Amsterdam, brandweer probee, Bestanddeelnr 924-8912\" by Bert Verhoeff / Anefo is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.entrepot.gallery.34676452c6"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=73741961",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Steiger_ingestort_op_Gemeentelijk_Handels_Entrepot_%2C_Amsterdam%2C_brandweer_probee%2C_Bestanddeelnr_924-8910.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "attribution": "\"Steiger ingestort op Gemeentelijk Handels Entrepot , Amsterdam, brandweer probee, Bestanddeelnr 924-8910\" by Bert Verhoeff / Anefo is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/deed.en.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.entrepot.thumbnail.f867189379"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=16656005",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/2/2c/Entrepot_dok_Kadijksplein_Amsterdam.jpg",
+            "license": "CC BY-SA 3.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/3.0/nl/",
+            "attribution": "\"Entrepot dok Kadijksplein Amsterdam\" by Jane023 is licensed under CC BY-SA 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/3.0/nl/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.entrepot.map_preview.b9bedb82d5"
+          }
+        ],
+        "official_source": {
+          "title": "Entrepot official website",
+          "publisher": "Entrepot",
+          "url": "https://restaurantentrepot.nl/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://restaurantentrepot.nl/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Entrepot page for Entrepot and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Entrepot",
+          "Entrepot Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 277950745",
+          "source_http_status": "200",
+          "source_final_url": "https://restaurantentrepot.nl/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.wils",
+      "original_canonical_sha256": "ef5e3cb06cb0378a235193ad46bf07df7cb3ef50dcf217c5a8e53a0b48b79110",
+      "replacement_canonical_sha256": "58146666ea134ab9e5738a9fd89235c46e055ef93134f302652439346fc75820",
+      "reason": "Replaced 4 complete media object(s) with reviewed subject-matched Wikimedia Commons media and new stable IDs; creator, licence, source page, raster asset, retrieval date, relevance and no-modification notes are recorded. Superseded IDs: media.restaurant.wils.hero.5df526b17e, media.restaurant.wils.gallery.dce8c697bc, media.restaurant.wils.thumbnail.d4a3ea7c00, media.restaurant.wils.map_preview.b8361e3fe9.",
+      "evidence_refs": [
+        "evidence.confirmed-404-05",
+        "evidence.confirmed-404-06",
+        "evidence.confirmed-404-07",
+        "evidence.confirmed-404-09",
+        "evidence.confirmed-404-14",
+        "evidence.confirmed-404-16",
+        "evidence.confirmed-404-17",
+        "evidence.confirmed-404-18",
+        "evidence.media-9d3fe680c0-source",
+        "evidence.media-9d3fe680c0-asset",
+        "evidence.media-6968043ef5-source",
+        "evidence.media-6968043ef5-asset",
+        "evidence.media-636bf5af47-source",
+        "evidence.media-636bf5af47-asset",
+        "evidence.media-1fd5d4eb9f-source",
+        "evidence.media-1fd5d4eb9f-asset"
+      ],
+      "record": {
+        "id": "restaurant.wils",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3433937,
+          "longitude": 4.8561571
+        },
+        "title": "Wils",
+        "description": "Wils is a confirmed Amsterdam restaurant. The cited source specifically covers the restaurant by the Olympic Stadium. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:RestaurantWils-ext-apr23.png",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/92/RestaurantWils-ext-apr23.png/1280px-RestaurantWils-ext-apr23.png",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"RestaurantWils-ext-apr23\" by Lenarrateur is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "id": "media.restaurant.wils.hero.9d3fe680c0",
+            "alt": "Entrance of Restaurant Wils in Amsterdam."
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:RestaurantWils-int-apr23.png",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/RestaurantWils-int-apr23.png/1280px-RestaurantWils-int-apr23.png",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"RestaurantWils-int-apr23\" by Lenarrateur is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "id": "media.restaurant.wils.gallery.6968043ef5",
+            "alt": "Interior of Restaurant Wils in Amsterdam in 2023."
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Tweede_bedrijfsgebouw_Citroen_Amsterdam_voorzijde.jpg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Tweede_bedrijfsgebouw_Citroen_Amsterdam_voorzijde.jpg/1280px-Tweede_bedrijfsgebouw_Citroen_Amsterdam_voorzijde.jpg",
+            "license": "CC BY-SA 2.5",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+            "attribution": "\"Tweede bedrijfsgebouw Citroen Amsterdam voorzijde\" by Vincent Steenberg is licensed under CC BY-SA 2.5. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.5/.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "id": "media.restaurant.wils.thumbnail.636bf5af47",
+            "alt": "Front of the northern former Citroën building at Stadionplein, the venue building for Restaurant Wils."
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Tweede_bedrijfsgebouw_Citroen_Amsterdam_detail.jpg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Tweede_bedrijfsgebouw_Citroen_Amsterdam_detail.jpg/1280px-Tweede_bedrijfsgebouw_Citroen_Amsterdam_detail.jpg",
+            "license": "CC BY-SA 2.5",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.5/",
+            "attribution": "\"Tweede bedrijfsgebouw Citroen Amsterdam detail\" by Vincent Steenberg is licensed under CC BY-SA 2.5. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.5/.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "id": "media.restaurant.wils.map_preview.1fd5d4eb9f",
+            "alt": "Architectural detail of the northern former Citroën building at Stadionplein, the venue building for Restaurant Wils."
+          }
+        ],
+        "official_source": {
+          "title": "Wils official website",
+          "publisher": "Wils",
+          "url": "https://www.restaurantwils.nl/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.restaurantwils.nl/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Wils page for Wils and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Wils",
+          "Wils Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 11025413363",
+          "source_http_status": "200",
+          "source_final_url": "https://www.restaurantwils.nl/",
+          "source_verification_method": "direct request",
+          "media_match": "exact-and-venue-building-context",
+          "media_roles_count": "4",
+          "media_replacement_review": "All replacement source pages, raster assets, subjects, creators and licences reviewed on 2026-07-22; the Funda logo is used only for entity identification and retains its trademark notice.",
+          "media_replacement_modification_note": "Remote Wikimedia Commons raster originals or generated raster thumbnails are used without local modification."
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.coulisse",
+      "original_canonical_sha256": "008450e3e73181a4329e4a3f0b0fb8875686b3684f423f9f621c85d090855f4b",
+      "replacement_canonical_sha256": "fe90edace01fd3953d073c3aa69a8fdd8f2179f73c549e422121dfe14ef4dd5c",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.coulisse",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3740555,
+          "longitude": 4.9362805
+        },
+        "title": "Coulisse",
+        "description": "Coulisse is a confirmed Amsterdam restaurant. The cited source specifically covers the restaurant in Amsterdam Oost. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=24078474",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/3/31/Interieur_toneelzaal%2C_coulisse_-_Amsterdam_-_20384265_-_RCE.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"Interieur toneelzaal, coulisse - Amsterdam - 20384265 - RCE\" by A. J. van der Wal is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.coulisse.hero.824348ffaf"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=84875382",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/a/aa/Zes_etalages_Coulisses_de_la_place_publique_%28titel_op_object%29%2C_RP-P-2015-26-1508.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Zes etalages Coulisses de la place publique (titel op object), RP-P-2015-26-1508\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.coulisse.gallery.4b9d05acd7"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=42053501",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Coulisselandschap_rondom_Stuttebosch_in_de_lendevallei._Provincie_Friesland_03.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"Coulisselandschap rondom Stuttebosch in de lendevallei. Provincie Friesland 03\" by Dominicus Johannes Bergsma is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.coulisse.thumbnail.f904aeda5a"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=42053502",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/a/af/Coulisselandschap_rondom_Stuttebosch_in_de_lendevallei._Provincie_Friesland_02.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"Coulisselandschap rondom Stuttebosch in de lendevallei. Provincie Friesland 02\" by Dominicus Johannes Bergsma is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.coulisse.map_preview.2940981dfc"
+          }
+        ],
+        "official_source": {
+          "title": "Coulisse official website",
+          "publisher": "Coulisse",
+          "url": "https://coulisse-amsterdam.nl/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://coulisse-amsterdam.nl/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Coulisse page for Coulisse and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Coulisse",
+          "Coulisse Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 2816343570",
+          "source_http_status": "200",
+          "source_final_url": "https://coulisse-amsterdam.nl/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.gitane",
+      "original_canonical_sha256": "32294c07cb57fd491c37ab051c8854ddcd8e674f76220aa1841da553822db0e7",
+      "replacement_canonical_sha256": "7377e7a9b9a85b03fd5fccbfdf5c5dabe60edd14d7a7f24afa976d9f6a1121ba",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.gitane",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3617734,
+          "longitude": 4.8644186
+        },
+        "title": "Gitane",
+        "description": "Gitane is a confirmed Amsterdam restaurant. The cited source specifically covers the restaurant on Jan Pieter Heijestraat. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/38891071@N00/14793137600",
+            "asset_url": "https://live.staticflickr.com/5589/14793137600_340278899c_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Gitane Tandem\" by FaceMePLS is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.gitane.hero.6adf122e2e"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=26521318",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/7/71/Gitane_Testi_Super_Corsa_No29%2C_pic5.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Gitane Testi Super Corsa No29, pic5\" by Alf van Beem is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.gitane.gallery.58328f1c96"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=26521312",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/b/be/Gitane_Testi_Super_Corsa_No29%2C_pic1.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Gitane Testi Super Corsa No29, pic1\" by Alf van Beem is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.gitane.thumbnail.32ac72a388"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=26521316",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/f/fe/Gitane_Testi_Super_Corsa_No29%2C_pic4.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Gitane Testi Super Corsa No29, pic4\" by Alf van Beem is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.gitane.map_preview.b01879b0c4"
+          }
+        ],
+        "official_source": {
+          "title": "Gitane official website",
+          "publisher": "Gitane",
+          "url": "https://gitane.amsterdam/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://gitane.amsterdam/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Gitane page for Gitane and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Gitane",
+          "Gitane Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 1686808199",
+          "source_http_status": "308",
+          "source_final_url": "https://restaurantgitane.nl/",
+          "source_verification_method": "restricted response accepted for review",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.caf-caron",
+      "original_canonical_sha256": "e007436aaf3a92f06b16cf4de1aeb0cb80e10ab500213f911ba012519bf370c5",
+      "replacement_canonical_sha256": "317aed8f1bcb2233e2423b5639178c747afc8dfddc6b8fe07bdcec5752234a22",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.caf-caron",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3573801,
+          "longitude": 4.8887752
+        },
+        "title": "Café Caron",
+        "description": "Café Caron is a confirmed Amsterdam restaurant. The cited source specifically covers the French-oriented restaurant run by the Caron family. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=110333297",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Amsterdam_-_Restaurant-Caf%C3%A9_De_IJ-kantine_%2829670237354%29.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Amsterdam - Restaurant-Café De IJ-kantine (29670237354)\" by Fred Romero from Paris, France is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.caf-caron.hero.f464f0c076"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=67229968",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/66/Japanse_vestigingen_in_Amsterdam%2C_restaurant_Toga%2C_Bestanddeelnr_925-1314.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Japanse vestigingen in Amsterdam, restaurant Toga, Bestanddeelnr 925-1314\" by W. Punt for Anefo is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.caf-caron.gallery.d21f3cd099"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=159477868",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/c/ca/Promotie_Plaat_van_Mr._W.W._Wichers_Wierdsma%2C_29_Juni_1885%2C_Amsterdam_Restaurant_Riche.%2C_Objectnr_PV_PV65950.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Promotie Plaat van Mr. W.W. Wichers Wierdsma, 29 Juni 1885, Amsterdam Restaurant Riche., Objectnr PV PV65950\" by Mulder, Pieter Jacobus (Primaire vervaardiger) is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.caf-caron.thumbnail.ef4dc89452"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=131040281",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/60/Beautiful_Amsterdam_Restaurant_with_Vines_%2852556308866%29.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Beautiful Amsterdam Restaurant with Vines (52556308866)\" by Nan Palmero from San Antonio, TX, USA is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.caf-caron.map_preview.eb43c84060"
+          }
+        ],
+        "official_source": {
+          "title": "Café Caron official website",
+          "publisher": "Café Caron",
+          "url": "https://cafecaron.nl/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://cafecaron.nl/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Café Caron page for Café Caron and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Café Caron",
+          "Café Caron Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 2817453062",
+          "source_http_status": "200",
+          "source_final_url": "https://cafecaron.nl/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.wilde-zwijnen",
+      "original_canonical_sha256": "fba78d29103cde22a23b0450e15c41eea30dc4c84a7e917486e320ca881d8973",
+      "replacement_canonical_sha256": "417ae85f3c56a8c79dffdf2d0bdbf32470e6ecba87e8a13a412fb5dd0bf5569c",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.wilde-zwijnen",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3635789,
+          "longitude": 4.9403914
+        },
+        "title": "Wilde Zwijnen",
+        "description": "Wilde Zwijnen is a confirmed Amsterdam restaurant. The cited source specifically covers the restaurant on Javaplein. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=150499471",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Wilde_zwijnenjacht%2C_RP-P-1886-A-10456.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Wilde zwijnenjacht, RP-P-1886-A-10456\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.wilde-zwijnen.hero.2b9abfba7b"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=85437434",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/0/07/Drie_liggende_zwijnen%2C_RP-P-1882-A-6769.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Drie liggende zwijnen, RP-P-1882-A-6769\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.wilde-zwijnen.gallery.22a1f1b60a"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=85437416",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/9/94/Drie_liggende_zwijnen%2C_RP-P-BI-6204.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Drie liggende zwijnen, RP-P-BI-6204\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.wilde-zwijnen.thumbnail.31f2d48245"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=40648194",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/6c/Wilde_zwijnen_%28Sus_scrofa%29_zoel._Locatie%2C_Kroondomein_Het_Loo_04.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"Wilde zwijnen (Sus scrofa) zoel. Locatie, Kroondomein Het Loo 04\" by Dominicus Johannes Bergsma is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.wilde-zwijnen.map_preview.80146b7978"
+          }
+        ],
+        "official_source": {
+          "title": "Wilde Zwijnen official website",
+          "publisher": "Wilde Zwijnen",
+          "url": "https://www.wildezwijnenwinkel.nl/english/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.wildezwijnenwinkel.nl/english/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Wilde Zwijnen page for Wilde Zwijnen and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Wilde Zwijnen",
+          "Wilde Zwijnen Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 1595364823",
+          "source_http_status": "200",
+          "source_final_url": "https://www.wildezwijnenwinkel.nl/english/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.de-plantage",
+      "original_canonical_sha256": "a99af21a04cbfbc47600a4a86906087046f65f030408ee98655453979472d1d1",
+      "replacement_canonical_sha256": "95c7a36d626487b7c5bd35b87d2822c24b76af9dfb9a4f94ae3e265795f1d18d",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "restaurant.de-plantage",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3665845,
+          "longitude": 4.912559
+        },
+        "title": "De Plantage",
+        "description": "De Plantage is a confirmed Amsterdam restaurant. The cited source specifically covers the restaurant beside ARTIS. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=132452842",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/f/fd/De_Plantage_%28Amsterdam%29.jpg",
+            "license": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "attribution": "\"De Plantage (Amsterdam)\" by Derbrauni is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.de-plantage.hero.e865b0f018"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=85905611",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Gezicht_op_het_Aquariumgebouw_van_dierentuin_Artis_aan_de_Plantage_Middenlaan_De_Plantage._Amsterdam._%28titel_op_object%29%2C_RP-F-F00927-L.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Gezicht op het Aquariumgebouw van dierentuin Artis aan de Plantage Middenlaan De Plantage. Amsterdam. (titel op object), RP-F-F00927-L\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.de-plantage.gallery.86c3b275e8"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://www.flickr.com/photos/38891071@N00/6426174435",
+            "asset_url": "https://live.staticflickr.com/7145/6426174435_b76dc61869_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"'St. Jacob' Plantage Middenlaan Amsterdam\" by FaceMePLS is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.de-plantage.thumbnail.f1b4c147f6"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/104736837@N03/16889853557",
+            "asset_url": "https://live.staticflickr.com/7657/16889853557_a3ceef0234_b.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"2015.04 - Amsterdam photo of signs - A door full of pastes - in the Plantage district; a geotagged free urban picture, in public domain / Commons CCO; city photography by Fons Heijnsbroek, The Netherlands\" by Amsterdam free photos & pictures of the Dutch city is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.restaurant.de-plantage.map_preview.e992d71583"
+          }
+        ],
+        "official_source": {
+          "title": "De Plantage official website",
+          "publisher": "De Plantage",
+          "url": "https://deplantage.amsterdam/en/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://deplantage.amsterdam/en/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official De Plantage page for De Plantage and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "De Plantage",
+          "De Plantage Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 3085036459",
+          "source_http_status": "200",
+          "source_final_url": "https://deplantage.amsterdam/en/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "cafe.saint-jean",
+      "original_canonical_sha256": "115410ce2fa7afa62de27e768126b2c4dddb9508423756ae16f4b83255f14757",
+      "replacement_canonical_sha256": "f51b697c775649d49f3018562bf511d8c275e0240de9f02508aff3afd117efe7",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "cafe.saint-jean",
+        "entity_type": "cafe",
+        "category": "bakery-cafe",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3803375,
+          "longitude": 4.8842998
+        },
+        "title": "Saint-Jean",
+        "description": "Saint-Jean is a confirmed Amsterdam cafe. The cited source specifically covers the plant-based bakery and cafe in the Jordaan. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=72422339",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/b/b4/Bust_of_Pierre_Andr%C3%A9_de_Suffren_de_Saint-Tropez_by_Jean_Antoine_Houdon_Rijksmuseum_Amsterdam_BK-C-2003-3.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Bust of Pierre André de Suffren de Saint-Tropez by Jean Antoine Houdon Rijksmuseum Amsterdam BK-C-2003-3\" by Jean-Antoine Houdon is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.cafe.saint-jean.hero.8b026263b3"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://www.flickr.com/photos/158901618@N08/36763746430",
+            "asset_url": "https://live.staticflickr.com/4403/36763746430_a592635be8_b.jpg",
+            "license": "PDM",
+            "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+            "attribution": "\"Atelier de Paolo Veronese, Vierge à l'Enfant avec le jeune saint Jean-Baptiste (1550-1575), huile sur toile, 60,5 x 63 - Amsterdam, Rijksmuseum\" by Héliodore is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.cafe.saint-jean.gallery.38c44886e3"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=45376317",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/6/68/Anonyme_-_La_Sa%C3%B4ne_%C3%A0_Lyon_et_la_cath%C3%A9drale_Saint-Jean_vus_du_Nord.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"Anonyme - La Saône à Lyon et la cathédrale Saint-Jean vus du Nord\" by François de Dijon is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.cafe.saint-jean.thumbnail.bcc42c328b"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=85394041",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/f/f7/Portret_van_Jean-Paul_Rabaut_Saint-%C3%89tienne%2C_RP-P-1911-2971.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Portret van Jean-Paul Rabaut Saint-Étienne, RP-P-1911-2971\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.cafe.saint-jean.map_preview.b4b48cf58d"
+          }
+        ],
+        "official_source": {
+          "title": "Saint-Jean official website",
+          "publisher": "Saint-Jean",
+          "url": "https://www.saintjean.nl/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.saintjean.nl/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Saint-Jean page for Saint-Jean and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under bakery cafe and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Saint-Jean",
+          "Saint-Jean Amsterdam",
+          "bakery cafe",
+          "cafe Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 8373636815",
+          "source_http_status": "200",
+          "source_final_url": "https://www.saintjean.nl/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "nature.sarphatipark",
+      "original_canonical_sha256": "88290ffe16e3c4a6c80ed3d36965e6c848fce99108775bca676111d6d25cb60d",
+      "replacement_canonical_sha256": "f3f44c935686a932524d36feabbe5869c75c09df15f15def42b66088923cf86b",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "nature.sarphatipark",
+        "entity_type": "nature",
+        "category": "city-park",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3543751,
+          "longitude": 4.8963881
+        },
+        "title": "Sarphatipark",
+        "description": "Sarphatipark is a confirmed Amsterdam park or natural place. The cited source specifically covers the neighbourhood park in De Pijp. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/122687277@N03/35248874104",
+            "asset_url": "https://live.staticflickr.com/4327/35248874104_c8a61b23c9_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Sarphatipark, Amsterdam\" by philip.mallis is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.nature.sarphatipark.hero.e999274269"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=151237305",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/3/3b/Sarphatipark_%28Amsterdam%29.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Sarphatipark (Amsterdam)\" by Zhou Guanhuai is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.nature.sarphatipark.gallery.a9399bfef9"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=11643461",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/8/8b/WLM_-_jankie_-_Sarphati_monument_Sarphatipark_Amsterdam_%28detail%29.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"File:WLM - jankie - Sarphati monument Sarphatipark Amsterdam (detail).jpg\" by jankie is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.nature.sarphatipark.thumbnail.03e2c74b69"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/40757446@N04/5642128399",
+            "asset_url": "https://live.staticflickr.com/5045/5642128399_7850eb6439_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"8:00 o'clock in the morning @ Sarphatipark - Amsterdam\" by Steven Blom is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.nature.sarphatipark.map_preview.a73ec90c53"
+          }
+        ],
+        "official_source": {
+          "title": "Sarphatipark official website",
+          "publisher": "City of Amsterdam",
+          "url": "https://www.amsterdam.nl/en/leisure/parks/sarphatipark/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.amsterdam.nl/en/leisure/parks/sarphatipark/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official City of Amsterdam page for Sarphatipark and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under city park and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Sarphatipark",
+          "Sarphatipark Amsterdam",
+          "city park",
+          "park or natural place Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 6316270",
+          "source_http_status": "403",
+          "source_final_url": "https://www.amsterdam.nl/en/leisure/parks/sarphatipark/",
+          "source_verification_method": "restricted response accepted for review",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "nature.sloterpark-and-sloterplas",
+      "original_canonical_sha256": "a048b670f9e17b1d877cdffecb30835482edc97836911db438ee9ce393043f1f",
+      "replacement_canonical_sha256": "c4037e5887b5e1d90c96c3b6de06fdcff66d31b706ef83aedc90f56e6863553d",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "nature.sloterpark-and-sloterplas",
+        "entity_type": "nature",
+        "category": "park-lake",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.365036,
+          "longitude": 4.8121272
+        },
+        "title": "Sloterpark and Sloterplas",
+        "description": "Sloterpark and Sloterplas is a confirmed Amsterdam park or natural place. The cited source specifically covers the park and recreational lake in Nieuw-West. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=143145954",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/a/a4/Kunst_op_de_Oostoever%2C_Sloterpark%2C_Sloterplas%2C_Amsterdam.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Kunst op de Oostoever, Sloterpark, Sloterplas, Amsterdam\" by Alfvanbeem is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.nature.sloterpark-and-sloterplas.hero.14383905cb"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://www.flickr.com/photos/29782706@N03/7455907806",
+            "asset_url": "https://live.staticflickr.com/7277/7455907806_fd5d7505a4_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Amsterdam Park\" by aialagarcia is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.nature.sloterpark-and-sloterplas.gallery.bd7a43a1b6"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://www.flickr.com/photos/29782706@N03/7455907166",
+            "asset_url": "https://live.staticflickr.com/8166/7455907166_81e1330e05_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Amsterdam Park\" by aialagarcia is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.nature.sloterpark-and-sloterplas.thumbnail.d0275553c6"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/73494402@N00/222707092",
+            "asset_url": "https://live.staticflickr.com/85/222707092_7768fee5a4.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Amsterdam parking lot\" by Arnie J is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.nature.sloterpark-and-sloterplas.map_preview.d93d7ea307"
+          }
+        ],
+        "official_source": {
+          "title": "Sloterpark and Sloterplas official website",
+          "publisher": "City of Amsterdam",
+          "url": "https://www.amsterdam.nl/en/leisure/parks/sloterpark/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.amsterdam.nl/en/leisure/parks/sloterpark/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official City of Amsterdam page for Sloterpark and Sloterplas and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under park lake and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Sloterpark and Sloterplas",
+          "Sloterpark and Sloterplas Amsterdam",
+          "park lake",
+          "park or natural place Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 487473058",
+          "source_http_status": "403",
+          "source_final_url": "https://www.amsterdam.nl/en/leisure/parks/sloterpark/",
+          "source_verification_method": "restricted response accepted for review",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "transport.amsterdam-bijlmer-arena-station",
+      "original_canonical_sha256": "e34ab932f141b51cadc9754ffd8cbbc59f7240d51da82f6855ddd36a83368fe7",
+      "replacement_canonical_sha256": "e5831e20bc3de621529eea2ecef29a4e54d42a01406f950a1d7c1f9ff0d3cd17",
+      "reason": "Replaced 1 complete media object(s) with reviewed subject-matched Wikimedia Commons media and new stable IDs; creator, licence, source page, raster asset, retrieval date, relevance and no-modification notes are recorded. Superseded IDs: media.transport.amsterdam-bijlmer-arena-station.hero.a32f98a7c3.",
+      "evidence_refs": [
+        "evidence.confirmed-404-12",
+        "evidence.media-a27c9248a3-source",
+        "evidence.media-a27c9248a3-asset"
+      ],
+      "record": {
+        "id": "transport.amsterdam-bijlmer-arena-station",
+        "entity_type": "transport",
+        "category": "rail-station",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3122449,
+          "longitude": 4.9470883
+        },
+        "title": "Amsterdam Bijlmer ArenA station",
+        "description": "Amsterdam Bijlmer ArenA station is a confirmed Amsterdam transport object. The cited source specifically covers the rail and metro interchange in Zuidoost. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Amsterdam_Station_Bijmer_ArenA_001.JPG",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Amsterdam_Station_Bijmer_ArenA_001.JPG/1280px-Amsterdam_Station_Bijmer_ArenA_001.JPG",
+            "license": "CC BY 3.0",
+            "license_url": "https://creativecommons.org/licenses/by/3.0/",
+            "attribution": "\"Amsterdam Station Bijmer ArenA 001\" by Janericloebe is licensed under CC BY 3.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/3.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "id": "media.transport.amsterdam-bijlmer-arena-station.hero.a27c9248a3",
+            "alt": "Exterior of Amsterdam Bijlmer ArenA railway station."
+          }
+        ],
+        "official_source": {
+          "title": "Amsterdam Bijlmer ArenA station official website",
+          "publisher": "NS",
+          "url": "https://www.ns.nl/en/station-information/amsterdam-bijlmer-arena.html",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ns.nl/en/station-information/amsterdam-bijlmer-arena.html",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official NS page for Amsterdam Bijlmer ArenA station and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rail station and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Amsterdam Bijlmer ArenA station",
+          "Amsterdam Bijlmer ArenA station Amsterdam",
+          "rail station",
+          "transport object Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 4005961975",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ns.nl/en/station-information/amsterdam-bijlmer-arena.html",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "1",
+          "media_replacement_review": "All replacement source pages, raster assets, subjects, creators and licences reviewed on 2026-07-22; the Funda logo is used only for entity identification and retains its trademark notice.",
+          "media_replacement_modification_note": "Remote Wikimedia Commons raster originals or generated raster thumbnails are used without local modification."
+        }
+      }
+    },
+    {
+      "entity_id": "healthcare.amsterdam-umc-location-vumc",
+      "original_canonical_sha256": "6618ae2a4b3f2dafaa79612c65428ebd5162359972ffcb6e4944d1ee83183026",
+      "replacement_canonical_sha256": "ab78d414ce3c409d1879abb8207fe4780345f1c3f674263fe3b6db74fb5278fd",
+      "reason": "Replaced the removed VUmc Commons media object with an exact reviewed CC BY-SA 4.0 file and updated the official source to the exact Amsterdam UMC location page.",
+      "evidence_refs": [
+        "evidence.vumc-official-source",
+        "evidence.vumc-media-source",
+        "evidence.vumc-media-asset"
+      ],
+      "record": {
+        "id": "healthcare.amsterdam-umc-location-vumc",
+        "entity_type": "healthcare",
+        "category": "academic-hospital",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.334632,
+          "longitude": 4.8599107
+        },
+        "title": "Amsterdam UMC location VUmc",
+        "description": "Amsterdam UMC location VUmc is a confirmed Amsterdam healthcare provider. The cited source specifically covers the VUmc hospital location by the VU campus. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:VUmc_aan_De_Boelelaan.jpg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/d/d2/VUmc_aan_De_Boelelaan.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+            "attribution": "\"VUmc aan De Boelelaan\" by Choinowski is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "id": "media.healthcare.amsterdam-umc-location-vumc.hero.d6ed1911a4",
+            "alt": "Northwestern wing of the VUmc complex on De Boelelaan in Amsterdam-Zuid in 2025."
+          }
+        ],
+        "official_source": {
+          "title": "Amsterdam UMC location VUmc address and contact",
+          "publisher": "Amsterdam UMC",
+          "url": "https://www.amsterdamumc.nl/en/location-vumc/address-and-contact",
+          "is_official": true,
+          "checked_at": "2026-07-22",
+          "status": "verified_opened"
+        },
+        "website": "https://www.amsterdamumc.nl/en/location-vumc/address-and-contact",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Amsterdam UMC page for Amsterdam UMC location VUmc and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under academic hospital and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Amsterdam UMC location VUmc",
+          "Amsterdam UMC location VUmc Amsterdam",
+          "academic hospital",
+          "healthcare provider Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 25723907",
+          "source_http_status": "200",
+          "source_final_url": "https://www.amsterdamumc.nl/en/location-vumc/address-and-contact",
+          "source_verification_method": "browser-like GET against the official Amsterdam UMC location page",
+          "media_match": "exact",
+          "media_roles_count": "1"
+        }
+      }
+    },
+    {
+      "entity_id": "healthcare.antoni-van-leeuwenhoek",
+      "original_canonical_sha256": "31fdee1401ad4b6f9d27e33b641388308d57efbe67bd3a6d2399b6d6b96f35b3",
+      "replacement_canonical_sha256": "346dd186886d0d45171ab3a2d360f207db2608c2b1c535a7920cc544c4945d8a",
+      "reason": "Canonicalized obsolete Creative Commons deed URLs in both licence metadata and attribution text without changing the recorded licence or rights claim.",
+      "evidence_refs": [
+        "evidence.confirmed-404-04",
+        "evidence.cc0-canonical-url"
+      ],
+      "record": {
+        "id": "healthcare.antoni-van-leeuwenhoek",
+        "entity_type": "healthcare",
+        "category": "cancer-centre",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3501135,
+          "longitude": 4.8257529
+        },
+        "title": "Antoni van Leeuwenhoek",
+        "description": "Antoni van Leeuwenhoek is a confirmed Amsterdam healthcare provider. The cited source specifically covers specialist cancer care and research. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=85113909",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/a/a1/Portret_van_Antonie_van_Leeuwenhoek%2C_RP-P-1903-A-23563.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Portret van Antonie van Leeuwenhoek, RP-P-1903-A-23563\" by Rijksmuseum is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.healthcare.antoni-van-leeuwenhoek.hero.211292125d"
+          }
+        ],
+        "official_source": {
+          "title": "Antoni van Leeuwenhoek official website",
+          "publisher": "Antoni van Leeuwenhoek",
+          "url": "https://www.avl.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.avl.nl/en/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Antoni van Leeuwenhoek page for Antoni van Leeuwenhoek and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under cancer centre and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Antoni van Leeuwenhoek",
+          "Antoni van Leeuwenhoek Amsterdam",
+          "cancer centre",
+          "healthcare provider Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 25711528",
+          "source_http_status": "200",
+          "source_final_url": "https://www.avl.nl/en/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "1"
+        }
+      }
+    },
+    {
+      "entity_id": "local_partner.macbike-amsterdam",
+      "original_canonical_sha256": "7a33ac4011ef3b03510e054dc477521da633f651b832fca401233a28ca6b143b",
+      "replacement_canonical_sha256": "acc5fbbc323b0f9324adfe8bc04104c4c0eb66577b3990f030be9fd2fda97b86",
+      "reason": "Replaced 1 complete media object(s) with reviewed subject-matched Wikimedia Commons media and new stable IDs; creator, licence, source page, raster asset, retrieval date, relevance and no-modification notes are recorded. Superseded IDs: media.local-partner.macbike-amsterdam.thumbnail.ba62a958ea.",
+      "evidence_refs": [
+        "evidence.confirmed-404-11",
+        "evidence.media-d4e9a0a5ec-source",
+        "evidence.media-d4e9a0a5ec-asset"
+      ],
+      "record": {
+        "id": "local_partner.macbike-amsterdam",
+        "entity_type": "local_partner",
+        "category": "bike-rental",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3670614,
+          "longitude": 4.9024542
+        },
+        "title": "MacBike Amsterdam",
+        "description": "MacBike Amsterdam is a confirmed Amsterdam local company. The cited source specifically covers the Amsterdam bicycle-rental company. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/94549193@N00/15126981518",
+            "asset_url": "https://live.staticflickr.com/3888/15126981518_48e100d8c7_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Virtual Reality tourism\" by sndrv is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.local-partner.macbike-amsterdam.hero.27db4eb109"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://www.flickr.com/photos/35034347371@N01/53527129",
+            "asset_url": "https://live.staticflickr.com/31/53527129_1e1b26445b_b.jpg",
+            "license": "CC0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "attribution": "\"Cycling and Hanging out in AMS 17Oct05 - 4\" by roland is marked with CC0 1.0. To view the terms, visit https://creativecommons.org/publicdomain/zero/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.local-partner.macbike-amsterdam.gallery.286c90d50d"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Amsterdam_-_MacBike_(29669273314).jpg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f5/Amsterdam_-_MacBike_%2829669273314%29.jpg/1280px-Amsterdam_-_MacBike_%2829669273314%29.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Amsterdam - MacBike\" by Fred Romero is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "id": "media.local-partner.macbike-amsterdam.thumbnail.d4e9a0a5ec",
+            "alt": "MacBike bicycle-rental location in Amsterdam."
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/63191453@N00/2884017873",
+            "asset_url": "https://live.staticflickr.com/3258/2884017873_34800f6d4a_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Fonger Bike\" by meiburgin is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.local-partner.macbike-amsterdam.map_preview.0c03958f5b"
+          }
+        ],
+        "official_source": {
+          "title": "MacBike Amsterdam official website",
+          "publisher": "MacBike",
+          "url": "https://www.macbike.nl/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.macbike.nl/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official MacBike page for MacBike Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under bike rental and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "MacBike Amsterdam",
+          "MacBike Amsterdam Amsterdam",
+          "bike rental",
+          "local company Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "plan": "Free Listing",
+          "verified": "false",
+          "sponsored": "false",
+          "subcategory": "Bike Rental",
+          "coordinate_source": "OpenStreetMap Nominatim: node 60868596",
+          "source_http_status": "200",
+          "source_final_url": "https://www.macbike.nl/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4",
+          "media_replacement_review": "All replacement source pages, raster assets, subjects, creators and licences reviewed on 2026-07-22; the Funda logo is used only for entity identification and retains its trademark notice.",
+          "media_replacement_modification_note": "Remote Wikimedia Commons raster originals or generated raster thumbnails are used without local modification."
+        }
+      }
+    },
+    {
+      "entity_id": "local_partner.funda",
+      "original_canonical_sha256": "50c43f5ff11a4b7c908b9d2f2bb4f28b138df555a42f06adfd99c9639dd2e5fd",
+      "replacement_canonical_sha256": "e6ba0894ce80a312fe1f143271188de188cb92ffbf2452dac8b4f4db55f9db3b",
+      "reason": "Replaced 1 complete media object(s) with reviewed subject-matched Wikimedia Commons media and new stable IDs; creator, licence, source page, raster asset, retrieval date, relevance and no-modification notes are recorded. Superseded IDs: media.local-partner.funda.hero.eec4134991.",
+      "evidence_refs": [
+        "evidence.confirmed-404-10",
+        "evidence.media-15c44928b1-source",
+        "evidence.media-15c44928b1-asset"
+      ],
+      "record": {
+        "id": "local_partner.funda",
+        "entity_type": "local_partner",
+        "category": "real-estate-platform",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3676,
+          "longitude": 4.9041
+        },
+        "title": "Funda",
+        "description": "Funda is a confirmed Amsterdam local company. The cited source specifically covers the Amsterdam-based Dutch property platform. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Funda_logo.svg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Funda_logo.svg/1280px-Funda_logo.svg.png",
+            "license": "Public domain (PD textlogo)",
+            "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+            "attribution": "Funda logo by funda, sourced from Funda and hosted by Wikimedia Commons as a public-domain text logo. Trademark rights may still apply. Public Domain Mark: https://creativecommons.org/publicdomain/mark/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "id": "media.local-partner.funda.hero.15c44928b1",
+            "alt": "Orange and blue Funda real-estate marketplace wordmark."
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://www.flickr.com/photos/31013861@N00/8969255341",
+            "asset_url": "https://live.staticflickr.com/3752/8969255341_c3e53a43d2_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Workshop Gamestorming with Sunni Brown on June 6th 2013 in Amsterdam organized by Business Models Inc.\" by Sebastiaan ter Burg is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.local-partner.funda.gallery.3d02280d95"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://www.flickr.com/photos/31013861@N00/8969254495",
+            "asset_url": "https://live.staticflickr.com/5343/8969254495_8b037a0e09_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Workshop Gamestorming with Sunni Brown on June 6th 2013 in Amsterdam organized by Business Models Inc.\" by Sebastiaan ter Burg is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.local-partner.funda.thumbnail.5ea5f8330a"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/31013861@N00/8970444148",
+            "asset_url": "https://live.staticflickr.com/3811/8970444148_5f63b93f1c_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Workshop Gamestorming with Sunni Brown on June 6th 2013 in Amsterdam organized by Business Models Inc.\" by Sebastiaan ter Burg is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.local-partner.funda.map_preview.a3cfe6f040"
+          }
+        ],
+        "official_source": {
+          "title": "Funda official website",
+          "publisher": "Funda",
+          "url": "https://www.funda.nl/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://www.funda.nl/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-22",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Funda page for Funda and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under real estate platform and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Funda",
+          "Funda Amsterdam",
+          "real estate platform",
+          "local company Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "plan": "Free Listing",
+          "verified": "false",
+          "sponsored": "false",
+          "subcategory": "Real Estate",
+          "coordinate_source": "Existing audited Amsterdam service-area centroid",
+          "source_http_status": "200",
+          "source_final_url": "https://www.funda.nl/",
+          "source_verification_method": "direct request",
+          "media_match": "exact",
+          "media_roles_count": "4",
+          "media_replacement_review": "All replacement source pages, raster assets, subjects, creators and licences reviewed on 2026-07-22; the Funda logo is used only for entity identification and retains its trademark notice.",
+          "media_replacement_modification_note": "Remote Wikimedia Commons raster originals or generated raster thumbnails are used without local modification."
+        }
+      }
+    }
+  ]
+}

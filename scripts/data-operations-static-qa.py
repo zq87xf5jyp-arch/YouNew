@@ -2,7 +2,13 @@
 """Validate WP-17 operational planning, safety and KPI contracts."""
 
 import json
+import sys
 from pathlib import Path
+
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+
+from effective_release import EffectiveReleaseError, effective_release_heads, resolve_release  # noqa: E402
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -87,11 +93,36 @@ editorial = load(REPORTS / "editorial-dashboard.json")
 kpis = load(REPORTS / "data-kpi.json")
 maturity = load(REPORTS / "data-maturity.json")
 analytics = load(REPORTS / "data-analytics.json")
+try:
+    expected_release_ids = effective_release_heads(PROJECT)
+    effective_releases = [resolve_release(PROJECT, release_id) for release_id in expected_release_ids]
+except EffectiveReleaseError as error:
+    fail(f"effective release resolution failed: {error}")
+expected_entity_sources = {
+    entity_id: source
+    for effective in effective_releases
+    for entity_id, source in effective.record_sources.items()
+}
+expected_scope = [
+    {
+        "release_id": effective.release_id,
+        "status": effective.release.get("status"),
+        "work_package": effective.release.get("work_package"),
+        "records": len(effective.records),
+        "replacements": effective.replacement_count,
+    }
+    for effective in effective_releases
+]
 require(operations.get("work_package") == "WP-17", "operations report has the wrong owner")
 require(operations.get("mode") == "plan_then_approve", "generated operations mode drifted")
 require(operations.get("canonical_data_mutated") is False, "operations reports a canonical mutation")
 require(operations.get("external_issues_created") == 0, "operations created external issues")
 require(isinstance(operations.get("input_fingerprint"), str) and len(operations["input_fingerprint"]) == 64, "operations input fingerprint is missing")
+governed_scope = operations.get("governed_scope") or {}
+require(governed_scope.get("resolution") == "effective_release_heads", "operations must resolve effective release heads")
+require(governed_scope.get("effective_releases") == expected_scope, "operations effective release scope is stale or includes superseded releases")
+require(governed_scope.get("records") == len(expected_entity_sources), "operations governed record count is incorrect")
+require(governed_scope.get("record_sources") == len(expected_entity_sources), "operations record source ownership is incomplete")
 
 items = queue.get("items") or []
 require(queue.get("mode") == "plan_only", "action queue must be plan-only")
@@ -102,6 +133,16 @@ for item in items:
     require(item.get("approval_required") is True, f"{item.get('id')} must require approval")
     require(item.get("external_issue_created") is False, f"{item.get('id')} created an external issue")
     require(item.get("status") == "open", f"{item.get('id')} has an invalid queue status")
+    entity_id = item.get("entity_id")
+    if entity_id is not None:
+        require(entity_id in expected_entity_sources, f"{item.get('id')} references a superseded or unknown entity")
+        if item.get("type") in {"broken_link", "source_changed", "outdated", "orphan_data"}:
+            source = (item.get("evidence") or {}).get("source")
+            expected_source = expected_entity_sources[entity_id]
+            require(
+                isinstance(source, str) and source.endswith(expected_source.split(str(ROOT.resolve()) + "/")[-1]),
+                f"{item.get('id')} does not retain effective record source ownership",
+            )
 
 release_candidates = [item for item in items if item.get("type") == "publication_candidate"]
 release_manifests = [load(path) for path in sorted((REPORTS / "release-manifests").glob("*.json"))]
@@ -145,6 +186,9 @@ script = (ROOT / "scripts" / "generate-data-operations.py").read_text(encoding="
 for forbidden in ("lifecycle_status =", "verification_status =", "publication_status =", "published_at =", "api.github.com"):
     require(forbidden not in script, f"operations generator contains a forbidden mutation pattern: {forbidden}")
 require("before = fingerprint()" in script and "after = fingerprint()" in script, "operations generator does not enforce its input fingerprint")
+require("effective_release_heads(PROJECT)" in script, "operations generator does not resolve effective release heads")
+require("effective.record_sources" in script, "operations generator does not retain effective record source ownership")
+require('(PROJECT / "batches").glob' not in script, "operations generator must not read superseded raw batches directly")
 
 print("Data Operations static QA passed")
 print(f"- Review queue items: {len(items)}")

@@ -14,6 +14,8 @@ from datetime import date, timedelta
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from effective_release import EffectiveReleaseError, effective_release_heads, resolve_release
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / "DataProject"
@@ -300,14 +302,17 @@ def batch_catalog():
 
 
 def validate_release(release_id, release, manifest_entry, batches):
+    is_overlay = bool(release.get("overlay_path"))
     if manifest_entry is None:
-        raise ImportFailure(f"Release {release_id} has no generated release manifest")
-    _, manifest = manifest_entry
-    if manifest.get("release_id") != release_id or manifest.get("version") != release.get("version"):
-        raise ImportFailure(f"Release {release_id} manifest does not match releases.json")
-    if manifest.get("status") != release.get("status"):
-        raise ImportFailure(f"Release {release_id} manifest status does not match releases.json")
-    if not batches:
+        if not is_overlay or release.get("status") == "published":
+            raise ImportFailure(f"Release {release_id} has no generated release manifest")
+    else:
+        _, manifest = manifest_entry
+        if manifest.get("release_id") != release_id or manifest.get("version") != release.get("version"):
+            raise ImportFailure(f"Release {release_id} manifest does not match releases.json")
+        if manifest.get("status") != release.get("status"):
+            raise ImportFailure(f"Release {release_id} manifest status does not match releases.json")
+    if not batches and not is_overlay:
         raise ImportFailure(f"Release {release_id} has no batch JSON")
 
 
@@ -769,9 +774,15 @@ def build(args):
     if args.release:
         selected_ids = [args.release]
     elif args.all_approved:
-        selected_ids = sorted(item_id for item_id, item in releases.items() if item.get("status") == "published")
+        try:
+            selected_ids = effective_release_heads(PROJECT, statuses={"published"})
+        except EffectiveReleaseError as error:
+            raise ImportFailure(f"Effective release resolution failed: {error}") from error
     else:
-        selected_ids = sorted(releases)
+        try:
+            selected_ids = effective_release_heads(PROJECT)
+        except EffectiveReleaseError as error:
+            raise ImportFailure(f"Effective release resolution failed: {error}") from error
     unknown = [item for item in selected_ids if item not in releases]
     if unknown:
         raise ImportFailure(f"Unknown release: {', '.join(unknown)}")
@@ -780,38 +791,57 @@ def build(args):
     records_by_release = defaultdict(list)
     source_by_id = {}
     imported_batch_paths = []
+    effective_release_paths = []
     city_provinces = {}
     release_summaries = []
     for release_id in selected_ids:
         release = releases[release_id]
         batches = batches_by_release.get(release_id, [])
         validate_release(release_id, release, manifests.get(release_id), batches)
+        try:
+            effective = resolve_release(PROJECT, release_id)
+        except EffectiveReleaseError as error:
+            raise ImportFailure(f"Effective release {release_id} is invalid: {error}") from error
         release_records = []
-        for path, batch in batches:
+        for path in effective.batch_paths:
             imported_batch_paths.append(path)
+            batch = read_json(path)
             validate_gates(path, batch)
             if batch.get("publication_status") not in {"qa", "published"}:
                 raise ImportFailure(f"{path.relative_to(ROOT)} is not QA-ready")
-            for index, record in enumerate(batch.get("records", [])):
-                label = f"{path.relative_to(ROOT)} record {index + 1}"
-                validate_schema(record, schema, schema, label)
-                validate_published_practical_guide(record, label)
-                entity_id = record["id"]
-                if not STABLE_ID.fullmatch(entity_id):
-                    raise ImportFailure(f"{label} has an unstable ID")
-                if entity_id in all_records:
-                    raise ImportFailure(f"Duplicate stable ID {entity_id}")
-                all_records[entity_id] = record
-                source_by_id[entity_id] = label
-                release_records.append(record)
-                if record["entity_type"] == "city":
-                    city_provinces[record["city_id"]] = record["province_id"]
+        if effective.overlay is not None:
+            overlay_path = Path(release["overlay_path"])
+            if not overlay_path.is_absolute():
+                overlay_path = ROOT / overlay_path
+            validate_gates(overlay_path, effective.overlay)
+            if effective.overlay.get("status") not in {"qa", "published"}:
+                raise ImportFailure(f"{overlay_path.relative_to(ROOT)} is not QA-ready")
+            effective_release_paths.extend(path for path in effective.input_paths if path not in effective.batch_paths)
+        for record in effective.records:
+            entity_id = record["id"]
+            label = effective.record_sources[entity_id]
+            try:
+                label = str(Path(label.split(" record ", 1)[0]).relative_to(ROOT)) + label[len(label.split(" record ", 1)[0]):]
+            except (ValueError, IndexError):
+                pass
+            validate_schema(record, schema, schema, label)
+            validate_published_practical_guide(record, label)
+            if not STABLE_ID.fullmatch(entity_id):
+                raise ImportFailure(f"{label} has an unstable ID")
+            if entity_id in all_records:
+                raise ImportFailure(f"Duplicate stable ID {entity_id}")
+            all_records[entity_id] = record
+            source_by_id[entity_id] = label
+            release_records.append(record)
+            if record["entity_type"] == "city":
+                city_provinces[record["city_id"]] = record["province_id"]
         records_by_release[release_id] = release_records
         release_summaries.append({
             "id": release_id,
             "version": release["version"],
             "status": release["status"],
-            "batchCount": len(batches),
+            "batchCount": len(effective.batch_paths),
+            "replacementCount": effective.replacement_count,
             "qaReadyRecordCount": len(release_records),
         })
 
@@ -904,12 +934,13 @@ def build(args):
 
     newest_date = max((entity["lastChecked"] for entity in entities), default="1970-01-01")
     fingerprint_source = json.dumps(entities, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
-    manifest_paths = [manifests[item][0] for item in selected_ids]
+    manifest_paths = [manifests[item][0] for item in selected_ids if item in manifests]
     input_fingerprint = {
         "schemaVersion": schema.get("$id", "unknown"),
         "schema": file_fingerprint(SCHEMA_PATH),
         "releaseManifests": [file_fingerprint(path) for path in sorted(manifest_paths)],
-        "batchFiles": [file_fingerprint(path) for path in sorted(imported_batch_paths)],
+        "batchFiles": [file_fingerprint(path) for path in sorted(set(imported_batch_paths))],
+        "effectiveReleaseFiles": [file_fingerprint(path) for path in sorted(set(effective_release_paths))],
     }
     payload = {
         "schemaVersion": 1,

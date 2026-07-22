@@ -5,6 +5,8 @@ import json
 from collections import Counter
 from pathlib import Path
 
+from effective_release import effective_release_heads, resolve_release
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / "DataProject"
@@ -81,11 +83,13 @@ require(release_schema.get("title") == "YouNew Data Release Manifest", "release 
 
 records = {}
 release_owner = {}
-for path in sorted((PROJECT / "batches").glob("**/*.json")):
-    batch = load(path)
-    for record in batch.get("records", []):
+effective_heads = effective_release_heads(PROJECT)
+for release_id in effective_heads:
+    effective = resolve_release(PROJECT, release_id)
+    for record in effective.records:
+        require(record["id"] not in records, f"effective release heads duplicate governed entity {record['id']}")
         records[record["id"]] = record
-        release_owner[record["id"]] = batch.get("target_release")
+        release_owner[record["id"]] = effective.release_id
 
 observability = load(REPORTS / "observability.json")
 usage = load(REPORTS / "usage-registry.json")
@@ -143,12 +147,22 @@ release_registry = load(PROJECT / "releases" / "releases.json").get("releases", 
 manifest_paths = sorted((REPORTS / "release-manifests").glob("*.json"))
 require(len(manifest_paths) == len(release_registry), "release manifest count is incorrect")
 release_by_id = {release["id"]: release for release in release_registry}
+require(set(release_owner.values()) == set(effective_heads), "governed release ownership does not match effective release heads")
 for path in manifest_paths:
     manifest = load(path)
     release_id = manifest.get("release_id")
     require(release_id in release_by_id, f"unknown generated release manifest {release_id}")
-    expected_records = sum(owner == release_id for owner in release_owner.values())
-    require(manifest.get("records", {}).get("governed") == expected_records, f"{release_id} governed record count is incorrect")
+    expected_records = [record for entity_id, record in records.items() if release_owner[entity_id] == release_id]
+    manifest_records = manifest.get("records", {})
+    require(manifest_records.get("governed") == len(expected_records), f"{release_id} governed record count is incorrect")
+    require(
+        manifest_records.get("published") == sum(record.get("lifecycle_status") == "published" for record in expected_records),
+        f"{release_id} published record count is incorrect",
+    )
+    require(
+        manifest_records.get("verified") == sum(record.get("verification_status") == "verified" for record in expected_records),
+        f"{release_id} verified record count is incorrect",
+    )
     require(manifest.get("qa") == release_by_id[release_id].get("qa"), f"{release_id} QA evidence drifted")
     require(manifest.get("status") == release_by_id[release_id].get("status"), f"{release_id} status drifted")
     require(manifest.get("generated_at") == observability.get("generated_at"), f"{release_id} snapshot timestamp drifted")

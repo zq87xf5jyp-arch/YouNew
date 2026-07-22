@@ -506,7 +506,7 @@ enum AIContextBuilder {
             sources = [
                 OfficialSource(title: "IND highly skilled migrant", url: URL(string: "https://ind.nl/en/residence-permits/work/highly-skilled-migrant"), institution: "IND"),
                 OfficialSource(title: "Belastingdienst expat scheme", url: URL(string: "https://www.belastingdienst.nl/wps/wcm/connect/nl/buitenland/content/ik-kom-in-nederland-werken-30-procent-regeling-aanvragen"), institution: "Belastingdienst"),
-                OfficialSource(title: "Business.gov.nl recognised sponsor", url: URL(string: "https://business.gov.nl/regulation/recognised-sponsor/"), institution: "Business.gov.nl")
+                OfficialSource(title: "Business.gov.nl recognised sponsor", url: URL(string: "https://business.gov.nl/staff/employing-staff/how-to-become-a-recognised-sponsor/"), institution: "Business.gov.nl")
             ]
         case .eu:
             topicSummary = localizedCategory(

@@ -7,6 +7,7 @@ import json
 import subprocess
 import sys
 from pathlib import Path
+from types import SimpleNamespace
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,7 +15,6 @@ IMPORTER_PATH = ROOT / "scripts" / "import-data-project.py"
 PREVIEW_PATH = ROOT / "DataProject" / "reports" / "import-preview.json"
 RUNTIME_PATH = ROOT / "YouNew" / "Resources" / "Data" / "younew-runtime-data.json"
 RELEASES_PATH = ROOT / "DataProject" / "releases" / "releases.json"
-BATCHES_PATH = ROOT / "DataProject" / "batches"
 
 
 def expect(condition, message):
@@ -68,18 +68,38 @@ expect(hashlib.sha256(module.canonical_json(payload).encode("utf-8")).hexdigest(
 runtime = load(RUNTIME_PATH)
 expect(runtime["mode"] == "production", "runtime artifact is not production-scoped")
 runtime_ids = {item["id"] for item in runtime["entities"]}
-published_release_ids = {
-    item["id"] for item in load(RELEASES_PATH)["releases"] if item["status"] == "published"
+
+# Rebuild the published effective heads in memory. This validates the shipped
+# runtime against overlay-resolved production data without mutating the checkout.
+captured = {}
+original_write = module.write_if_changed
+
+
+def capture_runtime(path, value):
+    if path == RUNTIME_PATH:
+        captured["runtime"] = value
+        return value != runtime
+    return original_write(path, value)
+
+
+module.write_if_changed = capture_runtime
+try:
+    module.build(SimpleNamespace(release=None, all_approved=True, all=False, dry_run=False))
+finally:
+    module.write_if_changed = original_write
+
+expected_runtime = captured.get("runtime")
+expect(isinstance(expected_runtime, dict), "deterministic production payload was not captured")
+semantic_fields = {
+    "schemaVersion", "mode", "generatedAt", "datasetFingerprint", "releases",
+    "publicationPolicy", "migrationRegistry", "entities",
 }
-expected_runtime_ids = {
-    record["id"]
-    for path in BATCHES_PATH.glob("**/*.json")
-    for batch in [load(path)]
-    if batch.get("target_release") in published_release_ids
-    for record in batch.get("records", [])
-    if record.get("lifecycle_status") == "published"
-}
-expect(runtime_ids == expected_runtime_ids, "production artifact does not match all approved release statuses")
+expect(
+    {key: runtime.get(key) for key in semantic_fields}
+    == {key: expected_runtime.get(key) for key in semantic_fields},
+    "shipped production data does not match the published effective release heads",
+)
+expect(runtime_ids == {item["id"] for item in expected_runtime["entities"]}, "production IDs do not match published effective release heads")
 expect(all(item["publicationStatus"] == "published" for item in runtime["entities"]), "non-published record entered the production artifact")
 expect(len(runtime["entities"]) == len(runtime_ids), "production artifact contains duplicate IDs")
 

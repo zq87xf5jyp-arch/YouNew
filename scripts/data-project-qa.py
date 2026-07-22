@@ -9,6 +9,8 @@ from datetime import date, timedelta
 from pathlib import Path
 from urllib.parse import urlsplit
 
+from effective_release import EffectiveReleaseError, resolve_release, validate_release_graph
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / "DataProject"
@@ -155,7 +157,15 @@ def validate_governance(package_ids):
             expect(bool(str(value.get("label") or "").strip()), f"coverage axis {axis_key} value {value.get('key')} has no label")
             matches = value.get("match_values") or [value.get("key")]
             expect(isinstance(matches, list) and all(isinstance(item, str) and item for item in matches), f"coverage axis {axis_key} value {value.get('key')} has invalid matches")
-    return {release["id"]: release for release in releases.get("releases", [])}, milestones
+    try:
+        overlay_aware_releases = validate_release_graph(PROJECT)
+    except EffectiveReleaseError as error:
+        fail(f"effective release governance is invalid: {error}")
+    expect(
+        set(overlay_aware_releases) == release_ids,
+        "effective release resolver and releases.json disagree",
+    )
+    return overlay_aware_releases, milestones
 
 
 def validate_media(record, label: str, published: bool, media_id_owner: dict):
@@ -286,6 +296,44 @@ def main():
                 expect(website_key not in website_owner, f"duplicate canonical website {record['website']}")
                 website_owner[website_key] = entity_id
             relations.extend((entity_id, related) for related in record["related_entity_ids"])
+
+    # Overlay releases are deliberately stored outside batches so an accepted
+    # published batch remains byte-for-byte immutable. Resolve and validate the
+    # complete effective candidate without treating its stable IDs as duplicates
+    # of the historical base release.
+    for release_id, release in releases.items():
+        if not release.get("overlay_path"):
+            continue
+        try:
+            effective = resolve_release(PROJECT, release_id)
+        except EffectiveReleaseError as error:
+            fail(f"effective release {release_id} is invalid: {error}")
+        expect(
+            len(effective.records) == len({record.get("id") for record in effective.records}),
+            f"effective release {release_id} contains duplicate stable IDs",
+        )
+        effective_media_owners = {}
+        effective_title_owners = {}
+        effective_website_owners = {}
+        for index, record in enumerate(effective.records):
+            label = f"effective release {release_id} record {index + 1}"
+            validate_record(record, label, effective_media_owners)
+            title_key = (record["entity_type"], normalized(record["title"]), record.get("city_id"))
+            expect(
+                title_key not in effective_title_owners,
+                f"probable duplicate title {record['title']} inside effective release {release_id}",
+            )
+            effective_title_owners[title_key] = record["id"]
+            if record["website"]:
+                website_key = record["website"].rstrip("/").casefold()
+                expect(
+                    website_key not in effective_website_owners,
+                    f"duplicate canonical website {record['website']} inside effective release {release_id}",
+                )
+                effective_website_owners[website_key] = record["id"]
+            relations.extend((record["id"], related) for related in record["related_entity_ids"])
+            if release.get("status") == "published" and record["lifecycle_status"] == "published":
+                published_by_release[release_id] += 1
 
     known_ids = runtime_entity_ids() | set(entity_owner)
     for entity_id, related_id in relations:

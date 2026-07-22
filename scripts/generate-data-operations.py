@@ -3,9 +3,12 @@
 
 import hashlib
 import json
+import re
 from collections import Counter, defaultdict
 from datetime import date, datetime, timezone
 from pathlib import Path
+
+from effective_release import EffectiveReleaseError, effective_release_heads, resolve_release
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,6 +17,7 @@ OPERATIONS = PROJECT / "operations"
 REPORTS = PROJECT / "reports"
 MEDIA_REQUIRED_TYPES = {"city", "place", "museum", "restaurant", "cafe", "hotel", "nature", "local_partner"}
 MEDIA_ROLES = {"hero", "gallery", "thumbnail", "map_preview"}
+URL = re.compile(r'https?://[^\s"<>\\]+')
 
 
 def load_json(path, fallback=None):
@@ -74,17 +78,56 @@ def fingerprint():
     return digest.hexdigest()
 
 
+def relative_source_label(value):
+    """Keep effective-release ownership evidence stable across CI workspaces."""
+    prefix = f"{ROOT.resolve()}/"
+    return value[len(prefix):] if isinstance(value, str) and value.startswith(prefix) else value
+
+
 def governed_records():
+    """Resolve the current governed heads and retain per-record source ownership."""
+    try:
+        release_ids = effective_release_heads(PROJECT)
+        effective_releases = [resolve_release(PROJECT, release_id) for release_id in release_ids]
+    except EffectiveReleaseError as error:
+        raise SystemExit(f"Data Operations failed: effective release resolution failed: {error}") from error
+
     records = []
-    for path in sorted((PROJECT / "batches").glob("**/*.json")):
-        batch = load_json(path, {})
-        for record in batch.get("records", []):
+    source_ownership = {}
+    release_scope = []
+    for effective in effective_releases:
+        release_scope.append({
+            "release_id": effective.release_id,
+            "status": effective.release.get("status"),
+            "work_package": effective.release.get("work_package"),
+            "records": len(effective.records),
+            "replacements": effective.replacement_count,
+        })
+        for record in effective.records:
+            entity_id = record["id"]
+            if entity_id in source_ownership:
+                raise SystemExit(f"Data Operations failed: duplicate effective entity ID {entity_id}")
+            source = relative_source_label(effective.record_sources[entity_id])
             enriched = dict(record)
-            enriched["_work_package"] = batch.get("work_package")
-            enriched["_release_id"] = batch.get("target_release")
-            enriched["_batch"] = str(path.relative_to(ROOT))
+            enriched["_work_package"] = effective.release.get("work_package")
+            enriched["_release_id"] = effective.release_id
+            enriched["_source"] = source
             records.append(enriched)
-    return records
+            source_ownership[entity_id] = source
+    return records, release_scope, source_ownership
+
+
+def record_urls(value):
+    """Yield governed HTTP(S) URLs from all record fields, including media."""
+    if isinstance(value, str):
+        for match in URL.finditer(value):
+            yield match.group(0).rstrip(".,;)]")
+    elif isinstance(value, list):
+        for item in value:
+            yield from record_urls(item)
+    elif isinstance(value, dict):
+        for item in value.values():
+            yield from record_urls(item)
 
 
 def issue(issue_type, priority, entity_id=None, release_id=None, evidence=None, proposed_action=None):
@@ -103,35 +146,42 @@ def issue(issue_type, priority, entity_id=None, release_id=None, evidence=None, 
     }
 
 
-def build_queues(records, freshness, usage, release_manifests, health, baseline):
+def build_queues(records, source_ownership, freshness, usage, release_manifests, health, baseline):
     records_by_id = {record["id"]: record for record in records}
-    source_owner = {
-        (record.get("official_source") or {}).get("url"): record["id"]
-        for record in records
-        if (record.get("official_source") or {}).get("url")
-    }
+    url_owners = defaultdict(set)
+    for record in records:
+        for url in record_urls(record):
+            url_owners[url].add(record["id"])
     queue = []
 
     for row in freshness.get("entries", []):
-        if not row.get("compliant"):
+        entity_id = row.get("entity_id")
+        if entity_id in records_by_id and not row.get("compliant"):
             queue.append(issue(
                 "outdated",
                 "medium",
-                entity_id=row.get("entity_id"),
-                evidence={"review_due": row.get("review_due"), "policy_id": row.get("policy_id")},
+                entity_id=entity_id,
+                evidence={
+                    "review_due": row.get("review_due"),
+                    "policy_id": row.get("policy_id"),
+                    "source": source_ownership[entity_id],
+                },
                 proposed_action="editor_review_then_set_needs_review_if_confirmed",
             ))
 
     for broken in health.get("confirmedBroken", []):
         if not isinstance(broken, dict):
             continue
-        entity_id = source_owner.get(broken.get("url"))
-        if entity_id:
+        for entity_id in sorted(url_owners.get(broken.get("url"), set())):
             queue.append(issue(
                 "broken_link",
                 "high",
                 entity_id=entity_id,
-                evidence={"url": broken.get("url"), "status": broken.get("status")},
+                evidence={
+                    "url": broken.get("url"),
+                    "status": broken.get("status"),
+                    "source": source_ownership[entity_id],
+                },
                 proposed_action="review_replacement_source",
             ))
 
@@ -177,12 +227,16 @@ def build_queues(records, freshness, usage, release_manifests, health, baseline)
                 ))
 
     for entry in usage.get("entries", []):
-        if entry.get("orphan"):
+        entity_id = entry.get("entity_id")
+        if entity_id in records_by_id and entry.get("orphan"):
             queue.append(issue(
                 "orphan_data",
                 "low",
-                entity_id=entry.get("entity_id"),
-                evidence={"consumers": entry.get("consumers")},
+                entity_id=entity_id,
+                evidence={
+                    "consumers": entry.get("consumers"),
+                    "source": source_ownership[entity_id],
+                },
                 proposed_action="assign_consumer_or_document_intentional_orphan",
             ))
 
@@ -215,7 +269,11 @@ def build_queues(records, freshness, usage, release_manifests, health, baseline)
                     "source_changed",
                     "medium",
                     entity_id=entity_id,
-                    evidence={"from": old_url, "to": new_url},
+                    evidence={
+                        "from": old_url,
+                        "to": new_url,
+                        "source": source_ownership[entity_id],
+                    },
                     proposed_action="review_redirect_and_update_baseline",
                 ))
 
@@ -396,7 +454,7 @@ def main():
     generated_at = datetime.now(timezone.utc).replace(microsecond=0).isoformat()
     before = fingerprint()
     policy = load_json(OPERATIONS / "operations-policy.json")
-    records = governed_records()
+    records, release_scope, source_ownership = governed_records()
     dashboard = load_json(REPORTS / "dashboard.json")
     observability = load_json(REPORTS / "observability.json")
     freshness = load_json(REPORTS / "freshness-dashboard.json")
@@ -410,7 +468,7 @@ def main():
     ]
 
     queue, source_monitor, image_url_owner = build_queues(
-        records, freshness, usage, release_manifests, health, baseline
+        records, source_ownership, freshness, usage, release_manifests, health, baseline
     )
     scheduler = build_scheduler(freshness, queue)
     analytics = build_analytics(events)
@@ -445,6 +503,12 @@ def main():
         "input_fingerprint": before,
         "canonical_data_mutated": False,
         "external_issues_created": 0,
+        "governed_scope": {
+            "resolution": "effective_release_heads",
+            "effective_releases": release_scope,
+            "records": len(records),
+            "record_sources": len(source_ownership),
+        },
         "scheduler": scheduler,
         "link_monitor": {
             "urls_checked": int(health.get("totalURLs") or 0),

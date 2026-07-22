@@ -9,6 +9,9 @@ ROOT = Path(__file__).resolve().parents[1]
 WORKFLOW = ROOT / ".github" / "workflows" / "data-project-health.yml"
 README = ROOT / "DataProject" / "README.md"
 AGGREGATE_QA = ROOT / "scripts" / "run-static-qa.sh"
+LINK_CHECKER = ROOT / "scripts" / "check-external-links.py"
+DASHBOARD_GENERATOR = ROOT / "scripts" / "generate-data-dashboard.py"
+IMPORT_QA = ROOT / "scripts" / "data-project-import-static-qa.py"
 
 
 def fail(message: str) -> None:
@@ -24,6 +27,9 @@ def require(condition: bool, message: str) -> None:
 workflow = WORKFLOW.read_text(encoding="utf-8")
 readme = README.read_text(encoding="utf-8")
 aggregate_qa = AGGREGATE_QA.read_text(encoding="utf-8")
+link_checker = LINK_CHECKER.read_text(encoding="utf-8")
+dashboard_generator = DASHBOARD_GENERATOR.read_text(encoding="utf-8")
+import_qa = IMPORT_QA.read_text(encoding="utf-8")
 
 required_workflow_fragments = (
     'cron: "17 2 * * *"',
@@ -62,6 +68,21 @@ require(workflow.count('"scripts/generate-data-operations.py"') == 2, "operation
 require(workflow.count('"scripts/data-operations-static-qa.py"') == 2, "operations QA edits must trigger push and pull-request QA")
 require("timeout-minutes: 30" in workflow, "nightly network job must have a bounded timeout")
 require("cancel-in-progress: true" in workflow, "duplicate health runs must be cancelled")
+
+require(
+    'effective_release_heads(PROJECT, statuses={"published"})' in link_checker,
+    "nightly link scope must resolve only published effective release heads",
+)
+require(
+    "if release_id and path == GENERATED_RUNTIME" in link_checker,
+    "nightly production mode must keep the shipped runtime in link scope",
+)
+for required_scope in ("SOURCE_REGISTRY", "PUBLISHED_WEB_ARTIFACTS", "public-content.json", "search-index.json", "content-provenance.json"):
+    require(required_scope in link_checker, f"nightly link checker is missing production scope: {required_scope}")
+require("400 <= error.code < 500" in link_checker, "every HEAD client error must receive a GET verification")
+require("is_confirmed_failure" in link_checker, "non-restricted client errors must fail closed")
+require("effective_release_heads(PROJECT)" in dashboard_generator, "Data Health dashboard must resolve governed effective release heads")
+require("captured[\"runtime\"]" in import_qa and "semantic_fields" in import_qa, "import QA must compare shipped data with a deterministic effective rebuild")
 
 observability_generation = "python3 scripts/generate-data-observability.py"
 import_validation = "python3 scripts/data-project-import-static-qa.py"
