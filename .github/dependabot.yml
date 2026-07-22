@@ -24,6 +24,9 @@ updates:
       timezone: Europe/Amsterdam
     open-pull-requests-limit: 5
     groups:
-      public-site:
+      public-site-patch-minor:
         patterns:
           - "*"
+        update-types:
+          - "patch"
+          - "minor"
