@@ -1,0 +1,101 @@
+name: Release Journal
+
+on:
+  push:
+    tags:
+      - "v*"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  release:
+    name: Publish release journal
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Validate the release tag and changelog
+        shell: bash
+        run: |
+          set -euo pipefail
+          tag="$GITHUB_REF_NAME"
+          if [[ ! "$tag" =~ ^v[0-9]+\.[0-9]+\.[0-9]+$ ]]; then
+            echo "Release tags must use vMAJOR.MINOR.PATCH." >&2
+            exit 1
+          fi
+          if [[ "$(git cat-file -t "$tag")" != "tag" ]]; then
+            echo "Release tags must be annotated (and should be signed)." >&2
+            exit 1
+          fi
+
+          version="${tag#v}"
+          project_version="$(
+            awk '
+              /MARKETING_VERSION = / {
+                current = $0
+                sub(/^.*MARKETING_VERSION = /, "", current)
+                sub(/;.*/, "", current)
+              }
+              /PRODUCT_BUNDLE_IDENTIFIER = nl\.younew\.app;/ { print current }
+            ' YouNew.xcodeproj/project.pbxproj |
+              sort -u
+          )"
+          if [[ -z "$project_version" || "$project_version" == *$'\n'* ]]; then
+            echo "Could not determine one canonical app MARKETING_VERSION." >&2
+            exit 1
+          fi
+          if [[ ! "$project_version" =~ ^[0-9]+\.[0-9]+(\.[0-9]+)?$ ]]; then
+            echo "App MARKETING_VERSION $project_version is not numeric SemVer." >&2
+            exit 1
+          fi
+          if [[ "$project_version" =~ ^[0-9]+\.[0-9]+$ ]]; then
+            project_version="${project_version}.0"
+          fi
+          if [[ "$version" != "$project_version" ]]; then
+            echo "Tag $version does not match MARKETING_VERSION $project_version." >&2
+            exit 1
+          fi
+          if ! grep -Eq "^## \[$version\] - [0-9]{4}-[0-9]{2}-[0-9]{2}$" CHANGELOG.md; then
+            echo "CHANGELOG.md has no dated [$version] release section." >&2
+            exit 1
+          fi
+
+          git fetch --no-tags origin main
+          release_commit="$(git rev-list -n 1 "$tag")"
+          if ! git merge-base --is-ancestor "$release_commit" origin/main; then
+            echo "Release tag must point to a commit reachable from main." >&2
+            exit 1
+          fi
+
+          notes="$RUNNER_TEMP/release-notes.md"
+          awk -v heading="## [$version] - " '
+            index($0, heading) == 1 { capture = 1; next }
+            capture && /^## / { exit }
+            capture { print }
+          ' CHANGELOG.md > "$notes"
+          if [[ ! -s "$notes" ]]; then
+            echo "The release changelog section is empty." >&2
+            exit 1
+          fi
+          printf '\nCommit: `%s`\n' "$release_commit" >> "$notes"
+      - name: Create the GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            echo "Release $GITHUB_REF_NAME already exists; leaving it unchanged."
+            exit 0
+          fi
+          gh release create "$GITHUB_REF_NAME" \
+            --verify-tag \
+            --title "YouNew ${GITHUB_REF_NAME#v}" \
+            --notes-file "$RUNNER_TEMP/release-notes.md"

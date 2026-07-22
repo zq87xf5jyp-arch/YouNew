@@ -2,30 +2,9 @@ name: DATA PROJECT Health
 
 on:
   pull_request:
-    paths:
-      - "DataProject/**"
-      - "scripts/data-project-qa.py"
-      - "scripts/generate-data-dashboard.py"
-      - "scripts/data-dashboard-static-qa.py"
-      - "scripts/generate-data-observability.py"
-      - "scripts/data-project-import-static-qa.py"
-      - "scripts/data-observability-static-qa.py"
-      - "scripts/generate-data-operations.py"
-      - "scripts/data-operations-static-qa.py"
-      - "scripts/check-external-links.py"
-      - "scripts/data-health-gate.py"
-      - "scripts/data-project-workflow-static-qa.py"
-      - "scripts/effective_release.py"
-      - "scripts/import-data-project.py"
-      - "scripts/run-static-qa.sh"
-      - "scripts/tests/**"
-      - "YouNew/**"
-      - "source_registry.json"
-      - "admin-dashboard/public-site/src/generated/public-content.json"
-      - "admin-dashboard/public-site/public/data/search-index.json"
-      - "admin-dashboard/public-site/public/data/content-provenance.json"
-      - ".github/workflows/data-project-health.yml"
   push:
+    branches:
+      - main
     paths:
       - "DataProject/**"
       - "scripts/data-project-qa.py"
@@ -108,7 +87,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: data-project-dashboard
+          name: data-project-dashboard-${{ github.run_id }}-${{ github.run_attempt }}
           path: DataProject/reports/
           if-no-files-found: error
           retention-days: 30
@@ -150,7 +129,7 @@ jobs:
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
-          name: data-project-nightly-health
+          name: data-project-nightly-health-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
             DataProject/reports/
             knowledge_data_health.json

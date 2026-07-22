@@ -63,26 +63,30 @@ for fragment in required_workflow_fragments:
     require(fragment in workflow, f"missing workflow contract: {fragment}")
 
 require(workflow.count("if: always()") >= 7, "health reports, coverage checks, gates and artifacts must survive earlier step failures")
-require(workflow.count('"scripts/data-dashboard-static-qa.py"') == 2, "coverage-QA edits must trigger push and pull-request QA")
-require(workflow.count('"scripts/data-health-gate.py"') == 2, "health-gate edits must trigger push and pull-request QA")
-require(workflow.count('"scripts/data-project-workflow-static-qa.py"') == 2, "workflow-contract edits must trigger push and pull-request QA")
-require(workflow.count('"scripts/effective_release.py"') == 2, "release-resolver edits must trigger push and pull-request QA")
-require(workflow.count('"scripts/import-data-project.py"') == 2, "importer edits must trigger push and pull-request QA")
-require(workflow.count('"scripts/run-static-qa.sh"') == 2, "aggregate-QA edits must trigger push and pull-request QA")
-require(workflow.count('"scripts/tests/**"') == 2, "Data Project test edits must trigger push and pull-request QA")
-require(workflow.count('"scripts/generate-data-observability.py"') == 2, "observability generator edits must trigger push and pull-request QA")
-require(workflow.count('"scripts/data-project-import-static-qa.py"') == 2, "import-QA edits must trigger push and pull-request QA")
-require(workflow.count('"scripts/data-observability-static-qa.py"') == 2, "observability QA edits must trigger push and pull-request QA")
-require(workflow.count('"scripts/generate-data-operations.py"') == 2, "operations generator edits must trigger push and pull-request QA")
-require(workflow.count('"scripts/data-operations-static-qa.py"') == 2, "operations QA edits must trigger push and pull-request QA")
-require(workflow.count('"YouNew/**"') == 2, "app source and runtime edits must trigger push and pull-request QA")
-require(workflow.count('"source_registry.json"') == 2, "source-registry edits must trigger push and pull-request QA")
+require("  pull_request:\n  push:" in workflow, "every pull request must run Data Project QA so required checks cannot be skipped")
+for push_path in (
+    '"scripts/data-dashboard-static-qa.py"',
+    '"scripts/data-health-gate.py"',
+    '"scripts/data-project-workflow-static-qa.py"',
+    '"scripts/effective_release.py"',
+    '"scripts/import-data-project.py"',
+    '"scripts/run-static-qa.sh"',
+    '"scripts/tests/**"',
+    '"scripts/generate-data-observability.py"',
+    '"scripts/data-project-import-static-qa.py"',
+    '"scripts/data-observability-static-qa.py"',
+    '"scripts/generate-data-operations.py"',
+    '"scripts/data-operations-static-qa.py"',
+    '"YouNew/**"',
+    '"source_registry.json"',
+):
+    require(workflow.count(push_path) == 1, f"push trigger must keep governed path: {push_path}")
 for published_artifact in (
     '"admin-dashboard/public-site/src/generated/public-content.json"',
     '"admin-dashboard/public-site/public/data/search-index.json"',
     '"admin-dashboard/public-site/public/data/content-provenance.json"',
 ):
-    require(workflow.count(published_artifact) == 2, f"published artifact edits must trigger QA: {published_artifact}")
+    require(workflow.count(published_artifact) == 1, f"published artifact edits must trigger push QA: {published_artifact}")
 require("timeout-minutes: 30" in workflow, "nightly network job must have a bounded timeout")
 require("cancel-in-progress: true" in workflow, "duplicate health runs must be cancelled")
 require(workflow.count("runs-on: ubuntu-24.04") == 2, "health jobs must use the reviewed Ubuntu image")

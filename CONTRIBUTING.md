@@ -19,6 +19,18 @@ or data contribution requires a separate written contributor agreement before
 it can be merged. Issues, factual corrections, and review feedback remain
 welcome without such an agreement.
 
+## Branches and local work
+
+Never commit directly to `main`. Create a focused short-lived branch from current
+`main` using `feature/`, `fix/`, `chore/`, `docs/`, `release/`, or `agent/`, and
+open a pull request before merge. Keep unrelated changes in separate branches.
+The protected branch requires the repository CI, data-health, backend-contract,
+and secret-scan checks to pass.
+
+Delete the source branch after a squash merge. See
+[Repository governance](docs/REPOSITORY_GOVERNANCE.md) for the complete branch,
+backup, and release-history contract.
+
 ## Safety and evidence rules
 
 - Never commit a BSN, passport, residence permit, address, medical record,
@@ -54,6 +66,9 @@ pnpm predeploy:check
 
 Data changes should include the stable record or source ID, the official URL,
 the date it was checked, and any required generated artifact updates.
+
+Add notable product, governance, privacy, security, or data-contract changes to
+the `[Unreleased]` section of `CHANGELOG.md` in the same pull request.
 
 ## Pull requests
 
