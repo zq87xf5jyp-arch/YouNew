@@ -1,71 +1,38 @@
-# Amsterdam v0.1.1 source-health remediation plan
+# Amsterdam v0.1.1 source-health remediation record
 
-Status: **planned / not approved / not published**  
-Prepared: 20 July 2026  
-Base release: `amsterdam-v0.1.0`  
+Status: **completed / approved / published**
+Prepared: 20 July 2026
+Completed: 22 July 2026
+Base release: `amsterdam-v0.1.0`
+Effective release: `amsterdam-v0.1.1`
 Immutable base batch SHA-256: `a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07`
 
-This is an operations plan, not a release artifact. It authorizes no content mutation or publication.
+This record supersedes the pre-release remediation plan. It documents the approved source-health correction; it does not authorize deployment to Hostinger or any other external publishing target.
 
-## Evidence and scope
+## Completed remediation
 
-The live audit in `knowledge_data_health.json` checked 2,494 unique URLs at `2026-07-20T22:19:32.345270+00:00` and recorded:
+- Preserved the accepted `amsterdam-v0.1.0` batch byte-for-byte and added a separate immutable acceptance lock.
+- Published `amsterdam-v0.1.1` as a fail-closed full-record overlay with original and replacement canonical hashes, evidence references and all seven QA gates passed.
+- Replaced obsolete Creative Commons deed routes with their live canonical English URLs.
+- Replaced unavailable Flickr, ScraperWiki and other removed media/provenance routes with reviewed official or Wikimedia Commons sources carrying current attribution and licence evidence.
+- Replaced the removed BREDA operator route with the current official I amsterdam venue listing; no manual override or allowlist was used.
+- Regenerated the shipped runtime, public content, search index and content-provenance artifacts from the effective published release head.
+- Updated dashboard, observability, operations and import validation to resolve effective release heads instead of treating the superseded base batch as current.
 
-- 1,847 reachable;
-- 18 confirmed HTTP 404 responses;
-- 597 access-restricted;
-- 32 transient failures.
+## Governance controls
 
-The 18 URLs occur 85 times across 30 entities in the release-generated runtime. All 30 entities report `dataProjectRelease: amsterdam-v0.1.0`. The current gate fails closed with `governed_broken_links=18`.
+- `DataProject/releases/acceptance-locks/amsterdam-v0.1.0.json` proves the immutable accepted base.
+- `DataProject/overlays/WP-06/amsterdam-v0.1.1.json` contains the complete reviewed replacements and evidence.
+- `DataProject/releases/releases.json` marks `amsterdam-v0.1.1` published and `supersedes: amsterdam-v0.1.0`.
+- The external-link checker scans every governed effective head (`planned`, `qa`, and `published`), the shipped app runtime, source registry and generated public artifacts.
+- Every failed HEAD request receives a browser-like GET verification. Non-restricted 4xx responses remain fail-closed.
+- The overlay schema rejects unknown override fields; no allowlist, skip, warning downgrade or manual-verification bypass exists.
 
-## Remediation groups
+## Acceptance outcome
 
-1. **BREDA official route (1 URL).** The automated client receives 404 while browser/search evidence suggests an anti-bot response. Do not replace the official source automatically. Add an expiring, evidence-backed manual-verification override only after a human browser check.
-2. **Creative Commons canonicalization (2 URLs).** Replace the obsolete CC0 deed URL with `https://creativecommons.org/publicdomain/zero/1.0/` and the obsolete Dutch CC BY-SA 3.0 deed URL with `https://creativecommons.org/licenses/by-sa/3.0/nl/`. Update both `license_url` and the same URL embedded in attribution text. These two URLs account for 68 runtime occurrences across 34 media objects.
-3. **Unavailable Flickr assets (5 URLs).** Four belong to `restaurant.wils`; remove those optional media objects and use the neutral fallback until a newly reviewed image exists. Replace the unrelated Canal Ring gallery object with a separately verified, locally managed image and complete provenance rather than guessing another Flickr URL.
-4. **Unavailable provenance pages (9 URLs).** Replace the complete media objects for Wils, Canal Ring, MacBike, Dam Square, Amsterdam Bijlmer ArenA and Amsterdam UMC VUmc. A live CDN byte without an auditable source page is insufficient evidence of author, licence or subject relevance.
-5. **Obsolete URL embedded in Funda attribution (1 URL).** Remove the optional third-party screenshot media object unless the original Flickr work, licence and subject relevance can be independently reverified.
-
-Every replacement media object must carry a new stable media ID, live source page, live asset or repository-local public asset, licence URL, author attribution, retrieved date, relevance review and modification note where applicable.
-
-## Required patch-release support
-
-The current pipeline cannot safely accept a second ordinary batch with the same stable entity IDs:
-
-- `scripts/import-data-project.py` rejects duplicate IDs across selected releases;
-- `scripts/data-project-qa.py` rejects duplicate IDs across all batches;
-- `scripts/check-external-links.py` scans historical batches without resolving the effective release head;
-- the accepted base batch must remain byte-for-byte immutable.
-
-Before creating `amsterdam-v0.1.1`, implement a fail-closed overlay model with:
-
-- `base_release_id`, `supersedes` and the immutable base-batch hash;
-- the original canonical hash of every replaced entity;
-- full replacement records with the same stable entity IDs;
-- explicit reason/evidence references and all seven QA gates;
-- an effective-release resolver used by importer, QA, dashboard and link checker;
-- a separate immutable acceptance lock rather than treating regenerated observability output as the release lock;
-- an expiring manual-verification override model that cannot turn a dead content URL into a silent PASS.
-
-## Candidate acceptance criteria
-
-- `amsterdam-v0.1.0` batch hash is unchanged;
-- effective Amsterdam count remains 183 and total public runtime count remains 188;
-- all unchanged Amsterdam records are canonical-serialization equivalent to the base;
-- every changed entity has an explicit before/after hash and evidence;
-- candidate external-link audit reports zero unresolved confirmed failures;
-- BREDA is either manually verified with expiry/evidence or remains a blocker;
-- all seven release gates pass;
-- production runtime and public export remain unchanged until explicit release approval;
-- public Hostinger deployment remains a separate explicit approval.
-
-## Required verification order
-
-1. Implement and test immutable-lock and overlay resolution.
-2. Create `amsterdam-v0.1.1` as a QA candidate, not published.
-3. Apply reviewed URL/media replacements to the overlay only.
-4. Run patch, importer, DataProject, external-link, full static and public pre-deploy QA.
-5. Obtain explicit release approval before changing the effective production runtime.
-6. Rebuild the public export and repeat browser/Lighthouse checks.
-7. Obtain separate explicit approval before any Hostinger upload.
-
+- Effective Amsterdam record count remains 183.
+- Published runtime record count remains 188.
+- Stable entity IDs are unchanged.
+- All changed records have before/after canonical hashes and replacement evidence.
+- `governed_broken_links` is required to equal zero before the nightly gate can pass.
+- Public-host deployment remains a separate explicit operation and is outside this remediation.

@@ -72,7 +72,7 @@ def collect_urls(release_id=None):
     urls = {}
     # Resolve governed records first so a URL duplicated in generated runtime or
     # web artifacts keeps its stable effective-release source ID in reports.
-    release_ids = [release_id] if release_id else effective_release_heads(PROJECT, statuses={"published"})
+    release_ids = [release_id] if release_id else effective_release_heads(PROJECT)
     for effective_id in release_ids:
         effective = resolve_release(PROJECT, effective_id)
         for record in effective.records:

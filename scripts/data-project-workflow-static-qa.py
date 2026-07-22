@@ -38,6 +38,8 @@ required_workflow_fragments = (
     "publication-gates:",
     "nightly-source-health:",
     "python3 scripts/data-project-qa.py",
+    "python3 scripts/data-project-workflow-static-qa.py",
+    "python3 -m unittest discover -s scripts/tests -p 'test_*.py'",
     "python3 scripts/generate-data-dashboard.py",
     "python3 scripts/data-dashboard-static-qa.py",
     "python3 scripts/generate-data-observability.py",
@@ -61,6 +63,9 @@ require(workflow.count("if: always()") >= 7, "health reports, coverage checks, g
 require(workflow.count('"scripts/data-dashboard-static-qa.py"') == 2, "coverage-QA edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/data-health-gate.py"') == 2, "health-gate edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/data-project-workflow-static-qa.py"') == 2, "workflow-contract edits must trigger push and pull-request QA")
+require(workflow.count('"scripts/effective_release.py"') == 2, "release-resolver edits must trigger push and pull-request QA")
+require(workflow.count('"scripts/import-data-project.py"') == 2, "importer edits must trigger push and pull-request QA")
+require(workflow.count('"scripts/tests/**"') == 2, "Data Project test edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/generate-data-observability.py"') == 2, "observability generator edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/data-project-import-static-qa.py"') == 2, "import-QA edits must trigger push and pull-request QA")
 require(workflow.count('"scripts/data-observability-static-qa.py"') == 2, "observability QA edits must trigger push and pull-request QA")
@@ -70,8 +75,8 @@ require("timeout-minutes: 30" in workflow, "nightly network job must have a boun
 require("cancel-in-progress: true" in workflow, "duplicate health runs must be cancelled")
 
 require(
-    'effective_release_heads(PROJECT, statuses={"published"})' in link_checker,
-    "nightly link scope must resolve only published effective release heads",
+    "effective_release_heads(PROJECT)" in link_checker,
+    "nightly link scope must resolve every governed effective release head",
 )
 require(
     "if release_id and path == GENERATED_RUNTIME" in link_checker,

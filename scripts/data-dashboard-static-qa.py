@@ -6,6 +6,8 @@ import re
 from collections import Counter
 from pathlib import Path
 
+from effective_release import EffectiveReleaseError, effective_release_heads, resolve_release
+
 
 ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / "DataProject"
@@ -57,18 +59,25 @@ entity_types_by_package = Counter()
 media_assets = 0
 media_assets_by_package = Counter()
 all_records = []
-for path in sorted((PROJECT / "batches").glob("**/*.json")):
-    batch = json.loads(path.read_text(encoding="utf-8"))
-    records = batch.get("records") or []
-    records_by_package[batch.get("work_package")] += len(records)
-    for record in records:
+try:
+    effective_releases = [
+        resolve_release(PROJECT, release_id)
+        for release_id in effective_release_heads(PROJECT)
+    ]
+except EffectiveReleaseError as error:
+    fail(f"effective release resolution failed: {error}")
+
+for effective in effective_releases:
+    work_package = effective.release.get("work_package")
+    records_by_package[work_package] += len(effective.records)
+    for record in effective.records:
         scoped_record = dict(record)
-        scoped_record["_work_package"] = batch.get("work_package")
+        scoped_record["_work_package"] = work_package
         all_records.append(scoped_record)
         entity_types[record.get("entity_type")] += 1
-        entity_types_by_package[(batch.get("work_package"), record.get("entity_type"))] += 1
+        entity_types_by_package[(work_package, record.get("entity_type"))] += 1
         media_assets += len(record.get("images") or [])
-        media_assets_by_package[batch.get("work_package")] += len(record.get("images") or [])
+        media_assets_by_package[work_package] += len(record.get("images") or [])
 
 packages = dashboard.get("work_packages")
 require(isinstance(packages, list) and len(packages) == 17, "dashboard must contain WP-01 through WP-17")
@@ -76,7 +85,7 @@ require({item.get("id") for item in packages} == {f"WP-{number:02d}" for number 
 for package in packages:
     package_id = package["id"]
     record_count = records_by_package[package_id]
-    require(package.get("records") == record_count, f"{package_id} record count does not match governed batches")
+    require(package.get("records") == record_count, f"{package_id} record count does not match governed effective releases")
     dimensions = package.get("coverage_dimensions")
     require(isinstance(dimensions, dict) and set(dimensions) == DIMENSIONS, f"{package_id} coverage dimensions are incomplete")
     for key, value in dimensions.items():

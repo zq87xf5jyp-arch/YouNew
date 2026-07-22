@@ -75,6 +75,12 @@ def normalized(value) -> str:
     return " ".join(re.findall(r"[a-z0-9]+", str(value).casefold()))
 
 
+def release_sort_key(release):
+    version = tuple(int(part) for part in str(release.get("version") or "0.0.0").split("."))
+    published_at = release.get("publication_timestamp") or release.get("published_at") or ""
+    return published_at, version
+
+
 def load_batches():
     rows = []
     batch_count = len(list((PROJECT / "batches").glob("**/*.json")))
@@ -240,6 +246,8 @@ def main():
     releases_by_wp = defaultdict(list)
     for release in release_registry.get("releases", []):
         releases_by_wp[release.get("work_package")].append(release)
+    published_effective_ids = set(effective_release_heads(PROJECT, statuses={"published"}))
+    pending_effective_ids = set(effective_release_heads(PROJECT, statuses={"planned", "qa"}))
 
     package_metrics = []
     for package in manifest.get("work_packages", []):
@@ -248,8 +256,10 @@ def main():
         geographic_records = [record for record in package_records if record.get("entity_type") in GEO_TYPES]
         media_records = [record for record in package_records if record.get("entity_type") in MEDIA_REQUIRED_TYPES]
         package_releases = releases_by_wp.get(package.get("id"), [])
-        current_release = next((release["version"] for release in package_releases if release.get("status") == "published"), None)
-        next_release = next((release["version"] for release in package_releases if release.get("status") in {"planned", "qa"}), None)
+        current_candidates = [release for release in package_releases if release.get("id") in published_effective_ids]
+        next_candidates = [release for release in package_releases if release.get("id") in pending_effective_ids]
+        current_release = max(current_candidates, key=release_sort_key)["version"] if current_candidates else None
+        next_release = max(next_candidates, key=release_sort_key)["version"] if next_candidates else None
         package_metrics.append({
             "id": package.get("id"),
             "name": package.get("name"),

@@ -15,6 +15,9 @@ on:
       - "scripts/check-external-links.py"
       - "scripts/data-health-gate.py"
       - "scripts/data-project-workflow-static-qa.py"
+      - "scripts/effective_release.py"
+      - "scripts/import-data-project.py"
+      - "scripts/tests/**"
       - ".github/workflows/data-project-health.yml"
   push:
     paths:
@@ -30,6 +33,9 @@ on:
       - "scripts/check-external-links.py"
       - "scripts/data-health-gate.py"
       - "scripts/data-project-workflow-static-qa.py"
+      - "scripts/effective_release.py"
+      - "scripts/import-data-project.py"
+      - "scripts/tests/**"
       - ".github/workflows/data-project-health.yml"
   schedule:
     - cron: "17 2 * * *"
@@ -54,6 +60,12 @@ jobs:
           python-version: "3.12"
       - name: Validate work packages, milestones, releases and batches
         run: python3 scripts/data-project-qa.py
+      - name: Validate workflow and release-resolution contracts
+        if: always()
+        run: python3 scripts/data-project-workflow-static-qa.py
+      - name: Run Data Project unit tests
+        if: always()
+        run: python3 -m unittest discover -s scripts/tests -p 'test_*.py'
       - name: Generate Coverage, Quality Score and Data Health
         if: always()
         run: python3 scripts/generate-data-dashboard.py
