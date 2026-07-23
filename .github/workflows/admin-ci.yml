@@ -30,13 +30,13 @@ jobs:
       run:
         working-directory: admin-dashboard
     steps:
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
         with:
           persist-credentials: false
       - name: Verify backend production safety contracts
         working-directory: .
         run: python3 scripts/admin-production-static-qa.py
-      - uses: actions/setup-node@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+      - uses: actions/setup-node@v4
         with:
           node-version: "24"
           cache: pnpm
