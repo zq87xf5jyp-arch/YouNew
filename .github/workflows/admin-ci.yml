@@ -36,6 +36,9 @@ jobs:
       - name: Verify backend production safety contracts
         working-directory: .
         run: python3 scripts/admin-production-static-qa.py
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
       - uses: actions/setup-node@v4
         with:
           node-version: "24"
