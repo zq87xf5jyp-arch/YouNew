@@ -11,6 +11,7 @@ const requiredFiles = [
   "saved/index.html", "status/index.html", "offline/index.html", "app/index.html", "business/index.html",
   "business/apply/index.html", "business/media-kit/index.html", "privacy/index.html", "terms/index.html", "support/index.html", "robots.txt",
   "sitemap.xml", "manifest.webmanifest", "sw.js", ".htaccess", "404.html", "data/search-index.json",
+  ".well-known/apple-app-site-association",
   "data/content-provenance.json", "data/status.json", "data/site-config.json", "images/app-home-nl.webp",
   "images/app-map-en.webp", "images/app-map-nl.webp", "images/og-younew.jpg",
   "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png",
@@ -60,6 +61,10 @@ assert.match(status, /does not (?:use|provide) live (?:uptime )?monitoring/i);
 
 const notFound = await readFile(join(root, "404.html"), "utf8");
 assert.match(notFound, /That page isn’t here/);
+assert.doesNotMatch(notFound, /rel="canonical"/, "The 404 page must not canonicalize missing URLs to the homepage");
+assert.doesNotMatch(notFound, /property="og:url"/, "The 404 page must not advertise the homepage as its social URL");
+assert.match(notFound, /property="og:title" content="Page not found \| YouNew"/);
+assert.match(notFound, /name="twitter:card" content="summary"/);
 
 const searchIndex = JSON.parse(await readFile(join(root, "data/search-index.json"), "utf8"));
 assert.equal(searchIndex.schemaVersion, 2);
@@ -72,6 +77,10 @@ const manifest = JSON.parse(await readFile(join(root, "manifest.webmanifest"), "
 assert.equal(manifest.display, "standalone");
 assert.deepEqual(manifest.icons.map((icon) => icon.sizes), ["192x192", "512x512"]);
 
+const association = JSON.parse(await readFile(join(root, ".well-known/apple-app-site-association"), "utf8"));
+assert.deepEqual(association.applinks.details[0].appIDs, ["9CXDJ2YMUZ.nl.younew.app"]);
+assert.ok(association.applinks.details[0].components.some((component) => component["/"] === "/guides/*"));
+
 const serviceWorker = await readFile(join(root, "sw.js"), "utf8");
 assert.match(serviceWorker, /isEmergencyRequest/);
 assert.match(serviceWorker, /isMutableConfiguration/);
@@ -82,6 +91,9 @@ assert.match(serviceWorker, /\/_next\/static\/css\//, "The install cache must in
 
 const hostingerRules = await readFile(join(root, ".htaccess"), "utf8");
 assert.match(hostingerRules, /FilesMatch "\\\.\(\?:html\|txt\)\$"[\s\S]*?Cache-Control "no-cache, no-store, must-revalidate"/, "Hostinger must revalidate exported HTML instead of serving a previous release");
+assert.match(hostingerRules, /AddType application\/manifest\+json \.webmanifest/, "Hostinger must serve the web manifest with its correct MIME type");
+assert.match(hostingerRules, /Files "apple-app-site-association"[\s\S]*ForceType application\/json/, "Hostinger must serve Apple's association file as JSON");
+assert.match(hostingerRules, /FilesMatch "\^\(sw\\\.js\|static-shell\\\.js\|manifest\\\.webmanifest/, "The unversioned homepage runtime must not remain stale between releases");
 
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
 for (const path of ["https://younew.nl", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));

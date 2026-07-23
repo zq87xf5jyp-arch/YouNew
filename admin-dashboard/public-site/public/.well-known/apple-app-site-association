@@ -1,0 +1,28 @@
+{
+  "applinks": {
+    "details": [
+      {
+        "appIDs": ["9CXDJ2YMUZ.nl.younew.app"],
+        "components": [
+          { "/": "/discover/*" },
+          { "/": "/search/*" },
+          { "/": "/guides/*" },
+          { "/": "/categories/*" },
+          { "/": "/journeys/*" },
+          { "/": "/map/*" },
+          { "/": "/places/*" },
+          { "/": "/cities/*" },
+          { "/": "/provinces/*" },
+          { "/": "/organizations/*" },
+          { "/": "/emergency/*" },
+          { "/": "/saved/*" },
+          { "/": "/support/*" },
+          { "/": "/privacy/*" },
+          { "/": "/app/*" },
+          { "/": "/status/*" },
+          { "/": "/" }
+        ]
+      }
+    ]
+  }
+}

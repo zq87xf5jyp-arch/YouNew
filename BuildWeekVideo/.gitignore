@@ -1,0 +1,9 @@
+node_modules
+dist
+.DS_Store
+.env
+
+# Local simulator recordings and rendered outputs are evidence artifacts, not
+# repository source. Their hashes and capture details are documented separately.
+public/clips/*.mp4
+out

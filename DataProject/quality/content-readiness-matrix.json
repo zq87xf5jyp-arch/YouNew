@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-07-21",
+  "as_of": "2026-07-23",
   "scope": {
     "governed_batches": "DataProject/batches",
     "canonical_runtime": "YouNew/Resources/Data/younew-runtime-data.json",
@@ -2727,13 +2727,13 @@
     "public_has_practical_guide": 0
   },
   "existing_link_health_evidence": {
-    "generated_at": "2026-07-20T23:36:49+00:00",
-    "checked_at": "2026-07-20T23:29:35.666065+00:00",
-    "total": 2494,
-    "reachable": 1821,
-    "confirmed_broken": 18,
-    "access_restricted": 623,
-    "transient_failures": 32,
+    "generated_at": "2026-07-22T23:29:36+00:00",
+    "checked_at": "2026-07-22T08:24:03.047474+00:00",
+    "total": 2560,
+    "reachable": 1935,
+    "confirmed_broken": 0,
+    "access_restricted": 596,
+    "transient_failures": 29,
     "audit_note": "Imported as historical evidence only; this content-readiness script did not re-open URLs."
   },
   "user_path_coverage": {

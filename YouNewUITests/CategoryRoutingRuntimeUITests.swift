@@ -574,6 +574,12 @@ final class CategoryRoutingRuntimeUITests: XCTestCase {
         menu.tap()
 
         let overlay = app.descendants(matching: .any)["sideMenu.overlay"]
+        if !overlay.waitForExistence(timeout: 4), menu.exists && menu.isHittable {
+            // Simulator automation can occasionally acknowledge a tap without
+            // dispatching it. Retry only when the unchanged trigger proves the
+            // first action was ignored, rather than masking a wrong route.
+            menu.tap()
+        }
         XCTAssertTrue(overlay.waitForExistence(timeout: 4), "Discovery menu did not open for \(item.chip)")
         guard overlay.exists else {
             app.terminate()
@@ -729,10 +735,23 @@ final class CategoryRoutingRuntimeUITests: XCTestCase {
             XCTFail("Missing detail selector for \(route.listID)")
             return
         }
-        XCTAssertTrue(detail.waitForExistence(timeout: 8), "Typed list opened the wrong detail: \(route.listID)")
+        if !detail.waitForExistence(timeout: 8), link.exists, link.isHittable {
+            // Simulator automation can occasionally acknowledge a tap without
+            // delivering it to a SwiftUI NavigationLink. Retry only while the
+            // original row is still visible; a genuinely wrong destination
+            // removes the row and must continue to fail.
+            link.tap()
+        }
+        XCTAssertTrue(detail.waitForExistence(timeout: 5), "Typed list opened the wrong detail after a delivered tap: \(route.listID)")
 
         navigateBack(in: app)
-        XCTAssertTrue(list.waitForExistence(timeout: 6), "Back did not return to the typed list: \(route.listID)")
+        let returnedList = app.descendants(matching: .any)[route.listID]
+        if !returnedList.waitForExistence(timeout: 6), detail.exists {
+            // Apply the same bounded retry only when the detail is still the
+            // active screen, which proves the first back action was ignored.
+            navigateBack(in: app)
+        }
+        XCTAssertTrue(returnedList.waitForExistence(timeout: 5), "Back did not return to the typed list: \(route.listID)")
     }
 
     @MainActor

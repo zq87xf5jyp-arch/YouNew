@@ -7567,16 +7567,15 @@
       "whenYouNeedIt": [],
       "tags": [],
       "synonyms": [
-        "need a doctor",
         "find healthcare",
-        "health insurance"
+        "healthcare organizations"
       ],
       "officialOrganizationNames": [],
       "terminology": [
-        "doctor",
-        "huisarts",
+        "healthcare",
         "zorg",
-        "zorgverzekering"
+        "medical services",
+        "public health"
       ],
       "commonQuestions": []
     },

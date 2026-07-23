@@ -24,7 +24,7 @@ export function SiteHeader() {
         </nav>
         <div className="header-actions">
           <Link className="header-search" href="/search" aria-label="Search YouNew" data-nav-href><Search aria-hidden /> <span>Search</span></Link>
-          <Link className="header-cta" href="/app" data-nav-href>Get the app</Link>
+          <Link className="header-cta" href="/app" data-nav-href>iPhone status</Link>
           <details className="mobile-menu" data-mobile-menu>
             <summary aria-label="Navigation menu" aria-controls="mobile-navigation"><Menu className="menu-open" aria-hidden /><X className="menu-close" aria-hidden /></summary>
             <nav id="mobile-navigation" aria-label="Mobile navigation">
@@ -34,7 +34,7 @@ export function SiteHeader() {
               <Link href="/emergency" data-nav-href>Emergency</Link>
               <Link href="/status" data-nav-href>Status</Link>
               <Link href="/support" data-nav-href>Support</Link>
-              <Link className="mobile-app-cta" href="/app" data-nav-href>Get the app</Link>
+              <Link className="mobile-app-cta" href="/app" data-nav-href>iPhone app status</Link>
             </nav>
           </details>
         </div>

@@ -33,14 +33,79 @@ const keys = {
 } as const;
 
 const localIdentifier = /^[a-z0-9]+(?:[._:-][a-z0-9]+)*$/;
+const reservedIdentifiers = new Set(["constructor", "prototype", "__proto__"]);
+
+function isSafeLocalIdentifier(value: unknown): value is string {
+  return typeof value === "string" && localIdentifier.test(value) && !reservedIdentifiers.has(value);
+}
+
+function isSafeInternalRoute(value: unknown): value is string {
+  return typeof value === "string" && value.startsWith("/") && !value.startsWith("//") && !value.includes("\\");
+}
+
+function isUsefulText(value: unknown, maximumLength: number): value is string {
+  return typeof value === "string" && value.trim().length > 0 && value.length <= maximumLength;
+}
+
+function isIsoDate(value: unknown): value is string {
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}\.\d{3}Z$/.test(value)) return false;
+  const parsed = new Date(value);
+  return !Number.isNaN(parsed.getTime()) && parsed.toISOString() === value;
+}
+
+function sanitizeContentItems<T extends SavedContentItem | RecentContentItem>(
+  value: unknown,
+  dateKey: "savedAt" | "viewedAt",
+  limit: number
+): T[] {
+  if (!Array.isArray(value)) return [];
+  const seen = new Set<string>();
+  const result: T[] = [];
+  for (const rawItem of value) {
+    if (!rawItem || typeof rawItem !== "object" || Array.isArray(rawItem)) continue;
+    const item = rawItem as Record<string, unknown>;
+    if (
+      !isSafeLocalIdentifier(item.id) || seen.has(item.id) ||
+      !isSafeInternalRoute(item.route) ||
+      !isUsefulText(item.title, 240) ||
+      !isUsefulText(item.kind, 80) ||
+      !isIsoDate(item[dateKey])
+    ) continue;
+    seen.add(item.id);
+    result.push(item as T);
+    if (result.length === limit) break;
+  }
+  return result;
+}
+
+export function sanitizeSavedContentItems(value: unknown): SavedContentItem[] {
+  return sanitizeContentItems<SavedContentItem>(value, "savedAt", 250);
+}
+
+export function sanitizeRecentContentItems(value: unknown): RecentContentItem[] {
+  return sanitizeContentItems<RecentContentItem>(value, "viewedAt", 12);
+}
+
+export function sanitizeRecentSearches(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  const result: string[] = [];
+  for (const item of value) {
+    if (typeof item !== "string") continue;
+    const normalized = item.trim();
+    if (normalized.length < 2 || normalized.length > 120 || result.includes(normalized)) continue;
+    result.push(normalized);
+    if (result.length === 8) break;
+  }
+  return result;
+}
 
 export function sanitizeGuideChecklistState(value: unknown): GuideChecklistState {
   if (!value || typeof value !== "object" || Array.isArray(value)) return {};
   const result: GuideChecklistState = {};
   for (const [guideId, rawItems] of Object.entries(value)) {
-    if (!localIdentifier.test(guideId) || !rawItems || typeof rawItems !== "object" || Array.isArray(rawItems)) continue;
+    if (!isSafeLocalIdentifier(guideId) || !rawItems || typeof rawItems !== "object" || Array.isArray(rawItems)) continue;
     for (const [itemId, completed] of Object.entries(rawItems)) {
-      if (!localIdentifier.test(itemId) || typeof completed !== "boolean") continue;
+      if (!isSafeLocalIdentifier(itemId) || typeof completed !== "boolean") continue;
       (result[guideId] ??= {})[itemId] = completed;
     }
   }
@@ -122,7 +187,7 @@ function remove(key: string): boolean {
 
 export const localContentRepository = {
   saved(): SavedContentItem[] {
-    return read<SavedContentItem[]>(keys.saved, []);
+    return sanitizeSavedContentItems(read<unknown>(keys.saved, []));
   },
   isSaved(id: string): boolean {
     return this.saved().some((item) => item.id === id);
@@ -136,7 +201,7 @@ export const localContentRepository = {
     return write(keys.saved, next) ? !exists : exists;
   },
   recent(): RecentContentItem[] {
-    return read<RecentContentItem[]>(keys.recent, []);
+    return sanitizeRecentContentItems(read<unknown>(keys.recent, []));
   },
   rememberViewed(item: Omit<RecentContentItem, "viewedAt">) {
     const next = [
@@ -147,10 +212,10 @@ export const localContentRepository = {
   },
   recentSearches(): string[] {
     if (!this.searchHistoryEnabled()) return [];
-    return read<string[]>(keys.searches, []);
+    return sanitizeRecentSearches(read<unknown>(keys.searches, []));
   },
   searchHistoryEnabled(): boolean {
-    return read<boolean>(keys.rememberSearches, false);
+    return read<unknown>(keys.rememberSearches, false) === true;
   },
   setSearchHistoryEnabled(enabled: boolean) {
     write(keys.rememberSearches, enabled);
@@ -189,7 +254,7 @@ export const localContentRepository = {
     return sanitizeGuideChecklistState(read<unknown>(keys.guideChecklists, {}));
   },
   setGuideChecklistItem(guideId: string, itemId: string, completed: boolean): boolean {
-    if (!localIdentifier.test(guideId) || !localIdentifier.test(itemId)) return false;
+    if (!isSafeLocalIdentifier(guideId) || !isSafeLocalIdentifier(itemId)) return false;
     const current = this.guideChecklistState();
     const next = { ...current, [guideId]: { ...(current[guideId] ?? {}), [itemId]: completed } };
     return write(keys.guideChecklists, next);

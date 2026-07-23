@@ -11,6 +11,14 @@ struct SettingsView: View {
 
     private var lang: AppLanguage { languageManager.appLanguage }
     private var activePersona: PersonaTag? { appState.selectedUserStatus?.personaTag }
+    private var appVersionDisplay: String {
+        let version = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "—"
+        guard let build = Bundle.main.object(forInfoDictionaryKey: "CFBundleVersion") as? String,
+              !build.isEmpty else {
+            return version
+        }
+        return "\(version) (\(build))"
+    }
     private var visibleMapCategories: [PlaceCategory] {
         PlaceCategory.allCases.filter { category in
             MockNearbyPlacesData.places.contains {
@@ -517,7 +525,7 @@ struct SettingsView: View {
 
                 Spacer()
 
-                Text("0.2.1")
+                Text(appVersionDisplay)
                     .font(AppTypography.caption)
                     .foregroundStyle(AppColors.textSecondary)
             }

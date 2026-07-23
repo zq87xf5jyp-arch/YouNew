@@ -47,6 +47,15 @@ test("derived collections, routes and slugs are internally consistent", () => {
   ));
 });
 
+test("the public website exposes the verified app image catalogue", () => {
+  const media = content.entities.flatMap((entity: { images: unknown[] }) => entity.images);
+  assert.ok(media.length >= 500, `expected at least 500 app images, received ${media.length}`);
+  assert.ok(content.entities.every((entity: { images: Array<{ role: string; url: string; alt: string }> }) =>
+    entity.images.some((image) => image.role === "hero") &&
+    entity.images.every((image) => /^https?:\/\//.test(image.url) && image.alt.length > 0)
+  ));
+});
+
 test("local partners are source-checked but never promoted to sponsored or verified organizations", () => {
   const partners = content.organizations.filter((entity: { sourceKind: string }) => entity.sourceKind === "localPartner");
   assert.ok(partners.length > 0);

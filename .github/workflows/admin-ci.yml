@@ -1,0 +1,54 @@
+name: Admin CI
+
+on:
+  pull_request:
+    paths:
+      - "admin-dashboard/**"
+      - "YouNew/Resources/Data/younew-runtime-data.json"
+      - "scripts/admin-production-static-qa.py"
+      - ".github/workflows/admin-ci.yml"
+  push:
+    paths:
+      - "admin-dashboard/**"
+      - "YouNew/Resources/Data/younew-runtime-data.json"
+      - "scripts/admin-production-static-qa.py"
+      - ".github/workflows/admin-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: admin-ci-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  admin-dashboard:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: admin-dashboard
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - name: Verify backend production safety contracts
+        working-directory: .
+        run: python3 scripts/admin-production-static-qa.py
+      - uses: pnpm/action-setup@v4
+        with:
+          version: 10
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+      - name: Enable the pinned package manager
+        run: corepack enable
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
+      - name: Build
+        run: pnpm build

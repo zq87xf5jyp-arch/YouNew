@@ -88,6 +88,7 @@ struct RootTabView: View {
     @State private var completedTabNavigationSequence = 0
     @State private var lastCompletedTabNavigationDestination: AppTab? = nil
     @State private var lastCompletedTabNavigationDelayMilliseconds: Double? = nil
+    @State private var mountedTabs: Set<AppTab>
     @State private var isGlobalAIModeLauncherExpanded = false
     @State private var didApplyInitialTestingDestination = false
     @StateObject private var tabRouter: TabRouter
@@ -137,6 +138,10 @@ struct RootTabView: View {
         _selectedTab = State(initialValue: initialTab)
         _isMenuPresented = State(initialValue: false)
         _activeMenuDestination = State(initialValue: nil)
+        // Home and Map are the two data-rich, high-frequency roots. Prewarm
+        // both once so their first user-visible switch is as fast as repeat
+        // switches; any other launch destination is retained as well.
+        _mountedTabs = State(initialValue: [initialTab, .home, .map])
         _tabRouter = StateObject(wrappedValue: TabRouter(initialTab: initialTab.tabItem))
 
 #if os(iOS)
@@ -248,6 +253,7 @@ struct RootTabView: View {
             AppHaptics.prepare()
             applyInitialTestingDestinationIfNeeded()
         }
+        .onOpenURL(perform: openUniversalLink)
         .environment(\.openDiscoveryMenu, OpenDiscoveryMenuAction(openMenu))
         .simultaneousGesture(
             DragGesture(minimumDistance: 18)
@@ -276,8 +282,35 @@ struct RootTabView: View {
                 AppHaptics.prepare()
                 applyInitialTestingDestinationIfNeeded()
             }
+            .onOpenURL(perform: openUniversalLink)
             .environmentObject(tabRouter)
 #endif
+    }
+
+    private func openUniversalLink(_ url: URL) {
+        guard let route = UniversalLinkRouter.route(for: url) else { return }
+
+        isMenuPresented = false
+        isGlobalAIModeLauncherExpanded = false
+        activeMenuDestination = nil
+        clearPath(for: route.tab)
+        selectedTab = route.tab
+        tabRouter.selectedTab = route.tab.tabItem
+
+        guard let destination = route.destination else { return }
+        activeMenuDestination = destination
+        if horizontalSizeClass == .regular && menuPosition == .automatic {
+            regularNavPath = NavigationPath()
+            regularNavPath.append(destination)
+        } else {
+            switch route.tab {
+            case .home: homeNavPath.append(destination)
+            case .guide: guideNavPath.append(destination)
+            case .map: mapNavPath.append(destination)
+            case .saved: savedNavPath.append(destination)
+            case .more: moreNavPath.append(destination)
+            }
+        }
     }
 
     private func applyInitialTestingDestinationIfNeeded() {
@@ -751,11 +784,61 @@ struct RootTabView: View {
 
     @ViewBuilder
     private var tabContent: some View {
+#if os(iOS)
+        // Mount roots lazily, then retain them. A switch recreated StateObjects
+        // and restarted network tasks; the system TabView preserved state but
+        // still produced intermittent activation stalls above the 100 ms gate.
+        // Fixed ZStack identity keeps visited NavigationStacks resident while
+        // making selection a lightweight visibility change.
+        ZStack {
+            if shouldMount(.home) {
+                persistentTabRoot(.home) { homeTabStack }
+            }
+            if shouldMount(.guide) {
+                persistentTabRoot(.guide) { guideTabStack }
+            }
+            if shouldMount(.map) {
+                persistentTabRoot(.map) { mapTabStack }
+            }
+            if shouldMount(.saved) {
+                persistentTabRoot(.saved) { savedTabStack }
+            }
+            if shouldMount(.more) {
+                persistentTabRoot(.more) { moreTabStack }
+            }
+        }
+        .background(Color.clear)
+        .onChange(of: selectedTab) { _, tab in
+            mountedTabs.insert(tab)
+            // This callback runs as SwiftUI applies the root's visibility
+            // update. Record in the same update to avoid a race where a later
+            // accessibility snapshot observes the screen but misses sequence.
+            completeTabNavigation(to: tab)
+        }
+#else
         ZStack {
             selectedTabContent
         }
         .background(Color.clear)
+#endif
     }
+
+#if os(iOS)
+    private func shouldMount(_ tab: AppTab) -> Bool {
+        mountedTabs.contains(tab) || selectedTab == tab
+    }
+
+    private func persistentTabRoot<Content: View>(
+        _ tab: AppTab,
+        @ViewBuilder content: () -> Content
+    ) -> some View {
+        content()
+            .opacity(selectedTab == tab ? 1 : 0)
+            .allowsHitTesting(selectedTab == tab)
+            .accessibilityHidden(selectedTab != tab)
+            .zIndex(selectedTab == tab ? 1 : 0)
+    }
+#endif
 
     @ViewBuilder
     private var selectedTabContent: some View {
@@ -1312,7 +1395,14 @@ struct RootTabView: View {
             pendingTabNavigationDestination = tab
             pendingTabNavigationStartedAt = ProcessInfo.processInfo.systemUptime
         }
-        selectedTab = tab
+        // Root visibility must commit immediately. Press feedback remains on
+        // the button itself; animating the selection binding delays the whole
+        // root transaction and caused first-switch latency above 100 ms.
+        var transaction = Transaction()
+        transaction.disablesAnimations = true
+        withTransaction(transaction) {
+            selectedTab = tab
+        }
     }
 
     private func completeTabNavigation(to tab: AppTab) {

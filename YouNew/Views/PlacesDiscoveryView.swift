@@ -1889,16 +1889,19 @@ struct PlacesDiscoveryView: View {
 
     private func chooseCity(_ city: String) {
         AppHaptics.mediumImpact()
-        // Commit the visible route first. Give SwiftUI a run-loop turn and one
-        // display interval before the shared app-state mutation, so the city
-        // snapshot rebuild is not performed inside the original tap handler.
+        // The province map covers more cities than the curated Home dashboard.
+        // Keep every map choice local, and only synchronize the shared profile
+        // when the city has a canonical dashboard route.
         selectedProvinceID = provinceID(forCity: city)
         displayMode = .map
         isCityMapOpen = true
+        let dashboardCity = CityId.resolve(city)
         Task { @MainActor in
             await Task.yield()
+            mapViewModel.selectedCity = city
+            guard let dashboardCity else { return }
             try? await Task.sleep(for: .milliseconds(16))
-            appState.selectedCity = city
+            appState.selectedCity = dashboardCity.displayName
         }
     }
 

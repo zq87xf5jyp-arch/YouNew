@@ -141,7 +141,7 @@ persistence. See
 | Language and UI | Swift 5, SwiftUI |
 | Bundle identifier | `nl.younew.app` |
 | Public App Store release | 1.0 (published 2026-06-24) |
-| Committed `main` source candidate | 1.1 (5) |
+| Local source candidate | 1.1 (7) |
 | Minimum deployment target | iOS 17.6 |
 | Demonstrated assistant | Local deterministic guide |
 | Backend required for demo | No |
@@ -187,13 +187,22 @@ The documented local assistant path requires no environment variable. Never add
 an OpenAI key to Swift source, the application bundle, Xcode settings, fixtures,
 or screenshots.
 
-## Preserved readiness evidence
+## Readiness evidence
 
 This README separates preserved Build Week evidence from current automated
 health evidence; neither is a universal security or release certification.
 
-- The current candidate has a successful clean Debug simulator build.
-- The current unit artifact records 460/460 checks passing.
+- The 22 July 2026 production audit records an unsigned generic iOS Release
+  build and 461/461 unit tests passing. It also records unresolved production,
+  privacy, content, legal, operations and distribution blockers; see the
+  [production-readiness audit](PRODUCTION_READINESS_AUDIT_2026-07-22.md).
+- The current complete UI audit ran 87 tests on an iPhone 17 Pro Simulator:
+  80 passed and 7 failed. Clean targeted reruns confirm the guide-layout fix,
+  but the BSN/Leiden assistant route remains broken and first-tab latency is
+  variable (204.2 ms in a targeted rerun and 442.3 ms in the complete run,
+  against a 100 ms gate). This evidence is a release failure, not a waiver.
+- The preserved Build Week candidate had a successful clean Debug simulator
+  build and a 460/460 unit-test artifact.
 - The targeted Map ↔ Home fix records 3/3 targeted checks; the isolated final
   transition gate records 10/10 first-tap transitions.
 - Two preserved 100-tap map calibration runs produced 99/100 followed by an
@@ -206,9 +215,10 @@ health evidence; neither is a universal security or release certification.
   [DATA PROJECT Health run #6](https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/29904201000)
   checked 2,488 URLs, reports `confirmed_broken=0`, and passes the enforced Data
   Health gate.
-- Eight simulator screens passed visual smoke inspection. The finalized full UI
-  suite is 79/87; the isolated rerun of those eight failures is 5/8.
-- Three UI failures remain reproducible: Guide scroll/UI-query at Transport,
+- Eight simulator screens passed the preserved Build Week visual smoke
+  inspection. That historical full UI suite was 79/87; the isolated rerun of
+  those eight failures was 5/8.
+- Three UI failures remained reproducible in that historical evidence: Guide scroll/UI-query at Transport,
   root-tab latency above 100 ms, and the Assistant selected-city shortcut.
 
 See [BuildWeekSubmission/FINAL_VALIDATION.md](BuildWeekSubmission/FINAL_VALIDATION.md)

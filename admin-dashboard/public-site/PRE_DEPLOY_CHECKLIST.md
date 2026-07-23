@@ -2,16 +2,16 @@
 
 This checklist prepares the static package for Hostinger. It does **not** publish files, change DNS, or modify domain email.
 
-## Latest local evidence — 21 July 2026
+## Latest local evidence — 22 July 2026
 
-- Automated gate: **BLOCKED at step 10/10** — build, TypeScript, ESLint, 45 tests, smoke, 14,953 internal link/asset/fragment checks, security, true HTTP 404, package invariants and upstream guide governance pass; current external source health fails on 18 released-runtime URLs.
+- Automated gate: **PASS 10/10** — build, TypeScript, ESLint, 57 tests, smoke, 16,894 internal link/asset/fragment checks, security, true HTTP 404, package invariants, upstream guide governance and current external-source evidence pass.
 - Package: 232 static-generation entries, 229 HTML files, 224 sitemap URLs; `out/` and `dist/client/` are byte-identical.
 - Browser: guide save reached `/saved/`; journey state persisted and reset atomically; map filter/URL/marker/list stayed synchronized; media-kit labels and application fallback were present; representative console log was empty.
 - Responsive: home, guide summary, journeys, map, media kit and 404 passed at 320×568, 390×844, 430×932, 768×1024, 1280×800 and 1440×900: 36/36 combinations, one H1 and no horizontal overflow.
 - Lighthouse: home mobile 93/100/100/100 and desktop 97/100/100/100; mobile guide, journeys, map and media kit are all 99/100/100/100 for Performance/Accessibility/Best Practices/SEO.
 - Offline guide runtime: **PASS in Chromium for worker `3e435bc55d98`** — after two online openings in a clean profile, the origin server was stopped and `/guides/woon/` rendered from cache; warm/offline screenshots are byte-identical. Manifest/SW/offline-fallback static checks also pass. Real iPhone Safari remains unchecked. Print output: tagged A4 guide 2 pages, media kit 7 pages.
-- Production deployment: **not performed**. Live Hostinger and real iPhone Safari checks remain unchecked below.
-- External source/media health: **BLOCKED** — the fresh 2,494-URL check found 18 confirmed 404 responses in the immutable released runtime after two mutable Transport QA links and one current Swift media URL were fixed. Do not deploy until an approved patch release/verification override clears `python3 scripts/data-health-gate.py --require-network`.
+- Production deployment: **not performed**. Live Hostinger serves an older package: its CSP still blocks the remote Wikimedia/Flickr image origins allowed by the locally verified package, and `/.well-known/apple-app-site-association` returns HTTP 404. Real iPhone Safari remains unchecked.
+- External source/media health: **PASS WITH UNVERIFIED RESPONSES** — the 22 July check classified 2,560 URLs as 1,935 reachable, 0 confirmed broken, 596 access-restricted and 29 transient failures. `python3 scripts/data-health-gate.py --require-network` passes within its 36-hour window; the restricted/transient URLs remain **NOT VERIFIED**, not proven healthy.
 
 ## 1. Content governance
 
@@ -36,9 +36,9 @@ The command must finish with:
 PRE-DEPLOY PASS — package is locally verified; no public deployment was performed.
 ```
 
-It verifies the production build, TypeScript, ESLint, all tests, HTML smoke flows, links/fragments/assets, security headers, canonical/sitemap parity, PWA files, a real HTTP 404, absence of drafts/secrets/local paths, a byte-identical `out/`/`dist/client/` package, and the currently generated governed/released source-health report. It does not refresh URLs or enforce the 36-hour network-evidence window. Before release, regenerate link evidence and run `python3 scripts/data-health-gate.py --require-network` from the repository root. At present both commands fail closed with `governed_broken_links=18`.
+It verifies the production build, TypeScript, ESLint, all tests, HTML smoke flows, links/fragments/assets, security headers, canonical/sitemap parity, PWA files, a real HTTP 404, absence of drafts/secrets/local paths, a byte-identical `out/`/`dist/client/` package, and the currently generated governed/released source-health report. It does not refresh URLs or enforce the 36-hour network-evidence window. Before release, regenerate link evidence and run `python3 scripts/data-health-gate.py --require-network` from the repository root. Both commands passed on 22 July 2026; access-restricted and transient responses are still not positive verification.
 
-The repository-wide `scripts/run-static-qa.sh` also fails at the same Data Health gate after its preceding checks pass; because the script uses `set -e`, checks after that gate are not represented as executed in the latest aggregate run.
+The repository-wide `scripts/run-static-qa.sh` passed its complete gate set on 22 July 2026.
 
 ## 3. Manual browser checks
 
@@ -91,7 +91,8 @@ Required viewports:
 - The first 20 national practical guides are governed draft scaffolds: 0 are approved full guides today.
 - Official research dossiers cover 18/20 first-wave topics; Dutch integration exams and Reporting discrimination still lack a dedicated dossier. Finding work, Opening a Dutch bank account and Student housing still lack a governed canonical procedural source record suitable for publication.
 - `DataProject/operations/reviewer-registry.json` and `guide-evidence-registry.json` are intentionally empty; no full guide can pass publication until a real human reviewer and matching evidence artifact are registered.
-- The current network health gate fails on 18 immutable-runtime URLs (dead media/licence links and the BREDA source). Create a patch release; never edit the published Amsterdam batch in place.
+- Network evidence has 0 confirmed broken URLs, but 596 access-restricted and 29 transient responses remain **NOT VERIFIED** and require risk-based manual review for critical official sources.
+- The live Hostinger package is behind the locally verified package: CSP and privacy text are stale, and the AASA endpoint is missing.
 - The public production content remains concentrated in Amsterdam; the coordinate map must not be described as complete national coverage.
 - Business inquiry delivery is an honest user-controlled email draft, not a backend submission workflow.
 - Partner accounts/dashboard, billing and measured campaign analytics remain feature-flagged or unimplemented pending a secure backend.
