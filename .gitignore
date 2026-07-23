@@ -58,9 +58,37 @@ Secrets.xcconfig
 
 # Local package/cache output
 .pnpm-store/
+BackendExamples/node_modules/
 admin-dashboard/*
+!admin-dashboard/.env.example
+!admin-dashboard/.gitignore
+!admin-dashboard/README.md
+!admin-dashboard/components.json
+!admin-dashboard/docs/
+!admin-dashboard/docs/**
+!admin-dashboard/eslint.config.mjs
+!admin-dashboard/next-env.d.ts
+!admin-dashboard/next.config.ts
+!admin-dashboard/package.json
+!admin-dashboard/pnpm-lock.yaml
+!admin-dashboard/pnpm-workspace.yaml
+!admin-dashboard/postcss.config.mjs
+!admin-dashboard/scripts/
+!admin-dashboard/scripts/**
+!admin-dashboard/src/
+!admin-dashboard/src/**
+!admin-dashboard/supabase/
+!admin-dashboard/supabase/**
+!admin-dashboard/tailwind.config.ts
+!admin-dashboard/tsconfig.json
 !admin-dashboard/public-site/
 !admin-dashboard/public-site/**
+admin-dashboard/.env
+admin-dashboard/.env.local
+admin-dashboard/.next/
+admin-dashboard/backups/
+admin-dashboard/node_modules/
+admin-dashboard/supabase/.DS_Store
 admin-dashboard/public-site/.DS_Store
 admin-dashboard/public-site/.next/
 admin-dashboard/public-site/out/

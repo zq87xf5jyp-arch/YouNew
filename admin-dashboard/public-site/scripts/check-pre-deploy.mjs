@@ -58,7 +58,8 @@ assert.deepEqual(new Set(sitemapUrls), indexableRoutes, `Sitemap/HTML route mism
 
 const robots = await readFile(join(outRoot, "robots.txt"), "utf8");
 assert.match(robots, /Sitemap: https:\/\/younew\.nl\/sitemap\.xml/);
-for (const route of ["/admin/", "/business/dashboard/", "/saved/", "/search/", "/offline/"]) assert.match(robots, new RegExp(`Disallow: ${route.replaceAll("/", "\\/")}`));
+for (const route of ["/admin/", "/business/dashboard/", "/_next/data/"]) assert.match(robots, new RegExp(`Disallow: ${route.replaceAll("/", "\\/")}`));
+for (const route of ["/saved/", "/search/", "/offline/"]) assert.doesNotMatch(robots, new RegExp(`Disallow: ${route.replaceAll("/", "\\/")}`), `${route} must remain crawlable so its page-level noindex can be read`);
 
 const manifest = JSON.parse(await readFile(join(outRoot, "manifest.webmanifest"), "utf8"));
 assert.equal(manifest.display, "standalone");
@@ -83,9 +84,11 @@ for (const marker of ["/offline/", "/guides/", "/journeys/", "/static-shell.js",
 
 const headers = await readFile(join(outRoot, ".htaccess"), "utf8");
 assert.match(headers, /ErrorDocument 404 \/404\.html/);
+assert.match(headers, /AddType application\/manifest\+json \.webmanifest/);
+assert.match(headers, /FilesMatch "\^\(sw\\\.js\|static-shell\\\.js\|manifest\\\.webmanifest/);
 const csp = headers.match(/Content-Security-Policy "([^"]+)"/)?.[1];
 assert.ok(csp, "CSP is missing");
-for (const directive of ["default-src 'self'", "base-uri 'self'", "form-action 'self' mailto:", "frame-ancestors 'none'", "object-src 'none'", "script-src 'self'", "connect-src 'self'"]) assert.match(csp, new RegExp(directive.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+for (const directive of ["default-src 'self'", "base-uri 'self'", "form-action 'self' mailto:", "frame-ancestors 'none'", "object-src 'none'", "img-src 'self' data: https://commons.wikimedia.org https://live.staticflickr.com", "script-src 'self'", "connect-src 'self'"]) assert.match(csp, new RegExp(directive.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 
 const authoredExtensions = new Set([".html", ".json", ".xml", ".css", ".txt", ".webmanifest", ".htaccess"]);
 const localUrlPattern = /(?:https?:\/\/(?:localhost|127(?:\.\d{1,3}){3}|\[::1\])(?::\d+)?|file:\/{2,}|\/Users\/[A-Za-z0-9._-]+\/|\/home\/[A-Za-z0-9._-]+\/|[A-Za-z]:\\Users\\)/i;

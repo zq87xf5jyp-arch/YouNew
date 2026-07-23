@@ -13,7 +13,7 @@ type SearchIndex = { schemaVersion: 2; documents: SearchDocument[] };
 type Filters = { type: string; city: string; province: string; category: string; profile: string };
 
 const emptyFilters: Filters = { type: "", city: "", province: "", category: "", profile: "" };
-const popularSearches = ["Register gemeente", "Need a doctor", "Student housing", "Emergency", "Amsterdam", "train station"];
+const popularSearches = ["Register gemeente", "Housing defects", "Student housing", "Emergency", "Amsterdam", "train station"];
 function unique(values: Array<string | null>) { return [...new Set(values.filter((value): value is string => Boolean(value)))].sort(); }
 
 export function SearchExperience() {
@@ -110,7 +110,7 @@ export function SearchExperience() {
     <div className="search-experience">
       <form className="search-form" role="search" onSubmit={submit}>
         <div className="search-input-wrap">
-          <Search aria-hidden /><input id="search-query" role="combobox" aria-label="Search published YouNew content" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded={suggestionsVisible} aria-activedescendant={suggestionIndex >= 0 ? `search-suggestion-${suggestionIndex}` : undefined} aria-haspopup="listbox" autoComplete="off" placeholder="Try ‘Register gemeente’ or ‘Need a doctor’" value={query} onChange={(event) => { setQuery(event.target.value); setSuggestionIndex(-1); setSuggestionsDismissed(false); }} onKeyDown={onKeyDown} />
+          <Search aria-hidden /><input id="search-query" role="combobox" aria-label="Search published YouNew content" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded={suggestionsVisible} aria-activedescendant={suggestionIndex >= 0 ? `search-suggestion-${suggestionIndex}` : undefined} aria-haspopup="listbox" autoComplete="off" placeholder="Try ‘Register gemeente’ or ‘Housing defects’" value={query} onChange={(event) => { setQuery(event.target.value); setSuggestionIndex(-1); setSuggestionsDismissed(false); }} onKeyDown={onKeyDown} />
           {query ? <button type="button" aria-label="Clear search" onClick={() => { setQuery(""); setSubmittedQuery(""); setSuggestionsDismissed(true); syncUrl("", filters); }}><X aria-hidden /></button> : null}
         </div>
         <button className="button button-primary" type="submit">Search</button>

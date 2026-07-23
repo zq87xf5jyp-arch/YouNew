@@ -5,6 +5,7 @@ import { EntityCard } from "@/components/entity-card";
 import { RecentViewTracker } from "@/components/recent-view-tracker";
 import { SaveButton } from "@/components/save-button";
 import { ShareButton } from "@/components/share-button";
+import { ContentMedia, preferredMedia } from "@/components/content-media";
 import type { ContentEntity } from "@/lib/content";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
@@ -21,6 +22,8 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
     : entity.categorySlugs.some((category) => category === "housing" || category === "government")
       ? "General information only; procedures and requirements can change. Verify the current steps with the responsible institution."
       : "Details such as access, schedules and availability can change. Verify current information with the source before travelling or acting.";
+  const heroImage = preferredMedia(entity.images, ["hero", "gallery", "thumbnail"]);
+  const galleryImages = entity.images.filter((image) => image.id !== heroImage?.id).slice(0, 3);
 
   const structuredData = {
     "@context": "https://schema.org",
@@ -31,7 +34,8 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
     url: `https://younew.nl${entity.route}/`,
     inLanguage: "en",
     dateModified: entity.updatedAt,
-    isBasedOn: entity.source.url
+    isBasedOn: entity.source.url,
+    image: heroImage?.url
   };
 
   return (
@@ -48,6 +52,7 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
           <div className="detail-actions"><SaveButton item={{ id: entity.id, route: entity.route, title: entity.title, kind: entity.type }} /><ShareButton title={entity.title} /></div>
         </div>
         {location ? <p className="detail-location"><MapPin aria-hidden /> {location}</p> : null}
+        {heroImage ? <ContentMedia asset={heroImage} variant="hero" eager /> : null}
       </section>
 
       <div className="section-shell entity-detail-layout">
@@ -57,6 +62,20 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
           <div className="topic-links" aria-label="Related categories">
             {entity.categorySlugs.map((category) => <Link href={`/categories/${category}`} key={category}>{category.replaceAll("-", " ")}</Link>)}
           </div>
+          <dl className="content-facts" aria-label="Published record details">
+            <div><dt>Content type</dt><dd>{entity.type}</dd></div>
+            <div><dt>Category</dt><dd>{entity.categorySlugs.map((category) => category.replaceAll("-", " ")).join(", ")}</dd></div>
+            {entity.cityId ? <div><dt>City</dt><dd>{entity.cityId.replaceAll("-", " ")}</dd></div> : null}
+            {entity.provinceId ? <div><dt>Province</dt><dd>{entity.provinceId.replaceAll("-", " ")}</dd></div> : null}
+            <div><dt>Available photos</dt><dd>{entity.images.length}</dd></div>
+            <div><dt>Dataset release</dt><dd>{entity.releaseId}</dd></div>
+          </dl>
+          {galleryImages.length > 0 ? (
+            <section className="entity-media-section" aria-labelledby="entity-media-title">
+              <h2 id="entity-media-title">Photos from the app dataset</h2>
+              <div className="entity-media-gallery">{galleryImages.map((image) => <ContentMedia asset={image} variant="gallery" key={image.id} />)}</div>
+            </section>
+          ) : null}
           <h2>What to do next</h2>
           <ol className="next-steps">
             <li><span>1</span><div><strong>Read the source context</strong><p>Confirm that this information matches your city and situation.</p></div></li>

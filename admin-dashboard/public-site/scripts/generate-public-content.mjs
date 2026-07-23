@@ -172,8 +172,8 @@ const categorySearchMetadata = Object.freeze({
     terminology: ["housing", "rent", "huurwoning", "tenant"]
   },
   healthcare: {
-    synonyms: ["need a doctor", "find healthcare", "health insurance"],
-    terminology: ["doctor", "huisarts", "zorg", "zorgverzekering"]
+    synonyms: ["find healthcare", "healthcare organizations"],
+    terminology: ["healthcare", "zorg", "medical services", "public health"]
   },
   transport: {
     synonyms: ["public transport", "travel by train", "OV card"],

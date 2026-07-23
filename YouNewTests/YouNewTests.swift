@@ -1,9 +1,34 @@
 import Testing
 import Foundation
+import Combine
 @testable import YouNew
 
 @MainActor
 struct YouNewTests {
+    @Test func appStatePublishesOnlyCanonicalDashboardCities() {
+        let suiteName = "younew.tests.selected-city.\(UUID().uuidString)"
+        guard let defaults = UserDefaults(suiteName: suiteName) else {
+            Issue.record("Could not create test defaults")
+            return
+        }
+        defer { defaults.removePersistentDomain(forName: suiteName) }
+
+        let state = AppStateViewModel(defaults: defaults)
+        var publishedSnapshots: [String] = []
+        let observation = state.objectWillChange.sink {
+            publishedSnapshots.append(state.selectedCity)
+        }
+
+        state.selectedCity = "Middelburg"
+        #expect(state.selectedCity == CityId.leiden.displayName)
+        #expect(!publishedSnapshots.contains("Middelburg"))
+
+        state.selectedCity = "rotterdam"
+        #expect(state.selectedCity == CityId.rotterdam.displayName)
+        #expect(!publishedSnapshots.contains("rotterdam"))
+        withExtendedLifetime(observation) {}
+    }
+
     @Test func assistantKeyboardComposerAvoidsInvalidAccessoryLayout() throws {
         let sourceURL = URL(fileURLWithPath: #filePath)
             .deletingLastPathComponent()

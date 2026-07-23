@@ -1,0 +1,2765 @@
+{
+  "schema_version": 1,
+  "generated_at": "2026-07-22T23:29:36+00:00",
+  "scope": "DATA PROJECT governed records only; legacy runtime data is excluded until audited and migrated.",
+  "runtime_release": {
+    "release_id": "legacy-runtime-unversioned",
+    "version": "unversioned",
+    "status": "published",
+    "published_at": null,
+    "record_count": null,
+    "note": "Existing Swift runtime data predates DATA PROJECT release governance. Its audited baseline must be captured before assigning v1.0.0."
+  },
+  "next_release": {
+    "id": "education-v1.0.0",
+    "work_package": "WP-05",
+    "dataset": "Education Database",
+    "version": "1.0.0",
+    "status": "qa",
+    "milestone": "WP-05-M1",
+    "target_records": 40,
+    "published_records": 0,
+    "published_at": null,
+    "qa": {
+      "build": "passed",
+      "static": "passed",
+      "duplicate": "passed",
+      "source": "passed",
+      "media": "passed",
+      "search": "passed",
+      "ai": "passed"
+    }
+  },
+  "summary": {
+    "batches": 27,
+    "records": 450,
+    "published": 188,
+    "verified": 450,
+    "needs_review": 0,
+    "outdated": 0,
+    "blocked": 0,
+    "media_assets": 587,
+    "quality_score": 100.0
+  },
+  "coverage": [
+    {
+      "key": "cities",
+      "label": "Cities",
+      "work_package": "WP-06",
+      "current": 5,
+      "target": 50,
+      "coverage_percent": 10.0
+    },
+    {
+      "key": "museums",
+      "label": "Museums",
+      "work_package": "WP-07",
+      "current": 0,
+      "target": 500,
+      "coverage_percent": 0.0
+    },
+    {
+      "key": "restaurants",
+      "label": "Restaurants",
+      "work_package": "WP-08",
+      "current": 0,
+      "target": 1000,
+      "coverage_percent": 0.0
+    },
+    {
+      "key": "cafes",
+      "label": "Cafés",
+      "work_package": "WP-09",
+      "current": 0,
+      "target": 500,
+      "coverage_percent": 0.0
+    },
+    {
+      "key": "hotels",
+      "label": "Hotels",
+      "work_package": "WP-10",
+      "current": 0,
+      "target": 300,
+      "coverage_percent": 0.0
+    },
+    {
+      "key": "nature",
+      "label": "Nature and parks",
+      "work_package": "WP-12",
+      "current": 0,
+      "target": 300,
+      "coverage_percent": 0.0
+    },
+    {
+      "key": "government",
+      "label": "Government topics",
+      "work_package": "WP-01",
+      "current": 102,
+      "target": 1000,
+      "coverage_percent": 10.2
+    },
+    {
+      "key": "housing",
+      "label": "Housing topics",
+      "work_package": "WP-02",
+      "current": 40,
+      "target": 500,
+      "coverage_percent": 8.0
+    },
+    {
+      "key": "healthcare",
+      "label": "Healthcare topics",
+      "work_package": "WP-03",
+      "current": 40,
+      "target": 500,
+      "coverage_percent": 8.0
+    },
+    {
+      "key": "transport",
+      "label": "Transport topics",
+      "work_package": "WP-04",
+      "current": 40,
+      "target": 500,
+      "coverage_percent": 8.0
+    },
+    {
+      "key": "education",
+      "label": "Education topics",
+      "work_package": "WP-05",
+      "current": 40,
+      "target": 500,
+      "coverage_percent": 8.0
+    },
+    {
+      "key": "partners",
+      "label": "Local partners",
+      "work_package": "WP-13",
+      "current": 0,
+      "target": 1000,
+      "coverage_percent": 0.0
+    },
+    {
+      "key": "events",
+      "label": "Active events",
+      "work_package": "WP-11",
+      "current": 0,
+      "target": 1000,
+      "coverage_percent": 0.0
+    },
+    {
+      "key": "images",
+      "label": "Verified media assets",
+      "work_package": "WP-14",
+      "current": 587,
+      "target": 10000,
+      "coverage_percent": 5.9
+    }
+  ],
+  "breadth_coverage": [
+    {
+      "key": "education-topic-families",
+      "label": "Education topic families",
+      "target_key": "education",
+      "dataset": "Education topics",
+      "work_package": "WP-05",
+      "field": "category",
+      "covered": 4,
+      "target": 4,
+      "coverage_percent": 100.0,
+      "minimum_records_per_value": 10,
+      "depth_covered": 40,
+      "depth_target": 40,
+      "depth_coverage_percent": 100.0,
+      "value_counts": [
+        {
+          "key": "schools",
+          "label": "Schools and compulsory education",
+          "count": 10
+        },
+        {
+          "key": "higher-education",
+          "label": "Universities and higher education",
+          "count": 10
+        },
+        {
+          "key": "duo",
+          "label": "DUO and student administration",
+          "count": 10
+        },
+        {
+          "key": "civic-integration",
+          "label": "Civic integration",
+          "count": 10
+        }
+      ],
+      "covered_values": [
+        {
+          "key": "schools",
+          "label": "Schools and compulsory education",
+          "count": 10
+        },
+        {
+          "key": "higher-education",
+          "label": "Universities and higher education",
+          "count": 10
+        },
+        {
+          "key": "duo",
+          "label": "DUO and student administration",
+          "count": 10
+        },
+        {
+          "key": "civic-integration",
+          "label": "Civic integration",
+          "count": 10
+        }
+      ],
+      "missing_values": [],
+      "underfilled_values": []
+    },
+    {
+      "key": "transport-topic-families",
+      "label": "Transport topic families",
+      "target_key": "transport",
+      "dataset": "Transport topics",
+      "work_package": "WP-04",
+      "field": "category",
+      "covered": 4,
+      "target": 4,
+      "coverage_percent": 100.0,
+      "minimum_records_per_value": 10,
+      "depth_covered": 40,
+      "depth_target": 40,
+      "depth_coverage_percent": 100.0,
+      "value_counts": [
+        {
+          "key": "rail-travel",
+          "label": "NS and rail travel",
+          "count": 10
+        },
+        {
+          "key": "public-transport-payment",
+          "label": "OV-chipkaart and OVpay",
+          "count": 10
+        },
+        {
+          "key": "cycling",
+          "label": "Cycling and bicycle services",
+          "count": 10
+        },
+        {
+          "key": "parking",
+          "label": "Car parking",
+          "count": 10
+        }
+      ],
+      "covered_values": [
+        {
+          "key": "rail-travel",
+          "label": "NS and rail travel",
+          "count": 10
+        },
+        {
+          "key": "public-transport-payment",
+          "label": "OV-chipkaart and OVpay",
+          "count": 10
+        },
+        {
+          "key": "cycling",
+          "label": "Cycling and bicycle services",
+          "count": 10
+        },
+        {
+          "key": "parking",
+          "label": "Car parking",
+          "count": 10
+        }
+      ],
+      "missing_values": [],
+      "underfilled_values": []
+    },
+    {
+      "key": "healthcare-topic-families",
+      "label": "Healthcare topic families",
+      "target_key": "healthcare",
+      "dataset": "Healthcare topics",
+      "work_package": "WP-03",
+      "field": "category",
+      "covered": 4,
+      "target": 4,
+      "coverage_percent": 100.0,
+      "minimum_records_per_value": 10,
+      "depth_covered": 40,
+      "depth_target": 40,
+      "depth_coverage_percent": 100.0,
+      "value_counts": [
+        {
+          "key": "primary-care",
+          "label": "GP and primary care",
+          "count": 10
+        },
+        {
+          "key": "health-insurance",
+          "label": "Health insurance",
+          "count": 10
+        },
+        {
+          "key": "hospitals-specialists",
+          "label": "Hospitals and specialist care",
+          "count": 10
+        },
+        {
+          "key": "emergency-care",
+          "label": "Emergency and urgent care",
+          "count": 10
+        }
+      ],
+      "covered_values": [
+        {
+          "key": "primary-care",
+          "label": "GP and primary care",
+          "count": 10
+        },
+        {
+          "key": "health-insurance",
+          "label": "Health insurance",
+          "count": 10
+        },
+        {
+          "key": "hospitals-specialists",
+          "label": "Hospitals and specialist care",
+          "count": 10
+        },
+        {
+          "key": "emergency-care",
+          "label": "Emergency and urgent care",
+          "count": 10
+        }
+      ],
+      "missing_values": [],
+      "underfilled_values": []
+    },
+    {
+      "key": "housing-topic-families",
+      "label": "Housing topic families",
+      "target_key": "housing",
+      "dataset": "Housing topics",
+      "work_package": "WP-02",
+      "field": "category",
+      "covered": 4,
+      "target": 4,
+      "coverage_percent": 100.0,
+      "minimum_records_per_value": 10,
+      "depth_covered": 40,
+      "depth_target": 40,
+      "depth_coverage_percent": 100.0,
+      "value_counts": [
+        {
+          "key": "renting",
+          "label": "Renting a home",
+          "count": 10
+        },
+        {
+          "key": "home-buying",
+          "label": "Buying a home",
+          "count": 10
+        },
+        {
+          "key": "tenant-rights",
+          "label": "Tenant rights",
+          "count": 10
+        },
+        {
+          "key": "utilities",
+          "label": "Utilities",
+          "count": 10
+        }
+      ],
+      "covered_values": [
+        {
+          "key": "renting",
+          "label": "Renting a home",
+          "count": 10
+        },
+        {
+          "key": "home-buying",
+          "label": "Buying a home",
+          "count": 10
+        },
+        {
+          "key": "tenant-rights",
+          "label": "Tenant rights",
+          "count": 10
+        },
+        {
+          "key": "utilities",
+          "label": "Utilities",
+          "count": 10
+        }
+      ],
+      "missing_values": [],
+      "underfilled_values": []
+    },
+    {
+      "key": "government-topic-families",
+      "label": "Government topic families",
+      "target_key": "government",
+      "dataset": "Government topics",
+      "work_package": "WP-01",
+      "field": "category",
+      "covered": 20,
+      "target": 20,
+      "coverage_percent": 100.0,
+      "minimum_records_per_value": 5,
+      "depth_covered": 100,
+      "depth_target": 100,
+      "depth_coverage_percent": 100.0,
+      "value_counts": [
+        {
+          "key": "identity-registration",
+          "label": "Identity and registration",
+          "count": 6
+        },
+        {
+          "key": "digital-government",
+          "label": "Digital government",
+          "count": 5
+        },
+        {
+          "key": "immigration-residency",
+          "label": "Immigration and residency",
+          "count": 5
+        },
+        {
+          "key": "citizenship-integration",
+          "label": "Citizenship and integration",
+          "count": 5
+        },
+        {
+          "key": "taxes",
+          "label": "Taxes",
+          "count": 5
+        },
+        {
+          "key": "benefits-allowances",
+          "label": "Benefits and allowances",
+          "count": 5
+        },
+        {
+          "key": "employment-unemployment",
+          "label": "Employment and unemployment",
+          "count": 5
+        },
+        {
+          "key": "business-entrepreneurship",
+          "label": "Business and entrepreneurship",
+          "count": 5
+        },
+        {
+          "key": "health-insurance",
+          "label": "Health and insurance",
+          "count": 5
+        },
+        {
+          "key": "family-parenthood",
+          "label": "Family and parenthood",
+          "count": 6
+        },
+        {
+          "key": "education-finance",
+          "label": "Education and student finance",
+          "count": 5
+        },
+        {
+          "key": "driving-transport",
+          "label": "Driving and transport documents",
+          "count": 5
+        },
+        {
+          "key": "documents-certificates",
+          "label": "Documents and certificates",
+          "count": 5
+        },
+        {
+          "key": "pensions-social-security",
+          "label": "Pensions and social security",
+          "count": 5
+        },
+        {
+          "key": "housing-local-services",
+          "label": "Housing and local services",
+          "count": 5
+        },
+        {
+          "key": "justice-legal-aid",
+          "label": "Justice and legal aid",
+          "count": 5
+        },
+        {
+          "key": "safety-emergencies",
+          "label": "Safety and emergencies",
+          "count": 5
+        },
+        {
+          "key": "voting-democracy",
+          "label": "Voting and democracy",
+          "count": 5
+        },
+        {
+          "key": "consumer-privacy",
+          "label": "Consumer rights and privacy",
+          "count": 5
+        },
+        {
+          "key": "death-inheritance",
+          "label": "Death and inheritance",
+          "count": 5
+        }
+      ],
+      "covered_values": [
+        {
+          "key": "identity-registration",
+          "label": "Identity and registration",
+          "count": 6
+        },
+        {
+          "key": "digital-government",
+          "label": "Digital government",
+          "count": 5
+        },
+        {
+          "key": "immigration-residency",
+          "label": "Immigration and residency",
+          "count": 5
+        },
+        {
+          "key": "citizenship-integration",
+          "label": "Citizenship and integration",
+          "count": 5
+        },
+        {
+          "key": "taxes",
+          "label": "Taxes",
+          "count": 5
+        },
+        {
+          "key": "benefits-allowances",
+          "label": "Benefits and allowances",
+          "count": 5
+        },
+        {
+          "key": "employment-unemployment",
+          "label": "Employment and unemployment",
+          "count": 5
+        },
+        {
+          "key": "business-entrepreneurship",
+          "label": "Business and entrepreneurship",
+          "count": 5
+        },
+        {
+          "key": "health-insurance",
+          "label": "Health and insurance",
+          "count": 5
+        },
+        {
+          "key": "family-parenthood",
+          "label": "Family and parenthood",
+          "count": 6
+        },
+        {
+          "key": "education-finance",
+          "label": "Education and student finance",
+          "count": 5
+        },
+        {
+          "key": "driving-transport",
+          "label": "Driving and transport documents",
+          "count": 5
+        },
+        {
+          "key": "documents-certificates",
+          "label": "Documents and certificates",
+          "count": 5
+        },
+        {
+          "key": "pensions-social-security",
+          "label": "Pensions and social security",
+          "count": 5
+        },
+        {
+          "key": "housing-local-services",
+          "label": "Housing and local services",
+          "count": 5
+        },
+        {
+          "key": "justice-legal-aid",
+          "label": "Justice and legal aid",
+          "count": 5
+        },
+        {
+          "key": "safety-emergencies",
+          "label": "Safety and emergencies",
+          "count": 5
+        },
+        {
+          "key": "voting-democracy",
+          "label": "Voting and democracy",
+          "count": 5
+        },
+        {
+          "key": "consumer-privacy",
+          "label": "Consumer rights and privacy",
+          "count": 5
+        },
+        {
+          "key": "death-inheritance",
+          "label": "Death and inheritance",
+          "count": 5
+        }
+      ],
+      "missing_values": [],
+      "underfilled_values": []
+    },
+    {
+      "key": "cities-provinces",
+      "label": "Province representation",
+      "target_key": "cities",
+      "dataset": "Cities",
+      "work_package": "WP-06",
+      "field": "province_id",
+      "covered": 4,
+      "target": 12,
+      "coverage_percent": 33.3,
+      "minimum_records_per_value": 1,
+      "depth_covered": 4,
+      "depth_target": 12,
+      "depth_coverage_percent": 33.3,
+      "value_counts": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 1
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 1
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 1
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 2
+        }
+      ],
+      "covered_values": [
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 1
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 1
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 1
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 2
+        }
+      ],
+      "missing_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        }
+      ],
+      "underfilled_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0,
+          "needed": 1
+        }
+      ]
+    },
+    {
+      "key": "museums-provinces",
+      "label": "Province representation",
+      "target_key": "museums",
+      "dataset": "Museums",
+      "work_package": "WP-07",
+      "field": "province_id",
+      "covered": 0,
+      "target": 12,
+      "coverage_percent": 0.0,
+      "minimum_records_per_value": 1,
+      "depth_covered": 0,
+      "depth_target": 12,
+      "depth_coverage_percent": 0.0,
+      "value_counts": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "covered_values": [],
+      "missing_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "underfilled_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0,
+          "needed": 1
+        }
+      ]
+    },
+    {
+      "key": "restaurants-provinces",
+      "label": "Province representation",
+      "target_key": "restaurants",
+      "dataset": "Restaurants",
+      "work_package": "WP-08",
+      "field": "province_id",
+      "covered": 0,
+      "target": 12,
+      "coverage_percent": 0.0,
+      "minimum_records_per_value": 1,
+      "depth_covered": 0,
+      "depth_target": 12,
+      "depth_coverage_percent": 0.0,
+      "value_counts": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "covered_values": [],
+      "missing_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "underfilled_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0,
+          "needed": 1
+        }
+      ]
+    },
+    {
+      "key": "cafes-provinces",
+      "label": "Province representation",
+      "target_key": "cafes",
+      "dataset": "Cafés",
+      "work_package": "WP-09",
+      "field": "province_id",
+      "covered": 0,
+      "target": 12,
+      "coverage_percent": 0.0,
+      "minimum_records_per_value": 1,
+      "depth_covered": 0,
+      "depth_target": 12,
+      "depth_coverage_percent": 0.0,
+      "value_counts": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "covered_values": [],
+      "missing_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "underfilled_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0,
+          "needed": 1
+        }
+      ]
+    },
+    {
+      "key": "hotels-provinces",
+      "label": "Province representation",
+      "target_key": "hotels",
+      "dataset": "Hotels",
+      "work_package": "WP-10",
+      "field": "province_id",
+      "covered": 0,
+      "target": 12,
+      "coverage_percent": 0.0,
+      "minimum_records_per_value": 1,
+      "depth_covered": 0,
+      "depth_target": 12,
+      "depth_coverage_percent": 0.0,
+      "value_counts": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "covered_values": [],
+      "missing_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "underfilled_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0,
+          "needed": 1
+        }
+      ]
+    },
+    {
+      "key": "events-provinces",
+      "label": "Province representation",
+      "target_key": "events",
+      "dataset": "Active events",
+      "work_package": "WP-11",
+      "field": "province_id",
+      "covered": 0,
+      "target": 12,
+      "coverage_percent": 0.0,
+      "minimum_records_per_value": 1,
+      "depth_covered": 0,
+      "depth_target": 12,
+      "depth_coverage_percent": 0.0,
+      "value_counts": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "covered_values": [],
+      "missing_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "underfilled_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0,
+          "needed": 1
+        }
+      ]
+    },
+    {
+      "key": "nature-provinces",
+      "label": "Province representation",
+      "target_key": "nature",
+      "dataset": "Nature and parks",
+      "work_package": "WP-12",
+      "field": "province_id",
+      "covered": 0,
+      "target": 12,
+      "coverage_percent": 0.0,
+      "minimum_records_per_value": 1,
+      "depth_covered": 0,
+      "depth_target": 12,
+      "depth_coverage_percent": 0.0,
+      "value_counts": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "covered_values": [],
+      "missing_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "underfilled_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0,
+          "needed": 1
+        }
+      ]
+    },
+    {
+      "key": "partners-provinces",
+      "label": "Province representation",
+      "target_key": "partners",
+      "dataset": "Local partners",
+      "work_package": "WP-13",
+      "field": "province_id",
+      "covered": 0,
+      "target": 12,
+      "coverage_percent": 0.0,
+      "minimum_records_per_value": 1,
+      "depth_covered": 0,
+      "depth_target": 12,
+      "depth_coverage_percent": 0.0,
+      "value_counts": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "covered_values": [],
+      "missing_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0
+        }
+      ],
+      "underfilled_values": [
+        {
+          "key": "drenthe",
+          "label": "Drenthe",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "flevoland",
+          "label": "Flevoland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "friesland",
+          "label": "Friesland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "gelderland",
+          "label": "Gelderland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "groningen",
+          "label": "Groningen",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "limburg",
+          "label": "Limburg",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-brabant",
+          "label": "Noord-Brabant",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "noord-holland",
+          "label": "Noord-Holland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "overijssel",
+          "label": "Overijssel",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "utrecht",
+          "label": "Utrecht",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zeeland",
+          "label": "Zeeland",
+          "count": 0,
+          "needed": 1
+        },
+        {
+          "key": "zuid-holland",
+          "label": "Zuid-Holland",
+          "count": 0,
+          "needed": 1
+        }
+      ]
+    }
+  ],
+  "work_packages": [
+    {
+      "id": "WP-01",
+      "name": "Government",
+      "status": "active",
+      "records": 102,
+      "published": 0,
+      "verified": 102,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 100.0,
+      "coverage_dimensions": {
+        "verification": 100.0,
+        "official_source": 100.0,
+        "freshness": 100.0,
+        "relationships": 100.0,
+        "geography": null,
+        "media": null,
+        "search": 100.0,
+        "ai": 100.0,
+        "publication": 0.0
+      },
+      "current_release": null,
+      "next_release": "1.0.0"
+    },
+    {
+      "id": "WP-02",
+      "name": "Housing",
+      "status": "active",
+      "records": 40,
+      "published": 0,
+      "verified": 40,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 100.0,
+      "coverage_dimensions": {
+        "verification": 100.0,
+        "official_source": 100.0,
+        "freshness": 100.0,
+        "relationships": 100.0,
+        "geography": null,
+        "media": null,
+        "search": 100.0,
+        "ai": 100.0,
+        "publication": 0.0
+      },
+      "current_release": null,
+      "next_release": "1.0.0"
+    },
+    {
+      "id": "WP-03",
+      "name": "Healthcare",
+      "status": "active",
+      "records": 40,
+      "published": 0,
+      "verified": 40,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 100.0,
+      "coverage_dimensions": {
+        "verification": 100.0,
+        "official_source": 100.0,
+        "freshness": 100.0,
+        "relationships": 100.0,
+        "geography": null,
+        "media": null,
+        "search": 100.0,
+        "ai": 100.0,
+        "publication": 0.0
+      },
+      "current_release": null,
+      "next_release": "1.0.0"
+    },
+    {
+      "id": "WP-04",
+      "name": "Transport",
+      "status": "active",
+      "records": 40,
+      "published": 0,
+      "verified": 40,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 100.0,
+      "coverage_dimensions": {
+        "verification": 100.0,
+        "official_source": 100.0,
+        "freshness": 100.0,
+        "relationships": 100.0,
+        "geography": null,
+        "media": null,
+        "search": 100.0,
+        "ai": 100.0,
+        "publication": 0.0
+      },
+      "current_release": null,
+      "next_release": "1.0.0"
+    },
+    {
+      "id": "WP-05",
+      "name": "Education",
+      "status": "active",
+      "records": 40,
+      "published": 0,
+      "verified": 40,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 100.0,
+      "coverage_dimensions": {
+        "verification": 100.0,
+        "official_source": 100.0,
+        "freshness": 100.0,
+        "relationships": 100.0,
+        "geography": null,
+        "media": null,
+        "search": 100.0,
+        "ai": 100.0,
+        "publication": 0.0
+      },
+      "current_release": null,
+      "next_release": "1.0.0"
+    },
+    {
+      "id": "WP-06",
+      "name": "Cities",
+      "status": "active",
+      "records": 188,
+      "published": 188,
+      "verified": 188,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 100.0,
+      "coverage_dimensions": {
+        "verification": 100.0,
+        "official_source": 100.0,
+        "freshness": 100.0,
+        "relationships": 100.0,
+        "geography": 100.0,
+        "media": 100.0,
+        "search": 100.0,
+        "ai": 100.0,
+        "publication": 100.0
+      },
+      "current_release": "0.1.1",
+      "next_release": null
+    },
+    {
+      "id": "WP-07",
+      "name": "Museums",
+      "status": "planned",
+      "records": 0,
+      "published": 0,
+      "verified": 0,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 0.0,
+      "coverage_dimensions": {
+        "verification": null,
+        "official_source": null,
+        "freshness": null,
+        "relationships": null,
+        "geography": null,
+        "media": null,
+        "search": null,
+        "ai": null,
+        "publication": null
+      },
+      "current_release": null,
+      "next_release": null
+    },
+    {
+      "id": "WP-08",
+      "name": "Restaurants",
+      "status": "planned",
+      "records": 0,
+      "published": 0,
+      "verified": 0,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 0.0,
+      "coverage_dimensions": {
+        "verification": null,
+        "official_source": null,
+        "freshness": null,
+        "relationships": null,
+        "geography": null,
+        "media": null,
+        "search": null,
+        "ai": null,
+        "publication": null
+      },
+      "current_release": null,
+      "next_release": null
+    },
+    {
+      "id": "WP-09",
+      "name": "Cafes",
+      "status": "planned",
+      "records": 0,
+      "published": 0,
+      "verified": 0,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 0.0,
+      "coverage_dimensions": {
+        "verification": null,
+        "official_source": null,
+        "freshness": null,
+        "relationships": null,
+        "geography": null,
+        "media": null,
+        "search": null,
+        "ai": null,
+        "publication": null
+      },
+      "current_release": null,
+      "next_release": null
+    },
+    {
+      "id": "WP-10",
+      "name": "Hotels",
+      "status": "planned",
+      "records": 0,
+      "published": 0,
+      "verified": 0,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 0.0,
+      "coverage_dimensions": {
+        "verification": null,
+        "official_source": null,
+        "freshness": null,
+        "relationships": null,
+        "geography": null,
+        "media": null,
+        "search": null,
+        "ai": null,
+        "publication": null
+      },
+      "current_release": null,
+      "next_release": null
+    },
+    {
+      "id": "WP-11",
+      "name": "Events",
+      "status": "planned",
+      "records": 0,
+      "published": 0,
+      "verified": 0,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 0.0,
+      "coverage_dimensions": {
+        "verification": null,
+        "official_source": null,
+        "freshness": null,
+        "relationships": null,
+        "geography": null,
+        "media": null,
+        "search": null,
+        "ai": null,
+        "publication": null
+      },
+      "current_release": null,
+      "next_release": null
+    },
+    {
+      "id": "WP-12",
+      "name": "Nature",
+      "status": "planned",
+      "records": 0,
+      "published": 0,
+      "verified": 0,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 0.0,
+      "coverage_dimensions": {
+        "verification": null,
+        "official_source": null,
+        "freshness": null,
+        "relationships": null,
+        "geography": null,
+        "media": null,
+        "search": null,
+        "ai": null,
+        "publication": null
+      },
+      "current_release": null,
+      "next_release": null
+    },
+    {
+      "id": "WP-13",
+      "name": "Partners",
+      "status": "planned",
+      "records": 0,
+      "published": 0,
+      "verified": 0,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 0.0,
+      "coverage_dimensions": {
+        "verification": null,
+        "official_source": null,
+        "freshness": null,
+        "relationships": null,
+        "geography": null,
+        "media": null,
+        "search": null,
+        "ai": null,
+        "publication": null
+      },
+      "current_release": null,
+      "next_release": null
+    },
+    {
+      "id": "WP-14",
+      "name": "Media",
+      "status": "active",
+      "records": 0,
+      "published": 0,
+      "verified": 0,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 0.0,
+      "coverage_dimensions": {
+        "verification": null,
+        "official_source": null,
+        "freshness": null,
+        "relationships": null,
+        "geography": null,
+        "media": null,
+        "search": null,
+        "ai": null,
+        "publication": null
+      },
+      "current_release": null,
+      "next_release": null
+    },
+    {
+      "id": "WP-15",
+      "name": "Knowledge Graph",
+      "status": "active",
+      "records": 0,
+      "published": 0,
+      "verified": 0,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 0.0,
+      "coverage_dimensions": {
+        "verification": null,
+        "official_source": null,
+        "freshness": null,
+        "relationships": null,
+        "geography": null,
+        "media": null,
+        "search": null,
+        "ai": null,
+        "publication": null
+      },
+      "current_release": null,
+      "next_release": null
+    },
+    {
+      "id": "WP-16",
+      "name": "Data Observability & Release Layer",
+      "status": "active",
+      "records": 0,
+      "published": 0,
+      "verified": 0,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 0.0,
+      "coverage_dimensions": {
+        "verification": null,
+        "official_source": null,
+        "freshness": null,
+        "relationships": null,
+        "geography": null,
+        "media": null,
+        "search": null,
+        "ai": null,
+        "publication": null
+      },
+      "current_release": null,
+      "next_release": null
+    },
+    {
+      "id": "WP-17",
+      "name": "Data Operations",
+      "status": "active",
+      "records": 0,
+      "published": 0,
+      "verified": 0,
+      "needs_review": 0,
+      "outdated": 0,
+      "blocked": 0,
+      "quality_score": 0.0,
+      "coverage_dimensions": {
+        "verification": null,
+        "official_source": null,
+        "freshness": null,
+        "relationships": null,
+        "geography": null,
+        "media": null,
+        "search": null,
+        "ai": null,
+        "publication": null
+      },
+      "current_release": null,
+      "next_release": null
+    }
+  ],
+  "data_health": {
+    "status": "healthy",
+    "issues_total": 0,
+    "issues": {
+      "governed_broken_links": 0,
+      "legacy_runtime_broken_links": 0,
+      "expired_events": 0,
+      "missing_media": 0,
+      "duplicates": 0,
+      "unverified_sources": 0,
+      "missing_last_checked": 0,
+      "missing_coordinates": 0,
+      "missing_ai_summary": 0,
+      "outdated_records": 0
+    },
+    "link_check": {
+      "checked_at": "2026-07-22T08:24:03.047474+00:00",
+      "total": 2560,
+      "reachable": 1935,
+      "confirmed_broken": 0,
+      "access_restricted": 596,
+      "transient_failures": 29
+    }
+  }
+}

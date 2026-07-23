@@ -17,7 +17,7 @@ Conversation history is stored locally so the assistant can preserve continuity.
 The pre-remediation audit found that raw text could be persisted before all safety
 checks. The current implementation evaluates the safety/privacy decision before
 appending a user message and persists only a standalone warning when input is
-blocked. That behavior is covered by the passing 460/460 clean-clone Xcode unit aggregate and
+blocked. That behavior is covered by the passing 461/461 Xcode unit aggregate and
 the explicit no-backend fallback UI test. The overall UI gate remains red for
 multiple independent UI diagnostics; privacy-focused unit/fallback evidence is not
 being claimed as a complete release privacy certification. Clearing the visible
@@ -53,6 +53,15 @@ as weather, places, or event data. Those services have their own privacy practic
 and network metadata. The user should see the destination before leaving the app.
 No claim is made here that every external service has completed a legal or privacy
 review.
+
+## Published App Store disclosure mismatch
+
+The public App Store listing observed on 22 July 2026 declares broad data
+categories as not linked to the user and used for third-party advertising or
+developer marketing. The local candidate manifest instead declares linked Device
+ID and Other Diagnostic Data for app functionality with tracking disabled. The
+shipping binary's actual collection behavior and the correct App Store declaration
+remain **NOT VERIFIED**. This mismatch must be resolved before a 1.1 submission.
 
 ## User control
 

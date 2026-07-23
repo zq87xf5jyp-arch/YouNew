@@ -158,8 +158,6 @@ test("requested quality queries find an honest released destination or a documen
   const expected = new Map<string, string>([
     ["How do I get a BSN?", "government_service.first-registration-in-amsterdam"],
     ["Register gemeente", "government_service.first-registration-in-amsterdam"],
-    ["Need a doctor", "category.healthcare"],
-    ["Health insurance", "category.healthcare"],
     ["Landlord does not repair", "housing.woon"],
     ["Student housing", "category.housing"],
     ["Emergency", "page.emergency"]
@@ -169,11 +167,17 @@ test("requested quality queries find an honest released destination or a documen
     assert.equal(results[0]?.document.id, expectedId, `${query}: ${results.map(({ document }) => document.id).join(", ")}`);
   }
 
-  for (const query of ["Lost residence card", "DigiD", "Work contract"]) {
+  for (const query of ["Lost residence card", "DigiD", "Work contract", "Need a doctor", "Health insurance"]) {
     assert.deepEqual(
       rankModule.rankSearchDocuments(index.documents, query, { limit: 5 }),
       [],
       `${query} must not be redirected to unrelated released content while its practical guide remains draft`
     );
   }
+});
+
+test("search UI suggests only queries with a released destination", async () => {
+  const source = await readFile(new URL("../src/components/search-experience.tsx", import.meta.url), "utf8");
+  assert.match(source, /placeholder="[^"]*Register gemeente[^"]*Housing defects[^"]*"/);
+  assert.doesNotMatch(source, /placeholder="[^"]*Need a doctor[^"]*"/);
 });

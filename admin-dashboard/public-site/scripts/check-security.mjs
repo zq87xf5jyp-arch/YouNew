@@ -13,6 +13,20 @@ const secretPatterns = [
   /\bsk-[A-Za-z0-9_-]{20,}\b/,
   /demo@younew\.nl/
 ];
+const allowedExternalImageOrigins = new Set([
+  "https://commons.wikimedia.org",
+  "https://live.staticflickr.com"
+]);
+
+function assertSafeImageUrl(value, file) {
+  if (!/^(?:https?:)?\/\//i.test(value)) return;
+  const parsed = new URL(value, "https://younew.nl");
+  assert.equal(parsed.protocol, "https:", `Non-HTTPS image ${value} in ${file}`);
+  assert.ok(
+    allowedExternalImageOrigins.has(parsed.origin),
+    `External image origin ${parsed.origin} in ${file} is not in the production CSP allowlist`
+  );
+}
 
 for (const file of await files(root)) {
   if (!textExtensions.has(extname(file)) && !file.endsWith(".htaccess")) continue;
@@ -20,11 +34,19 @@ for (const file of await files(root)) {
   for (const pattern of secretPatterns) assert.doesNotMatch(content, pattern, `Potential secret or demo identity in ${file}`);
   if (extname(file) === ".html") {
     for (const match of content.matchAll(/<img\b[^>]*\bsrc=["']([^"']+)["']/gi)) {
-      assert.doesNotMatch(match[1], /^(?:https?:)?\/\//i, `External image ${match[1]} in ${file} is incompatible with the self-only image CSP`);
+      assertSafeImageUrl(match[1], file);
+    }
+    for (const match of content.matchAll(/<img\b[^>]*\bsrcset=["']([^"']+)["']/gi)) {
+      for (const candidate of match[1].split(",")) {
+        const value = candidate.trim().split(/\s+/, 1)[0];
+        if (value) assertSafeImageUrl(value, file);
+      }
     }
   }
 }
 
 const headers = await readFile(join(root, ".htaccess"), "utf8");
 for (const required of ["Content-Security-Policy", "X-Content-Type-Options", "Referrer-Policy", "X-Frame-Options", "Permissions-Policy", "ErrorDocument 404"]) assert.match(headers, new RegExp(required));
-console.log("Security package check passed: no known secret patterns and required Hostinger headers are present.");
+const csp = headers.match(/Content-Security-Policy "([^"]+)"/)?.[1] ?? "";
+for (const origin of allowedExternalImageOrigins) assert.match(csp, new RegExp(origin.replaceAll(".", "\\.")));
+console.log("Security package check passed: no known secret patterns, remote images match the HTTPS CSP allowlist, and required Hostinger headers are present.");
