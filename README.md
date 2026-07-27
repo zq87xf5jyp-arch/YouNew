@@ -154,6 +154,7 @@ persistence. See
 | `YouNewTests/` | unit and local integration coverage |
 | `YouNewUITests/` | runtime navigation and demo contracts |
 | `DataProject/` | governed content source, schema, releases, and import model |
+| `admin-dashboard/supabase/` | canonical production migrations and post-migration verification |
 | `scripts/` | static, data, media, and release checks |
 | `BackendExamples/` | optional backend reference outside the demo claim |
 | `BuildWeek/` | final Build Week narrative, demo, and submission package |
@@ -186,6 +187,13 @@ xcodebuild \
 The documented local assistant path requires no environment variable. Never add
 an OpenAI key to Swift source, the application bundle, Xcode settings, fixtures,
 or screenshots.
+
+## Supabase production
+
+The exact two migrations recorded by production are versioned under
+`admin-dashboard/supabase/migrations/`. Their SQL hashes, the managed-history
+boundary, current advisor evidence, and the rollout procedure are documented in
+[Supabase production migrations](docs/SUPABASE_PRODUCTION.md).
 
 ## Preserved readiness evidence
 
