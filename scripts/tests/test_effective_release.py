@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 
+import contextlib
 import importlib.util
+import io
 import json
 import sys
 import tempfile
@@ -238,6 +240,35 @@ class AmsterdamCandidateIntegrationTests(unittest.TestCase):
         ))
         self.assertEqual(file_sha256(base_path), accepted_hash)
 
+    def test_current_patch_release_retires_completed_events_and_replaces_sources(self):
+        repository = SCRIPTS.parent
+        project = repository / "DataProject"
+        current = resolve_release(project, "amsterdam-v0.1.2")
+        records = {record["id"]: record for record in current.records}
+
+        self.assertEqual(current.replacement_count, 4)
+        self.assertEqual(
+            sum(record["lifecycle_status"] == "published" for record in current.records),
+            181,
+        )
+        self.assertEqual(
+            records["event.worldpride-amsterdam-2026-pride-walk"]["lifecycle_status"],
+            "retired",
+        )
+        self.assertEqual(
+            records["event.worldpride-amsterdam-2026-pride-park"]["lifecycle_status"],
+            "retired",
+        )
+        self.assertEqual(
+            records["place.begijnhof-amsterdam"]["official_source"]["url"],
+            "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
+        )
+        self.assertEqual(
+            records["restaurant.breda"]["official_source"]["url"],
+            "https://bredagroup-amsterdam.com/about/?lang=en",
+        )
+        self.assertIn("amsterdam-v0.1.2", effective_release_heads(project, {"published"}))
+
     def test_link_checker_never_allowlists_client_errors(self):
         checker_path = SCRIPTS / "check-external-links.py"
         spec = importlib.util.spec_from_file_location("external_link_checker", checker_path)
@@ -260,6 +291,37 @@ class AmsterdamCandidateIntegrationTests(unittest.TestCase):
             result = checker.check((url, "fixture:1"), None)
         self.assertEqual(result[2], "")
         self.assertEqual(result[4], "URLError")
+
+    def test_historical_release_skips_time_dependent_expiry_gate(self):
+        qa_path = SCRIPTS / "data-project-qa.py"
+        spec = importlib.util.spec_from_file_location("data_project_qa", qa_path)
+        qa = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(qa)
+        record = entity()
+        record.update({
+            "id": "event.amsterdam-expired-fixture",
+            "entity_type": "event",
+            "coordinates": None,
+            "attributes": {
+                "start_date": "2026-07-25",
+                "end_date": "2026-07-25",
+            },
+        })
+
+        qa.validate_record(
+            record,
+            "historical fixture",
+            {},
+            enforce_temporal_freshness=False,
+        )
+        with contextlib.redirect_stdout(io.StringIO()):
+            with self.assertRaises(SystemExit):
+                qa.validate_record(
+                    record,
+                    "active fixture",
+                    {},
+                    enforce_temporal_freshness=True,
+                )
 
 
 if __name__ == "__main__":

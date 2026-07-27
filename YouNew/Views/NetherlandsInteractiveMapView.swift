@@ -1658,7 +1658,7 @@ private struct MapOverseasTerritoriesCarousel: View {
     private func territoryPhotoURL(_ territory: OverseasTerritory) -> String? {
         switch territory.name {
         case "Aruba":
-            return "https://commons.wikimedia.org/wiki/Special:FilePath/Eagle%20Beach%2C%20Aruba.jpg?width=800"
+            return "https://commons.wikimedia.org/wiki/Special:FilePath/Eagle%20Beach%2C%20Oranjestad%20Aruba%2003.jpg?width=800"
         case "Curaçao":
             return "https://commons.wikimedia.org/wiki/Special:FilePath/Willemstad%20-%20Curacao.jpg?width=800"
         case "Sint Maarten":
