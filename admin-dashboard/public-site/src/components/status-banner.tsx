@@ -2,25 +2,7 @@
 
 import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
-import defaultSiteConfig from "@/config/site-config.json";
-
-type StatusBannerConfig = {
-  enabled: boolean;
-  id: string;
-  tone: "information" | "warning";
-  message: string;
-  action?: {
-    label: string;
-    href: string;
-  };
-};
-
-type SiteConfig = {
-  schemaVersion: number;
-  statusBanner: StatusBannerConfig;
-};
-
-const fallbackConfig = defaultSiteConfig as SiteConfig;
+import { siteConfig as fallbackConfig, type SiteConfig } from "@/lib/site-config";
 const visuallyHidden: CSSProperties = {
   position: "absolute",
   width: 1,

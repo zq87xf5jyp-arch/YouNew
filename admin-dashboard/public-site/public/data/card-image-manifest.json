@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-27T15:01:03.810Z",
-  "datasetFingerprint": "15154a987cb41b4677a37543adbecc11ea2bf491c27fceb75fc06ba058973853",
+  "generatedAt": "2026-07-27T22:26:40.580Z",
+  "datasetFingerprint": "0997fa89245b53f6d53f59c5f5544a34cd29a8632047bbe25b09a9389c7261cc",
   "imageWidth": 960,
   "imageHeight": 600,
   "imageFormat": "webp",
@@ -629,38 +629,6 @@
       "retrievedAt": "2026-07-18",
       "bytes": 128136,
       "sha256": "cc1f8bf17464e2528d5c2ea41a3c6290837add1000d7b6afd16e366555b5737f"
-    },
-    {
-      "entityId": "event.worldpride-amsterdam-2026-pride-park",
-      "entityType": "place",
-      "route": "/places/worldpride-amsterdam-2026-pride-park",
-      "localPath": "/images/entities/place-worldpride-amsterdam-2026-pride-park.webp",
-      "sourceUrl": "https://upload.wikimedia.org/wikipedia/commons/2/27/Amsterdam_Pride_Canal_Parade_2019_05.jpg",
-      "downloadedFrom": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/27/Amsterdam_Pride_Canal_Parade_2019_05.jpg/1280px-Amsterdam_Pride_Canal_Parade_2019_05.jpg",
-      "sourcePageUrl": "https://commons.wikimedia.org/w/index.php?curid=81514470",
-      "alt": "WorldPride Amsterdam 2026 Pride Park — hero",
-      "attribution": "\"Amsterdam Pride Canal Parade 2019 05\" by Tadeáš Bednarz is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
-      "license": "CC BY-SA 4.0",
-      "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
-      "retrievedAt": "2026-07-18",
-      "bytes": 104370,
-      "sha256": "6737ba25babed8a566d34bb48850f5c0bb4efb52a32ec7301e6d0f79496de2f4"
-    },
-    {
-      "entityId": "event.worldpride-amsterdam-2026-pride-walk",
-      "entityType": "place",
-      "route": "/places/worldpride-amsterdam-2026-pride-walk",
-      "localPath": "/images/entities/place-worldpride-amsterdam-2026-pride-walk.webp",
-      "sourceUrl": "https://live.staticflickr.com/65535/51366899938_6d14e6b963_b.jpg",
-      "downloadedFrom": "https://live.staticflickr.com/65535/51366899938_6d14e6b963_b.jpg",
-      "sourcePageUrl": "https://www.flickr.com/photos/47873224@N06/51366899938",
-      "alt": "WorldPride Amsterdam 2026 Pride Walk — hero",
-      "attribution": "\"CDA Verloop and the U.S. Mission community joins the #EqualRightsCoalition at Amsterdam’s Pride Walk\" by U.S. Embassy The Hague is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
-      "license": "PDM",
-      "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-      "retrievedAt": "2026-07-18",
-      "bytes": 83174,
-      "sha256": "c8fd733008dc05b5793daedf5d6bcbe4ad3216e3f7296ad4400536f8b75e5c82"
     },
     {
       "entityId": "event.worldpride-amsterdam-2026-senior-pride-concert",

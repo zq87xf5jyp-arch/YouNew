@@ -2,16 +2,16 @@
 
 This checklist prepares the static package for Hostinger. It does **not** publish files, change DNS, or modify domain email.
 
-## Latest local evidence — 21 July 2026
+## Latest local evidence — 28 July 2026
 
-- Automated gate: **BLOCKED at step 10/10** — build, TypeScript, ESLint, 45 tests, smoke, 14,953 internal link/asset/fragment checks, security, true HTTP 404, package invariants and upstream guide governance pass; current external source health fails on 18 released-runtime URLs.
-- Package: 232 static-generation entries, 229 HTML files, 224 sitemap URLs; `out/` and `dist/client/` are byte-identical.
-- Browser: guide save reached `/saved/`; journey state persisted and reset atomically; map filter/URL/marker/list stayed synchronized; media-kit labels and application fallback were present; representative console log was empty.
-- Responsive: home, guide summary, journeys, map, media kit and 404 passed at 320×568, 390×844, 430×932, 768×1024, 1280×800 and 1440×900: 36/36 combinations, one H1 and no horizontal overflow.
-- Lighthouse: home mobile 93/100/100/100 and desktop 97/100/100/100; mobile guide, journeys, map and media kit are all 99/100/100/100 for Performance/Accessibility/Best Practices/SEO.
-- Offline guide runtime: **PASS in Chromium for worker `3e435bc55d98`** — after two online openings in a clean profile, the origin server was stopped and `/guides/woon/` rendered from cache; warm/offline screenshots are byte-identical. Manifest/SW/offline-fallback static checks also pass. Real iPhone Safari remains unchecked. Print output: tagged A4 guide 2 pages, media kit 7 pages.
-- Production deployment: **not performed**. Live Hostinger and real iPhone Safari checks remain unchecked below.
-- External source/media health: **BLOCKED** — the fresh 2,494-URL check found 18 confirmed 404 responses in the immutable released runtime after two mutable Transport QA links and one current Swift media URL were fixed. Do not deploy until an approved patch release/verification override clears `python3 scripts/data-health-gate.py --require-network`.
+- Automated gate: **PASS at step 10/10** — build, TypeScript, ESLint, 51 tests, smoke, 16,489 internal link/asset/fragment checks, security, true HTTP 404, package invariants, upstream guide governance and current source health all pass.
+- Package: 230 static-generation entries, 227 HTML files, 222 sitemap URLs; `out/` and `dist/client/` are byte-identical.
+- Browser: the home, App, `!WOON`, Noord-Brabant and Begijnhof pages render; the App CTA opens the official YouNew listing; both retired 25 July WorldPride event routes return the branded 404; the site console is empty.
+- Responsive: the current desktop home and 390×844 App layout were visually inspected in the current worktree. The automated package also enforces one H1, complete assets and no broken generated routes. A full real-device matrix remains a post-deploy check.
+- Lighthouse: the previous 21 July evidence was home mobile 93/100/100/100 and desktop 97/100/100/100; mobile guide, journeys, map and media kit were 99/100/100/100 for Performance/Accessibility/Best Practices/SEO. Lighthouse has not been rerun after this release.
+- Offline guide runtime: the previous worker passed the warm/offline Chromium test. The current worker is `5124794b9e8d`; its manifest, shell resources and offline-fallback contracts pass static QA, but a fresh offline runtime test and real iPhone Safari remain unchecked.
+- Production deployment: **not performed**. Live Hostinger checks remain unchecked below.
+- External source/media health: **PASS** — fresh evidence covers 2,560 governed URLs with 0 confirmed broken responses. Amsterdam patch releases `v0.1.2` and `v0.1.3` repair the governed links and retire the two elapsed 25 July events without mutating immutable base data.
 
 ## 1. Content governance
 
@@ -36,9 +36,7 @@ The command must finish with:
 PRE-DEPLOY PASS — package is locally verified; no public deployment was performed.
 ```
 
-It verifies the production build, TypeScript, ESLint, all tests, HTML smoke flows, links/fragments/assets, security headers, canonical/sitemap parity, PWA files, a real HTTP 404, absence of drafts/secrets/local paths, a byte-identical `out/`/`dist/client/` package, and the currently generated governed/released source-health report. It does not refresh URLs or enforce the 36-hour network-evidence window. Before release, regenerate link evidence and run `python3 scripts/data-health-gate.py --require-network` from the repository root. At present both commands fail closed with `governed_broken_links=18`.
-
-The repository-wide `scripts/run-static-qa.sh` also fails at the same Data Health gate after its preceding checks pass; because the script uses `set -e`, checks after that gate are not represented as executed in the latest aggregate run.
+It verifies the production build, TypeScript, ESLint, all tests, HTML smoke flows, links/fragments/assets, security headers, canonical/sitemap parity, PWA files, a real HTTP 404, absence of drafts/secrets/local paths, a byte-identical `out/`/`dist/client/` package, and the currently generated governed/released source-health report. It does not refresh URLs or enforce the 36-hour network-evidence window. Before release, regenerate link evidence and run `python3 scripts/data-health-gate.py --require-network` from the repository root. The latest required-network gate passes with `governed_broken_links=0`.
 
 ## 3. Manual browser checks
 
@@ -86,12 +84,12 @@ Required viewports:
 6. Check response headers for CSP, `X-Content-Type-Options`, `Referrer-Policy`, `X-Frame-Options`, and `Permissions-Policy`.
 7. If any critical check fails, restore the dated backup and investigate locally; do not patch production files by hand.
 
-## Current known release blockers
+## Current known limitations
 
 - The first 20 national practical guides are governed draft scaffolds: 0 are approved full guides today.
 - Official research dossiers cover 18/20 first-wave topics; Dutch integration exams and Reporting discrimination still lack a dedicated dossier. Finding work, Opening a Dutch bank account and Student housing still lack a governed canonical procedural source record suitable for publication.
 - `DataProject/operations/reviewer-registry.json` and `guide-evidence-registry.json` are intentionally empty; no full guide can pass publication until a real human reviewer and matching evidence artifact are registered.
-- The current network health gate fails on 18 immutable-runtime URLs (dead media/licence links and the BREDA source). Create a patch release; never edit the published Amsterdam batch in place.
+- Amsterdam patch releases `v0.1.2` and `v0.1.3` resolved the governed broken links and retired elapsed event routes; immutable base batches remain unchanged.
 - The public production content remains concentrated in Amsterdam; the coordinate map must not be described as complete national coverage.
 - Business inquiry delivery is an honest user-controlled email draft, not a backend submission workflow.
 - Partner accounts/dashboard, billing and measured campaign analytics remain feature-flagged or unimplemented pending a secure backend.

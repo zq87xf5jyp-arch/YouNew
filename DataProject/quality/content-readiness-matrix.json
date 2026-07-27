@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-07-21",
+  "as_of": "2026-07-28",
   "scope": {
     "governed_batches": "DataProject/batches",
     "canonical_runtime": "YouNew/Resources/Data/younew-runtime-data.json",
@@ -2714,9 +2714,9 @@
     "note": "Runtime/public mirrors are reconciled below and are not counted as source-of-truth duplicates."
   },
   "runtime_reconciliation": {
-    "effective_published_denominator": 188,
-    "runtime_entity_count": 188,
-    "public_entity_count": 188,
+    "effective_published_denominator": 186,
+    "runtime_entity_count": 186,
+    "public_entity_count": 186,
     "duplicate_runtime_ids": [],
     "duplicate_public_ids": [],
     "effective_missing_from_runtime": [],
@@ -2727,13 +2727,13 @@
     "public_has_practical_guide": 0
   },
   "existing_link_health_evidence": {
-    "generated_at": "2026-07-20T23:36:49+00:00",
-    "checked_at": "2026-07-20T23:29:35.666065+00:00",
-    "total": 2494,
-    "reachable": 1821,
-    "confirmed_broken": 18,
-    "access_restricted": 623,
-    "transient_failures": 32,
+    "generated_at": "2026-07-27T22:30:16+00:00",
+    "checked_at": "2026-07-27T22:14:35.654661+00:00",
+    "total": 2560,
+    "reachable": 1917,
+    "confirmed_broken": 0,
+    "access_restricted": 614,
+    "transient_failures": 29,
     "audit_note": "Imported as historical evidence only; this content-readiness script did not re-open URLs."
   },
   "user_path_coverage": {

@@ -16,13 +16,17 @@ const generator = (await import(new URL("scripts/generate-public-content.mjs", s
 
 test("generated public content comes only from governed production releases", () => {
   assert.equal(provenance.sourceMode, "production");
-  assert.deepEqual(provenance.acceptedReleaseIds, ["amsterdam-v0.1.1", "cities-v0.1.0"]);
+  assert.deepEqual(provenance.acceptedReleaseIds, ["amsterdam-v0.1.3", "cities-v0.1.0"]);
   assert.equal(content.stats.entities, provenance.counts.acceptedRecords);
   assert.equal(content.entities.length, content.stats.entities);
   assert.ok(content.entities.every((entity: { status: string; releaseId: string; trust: { sourceChecked: boolean } }) =>
     entity.status === "published" &&
     provenance.acceptedReleaseIds.includes(entity.releaseId) &&
     entity.trust.sourceChecked === true
+  ));
+  assert.ok(!content.entities.some((entity: { id: string }) =>
+    entity.id === "event.worldpride-amsterdam-2026-pride-walk" ||
+    entity.id === "event.worldpride-amsterdam-2026-pride-park"
   ));
 });
 
@@ -45,6 +49,27 @@ test("derived collections, routes and slugs are internally consistent", () => {
   assert.ok(content.provinces.every((province: { entityCount: number; entityIds: string[] }) =>
     province.entityCount > 0 && province.entityCount === province.entityIds.length
   ));
+});
+
+test("every published detail page has enough verified content to avoid a sparse shell", () => {
+  for (const entity of content.entities) {
+    assert.ok(entity.summary.length >= 80, `${entity.id} has an undersized summary`);
+    assert.ok(entity.images.length > 0, `${entity.id} has no published image`);
+    assert.ok(entity.images[0].alt.length > 0, `${entity.id} has no image description`);
+    assert.ok(entity.categorySlugs.length > 0, `${entity.id} has no category route`);
+    assert.ok(entity.relatedEntityIds.length > 0, `${entity.id} has no related-content route`);
+    assert.match(entity.source.url, /^https:\/\//, `${entity.id} has no HTTPS source`);
+    assert.ok(entity.source.title.length > 0 && entity.source.publisher.length > 0, `${entity.id} has incomplete source attribution`);
+    assert.match(entity.verifiedAt, /^\d{4}-\d{2}-\d{2}$/, `${entity.id} has no verification date`);
+  }
+});
+
+test("province aggregates expose cities, categories and linked records", () => {
+  for (const province of content.provinces) {
+    assert.ok(province.cityIds.length > 0, `${province.id} has no published city`);
+    assert.ok(province.categorySlugs.length > 0, `${province.id} has no available category`);
+    assert.ok(province.entityIds.length > 0, `${province.id} has no linked records`);
+  }
 });
 
 test("local partners are source-checked but never promoted to sponsored or verified organizations", () => {
