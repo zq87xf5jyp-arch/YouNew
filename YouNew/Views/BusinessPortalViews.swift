@@ -176,6 +176,15 @@ struct HomeBusinessEntryCard: View {
                         .background(AppColors.glassSurfaceElevated, in: RoundedRectangle(cornerRadius: 11)).foregroundStyle(AppColors.textPrimary)
                 }
             }
+            Link(destination: AppPublicLinks.business) {
+                Label(
+                    localized("Open the business website", "Open de zakelijke website", "Открыть бизнес-сайт"),
+                    systemImage: "safari"
+                )
+                .font(AppTypography.captionStrong)
+                .frame(maxWidth: .infinity)
+            }
+            .accessibilityIdentifier("home.businessWebsite")
         }
         .padding(16)
         .appGlassCardStyle(padding: 0, cornerRadius: 18, accent: AppColors.cyanGlow)
@@ -203,6 +212,17 @@ struct BusinessPortalLandingView: View {
                     Label(localized("Log in", "Inloggen", "Войти"), systemImage: "person.crop.circle").frame(maxWidth: .infinity).padding(13)
                         .background(AppColors.glassSurfaceElevated, in: RoundedRectangle(cornerRadius: 14)).foregroundStyle(AppColors.textPrimary)
                 }
+                Link(destination: AppPublicLinks.business) {
+                    Label(
+                        localized("Open YouNew Business website", "Open de YouNew Business-website", "Открыть сайт YouNew Business"),
+                        systemImage: "safari"
+                    )
+                    .frame(maxWidth: .infinity)
+                    .padding(13)
+                    .background(AppColors.glassSurfaceElevated, in: RoundedRectangle(cornerRadius: 14))
+                    .foregroundStyle(AppColors.textPrimary)
+                }
+                .accessibilityIdentifier("business.website")
                 Label(localized("Personal profile data is not shared with the business workspace.", "Persoonlijke profielgegevens worden niet gedeeld met de zakelijke omgeving.", "Данные личного профиля не передаются в бизнес-кабинет."), systemImage: "lock.shield.fill")
                     .font(AppTypography.footnote).foregroundStyle(AppColors.textSecondary).padding(14).appGlassCardStyle(padding: 0, cornerRadius: 16, accent: AppColors.success)
             }.padding(18)

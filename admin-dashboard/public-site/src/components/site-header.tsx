@@ -2,6 +2,7 @@ import { Brand } from "@/components/brand";
 import { SiteHeaderEnhancements } from "@/components/site-header-enhancements";
 import Link from "next/link";
 import { Menu, Search, X } from "lucide-react";
+import { appStore } from "@/lib/site-config";
 
 const navigation = [
   ["Discover", "/discover"],
@@ -24,7 +25,7 @@ export function SiteHeader() {
         </nav>
         <div className="header-actions">
           <Link className="header-search" href="/search" aria-label="Search YouNew" data-nav-href><Search aria-hidden /> <span>Search</span></Link>
-          <Link className="header-cta" href="/app" data-nav-href>Get the app</Link>
+          <a className="header-cta" href={appStore.url} rel="noreferrer" target="_blank" aria-label="Download YouNew on the App Store">Get the app</a>
           <details className="mobile-menu" data-mobile-menu>
             <summary aria-label="Navigation menu" aria-controls="mobile-navigation"><Menu className="menu-open" aria-hidden /><X className="menu-close" aria-hidden /></summary>
             <nav id="mobile-navigation" aria-label="Mobile navigation">
@@ -34,7 +35,7 @@ export function SiteHeader() {
               <Link href="/emergency" data-nav-href>Emergency</Link>
               <Link href="/status" data-nav-href>Status</Link>
               <Link href="/support" data-nav-href>Support</Link>
-              <Link className="mobile-app-cta" href="/app" data-nav-href>Get the app</Link>
+              <a className="mobile-app-cta" href={appStore.url} rel="noreferrer" target="_blank" aria-label="Download YouNew on the App Store">Get the app</a>
             </nav>
           </details>
         </div>

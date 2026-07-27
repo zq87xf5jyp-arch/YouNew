@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-22T00:00:00Z",
-  "datasetFingerprint": "15154a987cb41b4677a37543adbecc11ea2bf491c27fceb75fc06ba058973853",
+  "generatedAt": "2026-07-27T00:00:00Z",
+  "datasetFingerprint": "0997fa89245b53f6d53f59c5f5544a34cd29a8632047bbe25b09a9389c7261cc",
   "locale": "en",
   "documents": [
     {
@@ -1756,7 +1756,7 @@
         "food-drink"
       ],
       "narrowCategory": "restaurant",
-      "organization": "I amsterdam",
+      "organization": "The Breda Group",
       "audienceProfiles": [],
       "numberedSteps": [],
       "requiredDocuments": [],
@@ -1767,7 +1767,7 @@
       "tags": [],
       "synonyms": [],
       "officialOrganizationNames": [
-        "I amsterdam"
+        "The Breda Group"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -7098,84 +7098,6 @@
         "culture"
       ],
       "narrowCategory": "film-event",
-      "organization": "Pride Amsterdam",
-      "audienceProfiles": [],
-      "numberedSteps": [],
-      "requiredDocuments": [],
-      "checklist": [],
-      "tips": [],
-      "faqAnswers": [],
-      "whenYouNeedIt": [],
-      "tags": [],
-      "synonyms": [],
-      "officialOrganizationNames": [
-        "Pride Amsterdam"
-      ],
-      "terminology": [],
-      "commonQuestions": []
-    },
-    {
-      "id": "event.worldpride-amsterdam-2026-pride-park",
-      "type": "place",
-      "sourceKind": "event",
-      "slug": "worldpride-amsterdam-2026-pride-park",
-      "route": "/places/worldpride-amsterdam-2026-pride-park",
-      "title": "WorldPride Amsterdam 2026 Pride Park",
-      "summary": "WorldPride Amsterdam 2026 Pride Park is a confirmed Amsterdam current event. The cited source specifically covers the official 25 July 2026 Pride Park programme. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
-      "keywords": [
-        "Noord-Holland",
-        "WorldPride Amsterdam 2026 Pride Park",
-        "WorldPride Amsterdam 2026 Pride Park Amsterdam",
-        "current event Amsterdam",
-        "pride event"
-      ],
-      "city": "Amsterdam",
-      "cityId": "amsterdam",
-      "province": "Noord-Holland",
-      "provinceId": "noord-holland",
-      "categories": [
-        "culture"
-      ],
-      "narrowCategory": "pride-event",
-      "organization": "Pride Amsterdam",
-      "audienceProfiles": [],
-      "numberedSteps": [],
-      "requiredDocuments": [],
-      "checklist": [],
-      "tips": [],
-      "faqAnswers": [],
-      "whenYouNeedIt": [],
-      "tags": [],
-      "synonyms": [],
-      "officialOrganizationNames": [
-        "Pride Amsterdam"
-      ],
-      "terminology": [],
-      "commonQuestions": []
-    },
-    {
-      "id": "event.worldpride-amsterdam-2026-pride-walk",
-      "type": "place",
-      "sourceKind": "event",
-      "slug": "worldpride-amsterdam-2026-pride-walk",
-      "route": "/places/worldpride-amsterdam-2026-pride-walk",
-      "title": "WorldPride Amsterdam 2026 Pride Walk",
-      "summary": "WorldPride Amsterdam 2026 Pride Walk is a confirmed Amsterdam current event. The cited source specifically covers the official 25 July 2026 Pride Walk. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
-      "keywords": [
-        "Noord-Holland",
-        "WorldPride Amsterdam 2026 Pride Walk",
-        "WorldPride Amsterdam 2026 Pride Walk Amsterdam",
-        "current event Amsterdam",
-        "pride event"
-      ],
-      "city": "Amsterdam",
-      "cityId": "amsterdam",
-      "province": "Noord-Holland",
-      "provinceId": "noord-holland",
-      "categories": [
-        "culture"
-      ],
-      "narrowCategory": "pride-event",
       "organization": "Pride Amsterdam",
       "audienceProfiles": [],
       "numberedSteps": [],

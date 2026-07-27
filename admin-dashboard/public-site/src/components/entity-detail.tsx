@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { ExternalLink, Flag, MapPin, ShieldCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -6,15 +7,39 @@ import { RecentViewTracker } from "@/components/recent-view-tracker";
 import { SaveButton } from "@/components/save-button";
 import { ShareButton } from "@/components/share-button";
 import type { ContentEntity } from "@/lib/content";
+import { cardMediaForEntity } from "@/lib/content/card-media";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 const labels = { city: "Cities", guide: "Guides", organization: "Organizations", place: "Places" } as const;
 const roots = { city: "/cities", guide: "/guides", organization: "/organizations", place: "/places" } as const;
+const nextSteps = {
+  city: [
+    ["Explore the published city coverage", "Use the related categories and records below to find places, services and practical information already released for this city."],
+    ["Check the municipality source", "Confirm current local services, contact routes and municipal information on the responsible city website."],
+    ["Continue with the map or search", "Use YouNew’s map and search to narrow the published records to the topic you need."]
+  ],
+  organization: [
+    ["Confirm the service scope", "Read the source page to check whether the organization serves your situation, location or eligibility requirements."],
+    ["Check the current contact route", "Opening hours, appointment rules and contact channels can change, so verify them before visiting or applying."],
+    ["Review related YouNew records", "Use the linked categories and related content to understand the surrounding topic before acting."]
+  ],
+  place: [
+    ["Check current visitor information", "Confirm opening hours, access conditions, reservations and temporary changes on the responsible source page."],
+    ["Plan the location", "Use the published city and province context together with the current route information from the provider."],
+    ["Save useful context", "Keep this page and the related records ready while planning your visit."]
+  ],
+  guide: [
+    ["Check applicability", "Confirm that the information covers your municipality and personal situation."],
+    ["Read the responsible source", "Use the current requirements from the responsible institution before acting."],
+    ["Keep the verified route", "Save or share this record so you can return to the source and related information."]
+  ]
+} as const;
 
 export function EntityDetail({ entity, related }: { entity: ContentEntity; related: readonly ContentEntity[] }) {
   const reportSubject = encodeURIComponent(`Outdated information: ${entity.title} (${entity.id})`);
   const reportBody = encodeURIComponent(`Page: https://younew.nl${entity.route}/\nCanonical ID: ${entity.id}\n\nWhat appears outdated or incorrect?\n\nOfficial source to review (if known):\n`);
   const location = [entity.cityId?.replaceAll("-", " "), entity.provinceId?.replaceAll("-", " ")].filter(Boolean).join(", ");
+  const primaryImage = cardMediaForEntity(entity);
   const sourceLabel = entity.trust.officialSource ? "Official public source" : "First-party or responsible source";
   const disclaimer = entity.categorySlugs.some((category) => category === "healthcare")
     ? "General information only; this page is not medical advice. Use the official source and a qualified professional for decisions."
@@ -48,20 +73,36 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
           <div className="detail-actions"><SaveButton item={{ id: entity.id, route: entity.route, title: entity.title, kind: entity.type }} /><ShareButton title={entity.title} /></div>
         </div>
         {location ? <p className="detail-location"><MapPin aria-hidden /> {location}</p> : null}
+        {primaryImage ? (
+          <figure className="entity-detail-media">
+            <img src={primaryImage.src} alt={primaryImage.alt} loading="eager" decoding="async" />
+            <figcaption><a href={primaryImage.sourceUrl} rel="noreferrer" target="_blank">Photo: {primaryImage.credit}</a><span> · </span><a href={primaryImage.licenseUrl} rel="noreferrer" target="_blank">{primaryImage.license}</a></figcaption>
+          </figure>
+        ) : null}
       </section>
 
       <div className="section-shell entity-detail-layout">
         <article className="entity-main-copy">
-          <h2>What this page covers</h2>
+          <h2>Published overview</h2>
           <p>{entity.summary}</p>
+          <dl className="detail-facts" aria-label={`${entity.title} published facts`}>
+            <div><dt>Record type</dt><dd>{entity.type}</dd></div>
+            <div><dt>Coverage</dt><dd>{location || "Netherlands"}</dd></div>
+            <div><dt>Responsible source</dt><dd>{entity.source.publisher}</dd></div>
+            <div><dt>Last verified</dt><dd><time dateTime={entity.verifiedAt}>{entity.verifiedAt}</time></dd></div>
+            <div><dt>Content status</dt><dd>Published · source checked</dd></div>
+            <div><dt>Related records</dt><dd>{related.length}</dd></div>
+          </dl>
+          <h2>Topics connected to this record</h2>
+          <p>Use these published categories to continue with information that shares the same reviewed topic or location context.</p>
           <div className="topic-links" aria-label="Related categories">
             {entity.categorySlugs.map((category) => <Link href={`/categories/${category}`} key={category}>{category.replaceAll("-", " ")}</Link>)}
           </div>
           <h2>What to do next</h2>
           <ol className="next-steps">
-            <li><span>1</span><div><strong>Read the source context</strong><p>Confirm that this information matches your city and situation.</p></div></li>
-            <li><span>2</span><div><strong>Open the responsible source</strong><p>Check current requirements, access or service details before acting.</p></div></li>
-            <li><span>3</span><div><strong>Save or share the page</strong><p>Keep the canonical YouNew ID available for later app/web synchronization.</p></div></li>
+            {nextSteps[entity.type].map(([title, description], index) => (
+              <li key={title}><span>{index + 1}</span><div><strong>{title}</strong><p>{description}</p></div></li>
+            ))}
           </ol>
           <aside className="safety-note"><strong>Important</strong> {disclaimer}</aside>
         </article>

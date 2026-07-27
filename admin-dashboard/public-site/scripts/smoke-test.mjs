@@ -24,9 +24,10 @@ assert.match(home, /Use YouNew on the web/);
 assert.match(home, /support@younew\.nl/);
 assert.match(home, /rel="canonical" href="https:\/\/younew\.nl\/"/);
 assert.match(home, /application\/ld\+json/);
+assert.match(home, /name="apple-itunes-app" content="app-id=6782617312"/);
+assert.match(home, /href="https:\/\/apps\.apple\.com\/app\/id6782617312"/);
 for (const path of ["/discover/", "/search/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
 assert.doesNotMatch(home, /href=(?:"|')#(?:"|')/);
-assert.doesNotMatch(home, /apps\.apple\.com|testflight\.apple\.com/);
 assert.doesNotMatch(home, /<script[^>]+src="\/_next\/static\/chunks\//, "Static homepage should not hydrate the full Next runtime");
 assert.match(home, /<script src="\/static-shell\.js" defer><\/script>/);
 
@@ -36,16 +37,43 @@ assert.match(search, /name="robots" content="noindex, follow"/);
 assert.match(search, /<script[^>]+src="\/_next\/static\/chunks\//, "Interactive routes must retain client JavaScript");
 
 const guide = await readFile(join(root, "guides/woon/index.html"), "utf8");
-for (const text of ["!WOON", "Last verified", "Open source", "Report outdated information", "What to do next", "Source-backed summary", "Print guide", "Step-by-step guide not yet released"]) assert.match(guide, new RegExp(text));
+for (const text of ["!WOON", "Last verified", "Open source", "Report outdated information", "How to use this verified starting point", "Source-backed summary", "Connected topics", "Print guide", "Full procedure is under editorial review"]) assert.match(guide, new RegExp(text));
 assert.match(guide, /data-guide-depth="summary"/);
+assert.match(guide, /class="guide-hero-media"/);
+
+const appPage = await readFile(join(root, "app/index.html"), "utf8");
+assert.match(appPage, /Download on the App Store/);
+assert.match(appPage, /href="https:\/\/apps\.apple\.com\/app\/id6782617312"/);
+assert.match(appPage, /Version (?:<!-- -->)?1\.1/);
+for (const text of ["One YouNew ecosystem", "Current App Store release", "Saved items on the website currently stay in this browser"]) assert.match(appPage, new RegExp(text));
+assert.doesNotMatch(appPage, /public distribution: not confirmed/i);
+
+const provinces = await readFile(join(root, "provinces/index.html"), "utf8");
+for (const text of ["Choose the most useful route", "Start with a city", "Compare locations", "Search a specific need"]) assert.match(provinces, new RegExp(text));
+
+const province = await readFile(join(root, "provinces/noord-brabant/index.html"), "utf8");
+for (const text of ["Coverage snapshot", "Published cities", "Available categories"]) assert.match(province, new RegExp(text));
+assert.match(province, /Search all[\s\S]*Noord-Brabant[\s\S]*records/);
+
+const place = await readFile(join(root, "places/begijnhof-amsterdam/index.html"), "utf8");
+for (const text of ["Published overview", "Responsible source", "Topics connected to this record", "entity-detail-media"]) assert.match(place, new RegExp(text));
+assert.match(place, /https:\/\/www\.iamsterdam\.com\/en\/see-and-do\/nature-and-active\/old-amsterdam-walking-route/);
+
+const breda = await readFile(join(root, "places/breda/index.html"), "utf8");
+assert.match(breda, /https:\/\/bredagroup-amsterdam\.com\/about\/\?lang=en/);
 
 const journeys = await readFile(join(root, "journeys/index.html"), "utf8");
 for (const text of ["New in the Netherlands", "International student", "Starting work", "Looking for housing", "Healthcare setup", "Refugee essentials", "Tourist essentials", "Starting a business", "stays only in this browser"]) assert.match(journeys, new RegExp(text, "i"));
 assert.doesNotMatch(journeys, /sync(?:ed|ing)? successfully/i);
 
 const map = await readFile(join(root, "map/index.html"), "utf8");
-for (const text of ["Published YouNew coverage", "Released content list", "no location permission", "primary accessible fallback"]) assert.match(map, new RegExp(text, "i"));
+for (const text of ["Published YouNew coverage", "Released content list", "no location permission", "primary accessible fallback", "Represent a local organization or business", "Business options", "Start an inquiry"]) assert.match(map, new RegExp(text, "i"));
+for (const path of ["/business/", "/business/apply/"]) assert.match(map, new RegExp(`href="${path}"`));
 assert.doesNotMatch(map, /navigator\.geolocation|tile\.openstreetmap|mapbox/i);
+
+const business = await readFile(join(root, "business/index.html"), "utf8");
+for (const text of ["Connected YouNew ecosystem", "View published coverage", "Open the iPhone app", "Start an inquiry"]) assert.match(business, new RegExp(text, "i"));
+for (const path of ["/map/", "/business/apply/", "https://apps.apple.com/app/id6782617312"]) assert.match(business, new RegExp(`href="${path}"`));
 
 const businessApply = await readFile(join(root, "business/apply/index.html"), "utf8");
 for (const field of ["companyName", "contactPerson", "organizationType", "kvkNumber", "targetAudience", "requestedPlacements", "consentToPrivacy", "confirmAccuracy", "websiteConfirmation"]) assert.match(businessApply, new RegExp(`name="${field}"`));
@@ -64,7 +92,7 @@ assert.match(notFound, /That page isn’t here/);
 const searchIndex = JSON.parse(await readFile(join(root, "data/search-index.json"), "utf8"));
 assert.equal(searchIndex.schemaVersion, 2);
 const provenance = JSON.parse(await readFile(join(root, "data/content-provenance.json"), "utf8"));
-assert.equal(provenance.counts.acceptedRecords, 188);
+assert.equal(provenance.counts.acceptedRecords, 186);
 assert.ok(searchIndex.documents.length > provenance.counts.acceptedRecords, "Search should include derived category and useful-page destinations");
 assert.ok(searchIndex.documents.every((document) => !/\b(?:draft|archived)\b/i.test(document.id)));
 

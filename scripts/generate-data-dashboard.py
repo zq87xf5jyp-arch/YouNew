@@ -358,7 +358,7 @@ def main():
     health_issues = {
         "governed_broken_links": governed_broken_links,
         "legacy_runtime_broken_links": legacy_broken_links,
-        "expired_events": sum(expired_event(record) for record in records),
+        "expired_events": sum(expired_event(record) for record in published),
         "missing_media": sum(not media_ready(record) for record in records),
         "duplicates": duplicate_count(records),
         "unverified_sources": sum(not source_ready(record) for record in records),

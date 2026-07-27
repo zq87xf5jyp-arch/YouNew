@@ -3,6 +3,7 @@ import { MotionEnhancer } from "@/components/motion-enhancer";
 import { ServiceWorkerRegister } from "@/components/service-worker-register";
 import { StatusBanner } from "@/components/status-banner";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
+import { appStore, appleSmartAppBanner } from "@/lib/site-config";
 import "./globals.css";
 
 const description = "A practical web and iPhone guide for tourists, students, expats, refugees and new residents in the Netherlands—with local search, city context, saved materials and trusted source links.";
@@ -58,7 +59,10 @@ export const metadata: Metadata = {
     apple: "/icons/apple-touch-icon.png"
   },
   manifest: "/manifest.webmanifest",
-  category: "travel"
+  category: "travel",
+  other: {
+    "apple-itunes-app": appleSmartAppBanner
+  }
 };
 
 export const viewport: Viewport = {
@@ -74,7 +78,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       { "@type": "Organization", "@id": "https://younew.nl/#organization", name: "YouNew", url: "https://younew.nl/", email: "support@younew.nl" },
       { "@type": "WebSite", "@id": "https://younew.nl/#website", url: "https://younew.nl/", name: "YouNew", inLanguage: "en", publisher: { "@id": "https://younew.nl/#organization" } },
       { "@type": "WebApplication", name: "YouNew web guide", applicationCategory: "TravelApplication", browserRequirements: "Requires a modern web browser; core pages remain readable without JavaScript", description, url: "https://younew.nl/discover/", publisher: { "@id": "https://younew.nl/#organization" } },
-      { "@type": "SoftwareApplication", name: "YouNew", operatingSystem: "iOS 17.6 or later", applicationCategory: "TravelApplication", description, url: "https://younew.nl/", publisher: { "@id": "https://younew.nl/#organization" } }
+      {
+        "@type": "SoftwareApplication",
+        name: "YouNew",
+        operatingSystem: appStore.minimumOS,
+        applicationCategory: "TravelApplication",
+        description,
+        url: "https://younew.nl/app/",
+        downloadUrl: appStore.url,
+        softwareVersion: appStore.version,
+        datePublished: appStore.releasedAt,
+        offers: { "@type": "Offer", price: "0", priceCurrency: "EUR" },
+        publisher: { "@id": "https://younew.nl/#organization" }
+      }
     ]
   };
   return (

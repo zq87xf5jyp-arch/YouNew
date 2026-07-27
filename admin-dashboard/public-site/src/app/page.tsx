@@ -7,6 +7,7 @@ import {
   Building2,
   CheckCircle2,
   CircleHelp,
+  Download,
   ExternalLink,
   GraduationCap,
   HeartHandshake,
@@ -25,6 +26,7 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { getPublicContent } from "@/lib/content";
 import { links } from "@/lib/site-data";
+import { appStore } from "@/lib/site-config";
 
 const profiles = [
   { name: "Tourist", text: "Essentials for a short stay, transport and places.", icon: Plane },
@@ -50,7 +52,7 @@ const scenarios = [
 const faqs = [
   ["What is YouNew?", "YouNew is an iPhone guide that organises practical information, city context, places, saved materials and source links for life in the Netherlands."],
   ["Who is it for?", "It is designed for tourists, international students, expats, refugees and people who are new to the Netherlands."],
-  ["Is the app available now?", "Public App Store and TestFlight access are not confirmed yet. Follow release updates or contact support to hear when a verified download channel is available."],
+  ["Is the app available now?", `Yes. YouNew ${appStore.version} is available free on the App Store for iPhone and iPad.`],
   ["How does the assistant work?", "The assistant uses YouNew’s curated knowledge to suggest practical next steps and related in-app guides. If live AI is unavailable, the app clearly labels its local guide mode."],
   ["How can I report incorrect information?", `Email ${links.contactEmail} with the page, the issue and—when possible—the official source that should be checked.`]
 ];
@@ -71,14 +73,14 @@ export default function HomePage() {
             <p>YouNew brings practical guides, trusted source links, city context and personalised paths into one calm web guide—with the iPhone app alongside it.</p>
             <div className="hero-actions">
               <Link className="button button-primary" href="/discover">Use YouNew on the web <ArrowRight aria-hidden /></Link>
-              <Link className="button button-ghost" href="/search"><Search aria-hidden /> Search published content</Link>
+              <a className="button button-ghost" href={appStore.url} rel="noreferrer" target="_blank"><Download aria-hidden /> Download the app</a>
             </div>
             <dl className="hero-proof" aria-label="Current published web coverage">
               <div><dt>{stats.entities}</dt><dd>published records</dd></div>
               <div><dt>{stats.cities}</dt><dd>city guides</dd></div>
               <div><dt>{stats.categories}</dt><dd>published categories</dd></div>
             </dl>
-            <p className="availability-note"><CheckCircle2 aria-hidden /> Web guide available now. The iPhone public download is not yet confirmed.</p>
+            <p className="availability-note"><CheckCircle2 aria-hidden /> Web guide available now. YouNew {appStore.version} is available free on the App Store.</p>
           </div>
           <figure className="hero-product">
             <span className="hero-route-line" aria-hidden />
@@ -227,7 +229,7 @@ export default function HomePage() {
         </section>
 
         <section className="final-cta" aria-labelledby="cta-title">
-          <div className="section-shell"><Sparkles aria-hidden /><h2 id="cta-title">Start with the web guide today.</h2><p>Search published content now, or follow verified iPhone release updates.</p><div><Link className="button button-primary" href="/discover">Open YouNew web <ArrowRight aria-hidden /></Link><Link className="button button-outline" href="/app">iPhone app status</Link></div></div>
+          <div className="section-shell"><Sparkles aria-hidden /><h2 id="cta-title">Start with YouNew today.</h2><p>Use the web guide or download the iPhone and iPad app from the App Store.</p><div><Link className="button button-primary" href="/discover">Open YouNew web <ArrowRight aria-hidden /></Link><a className="button button-outline" href={appStore.url} rel="noreferrer" target="_blank"><Download aria-hidden /> Download on the App Store</a></div></div>
         </section>
       </main>
       <SiteFooter />
