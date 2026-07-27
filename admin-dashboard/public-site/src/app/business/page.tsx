@@ -1,7 +1,8 @@
 import Link from "next/link";
-import { ArrowRight, BadgeCheck, Building2, Megaphone, ShieldCheck, Users } from "lucide-react";
+import { ArrowRight, BadgeCheck, Building2, MapPinned, Megaphone, ShieldCheck, Smartphone, Users } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageShell } from "@/components/page-shell";
+import { appStore } from "@/lib/site-config";
 import { metadataForPage } from "@/lib/seo/metadata";
 
 export const metadata = metadataForPage("Business and partnerships", "Explore clearly labelled advertising and partnership opportunities with YouNew in the Netherlands.", "/business");
@@ -27,6 +28,19 @@ export default function BusinessPage() {
         <Link href="/business/pricing">Request a quote</Link>
         <Link href="/business/apply">Apply</Link>
       </nav>
+
+      <section className="business-ecosystem-bridge section-shell" aria-labelledby="business-ecosystem-title">
+        <div>
+          <p className="section-label cyan">Connected YouNew ecosystem</p>
+          <h2 id="business-ecosystem-title">See the public product before proposing a placement</h2>
+          <p>The coverage map shows released cities, organizations and places. The iPhone app is the current public app experience; business inquiries stay on the reviewed website workflow.</p>
+        </div>
+        <div className="business-ecosystem-actions">
+          <Link className="button button-outline" href="/map"><MapPinned aria-hidden /> View published coverage</Link>
+          <a className="button button-outline" href={appStore.url} rel="noreferrer" target="_blank"><Smartphone aria-hidden /> Open the iPhone app</a>
+          <Link className="button button-primary" href="/business/apply">Start an inquiry <ArrowRight aria-hidden /></Link>
+        </div>
+      </section>
 
       <section className="business-section section-shell" aria-labelledby="business-audience">
         <div className="section-intro">

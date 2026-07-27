@@ -5,5 +5,6 @@ nonisolated enum AppPublicLinks {
     static let privacyPolicy = URL(string: "https://younew.nl/privacy/")!
     static let termsOfUse = URL(string: "https://younew.nl/terms/")!
     static let support = URL(string: "https://younew.nl/support/")!
+    static let business = URL(string: "https://younew.nl/business/")!
     static let supportEmail = "support@younew.nl"
 }

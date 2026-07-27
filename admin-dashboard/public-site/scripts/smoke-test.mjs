@@ -67,8 +67,13 @@ for (const text of ["New in the Netherlands", "International student", "Starting
 assert.doesNotMatch(journeys, /sync(?:ed|ing)? successfully/i);
 
 const map = await readFile(join(root, "map/index.html"), "utf8");
-for (const text of ["Published YouNew coverage", "Released content list", "no location permission", "primary accessible fallback"]) assert.match(map, new RegExp(text, "i"));
+for (const text of ["Published YouNew coverage", "Released content list", "no location permission", "primary accessible fallback", "Represent a local organization or business", "Business options", "Start an inquiry"]) assert.match(map, new RegExp(text, "i"));
+for (const path of ["/business/", "/business/apply/"]) assert.match(map, new RegExp(`href="${path}"`));
 assert.doesNotMatch(map, /navigator\.geolocation|tile\.openstreetmap|mapbox/i);
+
+const business = await readFile(join(root, "business/index.html"), "utf8");
+for (const text of ["Connected YouNew ecosystem", "View published coverage", "Open the iPhone app", "Start an inquiry"]) assert.match(business, new RegExp(text, "i"));
+for (const path of ["/map/", "/business/apply/", "https://apps.apple.com/app/id6782617312"]) assert.match(business, new RegExp(`href="${path}"`));
 
 const businessApply = await readFile(join(root, "business/apply/index.html"), "utf8");
 for (const field of ["companyName", "contactPerson", "organizationType", "kvkNumber", "targetAudience", "requestedPlacements", "consentToPrivacy", "confirmAccuracy", "websiteConfirmation"]) assert.match(businessApply, new RegExp(`name="${field}"`));
