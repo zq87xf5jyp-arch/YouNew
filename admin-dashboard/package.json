@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "node node_modules/next/dist/bin/next dev",
     "build": "pnpm generate:runtime && node node_modules/next/dist/bin/next build",
+    "build:hostinger": "node node_modules/next/dist/bin/next build",
     "generate:runtime": "node scripts/generate-governed-runtime.mjs",
     "start": "node node_modules/next/dist/bin/next start",
     "lint": "node node_modules/eslint/bin/eslint.js src next.config.ts --max-warnings=0",
