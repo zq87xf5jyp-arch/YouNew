@@ -42,6 +42,7 @@ alter type public.publication_status add value if not exists 'qa' after 'review'
 alter type public.publication_status add value if not exists 'needs_review' after 'published';
 
 alter table public.articles
+  add column if not exists images jsonb not null default '[]'::jsonb,
   add column if not exists verified_date date,
   add column if not exists reviewer_id uuid references public.profiles(id),
   add column if not exists reviewed_at timestamptz,
@@ -52,6 +53,9 @@ alter table public.articles
   add column if not exists validation_errors text[] not null default '{}'::text[];
 
 alter table public.articles
+  drop constraint if exists articles_images_array_check,
+  add constraint articles_images_array_check
+    check (jsonb_typeof(images) = 'array'),
   drop constraint if exists articles_source_mapping_array_check,
   add constraint articles_source_mapping_array_check
     check (jsonb_typeof(source_mapping) = 'array'),
@@ -273,6 +277,11 @@ create policy "owners and admins update business inquiries"
 on public.business_inquiries for update to authenticated
 using (private.current_admin_role() in ('owner', 'admin'))
 with check (private.current_admin_role() in ('owner', 'admin'));
+
+-- Production already contains the earlier two-argument RPC returning only
+-- reference_code. PostgreSQL cannot replace a function's return type in place,
+-- so replace it atomically inside this migration.
+drop function if exists public.submit_business_inquiry(jsonb, text);
 
 create or replace function public.submit_business_inquiry(
   p_payload jsonb,
