@@ -41,7 +41,10 @@ export default function PrivacyPage() {
         The web version stores saved items, recently viewed pages and your selected profile in this browser. Search history is off by default and is stored locally only if you enable “Remember searches on this device”. The website does not send these values to YouNew or an analytics provider.
       </p>
       <p>
-        The business inquiry form validates the details in your browser and prepares an email draft; filling it in does not submit anything to YouNew. If you review and send the draft, YouNew receives the contact and proposal details you chose to include through the participating email services. The form does not accept uploads. Business inquiries are used to evaluate and respond to the proposal, not as blanket consent for unrelated marketing.
+        The business inquiry form validates the details in your browser and again on a YouNew server. When the server confirms receipt, the contact, organization and proposal details are stored in the protected business-inquiry queue and you receive a reference code. Access is limited to approved YouNew administrators. A salted one-way network fingerprint is used only for abuse prevention and its hourly counter is removed after 24 hours; it is not attached to the inquiry.
+      </p>
+      <p>
+        The form does not accept uploads. Business inquiries are used to evaluate and respond to the proposal, not as blanket consent for unrelated marketing. If secure submission is unavailable, the page may offer an email draft as an explicit fallback; nothing is sent through that fallback until you send it in your email application.
       </p>
 
       <h2>Your controls</h2>
@@ -59,7 +62,7 @@ export default function PrivacyPage() {
 
       <h2>Contact</h2>
       <p>
-        For privacy questions or deletion requests concerning support correspondence, email <a href={`mailto:${links.contactEmail}`}>{links.contactEmail}</a>.
+        For privacy questions, access, correction or deletion requests concerning support correspondence or a business inquiry, email <a href={`mailto:${links.contactEmail}`}>{links.contactEmail}</a> and include the inquiry reference when available.
       </p>
     </ContentPage>
   );

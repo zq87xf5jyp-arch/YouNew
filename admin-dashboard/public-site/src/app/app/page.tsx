@@ -33,7 +33,7 @@ export default function AppPage() {
         <div className="listing-heading"><div><span>One YouNew ecosystem</span><h2 id="app-ecosystem-title">Choose the experience that fits the moment</h2></div></div>
         <div className="information-grid">
           <article><Smartphone aria-hidden /><h3>Use the iPhone app</h3><p>Keep YouNew on your device for city guidance, places, maps, saved items and the app’s emergency route.</p><a href={appStore.url} rel="noreferrer" target="_blank">Open App Store <ArrowRight aria-hidden /></a></article>
-          <article><BookOpen aria-hidden /><h3>Continue on the web</h3><p>Browse released guides, organizations and places without installing anything. Every detail page keeps its responsible source visible.</p><Link href="/discover">Open the web guide <ArrowRight aria-hidden /></Link></article>
+          <article><BookOpen aria-hidden /><h3>Continue on the web</h3><p>Browse published guides, organizations and places without installing anything. Every detail page keeps its responsible source visible.</p><Link href="/discover">Open the web guide <ArrowRight aria-hidden /></Link></article>
           <article><ShieldCheck aria-hidden /><h3>Verify before acting</h3><p>YouNew shows publication status and source dates, then links to the responsible institution or provider for current details.</p><Link href="/status">View service status <ArrowRight aria-hidden /></Link></article>
         </div>
       </section>

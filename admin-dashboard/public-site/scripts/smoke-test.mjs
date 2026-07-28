@@ -67,7 +67,7 @@ for (const text of ["New in the Netherlands", "International student", "Starting
 assert.doesNotMatch(journeys, /sync(?:ed|ing)? successfully/i);
 
 const map = await readFile(join(root, "map/index.html"), "utf8");
-for (const text of ["Published YouNew coverage", "Released content list", "no location permission", "primary accessible fallback", "Represent a local organization or business", "Business options", "Start an inquiry"]) assert.match(map, new RegExp(text, "i"));
+for (const text of ["Published YouNew coverage", "Published content list", "no location permission", "primary accessible fallback", "Represent a local organization or business", "Business options", "Start an inquiry"]) assert.match(map, new RegExp(text, "i"));
 for (const path of ["/business/", "/business/apply/"]) assert.match(map, new RegExp(`href="${path}"`));
 assert.doesNotMatch(map, /navigator\.geolocation|tile\.openstreetmap|mapbox/i);
 
@@ -77,7 +77,8 @@ for (const path of ["/map/", "/business/apply/", "https://apps.apple.com/app/id6
 
 const businessApply = await readFile(join(root, "business/apply/index.html"), "utf8");
 for (const field of ["companyName", "contactPerson", "organizationType", "kvkNumber", "targetAudience", "requestedPlacements", "consentToPrivacy", "confirmAccuracy", "websiteConfirmation"]) assert.match(businessApply, new RegExp(`name="${field}"`));
-assert.match(businessApply, /nothing is submitted automatically/i);
+assert.match(businessApply, /successful submission returns a reference code/i);
+assert.match(businessApply, /secure inquiry submission/i);
 
 const mediaKit = await readFile(join(root, "business/media-kit/index.html"), "utf8");
 for (const text of ["Request a quote", "DEMO PARTNER CARD", "DEMO REPORT", "ILLUSTRATIVE DATA", "Editorial independence", "Reasons YouNew may refuse or stop a placement"]) assert.match(mediaKit, new RegExp(text, "i"));
@@ -85,6 +86,7 @@ for (const text of ["Request a quote", "DEMO PARTNER CARD", "DEMO REPORT", "ILLU
 const status = await readFile(join(root, "status/index.html"), "utf8");
 assert.match(status, /Static status snapshot/);
 assert.match(status, /does not (?:use|provide) live (?:uptime )?monitoring/i);
+for (const text of ["Supabase data boundary", "Business inquiries", "Admin and content sync"]) assert.match(status, new RegExp(text, "i"));
 
 const notFound = await readFile(join(root, "404.html"), "utf8");
 assert.match(notFound, /That page isn’t here/);
@@ -95,6 +97,11 @@ const provenance = JSON.parse(await readFile(join(root, "data/content-provenance
 assert.equal(provenance.counts.acceptedRecords, 186);
 assert.ok(searchIndex.documents.length > provenance.counts.acceptedRecords, "Search should include derived category and useful-page destinations");
 assert.ok(searchIndex.documents.every((document) => !/\b(?:draft|archived)\b/i.test(document.id)));
+const internalCopyPattern = /\b(?:governed (?:record|entry|city)|production artifact|runtime entit(?:y|ies)|internal schema|released records?|immutable batch|QA fixture|source_entity_id)\b/i;
+assert.doesNotMatch(JSON.stringify(searchIndex), internalCopyPattern, "Search copy must use reader-facing language");
+for (const html of [home, search, guide, appPage, provinces, province, place, journeys, map, business, businessApply, mediaKit, status, notFound]) {
+  assert.doesNotMatch(html, internalCopyPattern, "Public HTML must not expose internal data-operations vocabulary");
+}
 
 const manifest = JSON.parse(await readFile(join(root, "manifest.webmanifest"), "utf8"));
 assert.equal(manifest.display, "standalone");

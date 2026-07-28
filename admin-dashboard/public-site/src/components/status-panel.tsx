@@ -29,6 +29,12 @@ export type StatusSnapshot = {
     releasedAt: string;
     summary: string;
   };
+  operations?: Array<{
+    id: "supabase" | "business-inquiries" | "admin-sync";
+    status: "operational" | "pending";
+    label: string;
+    summary: string;
+  }>;
   limitations: string[];
   webAlternatives: Array<{
     label: string;
@@ -112,6 +118,15 @@ export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
           </dl>
           <p><a href={current.ios.appStoreUrl} rel="noreferrer" target="_blank">Open App Store listing</a></p>
         </article>
+        {(current.operations ?? []).map((operation) => (
+          <article className="status-card" key={operation.id}>
+            <div className="status-card-heading">
+              <h2>{operation.label}</h2>
+              <span className={`status-pill status-${operation.status}`}>{operation.status}</span>
+            </div>
+            <p>{operation.summary}</p>
+          </article>
+        ))}
       </section>
 
       <section className="status-section" aria-labelledby="status-limitations">

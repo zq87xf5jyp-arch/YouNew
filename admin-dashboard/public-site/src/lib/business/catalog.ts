@@ -8,7 +8,7 @@ export interface AdvertisingFormatDefinition {
 
 /**
  * One shared, typed catalogue for public format descriptions, the inquiry form
- * and the email handoff. Availability is always subject to manual review and a
+ * and the validated business-inquiry workflow. Availability is always subject to manual review and a
  * written quote; this is not an inventory or pricing feed.
  */
 export const advertisingFormatCatalog = [

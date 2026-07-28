@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "snapshotType": "static",
   "liveMonitoring": false,
-  "checkedAt": "2026-07-27",
+  "checkedAt": "2026-07-28",
   "website": {
     "status": "operational",
     "label": "Website",
@@ -25,6 +25,26 @@
     "releasedAt": "2026-07-23",
     "summary": "YouNew 1.1 is publicly available free on the App Store for iPhone and iPad."
   },
+  "operations": [
+    {
+      "id": "supabase",
+      "status": "operational",
+      "label": "Supabase data boundary",
+      "summary": "The production project was reachable and all 20 tables in its public schema had Row Level Security enabled when checked on 27 July 2026."
+    },
+    {
+      "id": "business-inquiries",
+      "status": "pending",
+      "label": "Business inquiries",
+      "summary": "The secure form, protected table and admin queue are release candidates. The production write path is not active until the reviewed release is deployed."
+    },
+    {
+      "id": "admin-sync",
+      "status": "pending",
+      "label": "Admin and content sync",
+      "summary": "The website's published content export is verified locally. A continuously hosted Admin Dashboard and automated production deployment are not yet verified."
+    }
+  ],
   "limitations": [
     "App Store availability and localized listing details can vary by storefront.",
     "This page is a static snapshot and does not provide live uptime monitoring.",

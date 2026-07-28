@@ -193,22 +193,29 @@ export function rankSearchDocuments(
 
     let score = titleText === queryText ? 180 : titleText.startsWith(queryText) ? 90 : titleText.includes(queryText) ? 58 : 0;
     const matchedTerms = [];
+    const exactMatchedTerms = [];
 
     for (const queryToken of queryTokens) {
       let best = 0;
+      let exact = false;
       for (const field of weightedFields) {
-        for (const candidate of field.values) best = Math.max(best, tokenScore(queryToken, candidate, field.weight));
+        for (const candidate of field.values) {
+          best = Math.max(best, tokenScore(queryToken, candidate, field.weight));
+          if (candidate === queryToken) exact = true;
+        }
       }
       if (best > 0) {
         score += best;
         matchedTerms.push(queryToken);
+        if (exact) exactMatchedTerms.push(queryToken);
       } else {
         score -= 5;
       }
     }
 
     const minimumCoverage = queryTokens.length <= 2 ? queryTokens.length : Math.ceil(queryTokens.length * 0.6);
-    if (score > 0 && matchedTerms.length >= minimumCoverage) {
+    const minimumExactCoverage = queryTokens.length === 1 ? 0 : queryTokens.length === 2 ? 2 : Math.ceil(queryTokens.length * 0.6);
+    if (score > 0 && matchedTerms.length >= minimumCoverage && exactMatchedTerms.length >= minimumExactCoverage) {
       results.push({ document, score: Math.round(score * 100) / 100, matchedTerms });
     }
   }

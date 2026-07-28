@@ -37,7 +37,7 @@ const profiles = [
 
 const capabilities = [
   { title: "Web search", text: "Search published guides, organizations and places with typo-friendly suggestions.", icon: Search },
-  { title: "Source-backed guides", text: "Find released local starting points, then verify current procedures with the responsible source.", icon: BookOpen },
+  { title: "Source-backed guides", text: "Find published local starting points, then verify current procedures with the responsible source.", icon: BookOpen },
   { title: "Saved materials", text: "Keep useful guides and places ready for later.", icon: Bookmark },
   { title: "Source links", text: "Continue to the responsible institution when details matter.", icon: ShieldCheck }
 ];

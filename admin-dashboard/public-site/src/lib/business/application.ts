@@ -1,5 +1,6 @@
 import type {
   BusinessApplicationInput,
+  BusinessApplicationField,
   BusinessApplicationValidation,
   OrganizationType,
   PartnerApplicationRepository,
@@ -25,6 +26,8 @@ const budgetRangeIds = ["under-1000", "1000-3000", "3000-10000", "over-10000", "
 
 export const BUSINESS_APPLICATION_EMAIL = "support@younew.nl" as const;
 export const NOTHING_SENT_NOTICE = "Nothing has been sent yet" as const;
+export const BUSINESS_APPLICATION_ENDPOINT =
+  "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/business-inquiry" as const;
 
 const kvkRequiredTypes = new Set<OrganizationType>([
   "commercial-business",
@@ -92,7 +95,7 @@ export function validateBusinessApplication(input: BusinessApplicationInput): Bu
     errors.campaignEnd = "The campaign end date must be on or after the start date.";
   }
   if (input.description.trim().length < 30) errors.description = "Provide at least 30 characters of useful context.";
-  if (input.description.trim().length > 600) errors.description = "Keep the description under 600 characters for the email handoff.";
+  if (input.description.trim().length > 600) errors.description = "Keep the description under 600 characters.";
   if (!input.consentToPrivacy) errors.consentToPrivacy = "Consent to the Privacy Policy is required.";
   if (!input.confirmAccuracy) errors.confirmAccuracy = "Confirm that the submitted information is accurate.";
 
@@ -149,3 +152,109 @@ export const mailtoPartnerApplicationRepository: PartnerApplicationRepository = 
     };
   }
 };
+
+type BusinessApplicationApiResponse = {
+  ok?: unknown;
+  reference?: unknown;
+  message?: unknown;
+  error?: unknown;
+  fields?: unknown;
+};
+
+export class BusinessApplicationSubmissionError extends Error {
+  readonly status: number;
+  readonly fields: Partial<Record<BusinessApplicationField, string>>;
+
+  constructor(
+    message: string,
+    status = 0,
+    fields: Partial<Record<BusinessApplicationField, string>> = {}
+  ) {
+    super(message);
+    this.name = "BusinessApplicationSubmissionError";
+    this.status = status;
+    this.fields = fields;
+  }
+}
+
+function errorFields(value: unknown): Partial<Record<BusinessApplicationField, string>> {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return {};
+  return Object.fromEntries(
+    Object.entries(value).filter((entry): entry is [BusinessApplicationField, string] =>
+      typeof entry[1] === "string"
+    )
+  );
+}
+
+function submissionErrorMessage(status: number, error: unknown): string {
+  if (status === 429 || error === "rate_limited") {
+    return "Too many requests were received from this connection. Please try again in an hour.";
+  }
+  if (status === 422 || error === "validation_failed") {
+    return "The server rejected one or more fields. Review the form and try again.";
+  }
+  return "The secure submission service is temporarily unavailable. Your information was not sent.";
+}
+
+export function createApiPartnerApplicationRepository(
+  endpoint: string = BUSINESS_APPLICATION_ENDPOINT,
+  request: typeof fetch = fetch
+): PartnerApplicationRepository {
+  return {
+    delivery: "api",
+    async submit(input) {
+      const validation = validateBusinessApplication(input);
+      if (!validation.valid) {
+        throw new BusinessApplicationSubmissionError(
+          "The business application contains invalid fields.",
+          422,
+          validation.errors
+        );
+      }
+
+      let response: Response;
+      try {
+        response = await request(endpoint, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(input)
+        });
+      } catch {
+        throw new BusinessApplicationSubmissionError(
+          "The secure submission service could not be reached. Your information was not sent."
+        );
+      }
+
+      let payload: BusinessApplicationApiResponse = {};
+      try {
+        payload = await response.json() as BusinessApplicationApiResponse;
+      } catch {
+        // The status code still determines the safe user-facing failure below.
+      }
+
+      if (
+        !response.ok
+        || payload.ok !== true
+        || typeof payload.reference !== "string"
+        || !/^YN-[A-Z0-9]{12}$/.test(payload.reference)
+      ) {
+        throw new BusinessApplicationSubmissionError(
+          submissionErrorMessage(response.status, payload.error),
+          response.status,
+          errorFields(payload.fields)
+        );
+      }
+
+      return {
+        kind: "server-receipt",
+        sent: true,
+        reference: payload.reference,
+        message: typeof payload.message === "string"
+          ? payload.message
+          : "Your inquiry was received."
+      };
+    }
+  };
+}
+
+export const apiPartnerApplicationRepository = createApiPartnerApplicationRepository();

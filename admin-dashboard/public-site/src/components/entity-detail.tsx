@@ -14,7 +14,7 @@ const labels = { city: "Cities", guide: "Guides", organization: "Organizations",
 const roots = { city: "/cities", guide: "/guides", organization: "/organizations", place: "/places" } as const;
 const nextSteps = {
   city: [
-    ["Explore the published city coverage", "Use the related categories and records below to find places, services and practical information already released for this city."],
+    ["Explore the published city coverage", "Use the related categories and pages below to find places, services and practical information already published for this city."],
     ["Check the municipality source", "Confirm current local services, contact routes and municipal information on the responsible city website."],
     ["Continue with the map or search", "Use YouNew’s map and search to narrow the published records to the topic you need."]
   ],

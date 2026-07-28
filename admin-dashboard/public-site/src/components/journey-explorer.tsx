@@ -89,7 +89,7 @@ export function JourneyExplorer({ journeys }: { journeys: readonly JourneyView[]
       <section className="journey-card" id={journey.id} key={journey.id} aria-labelledby={`${journey.id}-title`}>
         <header>
           <div><span>{journey.audience}</span><h3 id={`${journey.id}-title`}>{journey.title}</h3><p>{journey.description}</p></div>
-          {journey.guides.length > 0 ? <strong aria-label={`${completion.completed} of ${completion.total} completed`}>{completion.completed}/{completion.total}</strong> : <LockKeyhole aria-label="No released guide steps" />}
+          {journey.guides.length > 0 ? <strong aria-label={`${completion.completed} of ${completion.total} completed`}>{completion.completed}/{completion.total}</strong> : <LockKeyhole aria-label="No published guide steps" />}
         </header>
         <p className="journey-coverage-note">{journey.coverageNote}</p>
         {journey.guides.length > 0 ? (
@@ -117,7 +117,7 @@ export function JourneyExplorer({ journeys }: { journeys: readonly JourneyView[]
               </button>
             </footer>
           </>
-        ) : <div className="journey-unavailable"><p>YouNew is keeping this sequence closed until its component guides pass the production publication gate.</p><Link href="/search">Search released content</Link></div>}
+        ) : <div className="journey-unavailable"><p>YouNew is keeping this sequence closed until its guides complete editorial review.</p><Link href="/search">Search published content</Link></div>}
       </section>
     );
   }
@@ -125,7 +125,7 @@ export function JourneyExplorer({ journeys }: { journeys: readonly JourneyView[]
   return (
     <div className="journey-explorer">
       <div className="journey-privacy-note">
-        <strong>{availableJourneys.length} of {journeys.length} journeys currently have released guide steps.</strong>
+        <strong>{availableJourneys.length} of {journeys.length} journeys currently have published guide steps.</strong>
         <p>Progress stays only in this browser. It is not an official task status, account record or iOS sync.</p>
       </div>
       {storageNotice ? <p className="journey-storage-notice" role={storageNotice.failed ? "alert" : "status"}>{storageNotice.message}</p> : null}
@@ -133,7 +133,7 @@ export function JourneyExplorer({ journeys }: { journeys: readonly JourneyView[]
         <section className="journey-group" aria-labelledby="available-journeys-title">
           <div className="journey-group-heading">
             <h2 id="available-journeys-title">Available journeys</h2>
-            <p>These journeys contain released guides you can open and track locally.</p>
+            <p>These journeys contain published guides you can open and track locally.</p>
           </div>
           <div className="journey-grid">{availableJourneys.map(journeyCard)}</div>
         </section>
@@ -141,8 +141,8 @@ export function JourneyExplorer({ journeys }: { journeys: readonly JourneyView[]
       {unreleasedJourneys.length > 0 ? (
         <section className="journey-group journey-group-unreleased" aria-labelledby="unreleased-journeys-title">
           <div className="journey-group-heading">
-            <h2 id="unreleased-journeys-title">Not released yet</h2>
-            <p>These routes remain closed until their guides pass the publication gate.</p>
+            <h2 id="unreleased-journeys-title">Not published yet</h2>
+            <p>These routes remain closed until their guides complete editorial review.</p>
           </div>
           <div className="journey-grid">{unreleasedJourneys.map(journeyCard)}</div>
         </section>

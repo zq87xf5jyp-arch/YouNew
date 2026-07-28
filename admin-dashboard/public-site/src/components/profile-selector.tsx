@@ -16,7 +16,7 @@ const profiles: Array<{
   { id: "student", label: "Student", description: "Study, housing and everyday local services.", links: [{ label: "Education", href: "/categories/education" }, { label: "Housing guides", href: "/categories/housing" }], icon: GraduationCap },
   { id: "expat", label: "Expat", description: "Municipal services, housing and healthcare.", links: [{ label: "Government", href: "/categories/government" }, { label: "Healthcare", href: "/categories/healthcare" }], icon: Building2 },
   { id: "refugee", label: "Refugee", description: "Essential services, safe official sources and practical support.", links: [{ label: "Government", href: "/categories/government" }, { label: "Emergency help", href: "/emergency" }], icon: Users },
-  { id: "worker", label: "Worker", description: "A released starting point for work-related administration and daily travel.", links: [{ label: "Starting work journey", href: "/journeys" }, { label: "Transport", href: "/categories/transport" }], icon: BriefcaseBusiness },
+  { id: "worker", label: "Worker", description: "A published starting point for work-related administration and daily travel.", links: [{ label: "Starting work journey", href: "/journeys" }, { label: "Transport", href: "/categories/transport" }], icon: BriefcaseBusiness },
   { id: "resident", label: "Resident", description: "Municipal tasks, healthcare, housing and local services.", links: [{ label: "Government", href: "/categories/government" }, { label: "Cities", href: "/cities" }], icon: Home }
 ];
 

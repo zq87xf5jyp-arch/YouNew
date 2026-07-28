@@ -106,7 +106,7 @@ test("map implementation is dependency-free, has a no-JavaScript list and print 
   const component = await readFile(new URL("src/components/coverage-map.tsx", siteRoot), "utf8");
   const styles = await readFile(new URL("src/app/globals.css", siteRoot), "utf8");
   assert.match(component, /<noscript>/);
-  assert.match(component, /complete released-content list/i);
+  assert.match(component, /complete published-content list/i);
   assert.match(component, /id="map-results"/);
   assert.doesNotMatch(component, /fetch\(|navigator\.geolocation|maplibre|leaflet|openstreetmap/i);
   assert.match(styles, /@media print[\s\S]*\.coverage-map-layout/);

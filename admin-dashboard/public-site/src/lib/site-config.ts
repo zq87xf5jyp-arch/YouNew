@@ -25,6 +25,9 @@ export type SiteConfig = {
   schemaVersion: number;
   appStore: AppStoreConfig;
   statusBanner: StatusBannerConfig;
+  businessApplications: {
+    endpoint: string;
+  };
 };
 
 export const siteConfig = rawSiteConfig as SiteConfig;

@@ -18,5 +18,8 @@
       "label": "Download",
       "href": "https://apps.apple.com/app/id6782617312"
     }
+  },
+  "businessApplications": {
+    "endpoint": "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/business-inquiry"
   }
 }

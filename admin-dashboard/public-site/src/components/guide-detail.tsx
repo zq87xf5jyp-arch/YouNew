@@ -190,7 +190,7 @@ function BriefGuide({ entity }: { entity: ContentEntity }) {
       </section>
       <section className="guide-section" aria-labelledby="brief-topics-title">
         <h2 id="brief-topics-title">Connected topics</h2>
-        <p>This record is part of the following released YouNew categories. Use them to compare related source-checked information before choosing a next step.</p>
+        <p>This page is part of the following published YouNew categories. Use them to compare related source-checked information before choosing a next step.</p>
         <div className="topic-links" aria-label="Related guide categories">
           {entity.categorySlugs.map((category) => <Link href={`/categories/${category}`} key={category}>{titleCase(category)}</Link>)}
         </div>

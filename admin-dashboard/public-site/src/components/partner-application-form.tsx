@@ -3,6 +3,8 @@
 import Link from "next/link";
 import { useEffect, useState, type FormEvent } from "react";
 import {
+  apiPartnerApplicationRepository,
+  BusinessApplicationSubmissionError,
   mailtoPartnerApplicationRepository,
   requiresKvkNumber,
   validateBusinessApplication
@@ -10,6 +12,7 @@ import {
 import { advertisingFormatCatalog } from "@/lib/business/catalog";
 import type {
   BusinessApplicationInput,
+  BusinessApplicationSubmission,
   BusinessApplicationValidation,
   BusinessUserProfileId,
   OrganizationType,
@@ -96,15 +99,21 @@ export function PartnerApplicationForm() {
   const [interactive, setInteractive] = useState(false);
   const [organizationType, setOrganizationType] = useState<BusinessApplicationInput["organizationType"]>("");
   const [errors, setErrors] = useState<ErrorMap>({});
-  const [prepared, setPrepared] = useState<PreparedBusinessApplication | null>(null);
+  const [submission, setSubmission] = useState<BusinessApplicationSubmission | null>(null);
+  const [emailFallback, setEmailFallback] = useState<PreparedBusinessApplication | null>(null);
+  const [deliveryError, setDeliveryError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const kvkRequired = requiresKvkNumber(organizationType);
 
   useEffect(() => setInteractive(true), []);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setPrepared(null);
-    const application = applicationFrom(new FormData(event.currentTarget));
+    const form = event.currentTarget;
+    setSubmission(null);
+    setEmailFallback(null);
+    setDeliveryError("");
+    const application = applicationFrom(new FormData(form));
     const validation = validateBusinessApplication(application);
     setErrors(validation.errors);
 
@@ -113,19 +122,51 @@ export function PartnerApplicationForm() {
       return;
     }
 
-    const handoff = await mailtoPartnerApplicationRepository.submit(application);
-    setPrepared(handoff);
+    setIsSubmitting(true);
+    try {
+      const result = await apiPartnerApplicationRepository.submit(application);
+      setSubmission(result);
+      form.reset();
+      setOrganizationType("");
+    } catch (error) {
+      const safeError = error instanceof BusinessApplicationSubmissionError
+        ? error
+        : new BusinessApplicationSubmissionError(
+          "The secure submission service is temporarily unavailable. Your information was not sent."
+        );
+      setErrors(safeError.fields);
+      setDeliveryError(safeError.message);
+      const fallback = await mailtoPartnerApplicationRepository.submit(application);
+      if (fallback.kind === "user-email-handoff") setEmailFallback(fallback);
+      requestAnimationFrame(() => document.getElementById("business-delivery-error")?.focus());
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
     <>
       <noscript>
         <div className="form-delivery-notice">
-          <strong>JavaScript is required to prepare the email safely.</strong>
+          <strong>JavaScript is required for secure submission.</strong>
           <p>The form below is disabled and no details have been sent. Email support@younew.nl directly instead.</p>
         </div>
       </noscript>
-      <form className="business-application-form" action="/business/apply/" method="post" onSubmit={handleSubmit} onInput={() => { if (prepared) setPrepared(null); if (Object.keys(errors).length) setErrors({}); }} noValidate inert={interactive ? undefined : true}>
+      <form
+        className="business-application-form"
+        action="/business/apply/"
+        method="post"
+        onSubmit={handleSubmit}
+        onInput={() => {
+          if (submission) setSubmission(null);
+          if (emailFallback) setEmailFallback(null);
+          if (deliveryError) setDeliveryError("");
+          if (Object.keys(errors).length) setErrors({});
+        }}
+        noValidate
+        inert={interactive ? undefined : true}
+        aria-busy={isSubmitting}
+      >
       {Object.keys(errors).length ? (
         <div className="form-error-summary" id="business-form-errors" role="alert" tabIndex={-1}>
           <h2>Review the highlighted fields</h2>
@@ -258,7 +299,7 @@ export function PartnerApplicationForm() {
         <div className="form-field">
           <label htmlFor="description">Description</label>
           <textarea id="description" name="description" rows={7} maxLength={600} placeholder="Tell us about the organization, intended audience and proposed placement." aria-describedby={`description-help${errors.description ? " description-error" : ""}`} aria-invalid={Boolean(errors.description)} required />
-          <p className="form-field-help" id="description-help">30–600 characters. The shorter limit keeps the email handoff compatible with common mail clients. Do not include sensitive personal information.</p>
+          <p className="form-field-help" id="description-help">30–600 characters. Do not include identity documents, health information, payment details or other sensitive personal data.</p>
           <FieldError errors={errors} name="description" />
         </div>
       </fieldset>
@@ -283,18 +324,40 @@ export function PartnerApplicationForm() {
       </fieldset>
 
       <div className="form-delivery-notice">
-        <strong>Email handoff only</strong>
-        <p>This website does not upload or submit this form to a server. After validation, it prepares an email draft for support@younew.nl. You decide whether to send it in your email application.</p>
+        <strong>Secure inquiry submission</strong>
+        <p>After browser and server validation, the inquiry is stored for approved YouNew administrators. We return a reference code only after the server confirms receipt.</p>
       </div>
 
-      <button className="button button-primary" type="submit" disabled={!interactive}>Review and prepare email</button>
+      <button className="button button-primary" type="submit" disabled={!interactive || isSubmitting}>
+        {isSubmitting ? "Submitting securely…" : "Submit business inquiry"}
+      </button>
 
-      {prepared ? (
+      {deliveryError ? (
+        <section
+          className="form-prepared-state form-delivery-error"
+          id="business-delivery-error"
+          role="alert"
+          tabIndex={-1}
+          aria-labelledby="delivery-error-heading"
+        >
+          <h2 id="delivery-error-heading">Your inquiry was not sent</h2>
+          <p>{deliveryError}</p>
+          <p>Your form values remain on this page. You can try again or use the email fallback below.</p>
+          {emailFallback ? (
+            <>
+              <a className="button button-outline" href={emailFallback.href}>Open prefilled email fallback</a>
+              <p>Nothing is sent until you review and send the draft in your email application.</p>
+            </>
+          ) : null}
+        </section>
+      ) : null}
+
+      {submission?.kind === "server-receipt" ? (
         <section className="form-prepared-state" aria-live="polite" aria-labelledby="prepared-heading">
-          <h2 id="prepared-heading">{prepared.notice}</h2>
-          <p>Your information has only been used to prepare a local email draft. Open the draft, review it, and send it from your email application if you wish to continue.</p>
-          <a className="button button-outline" href={prepared.href}>Open prefilled email draft</a>
-          <p>If the link does not work, email <a href={`mailto:${prepared.recipient}`}>{prepared.recipient}</a> directly.</p>
+          <h2 id="prepared-heading">Inquiry received</h2>
+          <p>{submission.message}</p>
+          <p><strong>Reference: {submission.reference}</strong></p>
+          <p>Keep the reference for follow-up. YouNew will review the request before discussing availability or commercial terms.</p>
         </section>
       ) : null}
       </form>

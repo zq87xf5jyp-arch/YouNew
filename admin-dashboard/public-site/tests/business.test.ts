@@ -91,7 +91,7 @@ test("date order, confirmations and honeypot are enforced", () => {
   assert.ok(result.errors.form);
 });
 
-test("mailto repository prepares a user-controlled draft and never claims submission", async () => {
+test("mailto fallback prepares a user-controlled draft and never claims submission", async () => {
   const result = await applicationModule.mailtoPartnerApplicationRepository.submit(validApplication);
   assert.equal(applicationModule.mailtoPartnerApplicationRepository.delivery, "mailto");
   assert.equal(result.sent, false);
@@ -100,6 +100,46 @@ test("mailto repository prepares a user-controlled draft and never claims submis
   assert.match(result.href, /^mailto:support@younew\.nl\?/);
   assert.match(decodeURIComponent(result.href), /Example Amsterdam BV/);
   assert.doesNotMatch(decodeURIComponent(result.href), /websiteConfirmation/);
+});
+
+test("API repository returns only a validated server receipt", async () => {
+  const repository = applicationModule.createApiPartnerApplicationRepository(
+    "https://example.test/functions/v1/business-inquiry",
+    async () => new Response(JSON.stringify({
+      ok: true,
+      reference: "YN-ABC123DEF456",
+      message: "Your inquiry was received."
+    }), {
+      status: 201,
+      headers: { "Content-Type": "application/json" }
+    })
+  );
+  const result = await repository.submit(validApplication);
+  assert.equal(repository.delivery, "api");
+  assert.equal(result.kind, "server-receipt");
+  assert.equal(result.sent, true);
+  if (result.kind === "server-receipt") assert.equal(result.reference, "YN-ABC123DEF456");
+});
+
+test("API repository rejects network failures and malformed success responses", async () => {
+  const unavailable = applicationModule.createApiPartnerApplicationRepository(
+    "https://example.test/functions/v1/business-inquiry",
+    async () => { throw new Error("offline"); }
+  );
+  await assert.rejects(
+    unavailable.submit(validApplication),
+    (error: unknown) => error instanceof applicationModule.BusinessApplicationSubmissionError
+      && /not sent/i.test(error.message)
+  );
+
+  const malformed = applicationModule.createApiPartnerApplicationRepository(
+    "https://example.test/functions/v1/business-inquiry",
+    async () => new Response(JSON.stringify({ ok: true }), {
+      status: 201,
+      headers: { "Content-Type": "application/json" }
+    })
+  );
+  await assert.rejects(malformed.submit(validApplication), /temporarily unavailable/i);
 });
 
 test("one typed advertising catalogue covers every inquiry placement and the mail handoff", () => {
