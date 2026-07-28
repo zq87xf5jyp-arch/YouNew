@@ -6,7 +6,7 @@ import { Check, Search, Share2, SlidersHorizontal, X } from "lucide-react";
 import { SaveButton } from "@/components/save-button";
 import { track } from "@/lib/analytics/client";
 import { contentKindLabel, publicWebSummary } from "@/lib/content/presentation";
-import { filterSearchDocumentsByProfile, rankSearchDocuments, type SearchDocument } from "@/lib/search/rank";
+import { rankSearchDocuments, type SearchDocument } from "@/lib/search/rank";
 import type { GuideAudienceProfile } from "@/lib/content/types";
 import { localContentRepository, sanitizeUserPathProfile } from "@/lib/storage/local-content";
 
@@ -56,13 +56,10 @@ export function SearchExperience() {
   }), [documents]);
 
   const ranked = useMemo(() => {
-    const eligibleDocuments = filterSearchDocumentsByProfile(
-      documents,
-      (filters.profile || null) as GuideAudienceProfile | null
-    );
-    return rankSearchDocuments(eligibleDocuments, submittedQuery, {
+    return rankSearchDocuments(documents, submittedQuery, {
       filters: { type: filters.type as SearchDocument["type"] || undefined, cityId: filters.city || undefined, provinceId: filters.province || undefined, category: filters.category || undefined },
-      limit: 80
+      limit: 80,
+      preferredProfile: (filters.profile || null) as GuideAudienceProfile | null
     });
   }, [documents, submittedQuery, filters]);
 
@@ -86,18 +83,15 @@ export function SearchExperience() {
     const value = query.trim();
     setSubmittedQuery(value); setSuggestionIndex(-1); syncUrl(value, filters);
     if (value) { localContentRepository.rememberSearch(value); setRecentSearches(localContentRepository.recentSearches()); }
-    const eligibleDocuments = filterSearchDocumentsByProfile(
-      documents,
-      (filters.profile || null) as GuideAudienceProfile | null
-    );
-    const count = value ? rankSearchDocuments(eligibleDocuments, value, {
+    const count = value ? rankSearchDocuments(documents, value, {
       filters: {
         type: filters.type as SearchDocument["type"] || undefined,
         cityId: filters.city || undefined,
         provinceId: filters.province || undefined,
         category: filters.category || undefined
       },
-      limit: 200
+      limit: 200,
+      preferredProfile: (filters.profile || null) as GuideAudienceProfile | null
     }).length : 0;
     track({ name: "search", resultCount: count, hasResults: count > 0 });
   }

@@ -11,9 +11,9 @@ import { requireAdmin } from "@/lib/auth";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
 const fields = [
-  ["company", "Компания"],
-  ["contact_name", "Контакт"],
-  ["work_email", "Рабочий email"],
+  ["company_name", "Компания"],
+  ["contact_person", "Контакт"],
+  ["email", "Рабочий email"],
   ["phone", "Телефон"],
   ["website", "Сайт"],
   ["inquiry_type", "Тип запроса"],
@@ -51,7 +51,7 @@ export default async function BusinessInquiryDetailsPage({
   return (
     <>
       <PageHeader
-        title={`Заявка ${String(inquiry.confirmation_code)}`}
+        title={`Заявка ${String(inquiry.reference_code)}`}
         description="Персональные данные доступны только одобренным администраторам. Не копируйте их в публичные журналы."
       />
       <div className="mb-4"><Link className="text-sm text-cyan-200 hover:underline" href="/business-inquiries">← Все заявки</Link></div>
@@ -85,16 +85,17 @@ export default async function BusinessInquiryDetailsPage({
                 <Label htmlFor="inquiry-status">Статус</Label>
                 <select id="inquiry-status" name="status" defaultValue={String(inquiry.status)} className="h-10 w-full rounded-md border border-input bg-secondary/50 px-3 text-sm">
                   <option value="new">новая</option>
-                  <option value="contacted">связались</option>
-                  <option value="qualified">подтверждена</option>
-                  <option value="closed">закрыта</option>
-                  <option value="rejected">отклонена</option>
-                  <option value="spam">спам</option>
+                  <option value="reviewing">на рассмотрении</option>
+                  <option value="responded">ответ отправлен</option>
+                  <option value="accepted">принята</option>
+                  <option value="declined">отклонена</option>
+                  <option value="test">тестовая</option>
+                  <option value="archived">в архиве</option>
                 </select>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="internal-note">Внутренняя заметка</Label>
-                <Textarea id="internal-note" name="internalNote" maxLength={4000} defaultValue={String(inquiry.internal_note ?? "")} />
+                <Label htmlFor="admin-notes">Внутренняя заметка</Label>
+                <Textarea id="admin-notes" name="adminNotes" maxLength={2000} defaultValue={String(inquiry.admin_notes ?? "")} />
                 <p className="text-xs text-muted-foreground">Не добавляйте сюда лишние персональные данные.</p>
               </div>
               <Button type="submit">Сохранить</Button>
