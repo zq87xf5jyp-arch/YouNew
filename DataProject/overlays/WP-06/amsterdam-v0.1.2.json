@@ -1,0 +1,394 @@
+{
+  "schema_version": 1,
+  "release_id": "amsterdam-v0.1.2",
+  "version": "0.1.2",
+  "status": "published",
+  "work_package": "WP-06",
+  "dataset": "Amsterdam City 01",
+  "base_release_id": "amsterdam-v0.1.1",
+  "supersedes": "amsterdam-v0.1.1",
+  "base_batch_sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "evidence": [
+    {
+      "id": "evidence.begijnhof-official-source",
+      "kind": "url_check",
+      "url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
+      "checked_at": "2026-07-27",
+      "note": "Municipal Begijnhof article verified in the search index; direct automated requests are access-restricted rather than missing."
+    },
+    {
+      "id": "evidence.breda-official-source",
+      "kind": "url_check",
+      "url": "https://bredagroup-amsterdam.com/about/?lang=en",
+      "checked_at": "2026-07-27",
+      "note": "Official Breda Group page returned HTTP 200 and identifies Restaurant BREDA at Singel 210."
+    },
+    {
+      "id": "evidence.pride-walk-retirement",
+      "kind": "replacement_review",
+      "url": "https://pride.amsterdam/en/event/pride-walk/",
+      "checked_at": "2026-07-27",
+      "note": "The governed event ended on 2026-07-25 and must no longer be published after that date."
+    },
+    {
+      "id": "evidence.pride-park-retirement",
+      "kind": "replacement_review",
+      "url": "https://pride.amsterdam/en/event/pride-park/",
+      "checked_at": "2026-07-27",
+      "note": "The governed event ended on 2026-07-25 and must no longer be published after that date."
+    }
+  ],
+  "replacements": [
+    {
+      "entity_id": "place.begijnhof-amsterdam",
+      "original_canonical_sha256": "8ec777711fee416d44ecc9ddf6124cafb52c069fd8a1d814123b66595831c1b7",
+      "replacement_canonical_sha256": "04c016e6f7dcc19d15b35f8f330df4a7435c4e1b6490a44b38d733e269ffc3e5",
+      "reason": "Replace a removed destination listing with a current official municipal source.",
+      "evidence_refs": [
+        "evidence.begijnhof-official-source"
+      ],
+      "record": {
+        "id": "place.begijnhof-amsterdam",
+        "entity_type": "place",
+        "category": "historic-courtyard",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3694314,
+          "longitude": 4.8900431
+        },
+        "title": "Begijnhof Amsterdam",
+        "description": "Begijnhof Amsterdam is a confirmed Amsterdam place or attraction. The cited source specifically covers the enclosed historic courtyard in central Amsterdam. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/22746515@N02/4151159388",
+            "asset_url": "https://live.staticflickr.com/2735/4151159388_1fe2d2f325_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Amsterdam\" by Bert Kaufmann is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.begijnhof-amsterdam.hero.db88b31314"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://www.flickr.com/photos/22490717@N02/12083059735",
+            "asset_url": "https://live.staticflickr.com/5540/12083059735_4664641009_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Netherlands-4454 - South Entrance\" by archer10 (Dennis) is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.begijnhof-amsterdam.gallery.38a0434dc2"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://www.flickr.com/photos/22490717@N02/12083217693",
+            "asset_url": "https://live.staticflickr.com/3681/12083217693_fd55c6cae8_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Netherlands-4437 - Begijnesloot Gate\" by archer10 (Dennis) is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.begijnhof-amsterdam.thumbnail.97ae33094e"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://www.flickr.com/photos/22490717@N02/12083455656",
+            "asset_url": "https://live.staticflickr.com/7404/12083455656_91263e8dd0_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Netherlands-4430 - Begijnhof\" by archer10 (Dennis) is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.place.begijnhof-amsterdam.map_preview.2e33d4f698"
+          }
+        ],
+        "official_source": {
+          "title": "Wat weet u van het Begijnhof, het beroemdste hofje van de stad?",
+          "publisher": "Gemeente Amsterdam",
+          "url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
+          "is_official": true,
+          "checked_at": "2026-07-27",
+          "status": "verified_opened"
+        },
+        "website": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-27",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Gemeente Amsterdam page for Begijnhof and recheck current visitor conditions before acting. This governed record supports search and routing without treating AI-generated text as a factual source.",
+        "search_keywords": [
+          "Begijnhof Amsterdam",
+          "Begijnhof Amsterdam Amsterdam",
+          "historic courtyard",
+          "place or attraction Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 26658363",
+          "source_http_status": "403",
+          "source_final_url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
+          "source_verification_method": "indexed official municipal source; direct request access restricted",
+          "media_match": "exact",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "restaurant.breda",
+      "original_canonical_sha256": "65cf9f9ac11f539949dfdb2c2c347cccfc74161bdfa521b613d25abd9fe9914c",
+      "replacement_canonical_sha256": "6782d6bda43647f376cd3100fa80f3b5d3d7fc11126f101f3611e4e40fc5c395",
+      "reason": "Replace a removed destination listing with the current official Breda Group page.",
+      "evidence_refs": [
+        "evidence.breda-official-source"
+      ],
+      "record": {
+        "id": "restaurant.breda",
+        "entity_type": "restaurant",
+        "category": "restaurant",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3656457,
+          "longitude": 4.8974539
+        },
+        "title": "BREDA",
+        "description": "BREDA is a confirmed Amsterdam restaurant. The cited source specifically covers the Amsterdam restaurant operated by the Breda group. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Fork_and_knife_Pinhead_icon.svg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fork_and_knife_Pinhead_icon.svg/1280px-Fork_and_knife_Pinhead_icon.svg.png",
+            "license": "CC0 1.0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "attribution": "\"Fork and knife Pinhead icon\" by @westnordost and Maki contributors is dedicated to the public domain under CC0 1.0. It is used as a generic restaurant fallback and does not depict BREDA.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "alt": "Generic fork-and-knife restaurant symbol; no photograph of BREDA is claimed.",
+            "id": "media.restaurant.breda.hero.2beaf0e993"
+          },
+          {
+            "role": "gallery",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Fork_and_knife_Pinhead_icon.svg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fork_and_knife_Pinhead_icon.svg/1280px-Fork_and_knife_Pinhead_icon.svg.png",
+            "license": "CC0 1.0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "attribution": "\"Fork and knife Pinhead icon\" by @westnordost and Maki contributors is dedicated to the public domain under CC0 1.0. It is used as a generic restaurant fallback and does not depict BREDA.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "alt": "Generic fork-and-knife restaurant symbol; no photograph of BREDA is claimed.",
+            "id": "media.restaurant.breda.gallery.2beaf0e993"
+          },
+          {
+            "role": "thumbnail",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Fork_and_knife_Pinhead_icon.svg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fork_and_knife_Pinhead_icon.svg/1280px-Fork_and_knife_Pinhead_icon.svg.png",
+            "license": "CC0 1.0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "attribution": "\"Fork and knife Pinhead icon\" by @westnordost and Maki contributors is dedicated to the public domain under CC0 1.0. It is used as a generic restaurant fallback and does not depict BREDA.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "alt": "Generic fork-and-knife restaurant symbol; no photograph of BREDA is claimed.",
+            "id": "media.restaurant.breda.thumbnail.2beaf0e993"
+          },
+          {
+            "role": "map_preview",
+            "source_page_url": "https://commons.wikimedia.org/wiki/File:Fork_and_knife_Pinhead_icon.svg",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Fork_and_knife_Pinhead_icon.svg/1280px-Fork_and_knife_Pinhead_icon.svg.png",
+            "license": "CC0 1.0",
+            "license_url": "https://creativecommons.org/publicdomain/zero/1.0/deed.en",
+            "attribution": "\"Fork and knife Pinhead icon\" by @westnordost and Maki contributors is dedicated to the public domain under CC0 1.0. It is used as a generic restaurant fallback and does not depict BREDA.",
+            "verified": true,
+            "retrieved_at": "2026-07-22",
+            "alt": "Generic fork-and-knife restaurant symbol; no photograph of BREDA is claimed.",
+            "id": "media.restaurant.breda.map_preview.2beaf0e993"
+          }
+        ],
+        "official_source": {
+          "title": "About - The Breda Group",
+          "publisher": "The Breda Group",
+          "url": "https://bredagroup-amsterdam.com/about/?lang=en",
+          "is_official": true,
+          "checked_at": "2026-07-27",
+          "status": "verified_opened"
+        },
+        "website": "https://bredagroup-amsterdam.com/about/?lang=en",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-27",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official Breda Group page for Restaurant BREDA and recheck current visitor conditions before acting. This governed record supports search and routing without treating AI-generated text as a factual source.",
+        "search_keywords": [
+          "BREDA",
+          "BREDA Amsterdam",
+          "restaurant",
+          "restaurant Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: node 2725879687",
+          "source_http_status": "200",
+          "source_final_url": "https://bredagroup-amsterdam.com/about/?lang=en",
+          "source_verification_method": "direct request against the official restaurant group page",
+          "media_match": "generic_neutral_fallback",
+          "media_roles_count": "4"
+        }
+      }
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-pride-walk",
+      "original_canonical_sha256": "1ccd98ac942813e53c9797653083fe676f03650a62fee2ae6bb93189d2cc6d52",
+      "replacement_canonical_sha256": "92c15b44d8ac0a9dd2218564e959eb5a956e6be1a78a80fee4f8df4df4f0df23",
+      "reason": "Retire the completed 2026-07-25 event from published runtime data.",
+      "evidence_refs": [
+        "evidence.pride-walk-retirement"
+      ],
+      "record": {
+        "id": "event.worldpride-amsterdam-2026-pride-walk",
+        "entity_type": "event",
+        "category": "pride-event",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3731162,
+          "longitude": 4.8923511
+        },
+        "title": "WorldPride Amsterdam 2026 Pride Walk",
+        "description": "WorldPride Amsterdam 2026 Pride Walk was a confirmed Amsterdam event held on 25 July 2026. This retired governed entry preserves the verified source, date and city location for provenance while excluding the completed event from current publication.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/47873224@N06/51366899938",
+            "asset_url": "https://live.staticflickr.com/65535/51366899938_6d14e6b963_b.jpg",
+            "license": "PDM",
+            "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+            "attribution": "\"CDA Verloop and the U.S. Mission community joins the #EqualRightsCoalition at Amsterdam’s Pride Walk\" by U.S. Embassy The Hague is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.event.worldpride-amsterdam-2026-pride-walk.hero.400b0e1ad4"
+          }
+        ],
+        "official_source": {
+          "title": "WorldPride Amsterdam 2026 Pride Walk official website",
+          "publisher": "Pride Amsterdam",
+          "url": "https://pride.amsterdam/en/event/pride-walk/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://pride.amsterdam/en/event/pride-walk/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-18",
+        "review_frequency_days": 30,
+        "verification_status": "verified",
+        "ai_summary": "WorldPride Amsterdam 2026 Pride Walk ended on 25 July 2026 and is retained only as a retired provenance record. Use the official Pride Amsterdam page for historical verification rather than current-event routing.",
+        "search_keywords": [
+          "WorldPride Amsterdam 2026 Pride Walk",
+          "WorldPride Amsterdam 2026 Pride Walk Amsterdam",
+          "pride event",
+          "completed event Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "retired",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 94756489",
+          "source_http_status": "200",
+          "source_final_url": "https://pride.amsterdam/en/event/pride-walk/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "1",
+          "start_date": "2026-07-25",
+          "end_date": "2026-07-25"
+        }
+      }
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-pride-park",
+      "original_canonical_sha256": "657a3ad93856a8522f5deb6e22fd5da95752686c5d2046fc4b9024db9ffd749a",
+      "replacement_canonical_sha256": "f58791710eacbcb2d28f422cf128ea3742dd4016b4a93fd5c0b77da582c03c89",
+      "reason": "Retire the completed 2026-07-25 event from published runtime data.",
+      "evidence_refs": [
+        "evidence.pride-park-retirement"
+      ],
+      "record": {
+        "id": "event.worldpride-amsterdam-2026-pride-park",
+        "entity_type": "event",
+        "category": "pride-event",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3571974,
+          "longitude": 4.864119
+        },
+        "title": "WorldPride Amsterdam 2026 Pride Park",
+        "description": "WorldPride Amsterdam 2026 Pride Park was a confirmed Amsterdam event held on 25 July 2026. This retired governed entry preserves the verified source, date and city location for provenance while excluding the completed event from current publication.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=81514470",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Amsterdam_Pride_Canal_Parade_2019_05.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"Amsterdam Pride Canal Parade 2019 05\" by Tadeáš Bednarz is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.event.worldpride-amsterdam-2026-pride-park.hero.ef45b589ad"
+          }
+        ],
+        "official_source": {
+          "title": "WorldPride Amsterdam 2026 Pride Park official website",
+          "publisher": "Pride Amsterdam",
+          "url": "https://pride.amsterdam/en/event/pride-park/",
+          "is_official": true,
+          "checked_at": "2026-07-18",
+          "status": "verified_opened"
+        },
+        "website": "https://pride.amsterdam/en/event/pride-park/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-18",
+        "review_frequency_days": 30,
+        "verification_status": "verified",
+        "ai_summary": "WorldPride Amsterdam 2026 Pride Park ended on 25 July 2026 and is retained only as a retired provenance record. Use the official Pride Amsterdam page for historical verification rather than current-event routing.",
+        "search_keywords": [
+          "WorldPride Amsterdam 2026 Pride Park",
+          "WorldPride Amsterdam 2026 Pride Park Amsterdam",
+          "pride event",
+          "completed event Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "retired",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: relation 17080648",
+          "source_http_status": "200",
+          "source_final_url": "https://pride.amsterdam/en/event/pride-park/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "1",
+          "start_date": "2026-07-25",
+          "end_date": "2026-07-25"
+        }
+      }
+    }
+  ]
+}

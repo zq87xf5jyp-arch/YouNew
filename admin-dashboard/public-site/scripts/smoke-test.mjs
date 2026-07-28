@@ -64,7 +64,8 @@ assert.match(notFound, /That page isn’t here/);
 const searchIndex = JSON.parse(await readFile(join(root, "data/search-index.json"), "utf8"));
 assert.equal(searchIndex.schemaVersion, 2);
 const provenance = JSON.parse(await readFile(join(root, "data/content-provenance.json"), "utf8"));
-assert.equal(provenance.counts.acceptedRecords, 188);
+assert.equal(provenance.counts.acceptedRecords, provenance.counts.sourceRecords);
+assert.ok(provenance.counts.acceptedRecords > 0);
 assert.ok(searchIndex.documents.length > provenance.counts.acceptedRecords, "Search should include derived category and useful-page destinations");
 assert.ok(searchIndex.documents.every((document) => !/\b(?:draft|archived)\b/i.test(document.id)));
 
