@@ -11,7 +11,7 @@ export function ContentIndexPage({ title, description, entities }: { title: stri
         <Breadcrumbs items={[{ label: title }]} />
         <h1>{title}</h1>
         <p>{description}</p>
-        <div className="dataset-note"><strong>{entities.length}</strong> released item{entities.length === 1 ? "" : "s"} · English reviewed content · source dates shown on every detail page</div>
+        <div className="dataset-note"><strong>{entities.length}</strong> published item{entities.length === 1 ? "" : "s"} · English reviewed content · source dates shown on every detail page</div>
       </section>
       <section className="section-shell app-content-block"><EntityListing entities={entities} viewAllHref={type ? `/search?type=${type}` : undefined} /></section>
     </PageShell>

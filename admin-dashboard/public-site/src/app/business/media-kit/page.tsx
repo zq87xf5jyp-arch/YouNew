@@ -176,12 +176,12 @@ export default function MediaKitPage() {
       <section className="business-section section-shell" aria-labelledby="media-kit-data">
         <div className="section-intro">
           <p className="section-label orange">Data handling now</p>
-          <h2 id="media-kit-data">A browser-to-email inquiry, not a hidden submission</h2>
+          <h2 id="media-kit-data">A validated inquiry with a confirmed receipt</h2>
         </div>
         <div className="media-kit-data-grid">
-          <article><LockKeyhole aria-hidden /><h3>Before you send</h3><p>The application is validated in your browser. YouNew receives nothing when you fill it in or press “Review and prepare email”. No file upload is offered.</p></article>
-          <article><FileCheck2 aria-hidden /><h3>When you choose to send</h3><p>The site opens a prefilled draft in your email application. Only after you review and send it do the chosen email providers and support@younew.nl receive the details.</p></article>
-          <article><ShieldCheck aria-hidden /><h3>Data minimisation</h3><p>Do not include identity documents, health information, payment details or other sensitive personal data. Inquiry data is not a purchase or blanket marketing consent.</p></article>
+          <article><LockKeyhole aria-hidden /><h3>Before submission</h3><p>The application is checked in your browser, and no file upload is offered. Pressing submit sends the listed fields to the validated YouNew endpoint.</p></article>
+          <article><FileCheck2 aria-hidden /><h3>Confirmed receipt</h3><p>The server validates the request again and returns a reference only after storage succeeds. Approved administrators review the protected queue.</p></article>
+          <article><ShieldCheck aria-hidden /><h3>Safe failure</h3><p>A failure is shown as not sent and preserves your form values. The optional email fallback remains under your control. Do not include sensitive personal data.</p></article>
         </div>
         <p className="business-source-links">Read the <Link href="/privacy">Privacy Policy</Link>. For access, correction or deletion questions about business correspondence, email <a href="mailto:support@younew.nl">support@younew.nl</a>.</p>
       </section>
@@ -191,7 +191,7 @@ export default function MediaKitPage() {
         <h2 id="media-kit-cta">Request a reviewed quote</h2>
         <p>Describe the organization, audience, location, intended outcome and timing. YouNew will discuss suitability and scope before any commercial commitment.</p>
         <div className="hero-actions media-kit-actions">
-          <Link className="button button-primary" href="/business/apply">Prepare an inquiry</Link>
+          <Link className="button button-primary" href="/business/apply">Submit an inquiry</Link>
           <a className="button button-outline" href="mailto:support@younew.nl">support@younew.nl</a>
         </div>
       </section>

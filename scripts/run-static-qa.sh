@@ -43,6 +43,7 @@ python3 scripts/knm-static-qa.py
 python3 scripts/dutch-course-static-qa.py
 python3 scripts/user-visible-completeness-static-qa.py
 python3 scripts/public-site-static-qa.py
+python3 scripts/admin-production-static-qa.py
 python3 scripts/generate-media-attributions-swift.py --check
 python3 scripts/generate-asset-rights-ledger.py --check
 python3 scripts/asset-rights-gate.py

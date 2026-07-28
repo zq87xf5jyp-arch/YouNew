@@ -28,7 +28,7 @@ export function relatedForEntity(entity: ContentEntity, limit = 6): ContentEntit
 }
 
 export const listingCopy: Record<ContentEntityType, { title: string; description: string }> = {
-  city: { title: "Published cities", description: "Governed city records released through the same production content artifact used by the iOS app." },
+  city: { title: "Published cities", description: "Published city pages prepared from the same checked content used by the iOS app." },
   guide: { title: "Source-backed guides", description: "Published municipal and housing starting points with a clear source trail and next-step context." },
   organization: { title: "Organizations", description: "Healthcare, education and local service organizations from the published source-checked dataset." },
   place: { title: "Places", description: "Published places, stations, museums, parks, restaurants and events currently concentrated in Amsterdam." }

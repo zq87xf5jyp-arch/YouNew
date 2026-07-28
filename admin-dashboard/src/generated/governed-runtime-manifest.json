@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "source": "YouNew/Resources/Data/younew-runtime-data.json",
+  "generatedAt": "2026-07-27T00:00:00Z",
+  "datasetFingerprint": "0997fa89245b53f6d53f59c5f5544a34cd29a8632047bbe25b09a9389c7261cc",
+  "outputChecksum": "fa1d1204126954961f191dbb114db50d72ddeb21c93d426b29e82093eea00334",
+  "sourceSha256": "45e77f10115a409b12ad8b1c78675cfa91fa7d0fa36f5d742afbbba901591784",
+  "entityCount": 186,
+  "publishedReleaseIds": [
+    "amsterdam-v0.1.3",
+    "cities-v0.1.0"
+  ]
+}

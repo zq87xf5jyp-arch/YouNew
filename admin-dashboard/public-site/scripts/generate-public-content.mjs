@@ -207,7 +207,7 @@ const searchableUtilityPages = Object.freeze([
     slug: "journeys",
     route: "/journeys",
     title: "Practical journeys",
-    summary: "Follow released source-backed guide paths and keep progress locally in this browser.",
+    summary: "Follow published source-backed guide paths and keep progress locally in this browser.",
     keywords: ["journey", "checklist", "new in the Netherlands", "student", "housing"],
     synonyms: ["getting started path", "newcomer checklist"],
     terminology: ["journey", "reading progress"],
@@ -221,7 +221,7 @@ const searchableUtilityPages = Object.freeze([
     slug: "map",
     route: "/map",
     title: "Published coverage map",
-    summary: "Browse released YouNew cities, places and organizations by coordinate and accessible list.",
+    summary: "Browse published YouNew cities, places and organizations by coordinate and accessible list.",
     keywords: ["map", "cities", "places", "organizations", "Netherlands"],
     synonyms: ["YouNew map", "nearby published places"],
     terminology: ["coverage map"],
@@ -239,6 +239,23 @@ function cleanText(value, maximumLength = 2_000) {
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, maximumLength);
+}
+
+function publicCopy(value, maximumLength = 2_000) {
+  return cleanText(value, maximumLength)
+    .replace(
+      /This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours\./gi,
+      "YouNew links to the checked source without copying changeable prices, ratings, reviews or opening hours."
+    )
+    .replace(/\bgoverned records?\b/gi, "published items")
+    .replace(/\bgoverned entr(?:y|ies)\b/gi, "published pages")
+    .replace(/\bproduction artifacts?\b/gi, "published website data")
+    .replace(/\bruntime entit(?:y|ies)\b/gi, "published items")
+    .replace(/\binternal schema\b/gi, "data format")
+    .replace(/\breleased records?\b/gi, "published items")
+    .replace(/\bimmutable batches?\b/gi, "versioned updates")
+    .replace(/\bQA fixtures?\b/gi, "test samples")
+    .replace(/\bsource_entity_ids?\b/gi, "source references");
 }
 
 function cleanIdentifier(value) {
@@ -404,7 +421,7 @@ function sanitizeEntity(entity, slug) {
   const sourceKind = cleanIdentifier(entity.kind);
   const type = entityTypeFor(sourceKind);
   const title = cleanText(entity.title, 180);
-  const summary = cleanText(entity.summary, 800);
+  const summary = publicCopy(entity.summary, 800);
   const narrowCategory = slugify(entity.category);
   const broadCategorySlug = categoryFor(entity);
   const cityId = slugify(entity.cityId);

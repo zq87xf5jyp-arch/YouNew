@@ -86,6 +86,7 @@ assert.match(headers, /ErrorDocument 404 \/404\.html/);
 const csp = headers.match(/Content-Security-Policy "([^"]+)"/)?.[1];
 assert.ok(csp, "CSP is missing");
 for (const directive of ["default-src 'self'", "base-uri 'self'", "form-action 'self' mailto:", "frame-ancestors 'none'", "object-src 'none'", "script-src 'self'", "connect-src 'self'"]) assert.match(csp, new RegExp(directive.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+assert.match(csp, /https:\/\/pgdzdxsiagfjioxwuqxf\.supabase\.co/);
 
 const authoredExtensions = new Set([".html", ".json", ".xml", ".css", ".txt", ".webmanifest", ".htaccess"]);
 const localUrlPattern = /(?:https?:\/\/(?:localhost|127(?:\.\d{1,3}){3}|\[::1\])(?::\d+)?|file:\/{2,}|\/Users\/[A-Za-z0-9._-]+\/|\/home\/[A-Za-z0-9._-]+\/|[A-Za-z]:\\Users\\)/i;

@@ -19,13 +19,22 @@ export type StatusSnapshot = {
     summary: string;
   };
   ios: {
-    status: "unconfirmed";
+    status: "available";
     label: string;
-    publicVersion: string | null;
+    publicVersion: string;
     testedVersion: string;
     testedBuild: string;
+    appStoreId: string;
+    appStoreUrl: string;
+    releasedAt: string;
     summary: string;
   };
+  operations?: Array<{
+    id: "supabase" | "business-inquiries" | "admin-sync";
+    status: "operational" | "pending";
+    label: string;
+    summary: string;
+  }>;
   limitations: string[];
   webAlternatives: Array<{
     label: string;
@@ -92,13 +101,13 @@ export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
         <article className="status-card">
           <div className="status-card-heading">
             <h2>{current.ios.label}</h2>
-            <span className={`status-pill status-${current.ios.status}`}>not confirmed</span>
+            <span className={`status-pill status-${current.ios.status}`}>{current.ios.status}</span>
           </div>
           <p>{current.ios.summary}</p>
           <dl className="status-release-details">
             <div>
               <dt>Public version</dt>
-              <dd>{current.ios.publicVersion ?? "Not confirmed"}</dd>
+              <dd>{current.ios.publicVersion}</dd>
             </div>
             <div>
               <dt>Locally tested version</dt>
@@ -107,7 +116,17 @@ export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
               </dd>
             </div>
           </dl>
+          <p><a href={current.ios.appStoreUrl} rel="noreferrer" target="_blank">Open App Store listing</a></p>
         </article>
+        {(current.operations ?? []).map((operation) => (
+          <article className="status-card" key={operation.id}>
+            <div className="status-card-heading">
+              <h2>{operation.label}</h2>
+              <span className={`status-pill status-${operation.status}`}>{operation.status}</span>
+            </div>
+            <p>{operation.summary}</p>
+          </article>
+        ))}
       </section>
 
       <section className="status-section" aria-labelledby="status-limitations">
@@ -120,10 +139,16 @@ export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
       </section>
 
       <section className="status-section" aria-labelledby="status-alternatives">
-        <h2 id="status-alternatives">Available web alternatives</h2>
+        <h2 id="status-alternatives">Available access options</h2>
         <div className="status-alternatives">
           {current.webAlternatives.map((alternative) => (
-            <a className="status-alternative" href={alternative.href} key={alternative.href}>
+            <a
+              className="status-alternative"
+              href={alternative.href}
+              key={alternative.href}
+              rel={alternative.href.startsWith("http") ? "noreferrer" : undefined}
+              target={alternative.href.startsWith("http") ? "_blank" : undefined}
+            >
               <strong>{alternative.label}</strong>
               <span>{alternative.summary}</span>
             </a>

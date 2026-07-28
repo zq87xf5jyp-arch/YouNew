@@ -33,7 +33,7 @@ export interface CoverageMapCluster {
 
 export const coverageMapViewport = {
   width: 720,
-  height: 760,
+  height: 560,
   padding: 44
 } as const;
 

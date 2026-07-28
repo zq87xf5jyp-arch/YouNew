@@ -3,7 +3,7 @@ import { PageShell } from "@/components/page-shell";
 import { PartnerApplicationForm } from "@/components/partner-application-form";
 import { metadataForPage } from "@/lib/seo/metadata";
 
-export const metadata = metadataForPage("Business inquiry", "Prepare a partnership, advertising or request-for-quote inquiry for YouNew using a transparent email handoff.", "/business/apply");
+export const metadata = metadataForPage("Business inquiry", "Submit a partnership, advertising or request-for-quote inquiry to YouNew through a validated secure form.", "/business/apply");
 
 export default function BusinessApplyPage() {
   return (
@@ -18,7 +18,7 @@ export default function BusinessApplyPage() {
       <section className="business-application-section section-shell" aria-labelledby="application-form-title">
         <div className="business-application-intro">
           <h2 id="application-form-title">Inquiry details</h2>
-          <p>This static website has no secure upload or form backend. It will validate the fields in your browser and prepare a prefilled email; nothing is submitted automatically.</p>
+          <p>The form validates the fields in your browser and again on the server. A successful submission returns a reference code that you can keep for follow-up.</p>
           <p>Logo and image upload is intentionally unavailable. If the inquiry proceeds, support will explain a safe way to provide approved media.</p>
         </div>
         <PartnerApplicationForm />

@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { Building2, ExternalLink, MapPin, Navigation, RotateCcw, ShieldCheck } from "lucide-react";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   clusterCoverageMapItems,
   coverageMapViewport,
@@ -29,7 +29,7 @@ function markerType(cluster: CoverageMapCluster): CoverageMapEntityType | "mixed
 
 function clusterLabel(cluster: CoverageMapCluster): string {
   if (cluster.items.length === 1) return `${cluster.items[0].title}, ${typeLabels[cluster.items[0].type]}`;
-  return `${cluster.items.length} released items at nearby or identical coordinates`;
+  return `${cluster.items.length} published items at nearby or identical coordinates`;
 }
 
 function ItemIcon({ type }: { type: CoverageMapEntityType }) {
@@ -41,6 +41,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
   const [filters, setFilters] = useState<CoverageMapFilters>(initialFilters);
   const [queryReady, setQueryReady] = useState(false);
   const [activeClusterId, setActiveClusterId] = useState<string | null>(null);
+  const selectionRef = useRef<HTMLElement>(null);
 
   const options = useMemo(() => ({
     cities: [...new Set(items.map((item) => item.cityId).filter((value): value is string => Boolean(value)))].sort(),
@@ -80,6 +81,9 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
   const clusters = useMemo(() => clusterCoverageMapItems(filteredItems, bounds), [bounds, filteredItems]);
   const activeCluster = clusters.find((cluster) => cluster.id === activeClusterId) ?? null;
   const hasFilters = filters.city !== "all" || filters.category !== "all" || filters.type !== "all";
+  const plotEdgeInset = 24;
+  const plotBottom = coverageMapViewport.height - plotEdgeInset;
+  const plotMiddle = coverageMapViewport.height / 2;
 
   function updateFilter<Key extends keyof CoverageMapFilters>(key: Key, value: CoverageMapFilters[Key]) {
     setFilters((current) => ({ ...current, [key]: value }));
@@ -87,19 +91,22 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
 
   function activateCluster(cluster: CoverageMapCluster) {
     setActiveClusterId(cluster.id);
+    if (window.matchMedia("(max-width: 820px)").matches) {
+      requestAnimationFrame(() => selectionRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    }
   }
 
   return (
     <div className="coverage-map-experience">
       <form className="coverage-map-filters" onSubmit={(event) => event.preventDefault()} aria-label="Map filters">
         <div>
-          <strong>Filter released coverage</strong>
+          <strong>Filter published coverage</strong>
           <span>Selections are kept in the page URL.</span>
         </div>
         <label>
           City
           <select disabled={!queryReady} value={filters.city} onChange={(event) => updateFilter("city", event.target.value)}>
-            <option value="all">All released cities</option>
+            <option value="all">All published cities</option>
             {options.cities.map((city) => <option value={city} key={city}>{humanizeMapSlug(city)}</option>)}
           </select>
         </label>
@@ -115,15 +122,25 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
         <label>
           Category
           <select disabled={!queryReady} value={filters.category} onChange={(event) => updateFilter("category", event.target.value)}>
-            <option value="all">All released categories</option>
+            <option value="all">All published categories</option>
             {options.categories.map((category) => <option value={category} key={category}>{humanizeMapSlug(category)}</option>)}
           </select>
         </label>
         <button className="coverage-map-reset" type="button" disabled={!queryReady || !hasFilters} onClick={() => setFilters(initialFilters)}>
           <RotateCcw aria-hidden /> Reset
         </button>
-        <noscript><p className="coverage-map-noscript">Map filters and marker previews require JavaScript. The complete released-content list remains available below.</p></noscript>
+        <noscript><p className="coverage-map-noscript">Map filters and marker previews require JavaScript. The complete published-content list remains available below.</p></noscript>
       </form>
+
+      <aside className="coverage-map-business-bridge" aria-label="YouNew Business">
+        <Building2 aria-hidden />
+        <div>
+          <strong>Represent a local organization or business?</strong>
+          <span>Review YouNew&apos;s publication boundaries, available partnership formats and inquiry process.</span>
+        </div>
+        <Link href="/business">Business options</Link>
+        <Link href="/business/apply">Start an inquiry <ExternalLink aria-hidden /></Link>
+      </aside>
 
       <div className="coverage-map-layout">
         <section className="coverage-map-canvas" aria-labelledby="coverage-map-title">
@@ -142,19 +159,19 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
               aria-roledescription="coordinate map"
               aria-labelledby="coverage-map-svg-title coverage-map-svg-description"
             >
-              <title id="coverage-map-svg-title">Released YouNew city, place and organization coordinates</title>
-              <desc id="coverage-map-svg-description">Select a marker to preview its released records. Nearby and identical coordinates are grouped.</desc>
-              <rect className="coverage-map-water" x="1" y="1" width="718" height="758" rx="28" />
+              <title id="coverage-map-svg-title">Published YouNew city, place and organization coordinates</title>
+              <desc id="coverage-map-svg-description">Select a marker to preview its published items. Nearby and identical coordinates are grouped.</desc>
+              <rect className="coverage-map-water" x="1" y="1" width={coverageMapViewport.width - 2} height={coverageMapViewport.height - 2} rx="28" />
               {[1, 2, 3, 4].map((line) => (
                 <g className="coverage-map-gridline" key={line} aria-hidden>
-                  <line x1={line * 144} x2={line * 144} y1="24" y2="736" />
-                  <line x1="24" x2="696" y1={line * 152} y2={line * 152} />
+                  <line x1={line * (coverageMapViewport.width / 5)} x2={line * (coverageMapViewport.width / 5)} y1={plotEdgeInset} y2={plotBottom} />
+                  <line x1={plotEdgeInset} x2={coverageMapViewport.width - plotEdgeInset} y1={line * (coverageMapViewport.height / 5)} y2={line * (coverageMapViewport.height / 5)} />
                 </g>
               ))}
-              <text className="coverage-map-direction" x="360" y="30" textAnchor="middle">N</text>
-              <text className="coverage-map-direction" x="360" y="744" textAnchor="middle">S</text>
-              <text className="coverage-map-direction" x="25" y="382" textAnchor="middle">W</text>
-              <text className="coverage-map-direction" x="695" y="382" textAnchor="middle">E</text>
+              <text className="coverage-map-direction" x={coverageMapViewport.width / 2} y="30" textAnchor="middle">N</text>
+              <text className="coverage-map-direction" x={coverageMapViewport.width / 2} y={coverageMapViewport.height - 16} textAnchor="middle">S</text>
+              <text className="coverage-map-direction" x="25" y={plotMiddle} textAnchor="middle">W</text>
+              <text className="coverage-map-direction" x={coverageMapViewport.width - 25} y={plotMiddle} textAnchor="middle">E</text>
               {clusters.map((cluster) => {
                 const count = cluster.items.length;
                 const type = markerType(cluster);
@@ -166,6 +183,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
                     role={queryReady ? "button" : undefined}
                     tabIndex={queryReady ? 0 : undefined}
                     aria-label={clusterLabel(cluster)}
+                    aria-controls="map-selection"
                     aria-pressed={queryReady ? isActive : undefined}
                     onClick={() => activateCluster(cluster)}
                     onKeyDown={(event) => {
@@ -184,7 +202,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
               })}
             </svg>
           ) : (
-            <div className="coverage-map-empty"><MapPin aria-hidden /><p>No released records match these filters.</p></div>
+            <div className="coverage-map-empty"><MapPin aria-hidden /><p>No published items match these filters.</p></div>
           )}
           <div className="coverage-map-legend" aria-label="Map legend">
             <span><i className="legend-city" /> City</span>
@@ -192,10 +210,10 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
             <span><i className="legend-place" /> Place</span>
             <span><i className="legend-cluster" /> Grouped point</span>
           </div>
-          <p className="coverage-map-method">Markers use coordinates from the released YouNew dataset. The empty areas reflect current content coverage; they do not mean services or places are absent.</p>
+          <p className="coverage-map-method">Markers use coordinates from published YouNew content. The empty areas reflect current content coverage; they do not mean services or places are absent.</p>
         </section>
 
-        <aside className="coverage-map-selection" id="map-selection" aria-live="polite">
+        <aside className="coverage-map-selection" id="map-selection" ref={selectionRef} aria-live="polite">
           {activeCluster ? (
             <>
               <p className="coverage-map-selection-label">Selected point</p>
@@ -225,7 +243,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
 
       <section className="coverage-map-results" id="map-results" aria-labelledby="map-results-title">
         <div className="coverage-map-results-heading">
-          <div><h2 id="map-results-title">Released content list</h2><p>Every visible record has a released detail page and a source-check date.</p></div>
+          <div><h2 id="map-results-title">Published content list</h2><p>Every visible item has a published detail page and a source-check date.</p></div>
           <strong>{filteredItems.length} result{filteredItems.length === 1 ? "" : "s"}</strong>
         </div>
         {filteredItems.length ? (
@@ -245,7 +263,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
             ))}
           </ol>
         ) : (
-          <div className="coverage-map-empty"><MapPin aria-hidden /><p>No released records match these filters.</p><button className="button button-outline" type="button" onClick={() => setFilters(initialFilters)}>Clear filters</button></div>
+          <div className="coverage-map-empty"><MapPin aria-hidden /><p>No published items match these filters.</p><button className="button button-outline" type="button" onClick={() => setFilters(initialFilters)}>Clear filters</button></div>
         )}
       </section>
     </div>

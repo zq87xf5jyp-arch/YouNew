@@ -1,13 +1,25 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
+  "appStore": {
+    "available": true,
+    "id": "6782617312",
+    "url": "https://apps.apple.com/app/id6782617312",
+    "version": "1.1",
+    "releasedAt": "2026-07-23",
+    "minimumOS": "iOS 17.6 or later",
+    "label": "Download on the App Store"
+  },
   "statusBanner": {
-    "enabled": true,
-    "id": "ios-public-distribution-unconfirmed-2026-07",
+    "enabled": false,
+    "id": "ios-app-store-live-2026-07",
     "tone": "information",
-    "message": "Public iOS download availability has not been confirmed. You can use YouNew on the web in the meantime.",
+    "message": "YouNew 1.1 is available on the App Store.",
     "action": {
-      "label": "View status",
-      "href": "/status/"
+      "label": "Download",
+      "href": "https://apps.apple.com/app/id6782617312"
     }
+  },
+  "businessApplications": {
+    "endpoint": "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/business-inquiry"
   }
 }

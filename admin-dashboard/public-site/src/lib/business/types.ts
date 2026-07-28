@@ -76,9 +76,20 @@ export interface PreparedBusinessApplication {
   readonly recipient: "support@younew.nl";
 }
 
+export interface SubmittedBusinessApplication {
+  readonly kind: "server-receipt";
+  readonly sent: true;
+  readonly reference: string;
+  readonly message: string;
+}
+
+export type BusinessApplicationSubmission =
+  | PreparedBusinessApplication
+  | SubmittedBusinessApplication;
+
 export interface PartnerApplicationRepository {
   readonly delivery: "mailto" | "api";
-  submit(input: BusinessApplicationInput): Promise<PreparedBusinessApplication>;
+  submit(input: BusinessApplicationInput): Promise<BusinessApplicationSubmission>;
 }
 
 export type SponsoredPlacementStatus = "draft" | "review" | "active" | "paused" | "expired" | "archived";

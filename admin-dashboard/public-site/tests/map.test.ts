@@ -6,6 +6,7 @@ const siteRoot = new URL("../", import.meta.url);
 const content = JSON.parse(await readFile(new URL("src/generated/public-content.json", siteRoot), "utf8"));
 const mapModule = await import(new URL("src/lib/map/coverage.ts", siteRoot).href) as {
   clusterCoverageMapItems: (items: MapFixture[], bounds: MapBounds, collisionDistance?: number) => Array<{ id: string; items: MapFixture[] }>;
+  coverageMapViewport: { width: number; height: number; padding: number };
   filterCoverageMapItems: (items: MapFixture[], filters: { city: string; category: string; type: string }) => MapFixture[];
   getCoverageMapBounds: (items: MapFixture[], focused: boolean) => MapBounds;
   netherlandsCoverageBounds: MapBounds;
@@ -93,6 +94,7 @@ test("identical coordinates are grouped deterministically", () => {
 });
 
 test("the default view uses the fixed national extent and the focused view fits local results", () => {
+  assert.ok(mapModule.coverageMapViewport.width > mapModule.coverageMapViewport.height, "The coverage plot should stay compact on mobile.");
   assert.deepEqual(mapModule.getCoverageMapBounds(mapItems, false), mapModule.netherlandsCoverageBounds);
   const local = [fixture("one", 52.36, 4.89), fixture("two", 52.38, 4.92)];
   const focused = mapModule.getCoverageMapBounds(local, true);
@@ -104,7 +106,7 @@ test("map implementation is dependency-free, has a no-JavaScript list and print 
   const component = await readFile(new URL("src/components/coverage-map.tsx", siteRoot), "utf8");
   const styles = await readFile(new URL("src/app/globals.css", siteRoot), "utf8");
   assert.match(component, /<noscript>/);
-  assert.match(component, /complete released-content list/i);
+  assert.match(component, /complete published-content list/i);
   assert.match(component, /id="map-results"/);
   assert.doesNotMatch(component, /fetch\(|navigator\.geolocation|maplibre|leaflet|openstreetmap/i);
   assert.match(styles, /@media print[\s\S]*\.coverage-map-layout/);

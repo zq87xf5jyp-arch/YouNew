@@ -33,6 +33,8 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Iterable
 
+from effective_release import effective_release_heads, resolve_release
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PROJECT = ROOT / "DataProject"
@@ -197,6 +199,20 @@ def load_records() -> list[RecordEnvelope]:
 
 def release_catalog() -> dict[str, dict[str, Any]]:
     return {item["id"]: item for item in read_json(RELEASES_PATH).get("releases", [])}
+
+
+def effective_published_record_ids() -> list[str]:
+    """Return the same fail-closed record set used by the production importer."""
+    record_ids: list[str] = []
+    for release_id in effective_release_heads(DATA_PROJECT, statuses=("published",)):
+        effective = resolve_release(DATA_PROJECT, release_id)
+        record_ids.extend(
+            str(record["id"])
+            for record in effective.records
+            if record.get("lifecycle_status") == "published"
+            and record.get("verification_status") == "verified"
+        )
+    return record_ids
 
 
 def is_effectively_published(envelope: RecordEnvelope, releases: dict[str, dict[str, Any]]) -> bool:
@@ -729,7 +745,7 @@ def build_report(as_of: date) -> dict[str, Any]:
     public_entities = public_content.get("entities", [])
     runtime_ids = [str(item.get("id")) for item in runtime_entities]
     public_ids = [str(item.get("id")) for item in public_entities]
-    effective_ids = [str(envelope.record.get("id")) for envelope in effective]
+    effective_ids = effective_published_record_ids()
     public_guides = [item for item in public_entities if item.get("type") == "guide"]
     public_full_guides = [item for item in public_guides if item.get("contentDepth") == "practical"]
     public_summary_guides = [item for item in public_guides if item.get("contentDepth") == "summary"]

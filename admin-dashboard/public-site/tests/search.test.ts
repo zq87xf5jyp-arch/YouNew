@@ -169,7 +169,7 @@ test("requested quality queries find an honest released destination or a documen
     assert.equal(results[0]?.document.id, expectedId, `${query}: ${results.map(({ document }) => document.id).join(", ")}`);
   }
 
-  for (const query of ["Lost residence card", "DigiD", "Work contract"]) {
+  for (const query of ["Lost residence card", "Residence permit", "DigiD", "Work contract"]) {
     assert.deepEqual(
       rankModule.rankSearchDocuments(index.documents, query, { limit: 5 }),
       [],
