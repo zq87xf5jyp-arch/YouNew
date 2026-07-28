@@ -4,9 +4,14 @@
 
 The production migration, release Edge Functions, Admin deployment and public
 Hostinger artifact are live. Public Business and Feedback UI submissions are
-persisting in PostgreSQL. Authenticated Admin and sync E2E remain pending until
-an approved owner completes the interactive login at
-`https://admin.younew.nl/login`.
+persisting in PostgreSQL. An approved owner completed the interactive login and
+the authenticated Business, Feedback and candidate-sync paths were exercised.
+
+Business and Feedback are operational end to end. The sync control plane also
+completed successfully. The candidate contained zero records because production
+has no database articles in `published` status, and it was correctly not
+activated. Production is live with a conditional GO because the desktop
+performance gate remains unmet, not because of an E2E functional failure.
 
 ## Production changes
 
@@ -17,8 +22,8 @@ an approved owner completes the interactive login at
 | Storage/advisor hardening | PASS | `20260728200449 harden_content_image_listing_and_fk_indexes` applied once |
 | Business Edge Function | PASS | `submit-business-inquiry`, version 1, `ACTIVE`, intentional public JWT setting with Origin/CORS, validation, honeypot and rate limiting |
 | Feedback Edge Function | PASS | `submit-public-feedback`, version 1, `ACTIVE`, intentional public JWT setting with Origin/CORS, validation, honeypot and rate limiting |
-| Sync Edge Function | PASS for deployment and unauthenticated rejection | `prepare-content-sync`, version 1, `ACTIVE`, JWT required; unauthenticated request returned 401 |
-| Admin deployment | PASS for deployment and route protection | Hostinger deployment completed at 2026-07-28 21:37 CEST; `/login` returns 200 and protected `/business`, `/feedback` and `/sync` redirect unauthenticated users to `/login` |
+| Sync Edge Function | PASS for deployment, authorization and candidate execution | `prepare-content-sync`, version 1, `ACTIVE`, JWT required; unauthenticated request returned 401; approved owner candidate job completed `succeeded` |
+| Admin deployment | PASS | Hostinger deployment completed at 2026-07-28 21:37 CEST; protected routes redirect unauthenticated users; approved owner authenticated and exercised Business, Feedback and Sync |
 | Public deployment | PASS | Hostinger `public_html` switched at approximately 2026-07-28 21:58 CEST |
 
 ## Public production verification
@@ -55,8 +60,52 @@ Public UI checks after the Hostinger switch:
 - Feedback: `YNF-8F796EB8827E`
 
 The UI markers and receipts were verified against the production tables.
-These records remain marked `new` until authenticated Admin E2E verifies
-visibility and moves the controlled records out of the operational queue.
+Authenticated Admin displayed all five controlled records.
+
+- All three Business records were changed from `new` to `test` through the
+  production Admin server action. Each update is attributed to the approved
+  owner and has a corresponding `business_inquiry_updated` audit row.
+- The two Feedback records were changed from `new` to `resolved`, with an E2E
+  resolution note and the approved owner recorded in `resolved_by`. The current
+  Feedback screen is read-only, so this controlled cleanup used the production
+  database operation after Admin visibility was verified.
+
+## Authenticated candidate-sync E2E
+
+The approved owner ran exactly one `Подготовить candidate-артефакт` action.
+The action is candidate-only and does not permit production replacement.
+
+| Object | Result |
+|---|---|
+| Sync job | `55314d7c-cb73-42de-b9fc-a4c06cc010bf` |
+| Job status | `succeeded`; initiator attributed; no error summary |
+| Candidate artifact | `522c709e-6af5-4eb1-ae8f-b51adcc2f9be` |
+| Candidate fingerprint | `5f77a0ca28aed6d932200e71d13d1d3b2ed258afe74602040c25af4f6314bba4` |
+| Candidate state | `candidate`, never activated |
+| Candidate records | `0` |
+
+The successful job proves the authenticated Admin action, role check, RPC,
+JWT-protected Edge Function and artifact write path. The zero-record result is
+expected: the candidate contract includes only database articles with
+`status = 'published'`, while production currently has one `draft`, two
+`review`, and zero `published` articles.
+
+The Admin summary count of 186 and the six `content_sync_state` rows totalling
+299 describe separate governed/runtime projections, not the database-article
+candidate. The `resources` runtime state remains `needs review`, but it is not
+silently activated or overwritten by this candidate workflow.
+
+## Backup and temporary database access
+
+- Custom-format PostgreSQL dump:
+  `/Users/ivan/Library/Application Support/YouNew/backups/younew-pgdzdxsiagfjioxwuqxf-20260728T113724Z.dump`
+- File mode: `0600`; size: 306,563 bytes.
+- `pg_restore --list`: PASS with 564 catalog entries.
+- SHA-256:
+  `1156df801833aed5c0d16aabc5843b79f9bcb664edebf968bcc12d7b9af744f7`.
+- The temporary PAT and read-only access rule were deleted after verification;
+  a repeat connection attempt was rejected.
+- Supabase Temporary access remains enabled with zero active rules.
 
 ## Supabase security and storage
 
@@ -100,12 +149,17 @@ desktop Performance gate of at least 90 is not met in this execution
 environment. The live-origin standard score is also not measurable while the
 Hostinger bot policy returns 403 to Lighthouse.
 
-## Pending release closure
+## Release decision and remaining closure
 
-1. Complete interactive login with an existing approved owner.
-2. Verify Business and Feedback records in Admin and move the controlled E2E
-   records out of the live queue.
-3. Run authenticated sync candidate preparation and verify the resulting
-   `sync_jobs`/artifact state and logs without activating unreviewed content.
-4. Record the final GO/conditional-GO decision with the remaining desktop
-   performance evidence gap.
+Decision: **CONDITIONAL GO for the live public site, Business, Feedback, Admin
+and authenticated sync control plane.** The zero-record candidate remains
+inactive as expected.
+
+1. Publish a reviewed database article before expecting a non-empty article
+   candidate; keep activation manual.
+2. Review the separately governed `resources` dataset, which remains marked
+   `needs review`.
+3. Meet the standard desktop Lighthouse Performance gate of at least 90 or
+   explicitly accept the measured 65–66 result as a release exception.
+4. Supabase Free leaked-password protection and managed-backup limitations
+   remain explicitly accepted risks.
