@@ -36,21 +36,20 @@ Do not reset the database password merely to create a backup; the Dashboard conf
 
 ## Supabase release
 
-Use the reviewed Supabase CLI version and project ref:
+First inspect the current remote migration history with the reviewed Supabase CLI version and project ref:
 
 ```bash
 cd admin-dashboard
 pnpm dlx supabase@2.109.1 link --project-ref pgdzdxsiagfjioxwuqxf
-pnpm dlx supabase@2.109.1 db push --dry-run
+pnpm dlx supabase@2.109.1 migration list --linked
 ```
 
-Review the dry-run against `supabase/migrations/20260728075522_younew_production_operations.sql`. Stop on unexpected destructive SQL or drift.
+The connected project currently contains remote migrations through `20260728173737` that are not present as local files in this release worktree. Do not use `db push`, `migration repair` or `--include-all` to bypass that drift. After `GO LIVE`, apply only the reviewed `supabase/migrations/20260728075522_younew_production_operations.sql` through the connected Supabase migration action, record the generated production migration version, and then verify it appears exactly once. The file is designed to extend the deployed business table in place. Stop on any different remote history or destructive diff.
 
 Create independent random salts of at least 32 bytes in the secure secret manager, then set them without printing their values:
 
 ```bash
 pnpm dlx supabase@2.109.1 secrets set BUSINESS_INQUIRY_RATE_LIMIT_SALT PUBLIC_FEEDBACK_RATE_LIMIT_SALT --project-ref pgdzdxsiagfjioxwuqxf
-pnpm dlx supabase@2.109.1 db push
 pnpm dlx supabase@2.109.1 functions deploy submit-business-inquiry --project-ref pgdzdxsiagfjioxwuqxf
 pnpm dlx supabase@2.109.1 functions deploy submit-public-feedback --project-ref pgdzdxsiagfjioxwuqxf
 pnpm dlx supabase@2.109.1 functions deploy prepare-content-sync --project-ref pgdzdxsiagfjioxwuqxf

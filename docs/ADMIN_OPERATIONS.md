@@ -52,10 +52,10 @@ Role checks exist in both the Next.js application and database/function layer. U
 
 ## Current release limitations
 
-- The release migration and Edge Functions are not deployed.
+- The release migration and its three Edge Functions are not deployed; production has a separate `analytics-ingest` function.
 - Authenticated production Admin E2E is not complete.
-- Two approved owner profiles exist, but permitted E2E credentials were not supplied.
-- `admin.younew.nl` has no resolvable DNS record and no alternative Admin production URL is documented.
+- Interactive E2E with an existing approved owner is authorized, but has not been executed.
+- `admin.younew.nl` is the approved Admin URL but has no resolvable DNS record.
 - Leaked-password protection and managed project backups are unavailable on the current Free plan. The owner accepted these limitations on 2026-07-28.
 - The accepted Free-plan risk does not replace a fresh off-site manual Postgres dump.
 - Until an upgrade, use strong unique owner/admin passwords, MFA, minimal approved accounts and authentication-log review as compensating controls.

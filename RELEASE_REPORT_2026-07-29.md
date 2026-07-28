@@ -4,9 +4,9 @@ Prepared on 2026-07-28, Europe/Amsterdam
 
 ## 1. Executive summary
 
-A local release candidate was implemented across the public/business site, Admin Dashboard, DataProject projections and Supabase contracts. The candidate adds real server-backed form contracts, protected operational Admin flows, deterministic content-sync candidates, immutable retirement of two expired events, release runbooks and browser/package QA.
+A local release candidate was implemented across the public/business site, Admin Dashboard, DataProject projections and Supabase contracts. The candidate adds real server-backed form contracts, protected operational Admin flows, deterministic content-sync candidates, immutable retirement of two expired events, release runbooks and browser/package QA. A subsequent P0 correction prevents a saved audience profile from hiding an exact BSN result and reconciles the candidate with the business schema that appeared in production after the first report.
 
-Production application code, schema and data were not modified. SSL enforcement was enabled with the authorized brief database restart, after which the project returned `ACTIVE_HEALTHY`. Fresh Hostinger and custom-format PostgreSQL backups now exist. The owner accepted the documented Supabase Free-plan security/backup limitations on 2026-07-28. A clean local release branch contains isolated commits with no push. The release remains **NO-GO** because the Supabase migration/functions are not deployed and authenticated Admin/sync E2E are absent.
+This P0 continuation did not modify production application code, schema or data. The connected project had changed separately since the first report: a base business table, analytics migrations and `analytics-ingest` are now present. SSL enforcement was enabled with the authorized brief database restart, after which the project returned `ACTIVE_HEALTHY`. Fresh Hostinger and custom-format PostgreSQL backups now exist. The owner accepted the documented Supabase Free-plan security/backup limitations on 2026-07-28. A clean local release branch contains isolated commits with no push. The release remains **NO-GO** because the release migration/functions are not deployed and authenticated Admin/sync E2E are absent.
 
 ## 2. GO / NO-GO
 
@@ -95,7 +95,7 @@ Verification:
 
 - ESLint PASS;
 - TypeScript PASS;
-- 8/8 tests PASS;
+- 9/9 tests PASS;
 - Next production build PASS with 31 routes/pages;
 - the current Hostinger Business plan exposes an unused Web App slot and supports Next.js with Node 24, matching the Admin package engine;
 - `admin.younew.nl` is the owner-approved production URL but has not been provisioned;
@@ -106,8 +106,8 @@ Verification:
 Local migration:
 
 - `admin-dashboard/supabase/migrations/20260728075522_younew_production_operations.sql`;
-- 97 PostgreSQL statements;
-- SHA-256 `c5c055676cd3cad86a63116ad809f9bc609927829fc82ccb6eb77439840ff69b`.
+- 111 PostgreSQL statements;
+- SHA-256 `af35cc6f128795fcb36ccacbb19c9db85c78ac325e03f7b239b3378de6951165`.
 
 It adds or hardens:
 
@@ -118,14 +118,17 @@ It adds or hardens:
 - expanded sync-job lifecycle/idempotency;
 - published content artifacts;
 - authenticated sync request RPC;
-- RLS, grants, function search paths and default privilege revocation.
+- RLS, grants, private authorization functions, fixed function search paths and full opt-in default privilege revocation.
+
+The P0 migration is forward-compatible with the deployed business table: it uses `create table if not exists`, adds only missing fields, retains the production column/status contract, keeps rate-limit data in `private`, replaces conflicting policies/triggers deterministically and does not duplicate contact PII.
 
 Connected production facts:
 
 - project `pgdzdxsiagfjioxwuqxf`, `eu-west-1`, PostgreSQL 17.6;
 - current project plan: Free;
-- existing production migrations stop at `20260727170715_add_foreign_key_indexes`;
-- deployed Edge Functions: 0;
+- production migrations now continue through `20260728173737_enforce_analytics_retention_and_production_views`;
+- the deployed `20260728152428_business_inquiries` migration created the base table and private rate-limit contract; it currently contains 0 rows;
+- deployed Edge Functions: one unrelated `analytics-ingest`; the three release functions remain absent;
 - two approved `owner` profiles exist, but no permitted E2E passwords were provided;
 - project backups are unavailable on the Free plan;
 - security advisor warning: leaked-password protection disabled; the control is Pro-only;
@@ -210,7 +213,7 @@ Admin CI now runs:
 
 - lint;
 - TypeScript;
-- 8 tests;
+- 9 tests;
 - Deno format/check for all three Edge Functions;
 - production build.
 
@@ -221,10 +224,11 @@ Release state:
 - base: `76df6ca969927687e1b3a517ac2cecec4b8130f7` (`origin/admin-dashboard-integration`);
 - release candidate: `8566a228ea703db2280e153bf57ce1cad37e99c9`;
 - iOS asset optimization: `cadf8e7f00293172e1971801419bd5f70714b3a7`;
-- the release worktree was clean after both commits and was two commits ahead of its base;
+- P0 correction: `e2d1eac2face010a48ec8412860a7281cb85c9ee`;
+- this evidence update makes the release branch six local commits ahead of its base;
 - no commit was pushed and no PR was created;
 - the original mixed worktree remains separate at HEAD `66ecc29e5026b85dcee571ad18de3250599ae27f` with 187 status entries;
-- four Admin contract test files were made trackable by narrowing `.gitignore`; the verified 8/8 Admin result now represents committed tests rather than an empty test glob.
+- four Admin contract test files were made trackable by narrowing `.gitignore`; the verified 9/9 Admin result includes a regression that binds Admin field/status names to the deployed production contract.
 
 ## 13. Browser and responsive QA
 
@@ -247,7 +251,7 @@ Across 26 key routes and six viewports:
 
 Interaction checks:
 
-- BSN search resolves to a useful published registration path;
+- BSN search preserves the exact query and resolves to a useful published registration path even when a saved `Tourist` profile is active;
 - Save → Saved → Remove works locally;
 - journey status updates and reset work locally;
 - map city/type/category filters combine and reset;
@@ -344,9 +348,9 @@ Artifact:
 - path: `release-artifacts/younew-public-2026-07-29.tar.gz`;
 - contains the contents of `out/`, including `.htaccess` and `.well-known`;
 - file count: 522;
-- size: 4,762,844 bytes;
-- archive SHA-256: `74ef1465e8657a66ee0cd4c43c4023a56e39c38ac3b2674c229c535b7f72dd8c`;
-- content fingerprint: `01a412afde506911a4395f71143636a1c09c324cad870c38d6964ac4bd117a97`.
+- size: 4,884,197 bytes;
+- archive SHA-256: `fec353bfbbec840f39a1b0e8fa463b399e1570522c0a5b8fd3859f666ef4ebc7`;
+- content fingerprint: `33bf83f90c66cac8042bafdfa051fed4c9ccc7277cda0dce5b9becca8f2d70eb`.
 
 The artifact is local only and was not uploaded.
 
@@ -398,8 +402,11 @@ Created locally without push:
 - `8566a228ea703db2280e153bf57ce1cad37e99c9` — `Prepare YouNew production release candidate`;
 - `cadf8e7f00293172e1971801419bd5f70714b3a7` — `Optimize city coat-of-arms assets for iOS builds`.
 - `59e49c077ed7a4916a67903ad76cb50ce044de99` — `Document release evidence and remaining SSL backup gate`.
+- `46b47dfa7328a93dd173bab3311ad52506d12bdf` — `Record verified production database backup`;
+- `e2d1eac2face010a48ec8412860a7281cb85c9ee` — `Fix P0 search and Supabase production drift`;
+- this evidence update is the sixth local commit.
 
-This backup evidence update is committed separately as the fourth local commit. The branch is based directly on current `origin/admin-dashboard-integration`, so the original dirty worktree did not need to be reset, stashed or committed.
+The branch is based directly on `origin/admin-dashboard-integration`, so the original dirty worktree did not need to be reset, stashed or committed.
 
 ## 21. Known limitations
 
@@ -414,7 +421,7 @@ This backup evidence update is committed separately as the fourth local commit. 
 
 ## 22. Manual owner actions
 
-1. Review the four clean local commits; authorize push/PR separately if desired.
-2. Review migration dry-run, Edge Function secrets and artifact checksums.
+1. Review the six clean local commits; authorize push/PR separately if desired.
+2. Review the production-compatible migration, remote migration history, Edge Function secrets and artifact checksums.
 3. Send the exact instruction `GO LIVE` only when the remaining deployment blockers are accepted.
 4. During deployment, provision `admin.younew.nl`, then use interactive owner sign-in for controlled business, feedback, Admin and sync E2E; record production deployment IDs and final GO/NO-GO.

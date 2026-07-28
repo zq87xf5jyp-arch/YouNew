@@ -58,6 +58,7 @@ Secrets.xcconfig
 
 # Local package/cache output
 .pnpm-store/
+/release-artifacts/
 BackendExamples/node_modules/
 admin-dashboard/*
 !admin-dashboard/.env.example
