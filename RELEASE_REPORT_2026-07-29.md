@@ -6,7 +6,7 @@ Prepared on 2026-07-28, Europe/Amsterdam
 
 A local release candidate was implemented across the public/business site, Admin Dashboard, DataProject projections and Supabase contracts. The candidate adds real server-backed form contracts, protected operational Admin flows, deterministic content-sync candidates, immutable retirement of two expired events, release runbooks and browser/package QA.
 
-Production application code and data were not modified. A fresh Hostinger backup was created through the authenticated control panel. The owner accepted the documented Supabase Free-plan security/backup limitations on 2026-07-28. A clean local release branch now contains isolated release and iOS-asset commits, with no push. The release remains **NO-GO** because the Supabase migration/functions are not deployed, a restorable manual production database backup and authenticated Admin/sync E2E are absent.
+Production application code, schema and data were not modified. SSL enforcement was enabled with the authorized brief database restart, after which the project returned `ACTIVE_HEALTHY`. Fresh Hostinger and custom-format PostgreSQL backups now exist. The owner accepted the documented Supabase Free-plan security/backup limitations on 2026-07-28. A clean local release branch contains isolated commits with no push. The release remains **NO-GO** because the Supabase migration/functions are not deployed and authenticated Admin/sync E2E are absent.
 
 ## 2. GO / NO-GO
 
@@ -131,7 +131,7 @@ Connected production facts:
 - security advisor warning: leaked-password protection disabled; the control is Pro-only;
 - performance advisor reports informational unused-index findings; indexes were not removed without workload evidence.
 
-Supabase Temporary access preview was enabled. The project database build is `17.6.1.147`, above the feature minimum `17.6.1.081`. The Dashboard then required SSL enforcement before a time-limited role grant could be created; enabling it explicitly requires a database restart and a few minutes of downtime. That additional impact was not approved, so SSL enforcement was left unchanged, no role grant was created, the unused PAT was deleted, and its local in-memory value was cleared.
+Supabase Temporary access preview and project-level Temporary access were enabled. The project database build is `17.6.1.147`, above the feature minimum `17.6.1.081`. After explicit owner approval, SSL enforcement was enabled; the authorized database restart completed and the project returned `ACTIVE_HEALTHY`. A current owner received only `supabase_read_only_user` until 28 July 2026 14:02 Europe/Amsterdam. A one-hour PAT was used only from process memory over `sslmode=verify-full`. After the dump, the PAT and rule were deleted, the PAT variable was cleared, and a repeat connection attempt was rejected.
 
 ## 8. Content workflow
 
@@ -361,17 +361,21 @@ Prepared:
 - forward-only database compensation policy;
 - manual Hostinger backup completed 2026-07-28 12:34;
 - backup browser confirmed `domains/younew.nl/public_html`, including the deployed routes/assets and restore/download controls.
+- Homebrew `libpq` 18.4;
+- mode-`0700` directory `/Users/ivan/Library/Application Support/YouNew/backups`;
+- mode-`0600` custom-format dump `younew-pgdzdxsiagfjioxwuqxf-20260728T113724Z.dump`, 306,563 bytes;
+- `PGDMP` signature and `pg_restore --list` PASS with 564 catalog entries, including 55 table-data and 11 schema entries;
+- SHA-256 `1156df801833aed5c0d16aabc5843b79f9bcb664edebf968bcc12d7b9af744f7`, independently reproduced with `shasum`;
+- mode-`0600` restore-list and SHA-256 sidecar evidence;
+- `verify-full` TLS using the Supabase production CA;
+- post-backup PAT deletion, role-rule deletion and failed revoked-credential connection test.
 
 Not completed:
 
-- fresh production Postgres dump;
-- `pg_restore --list` proof;
 - live Hostinger restore rehearsal, because it would overwrite production and no staging restore target was provided;
 - live rollback rehearsal.
 
-The connected Supabase project is on Free, which does not include project backups. Homebrew `libpq` 18.4 is now installed, and `/Users/ivan/Library/Application Support/YouNew/backups` exists with mode `0700`. No dump exists yet.
-
-Temporary access preview is enabled, but the prerequisite SSL-enforcement switch warns of a database restart and a few minutes of downtime. Pending explicit downtime approval, SSL enforcement was not changed. No database role was granted; the unused PAT was deleted. After approval, the controlled sequence is: enable SSL, create a fresh PAT and 30-minute `supabase_read_only_user` grant, create a mode-`0600` custom-format dump, validate `pg_restore --list` and SHA-256, then delete the PAT and revoke the grant.
+The connected Supabase project is on Free, which does not include managed project backups. The manual logical-backup compensating control is now satisfied. SSL enforcement remains enabled as a security improvement; Temporary access remains enabled but has zero rules and no PAT exists.
 
 ## 19. Changed files
 
@@ -393,8 +397,9 @@ Created locally without push:
 
 - `8566a228ea703db2280e153bf57ce1cad37e99c9` — `Prepare YouNew production release candidate`;
 - `cadf8e7f00293172e1971801419bd5f70714b3a7` — `Optimize city coat-of-arms assets for iOS builds`.
+- `59e49c077ed7a4916a67903ad76cb50ce044de99` — `Document release evidence and remaining SSL backup gate`.
 
-The documentation/evidence update is committed separately after these two implementation commits. The branch is based directly on current `origin/admin-dashboard-integration`, so the original dirty worktree did not need to be reset, stashed or committed.
+This backup evidence update is committed separately as the fourth local commit. The branch is based directly on current `origin/admin-dashboard-integration`, so the original dirty worktree did not need to be reset, stashed or committed.
 
 ## 21. Known limitations
 
@@ -403,16 +408,13 @@ The documentation/evidence update is committed separately after these two implem
 - public practical guides remain summary-depth only;
 - App Store listing resolves, but its exact public version was not independently verified;
 - YouNewWorkspace consumer is not connected;
-- no fresh Postgres dump or restore-list proof;
 - no live Hostinger restore rehearsal;
 - Supabase leaked-password protection and managed backups are unavailable on Free; the owner accepted this documented risk on 2026-07-28;
 - remote CI has not run because the clean release branch is intentionally local-only.
 
 ## 22. Manual owner actions
 
-1. Explicitly authorize enabling Supabase SSL enforcement now and accept the database restart/downtime of a few minutes.
-2. Complete the short-lived read-only dump sequence and retain the dump path, `pg_restore --list` evidence and SHA-256.
-3. Review the three clean local commits; authorize push/PR separately if desired.
-4. Review migration dry-run, Edge Function secrets and artifact checksums.
-5. Send the exact instruction `GO LIVE` only when the blockers are accepted/resolved.
-6. During deployment, provision `admin.younew.nl`, then use interactive owner sign-in for controlled business, feedback, Admin and sync E2E; record production deployment IDs and final GO/NO-GO.
+1. Review the four clean local commits; authorize push/PR separately if desired.
+2. Review migration dry-run, Edge Function secrets and artifact checksums.
+3. Send the exact instruction `GO LIVE` only when the remaining deployment blockers are accepted.
+4. During deployment, provision `admin.younew.nl`, then use interactive owner sign-in for controlled business, feedback, Admin and sync E2E; record production deployment IDs and final GO/NO-GO.

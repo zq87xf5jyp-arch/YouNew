@@ -26,7 +26,7 @@ The repository contains a locally verified public release candidate and a tested
 | Artifact SHA-256 | `74ef1465e8657a66ee0cd4c43c4023a56e39c38ac3b2674c229c535b7f72dd8c` |
 | Artifact content fingerprint | `01a412afde506911a4395f71143636a1c09c324cad870c38d6964ac4bd117a97` |
 
-A separate worktree was created at `/Users/ivan/Desktop/Developer:YouNew/YouNew-release-clean-2026-07-29`. It is clean and two local commits ahead of `origin/admin-dashboard-integration`; nothing was pushed. The original mixed worktree remains untouched apart from the intended `.gitignore` test-tracking fix and two trailing-newline corrections, and currently has 187 status entries.
+A separate worktree was created at `/Users/ivan/Desktop/Developer:YouNew/YouNew-release-clean-2026-07-29`. This backup evidence update is the fourth local commit ahead of `origin/admin-dashboard-integration`; nothing was pushed. The original mixed worktree remains untouched apart from the intended `.gitignore` test-tracking fix and two trailing-newline corrections, and currently has 187 status entries.
 
 ## Gate matrix
 
@@ -54,10 +54,10 @@ A separate worktree was created at `/Users/ivan/Desktop/Developer:YouNew/YouNew-
 | Admin production E2E | **FAIL** | `admin.younew.nl` and interactive sign-in by an existing approved owner are authorized, but the host is not provisioned and production code is not deployed |
 | Sync production E2E | **FAIL** | Candidate contract tested locally; function/table not deployed |
 | Hostinger file backup | PASS | Manual files/database backup completed 2026-07-28 12:34; `domains/younew.nl/public_html` contents and restore control verified |
-| Database backup/restore proof | **FAIL** | `libpq` 18.4 is installed and the mode-`0700` backup directory exists; Supabase requires SSL enforcement and a brief database restart before Temporary access can be granted |
+| Database backup/restore proof | PASS | Custom-format dump `younew-pgdzdxsiagfjioxwuqxf-20260728T113724Z.dump`, 306,563 bytes, `pg_restore --list` PASS with 564 catalog entries, SHA-256 `1156df801833aed5c0d16aabc5843b79f9bcb664edebf968bcc12d7b9af744f7` |
 | Supabase Free-plan security | RISK ACCEPTED | Owner accepted the absence of leaked-password protection and managed project backups on 2026-07-28 |
 | iOS simulator build | PASS | Clean build/install/launch completed in 229.75 s with no reported warnings/errors after replacing 27 oversized coat-of-arms SVGs |
-| Commit/CI on release SHA | PARTIAL | Clean local branch and two isolated commits exist; all corresponding local CI commands pass, but the branch was not pushed and remote CI therefore has not run |
+| Commit/CI on release SHA | PARTIAL | Clean local branch and four isolated commits exist; all corresponding local CI commands pass, but the branch was not pushed and remote CI therefore has not run |
 
 ## Production comparison
 
@@ -72,13 +72,12 @@ Confirmed facts:
 
 ## Blocking owner actions
 
-1. Explicitly authorize enabling SSL enforcement now and accept the Supabase PostgreSQL restart/downtime of a few minutes. Then create a fresh 30-minute read-only grant/PAT, produce the dump, validate `pg_restore --list` and SHA-256, and revoke both.
-2. Review the clean local commits. Push/PR remains a separate owner-authorized action.
-3. Provision `admin.younew.nl` during the release and use the approved interactive owner sign-in for authenticated E2E.
-4. After the backup gate is closed and the commits are reviewed, send the exact instruction `GO LIVE` to authorize migration, Edge Function, Admin and Hostinger deployment.
+1. Review the four clean local commits. Push/PR remains a separate owner-authorized action.
+2. Send the exact instruction `GO LIVE` to authorize migration, Edge Function, Admin and Hostinger deployment.
+3. During the authorized release, provision `admin.younew.nl` and use the approved interactive owner sign-in for authenticated E2E.
 
 After deployment, controlled business, feedback, Admin and sync E2E tests remain mandatory before the release can be called complete.
 
 ## Accepted risk
 
-On 2026-07-28 the owner explicitly accepted continuing on Supabase Free. This accepts the absence of leaked-password protection and Supabase-managed backups. Temporary access preview was enabled, but the unused PAT was deleted and no database role was granted after the SSL-restart prerequisite appeared. This does not waive the manual database-backup gate, authorize downtime or constitute `GO LIVE`.
+On 2026-07-28 the owner explicitly accepted continuing on Supabase Free. This accepts the absence of leaked-password protection and Supabase-managed backups. The owner separately approved the SSL restart: SSL enforcement is now enabled, the database returned `ACTIVE_HEALTHY`, and a verified manual backup closed the compensating backup gate. The short-lived PAT and read-only rule were deleted; a repeat connection with the revoked PAT was rejected. This does not constitute `GO LIVE`.
