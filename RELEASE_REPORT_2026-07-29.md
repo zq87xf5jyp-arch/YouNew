@@ -6,7 +6,7 @@ Prepared on 2026-07-28, Europe/Amsterdam
 
 A local release candidate was implemented across the public/business site, Admin Dashboard, DataProject projections and Supabase contracts. The candidate adds real server-backed form contracts, protected operational Admin flows, deterministic content-sync candidates, immutable retirement of two expired events, release runbooks and browser/package QA.
 
-Production application code and data were not modified. A fresh Hostinger backup was created through the authenticated control panel. The owner accepted the documented Supabase Free-plan security/backup limitations on 2026-07-28. The release remains **NO-GO** because the Supabase migration/functions are not deployed, a restorable manual production database backup and authenticated Admin/sync E2E are absent, and the mixed working tree has no isolated release commit.
+Production application code and data were not modified. A fresh Hostinger backup was created through the authenticated control panel. The owner accepted the documented Supabase Free-plan security/backup limitations on 2026-07-28. A clean local release branch now contains isolated release and iOS-asset commits, with no push. The release remains **NO-GO** because the Supabase migration/functions are not deployed, a restorable manual production database backup and authenticated Admin/sync E2E are absent.
 
 ## 2. GO / NO-GO
 
@@ -98,8 +98,8 @@ Verification:
 - 8/8 tests PASS;
 - Next production build PASS with 31 routes/pages;
 - the current Hostinger Business plan exposes an unused Web App slot and supports Next.js with Node 24, matching the Admin package engine;
-- `admin.younew.nl` is the proposed production URL but has not been provisioned;
-- authenticated production browser E2E was not executed. It can use an existing approved owner through interactive sign-in, without sharing the password with Codex.
+- `admin.younew.nl` is the owner-approved production URL but has not been provisioned;
+- authenticated production browser E2E was not executed. The owner authorized an existing approved owner to sign in interactively, without sharing the password with Codex.
 
 ## 7. Supabase schema and RLS
 
@@ -131,7 +131,7 @@ Connected production facts:
 - security advisor warning: leaked-password protection disabled; the control is Pro-only;
 - performance advisor reports informational unused-index findings; indexes were not removed without workload evidence.
 
-Supabase Temporary access is available as a feature preview. The project database build is `17.6.1.147`, above the feature minimum `17.6.1.081`; it can provide a time-limited database-role grant using a Personal Access Token without revealing or resetting the database password. The feature and grant remain disabled pending explicit permission.
+Supabase Temporary access preview was enabled. The project database build is `17.6.1.147`, above the feature minimum `17.6.1.081`. The Dashboard then required SSL enforcement before a time-limited role grant could be created; enabling it explicitly requires a database restart and a few minutes of downtime. That additional impact was not approved, so SSL enforcement was left unchanged, no role grant was created, the unused PAT was deleted, and its local in-memory value was cleared.
 
 ## 8. Content workflow
 
@@ -216,14 +216,15 @@ Admin CI now runs:
 
 Release state:
 
-- branch `admin-dashboard-integration`;
-- baseline SHA `66ecc29e5026b85dcee571ad18de3250599ae27f`;
-- recorded `origin/main` `2b30f82d353604cd6839f99d53cc08c975bfb3e8`;
-- current `origin/admin-dashboard-integration` `76df6ca969927687e1b3a517ac2cecec4b8130f7`; the local branch is four commits behind it;
-- `origin/release/younew-web-2026-07-29` exists at `5d26d8c29ceec03cfe05c1685e179cac478c6c6e`, diverges from the Admin branch and overlaps 71 dirty paths;
-- local HEAD is two commits ahead of the recorded `origin/main`;
-- 185 modified/untracked entries in the shared working tree: 104 in the pre-fix mixed baseline plus 81 attributable to the verified iOS asset fix;
-- no commit, push or PR was created to avoid mixing pre-existing user changes.
+- clean worktree: `/Users/ivan/Desktop/Developer:YouNew/YouNew-release-clean-2026-07-29`;
+- branch: `release/younew-production-2026-07-29`;
+- base: `76df6ca969927687e1b3a517ac2cecec4b8130f7` (`origin/admin-dashboard-integration`);
+- release candidate: `8566a228ea703db2280e153bf57ce1cad37e99c9`;
+- iOS asset optimization: `cadf8e7f00293172e1971801419bd5f70714b3a7`;
+- the release worktree was clean after both commits and was two commits ahead of its base;
+- no commit was pushed and no PR was created;
+- the original mixed worktree remains separate at HEAD `66ecc29e5026b85dcee571ad18de3250599ae27f` with 187 status entries;
+- four Admin contract test files were made trackable by narrowing `.gitignore`; the verified 8/8 Admin result now represents committed tests rather than an empty test glob.
 
 ## 13. Browser and responsive QA
 
@@ -368,13 +369,13 @@ Not completed:
 - live Hostinger restore rehearsal, because it would overwrite production and no staging restore target was provided;
 - live rollback rehearsal.
 
-The connected Supabase project is on Free, which does not include project backups. No secure `DATABASE_URL` or PostgreSQL client tools were available for a manual dump.
+The connected Supabase project is on Free, which does not include project backups. Homebrew `libpq` 18.4 is now installed, and `/Users/ivan/Library/Application Support/YouNew/backups` exists with mode `0700`. No dump exists yet.
 
-The preferred immediate backup path is a short-lived Supabase Temporary access grant, local `libpq` tools, SSL, a mode-`0600` off-site dump, `pg_restore --list` validation and immediate grant/token revocation. Enabling the preview, granting a role and creating a PAT are permission changes and require action-time owner approval.
+Temporary access preview is enabled, but the prerequisite SSL-enforcement switch warns of a database restart and a few minutes of downtime. Pending explicit downtime approval, SSL enforcement was not changed. No database role was granted; the unused PAT was deleted. After approval, the controlled sequence is: enable SSL, create a fresh PAT and 30-minute `supabase_read_only_user` grant, create a mode-`0600` custom-format dump, validate `pg_restore --list` and SHA-256, then delete the PAT and revoke the grant.
 
 ## 19. Changed files
 
-Current tree summary: 135 tracked status entries and 50 untracked paths, 185 total. The pre-iOS-fix mixed baseline contained 104 entries; the asset fix added exactly 81. Major release-candidate groups:
+The clean release worktree contains the isolated release changes in two commits and was clean after commit. The original shared worktree remains separate with 187 status entries. Major release-candidate groups:
 
 - DataProject overlay, acceptance lock, release registry and generated reports;
 - iOS/Admin/public governed runtime projections;
@@ -384,31 +385,34 @@ Current tree summary: 135 tracked status entries and 50 untracked paths, 185 tot
 - CI;
 - architecture, workflow, deployment and operations documentation.
 
-The tree also contains pre-existing user changes in iOS/UI-test and public-site files; attribution must be reviewed before commit.
+The release commit intentionally preserves the complete candidate transferred from the mixed source tree. Owner review is still required before any push because some iOS/UI-test and public-site edits predated this release audit.
 
 ## 20. Commits
 
-No commit was created.
+Created locally without push:
 
-Reason: the shared working tree was already dirty and overlaps release files. Creating a commit without owner review would mix unrelated work. The current baseline is `66ecc29e5026b85dcee571ad18de3250599ae27f`.
+- `8566a228ea703db2280e153bf57ce1cad37e99c9` — `Prepare YouNew production release candidate`;
+- `cadf8e7f00293172e1971801419bd5f70714b3a7` — `Optimize city coat-of-arms assets for iOS builds`.
+
+The documentation/evidence update is committed separately after these two implementation commits. The branch is based directly on current `origin/admin-dashboard-integration`, so the original dirty worktree did not need to be reset, stashed or committed.
 
 ## 21. Known limitations
 
 - production form persistence, Admin and sync paths are not active;
-- Admin hosting destination is unknown;
+- `admin.younew.nl` is approved but not provisioned;
 - public practical guides remain summary-depth only;
 - App Store listing resolves, but its exact public version was not independently verified;
 - YouNewWorkspace consumer is not connected;
 - no fresh Postgres dump or restore-list proof;
 - no live Hostinger restore rehearsal;
 - Supabase leaked-password protection and managed backups are unavailable on Free; the owner accepted this documented risk on 2026-07-28;
-- local branch/worktree must be reconciled with current `origin/main`.
+- remote CI has not run because the clean release branch is intentionally local-only.
 
 ## 22. Manual owner actions
 
-1. Review and isolate the 185-entry working tree against `origin/admin-dashboard-integration`; resolve the 71-path overlap with the parallel release branch, create the release commit/PR and run CI.
-2. Approve `admin.younew.nl` on the existing Hostinger Business Web App slot and plan interactive sign-in with an existing approved owner.
-3. Authorize short-lived Supabase Temporary access, create a fresh off-site Postgres dump and validate it with `pg_restore --list`.
+1. Explicitly authorize enabling Supabase SSL enforcement now and accept the database restart/downtime of a few minutes.
+2. Complete the short-lived read-only dump sequence and retain the dump path, `pg_restore --list` evidence and SHA-256.
+3. Review the three clean local commits; authorize push/PR separately if desired.
 4. Review migration dry-run, Edge Function secrets and artifact checksums.
 5. Send the exact instruction `GO LIVE` only when the blockers are accepted/resolved.
-6. After deployment, execute controlled business, feedback, Admin and sync E2E, then record production deployment IDs and final GO/NO-GO.
+6. During deployment, provision `admin.younew.nl`, then use interactive owner sign-in for controlled business, feedback, Admin and sync E2E; record production deployment IDs and final GO/NO-GO.

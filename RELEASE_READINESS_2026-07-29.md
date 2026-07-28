@@ -12,11 +12,11 @@ The repository contains a locally verified public release candidate and a tested
 
 | Item | Value |
 |---|---|
-| Branch | `admin-dashboard-integration` |
-| Working baseline SHA | `66ecc29e5026b85dcee571ad18de3250599ae27f` |
-| Local `main` | `66ecc29e5026b85dcee571ad18de3250599ae27f` |
-| Recorded `origin/main` | `2b30f82d353604cd6839f99d53cc08c975bfb3e8` |
-| Current `origin/admin-dashboard-integration` | `76df6ca969927687e1b3a517ac2cecec4b8130f7` |
+| Branch | `release/younew-production-2026-07-29` |
+| Clean release base | `76df6ca969927687e1b3a517ac2cecec4b8130f7` (`origin/admin-dashboard-integration`) |
+| Release candidate commit | `8566a228ea703db2280e153bf57ce1cad37e99c9` |
+| iOS asset commit | `cadf8e7f00293172e1971801419bd5f70714b3a7` |
+| Original mixed worktree HEAD | `66ecc29e5026b85dcee571ad18de3250599ae27f` |
 | Content heads | `amsterdam-v0.1.2`, `cities-v0.1.0` |
 | Public records | 186 |
 | Migration | `20260728075522_younew_production_operations.sql` |
@@ -26,7 +26,7 @@ The repository contains a locally verified public release candidate and a tested
 | Artifact SHA-256 | `74ef1465e8657a66ee0cd4c43c4023a56e39c38ac3b2674c229c535b7f72dd8c` |
 | Artifact content fingerprint | `01a412afde506911a4395f71143636a1c09c324cad870c38d6964ac4bd117a97` |
 
-The working tree has 185 modified/untracked entries: the pre-fix mixed baseline had 104 entries, and the verified iOS asset fix added 81 entries (27 `Contents.json` updates, 27 deleted large SVGs and 27 replacement PNGs). No release commit was created because the complete change set cannot be safely isolated without owner review.
+A separate worktree was created at `/Users/ivan/Desktop/Developer:YouNew/YouNew-release-clean-2026-07-29`. It is clean and two local commits ahead of `origin/admin-dashboard-integration`; nothing was pushed. The original mixed worktree remains untouched apart from the intended `.gitignore` test-tracking fix and two trailing-newline corrections, and currently has 187 status entries.
 
 ## Gate matrix
 
@@ -51,13 +51,13 @@ The working tree has 185 modified/untracked entries: the pre-fix mixed baseline 
 | Lighthouse performance | PASS | Three clean standard mobile runs: 99/100/100; three desktop runs: 100/100/100 |
 | Supabase deployment | **FAIL** | Production has 0 Edge Functions and does not contain the release migration |
 | Business form persistence | **FAIL** | Cannot persist until migration/functions deploy |
-| Admin production E2E | **FAIL** | Hostinger Business can host the Next.js/Node 24 app, but `admin.younew.nl` is not provisioned and no authenticated session was supplied |
+| Admin production E2E | **FAIL** | `admin.younew.nl` and interactive sign-in by an existing approved owner are authorized, but the host is not provisioned and production code is not deployed |
 | Sync production E2E | **FAIL** | Candidate contract tested locally; function/table not deployed |
 | Hostinger file backup | PASS | Manual files/database backup completed 2026-07-28 12:34; `domains/younew.nl/public_html` contents and restore control verified |
-| Database backup/restore proof | **FAIL** | Supabase Free has no project backups; no `DATABASE_URL`, fresh dump or `pg_restore --list` evidence |
+| Database backup/restore proof | **FAIL** | `libpq` 18.4 is installed and the mode-`0700` backup directory exists; Supabase requires SSL enforcement and a brief database restart before Temporary access can be granted |
 | Supabase Free-plan security | RISK ACCEPTED | Owner accepted the absence of leaked-password protection and managed project backups on 2026-07-28 |
 | iOS simulator build | PASS | Clean build/install/launch completed in 229.75 s with no reported warnings/errors after replacing 27 oversized coat-of-arms SVGs |
-| Commit/CI on release SHA | **FAIL** | No isolated release commit; local branch is four commits behind its current remote counterpart and the parallel release branch overlaps 71 dirty paths |
+| Commit/CI on release SHA | PARTIAL | Clean local branch and two isolated commits exist; all corresponding local CI commands pass, but the branch was not pushed and remote CI therefore has not run |
 
 ## Production comparison
 
@@ -72,13 +72,13 @@ Confirmed facts:
 
 ## Blocking owner actions
 
-1. Reconcile the dirty working tree with `origin/admin-dashboard-integration`, review the overlap with `origin/release/younew-web-2026-07-29` and create an isolated release commit/PR.
-2. Approve `admin.younew.nl` as the Hostinger Web App destination and use an existing approved owner account for interactive E2E sign-in.
-3. Authorize Supabase Temporary access for the current project owner, create a short-lived role grant, produce an off-site manual dump and validate it with `pg_restore --list`.
-4. After review, send the exact instruction `GO LIVE` to authorize migration, Edge Function, Admin and Hostinger deployment.
+1. Explicitly authorize enabling SSL enforcement now and accept the Supabase PostgreSQL restart/downtime of a few minutes. Then create a fresh 30-minute read-only grant/PAT, produce the dump, validate `pg_restore --list` and SHA-256, and revoke both.
+2. Review the clean local commits. Push/PR remains a separate owner-authorized action.
+3. Provision `admin.younew.nl` during the release and use the approved interactive owner sign-in for authenticated E2E.
+4. After the backup gate is closed and the commits are reviewed, send the exact instruction `GO LIVE` to authorize migration, Edge Function, Admin and Hostinger deployment.
 
 After deployment, controlled business, feedback, Admin and sync E2E tests remain mandatory before the release can be called complete.
 
 ## Accepted risk
 
-On 2026-07-28 the owner explicitly accepted continuing on Supabase Free. This accepts the absence of leaked-password protection and Supabase-managed backups. It does not waive the manual database-backup gate, authorize production changes or constitute `GO LIVE`.
+On 2026-07-28 the owner explicitly accepted continuing on Supabase Free. This accepts the absence of leaked-password protection and Supabase-managed backups. Temporary access preview was enabled, but the unused PAT was deleted and no database role was granted after the SSL-restart prerequisite appeared. This does not waive the manual database-backup gate, authorize downtime or constitute `GO LIVE`.
