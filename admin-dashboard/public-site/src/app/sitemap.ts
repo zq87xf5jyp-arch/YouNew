@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const content = getPublicContent();
   const updated = new Date(content.generatedAt);
   const staticPaths = [
-    "", "/discover", "/guides", "/journeys", "/map", "/categories", "/cities", "/provinces", "/places", "/organizations",
+    "", "/discover", "/guides", "/journeys", "/map", "/categories", "/cities", "/provinces", "/places", "/organizations", "/updates",
     "/emergency", "/status", "/app", "/business", "/business/advertise", "/business/partners", "/business/pricing",
     "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"
   ];

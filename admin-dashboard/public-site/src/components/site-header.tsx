@@ -10,6 +10,7 @@ const navigation = [
   ["Map", "/map"],
   ["Cities", "/cities"],
   ["Organizations", "/organizations"],
+  ["Updates", "/updates"],
   ["Business", "/business"]
 ];
 

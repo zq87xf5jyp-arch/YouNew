@@ -70,3 +70,35 @@ test("Admin business fields match the deployed production contract", async () =>
   ]) assert.match(source, new RegExp(required));
   assert.doesNotMatch(source, /confirmation_code|contact_name|work_email|internal_note/);
 });
+
+test("Admin content activation exposes only a reviewed active feed", async () => {
+  const [migration, route, action, middleware] = await Promise.all([
+    readFile(new URL("../supabase/migrations/20260728212059_activate_public_content_feed.sql", import.meta.url), "utf8"),
+    readFile(new URL("../src/app/api/public/content-sync/route.ts", import.meta.url), "utf8"),
+    readFile(new URL("../src/app/(admin)/sync/actions.ts", import.meta.url), "utf8"),
+    readFile(new URL("../src/middleware.ts", import.meta.url), "utf8")
+  ]);
+
+  for (const required of [
+    "create table if not exists public.public_content_feed",
+    "public_content_feed enable row level security",
+    "revoke all on table public.public_content_feed from public, anon, authenticated",
+    "grant select on table public.public_content_feed to anon, authenticated",
+    "create or replace function public.activate_content_artifact",
+    "private.current_admin_role()",
+    "empty_content_artifact_not_activatable",
+    "content_artifact_record_count_mismatch",
+    "content_artifact_activated",
+    "status = 'superseded'",
+    "status = 'active'"
+  ]) assert.match(migration, new RegExp(required.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"), "i"));
+
+  assert.match(route, /\.from\("public_content_feed"\)/);
+  assert.match(route, /buildPublicContentFeed/);
+  assert.match(route, /Access-Control-Allow-Origin/);
+  assert.match(route, /https:\/\/younew\.nl/);
+  assert.match(route, /If-None-Match/i);
+  assert.doesNotMatch(route, /SUPABASE_SERVICE_ROLE_KEY|service_role/);
+  assert.match(action, /\.rpc\("activate_content_artifact"/);
+  assert.match(middleware, /isPublicApi[\s\S]*if \(isPublicApi\) return NextResponse\.next\(\)/);
+});

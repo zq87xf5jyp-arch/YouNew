@@ -5,7 +5,7 @@ import { join } from "node:path";
 const root = new URL("../out/", import.meta.url).pathname;
 const requiredFiles = [
   "index.html", "discover/index.html", "search/index.html", "guides/index.html", "guides/woon/index.html",
-  "journeys/index.html", "map/index.html",
+  "journeys/index.html", "map/index.html", "updates/index.html",
   "categories/index.html", "categories/housing/index.html", "cities/index.html", "cities/amsterdam/index.html",
   "provinces/noord-holland/index.html", "places/index.html", "organizations/index.html", "emergency/index.html",
   "saved/index.html", "status/index.html", "offline/index.html", "app/index.html", "business/index.html",
@@ -25,7 +25,7 @@ assert.match(home, /Use YouNew on the web/);
 assert.match(home, /support@younew\.nl/);
 assert.match(home, /rel="canonical" href="https:\/\/younew\.nl\/"/);
 assert.match(home, /application\/ld\+json/);
-for (const path of ["/discover/", "/search/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
+for (const path of ["/discover/", "/search/", "/updates/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
 assert.doesNotMatch(home, /href=(?:"|')#(?:"|')/);
 assert.match(home, /href="https:\/\/apps\.apple\.com\/app\/id6782617312"/);
 assert.match(home, /Download on the App Store/);
@@ -75,6 +75,9 @@ for (const field of ["feedbackType", "email", "message", "consentToPrivacy", "we
 }
 assert.match(support, /confirmation ID/i);
 
+const updates = await readFile(join(root, "updates/index.html"), "utf8");
+for (const text of ["Verified Admin updates", "manually activated", "Loading verified updates"]) assert.match(updates, new RegExp(text, "i"));
+
 const notFound = await readFile(join(root, "404.html"), "utf8");
 assert.match(notFound, /That page isn’t here/);
 assert.doesNotMatch(notFound, /rel="canonical"/, "The 404 page must not canonicalize missing URLs to the homepage");
@@ -119,9 +122,10 @@ assert.match(hostingerRules, /ForceType application\/manifest\+json/, "Hostinger
 assert.match(hostingerRules, /Files "apple-app-site-association"[\s\S]*ForceType application\/json/, "Hostinger must serve Apple's association file as JSON");
 assert.match(hostingerRules, /FilesMatch "\^\(sw\\\.js\|static-shell\\\.js\|manifest\\\.webmanifest/, "The unversioned homepage runtime must not remain stale between releases");
 assert.match(hostingerRules, /Strict-Transport-Security "max-age=31536000"/, "HTTPS responses must advertise HSTS");
+assert.match(hostingerRules, /connect-src[^"]*https:\/\/admin\.younew\.nl/, "The public CSP must allow the read-only Admin content feed");
 
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
-for (const path of ["https://younew.nl", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
+for (const path of ["https://younew.nl", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/updates", "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
 const sitemapCount = (sitemap.match(/<url>/g) ?? []).length;
 assert.equal(new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])).size, sitemapCount, "Sitemap URLs must be unique");
 

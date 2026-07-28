@@ -10,6 +10,10 @@ type CookieToSet = {
 };
 
 export async function middleware(request: NextRequest) {
+  const pathname = request.nextUrl.pathname;
+  const isPublicApi = pathname.startsWith("/api/public/") || pathname.startsWith("/api/mobile/");
+  if (isPublicApi) return NextResponse.next();
+
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   if (!url || !anonKey) {
@@ -37,9 +41,8 @@ export async function middleware(request: NextRequest) {
   });
 
   const { data: { user } } = await supabase.auth.getUser();
-  const pathname = request.nextUrl.pathname;
   const isLogin = pathname === "/login";
-  const isProtected = !pathname.startsWith("/api/public/") && !pathname.startsWith("/api/mobile/") && pathname !== "/" && !isLogin;
+  const isProtected = pathname !== "/" && !isLogin;
 
   if (!user && isProtected) {
     return NextResponse.redirect(new URL("/login", request.url));
