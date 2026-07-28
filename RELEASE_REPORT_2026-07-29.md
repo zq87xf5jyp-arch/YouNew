@@ -25,7 +25,7 @@ Blocking conditions:
 5. Lighthouse 90/95/95/95 evidence is absent.
 6. GitHub checks after the final dependency-security commit are not yet all complete.
 7. The backup exists but restore has not been tested.
-8. The long-running full iOS simulator/UI suite has not produced a final result bundle yet.
+8. The full iOS simulator/UI suite failed 11 of 551 tests.
 
 ## 3. Production URLs
 
@@ -291,12 +291,26 @@ Remaining:
 | Workspace | unit suite | 192/192 PASS |
 | Workspace GitHub gate | Unit tests and release audit | PASS |
 | iOS targeted public links | `PublicReleaseLinksTests` | 2/2 PASS |
-| Full iOS simulator/UI suite | XcodeBuildMCP `test_sim` | RUNNING / no final summary yet |
+| Full iOS simulator/UI suite | XcodeBuildMCP `test_sim` | 540/551 PASS; 11 FAIL |
 | Business production E2E | real insert and admin verification | NOT RUN |
 | Admin production CRUD E2E | protected production environment | NOT RUN |
 | Sync E2E | publish → export → deploy → iOS | NOT RUN |
 
 Local Node is 26.5.0 while both web packages declare Node `>=24 <25`. Local builds passed, but CI on the declared Node version remains the authoritative compatibility gate.
+
+The 11 iOS UI failures are release blockers:
+
+- two search-field focus failures;
+- six typed-category routing or back-navigation failures;
+- one assistant BSN selected-city failure;
+- one missing breakfast discovery chip;
+- one root-tab navigation sample at 199 ms against the 100 ms test limit.
+
+The complete result bundle is:
+
+```text
+/Users/ivan/Library/Developer/XcodeBuildMCP/workspaces/build-web-data-visualization-plugin-build-40f542b1333f/result-bundles/test_sim_2026-07-28T00-02-54-055Z_pid46034_2e071cf3.xcresult
+```
 
 ## 14. Lighthouse
 

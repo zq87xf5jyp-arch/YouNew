@@ -35,7 +35,7 @@ Current decision: **NO-GO**
 | Service | Owner | URL / identifier | Purpose | Source of truth | Deployment / update | Health check | State |
 |---|---|---|---|---|---|---|---|
 | Public website | Not recorded | https://younew.nl | Public guidance, search, map, saved items, journeys, business pages | `DataProject` → checked runtime JSON → static export | Manual Hostinger upload of `out/` contents | Browser QA, static 404, sitemap and link gates | Live, but older than release candidate |
-| iOS application | Not recorded | App Store ID `6782617312` | Native YouNew experience | Xcode project + compatible runtime JSON | App Store Connect, outside this web deployment | App Store listing and Xcode tests | Version 1.1 public; full local simulator suite still running |
+| iOS application | Not recorded | App Store ID `6782617312` | Native YouNew experience | Xcode project + compatible runtime JSON | App Store Connect, outside this web deployment | App Store listing and Xcode tests | Version 1.1 public; full local simulator suite failed 11 of 551 tests |
 | Supabase | Not recorded | Project `pgdzdxsiagfjioxwuqxf` | Auth, operational data and secure inquiry boundary | Versioned SQL migrations | Supabase migrations and Edge Function deploy | Project health, RLS inspection, contract tests | Healthy current schema; new inquiry flow pending |
 | Admin Dashboard | Not recorded | Production URL not discovered | Private content, release and inquiry operations | Supabase + checked local runtime | Hosting method not verified | Local production build and protected-route browser test | Candidate only; production config absent |
 | YouNewWorkspace | Not recorded | https://github.com/zq87xf5jyp-arch/YouNewWorkspace/pull/2 | Private cross-service release centre | Shared service registry and expected migration matrix | GitHub branch / app build | 192 unit tests and GitHub check | PR gate passed; not merged |
@@ -80,7 +80,7 @@ YouNewWorkspace reads release/service evidence; it is not a second content sourc
 | Lighthouse targets | Not run in the explicitly selected in-app Browser; no Lighthouse capability is exposed | **PENDING** |
 | GitHub required checks | Draft PR checks still running after the dependency-security update | **PENDING** |
 | Backup restore drill | Backup exists; restoration not executed | **PENDING** |
-| Full iOS simulator suite | Long-running UI suite is still active; targeted release-link tests passed earlier | **PENDING** |
+| Full iOS simulator suite | 540/551 passed; 11 UI tests failed. Failures cover search focus, typed-category routing/back navigation, one assistant city flow and a 199 ms root-tab sample against a 100 ms threshold | **FAIL** |
 
 ## Content readiness
 
@@ -137,7 +137,7 @@ The previous generated `2a4827e` ZIP was deleted after the dependency-security r
 6. Run admin CRUD and sync E2E.
 7. Run Lighthouse on the production candidate and meet 90/95/95/95.
 8. Complete the GitHub checks and the backup restore drill.
-9. Resolve or explicitly accept the iOS full-suite result.
+9. Fix and rerun the 11 failed iOS UI tests; do not treat the green unit-test CI job as a substitute for the failed full simulator suite.
 10. Re-run production checks after deployment.
 
 Production deployment remains blocked until all mandatory gates pass and the owner sends the exact command `GO LIVE`.
