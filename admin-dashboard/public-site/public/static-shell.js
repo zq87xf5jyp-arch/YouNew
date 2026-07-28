@@ -100,25 +100,4 @@
     }
   }
 
-  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.remove("reveal-pending");
-        entry.target.classList.add("is-revealed");
-        observer.unobserve(entry.target);
-      });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: .08 });
-    document.querySelectorAll("[data-reveal]").forEach((element) => {
-      if (element.getBoundingClientRect().top <= window.innerHeight * .92) element.classList.add("is-revealed");
-      else {
-        element.classList.add("reveal-pending");
-        observer.observe(element);
-      }
-    });
-  }
-
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/sw.js", { scope: "/", updateViaCache: "none" }).catch(() => { /* offline support is progressive */ });
-  }
 })();

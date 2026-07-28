@@ -16,6 +16,7 @@ const validApplication: BusinessApplicationInput = {
   email: "ada@example.nl",
   phone: "+31 20 123 4567",
   website: "https://example.nl",
+  inquiryType: "advertising",
   organizationType: "commercial-business",
   kvkNumber: "12345678",
   city: "Amsterdam",
@@ -29,7 +30,13 @@ const validApplication: BusinessApplicationInput = {
   description: "A transparent placement proposal for a locally available service with clear terms.",
   consentToPrivacy: true,
   confirmAccuracy: true,
-  websiteConfirmation: ""
+  websiteConfirmation: "",
+  sourcePage: "/business/apply/",
+  utmSource: "release-test",
+  utmMedium: "qa",
+  utmCampaign: "2026-07-29",
+  utmContent: "",
+  utmTerm: ""
 };
 
 const activePlacement: SponsoredPlacementRecord = {
@@ -94,12 +101,49 @@ test("date order, confirmations and honeypot are enforced", () => {
 test("mailto repository prepares a user-controlled draft and never claims submission", async () => {
   const result = await applicationModule.mailtoPartnerApplicationRepository.submit(validApplication);
   assert.equal(applicationModule.mailtoPartnerApplicationRepository.delivery, "mailto");
+  assert.equal(result.kind, "user-email-handoff");
+  if (result.kind !== "user-email-handoff") return;
   assert.equal(result.sent, false);
   assert.equal(result.notice, "Nothing has been sent yet");
   assert.equal(result.recipient, "support@younew.nl");
   assert.match(result.href, /^mailto:support@younew\.nl\?/);
   assert.match(decodeURIComponent(result.href), /Example Amsterdam BV/);
   assert.doesNotMatch(decodeURIComponent(result.href), /websiteConfirmation/);
+});
+
+test("API repository reports success only after a valid server confirmation", async () => {
+  let receivedBody = "";
+  const repository = applicationModule.createApiPartnerApplicationRepository(
+    "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-business-inquiry",
+    async (_input, init) => {
+      receivedBody = String(init?.body ?? "");
+      return new Response(JSON.stringify({
+        confirmationId: "YNI-A1B2C3D4E5F6",
+        createdAt: "2026-07-28T08:00:00.000Z"
+      }), { status: 201, headers: { "Content-Type": "application/json" } });
+    }
+  );
+
+  const result = await repository.submit(validApplication);
+  assert.equal(repository.delivery, "api");
+  assert.equal(result.kind, "server-submission");
+  assert.equal(result.sent, true);
+  assert.match(receivedBody, /"consentToPrivacy":true/);
+  assert.doesNotMatch(receivedBody, /service_role/i);
+});
+
+test("API repository rejects server errors and malformed confirmation payloads", async () => {
+  const failing = applicationModule.createApiPartnerApplicationRepository(
+    "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-business-inquiry",
+    async () => new Response(JSON.stringify({ error: "unavailable" }), { status: 503 })
+  );
+  await assert.rejects(() => failing.submit(validApplication), /could not be saved/);
+
+  const malformed = applicationModule.createApiPartnerApplicationRepository(
+    "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-business-inquiry",
+    async () => new Response(JSON.stringify({ confirmationId: "not-a-confirmation" }), { status: 201 })
+  );
+  await assert.rejects(() => malformed.submit(validApplication), /valid confirmation/);
 });
 
 test("one typed advertising catalogue covers every inquiry placement and the mail handoff", () => {

@@ -233,6 +233,9 @@ export const localContentRepository = {
   setProfile(profile: UserPathProfile) {
     write(keys.profile, profile);
   },
+  clearProfile() {
+    remove(keys.profile);
+  },
   journeyProgress(): JourneyProgressState {
     return sanitizeJourneyProgress(read<unknown>(keys.journeys, {}));
   },

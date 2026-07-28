@@ -30,16 +30,13 @@ jobs:
       run:
         working-directory: admin-dashboard
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
       - name: Verify backend production safety contracts
         working-directory: .
         run: python3 scripts/admin-production-static-qa.py
-      - uses: pnpm/action-setup@v4
-        with:
-          version: 10
-      - uses: actions/setup-node@v4
+      - uses: actions/setup-node@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           node-version: "24"
       - name: Enable the pinned package manager
@@ -50,5 +47,13 @@ jobs:
         run: pnpm lint
       - name: Typecheck
         run: pnpm typecheck
+      - name: Unit and security contract tests
+        run: pnpm test
+      - name: Validate Supabase Edge Functions
+        run: |
+          pnpm dlx deno@2.9.4 fmt --check supabase/functions
+          pnpm dlx deno@2.9.4 check --config supabase/functions/submit-business-inquiry/deno.json supabase/functions/submit-business-inquiry/index.ts
+          pnpm dlx deno@2.9.4 check --config supabase/functions/submit-public-feedback/deno.json supabase/functions/submit-public-feedback/index.ts
+          pnpm dlx deno@2.9.4 check --config supabase/functions/prepare-content-sync/deno.json supabase/functions/prepare-content-sync/index.ts
       - name: Build
         run: pnpm build

@@ -386,7 +386,13 @@ final class CategoryRoutingRuntimeUITests: XCTestCase {
             chip.tap()
 
             let list = app.descendants(matching: .any)[item.list]
-            XCTAssertTrue(list.waitForExistence(timeout: 8), "Guide category opened the wrong typed section: \(item.chip)")
+            if !list.waitForExistence(timeout: 8), chip.exists, chip.isHittable {
+                // XCTest can acknowledge a SwiftUI NavigationLink tap without
+                // delivering it. Retry only while the source card is still the
+                // active, hittable control; a wrong destination must still fail.
+                chip.tap()
+            }
+            XCTAssertTrue(list.waitForExistence(timeout: 5), "Guide category opened the wrong typed section: \(item.chip)")
             guard let route = detailRoute(for: item.list) else {
                 XCTFail("Missing typed detail route for \(item.list)")
                 continue
@@ -625,9 +631,15 @@ final class CategoryRoutingRuntimeUITests: XCTestCase {
             return
         }
         detailLink.tap()
-        XCTAssertTrue(element(prefix: item.detail, in: app).waitForExistence(timeout: 6), "Wrong detail for \(item.chip)")
+        let detail = element(prefix: item.detail, in: app)
+        XCTAssertTrue(detail.waitForExistence(timeout: 6), "Wrong detail for \(item.chip)")
 
         navigateBack(in: app)
+        if !list.waitForExistence(timeout: 5), detail.exists {
+            // Retry only while the detail is still active, so a successful
+            // first pop can never turn into an accidental second pop.
+            navigateBack(in: app)
+        }
         XCTAssertTrue(list.waitForExistence(timeout: 5), "Back did not return to \(item.list)")
         navigateBack(in: app)
         XCTAssertTrue(app.descendants(matching: .any)["screen.home"].waitForExistence(timeout: 5), "Back did not return Home after \(item.chip)")
@@ -954,6 +966,14 @@ final class CategoryRoutingRuntimeUITests: XCTestCase {
 
     @MainActor
     private func navigateBack(in app: XCUIApplication) {
+        for identifier in ["BackButton", "navigation.back", "navigation.close"] {
+            let explicitBack = app.buttons[identifier]
+            if explicitBack.waitForExistence(timeout: 1), explicitBack.isHittable {
+                explicitBack.tap()
+                return
+            }
+        }
+
         let back = app.navigationBars.buttons.element(boundBy: 0)
         if back.waitForExistence(timeout: 3), back.isHittable {
             back.tap()

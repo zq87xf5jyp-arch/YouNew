@@ -2,6 +2,7 @@
 
 import type { CSSProperties } from "react";
 import { useEffect, useState } from "react";
+import { X } from "lucide-react";
 import defaultSiteConfig from "@/config/site-config.json";
 
 type StatusBannerConfig = {
@@ -103,7 +104,7 @@ export function StatusBanner() {
                 </a>
               ) : null}
               <button className="status-banner-dismiss" type="button" disabled={!interactive} onClick={dismiss} aria-label="Dismiss availability update">
-                Dismiss
+                <X aria-hidden /><span>Dismiss</span>
               </button>
             </div>
           </div>

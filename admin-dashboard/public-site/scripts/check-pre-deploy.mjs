@@ -80,12 +80,16 @@ for (const shortcut of manifest.shortcuts ?? []) {
 const serviceWorker = await readFile(join(outRoot, "sw.js"), "utf8");
 assert.match(serviceWorker, /^const CACHE_VERSION = "younew-web-[a-f0-9]{12}";/);
 assert.doesNotMatch(serviceWorker, /__BUILD_VERSION__|Promise\.allSettled/);
-for (const marker of ["/offline/", "/guides/", "/journeys/", "/static-shell.js", "/_next/static/css/", "isEmergencyRequest", "isMutableConfiguration", "url.origin !== self.location.origin"]) assert.match(serviceWorker, new RegExp(marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+for (const marker of ["/offline/", "/guides/", "/journeys/", "/_next/static/css/", "isEmergencyRequest", "isMutableConfiguration", "url.origin !== self.location.origin"]) assert.match(serviceWorker, new RegExp(marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+assert.match(serviceWorker, /\/static-shell\.[a-f0-9]{12}\.js/);
 
 const headers = await readFile(join(outRoot, ".htaccess"), "utf8");
 assert.match(headers, /ErrorDocument 404 \/404\.html/);
 assert.match(headers, /AddType application\/manifest\+json \.webmanifest/);
+assert.match(headers, /ForceType application\/manifest\+json/);
 assert.match(headers, /FilesMatch "\^\(sw\\\.js\|static-shell\\\.js\|manifest\\\.webmanifest/);
+assert.match(headers, /Strict-Transport-Security "max-age=31536000"/);
+assert.match(headers, /Cache-Control "public, max-age=0, must-revalidate"/);
 const csp = headers.match(/Content-Security-Policy "([^"]+)"/)?.[1];
 assert.ok(csp, "CSP is missing");
 for (const directive of ["default-src 'self'", "base-uri 'self'", "form-action 'self' mailto:", "frame-ancestors 'none'", "object-src 'none'", "img-src 'self' data: https://commons.wikimedia.org https://live.staticflickr.com", "script-src 'self'", "connect-src 'self'"]) assert.match(csp, new RegExp(directive.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
@@ -99,7 +103,7 @@ const secretPatterns = [
 ];
 for (const path of outFiles) {
   const rel = relative(outRoot, path).replaceAll("\\", "/");
-  const authoredJavaScript = rel === "sw.js" || rel === "static-shell.js";
+  const authoredJavaScript = rel === "sw.js" || /^static-shell(?:\.[a-f0-9]{12})?\.js$/.test(rel);
   if (!authoredExtensions.has(extname(path)) && !path.endsWith(".htaccess") && !authoredJavaScript) continue;
   const value = await readFile(path, "utf8");
   assert.doesNotMatch(value, localUrlPattern, `Local-only URL/path leaked into ${rel}`);

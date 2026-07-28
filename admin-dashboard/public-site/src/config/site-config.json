@@ -1,10 +1,16 @@
 {
   "schemaVersion": 1,
+  "businessInquiry": {
+    "endpoint": "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-business-inquiry"
+  },
+  "publicFeedback": {
+    "endpoint": "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-public-feedback"
+  },
   "statusBanner": {
-    "enabled": true,
-    "id": "ios-public-distribution-unconfirmed-2026-07",
+    "enabled": false,
+    "id": "ios-public-distribution-confirmed-2026-07",
     "tone": "information",
-    "message": "Public iOS download availability has not been confirmed. You can use YouNew on the web in the meantime.",
+    "message": "YouNew is available on the App Store and remains available on the web.",
     "action": {
       "label": "View status",
       "href": "/status/"

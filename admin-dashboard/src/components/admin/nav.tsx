@@ -1,14 +1,13 @@
 import Link from "next/link";
 import {
-  Activity,
   BarChart3,
   BookOpen,
   Bot,
+  BriefcaseBusiness,
   Bug,
   Building2,
   CheckCircle2,
   ClipboardList,
-  Gauge,
   ImageUp,
   LayoutDashboard,
   Link2,
@@ -27,6 +26,7 @@ const items = [
   { href: "/analytics", label: "Аналитика", icon: BarChart3 },
   { href: "/sync", label: "Синхронизация", icon: RefreshCcw },
   { href: "/content", label: "Контент", icon: BookOpen },
+  { href: "/business-inquiries", label: "Бизнес-заявки", icon: BriefcaseBusiness },
   { href: "/categories", label: "Категории", icon: ClipboardList },
   { href: "/cities", label: "Города", icon: Building2 },
   { href: "/map", label: "Карта", icon: Map },
@@ -63,19 +63,9 @@ export function AdminSidebar({ pathname, role }: { pathname: string; role: Admin
           );
         })}
       </nav>
-      <div className="mt-8 rounded-lg border border-cyan-400/20 bg-cyan-400/10 p-4">
-        <div className="flex items-center gap-2 text-cyan-100">
-          <Gauge className="size-4" />
-          <p className="text-sm font-semibold">Готовность релиза</p>
-        </div>
-        <div className="mt-3 h-2 rounded-full bg-secondary">
-          <div className="h-2 w-[82%] rounded-full bg-cyan-400" />
-        </div>
-        <p className="mt-2 text-xs text-muted-foreground">82% готово к следующей проверке TestFlight.</p>
-      </div>
       <div className="mt-4 rounded-lg border border-orange-400/20 bg-orange-400/10 p-4">
         <div className="flex items-center gap-2 text-orange-100">
-          <Activity className="size-4" />
+          <ShieldCheck className="size-4" />
           <p className="text-sm font-semibold">Защита админки активна</p>
         </div>
         <p className="mt-2 text-xs text-muted-foreground">Доступ только для одобренных ролей. Все изменения пишутся в журнал.</p>

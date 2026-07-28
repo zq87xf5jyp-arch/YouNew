@@ -1,5 +1,6 @@
 import { Mail, MessageCircle } from "lucide-react";
 import { ContentPage } from "@/components/content-page";
+import { PublicFeedbackForm } from "@/components/public-feedback-form";
 import { links } from "@/lib/site-data";
 import { metadataForPage } from "@/lib/seo/metadata";
 
@@ -22,10 +23,9 @@ export default function SupportPage() {
           Follow updates
         </a>
       </div>
-      <h2>Report incorrect information</h2>
-      <p>
-        Include the page or topic, what appears incorrect, and the official source that should be checked.
-      </p>
+      <h2>Send feedback or report incorrect information</h2>
+      <p>Include the page or topic, what appears incorrect, and the official source that should be checked.</p>
+      <PublicFeedbackForm />
       <h2>What to include</h2>
       <p>
         Include the app version, device type, language, city, the screen or page involved and the steps that led to the issue. Do not include BSN numbers, passwords, passport scans, medical files or financial records.

@@ -10,6 +10,7 @@ export interface SearchDocument {
   readonly route: string;
   readonly title: string;
   readonly summary: string;
+  readonly contentDepth?: "summary" | "practical";
   readonly keywords: readonly string[];
   readonly city: string | null;
   readonly cityId: string | null;

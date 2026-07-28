@@ -54,7 +54,7 @@ export default function BusinessPage() {
         </ol>
         <aside className="business-truth-note">
           <BadgeCheck aria-hidden />
-          <div><strong>Current availability</strong><p>There is no public advertiser login, automatic campaign purchase, live campaign dashboard or guaranteed analytics product yet. Business inquiries are handled through <a href="mailto:support@younew.nl">support@younew.nl</a>.</p></div>
+          <div><strong>Current availability</strong><p>There is no public advertiser login, automatic campaign purchase, live campaign dashboard or guaranteed analytics product yet. Use the reviewed <Link href="/business/apply">business inquiry form</Link>; email support remains available if delivery fails.</p></div>
         </aside>
       </section>
     </PageShell>

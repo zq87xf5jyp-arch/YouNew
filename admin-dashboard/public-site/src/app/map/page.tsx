@@ -6,7 +6,7 @@ import { getContentEntities } from "@/lib/content";
 import type { CoverageMapEntityType, CoverageMapItem } from "@/lib/map/coverage";
 import { metadataForPage } from "@/lib/seo/metadata";
 
-const description = "Explore coordinates for cities, places and organizations in the currently released YouNew dataset, with filters and a complete accessible list.";
+const description = "Explore coordinates for published cities, places and organizations in YouNew, with filters and a complete accessible list.";
 const supportedTypes = new Set<CoverageMapEntityType>(["city", "organization", "place"]);
 
 export const metadata = metadataForPage("Published coverage map", description, "/map");
@@ -34,9 +34,9 @@ export default function MapPage() {
       <section className="app-hero section-shell compact-hero coverage-map-hero">
         <Breadcrumbs items={[{ label: "Map" }]} />
         <MapPinned className="hero-line-icon" aria-hidden />
-        <h1>See where released YouNew content is located.</h1>
+        <h1>See where published YouNew content is located.</h1>
         <p>{description}</p>
-        <div className="dataset-note"><strong>{items.length}</strong> released records with coordinates · no location permission · no third-party map requests</div>
+        <div className="dataset-note"><strong>{items.length}</strong> published items with coordinates · no location permission · no third-party map requests</div>
       </section>
       <section className="section-shell app-content-block">
         <CoverageMap items={items} />

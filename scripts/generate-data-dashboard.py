@@ -189,7 +189,7 @@ def is_blocked(record) -> bool:
 
 
 def expired_event(record) -> bool:
-    if record.get("entity_type") != "event":
+    if record.get("entity_type") != "event" or record.get("lifecycle_status") != "published":
         return False
     attributes = record.get("attributes") or {}
     active_through = parse_date(attributes.get("end_date") or attributes.get("endDate") or attributes.get("start_date") or attributes.get("startDate"))

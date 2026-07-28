@@ -2,28 +2,33 @@
   "schemaVersion": 1,
   "snapshotType": "static",
   "liveMonitoring": false,
-  "checkedAt": "2026-07-20",
+  "checkedAt": "2026-07-28",
   "website": {
     "status": "operational",
     "label": "Website",
-    "summary": "The static YouNew website is available. This status is based on a verified build snapshot, not continuous uptime monitoring."
+    "summary": "The production website, key public routes, app preview image and touch icon were reachable during the 28 July check."
   },
   "content": {
     "status": "current",
     "label": "Published content",
-    "asOf": "2026-07-18",
-    "summary": "The canonical content snapshot used by the web experience is current as of 18 July 2026."
+    "asOf": "2026-07-28",
+    "summary": "The published content snapshot used by the web experience was checked on 28 July 2026; two events that ended on 25 July were retired from current discovery."
   },
   "ios": {
-    "status": "unconfirmed",
+    "status": "operational",
     "label": "iOS public distribution",
     "publicVersion": null,
     "testedVersion": "1.1",
     "testedBuild": "5",
-    "summary": "Public App Store or TestFlight availability has not been confirmed. Version 1.1 (build 5) is the latest locally verified application build."
+    "summary": "The public App Store listing is reachable. Its current store version was not independently verified; version 1.1 (build 5) is the locally verified application build."
+  },
+  "businessForm": {
+    "status": "degraded",
+    "label": "Business and feedback forms",
+    "summary": "Secure Supabase endpoints and Admin views are prepared locally, but the migration and Edge Functions are not active in production until an authorized deployment."
   },
   "limitations": [
-    "Public App Store and TestFlight availability has not been confirmed.",
+    "The secure business and feedback submission endpoints await an authorized production deployment.",
     "This page is a static snapshot and does not provide live uptime monitoring.",
     "Saved web items are stored on the current device and do not yet sync with the iOS application.",
     "Some application-only capabilities are not available in the web experience."

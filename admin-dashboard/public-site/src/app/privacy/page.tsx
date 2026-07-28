@@ -6,7 +6,7 @@ export const metadata = metadataForPage("Privacy Policy", "How YouNew handles lo
 
 export default function PrivacyPage() {
   return (
-    <ContentPage title="Privacy Policy" description="Effective 22 July 2026 · YouNew is a local-first informational guide for life in the Netherlands.">
+    <ContentPage title="Privacy Policy" description="Effective 28 July 2026 · YouNew is a local-first informational guide for life in the Netherlands.">
       <h2>Data stored on your device</h2>
       <p>
         YouNew may store your profile choices, selected city, checklist progress, saved items, recent searches, translator history, assistant conversation history, imported document files and document metadata locally on your device.
@@ -49,7 +49,13 @@ export default function PrivacyPage() {
         The web version stores saved items, recently viewed pages and your selected profile in this browser. Search history is off by default and is stored locally only if you enable “Remember searches on this device”. The website does not send these values to YouNew or an analytics provider.
       </p>
       <p>
-        The business inquiry form validates the details in your browser and prepares an email draft; filling it in does not submit anything to YouNew. If you review and send the draft, YouNew receives the contact and proposal details you chose to include through the participating email services. The form does not accept uploads. Business inquiries are used to evaluate and respond to the proposal, not as blanket consent for unrelated marketing.
+        The business inquiry form sends the details you enter to a protected YouNew endpoint. After browser and server validation, the inquiry is stored in YouNew&apos;s EU-hosted Supabase project and receives a confirmation ID. It includes the contact and proposal fields, source page, consent time and any campaign parameters present in the page URL. The form does not accept uploads. Business inquiries are used to evaluate and respond to the proposal, not as consent for unrelated marketing.
+      </p>
+      <p>
+        The feedback form may store an optional email address, feedback type, referenced page, message, consent time, status and confirmation ID in the same Supabase project. YouNew administrators can review these submissions. The rate limiter stores only a salted one-way network fingerprint for a short abuse-prevention window; it does not store the raw IP address in the submission record. Audit events record submission type and state, not the message or contact details.
+      </p>
+      <p>
+        Business inquiries and feedback are retained while they are needed for review, follow-up, security and legal accountability. Automated deletion is not currently enabled; records are reviewed and removed manually when no longer needed. You may request access or deletion by email. Legal retention duties may require YouNew to keep limited records for longer.
       </p>
 
       <h2>Your controls</h2>
@@ -67,7 +73,7 @@ export default function PrivacyPage() {
 
       <h2>Contact</h2>
       <p>
-        For privacy questions or deletion requests concerning support correspondence, email <a href={`mailto:${links.contactEmail}`}>{links.contactEmail}</a>.
+        For privacy questions, access requests or deletion requests concerning support, business inquiry or feedback records, email <a href={`mailto:${links.contactEmail}`}>{links.contactEmail}</a>. Include the confirmation ID when available.
       </p>
     </ContentPage>
   );
