@@ -1,8 +1,11 @@
 # YouNew — Launch Readiness for 29 July 2026
 
-Checked: 28 July 2026, Europe/Amsterdam  
-Release branch: `release/younew-web-2026-07-29`  
-Draft PR: https://github.com/zq87xf5jyp-arch/YouNew/pull/15  
+Checked: 28 July 2026, Europe/Amsterdam
+
+Release branch: `release/younew-web-2026-07-29`
+
+Draft PR: https://github.com/zq87xf5jyp-arch/YouNew/pull/15
+
 Current decision: **NO-GO**
 
 ## Confirmed facts
