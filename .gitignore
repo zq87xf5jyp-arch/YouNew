@@ -92,6 +92,7 @@ admin-dashboard/supabase/.DS_Store
 admin-dashboard/public-site/.DS_Store
 admin-dashboard/public-site/.next/
 admin-dashboard/public-site/out/
+artifacts/*.zip
 admin-dashboard/public-site/node_modules/
 admin-dashboard/public-site/.openai/
 *.tsbuildinfo
