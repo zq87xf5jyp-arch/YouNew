@@ -159,6 +159,20 @@ test("one typed advertising catalogue covers every inquiry placement and the mai
   for (const format of catalogModule.advertisingFormatCatalog) assert.ok(mailto.includes(format.title));
 });
 
+test("advertising surface catalogue defines stable non-live positions and safe exclusions", () => {
+  const surfaceIds = catalogModule.advertisingSurfaceCatalog.map((surface) => surface.id);
+  assert.equal(new Set(surfaceIds).size, surfaceIds.length);
+  assert.deepEqual([...surfaceIds].sort(), [...typesModule.advertisingSurfaceIds].sort());
+  const formatIds = new Set(typesModule.requestedPlacementIds);
+  assert.ok(catalogModule.advertisingSurfaceCatalog.every((surface) =>
+    surface.inventoryState === "reserved-not-live"
+    && surface.routePattern.startsWith("/")
+    && surface.formatIds.length > 0
+    && surface.formatIds.every((formatId) => formatIds.has(formatId))
+  ));
+  assert.ok(catalogModule.advertisingExcludedSurfaces.some((surface) => surface.routePattern.includes("/emergency/")));
+});
+
 test("media kit labels demonstrations and current reporting limits without publishing a rate card", () => {
   assert.match(mediaKitSource, /DEMO PARTNER CARD · NOT LIVE/);
   assert.match(mediaKitSource, /DEMO REPORT · ILLUSTRATIVE DATA/);

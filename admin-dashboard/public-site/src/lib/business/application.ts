@@ -80,7 +80,7 @@ export function validateBusinessApplication(input: BusinessApplicationInput): Bu
   } else if (input.kvkNumber.trim() && input.kvkNumber.replace(/\D/g, "").length !== 8) {
     errors.kvkNumber = "A KvK number must contain 8 digits.";
   }
-  if (input.city.trim().length < 2) errors.city = "Enter the primary city for this request.";
+  if (input.city.trim().length < 2) errors.city = "Enter the primary municipality or city for this request.";
   else if (input.city.trim().length > 100) errors.city = "Keep the city under 100 characters.";
   if (input.province.trim().length < 2) errors.province = "Select a province.";
   if (!input.targetAudience.length) errors.targetAudience = "Select at least one target audience.";
@@ -121,7 +121,7 @@ export function createBusinessApplicationMailto(input: BusinessApplicationInput)
     `Inquiry type: ${readable(input.inquiryType)}`,
     `Organization type: ${readable(input.organizationType)}`,
     `KvK number: ${input.kvkNumber.trim() || "Not provided"}`,
-    `City: ${input.city.trim()}`,
+    `Municipality or city: ${input.city.trim()}`,
     `Province: ${input.province.trim()}`,
     `Target audience: ${input.targetAudience.map(readable).join(", ")}`,
     `Requested placement: ${input.requestedPlacements.map(advertisingFormatLabel).join(", ")}`,

@@ -9,10 +9,13 @@ const publicSiteRoot = resolve(scriptDirectory, "..");
 
 export const paths = Object.freeze({
   source: resolve(publicSiteRoot, "../../YouNew/Resources/Data/younew-runtime-data.json"),
+  geography: resolve(publicSiteRoot, "src/generated/netherlands-geography.json"),
   content: resolve(publicSiteRoot, "src/generated/public-content.json"),
   search: resolve(publicSiteRoot, "public/data/search-index.json"),
   provenance: resolve(publicSiteRoot, "public/data/content-provenance.json")
 });
+
+const geography = JSON.parse(await readFile(paths.geography, "utf8"));
 
 const provinceNames = Object.freeze({
   "drenthe": "Drenthe",
@@ -652,12 +655,78 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     officialOrganizationNames: []
   }));
 
+  const municipalityDocuments = geography.municipalities.map((municipality) => ({
+    id: `municipality.${municipality.code.toLocaleLowerCase("en")}`,
+    type: "municipality",
+    sourceKind: "officialMunicipalityDirectory",
+    slug: municipality.slug,
+    route: `/municipalities/${municipality.slug}`,
+    title: municipality.name,
+    summary: `Official 2026 municipality entry in ${municipality.provinceName}, containing ${municipality.settlements.length} BAG settlement${municipality.settlements.length === 1 ? "" : "s"}.`,
+    keywords: [municipality.code, municipality.administrativeSeat ?? "", ...municipality.settlements.map((settlement) => settlement.name)].filter(Boolean),
+    city: municipality.name,
+    cityId: municipality.slug,
+    province: municipality.provinceName,
+    provinceId: municipality.provinceSlug,
+    categories: [],
+    narrowCategory: null,
+    organization: `Municipality of ${municipality.name}`,
+    audienceProfiles: [],
+    numberedSteps: [],
+    requiredDocuments: [],
+    checklist: [],
+    tips: [],
+    faqAnswers: [],
+    whenYouNeedIt: [],
+    tags: ["municipality", "gemeente", "local government"],
+    synonyms: [`Gemeente ${municipality.name}`, municipality.administrativeSeat ?? ""].filter(Boolean),
+    officialOrganizationNames: [`Municipality of ${municipality.name}`],
+    terminology: ["municipality", "gemeente", "BAG woonplaats"],
+    commonQuestions: [`Which municipality contains ${municipality.name}?`]
+  }));
+
+  const provinceDocuments = geography.provinces.map((province) => ({
+    id: `province.${province.code.toLocaleLowerCase("en")}`,
+    type: "province",
+    sourceKind: "officialProvinceDirectory",
+    slug: province.slug,
+    route: province.route,
+    title: province.name,
+    summary: `Official province directory with ${province.municipalityCount} municipalities and ${province.settlementCount} BAG settlements.`,
+    keywords: [
+      province.code,
+      ...geography.municipalities
+        .filter((municipality) => municipality.provinceCode === province.code)
+        .map((municipality) => municipality.name)
+    ],
+    city: null,
+    cityId: null,
+    province: province.name,
+    provinceId: province.slug,
+    categories: [],
+    narrowCategory: null,
+    organization: `Province of ${province.name}`,
+    audienceProfiles: [],
+    numberedSteps: [],
+    requiredDocuments: [],
+    checklist: [],
+    tips: [],
+    faqAnswers: [],
+    whenYouNeedIt: [],
+    tags: ["province", "provincie", "regional government"],
+    synonyms: [`Provincie ${province.name}`],
+    officialOrganizationNames: [`Province of ${province.name}`],
+    terminology: ["province", "provincie", "municipality"],
+    commonQuestions: []
+  }));
+
   return {
     schemaVersion: 2,
     generatedAt,
     datasetFingerprint,
     locale: "en",
-    documents: [...entityDocuments, ...categoryDocuments, ...utilityDocuments]
+    geographyEffectiveDate: geography.effectiveDate,
+    documents: [...entityDocuments, ...categoryDocuments, ...provinceDocuments, ...municipalityDocuments, ...utilityDocuments]
   };
 }
 

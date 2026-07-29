@@ -7,6 +7,7 @@ const requiredFiles = [
   "index.html", "discover/index.html", "search/index.html", "guides/index.html", "guides/woon/index.html",
   "journeys/index.html", "map/index.html",
   "categories/index.html", "categories/housing/index.html", "cities/index.html", "cities/amsterdam/index.html",
+  "municipalities/index.html", "municipalities/amsterdam/index.html",
   "provinces/noord-holland/index.html", "places/index.html", "organizations/index.html", "emergency/index.html",
   "saved/index.html", "status/index.html", "offline/index.html", "app/index.html", "business/index.html",
   "business/apply/index.html", "business/media-kit/index.html", "privacy/index.html", "terms/index.html", "support/index.html", "robots.txt",
@@ -38,7 +39,7 @@ assert.doesNotMatch(staticShell, /getBoundingClientRect/, "Homepage enhancements
 assert.doesNotMatch(staticShell, /serviceWorker\.register/, "The static homepage must not install the offline cache during its performance-critical load");
 
 const search = await readFile(join(root, "search/index.html"), "utf8");
-assert.match(search, /Search published YouNew content/);
+assert.match(search, /Search YouNew and Dutch municipalities/);
 assert.match(search, /name="robots" content="noindex, follow"/);
 assert.match(search, /<script[^>]+src="\/_next\/static\/chunks\//, "Interactive routes must retain client JavaScript");
 
@@ -51,7 +52,7 @@ for (const text of ["New in the Netherlands", "International student", "Starting
 assert.doesNotMatch(journeys, /sync(?:ed|ing)? successfully/i);
 
 const map = await readFile(join(root, "map/index.html"), "utf8");
-for (const text of ["Published YouNew coverage", "Published content list", "no location permission", "primary accessible fallback"]) assert.match(map, new RegExp(text, "i"));
+for (const text of ["Netherlands directory and YouNew coverage", "Directory and published content list", "no location permission", "primary accessible fallback"]) assert.match(map, new RegExp(text, "i"));
 assert.doesNotMatch(map, /navigator\.geolocation|tile\.openstreetmap|mapbox/i);
 
 const businessApply = await readFile(join(root, "business/apply/index.html"), "utf8");
@@ -63,6 +64,9 @@ assert.doesNotMatch(businessApply, /no secure upload or form backend|nothing is 
 
 const mediaKit = await readFile(join(root, "business/media-kit/index.html"), "utf8");
 for (const text of ["Request a quote", "DEMO PARTNER CARD", "DEMO REPORT", "ILLUSTRATIVE DATA", "Editorial independence", "Reasons YouNew may refuse or stop a placement"]) assert.match(mediaKit, new RegExp(text, "i"));
+
+const advertise = await readFile(join(root, "business/advertise/index.html"), "utf8");
+for (const text of ["Where advertising can appear", "defined placement surfaces", "0", "live public campaigns", "Reserved", "Advertising is excluded from"]) assert.match(advertise, new RegExp(text, "i"));
 
 const status = await readFile(join(root, "status/index.html"), "utf8");
 assert.match(status, /Static status snapshot/);

@@ -5,6 +5,7 @@ import Link from "next/link";
 import {
   Building2,
   ExternalLink,
+  Landmark,
   List,
   LocateFixed,
   Map as MapIcon,
@@ -38,6 +39,7 @@ import {
 
 const initialFilters: CoverageMapFilters = {
   city: "all",
+  province: "all",
   category: "all",
   type: "all",
   query: ""
@@ -48,6 +50,7 @@ const mapCenter = {
 };
 const typeLabels: Record<CoverageMapEntityType, string> = {
   city: "City",
+  municipality: "Municipality",
   organization: "Organization",
   place: "Place"
 };
@@ -59,11 +62,11 @@ function markerType(cluster: CoverageMapCluster): CoverageMapEntityType | "mixed
 
 function clusterLabel(cluster: CoverageMapCluster): string {
   if (cluster.items.length === 1) return `${cluster.items[0].title}, ${typeLabels[cluster.items[0].type]}`;
-  return `${cluster.items.length} published items at nearby or identical coordinates`;
+  return `${cluster.items.length} records at nearby or identical coordinates`;
 }
 
 function ItemIcon({ type }: { type: CoverageMapEntityType }) {
-  const Icon = type === "city" ? Navigation : type === "organization" ? Building2 : MapPin;
+  const Icon = type === "city" ? Navigation : type === "municipality" ? Landmark : type === "organization" ? Building2 : MapPin;
   return <Icon aria-hidden />;
 }
 
@@ -127,10 +130,32 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
   const [focus, setFocus] = useState(mapCenter);
   const [viewMode, setViewMode] = useState<"map" | "list">("map");
 
-  const options = useMemo(() => ({
-    cities: [...new Set(items.map((item) => item.cityId).filter((value): value is string => Boolean(value)))].sort(),
-    categories: [...new Set(items.flatMap((item) => [...item.categorySlugs]))].sort()
-  }), [items]);
+  const options = useMemo(() => {
+    const cityLabelById = new Map<string, string>();
+    for (const item of items) {
+      if (!item.cityId) continue;
+      const current = cityLabelById.get(item.cityId);
+      if (!current || item.type === "municipality" || item.type === "city") cityLabelById.set(item.cityId, item.title);
+    }
+    const provinceLabelById = new Map(
+      netherlandsProvinceShapes.map((shape) => [
+        shape.name
+          .normalize("NFKD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLocaleLowerCase("en")
+          .replace(/[^a-z0-9]+/g, "-")
+          .replace(/^-+|-+$/g, ""),
+        shape.name
+      ])
+    );
+    return {
+      cities: [...cityLabelById].map(([id, label]) => ({ id, label })).sort((left, right) => left.label.localeCompare(right.label, "nl")),
+      provinces: [...new Set(items.map((item) => item.provinceId).filter((value): value is string => Boolean(value)))]
+        .map((id) => ({ id, label: provinceLabelById.get(id) ?? humanizeMapSlug(id) }))
+        .sort((left, right) => left.label.localeCompare(right.label, "nl")),
+      categories: [...new Set(items.flatMap((item) => [...item.categorySlugs]))].sort()
+    };
+  }, [items]);
 
   const provinceGeometry = useMemo(() => netherlandsProvinceShapes.map((shape) => ({
     id: shape.id,
@@ -138,16 +163,20 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
     path: provincePath(shape),
     label: provinceLabelPoint(shape)
   })), []);
+  const cityLabelById = useMemo(() => new Map(options.cities.map((option) => [option.id, option.label])), [options.cities]);
+  const provinceLabelById = useMemo(() => new Map(options.provinces.map((option) => [option.id, option.label])), [options.provinces]);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const city = params.get("city") ?? "all";
+    const province = params.get("province") ?? "all";
     const category = params.get("category") ?? "all";
     const type = params.get("type") ?? "all";
     setFilters({
-      city: city === "all" || options.cities.includes(city) ? city : "all",
+      city: city === "all" || options.cities.some((option) => option.id === city) ? city : "all",
+      province: province === "all" || options.provinces.some((option) => option.id === province) ? province : "all",
       category: category === "all" || options.categories.includes(category) ? category : "all",
-      type: type === "city" || type === "organization" || type === "place" ? type : "all",
+      type: type === "city" || type === "municipality" || type === "organization" || type === "place" ? type : "all",
       query: params.get("q") ?? ""
     });
     setQueryReady(true);
@@ -157,6 +186,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
     if (!queryReady) return;
     const params = new URLSearchParams();
     if (filters.city !== "all") params.set("city", filters.city);
+    if (filters.province !== "all") params.set("province", filters.province);
     if (filters.category !== "all") params.set("category", filters.category);
     if (filters.type !== "all") params.set("type", filters.type);
     if (filters.query.trim()) params.set("q", filters.query.trim());
@@ -172,6 +202,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
   const activeCluster = clusters.find((cluster) => cluster.id === activeClusterId) ?? null;
   const activeItem = activeCluster?.items[0] ?? null;
   const hasFilters = filters.city !== "all"
+    || filters.province !== "all"
     || filters.category !== "all"
     || filters.type !== "all"
     || Boolean(filters.query.trim());
@@ -205,20 +236,28 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
     <div className="coverage-map-experience">
       <form className="coverage-map-filters" onSubmit={(event) => event.preventDefault()} aria-label="Map filters">
         <div className="coverage-map-filter-heading">
-          <strong>Filter published coverage</strong>
+          <strong>Filter coverage and municipalities</strong>
           <span>Selections are kept in the page URL.</span>
         </div>
         <label>
-          City
+          Municipality / city
           <select disabled={!queryReady} value={filters.city} onChange={(event) => updateFilter("city", event.target.value)}>
-            <option value="all">All published cities</option>
-            {options.cities.map((city) => <option value={city} key={city}>{humanizeMapSlug(city)}</option>)}
+            <option value="all">All municipalities and cities</option>
+            {options.cities.map((city) => <option value={city.id} key={city.id}>{city.label}</option>)}
+          </select>
+        </label>
+        <label>
+          Province
+          <select disabled={!queryReady} value={filters.province} onChange={(event) => updateFilter("province", event.target.value)}>
+            <option value="all">All 12 provinces</option>
+            {options.provinces.map((province) => <option value={province.id} key={province.id}>{province.label}</option>)}
           </select>
         </label>
         <label>
           Content type
           <select disabled={!queryReady} value={filters.type} onChange={(event) => updateFilter("type", event.target.value as CoverageMapFilters["type"])}>
-            <option value="all">Cities, organizations and places</option>
+            <option value="all">All records</option>
+            <option value="municipality">Municipalities</option>
             <option value="city">Cities</option>
             <option value="organization">Organizations</option>
             <option value="place">Places</option>
@@ -233,7 +272,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
         </label>
         <label className="coverage-map-search">
           Search map
-          <span><Search aria-hidden /><input disabled={!queryReady} type="search" value={filters.query} onChange={(event) => updateFilter("query", event.target.value)} placeholder="City, place or organization" /></span>
+          <span><Search aria-hidden /><input disabled={!queryReady} type="search" value={filters.query} onChange={(event) => updateFilter("query", event.target.value)} placeholder="Municipality, city, place…" /></span>
         </label>
         <button className="coverage-map-reset" type="button" disabled={!queryReady || !hasFilters} onClick={() => setFilters(initialFilters)}>
           <RotateCcw aria-hidden /> Reset
@@ -241,15 +280,15 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
         <output className="coverage-map-filter-result" aria-live="polite">
           <span>Results</span><strong>{filteredItems.length}</strong>
         </output>
-        <noscript><p className="coverage-map-noscript">Map filters and marker previews require JavaScript. The complete published-content list remains available below.</p></noscript>
+        <noscript><p className="coverage-map-noscript">Map filters and marker previews require JavaScript. The complete directory list remains available below.</p></noscript>
       </form>
 
       <div className="coverage-map-layout">
         <section className="coverage-map-canvas" aria-labelledby="coverage-map-title">
           <div className="coverage-map-heading">
             <div>
-              <h2 id="coverage-map-title">Published YouNew coverage</h2>
-              <p>Geographic overview based on the official 2026 province boundaries.</p>
+              <h2 id="coverage-map-title">Netherlands directory and YouNew coverage</h2>
+              <p>All municipalities plus published content on official 2026 province geometry.</p>
             </div>
             <div className="coverage-map-view-switch" aria-label="Coverage view">
               <button className={viewMode === "map" ? "is-active" : ""} type="button" aria-pressed={viewMode === "map"} onClick={() => setViewMode("map")}><MapIcon aria-hidden /> Map</button>
@@ -266,8 +305,8 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
                 aria-roledescription="geographic coverage map"
                 aria-labelledby="coverage-map-svg-title coverage-map-svg-description"
               >
-                <title id="coverage-map-svg-title">Published YouNew city, place and organization coordinates in the Netherlands</title>
-                <desc id="coverage-map-svg-description">Select a marker to preview its published items. Nearby and identical coordinates are grouped. Province boundaries come from PDOK.</desc>
+                <title id="coverage-map-svg-title">Dutch municipalities and published YouNew content coordinates</title>
+                <desc id="coverage-map-svg-description">Select a marker to preview its directory or content records. Nearby and identical coordinates are grouped. Province boundaries come from PDOK.</desc>
                 <rect className="coverage-map-water" x="0" y="0" width={coverageMapViewport.width} height={coverageMapViewport.height} />
                 <g className="coverage-map-provinces" aria-hidden>
                   {provinceGeometry.map((province) => (
@@ -320,7 +359,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
                 <li key={item.id}>
                   <Link href={item.route}>
                     {item.image ? <img alt="" loading="lazy" src={optimizedPublicImageUrl(item.image.url, 360)} /> : <span className="coverage-map-list-icon"><ItemIcon type={item.type} /></span>}
-                    <span><small>{typeLabels[item.type]}{item.cityId ? ` · ${humanizeMapSlug(item.cityId)}` : ""}</small><strong>{item.title}</strong></span>
+                    <span><small>{typeLabels[item.type]}{item.cityId ? ` · ${cityLabelById.get(item.cityId) ?? humanizeMapSlug(item.cityId)}` : ""}</small><strong>{item.title}</strong></span>
                     <ExternalLink aria-hidden />
                   </Link>
                 </li>
@@ -332,11 +371,12 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
 
           <div className="coverage-map-legend" aria-label="Map legend">
             <span><i className="legend-city" /> City</span>
+            <span><i className="legend-municipality" /> Municipality</span>
             <span><i className="legend-organization" /> Organization</span>
             <span><i className="legend-place" /> Place</span>
             <span><i className="legend-cluster" /> Grouped point</span>
           </div>
-          <p className="coverage-map-method">Markers use coordinates from published YouNew content. Province geometry is derived from <a href="https://www.pdok.nl/introductie/-/article/bestuurlijke-gebieden" rel="noreferrer" target="_blank">Kadaster/PDOK Bestuurlijke Gebieden 2026</a> (CC BY 4.0). Empty areas show current editorial coverage, not the absence of services.</p>
+          <p className="coverage-map-method">Municipality markers use public government coordinates; content markers use the governed YouNew dataset. Province geometry is derived from <a href="https://www.pdok.nl/introductie/-/article/bestuurlijke-gebieden" rel="noreferrer" target="_blank">Kadaster/PDOK Bestuurlijke Gebieden 2026</a> (CC BY 4.0). Municipality presence does not imply a complete YouNew guide.</p>
         </section>
 
         <aside className="coverage-map-selection" id="map-selection" aria-live="polite">
@@ -350,7 +390,8 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
                   <p>{activeItem.summary}</p>
                   <dl className="coverage-map-selected-facts">
                     <div><dt>Type</dt><dd>{typeLabels[activeItem.type]}</dd></div>
-                    {activeItem.cityId ? <div><dt>City</dt><dd>{humanizeMapSlug(activeItem.cityId)}</dd></div> : null}
+                    {activeItem.cityId ? <div><dt>{activeItem.type === "municipality" ? "Municipality" : "City"}</dt><dd>{cityLabelById.get(activeItem.cityId) ?? humanizeMapSlug(activeItem.cityId)}</dd></div> : null}
+                    {activeItem.provinceId ? <div><dt>Province</dt><dd>{provinceLabelById.get(activeItem.provinceId) ?? humanizeMapSlug(activeItem.provinceId)}</dd></div> : null}
                     <div><dt>Source</dt><dd>{activeItem.sourcePublisher}</dd></div>
                     <div><dt>Checked</dt><dd>{activeItem.verifiedAt}</dd></div>
                   </dl>
@@ -362,7 +403,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
                     {activeCluster.items.slice(0, 6).map((item) => (
                       <Link href={item.route} key={item.id}>
                         <ItemIcon type={item.type} />
-                        <span><small>{typeLabels[item.type]}{item.cityId ? ` · ${humanizeMapSlug(item.cityId)}` : ""}</small><strong>{item.title}</strong></span>
+                        <span><small>{typeLabels[item.type]}{item.cityId ? ` · ${cityLabelById.get(item.cityId) ?? humanizeMapSlug(item.cityId)}` : ""}</small><strong>{item.title}</strong></span>
                         <ExternalLink aria-hidden />
                       </Link>
                     ))}
@@ -376,7 +417,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
             <div className="coverage-map-selection-empty">
               <MapPin aria-hidden />
               <h2>Select a marker</h2>
-              <p>Choose a cluster or individual point to see its image, source information and published record.</p>
+              <p>Choose a cluster or individual point to see its source information and directory or published record.</p>
               <p>The complete list below remains the primary accessible fallback.</p>
             </div>
           )}
@@ -385,7 +426,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
 
       <section className="coverage-map-results" id="map-results" aria-labelledby="map-results-title">
         <div className="coverage-map-results-heading">
-          <div><h2 id="map-results-title">Published content list</h2><p>Every visible item has a published detail page and a source-check date.</p></div>
+          <div><h2 id="map-results-title">Directory and published content list</h2><p>Every visible item has a detail page and a source-check date.</p></div>
           <strong>{filteredItems.length} result{filteredItems.length === 1 ? "" : "s"}</strong>
         </div>
         {filteredItems.length ? (
@@ -395,7 +436,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
                 <Link href={item.route}>
                   {item.image ? <img alt="" loading="lazy" src={optimizedPublicImageUrl(item.image.url, 220)} /> : <ItemIcon type={item.type} />}
                   <span>
-                    <small>{typeLabels[item.type]}{item.cityId ? ` · ${humanizeMapSlug(item.cityId)}` : ""}</small>
+                    <small>{typeLabels[item.type]}{item.cityId ? ` · ${cityLabelById.get(item.cityId) ?? humanizeMapSlug(item.cityId)}` : ""}</small>
                     <strong>{item.title}</strong>
                     <em><ShieldCheck aria-hidden /> Source checked {item.verifiedAt}</em>
                   </span>

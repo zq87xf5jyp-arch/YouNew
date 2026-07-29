@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getPublicContent } from "@/lib/content";
+import { getGeographyProvinces, getMunicipalities } from "@/lib/geography";
 
 export const dynamic = "force-static";
 
@@ -7,7 +8,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const content = getPublicContent();
   const updated = new Date(content.generatedAt);
   const staticPaths = [
-    "", "/discover", "/guides", "/journeys", "/map", "/categories", "/cities", "/provinces", "/places", "/organizations", "/updates",
+    "", "/discover", "/guides", "/journeys", "/map", "/categories", "/cities", "/municipalities", "/provinces", "/places", "/organizations", "/updates",
     "/emergency", "/status", "/app", "/business", "/business/advertise", "/business/partners", "/business/pricing",
     "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"
   ];
@@ -23,11 +24,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
     priority: entity.type === "city" || entity.type === "guide" ? 0.8 : 0.65
   }));
-  const aggregateEntries: MetadataRoute.Sitemap = [...content.categories, ...content.provinces].map((entry) => ({
+  const aggregateEntries: MetadataRoute.Sitemap = [...content.categories, ...getGeographyProvinces()].map((entry) => ({
     url: `https://younew.nl${entry.route}/`,
     lastModified: updated,
     changeFrequency: "weekly",
     priority: 0.75
   }));
-  return [...staticEntries, ...aggregateEntries, ...entityEntries];
+  const municipalityEntries: MetadataRoute.Sitemap = getMunicipalities().map((municipality) => ({
+    url: `https://younew.nl/municipalities/${municipality.slug}/`,
+    lastModified: municipality.sourceCheckedAt ? new Date(`${municipality.sourceCheckedAt}T00:00:00Z`) : updated,
+    changeFrequency: "monthly",
+    priority: 0.68
+  }));
+  return [...staticEntries, ...aggregateEntries, ...municipalityEntries, ...entityEntries];
 }

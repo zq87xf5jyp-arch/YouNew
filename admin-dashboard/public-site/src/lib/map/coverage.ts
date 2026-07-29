@@ -1,4 +1,4 @@
-export type CoverageMapEntityType = "city" | "organization" | "place";
+export type CoverageMapEntityType = "city" | "municipality" | "organization" | "place";
 
 export interface CoverageMapImage {
   readonly url: string;
@@ -16,6 +16,7 @@ export interface CoverageMapItem {
   readonly route: string;
   readonly type: CoverageMapEntityType;
   readonly cityId: string | null;
+  readonly provinceId: string | null;
   readonly categorySlugs: readonly string[];
   readonly coordinate: Readonly<{ latitude: number; longitude: number }>;
   readonly verifiedAt: string;
@@ -25,6 +26,7 @@ export interface CoverageMapItem {
 
 export interface CoverageMapFilters {
   readonly city: string;
+  readonly province: string;
   readonly category: string;
   readonly type: "all" | CoverageMapEntityType;
   readonly query: string;
@@ -66,12 +68,14 @@ export function filterCoverageMapItems(
   const query = (filters.query ?? "").trim().toLocaleLowerCase("en");
   return items.filter((item) => (
     (filters.city === "all" || item.cityId === filters.city) &&
+    (filters.province === "all" || item.provinceId === filters.province) &&
     (filters.category === "all" || item.categorySlugs.includes(filters.category)) &&
     (filters.type === "all" || item.type === filters.type) &&
     (!query || [
       item.title,
       item.summary,
       item.cityId ?? "",
+      item.provinceId ?? "",
       ...item.categorySlugs
     ].some((value) => typeof value === "string" && value.toLocaleLowerCase("en").includes(query)))
   ));

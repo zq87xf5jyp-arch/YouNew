@@ -1,17 +1,43 @@
 import Link from "next/link";
-import { ArrowRight, Map } from "lucide-react";
+import { ArrowRight, MapPinned } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
-import { ContentMedia, preferredMedia } from "@/components/content-media";
 import { PageShell } from "@/components/page-shell";
-import { getEntitiesForProvince, getPublicContent } from "@/lib/content";
+import { ProvinceShape } from "@/components/province-shape";
+import { getGeographyProvinces, getNetherlandsGeography } from "@/lib/geography";
 import { metadataForPage } from "@/lib/seo/metadata";
 
-export const metadata = metadataForPage("Provinces", "Province pages derived only from governed cities in the published YouNew dataset.", "/provinces");
+const description = "Explore all 12 provinces of the Netherlands with their complete 2026 municipality and settlement counts.";
+
+export const metadata = metadataForPage("Provinces of the Netherlands", description, "/provinces");
+
 export default function ProvincesPage() {
-  const { provinces } = getPublicContent();
-  return <PageShell><section className="app-hero section-shell compact-hero"><Breadcrumbs items={[{ label: "Provinces" }]} /><h1>Published province coverage</h1><p>These aggregate pages are derived from the four province IDs present in the production content artifact. They do not imply full nationwide coverage.</p></section><section className="section-shell app-content-block province-index-grid">{provinces.map((province) => {
-    const representative = getEntitiesForProvince(province.slug).find((entity) => entity.images.length > 0);
-    const image = representative ? preferredMedia(representative.images, ["thumbnail", "hero", "gallery"]) : null;
-    return <Link href={province.route} key={province.id}>{image ? <span className="collection-index-media"><ContentMedia asset={image} variant="card" /></span> : <Map aria-hidden />}<div><span>{province.cityIds.length} published {province.cityIds.length === 1 ? "city" : "cities"}</span><h2>{province.title}</h2><p>{province.summary}</p></div><ArrowRight aria-hidden /></Link>;
-  })}</section></PageShell>;
+  const geography = getNetherlandsGeography();
+  return (
+    <PageShell>
+      <section className="app-hero section-shell compact-hero province-directory-hero">
+        <Breadcrumbs items={[{ label: "Provinces" }]} />
+        <MapPinned className="hero-line-icon" aria-hidden />
+        <h1>All provinces of the Netherlands.</h1>
+        <p>{description}</p>
+        <div className="dataset-note"><strong>{geography.stats.provinces}</strong> provinces · <strong>{geography.stats.municipalities}</strong> municipalities · <strong>{geography.stats.settlements}</strong> official settlements</div>
+      </section>
+      <section className="section-shell geography-method-note" aria-label="Province directory scope">
+        <strong>Complete administrative directory</strong>
+        <p>Counts use the official municipal division and BAG settlement table for 1 January 2026. YouNew editorial coverage is shown separately on each province page.</p>
+      </section>
+      <section className="section-shell app-content-block province-directory-grid">
+        {getGeographyProvinces().map((province) => (
+          <Link href={province.route} key={province.code}>
+            <span className="province-directory-map"><ProvinceShape slug={province.slug} label={province.name} /></span>
+            <span className="province-directory-copy">
+              <small>{province.code}</small>
+              <strong>{province.name}</strong>
+              <span>{province.municipalityCount} municipalities · {province.settlementCount} settlements</span>
+            </span>
+            <ArrowRight aria-hidden />
+          </Link>
+        ))}
+      </section>
+    </PageShell>
+  );
 }

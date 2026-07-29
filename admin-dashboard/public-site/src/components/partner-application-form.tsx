@@ -48,21 +48,6 @@ const profileOptions: Array<{ value: BusinessUserProfileId; label: string }> = [
   { value: "resident", label: "Residents" }
 ];
 
-const provinces = [
-  "Drenthe",
-  "Flevoland",
-  "Friesland",
-  "Gelderland",
-  "Groningen",
-  "Limburg",
-  "North Brabant",
-  "North Holland",
-  "Overijssel",
-  "South Holland",
-  "Utrecht",
-  "Zeeland"
-];
-
 type ErrorMap = BusinessApplicationValidation["errors"];
 
 function valuesOf<T extends string>(formData: FormData, name: string): T[] {
@@ -111,7 +96,13 @@ function FieldError({ errors, name }: { errors: ErrorMap; name: keyof BusinessAp
   return message ? <p className="form-field-error" id={`${name}-error`}>{message}</p> : null;
 }
 
-export function PartnerApplicationForm() {
+export function PartnerApplicationForm({
+  municipalities,
+  provinces
+}: {
+  municipalities: readonly string[];
+  provinces: readonly string[];
+}) {
   const [interactive, setInteractive] = useState(false);
   const [organizationType, setOrganizationType] = useState<BusinessApplicationInput["organizationType"]>("");
   const [errors, setErrors] = useState<ErrorMap>({});
@@ -231,8 +222,9 @@ export function PartnerApplicationForm() {
         <legend>Location and audience</legend>
         <div className="form-grid">
           <div className="form-field">
-            <label htmlFor="city">Primary city</label>
-            <input id="city" name="city" maxLength={100} autoComplete="address-level2" aria-describedby={errors.city ? "city-error" : undefined} aria-invalid={Boolean(errors.city)} required />
+            <label htmlFor="city">Primary municipality or city</label>
+            <input id="city" name="city" list="municipality-options" maxLength={100} autoComplete="address-level2" aria-describedby={errors.city ? "city-error" : undefined} aria-invalid={Boolean(errors.city)} required />
+            <datalist id="municipality-options">{municipalities.map((municipality) => <option value={municipality} key={municipality} />)}</datalist>
             <FieldError errors={errors} name="city" />
           </div>
           <div className="form-field">

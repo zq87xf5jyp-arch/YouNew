@@ -28,6 +28,9 @@ const index = JSON.parse(
 const content = JSON.parse(
   await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8")
 ) as { entities: Array<{ id: string; status: string }>; categories: Array<{ id: string }> };
+const geography = JSON.parse(
+  await readFile(new URL("../src/generated/netherlands-geography.json", import.meta.url), "utf8")
+) as { municipalities: Array<{ code: string }>; provinces: Array<{ code: string }> };
 
 test("search index v2 contains only published entities and derived public routes", () => {
   assert.equal(index.schemaVersion, 2);
@@ -37,6 +40,15 @@ test("search index v2 contains only published entities and derived public routes
   const indexedEntityIds = index.documents.filter((document) => entityTypes.has(document.type)).map((document) => document.id).sort();
   assert.deepEqual(indexedEntityIds, content.entities.map((entity) => entity.id).sort());
   assert.deepEqual(index.documents.filter((document) => document.type === "category").map((document) => document.id).sort(), content.categories.map((category) => category.id).sort());
+  assert.equal(index.documents.filter((document) => document.type === "municipality").length, geography.municipalities.length);
+  assert.equal(index.documents.filter((document) => document.type === "province").length, geography.provinces.length);
+});
+
+test("official settlement names resolve to their municipality page", () => {
+  const results = rankModule.rankSearchDocuments(index.documents, "Giethoorn");
+  assert.ok(results.length > 0);
+  assert.equal(results[0].document.type, "municipality");
+  assert.equal(results[0].document.route, "/municipalities/steenwijkerland");
 });
 
 test("search normalizes accents and ranks exact titles first", () => {

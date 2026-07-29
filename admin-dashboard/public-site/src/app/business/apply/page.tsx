@@ -1,6 +1,7 @@
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageShell } from "@/components/page-shell";
 import { PartnerApplicationForm } from "@/components/partner-application-form";
+import { getGeographyProvinces, getMunicipalities } from "@/lib/geography";
 import { metadataForPage } from "@/lib/seo/metadata";
 
 export const metadata = metadataForPage("Business inquiry", "Prepare a partnership, advertising or request-for-quote inquiry for YouNew using a transparent email handoff.", "/business/apply");
@@ -21,7 +22,10 @@ export default function BusinessApplyPage() {
           <p>The form validates your entries in the browser and then sends them to YouNew&apos;s protected inquiry endpoint. A record is created only after server validation succeeds.</p>
           <p>Logo and image upload is intentionally unavailable. If the inquiry proceeds, support will explain a safe way to provide approved media.</p>
         </div>
-        <PartnerApplicationForm />
+        <PartnerApplicationForm
+          municipalities={getMunicipalities().map((municipality) => municipality.name)}
+          provinces={getGeographyProvinces().map((province) => province.name)}
+        />
       </section>
     </PageShell>
   );

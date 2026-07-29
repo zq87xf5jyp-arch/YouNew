@@ -29,6 +29,21 @@ export const requestedPlacementIds = [
 
 export type RequestedPlacementId = (typeof requestedPlacementIds)[number];
 
+export const advertisingSurfaceIds = [
+  "home-after-introduction",
+  "discover-after-organic-results",
+  "city-after-overview",
+  "municipality-after-official-facts",
+  "province-after-municipality-directory",
+  "category-after-featured-content",
+  "guide-after-next-actions",
+  "organization-after-source-facts",
+  "search-after-organic-results",
+  "map-after-selected-record"
+] as const;
+
+export type AdvertisingSurfaceId = (typeof advertisingSurfaceIds)[number];
+
 export const budgetRangeIds = [
   "under-1000",
   "1000-3000",
@@ -134,7 +149,7 @@ export interface SponsoredPlacementRecord {
 }
 
 export interface SponsoredPlacementContext {
-  readonly surface: "home" | "discover" | "city" | "province" | "category" | "guide" | "organization" | "search" | "emergency";
+  readonly surface: "home" | "discover" | "city" | "municipality" | "province" | "category" | "guide" | "organization" | "search" | "map" | "emergency";
   readonly cityId?: string;
   readonly provinceId?: string;
   readonly categorySlug?: string;
