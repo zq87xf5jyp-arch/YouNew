@@ -201,15 +201,25 @@ def release_catalog() -> dict[str, dict[str, Any]]:
     return {item["id"]: item for item in read_json(RELEASES_PATH).get("releases", [])}
 
 
-def is_effectively_published(envelope: RecordEnvelope, releases: dict[str, dict[str, Any]]) -> bool:
-    record = envelope.record
-    release = releases.get(envelope.release_id, {})
-    return (
-        envelope.batch_status in {"qa", "published"}
-        and release.get("status") == "published"
-        and record.get("lifecycle_status") == "published"
+@lru_cache(maxsize=1)
+def effectively_published_ids() -> frozenset[str]:
+    try:
+        release_ids = effective_release_heads(DATA_PROJECT, statuses={"published"})
+        effective = [resolve_release(DATA_PROJECT, release_id) for release_id in release_ids]
+    except EffectiveReleaseError as error:
+        raise RuntimeError(f"effective release resolution failed: {error}") from error
+    return frozenset(
+        str(record["id"])
+        for release in effective
+        for record in release.records
+        if record.get("lifecycle_status") == "published"
         and record.get("verification_status") == "verified"
     )
+
+
+def is_effectively_published(envelope: RecordEnvelope, releases: dict[str, dict[str, Any]]) -> bool:
+    del releases
+    return str(envelope.record.get("id")) in effectively_published_ids()
 
 
 @lru_cache(maxsize=1)

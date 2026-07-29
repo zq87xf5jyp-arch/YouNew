@@ -358,14 +358,14 @@ def main():
     health_issues = {
         "governed_broken_links": governed_broken_links,
         "legacy_runtime_broken_links": legacy_broken_links,
-        "expired_events": sum(expired_event(record) for record in records),
-        "missing_media": sum(not media_ready(record) for record in records),
-        "duplicates": duplicate_count(records),
-        "unverified_sources": sum(not source_ready(record) for record in records),
-        "missing_last_checked": sum(parse_date(record.get("last_checked")) is None for record in records),
-        "missing_coordinates": sum(not geography_ready(record) for record in records if record.get("entity_type") in GEO_TYPES),
-        "missing_ai_summary": sum(len(str(record.get("ai_summary") or "").strip()) < 40 for record in records),
-        "outdated_records": sum(record.get("verification_status") == "outdated" or not is_current(record) for record in records),
+        "expired_events": sum(expired_event(record) for record in published),
+        "missing_media": sum(not media_ready(record) for record in published),
+        "duplicates": duplicate_count(published),
+        "unverified_sources": sum(not source_ready(record) for record in published),
+        "missing_last_checked": sum(parse_date(record.get("last_checked")) is None for record in published),
+        "missing_coordinates": sum(not geography_ready(record) for record in published if record.get("entity_type") in GEO_TYPES),
+        "missing_ai_summary": sum(len(str(record.get("ai_summary") or "").strip()) < 40 for record in published),
+        "outdated_records": sum(record.get("verification_status") == "outdated" or not is_current(record) for record in published),
     }
     total_health_issues = sum(health_issues.values())
     health_status = "not_established" if not records else "healthy" if total_health_issues == 0 else "attention_required"

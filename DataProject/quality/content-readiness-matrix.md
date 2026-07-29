@@ -6,7 +6,7 @@ Evidence date: **2026-07-28**. This is a read-only local audit; no live URL chec
 
 **NOT PRODUCTION READY for the attached 100%-content brief.** The repository has substantial governed summary inventory, but no practical guide passes the fail-closed production contract.
 
-- Governed records: **450**; effectively published: **188**.
+- Governed records: **450**; effectively published: **186**.
 - Guide-capable material records: **277**; effectively published material records: **15**.
 - Material lifecycle states: **{"published": 15, "qa": 262}**.
 - Public guides: **15 summary / 0 full**.

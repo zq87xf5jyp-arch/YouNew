@@ -154,6 +154,7 @@ persistence. See
 | `YouNewTests/` | unit and local integration coverage |
 | `YouNewUITests/` | runtime navigation and demo contracts |
 | `DataProject/` | governed content source, schema, releases, and import model |
+| `admin-dashboard/supabase/` | canonical production migrations and post-migration verification |
 | `scripts/` | static, data, media, and release checks |
 | `BackendExamples/` | optional backend reference outside the demo claim |
 | `BuildWeek/` | final Build Week narrative, demo, and submission package |

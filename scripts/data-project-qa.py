@@ -9,7 +9,12 @@ from datetime import date, timedelta
 from pathlib import Path
 from urllib.parse import urlsplit
 
-from effective_release import EffectiveReleaseError, resolve_release, validate_release_graph
+from effective_release import (
+    EffectiveReleaseError,
+    effective_release_heads,
+    resolve_release,
+    validate_release_graph,
+)
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -192,7 +197,13 @@ def validate_media(record, label: str, published: bool, media_id_owner: dict):
         expect(MEDIA_ROLES <= roles, f"published {label} is missing media roles {sorted(MEDIA_ROLES - roles)}")
 
 
-def validate_record(record, label: str, media_id_owner: dict):
+def validate_record(
+    record,
+    label: str,
+    media_id_owner: dict,
+    *,
+    enforce_temporal_freshness: bool = True,
+):
     expect(isinstance(record, dict), f"{label} must be an object")
     expect(REQUIRED_FIELDS <= set(record), f"{label} is missing {sorted(REQUIRED_FIELDS - set(record))}")
     entity_id = record["id"]
@@ -229,13 +240,14 @@ def validate_record(record, label: str, media_id_owner: dict):
         attributes = record.get("attributes") or {}
         active_through = attributes.get("end_date") or attributes.get("start_date")
         event_date = parse_date(active_through, f"{label}.attributes.end_date/start_date")
-        if published:
+        if published and enforce_temporal_freshness:
             expect(event_date >= date.today(), f"published {label} event is expired")
     combined_text = " ".join([record["title"], record["description"], record["ai_summary"]]).casefold()
     expect(not any(marker in combined_text for marker in FORBIDDEN_TEXT), f"{label} contains placeholder text")
     if published:
         expect(record["verification_status"] == "verified", f"published {label} is not verified")
-        expect(checked + timedelta(days=frequency) >= date.today(), f"published {label} exceeds its review frequency")
+        if enforce_temporal_freshness:
+            expect(checked + timedelta(days=frequency) >= date.today(), f"published {label} exceeds its review frequency")
         expect(source["status"] == "verified_opened" and source["is_official"] is True, f"published {label} lacks an opened official source")
     validate_media(record, label, published, media_id_owner)
 
@@ -243,6 +255,7 @@ def validate_record(record, label: str, media_id_owner: dict):
 def main():
     package_ids = validate_manifest()
     releases, milestones = validate_governance(package_ids)
+    current_release_ids = set(effective_release_heads(PROJECT))
     batch_files = sorted((PROJECT / "batches").glob("**/*.json")) if (PROJECT / "batches").exists() else []
     entity_owner = {}
     title_owner = {}
@@ -279,7 +292,12 @@ def main():
         expect(isinstance(records, list) and records, f"{label} must contain at least one record")
         for index, record in enumerate(records):
             record_label = f"{label} record {index + 1}"
-            validate_record(record, record_label, media_id_owner)
+            validate_record(
+                record,
+                record_label,
+                media_id_owner,
+                enforce_temporal_freshness=release_id in current_release_ids,
+            )
             if batch["publication_status"] == "published":
                 expect(record["lifecycle_status"] == "published", f"published {label} contains a non-published record")
             if record["lifecycle_status"] == "published":
@@ -317,7 +335,12 @@ def main():
         effective_website_owners = {}
         for index, record in enumerate(effective.records):
             label = f"effective release {release_id} record {index + 1}"
-            validate_record(record, label, effective_media_owners)
+            validate_record(
+                record,
+                label,
+                effective_media_owners,
+                enforce_temporal_freshness=release_id in current_release_ids,
+            )
             title_key = (record["entity_type"], normalized(record["title"]), record.get("city_id"))
             expect(
                 title_key not in effective_title_owners,

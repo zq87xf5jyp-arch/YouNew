@@ -1658,15 +1658,15 @@ private struct MapOverseasTerritoriesCarousel: View {
     private func territoryPhotoURL(_ territory: OverseasTerritory) -> String? {
         switch territory.name {
         case "Aruba":
-            return "https://commons.wikimedia.org/wiki/Special:FilePath/Eagle%20Beach%2C%20Aruba.jpg?width=800"
+            return "https://commons.wikimedia.org/wiki/Special:FilePath/Eagle%20Beach%2C%20Oranjestad%20Aruba%2003.jpg?width=800"
         case "Curaçao":
             return "https://commons.wikimedia.org/wiki/Special:FilePath/Willemstad%20-%20Curacao.jpg?width=800"
         case "Sint Maarten":
-            return "https://commons.wikimedia.org/wiki/Special:FilePath/Sint%20Maarten%20-%20Great%20Bay.jpg?width=800"
+            return "https://commons.wikimedia.org/wiki/Special:FilePath/Stm-aussicht-great-bay.jpg?width=800"
         case "Bonaire":
-            return "https://commons.wikimedia.org/wiki/Special:FilePath/Bonaire%20salt%20pier.jpg?width=800"
+            return "https://commons.wikimedia.org/wiki/Special:FilePath/Bonaire%20Salt%20Pier.jpg?width=800"
         case "Sint Eustatius":
-            return "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Quill%2C%20Sint%20Eustatius.jpg?width=800"
+            return "https://commons.wikimedia.org/wiki/Special:FilePath/The%20Quill%20seen%20from%20the%20Atlantic%20side%20of%20the%20island%20Sint%20Eustatius.jpg?width=800"
         case "Saba":
             return "https://commons.wikimedia.org/wiki/Special:FilePath/Saba%20Corniche.jpg?width=800"
         default:

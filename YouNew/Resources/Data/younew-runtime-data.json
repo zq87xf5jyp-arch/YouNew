@@ -10062,7 +10062,7 @@
       "verificationStatus": "verified"
     },
     {
-      "aiSummary": "Use the official I amsterdam page for Begijnhof Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under historic courtyard and does not treat AI text as a factual source.",
+      "aiSummary": "Use the official Gemeente Amsterdam page for Begijnhof and recheck current visitor conditions before acting. This governed record supports search and routing without treating AI-generated text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 26658363",
         "dataProjectRelease": "amsterdam-v0.1.2",
@@ -10070,9 +10070,9 @@
         "lifecycleStatus": "published",
         "media_match": "exact",
         "media_roles_count": "4",
-        "source_final_url": "https://www.iamsterdam.com/en/whats-on/calendar/attractions-and-sights/sights/begijnhof",
-        "source_http_status": "restricted",
-        "source_verification_method": "indexed official source or in-app browser",
+        "source_final_url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
+        "source_http_status": "403",
+        "source_verification_method": "indexed official municipal source; direct request access restricted",
         "verificationStatus": "verified"
       },
       "category": "historic-courtyard",
@@ -10140,19 +10140,19 @@
         "place or attraction Amsterdam"
       ],
       "kind": "place",
-      "lastChecked": "2026-07-18",
+      "lastChecked": "2026-07-27",
       "provinceId": "noord-holland",
       "publicationStatus": "published",
       "relatedEntityIDs": [
         "city.amsterdam"
       ],
       "source": {
-        "checkedAt": "2026-07-18",
+        "checkedAt": "2026-07-27",
         "isOfficial": true,
-        "publisher": "I amsterdam",
+        "publisher": "Gemeente Amsterdam",
         "status": "verified_opened",
-        "title": "Begijnhof Amsterdam official website",
-        "url": "https://www.iamsterdam.com/en/whats-on/calendar/attractions-and-sights/sights/begijnhof"
+        "title": "Wat weet u van het Begijnhof, het beroemdste hofje van de stad?",
+        "url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/"
       },
       "summary": "Begijnhof Amsterdam is a confirmed Amsterdam place or attraction. The cited source specifically covers the enclosed historic courtyard in central Amsterdam. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
       "title": "Begijnhof Amsterdam",
@@ -11909,7 +11909,7 @@
       "verificationStatus": "verified"
     },
     {
-      "aiSummary": "Use the official I amsterdam destination listing for Restaurant Breda and recheck current visitor conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
+      "aiSummary": "Use the official Breda Group page for Restaurant BREDA and recheck current visitor conditions before acting. This governed record supports search and routing without treating AI-generated text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2725879687",
         "dataProjectRelease": "amsterdam-v0.1.2",
@@ -11917,9 +11917,9 @@
         "lifecycleStatus": "published",
         "media_match": "generic_neutral_fallback",
         "media_roles_count": "4",
-        "source_final_url": "https://www.iamsterdam.com/en/whats-on/calendar/eating-and-drinking/restaurants/breda",
+        "source_final_url": "https://bredagroup-amsterdam.com/about/?lang=en",
         "source_http_status": "200",
-        "source_verification_method": "browser-like GET against the official Amsterdam destination listing",
+        "source_verification_method": "direct request against the official restaurant group page",
         "verificationStatus": "verified"
       },
       "category": "restaurant",
@@ -11987,19 +11987,19 @@
         "restaurant Amsterdam"
       ],
       "kind": "restaurant",
-      "lastChecked": "2026-07-22",
+      "lastChecked": "2026-07-27",
       "provinceId": "noord-holland",
       "publicationStatus": "published",
       "relatedEntityIDs": [
         "city.amsterdam"
       ],
       "source": {
-        "checkedAt": "2026-07-22",
+        "checkedAt": "2026-07-27",
         "isOfficial": true,
-        "publisher": "I amsterdam",
+        "publisher": "The Breda Group",
         "status": "verified_opened",
-        "title": "Breda | I amsterdam",
-        "url": "https://www.iamsterdam.com/en/whats-on/calendar/eating-and-drinking/restaurants/breda"
+        "title": "About - The Breda Group",
+        "url": "https://bredagroup-amsterdam.com/about/?lang=en"
       },
       "summary": "BREDA is a confirmed Amsterdam restaurant. The cited source specifically covers the Amsterdam restaurant operated by the Breda group. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
       "title": "BREDA",
@@ -16209,7 +16209,7 @@
       "verificationStatus": "verified"
     }
   ],
-  "generatedAt": "2026-07-22T00:00:00Z",
+  "generatedAt": "2026-07-27T00:00:00Z",
   "inputFingerprint": {
     "batchFiles": [
       {
