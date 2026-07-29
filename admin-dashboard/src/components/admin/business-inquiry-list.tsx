@@ -30,6 +30,12 @@ const statusLabels: Record<BusinessInquiryListRow["status"], string> = {
   archived: "в архиве"
 };
 
+function formatCreatedAt(value: string) {
+  const date = new Date(value);
+  if (Number.isNaN(date.valueOf())) return value;
+  return `${date.toISOString().slice(0, 16).replace("T", " ")} UTC`;
+}
+
 export function BusinessInquiryList({
   rows,
   available
@@ -95,7 +101,7 @@ export function BusinessInquiryList({
                   <td><p className="font-medium">{row.company_name}</p><p className="text-xs text-muted-foreground">{row.contact_person} · {row.email}</p></td>
                   <td>{row.inquiry_type}</td>
                   <td><Badge variant={row.status === "new" ? "warning" : row.status === "accepted" ? "success" : "secondary"}>{statusLabels[row.status]}</Badge></td>
-                  <td>{new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short" }).format(new Date(row.created_at))}</td>
+                  <td><time dateTime={row.created_at}>{formatCreatedAt(row.created_at)}</time></td>
                   <td><Link className="text-cyan-200 underline-offset-4 hover:underline" href={`/business-inquiries/${row.id}`}>Открыть</Link></td>
                 </tr>
               ))}

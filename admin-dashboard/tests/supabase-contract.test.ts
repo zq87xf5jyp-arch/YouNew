@@ -71,6 +71,17 @@ test("Admin business fields match the deployed production contract", async () =>
   assert.doesNotMatch(source, /confirmation_code|contact_name|work_email|internal_note/);
 });
 
+test("business inquiry timestamps render deterministically during hydration", async () => {
+  const source = await readFile(
+    new URL("../src/components/admin/business-inquiry-list.tsx", import.meta.url),
+    "utf8"
+  );
+
+  assert.match(source, /toISOString\(\)\.slice\(0, 16\)/);
+  assert.match(source, /<time dateTime=\{row\.created_at\}>/);
+  assert.doesNotMatch(source, /Intl\.DateTimeFormat/);
+});
+
 test("Admin content activation exposes only a reviewed active feed", async () => {
   const [migration, route, action, middleware] = await Promise.all([
     readFile(new URL("../supabase/migrations/20260728212059_activate_public_content_feed.sql", import.meta.url), "utf8"),

@@ -1,5 +1,5 @@
 {
-  "datasetFingerprint": "066158d1e248ba544b582ef0a2eaf60648c8e50da04e2ba89d041e707178e2de",
+  "datasetFingerprint": "920f62b2547c1e06e438f837566e9119311f7f38d07448d74c0c1b169f681c37",
   "entities": [
     {
       "aiSummary": "Use the official Back to Black page for Back to Black and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
@@ -16228,7 +16228,7 @@
       },
       {
         "path": "DataProject/overlays/WP-06/amsterdam-v0.1.2.json",
-        "sha256": "599d1209d6db6711e105128fb295bb241d2905dd0ab6f1525404d5b4568a3a07"
+        "sha256": "6ee3a5dfe668d9900c4d2676f614ac021a330a08c29734b8e16456274b2702d7"
       },
       {
         "path": "DataProject/releases/acceptance-locks/amsterdam-v0.1.0.json",
@@ -16242,11 +16242,11 @@
     "releaseManifests": [
       {
         "path": "DataProject/reports/release-manifests/amsterdam-v0.1.2.json",
-        "sha256": "729176b9cb01919c17b18aad3899c8e9b78eaf2343e7361cb74d5e75ad346f9a"
+        "sha256": "a57c074f795b070fb03f8adb05790c13a618569f10e0c7189bdd58007a1e1235"
       },
       {
         "path": "DataProject/reports/release-manifests/cities-v0.1.0.json",
-        "sha256": "d1cff684474341b8db22e2fb056e149f785f1d2bcabaaa59f215ce4cc58357a5"
+        "sha256": "b82892a60ca5f39af23ab8b0a6a6464a9c78048536aeea45dceaaf339833623f"
       }
     ],
     "schema": {
@@ -16318,7 +16318,7 @@
     }
   },
   "mode": "production",
-  "outputChecksum": "6d2972520f3ecfcf5e43d2f6c43a614aebcf718fae6cff15fde6b11d512a0b8c",
+  "outputChecksum": "c263ac50efefc4d556dabdaa76ee6490759de848d43c06945665ccc0b29ef11c",
   "publicationPolicy": {
     "allSevenGatesRequired": true,
     "productionRequiresReleaseStatus": "published",
@@ -16330,7 +16330,7 @@
       "batchCount": 1,
       "id": "amsterdam-v0.1.2",
       "qaReadyRecordCount": 183,
-      "replacementCount": 2,
+      "replacementCount": 4,
       "status": "published",
       "version": "0.1.2"
     },
