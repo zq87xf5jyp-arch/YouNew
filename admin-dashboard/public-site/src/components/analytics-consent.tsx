@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
+import { ShieldCheck } from "lucide-react";
 import siteConfig from "@/config/site-config.json";
 import {
   createSupabaseAnalyticsProvider,
@@ -139,8 +140,10 @@ export function AnalyticsConsent() {
           className="analytics-settings-trigger"
           onClick={() => setSettingsOpen(true)}
           aria-label="Open analytics privacy choices"
+          title="Privacy choices"
         >
-          Privacy choices
+          <ShieldCheck aria-hidden />
+          <span className="visually-hidden">Privacy choices</span>
         </button>
       ) : null}
       {settingsOpen ? (
