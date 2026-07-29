@@ -108,6 +108,8 @@ test("Admin content activation exposes only a reviewed active feed", async () =>
   assert.match(route, /buildPublicContentFeed/);
   assert.match(route, /Access-Control-Allow-Origin/);
   assert.match(route, /https:\/\/younew\.nl/);
+  assert.match(route, /process\.env\.NODE_ENV === "production"/);
+  assert.match(route, /headers\.set\("Access-Control-Allow-Origin", publicSiteOrigin\)/);
   assert.match(route, /If-None-Match/i);
   assert.doesNotMatch(route, /SUPABASE_SERVICE_ROLE_KEY|service_role/);
   assert.match(action, /\.rpc\("activate_content_artifact"/);
