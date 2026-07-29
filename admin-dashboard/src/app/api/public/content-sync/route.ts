@@ -6,8 +6,9 @@ import {
 } from "@/lib/content-sync-feed";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 
+const publicSiteOrigin = "https://younew.nl";
 const allowedOrigins = new Set([
-  "https://younew.nl",
+  publicSiteOrigin,
   "http://localhost:3000",
   "http://127.0.0.1:3000",
   "http://localhost:3001",
@@ -22,7 +23,12 @@ function corsHeaders(origin: string | null) {
     "Vary": "Origin",
     "X-Content-Type-Options": "nosniff"
   });
-  if (origin && allowedOrigins.has(origin)) {
+  if (process.env.NODE_ENV === "production") {
+    // Hostinger CDN does not reliably preserve Vary: Origin on cached responses.
+    // The public feed has one canonical production consumer, so emit its origin
+    // on every production response and keep rejecting other Origin requests.
+    headers.set("Access-Control-Allow-Origin", publicSiteOrigin);
+  } else if (origin && allowedOrigins.has(origin)) {
     headers.set("Access-Control-Allow-Origin", origin);
   }
   return headers;
