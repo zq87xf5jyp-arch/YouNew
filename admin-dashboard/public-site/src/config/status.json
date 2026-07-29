@@ -2,17 +2,17 @@
   "schemaVersion": 1,
   "snapshotType": "static",
   "liveMonitoring": false,
-  "checkedAt": "2026-07-28",
+  "checkedAt": "2026-07-29",
   "website": {
     "status": "operational",
     "label": "Website",
-    "summary": "The production website, key public routes, app preview image and touch icon were reachable during the 28 July check."
+    "summary": "The production website, key public routes, app preview image and touch icon were reachable during the 29 July check."
   },
   "content": {
     "status": "current",
     "label": "Published content",
-    "asOf": "2026-07-28",
-    "summary": "The published content snapshot used by the web experience was checked on 28 July 2026; two events that ended on 25 July were retired from current discovery."
+    "asOf": "2026-07-29",
+    "summary": "The published content snapshot used by the web experience was checked on 29 July 2026; two events that ended on 25 July were retired from current discovery."
   },
   "ios": {
     "status": "operational",
@@ -23,12 +23,11 @@
     "summary": "The public App Store listing is reachable. Its current store version was not independently verified; version 1.1 (build 5) is the locally verified application build."
   },
   "businessForm": {
-    "status": "degraded",
+    "status": "operational",
     "label": "Business and feedback forms",
-    "summary": "Secure Supabase endpoints and Admin views are prepared locally, but the migration and Edge Functions are not active in production until an authorized deployment."
+    "summary": "Secure Supabase submission endpoints and their Admin review views are active in production."
   },
   "limitations": [
-    "The secure business and feedback submission endpoints await an authorized production deployment.",
     "This page is a static snapshot and does not provide live uptime monitoring.",
     "Saved web items are stored on the current device and do not yet sync with the iOS application.",
     "Some application-only capabilities are not available in the web experience."
