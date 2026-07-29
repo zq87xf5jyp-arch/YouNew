@@ -769,7 +769,7 @@ button,summary,a { -webkit-tap-highlight-color:rgba(58,196,214,.14); }
 }
 .feature-route:hover>svg { transform:translateX(4px); }
 
-.homepage-current {
+.homepage-current.section-block {
   display:grid;
   gap:18px;
   padding-top:10px;
@@ -1141,7 +1141,7 @@ button,summary,a { -webkit-tap-highlight-color:rgba(58,196,214,.14); }
   }
   .feature-route:last-child { border-bottom:0; }
   .feature-route>svg { display:block; }
-  .homepage-current { padding-top:0; }
+  .homepage-current.section-block { padding-top:0; }
   .current-heading,.latest-heading { padding:24px 22px 0; }
   .important-route {
     grid-template-columns:52px minmax(0,1fr);
