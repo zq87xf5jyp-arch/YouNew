@@ -102,3 +102,19 @@ test("Admin content activation exposes only a reviewed active feed", async () =>
   assert.match(action, /\.rpc\("activate_content_artifact"/);
   assert.match(middleware, /isPublicApi[\s\S]*if \(isPublicApi\) return NextResponse\.next\(\)/);
 });
+
+test("article publication trigger can call the private role gate without exposing it", async () => {
+  const migration = await readFile(
+    new URL("../supabase/migrations/20260729113000_secure_article_publication_gate.sql", import.meta.url),
+    "utf8"
+  );
+
+  assert.match(migration, /alter function public\.enforce_article_publication_gate\(\)\s+security definer/i);
+  assert.match(migration, /set search_path = pg_catalog/i);
+  assert.match(
+    migration,
+    /revoke all on function public\.enforce_article_publication_gate\(\)\s+from public, anon, authenticated/i
+  );
+  assert.doesNotMatch(migration, /grant usage on schema private/i);
+  assert.doesNotMatch(migration, /grant execute[\s\S]*to authenticated/i);
+});
