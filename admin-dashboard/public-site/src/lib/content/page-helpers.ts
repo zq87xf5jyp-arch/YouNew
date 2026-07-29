@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { getContentEntities, getContentEntityById, type ContentEntity, type ContentEntityType } from "@/lib/content";
+import { publicWebSummary } from "@/lib/content/presentation";
 import { metadataForPage } from "@/lib/seo/metadata";
 
 export function metadataForEntity(entity: ContentEntity): Metadata {
   const title = entity.type === "city" ? `${entity.title} city guide` : entity.practicalGuide?.seo.title ?? entity.title;
-  const description = entity.practicalGuide?.seo.description ?? entity.seo.description;
+  const description = entity.practicalGuide?.seo.description ?? publicWebSummary(entity.seo.description);
   const metadata = metadataForPage(title, description, entity.route);
   return { ...metadata, openGraph: { ...metadata.openGraph, type: "article" } };
 }
@@ -28,8 +29,8 @@ export function relatedForEntity(entity: ContentEntity, limit = 6): ContentEntit
 }
 
 export const listingCopy: Record<ContentEntityType, { title: string; description: string }> = {
-  city: { title: "Published cities", description: "Governed city records released through the same production content artifact used by the iOS app." },
-  guide: { title: "Source-backed guides", description: "Published municipal and housing starting points with a clear source trail and next-step context." },
+  city: { title: "Published cities", description: "Reviewed city information published for both the website and the iOS app." },
+  guide: { title: "Guides and verified summaries", description: "Complete procedures and source-checked starting points are labelled separately, so you can see how much practical detail is currently published." },
   organization: { title: "Organizations", description: "Healthcare, education and local service organizations from the published source-checked dataset." },
   place: { title: "Places", description: "Published places, stations, museums, parks, restaurants and events currently concentrated in Amsterdam." }
 };

@@ -10,6 +10,7 @@ import { SaveButton } from "@/components/save-button";
 import { ShareButton } from "@/components/share-button";
 import { ContentMedia, preferredMedia } from "@/components/content-media";
 import type { ContentEntity, GuideContactOption, GuideSourcedText, PracticalGuide } from "@/lib/content";
+import { publicWebSummary } from "@/lib/content/presentation";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 function titleCase(value: string) {
@@ -177,11 +178,11 @@ function BriefGuide({ entity }: { entity: ContentEntity }) {
       <section className="guide-section guide-quick-answer" id="quick-answer" aria-labelledby="brief-answer-title">
         <p className="section-label">Source-backed summary</p>
         <h2 id="brief-answer-title">What this record confirms</h2>
-        <p>{entity.summary}</p>
+        <p>{publicWebSummary(entity.summary)}</p>
       </section>
       <aside className="guide-depth-note" role="note" aria-label="Guide publication status">
         <FileText aria-hidden />
-        <div><strong>Step-by-step guide not yet released</strong><p>This page is a verified starting point, not a complete procedure. Check the responsible source for current requirements{municipal && entity.cityId ? ` and ${titleCase(entity.cityId)}-specific steps` : ""}.</p></div>
+        <div><strong>Step-by-step guide not yet published</strong><p>This page is a verified starting point, not a complete procedure. Check the responsible source for current requirements{municipal && entity.cityId ? ` and ${titleCase(entity.cityId)}-specific steps` : ""}.</p></div>
       </aside>
       <section className="guide-section" id="next-actions" aria-labelledby="brief-next-actions-title">
         <h2 id="brief-next-actions-title">What to do next</h2>
@@ -198,9 +199,8 @@ function BriefGuide({ entity }: { entity: ContentEntity }) {
 export function GuideDetail({ entity, related }: { entity: ContentEntity; related: readonly ContentEntity[] }) {
   const guide = entity.practicalGuide;
   const heroImage = preferredMedia(entity.images, ["hero", "gallery", "thumbnail"]);
-  const summary = guide?.shortSummary.text ?? entity.summary;
-  const reportSubject = encodeURIComponent(`Outdated information: ${entity.title} (${entity.id})`);
-  const reportBody = encodeURIComponent(`Page: https://younew.nl${entity.route}/\nCanonical ID: ${entity.id}\n\nWhat appears outdated or incorrect?\n\nOfficial source to review (if known):\n`);
+  const summary = guide?.shortSummary.text ?? publicWebSummary(entity.summary);
+  const reportHref = `/support/?type=incorrect-information&page=${encodeURIComponent(`${entity.route}/`)}`;
   const structuredData = guide ? {
     "@context": "https://schema.org",
     "@graph": [
@@ -224,7 +224,7 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
     "@context": "https://schema.org",
     "@type": "Article",
     headline: entity.title,
-    description: entity.summary,
+    description: publicWebSummary(entity.summary),
     url: `https://younew.nl${entity.route}/`,
     inLanguage: "en",
     dateModified: entity.updatedAt,
@@ -252,7 +252,7 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
         ) : null}
       </div>
 
-      <div className="section-shell guide-report-row"><a className="report-link" href={`mailto:support@younew.nl?subject=${reportSubject}&body=${reportBody}`}><Flag aria-hidden /> Report outdated information</a></div>
+      <div className="section-shell guide-report-row"><a className="report-link" href={reportHref}><Flag aria-hidden /> Report outdated information</a></div>
 
       {related.length > 0 ? <section className="section-shell related-section" aria-labelledby="related-title"><div className="listing-heading"><div><span>Continue safely</span><h2 id="related-title">Related published content</h2></div></div><div className="entity-grid compact-grid">{related.slice(0, 3).map((item) => <EntityCard entity={item} key={item.id} />)}</div></section> : null}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />

@@ -28,7 +28,7 @@ export default function JourneysPage() {
       <section className="app-hero section-shell journey-hero">
         <Breadcrumbs items={[{ label: "Discover", href: "/discover" }, { label: "Journeys" }]} />
         <p className="section-label orange">Practical journeys</p>
-        <h1>Move through reliable information, one released guide at a time.</h1>
+        <h1>Move through reliable information, one published guide at a time.</h1>
         <p>Choose a path, open the source-backed guides that are available, and mark your reading progress locally. YouNew leaves incomplete journeys visibly closed instead of filling gaps with unreviewed instructions.</p>
       </section>
       <section className="section-shell journey-section" aria-label="YouNew journeys"><JourneyExplorer journeys={journeys} /></section>

@@ -100,25 +100,264 @@
     }
   }
 
-  if ("IntersectionObserver" in window && !window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry) => {
-        if (!entry.isIntersecting) return;
-        entry.target.classList.remove("reveal-pending");
-        entry.target.classList.add("is-revealed");
-        observer.unobserve(entry.target);
-      });
-    }, { rootMargin: "0px 0px -8% 0px", threshold: .08 });
-    document.querySelectorAll("[data-reveal]").forEach((element) => {
-      if (element.getBoundingClientRect().top <= window.innerHeight * .92) element.classList.add("is-revealed");
-      else {
-        element.classList.add("reveal-pending");
-        observer.observe(element);
+  const analyticsConsentKey = "younew.analytics-consent.2026-07-28";
+  const analyticsAppInstanceKey = "younew.analytics-app-instance";
+  const analyticsSessionKey = "younew.analytics-session";
+  const analyticsEndpointPath = "/functions/v1/analytics-ingest";
+  let analyticsProvider;
+
+  const analyticsEnvironment = (hostname) => {
+    const normalized = hostname.trim().toLowerCase();
+    return normalized === "localhost"
+      || normalized === "127.0.0.1"
+      || normalized === "::1"
+      || normalized.endsWith(".localhost")
+      ? "staging"
+      : "production";
+  };
+
+  const readAnalyticsConsent = () => {
+    try {
+      const value = localStorage.getItem(analyticsConsentKey);
+      return value === "accepted" || value === "declined" ? value : null;
+    } catch {
+      return null;
+    }
+  };
+
+  const saveAnalyticsConsent = (choice) => {
+    try { localStorage.setItem(analyticsConsentKey, choice); } catch { /* current-page choice still applies */ }
+  };
+
+  const browserPrivacySignalEnabled = () => (
+    navigator.globalPrivacyControl === true
+    || navigator.doNotTrack === "1"
+    || window.doNotTrack === "1"
+  );
+
+  const randomUUIDv4 = () => {
+    const source = globalThis.crypto;
+    if (typeof source?.randomUUID === "function") return source.randomUUID();
+    if (typeof source?.getRandomValues !== "function") {
+      throw new Error("Secure random values are unavailable.");
+    }
+
+    const bytes = source.getRandomValues(new Uint8Array(16));
+    bytes[6] = (bytes[6] & 0x0f) | 0x40;
+    bytes[8] = (bytes[8] & 0x3f) | 0x80;
+    const hexadecimal = Array.from(bytes, (byte) => byte.toString(16).padStart(2, "0"));
+    return [
+      hexadecimal.slice(0, 4).join(""),
+      hexadecimal.slice(4, 6).join(""),
+      hexadecimal.slice(6, 8).join(""),
+      hexadecimal.slice(8, 10).join(""),
+      hexadecimal.slice(10, 16).join("")
+    ].join("-");
+  };
+
+  const sessionIdentifier = (key) => {
+    try {
+      const existing = sessionStorage.getItem(key);
+      if (existing) return existing;
+      const created = randomUUIDv4();
+      sessionStorage.setItem(key, created);
+      return created;
+    } catch {
+      return randomUUIDv4();
+    }
+  };
+
+  const clearAnalyticsSession = () => {
+    try {
+      sessionStorage.removeItem(analyticsAppInstanceKey);
+      sessionStorage.removeItem(analyticsSessionKey);
+    } catch { /* no identifier exists when storage is blocked */ }
+  };
+
+  const validAnalyticsConfiguration = (configuration) => {
+    try {
+      const endpoint = new URL(configuration?.endpoint);
+      return configuration?.enabled === true
+        && endpoint.protocol === "https:"
+        && endpoint.hostname.endsWith(".supabase.co")
+        && endpoint.pathname === analyticsEndpointPath
+        && configuration.publishableKey?.startsWith("sb_publishable_")
+        && configuration.consentVersion?.length > 0
+        && configuration.schemaVersion === 1;
+    } catch {
+      return false;
+    }
+  };
+
+  const createHomepageAnalytics = (configuration) => {
+    if (!validAnalyticsConfiguration(configuration)) return undefined;
+    const appInstanceId = sessionIdentifier(analyticsAppInstanceKey);
+    const sessionId = sessionIdentifier(analyticsSessionKey);
+    let queue = [];
+    let timer;
+    let disposed = false;
+    let inFlight;
+
+    const flush = async () => {
+      if (disposed || queue.length === 0) return;
+      if (inFlight) {
+        await inFlight;
+        if (queue.length > 0) await flush();
+        return;
       }
-    });
+      if (timer !== undefined) {
+        clearTimeout(timer);
+        timer = undefined;
+      }
+      const events = queue.splice(0, 20);
+      inFlight = fetch(configuration.endpoint, {
+        method: "POST",
+        headers: {
+          Accept: "application/json",
+          apikey: configuration.publishableKey,
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ events }),
+        credentials: "omit",
+        keepalive: true,
+        referrerPolicy: "no-referrer"
+      }).catch(() => undefined).finally(() => {
+        inFlight = undefined;
+      });
+      await inFlight;
+    };
+
+    return {
+      track(eventName) {
+        if (disposed) return;
+        queue.push({
+          client_event_id: randomUUIDv4(),
+          app_instance_id: appInstanceId,
+          session_id: sessionId,
+          event_name: eventName,
+          screen: location.pathname.slice(0, 160) || "/",
+          platform: "Web",
+          app_version: configuration.appVersion,
+          language: (document.documentElement.lang || "en").slice(0, 12),
+          properties: {},
+          occurred_at: new Date().toISOString(),
+          consent_version: configuration.consentVersion,
+          schema_version: configuration.schemaVersion,
+          environment: analyticsEnvironment(location.hostname)
+        });
+        if (queue.length >= 20) void flush();
+        else if (timer === undefined) timer = setTimeout(() => {
+          timer = undefined;
+          void flush();
+        }, 1_000);
+      },
+      flush,
+      dispose() {
+        if (timer !== undefined) clearTimeout(timer);
+        timer = undefined;
+        disposed = true;
+        queue = [];
+      }
+    };
+  };
+
+  const analyticsConfiguration = fetch("/data/site-config.json", {
+    cache: "no-store",
+    credentials: "same-origin",
+    headers: { Accept: "application/json" }
+  }).then((response) => response.ok ? response.json() : undefined)
+    .then((config) => config?.analytics)
+    .catch(() => undefined);
+
+  const startHomepageAnalytics = async (includeConsentEvent = false) => {
+    const configuration = await analyticsConfiguration;
+    analyticsProvider?.dispose();
+    analyticsProvider = createHomepageAnalytics(configuration);
+    if (!analyticsProvider) return;
+    window.__YOUNEW_ANALYTICS__ = analyticsProvider;
+    if (includeConsentEvent) analyticsProvider.track("analytics_consent_granted");
+    analyticsProvider.track("page_view");
+  };
+
+  const createConsentButton = (label, className, action) => {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = className;
+    button.textContent = label;
+    button.addEventListener("click", action);
+    return button;
+  };
+
+  const consentTrigger = createConsentButton("Privacy choices", "analytics-settings-trigger", () => {
+    consentTrigger.hidden = true;
+    consentDialog.hidden = false;
+    requestAnimationFrame(() => consentTitle.focus());
+  });
+  consentTrigger.setAttribute("aria-label", "Open analytics privacy choices");
+
+  const consentDialog = document.createElement("section");
+  consentDialog.className = "analytics-consent";
+  consentDialog.role = "dialog";
+  consentDialog.setAttribute("aria-modal", "true");
+  consentDialog.setAttribute("aria-labelledby", "analytics-consent-title");
+
+  const consentCopy = document.createElement("div");
+  const consentEyebrow = document.createElement("p");
+  consentEyebrow.className = "analytics-consent-eyebrow";
+  consentEyebrow.textContent = "Your privacy choice";
+  const consentTitle = document.createElement("h2");
+  consentTitle.id = "analytics-consent-title";
+  consentTitle.tabIndex = -1;
+  consentTitle.textContent = "Help improve YouNew?";
+  const consentDescription = document.createElement("p");
+  consentDescription.textContent = "With your permission, YouNew counts page visits and bounded product actions. We do not send search text, profile details, precise location, advertising IDs or cross-site identifiers. The identifier lasts only for this browser tab.";
+  const consentPolicy = document.createElement("p");
+  consentPolicy.append("Data is stored in the EU for up to 90 days. You can change this choice at any time. Read the ");
+  const consentPolicyLink = document.createElement("a");
+  consentPolicyLink.href = "/privacy/";
+  consentPolicyLink.textContent = "Privacy Policy";
+  consentPolicy.append(consentPolicyLink, ".");
+  consentCopy.append(consentEyebrow, consentTitle, consentDescription, consentPolicy);
+
+  const consentActions = document.createElement("div");
+  consentActions.className = "analytics-consent-actions";
+  const declineAnalytics = () => {
+    analyticsProvider?.dispose();
+    analyticsProvider = undefined;
+    delete window.__YOUNEW_ANALYTICS__;
+    saveAnalyticsConsent("declined");
+    clearAnalyticsSession();
+    consentDialog.hidden = true;
+    consentTrigger.hidden = false;
+    consentTrigger.focus();
+  };
+  const acceptAnalytics = () => {
+    saveAnalyticsConsent("accepted");
+    consentDialog.hidden = true;
+    consentTrigger.hidden = false;
+    consentTrigger.focus();
+    void startHomepageAnalytics(true);
+  };
+  consentActions.append(
+    createConsentButton("Decline analytics", "button-secondary", declineAnalytics),
+    createConsentButton("Allow anonymous analytics", "button-primary", acceptAnalytics)
+  );
+  consentDialog.append(consentCopy, consentActions);
+  document.body.append(consentTrigger, consentDialog);
+
+  const storedAnalyticsChoice = readAnalyticsConsent();
+  if (storedAnalyticsChoice === "accepted") {
+    consentDialog.hidden = true;
+    void startHomepageAnalytics();
+  } else if (storedAnalyticsChoice === "declined" || browserPrivacySignalEnabled()) {
+    consentDialog.hidden = true;
+  } else {
+    consentTrigger.hidden = true;
+    requestAnimationFrame(() => consentTitle.focus());
   }
 
-  if ("serviceWorker" in navigator) {
-    navigator.serviceWorker.register("/sw.js", { scope: "/", updateViaCache: "none" }).catch(() => { /* offline support is progressive */ });
-  }
+  window.addEventListener("pagehide", () => {
+    void analyticsProvider?.flush();
+  });
+
 })();

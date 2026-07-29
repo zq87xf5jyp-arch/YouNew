@@ -252,7 +252,7 @@ Upload only the **contents** of `out/` (or identical `dist/client/`) to the docu
 5. The live source/media gate has 18 confirmed 404 responses in the immutable released runtime. They cannot be corrected by mutating the published Amsterdam batch; a patch candidate must canonicalize licence URLs, remove/replace dead media and manually resolve the probable BREDA anti-bot case.
 6. The current importer and global duplicate gate do not yet support same-ID overlay patches. The immutable overlay/lineage mechanism in `DataProject/operations/amsterdam-v0.1.1-remediation-plan.md` must be implemented and tested before a safe `amsterdam-v0.1.1` candidate can exist.
 7. Map precision is limited by coarse/repeated coordinates in the canonical release.
-8. Secure submissions, accounts, app sync, partner dashboard, campaigns, billing and real analytics require backend and policy decisions.
+8. Consent-based first-party website product analytics now uses the protected Supabase ingest contract and admin-only aggregate dashboard. Accounts, app sync, partner campaign reporting, billing and advertiser-facing analytics still require separate backend and policy decisions.
 9. Real iPhone Safari PWA/offline testing and live Hostinger headers/404/MIME/HTTPS checks require a device or approved deployment.
 10. The repository path contains `:`, so `node_modules/.bin` is unreliable; CI or a colon-free checkout is recommended.
 11. `reviewer-registry.json` and `guide-evidence-registry.json` are empty by policy. A real named human review and hashed QA artifact are non-delegable publication inputs.

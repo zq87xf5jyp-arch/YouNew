@@ -46,7 +46,7 @@ for (const file of await files(root)) {
 }
 
 const headers = await readFile(join(root, ".htaccess"), "utf8");
-for (const required of ["Content-Security-Policy", "X-Content-Type-Options", "Referrer-Policy", "X-Frame-Options", "Permissions-Policy", "ErrorDocument 404"]) assert.match(headers, new RegExp(required));
+for (const required of ["Content-Security-Policy", "X-Content-Type-Options", "Referrer-Policy", "X-Frame-Options", "Permissions-Policy", "Strict-Transport-Security", "ForceType application/manifest+json", "ErrorDocument 404"]) assert.match(headers, new RegExp(required.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 const csp = headers.match(/Content-Security-Policy "([^"]+)"/)?.[1] ?? "";
 for (const origin of allowedExternalImageOrigins) assert.match(csp, new RegExp(origin.replaceAll(".", "\\.")));
 console.log("Security package check passed: no known secret patterns, remote images match the HTTPS CSP allowlist, and required Hostinger headers are present.");

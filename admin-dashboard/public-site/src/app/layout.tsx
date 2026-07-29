@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { MotionEnhancer } from "@/components/motion-enhancer";
+import { AnalyticsConsent } from "@/components/analytics-consent";
 import { ServiceWorkerRegister } from "@/components/service-worker-register";
 import { StatusBanner } from "@/components/status-banner";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         {children}
+        <AnalyticsConsent />
         <StatusBanner />
         <MotionEnhancer />
         <ServiceWorkerRegister />

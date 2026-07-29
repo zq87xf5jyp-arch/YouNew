@@ -71,7 +71,7 @@ Required viewports:
 
 ## 5. Owner/legal confirmations
 
-- [ ] Confirm the current iOS/App Store URL before adding or exposing it.
+- [x] Confirmed public App Store URL: `https://apps.apple.com/app/id6782617312` (28 July 2026).
 - [ ] Confirm the legal controller identity and approved retention period for business-support email.
 - [ ] Confirm any pricing before replacing “Request a quote”.
 - [ ] Confirm whether Nederlands content is reviewed enough to publish; do not expose an incomplete locale.

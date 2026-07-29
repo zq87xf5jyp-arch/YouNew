@@ -3,17 +3,20 @@
 import Link from "next/link";
 import { useEffect, useState, type FormEvent } from "react";
 import {
+  createApiPartnerApplicationRepository,
   mailtoPartnerApplicationRepository,
   requiresKvkNumber,
   validateBusinessApplication
 } from "@/lib/business/application";
 import { advertisingFormatCatalog } from "@/lib/business/catalog";
+import siteConfig from "@/config/site-config.json";
 import type {
+  BusinessApplicationResult,
   BusinessApplicationInput,
   BusinessApplicationValidation,
   BusinessUserProfileId,
+  InquiryTypeId,
   OrganizationType,
-  PreparedBusinessApplication,
   RequestedPlacementId
 } from "@/lib/business/types";
 
@@ -25,6 +28,14 @@ const organizationOptions: Array<{ value: OrganizationType; label: string }> = [
   { value: "public-organization", label: "Public organization" },
   { value: "education", label: "Education provider" },
   { value: "healthcare", label: "Healthcare provider" },
+  { value: "other", label: "Other" }
+];
+
+const inquiryTypeOptions: Array<{ value: InquiryTypeId; label: string }> = [
+  { value: "advertising", label: "Advertising" },
+  { value: "partnership", label: "Partnership" },
+  { value: "media", label: "Media inquiry" },
+  { value: "public-interest", label: "Public-interest collaboration" },
   { value: "other", label: "Other" }
 ];
 
@@ -64,12 +75,14 @@ function valueOf(formData: FormData, name: string): string {
 }
 
 function applicationFrom(formData: FormData): BusinessApplicationInput {
+  const currentUrl = new URL(window.location.href);
   return {
     companyName: valueOf(formData, "companyName"),
     contactPerson: valueOf(formData, "contactPerson"),
     email: valueOf(formData, "email"),
     phone: valueOf(formData, "phone"),
     website: valueOf(formData, "website"),
+    inquiryType: valueOf(formData, "inquiryType") as BusinessApplicationInput["inquiryType"],
     organizationType: valueOf(formData, "organizationType") as BusinessApplicationInput["organizationType"],
     kvkNumber: valueOf(formData, "kvkNumber"),
     city: valueOf(formData, "city"),
@@ -83,7 +96,13 @@ function applicationFrom(formData: FormData): BusinessApplicationInput {
     description: valueOf(formData, "description"),
     consentToPrivacy: formData.get("consentToPrivacy") === "yes",
     confirmAccuracy: formData.get("confirmAccuracy") === "yes",
-    websiteConfirmation: valueOf(formData, "websiteConfirmation")
+    websiteConfirmation: valueOf(formData, "websiteConfirmation"),
+    sourcePage: currentUrl.pathname,
+    utmSource: currentUrl.searchParams.get("utm_source")?.slice(0, 120) ?? "",
+    utmMedium: currentUrl.searchParams.get("utm_medium")?.slice(0, 120) ?? "",
+    utmCampaign: currentUrl.searchParams.get("utm_campaign")?.slice(0, 160) ?? "",
+    utmContent: currentUrl.searchParams.get("utm_content")?.slice(0, 160) ?? "",
+    utmTerm: currentUrl.searchParams.get("utm_term")?.slice(0, 160) ?? ""
   };
 }
 
@@ -96,14 +115,18 @@ export function PartnerApplicationForm() {
   const [interactive, setInteractive] = useState(false);
   const [organizationType, setOrganizationType] = useState<BusinessApplicationInput["organizationType"]>("");
   const [errors, setErrors] = useState<ErrorMap>({});
-  const [prepared, setPrepared] = useState<PreparedBusinessApplication | null>(null);
+  const [result, setResult] = useState<BusinessApplicationResult | null>(null);
+  const [submissionError, setSubmissionError] = useState("");
+  const [submitting, setSubmitting] = useState(false);
   const kvkRequired = requiresKvkNumber(organizationType);
+  const repository = createApiPartnerApplicationRepository(siteConfig.businessInquiry.endpoint);
 
   useEffect(() => setInteractive(true), []);
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setPrepared(null);
+    setResult(null);
+    setSubmissionError("");
     const application = applicationFrom(new FormData(event.currentTarget));
     const validation = validateBusinessApplication(application);
     setErrors(validation.errors);
@@ -113,19 +136,28 @@ export function PartnerApplicationForm() {
       return;
     }
 
-    const handoff = await mailtoPartnerApplicationRepository.submit(application);
-    setPrepared(handoff);
+    setSubmitting(true);
+    try {
+      setResult(await repository.submit(application));
+    } catch (error) {
+      setSubmissionError(error instanceof Error
+        ? error.message
+        : "The inquiry was not saved. Your entries are still available; please retry.");
+      setResult(await mailtoPartnerApplicationRepository.submit(application));
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   return (
     <>
       <noscript>
         <div className="form-delivery-notice">
-          <strong>JavaScript is required to prepare the email safely.</strong>
+          <strong>JavaScript is required to submit this inquiry securely.</strong>
           <p>The form below is disabled and no details have been sent. Email support@younew.nl directly instead.</p>
         </div>
       </noscript>
-      <form className="business-application-form" action="/business/apply/" method="post" onSubmit={handleSubmit} onInput={() => { if (prepared) setPrepared(null); if (Object.keys(errors).length) setErrors({}); }} noValidate inert={interactive ? undefined : true}>
+      <form className="business-application-form" action="/business/apply/" method="post" onSubmit={handleSubmit} onInput={() => { if (result) setResult(null); if (submissionError) setSubmissionError(""); if (Object.keys(errors).length) setErrors({}); }} noValidate inert={interactive ? undefined : true}>
       {Object.keys(errors).length ? (
         <div className="form-error-summary" id="business-form-errors" role="alert" tabIndex={-1}>
           <h2>Review the highlighted fields</h2>
@@ -161,6 +193,14 @@ export function PartnerApplicationForm() {
             <label htmlFor="website">Website</label>
             <input id="website" name="website" type="url" maxLength={300} inputMode="url" placeholder="https://example.nl" autoComplete="url" aria-describedby={errors.website ? "website-error" : undefined} aria-invalid={Boolean(errors.website)} required />
             <FieldError errors={errors} name="website" />
+          </div>
+          <div className="form-field">
+            <label htmlFor="inquiryType">Inquiry type</label>
+            <select id="inquiryType" name="inquiryType" aria-describedby={errors.inquiryType ? "inquiryType-error" : undefined} aria-invalid={Boolean(errors.inquiryType)} required>
+              <option value="">Select an inquiry type</option>
+              {inquiryTypeOptions.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}
+            </select>
+            <FieldError errors={errors} name="inquiryType" />
           </div>
           <div className="form-field">
             <label htmlFor="organizationType">Organization type</label>
@@ -283,18 +323,30 @@ export function PartnerApplicationForm() {
       </fieldset>
 
       <div className="form-delivery-notice">
-        <strong>Email handoff only</strong>
-        <p>This website does not upload or submit this form to a server. After validation, it prepares an email draft for support@younew.nl. You decide whether to send it in your email application.</p>
+        <strong>Secure inquiry submission</strong>
+        <p>Your inquiry is saved only after server validation succeeds. A confirmation ID appears after the database record is created. If saving fails, your entries remain in the form and an optional email draft is offered.</p>
       </div>
 
-      <button className="button button-primary" type="submit" disabled={!interactive}>Review and prepare email</button>
+      <button className="button button-primary" type="submit" disabled={!interactive || submitting}>{submitting ? "Saving inquiry…" : "Submit inquiry"}</button>
 
-      {prepared ? (
+      {submissionError ? (
+        <section className="form-error-summary" role="alert">
+          <h2>The inquiry was not saved</h2>
+          <p>{submissionError}</p>
+          {result?.kind === "user-email-handoff" ? (
+            <>
+              <p>You may retry the secure form or review an email draft. Opening the draft does not send anything automatically.</p>
+              <a className="button button-outline" href={result.href}>Review email draft</a>
+            </>
+          ) : null}
+        </section>
+      ) : null}
+
+      {result?.kind === "server-submission" ? (
         <section className="form-prepared-state" aria-live="polite" aria-labelledby="prepared-heading">
-          <h2 id="prepared-heading">{prepared.notice}</h2>
-          <p>Your information has only been used to prepare a local email draft. Open the draft, review it, and send it from your email application if you wish to continue.</p>
-          <a className="button button-outline" href={prepared.href}>Open prefilled email draft</a>
-          <p>If the link does not work, email <a href={`mailto:${prepared.recipient}`}>{prepared.recipient}</a> directly.</p>
+          <h2 id="prepared-heading">Inquiry saved</h2>
+          <p>Your confirmation ID is <strong>{result.confirmationId}</strong>. Keep it if you contact support about this inquiry.</p>
+          <p>YouNew will review the request; submission does not guarantee acceptance, placement or pricing.</p>
         </section>
       ) : null}
       </form>

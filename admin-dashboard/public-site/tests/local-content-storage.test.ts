@@ -73,3 +73,22 @@ test("repository access never exposes malformed local storage payloads to UI con
     else Reflect.deleteProperty(globalThis, "window");
   }
 });
+
+test("a saved profile can be explicitly cleared when search returns to all content", () => {
+  const storage = new MemoryStorage();
+  const previousWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
+  Object.defineProperty(globalThis, "window", {
+    configurable: true,
+    value: { localStorage: storage, dispatchEvent: () => true } as unknown as Window & typeof globalThis
+  });
+
+  try {
+    localContentRepository.setProfile("expat");
+    assert.equal(localContentRepository.profile(), "expat");
+    localContentRepository.clearProfile();
+    assert.equal(localContentRepository.profile(), null);
+  } finally {
+    if (previousWindow) Object.defineProperty(globalThis, "window", previousWindow);
+    else Reflect.deleteProperty(globalThis, "window");
+  }
+});

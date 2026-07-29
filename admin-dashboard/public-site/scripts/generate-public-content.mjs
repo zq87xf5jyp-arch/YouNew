@@ -241,6 +241,13 @@ function cleanText(value, maximumLength = 2_000) {
     .slice(0, maximumLength);
 }
 
+export function publicWebSummary(summary) {
+  return cleanText(summary)
+    .replace(/\s*This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours\.\s*$/, "")
+    .replace("The cited source specifically covers ", "The source covers ")
+    .trim();
+}
+
 function cleanIdentifier(value) {
   return cleanText(value, 160).replace(/[^a-zA-Z0-9._-]/g, "");
 }
@@ -568,7 +575,8 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       slug: entity.slug,
       route: entity.route,
       title: entity.title,
-      summary: entity.summary,
+      summary: publicWebSummary(entity.summary),
+      contentDepth: entity.contentDepth,
       keywords: entity.keywords,
       city: entity.cityId ? citiesById.get(entity.cityId)?.title ?? titleFromSlug(entity.cityId) : null,
       cityId: entity.cityId,

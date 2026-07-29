@@ -39,12 +39,16 @@ export const budgetRangeIds = [
 
 export type BudgetRangeId = (typeof budgetRangeIds)[number];
 
+export const inquiryTypeIds = ["advertising", "partnership", "media", "public-interest", "other"] as const;
+export type InquiryTypeId = (typeof inquiryTypeIds)[number];
+
 export interface BusinessApplicationInput {
   readonly companyName: string;
   readonly contactPerson: string;
   readonly email: string;
   readonly phone: string;
   readonly website: string;
+  readonly inquiryType: InquiryTypeId | "";
   readonly organizationType: OrganizationType | "";
   readonly kvkNumber: string;
   readonly city: string;
@@ -59,6 +63,12 @@ export interface BusinessApplicationInput {
   readonly consentToPrivacy: boolean;
   readonly confirmAccuracy: boolean;
   readonly websiteConfirmation: string;
+  readonly sourcePage: string;
+  readonly utmSource: string;
+  readonly utmMedium: string;
+  readonly utmCampaign: string;
+  readonly utmContent: string;
+  readonly utmTerm: string;
 }
 
 export type BusinessApplicationField = keyof BusinessApplicationInput | "form";
@@ -76,9 +86,18 @@ export interface PreparedBusinessApplication {
   readonly recipient: "support@younew.nl";
 }
 
+export interface SubmittedBusinessApplication {
+  readonly kind: "server-submission";
+  readonly sent: true;
+  readonly confirmationId: string;
+  readonly createdAt: string;
+}
+
+export type BusinessApplicationResult = PreparedBusinessApplication | SubmittedBusinessApplication;
+
 export interface PartnerApplicationRepository {
   readonly delivery: "mailto" | "api";
-  submit(input: BusinessApplicationInput): Promise<PreparedBusinessApplication>;
+  submit(input: BusinessApplicationInput): Promise<BusinessApplicationResult>;
 }
 
 export type SponsoredPlacementStatus = "draft" | "review" | "active" | "paused" | "expired" | "archived";

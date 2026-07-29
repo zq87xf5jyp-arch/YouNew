@@ -26,7 +26,7 @@ export const practicalJourneys = [
       "government_service.municipal-taxes-amsterdam",
       "government_service.moving-within-amsterdam"
     ],
-    coverageNote: "The currently released steps are Amsterdam-specific. National BSN and DigiD guides remain in editorial review."
+    coverageNote: "The currently published steps are Amsterdam-specific. National BSN and DigiD guides remain in editorial review."
   },
   {
     id: "international-student",
@@ -39,7 +39,7 @@ export const practicalJourneys = [
       "housing.woningnet-stadsregio-amsterdam",
       "housing.woon"
     ],
-    coverageNote: "Study enrolment and student-housing procedures are not yet released as practical guides."
+    coverageNote: "Study enrolment and student-housing procedures are not yet published as practical guides."
   },
   {
     id: "starting-work",
@@ -75,7 +75,7 @@ export const practicalJourneys = [
     id: "refugee-essentials",
     title: "Refugee essentials",
     audience: "Refugees and support networks",
-    description: "Currently released municipal registration and housing source cards.",
+    description: "Currently published municipal registration and housing source cards.",
     guideIds: [
       "government_service.first-registration-in-amsterdam",
       "housing.renting-a-home-in-amsterdam",
@@ -89,7 +89,7 @@ export const practicalJourneys = [
     audience: "Tourists",
     description: "A planned path for transport, local orientation and urgent help.",
     guideIds: [],
-    coverageNote: "Use Cities, Map and Emergency today; a governed ordered guide sequence has not been released."
+    coverageNote: "Use Cities, Map and Emergency today; the ordered guide sequence has not been published."
   },
   {
     id: "starting-a-business",
