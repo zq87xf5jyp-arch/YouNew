@@ -12,6 +12,7 @@ export default function GuidesPage() {
     <ContentIndexPage
       {...listingCopy.guide}
       entities={guides}
+      featuredId="government_service.first-registration-in-amsterdam"
       datasetNote={<><strong>{practicalGuides}</strong> step-by-step guide{practicalGuides === 1 ? "" : "s"} · <strong>{summaryGuides}</strong> verified summar{summaryGuides === 1 ? "y" : "ies"} · source dates shown on every detail page</>}
       context={(
         <aside className="section-shell content-depth-key" aria-label="Guide publication levels">

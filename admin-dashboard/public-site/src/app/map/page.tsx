@@ -3,6 +3,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CoverageMap } from "@/components/coverage-map";
 import { PageShell } from "@/components/page-shell";
 import { getContentEntities } from "@/lib/content";
+import { publicWebSummary } from "@/lib/content/presentation";
 import type { CoverageMapEntityType, CoverageMapItem } from "@/lib/map/coverage";
 import { metadataForPage } from "@/lib/seo/metadata";
 
@@ -17,12 +18,18 @@ function getPublishedMapItems(): CoverageMapItem[] {
     return [{
       id: entity.id,
       title: entity.title,
+      summary: publicWebSummary(entity.summary),
       route: entity.route,
       type: entity.type as CoverageMapEntityType,
       cityId: entity.cityId,
       categorySlugs: entity.categorySlugs,
       coordinate: entity.coordinate,
-      verifiedAt: entity.verifiedAt
+      verifiedAt: entity.verifiedAt,
+      sourcePublisher: entity.source.publisher,
+      image: entity.images.find((image) => image.role === "thumbnail")
+        ?? entity.images.find((image) => image.role === "hero")
+        ?? entity.images[0]
+        ?? null
     }];
   }).sort((left, right) => left.title.localeCompare(right.title));
 }

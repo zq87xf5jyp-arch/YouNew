@@ -254,7 +254,7 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
 
       <div className="section-shell guide-report-row"><a className="report-link" href={reportHref}><Flag aria-hidden /> Report outdated information</a></div>
 
-      {related.length > 0 ? <section className="section-shell related-section" aria-labelledby="related-title"><div className="listing-heading"><div><span>Continue safely</span><h2 id="related-title">Related published content</h2></div></div><div className="entity-grid compact-grid">{related.slice(0, 3).map((item) => <EntityCard entity={item} key={item.id} />)}</div></section> : null}
+      {related.length > 0 ? <section className="section-shell related-section" aria-labelledby="related-title"><div className="listing-heading"><div><span>Continue safely</span><h2 id="related-title">Related published content</h2><p>Selected from shared city and category relationships in the governed dataset.</p></div></div><div className="entity-grid compact-grid">{related.slice(0, 6).map((item) => <EntityCard entity={item} key={item.id} />)}</div></section> : null}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
     </article>
   );

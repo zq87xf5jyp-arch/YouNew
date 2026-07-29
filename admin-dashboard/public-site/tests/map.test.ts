@@ -6,7 +6,7 @@ const siteRoot = new URL("../", import.meta.url);
 const content = JSON.parse(await readFile(new URL("src/generated/public-content.json", siteRoot), "utf8"));
 const mapModule = await import(new URL("src/lib/map/coverage.ts", siteRoot).href) as {
   clusterCoverageMapItems: (items: MapFixture[], bounds: MapBounds, collisionDistance?: number) => Array<{ id: string; items: MapFixture[] }>;
-  filterCoverageMapItems: (items: MapFixture[], filters: { city: string; category: string; type: string }) => MapFixture[];
+  filterCoverageMapItems: (items: MapFixture[], filters: { city: string; category: string; type: string; query?: string }) => MapFixture[];
   getCoverageMapBounds: (items: MapFixture[], focused: boolean) => MapBounds;
   netherlandsCoverageBounds: MapBounds;
 };
@@ -72,6 +72,19 @@ test("map filters combine city, content type and category", () => {
   assert.ok(filtered.every((item) =>
     item.cityId === "amsterdam" && item.type === "organization" && item.categorySlugs.includes("healthcare")
   ));
+});
+
+test("map text search narrows published records without changing coordinate data", () => {
+  const target = mapItems.find((item) => item.title.includes("LOOKOUT"));
+  assert.ok(target);
+  const filtered = mapModule.filterCoverageMapItems(mapItems, {
+    city: "all",
+    type: "all",
+    category: "all",
+    query: "lookout"
+  });
+  assert.ok(filtered.some((item) => item.id === target.id));
+  assert.ok(filtered.every((item) => item.title.toLowerCase().includes("lookout") || item.cityId?.includes("lookout") || item.categorySlugs.some((category) => category.includes("lookout"))));
 });
 
 test("identical coordinates are grouped deterministically", () => {

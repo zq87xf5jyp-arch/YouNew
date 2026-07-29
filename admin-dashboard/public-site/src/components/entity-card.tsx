@@ -7,12 +7,12 @@ import { contentKindLabel, publicWebSummary } from "@/lib/content/presentation";
 
 const icons = { city: Navigation, guide: FileText, organization: Building2, place: MapPin } as const;
 
-export function EntityCard({ entity }: { entity: ContentEntity }) {
+export function EntityCard({ entity, variant = "card" }: { entity: ContentEntity; variant?: "card" | "row" }) {
   const Icon = icons[entity.type];
   const image = preferredMedia(entity.images, ["thumbnail", "hero", "gallery"]);
   const kindLabel = contentKindLabel(entity.type, entity.contentDepth);
   return (
-    <article className="entity-card" data-content-depth={entity.contentDepth}>
+    <article className={`entity-card${variant === "row" ? " entity-card-row" : ""}`} data-content-depth={entity.contentDepth}>
       {image ? <Link className="entity-card-media" href={entity.route} aria-label={`Open ${entity.title}`}><ContentMedia asset={image} variant="card" /></Link> : null}
       <div className="entity-card-top">
         <span className="entity-kind"><Icon aria-hidden /> {kindLabel}</span>
