@@ -140,7 +140,6 @@ export function AnalyticsConsent() {
           className="analytics-settings-trigger"
           onClick={() => setSettingsOpen(true)}
           aria-label="Open analytics privacy choices"
-          title="Privacy choices"
         >
           <ShieldCheck aria-hidden />
           <span className="visually-hidden">Privacy choices</span>
