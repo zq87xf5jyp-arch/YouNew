@@ -111,6 +111,13 @@ struct AppNavigationBackButton: View {
         }
     }
 
+    private var accessibilityIdentifier: String {
+        switch style {
+        case .back: return "navigation.back"
+        case .close: return "navigation.close"
+        }
+    }
+
     var body: some View {
         Button {
             dismiss()
@@ -142,6 +149,7 @@ struct AppNavigationBackButton: View {
         }
         .buttonStyle(AppPressableButtonStyle())
         .accessibilityLabel(label)
+        .accessibilityIdentifier(accessibilityIdentifier)
     }
 }
 

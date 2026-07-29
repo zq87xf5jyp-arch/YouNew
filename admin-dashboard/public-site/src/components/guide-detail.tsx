@@ -1,4 +1,3 @@
-/* eslint-disable @next/next/no-img-element */
 import { AlertTriangle, BookOpen, CheckCircle2, CircleHelp, Clock3, ExternalLink, FileText, Flag, Lightbulb, MapPin, ShieldCheck, Users } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CopyTextButton } from "@/components/copy-text-button";
@@ -9,7 +8,9 @@ import { ReadingProgress } from "@/components/reading-progress";
 import { RecentViewTracker } from "@/components/recent-view-tracker";
 import { SaveButton } from "@/components/save-button";
 import { ShareButton } from "@/components/share-button";
+import { ContentMedia, preferredMedia } from "@/components/content-media";
 import type { ContentEntity, GuideContactOption, GuideSourcedText, PracticalGuide } from "@/lib/content";
+import { publicWebSummary } from "@/lib/content/presentation";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 function titleCase(value: string) {
@@ -177,11 +178,11 @@ function BriefGuide({ entity }: { entity: ContentEntity }) {
       <section className="guide-section guide-quick-answer" id="quick-answer" aria-labelledby="brief-answer-title">
         <p className="section-label">Source-backed summary</p>
         <h2 id="brief-answer-title">What this record confirms</h2>
-        <p>{entity.summary}</p>
+        <p>{publicWebSummary(entity.summary)}</p>
       </section>
       <aside className="guide-depth-note" role="note" aria-label="Guide publication status">
         <FileText aria-hidden />
-        <div><strong>Step-by-step guide not yet released</strong><p>This page is a verified starting point, not a complete procedure. Check the responsible source for current requirements{municipal && entity.cityId ? ` and ${titleCase(entity.cityId)}-specific steps` : ""}.</p></div>
+        <div><strong>Step-by-step guide not yet published</strong><p>This page is a verified starting point, not a complete procedure. Check the responsible source for current requirements{municipal && entity.cityId ? ` and ${titleCase(entity.cityId)}-specific steps` : ""}.</p></div>
       </aside>
       <section className="guide-section" id="next-actions" aria-labelledby="brief-next-actions-title">
         <h2 id="brief-next-actions-title">What to do next</h2>
@@ -197,9 +198,9 @@ function BriefGuide({ entity }: { entity: ContentEntity }) {
 
 export function GuideDetail({ entity, related }: { entity: ContentEntity; related: readonly ContentEntity[] }) {
   const guide = entity.practicalGuide;
-  const summary = guide?.shortSummary.text ?? entity.summary;
-  const reportSubject = encodeURIComponent(`Outdated information: ${entity.title} (${entity.id})`);
-  const reportBody = encodeURIComponent(`Page: https://younew.nl${entity.route}/\nCanonical ID: ${entity.id}\n\nWhat appears outdated or incorrect?\n\nOfficial source to review (if known):\n`);
+  const heroImage = preferredMedia(entity.images, ["hero", "gallery", "thumbnail"]);
+  const summary = guide?.shortSummary.text ?? publicWebSummary(entity.summary);
+  const reportHref = `/support/?type=incorrect-information&page=${encodeURIComponent(`${entity.route}/`)}`;
   const structuredData = guide ? {
     "@context": "https://schema.org",
     "@graph": [
@@ -208,6 +209,7 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
         name: guide.title,
         description: guide.shortSummary.text,
         url: `https://younew.nl${entity.route}/`,
+        image: heroImage?.url,
         inLanguage: guide.locale,
         dateModified: guide.updatedAt,
         step: guide.numberedSteps.map((step) => ({ "@type": "HowToStep", position: step.position, name: step.title, text: step.body })),
@@ -222,11 +224,12 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
     "@context": "https://schema.org",
     "@type": "Article",
     headline: entity.title,
-    description: entity.summary,
+    description: publicWebSummary(entity.summary),
     url: `https://younew.nl${entity.route}/`,
     inLanguage: "en",
     dateModified: entity.updatedAt,
-    isBasedOn: entity.source.url
+    isBasedOn: entity.source.url,
+    image: heroImage?.url
   };
 
   return (
@@ -239,7 +242,7 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
           <div><span className="entity-kind">{guide ? "Practical guide" : "Verified summary"}</span><h1 id="guide-title">{guide?.title ?? entity.title}</h1><p id="guide-summary">{summary}</p>{guide ? <dl className="guide-hero-metadata" aria-label="Guide details"><div><dt><BookOpen aria-hidden /> Reading time</dt><dd>{guide.readingTimeMinutes} minutes</dd></div><div><dt><ShieldCheck aria-hidden /> Last verified</dt><dd><time dateTime={guide.verifiedAt}>{guide.verifiedAt}</time></dd></div><div><dt>Reviewed by</dt><dd>{guide.reviewer.name}, {guide.reviewer.role}</dd></div></dl> : <dl className="guide-hero-metadata" aria-label="Record verification details"><div><dt><ShieldCheck aria-hidden /> Last verified</dt><dd><time dateTime={entity.verifiedAt}>{entity.verifiedAt}</time></dd></div><div><dt>Source</dt><dd>{entity.source.publisher}</dd></div></dl>}</div>
           <div className="detail-actions guide-actions" role="group" aria-label="Guide actions"><SaveButton item={{ id: entity.id, route: entity.route, title: entity.title, kind: entity.type }} /><ShareButton title={entity.title} /><PrintButton /></div>
         </div>
-        {guide && entity.images[0] ? <figure className="guide-hero-media"><img src={entity.images[0].url} alt={entity.images[0].alt} loading="eager" decoding="async" /><figcaption>{entity.images[0].attribution}</figcaption></figure> : null}
+        {heroImage ? <ContentMedia asset={heroImage} variant="hero" eager /> : null}
       </header>
 
       <div className="section-shell guide-detail-layout">
@@ -249,7 +252,7 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
         ) : null}
       </div>
 
-      <div className="section-shell guide-report-row"><a className="report-link" href={`mailto:support@younew.nl?subject=${reportSubject}&body=${reportBody}`}><Flag aria-hidden /> Report outdated information</a></div>
+      <div className="section-shell guide-report-row"><a className="report-link" href={reportHref}><Flag aria-hidden /> Report outdated information</a></div>
 
       {related.length > 0 ? <section className="section-shell related-section" aria-labelledby="related-title"><div className="listing-heading"><div><span>Continue safely</span><h2 id="related-title">Related published content</h2></div></div><div className="entity-grid compact-grid">{related.slice(0, 3).map((item) => <EntityCard entity={item} key={item.id} />)}</div></section> : null}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />

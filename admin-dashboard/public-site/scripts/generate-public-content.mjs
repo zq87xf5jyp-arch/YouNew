@@ -172,8 +172,8 @@ const categorySearchMetadata = Object.freeze({
     terminology: ["housing", "rent", "huurwoning", "tenant"]
   },
   healthcare: {
-    synonyms: ["need a doctor", "find healthcare", "health insurance"],
-    terminology: ["doctor", "huisarts", "zorg", "zorgverzekering"]
+    synonyms: ["find healthcare", "healthcare organizations"],
+    terminology: ["healthcare", "zorg", "medical services", "public health"]
   },
   transport: {
     synonyms: ["public transport", "travel by train", "OV card"],
@@ -239,6 +239,13 @@ function cleanText(value, maximumLength = 2_000) {
     .replace(/\s+/g, " ")
     .trim()
     .slice(0, maximumLength);
+}
+
+export function publicWebSummary(summary) {
+  return cleanText(summary)
+    .replace(/\s*This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours\.\s*$/, "")
+    .replace("The cited source specifically covers ", "The source covers ")
+    .trim();
 }
 
 function cleanIdentifier(value) {
@@ -568,7 +575,8 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       slug: entity.slug,
       route: entity.route,
       title: entity.title,
-      summary: entity.summary,
+      summary: publicWebSummary(entity.summary),
+      contentDepth: entity.contentDepth,
       keywords: entity.keywords,
       city: entity.cityId ? citiesById.get(entity.cityId)?.title ?? titleFromSlug(entity.cityId) : null,
       cityId: entity.cityId,

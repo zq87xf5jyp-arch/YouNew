@@ -1,0 +1,78 @@
+1
+00:00:00,000 --> 00:00:05,700
+Moving to a new country is exciting—until you need
+to understand how everything actually works.
+
+2
+00:00:08,000 --> 00:00:12,800
+You have an address in the Netherlands.
+But what comes next—and where do you even start?
+
+3
+00:00:20,000 --> 00:00:27,600
+YouNew turns that uncertainty into a simple sequence:
+first, register with the municipality and receive a BSN.
+
+4
+00:00:27,700 --> 00:00:32,400
+Then use it to set up DigiD.
+After that, check Dutch health insurance.
+
+5
+00:00:32,500 --> 00:00:36,300
+One question becomes clear next steps,
+in the right order.
+
+6
+00:00:45,000 --> 00:00:52,200
+When a step needs more detail, the guide explains
+what it means, what to prepare, and where to verify it.
+
+7
+00:00:52,300 --> 00:01:00,300
+Official sources stay visible, so the user can continue
+with the responsible Dutch institution—not another anonymous blog.
+
+8
+00:01:01,000 --> 00:01:08,300
+YouNew does not replace government advice.
+It helps a newcomer understand where to begin and what to do next.
+
+9
+00:01:20,000 --> 00:01:22,500
+And life is bigger than one checklist.
+
+10
+00:01:27,000 --> 00:01:31,600
+A newcomer may need a nearby service
+or information for a specific city…
+
+11
+00:01:34,000 --> 00:01:38,700
+…or help finding healthcare, housing,
+work, and legal resources.
+
+12
+00:01:42,000 --> 00:01:50,000
+Map, search, cities, and categories keep those needs connected
+in one place—without turning the first weeks into twenty open tabs.
+
+13
+00:01:50,000 --> 00:01:56,300
+YouNew started as a simple idea:
+make the first months in a new country less confusing.
+
+14
+00:01:56,500 --> 00:02:03,000
+I wasn't a professional software engineer.
+ChatGPT helped me shape the product and its story.
+
+15
+00:02:03,100 --> 00:02:12,500
+Codex helped me build, stabilize, and prepare the iOS app.
+They expanded what I could create, while the vision and decisions stayed mine.
+
+16
+00:02:13,000 --> 00:02:16,300
+This is YouNew—
+a clearer first step in the Netherlands.

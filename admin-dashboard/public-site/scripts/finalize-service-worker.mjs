@@ -19,13 +19,19 @@ async function existingPublicUrl(path) {
   }
 }
 
+const versionedStaticShells = (await readdir(outRoot))
+  .filter((name) => /^static-shell\.[a-f0-9]{12}\.js$/.test(name))
+  .map((name) => `/${name}`)
+  .sort();
+if (versionedStaticShells.length !== 1) throw new Error(`Expected one versioned static shell, found ${versionedStaticShells.length}.`);
+
 const authoredShell = [
   "/",
   "/offline/",
   "/guides/",
   "/journeys/",
   "/manifest.webmanifest",
-  "/static-shell.js",
+  ...versionedStaticShells,
   "/icons/apple-touch-icon.png",
   "/icons/icon-192.png",
   "/icons/icon-512.png"

@@ -6,7 +6,7 @@
   "sourceMode": "production",
   "sourceSchemaVersion": 1,
   "datasetFingerprint": "920f62b2547c1e06e438f837566e9119311f7f38d07448d74c0c1b169f681c37",
-  "sourceOutputChecksum": "7e2b2aa74f56d3f6f25ca2fc3b97cea12664fdd79b13635ea65a167794970803",
+  "sourceOutputChecksum": "c263ac50efefc4d556dabdaa76ee6490759de848d43c06945665ccc0b29ef11c",
   "acceptedReleaseIds": [
     "amsterdam-v0.1.2",
     "cities-v0.1.0"

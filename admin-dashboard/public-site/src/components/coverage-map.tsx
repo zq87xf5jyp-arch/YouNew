@@ -29,7 +29,7 @@ function markerType(cluster: CoverageMapCluster): CoverageMapEntityType | "mixed
 
 function clusterLabel(cluster: CoverageMapCluster): string {
   if (cluster.items.length === 1) return `${cluster.items[0].title}, ${typeLabels[cluster.items[0].type]}`;
-  return `${cluster.items.length} released items at nearby or identical coordinates`;
+  return `${cluster.items.length} published items at nearby or identical coordinates`;
 }
 
 function ItemIcon({ type }: { type: CoverageMapEntityType }) {
@@ -93,13 +93,13 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
     <div className="coverage-map-experience">
       <form className="coverage-map-filters" onSubmit={(event) => event.preventDefault()} aria-label="Map filters">
         <div>
-          <strong>Filter released coverage</strong>
+          <strong>Filter published coverage</strong>
           <span>Selections are kept in the page URL.</span>
         </div>
         <label>
           City
           <select disabled={!queryReady} value={filters.city} onChange={(event) => updateFilter("city", event.target.value)}>
-            <option value="all">All released cities</option>
+            <option value="all">All published cities</option>
             {options.cities.map((city) => <option value={city} key={city}>{humanizeMapSlug(city)}</option>)}
           </select>
         </label>
@@ -115,14 +115,14 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
         <label>
           Category
           <select disabled={!queryReady} value={filters.category} onChange={(event) => updateFilter("category", event.target.value)}>
-            <option value="all">All released categories</option>
+            <option value="all">All published categories</option>
             {options.categories.map((category) => <option value={category} key={category}>{humanizeMapSlug(category)}</option>)}
           </select>
         </label>
         <button className="coverage-map-reset" type="button" disabled={!queryReady || !hasFilters} onClick={() => setFilters(initialFilters)}>
           <RotateCcw aria-hidden /> Reset
         </button>
-        <noscript><p className="coverage-map-noscript">Map filters and marker previews require JavaScript. The complete released-content list remains available below.</p></noscript>
+        <noscript><p className="coverage-map-noscript">Map filters and marker previews require JavaScript. The complete published-content list remains available below.</p></noscript>
       </form>
 
       <div className="coverage-map-layout">
@@ -142,8 +142,8 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
               aria-roledescription="coordinate map"
               aria-labelledby="coverage-map-svg-title coverage-map-svg-description"
             >
-              <title id="coverage-map-svg-title">Released YouNew city, place and organization coordinates</title>
-              <desc id="coverage-map-svg-description">Select a marker to preview its released records. Nearby and identical coordinates are grouped.</desc>
+              <title id="coverage-map-svg-title">Published YouNew city, place and organization coordinates</title>
+              <desc id="coverage-map-svg-description">Select a marker to preview its published items. Nearby and identical coordinates are grouped.</desc>
               <rect className="coverage-map-water" x="1" y="1" width="718" height="758" rx="28" />
               {[1, 2, 3, 4].map((line) => (
                 <g className="coverage-map-gridline" key={line} aria-hidden>
@@ -184,7 +184,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
               })}
             </svg>
           ) : (
-            <div className="coverage-map-empty"><MapPin aria-hidden /><p>No released records match these filters.</p></div>
+            <div className="coverage-map-empty"><MapPin aria-hidden /><p>No published items match these filters.</p></div>
           )}
           <div className="coverage-map-legend" aria-label="Map legend">
             <span><i className="legend-city" /> City</span>
@@ -192,7 +192,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
             <span><i className="legend-place" /> Place</span>
             <span><i className="legend-cluster" /> Grouped point</span>
           </div>
-          <p className="coverage-map-method">Markers use coordinates from the released YouNew dataset. The empty areas reflect current content coverage; they do not mean services or places are absent.</p>
+          <p className="coverage-map-method">Markers use coordinates from published YouNew content. The empty areas reflect current content coverage; they do not mean services or places are absent.</p>
         </section>
 
         <aside className="coverage-map-selection" id="map-selection" aria-live="polite">
@@ -225,7 +225,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
 
       <section className="coverage-map-results" id="map-results" aria-labelledby="map-results-title">
         <div className="coverage-map-results-heading">
-          <div><h2 id="map-results-title">Released content list</h2><p>Every visible record has a released detail page and a source-check date.</p></div>
+          <div><h2 id="map-results-title">Published content list</h2><p>Every visible item has a published detail page and a source-check date.</p></div>
           <strong>{filteredItems.length} result{filteredItems.length === 1 ? "" : "s"}</strong>
         </div>
         {filteredItems.length ? (
@@ -245,7 +245,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
             ))}
           </ol>
         ) : (
-          <div className="coverage-map-empty"><MapPin aria-hidden /><p>No released records match these filters.</p><button className="button button-outline" type="button" onClick={() => setFilters(initialFilters)}>Clear filters</button></div>
+          <div className="coverage-map-empty"><MapPin aria-hidden /><p>No published items match these filters.</p><button className="button button-outline" type="button" onClick={() => setFilters(initialFilters)}>Clear filters</button></div>
         )}
       </section>
     </div>

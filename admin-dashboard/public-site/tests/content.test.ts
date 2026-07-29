@@ -24,6 +24,10 @@ test("generated public content comes only from governed production releases", ()
     provenance.acceptedReleaseIds.includes(entity.releaseId) &&
     entity.trust.sourceChecked === true
   ));
+  assert.ok(!content.entities.some((entity: { id: string }) =>
+    entity.id === "event.worldpride-amsterdam-2026-pride-walk" ||
+    entity.id === "event.worldpride-amsterdam-2026-pride-park"
+  ));
 });
 
 test("derived collections, routes and slugs are internally consistent", () => {
@@ -44,6 +48,15 @@ test("derived collections, routes and slugs are internally consistent", () => {
   ));
   assert.ok(content.provinces.every((province: { entityCount: number; entityIds: string[] }) =>
     province.entityCount > 0 && province.entityCount === province.entityIds.length
+  ));
+});
+
+test("the public website exposes the verified app image catalogue", () => {
+  const media = content.entities.flatMap((entity: { images: unknown[] }) => entity.images);
+  assert.ok(media.length >= 500, `expected at least 500 app images, received ${media.length}`);
+  assert.ok(content.entities.every((entity: { images: Array<{ role: string; url: string; alt: string }> }) =>
+    entity.images.some((image) => image.role === "hero") &&
+    entity.images.every((image) => /^https?:\/\//.test(image.url) && image.alt.length > 0)
   ));
 });
 

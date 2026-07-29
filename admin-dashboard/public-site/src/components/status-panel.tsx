@@ -8,7 +8,7 @@ export type StatusSnapshot = {
   liveMonitoring: false;
   checkedAt: string;
   website: {
-    status: "operational";
+    status: "operational" | "degraded";
     label: string;
     summary: string;
   };
@@ -19,11 +19,16 @@ export type StatusSnapshot = {
     summary: string;
   };
   ios: {
-    status: "unconfirmed";
+    status: "operational" | "unconfirmed";
     label: string;
     publicVersion: string | null;
     testedVersion: string;
     testedBuild: string;
+    summary: string;
+  };
+  businessForm: {
+    status: "operational" | "degraded";
+    label: string;
     summary: string;
   };
   limitations: string[];
@@ -92,13 +97,13 @@ export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
         <article className="status-card">
           <div className="status-card-heading">
             <h2>{current.ios.label}</h2>
-            <span className={`status-pill status-${current.ios.status}`}>not confirmed</span>
+            <span className={`status-pill status-${current.ios.status}`}>{current.ios.status}</span>
           </div>
           <p>{current.ios.summary}</p>
           <dl className="status-release-details">
             <div>
               <dt>Public version</dt>
-              <dd>{current.ios.publicVersion ?? "Not confirmed"}</dd>
+              <dd>{current.ios.publicVersion ?? "Not independently verified"}</dd>
             </div>
             <div>
               <dt>Locally tested version</dt>
@@ -107,6 +112,14 @@ export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
               </dd>
             </div>
           </dl>
+        </article>
+
+        <article className="status-card">
+          <div className="status-card-heading">
+            <h2>{current.businessForm.label}</h2>
+            <span className={`status-pill status-${current.businessForm.status}`}>{current.businessForm.status}</span>
+          </div>
+          <p>{current.businessForm.summary}</p>
         </article>
       </section>
 

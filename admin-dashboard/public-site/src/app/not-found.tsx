@@ -6,7 +6,21 @@ import { PageShell } from "@/components/page-shell";
 export const metadata: Metadata = {
   title: "Page not found",
   description: "The requested YouNew page could not be found.",
-  robots: { index: false, follow: true }
+  alternates: { canonical: null },
+  robots: { index: false, follow: true },
+  openGraph: {
+    title: "Page not found | YouNew",
+    description: "The requested YouNew page could not be found.",
+    siteName: "YouNew",
+    type: "website",
+    images: []
+  },
+  twitter: {
+    card: "summary",
+    title: "Page not found | YouNew",
+    description: "The requested YouNew page could not be found.",
+    images: []
+  }
 };
 
 export default function NotFound() {

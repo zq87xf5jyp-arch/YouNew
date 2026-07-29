@@ -18,7 +18,7 @@ export default function BusinessApplyPage() {
       <section className="business-application-section section-shell" aria-labelledby="application-form-title">
         <div className="business-application-intro">
           <h2 id="application-form-title">Inquiry details</h2>
-          <p>This static website has no secure upload or form backend. It will validate the fields in your browser and prepare a prefilled email; nothing is submitted automatically.</p>
+          <p>The form validates your entries in the browser and then sends them to YouNew&apos;s protected inquiry endpoint. A record is created only after server validation succeeds.</p>
           <p>Logo and image upload is intentionally unavailable. If the inquiry proceeds, support will explain a safe way to provide approved media.</p>
         </div>
         <PartnerApplicationForm />

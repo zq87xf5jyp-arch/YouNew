@@ -188,7 +188,7 @@ def build_queues(records, source_ownership, freshness, usage, release_manifests,
     today = date.today()
     image_url_owner = defaultdict(list)
     for record in records:
-        if record.get("entity_type") == "event":
+        if record.get("entity_type") == "event" and record.get("lifecycle_status") == "published":
             attributes = record.get("attributes") or {}
             end_date = parse_date(attributes.get("end_date") or attributes.get("start_date"))
             if end_date and end_date < today:

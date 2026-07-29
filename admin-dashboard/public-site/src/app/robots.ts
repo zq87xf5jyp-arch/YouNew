@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
     rules: {
       userAgent: "*",
       allow: "/",
-      disallow: ["/admin/", "/business/dashboard/", "/saved/", "/search/", "/offline/", "/_next/data/"]
+      disallow: ["/admin/", "/business/dashboard/", "/_next/data/"]
     },
     sitemap: "https://younew.nl/sitemap.xml"
   };

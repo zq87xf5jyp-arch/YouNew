@@ -10,6 +10,7 @@ export interface SearchDocument {
   readonly route: string;
   readonly title: string;
   readonly summary: string;
+  readonly contentDepth?: "summary" | "practical";
   readonly keywords: readonly string[];
   readonly city: string | null;
   readonly cityId: string | null;
@@ -42,6 +43,7 @@ export interface SearchFilters {
 export interface SearchOptions {
   readonly filters?: SearchFilters;
   readonly limit?: number;
+  readonly preferredProfile?: GuideAudienceProfile | null;
 }
 
 export interface RankedSearchResult {
@@ -157,6 +159,8 @@ export function rankSearchDocuments(
       .filter((document) => matchesFilters(document, filters))
       .sort(
         (left, right) =>
+          Number(searchDocumentMatchesProfile(right, options.preferredProfile)) -
+            Number(searchDocumentMatchesProfile(left, options.preferredProfile)) ||
           left.title.localeCompare(right.title) || left.id.localeCompare(right.id)
       )
       .slice(0, limit)
@@ -209,7 +213,8 @@ export function rankSearchDocuments(
 
     const minimumCoverage = queryTokens.length <= 2 ? queryTokens.length : Math.ceil(queryTokens.length * 0.6);
     if (score > 0 && matchedTerms.length >= minimumCoverage) {
-      results.push({ document, score: Math.round(score * 100) / 100, matchedTerms });
+      const profileBoost = searchDocumentMatchesProfile(document, options.preferredProfile) ? 8 : 0;
+      results.push({ document, score: Math.round((score + profileBoost) * 100) / 100, matchedTerms });
     }
   }
 

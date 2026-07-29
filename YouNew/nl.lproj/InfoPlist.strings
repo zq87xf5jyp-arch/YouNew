@@ -1,3 +1,5 @@
 "CFBundleDisplayName" = "YouNew";
 "NSCameraUsageDescription" = "YouNew.nl gebruikt de camera om documenten te scannen die u lokaal op uw apparaat wilt bewaren.";
+"NSFaceIDUsageDescription" = "YouNew.nl gebruikt Face ID alleen om documenten te ontgrendelen die lokaal op uw apparaat zijn opgeslagen.";
 "NSLocationWhenInUseUsageDescription" = "YouNew.nl gebruikt uw locatie om gemeenten, zorg, vervoer en officiële diensten in de buurt te tonen.";
+"NSMotionUsageDescription" = "YouNew.nl gebruikt bewegingsgegevens van uw apparaat alleen voor subtiele visuele diepte in de app.";

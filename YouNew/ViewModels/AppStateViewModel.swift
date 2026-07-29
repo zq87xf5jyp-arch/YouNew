@@ -29,18 +29,14 @@ final class AppStateViewModel: ObservableObject {
     }
     @Published var selectedLanguage = AppLanguage.english.rawValue
     @Published var selectedStatus = "unsure"
-    @Published var selectedCity = CityId.leiden.displayName {
-        didSet {
-            guard let cityId = CityId.resolve(selectedCity) else {
-                if oldValue != CityId.leiden.displayName {
-                    selectedCity = CityId.leiden.displayName
-                }
-                return
-            }
-            let normalized = cityId.displayName
-            if selectedCity != normalized {
-                selectedCity = normalized
-            }
+    @Published private var selectedCityStorage = CityId.leiden.displayName
+    var selectedCity: String {
+        get { selectedCityStorage }
+        set {
+            // Normalize before publishing. Publishing an unsupported transient
+            // value lets persistent tab roots rebuild against an invalid city
+            // before a didSet-based correction can run.
+            selectedCityStorage = CityId.resolve(newValue)?.displayName ?? CityId.leiden.displayName
         }
     }
     @Published var selectedHousingSituation = "unknown"

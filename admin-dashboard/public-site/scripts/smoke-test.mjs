@@ -5,12 +5,13 @@ import { join } from "node:path";
 const root = new URL("../out/", import.meta.url).pathname;
 const requiredFiles = [
   "index.html", "discover/index.html", "search/index.html", "guides/index.html", "guides/woon/index.html",
-  "journeys/index.html", "map/index.html",
+  "journeys/index.html", "map/index.html", "updates/index.html",
   "categories/index.html", "categories/housing/index.html", "cities/index.html", "cities/amsterdam/index.html",
   "provinces/noord-holland/index.html", "places/index.html", "organizations/index.html", "emergency/index.html",
   "saved/index.html", "status/index.html", "offline/index.html", "app/index.html", "business/index.html",
   "business/apply/index.html", "business/media-kit/index.html", "privacy/index.html", "terms/index.html", "support/index.html", "robots.txt",
   "sitemap.xml", "manifest.webmanifest", "sw.js", ".htaccess", "404.html", "data/search-index.json",
+  ".well-known/apple-app-site-association",
   "data/content-provenance.json", "data/status.json", "data/site-config.json", "images/app-home-nl.webp",
   "images/app-map-en.webp", "images/app-map-nl.webp", "images/og-younew.jpg",
   "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png",
@@ -24,11 +25,17 @@ assert.match(home, /Use YouNew on the web/);
 assert.match(home, /support@younew\.nl/);
 assert.match(home, /rel="canonical" href="https:\/\/younew\.nl\/"/);
 assert.match(home, /application\/ld\+json/);
-for (const path of ["/discover/", "/search/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
+for (const path of ["/discover/", "/search/", "/updates/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
 assert.doesNotMatch(home, /href=(?:"|')#(?:"|')/);
-assert.doesNotMatch(home, /apps\.apple\.com|testflight\.apple\.com/);
+assert.match(home, /href="https:\/\/apps\.apple\.com\/app\/id6782617312"/);
+assert.match(home, /Download on the App Store/);
 assert.doesNotMatch(home, /<script[^>]+src="\/_next\/static\/chunks\//, "Static homepage should not hydrate the full Next runtime");
-assert.match(home, /<script src="\/static-shell\.js" defer><\/script>/);
+assert.match(home, /<script src="\/static-shell\.[a-f0-9]{12}\.js" defer><\/script>/);
+const staticShellPath = home.match(/<script src="(\/static-shell\.[a-f0-9]{12}\.js)" defer><\/script>/)?.[1];
+assert.ok(staticShellPath, "The static homepage must load a fingerprinted enhancement shell");
+const staticShell = await readFile(join(root, staticShellPath.slice(1)), "utf8");
+assert.doesNotMatch(staticShell, /getBoundingClientRect/, "Homepage enhancements must not force synchronous layout reads");
+assert.doesNotMatch(staticShell, /serviceWorker\.register/, "The static homepage must not install the offline cache during its performance-critical load");
 
 const search = await readFile(join(root, "search/index.html"), "utf8");
 assert.match(search, /Search published YouNew content/);
@@ -36,7 +43,7 @@ assert.match(search, /name="robots" content="noindex, follow"/);
 assert.match(search, /<script[^>]+src="\/_next\/static\/chunks\//, "Interactive routes must retain client JavaScript");
 
 const guide = await readFile(join(root, "guides/woon/index.html"), "utf8");
-for (const text of ["!WOON", "Last verified", "Open source", "Report outdated information", "What to do next", "Source-backed summary", "Print guide", "Step-by-step guide not yet released"]) assert.match(guide, new RegExp(text));
+for (const text of ["!WOON", "Last verified", "Open source", "Report outdated information", "What to do next", "Source-backed summary", "Print guide", "Step-by-step guide not yet published"]) assert.match(guide, new RegExp(text));
 assert.match(guide, /data-guide-depth="summary"/);
 
 const journeys = await readFile(join(root, "journeys/index.html"), "utf8");
@@ -44,12 +51,15 @@ for (const text of ["New in the Netherlands", "International student", "Starting
 assert.doesNotMatch(journeys, /sync(?:ed|ing)? successfully/i);
 
 const map = await readFile(join(root, "map/index.html"), "utf8");
-for (const text of ["Published YouNew coverage", "Released content list", "no location permission", "primary accessible fallback"]) assert.match(map, new RegExp(text, "i"));
+for (const text of ["Published YouNew coverage", "Published content list", "no location permission", "primary accessible fallback"]) assert.match(map, new RegExp(text, "i"));
 assert.doesNotMatch(map, /navigator\.geolocation|tile\.openstreetmap|mapbox/i);
 
 const businessApply = await readFile(join(root, "business/apply/index.html"), "utf8");
-for (const field of ["companyName", "contactPerson", "organizationType", "kvkNumber", "targetAudience", "requestedPlacements", "consentToPrivacy", "confirmAccuracy", "websiteConfirmation"]) assert.match(businessApply, new RegExp(`name="${field}"`));
-assert.match(businessApply, /nothing is submitted automatically/i);
+for (const field of ["companyName", "contactPerson", "inquiryType", "organizationType", "kvkNumber", "targetAudience", "requestedPlacements", "consentToPrivacy", "confirmAccuracy", "websiteConfirmation"]) assert.match(businessApply, new RegExp(`name="${field}"`));
+assert.match(businessApply, /saved only after server validation succeeds/i);
+assert.match(businessApply, /confirmation ID appears after the database record is created/i);
+assert.doesNotMatch(businessApply, /Email handoff only|does not upload or submit this form to a server/i);
+assert.doesNotMatch(businessApply, /no secure upload or form backend|nothing is submitted automatically/i);
 
 const mediaKit = await readFile(join(root, "business/media-kit/index.html"), "utf8");
 for (const text of ["Request a quote", "DEMO PARTNER CARD", "DEMO REPORT", "ILLUSTRATIVE DATA", "Editorial independence", "Reasons YouNew may refuse or stop a placement"]) assert.match(mediaKit, new RegExp(text, "i"));
@@ -57,15 +67,35 @@ for (const text of ["Request a quote", "DEMO PARTNER CARD", "DEMO REPORT", "ILLU
 const status = await readFile(join(root, "status/index.html"), "utf8");
 assert.match(status, /Static status snapshot/);
 assert.match(status, /does not (?:use|provide) live (?:uptime )?monitoring/i);
+assert.match(status, /Business and feedback forms/);
+
+const support = await readFile(join(root, "support/index.html"), "utf8");
+for (const field of ["feedbackType", "email", "message", "consentToPrivacy", "websiteConfirmation"]) {
+  assert.match(support, new RegExp(`name="${field}"`));
+}
+assert.match(support, /confirmation ID/i);
+
+const updates = await readFile(join(root, "updates/index.html"), "utf8");
+for (const text of ["Verified Admin updates", "manually activated", "Loading verified updates"]) assert.match(updates, new RegExp(text, "i"));
 
 const notFound = await readFile(join(root, "404.html"), "utf8");
 assert.match(notFound, /That page isn’t here/);
+assert.doesNotMatch(notFound, /rel="canonical"/, "The 404 page must not canonicalize missing URLs to the homepage");
+assert.doesNotMatch(notFound, /property="og:url"/, "The 404 page must not advertise the homepage as its social URL");
+assert.match(notFound, /property="og:title" content="Page not found \| YouNew"/);
+assert.match(notFound, /name="twitter:card" content="summary"/);
 
 const searchIndex = JSON.parse(await readFile(join(root, "data/search-index.json"), "utf8"));
 assert.equal(searchIndex.schemaVersion, 2);
 const provenance = JSON.parse(await readFile(join(root, "data/content-provenance.json"), "utf8"));
-assert.equal(provenance.counts.acceptedRecords, provenance.counts.sourceRecords);
-assert.ok(provenance.counts.acceptedRecords > 0);
+const governedContent = JSON.parse(
+  await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8"),
+);
+assert.equal(
+  provenance.counts.acceptedRecords,
+  governedContent.stats.entities,
+  "Published provenance and the governed runtime must contain the same number of records",
+);
 assert.ok(searchIndex.documents.length > provenance.counts.acceptedRecords, "Search should include derived category and useful-page destinations");
 assert.ok(searchIndex.documents.every((document) => !/\b(?:draft|archived)\b/i.test(document.id)));
 
@@ -73,19 +103,29 @@ const manifest = JSON.parse(await readFile(join(root, "manifest.webmanifest"), "
 assert.equal(manifest.display, "standalone");
 assert.deepEqual(manifest.icons.map((icon) => icon.sizes), ["192x192", "512x512"]);
 
+const association = JSON.parse(await readFile(join(root, ".well-known/apple-app-site-association"), "utf8"));
+assert.deepEqual(association.applinks.details[0].appIDs, ["9CXDJ2YMUZ.nl.younew.app"]);
+assert.ok(association.applinks.details[0].components.some((component) => component["/"] === "/guides/*"));
+
 const serviceWorker = await readFile(join(root, "sw.js"), "utf8");
 assert.match(serviceWorker, /isEmergencyRequest/);
 assert.match(serviceWorker, /isMutableConfiguration/);
 assert.match(serviceWorker, /\.then\(\(\) => self\.skipWaiting\(\)\)/, "A new service worker must activate without waiting for every stale tab to close");
 assert.match(serviceWorker, /fetch\(request, \{ cache: "no-store" \}\)/, "Navigations must bypass stale browser HTTP cache entries");
-assert.match(serviceWorker, /\/static-shell\.js/);
+assert.match(serviceWorker, /\/static-shell\.[a-f0-9]{12}\.js/);
 assert.match(serviceWorker, /\/_next\/static\/css\//, "The install cache must include the generated stylesheet for a styled first offline launch");
 
 const hostingerRules = await readFile(join(root, ".htaccess"), "utf8");
-assert.match(hostingerRules, /FilesMatch "\\\.\(\?:html\|txt\)\$"[\s\S]*?Cache-Control "no-cache, no-store, must-revalidate"/, "Hostinger must revalidate exported HTML instead of serving a previous release");
+assert.match(hostingerRules, /FilesMatch "\\\.\(\?:html\|txt\)\$"[\s\S]*?Cache-Control "public, max-age=0, must-revalidate"/, "Hostinger must permit CDN storage while forcing exported HTML revalidation");
+assert.match(hostingerRules, /AddType application\/manifest\+json \.webmanifest/, "Hostinger must serve the web manifest with its correct MIME type");
+assert.match(hostingerRules, /ForceType application\/manifest\+json/, "Hostinger must override a generic MIME mapping for the web manifest");
+assert.match(hostingerRules, /Files "apple-app-site-association"[\s\S]*ForceType application\/json/, "Hostinger must serve Apple's association file as JSON");
+assert.match(hostingerRules, /FilesMatch "\^\(sw\\\.js\|static-shell\\\.js\|manifest\\\.webmanifest/, "The unversioned homepage runtime must not remain stale between releases");
+assert.match(hostingerRules, /Strict-Transport-Security "max-age=31536000"/, "HTTPS responses must advertise HSTS");
+assert.match(hostingerRules, /connect-src[^"]*https:\/\/admin\.younew\.nl/, "The public CSP must allow the read-only Admin content feed");
 
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
-for (const path of ["https://younew.nl", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
+for (const path of ["https://younew.nl", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/updates", "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
 const sitemapCount = (sitemap.match(/<url>/g) ?? []).length;
 assert.equal(new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])).size, sitemapCount, "Sitemap URLs must be unique");
 

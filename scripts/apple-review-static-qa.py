@@ -43,12 +43,51 @@ def main() -> None:
     source = swift_text()
     project = read(ROOT / "YouNew.xcodeproj/project.pbxproj")
     manifest_path = APP_ROOT / "PrivacyInfo.xcprivacy"
+    settings_view = read(APP_ROOT / "Views/SettingsView.swift")
+
+    expect('Text("0.2.1")' not in settings_view, "Settings must not expose a stale hard-coded app version")
+    expect(
+        "CFBundleShortVersionString" in settings_view and "CFBundleVersion" in settings_view,
+        "Settings must derive its visible version and build from the application bundle",
+    )
 
     expect(manifest_path.exists(), "PrivacyInfo.xcprivacy is missing")
     manifest = plistlib.loads(manifest_path.read_bytes())
     expect(manifest.get("NSPrivacyTracking") is False, "privacy manifest must declare tracking as false")
     expect(manifest.get("NSPrivacyTrackingDomains") == [], "privacy manifest tracking domains must be empty")
-    expect(manifest.get("NSPrivacyCollectedDataTypes") == [], "privacy manifest must not declare collected data")
+    collected_types = manifest.get("NSPrivacyCollectedDataTypes")
+    expect(isinstance(collected_types, list), "privacy manifest collected data types must be an array")
+    expected_collected_types = {
+        "NSPrivacyCollectedDataTypeDeviceID",
+        "NSPrivacyCollectedDataTypeOtherDiagnosticData",
+    }
+    expect(
+        {item.get("NSPrivacyCollectedDataType") for item in collected_types} == expected_collected_types,
+        "privacy manifest must declare only the network-log data types used by the current release",
+    )
+    for item in collected_types:
+        expect(item.get("NSPrivacyCollectedDataTypeLinked") is True, "network-log data must be declared linked")
+        expect(item.get("NSPrivacyCollectedDataTypeTracking") is False, "network-log data must not be used for tracking")
+        expect(
+            item.get("NSPrivacyCollectedDataTypePurposes") == ["NSPrivacyCollectedDataTypePurposeAppFunctionality"],
+            "network-log data must be used only for app functionality",
+        )
+
+    privacy_documents = [
+        read(ROOT / "PRIVACY_POLICY.md"),
+        read(ROOT / "admin-dashboard/public-site/src/app/privacy/page.tsx"),
+    ]
+    for privacy_document in privacy_documents:
+        expect("Open-Meteo" in privacy_document, "privacy disclosure must name the weather network provider")
+        expect("90 days" in privacy_document, "privacy disclosure must state the provider log-retention period")
+        expect(
+            "Device ID" in privacy_document and "Other Diagnostic Data" in privacy_document,
+            "privacy disclosure must match the App Store network-log data types",
+        )
+        expect(
+            "recent conversation messages" not in privacy_document,
+            "privacy disclosure must not claim that conversation history is sent by the current AI client",
+        )
 
     if "UserDefaults" in source:
         expect(

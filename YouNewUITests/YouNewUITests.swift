@@ -701,15 +701,30 @@ final class YouNewUITests: XCTestCase {
 
         let suggestion = app.descendants(matching: .any)["search.suggestion.knm"]
         XCTAssertTrue(suggestion.waitForExistence(timeout: 4))
+        let suggestionsScroll = app.scrollViews["search.suggestions.scroll"]
+        XCTAssertTrue(suggestionsScroll.waitForExistence(timeout: 4))
+        for _ in 0..<4 where !suggestion.isHittable {
+            suggestionsScroll.swipeLeft()
+        }
+        XCTAssertTrue(suggestion.isHittable, "KNM suggestion should become hittable after horizontal scrolling")
         suggestion.tap()
 
         let result = app.descendants(matching: .any)["search.directResult.link.knm"]
         XCTAssertTrue(result.waitForExistence(timeout: 6))
-        result.tap()
+        tapRouteAction(
+            result,
+            in: app,
+            expecting: ["knm.screen"]
+        )
         XCTAssertTrue(app.descendants(matching: .any)["knm.screen"].waitForExistence(timeout: 4))
 
-        let backButton = app.navigationBars.buttons.firstMatch
-        XCTAssertTrue(backButton.waitForExistence(timeout: 4))
+        let backButton = firstExistingElementWithoutScrolling(
+            ["navigation.back", "BackButton"],
+            in: app,
+            timeout: 4
+        )
+        XCTAssertTrue(backButton.exists)
+        XCTAssertTrue(backButton.isHittable)
         backButton.tap()
 
         let searchInput = app.textFields["search.input"]
@@ -903,7 +918,10 @@ final class YouNewUITests: XCTestCase {
     @MainActor
     private func tapRouteAction(_ element: XCUIElement, in app: XCUIApplication, expecting identifiers: [String]) {
         let routeIdentifier = element.identifier
-        tapActionElement(element)
+        let visibleAction = routeIdentifier.isEmpty
+            ? scrollRouteActionIntoVisibleContent(element, in: app)
+            : scrollRouteActionIntoVisibleContent(routeIdentifier, in: app)
+        tapActionElement(visibleAction)
         if firstExistingElementWithoutScrolling(identifiers, in: app, timeout: 3).exists {
             return
         }
@@ -924,7 +942,7 @@ final class YouNewUITests: XCTestCase {
             let button = app.buttons.matching(identifier: identifier).firstMatch
             let action = button.exists ? button : app.descendants(matching: .any).matching(identifier: identifier).firstMatch
             if action.waitForExistence(timeout: 1) {
-                tapActionElement(action)
+                tapActionElement(scrollRouteActionIntoVisibleContent(identifier, in: app))
                 if firstExistingElementWithoutScrolling(identifiers, in: app, timeout: 2).exists {
                     return
                 }
@@ -955,12 +973,46 @@ final class YouNewUITests: XCTestCase {
     }
 
     @MainActor
-    private func tapActionElement(_ element: XCUIElement) {
-        let activePoint = element.coordinate(withNormalizedOffset: CGVector(dx: 0.18, dy: 0.5))
-        if element.isHittable {
-            activePoint.tap()
-        } else {
-            activePoint.tap()
+    private func scrollRouteActionIntoVisibleContent(_ identifier: String, in app: XCUIApplication) -> XCUIElement {
+        let button = app.buttons.matching(identifier: identifier).firstMatch
+        let action = button.exists ? button : app.descendants(matching: .any).matching(identifier: identifier).firstMatch
+        return scrollRouteActionIntoVisibleContent(action, in: app)
+    }
+
+    @MainActor
+    private func scrollRouteActionIntoVisibleContent(_ action: XCUIElement, in app: XCUIApplication) -> XCUIElement {
+        let window = app.windows.firstMatch
+        let tabBar = app.descendants(matching: .any)["root.tabBar"]
+
+        for _ in 0..<6 {
+            guard action.exists else { return action }
+
+            let frame = action.frame
+            let topLimit = window.exists ? window.frame.minY + 72 : 72
+            let bottomLimit = tabBar.exists ? tabBar.frame.minY - 8 : 780
+            let isInsideVisibleContent = !frame.isEmpty
+                && frame.minY >= topLimit
+                && frame.maxY <= bottomLimit
+
+            if action.isHittable && isInsideVisibleContent {
+                return action
+            }
+
+            if frame.isEmpty || frame.midY >= bottomLimit {
+                app.swipeUp()
+            } else {
+                app.swipeDown()
+            }
         }
+
+        return action
+    }
+
+    @MainActor
+    private func tapActionElement(_ element: XCUIElement) {
+        XCTAssertTrue(element.exists, "Route action disappeared before tap")
+        XCTAssertTrue(element.isHittable, "Route action is not hittable after scrolling into visible content")
+        let activePoint = element.coordinate(withNormalizedOffset: CGVector(dx: 0.18, dy: 0.5))
+        activePoint.tap()
     }
 }

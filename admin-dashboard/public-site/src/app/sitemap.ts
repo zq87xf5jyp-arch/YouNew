@@ -4,10 +4,10 @@ import { getPublicContent } from "@/lib/content";
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const updated = new Date("2026-07-20T00:00:00Z");
   const content = getPublicContent();
+  const updated = new Date(content.generatedAt);
   const staticPaths = [
-    "", "/discover", "/guides", "/journeys", "/map", "/categories", "/cities", "/provinces", "/places", "/organizations",
+    "", "/discover", "/guides", "/journeys", "/map", "/categories", "/cities", "/provinces", "/places", "/organizations", "/updates",
     "/emergency", "/status", "/app", "/business", "/business/advertise", "/business/partners", "/business/pricing",
     "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"
   ];

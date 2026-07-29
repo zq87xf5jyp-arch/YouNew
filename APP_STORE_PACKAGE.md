@@ -7,7 +7,7 @@ Status: **owner-review draft; not submitted and not approved release metadata**.
 - App name: YouNew
 - Bundle identifier: `nl.younew.app`
 - Version: `1.1`
-- Build: `5`
+- Build: `7`
 - Primary category: Reference
 - Secondary category: Travel
 - Age rating: owner must complete the current App Store Connect questionnaire;
@@ -42,6 +42,13 @@ features that can access external official sites and public weather/place/event
 services. The owner must inspect the final binary and answer App Store Connect's
 current questions; the bullets below are not a completed privacy label.
 
+The current public App Store listing declares broad data categories as not linked
+to the user and used for third-party advertising/developer marketing. That does
+not match the candidate privacy manifest, which declares linked Device ID and
+Other Diagnostic Data for app functionality with tracking disabled. Neither
+declaration should be copied forward until final-binary runtime behavior is
+measured and the discrepancy is resolved in App Store Connect.
+
 - No advertising, tracking, or analytics SDK is identified in the current audit.
 - Approximate location can be processed for nearby support after permission.
 - User content/documents and assistant state are designed for local app storage.
@@ -60,8 +67,12 @@ If `YOUNEW_AI_BACKEND_URL` is configured for a deployed bounded backend:
 - Candidate Terms URL: `https://younew.nl/terms/`
 - Candidate contact email: `support@younew.nl`
 
-These endpoints and the mailbox were not verified during this audit. The owner
-must confirm control, public availability, and final content before submission.
+The three HTTPS endpoints returned HTTP 200 on 22 July 2026. Their hosted content
+does not yet match this repository's 22 July release-candidate policy. The
+connected Hostinger API confirms that `support@younew.nl` and its standard
+mailbox folders are accessible; an explicit end-to-end inbound/outbound delivery
+test remains **NOT VERIFIED**. The owner must publish the synchronized legal copy,
+verify delivery, and complete legal review before submission.
 
 ## Copyright
 

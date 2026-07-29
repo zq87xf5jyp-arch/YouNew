@@ -171,7 +171,8 @@ struct DocumentOrganizerView: View {
         let context = LAContext()
         var error: NSError?
         guard context.canEvaluatePolicy(.deviceOwnerAuthentication, error: &error) else {
-            vaultUnlocked = true
+            vaultUnlocked = false
+            authenticationFailed = true
             return
         }
         do {
@@ -182,7 +183,8 @@ struct DocumentOrganizerView: View {
             authenticationFailed = true
         }
 #else
-        vaultUnlocked = true
+        vaultUnlocked = false
+        authenticationFailed = true
 #endif
     }
 

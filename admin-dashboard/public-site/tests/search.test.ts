@@ -18,6 +18,7 @@ const rankModule = (await import(new URL("../src/lib/search/rank.ts", import.met
     options?: {
       filters?: { type?: SearchDocument["type"]; cityId?: string; provinceId?: string; category?: string };
       limit?: number;
+      preferredProfile?: import("../src/lib/content/types").GuideAudienceProfile | null;
     }
   ) => Array<{ document: SearchDocument; score: number; matchedTerms: readonly string[] }>;
 };
@@ -154,12 +155,23 @@ test("profile filtering prefers authored audiences and falls back only when they
   assert.deepEqual(rankModule.filterSearchDocumentsByProfile([authored, legacy], "not-a-profile"), []);
 });
 
+test("a preferred profile personalizes ranking without hiding exact published answers", () => {
+  const results = rankModule.rankSearchDocuments(index.documents, "BSN", {
+    preferredProfile: "tourist",
+    limit: 5
+  });
+
+  assert.equal(results[0]?.document.id, "government_service.first-registration-in-amsterdam");
+  assert.ok(
+    results.every(({ matchedTerms }) => matchedTerms.includes("bsn")),
+    "profile preference must not introduce unrelated results"
+  );
+});
+
 test("requested quality queries find an honest released destination or a documented gap", () => {
   const expected = new Map<string, string>([
     ["How do I get a BSN?", "government_service.first-registration-in-amsterdam"],
     ["Register gemeente", "government_service.first-registration-in-amsterdam"],
-    ["Need a doctor", "category.healthcare"],
-    ["Health insurance", "category.healthcare"],
     ["Landlord does not repair", "housing.woon"],
     ["Student housing", "category.housing"],
     ["Emergency", "page.emergency"]
@@ -169,11 +181,17 @@ test("requested quality queries find an honest released destination or a documen
     assert.equal(results[0]?.document.id, expectedId, `${query}: ${results.map(({ document }) => document.id).join(", ")}`);
   }
 
-  for (const query of ["Lost residence card", "DigiD", "Work contract"]) {
+  for (const query of ["Lost residence card", "DigiD", "Work contract", "Need a doctor", "Health insurance"]) {
     assert.deepEqual(
       rankModule.rankSearchDocuments(index.documents, query, { limit: 5 }),
       [],
       `${query} must not be redirected to unrelated released content while its practical guide remains draft`
     );
   }
+});
+
+test("search UI suggests only queries with a released destination", async () => {
+  const source = await readFile(new URL("../src/components/search-experience.tsx", import.meta.url), "utf8");
+  assert.match(source, /placeholder="[^"]*Register gemeente[^"]*Housing defects[^"]*"/);
+  assert.doesNotMatch(source, /placeholder="[^"]*Need a doctor[^"]*"/);
 });

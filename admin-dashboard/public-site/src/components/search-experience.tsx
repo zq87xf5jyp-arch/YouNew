@@ -5,7 +5,8 @@ import Link from "next/link";
 import { Check, Search, Share2, SlidersHorizontal, X } from "lucide-react";
 import { SaveButton } from "@/components/save-button";
 import { track } from "@/lib/analytics/client";
-import { filterSearchDocumentsByProfile, rankSearchDocuments, type SearchDocument } from "@/lib/search/rank";
+import { contentKindLabel, publicWebSummary } from "@/lib/content/presentation";
+import { rankSearchDocuments, type SearchDocument } from "@/lib/search/rank";
 import type { GuideAudienceProfile } from "@/lib/content/types";
 import { localContentRepository, sanitizeUserPathProfile } from "@/lib/storage/local-content";
 
@@ -13,8 +14,9 @@ type SearchIndex = { schemaVersion: 2; documents: SearchDocument[] };
 type Filters = { type: string; city: string; province: string; category: string; profile: string };
 
 const emptyFilters: Filters = { type: "", city: "", province: "", category: "", profile: "" };
-const popularSearches = ["Register gemeente", "Need a doctor", "Student housing", "Emergency", "Amsterdam", "train station"];
+const popularSearches = ["Register gemeente", "Housing defects", "Student housing", "Emergency", "Amsterdam", "train station"];
 function unique(values: Array<string | null>) { return [...new Set(values.filter((value): value is string => Boolean(value)))].sort(); }
+function titleCase(value: string) { return `${value[0]?.toUpperCase() ?? ""}${value.slice(1)}`; }
 
 export function SearchExperience() {
   const [documents, setDocuments] = useState<SearchDocument[]>([]);
@@ -54,17 +56,15 @@ export function SearchExperience() {
   }), [documents]);
 
   const ranked = useMemo(() => {
-    const eligibleDocuments = filterSearchDocumentsByProfile(
-      documents,
-      (filters.profile || null) as GuideAudienceProfile | null
-    );
-    return rankSearchDocuments(eligibleDocuments, submittedQuery, {
+    return rankSearchDocuments(documents, submittedQuery, {
       filters: { type: filters.type as SearchDocument["type"] || undefined, cityId: filters.city || undefined, provinceId: filters.province || undefined, category: filters.category || undefined },
-      limit: 80
+      limit: 80,
+      preferredProfile: (filters.profile || null) as GuideAudienceProfile | null
     });
   }, [documents, submittedQuery, filters]);
 
   const hasActiveFilters = Object.values(filters).some(Boolean);
+  const activeProfileLabel = filters.profile ? titleCase(filters.profile) : null;
 
   const suggestions = useMemo(() => query.trim().length >= 2
     ? rankSearchDocuments(documents, query, { limit: 6 }).map((result) => result.document)
@@ -83,7 +83,16 @@ export function SearchExperience() {
     const value = query.trim();
     setSubmittedQuery(value); setSuggestionIndex(-1); syncUrl(value, filters);
     if (value) { localContentRepository.rememberSearch(value); setRecentSearches(localContentRepository.recentSearches()); }
-    const count = value ? rankSearchDocuments(documents, value, { limit: 200 }).length : 0;
+    const count = value ? rankSearchDocuments(documents, value, {
+      filters: {
+        type: filters.type as SearchDocument["type"] || undefined,
+        cityId: filters.city || undefined,
+        provinceId: filters.province || undefined,
+        category: filters.category || undefined
+      },
+      limit: 200,
+      preferredProfile: (filters.profile || null) as GuideAudienceProfile | null
+    }).length : 0;
     track({ name: "search", resultCount: count, hasResults: count > 0 });
   }
 
@@ -96,6 +105,11 @@ export function SearchExperience() {
   }
 
   function setFilter(key: keyof Filters, value: string) {
+    if (key === "profile") {
+      const profile = sanitizeUserPathProfile(value);
+      if (profile) localContentRepository.setProfile(profile);
+      else localContentRepository.clearProfile();
+    }
     const next = { ...filters, [key]: value }; setFilters(next); syncUrl(submittedQuery, next);
   }
 
@@ -110,7 +124,7 @@ export function SearchExperience() {
     <div className="search-experience">
       <form className="search-form" role="search" onSubmit={submit}>
         <div className="search-input-wrap">
-          <Search aria-hidden /><input id="search-query" role="combobox" aria-label="Search published YouNew content" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded={suggestionsVisible} aria-activedescendant={suggestionIndex >= 0 ? `search-suggestion-${suggestionIndex}` : undefined} aria-haspopup="listbox" autoComplete="off" placeholder="Try ‘Register gemeente’ or ‘Need a doctor’" value={query} onChange={(event) => { setQuery(event.target.value); setSuggestionIndex(-1); setSuggestionsDismissed(false); }} onKeyDown={onKeyDown} />
+          <Search aria-hidden /><input id="search-query" role="combobox" aria-label="Search published YouNew content" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded={suggestionsVisible} aria-activedescendant={suggestionIndex >= 0 ? `search-suggestion-${suggestionIndex}` : undefined} aria-haspopup="listbox" autoComplete="off" placeholder="Try ‘Register gemeente’ or ‘Housing defects’" value={query} onChange={(event) => { setQuery(event.target.value); setSuggestionIndex(-1); setSuggestionsDismissed(false); }} onKeyDown={onKeyDown} />
           {query ? <button type="button" aria-label="Clear search" onClick={() => { setQuery(""); setSubmittedQuery(""); setSuggestionsDismissed(true); syncUrl("", filters); }}><X aria-hidden /></button> : null}
         </div>
         <button className="button button-primary" type="submit">Search</button>
@@ -123,12 +137,18 @@ export function SearchExperience() {
 
       <div className="search-filter-bar" aria-label="Search filters">
         <span><SlidersHorizontal aria-hidden /> Filters</span>
-        <label>Type<select value={filters.type} onChange={(event) => setFilter("type", event.target.value)}><option value="">All</option><option value="guide">Guides</option><option value="city">Cities</option><option value="organization">Organizations</option><option value="place">Places</option><option value="category">Categories</option><option value="page">Useful pages</option></select></label>
+        <label>Type<select value={filters.type} onChange={(event) => setFilter("type", event.target.value)}><option value="">All</option><option value="guide">Guides & summaries</option><option value="city">Cities</option><option value="organization">Organizations</option><option value="place">Places</option><option value="category">Categories</option><option value="page">Useful pages</option></select></label>
         <label>City<select value={filters.city} onChange={(event) => setFilter("city", event.target.value)}><option value="">All</option>{options.cities.map((value) => <option value={value} key={value}>{value.replaceAll("-", " ")}</option>)}</select></label>
         <label>Province<select value={filters.province} onChange={(event) => setFilter("province", event.target.value)}><option value="">All</option>{options.provinces.map((value) => <option value={value} key={value}>{value.replaceAll("-", " ")}</option>)}</select></label>
         <label>Category<select value={filters.category} onChange={(event) => setFilter("category", event.target.value)}><option value="">All</option>{options.categories.map((value) => <option value={value} key={value}>{value.replaceAll("-", " ")}</option>)}</select></label>
         <label>Profile<select value={filters.profile} onChange={(event) => setFilter("profile", event.target.value)}><option value="">All</option><option value="tourist">Tourist</option><option value="student">Student</option><option value="expat">Expat</option><option value="refugee">Refugee</option><option value="worker">Worker</option><option value="resident">Resident</option></select></label>
       </div>
+      {activeProfileLabel ? (
+        <div className="search-active-context" role="status">
+          <div><strong>{activeProfileLabel} profile is active</strong><span>Results are tailored to this saved starting point; other published content remains available.</span></div>
+          <button type="button" onClick={() => setFilter("profile", "")}>Show all content</button>
+        </div>
+      ) : null}
 
       {!submittedQuery ? (
         <><div className="search-starters"><section><h2>Popular searches</h2><div>{popularSearches.map((value) => <button type="button" key={value} onClick={() => { setQuery(value); setSubmittedQuery(value); syncUrl(value, filters); }}>{value}</button>)}</div></section>{recentSearches.length ? <section><div className="search-starter-heading"><h2>Recent searches</h2><button type="button" onClick={() => { localContentRepository.clearRecentSearches(); setRecentSearches([]); }}>Clear</button></div><div>{recentSearches.map((value) => <button type="button" key={value} onClick={() => { setQuery(value); setSubmittedQuery(value); syncUrl(value, filters); }}>{value}</button>)}</div></section> : null}</div>
@@ -139,8 +159,8 @@ export function SearchExperience() {
       {loadError ? <div className="empty-state"><h2>Search index unavailable</h2><p>Browse <Link href="/discover">published content</Link> or retry when the connection is restored.</p></div> : null}
       {!loading && !loadError && (submittedQuery || hasActiveFilters) ? (
         <section className="search-results" aria-labelledby="results-title">
-          <div className="search-results-heading"><h2 id="results-title" aria-live="polite">{ranked.length} matching result{ranked.length === 1 ? "" : "s"}{submittedQuery ? ` for “${submittedQuery}”` : ""}</h2><button type="button" onClick={shareResults}>{shareState === "copied" ? <Check aria-hidden /> : <Share2 aria-hidden />}{shareState === "copied" ? "Link copied" : "Share results"}</button></div>
-          {ranked.length ? <div className="search-result-list">{ranked.map(({ document }) => <article key={document.id}><Link href={document.route}><span>{document.type}{document.city ? ` · ${document.city}` : ""}</span><h3>{document.title}</h3><p>{document.summary}</p></Link><SaveButton item={{ id: document.id, route: document.route, title: document.title, kind: document.type }} compact /></article>)}</div> : <div className="empty-state"><Search aria-hidden /><h2>No published match</h2><p>Try a shorter term, clear one of the filters, or browse categories. Search only includes released and source-checked content.</p><button className="button button-outline" type="button" onClick={() => { setFilters(emptyFilters); syncUrl(submittedQuery, emptyFilters); }}>Clear filters</button></div>}
+          <div className="search-results-heading"><div><h2 id="results-title" aria-live="polite">{ranked.length} matching result{ranked.length === 1 ? "" : "s"}{submittedQuery ? ` for “${submittedQuery}”` : ""}</h2>{submittedQuery ? <p>Search checks titles, keywords and close spelling matches.</p> : null}</div><button type="button" onClick={shareResults}>{shareState === "copied" ? <Check aria-hidden /> : <Share2 aria-hidden />}{shareState === "copied" ? "Link copied" : "Share results"}</button></div>
+          {ranked.length ? <div className="search-result-list">{ranked.map(({ document }) => <article key={document.id}><Link href={document.route}><span>{contentKindLabel(document.type, document.contentDepth)}{document.city ? ` · ${document.city}` : ""}</span><h3>{document.title}</h3><p>{publicWebSummary(document.summary)}</p></Link><SaveButton item={{ id: document.id, route: document.route, title: document.title, kind: document.type }} compact /></article>)}</div> : <div className="empty-state"><Search aria-hidden /><h2>No published match</h2><p>Try a shorter term, clear one of the filters, or browse categories. Search only includes published and source-checked content.</p><button className="button button-outline" type="button" onClick={() => { setFilters(emptyFilters); localContentRepository.clearProfile(); syncUrl(submittedQuery, emptyFilters); }}>Clear filters</button></div>}
         </section>
       ) : null}
     </div>

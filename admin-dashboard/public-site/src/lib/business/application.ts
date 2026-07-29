@@ -1,9 +1,11 @@
 import type {
   BusinessApplicationInput,
   BusinessApplicationValidation,
+  InquiryTypeId,
   OrganizationType,
   PartnerApplicationRepository,
-  PreparedBusinessApplication
+  PreparedBusinessApplication,
+  SubmittedBusinessApplication
 } from "./types";
 // The explicit extension keeps this shared runtime catalogue resolvable by the
 // repository's direct Node TypeScript test runner as well as the Next.js build.
@@ -22,6 +24,7 @@ const organizationTypes: readonly OrganizationType[] = [
 const userProfileIds = ["tourist", "student", "expat", "refugee", "worker", "resident"] as const;
 const requestedPlacementIds = advertisingFormatCatalog.map((format) => format.id);
 const budgetRangeIds = ["under-1000", "1000-3000", "3000-10000", "over-10000", "request-discussion"] as const;
+const inquiryTypeIds: readonly InquiryTypeId[] = ["advertising", "partnership", "media", "public-interest", "other"];
 
 export const BUSINESS_APPLICATION_EMAIL = "support@younew.nl" as const;
 export const NOTHING_SENT_NOTICE = "Nothing has been sent yet" as const;
@@ -68,6 +71,7 @@ export function validateBusinessApplication(input: BusinessApplicationInput): Bu
   else if (input.phone.trim().length > 40) errors.phone = "Keep the phone number under 40 characters.";
   if (!isSafeWebsite(input.website.trim())) errors.website = "Enter a complete website URL beginning with https:// or http://.";
   else if (input.website.trim().length > 300) errors.website = "Keep the website URL under 300 characters.";
+  if (!inquiryTypeIds.includes(input.inquiryType as InquiryTypeId)) errors.inquiryType = "Select an inquiry type.";
   if (!organizationTypes.includes(input.organizationType as OrganizationType)) {
     errors.organizationType = "Select an organization type.";
   }
@@ -95,6 +99,7 @@ export function validateBusinessApplication(input: BusinessApplicationInput): Bu
   if (input.description.trim().length > 600) errors.description = "Keep the description under 600 characters for the email handoff.";
   if (!input.consentToPrivacy) errors.consentToPrivacy = "Consent to the Privacy Policy is required.";
   if (!input.confirmAccuracy) errors.confirmAccuracy = "Confirm that the submitted information is accurate.";
+  if (!/^\/business(?:\/|$)/.test(input.sourcePage)) errors.sourcePage = "The inquiry source page is invalid.";
 
   return { valid: Object.keys(errors).length === 0, errors };
 }
@@ -113,6 +118,7 @@ export function createBusinessApplicationMailto(input: BusinessApplicationInput)
     `Email: ${input.email.trim().toLowerCase()}`,
     `Phone: ${input.phone.trim() || "Not provided"}`,
     `Website: ${input.website.trim()}`,
+    `Inquiry type: ${readable(input.inquiryType)}`,
     `Organization type: ${readable(input.organizationType)}`,
     `KvK number: ${input.kvkNumber.trim() || "Not provided"}`,
     `City: ${input.city.trim()}`,
@@ -149,3 +155,76 @@ export const mailtoPartnerApplicationRepository: PartnerApplicationRepository = 
     };
   }
 };
+
+type FetchLike = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
+
+function validBusinessEndpoint(value: string) {
+  try {
+    const url = new URL(value);
+    return url.protocol === "https:"
+      && url.hostname.endsWith(".supabase.co")
+      && url.pathname === "/functions/v1/submit-business-inquiry";
+  } catch {
+    return false;
+  }
+}
+
+function isSubmissionReceipt(value: unknown): value is { confirmationId: string; createdAt: string } {
+  if (!value || typeof value !== "object") return false;
+  const receipt = value as { confirmationId?: unknown; createdAt?: unknown };
+  return typeof receipt.confirmationId === "string"
+    && /^YNI-[A-F0-9]{12}$/.test(receipt.confirmationId)
+    && typeof receipt.createdAt === "string"
+    && Number.isFinite(Date.parse(receipt.createdAt));
+}
+
+export function createApiPartnerApplicationRepository(
+  endpoint: string,
+  fetchImplementation: FetchLike = fetch
+): PartnerApplicationRepository {
+  return {
+    delivery: "api",
+    async submit(input): Promise<SubmittedBusinessApplication> {
+      const validation = validateBusinessApplication(input);
+      if (!validation.valid) throw new Error("The business application contains invalid fields.");
+      if (!validBusinessEndpoint(endpoint)) throw new Error("Business inquiry submission is not configured.");
+
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 15_000);
+      try {
+        const response = await fetchImplementation(endpoint, {
+          method: "POST",
+          headers: {
+            Accept: "application/json",
+            "Content-Type": "application/json"
+          },
+          body: JSON.stringify(input),
+          signal: controller.signal
+        });
+        const payload = await response.json().catch(() => null) as unknown;
+        if (!response.ok) {
+          const retryLater = response.status === 429 || response.status >= 500;
+          throw new Error(retryLater
+            ? "The inquiry could not be saved right now. Your entries are still available; please retry."
+            : "The inquiry was not accepted. Review the fields and try again.");
+        }
+        if (!isSubmissionReceipt(payload)) {
+          throw new Error("The server did not provide a valid confirmation. No success has been recorded.");
+        }
+        return {
+          kind: "server-submission",
+          sent: true,
+          confirmationId: payload.confirmationId,
+          createdAt: payload.createdAt
+        };
+      } catch (error) {
+        if (error instanceof DOMException && error.name === "AbortError") {
+          throw new Error("The inquiry request timed out. Your entries are still available; please retry.");
+        }
+        throw error;
+      } finally {
+        clearTimeout(timeout);
+      }
+    }
+  };
+}

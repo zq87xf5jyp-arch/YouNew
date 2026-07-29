@@ -1,0 +1,59 @@
+name: Admin CI
+
+on:
+  pull_request:
+    paths:
+      - "admin-dashboard/**"
+      - "YouNew/Resources/Data/younew-runtime-data.json"
+      - "scripts/admin-production-static-qa.py"
+      - ".github/workflows/admin-ci.yml"
+  push:
+    paths:
+      - "admin-dashboard/**"
+      - "YouNew/Resources/Data/younew-runtime-data.json"
+      - "scripts/admin-production-static-qa.py"
+      - ".github/workflows/admin-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: admin-ci-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  admin-dashboard:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    defaults:
+      run:
+        working-directory: admin-dashboard
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Verify backend production safety contracts
+        working-directory: .
+        run: python3 scripts/admin-production-static-qa.py
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Enable the pinned package manager
+        run: corepack enable
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+      - name: Lint
+        run: pnpm lint
+      - name: Typecheck
+        run: pnpm typecheck
+      - name: Unit and security contract tests
+        run: pnpm test
+      - name: Validate Supabase Edge Functions
+        run: |
+          pnpm dlx deno@2.9.4 fmt --check supabase/functions
+          pnpm dlx deno@2.9.4 check --config supabase/functions/submit-business-inquiry/deno.json supabase/functions/submit-business-inquiry/index.ts
+          pnpm dlx deno@2.9.4 check --config supabase/functions/submit-public-feedback/deno.json supabase/functions/submit-public-feedback/index.ts
+          pnpm dlx deno@2.9.4 check --config supabase/functions/prepare-content-sync/deno.json supabase/functions/prepare-content-sync/index.ts
+      - name: Build
+        run: pnpm build

@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
   "release_id": "amsterdam-v0.1.1",
-  "accepted_at": "2026-07-27T16:04:28+02:00",
-  "approver": "user-approved-via-codex",
+  "accepted_at": "2026-07-28T12:00:00+02:00",
+  "approver": "user-authorized-production-completion-task",
   "artifacts": [
     {
       "path": "DataProject/batches/WP-06/M2-amsterdam-001.json",

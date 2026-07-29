@@ -414,8 +414,9 @@
 				APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = YouNew/YouNew.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 9CXDJ2YMUZ;
 				ENABLE_APP_SANDBOX = YES;
@@ -427,7 +428,9 @@
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "YouNew uses calendar access only when you choose to review and save a deadline reminder.";
 				INFOPLIST_KEY_NSCalendarsWriteOnlyAccessUsageDescription = "YouNew adds a calendar event only after you review and confirm it.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "YouNew uses the camera only to scan documents you choose to save locally on your device.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "YouNew uses Face ID only to unlock documents stored locally on your device.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "YouNew uses your location only to show nearby services and places. Your location is not stored.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "YouNew uses device motion to add subtle visual depth while you use the app.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -467,8 +470,9 @@
 				APP_SHORTCUTS_ENABLE_FLEXIBLE_MATCHING = NO;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = YouNew/YouNew.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 7;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = 9CXDJ2YMUZ;
 				ENABLE_APP_SANDBOX = YES;
@@ -480,7 +484,9 @@
 				INFOPLIST_KEY_NSCalendarsFullAccessUsageDescription = "YouNew uses calendar access only when you choose to review and save a deadline reminder.";
 				INFOPLIST_KEY_NSCalendarsWriteOnlyAccessUsageDescription = "YouNew adds a calendar event only after you review and confirm it.";
 				INFOPLIST_KEY_NSCameraUsageDescription = "YouNew uses the camera only to scan documents you choose to save locally on your device.";
+				INFOPLIST_KEY_NSFaceIDUsageDescription = "YouNew uses Face ID only to unlock documents stored locally on your device.";
 				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "YouNew uses your location only to show nearby services and places. Your location is not stored.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "YouNew uses device motion to add subtle visual depth while you use the app.";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

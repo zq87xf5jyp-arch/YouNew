@@ -12,7 +12,7 @@ struct RootGuideView: View {
     var body: some View {
         ScrollViewReader { proxy in
             ScrollView {
-                LazyVStack(alignment: .leading, spacing: 22) {
+                VStack(alignment: .leading, spacing: 22) {
                     Color.clear.frame(height: 1).id("guide.top")
                     header
                     searchAction
