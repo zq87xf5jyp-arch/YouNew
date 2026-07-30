@@ -2050,6 +2050,22 @@ private struct AssistantStructuredResponseCard: View {
         L10n.t("common.verified_source", lang)
     }
 
+    private var decisionTraceLabel: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Почему я это вижу?"
+        case .dutch: return "Waarom zie ik dit?"
+        case .english: return "Why am I seeing this?"
+        }
+    }
+
+    private var excludedEvidenceLabel: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Исключённые кандидаты"
+        case .dutch: return "Uitgesloten kandidaten"
+        case .english: return "Excluded candidates"
+        }
+    }
+
     private var openRelatedSectionLabel: String {
         switch languageManager.appLanguage {
         case .russian: return "Открыть связанный раздел"
@@ -2250,6 +2266,66 @@ private struct AssistantStructuredResponseCard: View {
                     }
                 }
                 .padding(.bottom, 10)
+            }
+
+            if let trace = response.decisionTrace, trace.isMachineValid {
+                Divider()
+                    .overlay(Color.white.opacity(0.08))
+
+                VStack(alignment: .leading, spacing: 9) {
+                    Label(decisionTraceLabel, systemImage: "info.bubble.fill")
+                        .font(.system(size: 12, weight: .bold, design: .rounded))
+                        .foregroundStyle(accent)
+                        .padding(.top, 10)
+
+                    ForEach(trace.sourceCitations.prefix(3)) { citation in
+                        VStack(alignment: .leading, spacing: 2) {
+                            Text(citation.sourceTitle)
+                                .font(.system(size: 12, weight: .semibold))
+                                .foregroundStyle(AppColors.textPrimary)
+                            Text(citation.sourcePublisher ?? citation.sourceURL.host() ?? citation.recordID)
+                                .font(.system(size: 11))
+                                .foregroundStyle(AppColors.textSecondary)
+                        }
+                    }
+
+                    ForEach(trace.jurisdictionEvidence.prefix(2)) { evidence in
+                        Text(evidence.summary)
+                            .font(.system(size: 11))
+                            .foregroundStyle(AppColors.textSecondary)
+                    }
+
+                    ForEach(trace.freshnessEvidence.prefix(2)) { evidence in
+                        Text(evidence.summary)
+                            .font(.system(size: 11))
+                            .foregroundStyle(AppColors.textSecondary)
+                    }
+
+                    Text(trace.rankingFactors.prefix(3).joined(separator: " · "))
+                        .font(.system(size: 11))
+                        .foregroundStyle(AppColors.textSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
+
+                    if !trace.excludedCandidateReasons.isEmpty {
+                        Text(
+                            "\(excludedEvidenceLabel): "
+                                + trace.excludedCandidateReasons
+                                    .sorted(by: { $0.key < $1.key })
+                                    .map { "\($0.key) \($0.value)" }
+                                    .joined(separator: ", ")
+                        )
+                        .font(.system(size: 11))
+                        .foregroundStyle(AppColors.textSecondary)
+                        .fixedSize(horizontal: false, vertical: true)
+                    }
+
+                    Text("Policy \(trace.policyVersion) · Context \(trace.contextVersion)")
+                        .font(.system(size: 10, design: .monospaced))
+                        .foregroundStyle(AppColors.textSecondary)
+                }
+                .padding(.bottom, 10)
+                .accessibilityElement(children: .contain)
+                .accessibilityIdentifier("assistant.response.decisionTrace")
             }
 
             Divider()

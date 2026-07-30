@@ -1,0 +1,194 @@
+{"kind":"deck","id":"pr/hudliq","name":"Deck"}
+{"kind":"layout","layoutId":"ea968791-a5f3-4f52-8ec7-576a051fdb37","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"5e8f2d54-17cd-4b27-91a8-97a1b4db058c","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/wjlgu0","slide":1,"title":"YouNew","textShapes":5}
+{"kind":"shape","id":"sh/jmlwv2d4","slide":1,"name":"cover-left-panel","bbox":[0,0,650,720]}
+{"kind":"textbox","id":"sh/wjuxknet","slide":1,"name":"cover-brand","text":"YouNew","textPreview":"YouNew","textChars":6,"textLines":1,"bbox":[72,74,280,44]}
+{"kind":"textbox","id":"sh/xk3etsve","slide":1,"name":"cover-title","text":"A working\necosystem for a\nclearer start","textPreview":"A working | ecosystem for a | clearer start","textChars":39,"textLines":3,"bbox":[72,176,500,244]}
+{"kind":"textbox","id":"sh/axsfidwn","slide":1,"name":"cover-subtitle","text":"iOS · Web · Admin · Supabase · AI · Workspace","textPreview":"iOS · Web · Admin · Supabase · AI · Workspace","textChars":45,"textLines":1,"bbox":[76,430,470,60]}
+{"kind":"shape","id":"sh/bilwrid8","slide":1,"name":"cover-accent","bbox":[76,518,160,6]}
+{"kind":"textbox","id":"sh/gfexwrex","slide":1,"name":"cover-posture","text":"Product showcase · Release candidate","textPreview":"Product showcase · Release candidate","textChars":36,"textLines":1,"bbox":[76,548,470,40]}
+{"kind":"textbox","id":"sh/hgnypcvi","slide":1,"name":"cover-date","text":"30 July 2026 · Netherlands","textPreview":"30 July 2026 · Netherlands","textChars":26,"textLines":1,"bbox":[76,604,360,28]}
+{"kind":"image","id":"im/4jux0fil","slide":1,"name":"","geometry":"rect","alt":"Image conversion primer","bbox":[1279,719,1,1]}
+{"kind":"image","id":"im/3ilgra10","slide":1,"name":"","geometry":"rect","alt":"Live YouNew home page","bbox":[596,0,684,720]}
+{"kind":"notes","id":"nt/wjlgu0","slide":1,"text":"Opening: YouNew is shown as a working multi-surface ecosystem and release candidate.\n\n[Sources]\n- https://younew.nl/ — live page screenshot captured 2026-07-30.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/assets/web-home.png"}
+{"kind":"slide","id":"sl/prunbz","slide":2,"title":"ONE CONNECTED PRODUCT","textShapes":7}
+{"kind":"textbox","id":"sh/9kr25w7a","slide":2,"name":"eyebrow-One connected product","text":"ONE CONNECTED PRODUCT","textPreview":"ONE CONNECTED PRODUCT","textChars":21,"textLines":1,"bbox":[64,48,440,28]}
+{"kind":"textbox","id":"sh/mhgju18z","slide":2,"name":"s2-title","text":"Every surface serves the same product system","textPreview":"Every surface serves the same product system","textChars":44,"textLines":1,"bbox":[64,78,1120,62]}
+{"kind":"shape","id":"sh/7ipk36p4","slide":2,"name":"s2-system-line","bbox":[110,606,1040,4]}
+{"kind":"shape","id":"sh/wni10b61","slide":2,"name":"s2-app-frame","bbox":[69,167,200,422]}
+{"kind":"shape","id":"sh/ul0jy18v","slide":2,"name":"s2-web-frame","bbox":[291,167,420,242]}
+{"kind":"shape","id":"sh/cre1o7qh","slide":2,"name":"s2-admin-frame","bbox":[291,429,420,160]}
+{"kind":"shape","id":"sh/lcnqho3m","slide":2,"name":"s2-workspace-frame","bbox":[733,167,246,246]}
+{"kind":"shape","id":"sh/zal8felg","slide":2,"name":"s2-code-frame","bbox":[733,433,440,156]}
+{"kind":"textbox","id":"sh/90nq583y","slide":2,"name":"s2-app-label","text":"iOS","textPreview":"iOS","textChars":3,"textLines":1,"bbox":[74,620,190,28]}
+{"kind":"textbox","id":"sh/8zepc3md","slide":2,"name":"s2-web-label","text":"Public Web + Admin","textPreview":"Public Web + Admin","textChars":18,"textLines":1,"bbox":[296,620,410,28]}
+{"kind":"textbox","id":"sh/7y58jyls","slide":2,"name":"s2-ops-label","text":"Workspace + Engineering","textPreview":"Workspace + Engineering","textChars":23,"textLines":1,"bbox":[738,620,430,28]}
+{"kind":"textbox","id":"sh/mdw7at47","slide":2,"name":"footer-left-2","text":"YouNew · Product ecosystem · 30 July 2026","textPreview":"YouNew · Product ecosystem · 30 July 2026","textChars":41,"textLines":1,"bbox":[64,682,520,20]}
+{"kind":"textbox","id":"sh/h47q983u","slide":2,"name":"footer-page-2","text":"02","textPreview":"02","textChars":2,"textLines":1,"bbox":[1174,682,42,20]}
+{"kind":"image","id":"im/oz2l4bid","slide":2,"name":"","geometry":"roundRect","alt":"Published Dutch iPhone home screen","bbox":[74,172,190,412]}
+{"kind":"image","id":"im/mxk32l07","slide":2,"name":"","geometry":"roundRect","alt":"Live public website","bbox":[296,172,410,232]}
+{"kind":"image","id":"im/43ilsri9","slide":2,"name":"","geometry":"roundRect","alt":"Authenticated Admin dashboard","bbox":[296,434,410,150]}
+{"kind":"image","id":"im/nex4jex8","slide":2,"name":"","geometry":"roundRect","alt":"YouNew Workspace control surface","bbox":[738,172,236,236]}
+{"kind":"image","id":"im/9gzmlofy","slide":2,"name":"","geometry":"roundRect","alt":"Xcode engineering workspace","bbox":[738,438,430,146]}
+{"kind":"notes","id":"nt/prunbz","slide":2,"text":"\n[Sources]\n- https://younew.nl/ — live public website capture.\n- https://admin.younew.nl/dashboard — authenticated Admin capture.\n- https://younew.nl/images/app-home-nl.webp — current published app UI asset.\n- /Users/ivan/Applications/YouNew Workspace.app — local workspace capture.\n- Xcode local workspace — local engineering surface capture."}
+{"kind":"slide","id":"sl/ecwcri","slide":3,"title":"PUBLIC PRODUCT","textShapes":12}
+{"kind":"textbox","id":"sh/vit8f6l8","slide":3,"name":"eyebrow-Public product","text":"PUBLIC PRODUCT","textPreview":"PUBLIC PRODUCT","textChars":14,"textLines":1,"bbox":[64,48,440,28]}
+{"kind":"textbox","id":"sh/wj2pormt","slide":3,"name":"s3-title","text":"The web product is live, discoverable and usable","textPreview":"The web product is live, discoverable and usable","textChars":48,"textLines":1,"bbox":[64,78,700,66]}
+{"kind":"shape","id":"sh/xkbqhw3e","slide":3,"name":"s3-web-home-frame","bbox":[515,159,706,402]}
+{"kind":"textbox","id":"sh/j6d8j6lk","slide":3,"name":"s3-copy","text":"A source-backed companion for newcomers in the Netherlands — with search, profiles, guides, cities, organizations, maps, saved content and emergency routes.","textPreview":"A source-backed companion for newcomers in the Netherlands — with search, profiles, guides, cities, organizations, maps, saved content an...","textChars":156,"textLines":1,"bbox":[64,180,398,154]}
+{"kind":"textbox","id":"sh/k7m9sbm5","slide":3,"name":"s3-routes-value","text":"585","textPreview":"585","textChars":3,"textLines":1,"bbox":[64,368,130,78]}
+{"kind":"shape","id":"sh/58vqlg3q","slide":3,"name":"s3-routes-rule","bbox":[64,446,64,4]}
+{"kind":"textbox","id":"sh/yp07eh4v","slide":3,"name":"s3-routes-label","text":"static routes","textPreview":"static routes","textChars":13,"textLines":1,"bbox":[64,462,130,58]}
+{"kind":"textbox","id":"sh/za9872lg","slide":3,"name":"s3-index-value","text":"575","textPreview":"575","textChars":3,"textLines":1,"bbox":[214,368,160,78]}
+{"kind":"shape","id":"sh/bixgz6pw","slide":3,"name":"s3-index-rule","bbox":[214,446,64,4]}
+{"kind":"textbox","id":"sh/ahof618b","slide":3,"name":"s3-index-label","text":"indexable URLs","textPreview":"indexable URLs","textChars":14,"textLines":1,"bbox":[214,462,160,58]}
+{"kind":"textbox","id":"sh/xkfy1g7m","slide":3,"name":"s3-published-value","text":"186","textPreview":"186","textChars":3,"textLines":1,"bbox":[392,368,120,78]}
+{"kind":"shape","id":"sh/cj6x8bqh","slide":3,"name":"s3-published-rule","bbox":[392,446,64,4]}
+{"kind":"textbox","id":"sh/nedgvmpk","slide":3,"name":"s3-published-label","text":"published records","textPreview":"published records","textChars":17,"textLines":1,"bbox":[392,462,120,58]}
+{"kind":"textbox","id":"sh/2d4f218z","slide":3,"name":"s3-proof","text":"Live smoke test: PASS · 83 web tests: PASS","textPreview":"Live smoke test: PASS · 83 web tests: PASS","textChars":42,"textLines":1,"bbox":[64,592,560,38]}
+{"kind":"textbox","id":"sh/pgfyxw7q","slide":3,"name":"footer-left-3","text":"YouNew · Product ecosystem · 30 July 2026","textPreview":"YouNew · Product ecosystem · 30 July 2026","textChars":41,"textLines":1,"bbox":[64,682,520,20]}
+{"kind":"textbox","id":"sh/of6x4rq5","slide":3,"name":"footer-page-3","text":"03","textPreview":"03","textChars":2,"textLines":1,"bbox":[1174,682,42,20]}
+{"kind":"image","id":"im/bq5oj65s","slide":3,"name":"","geometry":"roundRect","alt":"Live YouNew website home page","bbox":[520,164,696,392]}
+{"kind":"notes","id":"nt/ecwcri","slide":3,"text":"\n[Sources]\n- https://younew.nl/ — captured 2026-07-30.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/assets/web-home.png\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/../sale-readiness-2026-07-30/verification-summary.json — 585 routes, 575 indexable URLs, 186 published records and 83 passing tests."}
+{"kind":"slide","id":"sl/dahsfm","slide":4,"title":"IPHONE PRODUCT","textShapes":6}
+{"kind":"textbox","id":"sh/rmtozql4","slide":4,"name":"eyebrow-iPhone product","text":"IPHONE PRODUCT","textPreview":"IPHONE PRODUCT","textChars":14,"textLines":1,"bbox":[64,48,440,28]}
+{"kind":"textbox","id":"sh/sn2p8v2p","slide":4,"name":"s4-title","text":"A public App Store product with a coherent mobile experience","textPreview":"A public App Store product with a coherent mobile experience","textChars":60,"textLines":1,"bbox":[64,78,1120,66]}
+{"kind":"shape","id":"sh/tob6103a","slide":4,"name":"s4-store-frame","bbox":[59,165,700,398]}
+{"kind":"shape","id":"sh/ji9ov6l8","slide":4,"name":"s4-home-frame","bbox":[807,149,178,374]}
+{"kind":"shape","id":"sh/5kb6xg3e","slide":4,"name":"s4-map-frame","bbox":[1015,149,178,374]}
+{"kind":"textbox","id":"sh/vu9or6lw","slide":4,"name":"s4-caption","text":"The public listing, navigation, city context, search, guide entry points and map experience already share one visual language.","textPreview":"The public listing, navigation, city context, search, guide entry points and map experience already share one visual language.","textChars":126,"textLines":1,"bbox":[64,590,690,54]}
+{"kind":"textbox","id":"sh/zu9o7a94","slide":4,"name":"s4-build","text":"Unsigned generic-device Release: BUILD SUCCEEDED","textPreview":"Unsigned generic-device Release: BUILD SUCCEEDED","textChars":48,"textLines":1,"bbox":[800,588,390,44]}
+{"kind":"textbox","id":"sh/et07y58j","slide":4,"name":"footer-left-4","text":"YouNew · Product ecosystem · 30 July 2026","textPreview":"YouNew · Product ecosystem · 30 July 2026","textChars":41,"textLines":1,"bbox":[64,682,520,20]}
+{"kind":"textbox","id":"sh/1wrq9k7a","slide":4,"name":"footer-page-4","text":"04","textPreview":"04","textChars":2,"textLines":1,"bbox":[1174,682,42,20]}
+{"kind":"image","id":"im/fmx8vu9s","slide":4,"name":"","geometry":"roundRect","alt":"Public YouNew App Store listing","bbox":[64,170,690,388]}
+{"kind":"image","id":"im/18zqx4ry","slide":4,"name":"","geometry":"roundRect","alt":"Published YouNew iPhone home screen","bbox":[812,154,168,364]}
+{"kind":"image","id":"im/3ah8ze9o","slide":4,"name":"","geometry":"roundRect","alt":"Published YouNew iPhone map screen","bbox":[1020,154,168,364]}
+{"kind":"notes","id":"nt/dahsfm","slide":4,"text":"The two standalone app screens are current published UI assets, not screenshots from the blocked Simulator installation attempt.\n\n[Sources]\n- https://apps.apple.com/app/id6782617312 — public listing captured 2026-07-30.\n- https://younew.nl/images/app-home-nl.webp — published current iPhone UI asset.\n- https://younew.nl/images/app-map-en.webp — published current iPhone UI asset.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/../sale-readiness-2026-07-30/verification-summary.json — unsigned generic-device Release BUILD SUCCEEDED."}
+{"kind":"slide","id":"sl/a1opde","slide":5,"title":"USER JOURNEY","textShapes":4}
+{"kind":"textbox","id":"sh/s3exwbad","slide":5,"name":"eyebrow-User journey","text":"USER JOURNEY","textPreview":"USER JOURNEY","textChars":12,"textLines":1,"bbox":[64,48,440,28]}
+{"kind":"textbox","id":"sh/725wnqts","slide":5,"name":"s5-title","text":"From question to verified next step","textPreview":"From question to verified next step","textChars":35,"textLines":1,"bbox":[64,82,1040,56]}
+{"kind":"shape","id":"sh/61wfuls7","slide":5,"name":"s5-flow-frame","bbox":[59,159,1162,480]}
+{"kind":"textbox","id":"sh/g7ex0va9","slide":5,"name":"footer-left-5","text":"YouNew · Product ecosystem · 30 July 2026","textPreview":"YouNew · Product ecosystem · 30 July 2026","textChars":41,"textLines":1,"bbox":[64,682,520,20]}
+{"kind":"textbox","id":"sh/f65grqto","slide":5,"name":"footer-page-5","text":"05","textPreview":"05","textChars":2,"textLines":1,"bbox":[1174,682,42,20]}
+{"kind":"image","id":"im/4nmdkry9","slide":5,"name":"","geometry":"roundRect","alt":"Live YouNew three-step guidance flow","bbox":[64,164,1152,470]}
+{"kind":"notes","id":"nt/a1opde","slide":5,"text":"\n[Sources]\n- https://younew.nl/ — live How it works section captured 2026-07-30.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/assets/web-home-features.png"}
+{"kind":"slide","id":"sl/hfh64l","slide":6,"title":"LOCATION LAYER","textShapes":5}
+{"kind":"textbox","id":"sh/6toz61cb","slide":6,"name":"eyebrow-Location layer","text":"LOCATION LAYER","textPreview":"LOCATION LAYER","textChars":14,"textLines":1,"bbox":[64,48,440,28]}
+{"kind":"textbox","id":"sh/twfi1gb2","slide":6,"name":"s6-title","text":"The same geography powers web discovery and iPhone context","textPreview":"The same geography powers web discovery and iPhone context","textChars":58,"textLines":1,"bbox":[64,78,1050,64]}
+{"kind":"shape","id":"sh/sv6h8buh","slide":6,"name":"s6-web-map-frame","bbox":[59,169,780,443]}
+{"kind":"shape","id":"sh/exojalcn","slide":6,"name":"s6-app-map-frame","bbox":[895,149,280,488]}
+{"kind":"textbox","id":"sh/gz61cvad","slide":6,"name":"s6-stat","text":"342 municipalities · 171 located published items · accessible list fallback","textPreview":"342 municipalities · 171 located published items · accessible list fallback","textChars":75,"textLines":1,"bbox":[80,618,750,34]}
+{"kind":"textbox","id":"sh/v2d0rmto","slide":6,"name":"footer-left-6","text":"YouNew · Product ecosystem · 30 July 2026","textPreview":"YouNew · Product ecosystem · 30 July 2026","textChars":41,"textLines":1,"bbox":[64,682,520,20]}
+{"kind":"textbox","id":"sh/u1kzyhc3","slide":6,"name":"footer-page-6","text":"06","textPreview":"06","textChars":2,"textLines":1,"bbox":[1174,682,42,20]}
+{"kind":"image","id":"im/ixo36ho7","slide":6,"name":"","geometry":"roundRect","alt":"Live YouNew web map","bbox":[64,174,770,433]}
+{"kind":"image","id":"im/kzql8r6d","slide":6,"name":"","geometry":"roundRect","alt":"Published YouNew iPhone map screen","bbox":[900,154,270,478]}
+{"kind":"notes","id":"nt/hfh64l","slide":6,"text":"\n[Sources]\n- https://younew.nl/map/ — live map page captured 2026-07-30; visible page reports 342 municipalities and 171 located published items.\n- https://younew.nl/images/app-map-en.webp — published iPhone map UI."}
+{"kind":"slide","id":"sl/ttywva","slide":7,"title":"CONTROL PLANE","textShapes":10}
+{"kind":"textbox","id":"sh/5grmxovu","slide":7,"name":"eyebrow-Control plane","text":"CONTROL PLANE","textPreview":"CONTROL PLANE","textChars":13,"textLines":1,"bbox":[64,48,440,28]}
+{"kind":"textbox","id":"sh/id03mtw3","slide":7,"name":"s7-title","text":"Admin turns content, quality and releases into operations","textPreview":"Admin turns content, quality and releases into operations","textChars":57,"textLines":1,"bbox":[64,78,1020,64]}
+{"kind":"shape","id":"sh/je94vexo","slide":7,"name":"s7-admin-frame","bbox":[59,167,840,477]}
+{"kind":"textbox","id":"sh/tkrm18vq","slide":7,"name":"s7-a","text":"Content lifecycle","textPreview":"Content lifecycle","textChars":17,"textLines":1,"bbox":[950,190,230,36]}
+{"kind":"textbox","id":"sh/6h0nqtwz","slide":7,"name":"s7-a2","text":"Published, review, outdated and blocked states.","textPreview":"Published, review, outdated and blocked states.","textChars":47,"textLines":1,"bbox":[950,234,230,70]}
+{"kind":"textbox","id":"sh/ri94zydk","slide":7,"name":"s7-b","text":"Governed data","textPreview":"Governed data","textChars":13,"textLines":1,"bbox":[950,334,230,36]}
+{"kind":"textbox","id":"sh/8nylgze1","slide":7,"name":"s7-b2","text":"Sources, media, links, coordinates and AI summaries.","textPreview":"Sources, media, links, coordinates and AI summaries.","textChars":52,"textLines":1,"bbox":[950,378,230,70]}
+{"kind":"textbox","id":"sh/9o7mp4fm","slide":7,"name":"s7-c","text":"Protected actions","textPreview":"Protected actions","textChars":17,"textLines":1,"bbox":[950,478,230,36]}
+{"kind":"textbox","id":"sh/ps7e58rq","slide":7,"name":"s7-c2","text":"Approved roles, audit log and explicit release surfaces.","textPreview":"Approved roles, audit log and explicit release surfaces.","textChars":56,"textLines":1,"bbox":[950,522,230,70]}
+{"kind":"textbox","id":"sh/4ryxw3q5","slide":7,"name":"footer-left-7","text":"YouNew · Product ecosystem · 30 July 2026","textPreview":"YouNew · Product ecosystem · 30 July 2026","textChars":41,"textLines":1,"bbox":[64,682,520,20]}
+{"kind":"textbox","id":"sh/3qpw3y9k","slide":7,"name":"footer-page-7","text":"07","textPreview":"07","textChars":2,"textLines":1,"bbox":[1174,682,42,20]}
+{"kind":"image","id":"im/pknmpoby","slide":7,"name":"","geometry":"roundRect","alt":"Authenticated YouNew Admin dashboard","bbox":[64,172,830,467]}
+{"kind":"notes","id":"nt/ttywva","slide":7,"text":"\n[Sources]\n- https://admin.younew.nl/dashboard — authenticated live capture 2026-07-30.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/assets/admin-dashboard.png\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/../sale-readiness-2026-07-30/verification-summary.json — Admin lint, typecheck, 10 tests and production build passed."}
+{"kind":"slide","id":"sl/63egd2","slide":8,"title":"OPERATIONAL WORKSPACE","textShapes":5}
+{"kind":"textbox","id":"sh/hcbq9cb2","slide":8,"name":"eyebrow-Operational workspace","text":"OPERATIONAL WORKSPACE","textPreview":"OPERATIONAL WORKSPACE","textChars":21,"textLines":1,"bbox":[64,48,440,28]}
+{"kind":"textbox","id":"sh/u9kryxsb","slide":8,"name":"s8-title","text":"One desktop surface links operations and engineering","textPreview":"One desktop surface links operations and engineering","textChars":52,"textLines":1,"bbox":[64,78,1000,64]}
+{"kind":"shape","id":"sh/fat872tw","slide":8,"name":"s8-workspace-frame","bbox":[59,159,510,510]}
+{"kind":"shape","id":"sh/t8bq5sbq","slide":8,"name":"s8-xcode-frame","bbox":[605,159,616,380]}
+{"kind":"textbox","id":"sh/76t83itk","slide":8,"name":"s8-copy","text":"Project health, external services, release artifacts, activity and source-level engineering stay visible without collapsing safety boundaries.","textPreview":"Project health, external services, release artifacts, activity and source-level engineering stay visible without collapsing safety bounda...","textChars":142,"textLines":1,"bbox":[620,568,576,78]}
+{"kind":"textbox","id":"sh/k3ipsna9","slide":8,"name":"footer-left-8","text":"YouNew · Product ecosystem · 30 July 2026","textPreview":"YouNew · Product ecosystem · 30 July 2026","textChars":41,"textLines":1,"bbox":[64,682,520,20]}
+{"kind":"textbox","id":"sh/54rq1sbu","slide":8,"name":"footer-page-8","text":"08","textPreview":"08","textChars":2,"textLines":1,"bbox":[1174,682,42,20]}
+{"kind":"image","id":"im/t0n6xgny","slide":8,"name":"","geometry":"roundRect","alt":"YouNew Workspace Overview","bbox":[64,164,500,500]}
+{"kind":"image","id":"im/7y5ovq5s","slide":8,"name":"","geometry":"roundRect","alt":"Xcode engineering workspace with successful build","bbox":[610,164,606,370]}
+{"kind":"notes","id":"nt/63egd2","slide":8,"text":"\n[Sources]\n- /Users/ivan/Applications/YouNew Workspace.app — Overview screen captured 2026-07-30.\n- Xcode local workspace — real code and successful build surface captured 2026-07-30.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/assets/workspace-overview.png\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/assets/xcode-project.png"}
+{"kind":"slide","id":"sl/tv6dhx","slide":9,"title":"SYSTEM ARCHITECTURE","textShapes":16}
+{"kind":"textbox","id":"sh/axs3ut8b","slide":9,"name":"eyebrow-System architecture","text":"SYSTEM ARCHITECTURE","textPreview":"SYSTEM ARCHITECTURE","textChars":19,"textLines":1,"bbox":[64,48,440,28]}
+{"kind":"textbox","id":"sh/xk3mporm","slide":9,"name":"s9-title","text":"How YouNew works — end to end","textPreview":"How YouNew works — end to end","textChars":29,"textLines":1,"bbox":[64,78,860,64]}
+{"kind":"shape","id":"sh/wjalw3q1","slide":9,"name":"a-work-admin","bbox":[280,262,82,34]}
+{"kind":"shape","id":"sh/nu14je9k","slide":9,"name":"a-admin-data","bbox":[518,262,82,34]}
+{"kind":"shape","id":"sh/mts3q98z","slide":9,"name":"a-data-users","bbox":[782,262,82,34]}
+{"kind":"shape","id":"sh/9wjmlorq","slide":9,"name":"a-deploy-users","bbox":[994,180,34,70]}
+{"kind":"shape","id":"sh/8valsjq5","slide":9,"name":"a-users-feedback","bbox":[1010,374,34,72]}
+{"kind":"shape","id":"sh/7ql4vipo","slide":9,"name":"a-feedback-admin-horizontal","bbox":[440,500,424,30]}
+{"kind":"shape","id":"sh/6pcn2d8j","slide":9,"name":"a-feedback-admin-vertical","bbox":[423,374,34,134]}
+{"kind":"shape","id":"sh/ojulojit","slide":9,"name":"a-work-ci","bbox":[168,180,34,70]}
+{"kind":"shape","id":"sh/pk32hoje","slide":9,"name":"node-workspace","bbox":[64,240,216,134]}
+{"kind":"shape","id":"sh/2xcjm903","slide":9,"name":"node-admin","bbox":[362,240,156,134]}
+{"kind":"shape","id":"sh/3ylkfe18","slide":9,"name":"node-data","bbox":[600,220,182,174]}
+{"kind":"shape","id":"sh/gva1kzix","slide":9,"name":"node-users","bbox":[864,220,286,174]}
+{"kind":"shape","id":"sh/1w32d4ji","slide":9,"name":"node-ci","bbox":[64,142,216,72]}
+{"kind":"shape","id":"sh/etsjipkr","slide":9,"name":"node-deploy","bbox":[864,142,286,72]}
+{"kind":"shape","id":"sh/fu1kbu1c","slide":9,"name":"node-feedback","bbox":[864,452,286,100]}
+{"kind":"textbox","id":"sh/sra1gz2l","slide":9,"name":"node-ci-text","text":"GitHub + CI\nsource, checks, builds","textPreview":"GitHub + CI | source, checks, builds","textChars":34,"textLines":2,"bbox":[84,158,176,48]}
+{"kind":"textbox","id":"sh/tsj294j6","slide":9,"name":"node-deploy-text","text":"App Store + web deploy\nsigned delivery","textPreview":"App Store + web deploy | signed delivery","textChars":38,"textLines":2,"bbox":[892,158,230,48]}
+{"kind":"textbox","id":"sh/9obidgba","slide":9,"name":"node-work-title","text":"YouNew Workspace","textPreview":"YouNew Workspace","textChars":16,"textLines":1,"bbox":[86,266,172,32]}
+{"kind":"textbox","id":"sh/8n2hkbup","slide":9,"name":"node-work-copy","text":"health · tools · releases\nsafe operational view","textPreview":"health · tools · releases | safe operational view","textChars":47,"textLines":2,"bbox":[88,312,168,46]}
+{"kind":"textbox","id":"sh/7mt0bqt4","slide":9,"name":"node-admin-title","text":"Admin","textPreview":"Admin","textChars":5,"textLines":1,"bbox":[386,270,108,32]}
+{"kind":"textbox","id":"sh/mlkzilcj","slide":9,"name":"node-admin-copy","text":"content · quality\nreview · release","textPreview":"content · quality | review · release","textChars":34,"textLines":2,"bbox":[382,314,116,46]}
+{"kind":"textbox","id":"sh/lkri9gby","slide":9,"name":"node-data-title","text":"Supabase","textPreview":"Supabase","textChars":8,"textLines":1,"bbox":[620,246,142,32]}
+{"kind":"textbox","id":"sh/kjihgbud","slide":9,"name":"node-data-copy","text":"Postgres · RLS\nEdge Functions\nanalytics · AI context","textPreview":"Postgres · RLS | Edge Functions | analytics · AI context","textChars":52,"textLines":3,"bbox":[618,292,146,72]}
+{"kind":"textbox","id":"sh/zi9076ts","slide":9,"name":"node-users-title","text":"Public Web + iOS","textPreview":"Public Web + iOS","textChars":16,"textLines":1,"bbox":[892,246,230,32]}
+{"kind":"textbox","id":"sh/yh0ze1cn","slide":9,"name":"node-users-copy","text":"discover · guides · map\nsearch · save · share\nsource verification","textPreview":"discover · guides · map | search · save · share | source verification","textChars":65,"textLines":3,"bbox":[900,292,214,74]}
+{"kind":"textbox","id":"sh/5gvil0bi","slide":9,"name":"node-feedback-text","text":"Privacy-safe analytics + feedback\nbounded signals return to Admin","textPreview":"Privacy-safe analytics + feedback | bounded signals return to Admin","textChars":65,"textLines":2,"bbox":[892,474,230,56]}
+{"kind":"textbox","id":"sh/4fm1svux","slide":9,"name":"s9-principle","text":"One governed data model · explicit trust boundaries · auditable release path","textPreview":"One governed data model · explicit trust boundaries · auditable release path","textChars":76,"textLines":1,"bbox":[120,606,1040,34]}
+{"kind":"textbox","id":"sh/2pwnqdo3","slide":9,"name":"footer-left-9","text":"YouNew · Product ecosystem · 30 July 2026","textPreview":"YouNew · Product ecosystem · 30 July 2026","textChars":41,"textLines":1,"bbox":[64,682,520,20]}
+{"kind":"textbox","id":"sh/3q5ozi5o","slide":9,"name":"footer-page-9","text":"09","textPreview":"09","textChars":2,"textLines":1,"bbox":[1174,682,42,20]}
+{"kind":"notes","id":"nt/tv6dhx","slide":9,"text":"Native PowerPoint shapes illustrate the verified system boundaries. The diagram is intentionally simplified for a product audience.\n\n[Sources]\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/docs/SYSTEM_MAP.md — component and data-flow source.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/docs/COUNTRY_PACK_CONTRACT.md — governed expansion contract.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/docs/COMPLIANCE_CONTROL_MATRIX.md — trust and release controls."}
+{"kind":"slide","id":"sl/wzccm4","slide":10,"title":"VERIFICATION EVIDENCE","textShapes":20}
+{"kind":"textbox","id":"sh/0rmlwza9","slide":10,"name":"eyebrow-Verification evidence","text":"VERIFICATION EVIDENCE","textPreview":"VERIFICATION EVIDENCE","textChars":21,"textLines":1,"bbox":[64,48,440,28]}
+{"kind":"textbox","id":"sh/zqdknu9o","slide":10,"name":"s10-title","text":"Quality is visible in the numbers and the gates","textPreview":"Quality is visible in the numbers and the gates","textChars":47,"textLines":1,"bbox":[64,78,920,64]}
+{"kind":"textbox","id":"sh/ep43upsj","slide":10,"name":"s10-m0-value","text":"450","textPreview":"450","textChars":3,"textLines":1,"bbox":[64,220,190,78]}
+{"kind":"shape","id":"sh/dob2lkry","slide":10,"name":"s10-m0-rule","bbox":[64,298,64,4]}
+{"kind":"textbox","id":"sh/cn2lsfad","slide":10,"name":"s10-m0-label","text":"governed records","textPreview":"governed records","textChars":16,"textLines":1,"bbox":[64,314,190,58]}
+{"kind":"textbox","id":"sh/r2tkja9s","slide":10,"name":"s10-m1-value","text":"186","textPreview":"186","textChars":3,"textLines":1,"bbox":[292,220,190,78]}
+{"kind":"shape","id":"sh/q1k3q5s7","slide":10,"name":"s10-m1-rule","bbox":[292,298,64,4]}
+{"kind":"textbox","id":"sh/xkfmxor2","slide":10,"name":"s10-m1-label","text":"published records","textPreview":"published records","textChars":17,"textLines":1,"bbox":[292,314,190,58]}
+{"kind":"textbox","id":"sh/wj6l4jah","slide":10,"name":"s10-m2-value","text":"97.8%","textPreview":"97.8%","textChars":5,"textLines":1,"bbox":[520,220,190,78]}
+{"kind":"shape","id":"sh/ilcnmtwz","slide":10,"name":"s10-m2-rule","bbox":[520,298,64,4]}
+{"kind":"textbox","id":"sh/jmlofyxk","slide":10,"name":"s10-m2-label","text":"freshness compliant","textPreview":"freshness compliant","textChars":19,"textLines":1,"bbox":[520,314,190,58]}
+{"kind":"textbox","id":"sh/4nu5o3e5","slide":10,"name":"s10-m3-value","text":"170","textPreview":"170","textChars":3,"textLines":1,"bbox":[748,220,190,78]}
+{"kind":"shape","id":"sh/5o36h8fq","slide":10,"name":"s10-m3-rule","bbox":[748,298,64,4]}
+{"kind":"textbox","id":"sh/uhsni9w3","slide":10,"name":"s10-m3-label","text":"assets rights-checked","textPreview":"assets rights-checked","textChars":21,"textLines":1,"bbox":[748,314,190,58]}
+{"kind":"textbox","id":"sh/vi1obex8","slide":10,"name":"s10-m4-value","text":"106","textPreview":"106","textChars":3,"textLines":1,"bbox":[976,220,190,78]}
+{"kind":"shape","id":"sh/wja5kjet","slide":10,"name":"s10-m4-rule","bbox":[976,298,64,4]}
+{"kind":"textbox","id":"sh/hk36dofe","slide":10,"name":"s10-m4-label","text":"passing web/admin/AI tests","textPreview":"passing web/admin/AI tests","textChars":26,"textLines":1,"bbox":[976,314,190,58]}
+{"kind":"shape","id":"sh/edw7udw7","slide":10,"name":"s10-divider","bbox":[64,430,1152,1]}
+{"kind":"textbox","id":"sh/fe5onixs","slide":10,"name":"s10-proof-a","text":"PUBLIC WEB","textPreview":"PUBLIC WEB","textChars":10,"textLines":1,"bbox":[64,470,180,28]}
+{"kind":"textbox","id":"sh/byxkfad4","slide":10,"name":"s10-proof-a2","text":"Predeploy PASS · live routes reviewed","textPreview":"Predeploy PASS · live routes reviewed","textChars":37,"textLines":1,"bbox":[64,512,310,52]}
+{"kind":"textbox","id":"sh/axo3m5cj","slide":10,"name":"s10-proof-b","text":"ADMIN + EDGE","textPreview":"ADMIN + EDGE","textChars":12,"textLines":1,"bbox":[452,470,200,28]}
+{"kind":"textbox","id":"sh/x0f2hkva","slide":10,"name":"s10-proof-b2","text":"Build PASS · function typecheck PASS","textPreview":"Build PASS · function typecheck PASS","textChars":36,"textLines":1,"bbox":[452,512,340,52]}
+{"kind":"textbox","id":"sh/cz6lofup","slide":10,"name":"s10-proof-c","text":"iOS RELEASE","textPreview":"iOS RELEASE","textChars":11,"textLines":1,"bbox":[862,470,200,28]}
+{"kind":"textbox","id":"sh/zmhkjad0","slide":10,"name":"s10-proof-c2","text":"Unsigned device build: SUCCEEDED","textPreview":"Unsigned device build: SUCCEEDED","textChars":32,"textLines":1,"bbox":[862,512,330,52]}
+{"kind":"textbox","id":"sh/yl83q5cv","slide":10,"name":"footer-left-10","text":"YouNew · Product ecosystem · 30 July 2026","textPreview":"YouNew · Product ecosystem · 30 July 2026","textChars":41,"textLines":1,"bbox":[64,682,520,20]}
+{"kind":"textbox","id":"sh/loz2lkv6","slide":10,"name":"footer-page-10","text":"10","textPreview":"10","textChars":2,"textLines":1,"bbox":[1174,682,42,20]}
+{"kind":"notes","id":"nt/wzccm4","slide":10,"text":"106 is the sum of 83 public web tests, 10 admin tests and 13 backend AI proxy tests; iOS tests are not included.\n\n[Sources]\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/../sale-readiness-2026-07-30/verification-summary.json — 450 governed, 186 published, 97.8% freshness, 170 inventoried assets and passing tests.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/RELEASE_READINESS_2026-07-30.md — release checks and bounded limitations."}
+{"kind":"slide","id":"sl/gky05k","slide":11,"title":"RELEASE POSTURE","textShapes":11}
+{"kind":"textbox","id":"sh/jux4nmdw","slide":11,"name":"eyebrow-Release posture","text":"RELEASE POSTURE","textPreview":"RELEASE POSTURE","textChars":15,"textLines":1,"bbox":[64,48,440,28]}
+{"kind":"textbox","id":"sh/kv65greh","slide":11,"name":"s11-title","text":"Ready for controlled release-candidate handoff","textPreview":"Ready for controlled release-candidate handoff","textChars":46,"textLines":1,"bbox":[64,78,1040,64]}
+{"kind":"textbox","id":"sh/5wz6pwv2","slide":11,"name":"s11-score","text":"7.8","textPreview":"7.8","textChars":3,"textLines":1,"bbox":[64,178,210,120]}
+{"kind":"textbox","id":"sh/a5onahwf","slide":11,"name":"s11-score-label","text":"technical readiness\nout of 10","textPreview":"technical readiness | out of 10","textChars":29,"textLines":2,"bbox":[72,308,210,64]}
+{"kind":"textbox","id":"sh/vqx4jmxk","slide":11,"name":"s11-proven","text":"Already proven","textPreview":"Already proven","textChars":14,"textLines":1,"bbox":[352,184,340,44]}
+{"kind":"textbox","id":"sh/wr65cre5","slide":11,"name":"s11-proven-list","text":"• Live public web\n• Public App Store listing\n• Authenticated Admin\n• Healthy Supabase runtime\n• Successful unsigned Release build","textPreview":"• Live public web | • Public App Store listing | • Authenticated Admin | • Healthy Supabase runtime | • Successful unsigned Release build","textChars":129,"textLines":5,"bbox":[352,250,360,232]}
+{"kind":"textbox","id":"sh/xsfmlwvq","slide":11,"name":"s11-gates","text":"Final release gates","textPreview":"Final release gates","textChars":19,"textLines":1,"bbox":[790,184,360,44]}
+{"kind":"textbox","id":"sh/m14n6xw3","slide":11,"name":"s11-gates-list","text":"• Clean source SHA + green CI\n• Signed archive + runnable iOS tests\n• Encrypted backup + isolated restore\n• Authenticated Admin E2E\n• Flagship guides production-ready","textPreview":"• Clean source SHA + green CI | • Signed archive + runnable iOS tests | • Encrypted backup + isolated restore | • Authenticated Admin E2E...","textChars":166,"textLines":5,"bbox":[790,250,390,250]}
+{"kind":"shape","id":"sh/n2d4f2xo","slide":11,"name":"s11-bottom","bbox":[64,540,1152,90]}
+{"kind":"textbox","id":"sh/36tcnapg","slide":11,"name":"s11-bottom-text","text":"Operational today. Final release authority remains tied to explicit, testable evidence.","textPreview":"Operational today. Final release authority remains tied to explicit, testable evidence.","textChars":87,"textLines":1,"bbox":[96,568,1088,36]}
+{"kind":"textbox","id":"sh/25kbep8v","slide":11,"name":"footer-left-11","text":"YouNew · Product ecosystem · 30 July 2026","textPreview":"YouNew · Product ecosystem · 30 July 2026","textChars":41,"textLines":1,"bbox":[64,682,520,20]}
+{"kind":"textbox","id":"sh/p8bupk7m","slide":11,"name":"footer-page-11","text":"11","textPreview":"11","textChars":2,"textLines":1,"bbox":[1174,682,42,20]}
+{"kind":"notes","id":"nt/gky05k","slide":11,"text":"This slide deliberately distinguishes working product readiness from unconditional release authority.\n\n[Sources]\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/../sale-readiness-2026-07-30/verification-summary.json — decision and component evidence.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/RELEASE_READINESS_2026-07-30.md — open release gates."}
+{"kind":"slide","id":"sl/e0ec0c","slide":12,"title":"YouNew","textShapes":4}
+{"kind":"shape","id":"sh/hcb69onq","slide":12,"name":"s12-panel","bbox":[0,0,660,720]}
+{"kind":"textbox","id":"sh/gb2pgjm5","slide":12,"name":"s12-brand","text":"YouNew","textPreview":"YouNew","textChars":6,"textLines":1,"bbox":[72,76,220,42]}
+{"kind":"textbox","id":"sh/3ed8be5w","slide":12,"name":"s12-title","text":"A working ecosystem\nbuilt to scale","textPreview":"A working ecosystem | built to scale","textChars":34,"textLines":2,"bbox":[72,190,500,170]}
+{"kind":"textbox","id":"sh/2d47i94b","slide":12,"name":"s12-copy","text":"Product experience, governed data, operational control and release evidence — connected in one system.","textPreview":"Product experience, governed data, operational control and release evidence — connected in one system.","textChars":102,"textLines":1,"bbox":[76,400,470,112]}
+{"kind":"textbox","id":"sh/pgvqdonm","slide":12,"name":"s12-next","text":"Next milestone: flagship practical guides + clean release identity","textPreview":"Next milestone: flagship practical guides + clean release identity","textChars":66,"textLines":1,"bbox":[76,568,480,66]}
+{"kind":"image","id":"im/vux0nmds","slide":12,"name":"","geometry":"rect","alt":"Live YouNew home page","bbox":[600,0,680,720]}
+{"kind":"notes","id":"nt/e0ec0c","slide":12,"text":"\n[Sources]\n- https://younew.nl/ — live page screenshot captured 2026-07-30.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/docs/COUNTRY_PACK_CONTRACT.md — repeatable expansion boundary.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/RELEASE_READINESS_2026-07-30.md — highest-value remaining release actions."}

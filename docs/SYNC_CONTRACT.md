@@ -13,8 +13,6 @@ Status date: 2026-07-28
 | Public projection | Effective release heads | `public-site/src/generated/public-content.json` and static indexes | Public build |
 | Admin projection | Effective release heads | `admin-dashboard/src/generated/governed-runtime*.json` | Admin build |
 | Admin article sync | Published database articles | `published_content_artifacts` candidate with SHA-256 fingerprint | Manual review only |
-| Public Admin feed | Manually approved non-empty candidate | `public_content_feed` active row and `/api/public/content-sync` | Explicit owner/admin activation |
-| Public updates page | Versioned active Admin feed | `younew.nl/updates/` | Public-site deployment plus active feed |
 
 ### Identity and lifecycle
 
@@ -55,21 +53,6 @@ The database trigger enqueues a sync job. `prepare-content-sync`:
 - never deploys the public site or iOS app.
 
 Retries reuse the idempotency key. A succeeded job is not duplicated. Failures retain error metadata without secrets or personal content.
-
-### Manual activation and public-site projection
-
-`activate_content_artifact(candidate_id)` is the only supported Admin-to-site activation path:
-
-- only authenticated `owner` or `admin` roles may call it;
-- the candidate must be non-empty and its version, schema and record counts must match;
-- the previous active artifact becomes `superseded`;
-- the candidate becomes `active` and replaces the singleton `public_content_feed` row in the same database transaction;
-- the activation writes a PII-safe audit event;
-- drafts, review rows, rejected artifacts and operational tables are never returned by the public endpoint.
-
-`/api/public/content-sync` reads the active row with the anonymous Supabase client and RLS. It applies a second fail-closed schema check, returns an exact-origin CORS response, an ETag based on the SHA-256 fingerprint, and `503` for unavailable or malformed active data. No service-role credential is used.
-
-The public `/updates/` page validates the versioned payload again before rendering plain text and HTTPS official-source links. It shows an explicit empty or unavailable state instead of unreviewed fallback content. This feed is an operational Admin layer: it does not overwrite DataProject, the canonical public search index, or the iOS runtime.
 
 ## 3. Business inquiry flow
 

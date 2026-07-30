@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { MotionEnhancer } from "@/components/motion-enhancer";
+import { AnalyticsConsent } from "@/components/analytics-consent";
 import { ServiceWorkerRegister } from "@/components/service-worker-register";
 import { StatusBanner } from "@/components/status-banner";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
@@ -73,7 +74,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@graph": [
       { "@type": "Organization", "@id": "https://younew.nl/#organization", name: "YouNew", url: "https://younew.nl/", email: "support@younew.nl" },
       { "@type": "WebSite", "@id": "https://younew.nl/#website", url: "https://younew.nl/", name: "YouNew", inLanguage: "en", publisher: { "@id": "https://younew.nl/#organization" } },
-      { "@type": "WebApplication", name: "YouNew web guide", applicationCategory: "ReferenceApplication", applicationSubCategory: "EducationalApplication", browserRequirements: "Requires a modern web browser; core pages remain readable without JavaScript", description, url: "https://younew.nl/discover/", publisher: { "@id": "https://younew.nl/#organization" } },
+      { "@type": "WebApplication", name: "YouNew web guide", applicationCategory: "ReferenceApplication", applicationSubCategory: "EducationalApplication", browserRequirements: "Requires a modern web browser; core pages remain readable without JavaScript", description, url: "https://younew.nl/start/", publisher: { "@id": "https://younew.nl/#organization" } },
       { "@type": "SoftwareApplication", name: "YouNew", operatingSystem: "iOS 17.6 or later", applicationCategory: "ReferenceApplication", applicationSubCategory: "EducationalApplication", description, url: "https://younew.nl/", publisher: { "@id": "https://younew.nl/#organization" } }
     ]
   };
@@ -81,6 +82,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <body>
         {children}
+        <AnalyticsConsent />
         <StatusBanner />
         <MotionEnhancer />
         <ServiceWorkerRegister />

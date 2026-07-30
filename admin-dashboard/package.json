@@ -3,14 +3,13 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@11.17.0",
+  "packageManager": "pnpm@11.9.0",
   "engines": {
     "node": ">=24 <25"
   },
   "scripts": {
     "dev": "node node_modules/next/dist/bin/next dev",
     "build": "pnpm generate:runtime && node node_modules/next/dist/bin/next build",
-    "build:hostinger": "node node_modules/next/dist/bin/next build",
     "generate:runtime": "node scripts/generate-governed-runtime.mjs",
     "start": "node node_modules/next/dist/bin/next start",
     "lint": "node node_modules/eslint/bin/eslint.js src next.config.ts --max-warnings=0",

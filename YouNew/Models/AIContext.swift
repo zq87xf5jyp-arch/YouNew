@@ -77,6 +77,56 @@ enum AIResponseOrigin: String, Codable, Equatable {
     case safety
 }
 
+struct AIDecisionSourceCitation: Codable, Equatable, Identifiable {
+    let recordID: String
+    let sourceTitle: String
+    let sourcePublisher: String?
+    let sourceURL: URL
+
+    var id: String { "\(recordID)|\(sourceURL.absoluteString)" }
+}
+
+struct AIDecisionEvidence: Codable, Equatable, Identifiable {
+    let recordID: String
+    let summary: String
+
+    var id: String { "\(recordID)|\(summary)" }
+}
+
+struct AIDecisionTrace: Codable, Equatable {
+    let selectedRecordIDs: [String]
+    let sourceCitations: [AIDecisionSourceCitation]
+    let freshnessEvidence: [AIDecisionEvidence]
+    let jurisdictionEvidence: [AIDecisionEvidence]
+    let rankingFactors: [String]
+    let confidenceBreakdown: [String: Int]
+    let excludedCandidateReasons: [String: Int]
+    let policyVersion: String
+    let modelVersion: String?
+    let contextVersion: String
+
+    var isMachineValid: Bool {
+        let selected = Set(selectedRecordIDs.filter { !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
+        guard selected.count == selectedRecordIDs.count,
+              !selected.isEmpty,
+              !sourceCitations.isEmpty,
+              sourceCitations.allSatisfy({
+                  selected.contains($0.recordID)
+                      && $0.sourceURL.scheme?.lowercased() == "https"
+                      && !$0.sourceTitle.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+              }),
+              freshnessEvidence.allSatisfy({ selected.contains($0.recordID) && !$0.summary.isEmpty }),
+              jurisdictionEvidence.allSatisfy({ selected.contains($0.recordID) && !$0.summary.isEmpty }),
+              !rankingFactors.isEmpty,
+              confidenceBreakdown.values.allSatisfy({ $0 >= 0 }),
+              excludedCandidateReasons.values.allSatisfy({ $0 >= 0 }),
+              !policyVersion.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+              !contextVersion.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+        else { return false }
+        return true
+    }
+}
+
 struct AIContext: Codable, Equatable {
     let screen: AIContextScreen
     let category: String?
@@ -219,6 +269,7 @@ struct AIResponse: Codable, Equatable {
     let origin: AIResponseOrigin
     let model: String?
     let requestID: String?
+    let decisionTrace: AIDecisionTrace?
 
     private enum CodingKeys: String, CodingKey {
         case answer
@@ -235,6 +286,7 @@ struct AIResponse: Codable, Equatable {
         case origin
         case model
         case requestID = "requestId"
+        case decisionTrace
     }
 
     init(
@@ -251,7 +303,8 @@ struct AIResponse: Codable, Equatable {
         confidence: AIResponseConfidence? = nil,
         origin: AIResponseOrigin = .localGuide,
         model: String? = nil,
-        requestID: String? = nil
+        requestID: String? = nil,
+        decisionTrace: AIDecisionTrace? = nil
     ) {
         self.answer = answer
         self.sources = sources
@@ -267,6 +320,7 @@ struct AIResponse: Codable, Equatable {
         self.origin = origin
         self.model = model
         self.requestID = requestID
+        self.decisionTrace = decisionTrace
     }
 
     init(from decoder: Decoder) throws {
@@ -287,6 +341,7 @@ struct AIResponse: Codable, Equatable {
         origin = try container.decodeIfPresent(AIResponseOrigin.self, forKey: .origin) ?? .localGuide
         model = try container.decodeIfPresent(String.self, forKey: .model)
         requestID = try container.decodeIfPresent(String.self, forKey: .requestID)
+        decisionTrace = try container.decodeIfPresent(AIDecisionTrace.self, forKey: .decisionTrace)
     }
 
     var isLiveOpenAI: Bool {

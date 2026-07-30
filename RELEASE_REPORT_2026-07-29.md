@@ -4,9 +4,9 @@ Prepared on 2026-07-28, Europe/Amsterdam
 
 ## 1. Executive summary
 
-A local release candidate was implemented across the public/business site, Admin Dashboard, DataProject projections and Supabase contracts. The candidate adds real server-backed form contracts, protected operational Admin flows, deterministic content-sync candidates, immutable retirement of two expired events, release runbooks and browser/package QA. A subsequent P0 correction prevents a saved audience profile from hiding an exact BSN result and reconciles the candidate with the business schema that appeared in production after the first report.
+A local release candidate was implemented across the public/business site, Admin Dashboard, DataProject projections and Supabase contracts. The candidate adds real server-backed form contracts, protected operational Admin flows, deterministic content-sync candidates, immutable retirement of two expired events, release runbooks and browser/package QA.
 
-This P0 continuation did not modify production application code, schema or data. The connected project had changed separately since the first report: a base business table, analytics migrations and `analytics-ingest` are now present. SSL enforcement was enabled with the authorized brief database restart, after which the project returned `ACTIVE_HEALTHY`. Fresh Hostinger and custom-format PostgreSQL backups now exist. The owner accepted the documented Supabase Free-plan security/backup limitations on 2026-07-28. A clean local release branch contains isolated commits with no push. The release remains **NO-GO** because the release migration/functions are not deployed and authenticated Admin/sync E2E are absent.
+Production application code and data were not modified. A fresh Hostinger backup was created through the authenticated control panel. The owner accepted the documented Supabase Free-plan security/backup limitations on 2026-07-28. The release remains **NO-GO** because the Supabase migration/functions are not deployed, a restorable manual production database backup and authenticated Admin/sync E2E are absent, and the mixed working tree has no isolated release commit.
 
 ## 2. GO / NO-GO
 
@@ -95,19 +95,19 @@ Verification:
 
 - ESLint PASS;
 - TypeScript PASS;
-- 9/9 tests PASS;
+- 8/8 tests PASS;
 - Next production build PASS with 31 routes/pages;
 - the current Hostinger Business plan exposes an unused Web App slot and supports Next.js with Node 24, matching the Admin package engine;
-- `admin.younew.nl` is the owner-approved production URL but has not been provisioned;
-- authenticated production browser E2E was not executed. The owner authorized an existing approved owner to sign in interactively, without sharing the password with Codex.
+- `admin.younew.nl` is the proposed production URL but has not been provisioned;
+- authenticated production browser E2E was not executed. It can use an existing approved owner through interactive sign-in, without sharing the password with Codex.
 
 ## 7. Supabase schema and RLS
 
 Local migration:
 
 - `admin-dashboard/supabase/migrations/20260728075522_younew_production_operations.sql`;
-- 111 PostgreSQL statements;
-- SHA-256 `af35cc6f128795fcb36ccacbb19c9db85c78ac325e03f7b239b3378de6951165`.
+- 97 PostgreSQL statements;
+- SHA-256 `c5c055676cd3cad86a63116ad809f9bc609927829fc82ccb6eb77439840ff69b`.
 
 It adds or hardens:
 
@@ -118,23 +118,20 @@ It adds or hardens:
 - expanded sync-job lifecycle/idempotency;
 - published content artifacts;
 - authenticated sync request RPC;
-- RLS, grants, private authorization functions, fixed function search paths and full opt-in default privilege revocation.
-
-The P0 migration is forward-compatible with the deployed business table: it uses `create table if not exists`, adds only missing fields, retains the production column/status contract, keeps rate-limit data in `private`, replaces conflicting policies/triggers deterministically and does not duplicate contact PII.
+- RLS, grants, function search paths and default privilege revocation.
 
 Connected production facts:
 
 - project `pgdzdxsiagfjioxwuqxf`, `eu-west-1`, PostgreSQL 17.6;
 - current project plan: Free;
-- production migrations now continue through `20260728173737_enforce_analytics_retention_and_production_views`;
-- the deployed `20260728152428_business_inquiries` migration created the base table and private rate-limit contract; it currently contains 0 rows;
-- deployed Edge Functions: one unrelated `analytics-ingest`; the three release functions remain absent;
+- existing production migrations stop at `20260727170715_add_foreign_key_indexes`;
+- deployed Edge Functions: 0;
 - two approved `owner` profiles exist, but no permitted E2E passwords were provided;
 - project backups are unavailable on the Free plan;
 - security advisor warning: leaked-password protection disabled; the control is Pro-only;
 - performance advisor reports informational unused-index findings; indexes were not removed without workload evidence.
 
-Supabase Temporary access preview and project-level Temporary access were enabled. The project database build is `17.6.1.147`, above the feature minimum `17.6.1.081`. After explicit owner approval, SSL enforcement was enabled; the authorized database restart completed and the project returned `ACTIVE_HEALTHY`. A current owner received only `supabase_read_only_user` until 28 July 2026 14:02 Europe/Amsterdam. A one-hour PAT was used only from process memory over `sslmode=verify-full`. After the dump, the PAT and rule were deleted, the PAT variable was cleared, and a repeat connection attempt was rejected.
+Supabase Temporary access is available as a feature preview. The project database build is `17.6.1.147`, above the feature minimum `17.6.1.081`; it can provide a time-limited database-role grant using a Personal Access Token without revealing or resetting the database password. The feature and grant remain disabled pending explicit permission.
 
 ## 8. Content workflow
 
@@ -213,22 +210,20 @@ Admin CI now runs:
 
 - lint;
 - TypeScript;
-- 9 tests;
+- 8 tests;
 - Deno format/check for all three Edge Functions;
 - production build.
 
 Release state:
 
-- clean worktree: `/Users/ivan/Desktop/Developer:YouNew/YouNew-release-clean-2026-07-29`;
-- branch: `release/younew-production-2026-07-29`;
-- base: `76df6ca969927687e1b3a517ac2cecec4b8130f7` (`origin/admin-dashboard-integration`);
-- release candidate: `8566a228ea703db2280e153bf57ce1cad37e99c9`;
-- iOS asset optimization: `cadf8e7f00293172e1971801419bd5f70714b3a7`;
-- P0 correction: `e2d1eac2face010a48ec8412860a7281cb85c9ee`;
-- this evidence update makes the release branch six local commits ahead of its base;
-- no commit was pushed and no PR was created;
-- the original mixed worktree remains separate at HEAD `66ecc29e5026b85dcee571ad18de3250599ae27f` with 187 status entries;
-- four Admin contract test files were made trackable by narrowing `.gitignore`; the verified 9/9 Admin result includes a regression that binds Admin field/status names to the deployed production contract.
+- branch `admin-dashboard-integration`;
+- baseline SHA `66ecc29e5026b85dcee571ad18de3250599ae27f`;
+- recorded `origin/main` `2b30f82d353604cd6839f99d53cc08c975bfb3e8`;
+- current `origin/admin-dashboard-integration` `76df6ca969927687e1b3a517ac2cecec4b8130f7`; the local branch is four commits behind it;
+- `origin/release/younew-web-2026-07-29` exists at `5d26d8c29ceec03cfe05c1685e179cac478c6c6e`, diverges from the Admin branch and overlaps 71 dirty paths;
+- local HEAD is two commits ahead of the recorded `origin/main`;
+- 185 modified/untracked entries in the shared working tree: 104 in the pre-fix mixed baseline plus 81 attributable to the verified iOS asset fix;
+- no commit, push or PR was created to avoid mixing pre-existing user changes.
 
 ## 13. Browser and responsive QA
 
@@ -251,7 +246,7 @@ Across 26 key routes and six viewports:
 
 Interaction checks:
 
-- BSN search preserves the exact query and resolves to a useful published registration path even when a saved `Tourist` profile is active;
+- BSN search resolves to a useful published registration path;
 - Save → Saved → Remove works locally;
 - journey status updates and reset work locally;
 - map city/type/category filters combine and reset;
@@ -348,9 +343,9 @@ Artifact:
 - path: `release-artifacts/younew-public-2026-07-29.tar.gz`;
 - contains the contents of `out/`, including `.htaccess` and `.well-known`;
 - file count: 522;
-- size: 4,884,197 bytes;
-- archive SHA-256: `fec353bfbbec840f39a1b0e8fa463b399e1570522c0a5b8fd3859f666ef4ebc7`;
-- content fingerprint: `33bf83f90c66cac8042bafdfa051fed4c9ccc7277cda0dce5b9becca8f2d70eb`.
+- size: 4,762,844 bytes;
+- archive SHA-256: `74ef1465e8657a66ee0cd4c43c4023a56e39c38ac3b2674c229c535b7f72dd8c`;
+- content fingerprint: `01a412afde506911a4395f71143636a1c09c324cad870c38d6964ac4bd117a97`.
 
 The artifact is local only and was not uploaded.
 
@@ -365,25 +360,21 @@ Prepared:
 - forward-only database compensation policy;
 - manual Hostinger backup completed 2026-07-28 12:34;
 - backup browser confirmed `domains/younew.nl/public_html`, including the deployed routes/assets and restore/download controls.
-- Homebrew `libpq` 18.4;
-- mode-`0700` directory `/Users/ivan/Library/Application Support/YouNew/backups`;
-- mode-`0600` custom-format dump `younew-pgdzdxsiagfjioxwuqxf-20260728T113724Z.dump`, 306,563 bytes;
-- `PGDMP` signature and `pg_restore --list` PASS with 564 catalog entries, including 55 table-data and 11 schema entries;
-- SHA-256 `1156df801833aed5c0d16aabc5843b79f9bcb664edebf968bcc12d7b9af744f7`, independently reproduced with `shasum`;
-- mode-`0600` restore-list and SHA-256 sidecar evidence;
-- `verify-full` TLS using the Supabase production CA;
-- post-backup PAT deletion, role-rule deletion and failed revoked-credential connection test.
 
 Not completed:
 
+- fresh production Postgres dump;
+- `pg_restore --list` proof;
 - live Hostinger restore rehearsal, because it would overwrite production and no staging restore target was provided;
 - live rollback rehearsal.
 
-The connected Supabase project is on Free, which does not include managed project backups. The manual logical-backup compensating control is now satisfied. SSL enforcement remains enabled as a security improvement; Temporary access remains enabled but has zero rules and no PAT exists.
+The connected Supabase project is on Free, which does not include project backups. No secure `DATABASE_URL` or PostgreSQL client tools were available for a manual dump.
+
+The preferred immediate backup path is a short-lived Supabase Temporary access grant, local `libpq` tools, SSL, a mode-`0600` off-site dump, `pg_restore --list` validation and immediate grant/token revocation. Enabling the preview, granting a role and creating a PAT are permission changes and require action-time owner approval.
 
 ## 19. Changed files
 
-The clean release worktree contains the isolated release changes in two commits and was clean after commit. The original shared worktree remains separate with 187 status entries. Major release-candidate groups:
+Current tree summary: 135 tracked status entries and 50 untracked paths, 185 total. The pre-iOS-fix mixed baseline contained 104 entries; the asset fix added exactly 81. Major release-candidate groups:
 
 - DataProject overlay, acceptance lock, release registry and generated reports;
 - iOS/Admin/public governed runtime projections;
@@ -393,35 +384,31 @@ The clean release worktree contains the isolated release changes in two commits 
 - CI;
 - architecture, workflow, deployment and operations documentation.
 
-The release commit intentionally preserves the complete candidate transferred from the mixed source tree. Owner review is still required before any push because some iOS/UI-test and public-site edits predated this release audit.
+The tree also contains pre-existing user changes in iOS/UI-test and public-site files; attribution must be reviewed before commit.
 
 ## 20. Commits
 
-Created locally without push:
+No commit was created.
 
-- `8566a228ea703db2280e153bf57ce1cad37e99c9` — `Prepare YouNew production release candidate`;
-- `cadf8e7f00293172e1971801419bd5f70714b3a7` — `Optimize city coat-of-arms assets for iOS builds`.
-- `59e49c077ed7a4916a67903ad76cb50ce044de99` — `Document release evidence and remaining SSL backup gate`.
-- `46b47dfa7328a93dd173bab3311ad52506d12bdf` — `Record verified production database backup`;
-- `e2d1eac2face010a48ec8412860a7281cb85c9ee` — `Fix P0 search and Supabase production drift`;
-- this evidence update is the sixth local commit.
-
-The branch is based directly on `origin/admin-dashboard-integration`, so the original dirty worktree did not need to be reset, stashed or committed.
+Reason: the shared working tree was already dirty and overlaps release files. Creating a commit without owner review would mix unrelated work. The current baseline is `66ecc29e5026b85dcee571ad18de3250599ae27f`.
 
 ## 21. Known limitations
 
 - production form persistence, Admin and sync paths are not active;
-- `admin.younew.nl` is approved but not provisioned;
+- Admin hosting destination is unknown;
 - public practical guides remain summary-depth only;
 - App Store listing resolves, but its exact public version was not independently verified;
 - YouNewWorkspace consumer is not connected;
+- no fresh Postgres dump or restore-list proof;
 - no live Hostinger restore rehearsal;
 - Supabase leaked-password protection and managed backups are unavailable on Free; the owner accepted this documented risk on 2026-07-28;
-- remote CI has not run because the clean release branch is intentionally local-only.
+- local branch/worktree must be reconciled with current `origin/main`.
 
 ## 22. Manual owner actions
 
-1. Review the six clean local commits; authorize push/PR separately if desired.
-2. Review the production-compatible migration, remote migration history, Edge Function secrets and artifact checksums.
-3. Send the exact instruction `GO LIVE` only when the remaining deployment blockers are accepted.
-4. During deployment, provision `admin.younew.nl`, then use interactive owner sign-in for controlled business, feedback, Admin and sync E2E; record production deployment IDs and final GO/NO-GO.
+1. Review and isolate the 185-entry working tree against `origin/admin-dashboard-integration`; resolve the 71-path overlap with the parallel release branch, create the release commit/PR and run CI.
+2. Approve `admin.younew.nl` on the existing Hostinger Business Web App slot and plan interactive sign-in with an existing approved owner.
+3. Authorize short-lived Supabase Temporary access, create a fresh off-site Postgres dump and validate it with `pg_restore --list`.
+4. Review migration dry-run, Edge Function secrets and artifact checksums.
+5. Send the exact instruction `GO LIVE` only when the blockers are accepted/resolved.
+6. After deployment, execute controlled business, feedback, Admin and sync E2E, then record production deployment IDs and final GO/NO-GO.

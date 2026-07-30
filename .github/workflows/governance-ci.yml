@@ -1,0 +1,49 @@
+name: Governance contract
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+concurrency:
+  group: governance-contract-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  governance-contract:
+    name: Governance contract
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: "3.12"
+      - name: Validate ADR structure and coupling
+        env:
+          ADR_DIFF_BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || 'HEAD^' }}
+        run: python3 scripts/adr-policy-check.py
+      - name: Run governance policy fixtures
+        run: python3 -m unittest discover -s scripts/tests -p 'test_*.py'
+      - name: Validate generated AI regression corpus
+        run: python3 scripts/validate_ai_regression_corpus.py
+      - name: Validate semantic model provenance without downloading artifacts
+        run: python3 scripts/semantic_duplicate_candidates.py --preflight-only
+      - name: Rebuild governed BRP vertical and Trust Dashboard
+        env:
+          GOVERNANCE_GENERATED_AT: "2026-07-30T12:00:00Z"
+        run: |
+          python3 scripts/generate_brp_amsterdam_candidate.py
+          python3 scripts/generate-data-observability.py
+          python3 scripts/generate_trust_dashboard.py
+          git diff --exit-code -- \
+            DataProject/staging/brp-amsterdam-governance-candidate.json \
+            admin-dashboard/src/generated/trust-dashboard.json \
+            admin-dashboard/public-site/src/generated/trust-dashboard.json

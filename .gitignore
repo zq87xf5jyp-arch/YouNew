@@ -10,6 +10,7 @@ YouNew.xcodeproj/xcuserdata/
 DerivedData/
 .DerivedData*/
 .derivedData*/
+.derived-data*/
 .SwiftModuleCache/
 .SwiftTypecheckModuleCache/
 *.xcresult
@@ -58,7 +59,6 @@ Secrets.xcconfig
 
 # Local package/cache output
 .pnpm-store/
-/release-artifacts/
 BackendExamples/node_modules/
 admin-dashboard/*
 !admin-dashboard/.env.example
@@ -111,6 +111,7 @@ admin-dashboard/public-site/.openai/
 # Generated DataProject staging cache; the curated practical-guide wave remains visible.
 /DataProject/staging/*
 !/DataProject/staging/practical-guides-wave-1.json
+!/DataProject/staging/brp-amsterdam-governance-candidate.json
 /DataProject/reports/
 
 # Generated network-link evidence. Offline static QA uses an explicit sentinel;

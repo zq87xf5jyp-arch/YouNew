@@ -13,9 +13,32 @@ export type RecentContentItem = Omit<SavedContentItem, "savedAt"> & {
 export type UserPathProfile = "tourist" | "student" | "expat" | "refugee" | "worker" | "resident";
 export const userPathProfiles = ["tourist", "student", "expat", "refugee", "worker", "resident"] as const satisfies readonly UserPathProfile[];
 import { isKnownJourneyStep, journeyStepStates, type JourneyStepState } from "../journeys/definitions.ts";
+import {
+  plannerGoalIds,
+  plannerProfileIds,
+  type PlannerGoalId,
+  type PlannerProfileId
+} from "../planner/definitions.ts";
 
 export type JourneyProgressState = Record<string, Record<string, JourneyStepState>>;
 export type GuideChecklistState = Record<string, Record<string, boolean>>;
+export type SavedPlannerState = {
+  profile: PlannerProfileId;
+  municipalitySlug: string;
+  goalIds: PlannerGoalId[];
+};
+
+export type LocalContentSnapshot = {
+  exportedAt: string;
+  schemaVersion: 1;
+  saved: SavedContentItem[];
+  recent: RecentContentItem[];
+  recentSearches: string[];
+  profile: UserPathProfile | null;
+  journeys: JourneyProgressState;
+  guideChecklists: GuideChecklistState;
+  plannerRoute: SavedPlannerState | null;
+};
 
 type StoredValue<T> = {
   version: 1;
@@ -29,7 +52,8 @@ const keys = {
   rememberSearches: "younew.web.remember-searches.v1",
   profile: "younew.web.profile.v1",
   journeys: "younew.web.journeys.v1",
-  guideChecklists: "younew.web.guide-checklists.v1"
+  guideChecklists: "younew.web.guide-checklists.v1",
+  plannerRoute: "younew.next-step-route.v1"
 } as const;
 
 const localIdentifier = /^[a-z0-9]+(?:[._:-][a-z0-9]+)*$/;
@@ -134,6 +158,26 @@ export function sanitizeJourneyProgress(value: unknown): JourneyProgressState {
   return result;
 }
 
+export function sanitizePlannerState(value: unknown): SavedPlannerState | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const candidate = value as Partial<SavedPlannerState>;
+  if (
+    typeof candidate.municipalitySlug !== "string"
+    || !isSafeLocalIdentifier(candidate.municipalitySlug)
+    || !plannerProfileIds.includes(candidate.profile as PlannerProfileId)
+    || !Array.isArray(candidate.goalIds)
+    || candidate.goalIds.length < 1
+    || candidate.goalIds.length > 3
+    || candidate.goalIds.some((goalId) => !plannerGoalIds.includes(goalId as PlannerGoalId))
+    || new Set(candidate.goalIds).size !== candidate.goalIds.length
+  ) return null;
+  return {
+    profile: candidate.profile as PlannerProfileId,
+    municipalitySlug: candidate.municipalitySlug,
+    goalIds: candidate.goalIds as PlannerGoalId[]
+  };
+}
+
 export function journeyCompletion(states: JourneyProgressState, journeyId: string, guideIds: readonly string[]) {
   const completed = guideIds.filter((guideId) => states[journeyId]?.[guideId] === "completed").length;
   return { completed, total: guideIds.length };
@@ -182,6 +226,27 @@ function remove(key: string): boolean {
     return true;
   } catch {
     return false;
+  }
+}
+
+function readPlannerRoute(): SavedPlannerState | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const raw = window.localStorage.getItem(keys.plannerRoute);
+    if (!raw) return null;
+    const parsed = JSON.parse(raw) as unknown;
+    if (
+      parsed
+      && typeof parsed === "object"
+      && !Array.isArray(parsed)
+      && (parsed as Partial<StoredValue<unknown>>).version === 1
+    ) {
+      return sanitizePlannerState((parsed as StoredValue<unknown>).value);
+    }
+    // v18 stored the planner state without the common version envelope.
+    return sanitizePlannerState(parsed);
+  } catch {
+    return null;
   }
 }
 
@@ -264,6 +329,29 @@ export const localContentRepository = {
   },
   clearRecentSearches() {
     remove(keys.searches);
+  },
+  plannerRoute(): SavedPlannerState | null {
+    return readPlannerRoute();
+  },
+  setPlannerRoute(route: SavedPlannerState): boolean {
+    const sanitized = sanitizePlannerState(route);
+    return sanitized ? write(keys.plannerRoute, sanitized) : false;
+  },
+  clearPlannerRoute(): boolean {
+    return remove(keys.plannerRoute);
+  },
+  snapshot(): LocalContentSnapshot {
+    return {
+      exportedAt: new Date().toISOString(),
+      schemaVersion: 1,
+      saved: this.saved(),
+      recent: this.recent(),
+      recentSearches: this.recentSearches(),
+      profile: this.profile(),
+      journeys: this.journeyProgress(),
+      guideChecklists: this.guideChecklistState(),
+      plannerRoute: this.plannerRoute()
+    };
   },
   clearAll() {
     for (const key of Object.values(keys)) remove(key);

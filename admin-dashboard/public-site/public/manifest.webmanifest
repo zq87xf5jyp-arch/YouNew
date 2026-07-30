@@ -28,6 +28,16 @@
   ],
   "shortcuts": [
     {
+      "name": "Find your next step",
+      "short_name": "Start",
+      "url": "/start/"
+    },
+    {
+      "name": "Continue in My YouNew",
+      "short_name": "My YouNew",
+      "url": "/my-younew/"
+    },
+    {
       "name": "Discover guidance",
       "short_name": "Discover",
       "url": "/discover/"
@@ -51,6 +61,11 @@
       "name": "Published coverage map",
       "short_name": "Map",
       "url": "/map/"
+    },
+    {
+      "name": "YouNew Business workspace",
+      "short_name": "Business",
+      "url": "/business/workspace/"
     }
   ]
 }

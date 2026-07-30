@@ -123,7 +123,38 @@ enum BuildWeekNewcomerDemo {
             appDestinationID: steps[0].appDestination,
             isVerified: true,
             confidence: .medium,
-            origin: .localGuide
+            origin: .localGuide,
+            decisionTrace: AIDecisionTrace(
+                selectedRecordIDs: steps.map(\.knowledgeRecordID),
+                sourceCitations: steps.map { step in
+                    AIDecisionSourceCitation(
+                        recordID: step.knowledgeRecordID,
+                        sourceTitle: step.sourceTitle,
+                        sourcePublisher: institution(for: step.id),
+                        sourceURL: step.sourceURL
+                    )
+                },
+                freshnessEvidence: steps.map {
+                    AIDecisionEvidence(
+                        recordID: $0.knowledgeRecordID,
+                        summary: "Record-level governed freshness is not established in this bundled demo context."
+                    )
+                },
+                jurisdictionEvidence: steps.map {
+                    AIDecisionEvidence(
+                        recordID: $0.knowledgeRecordID,
+                        summary: $0.id == "bsn"
+                            ? "Municipality-specific steps must be checked with the selected municipality."
+                            : "National bounded context; personal applicability can still depend on the user's situation."
+                    )
+                },
+                rankingFactors: ["bounded scenario context", "official source contract", "stable record order"],
+                confidenceBreakdown: [:],
+                excludedCandidateReasons: [:],
+                policyVersion: "retrieval-policy-v1",
+                modelVersion: nil,
+                contextVersion: contextVersion
+            )
         )
     }
 

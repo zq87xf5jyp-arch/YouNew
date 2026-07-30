@@ -3,10 +3,12 @@
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { CheckCircle2, Circle, Clock3, LockKeyhole } from "lucide-react";
+import { ContentMedia } from "@/components/content-media";
+import type { PublicMediaAsset } from "@/lib/content";
 import { journeyCompletion, localContentRepository, type JourneyProgressState } from "@/lib/storage/local-content";
 import type { JourneyStepState, PracticalJourneyDefinition } from "@/lib/journeys/definitions";
 
-type JourneyGuide = { id: string; title: string; summary: string; route: string; verifiedAt: string };
+type JourneyGuide = { id: string; title: string; summary: string; route: string; verifiedAt: string; image: PublicMediaAsset | null };
 type JourneyView = PracticalJourneyDefinition & { guides: readonly JourneyGuide[] };
 
 const stateLabels: Record<JourneyStepState, string> = {
@@ -85,8 +87,10 @@ export function JourneyExplorer({ journeys }: { journeys: readonly JourneyView[]
   function journeyCard(journey: JourneyView) {
     const completion = journeyCompletion(states, journey.id, journey.guides.map((guide) => guide.id));
     const hasProgress = journey.guides.some((guide) => (states[journey.id]?.[guide.id] ?? "not-started") !== "not-started");
+    const cover = journey.guides.find((guide) => guide.image)?.image ?? null;
     return (
       <section className="journey-card" id={journey.id} key={journey.id} aria-labelledby={`${journey.id}-title`}>
+        {cover ? <ContentMedia asset={cover} variant="gallery" /> : null}
         <header>
           <div><span>{journey.audience}</span><h3 id={`${journey.id}-title`}>{journey.title}</h3><p>{journey.description}</p></div>
           {journey.guides.length > 0 ? <strong aria-label={`${completion.completed} of ${completion.total} completed`}>{completion.completed}/{completion.total}</strong> : <LockKeyhole aria-label="No published guide steps" />}

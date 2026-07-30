@@ -10,7 +10,7 @@ export function metadataForEntity(entity: ContentEntity): Metadata {
   return { ...metadata, openGraph: { ...metadata.openGraph, type: "article" } };
 }
 
-export function relatedForEntity(entity: ContentEntity, limit = 6): ContentEntity[] {
+export function relatedForEntity(entity: ContentEntity, limit = 18): ContentEntity[] {
   const explicitIds = [...(entity.practicalGuide?.relatedGuideIds ?? []), ...entity.relatedEntityIds];
   const related: ContentEntity[] = [];
   const seen = new Set([entity.id]);
@@ -21,7 +21,10 @@ export function relatedForEntity(entity: ContentEntity, limit = 6): ContentEntit
   }
   const cityPeers = getContentEntities().filter((item) => item.cityId && item.cityId === (entity.type === "city" ? entity.slug : entity.cityId));
   const categoryPeers = getContentEntities().filter((item) => item.categorySlugs.some((category) => entity.categorySlugs.includes(category)));
-  for (const item of [...cityPeers, ...categoryPeers]) {
+  const peers = [...cityPeers, ...categoryPeers];
+  const categoryRepresentatives = [...new Set(peers.flatMap((item) => [...item.categorySlugs]))]
+    .flatMap((category) => peers.find((item) => item.categorySlugs.includes(category)) ?? []);
+  for (const item of [...categoryRepresentatives, ...peers]) {
     if (!seen.has(item.id)) { related.push(item); seen.add(item.id); }
     if (related.length >= limit) break;
   }
@@ -29,8 +32,8 @@ export function relatedForEntity(entity: ContentEntity, limit = 6): ContentEntit
 }
 
 export const listingCopy: Record<ContentEntityType, { title: string; description: string }> = {
-  city: { title: "Published cities", description: "Reviewed city information published for both the website and the iOS app." },
-  guide: { title: "Guides and verified summaries", description: "Complete procedures and source-checked starting points are labelled separately, so you can see how much practical detail is currently published." },
-  organization: { title: "Organizations", description: "Healthcare, education and local service organizations from the published source-checked dataset." },
-  place: { title: "Places", description: "Published places, stations, museums, parks, restaurants and events currently concentrated in Amsterdam." }
+  city: { title: "City guides for everyday life in the Netherlands.", description: "Reviewed local context, useful places and source-backed starting points for the five cities currently published by YouNew." },
+  guide: { title: "Practical guides for life in the Netherlands.", description: "Source-backed starting points for registration, housing, municipal services and everyday life. Publication depth is always labelled clearly." },
+  organization: { title: "Organizations that help you get things done.", description: "Healthcare, education and local-service organizations with visible responsible sources and current verification dates." },
+  place: { title: "Places worth knowing across YouNew cities.", description: "Published stations, museums, parks, food, culture and useful destinations from the reviewed YouNew catalogue." }
 };

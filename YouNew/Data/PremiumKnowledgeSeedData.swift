@@ -66,7 +66,8 @@ enum PremiumKnowledgeSeedData {
                 "updateFrequency": "Monthly"
             ],
             keywords: [title, summary, institution, "official", "government", "Netherlands", "public service"],
-            explicitPersonaTags: nil
+            explicitPersonaTags: nil,
+            governance: nil
         )
     }
 
@@ -89,7 +90,8 @@ enum PremiumKnowledgeSeedData {
             route: .officialSources,
             attributes: ["url": website.absoluteString, "scope": "National"],
             keywords: [title, summary, website.host ?? "", "official source"],
-            explicitPersonaTags: nil
+            explicitPersonaTags: nil,
+            governance: nil
         )
     }
 

@@ -130,7 +130,7 @@ pg_restore --clean --if-exists --no-owner --dbname="$RESTORE_DATABASE_URL" backu
 ## Неподтверждённые production-возможности
 
 - Реализовать и проверить полный CRUD для всех административных разделов; общая таблица сейчас read-only.
-- Подключить реальные графики на основе `app_events` и `app_sessions`.
+- Analytics dashboard reads the protected `analytics_daily_metrics`, `analytics_event_funnel_daily`, and `analytics_source_health` aggregates, refreshes every 60 seconds while visible, and labels freshness and missing data explicitly.
 - Подключить iOS-приложение к `/api/mobile/sync` только после live-проверки DNS/TLS, rate limiting, мониторинга и rollback drill; `/api/mobile/analytics/events` требует отдельной privacy-проверки.
 - Добавить полноценное рисование маркеров на скриншотах.
 - Подключить настоящий предпросмотр Leaflet/MapLibre.

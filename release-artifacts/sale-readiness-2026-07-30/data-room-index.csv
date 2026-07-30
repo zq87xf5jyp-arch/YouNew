@@ -1,0 +1,21 @@
+section,item,required_for,available,evidence_or_action,access
+01 Corporate,"Legal entity documents, cap table and beneficial owners","share or business sale",no,"Provide signed current documents.",restricted
+01 Corporate,"Board/shareholder approvals and authority to sell","all transaction structures",no,"Counsel to prepare approval path.",restricted
+02 IP,"Contributor agreements and IP assignments","asset/IP sale",no,"Collect signed chain-of-title documents.",restricted
+02 IP,"Domain, App Store Connect, GitHub and hosting ownership evidence","asset/IP sale",partial,"Runtime and repository links exist; account ownership export required.",restricted
+02 IP,"Media rights ledger","asset/IP sale",yes,"BuildWeekFix/ASSET_RIGHTS_STATUS.json",buyer_shareable_after_review
+03 Product,"System map and architecture contracts","technical diligence",yes,"docs/SYSTEM_MAP.md and supporting contracts",buyer_shareable
+03 Product,"Clean source release and SBOM/dependency inventory","technical diligence",partial,"CI and repository exist; create clean release tag and final inventory.",buyer_shareable_after_freeze
+03 Product,"Build, test, deployment and rollback evidence","technical diligence",partial,"Local checks and runbooks exist; close R-001/R-002/R-006/R-007.",buyer_shareable
+04 Data,"Database schema, RLS and migration inventory","technical/security diligence",yes,"Supabase migrations and system verification record",restricted
+04 Data,"Fresh encrypted backup and restore rehearsal","continuity diligence",no,"Close R-002.",restricted
+04 Data,"Production data dictionary and retention schedule","privacy diligence",partial,"Schema/docs exist; execution evidence and owner schedule required.",restricted
+05 Security,"Threat model, vulnerability record and penetration test","security diligence",partial,"Static controls exist; independent penetration test absent.",restricted
+06 Compliance,"GDPR record, DPA/subprocessor list and DPIA decision","legal/privacy diligence",partial,"Engineering matrix exists; formal record and legal review required.",restricted
+06 Compliance,"DSA and AI Act applicability memo; WCAG audit","legal/accessibility diligence",no,"Commission/W3C sources registered; formal reviews required.",restricted
+07 Commercial,"Customer/partner contracts, pipeline and renewals","operating-business sale",no,"No real counterparties verified.",restricted
+07 Commercial,"Pricing, advertiser policy and pilot terms","license/pilot or operating sale",partial,"Target contract exists; approved legal/commercial documents required.",restricted
+08 Financial,"Bank statements, invoices, P&L, tax/VAT and commitments","all structures",no,"Build reconciled historical ledger.",restricted
+08 Financial,"App Store/hosting/vendor cost evidence","valuation diligence",partial,"28 July financial workbook; refresh and reconcile.",restricted
+09 Transaction,"Asset perimeter, exclusions, liabilities and transition services","all structures",no,"Buyer-specific schedule and counsel drafting required.",restricted
+09 Transaction,"Disclosure schedule and representations/warranties","definitive agreement",no,"Prepare only after diligence and legal review.",restricted

@@ -10,11 +10,13 @@ export function publicWebSummary(summary: string): string {
 }
 
 export function contentKindLabel(
-  type: ContentEntityType | "category" | "page",
+  type: ContentEntityType | "category" | "municipality" | "province" | "page",
   contentDepth?: ContentEntity["contentDepth"]
 ): string {
   if (type === "guide") return contentDepth === "practical" ? "Step-by-step guide" : "Verified summary";
   if (type === "category") return "Category";
+  if (type === "municipality") return "Municipality";
+  if (type === "province") return "Province";
   if (type === "page") return "Useful page";
   return `${type[0].toUpperCase()}${type.slice(1)}`;
 }

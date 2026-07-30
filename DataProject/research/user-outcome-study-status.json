@@ -1,0 +1,12 @@
+{
+  "schemaVersion": 1,
+  "protocolVersion": "1.0.0-draft",
+  "status": "not_started",
+  "plannedParticipants": 10,
+  "plannedObservations": 20,
+  "validCompletedObservations": 0,
+  "criticalErrors": null,
+  "evidenceState": "established",
+  "sourceArtifact": "docs/user-validation/RESEARCH_PROTOCOL.md",
+  "releaseGate": "NOT_EVALUATED"
+}

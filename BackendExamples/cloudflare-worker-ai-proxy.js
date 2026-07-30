@@ -163,6 +163,7 @@ const RESPONSE_KEYS = Object.freeze([
   "warnings",
   "model",
   "requestId",
+  "decisionTrace",
 ]);
 const STEP_KEYS = Object.freeze([
   "title",
@@ -455,6 +456,35 @@ function buildPublicResponse(generated, locale, model, requestId) {
     municipalityWarning(locale),
     statusWarning(locale),
   ].filter((warning, index, all) => all.indexOf(warning) === index);
+  const decisionTrace = {
+    selectedRecordIDs: KNOWLEDGE_RECORDS.map((record) => record.clientID),
+    sourceCitations: KNOWLEDGE_RECORDS.map((record) => ({
+      recordID: record.clientID,
+      sourceTitle: record.sourceTitle,
+      sourcePublisher: record.sourceTitle.split(" — ")[0],
+      sourceURL: record.sourceURL,
+    })),
+    freshnessEvidence: KNOWLEDGE_RECORDS.map((record) => ({
+      recordID: record.clientID,
+      summary: "Record-level governed freshness is not established in this bounded demo context.",
+    })),
+    jurisdictionEvidence: KNOWLEDGE_RECORDS.map((record) => ({
+      recordID: record.clientID,
+      summary: record.clientID === "topic:registration-bsn"
+        ? "Municipality-specific steps must be checked with the selected municipality."
+        : "National bounded context; personal applicability can still depend on the user's situation.",
+    })),
+    rankingFactors: [
+      "exact bounded scenario context",
+      "official source contract",
+      "stable knowledge-record order",
+    ],
+    confidenceBreakdown: {},
+    excludedCandidateReasons: {},
+    policyVersion: "retrieval-policy-v1",
+    modelVersion: model,
+    contextVersion: CONTEXT_VERSION,
+  };
 
   return {
     summary: generated.summary.trim(),
@@ -462,6 +492,7 @@ function buildPublicResponse(generated, locale, model, requestId) {
     warnings: warnings.slice(0, 4),
     model,
     requestId,
+    decisionTrace,
   };
 }
 

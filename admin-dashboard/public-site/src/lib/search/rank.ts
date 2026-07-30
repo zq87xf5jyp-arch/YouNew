@@ -1,6 +1,6 @@
 import type { ContentEntityType, GuideAudienceProfile } from "../content/types";
 
-export type SearchDocumentType = ContentEntityType | "category" | "page";
+export type SearchDocumentType = ContentEntityType | "category" | "municipality" | "province" | "page";
 
 export interface SearchDocument {
   readonly id: string;

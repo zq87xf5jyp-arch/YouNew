@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>YouNew — готовность к релизу и продаже</title>
+  <style>
+    :root{
+      --navy:#071a2b;--navy2:#12374b;--teal:#0f766e;--blue:#2563eb;--ink:#172033;
+      --muted:#5d6978;--line:#d8e1e9;--soft:#f2f6f8;--white:#fff;--green:#166534;
+      --greenbg:#dcfce7;--amber:#92400e;--amberbg:#fef3c7;--red:#991b1b;--redbg:#fee2e2
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:#e9eff3;color:var(--ink);font:15px/1.55 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+    a{color:#0b5ea8;text-underline-offset:2px}
+    code{font:12px/1.5 ui-monospace,SFMono-Regular,Menlo,monospace}
+    .page{max-width:1220px;margin:24px auto;background:var(--white);box-shadow:0 18px 60px rgba(7,26,43,.13)}
+    .hero{position:relative;overflow:hidden;padding:54px 60px 48px;color:#fff;background:linear-gradient(135deg,var(--navy),var(--navy2))}
+    .hero:after{content:"";position:absolute;width:430px;height:430px;right:-165px;top:-235px;border-radius:50%;background:rgba(41,196,176,.16)}
+    .eyebrow{color:#a6e6dc;font-size:12px;font-weight:800;letter-spacing:.14em;text-transform:uppercase}
+    h1{max-width:900px;margin:13px 0 16px;font-size:43px;line-height:1.08}
+    .hero p{max-width:910px;margin:0;color:#d8e6ed;font-size:17px}
+    .meta{display:flex;flex-wrap:wrap;gap:9px 25px;margin-top:27px;color:#bfd1da;font-size:13px}
+    nav{position:sticky;top:0;z-index:4;display:flex;gap:17px;overflow:auto;padding:12px 58px;background:rgba(255,255,255,.97);border-bottom:1px solid var(--line)}
+    nav a{white-space:nowrap;color:#34475a;font-size:12px;font-weight:750;text-decoration:none}
+    main{padding:35px 58px 64px}
+    h2{margin:46px 0 13px;color:var(--navy);font-size:27px;line-height:1.25}
+    h3{margin:25px 0 9px;color:var(--navy);font-size:18px}
+    p{margin:8px 0 14px}
+    .lead{max-width:930px;color:#35495b;font-size:18px}
+    .grid4,.grid3,.grid2{display:grid;gap:14px;margin:22px 0}
+    .grid4{grid-template-columns:repeat(4,1fr)}.grid3{grid-template-columns:repeat(3,1fr)}.grid2{grid-template-columns:repeat(2,1fr)}
+    .metric,.card{border:1px solid var(--line);border-radius:11px;background:#fff;padding:19px}
+    .metric .label{color:var(--muted);font-size:11px;font-weight:850;letter-spacing:.055em;text-transform:uppercase}
+    .metric .value{margin:5px 0 2px;color:var(--navy);font-size:27px;font-weight:850}
+    .metric .note{color:var(--muted);font-size:12px}
+    .callout{margin:20px 0;padding:19px 21px;border-left:5px solid var(--teal);background:#edf8f6}
+    .callout.warn{border-color:#d97706;background:var(--amberbg)}
+    .callout.danger{border-color:#b91c1c;background:var(--redbg)}
+    .tag{display:inline-block;padding:3px 8px;border-radius:999px;font-size:11px;font-weight:850;white-space:nowrap}
+    .pass{background:var(--greenbg);color:var(--green)}.partial{background:var(--amberbg);color:var(--amber)}.fail{background:var(--redbg);color:var(--red)}.fact{background:#dbeafe;color:#1e40af}
+    table{width:100%;margin:14px 0 25px;border-collapse:collapse;font-size:13px}
+    th{padding:10px 9px;text-align:left;vertical-align:bottom;color:#fff;background:var(--navy)}
+    td{padding:9px;border-bottom:1px solid var(--line);vertical-align:top}
+    tr:nth-child(even) td{background:#f8fafb}
+    td.num,th.num{text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap}
+    .score{display:grid;grid-template-columns:220px 1fr 70px;align-items:center;gap:12px;margin:10px 0}
+    .track{height:19px;overflow:hidden;border-radius:4px;background:#e7edf1}
+    .bar{height:100%;border-radius:4px;background:linear-gradient(90deg,var(--teal),#34b6a2)}
+    .score b{text-align:right;color:var(--navy)}
+    .flow{display:grid;grid-template-columns:repeat(6,1fr);gap:8px;margin:20px 0}
+    .flow div{position:relative;min-height:80px;padding:12px 9px;border:1px solid var(--line);border-radius:8px;background:var(--soft);text-align:center;font-size:12px}
+    .flow div:not(:last-child):after{content:"›";position:absolute;right:-9px;top:23px;z-index:2;color:var(--teal);font-size:24px;font-weight:900}
+    .flow strong{display:block;margin-bottom:5px;color:var(--navy)}
+    ul,ol{padding-left:22px}li{margin:7px 0}
+    .small{color:var(--muted);font-size:12px}
+    .source-list{columns:2;column-gap:34px;font-size:12px}.source-list li{break-inside:avoid;margin:0 0 9px}
+    footer{padding:26px 58px;color:#cad8e0;background:var(--navy);font-size:12px}
+    @media(max-width:900px){.page{margin:0}.hero,main,footer{padding-left:24px;padding-right:24px}nav{padding-left:24px;padding-right:24px}.grid4{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:1fr}.flow{grid-template-columns:repeat(3,1fr)}h1{font-size:35px}}
+    @media(max-width:600px){.grid4,.grid2{grid-template-columns:1fr}.hero{padding-top:38px}h1{font-size:30px}.score{grid-template-columns:1fr}.score b{text-align:left}.flow{grid-template-columns:1fr}.flow div:not(:last-child):after{content:"⌄";right:50%;top:auto;bottom:-22px}.source-list{columns:1}table{display:block;overflow:auto}}
+    @media print{body{background:#fff}.page{max-width:none;margin:0;box-shadow:none}nav{display:none}.hero{print-color-adjust:exact;-webkit-print-color-adjust:exact}main{padding:26px 36px}h2,h3{break-after:avoid;break-inside:avoid}.metric,.card,tr{break-inside:avoid}thead{display:table-header-group}a{color:inherit;text-decoration:none}}
+  </style>
+</head>
+<body>
+<div class="page">
+  <header class="hero">
+    <div class="eyebrow">Sell-side readiness · technical diligence · partial</div>
+    <h1>YouNew: готовность к релизу и продаже</h1>
+    <p>Проверяемый разбор всей экосистемы — iOS, public web, Admin, Supabase, DataProject, GitHub/CI, контент, права на медиа, compliance-контроли и коммерческий контур.</p>
+    <div class="meta">
+      <span>Срез: 30 июля 2026</span>
+      <span>Часовой пояс: Europe/Amsterdam</span>
+      <span>Production: только read-only проверка</span>
+      <span>Решение: conditional / NO-GO для безусловной передачи</span>
+    </div>
+  </header>
+  <nav>
+    <a href="#decision">Решение</a><a href="#system">Система</a><a href="#verification">Проверки</a>
+    <a href="#investor">Рекомендации</a><a href="#transaction">Сделка</a><a href="#risks">Риски</a>
+    <a href="#dataroom">Data room</a><a href="#plan">План</a><a href="#sources">Источники</a>
+  </nav>
+  <main>
+    <section id="decision">
+      <h2>1. Решение</h2>
+      <p class="lead">YouNew уже можно готовить к контролируемой продаже как технологический и контентный актив. Нельзя представлять его покупателю как полностью доказанный operating business или clean handover: нет реальной выручки/партнёров, production-ready practical guides, чистого release SHA, свежего restore evidence и полного legal/financial data room.</p>
+      <div class="grid4">
+        <div class="metric"><div class="label">Техническая готовность</div><div class="value">7,8/10</div><div class="note">Сильная система; неполное runtime/release evidence</div></div>
+        <div class="metric"><div class="label">Transaction readiness</div><div class="value">5,5/10</div><div class="note">Условная asset/IP sale preparation</div></div>
+        <div class="metric"><div class="label">Institutional seed</div><div class="value">5,3/10</div><div class="note">Внутренняя переоценка после техаудита</div></div>
+        <div class="metric"><div class="label">Practical guides</div><div class="value">0</div><div class="note">15 summaries; 20 scaffolds</div></div>
+      </div>
+      <div class="callout"><strong>Рекомендация:</strong> основной путь сейчас — controlled asset/IP sale либо staged licence/pilot с опционом на покупку. Full business/share sale имеет смысл только после подтверждения юридического лица, IP title chain, финансов, обязательств и реальных коммерческих договоров. <span class="tag fact">C-013</span></div>
+      <div class="callout danger"><strong>Не разрешено заявлять:</strong> 10k MAU, retention, revenue, customers, paid pilots, verified profiles, production-ready guides, работающий advertiser self-service или подтверждённую международную повторяемость. Эти показатели отсутствуют, а три inquiry являются тестовыми. <span class="tag fact">C-005</span> <span class="tag fact">C-008</span></div>
+    </section>
+
+    <section id="system">
+      <h2>2. Что именно существует</h2>
+      <div class="flow">
+        <div><strong>DataProject</strong>источники, релизы, overlays, freshness и acceptance locks</div>
+        <div><strong>Generators</strong>единые web, iOS и Admin projections</div>
+        <div><strong>Public web</strong>guides, planner, search, map, business inquiry</div>
+        <div><strong>Supabase</strong>Auth, RLS, RPC, analytics и 4 Edge Functions</div>
+        <div><strong>Admin</strong>content, feedback, inquiries, sync и analytics</div>
+        <div><strong>iOS</strong>native app и App Store distribution surface</div>
+      </div>
+      <p>Источник контента — DataProject; generated JSON не является редакционным источником. Public writes идут через валидирующие Edge Functions. Admin-публикация создаёт проверяемый кандидат, а не автоматически изменяет production. <span class="tag fact">C-001</span></p>
+      <div class="grid3">
+        <div class="card"><h3>Transferable technical value</h3><ul><li>единая архитектура нескольких продуктов;</li><li>fail-closed publication и sponsored rules;</li><li>runbooks, CI и data-quality automation;</li><li>source trail и freshness operations;</li><li>инженерный rights ledger для 170 ассетов.</li></ul></div>
+        <div class="card"><h3>Current commercial boundary</h3><ul><li>защищённая reviewed inquiry;</li><li>typed inventory surfaces;</li><li>sponsorship глобально выключен;</li><li>нет advertiser login/campaign/billing;</li><li>нет реальных paid leads или клиентов.</li></ul></div>
+        <div class="card"><h3>Current scaling boundary</h3><ul><li>Country Pack contract определён;</li><li>NL content/data model существует;</li><li>Belgium pack не реализован;</li><li>3-language human verification не доказана;</li><li>≤90-day repeatability не измерена.</li></ul></div>
+      </div>
+    </section>
+
+    <section id="verification">
+      <h2>3. Сводка фактических проверок</h2>
+      <table>
+        <thead><tr><th>Контур</th><th>Статус</th><th>Подтверждено</th><th>Ограничение</th></tr></thead>
+        <tbody>
+          <tr><td>Public web</td><td><span class="tag pass">PASS</span></td><td>585 routes; 575 indexable; 83/83 tests; 47 462 references/assets; live browser smoke без релевантных console errors.</td><td>Dirty working tree, не tagged release.</td></tr>
+          <tr><td>Admin</td><td><span class="tag partial">PARTIAL</span></td><td>lint, typecheck, 10/10 tests, production build; TLS/DNS; anonymous `/dashboard` → `/login`.</td><td>Нет authenticated owner/admin и denied-user production E2E.</td></tr>
+          <tr><td>Supabase</td><td><span class="tag partial">PARTIAL</span></td><td>ACTIVE_HEALTHY, 11 migrations, 4 functions, RLS/role checks.</td><td>Local analytics correction не deployed; backup/restore evidence отсутствует.</td></tr>
+          <tr><td>DataProject</td><td><span class="tag pass">PASS structure</span></td><td>450 governed, 186 public projection, Python 46/46.</td><td>0 production-ready practical guides.</td></tr>
+          <tr><td>Freshness</td><td><span class="tag pass">PASS ≥95%</span></td><td>440/450 = 97,8% внутри SLA. <span class="tag fact">C-006</span></td><td>Нужна постоянная операционная поддержка.</td></tr>
+          <tr><td>Media rights</td><td><span class="tag pass">PASS engineering</span></td><td>170 inventoried, 0 unresolved; 27 derived sources byte-linked. <span class="tag fact">C-007</span></td><td>Не legal title-chain opinion.</td></tr>
+          <tr><td>iOS</td><td><span class="tag partial">PASS build / BLOCKED tests</span></td><td>Debug app/test targets compile/link; exact unsigned device Release gate завершён с <code>BUILD SUCCEEDED</code>.</td><td>CoreSimulator test runner stalled; исполняемые тесты не считаются passed. <span class="tag fact">C-010</span></td></tr>
+          <tr><td>AI proxy</td><td><span class="tag pass">PASS</span></td><td>13/13 contract tests; invalid response rejection.</td><td>Compliance inventory/disclosures требуют review.</td></tr>
+          <tr><td>Git release identity</td><td><span class="tag fail">FAIL</span></td><td>Branch/SHA известны.</td><td>Dirty; 6 ahead / 4 behind; нет clean tag/CI. <span class="tag fact">C-009</span></td></tr>
+        </tbody>
+      </table>
+      <div class="callout warn"><strong>Разделение фактов:</strong> технические локальные PASS относятся к проверенному состоянию файлов. Они не доказывают, что production запущен из тех же bytes, пока не создан release SHA, не пройден CI и не сохранено deployment evidence.</div>
+    </section>
+
+    <section id="investor">
+      <h2>4. Рекомендации инвестора: что применено без живой аудитории</h2>
+      <table>
+        <thead><tr><th>Рекомендация</th><th>Статус</th><th>Применено</th><th>Что невозможно честно закрыть локально</th></tr></thead>
+        <tbody>
+          <tr><td>40–50 high-intent guides</td><td><span class="tag partial">PARTIAL</span></td><td>Программа, 20 scaffolds, строгий gate.</td><td>Исследование, шаги, FAQ/media и named human approval.</td></tr>
+          <tr><td>≥95% freshness</td><td><span class="tag pass">MET</span></td><td>97,8% governed freshness.</td><td>Только непрерывная работа сохранит результат.</td></tr>
+          <tr><td>Task/source/save/journey KPIs</td><td><span class="tag partial">PARTIAL</span></td><td>Consent-safe instrumentation и KPI definitions.</td><td>Нельзя вычислить устойчивые показатели без достаточной выборки.</td></tr>
+          <tr><td>10 partners / 5 paid pilots</td><td><span class="tag fail">NOT PROVEN</span></td><td>Proposition и inquiry path.</td><td>Нужны реальные контрагенты, договоры, счета и платежи.</td></tr>
+          <tr><td>20 verified profiles</td><td><span class="tag fail">NOT BUILT</span></td><td>Target contract and verification principles.</td><td>Operations, registry evidence и реальные компании.</td></tr>
+          <tr><td>Advertiser platform</td><td><span class="tag partial">SPECIFIED</span></td><td>Typed disabled placements, exclusions, roles/modules contract.</td><td>Identity, verification, campaigns, billing, leads, complaints/refunds.</td></tr>
+          <tr><td>Country Pack</td><td><span class="tag partial">SPECIFIED</span></td><td>Reusable hierarchy/source/language/freshness/emergency contract.</td><td>Belgium implementation и ≤90-day production proof.</td></tr>
+          <tr><td>GDPR/DSA/AI/WCAG</td><td><span class="tag partial">ENGINEERING PARTIAL</span></td><td>Consent/minimisation, ad separation, AI publication gate, accessibility checks.</td><td>Legal classification, records/DPIA, AI disclosure review, formal WCAG 2.2 AA audit.</td></tr>
+        </tbody>
+      </table>
+      <h3>Обновлённая institutional-seed scorecard</h3>
+      <div class="score"><span>Срочность проблемы</span><div class="track"><div class="bar" style="width:85%"></div></div><b>8,5</b></div>
+      <div class="score"><span>Размер рынка</span><div class="track"><div class="bar" style="width:80%"></div></div><b>8,0</b></div>
+      <div class="score"><span>Продуктовая концепция</span><div class="track"><div class="bar" style="width:80%"></div></div><b>8,0</b></div>
+      <div class="score"><span>Техническая основа</span><div class="track"><div class="bar" style="width:82%"></div></div><b>8,2</b></div>
+      <div class="score"><span>Доверие/content moat</span><div class="track"><div class="bar" style="width:62%"></div></div><b>6,2</b></div>
+      <div class="score"><span>Международная масштабируемость</span><div class="track"><div class="bar" style="width:46%"></div></div><b>4,6</b></div>
+      <div class="score"><span>Операционная готовность</span><div class="track"><div class="bar" style="width:55%"></div></div><b>5,5</b></div>
+      <div class="score"><span>Дистрибуция</span><div class="track"><div class="bar" style="width:20%"></div></div><b>2,0</b></div>
+      <div class="score"><span>Traction</span><div class="track"><div class="bar" style="width:10%"></div></div><b>1,0</b></div>
+      <div class="score"><span>Монетизация</span><div class="track"><div class="bar" style="width:15%"></div></div><b>1,5</b></div>
+      <p class="small">Среднее: 5,35, округлено до 5,3. Изменение против 5,0 связано с подтверждённой технической/операционной работой, не с traction. <span class="tag partial">ASSESSMENT C-011</span></p>
+    </section>
+
+    <section id="transaction">
+      <h2>5. Предлагаемая структура сделки</h2>
+      <table>
+        <thead><tr><th>Вариант</th><th>Готовность</th><th>Плюсы</th><th>Недостатки/риски</th><th>Рекомендация</th></tr></thead>
+        <tbody>
+          <tr><td>Asset/IP sale</td><td><span class="tag partial">CONDITIONAL</span></td><td>Чёткий perimeter; покупатель приобретает технологию и контент, не недоказанные KPI.</td><td>Нужны title chain, transferability, clean release, liabilities/exclusions.</td><td><strong>Основной путь</strong></td></tr>
+          <tr><td>License/pilot → option to buy</td><td><span class="tag partial">CONDITIONAL</span></td><td>Даёт покупателю техническую проверку и снижает valuation dispute.</td><td>Требует SLA, support scope, data/privacy terms и реального контрагента.</td><td><strong>Лучший bridge</strong></td></tr>
+          <tr><td>Business/share sale</td><td><span class="tag fail">NO-GO</span></td><td>Может включить бренд, contracts и continuity.</td><td>Нет проверенного corporate/financial/commercial package.</td><td>После закрытия data room</td></tr>
+        </tbody>
+      </table>
+      <h3>Предварительный perimeter asset sale</h3>
+      <div class="grid2">
+        <div class="card"><h3>Потенциально включить</h3><ul><li>reviewed source code и release artifacts;</li><li>DataProject schemas, releases, evidence и automation;</li><li>документацию/runbooks/CI;</li><li>бренд, домен, App Store listing и accounts — только при доказанном владении/transferability;</li><li>media assets — по их индивидуальным лицензиям.</li></ul></div>
+        <div class="card"><h3>Явно расписать</h3><ul><li>production personal data и законное основание передачи;</li><li>third-party accounts, subscriptions и secrets;</li><li>open-source/Commons obligations;</li><li>excluded personal equipment/accounts;</li><li>liabilities, refunds, support и transition services.</li></ul></div>
+      </div>
+      <div class="callout warn"><strong>Screening valuation only:</strong> отчёт от 28 июля указывает orderly asset/IP range €147–303k, midpoint €225k. Он не является formal valuation opinion и предшествует текущему Supabase/QA срезу; перед переговорами модель нужно обновить. <span class="tag partial">C-012</span></div>
+    </section>
+
+    <section id="risks">
+      <h2>6. Gating tests и ключевые риски</h2>
+      <table>
+        <thead><tr><th>ID</th><th>Gate</th><th>Pass condition</th><th>Если не выполнено</th></tr></thead>
+        <tbody>
+          <tr><td>G-01</td><td>Release identity</td><td>Reviewed SHA/tag, clean tree, SBOM/dependencies, green CI.</td><td>Не передавать production warranty; только source snapshot с disclosure.</td></tr>
+          <tr><td>G-02</td><td>Recoverability</td><td>Encrypted DB dump, SHA, restore-list и isolated restore rehearsal.</td><td>Отложить handover/production cutover.</td></tr>
+          <tr><td>G-03</td><td>Authorization</td><td>Owner/admin allowed; unapproved user denied; PII paths checked.</td><td>Блокировать Admin handover и remediation.</td></tr>
+          <tr><td>G-04</td><td>IP/title chain</td><td>Assignments, account ownership, license schedule, legal review.</td><td>Kill test для asset/IP sale.</td></tr>
+          <tr><td>G-05</td><td>Financial truth</td><td>Bank/invoice/P&amp;L/tax/vendor reconciliation.</td><td>Не использовать operating-business valuation.</td></tr>
+          <tr><td>G-06</td><td>Compliance</td><td>GDPR records; DSA/AI applicability; WCAG audit; open issues disclosed.</td><td>Price holdback, remediation covenant или deal stop.</td></tr>
+        </tbody>
+      </table>
+      <p>Полный risk register с P0/P1, owners и close conditions находится в <a href="risk-register.csv">risk-register.csv</a>.</p>
+    </section>
+
+    <section id="dataroom">
+      <h2>7. Первая волна data room</h2>
+      <div class="grid3">
+        <div class="card"><h3>P0 · ownership</h3><ol><li>Entity/cap table/authority.</li><li>IP assignments.</li><li>Domain, Apple, GitHub, Hostinger, Supabase ownership.</li><li>Asset perimeter and exclusions.</li></ol></div>
+        <div class="card"><h3>P0 · reproducibility</h3><ol><li>Clean release SHA/tag.</li><li>CI and build logs.</li><li>DB backup/restore.</li><li>Production configuration and secret-transfer procedure.</li></ol></div>
+        <div class="card"><h3>P0 · truth package</h3><ol><li>Invoices/bank/P&amp;L/tax.</li><li>Customers/partners/contracts, if any.</li><li>Privacy/security/compliance records.</li><li>Open risks, claims and disclosure schedule.</li></ol></div>
+      </div>
+      <p>Полный индекс с колонками available/access/action находится в <a href="data-room-index.csv">data-room-index.csv</a>. Закрытые/PII/secret материалы нельзя помещать в публичный репозиторий или отправлять покупателю до NDA и access policy.</p>
+    </section>
+
+    <section id="plan">
+      <h2>8. Последовательный план закрытия</h2>
+      <table>
+        <thead><tr><th>Приоритет</th><th>Срок</th><th>Действия</th><th>Exit evidence</th></tr></thead>
+        <tbody>
+          <tr><td>P0</td><td>0–3 дня</td><td>Freeze perimeter; review dirty files; reconcile branch; clean release tag; CI; generate checksums.</td><td>G-01 PASS</td></tr>
+          <tr><td>P0</td><td>1–5 дней</td><td>Encrypted Supabase backup and isolated restore; authenticated Admin E2E; repair/replace simulator evidence; unsigned Release + signed archive validation.</td><td>G-02/G-03 and iOS evidence PASS</td></tr>
+          <tr><td>P0</td><td>3–14 дней</td><td>Corporate/IP ownership, finance ledger, vendor/account inventory, legal perimeter and disclosure schedule.</td><td>G-04/G-05 PASS or explicit exceptions</td></tr>
+          <tr><td>P1</td><td>1–4 недели</td><td>GDPR/DSA/AI/WCAG review, pen test, remediation and final buyer-facing compliance schedule.</td><td>G-06 PASS/qualified</td></tr>
+          <tr><td>P1</td><td>1–3 месяца</td><td>40–50 human-approved guides, profile verification MVP and paid pilots.</td><td>Requires editorial reviewers and real counterparties</td></tr>
+          <tr><td>P2</td><td>3–6 месяцев</td><td>Belgium Country Pack and advertiser workflow, measured against ≤90-day repeatability.</td><td>Requires market/legal/language operations</td></tr>
+        </tbody>
+      </table>
+      <div class="callout"><strong>Automation:</strong> CI уже покрывает static QA, web predeploy, backend contracts и iOS build/test intent. Следующий автоматический gate должен формировать release evidence pack из exact SHA: checksums, manifests, test summaries, dependency inventory, DataProject fingerprints и deployment/rollback record.</div>
+    </section>
+
+    <section>
+      <h2>9. Compliance engineering posture</h2>
+      <p>Текущие controls включают consent-gated analytics, минимизацию, RLS/roles, rate limiting, fail-closed publication, маркировку и отделение рекламы, а также запрет AI bypass. Это не заменяет юридическую классификацию или audit opinion.</p>
+      <ul>
+        <li>GDPR: формальные obligations и data-subject processes должны быть сопоставлены с системой по <a href="https://commission.europa.eu/law/law-topic/data-protection/rules-business-and-organisations_en">European Commission GDPR guidance</a>.</li>
+        <li>DSA: live advertising нельзя включать до определения applicability и внедрения advertiser/why-shown/complaint evidence по <a href="https://digital-strategy.ec.europa.eu/en/policies/digital-services-act">European Commission DSA</a>.</li>
+        <li>AI: Article 50 transparency obligations применяются с 2 августа 2026; нужен system inventory и disclosure review по <a href="https://digital-strategy.ec.europa.eu/en/library/guidelines-transparency-obligations-providers-and-deployers-ai-systems">Commission guidelines</a>.</li>
+        <li>Accessibility: local Lighthouse/QA не является WCAG conformance audit; нужен формальный review по <a href="https://www.w3.org/TR/WCAG22/">W3C WCAG 2.2</a>.</li>
+      </ul>
+    </section>
+
+    <section id="sources">
+      <h2>10. Источники и ограничения</h2>
+      <p>Claim-level связи вынесены в <a href="claims-ledger.csv">claims-ledger.csv</a>; полный реестр — в <a href="evidence-register.csv">evidence-register.csv</a>; machine-readable execution snapshot — <a href="verification-summary.json">verification-summary.json</a>.</p>
+      <ol class="source-list">
+        <li><strong>E-001:</strong> investor assessment supplied by the owner.</li>
+        <li><strong>E-002:</strong> <a href="../../RELEASE_READINESS_2026-07-30.md">current release/readiness report</a>.</li>
+        <li><strong>E-003:</strong> <a href="../../docs/KPI_FRAMEWORK_V19.md">KPI framework</a>.</li>
+        <li><strong>E-004:</strong> <a href="../../DataProject/quality/content-readiness-matrix.json">content readiness matrix</a>.</li>
+        <li><strong>E-005:</strong> <a href="../../DataProject/reports/freshness-dashboard.json">freshness dashboard</a>.</li>
+        <li><strong>E-006:</strong> <a href="../../docs/SYSTEM_MAP.md">system map</a>.</li>
+        <li><strong>E-007/E-008:</strong> deployment and rollback runbooks.</li>
+        <li><strong>E-009:</strong> <a href="../../BuildWeekFix/ASSET_RIGHTS_STATUS.json">asset rights status</a>.</li>
+        <li><strong>E-010:</strong> <a href="../../docs/ADVERTISER_PLATFORM_CONTRACT.md">advertiser platform contract</a>.</li>
+        <li><strong>E-012:</strong> GitHub Actions workflow definitions.</li>
+        <li><strong>E-013:</strong> <a href="https://younew.nl/">younew.nl</a> and <a href="https://admin.younew.nl/">admin.younew.nl</a>.</li>
+        <li><strong>E-014/E-015:</strong> 28 July financial model and buyer-universe outputs.</li>
+        <li><strong>E-016–E-019:</strong> official Commission and W3C sources linked above.</li>
+      </ol>
+      <div class="callout warn"><strong>Ограничения:</strong> отчёт не является legal advice, security assurance, accessibility certification, tax advice или formal valuation. Не выполнялись production deployment, database mutation, controlled production form submission, authenticated Admin action, App Store upload или buyer outreach.</div>
+    </section>
+  </main>
+  <footer>
+    YouNew Sale Readiness and Technical Diligence Pack · 30 July 2026 · Status: partial · First read: this HTML · Supporting files: claims, evidence, risks, data room and verification summary.
+  </footer>
+</div>
+</body>
+</html>

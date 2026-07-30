@@ -1475,6 +1475,7 @@ struct NetherlandsKnowledgeEntity: Identifiable {
     let attributes: [String: String]
     let keywords: [String]
     let explicitPersonaTags: Set<PersonaTag>?
+    let governance: ContentGovernanceEnvelope?
 }
 
 struct NetherlandsKnowledgeDatabaseReport {
@@ -1566,7 +1567,8 @@ struct NetherlandsKnowledgeDatabase {
                 lastReviewed: nil,
                 safetyLevel: entity.source == nil ? .general : .officialSourceRecommended,
                 sourcePath: "YouNew/Data/NetherlandsData.swift",
-                personaTags: entity.personaTags
+                personaTags: entity.personaTags,
+                governance: entity.governance
             )
         }
     }
@@ -2031,7 +2033,8 @@ struct NetherlandsKnowledgeDatabase {
             route: route,
             attributes: attributes,
             keywords: keywords,
-            explicitPersonaTags: personaTags
+            explicitPersonaTags: personaTags,
+            governance: nil
         )
     }
 

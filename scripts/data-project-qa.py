@@ -202,8 +202,14 @@ def validate_record(
     label: str,
     media_id_owner: dict,
     *,
-    enforce_temporal_freshness: bool = True,
+    enforce_current_temporal: bool = True,
+    enforce_temporal_freshness=None,
 ):
+    # Backward-compatible keyword retained for callers introduced by the
+    # production release resolver. Both names describe the same fail-closed
+    # freshness/expiry gate.
+    if enforce_temporal_freshness is not None:
+        enforce_current_temporal = enforce_temporal_freshness
     expect(isinstance(record, dict), f"{label} must be an object")
     expect(REQUIRED_FIELDS <= set(record), f"{label} is missing {sorted(REQUIRED_FIELDS - set(record))}")
     entity_id = record["id"]
@@ -240,13 +246,13 @@ def validate_record(
         attributes = record.get("attributes") or {}
         active_through = attributes.get("end_date") or attributes.get("start_date")
         event_date = parse_date(active_through, f"{label}.attributes.end_date/start_date")
-        if published and enforce_temporal_freshness:
+        if published and enforce_current_temporal:
             expect(event_date >= date.today(), f"published {label} event is expired")
     combined_text = " ".join([record["title"], record["description"], record["ai_summary"]]).casefold()
     expect(not any(marker in combined_text for marker in FORBIDDEN_TEXT), f"{label} contains placeholder text")
     if published:
         expect(record["verification_status"] == "verified", f"published {label} is not verified")
-        if enforce_temporal_freshness:
+        if enforce_current_temporal:
             expect(checked + timedelta(days=frequency) >= date.today(), f"published {label} exceeds its review frequency")
         expect(source["status"] == "verified_opened" and source["is_official"] is True, f"published {label} lacks an opened official source")
     validate_media(record, label, published, media_id_owner)
@@ -255,7 +261,7 @@ def validate_record(
 def main():
     package_ids = validate_manifest()
     releases, milestones = validate_governance(package_ids)
-    current_release_ids = set(effective_release_heads(PROJECT))
+    current_published_heads = set(effective_release_heads(PROJECT, {"published"}))
     batch_files = sorted((PROJECT / "batches").glob("**/*.json")) if (PROJECT / "batches").exists() else []
     entity_owner = {}
     title_owner = {}
@@ -296,7 +302,7 @@ def main():
                 record,
                 record_label,
                 media_id_owner,
-                enforce_temporal_freshness=release_id in current_release_ids,
+                enforce_current_temporal=release_id in current_published_heads,
             )
             if batch["publication_status"] == "published":
                 expect(record["lifecycle_status"] == "published", f"published {label} contains a non-published record")
@@ -339,7 +345,7 @@ def main():
                 record,
                 label,
                 effective_media_owners,
-                enforce_temporal_freshness=release_id in current_release_ids,
+                enforce_current_temporal=release_id in current_published_heads,
             )
             title_key = (record["entity_type"], normalized(record["title"]), record.get("city_id"))
             expect(

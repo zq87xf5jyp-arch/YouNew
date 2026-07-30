@@ -10,31 +10,24 @@ import { Input } from "@/components/ui/input";
 
 export type BusinessInquiryListRow = {
   id: string;
-  reference_code: string;
-  company_name: string;
-  contact_person: string;
-  email: string;
+  confirmation_code: string;
+  company: string;
+  contact_name: string;
+  work_email: string;
   inquiry_type: string;
-  status: "new" | "reviewing" | "responded" | "accepted" | "declined" | "test" | "archived";
+  status: "new" | "contacted" | "qualified" | "closed" | "rejected" | "spam";
   source_page: string;
   created_at: string;
 };
 
 const statusLabels: Record<BusinessInquiryListRow["status"], string> = {
   new: "новая",
-  reviewing: "на рассмотрении",
-  responded: "ответ отправлен",
-  accepted: "принята",
-  declined: "отклонена",
-  test: "тестовая",
-  archived: "в архиве"
+  contacted: "связались",
+  qualified: "подтверждена",
+  closed: "закрыта",
+  rejected: "отклонена",
+  spam: "спам"
 };
-
-function formatCreatedAt(value: string) {
-  const date = new Date(value);
-  if (Number.isNaN(date.valueOf())) return value;
-  return `${date.toISOString().slice(0, 16).replace("T", " ")} UTC`;
-}
 
 export function BusinessInquiryList({
   rows,
@@ -50,10 +43,10 @@ export function BusinessInquiryList({
     return rows.filter((row) => {
       const statusMatches = !status || row.status === status;
       const queryMatches = !normalized || [
-        row.reference_code,
-        row.company_name,
-        row.contact_person,
-        row.email,
+        row.confirmation_code,
+        row.company,
+        row.contact_name,
+        row.work_email,
         row.inquiry_type
       ].join(" ").toLocaleLowerCase("ru").includes(normalized);
       return statusMatches && queryMatches;
@@ -97,11 +90,11 @@ export function BusinessInquiryList({
             <tbody>
               {filtered.map((row) => (
                 <tr key={row.id}>
-                  <td className="font-mono text-xs">{row.reference_code}</td>
-                  <td><p className="font-medium">{row.company_name}</p><p className="text-xs text-muted-foreground">{row.contact_person} · {row.email}</p></td>
+                  <td className="font-mono text-xs">{row.confirmation_code}</td>
+                  <td><p className="font-medium">{row.company}</p><p className="text-xs text-muted-foreground">{row.contact_name} · {row.work_email}</p></td>
                   <td>{row.inquiry_type}</td>
-                  <td><Badge variant={row.status === "new" ? "warning" : row.status === "accepted" ? "success" : "secondary"}>{statusLabels[row.status]}</Badge></td>
-                  <td><time dateTime={row.created_at}>{formatCreatedAt(row.created_at)}</time></td>
+                  <td><Badge variant={row.status === "new" ? "warning" : row.status === "qualified" ? "success" : "secondary"}>{statusLabels[row.status]}</Badge></td>
+                  <td>{new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short" }).format(new Date(row.created_at))}</td>
                   <td><Link className="text-cyan-200 underline-offset-4 hover:underline" href={`/business-inquiries/${row.id}`}>Открыть</Link></td>
                 </tr>
               ))}

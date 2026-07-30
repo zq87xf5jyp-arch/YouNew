@@ -215,7 +215,8 @@ enum VerifiedLeidenVenueData {
                 "photoLicense": media.licenseName ?? media.license ?? "Pending"
             ],
             keywords: [title, address, "Leiden", "Zuid-Holland"] + keywords,
-            explicitPersonaTags: nil
+            explicitPersonaTags: nil,
+            governance: nil
         )
     }
 

@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://younew.nl/schemas/ai-evaluation/run.schema.json",
+  "title": "YouNew AI evaluation run",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["run", "results"],
+  "properties": {
+    "run": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "runID", "candidateKind", "corpusVersion", "environmentDigest",
+        "modelVersion", "promptVersion", "contextVersion", "retrievalVersion",
+        "artifactVersion", "startedAt", "completedAt"
+      ],
+      "properties": {
+        "runID": {"type": "string", "minLength": 8},
+        "candidateKind": {"type": "string", "enum": ["baseline", "candidate"]},
+        "corpusVersion": {"type": "string", "minLength": 1},
+        "environmentDigest": {"type": "string", "pattern": "^sha256:[a-f0-9]{64}$"},
+        "modelVersion": {"type": "string", "minLength": 1},
+        "promptVersion": {"type": "string", "minLength": 1},
+        "contextVersion": {"type": "string", "minLength": 1},
+        "retrievalVersion": {"type": "string", "minLength": 1},
+        "artifactVersion": {"type": "string", "minLength": 1},
+        "startedAt": {"type": "string", "format": "date-time"},
+        "completedAt": {"type": "string", "format": "date-time"},
+        "exceptionADR": {"type": ["string", "null"], "pattern": "^ADR-[0-9]{3}$"}
+      }
+    },
+    "results": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "caseID", "selectedRecordIDs", "citations", "selectedStatuses",
+          "jurisdiction", "warnings", "behavior", "decisionTrace",
+          "latencyMs", "costUnits", "subjectiveGrade"
+        ],
+        "properties": {
+          "caseID": {"type": "string"},
+          "selectedRecordIDs": {"type": "array", "uniqueItems": true, "items": {"type": "string"}},
+          "citations": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["recordID", "url"],
+              "properties": {
+                "recordID": {"type": "string"},
+                "url": {"type": "string", "format": "uri"}
+              }
+            }
+          },
+          "selectedStatuses": {
+            "type": "array",
+            "items": {"type": "string"}
+          },
+          "jurisdiction": {"type": "object"},
+          "warnings": {"type": "array", "items": {"type": "string"}},
+          "behavior": {"type": "string"},
+          "decisionTrace": {
+            "type": "object",
+            "required": [
+              "rankingFactors", "excludedCandidateReasons", "policyVersion",
+              "modelVersion", "contextVersion"
+            ]
+          },
+          "latencyMs": {"type": "number", "minimum": 0},
+          "costUnits": {"type": "number", "minimum": 0},
+          "subjectiveGrade": {
+            "oneOf": [
+              {"type": "null"},
+              {
+                "type": "object",
+                "required": ["grounded", "graderKind", "blinded", "humanCalibrated", "graderID"],
+                "properties": {
+                  "grounded": {"type": "boolean"},
+                  "graderKind": {"const": "independent"},
+                  "blinded": {"const": true},
+                  "humanCalibrated": {"const": true},
+                  "graderID": {"type": "string", "minLength": 1}
+                }
+              }
+            ]
+          }
+        }
+      }
+    }
+  }
+}

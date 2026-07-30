@@ -89,7 +89,8 @@ enum AISafetyFilter {
             confidence: response.confidence,
             origin: response.origin,
             model: response.model,
-            requestID: response.requestID
+            requestID: response.requestID,
+            decisionTrace: response.decisionTrace
         )
     }
 }

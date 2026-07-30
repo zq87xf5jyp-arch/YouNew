@@ -1,20 +1,35 @@
-export type CoverageMapEntityType = "city" | "organization" | "place";
+export type CoverageMapEntityType = "city" | "municipality" | "organization" | "place";
+
+export interface CoverageMapImage {
+  readonly url: string;
+  readonly alt: string;
+  readonly attribution: string;
+  readonly license: string;
+  readonly licenseUrl: string | null;
+  readonly sourcePageUrl: string | null;
+}
 
 export interface CoverageMapItem {
   readonly id: string;
   readonly title: string;
+  readonly summary: string;
   readonly route: string;
   readonly type: CoverageMapEntityType;
   readonly cityId: string | null;
+  readonly provinceId: string | null;
   readonly categorySlugs: readonly string[];
   readonly coordinate: Readonly<{ latitude: number; longitude: number }>;
   readonly verifiedAt: string;
+  readonly sourcePublisher: string;
+  readonly image: CoverageMapImage | null;
 }
 
 export interface CoverageMapFilters {
   readonly city: string;
+  readonly province: string;
   readonly category: string;
   readonly type: "all" | CoverageMapEntityType;
+  readonly query: string;
 }
 
 export interface CoverageMapBounds {
@@ -32,9 +47,9 @@ export interface CoverageMapCluster {
 }
 
 export const coverageMapViewport = {
-  width: 720,
-  height: 760,
-  padding: 44
+  width: 860,
+  height: 600,
+  padding: 38
 } as const;
 
 // A fixed national extent keeps the default view honest: it shows where the
@@ -50,10 +65,19 @@ export function filterCoverageMapItems(
   items: readonly CoverageMapItem[],
   filters: CoverageMapFilters
 ): CoverageMapItem[] {
+  const query = (filters.query ?? "").trim().toLocaleLowerCase("en");
   return items.filter((item) => (
     (filters.city === "all" || item.cityId === filters.city) &&
+    (filters.province === "all" || item.provinceId === filters.province) &&
     (filters.category === "all" || item.categorySlugs.includes(filters.category)) &&
-    (filters.type === "all" || item.type === filters.type)
+    (filters.type === "all" || item.type === filters.type) &&
+    (!query || [
+      item.title,
+      item.summary,
+      item.cityId ?? "",
+      item.provinceId ?? "",
+      ...item.categorySlugs
+    ].some((value) => typeof value === "string" && value.toLocaleLowerCase("en").includes(query)))
   ));
 }
 

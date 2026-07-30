@@ -50,7 +50,7 @@ export async function GET(request: Request) {
     currentRelease,
     serviceStatuses
   ] = await Promise.all([
-    supabase.from("business_inquiries").select("id", { count: "exact", head: true }).in("status", ["new", "reviewing"]),
+    supabase.from("business_inquiries").select("id", { count: "exact", head: true }).in("status", ["new", "contacted", "qualified"]),
     supabase.from("feedback").select("id", { count: "exact", head: true }).in("status", ["new", "reviewed", "planned"]),
     supabase.from("sync_jobs").select("id", { count: "exact", head: true }).eq("status", "failed"),
     supabase.from("articles").select("id", { count: "exact", head: true }).in("status", ["draft", "research", "review", "qa", "needs_review"]),

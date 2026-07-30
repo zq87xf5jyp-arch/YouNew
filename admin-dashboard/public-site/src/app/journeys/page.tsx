@@ -19,7 +19,8 @@ export default function JourneysPage() {
       title: guide!.title,
       summary: guide!.summary,
       route: guide!.route,
-      verifiedAt: guide!.verifiedAt
+      verifiedAt: guide!.verifiedAt,
+      image: guide!.images.find((image) => image.role === "hero") ?? guide!.images[0] ?? null
     }))
   }));
 

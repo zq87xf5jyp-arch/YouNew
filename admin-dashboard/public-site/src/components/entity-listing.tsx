@@ -6,17 +6,21 @@ export function EntityListing({
   entities,
   emptyMessage = "No published items match this view.",
   limit = 24,
-  viewAllHref
+  viewAllHref,
+  variant = "grid"
 }: {
   entities: readonly ContentEntity[];
   emptyMessage?: string;
   limit?: number;
   viewAllHref?: string;
+  variant?: "grid" | "editorial";
 }) {
   if (entities.length === 0) return <div className="empty-state"><h2>No published items</h2><p>{emptyMessage}</p></div>;
   const visible = viewAllHref ? entities.slice(0, limit) : entities;
   return <>
-    <div className="entity-grid">{visible.map((entity) => <EntityCard entity={entity} key={entity.id} />)}</div>
+    <div className={variant === "editorial" ? "entity-editorial-list" : "entity-grid"}>
+      {visible.map((entity) => <EntityCard entity={entity} variant={variant === "editorial" ? "row" : "card"} key={entity.id} />)}
+    </div>
     {entities.length > visible.length && viewAllHref ? (
       <div className="listing-continuation">
         <p>Showing {visible.length} of {entities.length} published items to keep this page fast.</p>

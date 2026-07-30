@@ -1,0 +1,95 @@
+{"kind":"deck","id":"pr/kxqlr8","name":"Deck"}
+{"kind":"layout","layoutId":"ae288034-9803-4f30-bac5-10cc4d528a6d","name":"Master","type":"master"}
+{"kind":"layout","layoutId":"03eb1a12-603e-4293-bc85-ef1e46220488","name":"Title Slide","type":"title"}
+{"kind":"slide","id":"sl/vy02x7","slide":1,"title":"PRODUCT SHOWCASE · RELEASE CANDIDATE","textShapes":7}
+{"kind":"textbox","id":"sh/zuxgrexs","slide":1,"name":"eyebrow-Product showcase · Release candidate","text":"PRODUCT SHOWCASE · RELEASE CANDIDATE","textPreview":"PRODUCT SHOWCASE · RELEASE CANDIDATE","textChars":36,"textLines":1,"bbox":[72,62,680,34]}
+{"kind":"textbox","id":"sh/ytofitg7","slide":1,"name":"cover-brand","text":"YouNew","textPreview":"YouNew","textChars":6,"textLines":1,"bbox":[72,126,360,64]}
+{"kind":"textbox","id":"sh/dsfypofm","slide":1,"name":"cover-title","text":"A working ecosystem\nfor a clearer start.","textPreview":"A working ecosystem | for a clearer start.","textChars":40,"textLines":2,"bbox":[72,230,900,280]}
+{"kind":"textbox","id":"sh/cr6xgjy1","slide":1,"name":"cover-subtitle","text":"iOS · Web · Admin · Supabase · AI · Workspace","textPreview":"iOS · Web · Admin · Supabase · AI · Workspace","textChars":45,"textLines":1,"bbox":[76,540,900,64]}
+{"kind":"shape","id":"sh/bqxgnexg","slide":1,"name":"cover-web-frame","bbox":[70,654,940,522]}
+{"kind":"shape","id":"sh/pofyl4fq","slide":1,"name":"cover-proof","bbox":[112,1110,690,74]}
+{"kind":"textbox","id":"sh/onmxczy5","slide":1,"name":"cover-proof-text","text":"LIVE WEB · PUBLIC APP · AUTHENTICATED ADMIN","textPreview":"LIVE WEB · PUBLIC APP · AUTHENTICATED ADMIN","textChars":43,"textLines":1,"bbox":[142,1134,630,32]}
+{"kind":"shape","id":"sh/apkru9gf","slide":1,"name":"footer-rule-1","bbox":[72,1260,936,2]}
+{"kind":"textbox","id":"sh/bqt8neh0","slide":1,"name":"footer-brand-1","text":"YouNew · Product ecosystem","textPreview":"YouNew · Product ecosystem","textChars":26,"textLines":1,"bbox":[72,1280,600,28]}
+{"kind":"textbox","id":"sh/cr29wjyl","slide":1,"name":"footer-page-1","text":"01 / 05","textPreview":"01 / 05","textChars":7,"textLines":1,"bbox":[850,1280,158,28]}
+{"kind":"image","id":"im/d8bm9cf2","slide":1,"name":"","geometry":"rect","alt":"image-primer","bbox":[1079,1349,1,1]}
+{"kind":"image","id":"im/zut4bmx8","slide":1,"name":"","geometry":"roundRect","alt":"Live YouNew public web product","bbox":[76,660,928,510]}
+{"kind":"notes","id":"nt/vy02x7","slide":1,"text":"[Sources]\n- https://younew.nl/ — live screenshot captured 2026-07-30.\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/assets/web-home.png"}
+{"kind":"slide","id":"sl/5oh0fc","slide":2,"title":"ONE CONNECTED PRODUCT","textShapes":6}
+{"kind":"textbox","id":"sh/b65o3a5o","slide":2,"name":"eyebrow-One connected product","text":"ONE CONNECTED PRODUCT","textPreview":"ONE CONNECTED PRODUCT","textChars":21,"textLines":1,"bbox":[72,62,680,34]}
+{"kind":"textbox","id":"sh/c7e5wf69","slide":2,"name":"surfaces-title","text":"Every surface serves\nthe same system.","textPreview":"Every surface serves | the same system.","textChars":37,"textLines":2,"bbox":[72,122,900,180]}
+{"kind":"shape","id":"sh/x8n65knu","slide":2,"name":"surface-ios-frame","bbox":[66,344,260,552]}
+{"kind":"shape","id":"sh/n2lozaps","slide":2,"name":"surface-web-frame","bbox":[348,344,666,322]}
+{"kind":"shape","id":"sh/p4n61kny","slide":2,"name":"surface-admin-frame","bbox":[348,700,326,326]}
+{"kind":"shape","id":"sh/felovqpw","slide":2,"name":"surface-workspace-frame","bbox":[688,700,326,326]}
+{"kind":"textbox","id":"sh/u18zipg3","slide":2,"name":"surface-ios-label","text":"iOS","textPreview":"iOS","textChars":3,"textLines":1,"bbox":[72,930,248,42]}
+{"kind":"textbox","id":"sh/h4zitkzu","slide":2,"name":"surface-bottom","text":"One identity · one governed data model · one release path","textPreview":"One identity · one governed data model · one release path","textChars":57,"textLines":1,"bbox":[82,1090,916,76]}
+{"kind":"shape","id":"sh/g3qhkfy9","slide":2,"name":"footer-rule-2","bbox":[72,1260,936,2]}
+{"kind":"textbox","id":"sh/36h0vuh0","slide":2,"name":"footer-brand-2","text":"YouNew · Product ecosystem","textPreview":"YouNew · Product ecosystem","textChars":26,"textLines":1,"bbox":[72,1280,600,28]}
+{"kind":"textbox","id":"sh/258zmpgf","slide":2,"name":"footer-page-2","text":"02 / 05","textPreview":"02 / 05","textChars":7,"textLines":1,"bbox":[850,1280,158,28]}
+{"kind":"image","id":"im/r25s7alo","slide":2,"name":"","geometry":"roundRect","alt":"Published YouNew iPhone home screen","bbox":[72,350,248,540]}
+{"kind":"image","id":"im/to7a9k3e","slide":2,"name":"","geometry":"roundRect","alt":"Live public web product","bbox":[354,350,654,310]}
+{"kind":"image","id":"im/by9s3e1s","slide":2,"name":"","geometry":"roundRect","alt":"Authenticated Admin dashboard","bbox":[354,706,314,314]}
+{"kind":"image","id":"im/03y587a1","slide":2,"name":"","geometry":"roundRect","alt":"YouNew operational Workspace","bbox":[694,706,314,314]}
+{"kind":"notes","id":"nt/5oh0fc","slide":2,"text":"[Sources]\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/assets/app-home-nl.png\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/assets/web-home.png\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/assets/admin-dashboard.png\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/presentation-2026-07-30/assets/workspace-overview.png"}
+{"kind":"slide","id":"sl/6vpayr","slide":3,"title":"LIVE PRODUCT · VERIFIED EVIDENCE","textShapes":13}
+{"kind":"textbox","id":"sh/m107qxwr","slide":3,"name":"eyebrow-Live product · verified evidence","text":"LIVE PRODUCT · VERIFIED EVIDENCE","textPreview":"LIVE PRODUCT · VERIFIED EVIDENCE","textChars":32,"textLines":1,"bbox":[72,62,680,34]}
+{"kind":"textbox","id":"sh/94rqlcf2","slide":3,"name":"evidence-title","text":"Quality is visible\nin the numbers.","textPreview":"Quality is visible | in the numbers.","textChars":34,"textLines":2,"bbox":[72,122,900,180]}
+{"kind":"shape","id":"sh/83ips7eh","slide":3,"name":"evidence-web-frame","bbox":[66,334,948,482]}
+{"kind":"textbox","id":"sh/u507uhwn","slide":3,"name":"metric-routes-value","text":"585","textPreview":"585","textChars":3,"textLines":1,"bbox":[72,866,210,96]}
+{"kind":"shape","id":"sh/h8bqpcve","slide":3,"name":"metric-routes-rule","bbox":[72,966,68,6]}
+{"kind":"textbox","id":"sh/w729w7et","slide":3,"name":"metric-routes-label","text":"static routes","textPreview":"static routes","textChars":13,"textLines":1,"bbox":[72,992,210,76]}
+{"kind":"textbox","id":"sh/bap8bix4","slide":3,"name":"metric-index-value","text":"575","textPreview":"575","textChars":3,"textLines":1,"bbox":[314,866,210,96]}
+{"kind":"shape","id":"sh/a9g7idwj","slide":3,"name":"metric-index-rule","bbox":[314,966,68,6]}
+{"kind":"textbox","id":"sh/c72lorm9","slide":3,"name":"metric-index-label","text":"indexable URLs","textPreview":"indexable URLs","textChars":14,"textLines":1,"bbox":[314,992,210,76]}
+{"kind":"textbox","id":"sh/x8vmhw3u","slide":3,"name":"metric-published-value","text":"186","textPreview":"186","textChars":3,"textLines":1,"bbox":[556,866,210,96]}
+{"kind":"shape","id":"sh/alk3mh43","slide":3,"name":"metric-published-rule","bbox":[556,966,68,6]}
+{"kind":"textbox","id":"sh/b6t4fmlo","slide":3,"name":"metric-published-label","text":"published records","textPreview":"published records","textChars":17,"textLines":1,"bbox":[556,992,210,76]}
+{"kind":"textbox","id":"sh/kbmlcr2l","slide":3,"name":"metric-tests-value","text":"106","textPreview":"106","textChars":3,"textLines":1,"bbox":[798,866,210,96]}
+{"kind":"shape","id":"sh/lcvmlw3q","slide":3,"name":"metric-tests-rule","bbox":[798,966,68,6]}
+{"kind":"textbox","id":"sh/y943q14f","slide":3,"name":"metric-tests-label","text":"passing web / admin / AI tests","textPreview":"passing web / admin / AI tests","textChars":30,"textLines":1,"bbox":[798,992,210,76]}
+{"kind":"shape","id":"sh/zad4jml0","slide":3,"name":"evidence-pass","bbox":[72,1138,936,82]}
+{"kind":"textbox","id":"sh/gfilg7m1","slide":3,"name":"evidence-pass-text","text":"LIVE SMOKE TEST: PASS · PREDEPLOY: PASS","textPreview":"LIVE SMOKE TEST: PASS · PREDEPLOY: PASS","textChars":39,"textLines":1,"bbox":[110,1165,860,34]}
+{"kind":"shape","id":"sh/1gb29c3m","slide":3,"name":"footer-rule-3","bbox":[72,1260,936,2]}
+{"kind":"textbox","id":"sh/h0jax4re","slide":3,"name":"footer-brand-3","text":"YouNew · Product ecosystem","textPreview":"YouNew · Product ecosystem","textChars":26,"textLines":1,"bbox":[72,1280,600,28]}
+{"kind":"textbox","id":"sh/wza9ozat","slide":3,"name":"footer-page-3","text":"03 / 05","textPreview":"03 / 05","textChars":7,"textLines":1,"bbox":[850,1280,158,28]}
+{"kind":"image","id":"im/2h0ry9gn","slide":3,"name":"","geometry":"roundRect","alt":"Live YouNew home page","bbox":[72,340,936,470]}
+{"kind":"notes","id":"nt/6vpayr","slide":3,"text":"[Sources]\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/sale-readiness-2026-07-30/verification-summary.json\n- 106 = 83 public web tests + 10 Admin tests + 13 backend AI proxy tests."}
+{"kind":"slide","id":"sl/xh6rmy","slide":4,"title":"SYSTEM ARCHITECTURE","textShapes":12}
+{"kind":"textbox","id":"sh/c3i5wj6h","slide":4,"name":"eyebrow-System architecture","text":"SYSTEM ARCHITECTURE","textPreview":"SYSTEM ARCHITECTURE","textChars":19,"textLines":1,"bbox":[72,62,680,34]}
+{"kind":"textbox","id":"sh/b2943e5w","slide":4,"name":"architecture-title","text":"How YouNew works —\nend to end.","textPreview":"How YouNew works — | end to end.","textChars":30,"textLines":2,"bbox":[72,122,900,180]}
+{"kind":"shape","id":"sh/a1gnu9or","slide":4,"name":"flow-1","bbox":[512,438,56,74]}
+{"kind":"shape","id":"sh/pg7m14n6","slide":4,"name":"flow-2","bbox":[512,650,56,74]}
+{"kind":"shape","id":"sh/ofylsz6l","slide":4,"name":"flow-3","bbox":[512,862,56,74]}
+{"kind":"shape","id":"sh/nep4zu50","slide":4,"name":"architecture-source","bbox":[270,330,540,108]}
+{"kind":"textbox","id":"sh/2dg3qpof","slide":4,"name":"architecture-source-text","text":"GitHub + CI · YouNew Workspace","textPreview":"GitHub + CI · YouNew Workspace","textChars":30,"textLines":1,"bbox":[304,366,472,42]}
+{"kind":"shape","id":"sh/9cbmdona","slide":4,"name":"architecture-admin","bbox":[270,512,540,138]}
+{"kind":"textbox","id":"sh/8b25436p","slide":4,"name":"architecture-admin-title","text":"Admin","textPreview":"Admin","textChars":5,"textLines":1,"bbox":[320,536,440,44]}
+{"kind":"textbox","id":"sh/uhcj6p8f","slide":4,"name":"architecture-admin-copy","text":"content · quality · review · release","textPreview":"content · quality · review · release","textChars":36,"textLines":1,"bbox":[320,592,440,34]}
+{"kind":"shape","id":"sh/vilkzu90","slide":4,"name":"architecture-data","bbox":[270,724,540,138]}
+{"kind":"textbox","id":"sh/wjel8zql","slide":4,"name":"architecture-data-title","text":"Supabase","textPreview":"Supabase","textChars":8,"textLines":1,"bbox":[320,748,440,44]}
+{"kind":"textbox","id":"sh/hkn214r6","slide":4,"name":"architecture-data-copy","text":"Postgres · RLS · Edge Functions · AI context","textPreview":"Postgres · RLS · Edge Functions · AI context","textChars":44,"textLines":1,"bbox":[320,804,440,34]}
+{"kind":"shape","id":"sh/mdcj2p8j","slide":4,"name":"architecture-product","bbox":[180,936,720,158]}
+{"kind":"textbox","id":"sh/nelkvu9o","slide":4,"name":"architecture-product-title","text":"Public Web + iOS","textPreview":"Public Web + iOS","textChars":16,"textLines":1,"bbox":[240,966,600,48]}
+{"kind":"textbox","id":"sh/8fu14zq9","slide":4,"name":"architecture-product-copy","text":"discover · guides · map · search · save · source verification","textPreview":"discover · guides · map · search · save · source verification","textChars":61,"textLines":1,"bbox":[240,1030,600,36]}
+{"kind":"shape","id":"sh/9g32x4ru","slide":4,"name":"architecture-feedback","bbox":[204,1130,672,84]}
+{"kind":"textbox","id":"sh/69w3e98n","slide":4,"name":"architecture-feedback-text","text":"Privacy-safe analytics + feedback return to Admin","textPreview":"Privacy-safe analytics + feedback return to Admin","textChars":49,"textLines":1,"bbox":[238,1157,604,32]}
+{"kind":"shape","id":"sh/rapk7ep8","slide":4,"name":"footer-rule-4","bbox":[72,1260,936,2]}
+{"kind":"textbox","id":"sh/3uhgz6pk","slide":4,"name":"footer-brand-4","text":"YouNew · Product ecosystem","textPreview":"YouNew · Product ecosystem","textChars":26,"textLines":1,"bbox":[72,1280,600,28]}
+{"kind":"textbox","id":"sh/2t8z6loz","slide":4,"name":"footer-page-4","text":"04 / 05","textPreview":"04 / 05","textChars":7,"textLines":1,"bbox":[850,1280,158,28]}
+{"kind":"notes","id":"nt/xh6rmy","slide":4,"text":"[Sources]\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/docs/SYSTEM_MAP.md\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/docs/COMPLIANCE_CONTROL_MATRIX.md"}
+{"kind":"slide","id":"sl/8t205i","slide":5,"title":"RELEASE POSTURE","textShapes":11}
+{"kind":"textbox","id":"sh/q9sr6hgv","slide":5,"name":"eyebrow-Release posture","text":"RELEASE POSTURE","textPreview":"RELEASE POSTURE","textChars":15,"textLines":1,"bbox":[72,62,680,34]}
+{"kind":"textbox","id":"sh/dcja1wf6","slide":5,"name":"release-title","text":"Operational today.\nEvidence before claims.","textPreview":"Operational today. | Evidence before claims.","textChars":42,"textLines":2,"bbox":[72,122,900,186]}
+{"kind":"textbox","id":"sh/cba98ryl","slide":5,"name":"release-score","text":"7.8","textPreview":"7.8","textChars":3,"textLines":1,"bbox":[72,342,330,160]}
+{"kind":"textbox","id":"sh/zy1s3mxc","slide":5,"name":"release-score-label","text":"technical readiness\nout of 10","textPreview":"technical readiness | out of 10","textChars":29,"textLines":2,"bbox":[84,508,300,84]}
+{"kind":"textbox","id":"sh/exsrahgr","slide":5,"name":"release-proven-title","text":"Already proven","textPreview":"Already proven","textChars":14,"textLines":1,"bbox":[422,356,500,54]}
+{"kind":"textbox","id":"sh/103a5wfi","slide":5,"name":"release-proven-copy","text":"✓ Live public web\n✓ Public App Store listing\n✓ Authenticated Admin\n✓ Healthy Supabase runtime\n✓ Successful unsigned Release build","textPreview":"✓ Live public web | ✓ Public App Store listing | ✓ Authenticated Admin | ✓ Healthy Supabase runtime | ✓ Successful unsigned Release build","textChars":129,"textLines":5,"bbox":[422,430,560,246]}
+{"kind":"shape","id":"sh/0za9cryx","slide":5,"name":"release-gates-box","bbox":[72,720,936,390]}
+{"kind":"textbox","id":"sh/v2h8r2x8","slide":5,"name":"release-gates-title","text":"Final release gates","textPreview":"Final release gates","textChars":19,"textLines":1,"bbox":[112,758,820,54]}
+{"kind":"textbox","id":"sh/u18ryxgn","slide":5,"name":"release-gates-copy","text":"• Clean source SHA + green CI\n• Signed archive + runnable iOS tests\n• Encrypted backup + isolated restore\n• Authenticated Admin E2E\n• Flagship guides production-ready","textPreview":"• Clean source SHA + green CI | • Signed archive + runnable iOS tests | • Encrypted backup + isolated restore | • Authenticated Admin E2E...","textChars":166,"textLines":5,"bbox":[112,838,820,224]}
+{"kind":"textbox","id":"sh/4nyds7u5","slide":5,"name":"release-next","text":"Next milestone: flagship practical guides + clean release identity","textPreview":"Next milestone: flagship practical guides + clean release identity","textChars":66,"textLines":1,"bbox":[92,1162,896,60]}
+{"kind":"shape","id":"sh/5o7ulcbq","slide":5,"name":"footer-rule-5","bbox":[72,1260,936,2]}
+{"kind":"textbox","id":"sh/ilgvqxcz","slide":5,"name":"footer-brand-5","text":"YouNew · Product ecosystem","textPreview":"YouNew · Product ecosystem","textChars":26,"textLines":1,"bbox":[72,1280,600,28]}
+{"kind":"textbox","id":"sh/jmpcj2tk","slide":5,"name":"footer-page-5","text":"05 / 05","textPreview":"05 / 05","textChars":7,"textLines":1,"bbox":[850,1280,158,28]}
+{"kind":"notes","id":"nt/8t205i","slide":5,"text":"[Sources]\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/sale-readiness-2026-07-30/verification-summary.json\n- /Users/ivan/Desktop/Developer:YouNew/YouNew/RELEASE_READINESS_2026-07-30.md"}

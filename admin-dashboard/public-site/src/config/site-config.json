@@ -6,6 +6,15 @@
   "publicFeedback": {
     "endpoint": "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-public-feedback"
   },
+  "analytics": {
+    "enabled": true,
+    "endpoint": "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/analytics-ingest",
+    "publishableKey": "sb_publishable_6jxbkCcyqww3Qch1376gdA_FglUf4Cv",
+    "consentVersion": "2026-07-28",
+    "schemaVersion": 1,
+    "appVersion": "web-2026.07.28",
+    "retentionDays": 90
+  },
   "statusBanner": {
     "enabled": false,
     "id": "ios-public-distribution-confirmed-2026-07",

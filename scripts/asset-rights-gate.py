@@ -37,6 +37,7 @@ STATUS_BUCKETS = {
     "owner_attestation_required": "unresolved",
     "source_ownership_conflict": "unresolved",
     "public_domain_byte_exact": "cleared",
+    "public_domain_derived": "cleared",
     "project_owned_documented": "project_owned",
     "third_party_attribution_ready": "cleared_with_conditions",
 }
@@ -785,12 +786,64 @@ def validate_city_symbol_evidence(root: Path, record: dict, errors: list[str]) -
 
     commons = record.get("commons")
     if isinstance(commons, dict):
-        if commons.get("localMatch") != "current_byte_exact":
-            errors.append(f"{asset_id}: reconciled city symbol must be current_byte_exact")
+        expected_match = (
+            "derived_from_current"
+            if record.get("status") == "public_domain_derived"
+            else "current_byte_exact"
+        )
+        if commons.get("localMatch") != expected_match:
+            errors.append(
+                f"{asset_id}: reconciled city symbol must use localMatch={expected_match}"
+            )
         if commons.get("remoteCurrentSHA1") != evidence.get("commonsSHA1"):
             errors.append(f"{asset_id}: city-symbol Commons SHA-1 does not match evidence")
         if commons.get("checkedAt") != evidence.get("retrievedAt"):
             errors.append(f"{asset_id}: city-symbol checkedAt does not match evidence")
+
+    if record.get("status") != "public_domain_derived":
+        return
+
+    source_path_value = evidence.get("sourceLocalPath")
+    source_sha1 = evidence.get("sourceLocalSHA1")
+    if not is_nonempty_string(source_path_value):
+        errors.append(f"{asset_id}: derived city symbol requires sourceLocalPath")
+        return
+    source_path = root / str(source_path_value)
+    try:
+        if relative_path(source_path, root) != source_path_value:
+            raise RightsGateError("source path is not canonical")
+        if not source_path.is_file():
+            raise RightsGateError("source file is missing")
+        actual_source_sha1 = sha1(source_path)
+    except RightsGateError as error:
+        errors.append(f"{asset_id}: invalid derived source evidence: {error}")
+        return
+    if source_sha1 != evidence.get("commonsSHA1") or actual_source_sha1 != source_sha1:
+        errors.append(
+            f"{asset_id}: derived source must be byte-exact with the recorded Commons SHA-1"
+        )
+
+    derivation = evidence.get("derivation")
+    if not isinstance(derivation, dict):
+        errors.append(f"{asset_id}: derived city symbol requires derivation metadata")
+        return
+    if derivation.get("kind") != "rasterized_copy":
+        errors.append(f"{asset_id}: derived city symbol derivation.kind must be rasterized_copy")
+    if derivation.get("tool") != "macOS sips":
+        errors.append(f"{asset_id}: derived city symbol derivation.tool must be macOS sips")
+    if derivation.get("toolVersion") != "sips-316":
+        errors.append(f"{asset_id}: derived city symbol derivation.toolVersion must be sips-316")
+    if derivation.get("maxPixelDimension") != 1024:
+        errors.append(f"{asset_id}: derived city symbol maxPixelDimension must be 1024")
+    if derivation.get("sourceSHA1") != source_sha1:
+        errors.append(f"{asset_id}: derivation sourceSHA1 does not match source evidence")
+    if derivation.get("outputSHA1") != evidence_sha1:
+        errors.append(f"{asset_id}: derivation outputSHA1 does not match catalog evidence")
+    if evidence.get("localMimeType") != "image/png":
+        errors.append(f"{asset_id}: derived city symbol localMimeType must be image/png")
+    for field in ("localWidth", "localHeight"):
+        if not isinstance(evidence.get(field), int) or evidence[field] <= 0:
+            errors.append(f"{asset_id}: derived city symbol {field} must be a positive integer")
 
 
 def validate_third_party_asset_evidence(root: Path, record: dict, errors: list[str]) -> None:
@@ -906,7 +959,7 @@ def validate_public_domain(root: Path, record: dict, errors: list[str]) -> None:
     asset_id = record["assetID"]
     if record.get("family") != "city_symbol":
         errors.append(
-            f"{asset_id}: public_domain_byte_exact is limited to governed city_symbol assets"
+            f"{asset_id}: public-domain status is limited to governed city_symbol assets"
         )
     evidence = validate_evidence(root, asset_id, record.get("evidence"), errors)
     if not evidence:
@@ -918,14 +971,19 @@ def validate_public_domain(root: Path, record: dict, errors: list[str]) -> None:
         if not is_nonempty_string(record.get(field)):
             errors.append(f"{asset_id}: {field} is required")
     if record.get("attributionRequired") is not False:
-        errors.append(f"{asset_id}: public-domain byte-exact record must declare attributionRequired=false")
+        errors.append(f"{asset_id}: public-domain record must declare attributionRequired=false")
 
     commons = record.get("commons")
     if not isinstance(commons, dict):
-        errors.append(f"{asset_id}: public-domain byte-exact record requires Commons evidence")
+        errors.append(f"{asset_id}: public-domain record requires Commons evidence")
         return
-    if commons.get("localMatch") not in {"current_byte_exact", "historical_byte_exact"}:
-        errors.append(f"{asset_id}: Commons evidence is not byte-exact")
+    expected_matches = (
+        {"derived_from_current"}
+        if record.get("status") == "public_domain_derived"
+        else {"current_byte_exact", "historical_byte_exact"}
+    )
+    if commons.get("localMatch") not in expected_matches:
+        errors.append(f"{asset_id}: Commons evidence has invalid localMatch")
     remote_sha1 = commons.get("remoteCurrentSHA1")
     local_hashes = {
         item.get("sha1")
@@ -1144,7 +1202,7 @@ def validate_ledger(root: Path, ledger: dict, assets: dict[str, CatalogAsset]) -
 
         if status == "project_owned_documented":
             validate_project_owned(root, record, errors)
-        elif status == "public_domain_byte_exact":
+        elif status in {"public_domain_byte_exact", "public_domain_derived"}:
             validate_public_domain(root, record, errors)
         elif status == "third_party_attribution_ready":
             validate_third_party(root, record, errors)

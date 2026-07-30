@@ -34,6 +34,8 @@ struct BuildWeekNewcomerDemoTests {
         #expect(response.sections.count == 4)
         #expect(response.sources.map(\.url) == BuildWeekNewcomerDemo.steps.map(\.sourceURL))
         #expect(response.quickActions.filter { $0.kind == .openGuide }.count == 4)
+        #expect(response.decisionTrace?.isMachineValid == true)
+        #expect(response.decisionTrace?.selectedRecordIDs == BuildWeekNewcomerDemo.knowledgeRecordIDs)
     }
 
     @Test func parserRejectsModelsOutsideYouNewSolPolicy() throws {
@@ -84,6 +86,7 @@ struct BuildWeekNewcomerDemoTests {
         #expect(response.requestID == nil)
         #expect(response.sections.count == 4)
         #expect(response.answer.localizedCaseInsensitiveContains("planning guide"))
+        #expect(response.decisionTrace?.isMachineValid == true)
     }
 
     @Test func legacyPersistedResponseCannotBecomeLiveByDecoding() throws {

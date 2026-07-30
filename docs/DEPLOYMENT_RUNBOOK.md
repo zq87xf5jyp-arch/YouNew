@@ -36,28 +36,21 @@ Do not reset the database password merely to create a backup; the Dashboard conf
 
 ## Supabase release
 
-First inspect the current remote migration history with the reviewed Supabase CLI version and project ref:
+Use the reviewed Supabase CLI version and project ref:
 
 ```bash
 cd admin-dashboard
 pnpm dlx supabase@2.109.1 link --project-ref pgdzdxsiagfjioxwuqxf
-pnpm dlx supabase@2.109.1 migration list --linked
+pnpm dlx supabase@2.109.1 db push --dry-run
 ```
 
-The connected project currently contains remote migrations through `20260728173737` that are not present as local files in this release worktree. Do not use `db push`, `migration repair` or `--include-all` to bypass that drift. After `GO LIVE`, apply only the reviewed `supabase/migrations/20260728075522_younew_production_operations.sql` through the connected Supabase migration action, record the generated production migration version, and then verify it appears exactly once. The file is designed to extend the deployed business table in place. Stop on any different remote history or destructive diff.
-
-The Admin-to-site activation bridge is a later, independent change in `supabase/migrations/20260728212059_activate_public_content_feed.sql`. It requires a fresh rollout decision. Apply it only after the production-operations migration is confirmed, then verify:
-
-- `public_content_feed` exists with RLS and only the singleton `active` policy;
-- anonymous users can select the active feed but cannot insert, update or delete it;
-- `activate_content_artifact` rejects anonymous, unapproved, non-candidate and empty-artifact calls;
-- an approved owner can activate a controlled non-empty candidate;
-- the previous active artifact is superseded and one PII-safe audit event is stored.
+Review the dry-run against `supabase/migrations/20260728075522_younew_production_operations.sql`. Stop on unexpected destructive SQL or drift.
 
 Create independent random salts of at least 32 bytes in the secure secret manager, then set them without printing their values:
 
 ```bash
 pnpm dlx supabase@2.109.1 secrets set BUSINESS_INQUIRY_RATE_LIMIT_SALT PUBLIC_FEEDBACK_RATE_LIMIT_SALT --project-ref pgdzdxsiagfjioxwuqxf
+pnpm dlx supabase@2.109.1 db push
 pnpm dlx supabase@2.109.1 functions deploy submit-business-inquiry --project-ref pgdzdxsiagfjioxwuqxf
 pnpm dlx supabase@2.109.1 functions deploy submit-public-feedback --project-ref pgdzdxsiagfjioxwuqxf
 pnpm dlx supabase@2.109.1 functions deploy prepare-content-sync --project-ref pgdzdxsiagfjioxwuqxf
@@ -72,7 +65,6 @@ Post-deploy checks:
 - one controlled feedback report returns a receipt and appears in Admin;
 - rate-limit and invalid payload tests fail without PII in logs;
 - an authenticated owner creates one sync candidate, sees the same fingerprint, and does not activate it automatically.
-- after the activation-bridge rollout is separately authorized, the owner activates one reviewed non-empty candidate and `/api/public/content-sync` returns the same fingerprint with exact-origin CORS and ETag behavior.
 
 Remove or clearly label controlled test records after preserving audit evidence.
 
@@ -84,7 +76,7 @@ Required server environment:
 - `NEXT_PUBLIC_SUPABASE_ANON_KEY`;
 - any hosting-specific server configuration already required by the repository.
 
-Do not add a service-role key to browser-visible variables. Deploy the verified `.next` build only after the hosting target is confirmed. Test sign-in, owner/admin authorization, denial for an unapproved user, business detail/actions/export, feedback, content publication gate, sync candidate, manual non-empty candidate activation, `/api/public/content-sync` CORS/ETag/failure states and private workspace status.
+Do not add a service-role key to browser-visible variables. Deploy the verified `.next` build only after the hosting target is confirmed. Test sign-in, owner/admin authorization, denial for an unapproved user, business detail/actions/export, feedback, content publication gate, sync candidate and private workspace status.
 
 ## Public Hostinger artifact
 
@@ -100,13 +92,11 @@ Upload the contents of `out/` to the intended Hostinger document root, including
 After upload:
 
 - purge Hostinger/CDN cache;
-- verify `/`, `/search/`, `/guides/woon/`, `/map/`, `/updates/`, `/business/apply/`, `/support/`, `/privacy/`, `/status/` and a real 404;
+- verify `/`, `/search/`, `/guides/woon/`, `/map/`, `/business/apply/`, `/support/`, `/privacy/`, `/status/` and a real 404;
 - verify `/images/app-map-en.webp` and `/icons/apple-touch-icon.png` return `200` with correct MIME types;
 - verify CSP, HSTS, `nosniff`, referrer, frame and permissions headers;
-- verify the public CSP permits only `https://admin.younew.nl` for the Admin content-feed connection;
 - verify service worker update and offline shell;
 - run controlled business and feedback submissions only after Supabase is ready.
-- activate an Admin candidate only after reviewing its record count, fingerprint and official-source URLs; confirm the same values appear on `/updates/`.
 
 ## Release evidence
 

@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   localContentRepository,
+  sanitizePlannerState,
   sanitizeRecentContentItems,
   sanitizeRecentSearches,
   sanitizeSavedContentItems
@@ -37,6 +38,20 @@ test("saved and recent content fail closed for malformed or unsafe records", () 
 test("recent searches are normalized, deduplicated and bounded", () => {
   const result = sanitizeRecentSearches(["  DigiD  ", "DigiD", "x", 12, ...Array.from({ length: 12 }, (_, index) => `query ${index}`)]);
   assert.deepEqual(result, ["DigiD", "query 0", "query 1", "query 2", "query 3", "query 4", "query 5", "query 6"]);
+});
+
+test("planner routes accept only known, bounded and deduplicated choices", () => {
+  const valid = {
+    profile: "new-resident",
+    municipalitySlug: "den-haag",
+    goalIds: ["registration", "housing"]
+  };
+  assert.deepEqual(sanitizePlannerState(valid), valid);
+  assert.equal(sanitizePlannerState({ ...valid, profile: "admin" }), null);
+  assert.equal(sanitizePlannerState({ ...valid, municipalitySlug: "https://example.com" }), null);
+  assert.equal(sanitizePlannerState({ ...valid, goalIds: [] }), null);
+  assert.equal(sanitizePlannerState({ ...valid, goalIds: ["registration", "registration"] }), null);
+  assert.equal(sanitizePlannerState({ ...valid, goalIds: ["registration", "housing", "work", "transport"] }), null);
 });
 
 class MemoryStorage implements Storage {
@@ -87,6 +102,46 @@ test("a saved profile can be explicitly cleared when search returns to all conte
     assert.equal(localContentRepository.profile(), "expat");
     localContentRepository.clearProfile();
     assert.equal(localContentRepository.profile(), null);
+  } finally {
+    if (previousWindow) Object.defineProperty(globalThis, "window", previousWindow);
+    else Reflect.deleteProperty(globalThis, "window");
+  }
+});
+
+test("planner state migrates from v18, exports safely and is removed by clear all", () => {
+  const storage = new MemoryStorage();
+  const previousWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
+  Object.defineProperty(globalThis, "window", {
+    configurable: true,
+    value: {
+      localStorage: storage,
+      dispatchEvent: () => true
+    } as unknown as Window & typeof globalThis
+  });
+
+  try {
+    const legacyRoute = {
+      profile: "student",
+      municipalitySlug: "utrecht",
+      goalIds: ["registration", "housing"]
+    };
+    storage.setItem(localContentRepository.keys.plannerRoute, JSON.stringify(legacyRoute));
+    assert.deepEqual(localContentRepository.plannerRoute(), legacyRoute);
+
+    assert.equal(localContentRepository.setPlannerRoute({
+      profile: "worker",
+      municipalitySlug: "rotterdam",
+      goalIds: ["work", "taxes-benefits"]
+    }), true);
+    assert.deepEqual(localContentRepository.snapshot().plannerRoute, {
+      profile: "worker",
+      municipalitySlug: "rotterdam",
+      goalIds: ["work", "taxes-benefits"]
+    });
+
+    localContentRepository.clearAll();
+    assert.equal(localContentRepository.plannerRoute(), null);
+    assert.equal(storage.length, 0);
   } finally {
     if (previousWindow) Object.defineProperty(globalThis, "window", previousWindow);
     else Reflect.deleteProperty(globalThis, "window");

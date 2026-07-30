@@ -1,0 +1,25 @@
+{
+  "title": "YouNew social carousel",
+  "date": "2026-07-30",
+  "dimensions": {
+    "width": 1080,
+    "height": 1350,
+    "aspectRatio": "4:5"
+  },
+  "positioning": "Working ecosystem · Release candidate",
+  "files": [
+    "YouNew_Social_Carousel_01_Cover.png",
+    "YouNew_Social_Carousel_02_Connected_Product.png",
+    "YouNew_Social_Carousel_03_Verified_Evidence.png",
+    "YouNew_Social_Carousel_04_Architecture.png",
+    "YouNew_Social_Carousel_05_Release_Candidate.png"
+  ],
+  "claims": {
+    "staticRoutes": 585,
+    "indexableUrls": 575,
+    "publishedRecords": 186,
+    "passingWebAdminAiTests": 106,
+    "technicalReadiness": 7.8
+  },
+  "releaseBoundary": "Controlled release-candidate handoff; not unconditional public release authority."
+}

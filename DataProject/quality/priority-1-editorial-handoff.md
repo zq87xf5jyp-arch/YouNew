@@ -547,7 +547,7 @@ Assignment counts can exceed unique counts because a sourced fact or source can 
 - `DataProject/staging/practical-guides-wave-1.json` — SHA-256 `d2ce30c6711055d03f8eb9a1b80a777a394ff8d06bf7c18a2c1cde70a34df94e`
 - `DataProject/research/priority-1-government/priority-1-government-sources-2026-07-20.json` — SHA-256 `06722f7cc36c829bde409eb43d4449cf65fd1184f9ebb20bdf6945405e5a58c4`
 - `DataProject/research/priority-1-daily/priority-1-dossiers.json` — SHA-256 `6e5ef4d8cf10f1323574af853239171b6632b219f7989560c1a18c60b18987a3`
-- `DataProject/schema/entity.schema.json` — SHA-256 `5ed5c1c2f10d9bfb211a5fad2635ee2c992f14f4941387b0444fe84da15463f2`
+- `DataProject/schema/entity.schema.json` — SHA-256 `b4536d7b7115c48d75539783eede556b5ff29bb1cdb89f9dec872abc3b1db87c`
 
 ## Allowed next action
 

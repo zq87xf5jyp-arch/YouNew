@@ -283,7 +283,8 @@ private extension ContentRepository {
             isMapVisible: coordinates != nil && [.place, .city, .province, .officialService].contains(type),
             status: .published,
             deepLink: "younew://content/\(legacy.id.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? legacy.id)",
-            legacySourcePath: legacy.sourcePath
+            legacySourcePath: legacy.sourcePath,
+            governance: legacy.governance
         )
     }
 

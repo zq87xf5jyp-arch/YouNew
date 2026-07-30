@@ -1,0 +1,815 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/prunbz",
+    "id": "prunbz",
+    "slide": 2,
+    "layoutId": "5e8f2d54-17cd-4b27-91a8-97a1b4db058c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "ea968791-a5f3-4f52-8ec7-576a051fdb37",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#080B16",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "5e8f2d54-17cd-4b27-91a8-97a1b4db058c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "ea968791-a5f3-4f52-8ec7-576a051fdb37",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "ea968791-a5f3-4f52-8ec7-576a051fdb37",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/9kr25w7a",
+      "id": "1",
+      "name": "eyebrow-One connected product",
+      "bbox": [
+        64,
+        48,
+        440,
+        28
+      ],
+      "geometry": "rect",
+      "text": "ONE CONNECTED PRODUCT",
+      "textPreview": "ONE CONNECTED PRODUCT",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "color": "#62C9D8",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "ONE CONNECTED PRODUCT"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "ONE CONNECTED PRODUCT",
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "typeface": "Aptos",
+            "color": "#62C9D8",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ONE CONNECTED PRODUCT",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#62C9D8",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mhgju18z",
+      "id": "2",
+      "name": "s2-title",
+      "bbox": [
+        64,
+        78,
+        1120,
+        62
+      ],
+      "geometry": "rect",
+      "text": "Every surface serves the same product system",
+      "textPreview": "Every surface serves the same product system",
+      "resolvedFontSize": 50,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 50,
+        "typeface": "Aptos",
+        "color": "#F7F8FC",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Every surface serves the same product system"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Every surface serves the same product system",
+          "resolvedTextStyle": {
+            "fontSize": 50,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Every surface serves the same product system",
+              "fontSize": 50,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7ipk36p4",
+      "id": "3",
+      "name": "s2-system-line",
+      "bbox": [
+        110,
+        606,
+        1040,
+        4
+      ],
+      "geometry": "rect",
+      "fillColor": "#F47A24",
+      "lineColor": "#F47A24",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wni10b61",
+      "id": "4",
+      "name": "s2-app-frame",
+      "bbox": [
+        69,
+        167,
+        200,
+        422
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#182238",
+      "lineColor": "#2A3651",
+      "lineWidth": 1
+    },
+    {
+      "order": 5,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/oz2l4bid",
+      "id": "5",
+      "bbox": [
+        74,
+        172,
+        190,
+        412
+      ],
+      "geometry": "roundRect",
+      "alt": "Published Dutch iPhone home screen",
+      "contentType": "image/png",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 9474"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "94c1f8cf-9dbd-4721-99b4-54f7cc885233",
+        "contentType": "image/png",
+        "byteLength": 280637
+      }
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/ul0jy18v",
+      "id": "6",
+      "name": "s2-web-frame",
+      "bbox": [
+        291,
+        167,
+        420,
+        242
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#182238",
+      "lineColor": "#2A3651",
+      "lineWidth": 1
+    },
+    {
+      "order": 7,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/mxk32l07",
+      "id": "7",
+      "bbox": [
+        296,
+        172,
+        410,
+        232
+      ],
+      "geometry": "roundRect",
+      "alt": "Live public website",
+      "contentType": "image/jpeg",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 7759"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "576f0fd0-cf0f-470b-9aa0-24cb96264889",
+        "contentType": "image/jpeg",
+        "byteLength": 108409
+      }
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/cre1o7qh",
+      "id": "8",
+      "name": "s2-admin-frame",
+      "bbox": [
+        291,
+        429,
+        420,
+        160
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#182238",
+      "lineColor": "#2A3651",
+      "lineWidth": 1
+    },
+    {
+      "order": 9,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/43ilsri9",
+      "id": "9",
+      "bbox": [
+        296,
+        434,
+        410,
+        150
+      ],
+      "geometry": "roundRect",
+      "alt": "Authenticated Admin dashboard",
+      "contentType": "image/jpeg",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 12000"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "5cbe70da-1048-4c91-ba9c-2647a3301d7e",
+        "contentType": "image/jpeg",
+        "byteLength": 94180
+      }
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/lcnqho3m",
+      "id": "10",
+      "name": "s2-workspace-frame",
+      "bbox": [
+        733,
+        167,
+        246,
+        246
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#182238",
+      "lineColor": "#2A3651",
+      "lineWidth": 1
+    },
+    {
+      "order": 11,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/nex4jex8",
+      "id": "11",
+      "bbox": [
+        738,
+        172,
+        236,
+        236
+      ],
+      "geometry": "roundRect",
+      "alt": "YouNew Workspace control surface",
+      "contentType": "image/jpeg",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 7627"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "d4b1a2ed-cbac-4143-a097-cb6b988fd130",
+        "contentType": "image/jpeg",
+        "byteLength": 96721
+      }
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/zal8felg",
+      "id": "12",
+      "name": "s2-code-frame",
+      "bbox": [
+        733,
+        433,
+        440,
+        156
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#182238",
+      "lineColor": "#2A3651",
+      "lineWidth": 1
+    },
+    {
+      "order": 13,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/9gzmlofy",
+      "id": "13",
+      "bbox": [
+        738,
+        438,
+        430,
+        146
+      ],
+      "geometry": "roundRect",
+      "alt": "Xcode engineering workspace",
+      "contentType": "image/jpeg",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "roundRect",
+        "adjustmentList": [
+          {
+            "name": "adj",
+            "formula": "val 12329"
+          }
+        ]
+      },
+      "asset": {
+        "assetId": "9f006fc8-fd22-4ac7-a9ec-e7584f31b274",
+        "contentType": "image/jpeg",
+        "byteLength": 148935
+      }
+    },
+    {
+      "order": 14,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/90nq583y",
+      "id": "14",
+      "name": "s2-app-label",
+      "bbox": [
+        74,
+        620,
+        190,
+        28
+      ],
+      "geometry": "rect",
+      "text": "iOS",
+      "textPreview": "iOS",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19,
+        "typeface": "Aptos",
+        "color": "#F47A24",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "iOS"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "iOS",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Aptos",
+            "color": "#F47A24",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "iOS",
+              "fontSize": 19,
+              "typeface": "Aptos",
+              "color": "#F47A24",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 15,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/8zepc3md",
+      "id": "15",
+      "name": "s2-web-label",
+      "bbox": [
+        296,
+        620,
+        410,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Public Web + Admin",
+      "textPreview": "Public Web + Admin",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19,
+        "typeface": "Aptos",
+        "color": "#62C9D8",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Public Web + Admin"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Public Web + Admin",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Aptos",
+            "color": "#62C9D8",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Public Web + Admin",
+              "fontSize": 19,
+              "typeface": "Aptos",
+              "color": "#62C9D8",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 16,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/7y58jyls",
+      "id": "16",
+      "name": "s2-ops-label",
+      "bbox": [
+        738,
+        620,
+        430,
+        28
+      ],
+      "geometry": "rect",
+      "text": "Workspace + Engineering",
+      "textPreview": "Workspace + Engineering",
+      "resolvedFontSize": 19,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 19,
+        "typeface": "Aptos",
+        "color": "#3FD58B",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Workspace + Engineering"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Workspace + Engineering",
+          "resolvedTextStyle": {
+            "fontSize": 19,
+            "typeface": "Aptos",
+            "color": "#3FD58B",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Workspace + Engineering",
+              "fontSize": 19,
+              "typeface": "Aptos",
+              "color": "#3FD58B",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 17,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/mdw7at47",
+      "id": "17",
+      "name": "footer-left-2",
+      "bbox": [
+        64,
+        682,
+        520,
+        20
+      ],
+      "geometry": "rect",
+      "text": "YouNew · Product ecosystem · 30 July 2026",
+      "textPreview": "YouNew · Product ecosystem · 30 July 2026",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "color": "#74819A",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "YouNew · Product ecosystem · 30 July 2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "YouNew · Product ecosystem · 30 July 2026",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Aptos",
+            "color": "#74819A",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "YouNew · Product ecosystem · 30 July 2026",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#74819A",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 18,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/h47q983u",
+      "id": "18",
+      "name": "footer-page-2",
+      "bbox": [
+        1174,
+        682,
+        42,
+        20
+      ],
+      "geometry": "rect",
+      "text": "02",
+      "textPreview": "02",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "color": "#74819A",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "02"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "02",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Aptos",
+            "color": "#74819A",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "02",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#74819A",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

@@ -5,7 +5,7 @@
   "disclaimer": "Engineering evidence inventory, not legal advice. Trademark, official-emblem, personality, and jurisdiction-specific restrictions may still apply.",
   "methodology": [
     "Inventoried every Xcode asset payload and recomputed its SHA-1 from current repository bytes.",
-    "Reconciled all 58 city symbols to byte-exact Wikimedia Commons API records in CITY_SYMBOL_RIGHTS.json.",
+    "Reconciled all 58 city symbols to current Wikimedia Commons API records; derived PNGs retain byte-exact local SVG sources and explicit rasterization evidence.",
     "Imported photography credits from the manifest-backed in-app attribution registry.",
     "Verified three direct Commons UI thumbnails against their official width=1920 URLs and recorded original/local SHA-1 values.",
     "Bound all 26 project-owned map and province-flag payloads to the independent path/SHA-1 ownership registry.",
@@ -21,7 +21,8 @@
     },
     "byStatus": {
       "project_owned_documented": 36,
-      "public_domain_byte_exact": 58,
+      "public_domain_byte_exact": 31,
+      "public_domain_derived": 27,
       "third_party_attribution_ready": 76
     },
     "byFamily": {
@@ -116,13 +117,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_alkmaar_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_alkmaar_coat_of_arms.imageset/city_alkmaar_coat_of_arms.svg",
-          "sha1": "4929c443e881ab3c5bbed186bf36a5a4731dfaaa"
+          "path": "YouNew/Assets.xcassets/city_alkmaar_coat_of_arms.imageset/city_alkmaar_coat_of_arms.png",
+          "sha1": "2f55afcf4b4b74a0057df7f7c06e13a07c440b0f"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Alkmaar_wapen.svg",
       "creator": "Original by User:Arch",
       "licenseName": "Public domain",
@@ -132,11 +133,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "4929c443e881ab3c5bbed186bf36a5a4731dfaaa",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_alkmaar_coat_of_arms.svg",
+        "sha1": "4929c443e881ab3c5bbed186bf36a5a4731dfaaa"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_alkmaar_flag",
@@ -170,13 +176,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_almere_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_almere_coat_of_arms.imageset/city_almere_coat_of_arms.svg",
-          "sha1": "d2805390eeee120e7eb02739a952c31e0e29baf0"
+          "path": "YouNew/Assets.xcassets/city_almere_coat_of_arms.imageset/city_almere_coat_of_arms.png",
+          "sha1": "65c64d197c9e8315b6a30baaa09a5969f2e37ca2"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Almere_wapen.svg",
       "creator": "User:Arch",
       "licenseName": "Public domain",
@@ -186,11 +192,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "d2805390eeee120e7eb02739a952c31e0e29baf0",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_almere_coat_of_arms.svg",
+        "sha1": "d2805390eeee120e7eb02739a952c31e0e29baf0"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_almere_flag",
@@ -224,13 +235,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_amersfoort_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_amersfoort_coat_of_arms.imageset/city_amersfoort_coat_of_arms.svg",
-          "sha1": "ff25fdc0e4a51a48c10d609203c4344aeb0995e1"
+          "path": "YouNew/Assets.xcassets/city_amersfoort_coat_of_arms.imageset/city_amersfoort_coat_of_arms.png",
+          "sha1": "5750deca2983b11da0897860261bf381c34db956"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Amersfoort_wapen.svg",
       "creator": "Original by User:Arch",
       "licenseName": "Public domain",
@@ -240,11 +251,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "ff25fdc0e4a51a48c10d609203c4344aeb0995e1",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_amersfoort_coat_of_arms.svg",
+        "sha1": "ff25fdc0e4a51a48c10d609203c4344aeb0995e1"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_amersfoort_flag",
@@ -332,13 +348,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_amsterdam_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_amsterdam_coat_of_arms.imageset/city_amsterdam_coat_of_arms.svg",
-          "sha1": "8fb852a37fa15bcb05260090a1d4652f34ddb179"
+          "path": "YouNew/Assets.xcassets/city_amsterdam_coat_of_arms.imageset/city_amsterdam_coat_of_arms.png",
+          "sha1": "43cdfc65f974cdefdd9cf31fe5cfb8c2f6812038"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Wapen_van_Amsterdam.svg",
       "creator": "Unknown, SVG by User:Arch",
       "licenseName": "Public domain",
@@ -348,11 +364,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "8fb852a37fa15bcb05260090a1d4652f34ddb179",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_amsterdam_coat_of_arms.svg",
+        "sha1": "8fb852a37fa15bcb05260090a1d4652f34ddb179"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_amsterdam_flag",
@@ -386,13 +407,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_arnhem_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_arnhem_coat_of_arms.imageset/city_arnhem_coat_of_arms.svg",
-          "sha1": "5af5842b4f560bf76d1e1776d2b96e8b184d645d"
+          "path": "YouNew/Assets.xcassets/city_arnhem_coat_of_arms.imageset/city_arnhem_coat_of_arms.png",
+          "sha1": "d0f3361b4bc9a5592515bcee8959650e2a45dec9"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Arnhem.svg",
       "creator": "Original by User:Arch",
       "licenseName": "Public domain",
@@ -402,11 +423,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "5af5842b4f560bf76d1e1776d2b96e8b184d645d",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_arnhem_coat_of_arms.svg",
+        "sha1": "5af5842b4f560bf76d1e1776d2b96e8b184d645d"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_arnhem_flag",
@@ -440,13 +466,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_assen_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_assen_coat_of_arms.imageset/city_assen_coat_of_arms.svg",
-          "sha1": "f41d128b96bce8fc216518d3d0b39a98b3e9122f"
+          "path": "YouNew/Assets.xcassets/city_assen_coat_of_arms.imageset/city_assen_coat_of_arms.png",
+          "sha1": "e23f43ba113961356e432237048666afe78678cc"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Assen_wapen.svg",
       "creator": "unknown, svg by User:Arch",
       "licenseName": "Public domain",
@@ -456,11 +482,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "f41d128b96bce8fc216518d3d0b39a98b3e9122f",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_assen_coat_of_arms.svg",
+        "sha1": "f41d128b96bce8fc216518d3d0b39a98b3e9122f"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_assen_flag",
@@ -494,13 +525,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_breda_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_breda_coat_of_arms.imageset/city_breda_coat_of_arms.svg",
-          "sha1": "582b99ed1e0ccf92a9f898251a3060a131209408"
+          "path": "YouNew/Assets.xcassets/city_breda_coat_of_arms.imageset/city_breda_coat_of_arms.png",
+          "sha1": "23f592c62e85d78b8c5f694e8b29a82564a73b76"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Breda_wapen.svg",
       "creator": "Arch",
       "licenseName": "Public domain",
@@ -510,11 +541,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "582b99ed1e0ccf92a9f898251a3060a131209408",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_breda_coat_of_arms.svg",
+        "sha1": "582b99ed1e0ccf92a9f898251a3060a131209408"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_breda_flag",
@@ -548,13 +584,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_delft_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_delft_coat_of_arms.imageset/city_delft_coat_of_arms.svg",
-          "sha1": "b1a9a4bef0ad708e7af329d079416320a784b9e3"
+          "path": "YouNew/Assets.xcassets/city_delft_coat_of_arms.imageset/city_delft_coat_of_arms.png",
+          "sha1": "1df040090266c758e0536abf1c7fb121dda4d11f"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Delft.svg",
       "creator": "SVG by User:Arch",
       "licenseName": "Public domain",
@@ -564,11 +600,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "b1a9a4bef0ad708e7af329d079416320a784b9e3",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_delft_coat_of_arms.svg",
+        "sha1": "b1a9a4bef0ad708e7af329d079416320a784b9e3"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_delft_flag",
@@ -602,13 +643,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_den_haag_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_den_haag_coat_of_arms.imageset/city_den_haag_coat_of_arms.svg",
-          "sha1": "b3a33b598cda6011edcc3cef8a0d463eb6489fb7"
+          "path": "YouNew/Assets.xcassets/city_den_haag_coat_of_arms.imageset/city_den_haag_coat_of_arms.png",
+          "sha1": "71288f1a0f5309f27d126cdf86faba63be81ce59"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Den_Haag_wapen.svg",
       "creator": "User:Arch",
       "licenseName": "Public domain",
@@ -618,11 +659,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "b3a33b598cda6011edcc3cef8a0d463eb6489fb7",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_den_haag_coat_of_arms.svg",
+        "sha1": "b3a33b598cda6011edcc3cef8a0d463eb6489fb7"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_den_haag_flag",
@@ -656,13 +702,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_eindhoven_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_eindhoven_coat_of_arms.imageset/city_eindhoven_coat_of_arms.svg",
-          "sha1": "415283292c0aefd9efc3a0d27d2b05617df095b7"
+          "path": "YouNew/Assets.xcassets/city_eindhoven_coat_of_arms.imageset/city_eindhoven_coat_of_arms.png",
+          "sha1": "cc13e027e4e82d745e25227a5b6f7bc9be91a034"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Eindhoven_wapen.svg",
       "creator": "SVG by User:Arch",
       "licenseName": "Public domain",
@@ -672,11 +718,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "415283292c0aefd9efc3a0d27d2b05617df095b7",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_eindhoven_coat_of_arms.svg",
+        "sha1": "415283292c0aefd9efc3a0d27d2b05617df095b7"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_eindhoven_flag",
@@ -710,13 +761,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_groningen_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_groningen_coat_of_arms.imageset/city_groningen_coat_of_arms.svg",
-          "sha1": "ab372cb94883cd6a7ae2b2166bdf99725832bf34"
+          "path": "YouNew/Assets.xcassets/city_groningen_coat_of_arms.imageset/city_groningen_coat_of_arms.png",
+          "sha1": "70e7303de44be60cb25007c074bee01d14cd4c88"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Groningen_stad_wapen.svg",
       "creator": "Unknown creator",
       "licenseName": "Public domain",
@@ -726,11 +777,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "ab372cb94883cd6a7ae2b2166bdf99725832bf34",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_groningen_coat_of_arms.svg",
+        "sha1": "ab372cb94883cd6a7ae2b2166bdf99725832bf34"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_groningen_flag",
@@ -764,13 +820,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_haarlem_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_haarlem_coat_of_arms.imageset/city_haarlem_coat_of_arms.svg",
-          "sha1": "86210dc583cba1915c8817361d57f0991bd26391"
+          "path": "YouNew/Assets.xcassets/city_haarlem_coat_of_arms.imageset/city_haarlem_coat_of_arms.png",
+          "sha1": "de1ca51d8ae10c09b1ccb3363b46035a6cee08a3"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Wapen_Haarlem.svg",
       "creator": "Unknown authorUnknown author , SVG = Own work",
       "licenseName": "Public domain",
@@ -780,11 +836,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "86210dc583cba1915c8817361d57f0991bd26391",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_haarlem_coat_of_arms.svg",
+        "sha1": "86210dc583cba1915c8817361d57f0991bd26391"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_haarlem_flag",
@@ -818,13 +879,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_heerhugowaard_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_heerhugowaard_coat_of_arms.imageset/city_heerhugowaard_coat_of_arms.svg",
-          "sha1": "c180988d4b9220f8ef44fedb2e8d1bd70a7429f6"
+          "path": "YouNew/Assets.xcassets/city_heerhugowaard_coat_of_arms.imageset/city_heerhugowaard_coat_of_arms.png",
+          "sha1": "c366e2ec10a07518047abba3d7495bcac11544d9"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Heerhugowaard_wapen.svg",
       "creator": "Original by User:Arch",
       "licenseName": "Public domain",
@@ -834,11 +895,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "c180988d4b9220f8ef44fedb2e8d1bd70a7429f6",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_heerhugowaard_coat_of_arms.svg",
+        "sha1": "c180988d4b9220f8ef44fedb2e8d1bd70a7429f6"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_heerhugowaard_flag",
@@ -872,13 +938,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_hoorn_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_hoorn_coat_of_arms.imageset/city_hoorn_coat_of_arms.svg",
-          "sha1": "05e0530c3c6d9e879954d1b4a2e20992167328bd"
+          "path": "YouNew/Assets.xcassets/city_hoorn_coat_of_arms.imageset/city_hoorn_coat_of_arms.png",
+          "sha1": "a64701d04a743a1cbc9ef2326dc9804edaa13e2f"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Hoorn_wapen.svg",
       "creator": "Own work",
       "licenseName": "Public domain",
@@ -888,11 +954,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "05e0530c3c6d9e879954d1b4a2e20992167328bd",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_hoorn_coat_of_arms.svg",
+        "sha1": "05e0530c3c6d9e879954d1b4a2e20992167328bd"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_hoorn_flag",
@@ -926,13 +997,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_leeuwarden_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_leeuwarden_coat_of_arms.imageset/city_leeuwarden_coat_of_arms.svg",
-          "sha1": "007685795f5247831fe1238814476a5723235878"
+          "path": "YouNew/Assets.xcassets/city_leeuwarden_coat_of_arms.imageset/city_leeuwarden_coat_of_arms.png",
+          "sha1": "23610db39313d00e656f4ea96f93604a20a3c05c"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Leeuwarden.svg",
       "creator": "Unkown, svg by User:Arch",
       "licenseName": "Public domain",
@@ -942,11 +1013,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "007685795f5247831fe1238814476a5723235878",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_leeuwarden_coat_of_arms.svg",
+        "sha1": "007685795f5247831fe1238814476a5723235878"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_leeuwarden_flag",
@@ -980,13 +1056,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_leiden_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_leiden_coat_of_arms.imageset/city_leiden_coat_of_arms.svg",
-          "sha1": "10a1683d9c492ff82e7a3b27647179426dda2dcf"
+          "path": "YouNew/Assets.xcassets/city_leiden_coat_of_arms.imageset/city_leiden_coat_of_arms.png",
+          "sha1": "050d8e7f2c51a06fe7651bdbb1da3abb1656a812"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Leiden_wapen_HRvA.svg",
       "creator": "Unkown, SVG by User:Arch",
       "licenseName": "Public domain",
@@ -996,11 +1072,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "10a1683d9c492ff82e7a3b27647179426dda2dcf",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_leiden_coat_of_arms.svg",
+        "sha1": "10a1683d9c492ff82e7a3b27647179426dda2dcf"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_leiden_flag",
@@ -1034,13 +1115,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_lelystad_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_lelystad_coat_of_arms.imageset/city_lelystad_coat_of_arms.svg",
-          "sha1": "f0f60f458f4e2269970ff32fedb48c42f5953ab2"
+          "path": "YouNew/Assets.xcassets/city_lelystad_coat_of_arms.imageset/city_lelystad_coat_of_arms.png",
+          "sha1": "a4dac3a5f7bb3fc7efe5c22838c7e176d1852c94"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Lelystad_wapen.svg",
       "creator": "Hoge Raad van Adel, SVG by User:Arch",
       "licenseName": "Public domain",
@@ -1050,11 +1131,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "f0f60f458f4e2269970ff32fedb48c42f5953ab2",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_lelystad_coat_of_arms.svg",
+        "sha1": "f0f60f458f4e2269970ff32fedb48c42f5953ab2"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_lelystad_flag",
@@ -1088,13 +1174,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_maastricht_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_maastricht_coat_of_arms.imageset/city_maastricht_coat_of_arms.svg",
-          "sha1": "bc244c1b70c3a5b22e5387eee21a85c32d85f359"
+          "path": "YouNew/Assets.xcassets/city_maastricht_coat_of_arms.imageset/city_maastricht_coat_of_arms.png",
+          "sha1": "a713364627f95dd70868db91270d9dff661102db"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Wapen_van_Maastricht.svg",
       "creator": "Own work",
       "licenseName": "Public domain",
@@ -1104,11 +1190,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "bc244c1b70c3a5b22e5387eee21a85c32d85f359",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_maastricht_coat_of_arms.svg",
+        "sha1": "bc244c1b70c3a5b22e5387eee21a85c32d85f359"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_maastricht_flag",
@@ -1142,13 +1233,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_middelburg_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_middelburg_coat_of_arms.imageset/city_middelburg_coat_of_arms.svg",
-          "sha1": "4004590dd742f49d25698b9dfb22626193a65bf9"
+          "path": "YouNew/Assets.xcassets/city_middelburg_coat_of_arms.imageset/city_middelburg_coat_of_arms.png",
+          "sha1": "d7dd097edc6596c05a1f7460123904696d0b97a3"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Middelburg.svg",
       "creator": "SVG by User:Arch",
       "licenseName": "Public domain",
@@ -1158,11 +1249,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "4004590dd742f49d25698b9dfb22626193a65bf9",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_middelburg_coat_of_arms.svg",
+        "sha1": "4004590dd742f49d25698b9dfb22626193a65bf9"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_middelburg_flag",
@@ -1196,13 +1292,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_nijmegen_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_nijmegen_coat_of_arms.imageset/city_nijmegen_coat_of_arms.svg",
-          "sha1": "1a3f800dcab9dbad5be1dbbb7d9767f838207c06"
+          "path": "YouNew/Assets.xcassets/city_nijmegen_coat_of_arms.imageset/city_nijmegen_coat_of_arms.png",
+          "sha1": "44360e843c32d340f2c2aa084fa9f1fb4525f0f4"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Nijmegen.svg",
       "creator": "Unkown, SVG by User:Arch",
       "licenseName": "Public domain",
@@ -1212,11 +1308,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "1a3f800dcab9dbad5be1dbbb7d9767f838207c06",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_nijmegen_coat_of_arms.svg",
+        "sha1": "1a3f800dcab9dbad5be1dbbb7d9767f838207c06"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_nijmegen_flag",
@@ -1250,13 +1351,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_purmerend_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_purmerend_coat_of_arms.imageset/city_purmerend_coat_of_arms.svg",
-          "sha1": "4646bfa9d60ca6be4145043ffe942a5b8d4e9d22"
+          "path": "YouNew/Assets.xcassets/city_purmerend_coat_of_arms.imageset/city_purmerend_coat_of_arms.png",
+          "sha1": "f97c9b70c93d051b667279ee30acc3ba3da4148a"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Purmerend_wapen.svg",
       "creator": "Unkown, SVG by User:Arch",
       "licenseName": "Public domain",
@@ -1266,11 +1367,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "4646bfa9d60ca6be4145043ffe942a5b8d4e9d22",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_purmerend_coat_of_arms.svg",
+        "sha1": "4646bfa9d60ca6be4145043ffe942a5b8d4e9d22"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_purmerend_flag",
@@ -1304,13 +1410,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_rotterdam_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_rotterdam_coat_of_arms.imageset/city_rotterdam_coat_of_arms.svg",
-          "sha1": "c7c389a8d49b57019064287545bf5769656d99a9"
+          "path": "YouNew/Assets.xcassets/city_rotterdam_coat_of_arms.imageset/city_rotterdam_coat_of_arms.png",
+          "sha1": "6576b68754b155f928e5f7c4126053ebfb785bc6"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Rotterdam_wapen.svg",
       "creator": "Unknown authorUnknown author , SVG by User:Arch",
       "licenseName": "Public domain",
@@ -1320,11 +1426,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "c7c389a8d49b57019064287545bf5769656d99a9",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_rotterdam_coat_of_arms.svg",
+        "sha1": "c7c389a8d49b57019064287545bf5769656d99a9"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_rotterdam_flag",
@@ -1358,13 +1469,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_s_hertogenbosch_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_s_hertogenbosch_coat_of_arms.imageset/city_s_hertogenbosch_coat_of_arms.svg",
-          "sha1": "5c3ba30a36695196a4d94e3b5ad3992fcd1e4a11"
+          "path": "YouNew/Assets.xcassets/city_s_hertogenbosch_coat_of_arms.imageset/city_s_hertogenbosch_coat_of_arms.png",
+          "sha1": "53da38d77d1292cbd4a9d89f2e02160ece14882d"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:S-Hertogenbosch_wapen.svg",
       "creator": "Arch",
       "licenseName": "Public domain",
@@ -1374,11 +1485,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "5c3ba30a36695196a4d94e3b5ad3992fcd1e4a11",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_s_hertogenbosch_coat_of_arms.svg",
+        "sha1": "5c3ba30a36695196a4d94e3b5ad3992fcd1e4a11"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_s_hertogenbosch_flag",
@@ -1466,13 +1582,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_utrecht_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_utrecht_coat_of_arms.imageset/city_utrecht_coat_of_arms.svg",
-          "sha1": "0cda29b0220b9901184b444262ea288bf5398533"
+          "path": "YouNew/Assets.xcassets/city_utrecht_coat_of_arms.imageset/city_utrecht_coat_of_arms.png",
+          "sha1": "53276f5079e53e3b9484cf895e9dc188b9e72c19"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Utrecht_gemeente_wapen.svg",
       "creator": "SVG by User:Arch",
       "licenseName": "Public domain",
@@ -1482,11 +1598,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "0cda29b0220b9901184b444262ea288bf5398533",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_utrecht_coat_of_arms.svg",
+        "sha1": "0cda29b0220b9901184b444262ea288bf5398533"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_utrecht_flag",
@@ -1520,13 +1641,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_venlo_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_venlo_coat_of_arms.imageset/city_venlo_coat_of_arms.svg",
-          "sha1": "88fa34bfe124b8840299c7d3af72c020f775afac"
+          "path": "YouNew/Assets.xcassets/city_venlo_coat_of_arms.imageset/city_venlo_coat_of_arms.png",
+          "sha1": "019813a02c88acd402bfa6eb31ab90aa578f0aec"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Venlo.svg",
       "creator": "svg by User:Arch",
       "licenseName": "Public domain",
@@ -1536,11 +1657,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "88fa34bfe124b8840299c7d3af72c020f775afac",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_venlo_coat_of_arms.svg",
+        "sha1": "88fa34bfe124b8840299c7d3af72c020f775afac"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_venlo_flag",
@@ -1574,13 +1700,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_zaanstad_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_zaanstad_coat_of_arms.imageset/city_zaanstad_coat_of_arms.svg",
-          "sha1": "10257b19b0a86568c55a6a6968eb7ebca47fdc44"
+          "path": "YouNew/Assets.xcassets/city_zaanstad_coat_of_arms.imageset/city_zaanstad_coat_of_arms.png",
+          "sha1": "d3f3d65f990fb2d7de72900aae2bbce12a717b8b"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Zaanstad.svg",
       "creator": "Unknown creator",
       "licenseName": "Public domain",
@@ -1590,11 +1716,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "10257b19b0a86568c55a6a6968eb7ebca47fdc44",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_zaanstad_coat_of_arms.svg",
+        "sha1": "10257b19b0a86568c55a6a6968eb7ebca47fdc44"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_zaanstad_flag",
@@ -1628,13 +1759,13 @@
       "localDirectory": "YouNew/Assets.xcassets/city_zwolle_coat_of_arms.imageset",
       "localFiles": [
         {
-          "path": "YouNew/Assets.xcassets/city_zwolle_coat_of_arms.imageset/city_zwolle_coat_of_arms.svg",
-          "sha1": "242b2337140d1a71bb30ee03d66ab428cf728de2"
+          "path": "YouNew/Assets.xcassets/city_zwolle_coat_of_arms.imageset/city_zwolle_coat_of_arms.png",
+          "sha1": "9011dd1e108d025f50b0abe26cb53d84a879e4ad"
         }
       ],
       "family": "city_symbol",
       "bucket": "cleared",
-      "status": "public_domain_byte_exact",
+      "status": "public_domain_derived",
       "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Coat_of_arms_of_Zwolle.svg",
       "creator": "Original by User:Arch",
       "licenseName": "Public domain",
@@ -1644,11 +1775,16 @@
         "BuildWeekFix/CITY_SYMBOL_RIGHTS.json"
       ],
       "commons": {
-        "localMatch": "current_byte_exact",
+        "localMatch": "derived_from_current",
         "remoteCurrentSHA1": "242b2337140d1a71bb30ee03d66ab428cf728de2",
         "checkedAt": "2026-07-22"
       },
-      "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+      "sourceArtifact": {
+        "path": "BuildWeekFix/CitySymbolSources/city_zwolle_coat_of_arms.svg",
+        "sha1": "242b2337140d1a71bb30ee03d66ab428cf728de2"
+      },
+      "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+      "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json."
     },
     {
       "assetID": "city_zwolle_flag",

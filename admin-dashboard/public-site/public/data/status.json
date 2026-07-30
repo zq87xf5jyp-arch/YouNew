@@ -2,32 +2,33 @@
   "schemaVersion": 1,
   "snapshotType": "static",
   "liveMonitoring": false,
-  "checkedAt": "2026-07-29",
+  "checkedAt": "2026-07-30",
   "website": {
     "status": "operational",
     "label": "Website",
-    "summary": "The production website, key public routes, app preview image and touch icon were reachable during the 29 July check."
+    "summary": "The production website, key public routes, app preview image and touch icon were reachable during the 30 July check; the replacement Hostinger package passed the complete local pre-deploy gate."
   },
   "content": {
     "status": "current",
     "label": "Published content",
-    "asOf": "2026-07-29",
-    "summary": "The published content snapshot used by the web experience was checked on 29 July 2026; two events that ended on 25 July were retired from current discovery."
+    "asOf": "2026-07-30",
+    "summary": "The published content snapshot used by the web experience was checked on 30 July 2026; two ended events and the closed BREDA venue are retired from current discovery."
   },
   "ios": {
     "status": "operational",
     "label": "iOS public distribution",
-    "publicVersion": null,
+    "publicVersion": "1.1",
     "testedVersion": "1.1",
-    "testedBuild": "5",
-    "summary": "The public App Store listing is reachable. Its current store version was not independently verified; version 1.1 (build 5) is the locally verified application build."
+    "testedBuild": "7",
+    "summary": "Apple's public lookup service reports App Store version 1.1. Version 1.1 (build 7) is the locally built and launched application candidate."
   },
   "businessForm": {
     "status": "operational",
     "label": "Business and feedback forms",
-    "summary": "Secure Supabase submission endpoints and their Admin review views are active in production."
+    "summary": "Secure Supabase endpoints and Admin review views are active. The 30 July check confirmed expected server-side validation without creating a production record."
   },
   "limitations": [
+    "Endpoint reachability and invalid-input rejection were verified without creating a synthetic inquiry or feedback record.",
     "This page is a static snapshot and does not provide live uptime monitoring.",
     "Saved web items are stored on the current device and do not yet sync with the iOS application.",
     "Some application-only capabilities are not available in the web experience."

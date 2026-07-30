@@ -3,7 +3,7 @@ import { ContentManager, type ManagedArticle } from "@/components/admin/content-
 import { sampleArticles } from "@/lib/data";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/auth";
-import { canEditContent, canPublishContent } from "@/lib/authorization";
+import { canEditContent } from "@/lib/authorization";
 import { normalizeManagedContentImages } from "@/lib/content-images";
 
 export default async function ContentPage() {
@@ -46,7 +46,6 @@ export default async function ContentPage() {
         initialRows={initialRows}
         supabaseEnabled={Boolean(supabase)}
         canEdit={canEditContent(admin.role)}
-        canPublish={canPublishContent(admin.role)}
       />
     </>
   );

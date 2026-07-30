@@ -13,6 +13,7 @@
     "build": "bash scripts/build.sh",
     "start": "node scripts/preview.mjs",
     "generate:content": "node scripts/generate-public-content.mjs",
+    "generate:geography": "node scripts/generate-netherlands-geography.mjs",
     "lint": "node node_modules/eslint/bin/eslint.js src --max-warnings=0",
     "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
     "test": "node --test tests/*.test.ts",

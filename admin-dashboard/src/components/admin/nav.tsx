@@ -15,7 +15,8 @@ import {
   MessageSquare,
   RefreshCcw,
   Settings,
-  ShieldCheck
+  ShieldCheck,
+  ShieldEllipsis
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { YouNewLogo } from "@/components/admin/logo";
@@ -25,6 +26,7 @@ const items = [
   { href: "/dashboard", label: "Панель", icon: LayoutDashboard },
   { href: "/analytics", label: "Аналитика", icon: BarChart3 },
   { href: "/sync", label: "Синхронизация", icon: RefreshCcw },
+  { href: "/trust", label: "Trust & Review", icon: ShieldEllipsis },
   { href: "/content", label: "Контент", icon: BookOpen },
   { href: "/business-inquiries", label: "Бизнес-заявки", icon: BriefcaseBusiness },
   { href: "/categories", label: "Категории", icon: ClipboardList },

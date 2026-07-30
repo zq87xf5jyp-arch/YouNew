@@ -49,7 +49,11 @@
     "search_keywords": {"type": "array", "minItems": 3, "uniqueItems": true, "items": {"type": "string", "minLength": 2}},
     "lifecycle_status": {"type": "string", "enum": ["draft", "qa", "published", "retired"]},
     "attributes": {"type": "object", "additionalProperties": {"type": "string"}},
-    "practical_guide": {"$ref": "#/$defs/practicalGuide"}
+    "practical_guide": {"$ref": "#/$defs/practicalGuide"},
+    "governance": {
+      "description": "Optional v1 governed projection. Legacy records remain valid and are backfilled as unverified.",
+      "$ref": "content-governance.schema.json"
+    }
   },
   "allOf": [
     {

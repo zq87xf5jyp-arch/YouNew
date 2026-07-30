@@ -1,0 +1,102 @@
+{
+  "schemaVersion": 1,
+  "evaluatedAt": "2026-07-30T12:00:00Z",
+  "cases": [
+    {
+      "id": "archived-wins",
+      "record": {
+        "publicationStatus": "archived",
+        "verificationStatus": "verified",
+        "officialSourceURL": "https://example.nl/source",
+        "lastVerifiedAt": "2026-07-29T12:00:00Z",
+        "nextReviewAt": "2026-10-27T12:00:00Z",
+        "reviewIntervalDays": 90
+      },
+      "expectedStatus": "archived"
+    },
+    {
+      "id": "disputed-wins",
+      "record": {
+        "publicationStatus": "published",
+        "verificationStatus": "disputed",
+        "officialSourceURL": "https://example.nl/source",
+        "lastVerifiedAt": "2026-07-29T12:00:00Z",
+        "nextReviewAt": "2026-10-27T12:00:00Z",
+        "reviewIntervalDays": 90
+      },
+      "expectedStatus": "disputed"
+    },
+    {
+      "id": "unavailable-wins",
+      "record": {
+        "publicationStatus": "published",
+        "verificationStatus": "source_unavailable",
+        "officialSourceURL": "https://example.nl/source",
+        "lastVerifiedAt": "2026-07-29T12:00:00Z",
+        "nextReviewAt": "2026-10-27T12:00:00Z",
+        "reviewIntervalDays": 90
+      },
+      "expectedStatus": "source_unavailable"
+    },
+    {
+      "id": "missing-source-is-unverified",
+      "record": {
+        "publicationStatus": "published",
+        "verificationStatus": "verified",
+        "officialSourceURL": null,
+        "lastVerifiedAt": "2026-07-29T12:00:00Z",
+        "nextReviewAt": "2026-10-27T12:00:00Z",
+        "reviewIntervalDays": 90
+      },
+      "expectedStatus": "unverified"
+    },
+    {
+      "id": "missing-date-is-unverified",
+      "record": {
+        "publicationStatus": "published",
+        "verificationStatus": "verified",
+        "officialSourceURL": "https://example.nl/source",
+        "lastVerifiedAt": null,
+        "nextReviewAt": null,
+        "reviewIntervalDays": 90
+      },
+      "expectedStatus": "unverified"
+    },
+    {
+      "id": "past-review-is-overdue",
+      "record": {
+        "publicationStatus": "published",
+        "verificationStatus": "verified",
+        "officialSourceURL": "https://example.nl/source",
+        "lastVerifiedAt": "2026-04-01T12:00:00Z",
+        "nextReviewAt": "2026-07-29T12:00:00Z",
+        "reviewIntervalDays": 120
+      },
+      "expectedStatus": "overdue"
+    },
+    {
+      "id": "within-lead-window-is-due-soon",
+      "record": {
+        "publicationStatus": "published",
+        "verificationStatus": "verified",
+        "officialSourceURL": "https://example.nl/source",
+        "lastVerifiedAt": "2026-05-10T12:00:00Z",
+        "nextReviewAt": "2026-08-05T12:00:00Z",
+        "reviewIntervalDays": 90
+      },
+      "expectedStatus": "review_due_soon"
+    },
+    {
+      "id": "current-record-is-verified",
+      "record": {
+        "publicationStatus": "published",
+        "verificationStatus": "verified",
+        "officialSourceURL": "https://example.nl/source",
+        "lastVerifiedAt": "2026-07-29T12:00:00Z",
+        "nextReviewAt": "2026-10-27T12:00:00Z",
+        "reviewIntervalDays": 90
+      },
+      "expectedStatus": "verified"
+    }
+  ]
+}

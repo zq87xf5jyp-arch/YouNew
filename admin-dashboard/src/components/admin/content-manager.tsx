@@ -78,13 +78,11 @@ const statusLabels: Record<ArticleStatus, string> = {
 export function ContentManager({
   initialRows,
   supabaseEnabled,
-  canEdit,
-  canPublish
+  canEdit
 }: {
   initialRows: ManagedArticle[];
   supabaseEnabled: boolean;
   canEdit: boolean;
-  canPublish: boolean;
 }) {
   const [rows, setRows] = useState(initialRows);
   const [draft, setDraft] = useState<ArticleDraft>(emptyDraft);
@@ -147,19 +145,8 @@ export function ContentManager({
       return;
     }
     if (draft.status === "published") {
-      const missing = [
-        !canPublish ? "роль Owner или Admin" : "",
-        !draft.description?.trim() ? "короткое описание" : "",
-        !draft.content?.trim() ? "полный текст" : "",
-        !draft.source?.trim().startsWith("https://") ? "официальный HTTPS-источник" : "",
-        !draft.verifiedDate ? "дата проверки" : "",
-        !draft.reviewConfirmed ? "подтверждение human review" : "",
-        draft.requiresMedia && draft.images.length === 0 ? "обязательное изображение" : ""
-      ].filter(Boolean);
-      if (missing.length > 0) {
-        setNotice(`Публикация заблокирована. Отсутствует: ${missing.join(", ")}.`);
-        return;
-      }
+      setNotice("Прямая публикация заблокирована. Переведите материал в QA и завершите Human Review Queue.");
+      return;
     }
 
     setSaving(true);
@@ -312,14 +299,17 @@ export function ContentManager({
               <div className="flex flex-col gap-2"><Label htmlFor="managed-slug">Слаг</Label><Input id="managed-slug" value={draft.slug} onChange={(event) => updateDraft("slug", event.target.value)} /></div>
               <div className="flex flex-col gap-2"><Label htmlFor="managed-language">Язык</Label><Input id="managed-language" value={draft.language} onChange={(event) => updateDraft("language", event.target.value)} /></div>
               <div className="flex flex-col gap-2"><Label>Категория</Label><Select value={draft.category} onValueChange={(value) => updateDraft("category", value)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectGroup>{Object.entries(categoryLabels).map(([value, label]) => <SelectItem value={value} key={value}>{label}</SelectItem>)}</SelectGroup></SelectContent></Select></div>
-              <div className="flex flex-col gap-2"><Label>Статус</Label><Select value={draft.status} onValueChange={(value) => updateDraft("status", value as ArticleStatus)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectGroup>{Object.entries(statusLabels).map(([value, label]) => <SelectItem value={value} key={value} disabled={value === "published" && !canPublish}>{label}</SelectItem>)}</SelectGroup></SelectContent></Select></div>
+              <div className="flex flex-col gap-2"><Label>Статус</Label><Select value={draft.status} onValueChange={(value) => updateDraft("status", value as ArticleStatus)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectGroup>{Object.entries(statusLabels).map(([value, label]) => <SelectItem value={value} key={value} disabled={value === "published"}>{label}</SelectItem>)}</SelectGroup></SelectContent></Select></div>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-description">Короткое описание</Label><Input id="managed-description" value={draft.description} onChange={(event) => updateDraft("description", event.target.value)} /></div>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-content">Полный текст</Label><Textarea id="managed-content" value={draft.content} onChange={(event) => updateDraft("content", event.target.value)} placeholder="Напишите текст материала…" /></div>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-source">Официальный источник</Label><Input id="managed-source" type="url" value={draft.source} onChange={(event) => updateDraft("source", event.target.value)} placeholder="https://www.government.nl/..." /></div>
-              <div className="flex flex-col gap-2"><Label htmlFor="managed-verified-date">Дата проверки источника</Label><Input id="managed-verified-date" type="date" max={new Date().toISOString().slice(0, 10)} value={draft.verifiedDate} onChange={(event) => updateDraft("verifiedDate", event.target.value)} /></div>
-              <fieldset className="flex flex-col gap-3 rounded-md border border-border bg-secondary/20 p-3">
-                <legend className="px-1 text-sm font-medium">Publication gate</legend>
-                <label className="flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1" checked={draft.reviewConfirmed} onChange={(event) => updateDraft("reviewConfirmed", event.target.checked)} />Human review завершён; текущий одобренный администратор будет записан как reviewer.</label>
+              <div className="rounded-md border border-cyan-400/20 bg-cyan-400/10 p-3 text-sm lg:col-span-2">
+                <p className="font-medium text-cyan-100">Verification evidence отделено от редактирования</p>
+                <p className="mt-1 text-xs text-muted-foreground">Изменение текста не обновляет reviewer, дату проверки или confidence. Используйте Trust & Review → Verified now после отдельной проверки источника.</p>
+                {draft.verifiedDate ? <p className="mt-2 text-xs">Последняя историческая дата: {draft.verifiedDate}. Это значение здесь только для чтения.</p> : null}
+              </div>
+              <fieldset className="flex flex-col gap-3 rounded-md border border-border bg-secondary/20 p-3 lg:col-span-2">
+                <legend className="px-1 text-sm font-medium">Content requirements</legend>
                 <label className="flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1" checked={draft.requiresMedia} onChange={(event) => updateDraft("requiresMedia", event.target.checked)} />Для публикации этого материала обязательно изображение.</label>
               </fieldset>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-tags">Теги</Label><Input id="managed-tags" value={draft.tags} onChange={(event) => updateDraft("tags", event.target.value)} placeholder="bsn, municipality, registration" /></div>
@@ -331,7 +321,7 @@ export function ContentManager({
                 onNotice={setNotice}
               />
               {notice && <p role="status" className="text-sm text-cyan-100 lg:col-span-2">{notice}</p>}
-              {draft.status === "published" ? <p className="rounded-md border border-amber-400/30 bg-amber-400/10 p-3 text-xs text-amber-100 lg:col-span-2">Publish создаёт queued sync job. Публичный сайт не меняется автоматически до успешной канонической синхронизации и deployment.</p> : null}
+              {draft.status === "published" ? <p className="rounded-md border border-amber-400/30 bg-amber-400/10 p-3 text-xs text-amber-100 lg:col-span-2">Прямая публикация запрещена. Human verification и server-side approval выполняются отдельными идемпотентными действиями; DataProject publication и deployment остаются отдельными подтверждаемыми операциями.</p> : null}
               <div className="lg:col-span-2"><Button type="submit" disabled={saving}><Save className="size-4" />{saving ? "Сохранение…" : editingId ? "Сохранить изменения" : "Создать материал"}</Button></div>
             </form>
           </CardContent>

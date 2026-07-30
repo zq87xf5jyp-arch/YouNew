@@ -114,6 +114,191 @@ struct KnowledgeDataGovernanceTests {
         #expect(report.lines.count == 11)
     }
 
+    @Test func governedEffectiveStatusUsesFailClosedPrecedenceAndFreshnessWindow() {
+        let now = Date(timeIntervalSince1970: 1_785_412_800) // 2026-07-30T12:00:00Z
+
+        #expect(envelope(publication: .archived).effectiveStatus(at: now) == .archived)
+        #expect(envelope(verification: .disputed).effectiveStatus(at: now) == .disputed)
+        #expect(envelope(verification: .sourceUnavailable).effectiveStatus(at: now) == .sourceUnavailable)
+        #expect(envelope(sourceURL: nil).effectiveStatus(at: now) == .unverified)
+        #expect(
+            envelope(
+                nextReviewAt: now.addingTimeInterval(6 * 86_400),
+                reviewIntervalDays: 90
+            ).effectiveStatus(at: now) == .reviewDueSoon
+        )
+        #expect(
+            envelope(
+                nextReviewAt: now.addingTimeInterval(-1),
+                reviewIntervalDays: 90
+            ).effectiveStatus(at: now) == .overdue
+        )
+    }
+
+    @Test func confidenceIndexIsVersionedEvidenceCoverageNotProbability() {
+        let valid = envelope()
+        #expect(valid.confidenceScore == 100)
+        #expect(valid.hasValidConfidenceEvidence)
+
+        let inconsistent = envelope(confidenceScore: 99)
+        #expect(!inconsistent.hasValidConfidenceEvidence)
+        #expect(ContentGovernanceEnvelope.reviewDueLeadDays(reviewIntervalDays: 2) == 1)
+        #expect(ContentGovernanceEnvelope.reviewDueLeadDays(reviewIntervalDays: 90) == 14)
+        #expect(ContentGovernanceEnvelope.reviewDueLeadDays(reviewIntervalDays: 365) == 14)
+    }
+
+    @Test func governedRetrievalExcludesUnsafeStatusesBeforeConfidenceRanking() {
+        let now = Date(timeIntervalSince1970: 1_785_412_800)
+        #expect(envelope(verification: .unverified).aiEligibility(at: now) == .excluded)
+        #expect(envelope(verification: .disputed).aiEligibility(at: now) == .excluded)
+        #expect(envelope(verification: .sourceUnavailable).aiEligibility(at: now) == .excluded)
+        #expect(
+            envelope(
+                verification: .verified,
+                nextReviewAt: now.addingTimeInterval(-1)
+            ).aiEligibility(at: now) == .secondaryOnly
+        )
+        #expect(envelope().aiEligibility(at: now) == .primary)
+    }
+
+    @Test func governedRetrievalRanksExactMunicipalityBeforeNationalAndExplainsExclusions() {
+        let now = Date(timeIntervalSince1970: 1_785_412_800)
+        let amsterdam = ContentJurisdiction(
+            countryCode: "NL",
+            level: .municipal,
+            municipalityDependent: true,
+            applicabilityVerified: true,
+            provinceCode: "PV27",
+            provinceName: "Noord-Holland",
+            municipalityCode: "GM0363",
+            municipalityName: "Amsterdam"
+        )
+        let rotterdam = ContentJurisdiction(
+            countryCode: "NL",
+            level: .municipal,
+            municipalityDependent: true,
+            applicabilityVerified: true,
+            provinceCode: "PV28",
+            provinceName: "Zuid-Holland",
+            municipalityCode: "GM0599",
+            municipalityName: "Rotterdam"
+        )
+        let result = GovernedRetrievalPolicy.rank(
+            [
+                GovernedRetrievalCandidate(recordID: "national", governance: envelope(id: "national")),
+                GovernedRetrievalCandidate(recordID: "amsterdam", governance: envelope(id: "amsterdam", jurisdiction: amsterdam)),
+                GovernedRetrievalCandidate(recordID: "rotterdam", governance: envelope(id: "rotterdam", jurisdiction: rotterdam)),
+                GovernedRetrievalCandidate(recordID: "disputed", governance: envelope(id: "disputed", verification: .disputed))
+            ],
+            municipality: "Amsterdam",
+            at: now
+        )
+
+        #expect(result.primary.map(\.recordID) == ["amsterdam", "national"])
+        #expect(result.excludedCandidateReasons == ["wrong_municipality": 1, "disputed": 1])
+        #expect(result.policyVersion == "retrieval-policy-v1")
+    }
+
+    @Test func decisionTraceIsDeterministicEvidenceNotHiddenReasoning() {
+        let trace = AIDecisionTrace(
+            selectedRecordIDs: ["brp-national"],
+            sourceCitations: [
+                AIDecisionSourceCitation(
+                    recordID: "brp-national",
+                    sourceTitle: "Registering in the BRP",
+                    sourcePublisher: "Government of the Netherlands",
+                    sourceURL: URL(string: "https://www.government.nl/topics/personal-data/question-and-answer/when-should-i-register-in-the-personal-records-database")!
+                )
+            ],
+            freshnessEvidence: [
+                AIDecisionEvidence(recordID: "brp-national", summary: "Checked 2026-07-30")
+            ],
+            jurisdictionEvidence: [
+                AIDecisionEvidence(recordID: "brp-national", summary: "National applicability verified")
+            ],
+            rankingFactors: ["exact jurisdiction", "official source", "freshness"],
+            confidenceBreakdown: ["officialSource": 40],
+            excludedCandidateReasons: ["wrong_municipality": 2],
+            policyVersion: "retrieval-policy-v1",
+            modelVersion: nil,
+            contextVersion: "context-v1"
+        )
+
+        #expect(trace.isMachineValid)
+        #expect(
+            AIDecisionTrace(
+                selectedRecordIDs: ["brp-national"],
+                sourceCitations: [],
+                freshnessEvidence: [],
+                jurisdictionEvidence: [],
+                rankingFactors: [],
+                confidenceBreakdown: [:],
+                excludedCandidateReasons: [:],
+                policyVersion: "",
+                modelVersion: nil,
+                contextVersion: ""
+            ).isMachineValid == false
+        )
+    }
+
+    private func envelope(
+        id: String = "fixture",
+        publication: GovernancePublicationStatus = .published,
+        verification: GovernanceVerificationStatus = .verified,
+        sourceURL: URL? = URL(string: "https://example.nl/source"),
+        nextReviewAt: Date? = Date(timeIntervalSince1970: 1_793_188_800),
+        reviewIntervalDays: Int? = 90,
+        confidenceScore: Int = 100,
+        jurisdiction: ContentJurisdiction? = nil
+    ) -> ContentGovernanceEnvelope {
+        ContentGovernanceEnvelope(
+            id: id,
+            title: "Fixture",
+            contentType: "article",
+            jurisdiction: jurisdiction ?? ContentJurisdiction(
+                countryCode: "NL",
+                level: .national,
+                municipalityDependent: false,
+                applicabilityVerified: true,
+                provinceCode: nil,
+                provinceName: nil,
+                municipalityCode: nil,
+                municipalityName: nil
+            ),
+            officialSourceURL: sourceURL,
+            sourceTitle: "Official source",
+            sourcePublisher: "Official publisher",
+            lastVerifiedAt: Date(timeIntervalSince1970: 1_785_326_400),
+            nextReviewAt: nextReviewAt,
+            reviewIntervalDays: reviewIntervalDays,
+            contentOwner: "content-owner",
+            reviewedBy: "reviewer-a",
+            verificationStatus: verification,
+            confidenceLevel: .high,
+            validityStart: nil,
+            validityEnd: nil,
+            changeNotes: nil,
+            version: 1,
+            updatedAt: Date(timeIntervalSince1970: 1_785_326_400),
+            publicationStatus: publication,
+            reviewState: .monitoring,
+            criticality: .critical,
+            contentOrigin: .governmentPublication,
+            originReference: "https://example.nl/source",
+            originCapturedAt: Date(timeIntervalSince1970: 1_785_326_400),
+            originArtifactDigest: "sha256:\(String(repeating: "a", count: 64))",
+            confidenceScore: confidenceScore,
+            confidenceScoreVersion: 1,
+            confidenceBreakdown: GovernanceConfidenceBreakdown(
+                officialSource: 40,
+                humanReviewer: 20,
+                independentReview: 15,
+                freshness: 10,
+                jurisdictionApplicability: 15
+            )
+        )
+    }
+
     private func event(id: String, start: Date, end: Date?, source: OfficialSource) -> CalendarEvent {
         CalendarEvent(
             id: id,

@@ -1,0 +1,215 @@
+{
+  "schemaVersion": 1,
+  "candidateID": "brp-amsterdam-governance-v1",
+  "status": "draft",
+  "publicationAuthorized": false,
+  "generatedAt": "2026-07-30T12:00:00Z",
+  "transformation": {
+    "identifier": "brp-amsterdam-governance-projection-v1",
+    "actorType": "service",
+    "parentVersion": 0,
+    "timestamp": "2026-07-30T12:00:00Z",
+    "sourceArtifact": "DataProject/research/priority-1-government/priority-1-government-sources-2026-07-20.json",
+    "sourceArtifactDigest": "sha256:06722f7cc36c829bde409eb43d4449cf65fd1184f9ebb20bdf6945405e5a58c4"
+  },
+  "governance": {
+    "id": "guide.registering-at-a-municipality",
+    "title": "Registering at a municipality — BRP + Amsterdam candidate",
+    "contentType": "practical_guide",
+    "jurisdiction": {
+      "countryCode": "NL",
+      "level": "mixed",
+      "municipalityDependent": true,
+      "applicabilityVerified": false,
+      "provinceCode": "PV27",
+      "provinceName": "Noord-Holland",
+      "municipalityCode": "GM0363",
+      "municipalityName": "Amsterdam"
+    },
+    "officialSourceURL": "https://www.government.nl/faq/when-should-i-register-with-the-personal-records-database-as-a-resident",
+    "sourceTitle": "When should I register with the Personal Records Database as a resident?",
+    "sourcePublisher": "Government of the Netherlands",
+    "lastVerifiedAt": null,
+    "nextReviewAt": null,
+    "reviewIntervalDays": 30,
+    "contentOwner": null,
+    "reviewedBy": null,
+    "verificationStatus": "unverified",
+    "confidenceLevel": "low",
+    "validityStart": null,
+    "validityEnd": null,
+    "changeNotes": "Mechanical migration of existing sourced research into a governed review candidate; no publication authority.",
+    "version": 1,
+    "updatedAt": "2026-07-30T12:00:00Z",
+    "publicationStatus": "draft",
+    "reviewState": "needs_review",
+    "criticality": "critical",
+    "contentOrigin": "migrated",
+    "originReference": "DataProject/research/priority-1-government/priority-1-government-sources-2026-07-20.json",
+    "originCapturedAt": "2026-07-30T12:00:00Z",
+    "originArtifactDigest": "sha256:06722f7cc36c829bde409eb43d4449cf65fd1184f9ebb20bdf6945405e5a58c4",
+    "confidenceScore": 40,
+    "confidenceScoreVersion": 1,
+    "confidenceBreakdown": {
+      "officialSource": 40,
+      "humanReviewer": 0,
+      "independentReview": 0,
+      "freshness": 0,
+      "jurisdictionApplicability": 0
+    }
+  },
+  "sourceEntityIDs": [
+    "government.brp-registration",
+    "government.rni-registration",
+    "government_service.first-registration-in-amsterdam"
+  ],
+  "sourceCitations": [
+    {
+      "id": "src.gov.brp-resident",
+      "title": "When should I register with the Personal Records Database as a resident?",
+      "publisher": "Government of the Netherlands",
+      "url": "https://www.government.nl/faq/when-should-i-register-with-the-personal-records-database-as-a-resident",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "REG-001",
+        "REG-002",
+        "REG-003",
+        "REG-004",
+        "REG-005",
+        "MOVE-004"
+      ],
+      "caveats": [
+        "The national page establishes the resident/non-resident split but does not provide each municipality's appointment method or complete document list.",
+        "Identity and lawful-residence checks can make an individual case take longer."
+      ]
+    },
+    {
+      "id": "src.nww.rni-register",
+      "title": "How can I register in the Non-residents Records Database (RNI)?",
+      "publisher": "NetherlandsWorldwide, Government of the Netherlands",
+      "url": "https://www.netherlandsworldwide.nl/non-residents-records-database/register",
+      "language": "en",
+      "jurisdiction": "national",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "REG-005",
+        "REG-006",
+        "REG-007",
+        "BSN-002",
+        "DIG-006"
+      ],
+      "caveats": [
+        "Desk eligibility changed by nationality and must be rechecked shortly before publication or travel.",
+        "The page describes exceptional registration through certain government organisations; those routes are situation-specific."
+      ]
+    },
+    {
+      "id": "src.amsterdam.first-registration",
+      "title": "Moving from abroad (immigration)",
+      "publisher": "City of Amsterdam",
+      "url": "https://www.amsterdam.nl/en/civil-affairs/first-registration/",
+      "language": "en",
+      "jurisdiction": "municipal:amsterdam",
+      "source_class": "primary_official",
+      "verified_at": "2026-07-20",
+      "verification_status": "verified_opened",
+      "page_last_updated": null,
+      "supports_fact_ids": [
+        "REG-008",
+        "REG-009",
+        "BSN-002"
+      ],
+      "caveats": [
+        "The procedure and document list are valid only for registration with the City of Amsterdam.",
+        "Student pre-registration and the Weesp appointment exception use separate local instructions.",
+        "Foreign certificates may require legalisation and a sworn translation."
+      ]
+    }
+  ],
+  "nationalFacts": [
+    {
+      "id": "REG-001",
+      "statement": "A person who will live in the Netherlands for longer than 4 months must register as a resident in the Personal Records Database (BRP) with the municipality where they live.",
+      "jurisdiction": "national",
+      "source_ids": [
+        "src.gov.brp-resident"
+      ],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "REG-002",
+      "statement": "A new resident must register within 5 days of arrival; accompanying partner and children must attend, and the municipality assigns a BSN through registration.",
+      "jurisdiction": "national",
+      "source_ids": [
+        "src.gov.brp-resident"
+      ],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "REG-003",
+      "statement": "Resident registration is at the permanent home address or, when the legal conditions are met, a correspondence address.",
+      "jurisdiction": "national",
+      "source_ids": [
+        "src.gov.brp-resident"
+      ],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "REG-004",
+      "statement": "BRP registration can require proof of lawful residence and identity verification; extra investigation or evidence may be necessary.",
+      "jurisdiction": "national",
+      "source_ids": [
+        "src.gov.brp-resident"
+      ],
+      "fact_status": "sourced_research_draft"
+    },
+    {
+      "id": "REG-005",
+      "statement": "A person who lives outside the Netherlands or will stay in the Netherlands for less than 4 months uses the Non-residents Records Database (RNI), which is part of the BRP, and receives a BSN on registration.",
+      "jurisdiction": "national",
+      "source_ids": [
+        "src.gov.brp-resident",
+        "src.nww.rni-register"
+      ],
+      "fact_status": "sourced_research_draft"
+    }
+  ],
+  "municipalityVariations": {
+    "Amsterdam": [
+      {
+        "id": "REG-008",
+        "statement": "For Amsterdam only, a person moving from abroad for more than 4 months must register with the City within 5 days and bring the locally specified identity, occupancy and civil-status evidence that applies to their case.",
+        "jurisdiction": "municipal:amsterdam",
+        "source_ids": [
+          "src.amsterdam.first-registration"
+        ],
+        "fact_status": "sourced_research_draft"
+      },
+      {
+        "id": "REG-009",
+        "statement": "Amsterdam's current first-registration page says registration is in person at a City Office, without an appointment except in Weesp; students follow a separate pre-registration instruction.",
+        "jurisdiction": "municipal:amsterdam",
+        "source_ids": [
+          "src.amsterdam.first-registration"
+        ],
+        "fact_status": "sourced_research_draft",
+        "reverify_by": "2026-08-20"
+      }
+    ]
+  },
+  "publicationBlockers": [
+    "Separate human review event is absent.",
+    "Server-side publication approval is absent.",
+    "Jurisdiction applicability evidence is not approved in the new workflow.",
+    "Freshness evidence has not been re-established under the governance contract.",
+    "User Outcome Gate has not run."
+  ]
+}

@@ -6,7 +6,7 @@ const siteRoot = new URL("../", import.meta.url);
 const content = JSON.parse(await readFile(new URL("src/generated/public-content.json", siteRoot), "utf8"));
 const mapModule = await import(new URL("src/lib/map/coverage.ts", siteRoot).href) as {
   clusterCoverageMapItems: (items: MapFixture[], bounds: MapBounds, collisionDistance?: number) => Array<{ id: string; items: MapFixture[] }>;
-  filterCoverageMapItems: (items: MapFixture[], filters: { city: string; category: string; type: string }) => MapFixture[];
+  filterCoverageMapItems: (items: MapFixture[], filters: { city: string; province: string; category: string; type: string; query?: string }) => MapFixture[];
   getCoverageMapBounds: (items: MapFixture[], focused: boolean) => MapBounds;
   netherlandsCoverageBounds: MapBounds;
 };
@@ -16,8 +16,9 @@ type MapFixture = {
   id: string;
   title: string;
   route: string;
-  type: "city" | "organization" | "place";
+  type: "city" | "municipality" | "organization" | "place";
   cityId: string | null;
+  provinceId: string | null;
   categorySlugs: string[];
   coordinate: { latitude: number; longitude: number };
   verifiedAt: string;
@@ -30,11 +31,11 @@ const mapItems: MapFixture[] = content.entities
   )
   .map((entity: {
     id: string; title: string; route: string; type: MapFixture["type"];
-    cityId: string | null; categorySlugs: string[]; coordinate: MapFixture["coordinate"];
+    cityId: string | null; provinceId: string | null; categorySlugs: string[]; coordinate: MapFixture["coordinate"];
     verifiedAt: string;
   }) => ({
     id: entity.id, title: entity.title, route: entity.route, type: entity.type,
-    cityId: entity.cityId, categorySlugs: entity.categorySlugs, coordinate: entity.coordinate,
+    cityId: entity.cityId, provinceId: entity.provinceId, categorySlugs: entity.categorySlugs, coordinate: entity.coordinate,
     verifiedAt: entity.verifiedAt
   }));
 
@@ -45,6 +46,7 @@ function fixture(id: string, latitude: number, longitude: number): MapFixture {
     route: `/places/${id}`,
     type: "place",
     cityId: "amsterdam",
+    provinceId: "noord-holland",
     categorySlugs: ["transport"],
     coordinate: { latitude, longitude },
     verifiedAt: "2026-07-20"
@@ -65,6 +67,7 @@ test("map input includes only published coordinate-backed cities, organizations 
 test("map filters combine city, content type and category", () => {
   const filtered = mapModule.filterCoverageMapItems(mapItems, {
     city: "amsterdam",
+    province: "noord-holland",
     type: "organization",
     category: "healthcare"
   });
@@ -72,6 +75,20 @@ test("map filters combine city, content type and category", () => {
   assert.ok(filtered.every((item) =>
     item.cityId === "amsterdam" && item.type === "organization" && item.categorySlugs.includes("healthcare")
   ));
+});
+
+test("map text search narrows published records without changing coordinate data", () => {
+  const target = mapItems.find((item) => item.title.includes("LOOKOUT"));
+  assert.ok(target);
+  const filtered = mapModule.filterCoverageMapItems(mapItems, {
+    city: "all",
+    province: "all",
+    type: "all",
+    category: "all",
+    query: "lookout"
+  });
+  assert.ok(filtered.some((item) => item.id === target.id));
+  assert.ok(filtered.every((item) => item.title.toLowerCase().includes("lookout") || item.cityId?.includes("lookout") || item.categorySlugs.some((category) => category.includes("lookout"))));
 });
 
 test("identical coordinates are grouped deterministically", () => {
@@ -104,7 +121,7 @@ test("map implementation is dependency-free, has a no-JavaScript list and print 
   const component = await readFile(new URL("src/components/coverage-map.tsx", siteRoot), "utf8");
   const styles = await readFile(new URL("src/app/globals.css", siteRoot), "utf8");
   assert.match(component, /<noscript>/);
-  assert.match(component, /complete published-content list/i);
+  assert.match(component, /complete directory list/i);
   assert.match(component, /id="map-results"/);
   assert.doesNotMatch(component, /fetch\(|navigator\.geolocation|maplibre|leaflet|openstreetmap/i);
   assert.match(styles, /@media print[\s\S]*\.coverage-map-layout/);

@@ -6,7 +6,7 @@ import { Check, Search, Share2, SlidersHorizontal, X } from "lucide-react";
 import { SaveButton } from "@/components/save-button";
 import { track } from "@/lib/analytics/client";
 import { contentKindLabel, publicWebSummary } from "@/lib/content/presentation";
-import { rankSearchDocuments, type SearchDocument } from "@/lib/search/rank";
+import { filterSearchDocumentsByProfile, rankSearchDocuments, type SearchDocument } from "@/lib/search/rank";
 import type { GuideAudienceProfile } from "@/lib/content/types";
 import { localContentRepository, sanitizeUserPathProfile } from "@/lib/storage/local-content";
 
@@ -56,10 +56,13 @@ export function SearchExperience() {
   }), [documents]);
 
   const ranked = useMemo(() => {
-    return rankSearchDocuments(documents, submittedQuery, {
+    const eligibleDocuments = filterSearchDocumentsByProfile(
+      documents,
+      (filters.profile || null) as GuideAudienceProfile | null
+    );
+    return rankSearchDocuments(eligibleDocuments, submittedQuery, {
       filters: { type: filters.type as SearchDocument["type"] || undefined, cityId: filters.city || undefined, provinceId: filters.province || undefined, category: filters.category || undefined },
-      limit: 80,
-      preferredProfile: (filters.profile || null) as GuideAudienceProfile | null
+      limit: 80
     });
   }, [documents, submittedQuery, filters]);
 
@@ -83,15 +86,18 @@ export function SearchExperience() {
     const value = query.trim();
     setSubmittedQuery(value); setSuggestionIndex(-1); syncUrl(value, filters);
     if (value) { localContentRepository.rememberSearch(value); setRecentSearches(localContentRepository.recentSearches()); }
-    const count = value ? rankSearchDocuments(documents, value, {
+    const eligibleDocuments = filterSearchDocumentsByProfile(
+      documents,
+      (filters.profile || null) as GuideAudienceProfile | null
+    );
+    const count = value ? rankSearchDocuments(eligibleDocuments, value, {
       filters: {
         type: filters.type as SearchDocument["type"] || undefined,
         cityId: filters.city || undefined,
         provinceId: filters.province || undefined,
         category: filters.category || undefined
       },
-      limit: 200,
-      preferredProfile: (filters.profile || null) as GuideAudienceProfile | null
+      limit: 200
     }).length : 0;
     track({ name: "search", resultCount: count, hasResults: count > 0 });
   }
@@ -137,7 +143,7 @@ export function SearchExperience() {
 
       <div className="search-filter-bar" aria-label="Search filters">
         <span><SlidersHorizontal aria-hidden /> Filters</span>
-        <label>Type<select value={filters.type} onChange={(event) => setFilter("type", event.target.value)}><option value="">All</option><option value="guide">Guides & summaries</option><option value="city">Cities</option><option value="organization">Organizations</option><option value="place">Places</option><option value="category">Categories</option><option value="page">Useful pages</option></select></label>
+        <label>Type<select value={filters.type} onChange={(event) => setFilter("type", event.target.value)}><option value="">All</option><option value="guide">Guides & summaries</option><option value="city">Reviewed city guides</option><option value="municipality">Municipalities</option><option value="province">Provinces</option><option value="organization">Organizations</option><option value="place">Places</option><option value="category">Categories</option><option value="page">Useful pages</option></select></label>
         <label>City<select value={filters.city} onChange={(event) => setFilter("city", event.target.value)}><option value="">All</option>{options.cities.map((value) => <option value={value} key={value}>{value.replaceAll("-", " ")}</option>)}</select></label>
         <label>Province<select value={filters.province} onChange={(event) => setFilter("province", event.target.value)}><option value="">All</option>{options.provinces.map((value) => <option value={value} key={value}>{value.replaceAll("-", " ")}</option>)}</select></label>
         <label>Category<select value={filters.category} onChange={(event) => setFilter("category", event.target.value)}><option value="">All</option>{options.categories.map((value) => <option value={value} key={value}>{value.replaceAll("-", " ")}</option>)}</select></label>

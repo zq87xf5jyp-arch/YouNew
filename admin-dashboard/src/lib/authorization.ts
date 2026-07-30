@@ -40,3 +40,15 @@ export function canPublishContent(role: AdminRole) {
 export function canManageBusinessInquiries(role: AdminRole) {
   return role === "owner" || role === "admin";
 }
+
+export function canVerifyContent(role: AdminRole) {
+  return role === "owner" || role === "admin" || role === "qa";
+}
+
+export function canWorkReviewQueue(role: AdminRole) {
+  return role === "owner" || role === "admin" || role === "editor" || role === "qa";
+}
+
+export function canManageGovernancePolicy(role: AdminRole) {
+  return role === "owner" || role === "admin";
+}
