@@ -203,7 +203,13 @@ def validate_record(
     media_id_owner: dict,
     *,
     enforce_current_temporal: bool = True,
+    enforce_temporal_freshness=None,
 ):
+    # Backward-compatible keyword retained for callers introduced by the
+    # production release resolver. Both names describe the same fail-closed
+    # freshness/expiry gate.
+    if enforce_temporal_freshness is not None:
+        enforce_current_temporal = enforce_temporal_freshness
     expect(isinstance(record, dict), f"{label} must be an object")
     expect(REQUIRED_FIELDS <= set(record), f"{label} is missing {sorted(REQUIRED_FIELDS - set(record))}")
     entity_id = record["id"]
