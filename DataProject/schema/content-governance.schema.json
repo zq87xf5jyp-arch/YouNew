@@ -1,0 +1,140 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://younew.nl/schemas/data-project/content-governance.schema.json",
+  "title": "YouNew Content Governance Envelope",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "title",
+    "contentType",
+    "jurisdiction",
+    "officialSourceURL",
+    "sourceTitle",
+    "sourcePublisher",
+    "lastVerifiedAt",
+    "nextReviewAt",
+    "reviewIntervalDays",
+    "contentOwner",
+    "reviewedBy",
+    "verificationStatus",
+    "confidenceLevel",
+    "validityStart",
+    "validityEnd",
+    "changeNotes",
+    "version",
+    "updatedAt",
+    "publicationStatus",
+    "reviewState",
+    "criticality",
+    "contentOrigin",
+    "originReference",
+    "originCapturedAt",
+    "originArtifactDigest",
+    "confidenceScore",
+    "confidenceScoreVersion",
+    "confidenceBreakdown"
+  ],
+  "properties": {
+    "id": {"type": "string", "minLength": 1, "maxLength": 200},
+    "title": {"type": "string", "minLength": 1, "maxLength": 300},
+    "contentType": {"type": "string", "minLength": 1, "maxLength": 80},
+    "jurisdiction": {"$ref": "#/$defs/jurisdiction"},
+    "officialSourceURL": {"type": ["string", "null"], "format": "uri", "pattern": "^https://"},
+    "sourceTitle": {"type": ["string", "null"], "maxLength": 300},
+    "sourcePublisher": {"type": ["string", "null"], "maxLength": 200},
+    "lastVerifiedAt": {"type": ["string", "null"], "format": "date-time"},
+    "nextReviewAt": {"type": ["string", "null"], "format": "date-time"},
+    "reviewIntervalDays": {"type": ["integer", "null"], "minimum": 1, "maximum": 730},
+    "contentOwner": {"type": ["string", "null"], "maxLength": 160},
+    "reviewedBy": {"type": ["string", "null"], "maxLength": 160},
+    "verificationStatus": {
+      "type": "string",
+      "enum": [
+        "unverified",
+        "verified",
+        "review_due_soon",
+        "overdue",
+        "source_unavailable",
+        "disputed",
+        "archived"
+      ]
+    },
+    "confidenceLevel": {"type": "string", "enum": ["low", "medium", "high"]},
+    "validityStart": {"type": ["string", "null"], "format": "date-time"},
+    "validityEnd": {"type": ["string", "null"], "format": "date-time"},
+    "changeNotes": {"type": ["string", "null"], "maxLength": 2000},
+    "version": {"type": "integer", "minimum": 1},
+    "updatedAt": {"type": "string", "format": "date-time"},
+    "publicationStatus": {"type": "string", "enum": ["draft", "qa", "published", "archived"]},
+    "reviewState": {
+      "type": "string",
+      "enum": ["needs_review", "assigned", "in_review", "approved", "monitoring", "expired", "closed"]
+    },
+    "criticality": {"type": "string", "enum": ["standard", "critical"]},
+    "contentOrigin": {
+      "type": "string",
+      "enum": [
+        "imported",
+        "manually_created",
+        "municipality_release",
+        "government_publication",
+        "ai_generated_draft",
+        "migrated"
+      ]
+    },
+    "originReference": {"type": ["string", "null"], "maxLength": 1000},
+    "originCapturedAt": {"type": ["string", "null"], "format": "date-time"},
+    "originArtifactDigest": {
+      "type": ["string", "null"],
+      "pattern": "^sha256:[a-f0-9]{64}$"
+    },
+    "confidenceScore": {"type": "integer", "minimum": 0, "maximum": 100},
+    "confidenceScoreVersion": {"type": "integer", "const": 1},
+    "confidenceBreakdown": {"$ref": "#/$defs/confidenceBreakdown"}
+  },
+  "$defs": {
+    "jurisdiction": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "countryCode",
+        "level",
+        "municipalityDependent",
+        "applicabilityVerified",
+        "provinceCode",
+        "provinceName",
+        "municipalityCode",
+        "municipalityName"
+      ],
+      "properties": {
+        "countryCode": {"type": "string", "const": "NL"},
+        "level": {"type": "string", "enum": ["national", "provincial", "municipal", "mixed"]},
+        "municipalityDependent": {"type": "boolean"},
+        "applicabilityVerified": {"type": "boolean"},
+        "provinceCode": {"type": ["string", "null"], "maxLength": 20},
+        "provinceName": {"type": ["string", "null"], "maxLength": 120},
+        "municipalityCode": {"type": ["string", "null"], "maxLength": 20},
+        "municipalityName": {"type": ["string", "null"], "maxLength": 120}
+      }
+    },
+    "confidenceBreakdown": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "officialSource",
+        "humanReviewer",
+        "independentReview",
+        "freshness",
+        "jurisdictionApplicability"
+      ],
+      "properties": {
+        "officialSource": {"type": "integer", "enum": [0, 40]},
+        "humanReviewer": {"type": "integer", "enum": [0, 20]},
+        "independentReview": {"type": "integer", "enum": [0, 15]},
+        "freshness": {"type": "integer", "enum": [0, 10]},
+        "jurisdictionApplicability": {"type": "integer", "enum": [0, 15]}
+      }
+    }
+  }
+}

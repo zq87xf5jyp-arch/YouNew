@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "registryVersion": "2026-draft",
+  "publisher": "Statistics Netherlands (CBS)",
+  "officialEvidenceURL": "https://www.cbs.nl/en-gb/our-services/codes-classifications",
+  "evidenceState": "not_established",
+  "denominatorEstablished": false,
+  "reason": "The complete current official Dutch municipality code list has not yet been imported and independently reconciled.",
+  "pilotScope": {
+    "denominatorEstablished": true,
+    "municipalityCodes": ["GM0363"],
+    "purpose": "BRP plus Amsterdam vertical only; never substitute this pilot denominator for national coverage."
+  },
+  "municipalities": [
+    {"code": "GM0363", "name": "Amsterdam", "provinceCode": "PV27", "pilot": true},
+    {"code": null, "name": "Rotterdam", "provinceCode": null, "pilot": false},
+    {"code": null, "name": "Den Haag", "provinceCode": null, "pilot": false},
+    {"code": null, "name": "Utrecht", "provinceCode": null, "pilot": false},
+    {"code": null, "name": "Eindhoven", "provinceCode": null, "pilot": false}
+  ]
+}

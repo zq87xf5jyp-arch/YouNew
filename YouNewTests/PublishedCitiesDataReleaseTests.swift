@@ -60,6 +60,27 @@ struct PublishedCitiesDataReleaseTests {
         #expect(result.migrationRegistry.isEmpty)
     }
 
+    @Test func oldRuntimeWithoutGovernanceRemainsDecodableButDegraded() throws {
+        let result = DataProjectRuntimeLoader.load(data: try runtimeData(governance: nil))
+        let entity = try #require(result.entities.first)
+
+        #expect(result.entities.count == 1)
+        #expect(entity.governance == nil)
+    }
+
+    @Test func newRuntimePropagatesSafeGovernanceAndRejectsUnsafeEnvelope() throws {
+        let safeResult = DataProjectRuntimeLoader.load(data: try runtimeData(governance: governanceEnvelope()))
+        let safe = try #require(safeResult.entities.first)
+        #expect(safe.governance?.publicationStatus == .published)
+        #expect(safe.governance?.effectiveStatus() == .verified)
+
+        var unsafe = governanceEnvelope()
+        unsafe["publicationStatus"] = "draft"
+        unsafe["verificationStatus"] = "unverified"
+        let unsafeResult = DataProjectRuntimeLoader.load(data: try runtimeData(governance: unsafe))
+        #expect(unsafeResult.entities.isEmpty)
+    }
+
     @Test func publishedPlaceRoutesToItsCanonicalGuideDetail() throws {
         let museum = try #require(
             NetherlandsKnowledgeDatabase.shared.entity(id: "museum.rijksmuseum")
@@ -81,5 +102,87 @@ struct PublishedCitiesDataReleaseTests {
                 for: .tourist
             )
         )
+    }
+
+    private func runtimeData(governance: [String: Any]?) throws -> Data {
+        var entity: [String: Any] = [
+            "id": "government.fixture-governed",
+            "kind": "governmentService",
+            "title": "Governed fixture",
+            "summary": "Fixture summary",
+            "cityId": NSNull(),
+            "provinceId": NSNull(),
+            "category": "government",
+            "coordinate": NSNull(),
+            "source": [
+                "title": "Official fixture",
+                "publisher": "Government of the Netherlands",
+                "url": "https://example.nl/source"
+            ],
+            "lastChecked": "2026-07-30",
+            "images": [],
+            "aiSummary": "Governed fixture summary for compatibility testing.",
+            "relatedEntityIDs": [],
+            "attributes": [:],
+            "keywords": ["fixture"],
+            "publicationStatus": "published",
+            "verificationStatus": "verified"
+        ]
+        if let governance { entity["governance"] = governance }
+        return try JSONSerialization.data(withJSONObject: [
+            "schemaVersion": 1,
+            "mode": "production",
+            "migrationRegistry": [:],
+            "entities": [entity]
+        ])
+    }
+
+    private func governanceEnvelope() -> [String: Any] {
+        [
+            "id": "government.fixture-governed",
+            "title": "Governed fixture",
+            "contentType": "government_service",
+            "jurisdiction": [
+                "countryCode": "NL",
+                "level": "national",
+                "municipalityDependent": false,
+                "applicabilityVerified": true,
+                "provinceCode": NSNull(),
+                "provinceName": NSNull(),
+                "municipalityCode": NSNull(),
+                "municipalityName": NSNull()
+            ],
+            "officialSourceURL": "https://example.nl/source",
+            "sourceTitle": "Official fixture",
+            "sourcePublisher": "Government of the Netherlands",
+            "lastVerifiedAt": "2026-07-30T12:00:00Z",
+            "nextReviewAt": "2099-01-01T00:00:00Z",
+            "reviewIntervalDays": 90,
+            "contentOwner": "owner",
+            "reviewedBy": "reviewer-a",
+            "verificationStatus": "verified",
+            "confidenceLevel": "high",
+            "validityStart": NSNull(),
+            "validityEnd": NSNull(),
+            "changeNotes": NSNull(),
+            "version": 1,
+            "updatedAt": "2026-07-30T12:00:00Z",
+            "publicationStatus": "published",
+            "reviewState": "monitoring",
+            "criticality": "critical",
+            "contentOrigin": "government_publication",
+            "originReference": "https://example.nl/source",
+            "originCapturedAt": "2026-07-30T12:00:00Z",
+            "originArtifactDigest": "sha256:\(String(repeating: "a", count: 64))",
+            "confidenceScore": 85,
+            "confidenceScoreVersion": 1,
+            "confidenceBreakdown": [
+                "officialSource": 40,
+                "humanReviewer": 20,
+                "independentReview": 0,
+                "freshness": 10,
+                "jurisdictionApplicability": 15
+            ]
+        ]
     }
 }

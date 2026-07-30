@@ -37,7 +37,19 @@ enum DataProjectRuntimeLoader {
 
     static func load(data artifactData: Data) -> DataProjectRuntimeLoadResult {
         do {
-            let artifact = try JSONDecoder().decode(RuntimeArtifact.self, from: artifactData)
+            let decoder = JSONDecoder()
+            decoder.dateDecodingStrategy = .custom { decoder in
+                let container = try decoder.singleValueContainer()
+                let value = try container.decode(String.self)
+                guard let date = ISO8601DateFormatter().date(from: value) else {
+                    throw DecodingError.dataCorruptedError(
+                        in: container,
+                        debugDescription: "Expected ISO 8601 UTC instant"
+                    )
+                }
+                return date
+            }
+            let artifact = try decoder.decode(RuntimeArtifact.self, from: artifactData)
             guard artifact.schemaVersion == 1, artifact.mode == "production" else {
                 logger.error("Canonical runtime artifact has an unsupported schema or non-production mode; using legacy fallback")
                 return .empty
@@ -45,6 +57,12 @@ enum DataProjectRuntimeLoader {
             let entities = artifact.entities.compactMap { record -> NetherlandsKnowledgeEntity? in
                 guard record.publicationStatus == "published", record.verificationStatus == "verified" else {
                     logger.warning("Excluded non-published canonical entity: \(record.id, privacy: .public)")
+                    return nil
+                }
+                if let governance = record.governance,
+                   governance.publicationStatus != .published
+                    || governance.aiEligibility() == .excluded {
+                    logger.warning("Excluded unsafe governed entity: \(record.id, privacy: .public)")
                     return nil
                 }
                 return record.entity
@@ -88,6 +106,7 @@ private struct RuntimeEntity: Decodable {
     let keywords: [String]
     let publicationStatus: String
     let verificationStatus: String
+    let governance: ContentGovernanceEnvelope?
 
     var entity: NetherlandsKnowledgeEntity {
         let visualSet = NetherlandsVisualSet(
@@ -114,7 +133,8 @@ private struct RuntimeEntity: Decodable {
             route: runtimeRoute,
             attributes: attributes,
             keywords: keywords,
-            explicitPersonaTags: nil
+            explicitPersonaTags: nil,
+            governance: governance
         )
     }
 

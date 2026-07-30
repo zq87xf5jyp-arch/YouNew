@@ -28,6 +28,7 @@ test("generated public content comes only from governed production releases", ()
     entity.id === "event.worldpride-amsterdam-2026-pride-walk" ||
     entity.id === "event.worldpride-amsterdam-2026-pride-park"
   ));
+  assert.ok(content.entities.every((entity: { governance: unknown }) => entity.governance === null));
 });
 
 test("derived collections, routes and slugs are internally consistent", () => {

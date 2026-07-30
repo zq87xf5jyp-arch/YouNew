@@ -37,6 +37,7 @@ PUBLISHED_WEB_ARTIFACTS = (
     ROOT / "admin-dashboard" / "public-site" / "public" / "data" / "content-provenance.json",
 )
 RESTRICTED_STATUSES = {401, 403, 429}
+CHECKER_VERSION = "younew-link-checker-v3"
 
 
 def add_urls(urls, text, location):
@@ -134,6 +135,23 @@ def is_confirmed_failure(status):
     return isinstance(status, int) and 400 <= status < 500 and status not in RESTRICTED_STATUSES
 
 
+def classify_outcome(url, status, final_url, evidence):
+    if isinstance(status, int) and status in RESTRICTED_STATUSES:
+        return "restricted"
+    if is_confirmed_failure(status):
+        return "hard_failure"
+    if not isinstance(status, int) or status >= 500:
+        return "invalid_tls" if "ssl" in str(evidence).casefold() else "transient_failure"
+    if isinstance(final_url, str) and final_url:
+        return "redirected" if status < 400 and final_url.rstrip("/") != str(url).rstrip("/") else "reachable"
+    return "reachable"
+
+
+def record_id_from_location(location):
+    match = re.match(r"^effective-release:[^:]+:([^:]+):", str(location))
+    return match.group(1) if match else None
+
+
 def write_reports(results, release_ids):
     confirmed_failures = [result for result in results if is_confirmed_failure(result[2])]
     restricted = [result for result in results if result[2] in RESTRICTED_STATUSES]
@@ -147,9 +165,47 @@ def write_reports(results, release_ids):
             proposed_fix = "Replace or re-verify URL" if severity == "high" else "Retry in scheduled QA; keep an in-app failure state"
             writer.writerow([severity, location, f"Open external link {url}", "Official source opens successfully", f"HTTP {status or 'no response'} ({evidence})", proposed_fix, url, status, final, evidence])
 
+    checked_at = datetime.datetime.now(datetime.timezone.utc).isoformat()
+    attempts = [
+        {
+            "recordKey": record_id_from_location(location),
+            "url": url,
+            "location": location,
+            "outcome": classify_outcome(url, status, final, evidence),
+            "httpStatus": status if isinstance(status, int) else None,
+            "finalURL": final or None,
+            "errorClass": evidence or None,
+            "checkedAt": checked_at,
+            "checkerVersion": CHECKER_VERSION,
+            "writebackState": "disabled_requires_separate_approval",
+        }
+        for url, location, status, final, evidence in sorted(results)
+    ]
+    attempts_path = PROJECT / "reports" / "source-check-attempts.json"
+    attempts_path.parent.mkdir(parents=True, exist_ok=True)
+    attempts_path.write_text(
+        json.dumps(
+            {
+                "schemaVersion": 1,
+                "checkedAt": checked_at,
+                "checkerVersion": CHECKER_VERSION,
+                "attempts": attempts,
+                "operationalWriteback": "disabled_requires_separate_approval",
+                "policy": {
+                    "reviewTaskAfterConsecutiveProblems": 2,
+                    "sourceUnavailableAfterConsecutiveHardFailures": 3,
+                    "minimumHardFailureSpanHours": 24,
+                },
+            },
+            ensure_ascii=False,
+            indent=2,
+        ) + "\n",
+        encoding="utf-8",
+    )
+
     report = {
-        "schemaVersion": 2,
-        "checkedAt": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+        "schemaVersion": 3,
+        "checkedAt": checked_at,
         "scope": "Published effective Data Project release heads, shipped app/runtime sources, source registry, and generated public web artifacts.",
         "effectiveReleases": release_ids,
         "totalURLs": len(results),
@@ -157,6 +213,8 @@ def write_reports(results, release_ids):
         "confirmedBrokenURLs": len(confirmed_failures),
         "accessRestrictedURLs": len(restricted),
         "transientFailures": len(transient),
+        "attemptsArtifact": "DataProject/reports/source-check-attempts.json",
+        "operationalWriteback": "disabled_requires_separate_approval",
         "confirmedBroken": [
             {"url": url, "location": location, "status": status, "finalURL": final, "evidence": evidence}
             for url, location, status, final, evidence in sorted(confirmed_failures)

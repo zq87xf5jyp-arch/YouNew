@@ -27,6 +27,77 @@ export interface ContentTrust {
   readonly officialSource: boolean;
 }
 
+export type GovernancePublicationStatus = "draft" | "qa" | "published" | "archived";
+export type GovernanceVerificationStatus =
+  | "unverified"
+  | "verified"
+  | "review_due_soon"
+  | "overdue"
+  | "source_unavailable"
+  | "disputed"
+  | "archived";
+export type GovernanceReviewState =
+  | "needs_review"
+  | "assigned"
+  | "in_review"
+  | "approved"
+  | "monitoring"
+  | "expired"
+  | "closed";
+
+export interface ContentGovernanceEnvelope {
+  readonly id: string;
+  readonly title: string;
+  readonly contentType: string;
+  readonly jurisdiction: Readonly<{
+    countryCode: "NL";
+    level: "national" | "provincial" | "municipal" | "mixed";
+    municipalityDependent: boolean;
+    applicabilityVerified: boolean;
+    provinceCode: string | null;
+    provinceName: string | null;
+    municipalityCode: string | null;
+    municipalityName: string | null;
+  }>;
+  readonly officialSourceURL: string | null;
+  readonly sourceTitle: string | null;
+  readonly sourcePublisher: string | null;
+  readonly lastVerifiedAt: string | null;
+  readonly nextReviewAt: string | null;
+  readonly reviewIntervalDays: number | null;
+  readonly contentOwner: string | null;
+  readonly reviewedBy: string | null;
+  readonly verificationStatus: GovernanceVerificationStatus;
+  readonly confidenceLevel: "low" | "medium" | "high";
+  readonly validityStart: string | null;
+  readonly validityEnd: string | null;
+  readonly changeNotes: string | null;
+  readonly version: number;
+  readonly updatedAt: string;
+  readonly publicationStatus: GovernancePublicationStatus;
+  readonly reviewState: GovernanceReviewState;
+  readonly criticality: "standard" | "critical";
+  readonly contentOrigin:
+    | "imported"
+    | "manually_created"
+    | "municipality_release"
+    | "government_publication"
+    | "ai_generated_draft"
+    | "migrated";
+  readonly originReference: string | null;
+  readonly originCapturedAt: string | null;
+  readonly originArtifactDigest: string | null;
+  readonly confidenceScore: number;
+  readonly confidenceScoreVersion: number;
+  readonly confidenceBreakdown: Readonly<{
+    officialSource: 0 | 40;
+    humanReviewer: 0 | 20;
+    independentReview: 0 | 15;
+    freshness: 0 | 10;
+    jurisdictionApplicability: 0 | 15;
+  }>;
+}
+
 export interface ContentSeo {
   readonly title: string;
   readonly description: string;
@@ -173,6 +244,7 @@ export interface ContentEntity {
   readonly images: readonly PublicMediaAsset[];
   readonly source: PublicSource;
   readonly trust: ContentTrust;
+  readonly governance: ContentGovernanceEnvelope | null;
   readonly verifiedAt: string;
   readonly updatedAt: string;
   readonly releaseId: string;

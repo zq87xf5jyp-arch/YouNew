@@ -7,6 +7,7 @@ enum AIResponseParser {
         let warnings: [String]
         let model: String
         let requestId: String
+        let decisionTrace: AIDecisionTrace?
     }
 
     struct NewcomerBackendStep: Decodable {
@@ -30,6 +31,7 @@ enum AIResponseParser {
         let quickActions: [BackendAction]?
         let verified: Bool?
         let cacheKey: String?
+        let decisionTrace: AIDecisionTrace?
     }
 
     struct BackendSource: Decodable {
@@ -81,6 +83,9 @@ enum AIResponseParser {
         guard requiresVerifiedContext && !sources.isEmpty else {
             return AIResponse.unverified(language: language)
         }
+        if let decisionTrace = decoded.decisionTrace, !decisionTrace.isMachineValid {
+            return AIResponse.unverified(language: language)
+        }
 
         let answer = sanitizedBody(decoded.answer)
         guard !answer.isEmpty else {
@@ -114,7 +119,8 @@ enum AIResponseParser {
             appDestinationID: appDestinationID,
             isVerified: true,
             cacheKey: decoded.cacheKey,
-            origin: .unverified
+            origin: .unverified,
+            decisionTrace: decoded.decisionTrace
         )
         guard AIResponseLanguageGuard.isResponseAcceptable(response, for: language) else {
             return AIResponse.unverified(language: language)
@@ -132,7 +138,8 @@ enum AIResponseParser {
         guard BuildWeekNewcomerDemo.isAllowedModel(model),
               requestID.range(of: requestIDPattern, options: .regularExpression) != nil,
               decoded.steps.count == BuildWeekNewcomerDemo.steps.count,
-              decoded.warnings.count <= 6
+              decoded.warnings.count <= 6,
+              decoded.decisionTrace?.isMachineValid != false
         else {
             return AIResponse.unverified(language: language)
         }
@@ -208,7 +215,8 @@ enum AIResponseParser {
             confidence: .medium,
             origin: .liveOpenAI,
             model: model,
-            requestID: requestID
+            requestID: requestID,
+            decisionTrace: decoded.decisionTrace ?? newcomerDecisionTrace(model: model)
         )
         guard AIResponseLanguageGuard.isResponseAcceptable(response, for: language) else {
             return AIResponse.unverified(language: language)
@@ -227,6 +235,44 @@ enum AIResponseParser {
         case 2: return "cross.case.fill"
         default: return "stethoscope"
         }
+    }
+
+    private static func newcomerDecisionTrace(model: String) -> AIDecisionTrace {
+        AIDecisionTrace(
+            selectedRecordIDs: BuildWeekNewcomerDemo.steps.map(\.knowledgeRecordID),
+            sourceCitations: BuildWeekNewcomerDemo.steps.map { contract in
+                AIDecisionSourceCitation(
+                    recordID: contract.knowledgeRecordID,
+                    sourceTitle: contract.sourceTitle,
+                    sourcePublisher: contract.id == "digid" ? "DigiD" : "Government of the Netherlands",
+                    sourceURL: contract.sourceURL
+                )
+            },
+            freshnessEvidence: BuildWeekNewcomerDemo.steps.map { contract in
+                AIDecisionEvidence(
+                    recordID: contract.knowledgeRecordID,
+                    summary: "Record-level governed freshness is not established in this bounded demo context."
+                )
+            },
+            jurisdictionEvidence: BuildWeekNewcomerDemo.steps.map { contract in
+                AIDecisionEvidence(
+                    recordID: contract.knowledgeRecordID,
+                    summary: contract.id == "bsn"
+                        ? "Municipality-specific steps must be checked with the selected municipality."
+                        : "National bounded context; personal applicability can still depend on the user's situation."
+                )
+            },
+            rankingFactors: [
+                "exact bounded scenario context",
+                "official source contract",
+                "stable knowledge-record order"
+            ],
+            confidenceBreakdown: [:],
+            excludedCandidateReasons: [:],
+            policyVersion: "retrieval-policy-v1",
+            modelVersion: model,
+            contextVersion: BuildWeekNewcomerDemo.contextVersion
+        )
     }
 
     nonisolated private static func makeSource(_ source: BackendSource) -> OfficialSource? {

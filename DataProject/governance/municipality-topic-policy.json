@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "policyVersion": "1.0.0-draft",
+  "evidenceState": "partial",
+  "scope": "five critical newcomer journeys",
+  "requiredTopicFamilies": [
+    {
+      "key": "brp",
+      "label": "BRP registration",
+      "critical": true,
+      "candidateRecordIDs": [
+        "government.brp-registration",
+        "government_service.first-registration-in-amsterdam"
+      ]
+    },
+    {
+      "key": "digid",
+      "label": "DigiD",
+      "critical": true,
+      "candidateRecordIDs": ["government.digid"]
+    },
+    {
+      "key": "huisarts",
+      "label": "Finding a huisarts",
+      "critical": true,
+      "candidateRecordIDs": ["government.register-family-doctor"]
+    },
+    {
+      "key": "zorgtoeslag",
+      "label": "Zorgtoeslag",
+      "critical": true,
+      "candidateRecordIDs": ["government.healthcare-benefit"]
+    },
+    {
+      "key": "employment",
+      "label": "Employment contract",
+      "critical": true,
+      "candidateRecordIDs": ["government.employment-contract"]
+    }
+  ],
+  "coverageRule": {
+    "cellNumerator": "at least one production-ready applicable record",
+    "nationalRecordCoverage": "allowed only when municipalityDependent=false and applicabilityVerified=true",
+    "automaticInferenceFromLegacyCityID": false
+  }
+}

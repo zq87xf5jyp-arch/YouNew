@@ -3,7 +3,7 @@
 import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/auth";
-import { canEditContent, canPublishContent } from "@/lib/authorization";
+import { canEditContent } from "@/lib/authorization";
 import type { ManagedArticle } from "@/components/admin/content-manager";
 import { CONTENT_IMAGES_BUCKET, normalizeManagedContentImages } from "@/lib/content-images";
 
@@ -29,27 +29,24 @@ async function resolveCategoryId(
   return data?.id ?? null;
 }
 
-function publicationErrors(input: ArticleInput, categoryId: string | null) {
+function contentValidationErrors(input: ArticleInput, categoryId: string | null) {
   const errors: string[] = [];
   if (!input.title.trim()) errors.push("title");
   if (!input.description?.trim()) errors.push("short_description");
   if (!input.content?.trim()) errors.push("full_content");
   if (!categoryId) errors.push("public_category");
   if (!input.source?.trim().startsWith("https://")) errors.push("official_source");
-  if (!input.verifiedDate) errors.push("verified_date");
-  if (input.verifiedDate && input.verifiedDate > new Date().toISOString().slice(0, 10)) errors.push("verified_date_future");
-  if (!input.reviewConfirmed) errors.push("reviewer");
   if (input.requiresMedia && input.images.length === 0) errors.push("required_media");
   return errors;
 }
 
 function articlePayload(input: ArticleInput, categoryId: string | null, authorId: string) {
-  const publishing = input.status === "published";
-  const validatedAt = new Date().toISOString();
-  const errors = publicationErrors(input, categoryId);
-  if (publishing && errors.length > 0) {
-    throw new Error(`Публикация заблокирована: ${errors.join(", ")}.`);
+  if (input.status === "published") {
+    throw new Error(
+      "Прямая публикация из редактора заблокирована. Сохраните draft/qa и используйте Human Review Queue."
+    );
   }
+  const errors = contentValidationErrors(input, categoryId);
   const source = input.source?.trim() || null;
   return {
     title: input.title.trim(),
@@ -64,28 +61,18 @@ function articlePayload(input: ArticleInput, categoryId: string | null, authorId
     official_source: Boolean(source?.startsWith("https://")),
     tags: input.tags?.split(",").map((tag) => tag.trim()).filter(Boolean) ?? [],
     images: normalizeManagedContentImages(input.images),
-    verified_date: input.verifiedDate || null,
-    reviewer_id: input.reviewConfirmed ? authorId : null,
-    reviewed_at: input.reviewConfirmed ? validatedAt : null,
     requires_media: input.requiresMedia,
     source_mapping: source ? [{ url: source, type: "official" }] : [],
-    publication_evidence: publishing ? {
-      validation_status: "passed",
-      validated_at: validatedAt,
-      validator_id: authorId
-    } : {},
-    validation_passed: publishing,
-    validation_errors: publishing ? [] : errors,
+    publication_evidence: {},
+    validation_passed: false,
+    validation_errors: errors,
     author_id: authorId,
-    published_at: input.status === "published" ? new Date().toISOString() : null
+    published_at: null
   };
 }
 
 export async function createArticle(input: ArticleInput) {
-  const { admin, supabase, user } = await getAuthorizedClient();
-  if (input.status === "published" && !canPublishContent(admin.role)) {
-    throw new Error("Публикация доступна только владельцу или администратору.");
-  }
+  const { supabase, user } = await getAuthorizedClient();
   const categoryId = await resolveCategoryId(supabase, input.category);
   const { data, error } = await supabase
     .from("articles")
@@ -99,10 +86,7 @@ export async function createArticle(input: ArticleInput) {
 }
 
 export async function updateArticle(id: string, input: ArticleInput) {
-  const { admin, supabase, user } = await getAuthorizedClient();
-  if (input.status === "published" && !canPublishContent(admin.role)) {
-    throw new Error("Публикация доступна только владельцу или администратору.");
-  }
+  const { supabase, user } = await getAuthorizedClient();
   const categoryId = await resolveCategoryId(supabase, input.category);
   const { data, error } = await supabase
     .from("articles")

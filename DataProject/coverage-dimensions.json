@@ -165,5 +165,19 @@
       "field": "province_id",
       "required_values_from": "cities-provinces"
     }
-  ]
+  ],
+  "municipality_topic": {
+    "label": "Municipality and required topic-family cells",
+    "dimension_type": "cross_product",
+    "municipality_source": "DataProject/governance/municipality-registry.json",
+    "topic_source": "DataProject/governance/municipality-topic-policy.json",
+    "production_ready_requires": [
+      "publicationStatus=published",
+      "effectiveVerificationStatus in verified|review_due_soon",
+      "jurisdiction.applicabilityVerified=true",
+      "officialSourceURL=https"
+    ],
+    "national_record_rule": "covers all municipality cells only when municipalityDependent=false and applicabilityVerified=true",
+    "unknown_denominator": "not_established"
+  }
 }

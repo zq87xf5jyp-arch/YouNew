@@ -91,6 +91,7 @@ struct KnowledgeItem: Identifiable {
     let safetyLevel: KnowledgeSafetyLevel
     let sourcePath: String
     let personaTags: Set<PersonaTag>
+    let governance: ContentGovernanceEnvelope?
 
     init(
         id: String,
@@ -107,7 +108,8 @@ struct KnowledgeItem: Identifiable {
         lastReviewed: Date?,
         safetyLevel: KnowledgeSafetyLevel,
         sourcePath: String,
-        personaTags: Set<PersonaTag> = []
+        personaTags: Set<PersonaTag> = [],
+        governance: ContentGovernanceEnvelope? = nil
     ) {
         self.id = id
         self.type = type
@@ -123,6 +125,7 @@ struct KnowledgeItem: Identifiable {
         self.lastReviewed = lastReviewed
         self.safetyLevel = safetyLevel
         self.sourcePath = sourcePath
+        self.governance = governance
         self.personaTags = PersonaContentPolicy.assignedTags(
             explicitTags: personaTags,
             category: category,

@@ -17,5 +17,18 @@
     {"key": "partners", "label": "Local partners", "entity_types": ["local_partner"], "target": 1000, "work_package": "WP-13"},
     {"key": "events", "label": "Active events", "entity_types": ["event"], "target": 1000, "work_package": "WP-11"},
     {"key": "images", "label": "Verified media assets", "entity_types": ["*media_assets"], "target": 10000, "work_package": "WP-14"}
-  ]
+  ],
+  "coverage_kinds": [
+    "inventory",
+    "verified",
+    "production_ready",
+    "public",
+    "municipality_topic"
+  ],
+  "municipality_topic_policy": {
+    "registry": "DataProject/governance/municipality-registry.json",
+    "topic_policy": "DataProject/governance/municipality-topic-policy.json",
+    "denominator_rule": "official_registry_municipalities_x_versioned_required_topic_families",
+    "missing_denominator_result": "not_established"
+  }
 }

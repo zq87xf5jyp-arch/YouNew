@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "policyId": "younew-content-governance-v1",
+  "statusPrecedence": [
+    "archived",
+    "disputed",
+    "source_unavailable",
+    "unverified",
+    "overdue",
+    "review_due_soon",
+    "verified"
+  ],
+  "reviewDueSoon": {
+    "maximumLeadDays": 14,
+    "intervalFraction": 0.25,
+    "minimumLeadDays": 1
+  },
+  "confidence": {
+    "version": 1,
+    "scale": "evidence_coverage_index_0_to_100_not_probability",
+    "weights": {
+      "officialSource": 40,
+      "humanReviewer": 20,
+      "independentReview": 15,
+      "freshness": 10,
+      "jurisdictionApplicability": 15
+    }
+  },
+  "aiEligibility": {
+    "excluded": ["archived", "disputed", "source_unavailable", "unverified"],
+    "secondaryOnly": ["overdue"],
+    "primary": ["verified", "review_due_soon"]
+  },
+  "ranking": [
+    "jurisdiction_match",
+    "verification_status",
+    "official_source",
+    "freshness",
+    "confidence_score",
+    "stable_record_id"
+  ]
+}

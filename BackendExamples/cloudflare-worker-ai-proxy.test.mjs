@@ -253,6 +253,7 @@ test("successful request uses the Responses API and returns the exact public con
 
   const body = await response.json();
   assert.deepEqual(Object.keys(body).sort(), [
+    "decisionTrace",
     "model",
     "requestId",
     "steps",
@@ -262,6 +263,10 @@ test("successful request uses the Responses API and returns the exact public con
   assert.equal(body.model, "gpt-5.6-sol");
   assert.equal(body.requestId, "req_openai_safe_123");
   assert.equal(body.steps.length, 4);
+  assert.deepEqual(body.decisionTrace.selectedRecordIDs, backendContract.requiredKnowledgeRecordIDs);
+  assert.equal(body.decisionTrace.policyVersion, "retrieval-policy-v1");
+  assert.equal(body.decisionTrace.contextVersion, "newcomer-after-address.v1");
+  assert.equal(body.decisionTrace.sourceCitations.length, 4);
   assert.deepEqual(Object.keys(body.steps[0]).sort(), [
     "action",
     "appDestination",

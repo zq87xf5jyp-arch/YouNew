@@ -15,6 +15,7 @@ from pathlib import Path
 from urllib.parse import urlsplit
 
 from effective_release import EffectiveReleaseError, effective_release_heads, resolve_release
+from governance_contract import effective_status
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -738,6 +739,8 @@ def runtime_entity(record, release_id: str):
     guide = record.get("practical_guide")
     if guide is not None and guide["status"] == "published":
         result["practicalGuide"] = runtime_practical_guide(guide)
+    if isinstance(record.get("governance"), dict):
+        result["governance"] = record["governance"]
     return result
 
 
@@ -890,10 +893,19 @@ def build(args):
     for release_id in selected_ids:
         release = releases[release_id]
         for record in records_by_release[release_id]:
+            governance = record.get("governance") if isinstance(record.get("governance"), dict) else None
+            governed_ready = (
+                governance is None
+                or (
+                    governance.get("publicationStatus") == "published"
+                    and effective_status(governance) in {"verified", "review_due_soon"}
+                )
+            )
             production_ready = (
                 release["status"] == "published"
                 and record["lifecycle_status"] == "published"
                 and record["verification_status"] == "verified"
+                and governed_ready
             )
             preview_ready = record["verification_status"] == "verified" and record["lifecycle_status"] in {"qa", "published"}
             if (mode == "production" and production_ready) or (mode == "preview" and preview_ready):

@@ -4,6 +4,9 @@
 # Release, governance, automation, and security-sensitive areas
 /.github/ @zq87xf5jyp-arch
 /DataProject/ @zq87xf5jyp-arch
+/docs/adr/ @zq87xf5jyp-arch
+/admin-dashboard/supabase/migrations/ @zq87xf5jyp-arch
+/admin-dashboard/src/lib/governance.ts @zq87xf5jyp-arch
 /scripts/ @zq87xf5jyp-arch
 /YouNew.xcodeproj/ @zq87xf5jyp-arch
 /SECURITY.md @zq87xf5jyp-arch

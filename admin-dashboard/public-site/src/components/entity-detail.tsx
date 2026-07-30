@@ -6,6 +6,7 @@ import { RecentViewTracker } from "@/components/recent-view-tracker";
 import { SaveButton } from "@/components/save-button";
 import { ShareButton } from "@/components/share-button";
 import { ContentMedia, preferredMedia } from "@/components/content-media";
+import { GovernanceDisclosure } from "@/components/governance-disclosure";
 import type { ContentEntity } from "@/lib/content";
 import { contentKindLabel, publicWebSummary } from "@/lib/content/presentation";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
@@ -71,6 +72,7 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
 
       <div className="section-shell entity-detail-layout">
         <article className="entity-main-copy">
+          <GovernanceDisclosure entity={entity} />
           <h2>What this page covers</h2>
           <p>{summary}</p>
           <div className="topic-links" aria-label="Related categories">

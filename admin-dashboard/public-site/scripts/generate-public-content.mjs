@@ -280,6 +280,118 @@ function cleanURL(value) {
   }
 }
 
+const governanceEnums = Object.freeze({
+  publicationStatus: new Set(["draft", "qa", "published", "archived"]),
+  verificationStatus: new Set(["unverified", "verified", "review_due_soon", "overdue", "source_unavailable", "disputed", "archived"]),
+  reviewState: new Set(["needs_review", "assigned", "in_review", "approved", "monitoring", "expired", "closed"]),
+  criticality: new Set(["standard", "critical"]),
+  contentOrigin: new Set(["imported", "manually_created", "municipality_release", "government_publication", "ai_generated_draft", "migrated"]),
+  confidenceLevel: new Set(["low", "medium", "high"]),
+  jurisdictionLevel: new Set(["national", "provincial", "municipal", "mixed"])
+});
+
+function nullableText(value, maximumLength = 500) {
+  const cleaned = cleanText(value, maximumLength);
+  return cleaned || null;
+}
+
+function utcDate(value, field, nullable = true) {
+  if (value == null && nullable) return null;
+  const cleaned = cleanDate(value);
+  if (!cleaned) throw new Error(`Governance ${field} must be an ISO 8601 instant.`);
+  if (!/(?:Z|\+00:00)$/i.test(cleaned)) throw new Error(`Governance ${field} must be UTC.`);
+  const parsed = new Date(cleaned);
+  return parsed.toISOString();
+}
+
+function requireEnum(value, values, field) {
+  if (!values.has(value)) throw new Error(`Governance ${field} is invalid.`);
+  return value;
+}
+
+function requireInteger(value, field, minimum, maximum = Number.MAX_SAFE_INTEGER) {
+  if (!Number.isInteger(value) || value < minimum || value > maximum) {
+    throw new Error(`Governance ${field} must be an integer in ${minimum}...${maximum}.`);
+  }
+  return value;
+}
+
+function sanitizeGovernanceEnvelope(raw, entityID) {
+  if (raw == null) return null;
+  if (typeof raw !== "object" || Array.isArray(raw)) throw new Error(`Governance envelope for ${entityID} must be an object.`);
+  const id = cleanIdentifier(raw.id);
+  if (id !== entityID) throw new Error(`Governance envelope ID ${id || "<missing>"} does not match ${entityID}.`);
+  const publicationStatus = requireEnum(raw.publicationStatus, governanceEnums.publicationStatus, "publicationStatus");
+  const verificationStatus = requireEnum(raw.verificationStatus, governanceEnums.verificationStatus, "verificationStatus");
+  const contentOrigin = requireEnum(raw.contentOrigin, governanceEnums.contentOrigin, "contentOrigin");
+  if (["ai_generated_draft", "migrated"].includes(contentOrigin) && publicationStatus !== "draft") {
+    throw new Error(`Governance origin ${contentOrigin} cannot enter the public projection.`);
+  }
+  const jurisdiction = raw.jurisdiction;
+  if (!jurisdiction || typeof jurisdiction !== "object" || jurisdiction.countryCode !== "NL") {
+    throw new Error(`Governance jurisdiction for ${entityID} is invalid.`);
+  }
+  const sourceURL = raw.officialSourceURL == null ? null : cleanURL(raw.officialSourceURL);
+  if (sourceURL && !sourceURL.startsWith("https://")) throw new Error(`Governance officialSourceURL for ${entityID} must use HTTPS.`);
+  const breakdown = raw.confidenceBreakdown;
+  if (!breakdown || typeof breakdown !== "object") throw new Error(`Governance confidenceBreakdown for ${entityID} is missing.`);
+  const officialSource = requireInteger(breakdown.officialSource, "confidenceBreakdown.officialSource", 0, 40);
+  const humanReviewer = requireInteger(breakdown.humanReviewer, "confidenceBreakdown.humanReviewer", 0, 20);
+  const independentReview = requireInteger(breakdown.independentReview, "confidenceBreakdown.independentReview", 0, 15);
+  const freshness = requireInteger(breakdown.freshness, "confidenceBreakdown.freshness", 0, 10);
+  const jurisdictionApplicability = requireInteger(breakdown.jurisdictionApplicability, "confidenceBreakdown.jurisdictionApplicability", 0, 15);
+  if (![0, 40].includes(officialSource) || ![0, 20].includes(humanReviewer) || ![0, 15].includes(independentReview) || ![0, 10].includes(freshness) || ![0, 15].includes(jurisdictionApplicability)) {
+    throw new Error(`Governance confidenceBreakdown for ${entityID} does not match formula v1.`);
+  }
+  const confidenceScore = requireInteger(raw.confidenceScore, "confidenceScore", 0, 100);
+  if (confidenceScore !== officialSource + humanReviewer + independentReview + freshness + jurisdictionApplicability) {
+    throw new Error(`Governance confidenceScore for ${entityID} is not reproducible.`);
+  }
+  const digest = nullableText(raw.originArtifactDigest, 80);
+  if (digest && !/^sha256:[a-f0-9]{64}$/.test(digest)) throw new Error(`Governance originArtifactDigest for ${entityID} is invalid.`);
+
+  return {
+    id,
+    title: cleanText(raw.title, 240),
+    contentType: cleanIdentifier(raw.contentType),
+    jurisdiction: {
+      countryCode: "NL",
+      level: requireEnum(jurisdiction.level, governanceEnums.jurisdictionLevel, "jurisdiction.level"),
+      municipalityDependent: jurisdiction.municipalityDependent === true,
+      applicabilityVerified: jurisdiction.applicabilityVerified === true,
+      provinceCode: nullableText(jurisdiction.provinceCode, 20),
+      provinceName: nullableText(jurisdiction.provinceName, 120),
+      municipalityCode: nullableText(jurisdiction.municipalityCode, 20),
+      municipalityName: nullableText(jurisdiction.municipalityName, 120)
+    },
+    officialSourceURL: sourceURL,
+    sourceTitle: nullableText(raw.sourceTitle, 240),
+    sourcePublisher: nullableText(raw.sourcePublisher, 160),
+    lastVerifiedAt: utcDate(raw.lastVerifiedAt, "lastVerifiedAt"),
+    nextReviewAt: utcDate(raw.nextReviewAt, "nextReviewAt"),
+    reviewIntervalDays: raw.reviewIntervalDays == null ? null : requireInteger(raw.reviewIntervalDays, "reviewIntervalDays", 1, 730),
+    contentOwner: nullableText(raw.contentOwner, 160),
+    reviewedBy: nullableText(raw.reviewedBy, 160),
+    verificationStatus,
+    confidenceLevel: requireEnum(raw.confidenceLevel, governanceEnums.confidenceLevel, "confidenceLevel"),
+    validityStart: utcDate(raw.validityStart, "validityStart"),
+    validityEnd: utcDate(raw.validityEnd, "validityEnd"),
+    changeNotes: nullableText(raw.changeNotes, 2_000),
+    version: requireInteger(raw.version, "version", 1),
+    updatedAt: utcDate(raw.updatedAt, "updatedAt", false),
+    publicationStatus,
+    reviewState: requireEnum(raw.reviewState, governanceEnums.reviewState, "reviewState"),
+    criticality: requireEnum(raw.criticality, governanceEnums.criticality, "criticality"),
+    contentOrigin,
+    originReference: nullableText(raw.originReference, 2_048),
+    originCapturedAt: utcDate(raw.originCapturedAt, "originCapturedAt"),
+    originArtifactDigest: digest,
+    confidenceScore,
+    confidenceScoreVersion: requireInteger(raw.confidenceScoreVersion, "confidenceScoreVersion", 1),
+    confidenceBreakdown: { officialSource, humanReviewer, independentReview, freshness, jurisdictionApplicability }
+  };
+}
+
 function cleanPublicAssetPath(value) {
   const candidate = cleanText(value, 240);
   if (!/^\/images\/[A-Za-z0-9](?:[A-Za-z0-9._/-]*[A-Za-z0-9])?\.(?:avif|gif|jpe?g|png|svg|webp)$/i.test(candidate)) return null;
@@ -489,6 +601,7 @@ function sanitizeEntity(entity, slug) {
       sourceChecked: true,
       officialSource: !isLocalPartner && entity.source?.isOfficial === true
     },
+    governance: sanitizeGovernanceEnvelope(entity.governance, id),
     verifiedAt,
     updatedAt: cleanDate(entity.lastChecked) ?? verifiedAt,
     releaseId: cleanIdentifier(entity.attributes?.dataProjectRelease),

@@ -248,7 +248,8 @@ struct ContentRepositoryTests {
             isMapVisible: isMapVisible,
             status: .published,
             deepLink: deepLink,
-            legacySourcePath: nil
+            legacySourcePath: nil,
+            governance: nil
         )
     }
 }

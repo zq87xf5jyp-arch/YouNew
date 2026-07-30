@@ -15,6 +15,9 @@ Describe the user or data problem and the smallest change that solves it.
 - [ ] I ran `pnpm predeploy:check` when the public site changed.
 - [ ] I supplied current official-source evidence for governed data changes.
 - [ ] I did not weaken, skip, or allowlist a failing health gate.
+- [ ] Governance-sensitive changes include a numbered ADR and `docs/adr/index.json` update.
+- [ ] AI-generated or migrated content remains draft until a separate human review event and server-side approval.
+- [ ] Readiness scores do not override Content Governance, AI, or User Outcome hard gates.
 
 List exact commands and results:
 
@@ -25,6 +28,7 @@ List exact commands and results:
 - [ ] New media or copied content has documented ownership, license,
       attribution, and redistribution rights; or no such material was added.
 - [ ] Product, AI, government-service, and release claims remain evidence-based.
+- [ ] New metrics include formula version, numerator, denominator, source artifact, generated time, and evidence state.
 - [ ] I understand that an external code or data contribution requires a
       separate written contributor agreement before merge.
 

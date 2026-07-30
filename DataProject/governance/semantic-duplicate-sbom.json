@@ -1,0 +1,43 @@
+{
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "serialNumber": "urn:uuid:9ae102f4-7aef-4de8-a137-92929d0c6b35",
+  "version": 1,
+  "metadata": {
+    "component": {
+      "type": "application",
+      "name": "younew-semantic-duplicate-detector",
+      "version": "1"
+    },
+    "evidenceState": "partial",
+    "releaseEligible": false,
+    "reason": "Transitive Python wheel hashes are not yet locked and reviewed."
+  },
+  "components": [
+    {
+      "type": "machine-learning-model",
+      "name": "intfloat/multilingual-e5-small",
+      "version": "614241f622f53c4eeff9890bdc4f31cfecc418b3",
+      "licenses": [{"license": {"id": "MIT"}}],
+      "hashes": [
+        {
+          "alg": "SHA-256",
+          "content": "1a55775f53449dac10a2bcbc312469fac40b96d53198c407081a831f81c98477"
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "sentence-transformers",
+      "version": "5.6.1",
+      "purl": "pkg:pypi/sentence-transformers@5.6.1",
+      "licenses": [{"license": {"id": "Apache-2.0"}}]
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "pkg:pypi/sentence-transformers@5.6.1",
+      "dependsOn": []
+    }
+  ]
+}

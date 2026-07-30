@@ -9,6 +9,7 @@ import { RecentViewTracker } from "@/components/recent-view-tracker";
 import { SaveButton } from "@/components/save-button";
 import { ShareButton } from "@/components/share-button";
 import { ContentMedia, preferredMedia } from "@/components/content-media";
+import { GovernanceDisclosure } from "@/components/governance-disclosure";
 import type { ContentEntity, GuideContactOption, GuideSourcedText, PracticalGuide } from "@/lib/content";
 import { publicWebSummary } from "@/lib/content/presentation";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
@@ -246,7 +247,10 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
       </header>
 
       <div className="section-shell guide-detail-layout">
-        <div className="guide-main-copy">{guide ? <FullPracticalGuide guide={guide} /> : <BriefGuide entity={entity} />}</div>
+        <div className="guide-main-copy">
+          <GovernanceDisclosure entity={entity} />
+          {guide ? <FullPracticalGuide guide={guide} /> : <BriefGuide entity={entity} />}
+        </div>
         {!guide ? (
           <aside className="source-card guide-source-card" aria-label={`Source verification: ${entity.source.publisher}`}><ShieldCheck aria-hidden /><p className="source-label">{entity.trust.officialSource ? "Official public source" : "Responsible source"}</p><h2>{entity.source.publisher}</h2><p>{entity.source.title}</p><dl><div><dt>Last verified</dt><dd><time dateTime={entity.verifiedAt}>{entity.verifiedAt}</time></dd></div><div><dt>Jurisdiction</dt><dd>Netherlands{entity.cityId ? ` · ${titleCase(entity.cityId)}` : ""}</dd></div></dl><a className="button button-primary" aria-label={`Open ${entity.source.title} from ${entity.source.publisher} in a new tab`} href={entity.source.url} rel="noreferrer" target="_blank">Open source <ExternalLink aria-hidden /></a></aside>
         ) : null}

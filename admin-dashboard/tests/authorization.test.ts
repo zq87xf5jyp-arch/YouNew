@@ -5,7 +5,10 @@ import {
   canAccessPath,
   canEditContent,
   canManageBusinessInquiries,
-  canPublishContent
+  canManageGovernancePolicy,
+  canPublishContent,
+  canVerifyContent,
+  canWorkReviewQueue
 } from "../src/lib/authorization.ts";
 
 test("only owners and admins may publish or manage business inquiries", () => {
@@ -21,4 +24,10 @@ test("only owners and admins may publish or manage business inquiries", () => {
   }
   assert.equal(canEditContent("editor"), true);
   assert.equal(canEditContent("viewer"), false);
+  assert.equal(canVerifyContent("qa"), true);
+  assert.equal(canVerifyContent("editor"), false);
+  assert.equal(canWorkReviewQueue("editor"), true);
+  assert.equal(canWorkReviewQueue("viewer"), false);
+  assert.equal(canManageGovernancePolicy("admin"), true);
+  assert.equal(canManageGovernancePolicy("qa"), false);
 });
