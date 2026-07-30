@@ -50,6 +50,14 @@ export default function PrivacyPage() {
         YouNew also loads selected public information and images from Wikimedia Commons and Flickr&apos;s public image delivery service. When an image is displayed, the provider receives the IP address and requested URL needed to deliver it and may keep technical server logs under its own policy. This network information is used only to provide app functionality, not for advertising, marketing, analytics or cross-app tracking. The App Store privacy declaration conservatively identifies these technical logs as Device ID and Other Diagnostic Data, linked to the device and not used for tracking.
       </p>
 
+      <h2>Network services and technical logs</h2>
+      <p>
+        The Home screen requests current weather from Open-Meteo using the coordinates of the selected city in YouNew&apos;s public city catalogue, not your device&apos;s current-location coordinates. Like other internet services, Open-Meteo receives the connection IP address and requested URL. Its published terms state that technical web-server logs used for maintenance, abuse prevention and troubleshooting may contain IP addresses and requested coordinates and are deleted after 90 days.
+      </p>
+      <p>
+        YouNew also loads selected public information and images from Wikimedia Commons and Flickr&apos;s public image delivery service. When an image is displayed, the provider receives the IP address and requested URL needed to deliver it and may keep technical server logs under its own policy. This network information is used only to provide app functionality, not for advertising, marketing, analytics or cross-app tracking. The App Store privacy declaration conservatively identifies these technical logs as Device ID and Other Diagnostic Data, linked to the device and not used for tracking.
+      </p>
+
       <h2>Website and support</h2>
       <p>
         The public website does not require an account and contains no payment flow. When you contact support by email, we receive the address, message and attachments you choose to send. Do not email sensitive identity, medical or financial documents.

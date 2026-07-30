@@ -10,7 +10,7 @@ The current static export passes the listed build, code and package subchecks, b
 ## 1. Audit findings
 
 - The public web is a Next.js 15 static export generated from `YouNew/Resources/Data/younew-runtime-data.json`.
-- The canonical production artifact has 188 published entities from two accepted releases: 5 cities, 15 brief guide-like records, 30 organizations and 138 places.
+- The canonical production artifact has 186 published entities from two accepted releases: 5 cities, 15 brief guide-like records, 30 organizations and 136 places.
 - The 15 released guides contain source-checked summaries, relations and metadata, but no procedural `body`, `sections` or `practicalGuide` payload.
 - DataProject contains 450 governed records across seven releases. Additional guide-like QA records are not part of the two production releases and therefore remain private.
 - The content-readiness matrix identifies 277 guide-capable material records: 15 effectively published summaries and 262 QA records. It finds 0 full guides, 0 production-ready guides and 0 published FAQ.

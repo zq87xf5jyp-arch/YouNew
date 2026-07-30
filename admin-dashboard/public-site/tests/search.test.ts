@@ -18,6 +18,7 @@ const rankModule = (await import(new URL("../src/lib/search/rank.ts", import.met
     options?: {
       filters?: { type?: SearchDocument["type"]; cityId?: string; provinceId?: string; category?: string };
       limit?: number;
+      preferredProfile?: import("../src/lib/content/types").GuideAudienceProfile | null;
     }
   ) => Array<{ document: SearchDocument; score: number; matchedTerms: readonly string[] }>;
 };
@@ -164,6 +165,19 @@ test("profile filtering prefers authored audiences and falls back only when they
   );
   assert.equal(rankModule.searchDocumentMatchesProfile(legacy, "not-a-profile"), false);
   assert.deepEqual(rankModule.filterSearchDocumentsByProfile([authored, legacy], "not-a-profile"), []);
+});
+
+test("a preferred profile personalizes ranking without hiding exact published answers", () => {
+  const results = rankModule.rankSearchDocuments(index.documents, "BSN", {
+    preferredProfile: "tourist",
+    limit: 5
+  });
+
+  assert.equal(results[0]?.document.id, "government_service.first-registration-in-amsterdam");
+  assert.ok(
+    results.every(({ matchedTerms }) => matchedTerms.includes("bsn")),
+    "profile preference must not introduce unrelated results"
+  );
 });
 
 test("requested quality queries find an honest released destination or a documented gap", () => {
