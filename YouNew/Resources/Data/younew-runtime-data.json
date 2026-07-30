@@ -16013,7 +16013,7 @@
       },
       {
         "path": "DataProject/overlays/WP-06/amsterdam-v0.1.4.json",
-        "sha256": "0389b70f457f0b1220301a97bbecff3cc81082bc71e164f65b47b31fd13a3664"
+        "sha256": "43e90351d0fa9f497b79fc60ec9de63fe08465c62344bd0d43185ac11b05a494"
       },
       {
         "path": "DataProject/releases/acceptance-locks/amsterdam-v0.1.0.json",
@@ -16035,11 +16035,11 @@
     "releaseManifests": [
       {
         "path": "DataProject/reports/release-manifests/amsterdam-v0.1.4.json",
-        "sha256": "3069e56b0ecac7ca77b184149fb0fcfa5a20d768261046bc8abeefc14d342439"
+        "sha256": "ca089fa75af69609b021f7a4cee7864053685f48f0faf0c1c8ef5b0a694fe425"
       },
       {
         "path": "DataProject/reports/release-manifests/cities-v0.1.0.json",
-        "sha256": "603f00f92c167c302d17930dfcc73c5d5d708acc19901479f488c7364fb963e0"
+        "sha256": "2592ba13f34f4d552d7c91cf7271e98fcac2b0aee7c56f78cef8a9626c0e7b61"
       }
     ],
     "schema": {
@@ -16111,7 +16111,7 @@
     }
   },
   "mode": "production",
-  "outputChecksum": "40eefaa614febe4d136ca9b859d899718af121b9c47dad14e7a54adea6ca43fc",
+  "outputChecksum": "a0b317b2508dfe6cea4fc69be2a62de5df38f110561336f484b44ba3a5ce399e",
   "publicationPolicy": {
     "allSevenGatesRequired": true,
     "productionRequiresReleaseStatus": "published",

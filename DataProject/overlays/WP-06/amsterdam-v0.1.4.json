@@ -22,22 +22,22 @@
       "id": "evidence.open-air-film-festival-ended-2026-07-30",
       "kind": "replacement_review",
       "url": "https://pride.amsterdam/en/event/open-air-film-festival/",
-      "checked_at": "2026-07-31",
-      "note": "The official Pride Amsterdam page was opened on 31 July 2026 and states that the Open Air Film Festival ran from 29 July at 21:00 through 30 July 2026 at 00:00. The stable record is retired because its end date has passed."
+      "checked_at": "2026-07-30",
+      "note": "The official Pride Amsterdam page was opened shortly after the event ended on 31 July 2026 Europe/Amsterdam (30 July UTC) and states that the Open Air Film Festival ran from 29 July at 21:00 through 30 July 2026 at 00:00. The stable record is retired because its end date has passed."
     },
     {
       "id": "evidence.senior-pride-concert-ended-2026-07-30",
       "kind": "replacement_review",
       "url": "https://pride.amsterdam/en/event/senior-pride-concert/",
-      "checked_at": "2026-07-31",
-      "note": "The official Pride Amsterdam page was opened on 31 July 2026 and states that the Senior Pride Concert ran on 30 July 2026 from 17:00 to 23:00. The stable record is retired because its end date has passed."
+      "checked_at": "2026-07-30",
+      "note": "The official Pride Amsterdam page was opened shortly after the event ended on 31 July 2026 Europe/Amsterdam (30 July UTC) and states that the Senior Pride Concert ran on 30 July 2026 from 17:00 to 23:00. The stable record is retired because its end date has passed."
     }
   ],
   "replacements": [
     {
       "entity_id": "event.worldpride-amsterdam-2026-open-air-film-festival",
       "original_canonical_sha256": "eeee2d5dfe761c6a0a1a62233fec02c8807b666c4472e9ff01d20c158659f13a",
-      "replacement_canonical_sha256": "d451bb404edc8dab8236add906c0038688278856279e263887f5433b70f61a8d",
+      "replacement_canonical_sha256": "f3e1028f76671878b9a0c643ffaa320213851f9723ef15118769fa4d6d36c9b2",
       "reason": "The official event ended on 30 July 2026. Retire it from current public discovery while preserving its stable ID and source history.",
       "evidence_refs": [
         "evidence.open-air-film-festival-ended-2026-07-30"
@@ -72,14 +72,14 @@
           "publisher": "Pride Amsterdam",
           "url": "https://pride.amsterdam/en/event/open-air-film-festival/",
           "is_official": true,
-          "checked_at": "2026-07-31",
+          "checked_at": "2026-07-30",
           "status": "verified_opened"
         },
         "website": "https://pride.amsterdam/en/event/open-air-film-festival/",
         "related_entity_ids": [
           "city.amsterdam"
         ],
-        "last_checked": "2026-07-31",
+        "last_checked": "2026-07-30",
         "review_frequency_days": 30,
         "verification_status": "verified",
         "ai_summary": "WorldPride Amsterdam 2026 Open Air Film Festival ended on 30 July 2026 and is retired from current public discovery. Use the official Pride Amsterdam page for archival or updated information.",
@@ -100,7 +100,7 @@
           "media_roles_count": "1",
           "start_date": "2026-07-29",
           "end_date": "2026-07-30",
-          "retired_at": "2026-07-31",
+          "retired_at": "2026-07-30",
           "retirement_reason": "event_end_date_passed"
         }
       }
@@ -108,7 +108,7 @@
     {
       "entity_id": "event.worldpride-amsterdam-2026-senior-pride-concert",
       "original_canonical_sha256": "89383c6bb8aa75165640d31644e7ba55326e6a4f7922e3d198c21615eacacd65",
-      "replacement_canonical_sha256": "c891010893a93912e22024ccf6dbeece0b6ccbda1734c73e2500dd940b7fbd54",
+      "replacement_canonical_sha256": "614222e5e411d0b0119797155df9618d5e792ce8795b176444a75f00081a7af1",
       "reason": "The official event ended on 30 July 2026. Retire it from current public discovery while preserving its stable ID and source history.",
       "evidence_refs": [
         "evidence.senior-pride-concert-ended-2026-07-30"
@@ -143,14 +143,14 @@
           "publisher": "Pride Amsterdam",
           "url": "https://pride.amsterdam/en/event/senior-pride-concert/",
           "is_official": true,
-          "checked_at": "2026-07-31",
+          "checked_at": "2026-07-30",
           "status": "verified_opened"
         },
         "website": "https://pride.amsterdam/en/event/senior-pride-concert/",
         "related_entity_ids": [
           "city.amsterdam"
         ],
-        "last_checked": "2026-07-31",
+        "last_checked": "2026-07-30",
         "review_frequency_days": 30,
         "verification_status": "verified",
         "ai_summary": "WorldPride Amsterdam 2026 Senior Pride Concert ended on 30 July 2026 and is retired from current public discovery. Use the official Pride Amsterdam page for archival or updated information.",
@@ -171,7 +171,7 @@
           "media_roles_count": "1",
           "start_date": "2026-07-30",
           "end_date": "2026-07-30",
-          "retired_at": "2026-07-31",
+          "retired_at": "2026-07-30",
           "retirement_reason": "event_end_date_passed"
         }
       }
