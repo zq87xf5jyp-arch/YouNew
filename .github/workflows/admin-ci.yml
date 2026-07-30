@@ -39,8 +39,6 @@ jobs:
       - uses: actions/setup-node@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           node-version: "24"
-          cache: pnpm
-          cache-dependency-path: admin-dashboard/pnpm-lock.yaml
       - name: Enable the pinned package manager
         run: corepack enable
       - name: Install dependencies
@@ -49,5 +47,14 @@ jobs:
         run: pnpm lint
       - name: Typecheck
         run: pnpm typecheck
+      - name: Unit and security contract tests
+        run: pnpm test
+      - name: Validate Supabase Edge Functions
+        run: |
+          pnpm dlx deno@2.9.4 fmt --check supabase/functions
+          pnpm dlx deno@2.9.4 check --config supabase/functions/analytics-ingest/deno.json supabase/functions/analytics-ingest/index.ts
+          pnpm dlx deno@2.9.4 check --config supabase/functions/submit-business-inquiry/deno.json supabase/functions/submit-business-inquiry/index.ts
+          pnpm dlx deno@2.9.4 check --config supabase/functions/submit-public-feedback/deno.json supabase/functions/submit-public-feedback/index.ts
+          pnpm dlx deno@2.9.4 check --config supabase/functions/prepare-content-sync/deno.json supabase/functions/prepare-content-sync/index.ts
       - name: Build
         run: pnpm build

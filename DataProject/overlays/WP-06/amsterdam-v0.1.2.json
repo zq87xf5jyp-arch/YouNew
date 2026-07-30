@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "release_id": "amsterdam-v0.1.2",
+  "version": "0.1.2",
+  "status": "published",
+  "work_package": "WP-06",
+  "dataset": "Amsterdam City 01",
+  "base_release_id": "amsterdam-v0.1.1",
+  "supersedes": "amsterdam-v0.1.1",
+  "base_batch_sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "evidence": [
+    {
+      "id": "evidence.pride-walk-ended-2026-07-25",
+      "kind": "replacement_review",
+      "url": "https://pride.amsterdam/en/event/pride-walk/",
+      "checked_at": "2026-07-28",
+      "note": "The official Pride Amsterdam page was opened on 28 July 2026 and states that Pride Walk ran on 25 July 2026 from 11:00 to 15:00. The stable record is retired because its end date has passed."
+    },
+    {
+      "id": "evidence.pride-park-ended-2026-07-25",
+      "kind": "replacement_review",
+      "url": "https://pride.amsterdam/en/event/pride-park/",
+      "checked_at": "2026-07-28",
+      "note": "The official Pride Amsterdam page was opened on 28 July 2026 and states that Pride Park ran on 25 July 2026 from 12:00 to 22:00. The stable record is retired because its end date has passed."
+    }
+  ],
+  "replacements": [
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-pride-walk",
+      "original_canonical_sha256": "1ccd98ac942813e53c9797653083fe676f03650a62fee2ae6bb93189d2cc6d52",
+      "replacement_canonical_sha256": "59cb1af259eb0da6f19d7e055ffe40401b17148086f78406da01d0e17c1413f2",
+      "reason": "The official event ended on 25 July 2026. Retire it from current public discovery while preserving its stable ID and source history.",
+      "evidence_refs": [
+        "evidence.pride-walk-ended-2026-07-25"
+      ],
+      "record": {
+        "id": "event.worldpride-amsterdam-2026-pride-walk",
+        "entity_type": "event",
+        "category": "pride-event",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3731162,
+          "longitude": 4.8923511
+        },
+        "title": "WorldPride Amsterdam 2026 Pride Walk",
+        "description": "WorldPride Amsterdam 2026 Pride Walk took place in Amsterdam on 25 July 2026. The official event page remains the responsible source for archival or updated information. This record is retired from current public discovery because its recorded end date has passed.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/47873224@N06/51366899938",
+            "asset_url": "https://live.staticflickr.com/65535/51366899938_6d14e6b963_b.jpg",
+            "license": "PDM",
+            "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+            "attribution": "\"CDA Verloop and the U.S. Mission community joins the #EqualRightsCoalition at Amsterdam’s Pride Walk\" by U.S. Embassy The Hague is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.event.worldpride-amsterdam-2026-pride-walk.hero.400b0e1ad4"
+          }
+        ],
+        "official_source": {
+          "title": "WorldPride Amsterdam 2026 Pride Walk official website",
+          "publisher": "Pride Amsterdam",
+          "url": "https://pride.amsterdam/en/event/pride-walk/",
+          "is_official": true,
+          "checked_at": "2026-07-28",
+          "status": "verified_opened"
+        },
+        "website": "https://pride.amsterdam/en/event/pride-walk/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-28",
+        "review_frequency_days": 30,
+        "verification_status": "verified",
+        "ai_summary": "WorldPride Amsterdam 2026 Pride Walk ended on 25 July 2026 and is retired from current public discovery. Use the official Pride Amsterdam page for archival or updated information.",
+        "search_keywords": [
+          "WorldPride Amsterdam 2026 Pride Walk",
+          "WorldPride Amsterdam 2026 Pride Walk Amsterdam",
+          "pride event",
+          "current event Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "retired",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 94756489",
+          "source_http_status": "200",
+          "source_final_url": "https://pride.amsterdam/en/event/pride-walk/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "1",
+          "start_date": "2026-07-25",
+          "end_date": "2026-07-25",
+          "retired_at": "2026-07-28",
+          "retirement_reason": "event_end_date_passed"
+        }
+      }
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-pride-park",
+      "original_canonical_sha256": "657a3ad93856a8522f5deb6e22fd5da95752686c5d2046fc4b9024db9ffd749a",
+      "replacement_canonical_sha256": "7928ad9bd46fe0510ea9089b044c31f3118d45ca825246dcfbf06f07429cbe6a",
+      "reason": "The official event ended on 25 July 2026. Retire it from current public discovery while preserving its stable ID and source history.",
+      "evidence_refs": [
+        "evidence.pride-park-ended-2026-07-25"
+      ],
+      "record": {
+        "id": "event.worldpride-amsterdam-2026-pride-park",
+        "entity_type": "event",
+        "category": "pride-event",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3571974,
+          "longitude": 4.864119
+        },
+        "title": "WorldPride Amsterdam 2026 Pride Park",
+        "description": "WorldPride Amsterdam 2026 Pride Park took place in Amsterdam on 25 July 2026. The official event page remains the responsible source for archival or updated information. This record is retired from current public discovery because its recorded end date has passed.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=81514470",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/2/27/Amsterdam_Pride_Canal_Parade_2019_05.jpg",
+            "license": "CC BY-SA 4.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+            "attribution": "\"Amsterdam Pride Canal Parade 2019 05\" by Tadeáš Bednarz is licensed under CC BY-SA 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.event.worldpride-amsterdam-2026-pride-park.hero.ef45b589ad"
+          }
+        ],
+        "official_source": {
+          "title": "WorldPride Amsterdam 2026 Pride Park official website",
+          "publisher": "Pride Amsterdam",
+          "url": "https://pride.amsterdam/en/event/pride-park/",
+          "is_official": true,
+          "checked_at": "2026-07-28",
+          "status": "verified_opened"
+        },
+        "website": "https://pride.amsterdam/en/event/pride-park/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-07-28",
+        "review_frequency_days": 30,
+        "verification_status": "verified",
+        "ai_summary": "WorldPride Amsterdam 2026 Pride Park ended on 25 July 2026 and is retired from current public discovery. Use the official Pride Amsterdam page for archival or updated information.",
+        "search_keywords": [
+          "WorldPride Amsterdam 2026 Pride Park",
+          "WorldPride Amsterdam 2026 Pride Park Amsterdam",
+          "pride event",
+          "current event Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "retired",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: relation 17080648",
+          "source_http_status": "200",
+          "source_final_url": "https://pride.amsterdam/en/event/pride-park/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "1",
+          "start_date": "2026-07-25",
+          "end_date": "2026-07-25",
+          "retired_at": "2026-07-28",
+          "retirement_reason": "event_end_date_passed"
+        }
+      }
+    }
+  ]
+}

@@ -1,0 +1,1079 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/gky05k",
+    "id": "gky05k",
+    "slide": 11,
+    "layoutId": "5e8f2d54-17cd-4b27-91a8-97a1b4db058c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "ea968791-a5f3-4f52-8ec7-576a051fdb37",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#080B16",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "5e8f2d54-17cd-4b27-91a8-97a1b4db058c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "ea968791-a5f3-4f52-8ec7-576a051fdb37",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "ea968791-a5f3-4f52-8ec7-576a051fdb37",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jux4nmdw",
+      "id": "1",
+      "name": "eyebrow-Release posture",
+      "bbox": [
+        64,
+        48,
+        440,
+        28
+      ],
+      "geometry": "rect",
+      "text": "RELEASE POSTURE",
+      "textPreview": "RELEASE POSTURE",
+      "resolvedFontSize": 17,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 17,
+        "typeface": "Aptos",
+        "color": "#62C9D8",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "RELEASE POSTURE"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "RELEASE POSTURE",
+          "resolvedTextStyle": {
+            "fontSize": 17,
+            "typeface": "Aptos",
+            "color": "#62C9D8",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "RELEASE POSTURE",
+              "fontSize": 17,
+              "typeface": "Aptos",
+              "color": "#62C9D8",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 2,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/kv65greh",
+      "id": "2",
+      "name": "s11-title",
+      "bbox": [
+        64,
+        78,
+        1040,
+        64
+      ],
+      "geometry": "rect",
+      "text": "Ready for controlled release-candidate handoff",
+      "textPreview": "Ready for controlled release-candidate handoff",
+      "resolvedFontSize": 46.3,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 50,
+        "typeface": "Aptos",
+        "color": "#F7F8FC",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 0.93,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Ready for controlled release-candidate"
+          },
+          {
+            "index": 2,
+            "text": "handoff"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Ready for controlled release-candidate handoff",
+          "resolvedTextStyle": {
+            "fontSize": 50,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Ready for controlled release-candidate handoff",
+              "fontSize": 50,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/5wz6pwv2",
+      "id": "3",
+      "name": "s11-score",
+      "bbox": [
+        64,
+        178,
+        210,
+        120
+      ],
+      "geometry": "rect",
+      "text": "7.8",
+      "textPreview": "7.8",
+      "resolvedFontSize": 92,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 92,
+        "typeface": "Aptos",
+        "color": "#F47A24",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "7.8"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "7.8",
+          "resolvedTextStyle": {
+            "fontSize": 92,
+            "typeface": "Aptos",
+            "color": "#F47A24",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "7.8",
+              "fontSize": 92,
+              "typeface": "Aptos",
+              "color": "#F47A24",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/a5onahwf",
+      "id": "4",
+      "name": "s11-score-label",
+      "bbox": [
+        72,
+        308,
+        210,
+        64
+      ],
+      "geometry": "rect",
+      "text": "technical readiness\nout of 10",
+      "textPreview": "technical readiness | out of 10",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Aptos",
+        "color": "#AAB4C8",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "technical readiness"
+          },
+          {
+            "index": 2,
+            "text": "out of 10"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "technical readiness",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#AAB4C8",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "technical readiness",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#AAB4C8",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "out of 10",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#AAB4C8",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "out of 10",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#AAB4C8",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/vqx4jmxk",
+      "id": "5",
+      "name": "s11-proven",
+      "bbox": [
+        352,
+        184,
+        340,
+        44
+      ],
+      "geometry": "rect",
+      "text": "Already proven",
+      "textPreview": "Already proven",
+      "resolvedFontSize": 31,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 31,
+        "typeface": "Aptos",
+        "color": "#3FD58B",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Already proven"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Already proven",
+          "resolvedTextStyle": {
+            "fontSize": 31,
+            "typeface": "Aptos",
+            "color": "#3FD58B",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Already proven",
+              "fontSize": 31,
+              "typeface": "Aptos",
+              "color": "#3FD58B",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wr65cre5",
+      "id": "6",
+      "name": "s11-proven-list",
+      "bbox": [
+        352,
+        250,
+        360,
+        232
+      ],
+      "geometry": "rect",
+      "text": "• Live public web\n• Public App Store listing\n• Authenticated Admin\n• Healthy Supabase runtime\n• Successful unsigned Release build",
+      "textPreview": "• Live public web | • Public App Store listing | • Authenticated Admin | • Healthy Supabase runtime | • Successful unsigned Release build",
+      "resolvedFontSize": 24,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 24,
+        "typeface": "Aptos",
+        "color": "#F7F8FC",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 6,
+        "lines": [
+          {
+            "index": 1,
+            "text": "• Live public web"
+          },
+          {
+            "index": 2,
+            "text": "• Public App Store listing"
+          },
+          {
+            "index": 3,
+            "text": "• Authenticated Admin"
+          },
+          {
+            "index": 4,
+            "text": "• Healthy Supabase runtime"
+          },
+          {
+            "index": 5,
+            "text": "• Successful unsigned Release"
+          },
+          {
+            "index": 6,
+            "text": "build"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "• Live public web",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• Live public web",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "• Public App Store listing",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• Public App Store listing",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "• Authenticated Admin",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• Authenticated Admin",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "• Healthy Supabase runtime",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• Healthy Supabase runtime",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 5,
+          "text": "• Successful unsigned Release build",
+          "resolvedTextStyle": {
+            "fontSize": 24,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• Successful unsigned Release build",
+              "fontSize": 24,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xsfmlwvq",
+      "id": "7",
+      "name": "s11-gates",
+      "bbox": [
+        790,
+        184,
+        360,
+        44
+      ],
+      "geometry": "rect",
+      "text": "Final release gates",
+      "textPreview": "Final release gates",
+      "resolvedFontSize": 31,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 31,
+        "typeface": "Aptos",
+        "color": "#F4B860",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Final release gates"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Final release gates",
+          "resolvedTextStyle": {
+            "fontSize": 31,
+            "typeface": "Aptos",
+            "color": "#F4B860",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Final release gates",
+              "fontSize": 31,
+              "typeface": "Aptos",
+              "color": "#F4B860",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/m14n6xw3",
+      "id": "8",
+      "name": "s11-gates-list",
+      "bbox": [
+        790,
+        250,
+        390,
+        250
+      ],
+      "geometry": "rect",
+      "text": "• Clean source SHA + green CI\n• Signed archive + runnable iOS tests\n• Encrypted backup + isolated restore\n• Authenticated Admin E2E\n• Flagship guides production-ready",
+      "textPreview": "• Clean source SHA + green CI | • Signed archive + runnable iOS tests | • Encrypted backup + isolated restore | • Authenticated Admin E2E...",
+      "resolvedFontSize": 22,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 22,
+        "typeface": "Aptos",
+        "color": "#F7F8FC",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 5,
+        "lines": [
+          {
+            "index": 1,
+            "text": "• Clean source SHA + green CI"
+          },
+          {
+            "index": 2,
+            "text": "• Signed archive + runnable iOS tests"
+          },
+          {
+            "index": 3,
+            "text": "• Encrypted backup + isolated restore"
+          },
+          {
+            "index": 4,
+            "text": "• Authenticated Admin E2E"
+          },
+          {
+            "index": 5,
+            "text": "• Flagship guides production-ready"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "• Clean source SHA + green CI",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• Clean source SHA + green CI",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "• Signed archive + runnable iOS tests",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• Signed archive + runnable iOS tests",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "• Encrypted backup + isolated restore",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• Encrypted backup + isolated restore",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 4,
+          "text": "• Authenticated Admin E2E",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• Authenticated Admin E2E",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 5,
+          "text": "• Flagship guides production-ready",
+          "resolvedTextStyle": {
+            "fontSize": 22,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "• Flagship guides production-ready",
+              "fontSize": 22,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/n2d4f2xo",
+      "id": "9",
+      "name": "s11-bottom",
+      "bbox": [
+        64,
+        540,
+        1152,
+        90
+      ],
+      "geometry": "roundRect",
+      "fillColor": "#182238",
+      "lineColor": "#2A3651",
+      "lineWidth": 1
+    },
+    {
+      "order": 10,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/36tcnapg",
+      "id": "10",
+      "name": "s11-bottom-text",
+      "bbox": [
+        96,
+        568,
+        1088,
+        36
+      ],
+      "geometry": "rect",
+      "text": "Operational today. Final release authority remains tied to explicit, testable evidence.",
+      "textPreview": "Operational today. Final release authority remains tied to explicit, testable evidence.",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Aptos",
+        "color": "#62C9D8",
+        "bold": true,
+        "alignment": "center",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Operational today. Final release authority remains tied to explicit, testable evidence."
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Operational today. Final release authority remains tied to explicit, testable evidence.",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#62C9D8",
+            "bold": true,
+            "alignment": "center"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Operational today. Final release authority remains tied to explicit, testable evidence.",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#62C9D8",
+              "bold": true,
+              "alignment": "center"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 11,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/25kbep8v",
+      "id": "11",
+      "name": "footer-left-11",
+      "bbox": [
+        64,
+        682,
+        520,
+        20
+      ],
+      "geometry": "rect",
+      "text": "YouNew · Product ecosystem · 30 July 2026",
+      "textPreview": "YouNew · Product ecosystem · 30 July 2026",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "color": "#74819A",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "YouNew · Product ecosystem · 30 July 2026"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "YouNew · Product ecosystem · 30 July 2026",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Aptos",
+            "color": "#74819A",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "YouNew · Product ecosystem · 30 July 2026",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#74819A",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 12,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/p8bupk7m",
+      "id": "12",
+      "name": "footer-page-11",
+      "bbox": [
+        1174,
+        682,
+        42,
+        20
+      ],
+      "geometry": "rect",
+      "text": "11",
+      "textPreview": "11",
+      "resolvedFontSize": 14,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 14,
+        "typeface": "Aptos",
+        "color": "#74819A",
+        "bold": true,
+        "alignment": "right",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "11"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "11",
+          "resolvedTextStyle": {
+            "fontSize": 14,
+            "typeface": "Aptos",
+            "color": "#74819A",
+            "bold": true,
+            "alignment": "right"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "11",
+              "fontSize": 14,
+              "typeface": "Aptos",
+              "color": "#74819A",
+              "bold": true,
+              "alignment": "right"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

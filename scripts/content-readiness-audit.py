@@ -33,6 +33,8 @@ from functools import lru_cache
 from pathlib import Path
 from typing import Any, Iterable
 
+from effective_release import effective_release_heads, resolve_release
+
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA_PROJECT = ROOT / "DataProject"
@@ -729,7 +731,13 @@ def build_report(as_of: date) -> dict[str, Any]:
     public_entities = public_content.get("entities", [])
     runtime_ids = [str(item.get("id")) for item in runtime_entities]
     public_ids = [str(item.get("id")) for item in public_entities]
-    effective_ids = [str(envelope.record.get("id")) for envelope in effective]
+    effective_ids = [
+        str(record.get("id"))
+        for release_id in effective_release_heads(DATA_PROJECT, statuses=("published",))
+        for record in resolve_release(DATA_PROJECT, release_id).records
+        if record.get("lifecycle_status") == "published"
+        and record.get("verification_status") == "verified"
+    ]
     public_guides = [item for item in public_entities if item.get("type") == "guide"]
     public_full_guides = [item for item in public_guides if item.get("contentDepth") == "practical"]
     public_summary_guides = [item for item in public_guides if item.get("contentDepth") == "summary"]

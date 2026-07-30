@@ -73,6 +73,11 @@ const columnLabels: Record<string, string> = {
   severity: "Серьезность",
   platform: "Платформа",
   app_screen: "Экран",
+  events: "События",
+  sessions: "Сессии",
+  key_actions: "Ключевые действия",
+  errors: "Ошибки",
+  event: "Событие",
   url: "URL",
   source_type: "Тип источника",
   last_checked_date: "Проверено",
@@ -81,6 +86,9 @@ const columnLabels: Record<string, string> = {
   official_source: "Офиц. источник",
   user_email: "Email",
   message: "Сообщение",
+  confirmation_code: "ID",
+  feedback_type: "Тип отзыва",
+  page_reference: "Страница",
   user_id: "Пользователь",
   action: "Действие",
   entity_type: "Тип объекта",
@@ -105,6 +113,10 @@ const columnLabels: Record<string, string> = {
   duration: "Длительность",
   dataset: "Набор данных",
   duration_ms: "Длительность, мс",
+  records_processed: "Обработано",
+  records_failed: "Ошибок",
+  artifact_fingerprint: "Fingerprint",
+  error_summary: "Ошибка",
   occurred_at: "Время события"
 };
 

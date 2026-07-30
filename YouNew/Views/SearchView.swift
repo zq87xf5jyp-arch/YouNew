@@ -382,6 +382,7 @@ struct SearchView: View {
                 }
                 .padding(.vertical, 2)
             }
+            .accessibilityIdentifier("search.suggestions.scroll")
         }
     }
 

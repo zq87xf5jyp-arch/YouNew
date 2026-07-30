@@ -27,6 +27,7 @@ import {
 import { ContentMedia, preferredMedia } from "@/components/content-media";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SystemEvidence } from "@/components/system-evidence";
 import { getPublicContent } from "@/lib/content";
 import { links } from "@/lib/site-data";
 import statusSnapshot from "@/config/status.json";
@@ -100,7 +101,7 @@ export default function HomePage() {
             <h1 id="hero-title">Your next step in the Netherlands, <span>made clearer.</span></h1>
             <p>YouNew brings practical guides, trusted source links, city context and personalised paths into one calm web guide—with the iPhone app alongside it.</p>
             <div className="hero-actions">
-              <Link className="button button-primary" href="/discover">Use YouNew on the web <ArrowRight aria-hidden /></Link>
+              <Link className="button button-primary" href="/start">Find my next step <ArrowRight aria-hidden /></Link>
               <Link className="button button-ghost" href="/search"><Search aria-hidden /> Search published content</Link>
               <a className="button button-outline" href={links.appStore} rel="noreferrer" target="_blank">Download on the App Store <ExternalLink aria-hidden /></a>
               <Link className="button button-ghost" href="/guides">Explore guides</Link>
@@ -319,6 +320,10 @@ export default function HomePage() {
           </div>
         </section>
 
+        <div className="section-shell section-block">
+          <SystemEvidence compact />
+        </div>
+
         <section id="partners" className="section-shell partner-section section-block" aria-labelledby="partners-title" data-reveal>
           <div className="partner-visual" aria-hidden><Building2 /><Users /><HeartHandshake /></div>
           <div><p className="section-label cyan">Local communities</p><h2 id="partners-title">Built with local communities.</h2><p>Local organisations and businesses can help newcomers discover relevant services. Editorial guidance stays separate from clearly labelled future sponsored placements.</p><Link className="button button-outline" href="/business">Explore partnership options <ArrowRight aria-hidden /></Link></div>
@@ -332,7 +337,7 @@ export default function HomePage() {
         </section>
 
         <section className="final-cta" aria-labelledby="cta-title">
-          <div className="section-shell"><Sparkles aria-hidden /><h2 id="cta-title">Start with YouNew today.</h2><p>Search published content in the browser or open the verified public App Store listing.</p><div><Link className="button button-primary" href="/discover">Open YouNew web <ArrowRight aria-hidden /></Link><a className="button button-outline" href={links.appStore} rel="noreferrer" target="_blank">Download on the App Store <ExternalLink aria-hidden /></a></div></div>
+          <div className="section-shell"><Sparkles aria-hidden /><h2 id="cta-title">Start with YouNew today.</h2><p>Build a practical route in the browser or open the verified public App Store listing.</p><div><Link className="button button-primary" href="/start">Find my next step <ArrowRight aria-hidden /></Link><a className="button button-outline" href={links.appStore} rel="noreferrer" target="_blank">Download on the App Store <ExternalLink aria-hidden /></a></div></div>
         </section>
       </main>
       <SiteFooter />

@@ -3,6 +3,7 @@ export type AnalyticsEvent =
   | { name: "search"; resultCount: number; hasResults: boolean }
   | { name: "official_source_click"; contentId: string }
   | { name: "partner_click"; contentId: string }
+  | { name: "item_saved"; contentId: string }
   | { name: "app_cta_click"; location: string }
   | { name: "profile_selected"; profile: string }
   | { name: "business_mailto_prepared"; organizationType: string }
@@ -149,6 +150,7 @@ function eventProperties(event: AnalyticsEvent): Record<string, string | number 
       };
     case "official_source_click":
     case "partner_click":
+    case "item_saved":
       return { content_id: safeProperty(event.contentId) };
     case "app_cta_click":
       return { location: safeProperty(event.location) };

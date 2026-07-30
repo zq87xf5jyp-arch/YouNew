@@ -2,9 +2,11 @@ import { Database, ShieldCheck } from "lucide-react";
 import { PageHeader } from "@/components/admin/page-header";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 import { CrudTable } from "@/components/admin/crud-table";
 import { fetchRowsResult } from "@/lib/data";
 import { buildMobileSyncPayload } from "@/lib/mobile-sync";
+import { requestContentSync } from "./actions";
 
 export default async function SyncPage() {
   const canonicalRuntime = buildMobileSyncPayload();
@@ -39,7 +41,7 @@ export default async function SyncPage() {
           </div>
         </CardHeader>
         <CardContent className="space-y-4 text-sm text-muted-foreground">
-          <p>Приложение, публичный сайт и endpoint админки собираются из одного управляемого runtime-артефакта; Supabase хранит административное состояние.</p>
+          <p>Приложение, публичный сайт и API админки используют один проверенный набор опубликованных данных; Supabase хранит административное состояние.</p>
           <dl className="grid gap-3 rounded-md border border-border bg-secondary/30 p-4 text-xs sm:grid-cols-2">
             <div><dt className="font-medium text-foreground">Dataset fingerprint</dt><dd className="mt-1 break-all font-mono">{canonicalRuntime.contentVersion}</dd></div>
             <div><dt className="font-medium text-foreground">Опубликованные записи</dt><dd className="mt-1">{canonicalRuntime.entityCount}</dd></div>
@@ -53,15 +55,21 @@ export default async function SyncPage() {
               <li>в публичный payload попадают только опубликованные записи;</li>
               <li>public API возвращает 503 вместо вымышленных данных при недоступном Supabase;</li>
               <li><code>/api/mobile/sync</code> отдаёт только этот опубликованный runtime с ETag по dataset fingerprint;</li>
-              <li>rollback выполняется повторным развёртыванием ранее проверенного immutable release artifact;</li>
+              <li>откат выполняется повторным развёртыванием ранее проверенной версии;</li>
               <li>live DNS/TLS, rate limiting, журнал production-публикаций и фактический deploy требуют отдельной проверки.</li>
             </ul>
           </div>
+          <form action={requestContentSync}>
+            <Button type="submit" disabled={!connected}>
+              Подготовить candidate-артефакт
+            </Button>
+            <p className="mt-2 text-xs">Команда создаёт и проверяет кандидата для ручного GitHub handoff. Она не активирует production-версию.</p>
+          </form>
         </CardContent>
       </Card>
       <div className="mt-6 grid gap-6">
         <CrudTable title="Наборы данных" description="Текущее подтверждённое административное состояние." rows={datasetResult.rows} columns={["dataset", "version", "records", "last_sync", "status"]} cta="Обновить состояние" />
-        <CrudTable title="История задач" description="Последние подтверждённые операции публикации и проверки." rows={jobResult.rows} columns={["job", "target", "status", "duration_ms", "created_at"]} cta="Новая задача" />
+        <CrudTable title="История задач" description="Последние подтверждённые операции публикации и проверки." rows={jobResult.rows} columns={["job", "target", "status", "records_processed", "records_failed", "artifact_fingerprint", "error_summary", "duration_ms", "created_at"]} />
       </div>
     </>
   );

@@ -1900,7 +1900,6 @@ struct PlacesDiscoveryView: View {
             await Task.yield()
             mapViewModel.selectedCity = city
             guard let dashboardCity else { return }
-            try? await Task.sleep(for: .milliseconds(16))
             appState.selectedCity = dashboardCity.displayName
         }
     }

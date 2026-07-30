@@ -14,7 +14,7 @@ import { slugify } from "@/lib/utils";
 import type { ManagedContentImage } from "@/lib/content-images";
 import { createArticle, deleteArticle as deleteRemoteArticle, updateArticle } from "@/app/(admin)/content/actions";
 
-type ArticleStatus = "draft" | "review" | "published" | "archived";
+type ArticleStatus = "draft" | "research" | "review" | "qa" | "published" | "needs_review" | "archived";
 
 export type ManagedArticle = {
   id: string;
@@ -29,6 +29,9 @@ export type ManagedArticle = {
   source?: string;
   tags?: string;
   images: ManagedContentImage[];
+  verifiedDate?: string;
+  reviewConfirmed: boolean;
+  requiresMedia: boolean;
   updatedAt?: string;
 };
 
@@ -47,7 +50,10 @@ const emptyDraft: ArticleDraft = {
   content: "",
   source: "",
   tags: "",
-  images: []
+  images: [],
+  verifiedDate: "",
+  reviewConfirmed: false,
+  requiresMedia: false
 };
 
 const categoryLabels: Record<string, string> = {
@@ -61,12 +67,25 @@ const categoryLabels: Record<string, string> = {
 
 const statusLabels: Record<ArticleStatus, string> = {
   draft: "черновик",
+  research: "исследование",
   review: "на проверке",
+  qa: "QA",
   published: "опубликовано",
+  needs_review: "требует перепроверки",
   archived: "архив"
 };
 
-export function ContentManager({ initialRows, supabaseEnabled, canEdit }: { initialRows: ManagedArticle[]; supabaseEnabled: boolean; canEdit: boolean }) {
+export function ContentManager({
+  initialRows,
+  supabaseEnabled,
+  canEdit,
+  canPublish
+}: {
+  initialRows: ManagedArticle[];
+  supabaseEnabled: boolean;
+  canEdit: boolean;
+  canPublish: boolean;
+}) {
   const [rows, setRows] = useState(initialRows);
   const [draft, setDraft] = useState<ArticleDraft>(emptyDraft);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -84,7 +103,12 @@ export function ContentManager({ initialRows, supabaseEnabled, canEdit }: { init
     if (saved) {
       try {
         const parsed = JSON.parse(saved) as ManagedArticle[];
-        if (Array.isArray(parsed)) setRows(parsed.map((row) => ({ ...row, images: Array.isArray(row.images) ? row.images : [] })));
+        if (Array.isArray(parsed)) setRows(parsed.map((row) => ({
+          ...row,
+          images: Array.isArray(row.images) ? row.images : [],
+          reviewConfirmed: Boolean(row.reviewConfirmed),
+          requiresMedia: Boolean(row.requiresMedia)
+        })));
       } catch {
         window.localStorage.removeItem(storageKey);
       }
@@ -121,6 +145,21 @@ export function ContentManager({ initialRows, supabaseEnabled, canEdit }: { init
     if (!draft.title.trim() || !draft.slug.trim()) {
       setNotice("Заполните название и слаг.");
       return;
+    }
+    if (draft.status === "published") {
+      const missing = [
+        !canPublish ? "роль Owner или Admin" : "",
+        !draft.description?.trim() ? "короткое описание" : "",
+        !draft.content?.trim() ? "полный текст" : "",
+        !draft.source?.trim().startsWith("https://") ? "официальный HTTPS-источник" : "",
+        !draft.verifiedDate ? "дата проверки" : "",
+        !draft.reviewConfirmed ? "подтверждение human review" : "",
+        draft.requiresMedia && draft.images.length === 0 ? "обязательное изображение" : ""
+      ].filter(Boolean);
+      if (missing.length > 0) {
+        setNotice(`Публикация заблокирована. Отсутствует: ${missing.join(", ")}.`);
+        return;
+      }
     }
 
     setSaving(true);
@@ -159,7 +198,10 @@ export function ContentManager({ initialRows, supabaseEnabled, canEdit }: { init
       content: article.content ?? "",
       source: article.source ?? "",
       tags: article.tags ?? "",
-      images: article.images ?? []
+      images: article.images ?? [],
+      verifiedDate: article.verifiedDate ?? "",
+      reviewConfirmed: article.reviewConfirmed,
+      requiresMedia: article.requiresMedia
     });
     setEditingId(article.id);
     setNotice("");
@@ -270,10 +312,16 @@ export function ContentManager({ initialRows, supabaseEnabled, canEdit }: { init
               <div className="flex flex-col gap-2"><Label htmlFor="managed-slug">Слаг</Label><Input id="managed-slug" value={draft.slug} onChange={(event) => updateDraft("slug", event.target.value)} /></div>
               <div className="flex flex-col gap-2"><Label htmlFor="managed-language">Язык</Label><Input id="managed-language" value={draft.language} onChange={(event) => updateDraft("language", event.target.value)} /></div>
               <div className="flex flex-col gap-2"><Label>Категория</Label><Select value={draft.category} onValueChange={(value) => updateDraft("category", value)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectGroup>{Object.entries(categoryLabels).map(([value, label]) => <SelectItem value={value} key={value}>{label}</SelectItem>)}</SelectGroup></SelectContent></Select></div>
-              <div className="flex flex-col gap-2"><Label>Статус</Label><Select value={draft.status} onValueChange={(value) => updateDraft("status", value as ArticleStatus)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectGroup>{Object.entries(statusLabels).map(([value, label]) => <SelectItem value={value} key={value}>{label}</SelectItem>)}</SelectGroup></SelectContent></Select></div>
+              <div className="flex flex-col gap-2"><Label>Статус</Label><Select value={draft.status} onValueChange={(value) => updateDraft("status", value as ArticleStatus)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectGroup>{Object.entries(statusLabels).map(([value, label]) => <SelectItem value={value} key={value} disabled={value === "published" && !canPublish}>{label}</SelectItem>)}</SelectGroup></SelectContent></Select></div>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-description">Короткое описание</Label><Input id="managed-description" value={draft.description} onChange={(event) => updateDraft("description", event.target.value)} /></div>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-content">Полный текст</Label><Textarea id="managed-content" value={draft.content} onChange={(event) => updateDraft("content", event.target.value)} placeholder="Напишите текст материала…" /></div>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-source">Официальный источник</Label><Input id="managed-source" type="url" value={draft.source} onChange={(event) => updateDraft("source", event.target.value)} placeholder="https://www.government.nl/..." /></div>
+              <div className="flex flex-col gap-2"><Label htmlFor="managed-verified-date">Дата проверки источника</Label><Input id="managed-verified-date" type="date" max={new Date().toISOString().slice(0, 10)} value={draft.verifiedDate} onChange={(event) => updateDraft("verifiedDate", event.target.value)} /></div>
+              <fieldset className="flex flex-col gap-3 rounded-md border border-border bg-secondary/20 p-3">
+                <legend className="px-1 text-sm font-medium">Publication gate</legend>
+                <label className="flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1" checked={draft.reviewConfirmed} onChange={(event) => updateDraft("reviewConfirmed", event.target.checked)} />Human review завершён; текущий одобренный администратор будет записан как reviewer.</label>
+                <label className="flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1" checked={draft.requiresMedia} onChange={(event) => updateDraft("requiresMedia", event.target.checked)} />Для публикации этого материала обязательно изображение.</label>
+              </fieldset>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-tags">Теги</Label><Input id="managed-tags" value={draft.tags} onChange={(event) => updateDraft("tags", event.target.value)} placeholder="bsn, municipality, registration" /></div>
               <ContentImageUploader
                 images={draft.images}
@@ -283,6 +331,7 @@ export function ContentManager({ initialRows, supabaseEnabled, canEdit }: { init
                 onNotice={setNotice}
               />
               {notice && <p role="status" className="text-sm text-cyan-100 lg:col-span-2">{notice}</p>}
+              {draft.status === "published" ? <p className="rounded-md border border-amber-400/30 bg-amber-400/10 p-3 text-xs text-amber-100 lg:col-span-2">Publish создаёт queued sync job. Публичный сайт не меняется автоматически до успешной канонической синхронизации и deployment.</p> : null}
               <div className="lg:col-span-2"><Button type="submit" disabled={saving}><Save className="size-4" />{saving ? "Сохранение…" : editingId ? "Сохранить изменения" : "Создать материал"}</Button></div>
             </form>
           </CardContent>

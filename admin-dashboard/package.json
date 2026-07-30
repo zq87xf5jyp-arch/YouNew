@@ -2,17 +2,19 @@
   "name": "younew-admin-dashboard",
   "version": "0.1.0",
   "private": true,
+  "type": "module",
   "packageManager": "pnpm@11.9.0",
   "engines": {
     "node": ">=24 <25"
   },
   "scripts": {
-    "dev": "next dev",
-    "build": "pnpm generate:runtime && next build",
+    "dev": "node node_modules/next/dist/bin/next dev",
+    "build": "pnpm generate:runtime && node node_modules/next/dist/bin/next build",
     "generate:runtime": "node scripts/generate-governed-runtime.mjs",
-    "start": "next start",
-    "lint": "eslint src next.config.ts --max-warnings=0",
-    "typecheck": "tsc --noEmit",
+    "start": "node node_modules/next/dist/bin/next start",
+    "lint": "node node_modules/eslint/bin/eslint.js src next.config.ts --max-warnings=0",
+    "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
+    "test": "node --test tests/*.test.ts",
     "backup": "sh scripts/backup-postgres.sh"
   },
   "dependencies": {

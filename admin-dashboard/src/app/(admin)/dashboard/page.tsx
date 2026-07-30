@@ -2,6 +2,7 @@ import { Activity, BookOpen, Bug, Building2, CircleAlert, ClipboardList, Databas
 import { PageHeader } from "@/components/admin/page-header";
 import { StatCard } from "@/components/admin/stat-card";
 import { CrudTable } from "@/components/admin/crud-table";
+import { ReleaseReadinessOverview } from "@/components/admin/release-readiness-overview";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { defaultCategories, defaultCities, fetchRowsResult, sampleArticles, sampleBugs } from "@/lib/data";
 import dataProject from "@/generated/data-project-dashboard.json";
@@ -30,6 +31,9 @@ export default async function DashboardPage() {
         title="Панель управления"
         description="Состояние PRODUCT и DATA PROJECT: покрытие, качество, источники, релизы, ошибки и публичные выгрузки для мобильного приложения."
       />
+      <div className="mb-8">
+        <ReleaseReadinessOverview compact />
+      </div>
       <section>
         <div className="mb-4 flex flex-wrap items-end justify-between gap-3">
           <div>

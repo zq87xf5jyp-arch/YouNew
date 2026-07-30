@@ -1,0 +1,88 @@
+{
+  "name": "YouNew Sale Readiness and Technical Diligence Pack",
+  "as_of": "2026-07-30",
+  "language": "ru",
+  "status": "partial",
+  "purpose": "Owner decision support, controlled buyer diligence and release-gap closure",
+  "first_read": "YouNew_Sale_Readiness_2026-07-30.html",
+  "primary_output": {
+    "path": "YouNew_Sale_Readiness_2026-07-30.html",
+    "format": "standalone_html",
+    "user_viewable": true
+  },
+  "supporting_outputs": [
+    {
+      "path": "YouNew_Sale_Readiness_2026-07-30.pdf",
+      "format": "pdf",
+      "user_viewable": true
+    },
+    {
+      "path": "claims-ledger.csv",
+      "user_viewable": true
+    },
+    {
+      "path": "evidence-register.csv",
+      "user_viewable": true
+    },
+    {
+      "path": "risk-register.csv",
+      "user_viewable": true
+    },
+    {
+      "path": "data-room-index.csv",
+      "user_viewable": true
+    },
+    {
+      "path": "verification-summary.json",
+      "user_viewable": false
+    },
+    {
+      "path": "ios-release-build.log",
+      "user_viewable": false
+    },
+    {
+      "path": "SHA256SUMS.txt",
+      "user_viewable": false
+    }
+  ],
+  "companion_outputs": [
+    "/Users/ivan/Desktop/Developer:YouNew/outputs/younew-financial-audit-2026-07-28/financial_audit_report.html",
+    "/Users/ivan/Desktop/Developer:YouNew/outputs/younew-financial-audit-2026-07-28/YouNew_Financial_Audit_2026-07-28.xlsx",
+    "/Users/ivan/Desktop/Developer:YouNew/outputs/younew-buyer-universe-2026-07-28/YouNew_Advance_Sale_and_Global_Buyers_2026-07-28.html",
+    "/Users/ivan/Desktop/Developer:YouNew/outputs/younew-buyer-universe-2026-07-28/YouNew_Global_Buyer_Universe_2026-07-28.xlsx"
+  ],
+  "scope": [
+    "iOS",
+    "public website",
+    "Admin Dashboard",
+    "Supabase",
+    "DataProject",
+    "GitHub and CI",
+    "content and media rights",
+    "compliance engineering posture",
+    "commercial-product boundary",
+    "transaction readiness"
+  ],
+  "methodology": {
+    "lead": "sell-side readiness and technical diligence teardown",
+    "evidence_classes": [
+      "fact",
+      "assessment",
+      "third_party_internal_estimate",
+      "recommendation"
+    ],
+    "production_policy": "read-only verification; no deployment or production mutation without exact owner authority",
+    "legal_posture": "engineering control assessment, not legal advice",
+    "valuation_posture": "screening-only companion model, not a formal valuation opinion"
+  },
+  "critical_open_items": [
+    "clean reviewed release SHA/tag and green CI",
+    "fresh encrypted Supabase backup and isolated restore evidence",
+    "authenticated Admin production E2E",
+    "green executable iOS tests and signed archive validation",
+    "corporate/IP title chain and financial data room",
+    "formal GDPR/DSA/AI/WCAG reviews",
+    "production-ready practical guides",
+    "real commercial and distribution evidence"
+  ]
+}

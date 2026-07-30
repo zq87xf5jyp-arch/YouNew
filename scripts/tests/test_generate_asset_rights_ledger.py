@@ -84,6 +84,36 @@ class AssetRightsLedgerGeneratorTests(unittest.TestCase):
             self.assertTrue(record.get("ownershipBasis"), record["assetID"])
             self.assertTrue(record.get("evidence"), record["assetID"])
 
+    def test_derived_city_symbols_keep_exact_sources_and_derivation_evidence(self) -> None:
+        derived = [
+            record
+            for record in self.ledger["records"]
+            if record["status"] == "public_domain_derived"
+        ]
+        exact = [
+            record
+            for record in self.ledger["records"]
+            if record["status"] == "public_domain_byte_exact"
+        ]
+        self.assertEqual(len(derived), 27)
+        self.assertEqual(len(exact), 31)
+        evidence = json.loads(
+            self.generator.CITY_EVIDENCE_PATH.read_text(encoding="utf-8")
+        )["records"]
+        evidence_by_id = {record["assetID"]: record for record in evidence}
+        for record in derived:
+            source = evidence_by_id[record["assetID"]]
+            self.assertEqual(record["commons"]["localMatch"], "derived_from_current")
+            self.assertEqual(source["sourceLocalSHA1"], source["commonsSHA1"])
+            self.assertEqual(
+                record["sourceArtifact"],
+                {
+                    "path": source["sourceLocalPath"],
+                    "sha1": source["sourceLocalSHA1"],
+                },
+            )
+            self.assertEqual(source["derivation"]["outputSHA1"], source["localSHA1"])
+
 
 if __name__ == "__main__":
     unittest.main()

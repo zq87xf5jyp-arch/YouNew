@@ -3,7 +3,7 @@ import { ContentManager, type ManagedArticle } from "@/components/admin/content-
 import { sampleArticles } from "@/lib/data";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/auth";
-import { canEditContent } from "@/lib/authorization";
+import { canEditContent, canPublishContent } from "@/lib/authorization";
 import { normalizeManagedContentImages } from "@/lib/content-images";
 
 export default async function ContentPage() {
@@ -12,11 +12,11 @@ export default async function ContentPage() {
   const { data } = supabase
     ? await supabase
         .from("articles")
-        .select("id,title,slug,short_description,full_content,language,status,priority,source_url,tags,images,updated_at,categories(slug)")
+        .select("id,title,slug,short_description,full_content,language,status,priority,source_url,tags,images,verified_date,reviewer_id,requires_media,updated_at,categories(slug)")
         .order("updated_at", { ascending: false })
         .limit(100)
     : { data: null };
-  const rows = data ?? sampleArticles;
+  const rows = data ?? (process.env.NODE_ENV !== "production" && process.env.YOUNEW_ADMIN_DEMO_MODE === "true" ? sampleArticles : []);
   const initialRows: ManagedArticle[] = rows.map((row, index) => ({
     id: String((row as { id?: unknown }).id ?? `initial-${index + 1}`),
     title: String((row as { title?: unknown }).title ?? "Без названия"),
@@ -34,12 +34,20 @@ export default async function ContentPage() {
     source: String((row as { source_url?: unknown }).source_url ?? ""),
     tags: Array.isArray((row as { tags?: unknown }).tags) ? (row as { tags: unknown[] }).tags.join(", ") : "",
     images: normalizeManagedContentImages((row as { images?: unknown }).images),
+    verifiedDate: String((row as { verified_date?: unknown }).verified_date ?? ""),
+    reviewConfirmed: Boolean((row as { reviewer_id?: unknown }).reviewer_id),
+    requiresMedia: Boolean((row as { requires_media?: unknown }).requires_media),
     updatedAt: String((row as { updated_at?: unknown }).updated_at ?? "")
   }));
   return (
     <>
       <PageHeader title="Управление контентом" description="Создавайте и проверяйте статьи, транспортные гайды, справочные материалы, FAQ, экстренные контакты и источники знаний для AI." />
-      <ContentManager initialRows={initialRows} supabaseEnabled={Boolean(supabase)} canEdit={canEditContent(admin.role)} />
+      <ContentManager
+        initialRows={initialRows}
+        supabaseEnabled={Boolean(supabase)}
+        canEdit={canEditContent(admin.role)}
+        canPublish={canPublishContent(admin.role)}
+      />
     </>
   );
 }

@@ -1,0 +1,76 @@
+{
+  "as_of": "2026-07-30T01:40:00+02:00",
+  "posture": "controlled_release_candidate_handoff",
+  "technical_readiness_score": 7.8,
+  "release_identity": "blocked",
+  "unconditional_release": "no_go",
+  "evidence": {
+    "public_site": {
+      "predeploy": "pass",
+      "static_routes": 585,
+      "indexable_urls": 575,
+      "tests_passed": 83
+    },
+    "admin": {
+      "lint": "pass",
+      "typecheck": "pass",
+      "tests_passed": 10,
+      "build": "pass",
+      "authenticated_e2e": "not_executed"
+    },
+    "supabase": {
+      "health": "ACTIVE_HEALTHY",
+      "remote_migrations": 11,
+      "active_edge_functions": 4,
+      "backup_restore_evidence": "missing"
+    },
+    "data_project": {
+      "governed_records": 450,
+      "public_records": 186,
+      "freshness_percent": 97.8,
+      "production_ready_practical_guides": 0
+    },
+    "ios": {
+      "release_generic_device": "pass",
+      "release_result": "BUILD SUCCEEDED",
+      "runtime_tests": "blocked"
+    },
+    "backend_ai_proxy": {
+      "tests_passed": 13
+    }
+  },
+  "proven": [
+    "Публичный web работает и прошёл predeploy",
+    "Публичный App Store listing доступен",
+    "Admin защищён авторизацией и собирается",
+    "Supabase runtime находится в состоянии ACTIVE_HEALTHY",
+    "Unsigned generic-device iOS Release: BUILD SUCCEEDED"
+  ],
+  "final_gates": [
+    {
+      "id": "release-identity",
+      "label": "Чистый release SHA и green CI",
+      "status": "blocked"
+    },
+    {
+      "id": "ios-runtime",
+      "label": "Подписанный archive и исполняемые iOS-тесты",
+      "status": "blocked"
+    },
+    {
+      "id": "backup-restore",
+      "label": "Зашифрованный backup и isolated restore",
+      "status": "missing"
+    },
+    {
+      "id": "admin-e2e",
+      "label": "Authenticated Admin E2E",
+      "status": "not_executed"
+    },
+    {
+      "id": "guide-depth",
+      "label": "Production-ready flagship practical guides",
+      "status": "missing"
+    }
+  ]
+}

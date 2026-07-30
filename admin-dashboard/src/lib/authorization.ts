@@ -19,6 +19,7 @@ export const roleLabels: Record<AdminRole, string> = {
 const routeRoles: Array<{ prefix: string; roles: readonly AdminRole[] }> = [
   { prefix: "/settings", roles: ["owner", "admin"] },
   { prefix: "/sync", roles: ["owner", "admin"] },
+  { prefix: "/business-inquiries", roles: ["owner", "admin"] },
   { prefix: "/analytics", roles: ["owner", "admin"] },
   { prefix: "/audit-log", roles: ["owner", "admin"] },
 ];
@@ -30,4 +31,12 @@ export function canAccessPath(role: AdminRole, pathname: string) {
 
 export function canEditContent(role: AdminRole) {
   return role === "owner" || role === "admin" || role === "editor";
+}
+
+export function canPublishContent(role: AdminRole) {
+  return role === "owner" || role === "admin";
+}
+
+export function canManageBusinessInquiries(role: AdminRole) {
+  return role === "owner" || role === "admin";
 }

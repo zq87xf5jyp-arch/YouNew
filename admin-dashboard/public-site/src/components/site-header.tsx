@@ -4,12 +4,12 @@ import Link from "next/link";
 import { Menu, Search, X } from "lucide-react";
 
 const navigation = [
+  ["Start", "/start"],
+  ["My YouNew", "/my-younew"],
   ["Discover", "/discover"],
   ["Guides", "/guides"],
   ["Journeys", "/journeys"],
   ["Map", "/map"],
-  ["Cities", "/cities"],
-  ["Organizations", "/organizations"],
   ["Updates", "/updates"],
   ["Business", "/business"]
 ];
@@ -31,6 +31,8 @@ export function SiteHeader() {
             <nav id="mobile-navigation" aria-label="Mobile navigation">
               <Link href="/search" data-nav-href><Search aria-hidden /> Search</Link>
               {navigation.map(([label, href]) => <Link href={href} data-nav-href key={href}>{label}</Link>)}
+              <Link href="/cities" data-nav-href>Cities</Link>
+              <Link href="/organizations" data-nav-href>Organizations</Link>
               <Link href="/saved" data-nav-href>Saved</Link>
               <Link href="/emergency" data-nav-href>Emergency</Link>
               <Link href="/status" data-nav-href>Status</Link>

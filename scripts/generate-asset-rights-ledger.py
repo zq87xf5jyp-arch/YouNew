@@ -103,11 +103,13 @@ def catalog_fields(asset) -> dict:
 
 
 def city_symbol_record(asset, evidence: dict) -> dict:
-    return {
+    derivation = evidence.get("derivation")
+    is_derived = isinstance(derivation, dict)
+    record = {
         **catalog_fields(asset),
         "family": "city_symbol",
         "bucket": "cleared",
-        "status": "public_domain_byte_exact",
+        "status": "public_domain_derived" if is_derived else "public_domain_byte_exact",
         "sourcePageURL": evidence["sourcePageURL"],
         "creator": evidence["creator"],
         "licenseName": evidence["licenseName"],
@@ -115,12 +117,25 @@ def city_symbol_record(asset, evidence: dict) -> dict:
         "attributionRequired": False,
         "evidence": [CITY_EVIDENCE],
         "commons": {
-            "localMatch": "current_byte_exact",
+            "localMatch": "derived_from_current" if is_derived else "current_byte_exact",
             "remoteCurrentSHA1": evidence["commonsSHA1"],
             "checkedAt": evidence["retrievedAt"],
         },
-        "note": "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json.",
     }
+    if is_derived:
+        record.update(
+            {
+                "sourceArtifact": {
+                    "path": evidence["sourceLocalPath"],
+                    "sha1": evidence["sourceLocalSHA1"],
+                },
+                "modificationNotice": "Rasterized from the byte-exact current Wikimedia Commons SVG at a 1024 px maximum dimension for reliable iOS asset compilation.",
+                "note": "The exact Commons SVG source and the derived catalog PNG are both byte-linked in CITY_SYMBOL_RIGHTS.json.",
+            }
+        )
+    else:
+        record["note"] = "Catalog payload is byte-exact with the current Wikimedia Commons file recorded in CITY_SYMBOL_RIGHTS.json."
+    return record
 
 
 def project_owned_record(
@@ -371,7 +386,7 @@ def build_ledger() -> dict:
         "disclaimer": "Engineering evidence inventory, not legal advice. Trademark, official-emblem, personality, and jurisdiction-specific restrictions may still apply.",
         "methodology": [
             "Inventoried every Xcode asset payload and recomputed its SHA-1 from current repository bytes.",
-            "Reconciled all 58 city symbols to byte-exact Wikimedia Commons API records in CITY_SYMBOL_RIGHTS.json.",
+            "Reconciled all 58 city symbols to current Wikimedia Commons API records; derived PNGs retain byte-exact local SVG sources and explicit rasterization evidence.",
             "Imported photography credits from the manifest-backed in-app attribution registry.",
             "Verified three direct Commons UI thumbnails against their official width=1920 URLs and recorded original/local SHA-1 values.",
             "Bound all 26 project-owned map and province-flag payloads to the independent path/SHA-1 ownership registry.",

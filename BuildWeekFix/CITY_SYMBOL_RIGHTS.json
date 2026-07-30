@@ -15,9 +15,23 @@
       "mimeType": "image/svg+xml",
       "width": 200,
       "height": 141,
-      "localPath": "YouNew/Assets.xcassets/city_alkmaar_coat_of_arms.imageset/city_alkmaar_coat_of_arms.svg",
-      "localSHA1": "4929c443e881ab3c5bbed186bf36a5a4731dfaaa",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_alkmaar_coat_of_arms.imageset/city_alkmaar_coat_of_arms.png",
+      "localSHA1": "2f55afcf4b4b74a0057df7f7c06e13a07c440b0f",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_alkmaar_coat_of_arms.svg",
+      "sourceLocalSHA1": "4929c443e881ab3c5bbed186bf36a5a4731dfaaa",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 722,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "4929c443e881ab3c5bbed186bf36a5a4731dfaaa",
+        "outputSHA1": "2f55afcf4b4b74a0057df7f7c06e13a07c440b0f"
+      }
     },
     {
       "assetID": "city_alkmaar_flag",
@@ -47,9 +61,23 @@
       "mimeType": "image/svg+xml",
       "width": 828,
       "height": 483,
-      "localPath": "YouNew/Assets.xcassets/city_almere_coat_of_arms.imageset/city_almere_coat_of_arms.svg",
-      "localSHA1": "d2805390eeee120e7eb02739a952c31e0e29baf0",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_almere_coat_of_arms.imageset/city_almere_coat_of_arms.png",
+      "localSHA1": "65c64d197c9e8315b6a30baaa09a5969f2e37ca2",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_almere_coat_of_arms.svg",
+      "sourceLocalSHA1": "d2805390eeee120e7eb02739a952c31e0e29baf0",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 597,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "d2805390eeee120e7eb02739a952c31e0e29baf0",
+        "outputSHA1": "65c64d197c9e8315b6a30baaa09a5969f2e37ca2"
+      }
     },
     {
       "assetID": "city_almere_flag",
@@ -79,9 +107,23 @@
       "mimeType": "image/svg+xml",
       "width": 200,
       "height": 139,
-      "localPath": "YouNew/Assets.xcassets/city_amersfoort_coat_of_arms.imageset/city_amersfoort_coat_of_arms.svg",
-      "localSHA1": "ff25fdc0e4a51a48c10d609203c4344aeb0995e1",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_amersfoort_coat_of_arms.imageset/city_amersfoort_coat_of_arms.png",
+      "localSHA1": "5750deca2983b11da0897860261bf381c34db956",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_amersfoort_coat_of_arms.svg",
+      "sourceLocalSHA1": "ff25fdc0e4a51a48c10d609203c4344aeb0995e1",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 711,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "ff25fdc0e4a51a48c10d609203c4344aeb0995e1",
+        "outputSHA1": "5750deca2983b11da0897860261bf381c34db956"
+      }
     },
     {
       "assetID": "city_amersfoort_flag",
@@ -143,9 +185,23 @@
       "mimeType": "image/svg+xml",
       "width": 2129,
       "height": 1531,
-      "localPath": "YouNew/Assets.xcassets/city_amsterdam_coat_of_arms.imageset/city_amsterdam_coat_of_arms.svg",
-      "localSHA1": "8fb852a37fa15bcb05260090a1d4652f34ddb179",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_amsterdam_coat_of_arms.imageset/city_amsterdam_coat_of_arms.png",
+      "localSHA1": "43cdfc65f974cdefdd9cf31fe5cfb8c2f6812038",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_amsterdam_coat_of_arms.svg",
+      "sourceLocalSHA1": "8fb852a37fa15bcb05260090a1d4652f34ddb179",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 736,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "8fb852a37fa15bcb05260090a1d4652f34ddb179",
+        "outputSHA1": "43cdfc65f974cdefdd9cf31fe5cfb8c2f6812038"
+      }
     },
     {
       "assetID": "city_amsterdam_flag",
@@ -175,9 +231,23 @@
       "mimeType": "image/svg+xml",
       "width": 372,
       "height": 267,
-      "localPath": "YouNew/Assets.xcassets/city_arnhem_coat_of_arms.imageset/city_arnhem_coat_of_arms.svg",
-      "localSHA1": "5af5842b4f560bf76d1e1776d2b96e8b184d645d",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_arnhem_coat_of_arms.imageset/city_arnhem_coat_of_arms.png",
+      "localSHA1": "d0f3361b4bc9a5592515bcee8959650e2a45dec9",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_arnhem_coat_of_arms.svg",
+      "sourceLocalSHA1": "5af5842b4f560bf76d1e1776d2b96e8b184d645d",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 735,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "5af5842b4f560bf76d1e1776d2b96e8b184d645d",
+        "outputSHA1": "d0f3361b4bc9a5592515bcee8959650e2a45dec9"
+      }
     },
     {
       "assetID": "city_arnhem_flag",
@@ -207,9 +277,23 @@
       "mimeType": "image/svg+xml",
       "width": 1004,
       "height": 644,
-      "localPath": "YouNew/Assets.xcassets/city_assen_coat_of_arms.imageset/city_assen_coat_of_arms.svg",
-      "localSHA1": "f41d128b96bce8fc216518d3d0b39a98b3e9122f",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_assen_coat_of_arms.imageset/city_assen_coat_of_arms.png",
+      "localSHA1": "e23f43ba113961356e432237048666afe78678cc",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_assen_coat_of_arms.svg",
+      "sourceLocalSHA1": "f41d128b96bce8fc216518d3d0b39a98b3e9122f",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 657,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "f41d128b96bce8fc216518d3d0b39a98b3e9122f",
+        "outputSHA1": "e23f43ba113961356e432237048666afe78678cc"
+      }
     },
     {
       "assetID": "city_assen_flag",
@@ -239,9 +323,23 @@
       "mimeType": "image/svg+xml",
       "width": 1018,
       "height": 707,
-      "localPath": "YouNew/Assets.xcassets/city_breda_coat_of_arms.imageset/city_breda_coat_of_arms.svg",
-      "localSHA1": "582b99ed1e0ccf92a9f898251a3060a131209408",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_breda_coat_of_arms.imageset/city_breda_coat_of_arms.png",
+      "localSHA1": "23f592c62e85d78b8c5f694e8b29a82564a73b76",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_breda_coat_of_arms.svg",
+      "sourceLocalSHA1": "582b99ed1e0ccf92a9f898251a3060a131209408",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 711,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "582b99ed1e0ccf92a9f898251a3060a131209408",
+        "outputSHA1": "23f592c62e85d78b8c5f694e8b29a82564a73b76"
+      }
     },
     {
       "assetID": "city_breda_flag",
@@ -271,9 +369,23 @@
       "mimeType": "image/svg+xml",
       "width": 854,
       "height": 592,
-      "localPath": "YouNew/Assets.xcassets/city_delft_coat_of_arms.imageset/city_delft_coat_of_arms.svg",
-      "localSHA1": "b1a9a4bef0ad708e7af329d079416320a784b9e3",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_delft_coat_of_arms.imageset/city_delft_coat_of_arms.png",
+      "localSHA1": "1df040090266c758e0536abf1c7fb121dda4d11f",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_delft_coat_of_arms.svg",
+      "sourceLocalSHA1": "b1a9a4bef0ad708e7af329d079416320a784b9e3",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 710,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "b1a9a4bef0ad708e7af329d079416320a784b9e3",
+        "outputSHA1": "1df040090266c758e0536abf1c7fb121dda4d11f"
+      }
     },
     {
       "assetID": "city_delft_flag",
@@ -303,9 +415,23 @@
       "mimeType": "image/svg+xml",
       "width": 904,
       "height": 577,
-      "localPath": "YouNew/Assets.xcassets/city_den_haag_coat_of_arms.imageset/city_den_haag_coat_of_arms.svg",
-      "localSHA1": "b3a33b598cda6011edcc3cef8a0d463eb6489fb7",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_den_haag_coat_of_arms.imageset/city_den_haag_coat_of_arms.png",
+      "localSHA1": "71288f1a0f5309f27d126cdf86faba63be81ce59",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_den_haag_coat_of_arms.svg",
+      "sourceLocalSHA1": "b3a33b598cda6011edcc3cef8a0d463eb6489fb7",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 653,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "b3a33b598cda6011edcc3cef8a0d463eb6489fb7",
+        "outputSHA1": "71288f1a0f5309f27d126cdf86faba63be81ce59"
+      }
     },
     {
       "assetID": "city_den_haag_flag",
@@ -335,9 +461,23 @@
       "mimeType": "image/svg+xml",
       "width": 466,
       "height": 672,
-      "localPath": "YouNew/Assets.xcassets/city_eindhoven_coat_of_arms.imageset/city_eindhoven_coat_of_arms.svg",
-      "localSHA1": "415283292c0aefd9efc3a0d27d2b05617df095b7",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_eindhoven_coat_of_arms.imageset/city_eindhoven_coat_of_arms.png",
+      "localSHA1": "cc13e027e4e82d745e25227a5b6f7bc9be91a034",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_eindhoven_coat_of_arms.svg",
+      "sourceLocalSHA1": "415283292c0aefd9efc3a0d27d2b05617df095b7",
+      "localMimeType": "image/png",
+      "localWidth": 710,
+      "localHeight": 1024,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "415283292c0aefd9efc3a0d27d2b05617df095b7",
+        "outputSHA1": "cc13e027e4e82d745e25227a5b6f7bc9be91a034"
+      }
     },
     {
       "assetID": "city_eindhoven_flag",
@@ -367,9 +507,23 @@
       "mimeType": "image/svg+xml",
       "width": 400,
       "height": 273,
-      "localPath": "YouNew/Assets.xcassets/city_groningen_coat_of_arms.imageset/city_groningen_coat_of_arms.svg",
-      "localSHA1": "ab372cb94883cd6a7ae2b2166bdf99725832bf34",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_groningen_coat_of_arms.imageset/city_groningen_coat_of_arms.png",
+      "localSHA1": "70e7303de44be60cb25007c074bee01d14cd4c88",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_groningen_coat_of_arms.svg",
+      "sourceLocalSHA1": "ab372cb94883cd6a7ae2b2166bdf99725832bf34",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 699,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "ab372cb94883cd6a7ae2b2166bdf99725832bf34",
+        "outputSHA1": "70e7303de44be60cb25007c074bee01d14cd4c88"
+      }
     },
     {
       "assetID": "city_groningen_flag",
@@ -399,9 +553,23 @@
       "mimeType": "image/svg+xml",
       "width": 779,
       "height": 672,
-      "localPath": "YouNew/Assets.xcassets/city_haarlem_coat_of_arms.imageset/city_haarlem_coat_of_arms.svg",
-      "localSHA1": "86210dc583cba1915c8817361d57f0991bd26391",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_haarlem_coat_of_arms.imageset/city_haarlem_coat_of_arms.png",
+      "localSHA1": "de1ca51d8ae10c09b1ccb3363b46035a6cee08a3",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_haarlem_coat_of_arms.svg",
+      "sourceLocalSHA1": "86210dc583cba1915c8817361d57f0991bd26391",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 883,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "86210dc583cba1915c8817361d57f0991bd26391",
+        "outputSHA1": "de1ca51d8ae10c09b1ccb3363b46035a6cee08a3"
+      }
     },
     {
       "assetID": "city_haarlem_flag",
@@ -431,9 +599,23 @@
       "mimeType": "image/svg+xml",
       "width": 744,
       "height": 1052,
-      "localPath": "YouNew/Assets.xcassets/city_heerhugowaard_coat_of_arms.imageset/city_heerhugowaard_coat_of_arms.svg",
-      "localSHA1": "c180988d4b9220f8ef44fedb2e8d1bd70a7429f6",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_heerhugowaard_coat_of_arms.imageset/city_heerhugowaard_coat_of_arms.png",
+      "localSHA1": "c366e2ec10a07518047abba3d7495bcac11544d9",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_heerhugowaard_coat_of_arms.svg",
+      "sourceLocalSHA1": "c180988d4b9220f8ef44fedb2e8d1bd70a7429f6",
+      "localMimeType": "image/png",
+      "localWidth": 724,
+      "localHeight": 1024,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "c180988d4b9220f8ef44fedb2e8d1bd70a7429f6",
+        "outputSHA1": "c366e2ec10a07518047abba3d7495bcac11544d9"
+      }
     },
     {
       "assetID": "city_heerhugowaard_flag",
@@ -463,9 +645,23 @@
       "mimeType": "image/svg+xml",
       "width": 200,
       "height": 236,
-      "localPath": "YouNew/Assets.xcassets/city_hoorn_coat_of_arms.imageset/city_hoorn_coat_of_arms.svg",
-      "localSHA1": "05e0530c3c6d9e879954d1b4a2e20992167328bd",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_hoorn_coat_of_arms.imageset/city_hoorn_coat_of_arms.png",
+      "localSHA1": "a64701d04a743a1cbc9ef2326dc9804edaa13e2f",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_hoorn_coat_of_arms.svg",
+      "sourceLocalSHA1": "05e0530c3c6d9e879954d1b4a2e20992167328bd",
+      "localMimeType": "image/png",
+      "localWidth": 867,
+      "localHeight": 1024,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "05e0530c3c6d9e879954d1b4a2e20992167328bd",
+        "outputSHA1": "a64701d04a743a1cbc9ef2326dc9804edaa13e2f"
+      }
     },
     {
       "assetID": "city_hoorn_flag",
@@ -495,9 +691,23 @@
       "mimeType": "image/svg+xml",
       "width": 275,
       "height": 431,
-      "localPath": "YouNew/Assets.xcassets/city_leeuwarden_coat_of_arms.imageset/city_leeuwarden_coat_of_arms.svg",
-      "localSHA1": "007685795f5247831fe1238814476a5723235878",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_leeuwarden_coat_of_arms.imageset/city_leeuwarden_coat_of_arms.png",
+      "localSHA1": "23610db39313d00e656f4ea96f93604a20a3c05c",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_leeuwarden_coat_of_arms.svg",
+      "sourceLocalSHA1": "007685795f5247831fe1238814476a5723235878",
+      "localMimeType": "image/png",
+      "localWidth": 653,
+      "localHeight": 1024,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "007685795f5247831fe1238814476a5723235878",
+        "outputSHA1": "23610db39313d00e656f4ea96f93604a20a3c05c"
+      }
     },
     {
       "assetID": "city_leeuwarden_flag",
@@ -527,9 +737,23 @@
       "mimeType": "image/svg+xml",
       "width": 677,
       "height": 1096,
-      "localPath": "YouNew/Assets.xcassets/city_leiden_coat_of_arms.imageset/city_leiden_coat_of_arms.svg",
-      "localSHA1": "10a1683d9c492ff82e7a3b27647179426dda2dcf",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_leiden_coat_of_arms.imageset/city_leiden_coat_of_arms.png",
+      "localSHA1": "050d8e7f2c51a06fe7651bdbb1da3abb1656a812",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_leiden_coat_of_arms.svg",
+      "sourceLocalSHA1": "10a1683d9c492ff82e7a3b27647179426dda2dcf",
+      "localMimeType": "image/png",
+      "localWidth": 632,
+      "localHeight": 1024,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "10a1683d9c492ff82e7a3b27647179426dda2dcf",
+        "outputSHA1": "050d8e7f2c51a06fe7651bdbb1da3abb1656a812"
+      }
     },
     {
       "assetID": "city_leiden_flag",
@@ -559,9 +783,23 @@
       "mimeType": "image/svg+xml",
       "width": 1058,
       "height": 750,
-      "localPath": "YouNew/Assets.xcassets/city_lelystad_coat_of_arms.imageset/city_lelystad_coat_of_arms.svg",
-      "localSHA1": "f0f60f458f4e2269970ff32fedb48c42f5953ab2",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_lelystad_coat_of_arms.imageset/city_lelystad_coat_of_arms.png",
+      "localSHA1": "a4dac3a5f7bb3fc7efe5c22838c7e176d1852c94",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_lelystad_coat_of_arms.svg",
+      "sourceLocalSHA1": "f0f60f458f4e2269970ff32fedb48c42f5953ab2",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 726,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "f0f60f458f4e2269970ff32fedb48c42f5953ab2",
+        "outputSHA1": "a4dac3a5f7bb3fc7efe5c22838c7e176d1852c94"
+      }
     },
     {
       "assetID": "city_lelystad_flag",
@@ -591,9 +829,23 @@
       "mimeType": "image/svg+xml",
       "width": 218,
       "height": 256,
-      "localPath": "YouNew/Assets.xcassets/city_maastricht_coat_of_arms.imageset/city_maastricht_coat_of_arms.svg",
-      "localSHA1": "bc244c1b70c3a5b22e5387eee21a85c32d85f359",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_maastricht_coat_of_arms.imageset/city_maastricht_coat_of_arms.png",
+      "localSHA1": "a713364627f95dd70868db91270d9dff661102db",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_maastricht_coat_of_arms.svg",
+      "sourceLocalSHA1": "bc244c1b70c3a5b22e5387eee21a85c32d85f359",
+      "localMimeType": "image/png",
+      "localWidth": 872,
+      "localHeight": 1024,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "bc244c1b70c3a5b22e5387eee21a85c32d85f359",
+        "outputSHA1": "a713364627f95dd70868db91270d9dff661102db"
+      }
     },
     {
       "assetID": "city_maastricht_flag",
@@ -623,9 +875,23 @@
       "mimeType": "image/svg+xml",
       "width": 389,
       "height": 470,
-      "localPath": "YouNew/Assets.xcassets/city_middelburg_coat_of_arms.imageset/city_middelburg_coat_of_arms.svg",
-      "localSHA1": "4004590dd742f49d25698b9dfb22626193a65bf9",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_middelburg_coat_of_arms.imageset/city_middelburg_coat_of_arms.png",
+      "localSHA1": "d7dd097edc6596c05a1f7460123904696d0b97a3",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_middelburg_coat_of_arms.svg",
+      "sourceLocalSHA1": "4004590dd742f49d25698b9dfb22626193a65bf9",
+      "localMimeType": "image/png",
+      "localWidth": 847,
+      "localHeight": 1024,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "4004590dd742f49d25698b9dfb22626193a65bf9",
+        "outputSHA1": "d7dd097edc6596c05a1f7460123904696d0b97a3"
+      }
     },
     {
       "assetID": "city_middelburg_flag",
@@ -655,9 +921,23 @@
       "mimeType": "image/svg+xml",
       "width": 960,
       "height": 708,
-      "localPath": "YouNew/Assets.xcassets/city_nijmegen_coat_of_arms.imageset/city_nijmegen_coat_of_arms.svg",
-      "localSHA1": "1a3f800dcab9dbad5be1dbbb7d9767f838207c06",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_nijmegen_coat_of_arms.imageset/city_nijmegen_coat_of_arms.png",
+      "localSHA1": "44360e843c32d340f2c2aa084fa9f1fb4525f0f4",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_nijmegen_coat_of_arms.svg",
+      "sourceLocalSHA1": "1a3f800dcab9dbad5be1dbbb7d9767f838207c06",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 755,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "1a3f800dcab9dbad5be1dbbb7d9767f838207c06",
+        "outputSHA1": "44360e843c32d340f2c2aa084fa9f1fb4525f0f4"
+      }
     },
     {
       "assetID": "city_nijmegen_flag",
@@ -687,9 +967,23 @@
       "mimeType": "image/svg+xml",
       "width": 833,
       "height": 478,
-      "localPath": "YouNew/Assets.xcassets/city_purmerend_coat_of_arms.imageset/city_purmerend_coat_of_arms.svg",
-      "localSHA1": "4646bfa9d60ca6be4145043ffe942a5b8d4e9d22",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_purmerend_coat_of_arms.imageset/city_purmerend_coat_of_arms.png",
+      "localSHA1": "f97c9b70c93d051b667279ee30acc3ba3da4148a",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_purmerend_coat_of_arms.svg",
+      "sourceLocalSHA1": "4646bfa9d60ca6be4145043ffe942a5b8d4e9d22",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 587,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "4646bfa9d60ca6be4145043ffe942a5b8d4e9d22",
+        "outputSHA1": "f97c9b70c93d051b667279ee30acc3ba3da4148a"
+      }
     },
     {
       "assetID": "city_purmerend_flag",
@@ -719,9 +1013,23 @@
       "mimeType": "image/svg+xml",
       "width": 1190,
       "height": 738,
-      "localPath": "YouNew/Assets.xcassets/city_rotterdam_coat_of_arms.imageset/city_rotterdam_coat_of_arms.svg",
-      "localSHA1": "c7c389a8d49b57019064287545bf5769656d99a9",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_rotterdam_coat_of_arms.imageset/city_rotterdam_coat_of_arms.png",
+      "localSHA1": "6576b68754b155f928e5f7c4126053ebfb785bc6",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_rotterdam_coat_of_arms.svg",
+      "sourceLocalSHA1": "c7c389a8d49b57019064287545bf5769656d99a9",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 635,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "c7c389a8d49b57019064287545bf5769656d99a9",
+        "outputSHA1": "6576b68754b155f928e5f7c4126053ebfb785bc6"
+      }
     },
     {
       "assetID": "city_rotterdam_flag",
@@ -751,9 +1059,23 @@
       "mimeType": "image/svg+xml",
       "width": 1224,
       "height": 989,
-      "localPath": "YouNew/Assets.xcassets/city_s_hertogenbosch_coat_of_arms.imageset/city_s_hertogenbosch_coat_of_arms.svg",
-      "localSHA1": "5c3ba30a36695196a4d94e3b5ad3992fcd1e4a11",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_s_hertogenbosch_coat_of_arms.imageset/city_s_hertogenbosch_coat_of_arms.png",
+      "localSHA1": "53da38d77d1292cbd4a9d89f2e02160ece14882d",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_s_hertogenbosch_coat_of_arms.svg",
+      "sourceLocalSHA1": "5c3ba30a36695196a4d94e3b5ad3992fcd1e4a11",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 827,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "5c3ba30a36695196a4d94e3b5ad3992fcd1e4a11",
+        "outputSHA1": "53da38d77d1292cbd4a9d89f2e02160ece14882d"
+      }
     },
     {
       "assetID": "city_s_hertogenbosch_flag",
@@ -815,9 +1137,23 @@
       "mimeType": "image/svg+xml",
       "width": 650,
       "height": 373,
-      "localPath": "YouNew/Assets.xcassets/city_utrecht_coat_of_arms.imageset/city_utrecht_coat_of_arms.svg",
-      "localSHA1": "0cda29b0220b9901184b444262ea288bf5398533",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_utrecht_coat_of_arms.imageset/city_utrecht_coat_of_arms.png",
+      "localSHA1": "53276f5079e53e3b9484cf895e9dc188b9e72c19",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_utrecht_coat_of_arms.svg",
+      "sourceLocalSHA1": "0cda29b0220b9901184b444262ea288bf5398533",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 587,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "0cda29b0220b9901184b444262ea288bf5398533",
+        "outputSHA1": "53276f5079e53e3b9484cf895e9dc188b9e72c19"
+      }
     },
     {
       "assetID": "city_utrecht_flag",
@@ -847,9 +1183,23 @@
       "mimeType": "image/svg+xml",
       "width": 667,
       "height": 596,
-      "localPath": "YouNew/Assets.xcassets/city_venlo_coat_of_arms.imageset/city_venlo_coat_of_arms.svg",
-      "localSHA1": "88fa34bfe124b8840299c7d3af72c020f775afac",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_venlo_coat_of_arms.imageset/city_venlo_coat_of_arms.png",
+      "localSHA1": "019813a02c88acd402bfa6eb31ab90aa578f0aec",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_venlo_coat_of_arms.svg",
+      "sourceLocalSHA1": "88fa34bfe124b8840299c7d3af72c020f775afac",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 915,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "88fa34bfe124b8840299c7d3af72c020f775afac",
+        "outputSHA1": "019813a02c88acd402bfa6eb31ab90aa578f0aec"
+      }
     },
     {
       "assetID": "city_venlo_flag",
@@ -879,9 +1229,23 @@
       "mimeType": "image/svg+xml",
       "width": 1098,
       "height": 604,
-      "localPath": "YouNew/Assets.xcassets/city_zaanstad_coat_of_arms.imageset/city_zaanstad_coat_of_arms.svg",
-      "localSHA1": "10257b19b0a86568c55a6a6968eb7ebca47fdc44",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_zaanstad_coat_of_arms.imageset/city_zaanstad_coat_of_arms.png",
+      "localSHA1": "d3f3d65f990fb2d7de72900aae2bbce12a717b8b",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_zaanstad_coat_of_arms.svg",
+      "sourceLocalSHA1": "10257b19b0a86568c55a6a6968eb7ebca47fdc44",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 563,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "10257b19b0a86568c55a6a6968eb7ebca47fdc44",
+        "outputSHA1": "d3f3d65f990fb2d7de72900aae2bbce12a717b8b"
+      }
     },
     {
       "assetID": "city_zaanstad_flag",
@@ -911,9 +1275,23 @@
       "mimeType": "image/svg+xml",
       "width": 1003,
       "height": 777,
-      "localPath": "YouNew/Assets.xcassets/city_zwolle_coat_of_arms.imageset/city_zwolle_coat_of_arms.svg",
-      "localSHA1": "242b2337140d1a71bb30ee03d66ab428cf728de2",
-      "retrievedAt": "2026-07-22"
+      "localPath": "YouNew/Assets.xcassets/city_zwolle_coat_of_arms.imageset/city_zwolle_coat_of_arms.png",
+      "localSHA1": "9011dd1e108d025f50b0abe26cb53d84a879e4ad",
+      "retrievedAt": "2026-07-22",
+      "sourceLocalPath": "BuildWeekFix/CitySymbolSources/city_zwolle_coat_of_arms.svg",
+      "sourceLocalSHA1": "242b2337140d1a71bb30ee03d66ab428cf728de2",
+      "localMimeType": "image/png",
+      "localWidth": 1024,
+      "localHeight": 793,
+      "derivation": {
+        "kind": "rasterized_copy",
+        "tool": "macOS sips",
+        "toolVersion": "sips-316",
+        "command": "sips -s format png SOURCE --out OUTPUT; sips -Z 1024 OUTPUT",
+        "maxPixelDimension": 1024,
+        "sourceSHA1": "242b2337140d1a71bb30ee03d66ab428cf728de2",
+        "outputSHA1": "9011dd1e108d025f50b0abe26cb53d84a879e4ad"
+      }
     },
     {
       "assetID": "city_zwolle_flag",

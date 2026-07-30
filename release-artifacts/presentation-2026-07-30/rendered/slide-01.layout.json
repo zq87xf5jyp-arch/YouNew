@@ -1,0 +1,553 @@
+{
+  "schema": "openai.presentation.layout/v4",
+  "unit": "px",
+  "slide": {
+    "aid": "sl/wjlgu0",
+    "id": "wjlgu0",
+    "slide": 1,
+    "layoutId": "5e8f2d54-17cd-4b27-91a8-97a1b4db058c",
+    "layoutName": "Title Slide",
+    "layoutType": "title",
+    "masterLayoutId": "ea968791-a5f3-4f52-8ec7-576a051fdb37",
+    "masterLayoutName": "Master",
+    "backgroundColor": "#080B16",
+    "frame": {
+      "left": 0,
+      "top": 0,
+      "width": 1280,
+      "height": 720
+    }
+  },
+  "theme": {
+    "colorSchemeName": "ChatGPT",
+    "colors": {
+      "accent1": "#156082",
+      "accent2": "#E97132",
+      "accent3": "#196B24",
+      "accent4": "#0F9ED5",
+      "accent5": "#A02B93",
+      "accent6": "#4EA72E",
+      "bg1": "#FFFFFF",
+      "bg2": "#000000",
+      "tx1": "#1F1F1F",
+      "tx2": "#FFFFFF",
+      "dk1": "#000000",
+      "lt1": "#FFFFFF",
+      "dk2": "#0E2841",
+      "lt2": "#E8E8E8",
+      "hlink": "#467886",
+      "folHlink": "#96607D"
+    },
+    "typefaces": [
+      "Aptos"
+    ]
+  },
+  "inheritedLayers": [
+    {
+      "scope": "layout",
+      "id": "5e8f2d54-17cd-4b27-91a8-97a1b4db058c",
+      "name": "Title Slide",
+      "type": "title",
+      "parentLayoutId": "ea968791-a5f3-4f52-8ec7-576a051fdb37",
+      "elements": []
+    },
+    {
+      "scope": "master",
+      "id": "ea968791-a5f3-4f52-8ec7-576a051fdb37",
+      "name": "Master",
+      "type": "master",
+      "elements": []
+    }
+  ],
+  "elements": [
+    {
+      "order": 1,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/4jux0fil",
+      "id": "1",
+      "bbox": [
+        1279,
+        719,
+        1,
+        1
+      ],
+      "geometry": "rect",
+      "alt": "Image conversion primer",
+      "contentType": "image/png",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "e35eca92-4daf-4f34-823d-dd9ce9e6c7da",
+        "contentType": "image/png",
+        "byteLength": 280637
+      }
+    },
+    {
+      "order": 2,
+      "kind": "image",
+      "scope": "slide",
+      "aid": "im/3ilgra10",
+      "id": "2",
+      "bbox": [
+        596,
+        0,
+        684,
+        720
+      ],
+      "geometry": "rect",
+      "alt": "Live YouNew home page",
+      "contentType": "image/jpeg",
+      "imageFit": "cover",
+      "imageMask": {
+        "geometry": "rect"
+      },
+      "asset": {
+        "assetId": "727ec04b-af87-4a5b-8097-8b1f223fc292",
+        "contentType": "image/jpeg",
+        "byteLength": 108409
+      }
+    },
+    {
+      "order": 3,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/jmlwv2d4",
+      "id": "3",
+      "name": "cover-left-panel",
+      "bbox": [
+        0,
+        0,
+        650,
+        720
+      ],
+      "geometry": "rect",
+      "fillColor": "#080B16",
+      "lineColor": "#080B16",
+      "lineWidth": 0
+    },
+    {
+      "order": 4,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/wjuxknet",
+      "id": "4",
+      "name": "cover-brand",
+      "bbox": [
+        72,
+        74,
+        280,
+        44
+      ],
+      "geometry": "rect",
+      "text": "YouNew",
+      "textPreview": "YouNew",
+      "resolvedFontSize": 30,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 30,
+        "typeface": "Aptos",
+        "color": "#F47A24",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "YouNew"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "YouNew",
+          "resolvedTextStyle": {
+            "fontSize": 30,
+            "typeface": "Aptos",
+            "color": "#F47A24",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "YouNew",
+              "fontSize": 30,
+              "typeface": "Aptos",
+              "color": "#F47A24",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 5,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/xk3etsve",
+      "id": "5",
+      "name": "cover-title",
+      "bbox": [
+        72,
+        176,
+        500,
+        244
+      ],
+      "geometry": "rect",
+      "text": "A working\necosystem for a\nclearer start",
+      "textPreview": "A working | ecosystem for a | clearer start",
+      "resolvedFontSize": 58,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 58,
+        "typeface": "Aptos",
+        "color": "#F7F8FC",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 3,
+        "lines": [
+          {
+            "index": 1,
+            "text": "A working"
+          },
+          {
+            "index": 2,
+            "text": "ecosystem for a"
+          },
+          {
+            "index": 3,
+            "text": "clearer start"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "A working",
+          "resolvedTextStyle": {
+            "fontSize": 58,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "A working",
+              "fontSize": 58,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 2,
+          "text": "ecosystem for a",
+          "resolvedTextStyle": {
+            "fontSize": 58,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "ecosystem for a",
+              "fontSize": 58,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        },
+        {
+          "index": 3,
+          "text": "clearer start",
+          "resolvedTextStyle": {
+            "fontSize": 58,
+            "typeface": "Aptos",
+            "color": "#F7F8FC",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "clearer start",
+              "fontSize": 58,
+              "typeface": "Aptos",
+              "color": "#F7F8FC",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 6,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/axsfidwn",
+      "id": "6",
+      "name": "cover-subtitle",
+      "bbox": [
+        76,
+        430,
+        470,
+        60
+      ],
+      "geometry": "rect",
+      "text": "iOS · Web · Admin · Supabase · AI · Workspace",
+      "textPreview": "iOS · Web · Admin · Supabase · AI · Workspace",
+      "resolvedFontSize": 25,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 25,
+        "typeface": "Aptos",
+        "color": "#AAB4C8",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 2,
+        "lines": [
+          {
+            "index": 1,
+            "text": "iOS · Web · Admin · Supabase · AI ·"
+          },
+          {
+            "index": 2,
+            "text": "Workspace"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "iOS · Web · Admin · Supabase · AI · Workspace",
+          "resolvedTextStyle": {
+            "fontSize": 25,
+            "typeface": "Aptos",
+            "color": "#AAB4C8",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "iOS · Web · Admin · Supabase · AI · Workspace",
+              "fontSize": 25,
+              "typeface": "Aptos",
+              "color": "#AAB4C8",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 7,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/bilwrid8",
+      "id": "7",
+      "name": "cover-accent",
+      "bbox": [
+        76,
+        518,
+        160,
+        6
+      ],
+      "geometry": "rect",
+      "fillColor": "#F47A24",
+      "lineColor": "#F47A24",
+      "lineWidth": 0
+    },
+    {
+      "order": 8,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/gfexwrex",
+      "id": "8",
+      "name": "cover-posture",
+      "bbox": [
+        76,
+        548,
+        470,
+        40
+      ],
+      "geometry": "rect",
+      "text": "Product showcase · Release candidate",
+      "textPreview": "Product showcase · Release candidate",
+      "resolvedFontSize": 21,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 21,
+        "typeface": "Aptos",
+        "color": "#62C9D8",
+        "bold": true,
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "Product showcase · Release candidate"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "Product showcase · Release candidate",
+          "resolvedTextStyle": {
+            "fontSize": 21,
+            "typeface": "Aptos",
+            "color": "#62C9D8",
+            "bold": true,
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "Product showcase · Release candidate",
+              "fontSize": 21,
+              "typeface": "Aptos",
+              "color": "#62C9D8",
+              "bold": true,
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    },
+    {
+      "order": 9,
+      "kind": "shape",
+      "scope": "slide",
+      "aid": "sh/hgnypcvi",
+      "id": "9",
+      "name": "cover-date",
+      "bbox": [
+        76,
+        604,
+        360,
+        28
+      ],
+      "geometry": "rect",
+      "text": "30 July 2026 · Netherlands",
+      "textPreview": "30 July 2026 · Netherlands",
+      "resolvedFontSize": 18,
+      "resolvedTextStyle": {
+        "anchor": 1,
+        "fontSize": 18,
+        "typeface": "Aptos",
+        "color": "#78859C",
+        "alignment": "left",
+        "verticalAlignment": "top",
+        "autoFit": "shrinkText",
+        "autoFitScale": 1,
+        "insets": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        }
+      },
+      "textLayout": {
+        "lineCount": 1,
+        "lines": [
+          {
+            "index": 1,
+            "text": "30 July 2026 · Netherlands"
+          }
+        ]
+      },
+      "paragraphs": [
+        {
+          "index": 1,
+          "text": "30 July 2026 · Netherlands",
+          "resolvedTextStyle": {
+            "fontSize": 18,
+            "typeface": "Aptos",
+            "color": "#78859C",
+            "alignment": "left"
+          },
+          "runs": [
+            {
+              "index": 1,
+              "text": "30 July 2026 · Netherlands",
+              "fontSize": 18,
+              "typeface": "Aptos",
+              "color": "#78859C",
+              "alignment": "left"
+            }
+          ],
+          "marginLeft": 0
+        }
+      ],
+      "lineWidth": 0
+    }
+  ],
+  "composeRuns": []
+}

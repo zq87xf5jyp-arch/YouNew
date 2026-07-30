@@ -1,0 +1,33 @@
+YouNew presentation source notes — 2026-07-30
+
+Communication job:
+By the end, a potential buyer, investor, partner or technical reviewer should
+understand that YouNew is a working multi-surface product ecosystem with a live
+public product, a public App Store listing, controlled data, an authenticated
+admin surface, a dedicated operational workspace and a bounded final release
+checklist.
+
+Primary real-image sources:
+- https://younew.nl/ — captured 2026-07-30 in the Codex in-app Browser.
+- https://younew.nl/discover/ — captured 2026-07-30.
+- https://younew.nl/map/ — captured 2026-07-30.
+- https://younew.nl/guides/first-registration-in-amsterdam/ — captured 2026-07-30.
+- https://admin.younew.nl/dashboard — authenticated screenshot captured 2026-07-30.
+- https://apps.apple.com/app/id6782617312 — public App Store listing captured 2026-07-30.
+- https://younew.nl/images/app-home-nl.webp — published current iPhone UI asset downloaded from the live site on 2026-07-30.
+- https://younew.nl/images/app-map-en.webp — published current iPhone UI asset downloaded from the live site on 2026-07-30.
+- /Users/ivan/Applications/YouNew Workspace.app — Overview screen captured through the local macOS application on 2026-07-30.
+- Xcode local workspace window — captured through the local macOS application on 2026-07-30.
+
+Claim sources:
+- /Users/ivan/Desktop/Developer:YouNew/YouNew/release-artifacts/sale-readiness-2026-07-30/verification-summary.json
+- /Users/ivan/Desktop/Developer:YouNew/YouNew/RELEASE_READINESS_2026-07-30.md
+- /Users/ivan/Desktop/Developer:YouNew/YouNew/docs/SYSTEM_MAP.md
+- /Users/ivan/Desktop/Developer:YouNew/YouNew/docs/COUNTRY_PACK_CONTRACT.md
+- /Users/ivan/Desktop/Developer:YouNew/YouNew/docs/COMPLIANCE_CONTROL_MATRIX.md
+
+Release-positioning rule:
+The deck may describe YouNew as working, live, operational and a release
+candidate. It must not claim an unconditional release because signed App Store
+archive evidence, executable iOS runtime tests, clean source identity and an
+isolated Supabase restore remain open gates.

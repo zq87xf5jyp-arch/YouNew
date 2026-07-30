@@ -701,15 +701,30 @@ final class YouNewUITests: XCTestCase {
 
         let suggestion = app.descendants(matching: .any)["search.suggestion.knm"]
         XCTAssertTrue(suggestion.waitForExistence(timeout: 4))
+        let suggestionsScroll = app.scrollViews["search.suggestions.scroll"]
+        XCTAssertTrue(suggestionsScroll.waitForExistence(timeout: 4))
+        for _ in 0..<4 where !suggestion.isHittable {
+            suggestionsScroll.swipeLeft()
+        }
+        XCTAssertTrue(suggestion.isHittable, "KNM suggestion should become hittable after horizontal scrolling")
         suggestion.tap()
 
         let result = app.descendants(matching: .any)["search.directResult.link.knm"]
         XCTAssertTrue(result.waitForExistence(timeout: 6))
-        result.tap()
+        tapRouteAction(
+            result,
+            in: app,
+            expecting: ["knm.screen"]
+        )
         XCTAssertTrue(app.descendants(matching: .any)["knm.screen"].waitForExistence(timeout: 4))
 
-        let backButton = app.navigationBars.buttons.firstMatch
-        XCTAssertTrue(backButton.waitForExistence(timeout: 4))
+        let backButton = firstExistingElementWithoutScrolling(
+            ["navigation.back", "BackButton"],
+            in: app,
+            timeout: 4
+        )
+        XCTAssertTrue(backButton.exists)
+        XCTAssertTrue(backButton.isHittable)
         backButton.tap()
 
         let searchInput = app.textFields["search.input"]

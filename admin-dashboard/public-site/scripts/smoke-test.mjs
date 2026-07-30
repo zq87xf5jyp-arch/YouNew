@@ -4,13 +4,13 @@ import { join } from "node:path";
 
 const root = new URL("../out/", import.meta.url).pathname;
 const requiredFiles = [
-  "index.html", "discover/index.html", "search/index.html", "guides/index.html", "guides/woon/index.html",
+  "index.html", "start/index.html", "my-younew/index.html", "discover/index.html", "search/index.html", "guides/index.html", "guides/woon/index.html",
   "journeys/index.html", "map/index.html",
   "categories/index.html", "categories/housing/index.html", "cities/index.html", "cities/amsterdam/index.html",
   "municipalities/index.html", "municipalities/amsterdam/index.html",
   "provinces/noord-holland/index.html", "places/index.html", "organizations/index.html", "emergency/index.html",
   "saved/index.html", "status/index.html", "offline/index.html", "app/index.html", "business/index.html",
-  "business/apply/index.html", "business/media-kit/index.html", "privacy/index.html", "terms/index.html", "support/index.html", "robots.txt",
+  "business/workspace/index.html", "business/apply/index.html", "business/media-kit/index.html", "privacy/index.html", "terms/index.html", "support/index.html", "robots.txt",
   "sitemap.xml", "manifest.webmanifest", "sw.js", ".htaccess", "404.html", "data/search-index.json",
   ".well-known/apple-app-site-association",
   "data/content-provenance.json", "data/status.json", "data/site-config.json", "images/app-home-nl.webp",
@@ -22,11 +22,11 @@ for (const file of requiredFiles) await access(join(root, file));
 
 const home = await readFile(join(root, "index.html"), "utf8");
 assert.match(home, /Your next step in the Netherlands/);
-assert.match(home, /Use YouNew on the web/);
+assert.match(home, /Find my next step/);
 assert.match(home, /support@younew\.nl/);
 assert.match(home, /rel="canonical" href="https:\/\/younew\.nl\/"/);
 assert.match(home, /application\/ld\+json/);
-for (const path of ["/discover/", "/search/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
+for (const path of ["/start/", "/discover/", "/search/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
 assert.doesNotMatch(home, /href=(?:"|')#(?:"|')/);
 assert.match(home, /href="https:\/\/apps\.apple\.com\/app\/id6782617312"/);
 assert.match(home, /Download on the App Store/);
@@ -42,6 +42,19 @@ const search = await readFile(join(root, "search/index.html"), "utf8");
 assert.match(search, /Search YouNew and Dutch municipalities/);
 assert.match(search, /name="robots" content="noindex, follow"/);
 assert.match(search, /<script[^>]+src="\/_next\/static\/chunks\//, "Interactive routes must retain client JavaScript");
+
+const start = await readFile(join(root, "start/index.html"), "utf8");
+for (const text of ["Find your next step in the Netherlands", "Your situation", "Where are you", "What do you need", "Build my route", "Your choices stay in this browser"]) {
+  assert.match(start, new RegExp(text, "i"));
+}
+assert.match(start, /<script[^>]+src="\/_next\/static\/chunks\//, "The route planner must retain client JavaScript");
+
+const myYouNew = await readFile(join(root, "my-younew/index.html"), "utf8");
+for (const text of ["Continue where you left off", "Loading local YouNew progress"]) {
+  assert.match(myYouNew, new RegExp(text, "i"));
+}
+assert.match(myYouNew, /name="robots" content="noindex, follow"/);
+assert.match(myYouNew, /<script[^>]+src="\/_next\/static\/chunks\//, "My YouNew must retain client JavaScript");
 
 const guide = await readFile(join(root, "guides/woon/index.html"), "utf8");
 for (const text of ["!WOON", "Last verified", "Open source", "Report outdated information", "What to do next", "Source-backed summary", "Print guide", "Step-by-step guide not yet published"]) assert.match(guide, new RegExp(text));
@@ -64,6 +77,12 @@ assert.doesNotMatch(businessApply, /no secure upload or form backend|nothing is 
 
 const mediaKit = await readFile(join(root, "business/media-kit/index.html"), "utf8");
 for (const text of ["Request a quote", "DEMO PARTNER CARD", "DEMO REPORT", "ILLUSTRATIVE DATA", "Editorial independence", "Reasons YouNew may refuse or stop a placement"]) assert.match(mediaKit, new RegExp(text, "i"));
+
+const businessWorkspace = await readFile(join(root, "business/workspace/index.html"), "utf8");
+for (const text of ["Build your business presence with YouNew", "Local workspace preview", "0 live", "Sponsored preview", "Illustrative preview only", "Continue to secure inquiry", "Leads require a secure verified account"]) assert.match(businessWorkspace, new RegExp(text, "i"));
+assert.match(businessWorkspace, /name="robots" content="noindex, follow"/);
+assert.match(businessWorkspace, /<script[^>]+src="\/_next\/static\/chunks\//, "The business workspace must retain client JavaScript");
+assert.doesNotMatch(businessWorkspace, /guaranteed (?:reach|results|returns)|live public campaign/i);
 
 const advertise = await readFile(join(root, "business/advertise/index.html"), "utf8");
 for (const text of ["Where advertising can appear", "defined placement surfaces", "0", "live public campaigns", "Reserved", "Advertising is excluded from"]) assert.match(advertise, new RegExp(text, "i"));
@@ -125,8 +144,8 @@ assert.match(hostingerRules, /FilesMatch "\^\(sw\\\.js\|static-shell\\\.js\|mani
 assert.match(hostingerRules, /Strict-Transport-Security "max-age=31536000"/, "HTTPS responses must advertise HSTS");
 
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
-for (const path of ["https://younew.nl", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
+for (const path of ["https://younew.nl", "/start", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
 const sitemapCount = (sitemap.match(/<url>/g) ?? []).length;
 assert.equal(new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])).size, sitemapCount, "Sitemap URLs must be unique");
 
-console.log(`Smoke tests passed: ${sitemapCount} indexable URLs, functional guides/journeys/map/search/business, PWA, metadata, legal pages and 404.`);
+console.log(`Smoke tests passed: ${sitemapCount} indexable URLs, functional planner/My YouNew/guides/journeys/map/search/business, PWA, metadata, legal pages and 404.`);

@@ -1,0 +1,107 @@
+{
+  "as_of": "2026-07-30T01:40:00+02:00",
+  "timezone": "Europe/Amsterdam",
+  "posture": "read-only production audit plus local build/test; no production mutation",
+  "repository": {
+    "path": "/Users/ivan/Desktop/Developer:YouNew/YouNew",
+    "branch": "admin-dashboard-integration",
+    "baseline_sha": "a3e59642",
+    "ahead_of_remote": 6,
+    "behind_remote": 4,
+    "working_tree": "dirty",
+    "release_identity_status": "fail"
+  },
+  "public_site": {
+    "predeploy_check": "pass",
+    "static_routes": 585,
+    "indexable_urls": 575,
+    "tests": {
+      "passed": 83,
+      "failed": 0
+    },
+    "internal_reference_and_asset_checks": 47462,
+    "live_browser_smoke": "pass",
+    "live_routes_reviewed": [
+      "/",
+      "/guides/",
+      "/business/",
+      "/business/apply/",
+      "/guides/first-registration-in-amsterdam/"
+    ],
+    "production_mutation": false
+  },
+  "admin": {
+    "lint": "pass",
+    "typecheck": "pass",
+    "tests": {
+      "passed": 10,
+      "failed": 0
+    },
+    "production_build": "pass",
+    "production_entrypoint": "https://admin.younew.nl/",
+    "anonymous_dashboard_redirect": "/login",
+    "authenticated_e2e": "not_executed"
+  },
+  "supabase": {
+    "project_ref": "pgdzdxsiagfjioxwuqxf",
+    "region": "eu-west-1",
+    "health": "ACTIVE_HEALTHY",
+    "postgres": "17.6.1.147",
+    "remote_migrations": 11,
+    "active_edge_functions": 4,
+    "analytics_events": 82,
+    "app_instances": 13,
+    "sessions": 13,
+    "business_inquiries": 3,
+    "business_inquiries_real": 0,
+    "function_typecheck": "pass",
+    "security_advisors": {
+      "leaked_password_protection": "disabled",
+      "security_definer_execute_warnings": 2,
+      "review": "function bodies use restricted search_path and explicit owner/admin checks; accepted exception pending server-only redesign"
+    },
+    "backup_restore_evidence": "missing"
+  },
+  "data_project": {
+    "governed_records": 450,
+    "public_projection_records": 186,
+    "summary_guides": 15,
+    "guide_scaffolds": 20,
+    "production_ready_practical_guides": 0,
+    "freshness_compliant": 440,
+    "freshness_total": 450,
+    "freshness_percent": 97.8,
+    "python_tests": {
+      "passed": 46,
+      "failed": 0
+    }
+  },
+  "assets": {
+    "rights_gate": "pass",
+    "inventoried": 170,
+    "unresolved": 0,
+    "derived_city_symbols": 27,
+    "byte_exact_city_symbols": 31
+  },
+  "ios": {
+    "debug_compile_link": "pass",
+    "release_generic_simulator_initial_attempt": "infrastructure_stall",
+    "release_generic_simulator_note": "The first asset agent became unresponsive; the agent and CoreSimulator service were restarted before the exact CI device gate.",
+    "release_generic_device": "pass",
+    "release_generic_device_result": "BUILD SUCCEEDED",
+    "unit_and_ui_test_targets_compile_link": "pass",
+    "runtime_test_execution": "blocked",
+    "blocker": "CoreSimulator boot/install/launcher stalls; no test result claimed"
+  },
+  "backend_ai_proxy": {
+    "tests_passed": 13,
+    "tests_failed": 0
+  },
+  "decision": {
+    "unconditional_release": "no_go",
+    "conditional_asset_ip_sale_preparation": "go",
+    "technical_product_readiness_score": 7.8,
+    "transaction_readiness_score": 5.5,
+    "institutional_seed_readiness_score": 5.3
+  }
+}

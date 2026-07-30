@@ -55,6 +55,28 @@ test("analytics envelopes contain only bounded allowlisted values", () => {
   assert.equal(envelope.consent_version, "2026-07-28");
 });
 
+test("planner save analytics uses the production allowlisted event and no free text", () => {
+  const envelope = createAnalyticsEnvelope(
+    {
+      name: "item_saved",
+      contentId: "planner route<script>?private=value"
+    },
+    identifiers,
+    {
+      now: () => new Date("2026-07-29T12:00:00.000Z"),
+      randomUUID: () => "55555555-5555-4555-8555-555555555555",
+      pathname: () => "/start/",
+      language: () => "en",
+      environment: () => "production"
+    }
+  );
+
+  assert.equal(envelope.event_name, "item_saved");
+  assert.deepEqual(envelope.properties, {
+    content_id: "planner route-script--private-value"
+  });
+});
+
 test("UUID fallback creates a valid version 4 identifier", () => {
   const descriptor = Object.getOwnPropertyDescriptor(globalThis, "crypto");
   Object.defineProperty(globalThis, "crypto", {
