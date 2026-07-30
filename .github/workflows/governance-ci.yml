@@ -41,6 +41,7 @@ jobs:
           GOVERNANCE_GENERATED_AT: "2026-07-30T12:00:00Z"
         run: |
           python3 scripts/generate_brp_amsterdam_candidate.py
+          python3 scripts/generate-data-observability.py
           python3 scripts/generate_trust_dashboard.py
           git diff --exit-code -- \
             DataProject/staging/brp-amsterdam-governance-candidate.json \
