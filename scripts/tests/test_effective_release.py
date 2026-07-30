@@ -243,13 +243,13 @@ class AmsterdamCandidateIntegrationTests(unittest.TestCase):
     def test_current_patch_release_retires_completed_events_and_replaces_sources(self):
         repository = SCRIPTS.parent
         project = repository / "DataProject"
-        current = resolve_release(project, "amsterdam-v0.1.3")
+        current = resolve_release(project, "amsterdam-v0.1.4")
         records = {record["id"]: record for record in current.records}
 
         self.assertEqual(current.replacement_count, 2)
         self.assertEqual(
             sum(record["lifecycle_status"] == "published" for record in current.records),
-            180,
+            178,
         )
         self.assertEqual(
             records["event.worldpride-amsterdam-2026-pride-walk"]["lifecycle_status"],
@@ -257,6 +257,14 @@ class AmsterdamCandidateIntegrationTests(unittest.TestCase):
         )
         self.assertEqual(
             records["event.worldpride-amsterdam-2026-pride-park"]["lifecycle_status"],
+            "retired",
+        )
+        self.assertEqual(
+            records["event.worldpride-amsterdam-2026-open-air-film-festival"]["lifecycle_status"],
+            "retired",
+        )
+        self.assertEqual(
+            records["event.worldpride-amsterdam-2026-senior-pride-concert"]["lifecycle_status"],
             "retired",
         )
         self.assertEqual(
@@ -268,7 +276,7 @@ class AmsterdamCandidateIntegrationTests(unittest.TestCase):
             "https://bredagroup-amsterdam.com/",
         )
         self.assertEqual(records["restaurant.breda"]["lifecycle_status"], "retired")
-        self.assertIn("amsterdam-v0.1.3", effective_release_heads(project, {"published"}))
+        self.assertIn("amsterdam-v0.1.4", effective_release_heads(project, {"published"}))
 
     def test_link_checker_never_allowlists_client_errors(self):
         checker_path = SCRIPTS / "check-external-links.py"

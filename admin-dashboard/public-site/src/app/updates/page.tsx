@@ -26,7 +26,7 @@ function humanDate(value: string) {
 
 export default function UpdatesPage() {
   const content = getPublicContent();
-  const amsterdamEntities = content.entities.filter((entity) => entity.releaseId === "amsterdam-v0.1.3");
+  const amsterdamEntities = content.entities.filter((entity) => entity.releaseId === "amsterdam-v0.1.4");
   const releaseDate = amsterdamEntities.reduce(
     (latestDate, entity) => entity.updatedAt > latestDate ? entity.updatedAt : latestDate,
     content.generatedAt.slice(0, 10)
@@ -54,7 +54,7 @@ export default function UpdatesPage() {
           <header>
             <time dateTime={releaseDate}><CalendarDays aria-hidden /> {humanDate(releaseDate)}</time>
             <h2 id="release-title">Amsterdam catalogue refreshed</h2>
-            <p>Current places and organizations from release <code>amsterdam-v0.1.3</code> are available in the public catalogue.</p>
+            <p>Current places and organizations from release <code>amsterdam-v0.1.4</code> are available in the public catalogue.</p>
           </header>
           <div className="updates-media-rail">
             {latest.map((entity) => {
