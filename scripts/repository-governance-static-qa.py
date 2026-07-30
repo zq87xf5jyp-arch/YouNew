@@ -95,6 +95,8 @@ expected_gitleaks_fingerprints = {
     "65eabc495c1b572d9c91dbea96595d1fedcfee64:CURRENT_WORKTREE_DIFF.patch:generic-api-key:5596",
     "65eabc495c1b572d9c91dbea96595d1fedcfee64:YouNew/ViewModels/TranslatorViewModel.swift:generic-api-key:16",
     "65eabc495c1b572d9c91dbea96595d1fedcfee64:YouNew/ViewModels/AIViewModel.swift:generic-api-key:69",
+    "47c73e71965d474eb94b7d0da1b5925cf34bc382:admin-dashboard/public-site/public/data/site-config.json:generic-api-key:12",
+    "47c73e71965d474eb94b7d0da1b5925cf34bc382:admin-dashboard/public-site/src/config/site-config.json:generic-api-key:12",
 }
 gitleaks_fingerprint_lines = [
     line.strip() for line in gitleaks_ignore.splitlines() if line.strip()
