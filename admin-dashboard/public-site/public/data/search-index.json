@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-07-30T00:00:00Z",
-  "datasetFingerprint": "e1c0b4c658e98ba12511e9c47d4f9c18d26330b2dcd0dccbb355c3d6cabcf69b",
+  "datasetFingerprint": "4bb74b685a42eb878a807bdefef99316e1877b531930355e5a0936f7c2ca417d",
   "locale": "en",
   "geographyEffectiveDate": "2026-01-01",
   "documents": [
@@ -7200,86 +7200,6 @@
         "culture"
       ],
       "narrowCategory": "conference",
-      "organization": "Pride Amsterdam",
-      "audienceProfiles": [],
-      "numberedSteps": [],
-      "requiredDocuments": [],
-      "checklist": [],
-      "tips": [],
-      "faqAnswers": [],
-      "whenYouNeedIt": [],
-      "tags": [],
-      "synonyms": [],
-      "officialOrganizationNames": [
-        "Pride Amsterdam"
-      ],
-      "terminology": [],
-      "commonQuestions": []
-    },
-    {
-      "id": "event.worldpride-amsterdam-2026-open-air-film-festival",
-      "type": "place",
-      "sourceKind": "event",
-      "slug": "worldpride-amsterdam-2026-open-air-film-festival",
-      "route": "/places/worldpride-amsterdam-2026-open-air-film-festival",
-      "title": "WorldPride Amsterdam 2026 Open Air Film Festival",
-      "summary": "WorldPride Amsterdam 2026 Open Air Film Festival is a confirmed Amsterdam current event. The source covers the official open-air film programme at Mercatorplein.",
-      "contentDepth": "summary",
-      "keywords": [
-        "Noord-Holland",
-        "WorldPride Amsterdam 2026 Open Air Film Festival",
-        "WorldPride Amsterdam 2026 Open Air Film Festival Amsterdam",
-        "current event Amsterdam",
-        "film event"
-      ],
-      "city": "Amsterdam",
-      "cityId": "amsterdam",
-      "province": "Noord-Holland",
-      "provinceId": "noord-holland",
-      "categories": [
-        "culture"
-      ],
-      "narrowCategory": "film-event",
-      "organization": "Pride Amsterdam",
-      "audienceProfiles": [],
-      "numberedSteps": [],
-      "requiredDocuments": [],
-      "checklist": [],
-      "tips": [],
-      "faqAnswers": [],
-      "whenYouNeedIt": [],
-      "tags": [],
-      "synonyms": [],
-      "officialOrganizationNames": [
-        "Pride Amsterdam"
-      ],
-      "terminology": [],
-      "commonQuestions": []
-    },
-    {
-      "id": "event.worldpride-amsterdam-2026-senior-pride-concert",
-      "type": "place",
-      "sourceKind": "event",
-      "slug": "worldpride-amsterdam-2026-senior-pride-concert",
-      "route": "/places/worldpride-amsterdam-2026-senior-pride-concert",
-      "title": "WorldPride Amsterdam 2026 Senior Pride Concert",
-      "summary": "WorldPride Amsterdam 2026 Senior Pride Concert is a confirmed Amsterdam current event. The source covers the official Senior Pride concert at Nieuwmarkt.",
-      "contentDepth": "summary",
-      "keywords": [
-        "Noord-Holland",
-        "WorldPride Amsterdam 2026 Senior Pride Concert",
-        "WorldPride Amsterdam 2026 Senior Pride Concert Amsterdam",
-        "concert",
-        "current event Amsterdam"
-      ],
-      "city": "Amsterdam",
-      "cityId": "amsterdam",
-      "province": "Noord-Holland",
-      "provinceId": "noord-holland",
-      "categories": [
-        "culture"
-      ],
-      "narrowCategory": "concert",
       "organization": "Pride Amsterdam",
       "audienceProfiles": [],
       "numberedSteps": [],
