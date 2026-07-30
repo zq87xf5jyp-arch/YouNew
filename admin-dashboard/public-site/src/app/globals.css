@@ -4444,6 +4444,139 @@ fieldset.workspace-panel {
   }
 }
 
+.business-workspace-trust {
+  margin-top:-68px;
+  padding-bottom:96px;
+}
+.knowledge-trust-summary {
+  overflow:hidden;
+  border:1px solid rgba(58,196,214,.24);
+  border-radius:var(--radius-large);
+  background:
+    radial-gradient(circle at 94% 8%,rgba(58,196,214,.11),transparent 24rem),
+    rgba(10,27,50,.78);
+  box-shadow:var(--shadow-card);
+  backdrop-filter:blur(18px) saturate(118%);
+}
+.knowledge-trust-heading {
+  display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(260px,.7fr);
+  gap:36px;
+  align-items:end;
+  padding:28px 30px 24px;
+  border-bottom:1px solid var(--line);
+}
+.knowledge-trust-heading>div {
+  display:flex;
+  align-items:flex-start;
+  gap:12px;
+}
+.knowledge-trust-heading svg {
+  width:24px;
+  height:24px;
+  flex:none;
+  color:var(--cyan);
+}
+.knowledge-trust-heading h2 {
+  max-width:720px;
+  margin:0;
+  font-size:clamp(22px,2.4vw,31px);
+  line-height:1.12;
+  letter-spacing:-.025em;
+}
+.knowledge-trust-heading>p {
+  max-width:520px;
+  margin:0;
+  color:var(--text-secondary);
+  font-size:13px;
+  line-height:1.6;
+}
+.knowledge-trust-metrics {
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  margin:0;
+}
+.knowledge-trust-metrics>div {
+  min-width:0;
+  padding:22px 24px;
+  border-right:1px solid var(--line);
+}
+.knowledge-trust-metrics>div:last-child { border-right:0; }
+.knowledge-trust-metrics dt {
+  color:var(--muted);
+  font-size:11px;
+  font-weight:750;
+}
+.knowledge-trust-metrics dd {
+  margin:7px 0 3px;
+  color:var(--text);
+  font-size:22px;
+  font-weight:850;
+  overflow-wrap:anywhere;
+}
+.knowledge-trust-metrics small {
+  color:var(--text-secondary);
+  font-size:10px;
+}
+.knowledge-trust-decision {
+  display:grid;
+  grid-template-columns:auto minmax(0,1fr) auto;
+  align-items:center;
+  gap:14px;
+  padding:18px 24px;
+  border-top:1px solid rgba(204,150,60,.24);
+  background:rgba(204,150,60,.055);
+}
+.knowledge-trust-decision>svg {
+  width:22px;
+  color:var(--warning);
+}
+.knowledge-trust-decision p {
+  display:grid;
+  gap:3px;
+  margin:0;
+}
+.knowledge-trust-decision strong { color:#ffe1a3; font-size:13px; }
+.knowledge-trust-decision span { color:var(--text-secondary); font-size:11px; line-height:1.45; }
+.knowledge-trust-decision a {
+  display:flex;
+  align-items:center;
+  gap:6px;
+  min-height:44px;
+  color:var(--cyan);
+  font-size:12px;
+  font-weight:800;
+}
+.knowledge-trust-decision a svg { width:15px; }
+.knowledge-trust-summary.is-compact .knowledge-trust-heading {
+  padding-block:22px;
+}
+.knowledge-trust-summary.is-compact .knowledge-trust-heading h2 {
+  font-size:22px;
+}
+@media (max-width:900px) {
+  .knowledge-trust-heading { grid-template-columns:1fr; gap:14px; }
+  .knowledge-trust-metrics { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .knowledge-trust-metrics>div:nth-child(2) { border-right:0; }
+  .knowledge-trust-metrics>div:nth-child(-n+2) { border-bottom:1px solid var(--line); }
+}
+@media (max-width:640px) {
+  .business-workspace-trust { margin-top:-70px; padding-bottom:72px; }
+  .knowledge-trust-heading { padding:22px 18px 18px; }
+  .knowledge-trust-metrics { grid-template-columns:1fr; }
+  .knowledge-trust-metrics>div {
+    padding:16px 18px;
+    border-right:0;
+    border-bottom:1px solid var(--line);
+  }
+  .knowledge-trust-metrics>div:last-child { border-bottom:0; }
+  .knowledge-trust-decision {
+    grid-template-columns:auto minmax(0,1fr);
+    padding:16px 18px;
+  }
+  .knowledge-trust-decision a { grid-column:2; }
+}
+
 .governance-disclosure {
   margin:0 0 28px;
   padding:18px;
@@ -4512,7 +4645,7 @@ fieldset.workspace-panel {
 
 @media (forced-colors:active) {
   :focus-visible { outline:2px solid Highlight!important; outline-offset:3px; box-shadow:none; }
-  .button,.entity-card,.journey-card,.guide-toc,.source-card,.coverage-map-canvas,.coverage-map-selection,.content-body,.business-hero { border:1px solid CanvasText; box-shadow:none; }
+  .button,.entity-card,.journey-card,.guide-toc,.source-card,.coverage-map-canvas,.coverage-map-selection,.content-body,.business-hero,.knowledge-trust-summary { border:1px solid CanvasText; box-shadow:none; }
   .button-primary { background:ButtonFace; color:ButtonText; }
   .coverage-map-marker:focus-visible .coverage-map-marker-hit { stroke:Highlight; }
   .hero-route-line,.hero-section::before,.hero-product::before { display:none; }

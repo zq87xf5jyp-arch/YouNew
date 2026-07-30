@@ -75,11 +75,18 @@ assert.match(businessApply, /confirmation ID appears after the database record i
 assert.doesNotMatch(businessApply, /Email handoff only|does not upload or submit this form to a server/i);
 assert.doesNotMatch(businessApply, /no secure upload or form backend|nothing is submitted automatically/i);
 
+const business = await readFile(join(root, "business/index.html"), "utf8");
+for (const text of ["Knowledge trust stays independent", "Governed public coverage", "System evidence"]) {
+  assert.match(business, new RegExp(text, "i"));
+}
+assert.match(business, /Knowledge candidate:\s*(?:<!-- -->)?NO_GO/i);
+
 const mediaKit = await readFile(join(root, "business/media-kit/index.html"), "utf8");
 for (const text of ["Request a quote", "DEMO PARTNER CARD", "DEMO REPORT", "ILLUSTRATIVE DATA", "Editorial independence", "Reasons YouNew may refuse or stop a placement"]) assert.match(mediaKit, new RegExp(text, "i"));
 
 const businessWorkspace = await readFile(join(root, "business/workspace/index.html"), "utf8");
-for (const text of ["Build your business presence with YouNew", "Local workspace preview", "0 live", "Sponsored preview", "Illustrative preview only", "Continue to secure inquiry", "Leads require a secure verified account"]) assert.match(businessWorkspace, new RegExp(text, "i"));
+for (const text of ["Build your business presence with YouNew", "Local workspace preview", "0 live", "Sponsored preview", "Illustrative preview only", "Continue to secure inquiry", "Leads require a secure verified account", "Knowledge trust stays independent"]) assert.match(businessWorkspace, new RegExp(text, "i"));
+assert.match(businessWorkspace, /Knowledge candidate:\s*(?:<!-- -->)?NO_GO/i);
 assert.match(businessWorkspace, /name="robots" content="noindex, follow"/);
 assert.match(businessWorkspace, /<script[^>]+src="\/_next\/static\/chunks\//, "The business workspace must retain client JavaScript");
 assert.doesNotMatch(businessWorkspace, /guaranteed (?:reach|results|returns)|live public campaign/i);
@@ -91,6 +98,8 @@ const status = await readFile(join(root, "status/index.html"), "utf8");
 assert.match(status, /Static status snapshot/);
 assert.match(status, /does not (?:use|provide) live (?:uptime )?monitoring/i);
 assert.match(status, /Business and feedback forms/);
+assert.match(status, /Knowledge trust stays independent/i);
+assert.match(status, /Knowledge candidate:\s*(?:<!-- -->)?NO_GO/i);
 
 const support = await readFile(join(root, "support/index.html"), "utf8");
 for (const field of ["feedbackType", "email", "message", "consentToPrivacy", "websiteConfirmation"]) {

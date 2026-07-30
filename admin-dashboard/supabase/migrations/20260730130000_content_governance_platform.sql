@@ -3,6 +3,26 @@
 -- Rollback is performed by disabling consumers/RPC feature flags while keeping
 -- the append-only evidence and audit history.
 
+create schema if not exists private;
+
+create or replace function private.governance_current_admin_role()
+returns text
+language sql
+stable
+security definer
+set search_path = ''
+as $$
+  select profiles.role::text
+  from public.profiles
+  where profiles.id = auth.uid()
+    and profiles.is_approved is true
+  limit 1
+$$;
+
+grant usage on schema private to authenticated, service_role;
+revoke all on function private.governance_current_admin_role() from public, anon;
+grant execute on function private.governance_current_admin_role() to authenticated, service_role;
+
 do $$ begin
   create type public.governance_verification_status as enum (
     'unverified', 'verified', 'review_due_soon', 'overdue',
@@ -482,7 +502,7 @@ language plpgsql
 set search_path = pg_catalog, public
 as $$
 declare
-  v_role text := coalesce(public.current_admin_role()::text, '');
+  v_role text := coalesce(private.governance_current_admin_role(), '');
 begin
   if new.actor_type = 'human' then
     if auth.uid() is null or new.actor_id is distinct from auth.uid() then
@@ -553,7 +573,7 @@ set search_path = pg_catalog, public
 as $$
 declare
   v_actor uuid := auth.uid();
-  v_role text := coalesce(public.current_admin_role()::text, '');
+  v_role text := coalesce(private.governance_current_admin_role(), '');
   v_state public.content_governance_state;
   v_event_id uuid := gen_random_uuid();
   v_event_type text;
@@ -676,7 +696,7 @@ set search_path = pg_catalog, public
 as $$
 declare
   v_actor uuid := auth.uid();
-  v_role text := coalesce(public.current_admin_role()::text, '');
+  v_role text := coalesce(private.governance_current_admin_role(), '');
   v_state public.content_governance_state;
   v_event_id uuid := gen_random_uuid();
   v_task_id uuid;
@@ -893,7 +913,7 @@ security definer
 set search_path = pg_catalog, public
 as $$
 declare
-  v_role text := coalesce(public.current_admin_role()::text, '');
+  v_role text := coalesce(private.governance_current_admin_role(), '');
   v_count integer;
 begin
   if auth.uid() is null or v_role not in ('owner', 'admin') then
@@ -934,7 +954,7 @@ set search_path = pg_catalog, public
 as $$
 declare
   v_actor uuid := auth.uid();
-  v_role text := coalesce(public.current_admin_role()::text, '');
+  v_role text := coalesce(private.governance_current_admin_role(), '');
   v_task public.content_review_tasks;
   v_state public.content_governance_state;
   v_event_id uuid := gen_random_uuid();
@@ -1053,7 +1073,7 @@ set search_path = pg_catalog, public
 as $$
 declare
   v_actor uuid := auth.uid();
-  v_role text := coalesce(public.current_admin_role()::text, '');
+  v_role text := coalesce(private.governance_current_admin_role(), '');
   v_id uuid := gen_random_uuid();
 begin
   if v_actor is null or v_role not in ('owner', 'admin', 'qa') then
@@ -1095,7 +1115,7 @@ declare
   v_count integer;
 begin
   if auth.uid() is not null
-     and coalesce(public.current_admin_role()::text, '') <> 'owner' then
+     and coalesce(private.governance_current_admin_role(), '') <> 'owner' then
     raise exception using errcode = '42501', message = 'research_purge_role_required';
   end if;
   delete from public.research_observations where expires_at <= now();
@@ -1260,38 +1280,38 @@ alter table public.research_observations enable row level security;
 
 create policy "approved admins read governance state"
 on public.content_governance_state for select to authenticated
-using (public.is_approved_admin());
+using (private.governance_current_admin_role() is not null);
 create policy "approved admins read governance versions"
 on public.content_governance_versions for select to authenticated
-using (public.is_approved_admin());
+using (private.governance_current_admin_role() is not null);
 create policy "approved admins read source checks"
 on public.source_check_attempts for select to authenticated
-using (public.is_approved_admin());
+using (private.governance_current_admin_role() is not null);
 create policy "approved admins read review tasks"
 on public.content_review_tasks for select to authenticated
-using (public.is_approved_admin());
+using (private.governance_current_admin_role() is not null);
 create policy "approved admins read review events"
 on public.content_review_events for select to authenticated
-using (public.is_approved_admin());
+using (private.governance_current_admin_role() is not null);
 create policy "owners and admins manage governance flags"
 on public.governance_feature_flags for all to authenticated
-using (public.current_admin_role() in ('owner', 'admin'))
-with check (public.current_admin_role() in ('owner', 'admin'));
+using (private.governance_current_admin_role() in ('owner', 'admin'))
+with check (private.governance_current_admin_role() in ('owner', 'admin'));
 create policy "approved admins read governance flags"
 on public.governance_feature_flags for select to authenticated
-using (public.is_approved_admin());
+using (private.governance_current_admin_role() is not null);
 create policy "approved researchers read research consent"
 on public.research_consents for select to authenticated
-using (public.current_admin_role() in ('owner', 'admin', 'qa'));
+using (private.governance_current_admin_role() in ('owner', 'admin', 'qa'));
 create policy "approved researchers manage research consent"
 on public.research_consents for insert to authenticated
 with check (
-  public.current_admin_role() in ('owner', 'admin', 'qa')
+  private.governance_current_admin_role() in ('owner', 'admin', 'qa')
   and created_by = auth.uid()
 );
 create policy "approved researchers read observations"
 on public.research_observations for select to authenticated
-using (public.current_admin_role() in ('owner', 'admin', 'qa'));
+using (private.governance_current_admin_role() in ('owner', 'admin', 'qa'));
 
 revoke all on table public.content_governance_state from public, anon, authenticated;
 revoke all on table public.content_governance_versions from public, anon, authenticated;

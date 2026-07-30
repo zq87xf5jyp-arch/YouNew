@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-07-22T00:00:00Z",
+  "generatedAt": "2026-07-30T00:00:00Z",
   "generatorVersion": 1,
   "source": "../../YouNew/Resources/Data/younew-runtime-data.json",
   "sourceMode": "production",
   "sourceSchemaVersion": 1,
-  "datasetFingerprint": "066158d1e248ba544b582ef0a2eaf60648c8e50da04e2ba89d041e707178e2de",
-  "sourceOutputChecksum": "6d2972520f3ecfcf5e43d2f6c43a614aebcf718fae6cff15fde6b11d512a0b8c",
+  "datasetFingerprint": "e1c0b4c658e98ba12511e9c47d4f9c18d26330b2dcd0dccbb355c3d6cabcf69b",
+  "sourceOutputChecksum": "d032367df50860ff90dd422afafdcd90f8dd9e9ac0bbacae5c8fd996fcf40946",
   "acceptedReleaseIds": [
-    "amsterdam-v0.1.2",
+    "amsterdam-v0.1.3",
     "cities-v0.1.0"
   ],
   "publicationRules": {
@@ -34,8 +34,8 @@
     "sourceStatus": "verified_opened"
   },
   "counts": {
-    "sourceRecords": 186,
-    "acceptedRecords": 186,
+    "sourceRecords": 185,
+    "acceptedRecords": 185,
     "excludedRecords": 0
   }
 }

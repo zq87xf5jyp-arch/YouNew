@@ -1,5 +1,6 @@
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { BusinessWorkspace } from "@/components/business-workspace";
+import { KnowledgeTrustSummary } from "@/components/knowledge-trust-summary";
 import { PageShell } from "@/components/page-shell";
 import { advertisingFormatCatalog, advertisingSurfaceCatalog } from "@/lib/business/catalog";
 import { getNetherlandsGeography } from "@/lib/geography";
@@ -31,6 +32,9 @@ export default function BusinessWorkspacePage() {
           provinces: geography.stats.provinces
         }}
       />
+      <div className="business-workspace-trust section-shell">
+        <KnowledgeTrustSummary compact />
+      </div>
     </PageShell>
   );
 }

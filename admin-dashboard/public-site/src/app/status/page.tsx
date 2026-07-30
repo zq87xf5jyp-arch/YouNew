@@ -1,4 +1,5 @@
 import { ContentPage } from "@/components/content-page";
+import { KnowledgeTrustSummary } from "@/components/knowledge-trust-summary";
 import { StatusPanel, type StatusSnapshot } from "@/components/status-panel";
 import { SystemEvidence } from "@/components/system-evidence";
 import statusSnapshot from "@/config/status.json";
@@ -13,6 +14,7 @@ export default function StatusPage() {
       description="Check the latest verified snapshot for the website, published content and iOS application distribution."
     >
       <StatusPanel snapshot={statusSnapshot as StatusSnapshot} />
+      <KnowledgeTrustSummary />
       <SystemEvidence />
     </ContentPage>
   );

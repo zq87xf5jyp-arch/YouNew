@@ -18,6 +18,7 @@ ROOT = Path(__file__).resolve().parents[1]
 PROJECT = ROOT / "DataProject"
 REPORTS = PROJECT / "reports"
 ADMIN_OUTPUT = ROOT / "admin-dashboard/src/generated/trust-dashboard.json"
+PUBLIC_WEB_OUTPUT = ROOT / "admin-dashboard/public-site/src/generated/trust-dashboard.json"
 
 
 def load_json(path: Path, fallback: Any) -> Any:
@@ -465,6 +466,7 @@ def main() -> None:
     }
     write_json(REPORTS / "trust-dashboard.json", dashboard)
     write_json(ADMIN_OUTPUT, dashboard)
+    write_json(PUBLIC_WEB_OUTPUT, dashboard)
 
     lines = [
         "# YouNew Trust Dashboard",

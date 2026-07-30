@@ -84,7 +84,7 @@ export default function HomePage() {
     entityById.get("place.hortus-botanicus-amsterdam")
   ].filter((entity) => entity !== undefined);
   const amsterdamReleaseDate = content.entities
-    .filter((entity) => entity.releaseId === "amsterdam-v0.1.2")
+    .filter((entity) => entity.releaseId === "amsterdam-v0.1.3")
     .reduce((latest, entity) => entity.updatedAt > latest ? entity.updatedAt : latest, "1970-01-01");
   const featureMedia = featureEntity ? preferredMedia(featureEntity.images, ["hero", "gallery", "thumbnail"]) : null;
   const latestMedia = latestLeadEntity ? preferredMedia(latestLeadEntity.images, ["hero", "gallery", "thumbnail"]) : null;

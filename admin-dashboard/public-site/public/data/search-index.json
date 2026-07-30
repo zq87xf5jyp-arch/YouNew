@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
-  "generatedAt": "2026-07-22T00:00:00Z",
-  "datasetFingerprint": "066158d1e248ba544b582ef0a2eaf60648c8e50da04e2ba89d041e707178e2de",
+  "generatedAt": "2026-07-30T00:00:00Z",
+  "datasetFingerprint": "e1c0b4c658e98ba12511e9c47d4f9c18d26330b2dcd0dccbb355c3d6cabcf69b",
   "locale": "en",
   "geographyEffectiveDate": "2026-01-01",
   "documents": [
@@ -1602,7 +1602,7 @@
         "things-to-do"
       ],
       "narrowCategory": "historic-courtyard",
-      "organization": "I amsterdam",
+      "organization": "Gemeente Amsterdam",
       "audienceProfiles": [],
       "numberedSteps": [],
       "requiredDocuments": [],
@@ -1613,7 +1613,7 @@
       "tags": [],
       "synonyms": [],
       "officialOrganizationNames": [
-        "I amsterdam"
+        "Gemeente Amsterdam"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -1774,46 +1774,6 @@
       "synonyms": [],
       "officialOrganizationNames": [
         "BovenIJ"
-      ],
-      "terminology": [],
-      "commonQuestions": []
-    },
-    {
-      "id": "restaurant.breda",
-      "type": "place",
-      "sourceKind": "restaurant",
-      "slug": "breda",
-      "route": "/places/breda",
-      "title": "BREDA",
-      "summary": "BREDA is a confirmed Amsterdam restaurant. The source covers the Amsterdam restaurant operated by the Breda group.",
-      "contentDepth": "summary",
-      "keywords": [
-        "BREDA",
-        "BREDA Amsterdam",
-        "Noord-Holland",
-        "restaurant",
-        "restaurant Amsterdam"
-      ],
-      "city": "Amsterdam",
-      "cityId": "amsterdam",
-      "province": "Noord-Holland",
-      "provinceId": "noord-holland",
-      "categories": [
-        "food-drink"
-      ],
-      "narrowCategory": "restaurant",
-      "organization": "I amsterdam",
-      "audienceProfiles": [],
-      "numberedSteps": [],
-      "requiredDocuments": [],
-      "checklist": [],
-      "tips": [],
-      "faqAnswers": [],
-      "whenYouNeedIt": [],
-      "tags": [],
-      "synonyms": [],
-      "officialOrganizationNames": [
-        "I amsterdam"
       ],
       "terminology": [],
       "commonQuestions": []

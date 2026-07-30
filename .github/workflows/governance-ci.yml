@@ -44,4 +44,5 @@ jobs:
           python3 scripts/generate_trust_dashboard.py
           git diff --exit-code -- \
             DataProject/staging/brp-amsterdam-governance-candidate.json \
-            admin-dashboard/src/generated/trust-dashboard.json
+            admin-dashboard/src/generated/trust-dashboard.json \
+            admin-dashboard/public-site/src/generated/trust-dashboard.json

@@ -10,6 +10,7 @@ import {
   ShieldCheck
 } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { KnowledgeTrustSummary } from "@/components/knowledge-trust-summary";
 import { PageShell } from "@/components/page-shell";
 import { advertisingFormatCatalog, advertisingSurfaceCatalog } from "@/lib/business/catalog";
 import { getNetherlandsGeography } from "@/lib/geography";
@@ -73,6 +74,10 @@ export default function BusinessPage() {
         <Link href="/business/pricing">Request a quote</Link>
         <Link href="/business/apply">Apply</Link>
       </nav>
+
+      <div className="business-section section-shell">
+        <KnowledgeTrustSummary />
+      </div>
 
       <section className="business-section section-shell business-format-rail-section" aria-labelledby="business-formats">
         <div className="section-intro">
