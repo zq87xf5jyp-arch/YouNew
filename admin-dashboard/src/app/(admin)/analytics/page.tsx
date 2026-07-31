@@ -22,6 +22,10 @@ const percentFormatter = new Intl.NumberFormat("ru-RU", {
   style: "percent",
   maximumFractionDigits: 1
 });
+const ratioFormatter = new Intl.NumberFormat("ru-RU", {
+  minimumFractionDigits: 0,
+  maximumFractionDigits: 2
+});
 
 function freshnessLabel(freshness: ReturnType<typeof buildAnalyticsDashboard>["freshness"]) {
   switch (freshness) {
@@ -105,11 +109,11 @@ export default async function AnalyticsPage() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <PageHeader
           title="Аналитика"
-          description="Privacy-safe посещаемость сайта и приложения из production-агрегатов Supabase — без рекламных идентификаторов, поискового текста и выдуманных показателей."
+          description="Эффективность production-сайта и приложения по privacy-safe агрегатам Supabase. Hostinger analytics не используется: домен younew.nl обслуживается через Sites."
         />
         <AnalyticsAutoRefresh />
       </div>
-      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+      <section className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
         <StatCard
           label="Сессии за 30 дней"
           value={integerFormatter.format(dashboard.totals.sessions)}
@@ -118,18 +122,38 @@ export default async function AnalyticsPage() {
           tone="success"
         />
         <StatCard
-          label="События за 30 дней"
-          value={integerFormatter.format(dashboard.totals.events)}
-          note={changeNote}
+          label="Просмотры страниц"
+          value={integerFormatter.format(dashboard.effectiveness.pageViews)}
+          note={dashboard.effectiveness.pageViewsPerSession === null
+            ? "На сессию: not established"
+            : `${ratioFormatter.format(dashboard.effectiveness.pageViewsPerSession)} на сессию`}
           icon={Activity}
           tone="info"
         />
         <StatCard
-          label="Ключевые действия"
-          value={integerFormatter.format(dashboard.totals.keyActions)}
-          note="Открытия источников, сохранения и завершённые шаги"
+          label="Открытия источников"
+          value={integerFormatter.format(dashboard.effectiveness.sourceOpens)}
+          note={dashboard.effectiveness.sourceOpensPerSession === null
+            ? "На сессию: not established"
+            : `${ratioFormatter.format(dashboard.effectiveness.sourceOpensPerSession)} на сессию`}
           icon={Gauge}
           tone="success"
+        />
+        <StatCard
+          label="Ключевые действия"
+          value={integerFormatter.format(dashboard.totals.keyActions)}
+          note={dashboard.effectiveness.keyActionsPerSession === null
+            ? "На сессию: not established"
+            : `${ratioFormatter.format(dashboard.effectiveness.keyActionsPerSession)} на сессию`}
+          icon={Gauge}
+          tone="success"
+        />
+        <StatCard
+          label="Все события"
+          value={integerFormatter.format(dashboard.totals.events)}
+          note={changeNote}
+          icon={Activity}
+          tone="info"
         />
         <StatCard
           label="Доля ошибок"
@@ -150,11 +174,16 @@ export default async function AnalyticsPage() {
             <div className="ml-auto flex flex-wrap gap-2">
               <Badge variant={connected ? "success" : "destructive"}>{connected ? "подключено" : "ошибка источника"}</Badge>
               <Badge variant={freshnessVariant(dashboard.freshness)}>{freshnessLabel(dashboard.freshness)}</Badge>
+              <Badge variant={dashboard.effectiveness.sampleEstablished ? "success" : "warning"}>
+                {dashboard.effectiveness.sampleEstablished ? "выборка установлена" : "выборка < 20 сессий"}
+              </Badge>
             </div>
           </CardHeader>
           <CardContent className="grid gap-2 text-sm text-muted-foreground md:grid-cols-2">
             <p>Последняя принятая запись: <strong className="text-foreground">{lastIngested}</strong> (Europe/Amsterdam).</p>
+            <p>Источник: production-агрегаты Supabase. Hostinger считает запросы отдельной неподключённой копии и не является источником посещаемости younew.nl.</p>
             <p>Сырые события, свободные поисковые запросы и чувствительные пользовательские данные в дисплее не отображаются.</p>
+            <p>Показатели на сессию диагностические: они не доказывают ценность или причинный эффект без достаточной выборки и исследования пользователей.</p>
           </CardContent>
         </Card>
         <AnalyticsTrendChart points={dashboard.trend} />

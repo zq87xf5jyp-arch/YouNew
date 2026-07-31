@@ -106,6 +106,10 @@
   const analyticsEndpointPath = "/functions/v1/analytics-ingest";
   let analyticsProvider;
 
+  const safeAnalyticsProperty = (value) => String(value)
+    .replace(/[^A-Za-z0-9_./: -]/g, "-")
+    .slice(0, 160);
+
   const analyticsEnvironment = (hostname) => {
     const normalized = hostname.trim().toLowerCase();
     return normalized === "localhost"
@@ -228,7 +232,7 @@
     };
 
     return {
-      track(eventName) {
+      track(eventName, properties = {}) {
         if (disposed) return;
         queue.push({
           client_event_id: randomUUIDv4(),
@@ -239,7 +243,9 @@
           platform: "Web",
           app_version: configuration.appVersion,
           language: (document.documentElement.lang || "en").slice(0, 12),
-          properties: {},
+          properties: eventName === "official_source_click"
+            ? { content_id: safeAnalyticsProperty(properties.content_id ?? "") }
+            : {},
           occurred_at: new Date().toISOString(),
           consent_version: configuration.consentVersion,
           schema_version: configuration.schemaVersion,
@@ -358,6 +364,16 @@
 
   window.addEventListener("pagehide", () => {
     void analyticsProvider?.flush();
+  });
+
+  document.addEventListener("click", (event) => {
+    const target = event.target instanceof Element
+      ? event.target.closest("[data-analytics-official-source-id]")
+      : null;
+    const contentId = target?.getAttribute("data-analytics-official-source-id");
+    if (contentId) {
+      analyticsProvider?.track("official_source_click", { content_id: contentId });
+    }
   });
 
 })();

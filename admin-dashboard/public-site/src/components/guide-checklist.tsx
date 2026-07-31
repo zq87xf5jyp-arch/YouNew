@@ -2,6 +2,7 @@
 
 import { useEffect, useId, useMemo, useState } from "react";
 import { ExternalLink } from "lucide-react";
+import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
 import type { GuideOfficialSource, GuideSourcedText } from "@/lib/content";
 import { guideChecklistCompletion, localContentRepository, type GuideChecklistState } from "@/lib/storage/local-content";
 
@@ -55,7 +56,7 @@ export function GuideChecklist({
               </label>
               {itemSources.length > 0 ? (
                 <span className="guide-inline-sources" aria-label="Sources for this checklist item">
-                  {itemSources.map((source, index) => source ? <a aria-label={`Source ${index + 1}: ${source.publisher} — ${source.title} (opens in a new tab)`} href={source.url} rel="noreferrer" target="_blank" key={source.id}>Source {index + 1}<ExternalLink aria-hidden /></a> : null)}
+                  {itemSources.map((source, index) => source ? <TrackedOfficialSourceLink aria-label={`Source ${index + 1}: ${source.publisher} — ${source.title} (opens in a new tab)`} contentId={source.id} href={source.url} rel="noreferrer" target="_blank" key={source.id}>Source {index + 1}<ExternalLink aria-hidden /></TrackedOfficialSourceLink> : null)}
                 </span>
               ) : null}
             </li>

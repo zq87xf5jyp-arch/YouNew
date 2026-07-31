@@ -60,6 +60,14 @@ export type AnalyticsDashboardData = {
     errors: number;
     errorRate: number;
   };
+  effectiveness: {
+    pageViews: number;
+    sourceOpens: number;
+    pageViewsPerSession: number | null;
+    sourceOpensPerSession: number | null;
+    keyActionsPerSession: number | null;
+    sampleEstablished: boolean;
+  };
   currentSevenDayEvents: number;
   previousSevenDayEvents: number;
   sevenDayEventChange: number | null;
@@ -158,6 +166,17 @@ export function buildAnalyticsDashboard({
     { events: 0, sessions: 0, keyActions: 0, errors: 0, errorRate: 0 }
   );
   totals.errorRate = totals.events > 0 ? totals.errors / totals.events : 0;
+  const pageViews = (topEvents.get("page_view") ?? 0) + (topEvents.get("screen_view") ?? 0);
+  const sourceOpens = (topEvents.get("official_source_click") ?? 0)
+    + (topEvents.get("official_source_opened") ?? 0);
+  const effectiveness = {
+    pageViews,
+    sourceOpens,
+    pageViewsPerSession: totals.sessions > 0 ? pageViews / totals.sessions : null,
+    sourceOpensPerSession: totals.sessions > 0 ? sourceOpens / totals.sessions : null,
+    keyActionsPerSession: totals.sessions > 0 ? totals.keyActions / totals.sessions : null,
+    sampleEstablished: totals.sessions >= 20
+  };
 
   const currentSevenDayEvents = trend.slice(-7).reduce((sum, point) => sum + point.events, 0);
   const previousSevenDayEvents = trend.slice(-14, -7).reduce((sum, point) => sum + point.events, 0);
@@ -186,6 +205,7 @@ export function buildAnalyticsDashboard({
       .sort((left, right) => right.events - left.events || left.eventName.localeCompare(right.eventName))
       .slice(0, 12),
     totals,
+    effectiveness,
     currentSevenDayEvents,
     previousSevenDayEvents,
     sevenDayEventChange,

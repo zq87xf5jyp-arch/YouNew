@@ -68,6 +68,14 @@ test("analytics dashboard reconciles daily totals, platforms and event ranking",
   assert.equal(dashboard.platforms[0].platform, "Web");
   assert.equal(dashboard.platforms[0].events, 22);
   assert.equal(dashboard.topEvents[0].eventName, "page_view");
+  assert.deepEqual(dashboard.effectiveness, {
+    pageViews: 17,
+    sourceOpens: 0,
+    pageViewsPerSession: 17 / 9,
+    sourceOpensPerSession: 0,
+    keyActionsPerSession: 1,
+    sampleEstablished: false
+  });
   assert.equal(dashboard.currentSevenDayEvents, 20);
   assert.equal(dashboard.previousSevenDayEvents, 10);
   assert.equal(dashboard.sevenDayEventChange, 1);
@@ -86,6 +94,14 @@ test("analytics dashboard exposes missing and stale data without inventing value
   assert.equal(empty.sevenDayEventChange, null);
   assert.equal(empty.lastIngestedAt, null);
   assert.equal(empty.freshness, "no-data");
+  assert.deepEqual(empty.effectiveness, {
+    pageViews: 0,
+    sourceOpens: 0,
+    pageViewsPerSession: null,
+    sourceOpensPerSession: null,
+    keyActionsPerSession: null,
+    sampleEstablished: false
+  });
 
   const stale = buildAnalyticsDashboard({
     now: new Date("2026-07-28T12:00:00.000Z"),
