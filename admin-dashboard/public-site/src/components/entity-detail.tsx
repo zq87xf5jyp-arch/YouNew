@@ -5,6 +5,7 @@ import { EntityCard } from "@/components/entity-card";
 import { RecentViewTracker } from "@/components/recent-view-tracker";
 import { SaveButton } from "@/components/save-button";
 import { ShareButton } from "@/components/share-button";
+import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
 import { ContentMedia, preferredMedia } from "@/components/content-media";
 import { GovernanceDisclosure } from "@/components/governance-disclosure";
 import type { ContentEntity } from "@/lib/content";
@@ -118,7 +119,7 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
             <div><dt>Content release</dt><dd>{entity.releaseId}</dd></div>
             <div><dt>Jurisdiction</dt><dd>Netherlands{entity.cityId ? ` · ${entity.cityId.replaceAll("-", " ")}` : ""}</dd></div>
           </dl>
-          <a className="button button-primary" href={entity.source.url} rel="noreferrer" target="_blank">Open source <ExternalLink aria-hidden /></a>
+          <TrackedOfficialSourceLink className="button button-primary" contentId={entity.id} href={entity.source.url} rel="noreferrer" target="_blank">Open source <ExternalLink aria-hidden /></TrackedOfficialSourceLink>
           <a className="report-link" href={`mailto:support@younew.nl?subject=${reportSubject}&body=${reportBody}`}><Flag aria-hidden /> Report outdated information</a>
         </aside>
       </div>

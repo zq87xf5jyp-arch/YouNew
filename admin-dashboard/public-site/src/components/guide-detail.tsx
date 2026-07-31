@@ -8,6 +8,7 @@ import { ReadingProgress } from "@/components/reading-progress";
 import { RecentViewTracker } from "@/components/recent-view-tracker";
 import { SaveButton } from "@/components/save-button";
 import { ShareButton } from "@/components/share-button";
+import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
 import { ContentMedia, preferredMedia } from "@/components/content-media";
 import { GovernanceDisclosure } from "@/components/governance-disclosure";
 import type { ContentEntity, GuideContactOption, GuideSourcedText, PracticalGuide } from "@/lib/content";
@@ -23,7 +24,7 @@ function SourceLinks({ item, guide }: { item: { sourceIds: readonly string[] }; 
   if (sources.length === 0) return null;
   return (
     <span className="guide-inline-sources" aria-label="Sources for this information">
-      {sources.map((source, index) => source ? <a aria-label={`Official source ${index + 1}: ${source.publisher} — ${source.title}`} href={source.url} rel="noreferrer" target="_blank" key={source.id}>Source {index + 1}: {source.publisher}<ExternalLink aria-hidden /></a> : null)}
+      {sources.map((source, index) => source ? <TrackedOfficialSourceLink aria-label={`Official source ${index + 1}: ${source.publisher} — ${source.title}`} contentId={source.id} href={source.url} rel="noreferrer" target="_blank" key={source.id}>Source {index + 1}: {source.publisher}<ExternalLink aria-hidden /></TrackedOfficialSourceLink> : null)}
     </span>
   );
 }
@@ -153,7 +154,7 @@ function FullPracticalGuide({ guide }: { guide: PracticalGuide }) {
         <p className="section-label">Verification</p>
         <h2 id="sources-title">Official sources</h2>
         <div className="guide-source-list">
-          {guide.officialSources.map((source) => <article aria-label={`Official source: ${source.publisher} — ${source.title}`} key={source.id}><ShieldCheck aria-hidden /><div><h3>{source.publisher}</h3><p>{source.title}</p><p>Checked <time dateTime={source.checkedAt}>{source.checkedAt}</time></p><a aria-label={`Open ${source.title} from ${source.publisher} in a new tab`} href={source.url} rel="noreferrer" target="_blank">Open official source <ExternalLink aria-hidden /></a></div></article>)}
+          {guide.officialSources.map((source) => <article aria-label={`Official source: ${source.publisher} — ${source.title}`} key={source.id}><ShieldCheck aria-hidden /><div><h3>{source.publisher}</h3><p>{source.title}</p><p>Checked <time dateTime={source.checkedAt}>{source.checkedAt}</time></p><TrackedOfficialSourceLink aria-label={`Open ${source.title} from ${source.publisher} in a new tab`} contentId={source.id} href={source.url} rel="noreferrer" target="_blank">Open official source <ExternalLink aria-hidden /></TrackedOfficialSourceLink></div></article>)}
         </div>
         <p className="review-stamp"><CheckCircle2 aria-hidden /> Human-reviewed by {guide.reviewer.name}, {guide.reviewer.role}, on <time dateTime={guide.reviewer.reviewedAt}>{guide.reviewer.reviewedAt}</time>. Confidence: {guide.confidenceLevel}. Last verified <time dateTime={guide.verifiedAt}>{guide.verifiedAt}</time>; updated <time dateTime={guide.updatedAt}>{guide.updatedAt}</time>.</p>
       </section>
@@ -252,7 +253,7 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
           {guide ? <FullPracticalGuide guide={guide} /> : <BriefGuide entity={entity} />}
         </div>
         {!guide ? (
-          <aside className="source-card guide-source-card" aria-label={`Source verification: ${entity.source.publisher}`}><ShieldCheck aria-hidden /><p className="source-label">{entity.trust.officialSource ? "Official public source" : "Responsible source"}</p><h2>{entity.source.publisher}</h2><p>{entity.source.title}</p><dl><div><dt>Last verified</dt><dd><time dateTime={entity.verifiedAt}>{entity.verifiedAt}</time></dd></div><div><dt>Jurisdiction</dt><dd>Netherlands{entity.cityId ? ` · ${titleCase(entity.cityId)}` : ""}</dd></div></dl><a className="button button-primary" aria-label={`Open ${entity.source.title} from ${entity.source.publisher} in a new tab`} href={entity.source.url} rel="noreferrer" target="_blank">Open source <ExternalLink aria-hidden /></a></aside>
+          <aside className="source-card guide-source-card" aria-label={`Source verification: ${entity.source.publisher}`}><ShieldCheck aria-hidden /><p className="source-label">{entity.trust.officialSource ? "Official public source" : "Responsible source"}</p><h2>{entity.source.publisher}</h2><p>{entity.source.title}</p><dl><div><dt>Last verified</dt><dd><time dateTime={entity.verifiedAt}>{entity.verifiedAt}</time></dd></div><div><dt>Jurisdiction</dt><dd>Netherlands{entity.cityId ? ` · ${titleCase(entity.cityId)}` : ""}</dd></div></dl><TrackedOfficialSourceLink className="button button-primary" aria-label={`Open ${entity.source.title} from ${entity.source.publisher} in a new tab`} contentId={entity.id} href={entity.source.url} rel="noreferrer" target="_blank">Open source <ExternalLink aria-hidden /></TrackedOfficialSourceLink></aside>
         ) : null}
       </div>
 

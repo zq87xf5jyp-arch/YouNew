@@ -28,6 +28,7 @@ import { ContentMedia, preferredMedia } from "@/components/content-media";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { SystemEvidence } from "@/components/system-evidence";
+import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
 import { getPublicContent } from "@/lib/content";
 import { links } from "@/lib/site-data";
 import statusSnapshot from "@/config/status.json";
@@ -315,7 +316,7 @@ export default function HomePage() {
               <h3>Example: registering for a BSN</h3>
               <div><span>Clear explanation</span><CheckCircle2 aria-hidden /></div>
               <div><span>Responsible source</span><CheckCircle2 aria-hidden /></div>
-              <a href="https://www.government.nl/topics/personal-data/question-and-answer/what-is-a-citizen-service-number-bsn" rel="noreferrer" target="_blank">Government.nl source <ExternalLink aria-hidden /></a>
+              <TrackedOfficialSourceLink contentId="home.bsn-government" href="https://www.government.nl/topics/personal-data/question-and-answer/what-is-a-citizen-service-number-bsn" rel="noreferrer" target="_blank">Government.nl source <ExternalLink aria-hidden /></TrackedOfficialSourceLink>
             </div>
           </div>
         </section>

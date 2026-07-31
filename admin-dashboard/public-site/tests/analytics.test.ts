@@ -77,6 +77,27 @@ test("planner save analytics uses the production allowlisted event and no free t
   });
 });
 
+test("official source analytics keeps only a bounded content identifier", () => {
+  const envelope = createAnalyticsEnvelope(
+    {
+      name: "official_source_click",
+      contentId: "guide.brp<script>?private=value"
+    },
+    identifiers,
+    {
+      now: () => new Date("2026-07-29T12:00:00.000Z"),
+      randomUUID: () => "66666666-6666-4666-8666-666666666666",
+      pathname: () => "/guides/brp/",
+      language: () => "en",
+      environment: () => "production"
+    }
+  );
+
+  assert.deepEqual(envelope.properties, {
+    content_id: "guide.brp-script--private-value"
+  });
+});
+
 test("UUID fallback creates a valid version 4 identifier", () => {
   const descriptor = Object.getOwnPropertyDescriptor(globalThis, "crypto");
   Object.defineProperty(globalThis, "crypto", {
@@ -186,5 +207,7 @@ test("the lightweight homepage shell preserves the full analytics consent flow",
   assert.match(shell, /referrerPolicy: "no-referrer"/);
   assert.match(shell, /analyticsEnvironment\(location\.hostname\)/);
   assert.match(shell, /delete window\.__YOUNEW_ANALYTICS__/);
+  assert.match(shell, /data-analytics-official-source-id/);
+  assert.match(shell, /official_source_click/);
   assert.doesNotMatch(shell, /analytics_consent_revoked/);
 });

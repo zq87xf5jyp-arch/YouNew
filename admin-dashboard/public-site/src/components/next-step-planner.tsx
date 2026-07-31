@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 import { useEffect, useMemo, useRef, useState } from "react";
 import { track } from "@/lib/analytics/client";
+import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
 import {
   buildPlannerActions,
   plannerGoals,
@@ -245,7 +246,7 @@ export function NextStepPlanner({
                     <h3>{action.title}</h3>
                     <p>{action.description}</p>
                     {action.external ? (
-                      <a href={action.href} rel="noreferrer" target="_blank">Open source <ArrowRight aria-hidden /></a>
+                      <TrackedOfficialSourceLink contentId={action.id} href={action.href} rel="noreferrer" target="_blank">Open source <ArrowRight aria-hidden /></TrackedOfficialSourceLink>
                     ) : (
                       <Link href={action.href}>Open route <ArrowRight aria-hidden /></Link>
                     )}

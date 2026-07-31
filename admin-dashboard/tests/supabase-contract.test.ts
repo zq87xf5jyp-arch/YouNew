@@ -33,3 +33,19 @@ test("workspace handoff endpoint is private and never uses a service-role browse
   assert.match(source, /no-store, private/);
   assert.doesNotMatch(source, /SUPABASE_SERVICE_ROLE_KEY|service_role/);
 });
+
+test("admin responses enforce a bounded CSP and transport security", async () => {
+  const source = await readFile(new URL("../next.config.ts", import.meta.url), "utf8");
+  for (const required of [
+    "Content-Security-Policy",
+    "default-src 'self'",
+    "frame-ancestors 'none'",
+    "object-src 'none'",
+    "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
+    "Strict-Transport-Security",
+    "Cross-Origin-Opener-Policy"
+  ]) {
+    assert.match(source, new RegExp(required.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+  assert.doesNotMatch(source, /script-src[^"\n]*https?:\/\/(?!\*\.supabase\.co)/);
+});

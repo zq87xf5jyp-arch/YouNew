@@ -31,6 +31,42 @@ test("Sites worker blocks deployment-only files without touching asset storage",
   }
 });
 
+test("Sites worker permanently redirects www to the canonical origin", async () => {
+  const mock = createAssets({});
+  const response = await worker.fetch(
+    new Request("https://www.younew.nl/guides/?topic=brp"),
+    { ASSETS: mock.assets }
+  );
+
+  assert.equal(response.status, 301);
+  assert.equal(response.headers.get("location"), "https://younew.nl/guides/?topic=brp");
+  assert.equal(response.headers.get("x-frame-options"), "DENY");
+  assert.deepEqual(mock.calls, []);
+});
+
+test("Sites worker exposes only the MTA-STS policy on its dedicated hostname", async () => {
+  const policyPath = "/.well-known/mta-sts.txt";
+  const mock = createAssets({
+    [policyPath]: new Response("version: STSv1\nmode: testing\n", {
+      status: 200,
+      headers: { "content-type": "text/plain" }
+    })
+  });
+
+  const policy = await worker.fetch(
+    new Request(`https://mta-sts.younew.nl${policyPath}`),
+    { ASSETS: mock.assets }
+  );
+  const homepage = await worker.fetch(
+    new Request("https://mta-sts.younew.nl/"),
+    { ASSETS: mock.assets }
+  );
+
+  assert.equal(policy.status, 200);
+  assert.deepEqual(mock.calls, [policyPath]);
+  assert.equal(homepage.status, 404);
+});
+
 test("Sites worker preserves the public well-known association file", async () => {
   const pathname = "/.well-known/apple-app-site-association";
   const mock = createAssets({
