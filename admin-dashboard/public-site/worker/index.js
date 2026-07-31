@@ -9,6 +9,11 @@ const securityHeaders = Object.freeze({
   "X-Frame-Options": "DENY"
 });
 
+const canonicalHostname = "younew.nl";
+const legacyHostname = "www.younew.nl";
+const mtaStsHostname = "mta-sts.younew.nl";
+const mtaStsPolicyPath = "/.well-known/mta-sts.txt";
+
 function withSecurityHeaders(response) {
   const headers = new Headers(response.headers);
   for (const [name, value] of Object.entries(securityHeaders)) {
@@ -81,6 +86,20 @@ async function fetchAssetWithDirectoryFallback(request, assets) {
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
+    if (url.hostname === legacyHostname) {
+      url.protocol = "https:";
+      url.hostname = canonicalHostname;
+      url.port = "";
+      return withSecurityHeaders(new Response(null, {
+        status: 301,
+        headers: { Location: url.toString() }
+      }));
+    }
+
+    if (url.hostname === mtaStsHostname && url.pathname !== mtaStsPolicyPath) {
+      return withSecurityHeaders(new Response(null, { status: 404 }));
+    }
+
     if (isBlockedDeploymentArtifact(url.pathname)) {
       return withSecurityHeaders(new Response(null, { status: 404 }));
     }
