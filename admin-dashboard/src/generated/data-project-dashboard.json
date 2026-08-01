@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-07-30T23:07:14+00:00",
+  "generated_at": "2026-08-01T01:25:28+00:00",
   "scope": "DATA PROJECT governed records only; legacy runtime data is excluded until audited and migrated.",
   "runtime_release": {
     "release_id": "legacy-runtime-unversioned",
@@ -2459,7 +2459,7 @@
         "ai": 100.0,
         "publication": 97.3
       },
-      "current_release": "0.1.4",
+      "current_release": "0.1.5",
       "next_release": null
     },
     {
@@ -2754,12 +2754,12 @@
       "outdated_records": 0
     },
     "link_check": {
-      "checked_at": "2026-07-30T14:37:59.491518+00:00",
-      "total": 2560,
-      "reachable": 1906,
+      "checked_at": "1970-01-01T00:00:00+00:00",
+      "total": 0,
+      "reachable": 0,
       "confirmed_broken": 0,
-      "access_restricted": 626,
-      "transient_failures": 28
+      "access_restricted": 0,
+      "transient_failures": 0
     }
   }
 }

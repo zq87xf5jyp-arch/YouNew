@@ -31,6 +31,7 @@ const authoredShell = [
   "/guides/",
   "/journeys/",
   "/manifest.webmanifest",
+  "/theme-init.js",
   ...versionedStaticShells,
   "/icons/apple-touch-icon.png",
   "/icons/icon-192.png",

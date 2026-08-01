@@ -12,6 +12,7 @@ await writeFile(join(outputRoot, staticShellPath.slice(1)), staticShell);
 const staticHtml = html
   .replace(/<script(?![^>]*type="application\/ld\+json")[^>]*>[\s\S]*?<\/script>/g, "")
   .replace(/<link(?=[^>]*rel="preload")(?=[^>]*as="script")[^>]*>/g, "")
+  .replace("</head>", '<script src="/theme-init.js"></script></head>')
   .replace("</body>", `<script src="${staticShellPath}" defer></script></body>`);
 
 await writeFile(file, staticHtml);

@@ -16,7 +16,7 @@ const requiredFiles = [
   "data/content-provenance.json", "data/status.json", "data/site-config.json", "images/app-home-nl.webp",
   "images/app-map-en.webp", "images/app-map-nl.webp", "images/og-younew.jpg",
   "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png",
-  "static-shell.js"
+  "theme-init.js", "static-shell.js"
 ];
 for (const file of requiredFiles) await access(join(root, file));
 
@@ -31,6 +31,7 @@ assert.doesNotMatch(home, /href=(?:"|')#(?:"|')/);
 assert.match(home, /href="https:\/\/apps\.apple\.com\/app\/id6782617312"/);
 assert.match(home, /Download on the App Store/);
 assert.doesNotMatch(home, /<script[^>]+src="\/_next\/static\/chunks\//, "Static homepage should not hydrate the full Next runtime");
+assert.match(home, /<script src="\/theme-init\.js"><\/script><\/head>/);
 assert.match(home, /<script src="\/static-shell\.[a-f0-9]{12}\.js" defer><\/script>/);
 const staticShellPath = home.match(/<script src="(\/static-shell\.[a-f0-9]{12}\.js)" defer><\/script>/)?.[1];
 assert.ok(staticShellPath, "The static homepage must load a fingerprinted enhancement shell");
@@ -142,6 +143,7 @@ assert.match(serviceWorker, /isMutableConfiguration/);
 assert.match(serviceWorker, /\.then\(\(\) => self\.skipWaiting\(\)\)/, "A new service worker must activate without waiting for every stale tab to close");
 assert.match(serviceWorker, /fetch\(request, \{ cache: "no-store" \}\)/, "Navigations must bypass stale browser HTTP cache entries");
 assert.match(serviceWorker, /\/static-shell\.[a-f0-9]{12}\.js/);
+assert.match(serviceWorker, /\/theme-init\.js/);
 assert.match(serviceWorker, /\/_next\/static\/css\//, "The install cache must include the generated stylesheet for a styled first offline launch");
 
 const hostingerRules = await readFile(join(root, ".htaccess"), "utf8");
@@ -149,7 +151,7 @@ assert.match(hostingerRules, /FilesMatch "\\\.\(\?:html\|txt\)\$"[\s\S]*?Cache-C
 assert.match(hostingerRules, /AddType application\/manifest\+json \.webmanifest/, "Hostinger must serve the web manifest with its correct MIME type");
 assert.match(hostingerRules, /ForceType application\/manifest\+json/, "Hostinger must override a generic MIME mapping for the web manifest");
 assert.match(hostingerRules, /Files "apple-app-site-association"[\s\S]*ForceType application\/json/, "Hostinger must serve Apple's association file as JSON");
-assert.match(hostingerRules, /FilesMatch "\^\(sw\\\.js\|static-shell\\\.js\|manifest\\\.webmanifest/, "The unversioned homepage runtime must not remain stale between releases");
+assert.match(hostingerRules, /FilesMatch "\^\(sw\\\.js\|theme-init\\\.js\|static-shell\\\.js\|manifest\\\.webmanifest/, "The unversioned homepage runtime must not remain stale between releases");
 assert.match(hostingerRules, /Strict-Transport-Security "max-age=31536000"/, "HTTPS responses must advertise HSTS");
 
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");

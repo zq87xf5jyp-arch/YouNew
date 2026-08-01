@@ -52,10 +52,9 @@ Role checks exist in both the Next.js application and database/function layer. U
 
 ## Current release limitations
 
-- Eleven migrations and four Edge Functions are present in the connected project. The local `analytics-ingest` correction still requires a clean reviewed release before deployment.
-- Authenticated production Admin E2E is not complete.
-- Two approved owner profiles exist, but permitted E2E credentials were not supplied.
-- `admin.younew.nl` resolves over TLS and redirects anonymous dashboard requests to `/login`; authenticated owner/admin workflows and the unapproved-user denial path remain unverified in production.
+- Thirteen migrations and four Edge Functions are present in the connected project. Deploy the reviewed `analytics-ingest` source only from the final green release identity, then run a privacy-safe smoke check.
+- Authenticated production Admin navigation E2E passed for dashboard, analytics, sync, trust, content, releases, settings and audit log. Mutating production workflows were not exercised merely for testing.
+- `admin.younew.nl` resolves over TLS and redirects anonymous protected requests to `/login`; the unapproved-user denial path still requires a dedicated non-approved test account.
 - Leaked-password protection and managed project backups are unavailable on the current Free plan. The owner accepted these limitations on 2026-07-28.
 - The accepted Free-plan risk does not replace a fresh off-site manual Postgres dump.
 - Until an upgrade, use strong unique owner/admin passwords, MFA, minimal approved accounts and authentication-log review as compensating controls.

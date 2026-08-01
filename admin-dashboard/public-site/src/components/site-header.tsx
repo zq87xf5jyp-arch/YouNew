@@ -1,5 +1,6 @@
 import { Brand } from "@/components/brand";
 import { SiteHeaderEnhancements } from "@/components/site-header-enhancements";
+import { ThemeToggle } from "@/components/theme-toggle";
 import Link from "next/link";
 import { Menu, Search, X } from "lucide-react";
 
@@ -24,6 +25,7 @@ export function SiteHeader() {
           {navigation.map(([label, href]) => <Link href={href} data-nav-href key={href}>{label}</Link>)}
         </nav>
         <div className="header-actions">
+          <ThemeToggle />
           <Link className="header-search" href="/search" aria-label="Search YouNew" data-nav-href><Search aria-hidden /> <span>Search</span></Link>
           <Link className="header-cta" href="/app" data-nav-href>App status</Link>
           <details className="mobile-menu" data-mobile-menu>

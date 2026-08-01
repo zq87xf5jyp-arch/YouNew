@@ -10,6 +10,10 @@ const pgTapUrl = new URL(
   "../supabase/tests/content_governance_test.sql",
   import.meta.url
 );
+const hardeningMigrationUrl = new URL(
+  "../supabase/migrations/20260801003000_harden_content_governance_performance.sql",
+  import.meta.url
+);
 
 test("governance migration is additive, fail-closed and audit preserving", async () => {
   const sql = await readFile(migrationUrl, "utf8");
@@ -76,4 +80,29 @@ test("local Supabase pgTAP suite covers RLS, provenance and immutable history", 
   assert.match(sql, /set local role authenticated/i);
   assert.match(sql, /set local role service_role/i);
   assert.match(sql, /select plan\(12\)/i);
+});
+
+test("governance hardening covers foreign keys and avoids duplicate select policies", async () => {
+  const sql = await readFile(hardeningMigrationUrl, "utf8");
+  const expectedIndexes = [
+    "content_governance_state_owner_idx",
+    "content_governance_state_reviewed_by_idx",
+    "content_governance_state_second_reviewed_by_idx",
+    "content_governance_versions_actor_idx",
+    "content_review_events_governance_state_idx",
+    "content_review_events_task_idx",
+    "content_review_tasks_owner_idx",
+    "content_review_tasks_source_issue_idx",
+    "governance_action_receipts_state_idx",
+    "governance_feature_flags_changed_by_idx",
+    "research_consents_created_by_idx",
+    "research_observations_recorded_by_idx",
+    "research_observations_session_idx"
+  ];
+  for (const index of expectedIndexes) {
+    assert.match(sql, new RegExp(`create index if not exists ${index}`, "i"));
+  }
+  assert.doesNotMatch(sql, /governance_feature_flags for all/i);
+  assert.match(sql, /created_by = \(select auth\.uid\(\)\)/i);
+  assert.match(sql, /\(select private\.governance_current_admin_role\(\)\)/i);
 });

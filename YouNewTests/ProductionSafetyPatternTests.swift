@@ -4,9 +4,9 @@ import Testing
 struct ProductionSafetyPatternTests {
     @Test func productionSourcesAvoidFixedHighRiskPatterns() throws {
         let sourceRoot = try Self.sourceRoot()
-        let swiftFiles = try FileManager.default.subpathsOfDirectory(atPath: sourceRoot.path)
+        let productionRoot = sourceRoot.appendingPathComponent("YouNew", isDirectory: true)
+        let swiftFiles = try FileManager.default.subpathsOfDirectory(atPath: productionRoot.path)
             .filter { $0.hasSuffix(".swift") }
-            .filter { !$0.contains("Tests/") && !$0.contains("UITests/") }
 
         let bannedPatterns = [
             "try!",
@@ -18,10 +18,10 @@ struct ProductionSafetyPatternTests {
 
         var violations: [String] = []
         for relativePath in swiftFiles {
-            let fileURL = sourceRoot.appendingPathComponent(relativePath)
+            let fileURL = productionRoot.appendingPathComponent(relativePath)
             let contents = try String(contentsOf: fileURL, encoding: .utf8)
             for pattern in bannedPatterns where contents.contains(pattern) {
-                violations.append("\(relativePath): \(pattern)")
+                violations.append("YouNew/\(relativePath): \(pattern)")
             }
         }
 

@@ -82,12 +82,13 @@ assert.match(serviceWorker, /^const CACHE_VERSION = "younew-web-[a-f0-9]{12}";/)
 assert.doesNotMatch(serviceWorker, /__BUILD_VERSION__|Promise\.allSettled/);
 for (const marker of ["/offline/", "/guides/", "/journeys/", "/_next/static/css/", "isEmergencyRequest", "isMutableConfiguration", "url.origin !== self.location.origin"]) assert.match(serviceWorker, new RegExp(marker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 assert.match(serviceWorker, /\/static-shell\.[a-f0-9]{12}\.js/);
+assert.match(serviceWorker, /\/theme-init\.js/);
 
 const headers = await readFile(join(outRoot, ".htaccess"), "utf8");
 assert.match(headers, /ErrorDocument 404 \/404\.html/);
 assert.match(headers, /AddType application\/manifest\+json \.webmanifest/);
 assert.match(headers, /ForceType application\/manifest\+json/);
-assert.match(headers, /FilesMatch "\^\(sw\\\.js\|static-shell\\\.js\|manifest\\\.webmanifest/);
+assert.match(headers, /FilesMatch "\^\(sw\\\.js\|theme-init\\\.js\|static-shell\\\.js\|manifest\\\.webmanifest/);
 assert.match(headers, /Strict-Transport-Security "max-age=31536000"/);
 assert.match(headers, /Cache-Control "public, max-age=0, must-revalidate"/);
 const csp = headers.match(/Content-Security-Policy "([^"]+)"/)?.[1];
@@ -103,7 +104,7 @@ const secretPatterns = [
 ];
 for (const path of outFiles) {
   const rel = relative(outRoot, path).replaceAll("\\", "/");
-  const authoredJavaScript = rel === "sw.js" || /^static-shell(?:\.[a-f0-9]{12})?\.js$/.test(rel);
+  const authoredJavaScript = rel === "sw.js" || rel === "theme-init.js" || /^static-shell(?:\.[a-f0-9]{12})?\.js$/.test(rel);
   if (!authoredExtensions.has(extname(path)) && !path.endsWith(".htaccess") && !authoredJavaScript) continue;
   const value = await readFile(path, "utf8");
   assert.doesNotMatch(value, localUrlPattern, `Local-only URL/path leaked into ${rel}`);

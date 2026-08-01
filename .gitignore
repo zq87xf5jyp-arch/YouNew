@@ -8,6 +8,7 @@ xcuserdata/
 YouNew.xcodeproj/project.xcworkspace/xcuserdata/
 YouNew.xcodeproj/xcuserdata/
 DerivedData/
+/.build/
 .DerivedData*/
 .derivedData*/
 .derived-data*/
@@ -97,6 +98,8 @@ admin-dashboard/public-site/.next/
 admin-dashboard/public-site/out/
 admin-dashboard/public-site/node_modules/
 admin-dashboard/public-site/.openai/
+!admin-dashboard/public-site/.openai/
+!admin-dashboard/public-site/.openai/hosting.json
 *.tsbuildinfo
 
 # Generated/raw media workspaces. Curated app assets live in Assets.xcassets.

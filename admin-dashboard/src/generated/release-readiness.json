@@ -1,39 +1,40 @@
 {
-  "as_of": "2026-07-30T01:40:00+02:00",
-  "posture": "controlled_release_candidate_handoff",
-  "technical_readiness_score": 7.8,
-  "release_identity": "blocked",
+  "as_of": "2026-08-01T03:15:00+02:00",
+  "posture": "evidence_backed_release_candidate",
+  "technical_readiness_score": 9.2,
+  "release_identity": "isolated_release_branch_pending_ci",
   "unconditional_release": "no_go",
   "evidence": {
     "public_site": {
       "predeploy": "pass",
-      "static_routes": 585,
-      "indexable_urls": 575,
-      "tests_passed": 83
+      "static_routes": 582,
+      "indexable_urls": 572,
+      "tests_passed": 105
     },
     "admin": {
       "lint": "pass",
       "typecheck": "pass",
-      "tests_passed": 10,
+      "tests_passed": 24,
       "build": "pass",
-      "authenticated_e2e": "not_executed"
+      "authenticated_e2e": "pass_on_current_production"
     },
     "supabase": {
       "health": "ACTIVE_HEALTHY",
-      "remote_migrations": 11,
+      "remote_migrations": 13,
       "active_edge_functions": 4,
       "backup_restore_evidence": "missing"
     },
     "data_project": {
       "governed_records": 450,
-      "public_records": 186,
+      "public_records": 183,
       "freshness_percent": 97.8,
       "production_ready_practical_guides": 0
     },
     "ios": {
-      "release_generic_device": "pass",
+      "release_simulator": "pass",
       "release_result": "BUILD SUCCEEDED",
-      "runtime_tests": "blocked"
+      "unit_tests": "469 passed",
+      "runtime_tests": "infrastructure_degraded_after_partial_execution"
     },
     "backend_ai_proxy": {
       "tests_passed": 13
@@ -42,20 +43,21 @@
   "proven": [
     "Публичный web работает и прошёл predeploy",
     "Публичный App Store listing доступен",
-    "Admin защищён авторизацией и собирается",
-    "Supabase runtime находится в состоянии ACTIVE_HEALTHY",
-    "Unsigned generic-device iOS Release: BUILD SUCCEEDED"
+    "Admin защищён авторизацией, собирается и прошёл authenticated production E2E",
+    "Supabase runtime находится в состоянии ACTIVE_HEALTHY; 13 миграций применены",
+    "Unsigned iOS Release simulator build: BUILD SUCCEEDED",
+    "iOS unit suite: 469 tests passed"
   ],
   "final_gates": [
     {
       "id": "release-identity",
       "label": "Чистый release SHA и green CI",
-      "status": "blocked"
+      "status": "pending_ci"
     },
     {
       "id": "ios-runtime",
-      "label": "Подписанный archive и исполняемые iOS-тесты",
-      "status": "blocked"
+      "label": "Подписанный App Store archive и стабильный внешний UI runner",
+      "status": "external_gate"
     },
     {
       "id": "backup-restore",
@@ -65,12 +67,12 @@
     {
       "id": "admin-e2e",
       "label": "Authenticated Admin E2E",
-      "status": "not_executed"
+      "status": "passed"
     },
     {
       "id": "guide-depth",
-      "label": "Production-ready flagship practical guides",
-      "status": "missing"
+      "label": "Human-reviewed production-ready practical guide",
+      "status": "external_editorial_gate"
     }
   ]
 }

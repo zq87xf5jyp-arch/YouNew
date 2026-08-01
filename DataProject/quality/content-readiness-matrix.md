@@ -1,6 +1,6 @@
 # YouNew content readiness matrix
 
-Evidence date: **2026-07-31**. This is a read-only local audit; no live URL check was performed.
+Evidence date: **2026-08-01**. This is a read-only local audit; no live URL check was performed.
 
 ## Outcome
 
@@ -183,7 +183,7 @@ Candidate pairs are evidence for editorial review, not automatic deletion. Full 
 
 ## Existing link-health evidence
 
-The repository's existing link report checked **2560** URLs at **2026-07-30T14:37:59.491518+00:00**: **0 confirmed broken**, **626 access-restricted**, and **28 transient failures**. This audit imported those counts but did not perform a new network check.
+The repository's existing link report checked **0** URLs at **1970-01-01T00:00:00+00:00**: **0 confirmed broken**, **0 access-restricted**, and **0 transient failures**. This audit imported those counts but did not perform a new network check.
 
 ## Audience-path gap
 
@@ -200,5 +200,5 @@ Production-ready explicit audience coverage is **0/6 (0.0%)**. All six brief pat
 ## Reproduction
 
 ```bash
-python3 scripts/content-readiness-audit.py --as-of 2026-07-31 --check
+python3 scripts/content-readiness-audit.py --as-of 2026-08-01 --check
 ```
