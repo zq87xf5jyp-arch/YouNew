@@ -1,15 +1,15 @@
 {
-  "as_of": "2026-08-01T03:15:00+02:00",
+  "as_of": "2026-08-01T14:55:00+02:00",
   "posture": "evidence_backed_release_candidate",
   "technical_readiness_score": 9.2,
-  "release_identity": "isolated_release_branch_pending_ci",
+  "release_identity": "codex/release-candidate-20260801_pending_ci",
   "unconditional_release": "no_go",
   "evidence": {
     "public_site": {
       "predeploy": "pass",
       "static_routes": 582,
       "indexable_urls": 572,
-      "tests_passed": 105
+      "tests_passed": 108
     },
     "admin": {
       "lint": "pass",
@@ -33,8 +33,12 @@
     "ios": {
       "release_simulator": "pass",
       "release_result": "BUILD SUCCEEDED",
-      "unit_tests": "469 passed",
-      "runtime_tests": "infrastructure_degraded_after_partial_execution"
+      "unit_tests": "479 passed",
+      "runtime_tests": "exact_deep_link_smoke_passed",
+      "memory_check": "0 leaks / 0 bytes in the exact deep-link flow",
+      "accessibility_smoke": "dark mode and accessibility-extra-large passed",
+      "device_archive": "development-signed arm64 archive passed",
+      "app_store_distribution_archive": "missing"
     },
     "backend_ai_proxy": {
       "tests_passed": 13
@@ -45,8 +49,11 @@
     "Публичный App Store listing доступен",
     "Admin защищён авторизацией, собирается и прошёл authenticated production E2E",
     "Supabase runtime находится в состоянии ACTIVE_HEALTHY; 13 миграций применены",
-    "Unsigned iOS Release simulator build: BUILD SUCCEEDED",
-    "iOS unit suite: 469 tests passed"
+    "iOS Release simulator build: BUILD SUCCEEDED",
+    "Development-signed arm64 iOS device archive: ARCHIVE SUCCEEDED",
+    "Exact guide, place and organization deep links opened the intended native records",
+    "Exact deep-link memory check: 0 leaks / 0 bytes",
+    "iOS unit suite: 479 tests passed"
   ],
   "final_gates": [
     {
@@ -56,7 +63,7 @@
     },
     {
       "id": "ios-runtime",
-      "label": "Подписанный App Store archive и стабильный внешний UI runner",
+      "label": "Apple Distribution archive/export и проверка на физическом iPhone",
       "status": "external_gate"
     },
     {

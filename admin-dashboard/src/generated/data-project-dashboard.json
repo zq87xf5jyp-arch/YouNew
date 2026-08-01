@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-01T01:25:28+00:00",
+  "generated_at": "2026-08-01T12:54:42+00:00",
   "scope": "DATA PROJECT governed records only; legacy runtime data is excluded until audited and migrated.",
   "runtime_release": {
     "release_id": "legacy-runtime-unversioned",

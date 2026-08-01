@@ -8,7 +8,7 @@ No production step in this runbook is authorized until the owner sends the exact
 
 1. Record the intended commit SHA and confirm the release changes are isolated from unrelated working-tree changes.
 2. Require green public predeploy, Admin lint/type/test/build, Deno format/check and CI.
-3. Confirm `admin.younew.nl` as the Admin destination on the existing Hostinger Business Web App slot. The plan supports Next.js and Node 24, matching the package engine; the Web App and DNS are not provisioned before `GO LIVE`.
+3. Confirm `admin.younew.nl` as the Admin destination on the existing Hostinger Business Web App slot. The existing production Web App and DNS are provisioned and currently enforce the authenticated `/login` flow. Do not replace, reconfigure or redeploy that slot before `GO LIVE`.
 4. Confirm the recorded 2026-07-28 owner acceptance of the current Supabase Free-plan limitations: no leaked-password protection and no managed project backups. This acceptance does not waive the manual backup requirement.
 5. Install PostgreSQL client tools and create a fresh encrypted database backup:
 
