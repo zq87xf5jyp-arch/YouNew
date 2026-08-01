@@ -1,85 +1,90 @@
 {
-  "as_of": "2026-08-01T14:55:00+02:00",
-  "posture": "evidence_backed_release_candidate",
-  "technical_readiness_score": 9.2,
-  "release_identity": "codex/release-candidate-20260801_pending_ci",
-  "unconditional_release": "no_go",
+  "as_of": "2026-08-01T22:02:00+02:00",
+  "posture": "web_admin_live_ios_waiting_review",
+  "release_identity": {
+    "branch": "codex/release-candidate-20260801",
+    "draft_pr": 27,
+    "ci": "pass"
+  },
+  "release_status_label": "WEB + ADMIN LIVE",
+  "release_summary": "Public Site и Admin опубликованы. iOS 1.2 (7) ждёт App Review; physical launch smoke остаётся незавершённым, пока iPhone сообщает Locked.",
   "evidence": {
     "public_site": {
-      "predeploy": "pass",
-      "static_routes": 582,
+      "deployment": "live",
+      "sites_version": 29,
+      "html_files": 579,
       "indexable_urls": 572,
-      "tests_passed": 108
+      "tests_passed": 108,
+      "route_smoke": "pass",
+      "security_headers": "pass"
     },
     "admin": {
+      "deployment": "active_production_bundle",
+      "deployment_status": "live",
       "lint": "pass",
       "typecheck": "pass",
-      "tests_passed": 24,
+      "tests_passed": 29,
       "build": "pass",
-      "authenticated_e2e": "pass_on_current_production"
+      "authenticated_browser_smoke": "pass",
+      "csp_enforcement": "upstream_header_plus_html_meta_fallback"
     },
     "supabase": {
       "health": "ACTIVE_HEALTHY",
       "remote_migrations": 13,
       "active_edge_functions": 4,
-      "backup_restore_evidence": "missing"
+      "backup_restore_evidence": "pass",
+      "backup_sha256": "e5fc5c297d0bf2520bdfe8212a78d01f879f8fb69e450ce08fcc3c0afd912196",
+      "temporary_access_revoked": true
     },
     "data_project": {
       "governed_records": 450,
       "public_records": 183,
-      "freshness_percent": 97.8,
-      "production_ready_practical_guides": 0
+      "summary_guides": 15,
+      "production_ready_full_guides": 0
     },
     "ios": {
-      "release_simulator": "pass",
-      "release_result": "BUILD SUCCEEDED",
+      "version": "1.2",
+      "build": 7,
       "unit_tests": "479 passed",
-      "runtime_tests": "exact_deep_link_smoke_passed",
-      "memory_check": "0 leaks / 0 bytes in the exact deep-link flow",
-      "accessibility_smoke": "dark mode and accessibility-extra-large passed",
-      "device_archive": "development-signed arm64 archive passed",
-      "app_store_distribution_archive": "missing"
-    },
-    "backend_ai_proxy": {
-      "tests_passed": 13
+      "universal_link_tests": "7 passed",
+      "memory_check": "0 leaks / 0 bytes",
+      "app_store_distribution": "pass",
+      "app_review": "waiting_for_review",
+      "automatic_release_after_approval": true,
+      "physical_device_install": "pass",
+      "physical_device_launch": "blocked_device_locked"
     }
   },
   "proven": [
-    "Публичный web работает и прошёл predeploy",
-    "Публичный App Store listing доступен",
-    "Admin защищён авторизацией, собирается и прошёл authenticated production E2E",
-    "Supabase runtime находится в состоянии ACTIVE_HEALTHY; 13 миграций применены",
-    "iOS Release simulator build: BUILD SUCCEEDED",
-    "Development-signed arm64 iOS device archive: ARCHIVE SUCCEEDED",
-    "Exact guide, place and organization deep links opened the intended native records",
-    "Exact deep-link memory check: 0 leaks / 0 bytes",
-    "iOS unit suite: 479 tests passed"
+    "Public Site version 29 опубликован; route, redirect, 404 и security-header smoke прошли",
+    "Admin active production bundle опубликован; 29 тестов, build и Browser smoke прошли",
+    "Draft PR #27 release branch прошёл обязательные GitHub checks",
+    "Supabase ACTIVE_HEALTHY; 13 managed migrations и 4 active Edge Functions",
+    "Encrypted database backup проверен реальным isolated PostgreSQL 17.6 restore",
+    "Временные Supabase PAT и read-only access rule отозваны",
+    "Apple Distribution build 1.2 (7) загружен и находится в Waiting for Review",
+    "iOS 1.2 (7) установлен на физический iPhone; 479 unit и 7 Universal Link tests прошли"
   ],
-  "final_gates": [
+  "remaining_items": [
     {
-      "id": "release-identity",
-      "label": "Чистый release SHA и green CI",
-      "status": "pending_ci"
+      "id": "ios-app-review",
+      "label": "Публичный App Store release 1.2 (7)",
+      "status": "waiting_apple_review"
     },
     {
-      "id": "ios-runtime",
-      "label": "Apple Distribution archive/export и проверка на физическом iPhone",
-      "status": "external_gate"
+      "id": "ios-device-launch",
+      "label": "Physical iPhone launch/log smoke",
+      "status": "device_locked"
     },
     {
-      "id": "backup-restore",
-      "label": "Зашифрованный backup и isolated restore",
-      "status": "missing"
-    },
-    {
-      "id": "admin-e2e",
-      "label": "Authenticated Admin E2E",
-      "status": "passed"
+      "id": "storage-recovery",
+      "label": "Storage object inventory и off-site payload backup",
+      "status": "hardening_backlog"
     },
     {
       "id": "guide-depth",
-      "label": "Human-reviewed production-ready practical guide",
-      "status": "external_editorial_gate"
+      "label": "Human-reviewed full practical guides",
+      "status": "editorial_backlog"
     }
   ]
 }

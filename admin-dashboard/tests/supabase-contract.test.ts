@@ -58,3 +58,34 @@ test("admin responses enforce a bounded CSP and transport security", async () =>
   assert.match(layout, /ADMIN_META_CONTENT_SECURITY_POLICY/);
   assert.doesNotMatch(policy, /script-src[^"\n]*https?:\/\/(?!\*\.supabase\.co)/);
 });
+
+test("release control reflects the verified GO LIVE evidence", async () => {
+  const readiness = JSON.parse(
+    await readFile(new URL("../src/generated/release-readiness.json", import.meta.url), "utf8")
+  ) as {
+    posture: string;
+    evidence: {
+      admin: { tests_passed: number; deployment_status: string; csp_enforcement: string };
+      supabase: { backup_restore_evidence: string; temporary_access_revoked: boolean };
+      ios: { app_store_distribution: string; app_review: string; physical_device_install: string; physical_device_launch: string };
+    };
+    remaining_items: Array<{ id: string }>;
+  };
+
+  assert.equal(readiness.posture, "web_admin_live_ios_waiting_review");
+  assert.equal(readiness.evidence.admin.tests_passed, 29);
+  assert.equal(readiness.evidence.admin.deployment_status, "live");
+  assert.equal(readiness.evidence.admin.csp_enforcement, "upstream_header_plus_html_meta_fallback");
+  assert.equal(readiness.evidence.supabase.backup_restore_evidence, "pass");
+  assert.equal(readiness.evidence.supabase.temporary_access_revoked, true);
+  assert.equal(readiness.evidence.ios.app_store_distribution, "pass");
+  assert.equal(readiness.evidence.ios.app_review, "waiting_for_review");
+  assert.equal(readiness.evidence.ios.physical_device_install, "pass");
+  assert.equal(readiness.evidence.ios.physical_device_launch, "blocked_device_locked");
+  assert.deepEqual(readiness.remaining_items.map((item) => item.id), [
+    "ios-app-review",
+    "ios-device-launch",
+    "storage-recovery",
+    "guide-depth"
+  ]);
+});
