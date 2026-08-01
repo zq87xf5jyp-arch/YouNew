@@ -3619,7 +3619,7 @@ body::before {
   position:fixed;
   z-index:-2;
   inset:0;
-  background:#050c1b url("/images/app-amsterdam-evening-background.jpg") center top/cover no-repeat;
+  background:#050c1b url("/images/app-amsterdam-evening-background.webp") center top/cover no-repeat;
   filter:saturate(.82) contrast(1.06);
   opacity:.18;
   pointer-events:none;

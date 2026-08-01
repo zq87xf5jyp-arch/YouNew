@@ -5,7 +5,7 @@ import Link from "next/link";
 import { Menu, Search, X } from "lucide-react";
 
 const navigation = [
-  ["Start", "/start"],
+  ["Start here", "/start"],
   ["My YouNew", "/my-younew"],
   ["Discover", "/discover"],
   ["Guides", "/guides"],

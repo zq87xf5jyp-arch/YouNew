@@ -13,9 +13,9 @@ const requiredFiles = [
   "business/workspace/index.html", "business/apply/index.html", "business/media-kit/index.html", "privacy/index.html", "terms/index.html", "support/index.html", "robots.txt",
   "sitemap.xml", "manifest.webmanifest", "sw.js", ".htaccess", "404.html", "data/search-index.json",
   ".well-known/apple-app-site-association",
-  "data/content-provenance.json", "data/status.json", "data/site-config.json", "images/app-home-nl.webp",
+  "data/content-provenance.json", "data/status.json", "data/site-config.json", "images/app-home-nl.webp", "images/app-amsterdam-evening-background.webp",
   "images/app-map-en.webp", "images/app-map-nl.webp", "images/og-younew.jpg",
-  "icons/apple-touch-icon.png", "icons/icon-192.png", "icons/icon-512.png",
+  "icons/apple-touch-icon.png", "icons/brand-64.png", "icons/icon-192.png", "icons/icon-512.png",
   "theme-init.js", "static-shell.js"
 ];
 for (const file of requiredFiles) await access(join(root, file));
