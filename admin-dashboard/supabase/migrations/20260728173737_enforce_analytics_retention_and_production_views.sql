@@ -1,3 +1,4 @@
+
 begin;
 
 update public.app_events
@@ -49,8 +50,7 @@ select
   platform,
   count(*)::bigint as event_count,
   count(distinct app_instance_id)::bigint as active_instances,
-  count(distinct session_id)
-    filter (where session_id is not null)::bigint as session_count,
+  count(distinct session_id) filter (where session_id is not null)::bigint as session_count,
   count(*) filter (
     where event_name in (
       'official_source_click',
@@ -78,15 +78,11 @@ select
   event_name,
   count(*)::bigint as event_count,
   count(distinct app_instance_id)::bigint as active_instances,
-  count(distinct session_id)
-    filter (where session_id is not null)::bigint as session_count,
+  count(distinct session_id) filter (where session_id is not null)::bigint as session_count,
   max(created_at) as last_ingested_at
 from public.app_events
 where environment = 'production'
-group by
-  date_trunc('day', occurred_at)::date,
-  platform,
-  event_name;
+group by date_trunc('day', occurred_at)::date, platform, event_name;
 
 create or replace view public.analytics_source_health
 with (security_invoker = true)
@@ -95,8 +91,7 @@ select
   platform,
   count(*)::bigint as total_events,
   count(distinct app_instance_id)::bigint as active_instances,
-  count(distinct session_id)
-    filter (where session_id is not null)::bigint as sessions,
+  count(distinct session_id) filter (where session_id is not null)::bigint as sessions,
   min(occurred_at) as first_event_at,
   max(occurred_at) as last_event_at,
   max(created_at) as last_ingested_at,

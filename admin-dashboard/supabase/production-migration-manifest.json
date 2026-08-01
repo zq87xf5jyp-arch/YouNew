@@ -1,0 +1,93 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-08-01",
+  "projectRef": "pgdzdxsiagfjioxwuqxf",
+  "historicalBootstrapFiles": [
+    "0001_younew_admin_schema.sql",
+    "0002_admin_profiles_and_timestamps.sql",
+    "0003_promote_first_owner.sql",
+    "0004_security_storage_and_audit.sql",
+    "0005_public_content_images.sql",
+    "0006_lock_down_analytics_ingest.sql"
+  ],
+  "managedMigrations": [
+    {
+      "version": "20260727170658",
+      "name": "harden_rls_and_function_boundaries",
+      "md5": "72a05daa90d58fa544ad839897eaec6e",
+      "bytes": 24056
+    },
+    {
+      "version": "20260727170715",
+      "name": "add_foreign_key_indexes",
+      "md5": "49985497a6463000a655340405a7483f",
+      "bytes": 5381
+    },
+    {
+      "version": "20260728152428",
+      "name": "business_inquiries",
+      "md5": "79a9a56c6f6059d91e47a9765d4bf61e",
+      "bytes": 9629
+    },
+    {
+      "version": "20260728152529",
+      "name": "deny_direct_business_inquiry_rate_limit_access",
+      "md5": "69c1cb27d3e2ec2ebc9e666fc85c455d",
+      "bytes": 158
+    },
+    {
+      "version": "20260728173016",
+      "name": "connect_privacy_safe_analytics",
+      "md5": "dd528297d8e35f6850db59526bdf8203",
+      "bytes": 17923
+    },
+    {
+      "version": "20260728173737",
+      "name": "enforce_analytics_retention_and_production_views",
+      "md5": "ad25d4fb8ee7d4944edba8fcbc591cb2",
+      "bytes": 3362
+    },
+    {
+      "version": "20260728192120",
+      "name": "younew_production_operations",
+      "md5": "c431f52694f3ff6c6f9c640f5267d984",
+      "bytes": 38697
+    },
+    {
+      "version": "20260728194108",
+      "name": "provision_content_images_and_harden_extensions",
+      "md5": "98b723765f6aaee31a11fe4085555679",
+      "bytes": 1808
+    },
+    {
+      "version": "20260728200449",
+      "name": "harden_content_image_listing_and_fk_indexes",
+      "md5": "97e6f7a9c8a2d85128c7f4030bd3570e",
+      "bytes": 1297
+    },
+    {
+      "version": "20260729082542",
+      "name": "activate_public_content_feed",
+      "md5": "c9e78fb1eb410be9e7b067cb76e75345",
+      "bytes": 5262
+    },
+    {
+      "version": "20260729092849",
+      "name": "secure_article_publication_gate",
+      "md5": "e921d53eba88a6a7c50a43fa8dfdf397",
+      "bytes": 707
+    },
+    {
+      "version": "20260801002204",
+      "name": "content_governance_platform",
+      "md5": "171e72a0c02d7f8c796427a4c814a83d",
+      "bytes": 58193
+    },
+    {
+      "version": "20260801002707",
+      "name": "harden_content_governance_performance",
+      "md5": "e71a0460b23ee953c92237852907bd11",
+      "bytes": 5169
+    }
+  ]
+}

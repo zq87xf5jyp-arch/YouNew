@@ -1,6 +1,6 @@
 # YouNew deployment runbook
 
-Release target: 2026-07-29, Europe/Amsterdam
+Release procedure verified: 2026-08-01, Europe/Amsterdam
 
 No production step in this runbook is authorized until the owner sends the exact instruction `GO LIVE`.
 
@@ -40,25 +40,32 @@ Use the reviewed Supabase CLI version and project ref:
 
 ```bash
 cd admin-dashboard
+python3 ../scripts/verify-supabase-migration-manifest.py
 pnpm dlx supabase@2.109.1 link --project-ref pgdzdxsiagfjioxwuqxf
+pnpm dlx supabase@2.109.1 migration list --linked
 pnpm dlx supabase@2.109.1 db push --dry-run
 ```
 
-Review the dry-run against `supabase/migrations/20260728192120_younew_production_operations.sql`. Stop on unexpected destructive SQL or drift.
+The expected state for the 2026-08-01 release candidate is 13 matching managed
+migrations and no pending SQL. Stop on any missing version, hash drift,
+unexpected pending migration or destructive statement. The `0001` through
+`0006` files are the historical bootstrap and must not be included as new
+production migrations.
 
-Create independent random salts of at least 32 bytes in the secure secret manager, then set them without printing their values:
+Do not rotate the existing rate-limit salts during a routine application
+release. Do not run `db push` or deploy an Edge Function unless the recorded
+release diff contains a separately reviewed database or function change. When
+a function changed, deploy only that function, then record its version,
+timestamp and entrypoint SHA-256. The governed function set is:
 
-```bash
-pnpm dlx supabase@2.109.1 secrets set BUSINESS_INQUIRY_RATE_LIMIT_SALT PUBLIC_FEEDBACK_RATE_LIMIT_SALT --project-ref pgdzdxsiagfjioxwuqxf
-pnpm dlx supabase@2.109.1 db push
-pnpm dlx supabase@2.109.1 functions deploy submit-business-inquiry --project-ref pgdzdxsiagfjioxwuqxf
-pnpm dlx supabase@2.109.1 functions deploy submit-public-feedback --project-ref pgdzdxsiagfjioxwuqxf
-pnpm dlx supabase@2.109.1 functions deploy prepare-content-sync --project-ref pgdzdxsiagfjioxwuqxf
-```
+- `analytics-ingest`;
+- `submit-business-inquiry`;
+- `submit-public-feedback`;
+- `prepare-content-sync`.
 
 Post-deploy checks:
 
-- migration is recorded exactly once;
+- the remote migration list still matches the immutable manifest;
 - operational tables have RLS enabled;
 - anonymous direct table writes fail;
 - one controlled business inquiry returns a receipt and appears in Admin;
