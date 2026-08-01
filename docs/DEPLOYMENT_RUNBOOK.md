@@ -14,11 +14,21 @@ No production step in this runbook is authorized until the owner sends the exact
 
 ```bash
 cd admin-dashboard
-DATABASE_URL='read-from-secure-secret-store' BACKUP_DIR='absolute-secure-backup-directory' pnpm backup
-pg_restore --list 'absolute-backup-file.dump' >/dev/null
+DATABASE_URL='read-from-secure-secret-store' \
+AGE_RECIPIENT='age-public-recipient' \
+BACKUP_DIR='absolute-secure-backup-directory' \
+  pnpm backup
+BACKUP_ARCHIVE='absolute-backup-file.dump.age' \
+AGE_IDENTITY_FILE='absolute-age-identity-file' \
+RESTORE_REPORT_PATH='absolute-restore-verification.json' \
+  pnpm restore:rehearsal
 ```
 
-6. Record the backup path, SHA-256, restore-list result and retention owner. Never commit the dump or connection string.
+The backup is an age-encrypted logical SQL stream, not a custom-format
+`pg_dump` archive. Validate its manifest checksum and the generated disposable
+restore report; do not run `pg_restore --list` against the `.dump.age` file.
+
+6. Record the backup path, SHA-256, restore report path/status/RTO and retention owner. Never commit the archive, age identity or connection string.
 7. Hostinger manual backup evidence exists for 2026-07-28 12:34 and its `public_html` contents were verified. If production files have changed since that timestamp, create another Hostinger backup immediately before deployment.
 
 ### Passwordless temporary backup access
@@ -28,8 +38,8 @@ The project database build `17.6.1.147` supports Supabase Temporary access. With
 1. Enable the Temporary access feature preview.
 2. Grant the current project owner `supabase_read_only_user` for the shortest practical period; use `postgres` only if the read-only dump is proven insufficient.
 3. Create/use a Personal Access Token without placing it in chat, shell history, logs or repository files.
-4. Connect over SSL, write the dump outside the repository with mode `0600`, and run `pg_restore --list`.
-5. Record only the path, timestamp, SHA-256 and validation result.
+4. Connect over SSL, stream the logical dump through age without persisting plaintext, and keep the encrypted archive and manifest outside the repository with mode `0600`.
+5. Verify the manifest checksum and run `pnpm restore:rehearsal` against a disposable local Supabase/PostgreSQL 17 stack. Record only the archive path, timestamp, SHA-256 and restore-report result.
 6. Revoke the temporary role grant and PAT immediately after verification.
 
 Do not reset the database password merely to create a backup; the Dashboard confirms that reset would break existing connections.
