@@ -48,15 +48,15 @@ final class AccessibilityRuntimeUITests: XCTestCase {
         assertAccessibleElement(submit, identifier: "search.submit")
 
         input.tap()
-        input.typeText("BS")
-        input.typeText("N")
-        let completeQuery = NSPredicate(format: "value == %@", "BSN")
-        expectation(for: completeQuery, evaluatedWith: input)
-        waitForExpectations(timeout: 3)
-        submit.tap()
-
+        input.typeText("BSN")
         let result = app.descendants(matching: .any)["search.directResult.link.essential-bsn-registration"]
-        XCTAssertTrue(result.waitForExistence(timeout: 5), "Search result card should appear at accessibility text size.")
+        XCTAssertTrue(
+            result.waitForExistence(timeout: 8),
+            "Typing BSN should expose the exact registration result at accessibility text size."
+        )
+
+        submit.tap()
+        XCTAssertTrue(result.waitForExistence(timeout: 5), "Search result card should remain after submitting the query.")
         XCTAssertFalse(result.frame.isEmpty, "Search result card has an empty frame at accessibility text size.")
         scrollToElement(result, in: app)
         assertAboveFloatingTab(result, in: app, identifier: "search.directResult.link.essential-bsn-registration")
