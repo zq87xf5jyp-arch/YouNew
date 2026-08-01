@@ -48,6 +48,21 @@ function npmBom(relativePath, applicationName) {
   };
 }
 
+function iosMarketingVersion() {
+  const projectPath = resolve(repositoryRoot, "YouNew.xcodeproj/project.pbxproj");
+  const project = readFileSync(projectPath, "utf8");
+  const appBuildSettings = [...project.matchAll(/buildSettings\s*=\s*\{([\s\S]*?)\n\s*\};/g)]
+    .map((match) => match[1])
+    .filter((settings) => /\bPRODUCT_BUNDLE_IDENTIFIER\s*=\s*nl\.younew\.app\s*;/.test(settings));
+  const versions = new Set(appBuildSettings.flatMap((settings) =>
+    [...settings.matchAll(/\bMARKETING_VERSION\s*=\s*([^;\s]+)\s*;/g)].map((match) => match[1])
+  ));
+  if (versions.size !== 1) {
+    throw new Error(`Expected one iOS MARKETING_VERSION, found: ${[...versions].join(", ") || "none"}`);
+  }
+  return [...versions][0];
+}
+
 function swiftBom() {
   const resolvedPath = resolve(repositoryRoot, "YouNew.xcodeproj/project.xcworkspace/xcshareddata/swiftpm/Package.resolved");
   const resolved = JSON.parse(readFileSync(resolvedPath, "utf8"));
@@ -69,7 +84,7 @@ function swiftBom() {
     version: 1,
     metadata: {
       timestamp: generatedAt,
-      component: { type: "application", name: "YouNew iOS", version: "1.1" },
+      component: { type: "application", name: "YouNew iOS", version: iosMarketingVersion() },
       tools: [{ vendor: "YouNew", name: "scripts/generate-sbom.mjs", version: "1.0" }]
     },
     components
