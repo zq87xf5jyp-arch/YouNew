@@ -1,6 +1,7 @@
 {
   "schemaVersion": 1,
   "nextNumber": 10,
+  "migrationHistoryAlignedAt": "2026-08-01",
   "decisionOwnerPolicy": "accepted ADRs require a real human decision owner",
   "records": [
     {"id": "ADR-001", "file": "0001-content-source-of-truth.md", "status": "proposed"},

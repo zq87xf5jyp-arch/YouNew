@@ -13,6 +13,7 @@ const canonicalHostname = "younew.nl";
 const legacyHostname = "www.younew.nl";
 const mtaStsHostname = "mta-sts.younew.nl";
 const mtaStsPolicyPath = "/.well-known/mta-sts.txt";
+const notFoundPayloadPath = "/__site_payloads/404.html.payload";
 
 function withSecurityHeaders(response) {
   const headers = new Headers(response.headers);
@@ -72,7 +73,19 @@ async function fetchAssetWithDirectoryFallback(request, assets) {
 
   url.pathname = payloadPath;
   const payloadResponse = await assets.fetch(new Request(url, request));
-  if (payloadResponse.status === 404) return response;
+  if (payloadResponse.status === 404) {
+    url.pathname = notFoundPayloadPath;
+    const notFoundResponse = await assets.fetch(new Request(url, request));
+    if (notFoundResponse.status === 404) return response;
+
+    const headers = new Headers(notFoundResponse.headers);
+    headers.set("Content-Type", "text/html; charset=utf-8");
+    return new Response(request.method === "HEAD" ? null : notFoundResponse.body, {
+      status: 404,
+      statusText: "Not Found",
+      headers
+    });
+  }
 
   const headers = new Headers(payloadResponse.headers);
   headers.set("Content-Type", "text/html; charset=utf-8");

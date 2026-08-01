@@ -6,7 +6,7 @@
 - Human decision owner: @zq87xf5jyp-arch (repository owner)
 - Supersedes: none
 - Related contracts: DataProject/governance/status-policy.json; docs/KPI_FRAMEWORK_V19.md
-- Related migrations: admin-dashboard/supabase/migrations/20260730130000_content_governance_platform.sql
+- Related migrations: admin-dashboard/supabase/migrations/20260801002204_content_governance_platform.sql
 
 ## Problem and context
 

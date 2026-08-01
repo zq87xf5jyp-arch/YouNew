@@ -19,7 +19,7 @@ The repository contains a locally verified public release candidate and a tested
 | Current `origin/admin-dashboard-integration` | `76df6ca969927687e1b3a517ac2cecec4b8130f7` |
 | Content heads | `amsterdam-v0.1.2`, `cities-v0.1.0` |
 | Public records | 186 |
-| Migration | `20260728075522_younew_production_operations.sql` |
+| Migration | `20260728192120_younew_production_operations.sql` |
 | Migration SHA-256 | `c5c055676cd3cad86a63116ad809f9bc609927829fc82ccb6eb77439840ff69b` |
 | Admin runtime fingerprint | `066158d1e248ba544b582ef0a2eaf60648c8e50da04e2ba89d041e707178e2de` |
 | Production artifact | `release-artifacts/younew-public-2026-07-29.tar.gz` |

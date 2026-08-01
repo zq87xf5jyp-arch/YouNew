@@ -34,6 +34,7 @@ const authoredShell = [
   "/theme-init.js",
   ...versionedStaticShells,
   "/icons/apple-touch-icon.png",
+  "/icons/brand-64.png",
   "/icons/icon-192.png",
   "/icons/icon-512.png"
 ];

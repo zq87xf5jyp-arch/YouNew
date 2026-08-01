@@ -239,7 +239,7 @@ export default function HomePage() {
             </div>
             <div className="profile-list">
               {profiles.map(({ name, text, icon: Icon }, index) => (
-                <Link className="profile-row" href={`/discover?profile=${name.toLowerCase()}`} key={name} aria-label={`Choose the ${name} starting path`}>
+                <Link className="profile-row" href={`/discover?profile=${name.toLowerCase()}`} key={name}>
                   <span className="profile-number">0{index + 1}</span>
                   <Icon aria-hidden />
                   <div><h3>{name}</h3><p>{text}</p></div>
