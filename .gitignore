@@ -75,10 +75,13 @@ admin-dashboard/*
 !admin-dashboard/pnpm-lock.yaml
 !admin-dashboard/pnpm-workspace.yaml
 !admin-dashboard/postcss.config.mjs
+!admin-dashboard/playwright.config.ts
 !admin-dashboard/scripts/
 !admin-dashboard/scripts/**
 !admin-dashboard/tests/
 !admin-dashboard/tests/**
+!admin-dashboard/e2e/
+!admin-dashboard/e2e/**
 !admin-dashboard/src/
 !admin-dashboard/src/**
 !admin-dashboard/supabase/

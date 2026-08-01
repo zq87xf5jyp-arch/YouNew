@@ -108,17 +108,37 @@ on conflict (id) do update set role = 'owner', is_approved = true;
 
 ## Резервное копирование PostgreSQL
 
-Проект содержит скрипт переносимого dump через `pg_dump`. Наличие, расписание и восстановимость production-бэкапов — **NOT VERIFIED**:
+Проект содержит потоковый Supabase logical dump, который шифруется `age` до записи на диск. Архив включает roles, schema и data, но не включает Storage object payloads, Edge Functions, provider settings или secrets:
 
 ```bash
-DATABASE_URL='postgresql://...' pnpm backup
+DATABASE_URL='postgresql://...' \
+AGE_RECIPIENT='age1...' \
+BACKUP_DIR='/private/backup/path' \
+pnpm backup
 ```
 
-Файлы создаются в приватной папке `backups/`, не попадают в Git и по умолчанию хранятся 30 дней. Команду можно запускать ежедневно через cron/CI и копировать dump во внешнее зашифрованное хранилище. Восстановление сначала следует проверять на отдельной базе:
+Команда создаёт `.dump.age` и manifest с SHA-256. Для прямой проверки нужен приватный age identity и уже поднятый изолированный локальный Supabase на PostgreSQL 17:
 
 ```bash
-pg_restore --clean --if-exists --no-owner --dbname="$RESTORE_DATABASE_URL" backups/younew-TIMESTAMP.dump
+BACKUP_ARCHIVE='/private/backup/path/younew-TIMESTAMP.dump.age' \
+AGE_IDENTITY_FILE='/private/key/path/identity.txt' \
+RESTORE_DATABASE_URL='host=/private/tmp/socket dbname=younew_restore' \
+RESTORE_REPORT_PATH='/private/evidence/restore-verification.json' \
+pnpm restore:verify
 ```
+
+`pnpm restore:rehearsal` через Supabase CLI и Docker поднимает временный локальный Supabase, проверяет PostgreSQL 17 и наличие managed schemas, а затем удаляет контейнеры и volumes. Нужны запущенный Docker daemon, `supabase`, `jq`, `psql` и приватный age identity. Production URL блокируется самим restore-script. Фактический backup/restore остаётся **NOT VERIFIED**, пока нет свежего зашифрованного архива и отчёта с успешным restore.
+
+## Admin E2E
+
+Изолированная проверка owner surface и fail-closed поведения:
+
+```bash
+pnpm exec playwright install chromium
+pnpm test:e2e:admin:isolated
+```
+
+Read-only production E2E требует `E2E_BASE_URL`, `E2E_OWNER_EMAIL`, `E2E_OWNER_PASSWORD` и отдельные `E2E_DENIED_EMAIL` / `E2E_DENIED_PASSWORD`. Credentials передаются только через secret store и не записываются в отчёты. Production suite не выполняет мутаций.
 
 ## Деплой на Vercel
 
