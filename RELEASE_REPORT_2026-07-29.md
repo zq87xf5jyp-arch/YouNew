@@ -105,7 +105,7 @@ Verification:
 
 Local migration:
 
-- `admin-dashboard/supabase/migrations/20260728075522_younew_production_operations.sql`;
+- `admin-dashboard/supabase/migrations/20260728192120_younew_production_operations.sql`;
 - 97 PostgreSQL statements;
 - SHA-256 `c5c055676cd3cad86a63116ad809f9bc609927829fc82ccb6eb77439840ff69b`.
 

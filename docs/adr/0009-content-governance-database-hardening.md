@@ -6,7 +6,7 @@
 - Human decision owner: @zq87xf5jyp-arch (repository owner)
 - Supersedes: none
 - Related contracts: DataProject/schema/content-governance.schema.json; admin-dashboard/src/lib/governance
-- Related migrations: admin-dashboard/supabase/migrations/20260801003000_harden_content_governance_performance.sql
+- Related migrations: admin-dashboard/supabase/migrations/20260801002707_harden_content_governance_performance.sql
 
 ## Problem and context
 

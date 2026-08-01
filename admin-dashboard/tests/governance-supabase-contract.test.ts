@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const migrationUrl = new URL(
-  "../supabase/migrations/20260730130000_content_governance_platform.sql",
+  "../supabase/migrations/20260801002204_content_governance_platform.sql",
   import.meta.url
 );
 const pgTapUrl = new URL(
@@ -11,7 +11,7 @@ const pgTapUrl = new URL(
   import.meta.url
 );
 const hardeningMigrationUrl = new URL(
-  "../supabase/migrations/20260801003000_harden_content_governance_performance.sql",
+  "../supabase/migrations/20260801002707_harden_content_governance_performance.sql",
   import.meta.url
 );
 

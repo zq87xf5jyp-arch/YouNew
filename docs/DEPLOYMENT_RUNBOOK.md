@@ -44,7 +44,7 @@ pnpm dlx supabase@2.109.1 link --project-ref pgdzdxsiagfjioxwuqxf
 pnpm dlx supabase@2.109.1 db push --dry-run
 ```
 
-Review the dry-run against `supabase/migrations/20260728075522_younew_production_operations.sql`. Stop on unexpected destructive SQL or drift.
+Review the dry-run against `supabase/migrations/20260728192120_younew_production_operations.sql`. Stop on unexpected destructive SQL or drift.
 
 Create independent random salts of at least 32 bytes in the secure secret manager, then set them without printing their values:
 
