@@ -103,6 +103,7 @@ test("Sites worker resolves an exported directory through its index asset", asyn
   assert.deepEqual(mock.calls, [pathname, indexPathname]);
   assert.equal(await response.text(), "<!doctype html><title>Workspace</title>");
   assert.equal(response.headers.get("content-type"), "text/html; charset=utf-8");
+  assert.match(response.headers.get("cache-control") ?? "", /(?:^|,\s*)no-transform(?:,|$)/);
   assert.equal(response.headers.get("x-frame-options"), "DENY");
 });
 
@@ -125,5 +126,6 @@ test("Sites worker keeps a real missing route at 404", async () => {
     "/__site_payloads/404.html.payload"
   ]);
   assert.equal(response.headers.get("content-type"), "text/html; charset=utf-8");
+  assert.match(response.headers.get("cache-control") ?? "", /(?:^|,\s*)no-transform(?:,|$)/);
   assert.equal(await response.text(), "<!doctype html><title>Page not found</title>");
 });
