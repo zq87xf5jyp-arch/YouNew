@@ -107,7 +107,12 @@ test("Sites worker resolves an exported directory through its index asset", asyn
 });
 
 test("Sites worker keeps a real missing route at 404", async () => {
-  const mock = createAssets({});
+  const mock = createAssets({
+    "/__site_payloads/404.html.payload": new Response(
+      "<!doctype html><title>Page not found</title>",
+      { status: 200, headers: { "content-type": "application/octet-stream" } }
+    )
+  });
   const response = await worker.fetch(
     new Request("https://younew.nl/missing-release-check-404"),
     { ASSETS: mock.assets }
@@ -116,6 +121,9 @@ test("Sites worker keeps a real missing route at 404", async () => {
   assert.equal(response.status, 404);
   assert.deepEqual(mock.calls, [
     "/missing-release-check-404",
-    "/__site_payloads/missing-release-check-404/index.html.payload"
+    "/__site_payloads/missing-release-check-404/index.html.payload",
+    "/__site_payloads/404.html.payload"
   ]);
+  assert.equal(response.headers.get("content-type"), "text/html; charset=utf-8");
+  assert.equal(await response.text(), "<!doctype html><title>Page not found</title>");
 });
