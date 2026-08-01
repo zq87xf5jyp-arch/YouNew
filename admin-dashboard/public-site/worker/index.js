@@ -20,6 +20,16 @@ function withSecurityHeaders(response) {
   for (const [name, value] of Object.entries(securityHeaders)) {
     headers.set(name, value);
   }
+  if (/^text\/html\b/i.test(headers.get("Content-Type") ?? "")) {
+    const cacheDirectives = (headers.get("Cache-Control") ?? "public, max-age=0, must-revalidate")
+      .split(",")
+      .map((directive) => directive.trim())
+      .filter(Boolean);
+    if (!cacheDirectives.some((directive) => directive.toLowerCase() === "no-transform")) {
+      cacheDirectives.push("no-transform");
+    }
+    headers.set("Cache-Control", cacheDirectives.join(", "));
+  }
   return new Response(response.body, {
     status: response.status,
     statusText: response.statusText,
