@@ -276,7 +276,7 @@ class AmsterdamCandidateIntegrationTests(unittest.TestCase):
             "https://bredagroup-amsterdam.com/",
         )
         self.assertEqual(records["restaurant.breda"]["lifecycle_status"], "retired")
-        self.assertIn("amsterdam-v0.1.4", effective_release_heads(project, {"published"}))
+        self.assertIn("amsterdam-v0.1.5", effective_release_heads(project, {"published"}))
 
     def test_link_checker_never_allowlists_client_errors(self):
         checker_path = SCRIPTS / "check-external-links.py"

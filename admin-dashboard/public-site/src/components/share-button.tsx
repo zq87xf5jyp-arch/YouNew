@@ -43,7 +43,7 @@ export function ShareButton({ title, url }: { title: string; url?: string }) {
   const feedback = status === "shared" ? "Shared" : status === "copied" ? "Link copied" : status === "failed" ? "Share failed" : "Share";
 
   return (
-    <button className="share-button" type="button" disabled={!interactive} onClick={share}>
+    <button className="share-button" type="button" disabled={!interactive} aria-label={`Share ${title}`} onClick={share}>
       {status === "copied" || status === "shared" ? <Check aria-hidden /> : <Share2 aria-hidden />}
       <span>Share</span>
       <span aria-live="polite">{status === "idle" ? "" : `— ${feedback}`}</span>

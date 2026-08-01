@@ -193,7 +193,7 @@ CATALOG = [
     item("government_service", "First registration in Amsterdam", "https://www.amsterdam.nl/en/civil-affairs/first-registration/", "civil-affairs", "City of Amsterdam", "municipal first registration for people moving from abroad", query="Amsterdam City Hall, Amstel 1, Amsterdam"),
     item("government_service", "Moving within Amsterdam", "https://www.amsterdam.nl/en/civil-affairs/moving-amsterdam/", "civil-affairs", "City of Amsterdam", "reporting a move or address change to the municipality", query="Amsterdam City Hall, Amstel 1, Amsterdam"),
     item("government_service", "Passport and ID card Amsterdam", "https://www.amsterdam.nl/en/civil-affairs/passport-id-card/", "identity-documents", "City of Amsterdam", "municipal passport and identity-card applications", query="Amsterdam City Hall, Amstel 1, Amsterdam"),
-    item("government_service", "Driving licence Amsterdam", "https://www.amsterdam.nl/en/civil-affairs/driving-licence/", "driving-documents", "City of Amsterdam", "municipal driving-licence applications and renewals", query="Amsterdam City Hall, Amstel 1, Amsterdam"),
+    item("government_service", "Driving licence Amsterdam", "https://www.amsterdam.nl/en/civil-affairs/applying-dutch-driving-licence/", "driving-documents", "City of Amsterdam", "municipal driving-licence applications and renewals", query="Amsterdam City Hall, Amstel 1, Amsterdam"),
     item("government_service", "Parking permit Amsterdam", "https://www.amsterdam.nl/en/parking/parking-permit/", "parking", "City of Amsterdam", "resident and business parking-permit information", query="Amsterdam City Hall, Amstel 1, Amsterdam"),
     item("government_service", "Waste and recycling Amsterdam", "https://www.amsterdam.nl/en/waste-recycling/", "waste-recycling", "City of Amsterdam", "municipal waste collection and recycling guidance", query="Amsterdam City Hall, Amstel 1, Amsterdam"),
     item("government_service", "Municipal taxes Amsterdam", "https://www.amsterdam.nl/en/municipal-taxes/", "municipal-taxes", "City of Amsterdam", "Amsterdam municipal tax information and payment routes", query="Amsterdam City Hall, Amstel 1, Amsterdam"),
@@ -314,29 +314,6 @@ LABELS = {
 }
 MEDIA_REQUIRED_TYPES = {"city", "place", "museum", "restaurant", "cafe", "hotel", "nature", "local_partner"}
 MEDIA_ROLES = ("hero", "gallery", "thumbnail", "map_preview")
-
-# These pages were independently confirmed in the indexed official source or in
-# the in-app browser on CHECKED_AT. This is deliberately title-scoped so a later
-# URL change cannot inherit an earlier verification result.
-INDEX_VERIFIED_TITLES = {
-    "Westerkerk", "Dam Square", "Begijnhof Amsterdam", "Bloemenmarkt",
-    "THIS IS HOLLAND", "Ciel Bleu", "Restaurant 212", "Kaagman & Kortekaas",
-    "BREDA", "Daalder", "Wils", "Pesca", "Restaurant de Juwelier",
-    "Wilde Zwijnen", "Restaurant Europa", "Bocca Coffee", "Back to Black",
-    "Scandinavian Embassy", "Toki", "Coffee Bru", "Saint-Jean",
-    "Inholland Amsterdam", "Amsterdam UMC location AMC",
-    "Amsterdam UMC location VUmc", "OLVG East", "OLVG West", "Reade Overtoom",
-    "Arkin", "ING Group",
-    "WorldPride Amsterdam 2026 Pride Walk", "WorldPride Amsterdam 2026 Pride Park",
-    "WorldPride Amsterdam 2026 Open Air Film Festival",
-    "WorldPride Amsterdam 2026 Senior Pride Concert",
-    "WorldPride Amsterdam 2026 Canal Parade", "WorldPride Amsterdam 2026 UNITY Concert",
-    "WorldPride Amsterdam 2026 Human Rights Conference",
-    "WorldPride Amsterdam 2026 WorldPride Village",
-    "WorldPride Amsterdam 2026 WorldPride March",
-    "WorldPride Amsterdam 2026 Closing Concert",
-}
-
 
 def request_json(url, params=None, timeout=35):
     if params:
@@ -502,6 +479,29 @@ def web_status(entry, cache):
     return status
 
 
+def classify_source_verification(status):
+    """Fail closed unless this exact URL returned a successful response."""
+    status_code = status.get("status_code")
+    opened = status.get("opened") is True and isinstance(status_code, int) and 200 <= status_code < 400
+    if opened:
+        return {
+            "reachable": True,
+            "status": "verified_opened",
+            "method": "direct request",
+        }
+    if status_code in {401, 403, 405, 429}:
+        return {
+            "reachable": False,
+            "status": "access_restricted",
+            "method": "restricted response; manual review required",
+        }
+    return {
+        "reachable": False,
+        "status": "access_restricted",
+        "method": "source not opened; manual review required",
+    }
+
+
 def descriptions(entry, index):
     label = LABELS[entry["entity_type"]]
     description = (
@@ -541,9 +541,8 @@ def build():
         issues = []
         if len(media) < required_media_count:
             issues.append(f"licensed media roles incomplete ({len(media)}/{required_media_count})")
-        status_code = status.get("status_code")
-        source_index_verified = entry["title"] in INDEX_VERIFIED_TITLES
-        source_reachable = status.get("opened") or source_index_verified or status_code in {301, 302, 307, 308, 401, 403, 405, 429}
+        source_verification = classify_source_verification(status)
+        source_reachable = source_verification["reachable"]
         if not source_reachable:
             issues.append(f"source not opened (HTTP {status.get('status_code')})")
         description, summary = descriptions(entry, index)
@@ -570,7 +569,7 @@ def build():
                 "url": entry["website"],
                 "is_official": True,
                 "checked_at": CHECKED_AT,
-                "status": "verified_opened" if source_reachable else "access_restricted",
+                "status": source_verification["status"],
             },
             "website": entry["website"],
             "related_entity_ids": ["city.amsterdam"],
@@ -587,7 +586,7 @@ def build():
                 "coordinate_source": entry.get("coordinate_source") or f"OpenStreetMap Nominatim: {geo.get('osm_type')} {geo.get('osm_id')}",
                 "source_http_status": str(status.get("status_code") or "restricted"),
                 "source_final_url": status.get("final_url") or entry["website"],
-                "source_verification_method": "direct request" if status.get("opened") else ("indexed official source or in-app browser" if source_index_verified else "restricted response accepted for review"),
+                "source_verification_method": source_verification["method"],
                 "media_match": media[0].get("match_kind") if media else "missing",
                 "media_roles_count": str(len(media)),
                 **entry["attributes"],

@@ -1,0 +1,98 @@
+{
+  "schema_version": 1,
+  "release_id": "amsterdam-v0.1.5",
+  "version": "0.1.5",
+  "status": "published",
+  "work_package": "WP-06",
+  "dataset": "Amsterdam City 01",
+  "base_release_id": "amsterdam-v0.1.4",
+  "supersedes": "amsterdam-v0.1.4",
+  "base_batch_sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "evidence": [
+    {
+      "id": "evidence.amsterdam-driving-licence-current-url-2026-08-01",
+      "kind": "url_check",
+      "url": "https://www.amsterdam.nl/en/civil-affairs/applying-dutch-driving-licence/",
+      "checked_at": "2026-08-01",
+      "note": "The official City of Amsterdam page was opened on 1 August 2026. It confirms the current route, Amsterdam residency and 185-day conditions, one-week standard collection, urgent timing, current fees, required documents and online-renewal boundary. The previous /driving-licence/ URL is replaced without changing the stable entity ID."
+    }
+  ],
+  "replacements": [
+    {
+      "entity_id": "government_service.driving-licence-amsterdam",
+      "original_canonical_sha256": "dd61bd416565b043a67c6297ee3778d7bc9e7050e92f7b2fe1983b17f41f14ba",
+      "replacement_canonical_sha256": "9e0e227e33239e3836a550fad6e2114b88ce843aeac254f09f6b7ae80cf06209",
+      "reason": "Replace the obsolete Amsterdam driving-licence path with the current opened official page and remove the inherited HTTP 403 verification claim.",
+      "evidence_refs": [
+        "evidence.amsterdam-driving-licence-current-url-2026-08-01"
+      ],
+      "record": {
+        "id": "government_service.driving-licence-amsterdam",
+        "entity_type": "government_service",
+        "category": "driving-documents",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3675554,
+          "longitude": 4.901289
+        },
+        "title": "Driving licence Amsterdam",
+        "description": "Driving licence Amsterdam is a confirmed Amsterdam municipal service. The cited source specifically covers municipal driving-licence applications and renewals. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/49503071578@N01/196457679",
+            "asset_url": "https://live.staticflickr.com/75/196457679_a01eb1118e_b.jpg",
+            "license": "CC BY-SA 2.0",
+            "license_url": "https://creativecommons.org/licenses/by-sa/2.0/",
+            "attribution": "\"Amsterdam City Hall\" by Helder da Rocha is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.government-service.driving-licence-amsterdam.hero.e46ea3b1ad"
+          }
+        ],
+        "official_source": {
+          "title": "Apply for a Dutch driving licence",
+          "publisher": "City of Amsterdam",
+          "url": "https://www.amsterdam.nl/en/civil-affairs/applying-dutch-driving-licence/",
+          "is_official": true,
+          "checked_at": "2026-08-01",
+          "status": "verified_opened"
+        },
+        "website": "https://www.amsterdam.nl/en/civil-affairs/applying-dutch-driving-licence/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-08-01",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Use the official City of Amsterdam page for Driving licence Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under driving documents and does not treat AI text as a factual source.",
+        "search_keywords": [
+          "Driving licence Amsterdam",
+          "Driving licence Amsterdam Amsterdam",
+          "driving documents",
+          "municipal service Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
+          "source_http_status": "200",
+          "source_final_url": "https://www.amsterdam.nl/en/civil-affairs/applying-dutch-driving-licence/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "1"
+        }
+      }
+    }
+  ]
+}

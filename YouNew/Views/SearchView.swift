@@ -521,15 +521,12 @@ struct SearchView: View {
     }
 
     private func restoreSearchFocusIfNeeded() {
-        guard searchEditingIntent else { return }
+        guard searchEditingIntent, !isSearchFocused else { return }
         Task { @MainActor in
             await Task.yield()
-            guard searchEditingIntent else { return }
-            // Result-tree replacement can recreate the underlying UITextField.
-            // Reset the binding so the replacement immediately becomes first responder.
-            isSearchFocused = false
-            await Task.yield()
-            guard searchEditingIntent else { return }
+            guard searchEditingIntent, !isSearchFocused else { return }
+            // Only restore genuinely lost focus. Toggling an already-focused field while
+            // debounced results refresh can interrupt keystrokes from assistive input.
             isSearchFocused = true
         }
     }

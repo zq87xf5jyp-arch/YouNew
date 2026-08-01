@@ -1,4 +1,40 @@
 (() => {
+  const themeStorageKey = "younew.theme.v1";
+  const themeButton = document.querySelector(".theme-toggle");
+
+  const currentTheme = () => document.documentElement.dataset.theme === "light"
+    ? "light"
+    : "dark";
+
+  const syncThemeControl = () => {
+    if (!(themeButton instanceof HTMLButtonElement)) return;
+    const theme = currentTheme();
+    const nextTheme = theme === "light" ? "dark" : "light";
+    themeButton.setAttribute("aria-label", `Switch to ${nextTheme} mode`);
+    themeButton.setAttribute("aria-pressed", String(theme === "light"));
+    themeButton.title = `Switch to ${nextTheme} mode`;
+    const state = themeButton.querySelector(".visually-hidden");
+    if (state) state.textContent = `${theme} mode active`;
+  };
+
+  const applyTheme = (theme) => {
+    const normalizedTheme = theme === "light" ? "light" : "dark";
+    document.documentElement.dataset.theme = normalizedTheme;
+    document.documentElement.style.colorScheme = normalizedTheme;
+    document.querySelector('meta[name="theme-color"]')?.setAttribute(
+      "content",
+      normalizedTheme === "dark" ? "#050c1b" : "#eef3f8"
+    );
+    syncThemeControl();
+  };
+
+  syncThemeControl();
+  themeButton?.addEventListener("click", () => {
+    const nextTheme = currentTheme() === "dark" ? "light" : "dark";
+    applyTheme(nextTheme);
+    try { localStorage.setItem(themeStorageKey, nextTheme); } catch { /* preference remains active for this page */ }
+  });
+
   const banner = document.querySelector(".status-banner");
   const liveRegion = document.querySelector("[data-status-banner-live]");
 

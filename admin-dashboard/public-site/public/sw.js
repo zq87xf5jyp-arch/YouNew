@@ -1,9 +1,9 @@
-const CACHE_VERSION = "younew-web-08f594f23b67";
+const CACHE_VERSION = "younew-web-f507631a700b";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const GUIDE_CACHE = `${CACHE_VERSION}-guides`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
 const OFFLINE_URL = "/offline/";
-const SHELL_URLS = ["/", OFFLINE_URL, "/guides/", "/journeys/", "/manifest.webmanifest", "/static-shell.js", "/icons/apple-touch-icon.png", "/icons/icon-192.png", "/icons/icon-512.png"];
+const SHELL_URLS = ["/", OFFLINE_URL, "/guides/", "/journeys/", "/manifest.webmanifest", "/theme-init.js", "/static-shell.js", "/icons/apple-touch-icon.png", "/icons/icon-192.png", "/icons/icon-512.png"];
 
 const isEmergencyRequest = (url) => url.pathname === "/emergency" || url.pathname.startsWith("/emergency/");
 const isMutableConfiguration = (url) =>

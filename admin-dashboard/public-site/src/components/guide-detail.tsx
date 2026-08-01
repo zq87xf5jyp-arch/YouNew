@@ -9,9 +9,11 @@ import { RecentViewTracker } from "@/components/recent-view-tracker";
 import { SaveButton } from "@/components/save-button";
 import { ShareButton } from "@/components/share-button";
 import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
+import { UsefulSummaryGuide } from "@/components/useful-summary-guide";
 import { ContentMedia, preferredMedia } from "@/components/content-media";
 import { GovernanceDisclosure } from "@/components/governance-disclosure";
 import type { ContentEntity, GuideContactOption, GuideSourcedText, PracticalGuide } from "@/lib/content";
+import { curatedSummaryGuideFor } from "@/lib/content/curated-summary-guides";
 import { publicWebSummary } from "@/lib/content/presentation";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
@@ -200,6 +202,7 @@ function BriefGuide({ entity }: { entity: ContentEntity }) {
 
 export function GuideDetail({ entity, related }: { entity: ContentEntity; related: readonly ContentEntity[] }) {
   const guide = entity.practicalGuide;
+  const curatedSummary = guide ? null : curatedSummaryGuideFor(entity.id);
   const heroImage = preferredMedia(entity.images, ["hero", "gallery", "thumbnail"]);
   const summary = guide?.shortSummary.text ?? publicWebSummary(entity.summary);
   const reportHref = `/support/?type=incorrect-information&page=${encodeURIComponent(`${entity.route}/`)}`;
@@ -225,14 +228,27 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
   } : {
     "@context": "https://schema.org",
     "@type": "Article",
-    headline: entity.title,
-    description: publicWebSummary(entity.summary),
+    headline: curatedSummary?.title ?? entity.title,
+    description: curatedSummary?.answer ?? publicWebSummary(entity.summary),
     url: `https://younew.nl${entity.route}/`,
     inLanguage: "en",
-    dateModified: entity.updatedAt,
-    isBasedOn: entity.source.url,
+    dateModified: curatedSummary?.checkedAt ?? entity.updatedAt,
+    isBasedOn: curatedSummary?.sourceUrl ?? entity.source.url,
     image: heroImage?.url
   };
+
+  if (curatedSummary) {
+    return (
+      <article id="guide-article" className="guide-detail" data-guide-depth="useful-summary" aria-labelledby="guide-title" aria-describedby="guide-summary">
+        <RecentViewTracker item={{ id: entity.id, route: entity.route, title: curatedSummary.title, kind: entity.type }} />
+        <ReadingProgress targetId="guide-article" />
+        <UsefulSummaryGuide entity={entity} summary={curatedSummary} />
+        <div className="section-shell guide-report-row"><a className="report-link" href={reportHref}><Flag aria-hidden /> Report outdated information</a></div>
+        {related.length > 0 ? <section className="section-shell related-section" aria-labelledby="related-title"><div className="listing-heading"><div><span>Continue safely</span><h2 id="related-title">Related published content</h2><p>Selected from shared city and category relationships in the governed dataset.</p></div></div><div className="entity-grid compact-grid">{related.slice(0, 6).map((item) => <EntityCard entity={item} key={item.id} />)}</div></section> : null}
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
+      </article>
+    );
+  }
 
   return (
     <article id="guide-article" className="guide-detail" data-guide-depth={guide ? "practical" : "summary"} aria-labelledby="guide-title" aria-describedby="guide-summary">

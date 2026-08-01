@@ -1,10 +1,12 @@
 import type { Metadata, Viewport } from "next";
+import Script from "next/script";
 import { MotionEnhancer } from "@/components/motion-enhancer";
 import { AnalyticsConsent } from "@/components/analytics-consent";
 import { ServiceWorkerRegister } from "@/components/service-worker-register";
 import { StatusBanner } from "@/components/status-banner";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 import "./globals.css";
+import "./theme.css";
 
 const description = "A practical web and iPhone guide for tourists, students, expats, refugees and new residents in the Netherlands—with local search, city context, saved materials and trusted source links.";
 
@@ -79,8 +81,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     ]
   };
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body>
+        <Script src="/theme-init.js" strategy="beforeInteractive" />
         {children}
         <AnalyticsConsent />
         <StatusBanner />

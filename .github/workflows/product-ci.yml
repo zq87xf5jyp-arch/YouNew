@@ -120,6 +120,76 @@ jobs:
             build \
             CODE_SIGNING_ALLOWED=NO
 
+  ios-ui-smoke:
+    name: iOS accessibility search smoke
+    runs-on: macos-26
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - name: Select Xcode 26.5
+        run: sudo xcode-select -s /Applications/Xcode_26.5.app/Contents/Developer
+      - name: Select an available iPhone simulator
+        id: simulator
+        shell: bash
+        run: |
+          set -euo pipefail
+          device_id="$(python3 - <<'PY'
+          import json
+          import re
+          import subprocess
+
+          payload = json.loads(
+              subprocess.check_output(["xcrun", "simctl", "list", "devices", "available", "-j"])
+          )
+          iphones = [
+              (
+                  tuple(int(part) for part in re.search(r"iOS-(\d+(?:-\d+)*)$", runtime).group(1).split("-")),
+                  device,
+              )
+              for runtime, devices in payload.get("devices", {}).items()
+              if re.search(r"iOS-(\d+(?:-\d+)*)$", runtime)
+              for device in devices
+              if device.get("isAvailable", True) and device.get("name", "").startswith("iPhone")
+          ]
+          if not iphones:
+              raise SystemExit("No available iPhone simulator was found")
+          _, preferred = max(
+              iphones,
+              key=lambda candidate: (
+                  candidate[0],
+                  candidate[1]["name"] == "iPhone 17 Pro",
+              ),
+          )
+          print(preferred["udid"])
+          PY
+          )"
+          echo "id=$device_id" >> "$GITHUB_OUTPUT"
+      - name: Verify accessibility search input and result routing
+        env:
+          NSUnbufferedIO: "YES"
+        run: |
+          set -o pipefail
+          xcodebuild \
+            -project YouNew.xcodeproj \
+            -scheme YouNew \
+            -configuration Debug \
+            -destination "platform=iOS Simulator,id=${{ steps.simulator.outputs.id }}" \
+            -only-testing:YouNewUITests/AccessibilityRuntimeUITests/testAccessibilityTextSizeKeepsSearchUsable \
+            -parallel-testing-enabled NO \
+            -resultBundlePath "$RUNNER_TEMP/YouNewSearchUITests.xcresult" \
+            test \
+            CODE_SIGNING_ALLOWED=NO
+      - name: Upload failed UI-test diagnostics
+        if: failure()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: ios-search-ui-diagnostics-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/YouNewSearchUITests.xcresult
+          if-no-files-found: ignore
+          retention-days: 14
+
   public-site:
     name: Public site validation
     runs-on: ubuntu-24.04

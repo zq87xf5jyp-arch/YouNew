@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { getContentEntities, getContentEntityById, type ContentEntity, type ContentEntityType } from "@/lib/content";
+import { curatedSummaryGuideFor } from "@/lib/content/curated-summary-guides";
 import { publicWebSummary } from "@/lib/content/presentation";
 import { metadataForPage } from "@/lib/seo/metadata";
 
 export function metadataForEntity(entity: ContentEntity): Metadata {
-  const title = entity.type === "city" ? `${entity.title} city guide` : entity.practicalGuide?.seo.title ?? entity.title;
-  const description = entity.practicalGuide?.seo.description ?? publicWebSummary(entity.seo.description);
+  const curatedSummary = curatedSummaryGuideFor(entity.id);
+  const title = entity.type === "city" ? `${entity.title} city guide` : entity.practicalGuide?.seo.title ?? curatedSummary?.title ?? entity.title;
+  const description = entity.practicalGuide?.seo.description ?? curatedSummary?.answer ?? publicWebSummary(entity.seo.description);
   const metadata = metadataForPage(title, description, entity.route);
   return { ...metadata, openGraph: { ...metadata.openGraph, type: "article" } };
 }
