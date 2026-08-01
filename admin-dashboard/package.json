@@ -19,9 +19,9 @@
     "test:e2e:admin": "playwright test --config playwright.config.ts",
     "test:e2e:admin:isolated": "E2E_REPORT_PATH=e2e-reports/admin-e2e-demo.json E2E_MUTATION_MODE=isolated E2E_ISOLATED_PROFILE=demo playwright test --config playwright.config.ts --grep-invert 'missing authentication configuration' && E2E_REPORT_PATH=e2e-reports/admin-e2e-closed.json E2E_MUTATION_MODE=isolated E2E_ISOLATED_PROFILE=closed playwright test --config playwright.config.ts --grep 'missing authentication configuration'",
     "test:e2e:admin:production": "E2E_MUTATION_MODE=production playwright test --config playwright.config.ts",
-    "backup": "sh scripts/backup-postgres.sh",
-    "restore:verify": "sh scripts/restore-postgres.sh",
-    "restore:rehearsal": "sh scripts/restore-rehearsal.sh"
+    "backup": "bash scripts/backup-postgres.sh",
+    "restore:verify": "bash scripts/restore-postgres.sh",
+    "restore:rehearsal": "bash scripts/restore-rehearsal.sh"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.1",

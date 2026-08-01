@@ -1,5 +1,5 @@
-#!/bin/sh
-set -eu
+#!/usr/bin/env bash
+set -euo pipefail
 
 fail() {
   echo "backup-postgres: $*" >&2
@@ -44,10 +44,24 @@ dump_section() {
   section="$1"
   shift
   printf '\n-- YOUNEW_BACKUP_SECTION:%s\n' "$section"
-  supabase db dump \
-    --db-url "$DATABASE_URL" \
-    --file /dev/stdout \
-    "$@"
+  if [ "${SUPABASE_TEMPORARY_ACCESS:-false}" = "true" ]; then
+    # The CLI currently drops libpq URI options from its generated container
+    # environment and forces `--role postgres`. Execute the CLI-generated,
+    # Supabase-filtered script locally so JIT authentication remains read-only.
+    {
+      printf '%s\n' 'export PGOPTIONS="-c jit=true"' 'export PGSSLMODE="require"'
+      supabase db dump \
+        --db-url "$DATABASE_URL" \
+        --file /dev/stdout \
+        --dry-run \
+        "$@"
+    } | sed -E '/^[[:space:]]*--role "postgres"[[:space:]]*\\$/d' | bash
+  else
+    supabase db dump \
+      --db-url "$DATABASE_URL" \
+      --file /dev/stdout \
+      "$@"
+  fi
 }
 
 {

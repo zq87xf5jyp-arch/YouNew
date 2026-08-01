@@ -1,6 +1,7 @@
 -- Read-only post-migration verification.
 -- Run with a privileged SQL reviewer after both proposed migrations.
 
+create temporary table younew_verification_results as
 with checks(name, passed, evidence) as (
   values
     (
@@ -33,9 +34,12 @@ with checks(name, passed, evidence) as (
             'handle_new_admin_user'
           )
           and function_definition.prosecdef
-          and function_definition.proconfig @> array['search_path=pg_catalog']
+          and (
+            function_definition.proconfig @> array['search_path=pg_catalog']
+            or function_definition.proconfig @> array['search_path=""']
+          )
       ),
-      'Expected three SECURITY DEFINER functions with fixed pg_catalog search_path'
+      'Expected three SECURITY DEFINER functions with a fixed empty or pg_catalog search_path'
     ),
     (
       'anonymous helper execution',
@@ -258,6 +262,20 @@ with checks(name, passed, evidence) as (
 select name, passed, evidence
 from checks
 order by name;
+
+select name, passed, evidence
+from younew_verification_results
+order by name;
+
+do $verification$
+begin
+  if exists (
+    select 1 from younew_verification_results where not passed
+  ) then
+    raise exception 'One or more YouNew database verification checks failed';
+  end if;
+end
+$verification$;
 
 -- Anonymous API visibility smoke counts. RLS must expose only published rows.
 begin;

@@ -1,5 +1,5 @@
-#!/bin/sh
-set -eu
+#!/usr/bin/env bash
+set -euo pipefail
 
 fail() {
   echo "restore-postgres: $*" >&2
@@ -14,12 +14,16 @@ archive="${BACKUP_ARCHIVE:-${1:-}}"
 identity_file="${AGE_IDENTITY_FILE:-${2:-}}"
 restore_url="${RESTORE_DATABASE_URL:-${3:-}}"
 report_path="${RESTORE_REPORT_PATH:-./restore-verification.json}"
+prepare_sql="${RESTORE_PREPARE_SQL:-$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)/supabase/verification/prepare_restore_target.sql}"
+post_restore_sql="${RESTORE_POST_SQL:-$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)/supabase/verification/restore_managed_boundaries.sql}"
 
 [ -n "$archive" ] || fail "BACKUP_ARCHIVE or argument 1 is required"
 [ -f "$archive" ] || fail "backup archive does not exist: $archive"
 [ -n "$identity_file" ] || fail "AGE_IDENTITY_FILE or argument 2 is required"
 [ -f "$identity_file" ] || fail "age identity file does not exist: $identity_file"
 [ -n "$restore_url" ] || fail "RESTORE_DATABASE_URL or argument 3 is required"
+[ -f "$prepare_sql" ] || fail "restore preparation SQL does not exist: $prepare_sql"
+[ -f "$post_restore_sql" ] || fail "post-restore SQL does not exist: $post_restore_sql"
 
 case "$restore_url" in
   *"@localhost"*|*"@127.0.0.1"*|*"host=/"*|*"host=%2F"*) ;;
@@ -40,8 +44,12 @@ if [ -f "$manifest_path" ]; then
   [ "$archive_sha256" = "$expected_sha256" ] || fail "archive checksum does not match manifest"
 fi
 
+psql --dbname "$restore_url" --set ON_ERROR_STOP=1 --file "$prepare_sql"
+
 age --decrypt --identity "$identity_file" "$archive" | \
   psql --dbname "$restore_url" --single-transaction --set ON_ERROR_STOP=1
+
+psql --dbname "$restore_url" --set ON_ERROR_STOP=1 --file "$post_restore_sql"
 
 verification_sql="${RESTORE_VERIFICATION_SQL:-$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)/supabase/verification/verify_after_migration.sql}"
 if [ -f "$verification_sql" ]; then
@@ -89,11 +97,12 @@ finished_epoch="$(date +%s)"
 rto_seconds="$((finished_epoch - started_epoch))"
 report_dir="$(dirname "$report_path")"
 mkdir -p "$report_dir"
+verified_at_utc="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
 
 cat > "$report_path" <<EOF
 {
   "verification_version": "1.0",
-  "verified_at_utc": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+  "verified_at_utc": "$verified_at_utc",
   "status": "pass",
   "archive": "$(basename "$archive")",
   "archive_sha256": "$archive_sha256",
@@ -116,4 +125,19 @@ cat > "$report_path" <<EOF
 }
 EOF
 chmod 600 "$report_path"
+
+if [ -f "$manifest_path" ]; then
+  require_command jq
+  updated_manifest="$manifest_path.tmp.$$"
+  jq \
+    --arg verified_at_utc "$verified_at_utc" \
+    --arg restore_report "$(basename "$report_path")" \
+    '.restore_status = "pass"
+      | .restored_at_utc = $verified_at_utc
+      | .restore_report = $restore_report' \
+    "$manifest_path" > "$updated_manifest"
+  chmod 600 "$updated_manifest"
+  mv "$updated_manifest" "$manifest_path"
+fi
+
 printf '%s\n' "$report_path"
