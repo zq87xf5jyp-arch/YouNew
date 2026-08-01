@@ -13,13 +13,22 @@ Rollback is component-specific. Prefer the smallest reversible action that resto
 ## Public website
 
 1. Stop further uploads and preserve the failed artifact and logs.
-2. Use the verified Hostinger backup/restore control or re-upload the last known-good static artifact to the same document root, including `.htaccess` and `.well-known`.
+2. Redeploy the last known-good retained OpenAI Sites version recorded in the release report.
 3. Purge CDN/cache and verify homepage, 404, service worker, assets and headers.
 4. Keep business/feedback status degraded until their end-to-end path is reverified.
 
 Public static rollback does not roll back Supabase data.
 
-The current manual Hostinger backup was created 2026-07-28 12:34 and its `domains/younew.nl/public_html` contents were inspected. Do not execute a live restore merely as a rehearsal: it overwrites production and requires an incident trigger or explicit owner authorization and a verified recovery point.
+Do not execute a live rollback merely as a rehearsal: it changes production and requires an incident trigger or explicit owner authorization and a verified prior Sites version.
+
+## Admin Dashboard
+
+1. Stop the failed Hostinger deployment and preserve its logs and ZIP checksum.
+2. Reactivate the retained last known-good deployment or upload the verified rollback ZIP recorded in the release report.
+3. Verify anonymous login redirect, owner navigation, protected API denial and health endpoints.
+4. Keep mutating operations disabled until authorization and database connectivity are reverified.
+
+Do not use a Hostinger filesystem restore to roll back Supabase data.
 
 ## Edge Functions
 
@@ -38,11 +47,22 @@ Do not reverse a production migration by dropping tables, columns or history.
 4. Dry-run in an isolated/staging database where available.
 5. Apply the compensating migration and re-run RLS/integrity checks.
 
-A whole-database restore is a last-resort incident action because it can discard valid writes made after the backup. It requires owner approval, a measured recovery point, a maintenance window and a tested restore command:
+A whole-database restore is a last-resort incident action because it can discard valid writes made after the backup. It requires owner approval, a measured recovery point, a maintenance window and a successful isolated rehearsal of the exact encrypted archive.
+
+First verify the encrypted archive checksum against its manifest and run the repository rehearsal against an isolated local Supabase/PostgreSQL target:
 
 ```bash
-pg_restore --list 'absolute-backup-file.dump'
-pg_restore --clean --if-exists --no-owner --no-acl --dbname 'secure-target-database-url' 'absolute-backup-file.dump'
+BACKUP_ARCHIVE='absolute-backup-file.dump.age' \
+AGE_IDENTITY_FILE='absolute-age-identity-file' \
+RESTORE_REPORT_PATH='absolute-restore-verification.json' \
+  pnpm --dir admin-dashboard restore:rehearsal
+```
+
+Only during an approved incident window, restore the same age-encrypted logical SQL stream to the secure recovery target:
+
+```bash
+age --decrypt --identity 'absolute-age-identity-file' 'absolute-backup-file.dump.age' | \
+  psql --dbname 'secure-target-database-url' --single-transaction --set ON_ERROR_STOP=1
 ```
 
 Never paste the database URL into tickets or repository files.
