@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ADMIN_META_CONTENT_SECURITY_POLICY } from "@/lib/security-policy";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -10,6 +11,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="ru" className="dark">
+      <head>
+        <meta httpEquiv="Content-Security-Policy" content={ADMIN_META_CONTENT_SECURITY_POLICY} />
+      </head>
       <body>{children}</body>
     </html>
   );

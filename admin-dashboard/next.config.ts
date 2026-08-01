@@ -1,20 +1,5 @@
 import type { NextConfig } from "next";
-
-const contentSecurityPolicy = [
-  "default-src 'self'",
-  "base-uri 'self'",
-  "form-action 'self'",
-  "frame-ancestors 'none'",
-  "object-src 'none'",
-  "script-src 'self' 'unsafe-inline'",
-  "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob: https://*.supabase.co",
-  "font-src 'self' data:",
-  "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
-  "worker-src 'self' blob:",
-  "manifest-src 'self'",
-  "upgrade-insecure-requests"
-].join("; ");
+import { ADMIN_CONTENT_SECURITY_POLICY } from "./src/lib/security-policy";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
@@ -24,7 +9,7 @@ const nextConfig: NextConfig = {
       {
         source: "/:path*",
         headers: [
-          { key: "Content-Security-Policy", value: contentSecurityPolicy },
+          { key: "Content-Security-Policy", value: ADMIN_CONTENT_SECURITY_POLICY },
           { key: "Cross-Origin-Opener-Policy", value: "same-origin" },
           { key: "Strict-Transport-Security", value: "max-age=31536000" },
           { key: "X-Content-Type-Options", value: "nosniff" },

@@ -35,17 +35,26 @@ test("workspace handoff endpoint is private and never uses a service-role browse
 });
 
 test("admin responses enforce a bounded CSP and transport security", async () => {
-  const source = await readFile(new URL("../next.config.ts", import.meta.url), "utf8");
+  const nextConfig = await readFile(new URL("../next.config.ts", import.meta.url), "utf8");
+  const policy = await readFile(new URL("../src/lib/security-policy.ts", import.meta.url), "utf8");
+  const layout = await readFile(new URL("../src/app/layout.tsx", import.meta.url), "utf8");
   for (const required of [
-    "Content-Security-Policy",
     "default-src 'self'",
     "frame-ancestors 'none'",
     "object-src 'none'",
-    "connect-src 'self' https://*.supabase.co wss://*.supabase.co",
+    "connect-src 'self' https://*.supabase.co wss://*.supabase.co"
+  ]) {
+    assert.match(policy, new RegExp(required.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  }
+  for (const required of [
+    "Content-Security-Policy",
+    "ADMIN_CONTENT_SECURITY_POLICY",
     "Strict-Transport-Security",
     "Cross-Origin-Opener-Policy"
   ]) {
-    assert.match(source, new RegExp(required.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.match(nextConfig, new RegExp(required.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
   }
-  assert.doesNotMatch(source, /script-src[^"\n]*https?:\/\/(?!\*\.supabase\.co)/);
+  assert.match(layout, /httpEquiv="Content-Security-Policy"/);
+  assert.match(layout, /ADMIN_META_CONTENT_SECURITY_POLICY/);
+  assert.doesNotMatch(policy, /script-src[^"\n]*https?:\/\/(?!\*\.supabase\.co)/);
 });
