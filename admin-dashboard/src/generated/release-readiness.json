@@ -11,9 +11,9 @@
   "evidence": {
     "public_site": {
       "deployment": "live",
-      "sites_version": 29,
-      "html_files": 579,
-      "indexable_urls": 572,
+      "sites_version": 30,
+      "html_files": 578,
+      "indexable_urls": 571,
       "tests_passed": 108,
       "route_smoke": "pass",
       "security_headers": "pass"
@@ -64,7 +64,7 @@
     }
   },
   "proven": [
-    "Public Site version 29 опубликован; route, redirect, 404 и security-header smoke прошли",
+    "Public Site version 30 опубликован; route, redirect, 404 и security-header smoke прошли",
     "Admin active production bundle опубликован; 29 тестов, build и Browser smoke прошли",
     "Draft PR #27 release branch прошёл обязательные GitHub checks",
     "Supabase ACTIVE_HEALTHY; 13 managed migrations и 4 active Edge Functions",
