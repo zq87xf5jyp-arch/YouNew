@@ -41,10 +41,12 @@ type LatestUpdate = Readonly<{
 const profileLabels: Record<SavedPlannerState["profile"], string> = {
   "new-resident": "New resident",
   student: "Student",
+  expat: "Expat",
   worker: "Worker",
   refugee: "Refugee",
   tourist: "Tourist",
-  resident: "Resident"
+  resident: "Resident",
+  "prefer-not-to-say": "Prefer not to say"
 };
 
 const goalById = new Map<PlannerGoalId, (typeof plannerGoals)[number]>(

@@ -53,11 +53,6 @@ export function SiteHeaderEnhancements() {
       if (restoreFocus) menuSummary?.focus();
     };
 
-    const focusableMenuItems = () => {
-      if (!mobileMenu || !menuSummary) return [];
-      return [menuSummary, ...mobileMenu.querySelectorAll<HTMLAnchorElement>("nav a[href]")];
-    };
-
     const handleMenuToggle = () => {
       if (!mobileMenu || !menuSummary) return;
       if (mobileMenu.open) {
@@ -70,20 +65,6 @@ export function SiteHeaderEnhancements() {
       if (event.key === "Escape") {
         event.preventDefault();
         closeMenu(true);
-        return;
-      }
-      if (event.key !== "Tab") return;
-
-      const focusableItems = focusableMenuItems();
-      if (focusableItems.length === 0) return;
-      const firstItem = focusableItems[0];
-      const lastItem = focusableItems[focusableItems.length - 1];
-      if (event.shiftKey && document.activeElement === firstItem) {
-        event.preventDefault();
-        lastItem.focus();
-      } else if (!event.shiftKey && document.activeElement === lastItem) {
-        event.preventDefault();
-        firstItem.focus();
       }
     };
 

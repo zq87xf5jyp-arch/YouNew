@@ -38,7 +38,7 @@ export function ProfileSelector() {
   function choose(profile: UserPathProfile) {
     setSelected(profile);
     localContentRepository.setProfile(profile);
-    track({ name: "profile_selected", profile });
+    track({ name: "profile_selected" });
   }
 
   return (

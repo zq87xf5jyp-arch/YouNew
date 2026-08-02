@@ -18,6 +18,12 @@ const rotterdam: PlannerMunicipality = {
   officialWebsite: "https://www.rotterdam.nl/en"
 };
 
+const national: PlannerMunicipality = {
+  slug: "national",
+  name: "National guidance",
+  officialWebsite: "https://www.government.nl/"
+};
+
 const guides: readonly PlannerGuideRoute[] = [
   {
     id: "government_service.first-registration-in-amsterdam",
@@ -86,4 +92,17 @@ test("planner keeps emergency guidance inside the dedicated YouNew route", () =>
     href: "/emergency/",
     external: false
   }]);
+});
+
+test("national routes never invent a municipality page", () => {
+  const actions = buildPlannerActions({
+    profile: "prefer-not-to-say",
+    municipality: national,
+    goalIds: ["registration"],
+    guides
+  });
+  assert.equal(actions.some((action) => action.href.includes("/municipalities/national")), false);
+  assert.match(actions[0]?.href ?? "", /^\/search\/\?/);
+  assert.equal(actions[0]?.href.includes("city=national"), false);
+  assert.equal(actions[0]?.href.includes("profile="), false);
 });

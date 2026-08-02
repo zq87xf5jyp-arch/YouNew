@@ -153,7 +153,7 @@ test("analytics provider batches events and sends no credentials or referrer", a
   });
 
   provider.track({ name: "page_view", path: "/discover/?private=value" });
-  provider.track({ name: "profile_selected", profile: "expat" });
+  provider.track({ name: "profile_selected" });
   assert.equal(requests.length, 0);
   assert.ok(scheduled);
 
@@ -167,7 +167,7 @@ test("analytics provider batches events and sends no credentials or referrer", a
   const payload = JSON.parse(String(requests[0].init?.body)) as { events: Array<Record<string, unknown>> };
   assert.equal(payload.events.length, 2);
   assert.equal(payload.events[0].screen, "/discover/");
-  assert.deepEqual(payload.events[1].properties, { profile: "expat" });
+  assert.deepEqual(payload.events[1].properties, {});
 });
 
 test("invalid analytics configuration fails closed without a request", async () => {

@@ -1,4 +1,4 @@
-const CACHE_VERSION = "younew-web-a7b246ae5b17";
+const CACHE_VERSION = "younew-web-27ebfc27d30d";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const GUIDE_CACHE = `${CACHE_VERSION}-guides`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;

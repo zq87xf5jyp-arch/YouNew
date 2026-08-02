@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { type KeyboardEvent, useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ShieldCheck } from "lucide-react";
 import siteConfig from "@/config/site-config.json";
@@ -69,6 +69,10 @@ export function AnalyticsConsent() {
   const pathname = usePathname();
   const providerRef = useRef<AnalyticsProvider | undefined>(undefined);
   const consentGrantPendingRef = useRef(false);
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLElement>(null);
+  const declineRef = useRef<HTMLButtonElement>(null);
+  const previousFocusRef = useRef<HTMLElement | null>(null);
   const [choice, setChoice] = useState<ConsentChoice | null>(null);
   const [isReady, setIsReady] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -79,6 +83,12 @@ export function AnalyticsConsent() {
     setSettingsOpen(storedChoice === null && !browserPrivacySignalEnabled());
     setIsReady(true);
   }, []);
+
+  useEffect(() => {
+    if (!settingsOpen) return;
+    previousFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
+    window.requestAnimationFrame(() => declineRef.current?.focus());
+  }, [settingsOpen]);
 
   useEffect(() => {
     if (!isReady || choice !== "accepted" || !siteConfig.analytics.enabled) return;
@@ -123,6 +133,7 @@ export function AnalyticsConsent() {
     saveConsent("accepted");
     setChoice("accepted");
     setSettingsOpen(false);
+    window.requestAnimationFrame(() => triggerRef.current?.focus());
   };
 
   const decline = () => {
@@ -130,12 +141,39 @@ export function AnalyticsConsent() {
     clearAnalyticsSession();
     setChoice("declined");
     setSettingsOpen(false);
+    window.requestAnimationFrame(() => triggerRef.current?.focus());
+  };
+
+  const closeSettings = () => {
+    setSettingsOpen(false);
+    window.requestAnimationFrame(() => (triggerRef.current ?? previousFocusRef.current)?.focus());
+  };
+
+  const handleDialogKeyDown = (event: KeyboardEvent<HTMLElement>) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeSettings();
+      return;
+    }
+    if (event.key !== "Tab") return;
+    const focusable = [...(dialogRef.current?.querySelectorAll<HTMLElement>('a[href],button:not([disabled])') ?? [])];
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first.focus();
+    }
   };
 
   return (
     <>
       {!settingsOpen ? (
         <button
+          ref={triggerRef}
           type="button"
           className="analytics-settings-trigger"
           onClick={() => setSettingsOpen(true)}
@@ -147,10 +185,12 @@ export function AnalyticsConsent() {
       ) : null}
       {settingsOpen ? (
         <section
+          ref={dialogRef}
           className="analytics-consent"
           role="dialog"
           aria-modal="true"
           aria-labelledby="analytics-consent-title"
+          onKeyDown={handleDialogKeyDown}
         >
           <div>
             <p className="analytics-consent-eyebrow">Your privacy choice</p>
@@ -166,7 +206,7 @@ export function AnalyticsConsent() {
             </p>
           </div>
           <div className="analytics-consent-actions">
-            <button type="button" className="button-secondary" onClick={decline}>
+            <button ref={declineRef} type="button" className="button-secondary" onClick={decline}>
               Decline analytics
             </button>
             <button type="button" className="button-primary" onClick={accept}>

@@ -265,6 +265,9 @@ export const localContentRepository = {
       : [{ ...item, savedAt: new Date().toISOString() }, ...current].slice(0, 250);
     return write(keys.saved, next) ? !exists : exists;
   },
+  clearSaved(): boolean {
+    return remove(keys.saved);
+  },
   recent(): RecentContentItem[] {
     return sanitizeRecentContentItems(read<unknown>(keys.recent, []));
   },
