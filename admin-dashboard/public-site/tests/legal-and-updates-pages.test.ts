@@ -20,7 +20,7 @@ test("updates page derives the Amsterdam release from published content", async 
     releaseId.startsWith("amsterdam-v")
   );
 
-  assert.equal(currentRelease, "amsterdam-v0.1.5");
+  assert.equal(currentRelease, "amsterdam-v0.1.6");
   assert.match(source, /publishedReleaseIds\.find\(\(releaseId\) => releaseId\.startsWith\("amsterdam-v"\)\)/);
   assert.doesNotMatch(source, /amsterdam-v0\.1\.4/);
 });

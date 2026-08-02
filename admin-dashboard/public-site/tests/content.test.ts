@@ -16,7 +16,7 @@ const generator = (await import(new URL("scripts/generate-public-content.mjs", s
 
 test("generated public content comes only from governed production releases", () => {
   assert.equal(provenance.sourceMode, "production");
-  assert.deepEqual(provenance.acceptedReleaseIds, ["amsterdam-v0.1.5", "cities-v0.1.0"]);
+  assert.deepEqual(provenance.acceptedReleaseIds, ["amsterdam-v0.1.6", "cities-v0.1.0"]);
   assert.equal(content.stats.entities, provenance.counts.acceptedRecords);
   assert.equal(content.entities.length, content.stats.entities);
   assert.ok(content.entities.every((entity: { status: string; releaseId: string; trust: { sourceChecked: boolean } }) =>
@@ -29,6 +29,7 @@ test("generated public content comes only from governed production releases", ()
     entity.id === "event.worldpride-amsterdam-2026-pride-park" ||
     entity.id === "event.worldpride-amsterdam-2026-open-air-film-festival" ||
     entity.id === "event.worldpride-amsterdam-2026-senior-pride-concert" ||
+    entity.id === "event.worldpride-amsterdam-2026-canal-parade" ||
     entity.id === "restaurant.breda"
   ));
   assert.ok(content.entities.every((entity: { governance: unknown }) => entity.governance === null));

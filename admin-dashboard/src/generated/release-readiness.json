@@ -38,7 +38,8 @@
     },
     "data_project": {
       "governed_records": 450,
-      "public_records": 183,
+      "public_records": 182,
+      "current_release": "amsterdam-v0.1.6",
       "summary_guides": 15,
       "production_ready_full_guides": 0
     },

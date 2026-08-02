@@ -1,11 +1,11 @@
 {
-  "datasetFingerprint": "23956b0e95a6f9080edaf51822a66021b769861111e1f072b7c1a45b2e477a2f",
+  "datasetFingerprint": "391d9da3adcd35e325d42c845ec07e1e1a063c81a66ea689672372b163b74178",
   "entities": [
     {
       "aiSummary": "Use the official Back to Black page for Back to Black and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 276273532",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -102,7 +102,7 @@
       "aiSummary": "Use the official Bakers & Roasters page for Bakers & Roasters and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under brunch cafe and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4500910636",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -199,7 +199,7 @@
       "aiSummary": "Use the official Bocca Coffee page for Bocca Coffee and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2729944123",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -296,7 +296,7 @@
       "aiSummary": "Use the official Café de Jaren page for Café de Jaren and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under grand cafe and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 251823631",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -393,7 +393,7 @@
       "aiSummary": "Use the official Coffee & Coconuts page for Coffee & Coconuts and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under cafe and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 10862496229",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -490,7 +490,7 @@
       "aiSummary": "Use the official Coffee Bru page for Coffee Bru and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2095611808",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -587,7 +587,7 @@
       "aiSummary": "Use the official De Koffiesalon page for De Koffiesalon and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 12014521066",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -684,7 +684,7 @@
       "aiSummary": "Use the official Dignita page for Dignita Hoftuin and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under brunch cafe and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 303990001",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -781,7 +781,7 @@
       "aiSummary": "Use the official Friedhats Coffee page for FUKU Friedhats and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 9197114209",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -878,7 +878,7 @@
       "aiSummary": "Use the official Koffie Academie page for Koffie Academie and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4846043122",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -975,7 +975,7 @@
       "aiSummary": "Use the official Lot Sixty One page for Lot Sixty One Coffee Roasters and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee roastery and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 494157331",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -1072,7 +1072,7 @@
       "aiSummary": "Use the official Monks Coffee Roasters page for Monks Coffee Roasters and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 5651692839",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -1169,7 +1169,7 @@
       "aiSummary": "Use the official Pluk Amsterdam page for Pluk Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under cafe and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2721938717",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -1266,7 +1266,7 @@
       "aiSummary": "Use the official Rum Baba page for Rum Baba and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee bakery and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2052027474",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -1363,7 +1363,7 @@
       "aiSummary": "Use the official Saint-Jean page for Saint-Jean and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under bakery cafe and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 8373636815",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -1460,7 +1460,7 @@
       "aiSummary": "Use the official Scandinavian Embassy page for Scandinavian Embassy and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2818009898",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -1557,7 +1557,7 @@
       "aiSummary": "Use the official Screaming Beans page for Screaming Beans and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee roastery and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1310911737",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -1654,7 +1654,7 @@
       "aiSummary": "Use the official Toki page for Toki and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 5055285839",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -1751,7 +1751,7 @@
       "aiSummary": "Use the official Uncommon Amsterdam page for Uncommon Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2809446943",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -1848,7 +1848,7 @@
       "aiSummary": "Use the official White Label Coffee page for White Label Coffee and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee roastery and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2811984970",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "cafe",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -2435,7 +2435,7 @@
       "aiSummary": "Use the official Amsterdam University College page for Amsterdam University College and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under liberal arts sciences and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 8364364180",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "education",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -2496,7 +2496,7 @@
       "aiSummary": "Use the official Amsterdam University of Applied Sciences page for Amsterdam University of Applied Sciences and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under university of applied sciences and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2825111440",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "education",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -2557,7 +2557,7 @@
       "aiSummary": "Use the official Conservatorium van Amsterdam page for Conservatorium van Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under music conservatory and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2743728892",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "education",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -2618,7 +2618,7 @@
       "aiSummary": "Use the official Gerrit Rietveld Academie page for Gerrit Rietveld Academie and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under art design academy and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 25744051",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "education",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -2679,7 +2679,7 @@
       "aiSummary": "Use the official Hotelschool The Hague page for Hotelschool The Hague Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under hospitality education and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: relation 5442482",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "education",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -2740,7 +2740,7 @@
       "aiSummary": "Use the official Inholland University of Applied Sciences page for Inholland Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under university of applied sciences and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 11010942197",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "education",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -2801,7 +2801,7 @@
       "aiSummary": "Use the official ROC van Amsterdam page for ROC van Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under vocational education and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2350866815",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "education",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -2862,7 +2862,7 @@
       "aiSummary": "Use the official Tio Business School page for Tio Business School Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under private higher education and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 9041240495",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "education",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -2923,7 +2923,7 @@
       "aiSummary": "Use the official University of Amsterdam page for University of Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under research university and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 311971362",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "education",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -2984,7 +2984,7 @@
       "aiSummary": "Use the official Vrije Universiteit Amsterdam page for Vrije Universiteit Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under research university and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: relation 17280826",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "education",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -3042,73 +3042,10 @@
       "verificationStatus": "verified"
     },
     {
-      "aiSummary": "Use the official Pride Amsterdam page for WorldPride Amsterdam 2026 Canal Parade and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under parade and does not treat AI text as a factual source.",
-      "attributes": {
-        "coordinate_source": "OpenStreetMap Nominatim: way 32749237",
-        "dataProjectRelease": "amsterdam-v0.1.5",
-        "editorialEntityType": "event",
-        "end_date": "2026-08-01",
-        "lifecycleStatus": "published",
-        "media_match": "contextual",
-        "media_roles_count": "1",
-        "source_final_url": "https://pride.amsterdam/en/event/canal-parade/",
-        "source_http_status": "200",
-        "source_verification_method": "direct request",
-        "start_date": "2026-08-01",
-        "verificationStatus": "verified"
-      },
-      "category": "parade",
-      "cityId": "amsterdam",
-      "coordinate": {
-        "latitude": 52.375223,
-        "longitude": 4.8832819
-      },
-      "id": "event.worldpride-amsterdam-2026-canal-parade",
-      "images": [
-        {
-          "alt": "",
-          "assetURL": "https://live.staticflickr.com/420/20279550942_351bca2c7e_b.jpg",
-          "attribution": "\"Amsterdam Pride 2015\" by Kyle Taylor, Dream It. Do It. is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-          "id": "media.event.worldpride-amsterdam-2026-canal-parade.hero.81d692bb21",
-          "license": "CC BY 2.0",
-          "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
-          "retrievedAt": "2026-07-18",
-          "role": "hero",
-          "sourcePageURL": "https://www.flickr.com/photos/95672737@N00/20279550942",
-          "verified": true
-        }
-      ],
-      "keywords": [
-        "Noord-Holland",
-        "WorldPride Amsterdam 2026 Canal Parade",
-        "WorldPride Amsterdam 2026 Canal Parade Amsterdam",
-        "current event Amsterdam",
-        "parade"
-      ],
-      "kind": "event",
-      "lastChecked": "2026-07-18",
-      "provinceId": "noord-holland",
-      "publicationStatus": "published",
-      "relatedEntityIDs": [
-        "city.amsterdam"
-      ],
-      "source": {
-        "checkedAt": "2026-07-18",
-        "isOfficial": true,
-        "publisher": "Pride Amsterdam",
-        "status": "verified_opened",
-        "title": "WorldPride Amsterdam 2026 Canal Parade official website",
-        "url": "https://pride.amsterdam/en/event/canal-parade/"
-      },
-      "summary": "WorldPride Amsterdam 2026 Canal Parade is a confirmed Amsterdam current event. The cited source specifically covers the official canal parade on 1 August 2026. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
-      "title": "WorldPride Amsterdam 2026 Canal Parade",
-      "verificationStatus": "verified"
-    },
-    {
       "aiSummary": "Use the official Pride Amsterdam page for WorldPride Amsterdam 2026 Closing Concert and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under concert and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 25965389",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "event",
         "end_date": "2026-08-08",
         "lifecycleStatus": "published",
@@ -3171,7 +3108,7 @@
       "aiSummary": "Use the official Pride Amsterdam page for WorldPride Amsterdam 2026 Human Rights Conference and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under conference and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 57858502",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "event",
         "end_date": "2026-08-07",
         "lifecycleStatus": "published",
@@ -3234,7 +3171,7 @@
       "aiSummary": "Use the official Pride Amsterdam page for WorldPride Amsterdam 2026 UNITY Concert and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under concert and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 25965389",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "event",
         "end_date": "2026-08-04",
         "lifecycleStatus": "published",
@@ -3297,7 +3234,7 @@
       "aiSummary": "Use the official Pride Amsterdam page for WorldPride Amsterdam 2026 WorldPride March and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under march and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 21592446",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "event",
         "end_date": "2026-08-08",
         "lifecycleStatus": "published",
@@ -3360,7 +3297,7 @@
       "aiSummary": "Use the official Pride Amsterdam page for WorldPride Amsterdam 2026 WorldPride Village and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under festival village and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 25965389",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "event",
         "end_date": "2026-08-08",
         "lifecycleStatus": "published",
@@ -3423,7 +3360,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Driving licence Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under driving documents and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "government_service",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -3484,7 +3421,7 @@
       "aiSummary": "Use the official City of Amsterdam page for First registration in Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under civil affairs and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "government_service",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -3545,7 +3482,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Marriage and registered partnership Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under civil status and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "government_service",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -3606,7 +3543,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Moving within Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under civil affairs and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "government_service",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -3667,7 +3604,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Municipal taxes Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under municipal taxes and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "government_service",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -3728,7 +3665,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Parking permit Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under parking and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "government_service",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -3789,7 +3726,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Passport and ID card Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under identity documents and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "government_service",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -3850,7 +3787,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Registering a birth in Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under civil status and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "government_service",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -3911,7 +3848,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Report a problem in public space Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under public space and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "government_service",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -3972,7 +3909,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Waste and recycling Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under waste recycling and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "government_service",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -4033,7 +3970,7 @@
       "aiSummary": "Use the official ACTA page for ACTA and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under dental academic centre and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 26401769",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "healthcare",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -4094,7 +4031,7 @@
       "aiSummary": "Use the official Amsterdam UMC page for Amsterdam UMC location AMC and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under academic hospital and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 11575103",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "healthcare",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -4155,7 +4092,7 @@
       "aiSummary": "Use the official Amsterdam UMC page for Amsterdam UMC location VUmc and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under academic hospital and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 25723907",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "healthcare",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -4216,7 +4153,7 @@
       "aiSummary": "Use the official Antoni van Leeuwenhoek page for Antoni van Leeuwenhoek and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under cancer centre and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 25711528",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "healthcare",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -4277,7 +4214,7 @@
       "aiSummary": "Use the official Arkin page for Arkin and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under mental healthcare and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2847025692",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "healthcare",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -4338,7 +4275,7 @@
       "aiSummary": "Use the official BovenIJ page for BovenIJ hospital and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under hospital and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 37379077",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "healthcare",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -4399,7 +4336,7 @@
       "aiSummary": "Use the official GGD Amsterdam page for GGD Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under public health and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4618686689",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "healthcare",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -4460,7 +4397,7 @@
       "aiSummary": "Use the official OLVG page for OLVG East and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under hospital and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2825262825",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "healthcare",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -4521,7 +4458,7 @@
       "aiSummary": "Use the official OLVG page for OLVG West and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under hospital and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 750745530",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "healthcare",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -4582,7 +4519,7 @@
       "aiSummary": "Use the official Reade page for Reade Overtoom and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rehabilitation care and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 152508198",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "healthcare",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -4643,7 +4580,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Affordable housing Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under municipal housing information and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "housing",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -4704,7 +4641,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Housing permit Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under municipal housing service and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "housing",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -4765,7 +4702,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Renting a home in Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under municipal housing information and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap way 751591420 (Stopera / City Hall)",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "housing",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -4826,7 +4763,7 @@
       "aiSummary": "Use the official WoningNet page for WoningNet Stadsregio Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under social housing platform and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "Amsterdam service-area centroid from city.amsterdam",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "housing",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -4887,7 +4824,7 @@
       "aiSummary": "Use the official !WOON page for !WOON and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under tenant support and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 485713815",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "housing",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -4948,7 +4885,7 @@
       "aiSummary": "Use the official citizenM page for citizenM Amsterdam South and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under hotel and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 13406510847",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "local_partner",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -5049,7 +4986,7 @@
       "aiSummary": "Use the official Everaert Advocaten page for Everaert Advocaten and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under immigration law and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "Existing audited runtime partner baseline",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "local_partner",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -5150,7 +5087,7 @@
       "aiSummary": "Use the official Funda page for Funda and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under real estate platform and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "Existing audited Amsterdam service-area centroid",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "local_partner",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -5253,7 +5190,7 @@
       "aiSummary": "Use the official IKEA page for IKEA Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under home furnishing and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2862917377",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "local_partner",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -5354,7 +5291,7 @@
       "aiSummary": "Use the official ING page for ING Group and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under banking and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2862839749",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "local_partner",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -5455,7 +5392,7 @@
       "aiSummary": "Use the official MacBike page for MacBike Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under bike rental and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 60868596",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "local_partner",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -5558,7 +5495,7 @@
       "aiSummary": "Use the official Rob Peetoom page for Rob Peetoom Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under personal care and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4742005134",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "local_partner",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -5659,7 +5596,7 @@
       "aiSummary": "Use the official TCA page for TCA Taxi Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under taxi and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "Existing audited Amsterdam service-area centroid",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "local_partner",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -5760,7 +5697,7 @@
       "aiSummary": "Use the official UvA Talen page for UvA Talen and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under language school and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "Existing audited runtime partner baseline",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "local_partner",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -5861,7 +5798,7 @@
       "aiSummary": "Use the official Van der Valk Hotel Amsterdam-Amstel page for Van der Valk Hotel Amsterdam-Amstel and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under hotel and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4911092859",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "local_partner",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -5962,7 +5899,7 @@
       "aiSummary": "Use the official Allard Pierson page for Allard Pierson and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under heritage collections and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 34050791",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -6059,7 +5996,7 @@
       "aiSummary": "Use the official Amsterdam Museum page for Amsterdam Museum and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under city history and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 34050790",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -6156,7 +6093,7 @@
       "aiSummary": "Use the official Anne Frank House page for Anne Frank House and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under history memorial and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 601081859",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -6253,7 +6190,7 @@
       "aiSummary": "Use the official ARTIS-Micropia page for ARTIS-Micropia and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under microbiology and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2742996030",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -6350,7 +6287,7 @@
       "aiSummary": "Use the official Dutch Resistance Museum page for Dutch Resistance Museum and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under war history and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 440419242",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -6447,7 +6384,7 @@
       "aiSummary": "Use the official Eye Filmmuseum page for Eye Filmmuseum and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under film and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 12662916563",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -6544,7 +6481,7 @@
       "aiSummary": "Use the official Foam page for Foam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under photography and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 250624672",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -6641,7 +6578,7 @@
       "aiSummary": "Use the official H'ART Museum page for H'ART Museum and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under art and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2742811299",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -6738,7 +6675,7 @@
       "aiSummary": "Use the official Het Scheepvaartmuseum page for Het Scheepvaartmuseum and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under maritime history and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 1287492683",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -6835,7 +6772,7 @@
       "aiSummary": "Use the official Huis Marseille page for Huis Marseille and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under photography and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1237228907",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -6932,7 +6869,7 @@
       "aiSummary": "Use the official Jewish Cultural Quarter page for Jewish Museum and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under cultural history and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 57857987",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -7029,7 +6966,7 @@
       "aiSummary": "Use the official Museum of the Canals page for Museum of the Canals and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under urban history and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4909411075",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -7126,7 +7063,7 @@
       "aiSummary": "Use the official Museum Ons' Lieve Heer op Solder page for Museum Ons' Lieve Heer op Solder and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under religious history and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 12837827701",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -7223,7 +7160,7 @@
       "aiSummary": "Use the official Museum Rembrandthuis page for Museum Rembrandthuis and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under art history and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 250624673",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -7320,7 +7257,7 @@
       "aiSummary": "Use the official Museum Van Loon page for Museum Van Loon and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under canal house history and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 34050759",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -7417,7 +7354,7 @@
       "aiSummary": "Use the official NEMO Science Museum page for NEMO Science Museum and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under science and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2741083161",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -7514,7 +7451,7 @@
       "aiSummary": "Use the official Rijksmuseum page for Rijksmuseum and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under art history and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 29989787",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -7611,7 +7548,7 @@
       "aiSummary": "Use the official Stedelijk Museum Amsterdam page for Stedelijk Museum Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under modern art design and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 44508819",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -7708,7 +7645,7 @@
       "aiSummary": "Use the official Van Gogh Museum page for Van Gogh Museum and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under art and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: relation 6577680",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -7805,7 +7742,7 @@
       "aiSummary": "Use the official Wereldmuseum Amsterdam page for Wereldmuseum Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under world cultures and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 26611707",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "museum",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -7902,7 +7839,7 @@
       "aiSummary": "Use the official Amsterdamse Bos page for Amsterdamse Bos and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under urban forest and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 26517033",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "nature",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -7999,7 +7936,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Erasmuspark and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under city park and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 419752293",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "nature",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -8096,7 +8033,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Noorderpark and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under city park and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 604753359",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "nature",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -8193,7 +8130,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Oosterpark and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under city park and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 4366722",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "nature",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -8290,7 +8227,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Park Frankendael and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under city park and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 338752113",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "nature",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -8387,7 +8324,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Rembrandtpark and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under city park and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: relation 14035050",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "nature",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -8484,7 +8421,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Sarphatipark and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under city park and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 6316270",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "nature",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -8581,7 +8518,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Sloterpark and Sloterplas and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under park lake and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 487473058",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "nature",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -8678,7 +8615,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Vondelpark and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under city park and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: relation 17080648",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "nature",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -8775,7 +8712,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Westerpark and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under city park and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 23935953",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "nature",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -8872,7 +8809,7 @@
       "aiSummary": "Use the official A'DAM LOOKOUT page for A'DAM LOOKOUT and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under observation deck and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4382053996",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -8969,7 +8906,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Albert Cuyp Market and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under market and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: relation 7112728",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -9066,7 +9003,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Amsterdam Centrum and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under district and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1525015190",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -9163,7 +9100,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Amsterdam Nieuw-West and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under district and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 8375203700",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -9260,7 +9197,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Amsterdam Noord and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under district and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 46520877",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -9357,7 +9294,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Amsterdam Oost and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under district and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2853598185",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -9454,7 +9391,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Amsterdam West and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under district and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 46338568",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -9551,7 +9488,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Amsterdam Westpoort and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under district and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2600712512",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -9648,7 +9585,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Amsterdam Zuid and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under district and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 5252944882",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -9745,7 +9682,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Amsterdam Zuidoost and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under district and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 10002346488",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -9842,7 +9779,7 @@
       "aiSummary": "Use the official ARTIS page for ARTIS and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under zoo and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 4366723",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -9939,7 +9876,7 @@
       "aiSummary": "Use the official Gemeente Amsterdam page for Begijnhof and recheck current visitor conditions before acting. This record supports search and routing for the historic courtyard without treating AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 26658363",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -10036,7 +9973,7 @@
       "aiSummary": "Use the official I amsterdam page for Bloemenmarkt and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under market and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 145953534",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -10133,7 +10070,7 @@
       "aiSummary": "Use the official I amsterdam page for Dam Square and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under public square and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 94756489",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -10232,7 +10169,7 @@
       "aiSummary": "Use the official De Hallen Amsterdam page for De Hallen Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under culture shopping and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 94517266",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -10329,7 +10266,7 @@
       "aiSummary": "Use the official De Nieuwe Kerk Amsterdam page for De Nieuwe Kerk Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under church exhibition venue and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 261633545",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -10426,7 +10363,7 @@
       "aiSummary": "Use the official Heineken Experience page for Heineken Experience and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under industrial heritage attraction and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2817515795",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -10523,7 +10460,7 @@
       "aiSummary": "Use the official Hortus Botanicus Amsterdam page for Hortus Botanicus Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under botanical garden and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 31527079",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -10620,7 +10557,7 @@
       "aiSummary": "Use the official Johan Cruijff ArenA page for Johan Cruijff ArenA and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under stadium and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: relation 1458682",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -10717,7 +10654,7 @@
       "aiSummary": "Use the official NDSM page for NDSM and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under creative district and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 177431282",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -10814,7 +10751,7 @@
       "aiSummary": "Use the official OBA page for OBA Oosterdok and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under public library and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 251154465",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -10911,7 +10848,7 @@
       "aiSummary": "Use the official Oude Kerk page for Oude Kerk and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under church cultural venue and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 57857592",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -11008,7 +10945,7 @@
       "aiSummary": "Use the official Royal Palace Amsterdam page for Royal Palace Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under historic attraction and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: relation 3580875",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -11105,7 +11042,7 @@
       "aiSummary": "Use the official UNESCO World Heritage Centre page for Seventeenth-Century Canal Ring of Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under unesco world heritage and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 222278733",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -11204,7 +11141,7 @@
       "aiSummary": "Use the official THIS IS HOLLAND page for THIS IS HOLLAND and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under visitor attraction and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4831331895",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -11301,7 +11238,7 @@
       "aiSummary": "Use the official City of Amsterdam page for Waterlooplein Market and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under market and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1611202846",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -11398,7 +11335,7 @@
       "aiSummary": "Use the official Westerkerk page for Westerkerk and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under church landmark and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 99205257",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -11495,7 +11432,7 @@
       "aiSummary": "Use the official WONDR Experience page for WONDR Experience and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under interactive attraction and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2848746081",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "place",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -11592,7 +11529,7 @@
       "aiSummary": "Use the official BAK page for BAK and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4576253335",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -11689,7 +11626,7 @@
       "aiSummary": "Use the official Bougainville page for Bougainville and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 6192682978",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -11786,7 +11723,7 @@
       "aiSummary": "Use the official Café Caron page for Café Caron and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2817453062",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -11883,7 +11820,7 @@
       "aiSummary": "Use the official Café Restaurant Amsterdam page for Café Restaurant Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 283241256",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -11980,7 +11917,7 @@
       "aiSummary": "Use the official Cannibale Royale page for Cannibale Royale and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2817611219",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -12077,7 +12014,7 @@
       "aiSummary": "Use the official Choux page for Choux and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2743728350",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -12174,7 +12111,7 @@
       "aiSummary": "Use the official Ciel Bleu page for Ciel Bleu and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4162314589",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -12271,7 +12208,7 @@
       "aiSummary": "Use the official Coulisse page for Coulisse and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2816343570",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -12368,7 +12305,7 @@
       "aiSummary": "Use the official Daalder page for Daalder and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1275764717",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -12465,7 +12402,7 @@
       "aiSummary": "Use the official De Belhamel page for De Belhamel and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 622472303",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -12562,7 +12499,7 @@
       "aiSummary": "Use the official De Plantage page for De Plantage and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 3085036459",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -12659,7 +12596,7 @@
       "aiSummary": "Use the official Domenica page for Domenica and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 7487256512",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -12756,7 +12693,7 @@
       "aiSummary": "Use the official Entrepot page for Entrepot and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 277950745",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -12853,7 +12790,7 @@
       "aiSummary": "Use the official Flore page for Flore and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1310974815",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -12950,7 +12887,7 @@
       "aiSummary": "Use the official Gebr. Hartering page for Gebr. Hartering and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1749038791",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -13047,7 +12984,7 @@
       "aiSummary": "Use the official Gitane page for Gitane and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1686808199",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -13144,7 +13081,7 @@
       "aiSummary": "Use the official Jansz. page for Jansz. and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 6491481209",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -13241,7 +13178,7 @@
       "aiSummary": "Use the official Kaagman & Kortekaas page for Kaagman & Kortekaas and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1699862313",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -13338,7 +13275,7 @@
       "aiSummary": "Use the official Moeders page for Moeders and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1328355092",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -13435,7 +13372,7 @@
       "aiSummary": "Use the official MOS Amsterdam page for MOS Amsterdam and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2745434808",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -13532,7 +13469,7 @@
       "aiSummary": "Use the official Pesca page for Pesca and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 13323837702",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -13629,7 +13566,7 @@
       "aiSummary": "Use the official Restaurant 212 page for Restaurant 212 and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2725878761",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -13726,7 +13663,7 @@
       "aiSummary": "Use the official Restaurant As page for Restaurant As and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2817026430",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -13823,7 +13760,7 @@
       "aiSummary": "Use the official Restaurant de Juwelier page for Restaurant de Juwelier and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 9152828410",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -13920,7 +13857,7 @@
       "aiSummary": "Use the official Restaurant De Kas page for Restaurant De Kas and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2830233516",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -14017,7 +13954,7 @@
       "aiSummary": "Use the official Restaurant Europa page for Restaurant Europa and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2848746053",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -14114,7 +14051,7 @@
       "aiSummary": "Use the official Restaurant Moon page for Restaurant Moon and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4454997791",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -14211,7 +14148,7 @@
       "aiSummary": "Use the official Restaurant Vermeer page for Restaurant Vermeer and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 251127910",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -14308,7 +14245,7 @@
       "aiSummary": "Use the official RIJKS page for RIJKS and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4307691520",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -14405,7 +14342,7 @@
       "aiSummary": "Use the official Ron Gastrobar page for Ron Gastrobar and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1339610641",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -14502,7 +14439,7 @@
       "aiSummary": "Use the official Hotel Okura Amsterdam page for Sazanka and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 5050418506",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -14599,7 +14536,7 @@
       "aiSummary": "Use the official Scheepskameel page for Scheepskameel and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4470032578",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -14696,7 +14633,7 @@
       "aiSummary": "Use the official The White Room page for The White Room and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 6295791085",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -14793,7 +14730,7 @@
       "aiSummary": "Use the official Toscanini page for Toscanini and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1783971866",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -14890,7 +14827,7 @@
       "aiSummary": "Use the official Vinkeles page for Vinkeles and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4571078874",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -14987,7 +14924,7 @@
       "aiSummary": "Use the official Visaandeschelde page for Visaandeschelde and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 2248180253",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "contextual",
@@ -15084,7 +15021,7 @@
       "aiSummary": "Use the official Wilde Zwijnen page for Wilde Zwijnen and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 1595364823",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -15181,7 +15118,7 @@
       "aiSummary": "Use the official Wils page for Wils and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 11025413363",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact-and-venue-building-context",
@@ -15280,7 +15217,7 @@
       "aiSummary": "Use the official Hotel Okura Amsterdam page for Yamazato and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under restaurant and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 10983187021",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "restaurant",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -15377,7 +15314,7 @@
       "aiSummary": "Use the official NS page for Amsterdam Amstel station and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rail station and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4040491812",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "transport",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -15438,7 +15375,7 @@
       "aiSummary": "Use the official NS page for Amsterdam Bijlmer ArenA station and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rail station and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4005961975",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "transport",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -15501,7 +15438,7 @@
       "aiSummary": "Use the official NS page for Amsterdam Centraal station and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rail station and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4290854847",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "transport",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -15562,7 +15499,7 @@
       "aiSummary": "Use the official NS page for Amsterdam Holendrecht station and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rail station and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 250233810",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "transport",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -15623,7 +15560,7 @@
       "aiSummary": "Use the official NS page for Amsterdam Lelylaan station and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rail station and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4076017504",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "transport",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -15684,7 +15621,7 @@
       "aiSummary": "Use the official NS page for Amsterdam Muiderpoort station and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rail station and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: way 1409848101",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "transport",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -15745,7 +15682,7 @@
       "aiSummary": "Use the official NS page for Amsterdam RAI station and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rail station and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 4046323545",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "transport",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -15806,7 +15743,7 @@
       "aiSummary": "Use the official NS page for Amsterdam Science Park station and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rail station and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 7606648992",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "transport",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -15867,7 +15804,7 @@
       "aiSummary": "Use the official NS page for Amsterdam Sloterdijk station and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rail station and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 3938547498",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "transport",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -15928,7 +15865,7 @@
       "aiSummary": "Use the official NS page for Amsterdam Zuid station and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under rail station and does not treat AI text as a factual source.",
       "attributes": {
         "coordinate_source": "OpenStreetMap Nominatim: node 5252944882",
-        "dataProjectRelease": "amsterdam-v0.1.5",
+        "dataProjectRelease": "amsterdam-v0.1.6",
         "editorialEntityType": "transport",
         "lifecycleStatus": "published",
         "media_match": "exact",
@@ -16020,6 +15957,10 @@
         "sha256": "b14e44d6d0d8ba0387d9775c933b1834078ca4abff3e6e7385093685d2dd3f39"
       },
       {
+        "path": "DataProject/overlays/WP-06/amsterdam-v0.1.6.json",
+        "sha256": "990fb3ef29fc6379bdfe0a3a8b4097f1e780d2656a8ed9e2004818ac1aaf6522"
+      },
+      {
         "path": "DataProject/releases/acceptance-locks/amsterdam-v0.1.0.json",
         "sha256": "bd16e132d020e24b97a2f2d985bdb5b52ec30c2ded00830159024d1845aeeabe"
       },
@@ -16038,16 +15979,20 @@
       {
         "path": "DataProject/releases/acceptance-locks/amsterdam-v0.1.4.json",
         "sha256": "995b79ceef78a801387d30dd2eaa44397259491bc7e693c727cab4a30c876380"
+      },
+      {
+        "path": "DataProject/releases/acceptance-locks/amsterdam-v0.1.5.json",
+        "sha256": "b2348aa27b00303652307b410e6dba5a1c8c66c24d391ca6d3f775d6816ed542"
       }
     ],
     "releaseManifests": [
       {
-        "path": "DataProject/reports/release-manifests/amsterdam-v0.1.5.json",
-        "sha256": "1ca578ee3dbde598f17b73ae9c177d2b3768b15ed56c6bf5b7fecbf695711849"
+        "path": "DataProject/reports/release-manifests/amsterdam-v0.1.6.json",
+        "sha256": "4b818d3ab1ad2a58ca5a6be7ba7cfa96db4dfe94bc014ceb46bc594cf022109f"
       },
       {
         "path": "DataProject/reports/release-manifests/cities-v0.1.0.json",
-        "sha256": "ddaaed187c44a5da6b36ca1957e7dd68a2723108c16bb7d82e756c6f205dc0a4"
+        "sha256": "c41915d3cf17ba29a0c14ce9341e4574862295c7a1da00bf8ab92eb7a4e55ea3"
       }
     ],
     "schema": {
@@ -16119,7 +16064,7 @@
     }
   },
   "mode": "production",
-  "outputChecksum": "1c9d9f0aff31a0201cc8e950d809d73bb3afae865e73e190dea5ec7e2685b6e8",
+  "outputChecksum": "6805df44c45ea375b0d0a9273ce5df4cbf253c091ed066df47465662e570a39f",
   "publicationPolicy": {
     "allSevenGatesRequired": true,
     "productionRequiresReleaseStatus": "published",
@@ -16129,11 +16074,11 @@
   "releases": [
     {
       "batchCount": 1,
-      "id": "amsterdam-v0.1.5",
+      "id": "amsterdam-v0.1.6",
       "qaReadyRecordCount": 183,
       "replacementCount": 1,
       "status": "published",
-      "version": "0.1.5"
+      "version": "0.1.6"
     },
     {
       "batchCount": 1,
