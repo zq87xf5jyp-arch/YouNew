@@ -13,12 +13,16 @@ const canonicalHostname = "younew.nl";
 const legacyHostname = "www.younew.nl";
 const mtaStsHostname = "mta-sts.younew.nl";
 const mtaStsPolicyPath = "/.well-known/mta-sts.txt";
+const appleAppSiteAssociationPath = "/.well-known/apple-app-site-association";
 const notFoundPayloadPath = "/__site_payloads/404.html.payload";
 
-function withSecurityHeaders(response) {
+function withSecurityHeaders(response, pathname) {
   const headers = new Headers(response.headers);
   for (const [name, value] of Object.entries(securityHeaders)) {
     headers.set(name, value);
+  }
+  if (pathname === appleAppSiteAssociationPath && response.ok) {
+    headers.set("Content-Type", "application/json");
   }
   if (/^text\/html\b/i.test(headers.get("Content-Type") ?? "")) {
     const cacheDirectives = (headers.get("Cache-Control") ?? "public, max-age=0, must-revalidate")
@@ -128,6 +132,6 @@ export default {
     }
 
     const response = await fetchAssetWithDirectoryFallback(request, env.ASSETS);
-    return withSecurityHeaders(response);
+    return withSecurityHeaders(response, url.pathname);
   }
 };
