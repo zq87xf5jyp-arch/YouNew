@@ -1,6 +1,6 @@
 const securityHeaders = Object.freeze({
   "Content-Security-Policy":
-    "default-src 'self'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https://commons.wikimedia.org https://live.staticflickr.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://pgdzdxsiagfjioxwuqxf.supabase.co; upgrade-insecure-requests",
+    "default-src 'self'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https://commons.wikimedia.org https://upload.wikimedia.org https://live.staticflickr.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://pgdzdxsiagfjioxwuqxf.supabase.co; upgrade-insecure-requests",
   "Cross-Origin-Opener-Policy": "same-origin",
   "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
   "Referrer-Policy": "strict-origin-when-cross-origin",

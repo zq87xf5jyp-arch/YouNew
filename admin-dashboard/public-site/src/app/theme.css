@@ -16,7 +16,9 @@ html[data-theme="light"] {
   --text:#071a36;
   --text-secondary:#29415f;
   --muted:#5b708a;
-  --cyan:#087eaa;
+  --orange:#a64200;
+  --orange-2:#9f3d00;
+  --cyan:#006d96;
   --blue:#176fb0;
   --teal:#087583;
   --success:#177a4c;
@@ -34,6 +36,65 @@ html[data-theme="light"] {
   --theme-toggle-border:rgba(7,26,54,.17);
   --theme-toggle-foreground:#071a36;
 }
+
+html[data-theme="light"] .button-primary,
+html[data-theme="light"] .content-body a.button-primary,
+html[data-theme="light"] .header-cta,
+html[data-theme="light"] .mobile-menu-app-link,
+html[data-theme="light"] .mobile-app-cta,
+html[data-theme="light"] .planner-actions li>span { color:#fff!important; }
+html[data-theme="light"] .button-primary:hover { background:linear-gradient(135deg,#b54b08,#8f3500); }
+html[data-theme="light"] .button-ghost {
+  border-color:var(--line-strong);
+  background:rgba(255,255,255,.82);
+  color:var(--text-secondary);
+}
+html[data-theme="light"] .button-ghost:hover { background:var(--panel-2); color:var(--text); }
+
+html[data-theme="light"] :is(
+  .contrast-band,
+  .feature-search-panel,
+  .profile-section,
+  .assistant-demo,
+  .map-section,
+  .trust-section,
+  .system-evidence,
+  .final-cta,
+  .status-banner,
+  .analytics-consent
+) {
+  --text:#f2f7ff;
+  --text-secondary:#b8cae2;
+  --muted:#8ea3be;
+  --orange:#e6681a;
+  --orange-2:#ff8836;
+  --cyan:#3ac4d6;
+  color:var(--text);
+}
+
+html[data-theme="light"] :is(.entity-card,.profile-picker,.source-card,.status-card,.business-comparison article,.form-section,.content-body,.empty-state,.local-data-controls) {
+  background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(234,241,247,.92));
+}
+
+html[data-theme="light"] .scenario-grid article { background:linear-gradient(145deg,#fff,var(--panel)); }
+html[data-theme="light"] .site-footer .locale-status strong { color:var(--text-secondary); }
+html[data-theme="light"] .coverage-map-filters {
+  background:rgba(255,255,255,.86);
+  color:var(--text);
+}
+html[data-theme="light"] .coverage-map-filter-heading span,
+html[data-theme="light"] .coverage-map-filters label,
+html[data-theme="light"] .coverage-map-filter-result span { color:var(--muted); }
+html[data-theme="light"] .coverage-map-filters select,
+html[data-theme="light"] .coverage-map-search>span,
+html[data-theme="light"] .coverage-map-view-switch {
+  border-color:var(--line-strong);
+  background:#fff;
+  color:var(--text);
+}
+html[data-theme="light"] .coverage-map-search svg,
+html[data-theme="light"] .coverage-map-search input::placeholder,
+html[data-theme="light"] .coverage-map-view-switch button { color:var(--muted); }
 
 html[data-theme="light"] body {
   background:radial-gradient(circle at 78% -8%,rgba(8,126,170,.08),transparent 30rem),linear-gradient(180deg,#eef3f8 0%,#e8f0f6 48%,#eef3f8 100%);

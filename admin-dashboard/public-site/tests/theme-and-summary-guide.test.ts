@@ -5,6 +5,7 @@ import test from "node:test";
 const root = new URL("../", import.meta.url);
 const themeToggle = await readFile(new URL("src/components/theme-toggle.tsx", root), "utf8");
 const themeCss = await readFile(new URL("src/app/theme.css", root), "utf8");
+const globalCss = await readFile(new URL("src/app/globals.css", root), "utf8");
 const themeInit = await readFile(new URL("public/theme-init.js", root), "utf8");
 const staticShell = await readFile(new URL("public/static-shell.js", root), "utf8");
 const staticStripper = await readFile(new URL("scripts/strip-static-client.mjs", root), "utf8");
@@ -26,6 +27,11 @@ test("theme control supports persistent light and dark modes", () => {
   assert.match(staticStripper, /<script src="\/theme-init\.js"><\/script><\/head>/);
   assert.match(staticShell, /themeButton\?\.addEventListener\("click"/);
   assert.match(staticShell, /localStorage\.setItem\(themeStorageKey, nextTheme\)/);
+  assert.match(themeCss, /--cyan:#006d96/);
+  assert.match(themeCss, /--orange-2:#9f3d00/);
+  assert.match(globalCss, /\.coverage-map-results li strong \{ color:var\(--text\)/);
+  assert.match(globalCss, /\.hero-kicker[^}]*color:var\(--cyan\)!important/);
+  assert.match(globalCss, /\.button-outline[^}]*color:var\(--cyan\)/);
 });
 
 test("Amsterdam driving licence summary uses the current official source and actionable facts", () => {
@@ -55,9 +61,9 @@ test("curated source truth also drives metadata and Article JSON-LD", () => {
 });
 
 test("homepage evidence stays aligned with the current generated release", () => {
-  assert.match(systemEvidence, /publishedRecords:\s*183/);
-  assert.match(systemEvidence, /staticRoutes:\s*582/);
-  assert.match(systemEvidence, /indexableUrls:\s*572/);
+  assert.match(systemEvidence, /publishedRecords:\s*182/);
+  assert.match(systemEvidence, /staticRoutes:\s*581/);
+  assert.match(systemEvidence, /indexableUrls:\s*571/);
   assert.match(systemEvidence, /passingWebAdminAiTests:\s*129/);
   assert.match(homepage, /releaseId\.startsWith\("amsterdam-"\)/);
   assert.doesNotMatch(homepage, /releaseId === "amsterdam-v0\.1\.4"/);

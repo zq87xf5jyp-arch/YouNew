@@ -70,6 +70,30 @@ function ItemIcon({ type }: { type: CoverageMapEntityType }) {
   return <Icon aria-hidden />;
 }
 
+function CoverageThumbnail({ item, width }: { item: CoverageMapItem; width: number }) {
+  const [failed, setFailed] = useState(false);
+
+  useEffect(() => setFailed(false), [item.image?.url]);
+
+  if (!item.image || failed) {
+    return (
+      <span className="coverage-map-image-fallback" role="img" aria-label={`${typeLabels[item.type]} image unavailable`}>
+        <ItemIcon type={item.type} />
+      </span>
+    );
+  }
+
+  return (
+    <img
+      alt=""
+      decoding="async"
+      loading="lazy"
+      onError={() => setFailed(true)}
+      src={optimizedPublicImageUrl(item.image.url, width)}
+    />
+  );
+}
+
 function projectProvinceCoordinate([longitude, latitude]: ProvinceCoordinate) {
   return projectCoverageCoordinate({ longitude, latitude }, netherlandsCoverageBounds);
 }
@@ -358,7 +382,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
               {filteredItems.slice(0, 18).map((item) => (
                 <li key={item.id}>
                   <Link href={item.route}>
-                    {item.image ? <img alt="" loading="lazy" src={optimizedPublicImageUrl(item.image.url, 360)} /> : <span className="coverage-map-list-icon"><ItemIcon type={item.type} /></span>}
+                    <CoverageThumbnail item={item} width={360} />
                     <span><small>{typeLabels[item.type]}{item.cityId ? ` · ${cityLabelById.get(item.cityId) ?? humanizeMapSlug(item.cityId)}` : ""}</small><strong>{item.title}</strong></span>
                     <ExternalLink aria-hidden />
                   </Link>
@@ -434,7 +458,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
             {filteredItems.map((item) => (
               <li key={item.id}>
                 <Link href={item.route}>
-                  {item.image ? <img alt="" loading="lazy" src={optimizedPublicImageUrl(item.image.url, 220)} /> : <ItemIcon type={item.type} />}
+                  <CoverageThumbnail item={item} width={220} />
                   <span>
                     <small>{typeLabels[item.type]}{item.cityId ? ` · ${cityLabelById.get(item.cityId) ?? humanizeMapSlug(item.cityId)}` : ""}</small>
                     <strong>{item.title}</strong>
