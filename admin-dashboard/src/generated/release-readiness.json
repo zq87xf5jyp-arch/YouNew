@@ -1,13 +1,13 @@
 {
-  "as_of": "2026-08-01T22:02:00+02:00",
-  "posture": "web_admin_live_ios_waiting_review",
+  "as_of": "2026-08-02T05:04:45+02:00",
+  "posture": "full_product_live",
   "release_identity": {
     "branch": "codex/release-candidate-20260801",
     "draft_pr": 27,
     "ci": "pass"
   },
-  "release_status_label": "WEB + ADMIN LIVE",
-  "release_summary": "Public Site и Admin опубликованы. iOS 1.2 (7) ждёт App Review; physical launch smoke остаётся незавершённым, пока iPhone сообщает Locked.",
+  "release_status_label": "FULL PRODUCT LIVE",
+  "release_summary": "Public Site, Admin и iOS 1.2 опубликованы. Apple Lookup API подтверждает public App Store release, а iPhone launch/process smoke завершён успешно.",
   "evidence": {
     "public_site": {
       "deployment": "live",
@@ -45,14 +45,21 @@
     "ios": {
       "version": "1.2",
       "build": 7,
+      "release_status_label": "Version 1.2 LIVE",
+      "release_note": "build 7 · physical launch PASS",
       "unit_tests": "479 passed",
       "universal_link_tests": "7 passed",
       "memory_check": "0 leaks / 0 bytes",
       "app_store_distribution": "pass",
-      "app_review": "waiting_for_review",
+      "app_review": "approved_and_released",
+      "public_release": "live",
+      "public_release_at": "2026-08-01T23:46:52+02:00",
+      "public_release_source": "apple_lookup_api_country_nl",
       "automatic_release_after_approval": true,
       "physical_device_install": "pass",
-      "physical_device_launch": "blocked_device_locked"
+      "physical_device_launch": "pass",
+      "physical_device_process_health": "running_after_30_seconds",
+      "physical_device_launch_at": "2026-08-02T05:03:54+02:00"
     }
   },
   "proven": [
@@ -62,24 +69,15 @@
     "Supabase ACTIVE_HEALTHY; 13 managed migrations и 4 active Edge Functions",
     "Encrypted database backup проверен реальным isolated PostgreSQL 17.6 restore",
     "Временные Supabase PAT и read-only access rule отозваны",
-    "Apple Distribution build 1.2 (7) загружен и находится в Waiting for Review",
-    "iOS 1.2 (7) установлен на физический iPhone; 479 unit и 7 Universal Link tests прошли"
+    "Apple Distribution build 1.2 (7) одобрен и публично выпущен 1 августа 2026 года в 23:46:52 CEST",
+    "iOS 1.2 (7) установлен и запущен на физическом iPhone; процесс оставался активным после 30-second smoke",
+    "iOS quality evidence: 479 unit tests, 7 Universal Link tests и accessibility smoke прошли"
   ],
   "remaining_items": [
     {
-      "id": "ios-app-review",
-      "label": "Публичный App Store release 1.2 (7)",
-      "status": "waiting_apple_review"
-    },
-    {
-      "id": "ios-device-launch",
-      "label": "Physical iPhone launch/log smoke",
-      "status": "device_locked"
-    },
-    {
-      "id": "storage-recovery",
-      "label": "Storage object inventory и off-site payload backup",
-      "status": "hardening_backlog"
+      "id": "storage-backup-automation",
+      "label": "Автоматический payload backup до появления Storage objects",
+      "status": "future_hardening"
     },
     {
       "id": "guide-depth",

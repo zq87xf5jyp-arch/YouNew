@@ -41,8 +41,8 @@ const evidence = [
   },
   {
     label: "iOS Release",
-    value: "Waiting for Review",
-    note: `${readiness.evidence.ios.version} (${readiness.evidence.ios.build}) · installed on iPhone`,
+    value: readiness.evidence.ios.release_status_label,
+    note: readiness.evidence.ios.release_note,
     icon: Smartphone
   }
 ];
@@ -62,7 +62,7 @@ export function ReleaseReadinessOverview({ compact = false }: { compact?: boolea
             </CardDescription>
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="warning">Контролируемый GO LIVE</Badge>
+            <Badge variant="success">GO LIVE завершён</Badge>
             <span className="text-xs text-muted-foreground">Проверено {snapshotDate}</span>
           </div>
         </CardHeader>
@@ -118,8 +118,8 @@ export function ReleaseReadinessOverview({ compact = false }: { compact?: boolea
 
           <Card>
             <CardHeader>
-              <CardTitle className="text-amber-300">Оставшиеся release / hardening items</CardTitle>
-              <CardDescription>Они не откатывают live web/admin; публичный iOS зависит от Apple.</CardDescription>
+              <CardTitle className="text-amber-300">Оставшиеся hardening items</CardTitle>
+              <CardDescription>Product release завершён; эти пункты не являются release blockers.</CardDescription>
             </CardHeader>
             <CardContent className="grid gap-3">
               {readiness.remaining_items.map((gate) => (

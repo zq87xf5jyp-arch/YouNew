@@ -38,6 +38,7 @@ test("admin responses enforce a bounded CSP and transport security", async () =>
   const nextConfig = await readFile(new URL("../next.config.ts", import.meta.url), "utf8");
   const policy = await readFile(new URL("../src/lib/security-policy.ts", import.meta.url), "utf8");
   const layout = await readFile(new URL("../src/app/layout.tsx", import.meta.url), "utf8");
+  const { adminScriptSourceDirective } = await import("../src/lib/security-policy.ts");
   for (const required of [
     "default-src 'self'",
     "frame-ancestors 'none'",
@@ -57,9 +58,15 @@ test("admin responses enforce a bounded CSP and transport security", async () =>
   assert.match(layout, /httpEquiv="Content-Security-Policy"/);
   assert.match(layout, /ADMIN_META_CONTENT_SECURITY_POLICY/);
   assert.doesNotMatch(policy, /script-src[^"\n]*https?:\/\/(?!\*\.supabase\.co)/);
+  assert.match(adminScriptSourceDirective("development"), /'unsafe-eval'/);
+  assert.doesNotMatch(adminScriptSourceDirective("production"), /'unsafe-eval'/);
 });
 
 test("release control reflects the verified GO LIVE evidence", async () => {
+  const component = await readFile(
+    new URL("../src/components/admin/release-readiness-overview.tsx", import.meta.url),
+    "utf8"
+  );
   const readiness = JSON.parse(
     await readFile(new URL("../src/generated/release-readiness.json", import.meta.url), "utf8")
   ) as {
@@ -67,25 +74,37 @@ test("release control reflects the verified GO LIVE evidence", async () => {
     evidence: {
       admin: { tests_passed: number; deployment_status: string; csp_enforcement: string };
       supabase: { backup_restore_evidence: string; temporary_access_revoked: boolean };
-      ios: { app_store_distribution: string; app_review: string; physical_device_install: string; physical_device_launch: string };
+      ios: {
+        app_store_distribution: string;
+        app_review: string;
+        public_release: string;
+        public_release_source: string;
+        physical_device_install: string;
+        physical_device_launch: string;
+        physical_device_process_health: string;
+      };
     };
     remaining_items: Array<{ id: string }>;
   };
 
-  assert.equal(readiness.posture, "web_admin_live_ios_waiting_review");
+  assert.equal(readiness.posture, "full_product_live");
   assert.equal(readiness.evidence.admin.tests_passed, 29);
   assert.equal(readiness.evidence.admin.deployment_status, "live");
   assert.equal(readiness.evidence.admin.csp_enforcement, "upstream_header_plus_html_meta_fallback");
   assert.equal(readiness.evidence.supabase.backup_restore_evidence, "pass");
   assert.equal(readiness.evidence.supabase.temporary_access_revoked, true);
   assert.equal(readiness.evidence.ios.app_store_distribution, "pass");
-  assert.equal(readiness.evidence.ios.app_review, "waiting_for_review");
+  assert.equal(readiness.evidence.ios.app_review, "approved_and_released");
+  assert.equal(readiness.evidence.ios.public_release, "live");
+  assert.equal(readiness.evidence.ios.public_release_source, "apple_lookup_api_country_nl");
   assert.equal(readiness.evidence.ios.physical_device_install, "pass");
-  assert.equal(readiness.evidence.ios.physical_device_launch, "blocked_device_locked");
+  assert.equal(readiness.evidence.ios.physical_device_launch, "pass");
+  assert.equal(readiness.evidence.ios.physical_device_process_health, "running_after_30_seconds");
+  assert.match(component, /readiness\.evidence\.ios\.release_status_label/);
+  assert.match(component, /readiness\.evidence\.ios\.release_note/);
+  assert.doesNotMatch(component, /Waiting for Review|installed on iPhone/);
   assert.deepEqual(readiness.remaining_items.map((item) => item.id), [
-    "ios-app-review",
-    "ios-device-launch",
-    "storage-recovery",
+    "storage-backup-automation",
     "guide-depth"
   ]);
 });

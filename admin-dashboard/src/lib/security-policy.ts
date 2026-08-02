@@ -1,9 +1,15 @@
+export function adminScriptSourceDirective(environment = process.env.NODE_ENV) {
+  return environment === "development"
+    ? "script-src 'self' 'unsafe-inline' 'unsafe-eval'"
+    : "script-src 'self' 'unsafe-inline'";
+}
+
 const commonContentSecurityPolicyDirectives = [
   "default-src 'self'",
   "base-uri 'self'",
   "form-action 'self'",
   "object-src 'none'",
-  "script-src 'self' 'unsafe-inline'",
+  adminScriptSourceDirective(),
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://*.supabase.co",
   "font-src 'self' data:",
