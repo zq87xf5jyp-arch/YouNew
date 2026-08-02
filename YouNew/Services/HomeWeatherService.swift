@@ -119,6 +119,8 @@ final class HomeWeatherModel: ObservableObject {
             73
         case .hail, .isolatedThunderstorms, .scatteredThunderstorms, .thunderstorms, .strongStorms, .hurricane, .tropicalStorm:
             95
+        @unknown default:
+            2
         }
     }
 

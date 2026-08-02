@@ -2,9 +2,9 @@ import Foundation
 import Testing
 
 struct ProductionSafetyPatternTests {
-    @Test func productionSourcesAvoidFixedHighRiskPatterns() throws {
-        let sourceRoot = try Self.sourceRoot()
-        let productionRoot = sourceRoot.appendingPathComponent("YouNew", isDirectory: true)
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func productionSourcesAvoidFixedHighRiskPatterns() throws {
+        let productionRoot = SourceTreeTestSupport.repoRoot.appendingPathComponent("YouNew", isDirectory: true)
         let swiftFiles = try FileManager.default.subpathsOfDirectory(atPath: productionRoot.path)
             .filter { $0.hasSuffix(".swift") }
 
@@ -26,27 +26,5 @@ struct ProductionSafetyPatternTests {
         }
 
         #expect(violations.isEmpty, "High-risk source patterns found: \(violations.joined(separator: ", "))")
-    }
-
-    private static func sourceRoot() throws -> URL {
-        var url = URL(fileURLWithPath: #filePath)
-        while true {
-            let appSource = url.appendingPathComponent("YouNew")
-            let testSource = url.appendingPathComponent("YouNewTests")
-            if FileManager.default.fileExists(atPath: appSource.path),
-               FileManager.default.fileExists(atPath: testSource.path) {
-                return url
-            }
-
-            let parent = url.deletingLastPathComponent()
-            if parent.path == url.path {
-                throw SourceRootError.notFound
-            }
-            url = parent
-        }
-    }
-
-    private enum SourceRootError: Error {
-        case notFound
     }
 }
