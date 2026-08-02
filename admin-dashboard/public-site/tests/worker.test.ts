@@ -71,12 +71,12 @@ test("Sites worker exposes only the MTA-STS policy on its dedicated hostname", a
   assert.equal(homepage.status, 404);
 });
 
-test("Sites worker preserves the public well-known association file", async () => {
+test("Sites worker serves the public well-known association file as JSON", async () => {
   const pathname = "/.well-known/apple-app-site-association";
   const mock = createAssets({
     [pathname]: new Response("{}", {
       status: 200,
-      headers: { "content-type": "application/json" }
+      headers: { "content-type": "application/octet-stream" }
     })
   });
   const response = await worker.fetch(
@@ -86,6 +86,8 @@ test("Sites worker preserves the public well-known association file", async () =
 
   assert.equal(response.status, 200);
   assert.deepEqual(mock.calls, [pathname]);
+  assert.equal(response.headers.get("content-type"), "application/json");
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
   assert.equal(response.headers.get("content-security-policy")?.includes("default-src 'self'"), true);
 });
 
