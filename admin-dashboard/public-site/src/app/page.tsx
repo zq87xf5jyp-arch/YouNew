@@ -33,31 +33,31 @@ const popularTasks: readonly Readonly<{
   urgent?: boolean;
 }>[] = [
   {
-    title: "Get a BSN",
+    title: "Register in Amsterdam and get a BSN",
     text: "Start with registration in Amsterdam and check the municipality requirements.",
     href: "/guides/first-registration-in-amsterdam",
     label: "Registration"
   },
   {
-    title: "Find housing guidance",
+    title: "Renting a home in Amsterdam",
     text: "Review the published Amsterdam renting summary and its responsible sources.",
     href: "/guides/renting-a-home-in-amsterdam",
     label: "Housing"
   },
   {
-    title: "Arrange a driving licence",
+    title: "Driving licence in Amsterdam",
     text: "See the current Amsterdam starting points for applying or exchanging a licence.",
     href: "/guides/driving-licence-amsterdam",
     label: "Transport"
   },
   {
-    title: "Understand municipal taxes",
+    title: "Amsterdam municipal taxes",
     text: "Find the published Amsterdam overview and continue to the official source.",
     href: "/guides/municipal-taxes-amsterdam",
     label: "Money"
   },
   {
-    title: "Report a public-space problem",
+    title: "Report a street problem in Amsterdam",
     text: "Find where Amsterdam accepts reports about streets and public areas.",
     href: "/guides/report-a-problem-in-public-space-amsterdam",
     label: "Local services"
@@ -214,7 +214,7 @@ export default function HomePage() {
         <section className="uf-section section-shell uf-coverage" aria-labelledby="coverage-title">
           <div className="uf-coverage-copy">
             <p className="uf-eyebrow">Current coverage</p>
-            <h2 id="coverage-title">Detailed web guides for five Dutch cities.</h2>
+            <h2 id="coverage-title">City coverage for five Dutch cities.</h2>
             <p>YouNew currently focuses its detailed city pages on Amsterdam, Rotterdam, Den Haag, Utrecht and Eindhoven. Other municipalities remain available through the directory, with national guidance where published.</p>
             <div className="uf-coverage-actions">
               <Link href="/cities">View city guidance <ArrowRight aria-hidden /></Link>

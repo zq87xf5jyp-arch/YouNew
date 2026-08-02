@@ -14,8 +14,26 @@ test("homepage has one promise, eight user sections and no operational evidence"
   assert.equal(homepage.match(/<h1\b/g)?.length, 1);
   assert.equal(homepage.match(/<section\b/g)?.length, 8);
   assert.match(homepage, /Find your next step in the Netherlands\./);
-  assert.match(homepage, /Detailed web guides for five Dutch cities\./);
+  assert.match(homepage, /City coverage for five Dutch cities\./);
+  assert.doesNotMatch(homepage, /Detailed web guides for five Dutch cities\./);
   assert.doesNotMatch(homepage, /Supabase|\bCI\b|test counts|release authority|SystemEvidence/i);
+});
+
+test("homepage task titles expose Amsterdam scope before navigation", () => {
+  const taskSource = homepage.slice(homepage.indexOf("const popularTasks"), homepage.indexOf("const cities"));
+  for (const title of [
+    "Register in Amsterdam and get a BSN",
+    "Renting a home in Amsterdam",
+    "Driving licence in Amsterdam",
+    "Amsterdam municipal taxes",
+    "Report a street problem in Amsterdam"
+  ]) {
+    assert.match(taskSource, new RegExp(`title: "${title}"`));
+  }
+
+  const emergencyTask = taskSource.match(/\{\s*title: "Get emergency help"[\s\S]*?\n\s*\}/)?.[0];
+  assert.ok(emergencyTask, "The national emergency task must remain published");
+  assert.doesNotMatch(emergencyTask, /Amsterdam/i);
 });
 
 test("global navigation and footer expose the compact public information architecture", () => {

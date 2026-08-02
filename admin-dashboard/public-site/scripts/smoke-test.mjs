@@ -23,6 +23,15 @@ for (const file of requiredFiles) await access(join(root, file));
 const home = await readFile(join(root, "index.html"), "utf8");
 assert.match(home, /Find your next step in the Netherlands/);
 assert.match(home, /Find my next step/);
+for (const title of [
+  "Register in Amsterdam and get a BSN",
+  "Renting a home in Amsterdam",
+  "Driving licence in Amsterdam",
+  "Amsterdam municipal taxes",
+  "Report a street problem in Amsterdam"
+]) assert.match(home, new RegExp(title));
+assert.match(home, /City coverage for five Dutch cities\./);
+assert.doesNotMatch(home, /Detailed web guides for five Dutch cities\./);
 assert.match(home, /support@younew\.nl/);
 assert.match(home, /rel="canonical" href="https:\/\/younew\.nl\/"/);
 assert.match(home, /application\/ld\+json/);
