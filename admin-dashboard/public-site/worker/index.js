@@ -14,6 +14,8 @@ const legacyHostname = "www.younew.nl";
 const mtaStsHostname = "mta-sts.younew.nl";
 const mtaStsPolicyPath = "/.well-known/mta-sts.txt";
 const appleAppSiteAssociationPath = "/.well-known/apple-app-site-association";
+const appleAppSiteAssociationPayloadPath =
+  "/__site_payloads/.well-known/apple-app-site-association.payload";
 const notFoundPayloadPath = "/__site_payloads/404.html.payload";
 
 function withSecurityHeaders(response, pathname) {
@@ -82,7 +84,10 @@ async function fetchAssetWithDirectoryFallback(request, assets) {
   }
 
   const url = new URL(request.url);
-  const payloadPath = htmlPayloadPath(url.pathname);
+  const isAppleAppSiteAssociation = url.pathname === appleAppSiteAssociationPath;
+  const payloadPath = isAppleAppSiteAssociation
+    ? appleAppSiteAssociationPayloadPath
+    : htmlPayloadPath(url.pathname);
   if (!payloadPath) return response;
 
   url.pathname = payloadPath;
@@ -102,8 +107,11 @@ async function fetchAssetWithDirectoryFallback(request, assets) {
   }
 
   const headers = new Headers(payloadResponse.headers);
-  headers.set("Content-Type", "text/html; charset=utf-8");
-  return new Response(payloadResponse.body, {
+  headers.set(
+    "Content-Type",
+    isAppleAppSiteAssociation ? "application/json" : "text/html; charset=utf-8"
+  );
+  return new Response(request.method === "HEAD" ? null : payloadResponse.body, {
     status: payloadResponse.status,
     statusText: payloadResponse.statusText,
     headers
