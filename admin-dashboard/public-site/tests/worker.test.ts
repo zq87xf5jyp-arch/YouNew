@@ -6,6 +6,7 @@ import worker from "../worker/index.js";
 
 const siteRoot = new URL("../", import.meta.url);
 const publicContent = JSON.parse(await readFile(new URL("src/generated/public-content.json", siteRoot), "utf8"));
+const sitesBuildScript = await readFile(new URL("scripts/build-sites.sh", siteRoot), "utf8");
 
 function createAssets(responses: Record<string, Response>) {
   const calls: string[] = [];
@@ -71,10 +72,17 @@ test("Sites worker exposes only the MTA-STS policy on its dedicated hostname", a
   assert.equal(homepage.status, 404);
 });
 
-test("Sites worker serves the public well-known association file as JSON", async () => {
+test("Sites package routes the association file through a worker-first payload", () => {
+  assert.match(sitesBuildScript, /association_source=.*\.well-known\/apple-app-site-association/);
+  assert.match(sitesBuildScript, /association_payload="\$payload_root\/\.well-known\/apple-app-site-association\.payload"/);
+  assert.match(sitesBuildScript, /mv "\$association_source" "\$association_payload"/);
+});
+
+test("Sites worker serves the worker-first association payload as JSON", async () => {
   const pathname = "/.well-known/apple-app-site-association";
+  const payloadPathname = "/__site_payloads/.well-known/apple-app-site-association.payload";
   const mock = createAssets({
-    [pathname]: new Response("{}", {
+    [payloadPathname]: new Response("{}", {
       status: 200,
       headers: { "content-type": "application/octet-stream" }
     })
@@ -85,10 +93,11 @@ test("Sites worker serves the public well-known association file as JSON", async
   );
 
   assert.equal(response.status, 200);
-  assert.deepEqual(mock.calls, [pathname]);
+  assert.deepEqual(mock.calls, [pathname, payloadPathname]);
   assert.equal(response.headers.get("content-type"), "application/json");
   assert.equal(response.headers.get("x-content-type-options"), "nosniff");
   assert.equal(response.headers.get("content-security-policy")?.includes("default-src 'self'"), true);
+  assert.equal(await response.text(), "{}");
 });
 
 test("Sites worker permits every governed public image host and Wikimedia redirects", async () => {

@@ -9,6 +9,15 @@ bash scripts/build.sh
 payload_root="$project_root/dist/client/__site_payloads"
 mkdir -p "$payload_root"
 
+association_source="$project_root/dist/client/.well-known/apple-app-site-association"
+association_payload="$payload_root/.well-known/apple-app-site-association.payload"
+if [[ ! -f "$association_source" ]]; then
+  echo "Sites packaging failed: Apple app-site association file is missing." >&2
+  exit 1
+fi
+mkdir -p "$(dirname "$association_payload")"
+mv "$association_source" "$association_payload"
+
 html_count=0
 while IFS= read -r -d '' html_file; do
   relative_path=${html_file#"$project_root/dist/client/"}
