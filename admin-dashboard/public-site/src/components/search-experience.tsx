@@ -30,6 +30,7 @@ export function SearchExperience() {
   const [suggestionsDismissed, setSuggestionsDismissed] = useState(false);
   const [shareState, setShareState] = useState<"idle" | "copied">("idle");
   const [rememberSearches, setRememberSearches] = useState(false);
+  const [showAllResults, setShowAllResults] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -84,7 +85,7 @@ export function SearchExperience() {
   function submit(event?: FormEvent) {
     event?.preventDefault();
     const value = query.trim();
-    setSubmittedQuery(value); setSuggestionIndex(-1); syncUrl(value, filters);
+    setSubmittedQuery(value); setShowAllResults(false); setSuggestionIndex(-1); syncUrl(value, filters);
     if (value) { localContentRepository.rememberSearch(value); setRecentSearches(localContentRepository.recentSearches()); }
     const eligibleDocuments = filterSearchDocumentsByProfile(
       documents,
@@ -116,7 +117,10 @@ export function SearchExperience() {
       if (profile) localContentRepository.setProfile(profile);
       else localContentRepository.clearProfile();
     }
-    const next = { ...filters, [key]: value }; setFilters(next); syncUrl(submittedQuery, next);
+    const next = { ...filters, [key]: value };
+    setFilters(next);
+    setShowAllResults(!submittedQuery && !Object.values(next).some(Boolean));
+    syncUrl(submittedQuery, next);
   }
 
   async function shareResults() {
@@ -156,17 +160,17 @@ export function SearchExperience() {
         </div>
       ) : null}
 
-      {!submittedQuery ? (
+      {!submittedQuery && !showAllResults ? (
         <><div className="search-starters"><section><h2>Popular searches</h2><div>{popularSearches.map((value) => <button type="button" key={value} onClick={() => { setQuery(value); setSubmittedQuery(value); syncUrl(value, filters); }}>{value}</button>)}</div></section>{recentSearches.length ? <section><div className="search-starter-heading"><h2>Recent searches</h2><button type="button" onClick={() => { localContentRepository.clearRecentSearches(); setRecentSearches([]); }}>Clear</button></div><div>{recentSearches.map((value) => <button type="button" key={value} onClick={() => { setQuery(value); setSubmittedQuery(value); syncUrl(value, filters); }}>{value}</button>)}</div></section> : null}</div>
         <label className="search-privacy-control"><input type="checkbox" checked={rememberSearches} onChange={(event) => { const enabled = event.target.checked; localContentRepository.setSearchHistoryEnabled(enabled); setRememberSearches(enabled); if (!enabled) setRecentSearches([]); }} /> Remember searches on this device <span>(off by default)</span></label></>
       ) : null}
 
       {loading ? <p className="loading-state">Loading the published search index…</p> : null}
       {loadError ? <div className="empty-state"><h2>Search index unavailable</h2><p>Browse <Link href="/discover">published content</Link> or retry when the connection is restored.</p></div> : null}
-      {!loading && !loadError && (submittedQuery || hasActiveFilters) ? (
+      {!loading && !loadError && (submittedQuery || hasActiveFilters || showAllResults) ? (
         <section className="search-results" aria-labelledby="results-title">
           <div className="search-results-heading"><div><h2 id="results-title" aria-live="polite">{ranked.length} matching result{ranked.length === 1 ? "" : "s"}{submittedQuery ? ` for “${submittedQuery}”` : ""}</h2>{submittedQuery ? <p>Search checks titles, keywords and close spelling matches.</p> : null}</div><button type="button" onClick={shareResults}>{shareState === "copied" ? <Check aria-hidden /> : <Share2 aria-hidden />}{shareState === "copied" ? "Link copied" : "Share results"}</button></div>
-          {ranked.length ? <div className="search-result-list">{ranked.map(({ document }) => <article key={document.id}><Link href={document.route}><span>{contentKindLabel(document.type, document.contentDepth)}{document.city ? ` · ${document.city}` : ""}</span><h3>{document.title}</h3><p>{publicWebSummary(document.summary)}</p></Link><SaveButton item={{ id: document.id, route: document.route, title: document.title, kind: document.type }} compact /></article>)}</div> : <div className="empty-state"><Search aria-hidden /><h2>No published match</h2><p>Try a shorter term, clear one of the filters, or browse categories. Search only includes published and source-checked content.</p><button className="button button-outline" type="button" onClick={() => { setFilters(emptyFilters); localContentRepository.clearProfile(); syncUrl(submittedQuery, emptyFilters); }}>Clear filters</button></div>}
+          {ranked.length ? <div className="search-result-list">{ranked.map(({ document }) => <article key={document.id}><Link href={document.route}><span>{contentKindLabel(document.type, document.contentDepth)}{document.city ? ` · ${document.city}` : ""}</span><h3>{document.title}</h3><p>{publicWebSummary(document.summary)}</p></Link><SaveButton item={{ id: document.id, route: document.route, title: document.title, kind: document.type }} compact /></article>)}</div> : <div className="empty-state"><Search aria-hidden /><h2>No published match</h2><p>Try a shorter term, clear one of the filters, or browse categories. Search only includes published and source-checked content.</p><button className="button button-outline" type="button" onClick={() => { setFilters(emptyFilters); setShowAllResults(!submittedQuery); localContentRepository.clearProfile(); syncUrl(submittedQuery, emptyFilters); }}>Clear filters</button></div>}
         </section>
       ) : null}
     </div>

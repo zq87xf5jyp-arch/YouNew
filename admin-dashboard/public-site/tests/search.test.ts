@@ -206,4 +206,6 @@ test("search UI suggests only queries with a released destination", async () => 
   const source = await readFile(new URL("../src/components/search-experience.tsx", import.meta.url), "utf8");
   assert.match(source, /placeholder="[^"]*Register gemeente[^"]*Housing defects[^"]*"/);
   assert.doesNotMatch(source, /placeholder="[^"]*Need a doctor[^"]*"/);
+  assert.match(source, /submittedQuery \|\| hasActiveFilters \|\| showAllResults/);
+  assert.match(source, /setShowAllResults\(!submittedQuery && !Object\.values\(next\)\.some\(Boolean\)\)/);
 });

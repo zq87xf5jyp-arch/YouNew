@@ -2,30 +2,30 @@
   "schemaVersion": 1,
   "snapshotType": "static",
   "liveMonitoring": false,
-  "checkedAt": "2026-07-30",
+  "checkedAt": "2026-08-02",
   "website": {
     "status": "operational",
     "label": "Website",
-    "summary": "The production website, key public routes, app preview image and touch icon were reachable during the 30 July check; the replacement Hostinger package passed the complete local pre-deploy gate."
+    "summary": "The production website and key public routes were reachable during the 2 August check. A release candidate fixes the Wikimedia image policy and light-theme contrast and passes the complete local pre-deploy gate."
   },
   "content": {
     "status": "current",
     "label": "Published content",
-    "asOf": "2026-07-30",
-    "summary": "The published content snapshot used by the web experience was checked on 30 July 2026; two ended events and the closed BREDA venue are retired from current discovery."
+    "asOf": "2026-08-01",
+    "summary": "The governed public content snapshot contains 182 published records and was regenerated on 1 August 2026. The map combines 167 coordinate-backed records with all 342 official municipalities."
   },
   "ios": {
     "status": "operational",
     "label": "iOS public distribution",
-    "publicVersion": "1.1",
-    "testedVersion": "1.1",
-    "testedBuild": "7",
-    "summary": "Apple's public lookup service reports App Store version 1.1. Version 1.1 (build 7) is the locally built and launched application candidate."
+    "publicVersion": "1.2",
+    "testedVersion": "1.3",
+    "testedBuild": "8",
+    "summary": "Apple's public lookup service reports App Store version 1.2. Version 1.3 (build 8) was locally built, signed, uploaded and submitted to App Review on 2 August 2026; it is not yet the public store version."
   },
   "businessForm": {
     "status": "operational",
     "label": "Business and feedback forms",
-    "summary": "Secure Supabase endpoints and Admin review views are active. The 30 July check confirmed expected server-side validation without creating a production record."
+    "summary": "Secure Supabase endpoints and Admin review views are active. The latest read-only check confirmed expected server-side validation without creating a production record."
   },
   "limitations": [
     "Endpoint reachability and invalid-input rejection were verified without creating a synthetic inquiry or feedback record.",

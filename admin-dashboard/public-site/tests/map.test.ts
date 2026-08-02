@@ -123,6 +123,8 @@ test("map implementation is dependency-free, has a no-JavaScript list and print 
   assert.match(component, /<noscript>/);
   assert.match(component, /complete directory list/i);
   assert.match(component, /id="map-results"/);
+  assert.match(component, /className="coverage-map-image-fallback"/);
+  assert.match(component, /onError=\{\(\) => setFailed\(true\)\}/);
   assert.doesNotMatch(component, /fetch\(|navigator\.geolocation|maplibre|leaflet|openstreetmap/i);
   assert.match(styles, /@media print[\s\S]*\.coverage-map-layout/);
 });

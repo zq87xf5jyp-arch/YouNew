@@ -1,7 +1,11 @@
 import assert from "node:assert/strict";
+import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 import worker from "../worker/index.js";
+
+const siteRoot = new URL("../", import.meta.url);
+const publicContent = JSON.parse(await readFile(new URL("src/generated/public-content.json", siteRoot), "utf8"));
 
 function createAssets(responses: Record<string, Response>) {
   const calls: string[] = [];
@@ -83,6 +87,26 @@ test("Sites worker preserves the public well-known association file", async () =
   assert.equal(response.status, 200);
   assert.deepEqual(mock.calls, [pathname]);
   assert.equal(response.headers.get("content-security-policy")?.includes("default-src 'self'"), true);
+});
+
+test("Sites worker permits every governed public image host and Wikimedia redirects", async () => {
+  const mock = createAssets({
+    "/": new Response("<!doctype html>", { status: 200, headers: { "content-type": "text/html" } })
+  });
+  const response = await worker.fetch(new Request("https://younew.nl/"), { ASSETS: mock.assets });
+  const policy = response.headers.get("content-security-policy") ?? "";
+  const mediaHosts = new Set<string>(
+    publicContent.entities.flatMap((entity: { images?: Array<{ url: string }> }) =>
+      (entity.images ?? []).map((image) => new URL(image.url).origin)
+    )
+  );
+
+  for (const origin of mediaHosts) {
+    const escapedOrigin = origin.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    assert.match(policy, new RegExp(escapedOrigin));
+  }
+  assert.match(policy, /https:\/\/commons\.wikimedia\.org/);
+  assert.match(policy, /https:\/\/upload\.wikimedia\.org/);
 });
 
 test("Sites worker resolves an exported directory through its index asset", async () => {
