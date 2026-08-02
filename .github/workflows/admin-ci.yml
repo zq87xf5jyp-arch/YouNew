@@ -36,6 +36,9 @@ jobs:
       - name: Verify backend production safety contracts
         working-directory: .
         run: python3 scripts/admin-production-static-qa.py
+      - name: Verify immutable production migration history
+        working-directory: .
+        run: python3 scripts/verify-supabase-migration-manifest.py
       - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
         with:
           node-version: "24"

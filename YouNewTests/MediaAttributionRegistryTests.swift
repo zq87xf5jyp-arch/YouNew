@@ -4,9 +4,7 @@ import Testing
 
 struct MediaAttributionRegistryTests {
     private var repoRoot: URL {
-        URL(fileURLWithPath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
+        SourceTreeTestSupport.repoRoot
     }
 
     @Test func bundledPhotographyAttributionIsCompleteAndUnique() {
@@ -36,7 +34,8 @@ struct MediaAttributionRegistryTests {
         }
     }
 
-    @Test func bundledPhotographyAttributionMatchesEveryNLCatalogAsset() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func bundledPhotographyAttributionMatchesEveryNLCatalogAsset() throws {
         let assetRoot = repoRoot.appendingPathComponent("YouNew/Assets.xcassets")
         let children = try FileManager.default.contentsOfDirectory(
             at: assetRoot,

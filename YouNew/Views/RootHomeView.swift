@@ -291,32 +291,30 @@ struct RootHomeView: View {
             .allowsHitTesting(false)
             VStack(alignment: .leading, spacing: 10) {
                 NavigationLink(value: cityDestination) {
-                    VStack(alignment: .leading, spacing: 10) {
-                        HStack(alignment: .top) {
-                            VStack(alignment: .leading, spacing: 3) {
-                                Text(localized(en: "Your city", nl: "Jouw stad", ru: "Ваш город"))
-                                    .font(AppTypography.metadata)
-                                    .foregroundStyle(.white.opacity(0.72))
-                                    .textCase(.uppercase)
-                                Text(selectedCity)
-                                    .font(.system(size: 31, weight: .bold, design: .rounded))
-                                    .foregroundStyle(.white)
-                            }
-                            Spacer()
-                            Label(localizedProvinceName(dashboardCity.province), systemImage: "map.fill")
+                    HStack(alignment: .top) {
+                        VStack(alignment: .leading, spacing: 3) {
+                            Text(localized(en: "Your city", nl: "Jouw stad", ru: "Ваш город"))
                                 .font(AppTypography.metadata)
+                                .foregroundStyle(.white.opacity(0.72))
+                                .textCase(.uppercase)
+                            Text(selectedCity)
+                                .font(.system(size: 31, weight: .bold, design: .rounded))
                                 .foregroundStyle(.white)
-                                .padding(.horizontal, 9)
-                                .padding(.vertical, 6)
-                                .background(.black.opacity(0.34), in: Capsule())
                         }
-
-                        weatherLine
+                        Spacer()
+                        Label(localizedProvinceName(dashboardCity.province), systemImage: "map.fill")
+                            .font(AppTypography.metadata)
+                            .foregroundStyle(.white)
+                            .padding(.horizontal, 9)
+                            .padding(.vertical, 6)
+                            .background(.black.opacity(0.34), in: Capsule())
                     }
                     .contentShape(Rectangle())
                 }
                 .buttonStyle(.plain)
                 .accessibilityIdentifier("home.currentCity")
+
+                weatherLine
 
                 HStack(spacing: 8) {
                     heroMetric(
@@ -397,24 +395,55 @@ struct RootHomeView: View {
             .font(AppTypography.footnote)
             .foregroundStyle(AppColors.textSecondary)
         case .loaded(let snapshot, let cached):
-            HStack(spacing: 7) {
-                Image(systemName: weatherSymbol(code: snapshot.weatherCode, isDay: snapshot.isDay))
-                    .symbolRenderingMode(.multicolor)
-                Text("\(Int(snapshot.temperature.rounded()))°")
-                    .font(AppTypography.body.weight(.bold))
-                    .contentTransition(.numericText())
-                Text(weatherDescription(code: snapshot.weatherCode))
-                    .lineLimit(1)
-                Text("· \(Int(snapshot.windSpeed.rounded())) km/h")
-                    .foregroundStyle(AppColors.textSecondary)
-                if cached {
-                    Image(systemName: "clock.arrow.circlepath")
-                        .foregroundStyle(AppColors.textSecondary)
-                        .accessibilityLabel(localized(en: "Cached weather", nl: "Opgeslagen weer", ru: "Погода из кеша"))
+            VStack(alignment: .leading, spacing: 4) {
+                HStack(spacing: 7) {
+                    Image(systemName: snapshot.symbolName)
+                        .symbolRenderingMode(.multicolor)
+                    Text("\(Int(snapshot.temperature.rounded()))°")
+                        .font(AppTypography.body.weight(.bold))
+                        .contentTransition(.numericText())
+                    Text(weatherDescription(code: snapshot.weatherCode))
+                        .lineLimit(1)
+                    Text("· \(Int(snapshot.windSpeed.rounded())) km/h")
+                        .foregroundStyle(.white.opacity(0.76))
+                    if cached {
+                        Image(systemName: "clock.arrow.circlepath")
+                            .foregroundStyle(.white.opacity(0.76))
+                            .accessibilityLabel(localized(en: "Cached weather", nl: "Opgeslagen weer", ru: "Погода из кеша"))
+                    }
                 }
+                .font(AppTypography.footnote)
+                .foregroundStyle(AppColors.warning)
+
+                Link(destination: snapshot.attribution.legalPageURL) {
+                    HStack(spacing: 5) {
+                        CachedRemoteContentImage(
+                            url: snapshot.attribution.combinedMarkDarkURL,
+                            fallbackURLs: [],
+                            targetPixelSize: CGSize(width: 188, height: 22),
+                            loading: Color.clear,
+                            fallback: Text(snapshot.attribution.serviceName)
+                                .font(AppTypography.metadata)
+                                .foregroundStyle(.white.opacity(0.76)),
+                            debugContext: nil
+                        ) { image in
+                            image
+                                .resizable()
+                                .scaledToFit()
+                        }
+                        .frame(maxWidth: 94, minHeight: 11, maxHeight: 11, alignment: .leading)
+                        Image(systemName: "arrow.up.right")
+                            .font(.system(size: 8, weight: .semibold))
+                    }
+                    .contentShape(Rectangle())
+                }
+                .buttonStyle(.plain)
+                .accessibilityLabel(localized(
+                    en: "Apple Weather data sources",
+                    nl: "Apple Weather-gegevensbronnen",
+                    ru: "Источники данных Apple Weather"
+                ))
             }
-            .font(AppTypography.footnote)
-            .foregroundStyle(AppColors.warning)
         case .unavailable:
             Label(
                 localized(en: "Weather unavailable · open city details", nl: "Weer niet beschikbaar · open stadsdetails", ru: "Погода недоступна · откройте город"),
@@ -434,18 +463,6 @@ struct RootHomeView: View {
         formatter.setLocalizedDateFormatFromTemplate("d MMM")
         let title = language == .dutch ? (event.localTitle ?? event.title) : event.title
         return "\(formatter.string(from: event.date)) · \(title)"
-    }
-
-    private func weatherSymbol(code: Int, isDay: Bool) -> String {
-        switch code {
-        case 0: return isDay ? "sun.max.fill" : "moon.stars.fill"
-        case 1 ... 3: return isDay ? "cloud.sun.fill" : "cloud.moon.fill"
-        case 45, 48: return "cloud.fog.fill"
-        case 51 ... 67, 80 ... 82: return "cloud.rain.fill"
-        case 71 ... 77, 85, 86: return "cloud.snow.fill"
-        case 95 ... 99: return "cloud.bolt.rain.fill"
-        default: return "cloud.fill"
-        }
     }
 
     private func weatherDescription(code: Int) -> String {

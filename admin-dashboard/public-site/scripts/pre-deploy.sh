@@ -31,6 +31,7 @@ echo "[8/10] Deployment invariants and runtime 404"
 echo "[9/10] Upstream practical-guide governance"
 python3 ../../scripts/generate-data-dashboard.py
 python3 ../../scripts/generate-data-observability.py
+python3 ../../scripts/data-project-qa.py
 python3 ../../scripts/data-project-import-static-qa.py
 python3 ../../scripts/practical-guide-static-qa.py
 python3 ../../scripts/priority-research-static-qa.py

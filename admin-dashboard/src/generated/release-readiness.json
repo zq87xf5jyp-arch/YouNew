@@ -1,78 +1,89 @@
 {
-  "as_of": "2026-08-01T03:15:00+02:00",
-  "posture": "evidence_backed_release_candidate",
-  "technical_readiness_score": 9.2,
-  "release_identity": "isolated_release_branch_pending_ci",
-  "unconditional_release": "no_go",
+  "as_of": "2026-08-02T05:04:45+02:00",
+  "posture": "full_product_live",
+  "release_identity": {
+    "branch": "codex/release-candidate-20260801",
+    "draft_pr": 27,
+    "ci": "pass"
+  },
+  "release_status_label": "FULL PRODUCT LIVE",
+  "release_summary": "Public Site, Admin и iOS 1.2 опубликованы. Apple Lookup API подтверждает public App Store release, а iPhone launch/process smoke завершён успешно.",
   "evidence": {
     "public_site": {
-      "predeploy": "pass",
-      "static_routes": 582,
-      "indexable_urls": 572,
-      "tests_passed": 105
+      "deployment": "live",
+      "sites_version": 30,
+      "html_files": 578,
+      "indexable_urls": 571,
+      "tests_passed": 108,
+      "route_smoke": "pass",
+      "security_headers": "pass"
     },
     "admin": {
+      "deployment": "active_production_bundle",
+      "deployment_status": "live",
       "lint": "pass",
       "typecheck": "pass",
-      "tests_passed": 24,
+      "tests_passed": 29,
       "build": "pass",
-      "authenticated_e2e": "pass_on_current_production"
+      "authenticated_browser_smoke": "pass",
+      "csp_enforcement": "upstream_header_plus_html_meta_fallback"
     },
     "supabase": {
       "health": "ACTIVE_HEALTHY",
       "remote_migrations": 13,
       "active_edge_functions": 4,
-      "backup_restore_evidence": "missing"
+      "backup_restore_evidence": "pass",
+      "backup_sha256": "e5fc5c297d0bf2520bdfe8212a78d01f879f8fb69e450ce08fcc3c0afd912196",
+      "temporary_access_revoked": true
     },
     "data_project": {
       "governed_records": 450,
-      "public_records": 183,
-      "freshness_percent": 97.8,
-      "production_ready_practical_guides": 0
+      "public_records": 182,
+      "current_release": "amsterdam-v0.1.6",
+      "summary_guides": 15,
+      "production_ready_full_guides": 0
     },
     "ios": {
-      "release_simulator": "pass",
-      "release_result": "BUILD SUCCEEDED",
-      "unit_tests": "469 passed",
-      "runtime_tests": "infrastructure_degraded_after_partial_execution"
-    },
-    "backend_ai_proxy": {
-      "tests_passed": 13
+      "version": "1.2",
+      "build": 7,
+      "release_status_label": "Version 1.2 LIVE",
+      "release_note": "build 7 · physical launch PASS",
+      "unit_tests": "479 passed",
+      "universal_link_tests": "7 passed",
+      "memory_check": "0 leaks / 0 bytes",
+      "app_store_distribution": "pass",
+      "app_review": "approved_and_released",
+      "public_release": "live",
+      "public_release_at": "2026-08-01T23:46:52+02:00",
+      "public_release_source": "apple_lookup_api_country_nl",
+      "automatic_release_after_approval": true,
+      "physical_device_install": "pass",
+      "physical_device_launch": "pass",
+      "physical_device_process_health": "running_after_30_seconds",
+      "physical_device_launch_at": "2026-08-02T05:03:54+02:00"
     }
   },
   "proven": [
-    "Публичный web работает и прошёл predeploy",
-    "Публичный App Store listing доступен",
-    "Admin защищён авторизацией, собирается и прошёл authenticated production E2E",
-    "Supabase runtime находится в состоянии ACTIVE_HEALTHY; 13 миграций применены",
-    "Unsigned iOS Release simulator build: BUILD SUCCEEDED",
-    "iOS unit suite: 469 tests passed"
+    "Public Site version 30 опубликован; route, redirect, 404 и security-header smoke прошли",
+    "Admin active production bundle опубликован; 29 тестов, build и Browser smoke прошли",
+    "Draft PR #27 release branch прошёл обязательные GitHub checks",
+    "Supabase ACTIVE_HEALTHY; 13 managed migrations и 4 active Edge Functions",
+    "Encrypted database backup проверен реальным isolated PostgreSQL 17.6 restore",
+    "Временные Supabase PAT и read-only access rule отозваны",
+    "Apple Distribution build 1.2 (7) одобрен и публично выпущен 1 августа 2026 года в 23:46:52 CEST",
+    "iOS 1.2 (7) установлен и запущен на физическом iPhone; процесс оставался активным после 30-second smoke",
+    "iOS quality evidence: 479 unit tests, 7 Universal Link tests и accessibility smoke прошли"
   ],
-  "final_gates": [
+  "remaining_items": [
     {
-      "id": "release-identity",
-      "label": "Чистый release SHA и green CI",
-      "status": "pending_ci"
-    },
-    {
-      "id": "ios-runtime",
-      "label": "Подписанный App Store archive и стабильный внешний UI runner",
-      "status": "external_gate"
-    },
-    {
-      "id": "backup-restore",
-      "label": "Зашифрованный backup и isolated restore",
-      "status": "missing"
-    },
-    {
-      "id": "admin-e2e",
-      "label": "Authenticated Admin E2E",
-      "status": "passed"
+      "id": "storage-backup-automation",
+      "label": "Автоматический payload backup до появления Storage objects",
+      "status": "future_hardening"
     },
     {
       "id": "guide-depth",
-      "label": "Human-reviewed production-ready practical guide",
-      "status": "external_editorial_gate"
+      "label": "Human-reviewed full practical guides",
+      "status": "editorial_backlog"
     }
   ]
 }

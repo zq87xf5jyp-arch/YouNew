@@ -7,5 +7,7 @@
 		<string>applinks:younew.nl</string>
 		<string>applinks:www.younew.nl</string>
 	</array>
+	<key>com.apple.developer.weatherkit</key>
+	<true/>
 </dict>
 </plist>

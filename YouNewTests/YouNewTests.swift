@@ -29,10 +29,9 @@ struct YouNewTests {
         withExtendedLifetime(observation) {}
     }
 
-    @Test func assistantKeyboardComposerAvoidsInvalidAccessoryLayout() throws {
-        let sourceURL = URL(fileURLWithPath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func assistantKeyboardComposerAvoidsInvalidAccessoryLayout() throws {
+        let sourceURL = SourceTreeTestSupport.repoRoot
             .appendingPathComponent("YouNew/Views/AIAssistantView.swift")
         let source = try String(contentsOf: sourceURL, encoding: .utf8)
 

@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "release_id": "amsterdam-v0.1.6",
+  "version": "0.1.6",
+  "status": "published",
+  "work_package": "WP-06",
+  "dataset": "Amsterdam City 01",
+  "base_release_id": "amsterdam-v0.1.5",
+  "supersedes": "amsterdam-v0.1.5",
+  "base_batch_sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "evidence": [
+    {
+      "id": "evidence.canal-parade-ended-2026-08-02",
+      "kind": "replacement_review",
+      "url": "https://pride.amsterdam/en/event/canal-parade/",
+      "checked_at": "2026-08-02",
+      "note": "The official Pride Amsterdam page was opened after the event ended and states that the Canal Parade ran on 1 August 2026 from 12:00 to 18:00. The stable record is retired because its end date has passed."
+    }
+  ],
+  "replacements": [
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-canal-parade",
+      "original_canonical_sha256": "34428ea63a51aa7d07c8e3f1ea4096172134efc8aee6c3b2d517a61fcf6e110f",
+      "replacement_canonical_sha256": "af0978b011933fbbd7212e084cb767b7a02f02991a27bc0b2fdd1a2b106076db",
+      "reason": "The official event ended on 1 August 2026. Retire it from current public discovery while preserving its stable ID and source history.",
+      "evidence_refs": [
+        "evidence.canal-parade-ended-2026-08-02"
+      ],
+      "record": {
+        "id": "event.worldpride-amsterdam-2026-canal-parade",
+        "entity_type": "event",
+        "category": "parade",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.375223,
+          "longitude": 4.8832819
+        },
+        "title": "WorldPride Amsterdam 2026 Canal Parade",
+        "description": "WorldPride Amsterdam 2026 Canal Parade took place in Amsterdam on 1 August 2026. The official event page remains the responsible source for archival or updated information. This record is retired from current public discovery because its recorded end date has passed.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/95672737@N00/20279550942",
+            "asset_url": "https://live.staticflickr.com/420/20279550942_351bca2c7e_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Amsterdam Pride 2015\" by Kyle Taylor, Dream It. Do It. is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.event.worldpride-amsterdam-2026-canal-parade.hero.81d692bb21"
+          }
+        ],
+        "official_source": {
+          "title": "WorldPride Amsterdam 2026 Canal Parade official website",
+          "publisher": "Pride Amsterdam",
+          "url": "https://pride.amsterdam/en/event/canal-parade/",
+          "is_official": true,
+          "checked_at": "2026-08-02",
+          "status": "verified_opened"
+        },
+        "website": "https://pride.amsterdam/en/event/canal-parade/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-08-02",
+        "review_frequency_days": 30,
+        "verification_status": "verified",
+        "ai_summary": "WorldPride Amsterdam 2026 Canal Parade ended on 1 August 2026 and is retired from current public discovery. Use the official Pride Amsterdam page for archival or updated information.",
+        "search_keywords": [
+          "WorldPride Amsterdam 2026 Canal Parade",
+          "WorldPride Amsterdam 2026 Canal Parade Amsterdam",
+          "parade",
+          "current event Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "retired",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 32749237",
+          "source_http_status": "200",
+          "source_final_url": "https://pride.amsterdam/en/event/canal-parade/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "1",
+          "start_date": "2026-08-01",
+          "end_date": "2026-08-01",
+          "retired_at": "2026-08-02",
+          "retirement_reason": "event_end_date_passed"
+        }
+      }
+    }
+  ]
+}

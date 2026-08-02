@@ -1,6 +1,6 @@
 # YouNew deployment runbook
 
-Release target: 2026-07-29, Europe/Amsterdam
+Release procedure verified: 2026-08-01, Europe/Amsterdam
 
 No production step in this runbook is authorized until the owner sends the exact instruction `GO LIVE`.
 
@@ -8,17 +8,27 @@ No production step in this runbook is authorized until the owner sends the exact
 
 1. Record the intended commit SHA and confirm the release changes are isolated from unrelated working-tree changes.
 2. Require green public predeploy, Admin lint/type/test/build, Deno format/check and CI.
-3. Confirm `admin.younew.nl` as the Admin destination on the existing Hostinger Business Web App slot. The plan supports Next.js and Node 24, matching the package engine; the Web App and DNS are not provisioned before `GO LIVE`.
+3. Confirm `admin.younew.nl` as the Admin destination on the existing Hostinger Business Web App slot. The existing production Web App and DNS are provisioned and currently enforce the authenticated `/login` flow. Do not replace, reconfigure or redeploy that slot before `GO LIVE`.
 4. Confirm the recorded 2026-07-28 owner acceptance of the current Supabase Free-plan limitations: no leaked-password protection and no managed project backups. This acceptance does not waive the manual backup requirement.
 5. Install PostgreSQL client tools and create a fresh encrypted database backup:
 
 ```bash
 cd admin-dashboard
-DATABASE_URL='read-from-secure-secret-store' BACKUP_DIR='absolute-secure-backup-directory' pnpm backup
-pg_restore --list 'absolute-backup-file.dump' >/dev/null
+DATABASE_URL='read-from-secure-secret-store' \
+AGE_RECIPIENT='age-public-recipient' \
+BACKUP_DIR='absolute-secure-backup-directory' \
+  pnpm backup
+BACKUP_ARCHIVE='absolute-backup-file.dump.age' \
+AGE_IDENTITY_FILE='absolute-age-identity-file' \
+RESTORE_REPORT_PATH='absolute-restore-verification.json' \
+  pnpm restore:rehearsal
 ```
 
-6. Record the backup path, SHA-256, restore-list result and retention owner. Never commit the dump or connection string.
+The backup is an age-encrypted logical SQL stream, not a custom-format
+`pg_dump` archive. Validate its manifest checksum and the generated disposable
+restore report; do not run `pg_restore --list` against the `.dump.age` file.
+
+6. Record the backup path, SHA-256, restore report path/status/RTO and retention owner. Never commit the archive, age identity or connection string.
 7. Hostinger manual backup evidence exists for 2026-07-28 12:34 and its `public_html` contents were verified. If production files have changed since that timestamp, create another Hostinger backup immediately before deployment.
 
 ### Passwordless temporary backup access
@@ -28,8 +38,8 @@ The project database build `17.6.1.147` supports Supabase Temporary access. With
 1. Enable the Temporary access feature preview.
 2. Grant the current project owner `supabase_read_only_user` for the shortest practical period; use `postgres` only if the read-only dump is proven insufficient.
 3. Create/use a Personal Access Token without placing it in chat, shell history, logs or repository files.
-4. Connect over SSL, write the dump outside the repository with mode `0600`, and run `pg_restore --list`.
-5. Record only the path, timestamp, SHA-256 and validation result.
+4. Connect over SSL, stream the logical dump through age without persisting plaintext, and keep the encrypted archive and manifest outside the repository with mode `0600`.
+5. Verify the manifest checksum and run `pnpm restore:rehearsal` against a disposable local Supabase/PostgreSQL 17 stack. Record only the archive path, timestamp, SHA-256 and restore-report result.
 6. Revoke the temporary role grant and PAT immediately after verification.
 
 Do not reset the database password merely to create a backup; the Dashboard confirms that reset would break existing connections.
@@ -40,25 +50,32 @@ Use the reviewed Supabase CLI version and project ref:
 
 ```bash
 cd admin-dashboard
+python3 ../scripts/verify-supabase-migration-manifest.py
 pnpm dlx supabase@2.109.1 link --project-ref pgdzdxsiagfjioxwuqxf
+pnpm dlx supabase@2.109.1 migration list --linked
 pnpm dlx supabase@2.109.1 db push --dry-run
 ```
 
-Review the dry-run against `supabase/migrations/20260728192120_younew_production_operations.sql`. Stop on unexpected destructive SQL or drift.
+The expected state for the 2026-08-01 release candidate is 13 matching managed
+migrations and no pending SQL. Stop on any missing version, hash drift,
+unexpected pending migration or destructive statement. The `0001` through
+`0006` files are the historical bootstrap and must not be included as new
+production migrations.
 
-Create independent random salts of at least 32 bytes in the secure secret manager, then set them without printing their values:
+Do not rotate the existing rate-limit salts during a routine application
+release. Do not run `db push` or deploy an Edge Function unless the recorded
+release diff contains a separately reviewed database or function change. When
+a function changed, deploy only that function, then record its version,
+timestamp and entrypoint SHA-256. The governed function set is:
 
-```bash
-pnpm dlx supabase@2.109.1 secrets set BUSINESS_INQUIRY_RATE_LIMIT_SALT PUBLIC_FEEDBACK_RATE_LIMIT_SALT --project-ref pgdzdxsiagfjioxwuqxf
-pnpm dlx supabase@2.109.1 db push
-pnpm dlx supabase@2.109.1 functions deploy submit-business-inquiry --project-ref pgdzdxsiagfjioxwuqxf
-pnpm dlx supabase@2.109.1 functions deploy submit-public-feedback --project-ref pgdzdxsiagfjioxwuqxf
-pnpm dlx supabase@2.109.1 functions deploy prepare-content-sync --project-ref pgdzdxsiagfjioxwuqxf
-```
+- `analytics-ingest`;
+- `submit-business-inquiry`;
+- `submit-public-feedback`;
+- `prepare-content-sync`.
 
 Post-deploy checks:
 
-- migration is recorded exactly once;
+- the remote migration list still matches the immutable manifest;
 - operational tables have RLS enabled;
 - anonymous direct table writes fail;
 - one controlled business inquiry returns a receipt and appears in Admin;

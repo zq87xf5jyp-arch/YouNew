@@ -50,7 +50,8 @@ struct ContentAccessPolicyTests {
         }
     }
 
-    @Test func homeScreenPrioritizesPrimaryActionsBeforeSecondaryTools() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func homeScreenPrioritizesPrimaryActionsBeforeSecondaryTools() throws {
         let source = try rootHomeViewSource()
         let bodyStart = try requireRange("var body: some View", in: source)
         let bodyEnd = try requireRange("discoverNetherlandsSection", in: source, after: bodyStart.lowerBound)
@@ -78,7 +79,8 @@ struct ContentAccessPolicyTests {
         #expect(!bodyFlow.contains("referenceFeatureGrid"))
     }
 
-    @Test func homeHeroKeepsBureaucracyOutOfTouristShortcuts() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func homeHeroKeepsBureaucracyOutOfTouristShortcuts() throws {
         let source = try homeViewSource()
         let documents = try requireRange("id: \"documents\"", in: source)
         let lostDocuments = try requireRange("id: \"lost_documents\"", in: source)
@@ -95,7 +97,8 @@ struct ContentAccessPolicyTests {
         #expect(heroQuick.contains("home.hero.shortcut.ai"))
     }
 
-    @Test func homeDashboardNewBlocksRespectSelectedAudience() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func homeDashboardNewBlocksRespectSelectedAudience() throws {
         let source = try homeViewSource()
         let touristStart = try requireRange("private var stayPlanningActions", in: source)
         let refugeeStart = try requireRange("private var refugeeEssentialsActions", in: source)
@@ -154,7 +157,8 @@ struct ContentAccessPolicyTests {
         #expect(travelVisibility.contains("return false"))
     }
 
-    @Test func homeAudiencePlansCoverNonTouristCategories() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func homeAudiencePlansCoverNonTouristCategories() throws {
         let source = try homeViewSource()
         let essentials = try requireRange("private var audienceEssentialCategoryIDs", in: source)
         let explore = try requireRange("private var audienceExploreCategoryIDs", in: source)
@@ -170,7 +174,8 @@ struct ContentAccessPolicyTests {
         #expect(explorePlans.contains("case .local"))
     }
 
-    @Test func searchIncludesCityDashboardSourcesAndFilters() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func searchIncludesCityDashboardSourcesAndFilters() throws {
         let source = try searchViewSource()
         let directStart = try requireRange("private func buildDirectResults", in: source)
         let directEnd = try requireRange("private func selectedCategoryAllows", in: source)
@@ -196,23 +201,17 @@ struct ContentAccessPolicyTests {
     }
 
     private func homeViewSource() throws -> String {
-        let testFile = URL(fileURLWithPath: #filePath)
-        let projectRoot = testFile.deletingLastPathComponent().deletingLastPathComponent()
-        let homeView = projectRoot.appendingPathComponent("YouNew/Views/HomeView.swift")
+        let homeView = SourceTreeTestSupport.repoRoot.appendingPathComponent("YouNew/Views/HomeView.swift")
         return try String(contentsOf: homeView, encoding: .utf8)
     }
 
     private func rootHomeViewSource() throws -> String {
-        let testFile = URL(fileURLWithPath: #filePath)
-        let projectRoot = testFile.deletingLastPathComponent().deletingLastPathComponent()
-        let rootHomeView = projectRoot.appendingPathComponent("YouNew/Views/RootHomeView.swift")
+        let rootHomeView = SourceTreeTestSupport.repoRoot.appendingPathComponent("YouNew/Views/RootHomeView.swift")
         return try String(contentsOf: rootHomeView, encoding: .utf8)
     }
 
     private func searchViewSource() throws -> String {
-        let testFile = URL(fileURLWithPath: #filePath)
-        let projectRoot = testFile.deletingLastPathComponent().deletingLastPathComponent()
-        let searchView = projectRoot.appendingPathComponent("YouNew/Views/SearchView.swift")
+        let searchView = SourceTreeTestSupport.repoRoot.appendingPathComponent("YouNew/Views/SearchView.swift")
         return try String(contentsOf: searchView, encoding: .utf8)
     }
 

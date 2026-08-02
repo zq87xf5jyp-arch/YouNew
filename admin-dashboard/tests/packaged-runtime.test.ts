@@ -32,7 +32,7 @@ function runVerifier(fixtureRoot: string) {
 test("Hostinger package accepts the checked-in governed runtime", (context) => {
   const fixtureRoot = createPackagedFixture();
   context.after(() => rmSync(fixtureRoot, { recursive: true, force: true }));
-  assert.match(runVerifier(fixtureRoot), /Verified packaged governed runtime: 183 entities/);
+  assert.match(runVerifier(fixtureRoot), /Verified packaged governed runtime: 182 entities/);
 });
 
 test("Hostinger package rejects a runtime whose bytes no longer match the manifest", (context) => {

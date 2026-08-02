@@ -45,10 +45,18 @@ Role checks exist in both the Next.js application and database/function layer. U
 
 ## Backup and incidents
 
-- Run `pnpm backup` with `DATABASE_URL` supplied by the secure secret store.
-- Keep backup files outside the repository with mode `0600` or stricter.
-- Validate with `pg_restore --list`.
+- Run `pnpm backup` with `DATABASE_URL` and `AGE_RECIPIENT` supplied by the secure secret store.
+- Keep the `.dump.age`, manifest and age identity outside the repository with mode `0600` or stricter; never store the identity beside the archive.
+- Run `pnpm restore:rehearsal` with a running Docker daemon. The script starts a disposable local Supabase/PostgreSQL 17 stack, verifies managed schemas, and removes containers/volumes after retaining `restore-verification.json` as release evidence.
+- Inventory Storage objects, Edge Functions, Auth/provider configuration and secret names separately because they are not database-backup payloads.
 - For authorization or data-exposure incidents, stop the affected path, preserve evidence, rotate exposed secrets, and follow `docs/ROLLBACK_RUNBOOK.md`.
+
+## Admin E2E evidence
+
+- `pnpm test:e2e:admin:isolated` verifies the local owner surface, fail-closed configuration path and non-activating candidate presentation.
+- `pnpm test:e2e:admin:production` is read-only and requires owner plus dedicated unapproved-account credentials from the secret store.
+- A skipped credentials-dependent test is an open release gate, not a pass.
+- Store Playwright JSON, trace and screenshots in restricted release evidence; never publish credentials or personal inquiry/feedback data.
 
 ## Current release limitations
 

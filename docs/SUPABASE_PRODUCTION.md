@@ -1,55 +1,69 @@
 # Supabase production migrations
 
-Verified: **2026-07-27**
+Verified: **2026-08-01**
 
 Production project: `pgdzdxsiagfjioxwuqxf` (`YouNew Project`, `eu-west-1`)
 
 ## Canonical contract
 
-The production-managed migration history and this repository now contain the
-same two migrations:
+The production-managed migration history and this repository contain the same
+13 timestamped migrations. `production-migration-manifest.json` is the
+machine-checked immutable contract for these files.
 
 | Production version | Migration | SQL MD5 |
 | --- | --- | --- |
 | `20260727170658` | `harden_rls_and_function_boundaries` | `72a05daa90d58fa544ad839897eaec6e` |
 | `20260727170715` | `add_foreign_key_indexes` | `49985497a6463000a655340405a7483f` |
+| `20260728152428` | `business_inquiries` | `79a9a56c6f6059d91e47a9765d4bf61e` |
+| `20260728152529` | `deny_direct_business_inquiry_rate_limit_access` | `69c1cb27d3e2ec2ebc9e666fc85c455d` |
+| `20260728173016` | `connect_privacy_safe_analytics` | `dd528297d8e35f6850db59526bdf8203` |
+| `20260728173737` | `enforce_analytics_retention_and_production_views` | `ad25d4fb8ee7d4944edba8fcbc591cb2` |
+| `20260728192120` | `younew_production_operations` | `c431f52694f3ff6c6f9c640f5267d984` |
+| `20260728194108` | `provision_content_images_and_harden_extensions` | `98b723765f6aaee31a11fe4085555679` |
+| `20260728200449` | `harden_content_image_listing_and_fk_indexes` | `97e6f7a9c8a2d85128c7f4030bd3570e` |
+| `20260729082542` | `activate_public_content_feed` | `c9e78fb1eb410be9e7b067cb76e75345` |
+| `20260729092849` | `secure_article_publication_gate` | `e921d53eba88a6a7c50a43fa8dfdf397` |
+| `20260801002204` | `content_governance_platform` | `171e72a0c02d7f8c796427a4c814a83d` |
+| `20260801002707` | `harden_content_governance_performance` | `e71a0460b23ee953c92237852907bd11` |
 
-Canonical files live in
-`admin-dashboard/supabase/migrations/`. The hashes above were compared with
+Canonical files live in `admin-dashboard/supabase/migrations/`. The hashes were
+compared with the exact bytes in
 `supabase_migrations.schema_migrations.statements` in production, not inferred
-from filenames.
-
-The original review-package timestamps were replaced with the versions actually
-recorded by production. Do not add the review filenames as separate migrations:
-that would represent the same SQL twice.
+from filenames. Static QA runs
+`scripts/verify-supabase-migration-manifest.py` to prevent an applied migration
+from being renamed or edited in place.
 
 ## Historical baseline
 
-The pre-existing 20-table schema predates managed migration history. These two
-entries are the first managed production migrations; this repository does not
-invent a historical migration record for schema that Supabase did not record.
-A future full baseline must be generated from production, reviewed for secrets
-and destructive statements, and introduced as a separate documented change.
+The pre-existing 20-table schema predates managed migration history. Files
+`0001` through `0006` are the reviewed bootstrap needed to reconstruct a fresh
+local database; they are intentionally not represented as applied versions in
+the production migration-history table. Timestamped managed history begins at
+`20260727170658`. Do not mark the bootstrap files as newly applied in production
+or replay them against the existing project.
 
-Supabase treats local files under `supabase/migrations` as the source-controlled
-migration history and records applied versions in
+Supabase treats local timestamped files under `supabase/migrations` as the
+source-controlled managed history and records applied versions in
 `supabase_migrations.schema_migrations`. Direct SQL changes bypass that history,
 so future production DDL must use reviewed versioned migrations.
 
 ## Verified production result
 
-After the two migrations:
+Current production evidence on 2026-08-01:
 
-- the Security Advisor reports one remaining warning:
-  `auth_leaked_password_protection`;
-- the Performance Advisor reports 17 `INFO` notices for unused indexes and no
-  warning-level finding;
-- the 13 foreign-key indexes created by the second migration are present but
-  currently unused, which is expected immediately after creation;
+- all 36 public tables have RLS enabled;
+- the Security Advisor reports seven authenticated `SECURITY DEFINER` warnings,
+  one leaked-password-protection warning and two deny-by-default tables without
+  policies;
+- the reviewed definer functions check `auth.uid()`, approved internal roles and
+  a fixed `search_path`; this is not evidence that future changes are safe, so
+  advisor review remains mandatory;
+- the Performance Advisor reports four multiple-permissive-policy warnings and
+  41 unused-index information notices;
 - no index is removed based only on an unused-index notice.
 
 Leaked-password protection is an Auth setting, not SQL, and remains a separate
-owner-controlled action.
+owner-controlled action subject to the accepted project-plan limitation.
 
 ## Operating procedure
 

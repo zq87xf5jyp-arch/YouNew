@@ -3,14 +3,23 @@ import ImageIO
 import Testing
 @testable import YouNew
 
+enum SourceTreeTestSupport {
+    static let repoRoot = URL(fileURLWithPath: #filePath)
+        .deletingLastPathComponent()
+        .deletingLastPathComponent()
+
+    static let isAvailable = FileManager.default.fileExists(
+        atPath: repoRoot.appendingPathComponent("YouNew.xcodeproj/project.pbxproj").path
+    )
+}
+
 struct BrandAssetTests {
     private var repoRoot: URL {
-        URL(fileURLWithPath: #filePath)
-            .deletingLastPathComponent()
-            .deletingLastPathComponent()
+        SourceTreeTestSupport.repoRoot
     }
 
-    @Test func appIconCatalogAndLogoSourceExist() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func appIconCatalogAndLogoSourceExist() throws {
         let iconSet = repoRoot.appendingPathComponent("YouNew/Assets.xcassets/AppIcon.appiconset")
         let source = repoRoot.appendingPathComponent("Design/AppIcon/source.svg")
         let script = repoRoot.appendingPathComponent("scripts/generate-app-icons.swift")
@@ -20,7 +29,8 @@ struct BrandAssetTests {
         #expect(FileManager.default.fileExists(atPath: script.path))
     }
 
-    @Test func requiredAppIconSizesExistAndAreReadable() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func requiredAppIconSizesExistAndAreReadable() throws {
         let iconSet = repoRoot.appendingPathComponent("YouNew/Assets.xcassets/AppIcon.appiconset")
         let sizes = [16, 32, 64, 128, 256, 512, 1024]
 
@@ -39,7 +49,8 @@ struct BrandAssetTests {
         }
     }
 
-    @Test func appIconContentsReferencesGeneratedAssets() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func appIconContentsReferencesGeneratedAssets() throws {
         let contentsURL = repoRoot.appendingPathComponent("YouNew/Assets.xcassets/AppIcon.appiconset/Contents.json")
         let data = try Data(contentsOf: contentsURL)
         let json = try JSONSerialization.jsonObject(with: data) as? [String: Any]
@@ -51,7 +62,8 @@ struct BrandAssetTests {
         #expect(filenames.contains("icon-512.png"))
     }
 
-    @Test func assetCatalogImageReferencesExist() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func assetCatalogImageReferencesExist() throws {
         let assetRoot = repoRoot.appendingPathComponent("YouNew/Assets.xcassets")
         let enumerator = FileManager.default.enumerator(
             at: assetRoot,
@@ -81,7 +93,8 @@ struct BrandAssetTests {
         #expect(missingReferences.isEmpty, "Missing asset catalog files: \(missingReferences)")
     }
 
-    @Test func logoSourceDoesNotUseOfficialOrPlaceholderMarks() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func logoSourceDoesNotUseOfficialOrPlaceholderMarks() throws {
         let sourceURL = repoRoot.appendingPathComponent("Design/AppIcon/source.svg")
         let source = try String(contentsOf: sourceURL, encoding: .utf8).lowercased()
 
@@ -91,7 +104,8 @@ struct BrandAssetTests {
         #expect(!source.contains("placeholder"))
     }
 
-    @Test func productionCodeDoesNotReferencePlaceholderOrTestLogo() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func productionCodeDoesNotReferencePlaceholderOrTestLogo() throws {
         let productionRoots = [
             repoRoot.appendingPathComponent("YouNew/Core/DesignSystem/Components"),
             repoRoot.appendingPathComponent("YouNew/Views"),
@@ -114,7 +128,8 @@ struct BrandAssetTests {
         #expect(violations.isEmpty, "Production UI references placeholder/test logo text: \(violations)")
     }
 
-    @Test func appIconUsesVectorSourceNotLowResolutionPrimaryRaster() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func appIconUsesVectorSourceNotLowResolutionPrimaryRaster() throws {
         let source = repoRoot.appendingPathComponent("Design/AppIcon/source.svg")
         let sourceText = try String(contentsOf: source, encoding: .utf8)
 
@@ -134,7 +149,8 @@ struct BrandAssetTests {
         #expect(city.symbols.coatOfArms?.url?.contains("YouNew") != true)
     }
 
-    @Test func officialSymbolAssetsAreNotReusedAsBrandLogo() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func officialSymbolAssetsAreNotReusedAsBrandLogo() throws {
         let logoSource = repoRoot.appendingPathComponent("Design/AppIcon/source.svg")
         let logo = try String(contentsOf: logoSource, encoding: .utf8)
 
@@ -144,7 +160,8 @@ struct BrandAssetTests {
         #expect(!logo.contains("Leiden_wapen_HRvA"))
     }
 
-    @Test func cityAndProvinceSymbolsStayInOfficialAssetFamilies() throws {
+    @Test(.enabled(if: SourceTreeTestSupport.isAvailable))
+    func cityAndProvinceSymbolsStayInOfficialAssetFamilies() throws {
         let assetRoot = repoRoot.appendingPathComponent("YouNew/Assets.xcassets")
         let enumerator = FileManager.default.enumerator(at: assetRoot, includingPropertiesForKeys: nil, options: [.skipsHiddenFiles])
         var misplaced: [String] = []

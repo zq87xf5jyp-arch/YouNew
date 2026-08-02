@@ -5,21 +5,23 @@ YouNew production project `pgdzdxsiagfjioxwuqxf`.
 
 ## Layout
 
-- `migrations/` contains the exact SQL versions recorded in production managed
-  migration history.
+- `migrations/0001_*.sql` through `0006_*.sql` are the historical bootstrap for
+  rebuilding a fresh local project. They predate production managed history and
+  must not be replayed against the existing production database.
+- timestamped `migrations/20*.sql` contain the exact SQL bytes recorded in
+  production managed migration history.
+- `production-migration-manifest.json` pins every managed version, name, byte
+  count and MD5 hash.
 - `verification/verify_after_migration.sql` is read-only post-migration
   verification.
 - `docs/SUPABASE_PRODUCTION.md` records hashes, current advisor evidence, the
   historical-baseline limitation, and the rollout procedure.
 
-The production SQL hashes were verified on 2026-07-27:
+The complete set of 13 production SQL hashes was verified on 2026-08-01. Check
+it locally with:
 
-```text
-20260727170658_harden_rls_and_function_boundaries.sql
-MD5 72a05daa90d58fa544ad839897eaec6e
-
-20260727170715_add_foreign_key_indexes.sql
-MD5 49985497a6463000a655340405a7483f
+```bash
+python3 scripts/verify-supabase-migration-manifest.py
 ```
 
 Do not rename an applied migration, replay it under a new version, or place

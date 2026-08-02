@@ -1514,17 +1514,20 @@ struct NetherlandsKnowledgeDatabase {
 
     private let entitiesByID: [String: NetherlandsKnowledgeEntity]
     private let migrationRegistry: [String: DataProjectMigration]
+    let canonicalEntityIDs: Set<String>
 
     init(
         entities: [NetherlandsKnowledgeEntity],
         relations: [KnowledgeRelation],
-        migrationRegistry: [String: DataProjectMigration] = [:]
+        migrationRegistry: [String: DataProjectMigration] = [:],
+        canonicalEntityIDs: Set<String> = []
     ) {
         var seen = Set<String>()
         let uniqueEntities = entities.filter { seen.insert($0.id).inserted }
         self.entities = uniqueEntities
         self.entitiesByID = Dictionary(uniqueKeysWithValues: uniqueEntities.map { ($0.id, $0) })
         self.migrationRegistry = migrationRegistry
+        self.canonicalEntityIDs = canonicalEntityIDs
 
         var seenRelations = Set<String>()
         self.relations = relations.filter { relation in
@@ -1549,28 +1552,42 @@ struct NetherlandsKnowledgeDatabase {
     }
 
     func knowledgeItems() -> [KnowledgeItem] {
-        publishedEntities.filter { $0.kind != .officialSource }.map { entity in
-            KnowledgeItem(
-                id: entity.knowledgeItemID,
-                type: entity.knowledgeItemType,
-                title: LocalizedKnowledgeText(entity.title),
-                summary: LocalizedKnowledgeText(entity.aiSummary.isEmpty ? entity.summary : entity.aiSummary),
-                category: entity.kind == .localPartner
-                    ? (entity.attributes["subcategory"] ?? entity.category)
-                    : entity.category,
-                city: entity.kind == .city ? entity.title : entity.cityId,
-                province: entity.provinceId,
-                keywords: entity.searchKeywords,
-                route: entity.route,
-                routeID: entity.route.flatMap(AppNavigationResolver.routeID(from:)),
-                sources: entity.source.map { [$0] } ?? [],
-                lastReviewed: nil,
-                safetyLevel: entity.source == nil ? .general : .officialSourceRecommended,
-                sourcePath: "YouNew/Data/NetherlandsData.swift",
-                personaTags: entity.personaTags,
-                governance: entity.governance
-            )
+        // Canonical runtime records already passed the production publication,
+        // verification, governance and checksum gates in DataProjectRuntimeLoader.
+        // Legacy records retain the older visual-completeness/freshness gate.
+        // Events remain time-bounded regardless of their source.
+        let canonicalRuntimeEntities = entities.filter { entity in
+            canonicalEntityIDs.contains(entity.id)
+                && (entity.kind != .event || entity.isActiveEvent())
         }
+        let legacyPublishedEntities = publishedEntities.filter {
+            !canonicalEntityIDs.contains($0.id)
+        }
+
+        return (canonicalRuntimeEntities + legacyPublishedEntities)
+            .filter { $0.kind != .officialSource }
+            .map { entity in
+                KnowledgeItem(
+                    id: entity.knowledgeItemID,
+                    type: entity.knowledgeItemType,
+                    title: LocalizedKnowledgeText(entity.title),
+                    summary: LocalizedKnowledgeText(entity.aiSummary.isEmpty ? entity.summary : entity.aiSummary),
+                    category: entity.kind == .localPartner
+                        ? (entity.attributes["subcategory"] ?? entity.category)
+                        : entity.category,
+                    city: entity.kind == .city ? entity.title : entity.cityId,
+                    province: entity.provinceId,
+                    keywords: entity.searchKeywords,
+                    route: entity.route,
+                    routeID: entity.route.flatMap(AppNavigationResolver.routeID(from:)),
+                    sources: entity.source.map { [$0] } ?? [],
+                    lastReviewed: nil,
+                    safetyLevel: entity.source == nil ? .general : .officialSourceRecommended,
+                    sourcePath: "YouNew/Data/NetherlandsData.swift",
+                    personaTags: entity.personaTags,
+                    governance: entity.governance
+                )
+            }
     }
 
     var report: NetherlandsKnowledgeDatabaseReport {
@@ -1620,7 +1637,8 @@ struct NetherlandsKnowledgeDatabase {
         return NetherlandsKnowledgeDatabase(
             entities: entities,
             relations: relations,
-            migrationRegistry: runtime.migrationRegistry
+            migrationRegistry: runtime.migrationRegistry,
+            canonicalEntityIDs: canonicalIDs
         )
     }
 

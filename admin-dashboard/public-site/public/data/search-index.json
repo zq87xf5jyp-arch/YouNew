@@ -1,7 +1,7 @@
 {
   "schemaVersion": 2,
   "generatedAt": "2026-08-01T00:00:00Z",
-  "datasetFingerprint": "23956b0e95a6f9080edaf51822a66021b769861111e1f072b7c1a45b2e477a2f",
+  "datasetFingerprint": "391d9da3adcd35e325d42c845ec07e1e1a063c81a66ea689672372b163b74178",
   "locale": "en",
   "geographyEffectiveDate": "2026-01-01",
   "documents": [
@@ -7092,46 +7092,6 @@
       "synonyms": [],
       "officialOrganizationNames": [
         "WoningNet"
-      ],
-      "terminology": [],
-      "commonQuestions": []
-    },
-    {
-      "id": "event.worldpride-amsterdam-2026-canal-parade",
-      "type": "place",
-      "sourceKind": "event",
-      "slug": "worldpride-amsterdam-2026-canal-parade",
-      "route": "/places/worldpride-amsterdam-2026-canal-parade",
-      "title": "WorldPride Amsterdam 2026 Canal Parade",
-      "summary": "WorldPride Amsterdam 2026 Canal Parade is a confirmed Amsterdam current event. The source covers the official canal parade on 1 August 2026.",
-      "contentDepth": "summary",
-      "keywords": [
-        "Noord-Holland",
-        "WorldPride Amsterdam 2026 Canal Parade",
-        "WorldPride Amsterdam 2026 Canal Parade Amsterdam",
-        "current event Amsterdam",
-        "parade"
-      ],
-      "city": "Amsterdam",
-      "cityId": "amsterdam",
-      "province": "Noord-Holland",
-      "provinceId": "noord-holland",
-      "categories": [
-        "culture"
-      ],
-      "narrowCategory": "parade",
-      "organization": "Pride Amsterdam",
-      "audienceProfiles": [],
-      "numberedSteps": [],
-      "requiredDocuments": [],
-      "checklist": [],
-      "tips": [],
-      "faqAnswers": [],
-      "whenYouNeedIt": [],
-      "tags": [],
-      "synonyms": [],
-      "officialOrganizationNames": [
-        "Pride Amsterdam"
       ],
       "terminology": [],
       "commonQuestions": []

@@ -3,11 +3,46 @@
 
 create extension if not exists citext;
 
+create schema if not exists private;
+revoke all on schema private from public, anon, authenticated;
+
+create or replace function private.is_approved_admin()
+returns boolean
+language sql
+security definer
+set search_path = ''
+as $$
+  select exists (
+    select 1
+    from public.profiles
+    where id = auth.uid()
+      and is_approved = true
+      and role in ('owner', 'admin', 'editor', 'qa', 'viewer')
+  );
+$$;
+
+create or replace function private.current_admin_role()
+returns public.admin_role
+language sql
+security definer
+set search_path = ''
+as $$
+  select role
+  from public.profiles
+  where id = auth.uid() and is_approved = true;
+$$;
+
+revoke all on function private.is_approved_admin() from public, anon;
+revoke all on function private.current_admin_role() from public, anon;
+grant execute on function private.is_approved_admin() to authenticated, service_role;
+grant execute on function private.current_admin_role() to authenticated, service_role;
+
 alter type public.publication_status add value if not exists 'research' after 'draft';
 alter type public.publication_status add value if not exists 'qa' after 'review';
 alter type public.publication_status add value if not exists 'needs_review' after 'published';
 
 alter table public.articles
+  add column if not exists images jsonb not null default '[]'::jsonb,
   add column if not exists verified_date date,
   add column if not exists reviewer_id uuid references public.profiles(id),
   add column if not exists reviewed_at timestamptz,
@@ -18,6 +53,9 @@ alter table public.articles
   add column if not exists validation_errors text[] not null default '{}'::text[];
 
 alter table public.articles
+  drop constraint if exists articles_images_array_check,
+  add constraint articles_images_array_check
+    check (jsonb_typeof(images) = 'array'),
   drop constraint if exists articles_source_mapping_array_check,
   add constraint articles_source_mapping_array_check
     check (jsonb_typeof(source_mapping) = 'array'),
@@ -41,7 +79,7 @@ begin
   end if;
 
   if current_user <> 'service_role'
-     and coalesce(public.current_admin_role()::text, '') not in ('owner', 'admin') then
+     and coalesce(private.current_admin_role()::text, '') not in ('owner', 'admin') then
     raise exception using
       errcode = '42501',
       message = 'publication_role_required';
@@ -112,13 +150,15 @@ where status = 'published'
     or (requires_media and jsonb_array_length(images) = 0)
   );
 
-create table public.business_inquiries (
+create table if not exists public.business_inquiries (
   id uuid primary key default gen_random_uuid(),
-  confirmation_code text not null unique,
-  contact_name text not null check (char_length(contact_name) between 2 and 120),
-  company text not null check (char_length(company) between 2 and 120),
-  work_email citext not null check (char_length(work_email::text) <= 254),
-  phone text check (phone is null or char_length(phone) <= 40),
+  reference_code text not null unique default (
+    'YN-' || upper(substr(replace(gen_random_uuid()::text, '-', ''), 1, 12))
+  ),
+  company_name text not null check (char_length(company_name) between 2 and 120),
+  contact_person text not null check (char_length(contact_person) between 2 and 120),
+  email text not null check (char_length(email) between 3 and 254),
+  phone text check (phone is null or char_length(phone) between 6 and 40),
   website text not null check (char_length(website) <= 300 and website ~ '^https?://'),
   inquiry_type text not null check (inquiry_type in ('advertising', 'partnership', 'media', 'public-interest', 'other')),
   organization_type text not null check (organization_type in (
@@ -136,16 +176,18 @@ create table public.business_inquiries (
   )),
   campaign_start date,
   campaign_end date,
-  message text not null check (char_length(message) between 30 and 2000),
+  message text not null check (char_length(message) between 30 and 600),
+  consent_to_privacy boolean not null check (consent_to_privacy),
+  confirm_accuracy boolean not null check (confirm_accuracy),
   consent_at timestamptz not null,
-  source_page text not null check (source_page ~ '^/business(?:/|$)'),
+  source_page text not null default '/business/apply/' check (source_page = '/business/apply/'),
   utm_source text check (utm_source is null or char_length(utm_source) <= 120),
   utm_medium text check (utm_medium is null or char_length(utm_medium) <= 120),
   utm_campaign text check (utm_campaign is null or char_length(utm_campaign) <= 160),
   utm_content text check (utm_content is null or char_length(utm_content) <= 160),
   utm_term text check (utm_term is null or char_length(utm_term) <= 160),
-  status text not null default 'new' check (status in ('new', 'contacted', 'qualified', 'closed', 'rejected', 'spam')),
-  internal_note text check (internal_note is null or char_length(internal_note) <= 4000),
+  status text not null default 'new' check (status in ('new', 'reviewing', 'responded', 'accepted', 'declined', 'test', 'archived')),
+  admin_notes text check (admin_notes is null or char_length(admin_notes) <= 2000),
   handled_by uuid references public.profiles(id),
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now(),
@@ -155,35 +197,91 @@ create table public.business_inquiries (
   )
 );
 
-create index business_inquiries_status_created_at_idx
-  on public.business_inquiries (status, created_at desc);
-create index business_inquiries_email_created_at_idx
-  on public.business_inquiries (work_email, created_at desc);
+-- Production can already contain the earlier business-inquiry contract.
+-- Extend it in place instead of creating a competing table or duplicating PII.
+alter table public.business_inquiries
+  add column if not exists inquiry_type text,
+  add column if not exists consent_at timestamptz,
+  add column if not exists utm_source text,
+  add column if not exists utm_medium text,
+  add column if not exists utm_campaign text,
+  add column if not exists utm_content text,
+  add column if not exists utm_term text,
+  add column if not exists handled_by uuid references public.profiles(id);
 
-create table public.business_inquiry_rate_limits (
-  rate_key text primary key check (rate_key ~ '^[a-f0-9]{64}$'),
-  window_started_at timestamptz not null default now(),
+update public.business_inquiries
+set inquiry_type = coalesce(inquiry_type, 'other'),
+    consent_at = coalesce(consent_at, created_at)
+where inquiry_type is null or consent_at is null;
+
+alter table public.business_inquiries
+  alter column inquiry_type set not null,
+  alter column consent_at set not null;
+
+alter table public.business_inquiries
+  drop constraint if exists business_inquiries_inquiry_type_check,
+  add constraint business_inquiries_inquiry_type_check check (
+    inquiry_type in ('advertising', 'partnership', 'media', 'public-interest', 'other')
+  ),
+  drop constraint if exists business_inquiries_utm_source_check,
+  add constraint business_inquiries_utm_source_check check (
+    utm_source is null or char_length(utm_source) <= 120
+  ),
+  drop constraint if exists business_inquiries_utm_medium_check,
+  add constraint business_inquiries_utm_medium_check check (
+    utm_medium is null or char_length(utm_medium) <= 120
+  ),
+  drop constraint if exists business_inquiries_utm_campaign_check,
+  add constraint business_inquiries_utm_campaign_check check (
+    utm_campaign is null or char_length(utm_campaign) <= 160
+  ),
+  drop constraint if exists business_inquiries_utm_content_check,
+  add constraint business_inquiries_utm_content_check check (
+    utm_content is null or char_length(utm_content) <= 160
+  ),
+  drop constraint if exists business_inquiries_utm_term_check,
+  add constraint business_inquiries_utm_term_check check (
+    utm_term is null or char_length(utm_term) <= 160
+  );
+
+create index if not exists business_inquiries_status_created_at_idx
+  on public.business_inquiries (status, created_at desc);
+create index if not exists business_inquiries_email_created_at_idx
+  on public.business_inquiries (email, created_at desc);
+
+create table if not exists private.business_inquiry_rate_limits (
+  key_hash text not null check (key_hash ~ '^[a-f0-9]{64}$'),
+  window_started_at timestamptz not null,
   request_count integer not null default 1 check (request_count > 0),
-  updated_at timestamptz not null default now()
+  last_seen_at timestamptz not null default now(),
+  primary key (key_hash, window_started_at)
 );
 
 alter table public.business_inquiries enable row level security;
-alter table public.business_inquiry_rate_limits enable row level security;
+alter table private.business_inquiry_rate_limits enable row level security;
 
 revoke all on table public.business_inquiries from public, anon, authenticated;
-revoke all on table public.business_inquiry_rate_limits from public, anon, authenticated;
-grant select, update on table public.business_inquiries to authenticated;
+revoke all on table private.business_inquiry_rate_limits from public, anon, authenticated;
+grant select on table public.business_inquiries to authenticated;
+grant update (status, admin_notes, handled_by) on table public.business_inquiries to authenticated;
 grant all on table public.business_inquiries to service_role;
-grant all on table public.business_inquiry_rate_limits to service_role;
+grant all on table private.business_inquiry_rate_limits to service_role;
 
+drop policy if exists "approved admins read business inquiries" on public.business_inquiries;
 create policy "approved admins read business inquiries"
 on public.business_inquiries for select to authenticated
-using (public.is_approved_admin());
+using (private.is_approved_admin());
 
+drop policy if exists "owners and admins update business inquiries" on public.business_inquiries;
 create policy "owners and admins update business inquiries"
 on public.business_inquiries for update to authenticated
-using (public.current_admin_role() in ('owner', 'admin'))
-with check (public.current_admin_role() in ('owner', 'admin'));
+using (private.current_admin_role() in ('owner', 'admin'))
+with check (private.current_admin_role() in ('owner', 'admin'));
+
+-- Production already contains the earlier two-argument RPC returning only
+-- reference_code. PostgreSQL cannot replace a function's return type in place,
+-- so replace it atomically inside this migration.
+drop function if exists public.submit_business_inquiry(jsonb, text);
 
 create or replace function public.submit_business_inquiry(
   p_payload jsonb,
@@ -197,6 +295,7 @@ as $$
 declare
   v_now timestamptz := now();
   v_count integer;
+  v_window timestamptz := date_trunc('hour', now());
   v_id uuid := gen_random_uuid();
   v_code text := 'YNI-' || upper(substr(replace(v_id::text, '-', ''), 1, 12));
   v_company text := nullif(btrim(p_payload ->> 'companyName'), '');
@@ -221,21 +320,16 @@ begin
     raise exception using errcode = '22023', message = 'invalid_rate_key';
   end if;
 
-  delete from public.business_inquiry_rate_limits
-  where updated_at < v_now - interval '2 days';
+  delete from private.business_inquiry_rate_limits
+  where window_started_at < v_now - interval '24 hours';
 
-  insert into public.business_inquiry_rate_limits (rate_key, window_started_at, request_count, updated_at)
-  values (p_rate_key, v_now, 1, v_now)
-  on conflict (rate_key) do update
-  set window_started_at = case
-        when public.business_inquiry_rate_limits.window_started_at <= v_now - interval '15 minutes' then v_now
-        else public.business_inquiry_rate_limits.window_started_at
-      end,
-      request_count = case
-        when public.business_inquiry_rate_limits.window_started_at <= v_now - interval '15 minutes' then 1
-        else public.business_inquiry_rate_limits.request_count + 1
-      end,
-      updated_at = v_now
+  insert into private.business_inquiry_rate_limits (
+    key_hash, window_started_at, request_count, last_seen_at
+  )
+  values (p_rate_key, v_window, 1, v_now)
+  on conflict (key_hash, window_started_at) do update
+  set request_count = private.business_inquiry_rate_limits.request_count + 1,
+      last_seen_at = v_now
   returning request_count into v_count;
 
   if v_count > 5 then
@@ -262,8 +356,8 @@ begin
      or v_province is null or char_length(v_province) not between 2 and 100
      or v_goal is null or char_length(v_goal) not between 10 and 240
      or v_budget not in ('under-1000', '1000-3000', '3000-10000', 'over-10000', 'request-discussion')
-     or v_message is null or char_length(v_message) not between 30 and 2000
-     or v_source_page is null or v_source_page !~ '^/business(?:/|$)' then
+     or v_message is null or char_length(v_message) not between 30 and 600
+     or v_source_page <> '/business/apply/' then
     raise exception using errcode = '22023', message = 'validation_failed';
   end if;
 
@@ -299,11 +393,11 @@ begin
   end if;
 
   insert into public.business_inquiries (
-    id, confirmation_code, contact_name, company, work_email, phone, website,
+    id, reference_code, contact_person, company_name, email, phone, website,
     inquiry_type, organization_type, kvk_number, city, province, target_audience,
     requested_placements, campaign_goal, budget_range, campaign_start, campaign_end,
-    message, consent_at, source_page, utm_source, utm_medium, utm_campaign,
-    utm_content, utm_term
+    message, consent_to_privacy, confirm_accuracy, consent_at, source_page,
+    utm_source, utm_medium, utm_campaign, utm_content, utm_term
   )
   values (
     v_id, v_code, v_contact, v_company, v_email,
@@ -312,7 +406,7 @@ begin
     v_city, v_province, v_audience, v_placements, v_goal, v_budget,
     nullif(p_payload ->> 'campaignStart', '')::date,
     nullif(p_payload ->> 'campaignEnd', '')::date,
-    v_message, v_now, v_source_page,
+    v_message, true, true, v_now, v_source_page,
     nullif(btrim(p_payload ->> 'utmSource'), ''),
     nullif(btrim(p_payload ->> 'utmMedium'), ''),
     nullif(btrim(p_payload ->> 'utmCampaign'), ''),
@@ -345,7 +439,7 @@ set search_path = pg_catalog
 as $$
 begin
   if old.status is distinct from new.status
-     or old.internal_note is distinct from new.internal_note
+     or old.admin_notes is distinct from new.admin_notes
      or old.handled_by is distinct from new.handled_by then
     insert into public.audit_logs (user_id, action, entity_type, entity_id, previous_value, new_value)
     values (
@@ -353,19 +447,21 @@ begin
       'business_inquiry_updated',
       'business_inquiry',
       new.id::text,
-      jsonb_build_object('status', old.status, 'had_internal_note', old.internal_note is not null),
-      jsonb_build_object('status', new.status, 'has_internal_note', new.internal_note is not null)
+      jsonb_build_object('status', old.status, 'had_admin_notes', old.admin_notes is not null),
+      jsonb_build_object('status', new.status, 'has_admin_notes', new.admin_notes is not null)
     );
   end if;
   return new;
 end;
 $$;
 
+drop trigger if exists audit_business_inquiry_status_change on public.business_inquiries;
 drop trigger if exists audit_business_inquiry_change on public.business_inquiries;
 create trigger audit_business_inquiry_change
   after update on public.business_inquiries
   for each row execute function public.audit_business_inquiry_change();
 
+drop trigger if exists set_business_inquiry_updated_at on public.business_inquiries;
 drop trigger if exists set_updated_at on public.business_inquiries;
 create trigger set_updated_at
   before update on public.business_inquiries
@@ -551,25 +647,25 @@ grant all on table public.service_registry, public.service_status, public.deploy
   to service_role;
 
 create policy "approved admins read service registry"
-on public.service_registry for select to authenticated using (public.is_approved_admin());
+on public.service_registry for select to authenticated using (private.is_approved_admin());
 create policy "owners and admins manage service registry"
 on public.service_registry for all to authenticated
-using (public.current_admin_role() in ('owner', 'admin'))
-with check (public.current_admin_role() in ('owner', 'admin'));
+using (private.current_admin_role() in ('owner', 'admin'))
+with check (private.current_admin_role() in ('owner', 'admin'));
 
 create policy "approved admins read service status"
-on public.service_status for select to authenticated using (public.is_approved_admin());
+on public.service_status for select to authenticated using (private.is_approved_admin());
 create policy "owners and admins manage service status"
 on public.service_status for all to authenticated
-using (public.current_admin_role() in ('owner', 'admin'))
-with check (public.current_admin_role() in ('owner', 'admin'));
+using (private.current_admin_role() in ('owner', 'admin'))
+with check (private.current_admin_role() in ('owner', 'admin'));
 
 create policy "approved admins read deployment status"
-on public.deployment_status for select to authenticated using (public.is_approved_admin());
+on public.deployment_status for select to authenticated using (private.is_approved_admin());
 create policy "owners and admins manage deployment status"
 on public.deployment_status for all to authenticated
-using (public.current_admin_role() in ('owner', 'admin'))
-with check (public.current_admin_role() in ('owner', 'admin'));
+using (private.current_admin_role() in ('owner', 'admin'))
+with check (private.current_admin_role() in ('owner', 'admin'));
 
 drop trigger if exists set_updated_at on public.service_registry;
 create trigger set_updated_at
@@ -644,11 +740,11 @@ grant all on table public.published_content_artifacts to service_role;
 
 create policy "approved admins read content artifacts"
 on public.published_content_artifacts for select to authenticated
-using (public.is_approved_admin());
+using (private.is_approved_admin());
 create policy "owners and admins manage content artifacts"
 on public.published_content_artifacts for all to authenticated
-using (public.current_admin_role() in ('owner', 'admin'))
-with check (public.current_admin_role() in ('owner', 'admin'));
+using (private.current_admin_role() in ('owner', 'admin'))
+with check (private.current_admin_role() in ('owner', 'admin'));
 
 create or replace function public.request_content_sync()
 returns uuid
@@ -659,7 +755,7 @@ as $$
 declare
   v_job_id uuid := gen_random_uuid();
 begin
-  if coalesce(public.current_admin_role()::text, '') not in ('owner', 'admin') then
+  if coalesce(private.current_admin_role()::text, '') not in ('owner', 'admin') then
     raise exception using errcode = '42501', message = 'sync_role_required';
   end if;
 
@@ -734,23 +830,46 @@ create trigger enqueue_article_publication
 
 -- Security-definer and trigger functions must not remain callable through the
 -- Data API unless a role explicitly needs them.
-revoke all on function public.current_admin_role() from public, anon;
-revoke all on function public.is_approved_admin() from public;
-revoke all on function public.handle_new_admin_user() from public, anon, authenticated;
+alter function public.set_updated_at() set search_path = '';
+
 revoke all on function public.set_updated_at() from public, anon, authenticated;
-revoke all on function public.write_audit_log() from public, anon, authenticated;
 revoke all on function public.audit_business_inquiry_change() from public, anon, authenticated;
 revoke all on function public.enforce_article_publication_gate() from public, anon, authenticated;
 revoke all on function public.enqueue_article_publication() from public, anon, authenticated;
 revoke all on function public.request_content_sync() from public, anon;
 
-grant execute on function public.is_approved_admin() to anon, authenticated, service_role;
-grant execute on function public.current_admin_role() to authenticated, service_role;
 grant execute on function public.request_content_sync() to authenticated, service_role;
+
+-- Older environments used public authorization helpers; current production
+-- already moved them to private. Harden the legacy helpers only when present.
+do $$
+begin
+  if to_regprocedure('public.current_admin_role()') is not null then
+    execute 'alter function public.current_admin_role() set search_path = ''''';
+    execute 'revoke all on function public.current_admin_role() from public, anon';
+    execute 'grant execute on function public.current_admin_role() to authenticated, service_role';
+  end if;
+  if to_regprocedure('public.is_approved_admin()') is not null then
+    execute 'alter function public.is_approved_admin() set search_path = ''''';
+    execute 'revoke all on function public.is_approved_admin() from public, anon';
+    execute 'grant execute on function public.is_approved_admin() to authenticated, service_role';
+  end if;
+  if to_regprocedure('public.handle_new_admin_user()') is not null then
+    execute 'alter function public.handle_new_admin_user() set search_path = ''''';
+    execute 'revoke all on function public.handle_new_admin_user() from public, anon, authenticated';
+  end if;
+  if to_regprocedure('public.write_audit_log()') is not null then
+    execute 'alter function public.write_audit_log() set search_path = ''''';
+    execute 'revoke all on function public.write_audit_log() from public, anon, authenticated';
+  end if;
+end
+$$;
 
 alter default privileges for role postgres in schema public
   revoke execute on functions from public;
 alter default privileges for role postgres in schema public
-  revoke select, insert, update, delete on tables from anon, authenticated;
+  revoke execute on functions from anon, authenticated, service_role;
 alter default privileges for role postgres in schema public
-  revoke usage, select on sequences from anon, authenticated;
+  revoke select, insert, update, delete on tables from anon, authenticated, service_role;
+alter default privileges for role postgres in schema public
+  revoke usage, select on sequences from anon, authenticated, service_role;
