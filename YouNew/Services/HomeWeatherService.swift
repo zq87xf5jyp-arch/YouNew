@@ -1,14 +1,24 @@
 import Foundation
 import Combine
+import CoreLocation
+import WeatherKit
+
+nonisolated struct HomeWeatherAttributionSnapshot: Codable, Equatable, Sendable {
+    let serviceName: String
+    let legalPageURL: URL
+    let combinedMarkDarkURL: URL
+    let combinedMarkLightURL: URL
+}
 
 nonisolated struct HomeWeatherSnapshot: Codable, Equatable, Sendable {
     let temperature: Double
     let apparentTemperature: Double
-    let precipitation: Double
     let windSpeed: Double
     let weatherCode: Int
+    let symbolName: String
     let isDay: Bool
     let observedAt: Date
+    let attribution: HomeWeatherAttributionSnapshot
 }
 
 nonisolated private struct CachedHomeWeatherSnapshot: Codable {
@@ -27,21 +37,7 @@ final class HomeWeatherModel: ObservableObject {
 
     @Published private(set) var phase: Phase = .idle
 
-    private let liveRefreshInterval: TimeInterval = 15 * 60
-
-    nonisolated private struct ForecastResponse: Decodable {
-        let current: Current
-
-        struct Current: Decodable {
-            let time: String
-            let temperature_2m: Double
-            let apparent_temperature: Double
-            let is_day: Int
-            let precipitation: Double
-            let weather_code: Int
-            let wind_speed_10m: Double
-        }
-    }
+    private let liveRefreshInterval: TimeInterval = 30 * 60
 
     func load(cityID: String, latitude: Double, longitude: Double) async {
         let cacheKey = "home.weather.\(cityID.lowercased())"
@@ -70,48 +66,60 @@ final class HomeWeatherModel: ObservableObject {
     }
 
     private func fetch(latitude: Double, longitude: Double) async throws -> HomeWeatherSnapshot {
-        var components = URLComponents(string: "https://api.open-meteo.com/v1/forecast")
-        components?.queryItems = [
-            URLQueryItem(name: "latitude", value: String(latitude)),
-            URLQueryItem(name: "longitude", value: String(longitude)),
-            URLQueryItem(name: "current", value: "temperature_2m,apparent_temperature,is_day,precipitation,weather_code,wind_speed_10m"),
-            URLQueryItem(name: "timezone", value: "Europe/Amsterdam"),
-            URLQueryItem(name: "models", value: "knmi_seamless")
-        ]
-        guard let url = components?.url else { throw URLError(.badURL) }
-
-        var request = URLRequest(url: url)
-        request.timeoutInterval = 10
-        request.cachePolicy = .reloadRevalidatingCacheData
-        let (data, response) = try await URLSession.shared.data(for: request)
-        guard let http = response as? HTTPURLResponse, (200 ... 299).contains(http.statusCode) else {
-            throw URLError(.badServerResponse)
-        }
-
-        return try Self.decode(data: data)
+        let location = CLLocation(latitude: latitude, longitude: longitude)
+        async let currentWeather = WeatherKit.WeatherService.shared.weather(for: location, including: .current)
+        async let attribution = WeatherKit.WeatherService.shared.attribution
+        return try await Self.snapshot(currentWeather: currentWeather, attribution: attribution)
     }
 
-    nonisolated static func decode(data: Data, receivedAt: Date = Date()) throws -> HomeWeatherSnapshot {
-        let decoded = try JSONDecoder().decode(ForecastResponse.self, from: data)
-        guard (-90 ... 90).contains(decoded.current.temperature_2m),
-              (-100 ... 100).contains(decoded.current.apparent_temperature),
-              decoded.current.precipitation >= 0,
-              decoded.current.wind_speed_10m >= 0 else {
+    nonisolated static func snapshot(
+        currentWeather: CurrentWeather,
+        attribution: WeatherAttribution
+    ) throws -> HomeWeatherSnapshot {
+        let temperature = currentWeather.temperature.converted(to: .celsius).value
+        let apparentTemperature = currentWeather.apparentTemperature.converted(to: .celsius).value
+        let windSpeed = currentWeather.wind.speed.converted(to: .kilometersPerHour).value
+
+        guard (-90 ... 90).contains(temperature),
+              (-100 ... 100).contains(apparentTemperature),
+              windSpeed >= 0,
+              !currentWeather.symbolName.isEmpty,
+              attribution.legalPageURL.scheme == "https" else {
             throw DecodingError.dataCorrupted(.init(codingPath: [], debugDescription: "Weather measurements are outside supported bounds."))
         }
-        let timestampFormatter = ISO8601DateFormatter()
-        timestampFormatter.formatOptions = [.withInternetDateTime, .withColonSeparatorInTime]
-        let observedAt = timestampFormatter.date(from: decoded.current.time) ?? receivedAt
 
         return HomeWeatherSnapshot(
-            temperature: decoded.current.temperature_2m,
-            apparentTemperature: decoded.current.apparent_temperature,
-            precipitation: decoded.current.precipitation,
-            windSpeed: decoded.current.wind_speed_10m,
-            weatherCode: decoded.current.weather_code,
-            isDay: decoded.current.is_day == 1,
-            observedAt: observedAt
+            temperature: temperature,
+            apparentTemperature: apparentTemperature,
+            windSpeed: windSpeed,
+            weatherCode: weatherCode(for: currentWeather.condition),
+            symbolName: currentWeather.symbolName,
+            isDay: currentWeather.isDaylight,
+            observedAt: currentWeather.date,
+            attribution: HomeWeatherAttributionSnapshot(
+                serviceName: attribution.serviceName,
+                legalPageURL: attribution.legalPageURL,
+                combinedMarkDarkURL: attribution.combinedMarkDarkURL,
+                combinedMarkLightURL: attribution.combinedMarkLightURL
+            )
         )
+    }
+
+    nonisolated static func weatherCode(for condition: WeatherCondition) -> Int {
+        switch condition {
+        case .clear, .mostlyClear, .hot:
+            0
+        case .partlyCloudy, .mostlyCloudy, .cloudy, .breezy, .windy:
+            2
+        case .foggy, .haze, .smoky, .blowingDust:
+            45
+        case .drizzle, .freezingDrizzle, .freezingRain, .rain, .heavyRain, .sunShowers:
+            63
+        case .flurries, .snow, .heavySnow, .sleet, .blowingSnow, .blizzard, .wintryMix, .frigid, .sunFlurries:
+            73
+        case .hail, .isolatedThunderstorms, .scatteredThunderstorms, .thunderstorms, .strongStorms, .hurricane, .tropicalStorm:
+            95
+        }
     }
 
     private func cachedSnapshot(for key: String) -> CachedHomeWeatherSnapshot? {

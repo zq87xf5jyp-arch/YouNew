@@ -375,7 +375,7 @@ struct AppContentImageView: View {
     }
 }
 
-private struct CachedRemoteContentImage<Loading: View, Fallback: View, Content: View>: View {
+struct CachedRemoteContentImage<Loading: View, Fallback: View, Content: View>: View {
     let url: URL
     let fallbackURLs: [URL]
     let targetPixelSize: CGSize

@@ -1,5 +1,6 @@
 import Foundation
 import Testing
+import WeatherKit
 @testable import YouNew
 
 struct LiveDataIntegrationTests {
@@ -47,18 +48,17 @@ struct LiveDataIntegrationTests {
         }
     }
 
-    @Test func weatherResponseDecodesOpenMeteoCurrentConditions() throws {
-        let data = Data(#"{"current":{"time":"2026-07-14T10:00:00Z","temperature_2m":21.4,"apparent_temperature":20.8,"is_day":1,"precipitation":0.0,"weather_code":2,"wind_speed_10m":13.2}}"#.utf8)
-        let snapshot = try HomeWeatherModel.decode(data: data)
-        #expect(snapshot.temperature == 21.4)
-        #expect(snapshot.weatherCode == 2)
-        #expect(snapshot.isDay)
+    @Test func weatherKitConditionsMapToStableDisplayGroups() {
+        #expect(HomeWeatherModel.weatherCode(for: .clear) == 0)
+        #expect(HomeWeatherModel.weatherCode(for: .partlyCloudy) == 2)
+        #expect(HomeWeatherModel.weatherCode(for: .foggy) == 45)
+        #expect(HomeWeatherModel.weatherCode(for: .rain) == 63)
+        #expect(HomeWeatherModel.weatherCode(for: .snow) == 73)
+        #expect(HomeWeatherModel.weatherCode(for: .thunderstorms) == 95)
     }
 
-    @Test func weatherResponseRejectsCorruptMeasurements() {
-        let data = Data(#"{"current":{"time":"2026-07-14T10:00:00Z","temperature_2m":999,"apparent_temperature":20.8,"is_day":1,"precipitation":0.0,"weather_code":2,"wind_speed_10m":13.2}}"#.utf8)
-        #expect(throws: DecodingError.self) {
-            try HomeWeatherModel.decode(data: data)
-        }
+    @Test func everyWeatherKitConditionHasAVisibleDisplayGroup() {
+        let codes = Set(WeatherCondition.allCases.map(HomeWeatherModel.weatherCode(for:)))
+        #expect(codes == Set([0, 2, 45, 63, 73, 95]))
     }
 }

@@ -40,12 +40,12 @@ YouNew does not include advertising SDKs, tracking SDKs, or analytics SDKs in th
 
 ## Network Services And Technical Logs
 
-The Home screen requests current weather from Open-Meteo using the coordinates of
-the selected city from YouNew's public city catalogue. These are not the device's
-current-location coordinates. Like other internet services, Open-Meteo receives
-the connection IP address and requested URL. Its published terms state that
-web-server logs used for maintenance, abuse prevention, and troubleshooting may
-include IP addresses and requested coordinates and are deleted after 90 days.
+The Home screen requests current weather through Apple WeatherKit using the
+coordinates of the selected city from YouNew's public city catalogue. These are
+not the device's current-location coordinates. Apple Weather processes the city
+coordinates and technical connection data needed to return the forecast under
+Apple's privacy and legal terms. YouNew displays the required Apple Weather mark
+and provides a direct link to Apple's weather data-source and legal information.
 
 YouNew also loads selected public information and images from Wikimedia Commons
 and Flickr's public image delivery service. When an image is displayed, the

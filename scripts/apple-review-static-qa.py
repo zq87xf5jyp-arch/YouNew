@@ -43,6 +43,7 @@ def main() -> None:
     source = swift_text()
     project = read(ROOT / "YouNew.xcodeproj/project.pbxproj")
     manifest_path = APP_ROOT / "PrivacyInfo.xcprivacy"
+    entitlements_path = APP_ROOT / "YouNew.entitlements"
     settings_view = read(APP_ROOT / "Views/SettingsView.swift")
 
     expect('Text("0.2.1")' not in settings_view, "Settings must not expose a stale hard-coded app version")
@@ -78,8 +79,12 @@ def main() -> None:
         read(ROOT / "admin-dashboard/public-site/src/app/privacy/page.tsx"),
     ]
     for privacy_document in privacy_documents:
-        expect("Open-Meteo" in privacy_document, "privacy disclosure must name the weather network provider")
-        expect("90 days" in privacy_document, "privacy disclosure must state the provider log-retention period")
+        expect("Apple WeatherKit" in privacy_document, "privacy disclosure must name the weather network provider")
+        expect(
+            "not the device's current-location coordinates" in privacy_document
+            or "not your device&apos;s current-location coordinates" in privacy_document,
+            "privacy disclosure must distinguish catalogue coordinates from device location",
+        )
         expect(
             "Device ID" in privacy_document and "Other Diagnostic Data" in privacy_document,
             "privacy disclosure must match the App Store network-log data types",
@@ -88,6 +93,26 @@ def main() -> None:
             "recent conversation messages" not in privacy_document,
             "privacy disclosure must not claim that conversation history is sent by the current AI client",
         )
+
+    expect(entitlements_path.exists(), "YouNew.entitlements is missing")
+    entitlements = plistlib.loads(entitlements_path.read_bytes())
+    expect(
+        entitlements.get("com.apple.developer.weatherkit") is True,
+        "WeatherKit entitlement must remain enabled for the app target",
+    )
+    weather_service = read(APP_ROOT / "Services/HomeWeatherService.swift")
+    expect("import WeatherKit" in weather_service, "Home weather must use the native WeatherKit framework")
+    expect("api.open-meteo.com" not in source, "retired Open-Meteo endpoint must not remain in app code")
+    expect(
+        "WeatherService.shared.attribution" in weather_service,
+        "WeatherKit attribution metadata must be fetched together with weather data",
+    )
+    root_home = read(APP_ROOT / "Views/RootHomeView.swift")
+    expect(
+        "snapshot.attribution.legalPageURL" in root_home
+        and "snapshot.attribution.combinedMarkDarkURL" in root_home,
+        "Home weather must display the Apple Weather mark and legal data-source link",
+    )
 
     if "UserDefaults" in source:
         expect(
@@ -322,6 +347,7 @@ def main() -> None:
     print(f"- Location permission paths checked: {'yes' if location_checked else 'no'}")
     print(f"- Camera scanner permission paths checked: {'yes' if camera_checked else 'no'}")
     print("- AI sensitive-input logging checked")
+    print("- WeatherKit entitlement and attribution checked")
     print("- Photo library API usage checked: 0")
 
 
