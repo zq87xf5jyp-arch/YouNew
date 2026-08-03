@@ -24,7 +24,8 @@ test("theme control supports persistent light and dark modes", () => {
   assert.match(themeToggle, /localStorage\.setItem\(STORAGE_KEY, nextTheme\)/);
   assert.match(themeCss, /html\[data-theme="light"\]/);
   assert.match(themeCss, /color-scheme:light/);
-  assert.match(staticStripper, /<script src="\/theme-init\.js"><\/script><\/head>/);
+  assert.match(staticStripper, /readFile\(join\(outputRoot, "theme-init\.js"\)/);
+  assert.match(staticStripper, /<script>\$\{themeInit\}<\/script><\/head>/);
   assert.match(staticShell, /themeButton\?\.addEventListener\("click"/);
   assert.match(staticShell, /localStorage\.setItem\(themeStorageKey, nextTheme\)/);
   assert.match(themeCss, /--cyan:#006d96/);
@@ -60,11 +61,11 @@ test("curated source truth also drives metadata and Article JSON-LD", () => {
   assert.match(guideDetail, /dateModified: curatedSummary\?\.checkedAt/);
 });
 
-test("homepage evidence stays aligned with the current generated release", () => {
+test("operational evidence stays off the user-first homepage", () => {
   assert.match(systemEvidence, /publishedRecords:\s*182/);
   assert.match(systemEvidence, /staticRoutes:\s*581/);
   assert.match(systemEvidence, /indexableUrls:\s*571/);
   assert.match(systemEvidence, /passingWebAdminAiTests:\s*129/);
-  assert.match(homepage, /releaseId\.startsWith\("amsterdam-"\)/);
-  assert.doesNotMatch(homepage, /releaseId === "amsterdam-v0\.1\.4"/);
+  assert.match(homepage, /statusSnapshot\.content\.asOf/);
+  assert.doesNotMatch(homepage, /SystemEvidence|staticRoutes|passingWebAdminAiTests|Supabase|controlled release candidate/i);
 });

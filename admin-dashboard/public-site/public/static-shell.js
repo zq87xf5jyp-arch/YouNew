@@ -116,18 +116,6 @@
         if (event.key === "Escape") {
           event.preventDefault();
           closeMenu(true);
-          return;
-        }
-        if (event.key !== "Tab") return;
-        const items = [summary, ...menu.querySelectorAll("nav a[href]")];
-        const first = items[0];
-        const last = items[items.length - 1];
-        if (event.shiftKey && document.activeElement === first) {
-          event.preventDefault();
-          last.focus();
-        } else if (!event.shiftKey && document.activeElement === last) {
-          event.preventDefault();
-          first.focus();
         }
       });
       window.matchMedia("(min-width: 1001px)").addEventListener("change", (event) => {
@@ -330,12 +318,26 @@
     return button;
   };
 
-  const consentTrigger = createConsentButton("Privacy choices", "analytics-settings-trigger", () => {
+  let previouslyFocused;
+  let declineButton;
+  const openConsent = () => {
+    previouslyFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     consentTrigger.hidden = true;
     consentDialog.hidden = false;
-    requestAnimationFrame(() => consentTitle.focus());
-  });
+    requestAnimationFrame(() => declineButton?.focus());
+  };
+  const closeConsent = () => {
+    consentDialog.hidden = true;
+    consentTrigger.hidden = false;
+    requestAnimationFrame(() => (consentTrigger ?? previouslyFocused)?.focus());
+  };
+  const consentTrigger = createConsentButton("Privacy choices", "analytics-settings-trigger", openConsent);
   consentTrigger.setAttribute("aria-label", "Open analytics privacy choices");
+  consentTrigger.textContent = "";
+  const consentTriggerIcon = document.createElement("span");
+  consentTriggerIcon.setAttribute("aria-hidden", "true");
+  consentTriggerIcon.textContent = "✓";
+  consentTrigger.append(consentTriggerIcon);
 
   const consentDialog = document.createElement("section");
   consentDialog.className = "analytics-consent";
@@ -369,22 +371,38 @@
     delete window.__YOUNEW_ANALYTICS__;
     saveAnalyticsConsent("declined");
     clearAnalyticsSession();
-    consentDialog.hidden = true;
-    consentTrigger.hidden = false;
-    consentTrigger.focus();
+    closeConsent();
   };
   const acceptAnalytics = () => {
     saveAnalyticsConsent("accepted");
-    consentDialog.hidden = true;
-    consentTrigger.hidden = false;
-    consentTrigger.focus();
+    closeConsent();
     void startHomepageAnalytics(true);
   };
+  declineButton = createConsentButton("Decline analytics", "button-secondary", declineAnalytics);
+  const allowButton = createConsentButton("Allow anonymous analytics", "button-primary", acceptAnalytics);
   consentActions.append(
-    createConsentButton("Decline analytics", "button-secondary", declineAnalytics),
-    createConsentButton("Allow anonymous analytics", "button-primary", acceptAnalytics)
+    declineButton,
+    allowButton
   );
   consentDialog.append(consentCopy, consentActions);
+  consentDialog.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      closeConsent();
+      return;
+    }
+    if (event.key !== "Tab") return;
+    const items = [...consentDialog.querySelectorAll('a[href],button:not([disabled])')];
+    const first = items[0];
+    const last = items[items.length - 1];
+    if (event.shiftKey && document.activeElement === first) {
+      event.preventDefault();
+      last?.focus();
+    } else if (!event.shiftKey && document.activeElement === last) {
+      event.preventDefault();
+      first?.focus();
+    }
+  });
   document.body.append(consentTrigger, consentDialog);
 
   const storedAnalyticsChoice = readAnalyticsConsent();
@@ -395,7 +413,7 @@
     consentDialog.hidden = true;
   } else {
     consentTrigger.hidden = true;
-    requestAnimationFrame(() => consentTitle.focus());
+    requestAnimationFrame(() => declineButton.focus());
   }
 
   window.addEventListener("pagehide", () => {
@@ -411,5 +429,92 @@
       analyticsProvider?.track("official_source_click", { content_id: contentId });
     }
   });
+
+  const homeProfileButtons = [...document.querySelectorAll("[data-home-profile]")];
+  const homeProfileResult = document.querySelector("[data-home-profile-result]");
+  const homeProfileStorageKey = "younew.web.profile.v1";
+  const homeProfiles = {
+    tourist: {
+      label: "Tourist",
+      links: [["Browse places", "/places/"], ["Find transport", "/categories/transport/"]]
+    },
+    student: {
+      label: "Student",
+      links: [["View education guidance", "/categories/education/"], ["Find housing guidance", "/categories/housing/"]]
+    },
+    expat: {
+      label: "Expat",
+      links: [["Start with registration", "/guides/first-registration-in-amsterdam/"], ["View government services", "/categories/government/"]]
+    },
+    refugee: {
+      label: "Refugee",
+      links: [["Open emergency help", "/emergency/"], ["View government services", "/categories/government/"]]
+    }
+  };
+
+  const readHomeProfile = () => {
+    try {
+      const stored = JSON.parse(localStorage.getItem(homeProfileStorageKey));
+      return stored?.version === 1 && Object.hasOwn(homeProfiles, stored.value) ? stored.value : null;
+    } catch {
+      return null;
+    }
+  };
+  const writeHomeProfile = (profile) => {
+    try {
+      if (profile) localStorage.setItem(homeProfileStorageKey, JSON.stringify({ version: 1, value: profile }));
+      else localStorage.removeItem(homeProfileStorageKey);
+    } catch { /* current-page preference still works */ }
+  };
+  const renderHomeProfile = (profile) => {
+    homeProfileButtons.forEach((button) => {
+      const selected = button.getAttribute("data-home-profile") === profile;
+      button.classList.toggle("is-selected", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+    if (!homeProfileResult) return;
+    homeProfileResult.replaceChildren();
+    const current = profile ? homeProfiles[profile] : undefined;
+    if (!current) {
+      const empty = document.createElement("p");
+      empty.textContent = "Choose a situation to show two relevant starting points. All published content stays available.";
+      homeProfileResult.append(empty);
+      return;
+    }
+    const copy = document.createElement("div");
+    const title = document.createElement("strong");
+    title.textContent = `Suggested starting points for ${current.label.toLowerCase()}s`;
+    const storage = document.createElement("span");
+    storage.textContent = "This preference is saved only in this browser.";
+    copy.append(title, storage);
+    const navigation = document.createElement("nav");
+    navigation.setAttribute("aria-label", `${current.label} suggestions`);
+    current.links.forEach(([label, href]) => {
+      const link = document.createElement("a");
+      link.href = href;
+      link.textContent = `${label} →`;
+      navigation.append(link);
+    });
+    const clear = document.createElement("button");
+    clear.type = "button";
+    clear.textContent = "Clear choice";
+    clear.addEventListener("click", () => {
+      writeHomeProfile(null);
+      renderHomeProfile(null);
+      homeProfileButtons[0]?.focus();
+    });
+    homeProfileResult.append(copy, navigation, clear);
+  };
+
+  homeProfileButtons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const profile = button.getAttribute("data-home-profile");
+      if (!profile || !Object.hasOwn(homeProfiles, profile)) return;
+      writeHomeProfile(profile);
+      renderHomeProfile(profile);
+      analyticsProvider?.track("profile_selected");
+    });
+  });
+  renderHomeProfile(readHomeProfile());
 
 })();

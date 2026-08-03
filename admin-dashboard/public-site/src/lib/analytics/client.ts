@@ -5,7 +5,7 @@ export type AnalyticsEvent =
   | { name: "partner_click"; contentId: string }
   | { name: "item_saved"; contentId: string }
   | { name: "app_cta_click"; location: string }
-  | { name: "profile_selected"; profile: string }
+  | { name: "profile_selected" }
   | { name: "business_mailto_prepared"; organizationType: string }
   | { name: "analytics_consent_granted" };
 
@@ -154,11 +154,10 @@ function eventProperties(event: AnalyticsEvent): Record<string, string | number 
       return { content_id: safeProperty(event.contentId) };
     case "app_cta_click":
       return { location: safeProperty(event.location) };
-    case "profile_selected":
-      return { profile: safeProperty(event.profile) };
     case "business_mailto_prepared":
       return { organization_type: safeProperty(event.organizationType) };
     case "page_view":
+    case "profile_selected":
     case "analytics_consent_granted":
       return {};
   }

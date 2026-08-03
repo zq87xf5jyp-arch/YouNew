@@ -21,17 +21,27 @@ const requiredFiles = [
 for (const file of requiredFiles) await access(join(root, file));
 
 const home = await readFile(join(root, "index.html"), "utf8");
-assert.match(home, /Your next step in the Netherlands/);
+assert.match(home, /Find your next step in the Netherlands/);
 assert.match(home, /Find my next step/);
+for (const title of [
+  "Register in Amsterdam and get a BSN",
+  "Renting a home in Amsterdam",
+  "Driving licence in Amsterdam",
+  "Amsterdam municipal taxes",
+  "Report a street problem in Amsterdam"
+]) assert.match(home, new RegExp(title));
+assert.match(home, /City coverage for five Dutch cities\./);
+assert.doesNotMatch(home, /Detailed web guides for five Dutch cities\./);
 assert.match(home, /support@younew\.nl/);
 assert.match(home, /rel="canonical" href="https:\/\/younew\.nl\/"/);
 assert.match(home, /application\/ld\+json/);
-for (const path of ["/start/", "/discover/", "/search/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
+for (const path of ["/start/", "/search/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
 assert.doesNotMatch(home, /href=(?:"|')#(?:"|')/);
-assert.match(home, /href="https:\/\/apps\.apple\.com\/app\/id6782617312"/);
-assert.match(home, /Download on the App Store/);
+assert.match(home, /href="\/app\/"/);
+assert.match(home, /Check app availability/);
 assert.doesNotMatch(home, /<script[^>]+src="\/_next\/static\/chunks\//, "Static homepage should not hydrate the full Next runtime");
-assert.match(home, /<script src="\/theme-init\.js"><\/script><\/head>/);
+assert.match(home, /<script>[\s\S]*younew\.theme\.v1[\s\S]*prefers-color-scheme: light[\s\S]*<\/script><\/head>/);
+assert.doesNotMatch(home, /<script src="\/theme-init\.js"><\/script>/, "Homepage should inline the tiny theme bootstrap to remove a render-blocking request");
 assert.match(home, /<script src="\/static-shell\.[a-f0-9]{12}\.js" defer><\/script>/);
 const staticShellPath = home.match(/<script src="(\/static-shell\.[a-f0-9]{12}\.js)" defer><\/script>/)?.[1];
 assert.ok(staticShellPath, "The static homepage must load a fingerprinted enhancement shell");
@@ -45,7 +55,7 @@ assert.match(search, /name="robots" content="noindex, follow"/);
 assert.match(search, /<script[^>]+src="\/_next\/static\/chunks\//, "Interactive routes must retain client JavaScript");
 
 const start = await readFile(join(root, "start/index.html"), "utf8");
-for (const text of ["Find your next step in the Netherlands", "Your situation", "Where are you", "What do you need", "Build my route", "Your choices stay in this browser"]) {
+for (const text of ["Find your next step in the Netherlands", "What do you need help with", "Next: your situation", "Complete the three steps", "No account, email or precise location"]) {
   assert.match(start, new RegExp(text, "i"));
 }
 assert.match(start, /<script[^>]+src="\/_next\/static\/chunks\//, "The route planner must retain client JavaScript");

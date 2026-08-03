@@ -2,10 +2,12 @@
 
 import Link from "next/link";
 import {
+  ArrowLeft,
   ArrowRight,
   BriefcaseBusiness,
   Building2,
   Check,
+  Copy,
   GraduationCap,
   HeartPulse,
   Home,
@@ -14,6 +16,7 @@ import {
   Plane,
   RotateCcw,
   Save,
+  Search,
   ShieldCheck,
   Users
 } from "lucide-react";
@@ -22,7 +25,9 @@ import { track } from "@/lib/analytics/client";
 import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
 import {
   buildPlannerActions,
+  plannerGoalIds,
   plannerGoals,
+  plannerProfileIds,
   type PlannerGoalId,
   type PlannerGuideRoute,
   type PlannerMunicipality,
@@ -33,10 +38,12 @@ import { localContentRepository } from "@/lib/storage/local-content";
 const profileOptions = [
   { id: "new-resident", title: "New resident", icon: Users },
   { id: "student", title: "Student", icon: GraduationCap },
+  { id: "expat", title: "Expat", icon: Building2 },
   { id: "worker", title: "Worker", icon: BriefcaseBusiness },
   { id: "refugee", title: "Refugee", icon: ShieldCheck },
   { id: "tourist", title: "Tourist", icon: Plane },
-  { id: "resident", title: "Resident", icon: Home }
+  { id: "resident", title: "Resident", icon: Home },
+  { id: "prefer-not-to-say", title: "Prefer not to say", icon: Users }
 ] as const satisfies readonly Readonly<{
   id: PlannerProfileId;
   title: string;
@@ -47,11 +54,15 @@ const goalIcons: Record<PlannerGoalId, typeof Landmark> = {
   registration: Landmark,
   "health-insurance": HeartPulse,
   housing: Home,
+  study: GraduationCap,
   work: BriefcaseBusiness,
   "taxes-benefits": Building2,
   transport: MapPin,
-  "urgent-help": ShieldCheck
+  "urgent-help": ShieldCheck,
+  other: Search
 };
+
+type PlannerStep = 1 | 2 | 3 | 4;
 
 export function NextStepPlanner({
   municipalities,
@@ -60,24 +71,41 @@ export function NextStepPlanner({
   municipalities: readonly PlannerMunicipality[];
   guides: readonly PlannerGuideRoute[];
 }) {
-  const defaultMunicipality = municipalities.find((municipality) => municipality.slug === "amsterdam") ?? municipalities[0];
-  const [profile, setProfile] = useState<PlannerProfileId>("new-resident");
-  const [municipalitySlug, setMunicipalitySlug] = useState(defaultMunicipality?.slug ?? "");
-  const [goalIds, setGoalIds] = useState<readonly PlannerGoalId[]>(["registration"]);
-  const [submitted, setSubmitted] = useState(true);
+  const defaultMunicipality = municipalities.find((municipality) => municipality.slug === "national") ?? municipalities[0];
+  const [step, setStep] = useState<PlannerStep>(1);
+  const [profile, setProfile] = useState<PlannerProfileId>("prefer-not-to-say");
+  const [municipalitySlug, setMunicipalitySlug] = useState(defaultMunicipality?.slug ?? "national");
+  const [goalId, setGoalId] = useState<PlannerGoalId | null>(null);
   const [saved, setSaved] = useState(false);
-  const [storageNotice, setStorageNotice] = useState("");
+  const [notice, setNotice] = useState("");
   const resultRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    const parsed = localContentRepository.plannerRoute();
-    if (!parsed) return;
-    if (!municipalities.some((municipality) => municipality.slug === parsed.municipalitySlug)) return;
-    setProfile(parsed.profile);
-    setMunicipalitySlug(parsed.municipalitySlug);
-    setGoalIds(parsed.goalIds);
-    setSubmitted(true);
+    const params = new URLSearchParams(window.location.search);
+    const directGoal = params.get("task");
+    const directProfile = params.get("profile");
+    const directArea = params.get("area");
+    const validGoal = plannerGoalIds.find((id) => id === directGoal);
+    const validProfile = plannerProfileIds.find((id) => id === directProfile);
+    const validArea = municipalities.find((municipality) => municipality.slug === directArea);
+
+    if (validGoal && validProfile && validArea) {
+      setGoalId(validGoal);
+      setProfile(validProfile);
+      setMunicipalitySlug(validArea.slug);
+      setStep(4);
+      return;
+    }
+
+    const stored = localContentRepository.plannerRoute();
+    if (!stored) return;
+    const storedArea = municipalities.find((municipality) => municipality.slug === stored.municipalitySlug);
+    if (!storedArea || stored.goalIds.length !== 1) return;
+    setGoalId(stored.goalIds[0]);
+    setProfile(stored.profile);
+    setMunicipalitySlug(storedArea.slug);
     setSaved(true);
+    setNotice("A saved route is ready to review or change.");
   }, [municipalities]);
 
   const municipality = useMemo(
@@ -85,188 +113,141 @@ export function NextStepPlanner({
     [defaultMunicipality, municipalities, municipalitySlug]
   );
 
+  const selectedGoal = plannerGoals.find((goal) => goal.id === goalId);
+  const selectedProfile = profileOptions.find((option) => option.id === profile);
   const actions = useMemo(
-    () => municipality
-      ? buildPlannerActions({ profile, municipality, goalIds, guides })
-      : [],
-    [goalIds, guides, municipality, profile]
+    () => municipality && goalId ? buildPlannerActions({ profile, municipality, goalIds: [goalId], guides }) : [],
+    [goalId, guides, municipality, profile]
   );
 
-  function toggleGoal(goalId: PlannerGoalId) {
+  function goBack() {
+    setNotice("");
+    setStep((current) => Math.max(1, current - 1) as PlannerStep);
+  }
+
+  function resetRoute() {
+    setStep(1);
+    setProfile("prefer-not-to-say");
+    setMunicipalitySlug(defaultMunicipality?.slug ?? "national");
+    setGoalId(null);
     setSaved(false);
-    setSubmitted(false);
-    setGoalIds((current) => {
-      if (current.includes(goalId)) return current.filter((id) => id !== goalId);
-      if (current.length >= 3) return current;
-      return [...current, goalId];
-    });
+    setNotice("");
+    localContentRepository.clearPlannerRoute();
+    window.history.replaceState(null, "", window.location.pathname);
   }
 
   function buildRoute() {
-    if (!municipality || goalIds.length === 0) return;
-    setSubmitted(true);
+    if (!goalId || !municipality) return;
+    const params = new URLSearchParams({ task: goalId, profile, area: municipality.slug });
+    window.history.replaceState(null, "", `${window.location.pathname}?${params.toString()}`);
+    setStep(4);
     setSaved(false);
-    setStorageNotice("");
+    setNotice("");
     window.requestAnimationFrame(() => resultRef.current?.focus());
   }
 
   function saveRoute() {
-    if (!municipality || goalIds.length === 0) return;
+    if (!goalId || !municipality) return;
     const stored = localContentRepository.setPlannerRoute({
       profile,
       municipalitySlug: municipality.slug,
-      goalIds: [...goalIds]
+      goalIds: [goalId]
     });
-    if (stored) {
-      setSaved(true);
-      setStorageNotice("Route saved on this device.");
-      track({ name: "item_saved", contentId: "planner_route" });
-    } else {
-      setSaved(false);
-      setStorageNotice("This browser did not allow YouNew to save the route.");
+    setSaved(stored);
+    setNotice(stored ? "Saved on this device/browser." : "This browser did not allow YouNew to save the route.");
+    if (stored) track({ name: "item_saved", contentId: "planner_route" });
+  }
+
+  async function copyRoute() {
+    try {
+      await navigator.clipboard.writeText(window.location.href);
+      setNotice("Direct link copied.");
+    } catch {
+      setNotice("The direct link is in the address bar and can be copied there.");
     }
   }
 
-  function resetRoute() {
-    setProfile("new-resident");
-    setMunicipalitySlug(defaultMunicipality?.slug ?? "");
-    setGoalIds(["registration"]);
-    setSubmitted(false);
-    setSaved(false);
-    setStorageNotice("");
-    localContentRepository.clearPlannerRoute();
-  }
-
   return (
-    <div className="next-step-planner">
-      <section className="planner-builder" aria-label="Build a practical route">
-        <fieldset className="planner-step planner-profile-step">
-          <legend><span>1</span> Your situation</legend>
-          <div className="planner-profile-options">
-            {profileOptions.map(({ id, title, icon: Icon }) => (
-              <label className={profile === id ? "is-selected" : ""} key={id}>
-                <input
-                  checked={profile === id}
-                  name="planner-profile"
-                  onChange={() => {
-                    setProfile(id);
-                    setSubmitted(false);
-                    setSaved(false);
-                  }}
-                  type="radio"
-                  value={id}
-                />
-                <Icon aria-hidden />
-                <span>{title}</span>
-                {profile === id ? <Check aria-hidden /> : null}
-              </label>
-            ))}
-          </div>
-        </fieldset>
-
-        <fieldset className="planner-step planner-location-step">
-          <legend><span>2</span> Where are you?</legend>
-          <label htmlFor="planner-municipality">
-            Select your municipality or city
-            <span className="planner-select-wrap">
-              <MapPin aria-hidden />
-              <select
-                id="planner-municipality"
-                onChange={(event) => {
-                  setMunicipalitySlug(event.target.value);
-                  setSubmitted(false);
-                  setSaved(false);
-                }}
-                value={municipalitySlug}
-              >
-                {municipalities.map((item) => <option key={item.slug} value={item.slug}>{item.name}</option>)}
-              </select>
-            </span>
-          </label>
-        </fieldset>
-
-        <fieldset className="planner-step planner-goal-step">
-          <legend><span>3</span> What do you need?</legend>
-          <p>Choose up to 3</p>
-          <div className="planner-goal-options">
-            {plannerGoals.map((goal) => {
-              const Icon = goalIcons[goal.id];
-              const selected = goalIds.includes(goal.id);
-              const disabled = !selected && goalIds.length >= 3;
-              return (
-                <label className={selected ? "is-selected" : ""} key={goal.id}>
-                  <input
-                    checked={selected}
-                    disabled={disabled}
-                    onChange={() => toggleGoal(goal.id)}
-                    type="checkbox"
-                    value={goal.id}
-                  />
-                  <Icon aria-hidden />
-                  <span>{goal.title}</span>
-                  {selected ? <Check aria-hidden /> : null}
-                </label>
-              );
-            })}
-          </div>
-        </fieldset>
-
-        <div className="planner-submit">
-          <button className="button button-primary" disabled={goalIds.length === 0} onClick={buildRoute} type="button">
-            Build my route <ArrowRight aria-hidden />
-          </button>
-          <p>{goalIds.length}/3 priorities selected</p>
+    <div className="next-step-planner is-guided">
+      <section className="planner-builder" aria-label="Find a practical route">
+        <div className="planner-progress" aria-label={`Step ${step} of 4`}>
+          {[1, 2, 3, 4].map((number) => <span className={number <= step ? "is-current" : ""} key={number}><i aria-hidden />{number === 4 ? "Result" : `Step ${number}`}</span>)}
         </div>
+
+        {step === 1 ? (
+          <fieldset className="planner-step planner-goal-step">
+            <legend><span>1</span> What do you need help with?</legend>
+            <p>Choose one task. You can change it later.</p>
+            <div className="planner-goal-options">
+              {plannerGoals.map((goal) => {
+                const Icon = goalIcons[goal.id];
+                return (
+                  <label className={goalId === goal.id ? "is-selected" : ""} key={goal.id}>
+                    <input checked={goalId === goal.id} name="planner-goal" onChange={() => { setGoalId(goal.id); setSaved(false); }} type="radio" value={goal.id} />
+                    <Icon aria-hidden /><span>{goal.title}</span>{goalId === goal.id ? <Check aria-hidden /> : null}
+                  </label>
+                );
+              })}
+            </div>
+            <div className="planner-navigation"><button className="button button-primary" disabled={!goalId} onClick={() => setStep(2)} type="button">Next: your situation <ArrowRight aria-hidden /></button></div>
+          </fieldset>
+        ) : null}
+
+        {step === 2 ? (
+          <fieldset className="planner-step planner-profile-step">
+            <legend><span>2</span> Which situation fits best?</legend>
+            <p>This is a browsing preference, not a legal classification.</p>
+            <div className="planner-profile-options">
+              {profileOptions.map(({ id, title, icon: Icon }) => (
+                <label className={profile === id ? "is-selected" : ""} key={id}>
+                  <input checked={profile === id} name="planner-profile" onChange={() => { setProfile(id); setSaved(false); }} type="radio" value={id} />
+                  <Icon aria-hidden /><span>{title}</span>{profile === id ? <Check aria-hidden /> : null}
+                </label>
+              ))}
+            </div>
+            <div className="planner-navigation"><button className="button button-ghost" onClick={goBack} type="button"><ArrowLeft aria-hidden /> Back</button><button className="button button-primary" onClick={() => setStep(3)} type="button">Next: area <ArrowRight aria-hidden /></button></div>
+          </fieldset>
+        ) : null}
+
+        {step === 3 ? (
+          <fieldset className="planner-step planner-location-step">
+            <legend><span>3</span> Which area should we use?</legend>
+            <p>Choose national guidance or a municipality. YouNew does not ask for precise location.</p>
+            <label htmlFor="planner-municipality">
+              Area
+              <span className="planner-select-wrap"><MapPin aria-hidden /><select id="planner-municipality" onChange={(event) => { setMunicipalitySlug(event.target.value); setSaved(false); }} value={municipalitySlug}>{municipalities.map((item) => <option key={item.slug} value={item.slug}>{item.name}</option>)}</select></span>
+            </label>
+            <div className="planner-navigation"><button className="button button-ghost" onClick={goBack} type="button"><ArrowLeft aria-hidden /> Back</button><button className="button button-primary" onClick={buildRoute} type="button">Show my route <ArrowRight aria-hidden /></button></div>
+          </fieldset>
+        ) : null}
+
+        {step === 4 ? (
+          <div className="planner-selection-summary">
+            <span><strong>Task</strong>{selectedGoal?.title}</span>
+            <span><strong>Situation</strong>{selectedProfile?.title}</span>
+            <span><strong>Area</strong>{municipality?.name}</span>
+            <div className="planner-navigation"><button className="button button-ghost" onClick={goBack} type="button"><ArrowLeft aria-hidden /> Back</button><button className="button button-outline" onClick={resetRoute} type="button"><RotateCcw aria-hidden /> Reset</button></div>
+          </div>
+        ) : null}
       </section>
 
-      <section
-        aria-live="polite"
-        className={`planner-result ${submitted ? "is-ready" : ""}`}
-        ref={resultRef}
-        tabIndex={-1}
-      >
-        <div className="planner-result-heading">
-          <div>
-            <span>Recommended route</span>
-            <h2>{submitted ? `${municipality?.name}: what to do next` : "Build a route to see the next actions"}</h2>
-          </div>
-          {submitted ? (
-            <button onClick={resetRoute} type="button"><RotateCcw aria-hidden /> Reset</button>
-          ) : null}
-        </div>
-
-        {submitted ? (
+      <section aria-live="polite" className={`planner-result ${step === 4 ? "is-ready" : ""}`} ref={resultRef} tabIndex={-1}>
+        <div className="planner-result-heading"><div><span>Recommended route</span><h2>{step === 4 ? `${municipality?.name}: what to do next` : "Complete the three steps to see a route"}</h2></div></div>
+        {step === 4 ? (
           <>
-            <ol className="planner-actions">
-              {actions.map((action, index) => (
-                <li key={action.id}>
-                  <span>{index + 1}</span>
-                  <div>
-                    <small>{action.status}</small>
-                    <h3>{action.title}</h3>
-                    <p>{action.description}</p>
-                    {action.external ? (
-                      <TrackedOfficialSourceLink contentId={action.id} href={action.href} rel="noreferrer" target="_blank">Open source <ArrowRight aria-hidden /></TrackedOfficialSourceLink>
-                    ) : (
-                      <Link href={action.href}>Open route <ArrowRight aria-hidden /></Link>
-                    )}
-                  </div>
-                </li>
-              ))}
-            </ol>
-            <div className="planner-save-row">
-              <button className="button button-outline" onClick={saveRoute} type="button">
-                {saved ? <Check aria-hidden /> : <Save aria-hidden />}
-                {saved ? "Route saved" : "Save this route"}
-              </button>
-              <p>{storageNotice || "Saved routes stay only in this browser."}</p>
-            </div>
+            {actions.length > 0 ? (
+              <ol className="planner-actions">
+                {actions.map((action, index) => (
+                  <li key={action.id}><span>{index + 1}</span><div><small>{action.status}</small><h3>{action.title}</h3><p>{action.description}</p>{action.external ? <TrackedOfficialSourceLink contentId={action.id} href={action.href} rel="noreferrer" target="_blank">Open source <ArrowRight aria-hidden /></TrackedOfficialSourceLink> : <Link href={action.href}>Open route <ArrowRight aria-hidden /></Link>}</div></li>
+                ))}
+              </ol>
+            ) : (
+              <div className="planner-result-empty"><Landmark aria-hidden /><p>No complete YouNew route is published for this choice yet. Search the published catalogue or check the responsible institution.</p><Link href="/search">Search published guidance <ArrowRight aria-hidden /></Link></div>
+            )}
+            <div className="planner-save-row"><button className="button button-outline" onClick={saveRoute} type="button">{saved ? <Check aria-hidden /> : <Save aria-hidden />}{saved ? "Route saved" : "Save this route"}</button><button className="button button-ghost" onClick={copyRoute} type="button"><Copy aria-hidden /> Copy direct link</button><p role="status">{notice || "Saving is optional and stays in this browser."}</p></div>
           </>
         ) : (
-          <div className="planner-result-empty">
-            <Landmark aria-hidden />
-            <p>YouNew will use only published guides, directory records and responsible sources. Missing coverage is labelled instead of being invented.</p>
-          </div>
+          <div className="planner-result-empty"><Landmark aria-hidden /><p>YouNew uses published guides, directory pages and responsible sources. Missing coverage is labelled instead of being invented.</p></div>
         )}
       </section>
     </div>

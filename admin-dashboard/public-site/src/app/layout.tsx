@@ -75,7 +75,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@context": "https://schema.org",
     "@graph": [
       { "@type": "Organization", "@id": "https://younew.nl/#organization", name: "YouNew", url: "https://younew.nl/", email: "support@younew.nl" },
-      { "@type": "WebSite", "@id": "https://younew.nl/#website", url: "https://younew.nl/", name: "YouNew", inLanguage: "en", publisher: { "@id": "https://younew.nl/#organization" } },
+      { "@type": "WebSite", "@id": "https://younew.nl/#website", url: "https://younew.nl/", name: "YouNew", inLanguage: "en", publisher: { "@id": "https://younew.nl/#organization" }, potentialAction: { "@type": "SearchAction", target: { "@type": "EntryPoint", urlTemplate: "https://younew.nl/search/?q={search_term_string}" }, "query-input": "required name=search_term_string" } },
       { "@type": "WebApplication", name: "YouNew web guide", applicationCategory: "ReferenceApplication", applicationSubCategory: "EducationalApplication", browserRequirements: "Requires a modern web browser; core pages remain readable without JavaScript", description, url: "https://younew.nl/start/", publisher: { "@id": "https://younew.nl/#organization" } },
       { "@type": "SoftwareApplication", name: "YouNew", operatingSystem: "iOS 17.6 or later", applicationCategory: "ReferenceApplication", applicationSubCategory: "EducationalApplication", description, url: "https://younew.nl/", publisher: { "@id": "https://younew.nl/#organization" } }
     ]

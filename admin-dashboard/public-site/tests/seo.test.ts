@@ -20,6 +20,7 @@ test("primary navigation and profile links keep descriptive accessible names", a
     readFile(new URL("../src/app/page.tsx", import.meta.url), "utf8")
   ]);
 
-  assert.match(header, /\["Start here", "\/start"\]/);
+  assert.match(header, /\["Start", "\/start"\]/);
+  assert.doesNotMatch(header, /"Updates"|"Business"|"App status"|"My YouNew"/);
   assert.doesNotMatch(homepage, /profile-row[^>]*aria-label/);
 });

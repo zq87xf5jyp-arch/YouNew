@@ -8,8 +8,10 @@ import { localContentRepository, type SavedContentItem } from "@/lib/storage/loc
 export function SavedItems() {
   const [items, setItems] = useState<SavedContentItem[] | null>(null);
   const [announcement, setAnnouncement] = useState<{ message: string; failed: boolean } | null>(null);
+  const [confirmClear, setConfirmClear] = useState(false);
   const removeButtons = useRef(new Map<string, HTMLButtonElement>());
   const emptyStateTitle = useRef<HTMLHeadingElement>(null);
+  const clearButton = useRef<HTMLButtonElement>(null);
 
   function refresh() {
     setItems(localContentRepository.saved());
@@ -42,6 +44,20 @@ export function SavedItems() {
     });
   }
 
+  function clearAll() {
+    const cleared = localContentRepository.clearSaved();
+    const nextItems = localContentRepository.saved();
+    setItems(nextItems);
+    setConfirmClear(false);
+    if (!cleared || nextItems.length > 0) {
+      setAnnouncement({ message: "Saved items could not be cleared on this device.", failed: true });
+      window.requestAnimationFrame(() => clearButton.current?.focus());
+      return;
+    }
+    setAnnouncement({ message: "All saved items were removed.", failed: false });
+    window.requestAnimationFrame(() => emptyStateTitle.current?.focus());
+  }
+
   if (items === null) return (
     <div className="loading-state">
       <p role="status">Loading saved items…</p>
@@ -63,6 +79,18 @@ export function SavedItems() {
   return (
     <div className="saved-items-region">
       {announcement ? <p role={announcement.failed ? "alert" : "status"}>{announcement.message}</p> : null}
+      <div className="saved-list-toolbar">
+        <p>Saved on this device/browser.</p>
+        {confirmClear ? (
+          <div className="saved-clear-confirm" role="group" aria-label="Confirm clearing saved items">
+            <span>Remove all saved items?</span>
+            <button type="button" onClick={clearAll}>Yes, remove all</button>
+            <button type="button" onClick={() => { setConfirmClear(false); window.requestAnimationFrame(() => clearButton.current?.focus()); }}>Cancel</button>
+          </div>
+        ) : (
+          <button ref={clearButton} type="button" onClick={() => setConfirmClear(true)}><Trash2 aria-hidden /> Clear all</button>
+        )}
+      </div>
       <div className="saved-list">
       {items.map((item, index) => (
         <article key={item.id}>

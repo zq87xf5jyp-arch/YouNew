@@ -1,10 +1,12 @@
 export const plannerProfileIds = [
   "new-resident",
   "student",
+  "expat",
   "worker",
   "refugee",
   "tourist",
-  "resident"
+  "resident",
+  "prefer-not-to-say"
 ] as const;
 
 export type PlannerProfileId = (typeof plannerProfileIds)[number];
@@ -13,10 +15,12 @@ export const plannerGoalIds = [
   "registration",
   "health-insurance",
   "housing",
+  "study",
   "work",
   "taxes-benefits",
   "transport",
-  "urgent-help"
+  "urgent-help",
+  "other"
 ] as const;
 
 export type PlannerGoalId = (typeof plannerGoalIds)[number];
@@ -64,6 +68,13 @@ export const plannerGoals = [
     preferredGuideId: "housing.renting-a-home-in-amsterdam"
   },
   {
+    id: "study",
+    title: "Study",
+    searchQuery: "study education",
+    internalHref: "/categories/education/",
+    internalTitle: "Browse published education guidance"
+  },
+  {
     id: "work",
     title: "Work",
     searchQuery: "work employment",
@@ -90,6 +101,13 @@ export const plannerGoals = [
     searchQuery: "urgent help",
     internalHref: "/emergency/",
     internalTitle: "Open emergency help"
+  },
+  {
+    id: "other",
+    title: "Something else",
+    searchQuery: "Netherlands guidance",
+    internalHref: "/search/",
+    internalTitle: "Search all published guidance"
   }
 ] as const satisfies readonly Readonly<{
   id: PlannerGoalId;
@@ -107,11 +125,9 @@ const goalsById = new Map<PlannerGoalId, (typeof plannerGoals)[number]>(
 );
 
 function searchHref(query: string, municipality: PlannerMunicipality, profile: PlannerProfileId) {
-  const params = new URLSearchParams({
-    q: query,
-    city: municipality.slug,
-    profile: profile === "new-resident" ? "resident" : profile
-  });
+  const params = new URLSearchParams({ q: query });
+  if (municipality.slug !== "national") params.set("city", municipality.slug);
+  if (profile !== "prefer-not-to-say") params.set("profile", profile === "new-resident" ? "resident" : profile);
   return `/search/?${params.toString()}`;
 }
 
@@ -130,8 +146,7 @@ export function buildPlannerActions(input: Readonly<{
     const preferredGuide = "preferredGuideId" in goal
       ? guideById.get(goal.preferredGuideId)
       : undefined;
-    const guideApplies = preferredGuide
-      && (input.municipality.slug === "amsterdam" || goalId !== "registration" && goalId !== "housing");
+    const guideApplies = preferredGuide && input.municipality.slug === "amsterdam";
 
     if (guideApplies) {
       actions.push({
@@ -176,14 +191,14 @@ export function buildPlannerActions(input: Readonly<{
     actions.push({
       id: `${goalId}-search`,
       title: `Search YouNew for ${goal.title.toLowerCase()}`,
-      description: `Review the currently published coverage for ${input.municipality.name}. Empty results are tracked only after analytics consent and help prioritize editorial work.`,
+      description: `Review the guidance currently published for ${input.municipality.name}. If nothing relevant is available, continue to the responsible source.`,
       status: "Search current coverage",
       href: searchHref(goal.searchQuery, input.municipality, input.profile),
       external: false
     });
   });
 
-  if (input.goalIds.some((goalId) => goalId === "registration" || goalId === "housing")) {
+  if (input.municipality.slug !== "national" && input.goalIds.some((goalId) => goalId === "registration" || goalId === "housing")) {
     actions.push({
       id: "municipality",
       title: `Check ${input.municipality.name} municipality`,

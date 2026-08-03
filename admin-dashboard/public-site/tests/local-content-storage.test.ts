@@ -89,6 +89,27 @@ test("repository access never exposes malformed local storage payloads to UI con
   }
 });
 
+test("clear saved removes only saved shortcuts", () => {
+  const storage = new MemoryStorage();
+  const previousWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
+  Object.defineProperty(globalThis, "window", {
+    configurable: true,
+    value: { localStorage: storage, dispatchEvent: () => true } as unknown as Window & typeof globalThis
+  });
+
+  try {
+    localContentRepository.toggleSaved({ id: validSaved.id, route: validSaved.route, title: validSaved.title, kind: validSaved.kind });
+    localContentRepository.setProfile("student");
+    assert.equal(localContentRepository.saved().length, 1);
+    assert.equal(localContentRepository.clearSaved(), true);
+    assert.deepEqual(localContentRepository.saved(), []);
+    assert.equal(localContentRepository.profile(), "student");
+  } finally {
+    if (previousWindow) Object.defineProperty(globalThis, "window", previousWindow);
+    else Reflect.deleteProperty(globalThis, "window");
+  }
+});
+
 test("a saved profile can be explicitly cleared when search returns to all content", () => {
   const storage = new MemoryStorage();
   const previousWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
