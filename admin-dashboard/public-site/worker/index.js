@@ -13,6 +13,8 @@ const canonicalHostname = "younew.nl";
 const legacyHostname = "www.younew.nl";
 const mtaStsHostname = "mta-sts.younew.nl";
 const mtaStsPolicyPath = "/.well-known/mta-sts.txt";
+const legacyFaviconPath = "/favicon.ico";
+const faviconAssetPath = "/icons/favicon.png";
 const appleAppSiteAssociationPath = "/.well-known/apple-app-site-association";
 const appleAppSiteAssociationPayloadPath =
   "/__site_payloads/.well-known/apple-app-site-association.payload";
@@ -137,6 +139,13 @@ export default {
 
     if (isBlockedDeploymentArtifact(url.pathname)) {
       return withSecurityHeaders(new Response(null, { status: 404 }));
+    }
+
+    if (url.pathname === legacyFaviconPath) {
+      const assetUrl = new URL(request.url);
+      assetUrl.pathname = faviconAssetPath;
+      const response = await env.ASSETS.fetch(new Request(assetUrl, request));
+      return withSecurityHeaders(response, url.pathname);
     }
 
     const response = await fetchAssetWithDirectoryFallback(request, env.ASSETS);
