@@ -49,6 +49,26 @@ test("Sites worker permanently redirects www to the canonical origin", async () 
   assert.deepEqual(mock.calls, []);
 });
 
+test("Sites worker serves the legacy favicon path from the canonical PNG asset", async () => {
+  const favicon = new Uint8Array([137, 80, 78, 71]);
+  const mock = createAssets({
+    "/icons/favicon.png": new Response(favicon, {
+      status: 200,
+      headers: { "content-type": "image/png" }
+    })
+  });
+  const response = await worker.fetch(
+    new Request("https://younew.nl/favicon.ico"),
+    { ASSETS: mock.assets }
+  );
+
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("content-type"), "image/png");
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  assert.deepEqual(mock.calls, ["/icons/favicon.png"]);
+  assert.deepEqual(new Uint8Array(await response.arrayBuffer()), favicon);
+});
+
 test("Sites worker exposes only the MTA-STS policy on its dedicated hostname", async () => {
   const policyPath = "/.well-known/mta-sts.txt";
   const mock = createAssets({

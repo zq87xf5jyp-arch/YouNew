@@ -6,6 +6,7 @@ import {
   ArrowRight,
   BriefcaseBusiness,
   Building2,
+  ChevronDown,
   Check,
   Copy,
   GraduationCap,
@@ -20,7 +21,7 @@ import {
   ShieldCheck,
   Users
 } from "lucide-react";
-import { useEffect, useMemo, useRef, useState } from "react";
+import { type KeyboardEvent, useEffect, useId, useMemo, useRef, useState } from "react";
 import { track } from "@/lib/analytics/client";
 import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
 import {
@@ -63,6 +64,186 @@ const goalIcons: Record<PlannerGoalId, typeof Landmark> = {
 };
 
 type PlannerStep = 1 | 2 | 3 | 4;
+
+function normalizeAreaSearch(value: string) {
+  return value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLocaleLowerCase("en-NL").trim();
+}
+
+function MunicipalityCombobox({
+  municipalities,
+  value,
+  onChange
+}: {
+  municipalities: readonly PlannerMunicipality[];
+  value: string;
+  onChange: (slug: string) => void;
+}) {
+  const selectedMunicipality = municipalities.find((municipality) => municipality.slug === value) ?? municipalities[0];
+  const [query, setQuery] = useState(selectedMunicipality?.name ?? "");
+  const [open, setOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const rootRef = useRef<HTMLSpanElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
+  const listId = useId();
+
+  const filteredMunicipalities = useMemo(() => {
+    const normalizedQuery = normalizeAreaSearch(query);
+    if (!normalizedQuery) return municipalities;
+    return municipalities.filter((municipality) => normalizeAreaSearch(municipality.name).includes(normalizedQuery));
+  }, [municipalities, query]);
+
+  useEffect(() => {
+    setQuery(selectedMunicipality?.name ?? "");
+  }, [selectedMunicipality?.name]);
+
+  useEffect(() => {
+    function closeOnOutsidePointer(event: PointerEvent) {
+      if (rootRef.current?.contains(event.target as Node)) return;
+      setOpen(false);
+      setActiveIndex(-1);
+      setQuery(selectedMunicipality?.name ?? "");
+    }
+    document.addEventListener("pointerdown", closeOnOutsidePointer);
+    return () => document.removeEventListener("pointerdown", closeOnOutsidePointer);
+  }, [selectedMunicipality?.name]);
+
+  function chooseMunicipality(municipality: PlannerMunicipality) {
+    onChange(municipality.slug);
+    setQuery(municipality.name);
+    setOpen(false);
+    setActiveIndex(-1);
+    window.requestAnimationFrame(() => inputRef.current?.focus());
+  }
+
+  function onKeyDown(event: KeyboardEvent<HTMLInputElement>) {
+    if (event.key === "Escape") {
+      event.preventDefault();
+      setOpen(false);
+      setActiveIndex(-1);
+      setQuery(selectedMunicipality?.name ?? "");
+      return;
+    }
+
+    if (event.key === "ArrowDown" || event.key === "ArrowUp") {
+      event.preventDefault();
+      setOpen(true);
+      setActiveIndex((current) => {
+        if (filteredMunicipalities.length === 0) return -1;
+        if (event.key === "ArrowDown") return current >= filteredMunicipalities.length - 1 ? 0 : current + 1;
+        return current <= 0 ? filteredMunicipalities.length - 1 : current - 1;
+      });
+      return;
+    }
+
+    if (event.key === "Home" && open) {
+      event.preventDefault();
+      setActiveIndex(filteredMunicipalities.length ? 0 : -1);
+      return;
+    }
+
+    if (event.key === "End" && open) {
+      event.preventDefault();
+      setActiveIndex(filteredMunicipalities.length - 1);
+      return;
+    }
+
+    if (event.key === "Enter" && open && activeIndex >= 0) {
+      event.preventDefault();
+      const municipality = filteredMunicipalities[activeIndex];
+      if (municipality) chooseMunicipality(municipality);
+    }
+  }
+
+  const activeMunicipality = activeIndex >= 0 ? filteredMunicipalities[activeIndex] : undefined;
+
+  useEffect(() => {
+    if (!open || !activeMunicipality) return;
+    document.getElementById(`${listId}-${activeMunicipality.slug}`)?.scrollIntoView({ block: "nearest" });
+  }, [activeMunicipality, listId, open]);
+
+  return (
+    <span
+      className="planner-combobox"
+      onBlur={(event) => {
+        if (event.currentTarget.contains(event.relatedTarget as Node | null)) return;
+        setOpen(false);
+        setActiveIndex(-1);
+        setQuery(selectedMunicipality?.name ?? "");
+      }}
+      ref={rootRef}
+    >
+      <span className="planner-combobox-control">
+        <MapPin aria-hidden />
+        <input
+          aria-activedescendant={activeMunicipality ? `${listId}-${activeMunicipality.slug}` : undefined}
+          aria-autocomplete="list"
+          aria-controls={listId}
+          aria-expanded={open}
+          aria-haspopup="listbox"
+          autoComplete="off"
+          id="planner-municipality"
+          onChange={(event) => {
+            setQuery(event.target.value);
+            setOpen(true);
+            setActiveIndex(0);
+          }}
+          onClick={() => {
+            setOpen(true);
+            setActiveIndex(-1);
+          }}
+          onFocus={(event) => {
+            setOpen(true);
+            event.currentTarget.select();
+          }}
+          onKeyDown={onKeyDown}
+          ref={inputRef}
+          role="combobox"
+          spellCheck={false}
+          value={query}
+        />
+        <button
+          aria-label={open ? "Hide area options" : "Show area options"}
+          onClick={() => {
+            if (open) {
+              setOpen(false);
+              setActiveIndex(-1);
+              setQuery(selectedMunicipality?.name ?? "");
+              return;
+            }
+            setOpen(true);
+            setActiveIndex(-1);
+            window.requestAnimationFrame(() => inputRef.current?.focus());
+          }}
+          type="button"
+        >
+          <ChevronDown aria-hidden />
+        </button>
+      </span>
+      {open ? (
+        <ul className="planner-combobox-list" id={listId} role="listbox">
+          {filteredMunicipalities.length ? filteredMunicipalities.map((municipality, index) => (
+            <li
+              aria-selected={municipality.slug === value}
+              className={index === activeIndex ? "is-active" : ""}
+              id={`${listId}-${municipality.slug}`}
+              key={municipality.slug}
+              onPointerDown={(event) => {
+                event.preventDefault();
+                chooseMunicipality(municipality);
+              }}
+              role="option"
+            >
+              <span>{municipality.name}</span>
+              {municipality.slug === value ? <Check aria-hidden /> : null}
+            </li>
+          )) : (
+            <li aria-disabled="true" aria-selected={false} className="is-empty" role="option">No matching area</li>
+          )}
+        </ul>
+      ) : null}
+    </span>
+  );
+}
 
 export function NextStepPlanner({
   municipalities,
@@ -213,10 +394,17 @@ export function NextStepPlanner({
           <fieldset className="planner-step planner-location-step">
             <legend><span>3</span> Which area should we use?</legend>
             <p>Choose national guidance or a municipality. YouNew does not ask for precise location.</p>
-            <label htmlFor="planner-municipality">
-              Area
-              <span className="planner-select-wrap"><MapPin aria-hidden /><select id="planner-municipality" onChange={(event) => { setMunicipalitySlug(event.target.value); setSaved(false); }} value={municipalitySlug}>{municipalities.map((item) => <option key={item.slug} value={item.slug}>{item.name}</option>)}</select></span>
-            </label>
+            <div className="planner-area-field">
+              <label htmlFor="planner-municipality">Area</label>
+              <MunicipalityCombobox
+                municipalities={municipalities}
+                onChange={(slug) => {
+                  setMunicipalitySlug(slug);
+                  setSaved(false);
+                }}
+                value={municipalitySlug}
+              />
+            </div>
             <div className="planner-navigation"><button className="button button-ghost" onClick={goBack} type="button"><ArrowLeft aria-hidden /> Back</button><button className="button button-primary" onClick={buildRoute} type="button">Show my route <ArrowRight aria-hidden /></button></div>
           </fieldset>
         ) : null}
