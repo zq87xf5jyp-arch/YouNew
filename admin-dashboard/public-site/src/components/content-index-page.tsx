@@ -117,12 +117,12 @@ export function ContentIndexPage({
         <Link className="text-link" href={secondaryHref}>{secondaryLabel} <ArrowRight aria-hidden /></Link>
       </section>
 
-      <section className="section-shell app-content-block content-index-listing">
+      {entities.length > 0 ? <section className="section-shell app-content-block content-index-listing">
         <div className="listing-heading">
           <div><span>Published collection</span><h2>Explore all {collectionLabel}</h2><p>Each page shows its source, verification date and related material.</p></div>
         </div>
         <EntityListing entities={listingEntities} viewAllHref={continuationHref} variant="editorial" />
-      </section>
+      </section> : null}
 
       <section className="section-shell content-index-trust" aria-label="How YouNew publishes content">
         <div><ShieldCheck aria-hidden /><span><strong>Source trail</strong><small>Responsible links stay visible on detail pages.</small></span></div>

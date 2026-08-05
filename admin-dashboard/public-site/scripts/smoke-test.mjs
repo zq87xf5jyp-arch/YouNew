@@ -126,7 +126,7 @@ assert.match(notFound, /property="og:title" content="Page not found \| YouNew"/)
 assert.match(notFound, /name="twitter:card" content="summary"/);
 
 const searchIndex = JSON.parse(await readFile(join(root, "data/search-index.json"), "utf8"));
-assert.equal(searchIndex.schemaVersion, 2);
+assert.equal(searchIndex.schemaVersion, 3);
 const provenance = JSON.parse(await readFile(join(root, "data/content-provenance.json"), "utf8"));
 const governedContent = JSON.parse(
   await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8"),

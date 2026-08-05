@@ -36,7 +36,15 @@ test("analytics environment treats only local development hosts as staging", () 
 
 test("analytics envelopes contain only bounded allowlisted values", () => {
   const envelope = createAnalyticsEnvelope(
-    { name: "search", resultCount: 7.8, hasResults: true },
+    {
+      name: "search",
+      normalizedQuery: "bsn",
+      intentIds: ["documents.bsn"],
+      filters: { type: "", city: "eindhoven", province: "", category: "documents", profile: "worker" },
+      resultCount: 7.8,
+      zeroResult: false,
+      fallbackTier: "national"
+    },
     identifiers,
     {
       now: () => new Date("2026-07-28T20:00:00.000Z"),
@@ -49,7 +57,19 @@ test("analytics envelopes contain only bounded allowlisted values", () => {
 
   assert.equal(envelope.event_name, "search");
   assert.equal(envelope.screen, "/discover/");
-  assert.deepEqual(envelope.properties, { result_count: 7, has_results: true });
+  assert.deepEqual(envelope.properties, {
+    normalized_query_safe: "bsn",
+    intent_ids: "documents.bsn",
+    filter_type: "",
+    filter_city: "eindhoven",
+    filter_province: "",
+    filter_category: "documents",
+    filter_profile: "worker",
+    result_count: 7,
+    has_results: true,
+    zero_result: false,
+    fallback_tier: "national"
+  });
   assert.equal(JSON.stringify(envelope).includes("BSN-sensitive-text"), false);
   assert.equal(envelope.environment, "production");
   assert.equal(envelope.consent_version, "2026-07-28");

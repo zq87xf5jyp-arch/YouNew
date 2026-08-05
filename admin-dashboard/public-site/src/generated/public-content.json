@@ -1,22 +1,22 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-08-01T00:00:00Z",
-  "datasetFingerprint": "391d9da3adcd35e325d42c845ec07e1e1a063c81a66ea689672372b163b74178",
+  "datasetFingerprint": "6beda643b6ffb68c740192efae454ab8a48ea7da597d104272e74de2971f4246",
   "language": "en",
   "fallbackLanguage": "en",
   "publishedReleaseIds": [
-    "amsterdam-v0.1.6",
+    "amsterdam-v0.1.7",
     "cities-v0.1.0"
   ],
   "stats": {
-    "entities": 182,
+    "entities": 181,
     "cities": 5,
     "guides": 15,
     "practicalGuides": 0,
     "summaryGuides": 15,
     "organizations": 30,
-    "places": 132,
-    "categories": 10,
+    "places": 131,
+    "categories": 33,
     "provinces": 4
   },
   "entities": [
@@ -76,7 +76,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -175,7 +175,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -241,7 +241,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -307,7 +307,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -406,7 +406,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -505,7 +505,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -672,7 +672,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -738,7 +738,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -804,7 +804,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -903,7 +903,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -969,7 +969,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1035,7 +1035,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1101,7 +1101,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1200,7 +1200,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1299,7 +1299,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1398,7 +1398,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1497,7 +1497,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1563,7 +1563,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1629,7 +1629,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1695,7 +1695,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1761,7 +1761,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1827,7 +1827,7 @@
       "governance": null,
       "verifiedAt": "2026-07-22",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1893,7 +1893,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -1959,7 +1959,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -2058,7 +2058,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -2157,7 +2157,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -2256,7 +2256,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -2322,7 +2322,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -2421,7 +2421,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -2520,7 +2520,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -2619,7 +2619,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -2685,7 +2685,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -2751,7 +2751,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -2850,7 +2850,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -2949,7 +2949,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -3048,7 +3048,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -3147,7 +3147,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -3246,7 +3246,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -3345,7 +3345,7 @@
       "governance": null,
       "verifiedAt": "2026-07-30",
       "updatedAt": "2026-07-30",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -3444,7 +3444,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -3543,7 +3543,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -3642,7 +3642,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -3708,7 +3708,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -3807,7 +3807,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -3906,7 +3906,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -4005,7 +4005,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -4104,7 +4104,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -4203,7 +4203,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -4302,7 +4302,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -4401,7 +4401,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -4500,7 +4500,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -4599,7 +4599,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -4665,7 +4665,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -4764,7 +4764,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -4863,7 +4863,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -4962,7 +4962,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -5061,7 +5061,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -5160,7 +5160,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -5259,7 +5259,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -5358,7 +5358,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -5457,7 +5457,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -5657,7 +5657,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -5756,7 +5756,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -5822,7 +5822,7 @@
       "governance": null,
       "verifiedAt": "2026-08-01",
       "updatedAt": "2026-08-01",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -5921,7 +5921,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -6121,7 +6121,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -6220,7 +6220,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -6319,7 +6319,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -6418,7 +6418,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -6484,7 +6484,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -6583,7 +6583,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -6682,7 +6682,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -6781,7 +6781,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -6880,7 +6880,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -6979,7 +6979,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -7045,7 +7045,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -7111,7 +7111,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -7210,7 +7210,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -7309,7 +7309,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -7408,7 +7408,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -7507,7 +7507,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -7606,7 +7606,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -7672,7 +7672,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -7738,7 +7738,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -7837,7 +7837,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -7936,7 +7936,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -8035,7 +8035,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -8101,7 +8101,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -8200,7 +8200,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -8299,7 +8299,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -8398,7 +8398,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -8497,7 +8497,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -8596,7 +8596,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -8695,7 +8695,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -8794,7 +8794,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -8860,7 +8860,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -8959,7 +8959,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -9058,7 +9058,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -9157,7 +9157,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -9223,7 +9223,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -9289,7 +9289,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -9388,7 +9388,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -9487,7 +9487,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -9586,7 +9586,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -9685,7 +9685,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -9784,7 +9784,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -9883,7 +9883,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -9982,7 +9982,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10081,7 +10081,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10147,7 +10147,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10213,7 +10213,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10312,7 +10312,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10411,7 +10411,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10510,7 +10510,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10576,7 +10576,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10642,7 +10642,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10741,7 +10741,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10840,7 +10840,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10906,7 +10906,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -10972,7 +10972,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -11071,7 +11071,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -11137,7 +11137,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -11203,7 +11203,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -11302,7 +11302,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -11401,7 +11401,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -11500,7 +11500,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -11599,7 +11599,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -11698,7 +11698,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -11797,7 +11797,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -11896,7 +11896,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -11995,7 +11995,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -12094,7 +12094,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -12193,7 +12193,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -12259,7 +12259,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -12358,7 +12358,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -12558,7 +12558,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -12657,7 +12657,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -12756,7 +12756,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -12855,7 +12855,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -12954,7 +12954,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -13053,7 +13053,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -13152,7 +13152,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -13251,7 +13251,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -13350,7 +13350,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -13449,7 +13449,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -13548,7 +13548,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -13647,7 +13647,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -13746,7 +13746,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -13845,7 +13845,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -13911,7 +13911,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -14010,7 +14010,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -14109,7 +14109,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -14208,7 +14208,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -14274,7 +14274,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -14474,7 +14474,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -14573,7 +14573,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -14672,7 +14672,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -14771,7 +14771,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -14870,7 +14870,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -14969,7 +14969,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -15035,7 +15035,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -15101,7 +15101,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -15200,7 +15200,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -15299,7 +15299,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -15398,7 +15398,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -15497,7 +15497,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -15596,7 +15596,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -15695,7 +15695,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -15794,7 +15794,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -15893,7 +15893,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -15959,7 +15959,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -16025,7 +16025,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -16091,7 +16091,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -16099,72 +16099,6 @@
         "title": "WorldPride Amsterdam 2026 Human Rights Conference | YouNew",
         "description": "WorldPride Amsterdam 2026 Human Rights Conference is a confirmed Amsterdam current event. The cited source specifically covers the official human-rights confere",
         "canonicalPath": "/places/worldpride-amsterdam-2026-human-rights-conference"
-      }
-    },
-    {
-      "id": "event.worldpride-amsterdam-2026-unity-concert",
-      "slug": "worldpride-amsterdam-2026-unity-concert",
-      "type": "place",
-      "sourceKind": "event",
-      "route": "/places/worldpride-amsterdam-2026-unity-concert",
-      "language": "en",
-      "status": "published",
-      "title": "WorldPride Amsterdam 2026 UNITY Concert",
-      "summary": "WorldPride Amsterdam 2026 UNITY Concert is a confirmed Amsterdam current event. The cited source specifically covers the official UNITY concert at Museumplein. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
-      "contentDepth": "summary",
-      "practicalGuide": null,
-      "cityId": "amsterdam",
-      "provinceId": "noord-holland",
-      "categorySlugs": [
-        "culture"
-      ],
-      "narrowCategory": "concert",
-      "keywords": [
-        "Noord-Holland",
-        "WorldPride Amsterdam 2026 UNITY Concert",
-        "WorldPride Amsterdam 2026 UNITY Concert Amsterdam",
-        "concert",
-        "current event Amsterdam"
-      ],
-      "coordinate": {
-        "latitude": 52.3572706,
-        "longitude": 4.8815398
-      },
-      "images": [
-        {
-          "id": "media.event.worldpride-amsterdam-2026-unity-concert.hero.ba5177e02c",
-          "role": "hero",
-          "url": "https://live.staticflickr.com/65535/51367690375_ed21afac0d_b.jpg",
-          "alt": "WorldPride Amsterdam 2026 UNITY Concert — hero",
-          "attribution": "\"CDA Verloop and the U.S. Mission community joins the #EqualRightsCoalition at Amsterdam’s Pride Walk\" by U.S. Embassy The Hague is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
-          "license": "PDM",
-          "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/47873224@N06/51367690375",
-          "retrievedAt": "2026-07-18"
-        }
-      ],
-      "source": {
-        "title": "WorldPride Amsterdam 2026 UNITY Concert official website",
-        "publisher": "Pride Amsterdam",
-        "url": "https://pride.amsterdam/en/event/unity-concert/",
-        "checkedAt": "2026-07-18",
-        "publisherOfficial": true
-      },
-      "trust": {
-        "sourceChecked": true,
-        "officialSource": true
-      },
-      "governance": null,
-      "verifiedAt": "2026-07-18",
-      "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
-      "relatedEntityIds": [
-        "city.amsterdam"
-      ],
-      "seo": {
-        "title": "WorldPride Amsterdam 2026 UNITY Concert | YouNew",
-        "description": "WorldPride Amsterdam 2026 UNITY Concert is a confirmed Amsterdam current event. The cited source specifically covers the official UNITY concert at Museumplein. ",
-        "canonicalPath": "/places/worldpride-amsterdam-2026-unity-concert"
       }
     },
     {
@@ -16223,7 +16157,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -16289,7 +16223,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -16388,7 +16322,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -16963,7 +16897,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17029,7 +16963,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17095,7 +17029,7 @@
       "governance": null,
       "verifiedAt": "2026-08-01",
       "updatedAt": "2026-08-01",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17161,7 +17095,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17227,7 +17161,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17293,7 +17227,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17359,7 +17293,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17425,7 +17359,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17491,7 +17425,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17557,7 +17491,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17623,7 +17557,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17689,7 +17623,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17755,7 +17689,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17821,7 +17755,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17887,7 +17821,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -17955,7 +17889,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18021,7 +17955,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18087,7 +18021,7 @@
       "governance": null,
       "verifiedAt": "2026-07-22",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18153,7 +18087,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18219,7 +18153,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18285,7 +18219,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18351,7 +18285,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18417,7 +18351,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18516,7 +18450,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18582,7 +18516,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18681,7 +18615,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18780,7 +18714,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18846,7 +18780,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18912,7 +18846,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -18978,7 +18912,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19077,7 +19011,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19176,7 +19110,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19242,7 +19176,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19341,7 +19275,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19407,7 +19341,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19473,7 +19407,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19539,7 +19473,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19638,7 +19572,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19704,7 +19638,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19803,7 +19737,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19869,7 +19803,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -19935,7 +19869,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20034,7 +19968,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20133,7 +20067,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20199,7 +20133,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20300,7 +20234,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20399,7 +20333,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20498,7 +20432,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20564,7 +20498,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20630,7 +20564,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20696,7 +20630,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20795,7 +20729,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20861,7 +20795,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20927,7 +20861,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -20993,7 +20927,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -21092,7 +21026,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -21191,7 +21125,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -21290,7 +21224,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -21389,7 +21323,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -21455,7 +21389,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -21521,7 +21455,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -21587,7 +21521,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -21686,7 +21620,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -21785,7 +21719,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -21884,7 +21818,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -21950,7 +21884,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -22049,7 +21983,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -22148,7 +22082,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -22247,7 +22181,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -22346,7 +22280,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -22445,7 +22379,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -22544,7 +22478,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -22643,7 +22577,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -22742,7 +22676,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -22841,7 +22775,7 @@
       "governance": null,
       "verifiedAt": "2026-07-30",
       "updatedAt": "2026-07-30",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -22940,7 +22874,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -23039,7 +22973,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -23138,7 +23072,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -23237,7 +23171,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -23336,7 +23270,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -23435,7 +23369,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -23534,7 +23468,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -23633,7 +23567,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -23732,7 +23666,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -23831,7 +23765,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -23930,7 +23864,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -24029,7 +23963,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -24128,7 +24062,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -24227,7 +24161,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -24326,7 +24260,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -24425,7 +24359,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -24524,7 +24458,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -24623,7 +24557,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -24722,7 +24656,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -24821,7 +24755,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -24920,7 +24854,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -25019,7 +24953,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -25118,7 +25052,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -25217,7 +25151,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -25316,7 +25250,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -25415,7 +25349,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -25514,7 +25448,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -25613,7 +25547,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -25712,7 +25646,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -25811,7 +25745,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -25910,7 +25844,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -26009,7 +25943,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -26108,7 +26042,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -26207,7 +26141,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -26306,7 +26240,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -26405,7 +26339,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -26504,7 +26438,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -26603,7 +26537,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -26702,7 +26636,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -26801,7 +26735,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -26900,7 +26834,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -26999,7 +26933,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -27098,7 +27032,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -27197,7 +27131,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -27296,7 +27230,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -27395,7 +27329,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -27494,7 +27428,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -27593,7 +27527,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -27692,7 +27626,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -27791,7 +27725,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -27890,7 +27824,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -27989,7 +27923,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -28088,7 +28022,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -28187,7 +28121,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -28286,7 +28220,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -28385,7 +28319,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -28484,7 +28418,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -28583,7 +28517,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -28682,7 +28616,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -28781,7 +28715,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -28880,7 +28814,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -28979,7 +28913,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -29078,7 +29012,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -29177,7 +29111,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -29276,7 +29210,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -29375,7 +29309,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -29474,7 +29408,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -29573,7 +29507,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -29672,7 +29606,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -29771,7 +29705,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -29870,7 +29804,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -29969,7 +29903,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -30068,7 +30002,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -30167,7 +30101,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -30266,7 +30200,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -30365,7 +30299,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -30464,7 +30398,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -30563,7 +30497,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -30662,7 +30596,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -30761,7 +30695,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -30860,7 +30794,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -30959,7 +30893,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -31058,7 +30992,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -31157,7 +31091,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -31256,7 +31190,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -31355,7 +31289,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -31454,7 +31388,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -31553,7 +31487,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -31652,7 +31586,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -31751,7 +31685,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -31850,7 +31784,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -31949,7 +31883,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -32048,7 +31982,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -32147,7 +32081,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -32246,7 +32180,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-22",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -32345,7 +32279,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -32411,7 +32345,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -32477,7 +32411,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -32485,72 +32419,6 @@
         "title": "WorldPride Amsterdam 2026 Human Rights Conference | YouNew",
         "description": "WorldPride Amsterdam 2026 Human Rights Conference is a confirmed Amsterdam current event. The cited source specifically covers the official human-rights confere",
         "canonicalPath": "/places/worldpride-amsterdam-2026-human-rights-conference"
-      }
-    },
-    {
-      "id": "event.worldpride-amsterdam-2026-unity-concert",
-      "slug": "worldpride-amsterdam-2026-unity-concert",
-      "type": "place",
-      "sourceKind": "event",
-      "route": "/places/worldpride-amsterdam-2026-unity-concert",
-      "language": "en",
-      "status": "published",
-      "title": "WorldPride Amsterdam 2026 UNITY Concert",
-      "summary": "WorldPride Amsterdam 2026 UNITY Concert is a confirmed Amsterdam current event. The cited source specifically covers the official UNITY concert at Museumplein. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
-      "contentDepth": "summary",
-      "practicalGuide": null,
-      "cityId": "amsterdam",
-      "provinceId": "noord-holland",
-      "categorySlugs": [
-        "culture"
-      ],
-      "narrowCategory": "concert",
-      "keywords": [
-        "Noord-Holland",
-        "WorldPride Amsterdam 2026 UNITY Concert",
-        "WorldPride Amsterdam 2026 UNITY Concert Amsterdam",
-        "concert",
-        "current event Amsterdam"
-      ],
-      "coordinate": {
-        "latitude": 52.3572706,
-        "longitude": 4.8815398
-      },
-      "images": [
-        {
-          "id": "media.event.worldpride-amsterdam-2026-unity-concert.hero.ba5177e02c",
-          "role": "hero",
-          "url": "https://live.staticflickr.com/65535/51367690375_ed21afac0d_b.jpg",
-          "alt": "WorldPride Amsterdam 2026 UNITY Concert — hero",
-          "attribution": "\"CDA Verloop and the U.S. Mission community joins the #EqualRightsCoalition at Amsterdam’s Pride Walk\" by U.S. Embassy The Hague is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
-          "license": "PDM",
-          "licenseUrl": "https://creativecommons.org/publicdomain/mark/1.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/47873224@N06/51367690375",
-          "retrievedAt": "2026-07-18"
-        }
-      ],
-      "source": {
-        "title": "WorldPride Amsterdam 2026 UNITY Concert official website",
-        "publisher": "Pride Amsterdam",
-        "url": "https://pride.amsterdam/en/event/unity-concert/",
-        "checkedAt": "2026-07-18",
-        "publisherOfficial": true
-      },
-      "trust": {
-        "sourceChecked": true,
-        "officialSource": true
-      },
-      "governance": null,
-      "verifiedAt": "2026-07-18",
-      "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
-      "relatedEntityIds": [
-        "city.amsterdam"
-      ],
-      "seo": {
-        "title": "WorldPride Amsterdam 2026 UNITY Concert | YouNew",
-        "description": "WorldPride Amsterdam 2026 UNITY Concert is a confirmed Amsterdam current event. The cited source specifically covers the official UNITY concert at Museumplein. ",
-        "canonicalPath": "/places/worldpride-amsterdam-2026-unity-concert"
       }
     },
     {
@@ -32609,7 +32477,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -32675,7 +32543,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -32774,7 +32642,7 @@
       "governance": null,
       "verifiedAt": "2026-07-18",
       "updatedAt": "2026-07-18",
-      "releaseId": "amsterdam-v0.1.6",
+      "releaseId": "amsterdam-v0.1.7",
       "relatedEntityIds": [
         "city.amsterdam"
       ],
@@ -32787,6 +32655,54 @@
   ],
   "categories": [
     {
+      "id": "category.banking",
+      "slug": "banking",
+      "route": "/categories/banking",
+      "title": "Banking",
+      "summary": "Bank accounts, payments, identity checks, fraud awareness and regulated financial-service routes.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.benefits",
+      "slug": "benefits",
+      "route": "/categories/benefits",
+      "title": "Benefits",
+      "summary": "Healthcare, housing, childcare and child-related benefits, eligibility checks and reporting changes.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.business",
+      "slug": "business",
+      "route": "/categories/business",
+      "title": "Business",
+      "summary": "Starting and running a business, registration, tax, permits, hiring and official entrepreneur support.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.children",
+      "slug": "children",
+      "route": "/categories/children",
+      "title": "Children",
+      "summary": "Birth registration, childcare, school, youth healthcare and services for parents and children.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
       "id": "category.culture",
       "slug": "culture",
       "route": "/categories/culture",
@@ -32794,11 +32710,10 @@
       "summary": "Museums and published cultural events.",
       "status": "published",
       "language": "en",
-      "entityCount": 25,
+      "entityCount": 24,
       "entityIds": [
         "event.worldpride-amsterdam-2026-closing-concert",
         "event.worldpride-amsterdam-2026-human-rights-conference",
-        "event.worldpride-amsterdam-2026-unity-concert",
         "event.worldpride-amsterdam-2026-worldpride-march",
         "event.worldpride-amsterdam-2026-worldpride-village",
         "museum.allard-pierson",
@@ -32827,11 +32742,35 @@
       ]
     },
     {
+      "id": "category.daily-life",
+      "slug": "daily-life",
+      "route": "/categories/daily-life",
+      "title": "Daily life",
+      "summary": "Everyday practical questions, local routines, neighbourhood services and directing a question to the right domain.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.documents",
+      "slug": "documents",
+      "route": "/categories/documents",
+      "title": "Documents",
+      "summary": "BSN, BRP registration, DigiD, residence documents and other identity or administrative records.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
       "id": "category.education",
       "slug": "education",
       "route": "/categories/education",
       "title": "Education",
-      "summary": "Universities and other published education organizations.",
+      "summary": "Primary and secondary schools, newcomer classes, higher education, enrolment and qualification routes.",
       "status": "published",
       "language": "en",
       "entityCount": 10,
@@ -32850,6 +32789,42 @@
       "entityTypes": [
         "organization"
       ]
+    },
+    {
+      "id": "category.emergency",
+      "slug": "emergency",
+      "route": "/categories/emergency",
+      "title": "Emergency",
+      "summary": "Immediate danger, urgent medical help and verified emergency contact routes in the Netherlands.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.family",
+      "slug": "family",
+      "route": "/categories/family",
+      "title": "Family",
+      "summary": "Marriage, partnership, family records, family migration and finding the relevant official route.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.fines",
+      "slug": "fines",
+      "route": "/categories/fines",
+      "title": "Fines",
+      "summary": "Traffic and parking fines, official letters, payment routes and finding the correct objection or appeal process.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
     },
     {
       "id": "category.food-drink",
@@ -32930,7 +32905,7 @@
       "slug": "government",
       "route": "/categories/government",
       "title": "Government",
-      "summary": "Municipal services and official administrative information.",
+      "summary": "National government services, public administration, official correspondence and finding the responsible authority.",
       "status": "published",
       "language": "en",
       "entityCount": 10,
@@ -32955,7 +32930,7 @@
       "slug": "healthcare",
       "route": "/categories/healthcare",
       "title": "Healthcare",
-      "summary": "Healthcare organizations and public-health services.",
+      "summary": "Finding and registering with a GP, health insurance, pharmacies, urgent care and navigating Dutch healthcare.",
       "status": "published",
       "language": "en",
       "entityCount": 10,
@@ -32980,7 +32955,7 @@
       "slug": "housing",
       "route": "/categories/housing",
       "title": "Housing",
-      "summary": "Published housing resources and tenant information.",
+      "summary": "Renting, tenant rights, housing defects, moving and finding the correct local or national housing route.",
       "status": "published",
       "language": "en",
       "entityCount": 5,
@@ -32994,6 +32969,54 @@
       "entityTypes": [
         "guide"
       ]
+    },
+    {
+      "id": "category.integration",
+      "slug": "integration",
+      "route": "/categories/integration",
+      "title": "Integration",
+      "summary": "Civic integration, official notices, learning routes, examinations and support from the municipality or DUO.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.internet",
+      "slug": "internet",
+      "route": "/categories/internet",
+      "title": "Internet",
+      "summary": "Home internet, installation, provider switching, contract terms and connection problems.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.language-learning",
+      "slug": "language-learning",
+      "route": "/categories/language-learning",
+      "title": "Language learning",
+      "summary": "Dutch courses, NT2 examinations, language support and choosing a learning route.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.legal-help",
+      "slug": "legal-help",
+      "route": "/categories/legal-help",
+      "title": "Legal help",
+      "summary": "Finding appropriate legal information, low-threshold advice, representation and urgent protection routes.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
     },
     {
       "id": "category.local-services",
@@ -33021,6 +33044,30 @@
       ]
     },
     {
+      "id": "category.finance",
+      "slug": "finance",
+      "route": "/categories/finance",
+      "title": "Money & finance",
+      "summary": "Practical information about banking, taxes and allowances.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.municipal-services",
+      "slug": "municipal-services",
+      "route": "/categories/municipal-services",
+      "title": "Municipal services",
+      "summary": "Registration, address changes, civil records, permits, waste, parking and other services provided by your municipality.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
       "id": "category.outdoors",
       "slug": "outdoors",
       "route": "/categories/outdoors",
@@ -33044,6 +33091,18 @@
       "entityTypes": [
         "place"
       ]
+    },
+    {
+      "id": "category.pets",
+      "slug": "pets",
+      "route": "/categories/pets",
+      "title": "Pets",
+      "summary": "Bringing, registering and caring for pets, travel requirements and local animal-related rules.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
     },
     {
       "id": "category.things-to-do",
@@ -33089,11 +33148,71 @@
       ]
     },
     {
+      "id": "category.rules",
+      "slug": "rules",
+      "route": "/categories/rules",
+      "title": "Rules",
+      "summary": "National and local rules, permits, duties and identifying which authority sets or enforces a requirement.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.safety",
+      "slug": "safety",
+      "route": "/categories/safety",
+      "title": "Safety",
+      "summary": "Police contact, reporting crime, scams, domestic safety and non-emergency support.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.shopping",
+      "slug": "shopping",
+      "route": "/categories/shopping",
+      "title": "Shopping",
+      "summary": "Consumer rights, returns, warranties, online purchases, complaints and avoiding misleading sellers.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.sim-telecom",
+      "slug": "sim-telecom",
+      "route": "/categories/sim-telecom",
+      "title": "SIM & telecom",
+      "summary": "Mobile subscriptions, prepaid SIM cards, number portability, coverage and telecom consumer rights.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.taxes",
+      "slug": "taxes",
+      "route": "/categories/taxes",
+      "title": "Taxes",
+      "summary": "Dutch income tax, tax returns, letters, assessments and finding the correct Tax Administration route.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
       "id": "category.transport",
       "slug": "transport",
       "route": "/categories/transport",
       "title": "Transport",
-      "summary": "Stations and other published transport resources.",
+      "summary": "Public transport, OV payments, cycling, driving, parking and travel-planning routes.",
       "status": "published",
       "language": "en",
       "entityCount": 10,
@@ -33112,6 +33231,30 @@
       "entityTypes": [
         "place"
       ]
+    },
+    {
+      "id": "category.utilities",
+      "slug": "utilities",
+      "route": "/categories/utilities",
+      "title": "Utilities",
+      "summary": "Electricity, gas, water, meters, moving notifications and consumer problems with utility contracts.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.work",
+      "slug": "work",
+      "route": "/categories/work",
+      "title": "Work",
+      "summary": "Employment contracts, wages, working conditions, job-search routes and help with workplace problems.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
     }
   ],
   "provinces": [
@@ -33142,7 +33285,7 @@
       "summary": "Published YouNew information for Noord-Holland.",
       "status": "published",
       "language": "en",
-      "entityCount": 178,
+      "entityCount": 177,
       "entityIds": [
         "cafe.back-to-black",
         "cafe.bakers-and-roasters",
@@ -33177,7 +33320,6 @@
         "education.vrije-universiteit-amsterdam",
         "event.worldpride-amsterdam-2026-closing-concert",
         "event.worldpride-amsterdam-2026-human-rights-conference",
-        "event.worldpride-amsterdam-2026-unity-concert",
         "event.worldpride-amsterdam-2026-worldpride-march",
         "event.worldpride-amsterdam-2026-worldpride-village",
         "government_service.driving-licence-amsterdam",

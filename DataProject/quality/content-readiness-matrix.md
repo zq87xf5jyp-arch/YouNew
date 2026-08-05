@@ -1,12 +1,12 @@
 # YouNew content readiness matrix
 
-Evidence date: **2026-08-04**. This is a read-only local audit; no live URL check was performed.
+Evidence date: **2026-08-05**. This is a read-only local audit; no live URL check was performed.
 
 ## Outcome
 
 **NOT PRODUCTION READY for the attached 100%-content brief.** The repository has substantial governed summary inventory, but no practical guide passes the fail-closed production contract.
 
-- Governed records: **450**; effectively published: **182**.
+- Governed records: **450**; effectively published: **181**.
 - Guide-capable material records: **277**; effectively published material records: **15**.
 - Material lifecycle states: **{"published": 15, "qa": 262}**.
 - Public guides: **15 summary / 0 full**.
@@ -183,7 +183,7 @@ Candidate pairs are evidence for editorial review, not automatic deletion. Full 
 
 ## Existing link-health evidence
 
-The repository's existing link report checked **2560** URLs at **2026-07-28T15:22:44.290395+00:00**: **0 confirmed broken**, **718 access-restricted**, and **28 transient failures**. This audit imported those counts but did not perform a new network check.
+The repository's existing link report checked **0** URLs at **1970-01-01T00:00:00+00:00**: **0 confirmed broken**, **0 access-restricted**, and **0 transient failures**. This audit imported those counts but did not perform a new network check.
 
 ## Audience-path gap
 
@@ -200,5 +200,5 @@ Production-ready explicit audience coverage is **0/6 (0.0%)**. All six brief pat
 ## Reproduction
 
 ```bash
-python3 scripts/content-readiness-audit.py --as-of 2026-08-04 --check
+python3 scripts/content-readiness-audit.py --as-of 2026-08-05 --check
 ```

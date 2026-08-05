@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-08-01",
+  "verifiedAt": "2026-08-05",
   "projectRef": "pgdzdxsiagfjioxwuqxf",
   "historicalBootstrapFiles": [
     "0001_younew_admin_schema.sql",
@@ -88,6 +88,12 @@
       "name": "harden_content_governance_performance",
       "md5": "e71a0460b23ee953c92237852907bd11",
       "bytes": 5169
+    },
+    {
+      "version": "20260805122546",
+      "name": "search_gap_analytics",
+      "md5": "870eac69579c3c0b2c0303116a0570f3",
+      "bytes": 8003
     }
   ]
 }
