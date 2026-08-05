@@ -61,6 +61,15 @@ export interface RankedSearchResult {
   readonly locationMatch: "exact" | "province" | "national" | "none";
 }
 
+interface WeightedSearchField {
+  readonly values: readonly string[];
+  readonly phrases: readonly string[];
+  readonly weight: number;
+}
+
+const weightedFieldsByDocument = new WeakMap<SearchDocument, readonly WeightedSearchField[]>();
+const locationAliasesByDocument = new WeakMap<SearchDocument, ReadonlySet<string>>();
+
 const legacyProfileCategories: Readonly<Record<GuideAudienceProfile, readonly string[]>> = {
   tourist: ["transport", "safety", "emergency", "shopping", "daily-life", "sim-telecom"],
   student: ["education", "language-learning", "housing", "transport", "work"],
@@ -96,6 +105,10 @@ export function normalizeSearchText(value: string): string {
 
 function tokens(value: string): string[] {
   return [...new Set(normalizeSearchText(value).split(/\s+/u).filter(Boolean))];
+}
+
+function normalizedPhrases(values: readonly string[]): string[] {
+  return values.map(normalizeSearchText).filter(Boolean);
 }
 
 const queryStopWords = new Set([
@@ -147,22 +160,63 @@ function tokenScore(queryToken: string, candidate: string, weight: number): numb
   return 0;
 }
 
-function normalizedPhraseMatch(value: string, query: string): boolean {
-  const haystack = ` ${normalizeSearchText(value)} `;
-  const needle = ` ${normalizeSearchText(query)} `;
+function normalizedPhraseMatch(normalizedValue: string, normalizedQuery: string): boolean {
+  const haystack = ` ${normalizedValue} `;
+  const needle = ` ${normalizedQuery} `;
   return needle.trim().length > 0 && haystack.includes(needle);
+}
+
+function phraseScore(normalizedValues: readonly string[], query: string, weight: number): number {
+  return normalizedValues.reduce((best, normalizedValue) => {
+    if (normalizedValue === query) return Math.max(best, weight * 3.2);
+    if (normalizedPhraseMatch(normalizedValue, query)) return Math.max(best, weight * 1.6);
+    return best;
+  }, 0);
 }
 
 function inferredScope(document: SearchDocument): SearchScope {
   return document.scope ?? (document.cityId ? "municipal" : document.provinceId ? "provincial" : "national");
 }
 
-function locationAliases(document: SearchDocument): Set<string> {
-  return new Set([
+function locationAliases(document: SearchDocument): ReadonlySet<string> {
+  const cached = locationAliasesByDocument.get(document);
+  if (cached) return cached;
+  const aliases = new Set([
     normalizeSearchText(document.cityId ?? ""),
     normalizeSearchText(document.city ?? ""),
     ...(document.locationAliases ?? []).map(normalizeSearchText)
   ].filter(Boolean));
+  locationAliasesByDocument.set(document, aliases);
+  return aliases;
+}
+
+function weightedFields(document: SearchDocument): readonly WeightedSearchField[] {
+  const cached = weightedFieldsByDocument.get(document);
+  if (cached) return cached;
+
+  const fields: readonly WeightedSearchField[] = [
+    { values: tokens(document.title), phrases: normalizedPhrases([document.title]), weight: 30 },
+    // A centralized taxonomy alias represents a canonical user intent. For a
+    // category hub it must outrank an incidental title match (for example,
+    // `room` should lead to Housing, not a venue named “The White Room”).
+    { values: (document.synonyms ?? []).flatMap(tokens), phrases: normalizedPhrases(document.synonyms ?? []), weight: document.type === "category" ? 36 : 24 },
+    { values: (document.terminology ?? []).flatMap(tokens), phrases: normalizedPhrases(document.terminology ?? []), weight: 20 },
+    { values: document.keywords.flatMap(tokens), phrases: normalizedPhrases(document.keywords), weight: 18 },
+    { values: (document.commonQuestions ?? []).flatMap(tokens), phrases: normalizedPhrases(document.commonQuestions ?? []), weight: 17 },
+    { values: (document.numberedSteps ?? []).flatMap(tokens), phrases: normalizedPhrases(document.numberedSteps ?? []), weight: 15 },
+    { values: (document.requiredDocuments ?? []).flatMap(tokens), phrases: normalizedPhrases(document.requiredDocuments ?? []), weight: 15 },
+    { values: (document.checklist ?? []).flatMap(tokens), phrases: normalizedPhrases(document.checklist ?? []), weight: 15 },
+    { values: (document.faqAnswers ?? []).flatMap(tokens), phrases: normalizedPhrases(document.faqAnswers ?? []), weight: 14 },
+    { values: (document.whenYouNeedIt ?? []).flatMap(tokens), phrases: normalizedPhrases(document.whenYouNeedIt ?? []), weight: 13 },
+    { values: (document.tips ?? []).flatMap(tokens), phrases: normalizedPhrases(document.tips ?? []), weight: 12 },
+    { values: (document.officialOrganizationNames ?? []).flatMap(tokens), phrases: normalizedPhrases(document.officialOrganizationNames ?? []), weight: 14 },
+    { values: (document.tags ?? []).flatMap(tokens), phrases: normalizedPhrases(document.tags ?? []), weight: 12 },
+    { values: document.categories.flatMap(tokens), phrases: normalizedPhrases(document.categories), weight: 11 },
+    { values: tokens(document.organization ?? ""), phrases: normalizedPhrases([document.organization ?? ""]), weight: 10 },
+    { values: tokens(document.summary), phrases: normalizedPhrases([document.summary]), weight: 5 }
+  ];
+  weightedFieldsByDocument.set(document, fields);
+  return fields;
 }
 
 function locationMatch(document: SearchDocument, filters: SearchFilters): RankedSearchResult["locationMatch"] | null {
@@ -189,7 +243,9 @@ function matchesNonLocationFilters(document: SearchDocument, filters: SearchFilt
 
 function browseScore(document: SearchDocument, options: SearchOptions, match: RankedSearchResult["locationMatch"]): number {
   return (searchDocumentMatchesProfile(document, options.preferredProfile) ? 10 : 0)
-    + (document.id === "page.emergency" ? 18 : 0)
+    // The dedicated emergency route contains the immediate-action contract and
+    // must stay ahead of the broader taxonomy hub for an exact emergency query.
+    + (document.id === "page.emergency" ? 48 : 0)
     + (match === "exact" ? 16 : match === "province" ? 11 : match === "national" ? 4 : 0)
     + Math.max(0, Math.min(document.qualityScore ?? 0.5, 1)) * 6;
 }
@@ -221,31 +277,17 @@ export function rankSearchDocuments(documents: readonly SearchDocument[], query:
   const results: RankedSearchResult[] = [];
 
   for (const { document, match } of candidates) {
-    const weightedFields = [
-      { values: tokens(document.title), phrases: [document.title], weight: 30 },
-      { values: (document.synonyms ?? []).flatMap(tokens), phrases: document.synonyms ?? [], weight: 24 },
-      { values: (document.terminology ?? []).flatMap(tokens), phrases: document.terminology ?? [], weight: 20 },
-      { values: document.keywords.flatMap(tokens), phrases: document.keywords, weight: 18 },
-      { values: (document.commonQuestions ?? []).flatMap(tokens), phrases: document.commonQuestions ?? [], weight: 17 },
-      { values: (document.numberedSteps ?? []).flatMap(tokens), phrases: document.numberedSteps ?? [], weight: 15 },
-      { values: (document.requiredDocuments ?? []).flatMap(tokens), phrases: document.requiredDocuments ?? [], weight: 15 },
-      { values: (document.checklist ?? []).flatMap(tokens), phrases: document.checklist ?? [], weight: 15 },
-      { values: (document.faqAnswers ?? []).flatMap(tokens), phrases: document.faqAnswers ?? [], weight: 14 },
-      { values: (document.whenYouNeedIt ?? []).flatMap(tokens), phrases: document.whenYouNeedIt ?? [], weight: 13 },
-      { values: (document.tips ?? []).flatMap(tokens), phrases: document.tips ?? [], weight: 12 },
-      { values: (document.officialOrganizationNames ?? []).flatMap(tokens), phrases: document.officialOrganizationNames ?? [], weight: 14 },
-      { values: (document.tags ?? []).flatMap(tokens), phrases: document.tags ?? [], weight: 12 },
-      { values: document.categories.flatMap(tokens), phrases: document.categories, weight: 11 },
-      { values: tokens(document.organization ?? ""), phrases: [document.organization ?? ""], weight: 10 },
-      { values: tokens(document.summary), phrases: [document.summary], weight: 5 }
-    ];
+    const documentFields = weightedFields(document);
 
-    let score = weightedFields.reduce((best, field) => field.phrases.some((value) => normalizedPhraseMatch(value, queryText)) ? Math.max(best, field.weight * 2.8) : best, 0);
+    let score = documentFields.reduce(
+      (best, field) => Math.max(best, phraseScore(field.phrases, queryText, field.weight)),
+      0
+    );
     const matchedTerms: string[] = [];
 
     for (const queryToken of queryTokens) {
       let best = 0;
-      for (const field of weightedFields) {
+      for (const field of documentFields) {
         for (const candidate of field.values) best = Math.max(best, tokenScore(queryToken, candidate, field.weight));
       }
       if (best > 0) {

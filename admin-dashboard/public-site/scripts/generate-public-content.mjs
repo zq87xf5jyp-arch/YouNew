@@ -814,7 +814,11 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     province: municipality.provinceName,
     provinceId: municipality.provinceSlug,
     scope: "municipal",
-    locationAliases: municipality.slug === "s-gravenhage" ? ["den-haag", "den haag", "the hague", "denhaag"] : [],
+    locationAliases: municipality.slug === "s-gravenhage"
+      ? ["den-haag", "den haag", "the hague", "denhaag"]
+      : municipality.slug === "s-hertogenbosch"
+        ? ["den-bosch", "den bosch", "denbosch"]
+        : [],
     languages: ["en", "nl", "ru"],
     intentIds: ["municipal.register", "municipal.move"],
     officialSourceURLs: [municipality.officialWebsite].filter(Boolean),
@@ -830,7 +834,12 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     faqAnswers: [],
     whenYouNeedIt: [],
     tags: ["municipality", "gemeente", "local government"],
-    synonyms: [`Gemeente ${municipality.name}`, municipality.administrativeSeat ?? "", ...(municipality.slug === "s-gravenhage" ? ["Den Haag", "The Hague", "Гаага"] : [])].filter(Boolean),
+    synonyms: [
+      `Gemeente ${municipality.name}`,
+      municipality.administrativeSeat ?? "",
+      ...(municipality.slug === "s-gravenhage" ? ["Den Haag", "DenHaag", "The Hague", "Гаага"] : []),
+      ...(municipality.slug === "s-hertogenbosch" ? ["Den Bosch", "DenBosch", "Ден Босх"] : [])
+    ].filter(Boolean),
     officialOrganizationNames: [`Municipality of ${municipality.name}`],
     terminology: ["municipality", "gemeente", "BAG woonplaats"],
     commonQuestions: [`Which municipality contains ${municipality.name}?`]

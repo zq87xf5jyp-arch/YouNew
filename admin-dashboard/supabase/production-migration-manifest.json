@@ -94,6 +94,36 @@
       "name": "search_gap_analytics",
       "md5": "870eac69579c3c0b2c0303116a0570f3",
       "bytes": 8003
+    },
+    {
+      "version": "20260805134500",
+      "name": "article_search_readiness",
+      "md5": "e49eb75b1b985e2d60d63df7f18fc909",
+      "bytes": 5338
+    },
+    {
+      "version": "20260805134530",
+      "name": "article_search_constraints",
+      "md5": "c6b3106327bd9a4dbacd92bacfbf5524",
+      "bytes": 1956
+    },
+    {
+      "version": "20260805134545",
+      "name": "article_search_publication_gate",
+      "md5": "e64d98640bedad47e8432c4da88cacb3",
+      "bytes": 2685
+    },
+    {
+      "version": "20260805134600",
+      "name": "article_search_readiness_view",
+      "md5": "1f4cefee092c16c463b361e37393a1bb",
+      "bytes": 2145
+    },
+    {
+      "version": "20260805134630",
+      "name": "remove_premature_article_search_indexes",
+      "md5": "c4ad61442048834a3c760d93d4de2358",
+      "bytes": 400
     }
   ]
 }
