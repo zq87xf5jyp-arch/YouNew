@@ -8,6 +8,8 @@ Bundle: `DataProject/staging/release-critical-practical-guides-v2.json`
 
 Localization readiness: `DataProject/staging/release-critical-practical-guides-v2-localization.json`
 
+Full-body localization overlay: `DataProject/staging/release-critical-practical-guides-v2-full-body-localization.json`
+
 ## Scope
 
 The bundle contains eight English schema-v2 draft guides covering the seven distinct journeys behind the eight required production searches:
@@ -29,14 +31,17 @@ Each draft includes the user need, audience, prerequisites, documents, timing, c
 
 The companion localization package contains one Dutch and one Russian **search-surface draft** for every guide: 16 locale records in total. Each record includes a localized title, a localized short summary, at least eight search synonyms, at least three common questions and terminology notes for terms that should not be translated loosely.
 
-This package is intentionally not a full translation. It is pinned to the SHA-256 digest of the English source bundle so that any English edit invalidates the localization contract until the localized records are reviewed again. The package keeps `publication_authorized: false`, `reviewer: null` and `verified_at: null` and explicitly retains these blockers:
+The private full-body overlay now adds complete Dutch and Russian narrative-field drafts for **Getting a BSN**: 47 stable fields per locale, or 2 of the required 16 guide-locale pairs. It is pinned to both the English evidence bundle and the search-surface bundle. The remaining 14 full-body pairs have not been drafted.
 
-1. full body translation;
+Both localization packages keep `publication_authorized: false`, `reviewer: null` and `verified_at: null`. The search-surface package intentionally does not claim full translation, while the full-body overlay labels its two entries `machine_assisted_full_body_draft`. Overall blockers are:
+
+1. full-body translation for the remaining 14 guide-locale pairs;
 2. independent Dutch and Russian language review;
 3. source-to-translation review for legal, municipal and provider terminology;
-4. media and accessibility review.
+4. editorial and domain review;
+5. media and accessibility review.
 
-The localized copy must remain outside the runtime dataset and search index until those four gaps and the general publication steps below are closed.
+The localized copy must remain outside the runtime dataset and search index until those gaps and the general publication steps below are closed.
 
 ## Production browser baseline — 2026-08-05
 
