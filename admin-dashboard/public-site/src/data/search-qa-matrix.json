@@ -1,0 +1,135 @@
+{
+  "schemaVersion": 1,
+  "requiredQueryGroups": [
+    {
+      "id": "housing",
+      "acceptedCategorySlugs": ["housing"],
+      "queries": [
+        { "value": "rent", "language": "en" },
+        { "value": "housing", "language": "en" },
+        { "value": "apartment", "language": "en" },
+        { "value": "room", "language": "en" },
+        { "value": "huur", "language": "nl" },
+        { "value": "woning", "language": "nl" },
+        { "value": "appartement", "language": "nl" },
+        { "value": "kamer", "language": "nl" },
+        { "value": "аренда", "language": "ru" },
+        { "value": "квартира", "language": "ru" },
+        { "value": "комната", "language": "ru" }
+      ]
+    },
+    {
+      "id": "work",
+      "acceptedCategorySlugs": ["work"],
+      "queries": [
+        { "value": "work", "language": "en" },
+        { "value": "job", "language": "en" },
+        { "value": "vacancy", "language": "en" },
+        { "value": "contract", "language": "en" },
+        { "value": "salary", "language": "en" },
+        { "value": "werk", "language": "nl" },
+        { "value": "baan", "language": "nl" },
+        { "value": "vacature", "language": "nl" },
+        { "value": "работа", "language": "ru" },
+        { "value": "вакансия", "language": "ru" },
+        { "value": "зарплата", "language": "ru" }
+      ]
+    },
+    {
+      "id": "healthcare",
+      "acceptedCategorySlugs": ["healthcare"],
+      "queries": [
+        { "value": "doctor", "language": "en" },
+        { "value": "hospital", "language": "en" },
+        { "value": "dentist", "language": "en" },
+        { "value": "pharmacy", "language": "en" },
+        { "value": "huisarts", "language": "nl" },
+        { "value": "ziekenhuis", "language": "nl" },
+        { "value": "tandarts", "language": "nl" },
+        { "value": "врач", "language": "ru" },
+        { "value": "больница", "language": "ru" },
+        { "value": "аптека", "language": "ru" }
+      ]
+    },
+    {
+      "id": "documents",
+      "acceptedCategorySlugs": ["documents", "municipal-services"],
+      "queries": [
+        { "value": "BSN", "language": "en" },
+        { "value": "DigiD", "language": "en" },
+        { "value": "registration", "language": "en" },
+        { "value": "residence permit", "language": "en" },
+        { "value": "inschrijving", "language": "nl" },
+        { "value": "verblijfsvergunning", "language": "nl" },
+        { "value": "регистрация", "language": "ru" },
+        { "value": "ВНЖ", "language": "ru" }
+      ]
+    },
+    {
+      "id": "education",
+      "acceptedCategorySlugs": ["education", "language-learning"],
+      "queries": [
+        { "value": "Dutch course", "language": "en" },
+        { "value": "language school", "language": "en" },
+        { "value": "university", "language": "en" },
+        { "value": "MBO", "language": "nl" },
+        { "value": "study", "language": "en" },
+        { "value": "taalschool", "language": "nl" },
+        { "value": "opleiding", "language": "nl" },
+        { "value": "школа", "language": "ru" },
+        { "value": "университет", "language": "ru" },
+        { "value": "курсы", "language": "ru" }
+      ]
+    },
+    {
+      "id": "telecom",
+      "acceptedCategorySlugs": ["sim-telecom", "internet"],
+      "queries": [
+        { "value": "SIM", "language": "en" },
+        { "value": "prepaid", "language": "en" },
+        { "value": "eSIM", "language": "en" },
+        { "value": "phone contract", "language": "en" },
+        { "value": "internet", "language": "en" },
+        { "value": "simkaart", "language": "nl" },
+        { "value": "telefoonabonnement", "language": "nl" },
+        { "value": "сим-карта", "language": "ru" },
+        { "value": "мобильная связь", "language": "ru" }
+      ]
+    },
+    {
+      "id": "rules-and-fines",
+      "acceptedCategorySlugs": ["rules", "fines"],
+      "queries": [
+        { "value": "parking fine", "language": "en" },
+        { "value": "traffic rules", "language": "en" },
+        { "value": "bicycle rules", "language": "en" },
+        { "value": "waste fine", "language": "en" },
+        { "value": "verkeersregels", "language": "nl" },
+        { "value": "fietsregels", "language": "nl" },
+        { "value": "afvalboete", "language": "nl" },
+        { "value": "штраф за парковку", "language": "ru" },
+        { "value": "правила дорожного движения", "language": "ru" },
+        { "value": "штраф за мусор", "language": "ru" }
+      ]
+    }
+  ],
+  "typoCases": [
+    { "query": "appartmant", "acceptedCategorySlugs": ["housing"] },
+    { "query": "vacncy", "acceptedCategorySlugs": ["work"] },
+    { "query": "huisart", "acceptedCategorySlugs": ["healthcare"] },
+    { "query": "registraton", "acceptedCategorySlugs": ["documents"] },
+    { "query": "taalschol", "acceptedCategorySlugs": ["language-learning"] },
+    { "query": "prepaod", "acceptedCategorySlugs": ["sim-telecom"] },
+    { "query": "parkin fine", "acceptedCategorySlugs": ["fines"] }
+  ],
+  "cityAliasCases": [
+    {
+      "expectedDocumentId": "municipality.gm0518",
+      "variants": ["Den Haag", "The Hague", "’s-Gravenhage", "s Gravenhage", "s-Gravenhage", "DenHaag"]
+    },
+    {
+      "expectedDocumentId": "municipality.gm0796",
+      "variants": ["Den Bosch", "’s-Hertogenbosch", "s Hertogenbosch", "s-Hertogenbosch", "DenBosch"]
+    }
+  ]
+}
