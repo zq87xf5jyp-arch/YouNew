@@ -29,6 +29,8 @@ test("analytics expansion keeps private aggregates behind RLS", () => {
   assert.match(migration, /app_store_metrics_daily enable row level security/);
   assert.match(migration, /approved admins read App Store metrics/);
   assert.match(migration, /analytics_source_sync_state enable row level security/);
+  assert.match(migration, /private\.is_approved_admin\(\)/);
+  assert.doesNotMatch(migration, /public\.is_approved_admin\(\)/);
   assert.doesNotMatch(migration, /grant select on table public\.app_store_metrics_daily to anon/);
 });
 
