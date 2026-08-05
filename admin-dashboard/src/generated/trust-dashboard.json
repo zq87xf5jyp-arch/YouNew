@@ -8,7 +8,7 @@
     "verified": {
       "value": 0.0,
       "numerator": 0,
-      "denominator": 450,
+      "denominator": 454,
       "formula": "governed verified or review_due_soon records / canonical records",
       "formulaVersion": 1,
       "sourceArtifact": "DataProject/schema/content-governance.schema.json",
@@ -18,7 +18,7 @@
     "fresh": {
       "value": 0.0,
       "numerator": 0,
-      "denominator": 450,
+      "denominator": 454,
       "formula": "fresh governed records / canonical records",
       "formulaVersion": 1,
       "sourceArtifact": "DataProject/governance/status-policy.json",
@@ -68,7 +68,7 @@
     "aiCoverage": {
       "value": 0.0,
       "numerator": 0,
-      "denominator": 450,
+      "denominator": 454,
       "formula": "AI-summary records eligible for governed retrieval / canonical records",
       "formulaVersion": 1,
       "sourceArtifact": "DataProject/governance/status-policy.json",
@@ -76,9 +76,9 @@
       "evidenceState": "established"
     },
     "publicCoverage": {
-      "value": 40.2,
+      "value": 39.9,
       "numerator": 181,
-      "denominator": 450,
+      "denominator": 454,
       "formula": "legacy/public canonical records / canonical records",
       "formulaVersion": 1,
       "sourceArtifact": "DataProject/releases/releases.json",
@@ -88,7 +88,7 @@
     "governedPublicCoverage": {
       "value": 0.0,
       "numerator": 0,
-      "denominator": 450,
+      "denominator": 454,
       "formula": "production-ready governed public records / canonical records",
       "formulaVersion": 1,
       "sourceArtifact": "DataProject/schema/content-governance.schema.json",
@@ -138,7 +138,7 @@
     "sourceTrustScore": {
       "value": 99.5,
       "numerator": null,
-      "denominator": 450,
+      "denominator": 454,
       "formula": "separate publisher/source reliability score; not record confidence",
       "formulaVersion": 1,
       "sourceArtifact": "DataProject/reports/source-reliability.json",
@@ -158,8 +158,8 @@
   },
   "knowledgeCoverage": {
     "inventory": {
-      "value": 2.5,
-      "numerator": 450,
+      "value": 2.6,
+      "numerator": 454,
       "denominator": 17650,
       "formula": "canonical inventory records / existing coverage-target total",
       "formulaVersion": 1,
@@ -170,7 +170,7 @@
     "verified": {
       "value": 0.0,
       "numerator": 0,
-      "denominator": 450,
+      "denominator": 454,
       "formula": "governed verified or review_due_soon records / canonical records",
       "formulaVersion": 1,
       "sourceArtifact": "DataProject/schema/content-governance.schema.json",
@@ -188,9 +188,9 @@
       "evidenceState": "established"
     },
     "public": {
-      "value": 40.2,
+      "value": 39.9,
       "numerator": 181,
-      "denominator": 450,
+      "denominator": 454,
       "formula": "legacy/public canonical records / canonical records",
       "formulaVersion": 1,
       "sourceArtifact": "DataProject/releases/releases.json",
