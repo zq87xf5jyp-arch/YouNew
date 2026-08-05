@@ -30,7 +30,19 @@ Each draft includes the user need, audience, prerequisites, documents, timing, c
 3. **CJIB access restriction:** official search results exposed the current six-week appeal, eight-week payment and up-to-sixteen-week decision wording, but direct automated opening returned HTTP 403. These sources are marked `access_restricted`; a human must reopen them before approval.
 4. **School dates are volatile:** the national secondary-school page states 25–31 March, but the applicable school year and Groningen process must be checked before publication.
 5. **SIM source language:** the ACM ConsuWijzer evidence is Dutch. The English draft wording needs bilingual consumer-rights review. Provider-specific prepaid, eSIM, identity, credit and activation rules are intentionally not inferred.
-6. **No fake locality:** Leiden vacancies, Rotterdam GP capacity, Groningen school allocation, Maastricht coverage and Den Haag housing permits need current local sources or a safe official local handoff. A city name in search metadata is not evidence for a city-specific procedure.
+6. **No fake locality:** official local routes are now attached to the six city-specific drafts, but they do not prove live vacancies, GP capacity, school capacity, rental eligibility or signal at an exact address. A city name in search metadata is still not evidence for a city-specific outcome.
+
+## Local evidence retrieved on 2026-08-05
+
+| Journey | Retrieved official evidence | What it supports | Remaining limitation |
+|---|---|---|---|
+| BSN + Eindhoven | Gemeente Eindhoven, `Verhuizen vanuit het buitenland` | Resident registration by personal appointment within five days for the stated four-month branch; accompanying family attendance; link to the under-four-month RNI route | The local document accordion was not used; exact appointment availability and other municipalities remain live checks |
+| huisarts + Rotterdam | Gemeente Rotterdam, `Nieuw in Rotterdam` → `Huisarts` | Find and register with a GP, make an appointment first, and contact a huisartsenpost by appointment first in evenings/weekends | It does not identify current practice capacity or the address-specific out-of-hours provider |
+| rent + Den Haag | Municipality of The Hague, `Apply for affordable housing permit` | Some social/mid-market rentals require the local permit; the page lists core application evidence | Exact address, household, points/rent and income eligibility are case-specific and volatile |
+| work + Leiden | Gemeente Leiden, `DZB Leiden` | Municipal reintegration support for people seeking work, with or without a work limitation | It is not a live vacancy guarantee and does not replace national work-authorisation checks |
+| Dutch school + Groningen | Gemeente Groningen, `Aanmelden basisschool` | Primary registration, local priority approach and newcomer split: ages 4–6 direct school route, ages 6–12 newcomer classes | Secondary routes, named-school participation, waiting lists and capacity require live confirmation |
+| SIM card + Maastricht | KPN, Odido and Vodafone publisher-owned coverage routes | Exact-address map checks and disclosed indoor/outdoor, network, building or device variation where stated | Provider maps are estimates, not independent evidence or a coverage guarantee |
+| parking fine + Utrecht | Utrecht digital counter and BghU | Local parking-tax branch, current surcharge, payment and objection handoff | Issuer, assessment date and current amount/deadline must be checked on the actual notice |
 
 ## Required human review
 
@@ -38,7 +50,7 @@ For each guide, the reviewer must:
 
 1. reopen every official source and record the final URL, access result and checked date;
 2. verify every source-to-text mapping, deadline, amount and jurisdiction statement;
-3. add the missing municipality/provider branches or keep the limitation explicit;
+3. validate the retrieved municipality/provider branches, add any missing branch, and keep outcome or availability limitations explicit;
 4. select licensed local media, accessible alt text and a safe local asset path;
 5. edit the English copy and commission independently reviewed Dutch and Russian translations;
 6. register a real reviewer in `DataProject/operations/reviewer-registry.json`;

@@ -7,6 +7,7 @@ const packageURL = new URL("../../../DataProject/staging/release-critical-practi
 type OfficialSource = {
   id: string;
   is_official: boolean;
+  authority_type?: "municipality" | "provider";
   status: string;
   checked_at: string;
   url: string;
@@ -82,8 +83,36 @@ const officialHosts = new Set([
   "consument.acm.nl",
   "loket.digitaal.utrecht.nl",
   "bghu.nl",
-  "www.cjib.nl"
+  "www.cjib.nl",
+  "www.eindhoven.nl",
+  "www.rotterdam.nl",
+  "www.denhaag.nl",
+  "gemeente.leiden.nl",
+  "gemeente.groningen.nl",
+  "www.kpn.com",
+  "www.odido.nl",
+  "www.vodafone.nl"
 ]);
+
+const expectedLocalSourceIDs = new Map<string, string[]>([
+  ["guide.getting-a-bsn", ["src.eindhoven.move-from-abroad"]],
+  ["guide.finding-a-huisarts", ["gp.rotterdam-newcomer"]],
+  ["guide.renting-a-home", ["renting.denhaag-affordable-permit"]],
+  ["guide.finding-work", ["work.leiden-dzb"]],
+  ["guide.registering-a-child-at-school", ["school.groningen-primary"]],
+  ["guide.choosing-a-sim-card", ["sim.kpn-coverage", "sim.odido-coverage", "sim.vodafone-coverage"]],
+  ["guide.handling-a-parking-fine", ["fine.utrecht-parking", "fine.bghu-parking"]]
+]);
+
+const municipalitySourceIDs = new Set([
+  "src.eindhoven.move-from-abroad",
+  "gp.rotterdam-newcomer",
+  "renting.denhaag-affordable-permit",
+  "work.leiden-dzb",
+  "school.groningen-primary"
+]);
+
+const providerSourceIDs = new Set(["sim.kpn-coverage", "sim.odido-coverage", "sim.vodafone-coverage"]);
 
 function assertSourced(value: unknown, sourceIDs: Set<string>, context: string) {
   assert.ok(value && typeof value === "object" && !Array.isArray(value), `${context} must be an object`);
@@ -184,6 +213,23 @@ test("the exact release-critical journeys are represented in the editorial bundl
     const text = corpus.get(guideID);
     assert.ok(text, `${guideID} is missing`);
     for (const term of terms) assert.match(text!, new RegExp(term, "i"), `${guideID} must represent ${term}`);
+  }
+});
+
+test("release-critical city journeys use retrieved local or provider evidence, not search metadata alone", () => {
+  for (const [guideID, expectedSourceIDs] of expectedLocalSourceIDs) {
+    const guide = guides.find((candidate) => candidate.id === guideID);
+    assert.ok(guide, `${guideID} is missing`);
+    const references = new Set(allSourceReferences(guide));
+    const sources = new Map(guide.official_sources.map((source) => [source.id, source]));
+
+    for (const sourceID of expectedSourceIDs) {
+      const source = sources.get(sourceID);
+      assert.ok(source, `${guideID} is missing local source ${sourceID}`);
+      assert.ok(references.has(sourceID), `${guideID}:${sourceID} must support at least one factual block`);
+      if (municipalitySourceIDs.has(sourceID)) assert.equal(source.authority_type, "municipality", `${sourceID} authority`);
+      if (providerSourceIDs.has(sourceID)) assert.equal(source.authority_type, "provider", `${sourceID} authority`);
+    }
   }
 });
 
