@@ -148,6 +148,12 @@
       "name": "normalize_article_search_taxonomy",
       "md5": "ea265966b977ac1824b84f5b3e78e990",
       "bytes": 5711
+    },
+    {
+      "version": "20260805223000",
+      "name": "expand_privacy_safe_analytics_dashboard",
+      "md5": "9200f4692442a4e1baae78bc4e6e2a1a",
+      "bytes": 17689
     }
   ]
 }

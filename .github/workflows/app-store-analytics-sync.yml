@@ -1,0 +1,60 @@
+name: App Store analytics sync
+
+on:
+  schedule:
+    - cron: "20 18 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: app-store-analytics-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "24"
+
+      - name: Check private source configuration
+        id: configuration
+        env:
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+          APP_STORE_CONNECT_VENDOR_NUMBER: ${{ secrets.APP_STORE_CONNECT_VENDOR_NUMBER }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+        run: |
+          required=(APP_STORE_CONNECT_ISSUER_ID APP_STORE_CONNECT_KEY_ID APP_STORE_CONNECT_PRIVATE_KEY APP_STORE_CONNECT_VENDOR_NUMBER SUPABASE_URL SUPABASE_SERVICE_ROLE_KEY)
+          missing=()
+          for name in "${required[@]}"; do
+            if [[ -z "${!name}" ]]; then missing+=("$name"); fi
+          done
+          if (( ${#missing[@]} > 0 )); then
+            echo "configured=false" >> "$GITHUB_OUTPUT"
+            echo "### App Store analytics source is not configured" >> "$GITHUB_STEP_SUMMARY"
+            printf 'Missing secret names: `%s`\n' "${missing[*]}" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "configured=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Synchronize privacy-safe App Store aggregates
+        if: steps.configuration.outputs.configured == 'true'
+        env:
+          APP_STORE_CONNECT_ISSUER_ID: ${{ secrets.APP_STORE_CONNECT_ISSUER_ID }}
+          APP_STORE_CONNECT_KEY_ID: ${{ secrets.APP_STORE_CONNECT_KEY_ID }}
+          APP_STORE_CONNECT_PRIVATE_KEY: ${{ secrets.APP_STORE_CONNECT_PRIVATE_KEY }}
+          APP_STORE_CONNECT_VENDOR_NUMBER: ${{ secrets.APP_STORE_CONNECT_VENDOR_NUMBER }}
+          APP_STORE_CONNECT_APP_ID: "6782617312"
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          APP_STORE_SYNC_DAYS: "14"
+        run: node admin-dashboard/scripts/sync-app-store-analytics.mjs

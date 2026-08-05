@@ -20,16 +20,18 @@ function polyline(
   }).join(" ");
 }
 
-export function AnalyticsTrendChart({ points }: { points: AnalyticsTrendPoint[] }) {
-  const maximum = Math.max(0, ...points.flatMap((point) => [point.events, point.sessions]));
+export function AnalyticsTrendChart({ points, days }: { points: AnalyticsTrendPoint[]; days: number }) {
+  const maximum = Math.max(0, ...points.flatMap((point) => [point.events, point.sessions, point.keyActions, point.errors]));
   const eventPoints = polyline(points, (point) => point.events, maximum);
   const sessionPoints = polyline(points, (point) => point.sessions, maximum);
+  const keyActionPoints = polyline(points, (point) => point.keyActions, maximum);
+  const errorPoints = polyline(points, (point) => point.errors, maximum);
   const hasData = maximum > 0;
 
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Посещаемость и активность за 30 дней</CardTitle>
+        <CardTitle>Посещаемость и активность за {days} дней</CardTitle>
         <CardDescription>
           Сессии — анонимные посещения вкладки, а не уникальные люди. Дни и границы периода рассчитаны в UTC.
         </CardDescription>
@@ -45,7 +47,7 @@ export function AnalyticsTrendChart({ points }: { points: AnalyticsTrendPoint[] 
             >
               <title id="analytics-trend-title">События и сессии по дням</title>
               <desc id="analytics-trend-description">
-                Линии показывают количество событий и анонимных сессий для каждого из последних тридцати дней.
+                Линии показывают количество событий, анонимных сессий, ключевых действий и ошибок для каждого дня выбранного периода.
               </desc>
               {[0, 0.25, 0.5, 0.75, 1].map((ratio) => {
                 const y = height - padding - ratio * (height - padding * 2);
@@ -60,10 +62,14 @@ export function AnalyticsTrendChart({ points }: { points: AnalyticsTrendPoint[] 
               })}
               <polyline points={eventPoints} fill="none" stroke="#22d3ee" strokeWidth="3" strokeLinejoin="round" />
               <polyline points={sessionPoints} fill="none" stroke="#f59e0b" strokeWidth="3" strokeLinejoin="round" />
+              <polyline points={keyActionPoints} fill="none" stroke="#22c55e" strokeWidth="2.5" strokeLinejoin="round" />
+              <polyline points={errorPoints} fill="none" stroke="#ef4444" strokeWidth="2.5" strokeLinejoin="round" />
             </svg>
             <div className="mt-3 flex flex-wrap gap-4 text-xs text-muted-foreground">
               <span className="flex items-center gap-2"><span className="size-2.5 rounded-full bg-cyan-400" />События</span>
               <span className="flex items-center gap-2"><span className="size-2.5 rounded-full bg-amber-500" />Сессии</span>
+              <span className="flex items-center gap-2"><span className="size-2.5 rounded-full bg-green-500" />Ключевые действия</span>
+              <span className="flex items-center gap-2"><span className="size-2.5 rounded-full bg-red-500" />Ошибки</span>
               <span className="ml-auto">{points[0]?.date} — {points.at(-1)?.date}</span>
             </div>
           </>
