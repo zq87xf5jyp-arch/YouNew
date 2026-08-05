@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "collection_id": "release-critical-practical-guides-v2-localization-review-matrix",
+  "translation_bundle": "DataProject/staging/release-critical-practical-guides-v2-full-body-localization.json",
+  "translation_bundle_sha256": "f9ef4329169f425c4946e03b33b692953210eda13cd2ea2e81a3d4060db70871",
+  "status": "review_not_started",
+  "publication_authorized": false,
+  "policy": {
+    "automated_reviewers_allowed": false,
+    "registered_human_reviewer_required": true,
+    "passed_evidence_registry_entry_required": true,
+    "all_review_dimensions_required": true,
+    "description": "This matrix reserves review slots only. A slot can pass only after an active human reviewer exists in DataProject/operations/reviewer-registry.json and a guide-locale-specific passed artifact with SHA-256 digest exists in DataProject/operations/guide-evidence-registry.json."
+  },
+  "review_dimensions": [
+    "independent_language_review",
+    "source_to_translation_review",
+    "editorial_and_domain_review",
+    "media_and_accessibility_review"
+  ],
+  "records": [
+    {
+      "source_guide_id": "guide.getting-a-bsn",
+      "locale": "nl",
+      "translated_field_count": 47,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.getting-a-bsn",
+      "locale": "ru",
+      "translated_field_count": 47,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.finding-a-huisarts",
+      "locale": "nl",
+      "translated_field_count": 48,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.finding-a-huisarts",
+      "locale": "ru",
+      "translated_field_count": 48,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.renting-a-home",
+      "locale": "nl",
+      "translated_field_count": 53,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.renting-a-home",
+      "locale": "ru",
+      "translated_field_count": 53,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.finding-work",
+      "locale": "nl",
+      "translated_field_count": 45,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.finding-work",
+      "locale": "ru",
+      "translated_field_count": 45,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.understanding-an-employment-contract",
+      "locale": "nl",
+      "translated_field_count": 47,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.understanding-an-employment-contract",
+      "locale": "ru",
+      "translated_field_count": 47,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.registering-a-child-at-school",
+      "locale": "nl",
+      "translated_field_count": 54,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.registering-a-child-at-school",
+      "locale": "ru",
+      "translated_field_count": 54,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.choosing-a-sim-card",
+      "locale": "nl",
+      "translated_field_count": 51,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.choosing-a-sim-card",
+      "locale": "ru",
+      "translated_field_count": 51,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.handling-a-parking-fine",
+      "locale": "nl",
+      "translated_field_count": 53,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    },
+    {
+      "source_guide_id": "guide.handling-a-parking-fine",
+      "locale": "ru",
+      "translated_field_count": 53,
+      "review_status": "not_started",
+      "reviewer_id": null,
+      "evidence_registry_entry_id": null,
+      "checked_at": null,
+      "publication_eligible": false
+    }
+  ]
+}

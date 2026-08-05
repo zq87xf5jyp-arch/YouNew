@@ -15,6 +15,10 @@ const fullBodyBundleURL = new URL(
   "../../../DataProject/staging/release-critical-practical-guides-v2-full-body-localization.json",
   import.meta.url
 );
+const reviewMatrixURL = new URL(
+  "../../../DataProject/staging/release-critical-practical-guides-v2-localization-review-matrix.json",
+  import.meta.url
+);
 
 type Locale = "nl" | "ru";
 
@@ -75,6 +79,32 @@ type FullBodyBundle = {
   entries: FullBodyEntry[];
 };
 
+type ReviewMatrix = {
+  schema_version: number;
+  translation_bundle: string;
+  translation_bundle_sha256: string;
+  status: string;
+  publication_authorized: boolean;
+  policy: {
+    automated_reviewers_allowed: boolean;
+    registered_human_reviewer_required: boolean;
+    passed_evidence_registry_entry_required: boolean;
+    all_review_dimensions_required: boolean;
+    description: string;
+  };
+  review_dimensions: string[];
+  records: Array<{
+    source_guide_id: string;
+    locale: Locale;
+    translated_field_count: number;
+    review_status: string;
+    reviewer_id: unknown;
+    evidence_registry_entry_id: unknown;
+    checked_at: unknown;
+    publication_eligible: boolean;
+  }>;
+};
+
 const guideSource = await readFile(guideBundleURL);
 const searchSurfaceSource = await readFile(searchSurfaceBundleURL);
 const guideBundle = JSON.parse(guideSource.toString("utf8")) as {
@@ -83,7 +113,9 @@ const guideBundle = JSON.parse(guideSource.toString("utf8")) as {
 const searchSurfaceBundle = JSON.parse(searchSurfaceSource.toString("utf8")) as {
   entries: Array<{ source_guide_id: string; locale: Locale }>;
 };
-const fullBodyBundle = JSON.parse(await readFile(fullBodyBundleURL, "utf8")) as FullBodyBundle;
+const fullBodySource = await readFile(fullBodyBundleURL);
+const fullBodyBundle = JSON.parse(fullBodySource.toString("utf8")) as FullBodyBundle;
+const reviewMatrix = JSON.parse(await readFile(reviewMatrixURL, "utf8")) as ReviewMatrix;
 
 function sourceNarrativeFields(guide: PracticalGuide): Map<string, string> {
   const fields = new Map<string, string>([
@@ -241,4 +273,50 @@ test("machine-assisted full-body drafts preserve all publication gates", () => {
   const serialized = JSON.stringify(fullBodyBundle);
   assert.doesNotMatch(serialized, /human_verified|publication_ready|"publication_authorized":true/i);
   assert.doesNotMatch(serialized, /"reviewer":"|"verified_at":"/i);
+});
+
+test("human review matrix reconciles every pair and fails closed", () => {
+  assert.equal(reviewMatrix.schema_version, 1);
+  assert.equal(reviewMatrix.status, "review_not_started");
+  assert.equal(reviewMatrix.publication_authorized, false);
+  assert.equal(
+    reviewMatrix.translation_bundle,
+    "DataProject/staging/release-critical-practical-guides-v2-full-body-localization.json"
+  );
+  assert.equal(
+    reviewMatrix.translation_bundle_sha256,
+    createHash("sha256").update(fullBodySource).digest("hex")
+  );
+  assert.equal(reviewMatrix.policy.automated_reviewers_allowed, false);
+  assert.equal(reviewMatrix.policy.registered_human_reviewer_required, true);
+  assert.equal(reviewMatrix.policy.passed_evidence_registry_entry_required, true);
+  assert.equal(reviewMatrix.policy.all_review_dimensions_required, true);
+  assert.ok(reviewMatrix.policy.description.length >= 120);
+  assert.deepEqual(reviewMatrix.review_dimensions, [
+    "independent_language_review",
+    "source_to_translation_review",
+    "editorial_and_domain_review",
+    "media_and_accessibility_review"
+  ]);
+
+  const translatedPairs = new Map(
+    fullBodyBundle.entries.map((entry) => [
+      `${entry.source_guide_id}:${entry.locale}`,
+      Object.keys(entry.fields).length
+    ])
+  );
+  assert.equal(reviewMatrix.records.length, translatedPairs.size);
+
+  for (const record of reviewMatrix.records) {
+    const context = `${record.source_guide_id}:${record.locale}`;
+    assert.equal(record.translated_field_count, translatedPairs.get(context), `${context} field count`);
+    assert.equal(record.review_status, "not_started", `${context} review status`);
+    assert.equal(record.reviewer_id, null, `${context} reviewer`);
+    assert.equal(record.evidence_registry_entry_id, null, `${context} evidence`);
+    assert.equal(record.checked_at, null, `${context} checked_at`);
+    assert.equal(record.publication_eligible, false, `${context} eligibility`);
+  }
+
+  const serialized = JSON.stringify(reviewMatrix);
+  assert.doesNotMatch(serialized, /human_verified|publication_ready|"publication_eligible":true/i);
 });

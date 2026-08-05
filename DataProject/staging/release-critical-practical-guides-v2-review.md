@@ -10,6 +10,8 @@ Localization readiness: `DataProject/staging/release-critical-practical-guides-v
 
 Full-body localization overlay: `DataProject/staging/release-critical-practical-guides-v2-full-body-localization.json`
 
+Human review matrix: `DataProject/staging/release-critical-practical-guides-v2-localization-review-matrix.json`
+
 ## Scope
 
 The bundle contains eight English schema-v2 draft guides covering the seven distinct journeys behind the eight required production searches:
@@ -32,6 +34,8 @@ Each draft includes the user need, audience, prerequisites, documents, timing, c
 The companion localization package contains one Dutch and one Russian **search-surface draft** for every guide: 16 locale records in total. Each record includes a localized title, a localized short summary, at least eight search synonyms, at least three common questions and terminology notes for terms that should not be translated loosely.
 
 The private full-body overlay now contains complete Dutch and Russian narrative-field drafts for all eight guides: 16 of 16 guide-locale pairs. Each overlay has exact field coverage against its English guide (47 BSN, 48 huisarts, 53 rent, 45 work, 47 employment contract, 54 school, 51 SIM and 53 fine fields per locale). It is pinned to both the English evidence bundle and the search-surface bundle.
+
+The fail-closed human review matrix is pinned to that exact overlay and reserves one record for every guide-locale pair. Every record remains `review_status: not_started`, `reviewer_id: null`, `evidence_registry_entry_id: null` and `publication_eligible: false`. It cannot replace a registered human reviewer or a passed hashed artifact in the operational evidence registry.
 
 Both localization packages keep `publication_authorized: false`, `reviewer: null` and `verified_at: null`. The search-surface package intentionally does not claim full translation, while the full-body overlay labels its two entries `machine_assisted_full_body_draft`. Overall blockers are:
 
