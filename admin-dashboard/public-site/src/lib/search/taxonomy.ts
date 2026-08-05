@@ -51,7 +51,7 @@ export const SEARCH_TAXONOMY: readonly SearchTaxonomyTopic[] = [
     id: "work",
     title: "Work",
     aliases: {
-      en: ["work", "job", "jobs", "employment", "vacancy", "vacancies", "career", "salary", "work contract", "employment contract", "employer", "minimum wage", "payslip", "holiday allowance", "sick leave", "dismissal", "uwv"],
+      en: ["work", "job", "jobs", "employment", "vacancy", "vacancies", "career", "contract", "salary", "work contract", "employment contract", "employer", "minimum wage", "payslip", "holiday allowance", "sick leave", "dismissal", "uwv"],
       nl: ["werk", "baan", "banen", "vacature", "vacatures", "arbeid", "salaris", "arbeidscontract", "werkgever", "minimumloon", "loonstrook", "vakantiegeld", "ziekteverlof", "ontslag"],
       ru: ["работа", "вакансия", "вакансии", "зарплата", "трудовой договор", "работодатель", "минимальная зарплата", "больничный", "увольнение", "rabota", "vakansiya"]
     },

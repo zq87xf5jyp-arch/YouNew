@@ -4,6 +4,7 @@ import { matchSearchIntents, taxonomyTopic } from "./taxonomy.ts";
 
 export type SearchDocumentType = ContentEntityType | "category" | "municipality" | "province" | "page";
 export type SearchLocationScope = "national" | "province" | "municipality" | "city" | "neighbourhood" | "organization" | "emergency" | "online-service";
+export type SearchScope = "national" | "provincial" | "municipal" | "city" | "neighbourhood" | "organization" | "online-service" | "emergency";
 
 export interface SearchDocument {
   readonly id: string;
@@ -26,6 +27,10 @@ export interface SearchDocument {
   readonly intents?: readonly string[];
   readonly languages?: readonly ("en" | "nl" | "ru")[];
   readonly nationalFallback?: boolean;
+  readonly scope?: SearchScope;
+  readonly locationAliases?: readonly string[];
+  readonly intentIds?: readonly string[];
+  readonly officialSourceURLs?: readonly string[];
   readonly qualityScore?: number;
   readonly verifiedAt?: string | null;
   readonly officialSourceUrls?: readonly string[];
@@ -63,15 +68,24 @@ export interface RankedSearchResult {
   readonly document: SearchDocument;
   readonly score: number;
   readonly matchedTerms: readonly string[];
+  readonly matchedIntentIds?: readonly string[];
+  readonly locationMatch?: "exact" | "province" | "national" | "none";
 }
 
+interface WeightedSearchField {
+  readonly values: readonly string[];
+  readonly weight: number;
+}
+
+const weightedFieldsByDocument = new WeakMap<SearchDocument, readonly WeightedSearchField[]>();
+
 const legacyProfileCategories: Readonly<Record<GuideAudienceProfile, readonly string[]>> = {
-  tourist: ["things-to-do", "culture", "outdoors", "food-drink", "transport"],
-  student: ["education", "housing", "transport"],
-  expat: ["government", "housing", "healthcare", "transport"],
-  refugee: ["government", "housing", "healthcare"],
-  worker: ["government", "transport", "healthcare"],
-  resident: ["government", "housing", "healthcare", "local-services"]
+  tourist: ["transport", "safety", "emergency", "shopping", "daily-life", "sim-telecom"],
+  student: ["education", "language-learning", "housing", "transport", "work"],
+  expat: ["documents", "government", "housing", "healthcare", "work", "banking", "taxes"],
+  refugee: ["documents", "government", "housing", "healthcare", "education", "integration", "legal-help"],
+  worker: ["work", "documents", "housing", "healthcare", "transport", "taxes", "municipal-services"],
+  resident: ["government", "municipal-services", "housing", "healthcare", "family", "children", "daily-life"]
 };
 
 export function searchDocumentMatchesProfile(
@@ -89,16 +103,16 @@ export function filterSearchDocumentsByProfile(
   documents: readonly SearchDocument[],
   profile: unknown
 ): SearchDocument[] {
-  if (profile === null || profile === "") return [...documents];
-  return documents.filter((document) => searchDocumentMatchesProfile(document, profile));
+  void profile;
+  return [...documents];
 }
 
 export function normalizeSearchText(value: string): string {
   return value
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
-    .replace(/[’`´]/g, "'")
-    .toLocaleLowerCase("en")
+    .replace(/[’‘`´]/g, "'")
+    .toLocaleLowerCase("und")
     .replace(/[^\p{L}\p{N}]+/gu, " ")
     .trim();
 }
@@ -162,6 +176,9 @@ function matchesHardFilters(document: SearchDocument, filters: SearchFilters): b
 
 function documentScope(document: SearchDocument): SearchLocationScope {
   if (document.locationScope) return document.locationScope;
+  if (document.scope === "provincial") return "province";
+  if (document.scope === "municipal") return "municipality";
+  if (document.scope) return document.scope;
   if (document.type === "municipality") return "municipality";
   if (document.type === "province") return "province";
   if (document.type === "organization") return "organization";
@@ -214,8 +231,38 @@ function usefulnessScore(document: SearchDocument): number {
   // is the only exact destination (for example, "student housing").
   const guideBoost = document.type === "guide" ? 10 : 0;
   const practicalBoost = document.contentDepth === "practical" ? 5 : 0;
-  const sourceBoost = (document.officialSourceUrls?.length ?? 0) > 0 ? 2 : 0;
+  const sourceBoost = ((document.officialSourceUrls?.length ?? 0) + (document.officialSourceURLs?.length ?? 0)) > 0 ? 2 : 0;
   return guideBoost + practicalBoost + sourceBoost;
+}
+
+function weightedFields(document: SearchDocument): readonly WeightedSearchField[] {
+  const cached = weightedFieldsByDocument.get(document);
+  if (cached) return cached;
+  const fields: readonly WeightedSearchField[] = [
+    { values: tokens(document.title), weight: 28 },
+    { values: [...(document.intents ?? []), ...(document.intentIds ?? [])].flatMap(tokens), weight: 25 },
+    { values: (document.synonyms ?? []).flatMap(tokens), weight: 22 },
+    { values: (document.terminology ?? []).flatMap(tokens), weight: 19 },
+    { values: document.keywords.flatMap(tokens), weight: 18 },
+    { values: (document.numberedSteps ?? []).flatMap(tokens), weight: 17 },
+    { values: (document.officialOrganizationNames ?? []).flatMap(tokens), weight: 16 },
+    { values: (document.requiredDocuments ?? []).flatMap(tokens), weight: 15 },
+    { values: (document.checklist ?? []).flatMap(tokens), weight: 15 },
+    { values: (document.faqAnswers ?? []).flatMap(tokens), weight: 14 },
+    { values: (document.commonQuestions ?? []).flatMap(tokens), weight: 14 },
+    { values: (document.whenYouNeedIt ?? []).flatMap(tokens), weight: 13 },
+    { values: (document.tips ?? []).flatMap(tokens), weight: 12 },
+    { values: (document.tags ?? []).flatMap(tokens), weight: 12 },
+    { values: tokens(document.organization ?? ""), weight: 14 },
+    { values: tokens(document.city ?? ""), weight: 12 },
+    { values: tokens(document.province ?? ""), weight: 10 },
+    { values: document.categories.flatMap(tokens), weight: 10 },
+    { values: tokens(document.narrowCategory ?? ""), weight: 9 },
+    { values: tokens(document.summary), weight: 4 },
+    { values: [...(document.officialSourceUrls ?? []), ...(document.officialSourceURLs ?? [])].flatMap(tokens), weight: 3 }
+  ];
+  weightedFieldsByDocument.set(document, fields);
+  return fields;
 }
 
 export function rankSearchDocuments(
@@ -224,8 +271,8 @@ export function rankSearchDocuments(
   options: SearchOptions = {}
 ): RankedSearchResult[] {
   const queryText = normalizeSearchText(query);
-  const inferredLocation = resolveSearchLocation(documents, queryText, normalizeSearchText);
   const explicitLocation = selectedLocationContext(documents, options.filters?.cityId, options.filters?.provinceId);
+  const inferredLocation = explicitLocation ? null : resolveSearchLocation(documents, queryText, normalizeSearchText);
   const location = explicitLocation ?? inferredLocation;
   const allQueryTokens = semanticQueryTokens(queryText);
   const nonLocationTokens = inferredLocation
@@ -255,29 +302,7 @@ export function rankSearchDocuments(
     if (!matchesHardFilters(document, filters)) continue;
 
     const titleText = normalizeSearchText(document.title);
-    const weightedFields = [
-      { values: tokens(document.title), weight: 28 },
-      { values: (document.intents ?? []).flatMap(tokens), weight: 25 },
-      { values: (document.synonyms ?? []).flatMap(tokens), weight: 22 },
-      { values: (document.terminology ?? []).flatMap(tokens), weight: 19 },
-      { values: document.keywords.flatMap(tokens), weight: 18 },
-      { values: (document.numberedSteps ?? []).flatMap(tokens), weight: 17 },
-      { values: (document.officialOrganizationNames ?? []).flatMap(tokens), weight: 16 },
-      { values: (document.requiredDocuments ?? []).flatMap(tokens), weight: 15 },
-      { values: (document.checklist ?? []).flatMap(tokens), weight: 15 },
-      { values: (document.faqAnswers ?? []).flatMap(tokens), weight: 14 },
-      { values: (document.commonQuestions ?? []).flatMap(tokens), weight: 14 },
-      { values: (document.whenYouNeedIt ?? []).flatMap(tokens), weight: 13 },
-      { values: (document.tips ?? []).flatMap(tokens), weight: 12 },
-      { values: (document.tags ?? []).flatMap(tokens), weight: 12 },
-      { values: tokens(document.organization ?? ""), weight: 14 },
-      { values: tokens(document.city ?? ""), weight: 12 },
-      { values: tokens(document.province ?? ""), weight: 10 },
-      { values: document.categories.flatMap(tokens), weight: 10 },
-      { values: tokens(document.narrowCategory ?? ""), weight: 9 },
-      { values: tokens(document.summary), weight: 4 },
-      { values: (document.officialSourceUrls ?? []).flatMap(tokens), weight: 3 }
-    ];
+    const documentFields = weightedFields(document);
 
     const paddedTitle = ` ${titleText} `;
     const titleStartsWithPhrase = titleText.startsWith(`${queryText} `);
@@ -294,7 +319,7 @@ export function rankSearchDocuments(
 
     for (const queryToken of queryTokens) {
       let best = 0;
-      for (const field of weightedFields) {
+      for (const field of documentFields) {
         for (const candidate of field.values) best = Math.max(best, tokenScore(queryToken, candidate, field.weight));
       }
       if (best > 0) {
@@ -305,7 +330,7 @@ export function rankSearchDocuments(
       }
     }
 
-    const documentIntents = new Set([...(document.intents ?? []), ...document.categories]);
+    const documentIntents = new Set([...(document.intents ?? []), ...(document.intentIds ?? []), ...document.categories]);
     let intentScore = 0;
     for (const match of intentMatches) {
       if (documentIntents.has(match.intent)) {

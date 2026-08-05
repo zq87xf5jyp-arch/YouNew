@@ -72,7 +72,7 @@ test("readiness warnings cover every required editorial risk", () => {
   }
 });
 
-test("Admin reads and writes every deployed search field", () => {
+test("Admin reads and writes every search field instead of display-only metadata", () => {
   for (const payloadField of [
     "canonical_title", "subcategory", "search_intents", "search_synonyms",
     "search_keywords", "supported_languages", "country_scope", "scope_level",
@@ -90,7 +90,7 @@ test("all 27 canonical life domains are provisioned without overwriting existing
   assert.match(taxonomyMigration, /on conflict \(slug\) do nothing/);
 });
 
-test("production search smoke covers both engines and all release blockers", () => {
+test("production search smoke covers both browser engines and every release blocker", () => {
   assert.match(productionSmoke, /desktop-chromium/);
   assert.match(productionSmoke, /mobile-webkit/);
   assert.match(productionSmoke, /devices\["iPhone 13"\]/);

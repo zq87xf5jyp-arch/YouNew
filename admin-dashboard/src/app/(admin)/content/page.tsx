@@ -33,10 +33,6 @@ export default async function ContentPage() {
     content: String((row as { full_content?: unknown }).full_content ?? ""),
     source: String((row as { source_url?: unknown }).source_url ?? ""),
     tags: Array.isArray((row as { tags?: unknown }).tags) ? (row as { tags: unknown[] }).tags.join(", ") : "",
-    images: normalizeManagedContentImages((row as { images?: unknown }).images),
-    verifiedDate: String((row as { verified_date?: unknown }).verified_date ?? ""),
-    reviewConfirmed: Boolean((row as { reviewer_id?: unknown }).reviewer_id),
-    requiresMedia: Boolean((row as { requires_media?: unknown }).requires_media),
     canonicalTitle: String((row as { canonical_title?: unknown }).canonical_title ?? (row as { title?: unknown }).title ?? ""),
     subcategory: String((row as { subcategory?: unknown }).subcategory ?? ""),
     intents: Array.isArray((row as { search_intents?: unknown }).search_intents) ? (row as { search_intents: unknown[] }).search_intents.join(", ") : "",
@@ -53,6 +49,10 @@ export default async function ContentPage() {
     sourceUrls: Array.isArray((row as { source_urls?: unknown }).source_urls) ? (row as { source_urls: unknown[] }).source_urls.join("\n") : "",
     contentQualityScore: Number((row as { content_quality_score?: unknown }).content_quality_score ?? 0),
     searchIndexed: Boolean((row as { search_indexed?: unknown }).search_indexed),
+    images: normalizeManagedContentImages((row as { images?: unknown }).images),
+    verifiedDate: String((row as { verified_date?: unknown }).verified_date ?? ""),
+    reviewConfirmed: Boolean((row as { reviewer_id?: unknown }).reviewer_id),
+    requiresMedia: Boolean((row as { requires_media?: unknown }).requires_media),
     updatedAt: String((row as { updated_at?: unknown }).updated_at ?? "")
   }));
   return (

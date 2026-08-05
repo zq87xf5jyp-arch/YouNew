@@ -30,10 +30,6 @@ export type ManagedArticle = {
   content?: string;
   source?: string;
   tags?: string;
-  images: ManagedContentImage[];
-  verifiedDate?: string;
-  reviewConfirmed: boolean;
-  requiresMedia: boolean;
   canonicalTitle: string;
   subcategory: string;
   intents: string;
@@ -50,6 +46,10 @@ export type ManagedArticle = {
   sourceUrls: string;
   contentQualityScore: number;
   searchIndexed: boolean;
+  images: ManagedContentImage[];
+  verifiedDate?: string;
+  reviewConfirmed: boolean;
+  requiresMedia: boolean;
   updatedAt?: string;
 };
 
@@ -68,10 +68,6 @@ const emptyDraft: ArticleDraft = {
   content: "",
   source: "",
   tags: "",
-  images: [],
-  verifiedDate: "",
-  reviewConfirmed: false,
-  requiresMedia: false,
   canonicalTitle: "",
   subcategory: "",
   intents: "",
@@ -87,7 +83,11 @@ const emptyDraft: ArticleDraft = {
   applicableProfiles: "student, expat, refugee, worker, resident",
   sourceUrls: "",
   contentQualityScore: 0,
-  searchIndexed: false
+  searchIndexed: false,
+  images: [],
+  verifiedDate: "",
+  reviewConfirmed: false,
+  requiresMedia: false
 };
 
 const categoryLabels: Record<string, string> = Object.fromEntries(
@@ -262,10 +262,6 @@ export function ContentManager({
       content: article.content ?? "",
       source: article.source ?? "",
       tags: article.tags ?? "",
-      images: article.images ?? [],
-      verifiedDate: article.verifiedDate ?? "",
-      reviewConfirmed: article.reviewConfirmed,
-      requiresMedia: article.requiresMedia,
       canonicalTitle: article.canonicalTitle,
       subcategory: article.subcategory,
       intents: article.intents,
@@ -282,6 +278,10 @@ export function ContentManager({
       sourceUrls: article.sourceUrls,
       contentQualityScore: article.contentQualityScore,
       searchIndexed: article.searchIndexed,
+      images: article.images ?? [],
+      verifiedDate: article.verifiedDate ?? "",
+      reviewConfirmed: article.reviewConfirmed,
+      requiresMedia: article.requiresMedia
     });
     setEditingId(article.id);
     setNotice("");

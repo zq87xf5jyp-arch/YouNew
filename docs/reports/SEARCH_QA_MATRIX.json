@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-05T15:44:06.118Z",
+  "generatedAt": "2026-08-05T17:03:59.306Z",
   "status": "PASS",
   "evidence": {
-    "searchIndexSha256": "218d80591f5d8a68530bd1de396aef0c360a01a71c00289779b92cc4a38314b4",
+    "searchIndexSha256": "3de14b0962037fce6559794823931f42d40680d0ea6565453a67554ded777c63",
     "searchIndexSchemaVersion": 3,
     "searchDocumentCount": 577,
     "nationalGuideCount": 7,
@@ -53,12 +53,12 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "category.housing",
           "housing.woon",
           "housing.affordable-housing-amsterdam",
           "housing.housing-permit-amsterdam",
           "housing.renting-a-home-in-amsterdam",
           "housing.woningnet-stadsregio-amsterdam",
-          "category.housing",
           "page.journeys"
         ],
         "passed": true
@@ -68,12 +68,12 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "category.housing",
           "housing.woon",
           "housing.affordable-housing-amsterdam",
           "housing.housing-permit-amsterdam",
           "housing.renting-a-home-in-amsterdam",
           "housing.woningnet-stadsregio-amsterdam",
-          "category.housing",
           "page.journeys"
         ],
         "passed": true
@@ -99,8 +99,8 @@
         "topIds": [
           "national.housing",
           "housing.woningnet-stadsregio-amsterdam",
-          "housing.renting-a-home-in-amsterdam",
           "category.housing",
+          "housing.renting-a-home-in-amsterdam",
           "housing.woon",
           "housing.affordable-housing-amsterdam",
           "housing.housing-permit-amsterdam",
@@ -272,11 +272,11 @@
         "topIds": [
           "healthcare.bovenij-hospital",
           "national.healthcare",
+          "category.healthcare",
           "healthcare.amsterdam-umc-location-amc",
           "healthcare.amsterdam-umc-location-vumc",
           "healthcare.olvg-east",
           "healthcare.olvg-west",
-          "category.healthcare",
           "healthcare.acta"
         ],
         "passed": true
@@ -286,8 +286,8 @@
         "expected": "national.healthcare",
         "topIds": [
           "national.healthcare",
-          "healthcare.acta",
           "category.healthcare",
+          "healthcare.acta",
           "healthcare.amsterdam-umc-location-amc",
           "healthcare.amsterdam-umc-location-vumc",
           "healthcare.antoni-van-leeuwenhoek",
@@ -410,6 +410,7 @@
           "category.documents",
           "category.business",
           "category.education",
+          "category.healthcare",
           "category.municipal-services"
         ],
         "passed": true
@@ -582,6 +583,7 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
+          "category.sim-telecom",
           "municipality.gm0118"
         ],
         "passed": true
@@ -591,6 +593,8 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
+          "national.work",
+          "category.work",
           "category.sim-telecom"
         ],
         "passed": true
@@ -636,7 +640,8 @@
         "query": "traffic rules",
         "expected": "national.rules-fines",
         "topIds": [
-          "national.rules-fines"
+          "national.rules-fines",
+          "category.rules"
         ],
         "passed": true
       },
@@ -659,7 +664,8 @@
         "query": "waste fine",
         "expected": "national.rules-fines",
         "topIds": [
-          "national.rules-fines"
+          "national.rules-fines",
+          "category.fines"
         ],
         "passed": true
       },
@@ -676,7 +682,8 @@
         "query": "fietsregels",
         "expected": "national.rules-fines",
         "topIds": [
-          "national.rules-fines"
+          "national.rules-fines",
+          "category.rules"
         ],
         "passed": true
       },
@@ -685,7 +692,8 @@
         "expected": "national.rules-fines",
         "topIds": [
           "national.rules-fines",
-          "category.fines"
+          "category.fines",
+          "category.rules"
         ],
         "passed": true
       }
@@ -3407,7 +3415,8 @@
         "query": "vacncy",
         "expected": "national.work",
         "topIds": [
-          "national.work"
+          "national.work",
+          "category.work"
         ],
         "passed": true
       },

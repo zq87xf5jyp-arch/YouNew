@@ -68,7 +68,7 @@ function phraseMatch(query: string, alias: string) {
 }
 
 function documentAliases(document: SearchDocument, normalize: (value: string) => string): string[] {
-  const values = [document.title, document.slug, ...(document.synonyms ?? []), ...document.keywords];
+  const values = [document.title, document.slug, ...(document.locationAliases ?? []), ...(document.synonyms ?? []), ...document.keywords];
   return [...new Set(values
     .map(normalize)
     .filter((value) => value.length >= 2 && value.length <= 64 && value.split(" ").length <= 5))];

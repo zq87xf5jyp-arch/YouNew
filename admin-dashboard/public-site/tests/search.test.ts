@@ -133,7 +133,7 @@ test("practical-guide search fields participate in ranking", () => {
   }
 });
 
-test("profile filtering prefers authored audiences and falls back only when they are absent", () => {
+test("profile matching can personalize ranking without becoming a hard filter", () => {
   const base: SearchDocument = {
     id: "guide.profile-fixture",
     type: "guide",
@@ -157,16 +157,16 @@ test("profile filtering prefers authored audiences and falls back only when they
 
   assert.deepEqual(
     rankModule.filterSearchDocumentsByProfile([authored, legacy], "expat").map((document) => document.id),
-    [legacy.id],
-    "an authored student-only guide must not inherit the legacy government-to-expat fallback"
+    [authored.id, legacy.id],
+    "an authored audience mismatch must not hide otherwise published content"
   );
   assert.deepEqual(
     rankModule.filterSearchDocumentsByProfile([authored, legacy], "student").map((document) => document.id),
-    [authored.id],
-    "the authored student audience must match while the legacy government summary uses its category fallback"
+    [authored.id, legacy.id],
+    "a matching profile may boost order but must not remove general content"
   );
   assert.equal(rankModule.searchDocumentMatchesProfile(legacy, "not-a-profile"), false);
-  assert.deepEqual(rankModule.filterSearchDocumentsByProfile([authored, legacy], "not-a-profile"), []);
+  assert.deepEqual(rankModule.filterSearchDocumentsByProfile([authored, legacy], "not-a-profile"), [authored, legacy]);
 });
 
 test("a preferred profile personalizes ranking without hiding exact published answers", () => {

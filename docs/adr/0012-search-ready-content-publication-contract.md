@@ -5,7 +5,7 @@
 - Draft author: Codex implementation agent
 - Human decision owner: @zq87xf5jyp-arch (repository owner)
 - Supersedes: none
-- Related contracts: `admin-dashboard/src/components/admin/content-manager.tsx`; `docs/reports/SEARCH_QA_MATRIX.json`; `admin-dashboard/tests/search-content-readiness-contract.test.ts`
+- Related contracts: `admin-dashboard/src/components/admin/content-manager.tsx`; `admin-dashboard/public-site/src/data/search-qa-matrix.json`; `admin-dashboard/public-site/tests/search-qa-matrix.test.ts`; `docs/reports/SEARCH_QA_MATRIX.json`; `admin-dashboard/tests/search-content-readiness-contract.test.ts`
 - Related migrations: `admin-dashboard/supabase/migrations/20260805140524_article_search_canonical_title.sql`; `admin-dashboard/supabase/migrations/20260805140534_article_search_taxonomy_categories.sql`; `admin-dashboard/supabase/migrations/20260805140541_article_search_metadata_columns.sql`; `admin-dashboard/supabase/migrations/20260805140802_article_search_metadata_backfill.sql`; `admin-dashboard/supabase/migrations/20260805140810_article_search_constraints.sql`; `admin-dashboard/supabase/migrations/20260805140818_article_search_publication_gate.sql`; `admin-dashboard/supabase/migrations/20260805140825_article_search_readiness_view.sql`; `admin-dashboard/supabase/migrations/20260805140933_remove_premature_article_search_indexes.sql`
 
 ## Problem and context
@@ -13,14 +13,15 @@
 The public taxonomy and generated search index can cover known terms while new
 Admin articles still omit the metadata needed for discovery, geographic
 fallback and profile-aware ranking. UI-only validation is insufficient because
-imports or service-role writes can bypass the form. A database-only constraint,
-in turn, cannot explain editorial risks before publication is attempted.
+imports, future integrations or service-role writes can bypass the form.
+Conversely, a database-only constraint cannot explain editorial risks before a
+reviewer attempts publication.
 
 ## Considered options
 
 1. Keep search metadata only in the generated public taxonomy.
-2. Validate metadata only in Admin.
-3. Define one additive database model, surface editorial warnings in Admin,
+2. Validate metadata only in the Admin application.
+3. Define one additive database model, expose editorial warnings in Admin,
    enforce completeness at publication, and verify public queries from a
    versioned QA matrix.
 
