@@ -207,6 +207,17 @@ function qualityScore(document: SearchDocument): number {
   return typeof value === "number" && Number.isFinite(value) ? Math.max(-5, Math.min(8, (value - 50) / 10)) : 0;
 }
 
+function usefulnessScore(document: SearchDocument): number {
+  // A canonical category is a useful discovery surface, but a released guide is
+  // the actionable answer users asked for. Keep this deliberately smaller than
+  // an unmatched query token so a broad guide cannot displace a category that
+  // is the only exact destination (for example, "student housing").
+  const guideBoost = document.type === "guide" ? 10 : 0;
+  const practicalBoost = document.contentDepth === "practical" ? 5 : 0;
+  const sourceBoost = (document.officialSourceUrls?.length ?? 0) > 0 ? 2 : 0;
+  return guideBoost + practicalBoost + sourceBoost;
+}
+
 export function rankSearchDocuments(
   documents: readonly SearchDocument[],
   query: string,
@@ -271,7 +282,14 @@ export function rankSearchDocuments(
     const paddedTitle = ` ${titleText} `;
     const titleStartsWithPhrase = titleText.startsWith(`${queryText} `);
     const titleContainsPhrase = paddedTitle.includes(` ${queryText} `);
-    let score = titleText === queryText ? 180 : titleStartsWithPhrase ? 90 : titleContainsPhrase ? 58 : 0;
+    const categoryLanding = document.type === "category";
+    let score = titleText === queryText
+      ? (categoryLanding ? 72 : 180)
+      : titleStartsWithPhrase
+        ? (categoryLanding ? 52 : 90)
+        : titleContainsPhrase
+          ? (categoryLanding ? 40 : 58)
+          : 0;
     const matchedTerms: string[] = [];
 
     for (const queryToken of queryTokens) {
@@ -307,7 +325,8 @@ export function rankSearchDocuments(
       const geoBoost = locationScore(document, location, Boolean(explicitLocation));
       const verificationBoost = freshnessScore(document.verifiedAt);
       const contentQualityBoost = qualityScore(document);
-      const finalScore = Math.round((score + profileBoost + geoBoost + verificationBoost + contentQualityBoost) * 100) / 100;
+      const answerUsefulnessBoost = usefulnessScore(document);
+      const finalScore = Math.round((score + profileBoost + geoBoost + verificationBoost + contentQualityBoost + answerUsefulnessBoost) * 100) / 100;
       if (finalScore >= 12) {
         results.push({
           document,

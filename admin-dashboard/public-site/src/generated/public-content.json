@@ -16,7 +16,7 @@
     "summaryGuides": 15,
     "organizations": 30,
     "places": 131,
-    "categories": 10,
+    "categories": 32,
     "provinces": 4
   },
   "entities": [
@@ -32655,6 +32655,54 @@
   ],
   "categories": [
     {
+      "id": "category.banking",
+      "slug": "banking",
+      "route": "/categories/banking",
+      "title": "Banking",
+      "summary": "Bank accounts, payments, identity checks, fraud awareness and regulated financial-service routes.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.benefits",
+      "slug": "benefits",
+      "route": "/categories/benefits",
+      "title": "Benefits",
+      "summary": "Healthcare, housing, childcare and child-related benefits, eligibility checks and reporting changes.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.business",
+      "slug": "business",
+      "route": "/categories/business",
+      "title": "Business",
+      "summary": "Starting and running a business, registration, tax, permits, hiring and official entrepreneur support.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.children",
+      "slug": "children",
+      "route": "/categories/children",
+      "title": "Children",
+      "summary": "Birth registration, childcare, school, youth healthcare and services for parents and children.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
       "id": "category.culture",
       "slug": "culture",
       "route": "/categories/culture",
@@ -32694,11 +32742,35 @@
       ]
     },
     {
+      "id": "category.daily-life",
+      "slug": "daily-life",
+      "route": "/categories/daily-life",
+      "title": "Daily life",
+      "summary": "Everyday practical questions, local routines, neighbourhood services and directing a question to the right domain.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.documents",
+      "slug": "documents",
+      "route": "/categories/documents",
+      "title": "Documents",
+      "summary": "BSN, BRP registration, DigiD, residence documents and other identity or administrative records.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
       "id": "category.education",
       "slug": "education",
       "route": "/categories/education",
       "title": "Education",
-      "summary": "Universities and other published education organizations.",
+      "summary": "Primary and secondary schools, newcomer classes, higher education, enrolment and qualification routes.",
       "status": "published",
       "language": "en",
       "entityCount": 10,
@@ -32717,6 +32789,42 @@
       "entityTypes": [
         "organization"
       ]
+    },
+    {
+      "id": "category.emergency",
+      "slug": "emergency",
+      "route": "/categories/emergency",
+      "title": "Emergency",
+      "summary": "Immediate danger, urgent medical help and verified emergency contact routes in the Netherlands.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.family",
+      "slug": "family",
+      "route": "/categories/family",
+      "title": "Family",
+      "summary": "Marriage, partnership, family records, family migration and finding the relevant official route.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.fines",
+      "slug": "fines",
+      "route": "/categories/fines",
+      "title": "Fines",
+      "summary": "Traffic and parking fines, official letters, payment routes and finding the correct objection or appeal process.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
     },
     {
       "id": "category.food-drink",
@@ -32797,7 +32905,7 @@
       "slug": "government",
       "route": "/categories/government",
       "title": "Government",
-      "summary": "Municipal services and official administrative information.",
+      "summary": "National government services, public administration, official correspondence and finding the responsible authority.",
       "status": "published",
       "language": "en",
       "entityCount": 10,
@@ -32822,7 +32930,7 @@
       "slug": "healthcare",
       "route": "/categories/healthcare",
       "title": "Healthcare",
-      "summary": "Healthcare organizations and public-health services.",
+      "summary": "Finding and registering with a GP, health insurance, pharmacies, urgent care and navigating Dutch healthcare.",
       "status": "published",
       "language": "en",
       "entityCount": 10,
@@ -32847,7 +32955,7 @@
       "slug": "housing",
       "route": "/categories/housing",
       "title": "Housing",
-      "summary": "Published housing resources and tenant information.",
+      "summary": "Renting, tenant rights, housing defects, moving and finding the correct local or national housing route.",
       "status": "published",
       "language": "en",
       "entityCount": 5,
@@ -32861,6 +32969,54 @@
       "entityTypes": [
         "guide"
       ]
+    },
+    {
+      "id": "category.integration",
+      "slug": "integration",
+      "route": "/categories/integration",
+      "title": "Integration",
+      "summary": "Civic integration, official notices, learning routes, examinations and support from the municipality or DUO.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.internet",
+      "slug": "internet",
+      "route": "/categories/internet",
+      "title": "Internet",
+      "summary": "Home internet, installation, provider switching, contract terms and connection problems.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.language-learning",
+      "slug": "language-learning",
+      "route": "/categories/language-learning",
+      "title": "Language learning",
+      "summary": "Dutch courses, NT2 examinations, language support and choosing a learning route.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.legal-help",
+      "slug": "legal-help",
+      "route": "/categories/legal-help",
+      "title": "Legal help",
+      "summary": "Finding appropriate legal information, low-threshold advice, representation and urgent protection routes.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
     },
     {
       "id": "category.local-services",
@@ -32888,6 +33044,18 @@
       ]
     },
     {
+      "id": "category.municipal-services",
+      "slug": "municipal-services",
+      "route": "/categories/municipal-services",
+      "title": "Municipal services",
+      "summary": "Registration, address changes, civil records, permits, waste, parking and other services provided by your municipality.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
       "id": "category.outdoors",
       "slug": "outdoors",
       "route": "/categories/outdoors",
@@ -32911,6 +33079,18 @@
       "entityTypes": [
         "place"
       ]
+    },
+    {
+      "id": "category.pets",
+      "slug": "pets",
+      "route": "/categories/pets",
+      "title": "Pets",
+      "summary": "Bringing, registering and caring for pets, travel requirements and local animal-related rules.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
     },
     {
       "id": "category.things-to-do",
@@ -32956,11 +33136,71 @@
       ]
     },
     {
+      "id": "category.rules",
+      "slug": "rules",
+      "route": "/categories/rules",
+      "title": "Rules",
+      "summary": "National and local rules, permits, duties and identifying which authority sets or enforces a requirement.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.safety",
+      "slug": "safety",
+      "route": "/categories/safety",
+      "title": "Safety",
+      "summary": "Police contact, reporting crime, scams, domestic safety and non-emergency support.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.shopping",
+      "slug": "shopping",
+      "route": "/categories/shopping",
+      "title": "Shopping",
+      "summary": "Consumer rights, returns, warranties, online purchases, complaints and avoiding misleading sellers.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.sim-telecom",
+      "slug": "sim-telecom",
+      "route": "/categories/sim-telecom",
+      "title": "SIM & telecom",
+      "summary": "Mobile subscriptions, prepaid SIM cards, number portability, coverage and telecom consumer rights.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.taxes",
+      "slug": "taxes",
+      "route": "/categories/taxes",
+      "title": "Taxes",
+      "summary": "Dutch income tax, tax returns, letters, assessments and finding the correct Tax Administration route.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
       "id": "category.transport",
       "slug": "transport",
       "route": "/categories/transport",
       "title": "Transport",
-      "summary": "Stations and other published transport resources.",
+      "summary": "Public transport, OV payments, cycling, driving, parking and travel-planning routes.",
       "status": "published",
       "language": "en",
       "entityCount": 10,
@@ -32979,6 +33219,30 @@
       "entityTypes": [
         "place"
       ]
+    },
+    {
+      "id": "category.utilities",
+      "slug": "utilities",
+      "route": "/categories/utilities",
+      "title": "Utilities",
+      "summary": "Electricity, gas, water, meters, moving notifications and consumer problems with utility contracts.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
+    },
+    {
+      "id": "category.work",
+      "slug": "work",
+      "route": "/categories/work",
+      "title": "Work",
+      "summary": "Employment contracts, wages, working conditions, job-search routes and help with workplace problems.",
+      "status": "published",
+      "language": "en",
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
     }
   ],
   "provinces": [

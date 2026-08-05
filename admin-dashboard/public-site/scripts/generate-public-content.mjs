@@ -11,6 +11,7 @@ export const paths = Object.freeze({
   source: resolve(publicSiteRoot, "../../YouNew/Resources/Data/younew-runtime-data.json"),
   geography: resolve(publicSiteRoot, "src/generated/netherlands-geography.json"),
   nationalGuides: resolve(publicSiteRoot, "src/content/national-guides.json"),
+  taxonomy: resolve(publicSiteRoot, "src/data/life-domain-taxonomy.json"),
   content: resolve(publicSiteRoot, "src/generated/public-content.json"),
   search: resolve(publicSiteRoot, "public/data/search-index.json"),
   provenance: resolve(publicSiteRoot, "public/data/content-provenance.json")
@@ -18,6 +19,8 @@ export const paths = Object.freeze({
 
 const geography = JSON.parse(await readFile(paths.geography, "utf8"));
 const nationalGuideDataset = JSON.parse(await readFile(paths.nationalGuides, "utf8"));
+const lifeDomains = JSON.parse(await readFile(paths.taxonomy, "utf8"));
+const lifeDomainBySlug = new Map(lifeDomains.map((domain) => [domain.slug, domain]));
 
 if (nationalGuideDataset?.schemaVersion !== 1 || !Array.isArray(nationalGuideDataset.guides) || nationalGuideDataset.guides.length === 0) {
   throw new Error("The national guide dataset is missing or invalid.");
@@ -29,6 +32,9 @@ for (const guide of nationalGuideDataset.guides) {
   if (!Array.isArray(guide.officialSources) || guide.officialSources.length === 0 || guide.officialSources.some((source) => !source?.url?.startsWith("https://") || !source?.checkedAt)) {
     throw new Error(`National guide ${guide.id} must have checked HTTPS official sources.`);
   }
+}
+if (!Array.isArray(lifeDomains) || lifeDomains.length === 0 || lifeDomains.some((domain) => !domain?.slug || !domain?.title || !Array.isArray(domain?.officialSources))) {
+  throw new Error("The life-domain taxonomy is missing or invalid.");
 }
 
 const provinceNames = Object.freeze({
@@ -46,7 +52,7 @@ const provinceNames = Object.freeze({
   "zuid-holland": "Zuid-Holland"
 });
 
-const broadCategoryDefinitions = Object.freeze({
+const legacyBroadCategoryDefinitions = Object.freeze({
   government: {
     title: "Government",
     summary: "Municipal services and official administrative information."
@@ -107,6 +113,11 @@ const broadCategoryDefinitions = Object.freeze({
     title: "Places to visit",
     summary: "Published attractions, districts and useful public places."
   }
+});
+
+const broadCategoryDefinitions = Object.freeze({
+  ...legacyBroadCategoryDefinitions,
+  ...Object.fromEntries(lifeDomains.map((domain) => [domain.slug, { title: domain.title, summary: domain.summary }]))
 });
 
 const entityTypeByKind = Object.freeze({
@@ -647,8 +658,11 @@ function buildCategories(entities) {
     }
   }
 
+  for (const domain of lifeDomains) {
+    if (!buckets.has(domain.slug)) buckets.set(domain.slug, []);
+  }
+
   return [...buckets.entries()]
-    .filter(([, records]) => records.length > 0)
     .map(([slug, records]) => {
       const definition = broadCategoryDefinitions[slug] ?? {
         title: titleFromSlug(slug),
@@ -790,6 +804,9 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
 
   const categoryDocuments = categories.map((category) => {
     const metadata = categorySearchMetadata[category.slug] ?? {};
+    const domain = lifeDomainBySlug.get(category.slug);
+    const domainAliases = domain ? Object.values(domain.aliases).flat() : [];
+    const domainIntentTerms = domain?.intents.flatMap((intent) => intent.terms) ?? [];
     return {
       id: category.id,
       type: "category",
@@ -798,7 +815,7 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       route: category.route,
       title: category.title,
       summary: category.summary,
-      keywords: [category.title, category.slug],
+      keywords: [category.title, category.slug, ...domainIntentTerms],
       city: null,
       cityId: null,
       province: null,
@@ -807,25 +824,25 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       locationScope: "national",
       country: "NL",
       categories: [category.slug],
-      intents: [category.slug],
-      languages: ["en"],
+      intents: [...new Set([category.slug, ...(domain?.intents.map((intent) => intent.id) ?? [])])],
+      languages: domain ? Object.keys(domain.aliases) : ["en"],
       nationalFallback: true,
-      qualityScore: 62,
+      qualityScore: domain ? 95 : 62,
       verifiedAt: generatedAt,
-      officialSourceUrls: [],
+      officialSourceUrls: domain?.officialSources.map((source) => source.url) ?? [],
       relatedOrganizationIds: [],
       narrowCategory: category.slug,
       organization: null,
-      audienceProfiles: [],
-      numberedSteps: [],
+      audienceProfiles: domain?.profiles ?? [],
+      numberedSteps: domain?.startHere ?? [],
       requiredDocuments: [],
       checklist: [],
       tips: [],
       faqAnswers: [],
       whenYouNeedIt: [],
       tags: [],
-      synonyms: metadata.synonyms ?? [],
-      officialOrganizationNames: [],
+      synonyms: [...new Set([...(metadata.synonyms ?? []), ...domainAliases, ...domainIntentTerms])],
+      officialOrganizationNames: domain?.officialSources.map((source) => source.name) ?? [],
       terminology: metadata.terminology ?? [],
       commonQuestions: []
     };

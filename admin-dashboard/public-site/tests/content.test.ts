@@ -49,8 +49,9 @@ test("derived collections, routes and slugs are internally consistent", () => {
 
   assert.ok(content.categories.length > 0);
   assert.ok(content.categories.every((category: { entityCount: number; entityIds: string[] }) =>
-    category.entityCount > 0 && category.entityCount === category.entityIds.length
+    category.entityCount >= 0 && category.entityCount === category.entityIds.length
   ));
+  assert.ok(content.categories.filter((category: { entityCount: number }) => category.entityCount === 0).length >= 20);
   assert.ok(content.provinces.every((province: { entityCount: number; entityIds: string[] }) =>
     province.entityCount > 0 && province.entityCount === province.entityIds.length
   ));

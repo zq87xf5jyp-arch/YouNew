@@ -19,11 +19,11 @@
   },
   "evidence": [
     {
-      "id": "evidence.unity-concert-ended-2026-08-04",
+      "id": "evidence.unity-concert-ended-2026-08-05",
       "kind": "replacement_review",
       "url": "https://pride.amsterdam/en/event/unity-concert/",
       "checked_at": "2026-08-05",
-      "note": "The official Pride Amsterdam event page was opened after the event ended and states that the UNITY Concert ran on 4 August 2026 from 17:30 to 23:00. The stable record is retired because its end date has passed."
+      "note": "The official Pride Amsterdam page was opened after the event ended and states that the UNITY Concert ran on 4 August 2026 from 17:30 to 23:00. The stable record is retired because its end date has passed."
     }
   ],
   "replacements": [
@@ -33,7 +33,7 @@
       "replacement_canonical_sha256": "84ddff1cd2eb39e940385a886daa9b4afd0b169ac08e5281f679ee3b827a8b2d",
       "reason": "The official event ended on 4 August 2026. Retire it from current public discovery while preserving its stable ID and source history.",
       "evidence_refs": [
-        "evidence.unity-concert-ended-2026-08-04"
+        "evidence.unity-concert-ended-2026-08-05"
       ],
       "record": {
         "id": "event.worldpride-amsterdam-2026-unity-concert",

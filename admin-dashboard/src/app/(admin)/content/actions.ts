@@ -9,6 +9,14 @@ import { CONTENT_IMAGES_BUCKET, normalizeManagedContentImages } from "@/lib/cont
 
 type ArticleInput = Omit<ManagedArticle, "id" | "updatedAt">;
 
+function listValues(value: string, { lowercase = true }: { lowercase?: boolean } = {}) {
+  return [...new Set(value
+    .split(/[\n,]/u)
+    .map((item) => item.trim())
+    .filter(Boolean)
+    .map((item) => lowercase ? item.toLocaleLowerCase("und") : item))];
+}
+
 async function getAuthorizedClient() {
   const admin = await requireAdmin();
   if (!canEditContent(admin.role)) throw new Error("Недостаточно прав: требуется роль Admin или Editor.");
@@ -36,12 +44,17 @@ function contentValidationErrors(input: ArticleInput, categoryId: string | null)
   if (!input.content?.trim()) errors.push("full_content");
   if (!categoryId) errors.push("public_category");
   if (!input.source?.trim().startsWith("https://")) errors.push("official_source");
+  if (!input.canonicalTitle.trim()) errors.push("canonical_title");
+  if (listValues(input.intents).length === 0) errors.push("search_intents");
+  if (listValues(input.synonyms).length === 0) errors.push("search_synonyms");
+  if (listValues(input.keywords).length === 0) errors.push("search_keywords");
+  if (listValues(input.supportedLanguages).length === 0) errors.push("supported_languages");
+  if (listValues(input.applicableProfiles).length === 0) errors.push("applicable_profiles");
+  if (["municipality", "city", "neighbourhood"].includes(input.scopeLevel) && !input.municipality.trim() && !input.city.trim()) errors.push("city_mapping");
+  if (input.contentQualityScore <= 0) errors.push("content_quality_score");
+  if (!input.searchIndexed) errors.push("search_indexed");
   if (input.requiresMedia && input.images.length === 0) errors.push("required_media");
   return errors;
-}
-
-function commaSeparated(value: string) {
-  return [...new Set(value.split(",").map((item) => item.trim()).filter(Boolean))];
 }
 
 function articlePayload(input: ArticleInput, categoryId: string | null, authorId: string) {
@@ -52,11 +65,18 @@ function articlePayload(input: ArticleInput, categoryId: string | null, authorId
   }
   const errors = contentValidationErrors(input, categoryId);
   const source = input.source?.trim() || null;
+  const sourceUrls = [...new Set([
+    ...(source ? [source] : []),
+    ...listValues(input.sourceUrls, { lowercase: false })
+  ])];
   return {
     title: input.title.trim(),
+    canonical_title: input.canonicalTitle.trim(),
     slug: input.slug.trim(),
     category_id: categoryId,
+    subcategory: input.subcategory.trim() || null,
     language: input.language.trim(),
+    supported_languages: listValues(input.supportedLanguages),
     status: input.status,
     priority: input.priority,
     short_description: input.description?.trim() || null,
@@ -64,25 +84,22 @@ function articlePayload(input: ArticleInput, categoryId: string | null, authorId
     source_url: source,
     official_source: Boolean(source?.startsWith("https://")),
     tags: input.tags?.split(",").map((tag) => tag.trim()).filter(Boolean) ?? [],
-    canonical_title: input.canonicalTitle.trim() || input.title.trim(),
-    search_subcategory: input.searchSubcategory.trim() || null,
-    search_intents: commaSeparated(input.searchIntents),
-    search_synonyms: {
-      en: commaSeparated(input.synonymsEn),
-      nl: commaSeparated(input.synonymsNl),
-      ru: commaSeparated(input.synonymsRu)
-    },
-    search_keywords: commaSeparated(input.searchKeywords),
-    search_languages: commaSeparated(input.searchLanguages),
-    content_scope: input.contentScope,
-    province_id: input.provinceId.trim() || null,
-    municipality_id: input.municipalityId.trim() || null,
-    city_id: input.cityId.trim() || null,
+    search_intents: listValues(input.intents),
+    search_synonyms: listValues(input.synonyms),
+    search_keywords: listValues(input.keywords),
+    country_scope: "NL",
+    scope_level: input.scopeLevel,
+    province: input.province.trim() || null,
+    municipality: input.municipality.trim() || null,
+    city: input.city.trim() || null,
     national_fallback: input.nationalFallback,
-    audience_profiles: commaSeparated(input.audienceProfiles),
+    applicable_profiles: listValues(input.applicableProfiles),
+    source_urls: sourceUrls,
+    content_quality_score: Math.max(0, Math.min(100, Math.round(input.contentQualityScore))),
+    search_indexed: input.searchIndexed,
     images: normalizeManagedContentImages(input.images),
     requires_media: input.requiresMedia,
-    source_mapping: source ? [{ url: source, type: "official" }] : [],
+    source_mapping: sourceUrls.map((url) => ({ url, type: "official" })),
     publication_evidence: {},
     validation_passed: false,
     validation_errors: errors,
@@ -97,19 +114,12 @@ export async function createArticle(input: ArticleInput) {
   const { data, error } = await supabase
     .from("articles")
     .insert(articlePayload(input, categoryId, user.id))
-    .select("id,updated_at,search_quality_score,search_indexed,search_warnings")
+    .select("id,updated_at")
     .single();
 
   if (error) throw new Error(error.code === "23505" ? "Материал с таким слагом уже существует." : error.message);
   revalidatePath("/content");
-  return {
-    ...input,
-    id: data.id,
-    updatedAt: data.updated_at,
-    searchQualityScore: data.search_quality_score,
-    searchIndexed: data.search_indexed,
-    searchWarnings: data.search_warnings
-  } satisfies ManagedArticle;
+  return { ...input, id: data.id, updatedAt: data.updated_at } satisfies ManagedArticle;
 }
 
 export async function updateArticle(id: string, input: ArticleInput) {
@@ -119,19 +129,12 @@ export async function updateArticle(id: string, input: ArticleInput) {
     .from("articles")
     .update(articlePayload(input, categoryId, user.id))
     .eq("id", id)
-    .select("id,updated_at,search_quality_score,search_indexed,search_warnings")
+    .select("id,updated_at")
     .single();
 
   if (error) throw new Error(error.code === "23505" ? "Материал с таким слагом уже существует." : error.message);
   revalidatePath("/content");
-  return {
-    ...input,
-    id: data.id,
-    updatedAt: data.updated_at,
-    searchQualityScore: data.search_quality_score,
-    searchIndexed: data.search_indexed,
-    searchWarnings: data.search_warnings
-  } satisfies ManagedArticle;
+  return { ...input, id: data.id, updatedAt: data.updated_at } satisfies ManagedArticle;
 }
 
 export async function deleteArticle(id: string) {

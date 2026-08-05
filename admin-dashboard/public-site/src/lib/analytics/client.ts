@@ -1,20 +1,15 @@
 export type AnalyticsEvent =
   | { name: "page_view"; path: string }
   | {
-      name: "search";
-      searchId: string;
-      searchIntent: string;
-      resultCount: number;
-      hasResults: boolean;
-      queryTokenBucket: SearchQueryTokenBucket;
-      typeFilter?: string;
-      cityId?: string;
-      provinceId?: string;
-      categoryId?: string;
-      profile?: string;
-      locationScope: "national" | "province" | "municipality";
-    }
-  | { name: "search_result_opened"; searchId: string; contentId: string; resultRank: number }
+    name: "search";
+    normalizedQuery: string;
+    intentIds: readonly string[];
+    filters: Readonly<{ type: string; city: string; province: string; category: string; profile: string }>;
+    resultCount: number;
+    zeroResult: boolean;
+    fallbackTier: "exact" | "national" | "broadened";
+  }
+  | { name: "search_result_opened"; contentId: string; position: number; normalizedQuery: string }
   | { name: "official_source_click"; contentId: string }
   | { name: "partner_click"; contentId: string }
   | { name: "item_saved"; contentId: string }
@@ -22,9 +17,6 @@ export type AnalyticsEvent =
   | { name: "profile_selected" }
   | { name: "business_mailto_prepared"; organizationType: string }
   | { name: "analytics_consent_granted" };
-
-export type SearchResultBucket = "0" | "1" | "2-5" | "6-10" | "11-20" | "21-50" | "51+";
-export type SearchQueryTokenBucket = "1" | "2-3" | "4-7" | "8+";
 
 export type AnalyticsProvider = {
   track(event: AnalyticsEvent): void;
@@ -154,61 +146,32 @@ function safeScreen(value: string) {
 
 function safeProperty(value: string) {
   return value
-    .replace(/[^A-Za-z0-9_./: -]/g, "-")
+    .normalize("NFC")
+    .replace(/[^\p{L}\p{N}_./: \[\]-]/gu, "-")
     .slice(0, 160);
-}
-
-function safeSlugProperty(value: string) {
-  return value
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9-]/g, "-")
-    .replace(/-+/g, "-")
-    .replace(/^-|-$/g, "")
-    .slice(0, 80);
-}
-
-export function searchResultBucket(resultCount: number): SearchResultBucket {
-  const count = Math.max(0, Math.trunc(resultCount));
-  if (count === 0) return "0";
-  if (count === 1) return "1";
-  if (count <= 5) return "2-5";
-  if (count <= 10) return "6-10";
-  if (count <= 20) return "11-20";
-  if (count <= 50) return "21-50";
-  return "51+";
-}
-
-export function searchQueryTokenBucket(query: string): SearchQueryTokenBucket {
-  const count = query.trim().split(/\s+/u).filter(Boolean).length;
-  if (count <= 1) return "1";
-  if (count <= 3) return "2-3";
-  if (count <= 7) return "4-7";
-  return "8+";
 }
 
 function eventProperties(event: AnalyticsEvent): Record<string, string | number | boolean> {
   switch (event.name) {
     case "search":
       return {
-        search_id: safeProperty(event.searchId),
-        search_intent: safeSlugProperty(event.searchIntent) || "unclassified",
+        normalized_query_safe: safeProperty(event.normalizedQuery),
+        intent_ids: event.intentIds.map(safeProperty).join(",").slice(0, 160),
+        filter_type: safeProperty(event.filters.type),
+        filter_city: safeProperty(event.filters.city),
+        filter_province: safeProperty(event.filters.province),
+        filter_category: safeProperty(event.filters.category),
+        filter_profile: safeProperty(event.filters.profile),
         result_count: Math.max(0, Math.trunc(event.resultCount)),
-        result_bucket: searchResultBucket(event.resultCount),
-        has_results: event.hasResults,
-        query_token_bucket: event.queryTokenBucket,
-        ...(event.typeFilter ? { type_filter: safeSlugProperty(event.typeFilter) } : {}),
-        ...(event.cityId ? { city_id: safeSlugProperty(event.cityId) } : {}),
-        ...(event.provinceId ? { province_id: safeSlugProperty(event.provinceId) } : {}),
-        ...(event.categoryId ? { category_id: safeSlugProperty(event.categoryId) } : {}),
-        ...(event.profile ? { profile: safeSlugProperty(event.profile) } : {}),
-        location_scope: event.locationScope
+        has_results: !event.zeroResult,
+        zero_result: event.zeroResult,
+        fallback_tier: event.fallbackTier
       };
     case "search_result_opened":
       return {
-        search_id: safeProperty(event.searchId),
         content_id: safeProperty(event.contentId),
-        result_rank: Math.max(1, Math.min(200, Math.trunc(event.resultRank)))
+        position: Math.max(1, Math.trunc(event.position)),
+        normalized_query_safe: safeProperty(event.normalizedQuery)
       };
     case "official_source_click":
     case "partner_click":

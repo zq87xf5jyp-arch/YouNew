@@ -1,4 +1,23 @@
+import lifeDomainTaxonomy from "../../data/life-domain-taxonomy.json" with { type: "json" };
+
 export type SearchLanguage = "en" | "nl" | "ru";
+
+export type LifeDomain = {
+  slug: string;
+  title: string;
+  summary: string;
+  aliases: Record<SearchLanguage, string[]>;
+  intents: Array<{ id: string; terms: string[] }>;
+  profiles: string[];
+  startHere: string[];
+  officialSources: Array<{ name: string; url: string }>;
+};
+
+export const lifeDomains = lifeDomainTaxonomy as LifeDomain[];
+
+export function getLifeDomain(slug: string): LifeDomain | undefined {
+  return lifeDomains.find((domain) => domain.slug === slug);
+}
 
 export interface SearchTaxonomyTopic {
   readonly id: string;
@@ -209,3 +228,40 @@ export function matchSearchIntents(
 }
 
 export const SEARCH_TAXONOMY_IDS = new Set(SEARCH_TAXONOMY.map((topic) => topic.id));
+
+function normalizePrivacyTerm(value: string): string {
+  return value
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[’`´]/g, "'")
+    .toLocaleLowerCase("en")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
+    .trim();
+}
+
+const controlledPrivacyTerms = new Set(
+  [
+    ...SEARCH_TAXONOMY.flatMap((topic) => [
+      topic.id,
+      topic.title,
+      ...Object.values(topic.aliases).flat()
+    ]),
+    ...lifeDomains.flatMap((domain) => [
+      domain.slug,
+      domain.title,
+      ...Object.values(domain.aliases).flat(),
+      ...domain.intents.flatMap((intent) => [intent.id, ...intent.terms])
+    ])
+  ].flatMap((value) => normalizePrivacyTerm(value).split(/\s+/u).filter(Boolean))
+);
+
+export function privacySafeSearchQuery(query: string): string {
+  const normalized = normalizePrivacyTerm(query);
+  if (!normalized) return "";
+  const queryTokens = normalized.split(/\s+/u);
+  const containsDirectIdentifier = /@|https?:|\b\d{5,}\b|\b\+?\d[\d\s().-]{7,}\d\b/u.test(query);
+  if (containsDirectIdentifier || queryTokens.length > 8 || normalized.length > 80) return "[redacted]";
+  return queryTokens.every((token) => controlledPrivacyTerms.has(token))
+    ? normalized
+    : "[unmapped]";
+}

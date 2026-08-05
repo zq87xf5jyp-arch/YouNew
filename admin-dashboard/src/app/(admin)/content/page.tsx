@@ -12,7 +12,7 @@ export default async function ContentPage() {
   const { data } = supabase
     ? await supabase
         .from("articles")
-        .select("id,title,slug,short_description,full_content,language,status,priority,source_url,tags,images,verified_date,reviewer_id,requires_media,canonical_title,search_subcategory,search_intents,search_synonyms,search_keywords,search_languages,content_scope,province_id,municipality_id,city_id,national_fallback,audience_profiles,search_quality_score,search_indexed,search_warnings,updated_at,categories(slug)")
+        .select("id,title,slug,short_description,full_content,language,status,priority,source_url,tags,images,verified_date,reviewer_id,requires_media,updated_at,canonical_title,subcategory,search_intents,search_synonyms,search_keywords,supported_languages,country_scope,scope_level,province,municipality,city,national_fallback,applicable_profiles,source_urls,content_quality_score,search_indexed,categories(slug)")
         .order("updated_at", { ascending: false })
         .limit(100)
     : { data: null };
@@ -24,7 +24,7 @@ export default async function ContentPage() {
     category: String(
       (row as { categories?: { slug?: unknown } | null }).categories?.slug ??
       (row as { category?: unknown }).category ??
-      "documents-services"
+      "documents"
     ),
     language: String((row as { language?: unknown }).language ?? "ru"),
     status: ((row as { status?: unknown }).status ?? "draft") as ManagedArticle["status"],
@@ -38,22 +38,21 @@ export default async function ContentPage() {
     reviewConfirmed: Boolean((row as { reviewer_id?: unknown }).reviewer_id),
     requiresMedia: Boolean((row as { requires_media?: unknown }).requires_media),
     canonicalTitle: String((row as { canonical_title?: unknown }).canonical_title ?? (row as { title?: unknown }).title ?? ""),
-    searchSubcategory: String((row as { search_subcategory?: unknown }).search_subcategory ?? ""),
-    searchIntents: Array.isArray((row as { search_intents?: unknown }).search_intents) ? (row as { search_intents: unknown[] }).search_intents.join(", ") : "",
-    synonymsEn: Array.isArray((row as { search_synonyms?: { en?: unknown } }).search_synonyms?.en) ? ((row as { search_synonyms: { en: unknown[] } }).search_synonyms.en).join(", ") : "",
-    synonymsNl: Array.isArray((row as { search_synonyms?: { nl?: unknown } }).search_synonyms?.nl) ? ((row as { search_synonyms: { nl: unknown[] } }).search_synonyms.nl).join(", ") : "",
-    synonymsRu: Array.isArray((row as { search_synonyms?: { ru?: unknown } }).search_synonyms?.ru) ? ((row as { search_synonyms: { ru: unknown[] } }).search_synonyms.ru).join(", ") : "",
-    searchKeywords: Array.isArray((row as { search_keywords?: unknown }).search_keywords) ? (row as { search_keywords: unknown[] }).search_keywords.join(", ") : "",
-    searchLanguages: Array.isArray((row as { search_languages?: unknown }).search_languages) ? (row as { search_languages: unknown[] }).search_languages.join(", ") : "",
-    contentScope: String((row as { content_scope?: unknown }).content_scope ?? "national") as ManagedArticle["contentScope"],
-    provinceId: String((row as { province_id?: unknown }).province_id ?? ""),
-    municipalityId: String((row as { municipality_id?: unknown }).municipality_id ?? ""),
-    cityId: String((row as { city_id?: unknown }).city_id ?? ""),
-    nationalFallback: Boolean((row as { national_fallback?: unknown }).national_fallback ?? true),
-    audienceProfiles: Array.isArray((row as { audience_profiles?: unknown }).audience_profiles) ? (row as { audience_profiles: unknown[] }).audience_profiles.join(", ") : "",
-    searchQualityScore: Number((row as { search_quality_score?: unknown }).search_quality_score ?? 0),
+    subcategory: String((row as { subcategory?: unknown }).subcategory ?? ""),
+    intents: Array.isArray((row as { search_intents?: unknown }).search_intents) ? (row as { search_intents: unknown[] }).search_intents.join(", ") : "",
+    synonyms: Array.isArray((row as { search_synonyms?: unknown }).search_synonyms) ? (row as { search_synonyms: unknown[] }).search_synonyms.join(", ") : "",
+    keywords: Array.isArray((row as { search_keywords?: unknown }).search_keywords) ? (row as { search_keywords: unknown[] }).search_keywords.join(", ") : "",
+    supportedLanguages: Array.isArray((row as { supported_languages?: unknown }).supported_languages) ? (row as { supported_languages: unknown[] }).supported_languages.join(", ") : String((row as { language?: unknown }).language ?? "en"),
+    countryScope: "NL",
+    scopeLevel: String((row as { scope_level?: unknown }).scope_level ?? "national") as ManagedArticle["scopeLevel"],
+    province: String((row as { province?: unknown }).province ?? ""),
+    municipality: String((row as { municipality?: unknown }).municipality ?? ""),
+    city: String((row as { city?: unknown }).city ?? ""),
+    nationalFallback: (row as { national_fallback?: unknown }).national_fallback !== false,
+    applicableProfiles: Array.isArray((row as { applicable_profiles?: unknown }).applicable_profiles) ? (row as { applicable_profiles: unknown[] }).applicable_profiles.join(", ") : "",
+    sourceUrls: Array.isArray((row as { source_urls?: unknown }).source_urls) ? (row as { source_urls: unknown[] }).source_urls.join("\n") : "",
+    contentQualityScore: Number((row as { content_quality_score?: unknown }).content_quality_score ?? 0),
     searchIndexed: Boolean((row as { search_indexed?: unknown }).search_indexed),
-    searchWarnings: Array.isArray((row as { search_warnings?: unknown }).search_warnings) ? (row as { search_warnings: unknown[] }).search_warnings.map(String) : [],
     updatedAt: String((row as { updated_at?: unknown }).updated_at ?? "")
   }));
   return (

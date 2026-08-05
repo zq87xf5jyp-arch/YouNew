@@ -45,60 +45,13 @@ function freshnessVariant(freshness: ReturnType<typeof buildAnalyticsDashboard>[
   }
 }
 
-type SearchIntentMetricRow = {
-  metric_date: string;
-  language: string;
-  intent_id: string;
-  search_count: number;
-  zero_result_count: number;
-  opened_result_count: number;
-  last_search_at: string;
-};
-
-type SearchZeroFilterRow = {
-  language: string;
-  intent_id: string;
-  type_filter: string | null;
-  city_id: string | null;
-  province_id: string | null;
-  category_id: string | null;
-  profile_id: string | null;
-  location_scope: string;
-  zero_result_count: number;
-  last_zero_at: string;
-};
-
-type SearchLowClickRow = {
-  language: string;
-  intent_id: string;
-  search_count: number;
-  opened_result_count: number;
-  open_rate_percent: number;
-};
-
-type SearchImprovementTaskRow = {
-  id: string;
-  status: string;
-  language: string;
-  intent_id: string;
-  type_filter: string | null;
-  city_id: string | null;
-  province_id: string | null;
-  category_id: string | null;
-  profile_id: string | null;
-  location_scope: string;
-  zero_event_count: number;
-  first_observed_at: string;
-  last_observed_at: string;
-};
-
 export default async function AnalyticsPage() {
   const supabase = await createSupabaseServerClient();
   const now = new Date();
   const since = new Date(now);
   since.setUTCDate(since.getUTCDate() - 29);
   const sinceDate = since.toISOString().slice(0, 10);
-  const [dailyResult, funnelResult, healthResult, searchIntentResult, searchZeroResult, searchLowClickResult, searchTaskResult] = supabase
+  const [dailyResult, funnelResult, healthResult, searchGapsResult, searchTasksResult] = supabase
     ? await Promise.all([
         supabase
           .from("analytics_daily_metrics")
@@ -113,31 +66,19 @@ export default async function AnalyticsPage() {
           .from("analytics_source_health")
           .select("platform,total_events,active_instances,sessions,first_event_at,last_event_at,last_ingested_at,delayed_events,error_events"),
         supabase
-          .from("analytics_search_intent_daily")
-          .select("metric_date,language,intent_id,search_count,zero_result_count,opened_result_count,last_search_at")
-          .gte("metric_date", sinceDate)
-          .order("metric_date", { ascending: false })
-          .limit(1000),
-        supabase
-          .from("analytics_search_zero_filters")
-          .select("language,intent_id,type_filter,city_id,province_id,category_id,profile_id,location_scope,zero_result_count,last_zero_at")
+          .from("analytics_search_gaps")
+          .select("normalized_query_safe,intent_ids,filter_city,filter_category,filter_profile,search_count,zero_result_count,average_result_count,result_open_count,result_open_rate,last_searched_at")
           .order("zero_result_count", { ascending: false })
-          .limit(100),
-        supabase
-          .from("analytics_search_low_click_intents")
-          .select("language,intent_id,search_count,opened_result_count,open_rate_percent")
-          .order("open_rate_percent", { ascending: true })
-          .limit(100),
+          .order("search_count", { ascending: false })
+          .limit(30),
         supabase
           .from("search_improvement_tasks")
-          .select("id,status,language,intent_id,type_filter,city_id,province_id,category_id,profile_id,location_scope,zero_event_count,first_observed_at,last_observed_at")
-          .in("status", ["open", "in_progress"])
-          .order("last_observed_at", { ascending: false })
-          .limit(100)
+          .select("normalized_query_safe,intent_ids,filter_city,filter_category,filter_profile,occurrence_count,status,priority,last_seen_at")
+          .in("status", ["observed", "open", "in_progress"])
+          .order("occurrence_count", { ascending: false })
+          .limit(30)
       ])
     : [
-        { data: null, error: new Error("not configured") },
-        { data: null, error: new Error("not configured") },
         { data: null, error: new Error("not configured") },
         { data: null, error: new Error("not configured") },
         { data: null, error: new Error("not configured") },
@@ -154,12 +95,9 @@ export default async function AnalyticsPage() {
   const connected = Boolean(supabase)
     && !dailyResult.error
     && !funnelResult.error
-    && !healthResult.error;
-  const searchAnalyticsConnected = Boolean(supabase)
-    && !searchIntentResult.error
-    && !searchZeroResult.error
-    && !searchLowClickResult.error
-    && !searchTaskResult.error;
+    && !healthResult.error
+    && !searchGapsResult.error
+    && !searchTasksResult.error;
   const lastIngested = dashboard.lastIngestedAt
     ? new Date(dashboard.lastIngestedAt).toLocaleString("ru-RU", {
         dateStyle: "medium",
@@ -178,64 +116,33 @@ export default async function AnalyticsPage() {
     event: event.eventName,
     count: event.events
   }));
+  const searchGapRows = (searchGapsResult.data ?? []).map((row) => ({
+    query: row.normalized_query_safe,
+    intent: row.intent_ids,
+    city: row.filter_city,
+    category: row.filter_category,
+    profile: row.filter_profile,
+    searches: row.search_count,
+    zero_results: row.zero_result_count,
+    avg_results: row.average_result_count,
+    result_opens: row.result_open_count,
+    open_rate: percentFormatter.format(Number(row.result_open_rate ?? 0)),
+    last_seen: row.last_searched_at
+  }));
+  const searchTaskRows = (searchTasksResult.data ?? []).map((row) => ({
+    query: row.normalized_query_safe,
+    intent: row.intent_ids,
+    city: row.filter_city,
+    category: row.filter_category,
+    profile: row.filter_profile,
+    occurrences: row.occurrence_count,
+    status: row.status,
+    priority: row.priority,
+    last_seen: row.last_seen_at
+  }));
   const changeNote = dashboard.sevenDayEventChange === null
     ? "Нет сопоставимого предыдущего 7-дневного периода"
     : `${percentFormatter.format(dashboard.sevenDayEventChange)} к предыдущим 7 дням`;
-  const searchIntentTotals = new Map<string, {
-    language: string;
-    intent: string;
-    searches: number;
-    zeroResults: number;
-    openedResults: number;
-  }>();
-  for (const row of (searchIntentResult.data ?? []) as SearchIntentMetricRow[]) {
-    const key = `${row.language}:${row.intent_id}`;
-    const current = searchIntentTotals.get(key) ?? {
-      language: row.language,
-      intent: row.intent_id,
-      searches: 0,
-      zeroResults: 0,
-      openedResults: 0
-    };
-    current.searches += Number(row.search_count);
-    current.zeroResults += Number(row.zero_result_count);
-    current.openedResults += Number(row.opened_result_count);
-    searchIntentTotals.set(key, current);
-  }
-  const searchIntentRows = [...searchIntentTotals.values()]
-    .sort((left, right) => right.searches - left.searches)
-    .slice(0, 20)
-    .map((row) => ({
-      language: row.language,
-      intent: row.intent,
-      searches: row.searches,
-      zero_rate: row.searches ? percentFormatter.format(row.zeroResults / row.searches) : "0%",
-      open_rate: row.searches ? percentFormatter.format(row.openedResults / row.searches) : "0%"
-    }));
-  const zeroFilterRows = ((searchZeroResult.data ?? []) as SearchZeroFilterRow[]).map((row) => ({
-    language: row.language,
-    intent: row.intent_id,
-    scope: row.location_scope,
-    filters: [row.type_filter, row.city_id, row.province_id, row.category_id, row.profile_id].filter(Boolean).join(" · ") || "без фильтров",
-    zeros: row.zero_result_count,
-    last_zero: new Date(row.last_zero_at).toLocaleString("ru-RU", { timeZone: "Europe/Amsterdam" })
-  }));
-  const lowClickRows = ((searchLowClickResult.data ?? []) as SearchLowClickRow[]).map((row) => ({
-    language: row.language,
-    intent: row.intent_id,
-    searches: row.search_count,
-    opened: row.opened_result_count,
-    open_rate: `${row.open_rate_percent}%`
-  }));
-  const taskRows = ((searchTaskResult.data ?? []) as SearchImprovementTaskRow[]).map((row) => ({
-    status: row.status,
-    language: row.language,
-    intent: row.intent_id,
-    scope: row.location_scope,
-    filters: [row.type_filter, row.city_id, row.province_id, row.category_id, row.profile_id].filter(Boolean).join(" · ") || "без фильтров",
-    zeros_7d: row.zero_event_count,
-    last_seen: new Date(row.last_observed_at).toLocaleString("ru-RU", { timeZone: "Europe/Amsterdam" })
-  }));
 
   return (
     <>
@@ -321,45 +228,29 @@ export default async function AnalyticsPage() {
         </Card>
         <AnalyticsTrendChart points={dashboard.trend} />
         <Card>
-          <CardHeader className="flex-row flex-wrap items-center gap-3">
-            <Search className="text-cyan-200" />
+          <CardHeader className="flex-row items-start gap-3">
+            <Search className="mt-1 text-cyan-200" />
             <div>
               <CardTitle>Качество поиска</CardTitle>
-              <CardDescription>Только канонические intents, диапазоны и фильтры — свободный текст запросов не отправляется и не хранится.</CardDescription>
+              <CardDescription>Только контролируемые нормализованные термины; свободный текст, email, телефоны и длинные идентификаторы отбрасываются до отправки.</CardDescription>
             </div>
-            <Badge className="ml-auto" variant={searchAnalyticsConnected ? "success" : "warning"}>
-              {searchAnalyticsConnected ? "privacy-safe источник подключён" : "ожидается миграция источника"}
-            </Badge>
           </CardHeader>
-          <CardContent className="grid gap-2 text-sm text-muted-foreground md:grid-cols-2">
-            <p>Нулевой результат создаёт задачу только после трёх эквивалентных сигналов за 7 дней.</p>
-            <p>Открытие результата связывается случайным search_id; идентификатор не содержит текст запроса или пользователя.</p>
+          <CardContent className="text-sm text-muted-foreground">
+            Нулевые ответы группируются по запросу и активным фильтрам. После 3 повторений сигнал автоматически становится открытой задачей; после 10 — критической.
           </CardContent>
         </Card>
         <div className="grid gap-6 xl:grid-cols-2">
           <CrudTable
-            title="Популярные поисковые intents"
-            description="30 дней · это категории намерений, а не сохранённые поисковые фразы."
-            rows={searchIntentRows}
-            columns={["language", "intent", "searches", "zero_rate", "open_rate"]}
+            title="Поисковые разрывы — 30 дней"
+            description="Нули, среднее число результатов и переходы по результатам."
+            rows={searchGapRows}
+            columns={["query", "intent", "city", "category", "profile", "searches", "zero_results", "avg_results", "result_opens", "open_rate", "last_seen"]}
           />
           <CrudTable
-            title="Повторяющиеся нулевые результаты"
-            description="Показываются только группы с минимум тремя событиями."
-            rows={zeroFilterRows}
-            columns={["language", "intent", "scope", "filters", "zeros", "last_zero"]}
-          />
-          <CrudTable
-            title="Низкое открытие результатов"
-            description="Группы с минимум тремя поисками и опубликованными результатами."
-            rows={lowClickRows}
-            columns={["language", "intent", "searches", "opened", "open_rate"]}
-          />
-          <CrudTable
-            title="Автоматические content-gap задачи"
-            description="Открытые и выполняемые задачи, созданные повторяемыми zero-result сигналами."
-            rows={taskRows}
-            columns={["status", "language", "intent", "scope", "filters", "zeros_7d", "last_seen"]}
+            title="Автоматические задачи поиска"
+            description="Повторяющиеся privacy-safe zero-result комбинации."
+            rows={searchTaskRows}
+            columns={["query", "intent", "city", "category", "profile", "occurrences", "status", "priority", "last_seen"]}
           />
         </div>
         <div className="grid gap-6 xl:grid-cols-2">
