@@ -78,7 +78,7 @@ export function AdminSidebar({ pathname, role }: { pathname: string; role: Admin
 
 export function AdminMobileNav({ pathname, role }: { pathname: string; role: AdminRole }) {
   return (
-    <nav className="sticky top-[65px] z-10 flex gap-2 overflow-x-auto border-b border-border/70 bg-background/90 px-4 py-3 backdrop-blur lg:hidden">
+    <nav className="sticky top-[65px] z-10 flex w-full min-w-0 max-w-full gap-2 overflow-x-auto border-b border-border/70 bg-background/90 px-4 py-3 backdrop-blur lg:hidden">
       {items.filter((item) => canAccessPath(role, item.href)).map((item) => {
         const active = pathname === item.href;
         const Icon = item.icon;

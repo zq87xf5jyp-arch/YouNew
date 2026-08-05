@@ -31,7 +31,6 @@ function getPublishedMapItems(): CoverageMapItem[] {
       image: entity.images.find((image) => image.role === "thumbnail")
         ?? entity.images.find((image) => image.role === "hero")
         ?? entity.images[0]
-        ?? null
     }];
   }).sort((left, right) => left.title.localeCompare(right.title));
 }
@@ -48,8 +47,7 @@ function getMunicipalityMapItems(): CoverageMapItem[] {
     categorySlugs: [],
     coordinate: municipality.coordinate,
     verifiedAt: municipality.sourceCheckedAt ?? "2026-01-01",
-    sourcePublisher: "CBS · Kadaster/PDOK · Register of Government Organisations",
-    image: null
+    sourcePublisher: "CBS · Kadaster/PDOK · Register of Government Organisations"
   }] : []);
 }
 

@@ -21,7 +21,7 @@ export interface CoverageMapItem {
   readonly coordinate: Readonly<{ latitude: number; longitude: number }>;
   readonly verifiedAt: string;
   readonly sourcePublisher: string;
-  readonly image: CoverageMapImage | null;
+  readonly image?: CoverageMapImage;
 }
 
 export interface CoverageMapFilters {

@@ -108,7 +108,7 @@ async function ingest(events: unknown) {
   }
 
   const response = await fetch(
-    `${projectURL}/rest/v1/rpc/ingest_analytics_batch`,
+    `${projectURL}/rest/v1/rpc/ingest_analytics_batch_v2`,
     {
       method: "POST",
       headers: {
@@ -177,6 +177,7 @@ Deno.serve(async (request: Request) => {
         schema_version: 1,
         consent_version: "2026-07-28",
         maximum_batch_size: 50,
+        search_privacy_contract: "canonical_intent_and_buckets_only",
       },
       { origin },
     );

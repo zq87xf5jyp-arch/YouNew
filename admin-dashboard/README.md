@@ -105,6 +105,9 @@ on conflict (id) do update set role = 'owner', is_approved = true;
 - `POST /api/mobile/analytics/events` — прием событий аналитики из приложения.
 
 Подробная инструкция для iOS лежит в `docs/mobile-sync-ios.md`.
+Определения метрик, privacy boundary, 7/30/90-дневные агрегаты и настройка
+ежедневной синхронизации App Store Connect описаны в
+`docs/ANALYTICS_OPERATING_GUIDE.md`.
 
 ## Резервное копирование PostgreSQL
 
@@ -150,7 +153,7 @@ Read-only production E2E требует `E2E_BASE_URL`, `E2E_OWNER_EMAIL`, `E2E_
 ## Неподтверждённые production-возможности
 
 - Реализовать и проверить полный CRUD для всех административных разделов; общая таблица сейчас read-only.
-- Analytics dashboard reads the protected `analytics_daily_metrics`, `analytics_event_funnel_daily`, and `analytics_source_health` aggregates, refreshes every 60 seconds while visible, and labels freshness and missing data explicitly.
+- App Store downloads remain unconfirmed until the private App Store Connect reporting secrets are provisioned and the scheduled aggregate sync completes successfully.
 - Подключить iOS-приложение к `/api/mobile/sync` только после live-проверки DNS/TLS, rate limiting, мониторинга и rollback drill; `/api/mobile/analytics/events` требует отдельной privacy-проверки.
 - Добавить полноценное рисование маркеров на скриншотах.
 - Подключить настоящий предпросмотр Leaflet/MapLibre.

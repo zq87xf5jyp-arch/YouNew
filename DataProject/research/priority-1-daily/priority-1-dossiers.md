@@ -274,6 +274,60 @@ Gaps:
 - Local allocation, permits, campus housing and address registration require city and institution evidence.
 - Housing-benefit eligibility for a particular room is not established.
 
+## 12. Dutch integration exams
+
+Jurisdiction: national, with personal-route and municipal execution branches.
+
+Supported facts:
+
+- `integration.check-personal-route` → `integration.duo-overview`, `integration.duo-which-exams`: the applicable act, PIP and Mijn Inburgering determine the personal route, exams and level.
+- `integration.pip-and-municipality` → `integration.duo-overview`, `integration.duo-which-exams`: under the 2021 Act, the municipality performs the broad intake and establishes the PIP.
+- `integration.registration-routes` → `integration.duo-register`: PVT and MAP run through the municipality, B1/B2 language exams use the Nt2 route, and KNM, ONA and A2 registration can use Mijn Inburgering.
+- `integration.register-and-confirm` → `integration.duo-register`, `integration.duo-portal`: supported portal registrations select a date and location and produce confirmations; official forms are the documented login fallback.
+- `integration.portal-requirements` → `integration.duo-portal`: Mijn Inburgering requires DigiD with SMS verification or the DigiD app and exposes personal exams, registrations, results and DUO correspondence.
+- `integration.results-by-exam-type` → `integration.duo-results`: A2 and knowledge results are published by letter within eight weeks and in Mijn Inburgering; B1/B2 Nt2 results use the separate state-exam process.
+
+Sources:
+
+- `integration.duo-overview` — [Integration in the Netherlands](https://www.inburgeren.nl/en/integration-in-the-netherlands/index.jsp), DUO.
+- `integration.duo-which-exams` — [Which exams](https://www.inburgeren.nl/en/taking-the-integration-exam/index.jsp), DUO.
+- `integration.duo-register` — [Registering for an exam](https://www.inburgeren.nl/en/taking-the-integration-exam/registering.jsp), DUO.
+- `integration.duo-portal` — [Log in to Mijn Inburgering](https://www.inburgeren.nl/en/log-in-to-mijn-inburgering/index.jsp), DUO.
+- `integration.duo-results` — [Exam results and diploma](https://www.inburgeren.nl/en/taking-the-integration-exam/results.jsp), DUO.
+
+Gaps:
+
+- YouNew cannot infer a person's applicable act, route, level, exemptions or required components without the personal DUO record and, where relevant, PIP.
+- PVT/MAP execution is local and B1/B2 Nt2 administration follows a separate route.
+- Fees, availability, accommodations and exceptional routes require action-time verification.
+- No named human reviewer has approved the source-to-step interpretation.
+
+## 13. Reporting discrimination
+
+Jurisdiction: national, with municipality-level anti-discrimination services.
+
+Supported facts:
+
+- `discrimination.route-selection` → `discrimination.gov-reporting`: official routes include the organisation involved, a local anti-discrimination service, the national helpline, the Netherlands Institute for Human Rights, a court, police or the online hotline.
+- `discrimination.local-service` → `discrimination.gov-reporting`: every municipality has access to an anti-discrimination service that can advise, assist and register a report.
+- `discrimination.helpline` → `discrimination.gov-reporting`: Government.nl publishes 0800 0880 and directs users to Discriminatie.nl for local contacts.
+- `discrimination.institute-scope` → `discrimination.gov-reporting`, `discrimination.gov-institute-complaint`, `discrimination.institute-english`: the Institute assesses covered equal-treatment complaints, with non-binding decisions.
+- `discrimination.police-route` → `discrimination.gov-reporting`: a criminal complaint may be appropriate where the reported conduct includes a criminal offence; YouNew does not decide that question.
+- `discrimination.online-and-anonymous-routes` → `discrimination.gov-reporting`: online discrimination and anonymous crime information have separate official routes; an anonymous report is not a formal criminal complaint.
+
+Sources:
+
+- `discrimination.gov-reporting` — [Reporting discrimination](https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination), Government of the Netherlands.
+- `discrimination.gov-institute-complaint` — [Filing a complaint with the Netherlands Institute for Human Rights](https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination/filing-a-complaint-about-discrimination-with-the-netherlands-institute-for-human-rights), Government of the Netherlands.
+- `discrimination.institute-english` — [Netherlands Institute for Human Rights](https://www.mensenrechten.nl/english), Netherlands Institute for Human Rights.
+
+Gaps:
+
+- Route choice remains case-specific and depends on the facts, protected ground, organisation, desired remedy and possible criminal conduct.
+- Local service details must be resolved from the current municipality/directory rather than copied into evergreen content.
+- Evidence preservation, deadlines, court strategy and legal assessment require qualified case-specific advice.
+- No named human reviewer has approved the source-to-step interpretation.
+
 ## Publication gate
 
 None of these dossiers is a full practical guide. Before any guide becomes `published`, an editor must:

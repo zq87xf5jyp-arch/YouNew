@@ -18,6 +18,9 @@ const faviconAssetPath = "/icons/favicon.png";
 const appleAppSiteAssociationPath = "/.well-known/apple-app-site-association";
 const appleAppSiteAssociationPayloadPath =
   "/__site_payloads/.well-known/apple-app-site-association.payload";
+const serviceWorkerPath = "/sw.js";
+const serviceWorkerPayloadPath = "/__site_payloads/sw.js.payload";
+const socialImagePath = "/images/og-younew.jpg";
 const notFoundPayloadPath = "/__site_payloads/404.html.payload";
 
 function withSecurityHeaders(response, pathname) {
@@ -27,6 +30,12 @@ function withSecurityHeaders(response, pathname) {
   }
   if (pathname === appleAppSiteAssociationPath && response.ok) {
     headers.set("Content-Type", "application/json");
+  }
+  if (pathname === serviceWorkerPath && response.ok) {
+    headers.set("Content-Type", "text/javascript; charset=utf-8");
+    headers.set("Cache-Control", "no-cache, no-store, must-revalidate");
+    headers.set("Pragma", "no-cache");
+    headers.set("Expires", "0");
   }
   if (/^text\/html\b/i.test(headers.get("Content-Type") ?? "")) {
     const cacheDirectives = (headers.get("Cache-Control") ?? "public, max-age=0, must-revalidate")
@@ -43,6 +52,12 @@ function withSecurityHeaders(response, pathname) {
     statusText: response.statusText,
     headers
   });
+}
+
+function isCrawlerNullImageRequest(request, pathname) {
+  if (request.method !== "GET" && request.method !== "HEAD") return false;
+  if (!pathname.endsWith("/null")) return false;
+  return /(?:^|,)\s*image\//i.test(request.headers.get("Accept") ?? "");
 }
 
 function isBlockedDeploymentArtifact(pathname) {
@@ -139,6 +154,27 @@ export default {
 
     if (isBlockedDeploymentArtifact(url.pathname)) {
       return withSecurityHeaders(new Response(null, { status: 404 }));
+    }
+
+    if (isCrawlerNullImageRequest(request, url.pathname)) {
+      const fallbackUrl = new URL(request.url);
+      fallbackUrl.pathname = socialImagePath;
+      fallbackUrl.search = "";
+      return withSecurityHeaders(new Response(null, {
+        status: 302,
+        headers: {
+          "Cache-Control": "public, max-age=3600",
+          Location: fallbackUrl.toString(),
+          "X-Robots-Tag": "noindex, nofollow, noarchive"
+        }
+      }), url.pathname);
+    }
+
+    if (url.pathname === serviceWorkerPath) {
+      const payloadUrl = new URL(request.url);
+      payloadUrl.pathname = serviceWorkerPayloadPath;
+      const response = await env.ASSETS.fetch(new Request(payloadUrl, request));
+      return withSecurityHeaders(response, serviceWorkerPath);
     }
 
     if (url.pathname === legacyFaviconPath) {

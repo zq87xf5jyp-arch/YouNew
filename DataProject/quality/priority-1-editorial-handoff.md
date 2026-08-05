@@ -7,11 +7,11 @@ Generated for: `2026-07-20`
 ## Executive status
 
 - Canonical guide scaffolds: **20**
-- Research drafts: **18**
-- Blocked without a matching dossier: **2**
+- Research drafts: **20**
+- Blocked without a matching dossier: **0**
 - Schema v2 publication-ready guides: **0**
-- Unique sourced facts available for drafting: **112**
-- Unique official source IDs: **60**
+- Unique sourced facts available for drafting: **124**
+- Unique official source IDs: **68**
 - Answered FAQ records still missing: **60**
 - Numbered steps still missing: **20**
 - Guide assets with verified alt text still missing: **20**
@@ -38,8 +38,7 @@ Assignment counts can exceed unique counts because a sourced fact or source can 
 
 ## Missing official research
 
-- `guide.dutch-integration-exams` — Dutch integration exams: No matching official-source dossier exists in either research input.
-- `guide.reporting-discrimination` — Reporting discrimination: No matching official-source dossier exists in either research input.
+No guide is missing a matching research dossier.
 
 ## Queue summary
 
@@ -59,11 +58,11 @@ Assignment counts can exceed unique counts because a sourced fact or source can 
 | `guide.opening-a-dutch-bank-account` | research_draft | 4 | 2 | 7/40 | 3 | 1 | 1 |
 | `guide.emergency-numbers-and-urgent-help` | research_draft | 5 | 3 | 7/40 | 3 | 1 | 1 |
 | `guide.residence-permits` | research_draft | 10 | 4 | 7/40 | 3 | 1 | 1 |
-| `guide.dutch-integration-exams` | blocked | 0 | 0 | 7/40 | 3 | 1 | 1 |
+| `guide.dutch-integration-exams` | research_draft | 6 | 5 | 7/40 | 3 | 1 | 1 |
 | `guide.studying-in-the-netherlands` | research_draft | 5 | 4 | 7/40 | 3 | 1 | 1 |
 | `guide.student-housing` | research_draft | 5 | 4 | 7/40 | 3 | 1 | 1 |
 | `guide.moving-to-another-municipality` | research_draft | 8 | 4 | 7/40 | 3 | 1 | 1 |
-| `guide.reporting-discrimination` | blocked | 0 | 0 | 7/40 | 3 | 1 | 1 |
+| `guide.reporting-discrimination` | research_draft | 6 | 3 | 7/40 | 3 | 1 | 1 |
 | `guide.starting-a-business` | research_draft | 11 | 5 | 7/40 | 3 | 1 | 1 |
 
 ## Per-guide audit
@@ -271,10 +270,8 @@ Assignment counts can exceed unique counts because a sourced fact or source can 
   - `human_review_required`: No named human reviewer and review record are attached.
   - `guide_media_with_alt_required`: No dedicated guide asset with verified provenance and non-empty alt text is attached to this scaffold.
   - `schema_v2_incomplete`: 33 of 40 publication checks are not ready.
-  - `unresolved_research_or_publication_gaps`: 9 documented gaps remain unresolved.
+  - `unresolved_research_or_publication_gaps`: 7 documented gaps remain unresolved.
 - Unresolved gaps:
-  - No governed QA record covers the end-to-end task of finding work.
-  - Work-permit and employment-contract records are adjacent topics, not a substitute for a reviewed job-search guide.
   - No sourced step-by-step content has been reviewed for publication.
   - Per-fact source IDs have not been mapped into the practical guide.
   - Verification date and reviewer have not been assigned.
@@ -343,9 +340,8 @@ Assignment counts can exceed unique counts because a sourced fact or source can 
   - `human_review_required`: No named human reviewer and review record are attached.
   - `guide_media_with_alt_required`: No dedicated guide asset with verified provenance and non-empty alt text is attached to this scaffold.
   - `schema_v2_incomplete`: 33 of 40 publication checks are not ready.
-  - `unresolved_research_or_publication_gaps`: 9 documented gaps remain unresolved.
+  - `unresolved_research_or_publication_gaps`: 8 documented gaps remain unresolved.
 - Unresolved gaps:
-  - No governed QA record covers opening a Dutch bank account.
   - The published ING partner record is commercial and must not be used as an editorial source.
   - No sourced step-by-step content has been reviewed for publication.
   - Per-fact source IDs have not been mapped into the practical guide.
@@ -405,23 +401,27 @@ Assignment counts can exceed unique counts because a sourced fact or source can 
 ### Dutch integration exams
 
 - Canonical ID: `guide.dutch-integration-exams`
-- Queue status: `blocked`
+- Queue status: `research_draft`
 - Publication authorized: `false`
-- Research input: none
-- Fact IDs (0): none
-- Source IDs (0): none
+- Research input: `research.guide.dutch-integration-exams.2026-08-05`
+- Fact IDs (6): `integration.check-personal-route`, `integration.pip-and-municipality`, `integration.registration-routes`, `integration.register-and-confirm`, `integration.portal-requirements`, `integration.results-by-exam-type`
+- Source IDs (5): `integration.duo-overview`, `integration.duo-portal`, `integration.duo-register`, `integration.duo-results`, `integration.duo-which-exams`
 - Schema v2 missing/unready fields (33): `schema_version`, `status`, `short_summary`, `audience_profiles`, `who_this_is_for`, `when_you_need_it`, `jurisdiction`, `prerequisites`, `required_documents`, `estimated_time`, `estimated_cost`, `numbered_steps`, `warnings`, `common_mistakes`, `tips`, `checklist`, `faqs`, `emergency_information`, `sections`, `official_sources`, `contact_options`, `related_guide_ids`, `next_actions`, `verified_at`, `updated_at`, `reviewer`, `reading_time_minutes`, `difficulty`, `confidence_level`, `tags`, `publication_gate`, `disclaimer`, `seo`
 - Blockers:
   - `human_review_required`: No named human reviewer and review record are attached.
   - `guide_media_with_alt_required`: No dedicated guide asset with verified provenance and non-empty alt text is attached to this scaffold.
   - `schema_v2_incomplete`: 33 of 40 publication checks are not ready.
-  - `official_research_dossier_missing`: No matching official-source research dossier is present.
-  - `unresolved_research_or_publication_gaps`: 4 documented gaps remain unresolved.
+  - `unresolved_research_or_publication_gaps`: 8 documented gaps remain unresolved.
+  - `locality_or_provider_branch_incomplete`: Local execution, provider availability, or institution-specific instructions remain outside a single national procedure.
 - Unresolved gaps:
   - No sourced step-by-step content has been reviewed for publication.
   - Per-fact source IDs have not been mapped into the practical guide.
   - Verification date and reviewer have not been assigned.
   - Estimated time and cost have not been verified.
+  - The applicable act, route, level, exemptions and required components cannot be inferred safely without the person's DUO record and, where relevant, PIP.
+  - PVT and MAP execution, appointments and support are municipality-specific; B1/B2 Nt2 administration follows a separate route.
+  - Current fees, examination availability, accommodations and exceptional routes require action-time verification.
+  - A named human reviewer must check the source-to-step interpretation before publication.
 
 ### Studying in the Netherlands
 
@@ -460,11 +460,9 @@ Assignment counts can exceed unique counts because a sourced fact or source can 
   - `human_review_required`: No named human reviewer and review record are attached.
   - `guide_media_with_alt_required`: No dedicated guide asset with verified provenance and non-empty alt text is attached to this scaffold.
   - `schema_v2_incomplete`: 33 of 40 publication checks are not ready.
-  - `unresolved_research_or_publication_gaps`: 9 documented gaps remain unresolved.
+  - `unresolved_research_or_publication_gaps`: 7 documented gaps remain unresolved.
   - `locality_or_provider_branch_incomplete`: Local execution, provider availability, or institution-specific instructions remain outside a single national procedure.
 - Unresolved gaps:
-  - No governed QA record covers student-specific housing.
-  - General renting records must not be presented as student-housing instructions without dedicated review.
   - No sourced step-by-step content has been reviewed for publication.
   - Per-fact source IDs have not been mapped into the practical guide.
   - Verification date and reviewer have not been assigned.
@@ -500,23 +498,27 @@ Assignment counts can exceed unique counts because a sourced fact or source can 
 ### Reporting discrimination
 
 - Canonical ID: `guide.reporting-discrimination`
-- Queue status: `blocked`
+- Queue status: `research_draft`
 - Publication authorized: `false`
-- Research input: none
-- Fact IDs (0): none
-- Source IDs (0): none
+- Research input: `research.guide.reporting-discrimination.2026-08-05`
+- Fact IDs (6): `discrimination.route-selection`, `discrimination.local-service`, `discrimination.helpline`, `discrimination.institute-scope`, `discrimination.police-route`, `discrimination.online-and-anonymous-routes`
+- Source IDs (3): `discrimination.gov-institute-complaint`, `discrimination.gov-reporting`, `discrimination.institute-english`
 - Schema v2 missing/unready fields (33): `schema_version`, `status`, `short_summary`, `audience_profiles`, `who_this_is_for`, `when_you_need_it`, `jurisdiction`, `prerequisites`, `required_documents`, `estimated_time`, `estimated_cost`, `numbered_steps`, `warnings`, `common_mistakes`, `tips`, `checklist`, `faqs`, `emergency_information`, `sections`, `official_sources`, `contact_options`, `related_guide_ids`, `next_actions`, `verified_at`, `updated_at`, `reviewer`, `reading_time_minutes`, `difficulty`, `confidence_level`, `tags`, `publication_gate`, `disclaimer`, `seo`
 - Blockers:
   - `human_review_required`: No named human reviewer and review record are attached.
   - `guide_media_with_alt_required`: No dedicated guide asset with verified provenance and non-empty alt text is attached to this scaffold.
   - `schema_v2_incomplete`: 33 of 40 publication checks are not ready.
-  - `official_research_dossier_missing`: No matching official-source research dossier is present.
-  - `unresolved_research_or_publication_gaps`: 4 documented gaps remain unresolved.
+  - `unresolved_research_or_publication_gaps`: 8 documented gaps remain unresolved.
+  - `locality_or_provider_branch_incomplete`: Local execution, provider availability, or institution-specific instructions remain outside a single national procedure.
 - Unresolved gaps:
   - No sourced step-by-step content has been reviewed for publication.
   - Per-fact source IDs have not been mapped into the practical guide.
   - Verification date and reviewer have not been assigned.
   - Estimated time and cost have not been verified.
+  - The correct route depends on the facts, protected ground, organisation involved, desired remedy and whether a criminal offence may have occurred.
+  - Local anti-discrimination service details must be resolved from the user's municipality or current Discriminatie.nl directory rather than copied into evergreen content.
+  - Evidence preservation, limitation periods, court strategy and legal assessment require qualified case-specific advice.
+  - A named human reviewer must check the source-to-step interpretation before publication.
 
 ### Starting a business
 
@@ -544,9 +546,9 @@ Assignment counts can exceed unique counts because a sourced fact or source can 
 
 ## Input evidence
 
-- `DataProject/staging/practical-guides-wave-1.json` — SHA-256 `d2ce30c6711055d03f8eb9a1b80a777a394ff8d06bf7c18a2c1cde70a34df94e`
+- `DataProject/staging/practical-guides-wave-1.json` — SHA-256 `318b8fca06285adfa8ee0af790de5bdbb60ec90b889645e946e77b75bc4af062`
 - `DataProject/research/priority-1-government/priority-1-government-sources-2026-07-20.json` — SHA-256 `06722f7cc36c829bde409eb43d4449cf65fd1184f9ebb20bdf6945405e5a58c4`
-- `DataProject/research/priority-1-daily/priority-1-dossiers.json` — SHA-256 `6e5ef4d8cf10f1323574af853239171b6632b219f7989560c1a18c60b18987a3`
+- `DataProject/research/priority-1-daily/priority-1-dossiers.json` — SHA-256 `35eef4576e95b52c72506cf63dad2ade1b5cd7ec3aeb1296d45b29e5c617dc1e`
 - `DataProject/schema/entity.schema.json` — SHA-256 `b4536d7b7115c48d75539783eede556b5ff29bb1cdb89f9dec872abc3b1db87c`
 
 ## Allowed next action

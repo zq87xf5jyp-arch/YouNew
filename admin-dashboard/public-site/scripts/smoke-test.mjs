@@ -78,6 +78,7 @@ assert.doesNotMatch(journeys, /sync(?:ed|ing)? successfully/i);
 const map = await readFile(join(root, "map/index.html"), "utf8");
 for (const text of ["Netherlands directory and YouNew coverage", "Directory and published content list", "no location permission", "primary accessible fallback"]) assert.match(map, new RegExp(text, "i"));
 assert.doesNotMatch(map, /navigator\.geolocation|tile\.openstreetmap|mapbox/i);
+assert.doesNotMatch(map, /\\?"image\\?":null/, "Map payload must omit absent optional image URLs");
 
 const businessApply = await readFile(join(root, "business/apply/index.html"), "utf8");
 for (const field of ["companyName", "contactPerson", "inquiryType", "organizationType", "kvkNumber", "targetAudience", "requestedPlacements", "consentToPrivacy", "confirmAccuracy", "websiteConfirmation"]) assert.match(businessApply, new RegExp(`name="${field}"`));
@@ -127,6 +128,7 @@ assert.match(notFound, /name="twitter:card" content="summary"/);
 
 const searchIndex = JSON.parse(await readFile(join(root, "data/search-index.json"), "utf8"));
 assert.equal(searchIndex.schemaVersion, 3);
+assert.ok(searchIndex.documents.some((document) => document.sourceKind === "nationalResourceGuide" && document.locationScope === "national" && document.nationalFallback === true));
 const provenance = JSON.parse(await readFile(join(root, "data/content-provenance.json"), "utf8"));
 const governedContent = JSON.parse(
   await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8"),

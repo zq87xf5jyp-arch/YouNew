@@ -1,6 +1,16 @@
+overrides:
+  '@eslint/plugin-kit': 0.3.4
+  brace-expansion@<2.0.0: 1.1.18
+  brace-expansion@>=2.0.0 <3.0.0: 2.1.4
+  brace-expansion@>=3.0.0 <5.0.9: 5.0.9
+  fast-uri: 3.1.5
+  postcss: 8.5.23
+
 allowBuilds:
-  esbuild: set this to true or false
+  esbuild: true
 minimumReleaseAgeExclude:
+  - '@eslint/plugin-kit@0.3.4'
+  - 'brace-expansion@1.1.18 || 2.1.4 || 5.0.9'
   - '@remotion/bundler@4.0.496'
   - '@remotion/canvas-capture@4.0.496'
   - '@remotion/cli@4.0.496'
