@@ -35,7 +35,7 @@ The companion localization package contains one Dutch and one Russian **search-s
 
 The private full-body overlay now contains complete Dutch and Russian narrative-field drafts for all eight guides: 16 of 16 guide-locale pairs. Each overlay has exact field coverage against its English guide (47 BSN, 48 huisarts, 53 rent, 45 work, 47 employment contract, 54 school, 51 SIM and 53 fine fields per locale). It is pinned to both the English evidence bundle and the search-surface bundle.
 
-The fail-closed human review matrix is pinned to that exact overlay and reserves one record for every guide-locale pair. Every record remains `review_status: not_started`, `reviewer_id: null`, `evidence_registry_entry_id: null` and `publication_eligible: false`. It cannot replace a registered human reviewer or a passed hashed artifact in the operational evidence registry.
+The fail-closed human review matrix is pinned to that exact overlay and reserves one record for every guide-locale pair. Each record declares the reviewer category scope, and every record remains `review_status: not_started`, `reviewer_id: null`, `evidence_registry_entry_id: null` and `publication_eligible: false`. It cannot replace a registered human reviewer or a passed hashed artifact in the operational evidence registry.
 
 Both localization packages keep `publication_authorized: false`, `reviewer: null` and `verified_at: null`. The search-surface package intentionally does not claim full translation, while the full-body overlay labels its two entries `machine_assisted_full_body_draft`. Overall blockers are:
 

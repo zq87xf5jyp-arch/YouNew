@@ -7,6 +7,7 @@ test.describe("isolated owner surface", () => {
       ["/business-inquiries", "Бизнес-заявки"],
       ["/feedback", "Отзывы пользователей"],
       ["/sync", "Публикация и синхронизация"],
+      ["/localization-review", "Localization Review"],
       ["/audit-log", "Журнал действий"]
     ] as const;
 

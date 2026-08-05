@@ -4,9 +4,13 @@ const mode = process.env.E2E_MUTATION_MODE ?? "isolated";
 const isProductionSafe = mode === "production";
 const isolatedProfile = process.env.E2E_ISOLATED_PROFILE ?? "demo";
 const isClosedProfile = isolatedProfile === "closed";
+const isolatedPort = Number(process.env.E2E_PORT ?? "4173");
+if (!Number.isInteger(isolatedPort) || isolatedPort < 1 || isolatedPort > 65_535) {
+  throw new Error("E2E_PORT must be an integer between 1 and 65535.");
+}
 const baseURL = isProductionSafe
   ? process.env.E2E_BASE_URL
-  : "http://127.0.0.1:4173";
+  : `http://127.0.0.1:${isolatedPort}`;
 
 if (isProductionSafe && !baseURL) {
   throw new Error("E2E_BASE_URL is required for production-safe Admin E2E.");
@@ -40,8 +44,8 @@ export default defineConfig({
   webServer: isProductionSafe
     ? undefined
     : {
-        command: "pnpm dev --hostname 127.0.0.1 --port 4173",
-        url: isClosedProfile ? "http://127.0.0.1:4173/login" : "http://127.0.0.1:4173/dashboard",
+        command: `pnpm dev --hostname 127.0.0.1 --port ${isolatedPort}`,
+        url: isClosedProfile ? `${baseURL}/login` : `${baseURL}/dashboard`,
         reuseExistingServer: false,
         timeout: 120_000,
         env: {

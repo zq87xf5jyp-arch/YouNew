@@ -195,5 +195,14 @@
       "checked_at": null,
       "publication_eligible": false
     }
-  ]
+  ],
+  "admin_snapshot": {
+    "source": "DataProject/staging/release-critical-practical-guides-v2-localization-review-matrix.json",
+    "source_sha256": "48daed07574239172323f8e72f1473293f44b8f95ccbc44e70d6acef9d7b5637",
+    "translation_bundle_sha256": "f9ef4329169f425c4946e03b33b692953210eda13cd2ea2e81a3d4060db70871",
+    "reviewer_registry_sha256": "5c41960711bb6697ddfcbf1c8b8a86c2e5871ac35ee41f4371b4a420a7d7efc0",
+    "evidence_registry_sha256": "21362a4286494096fda217286f22c23f8d07d22ad83aa5d5f475fcb58737fd5d",
+    "record_count": 16,
+    "required_review_checks": 64
+  }
 }

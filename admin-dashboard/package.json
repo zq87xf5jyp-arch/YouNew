@@ -10,8 +10,8 @@
   "scripts": {
     "dev": "node node_modules/next/dist/bin/next dev",
     "build": "pnpm generate:runtime && node node_modules/next/dist/bin/next build",
-    "build:hostinger": "node scripts/verify-packaged-governed-runtime.mjs && node node_modules/next/dist/bin/next build",
-    "generate:runtime": "node scripts/generate-governed-runtime.mjs",
+    "build:hostinger": "node scripts/verify-packaged-governed-runtime.mjs && node scripts/verify-packaged-localization-review.mjs && node node_modules/next/dist/bin/next build",
+    "generate:runtime": "node scripts/generate-governed-runtime.mjs && node scripts/generate-localization-review.mjs",
     "start": "node node_modules/next/dist/bin/next start",
     "lint": "node node_modules/eslint/bin/eslint.js src next.config.ts --max-warnings=0",
     "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
