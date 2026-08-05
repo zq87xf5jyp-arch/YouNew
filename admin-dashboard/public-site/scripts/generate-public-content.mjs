@@ -10,12 +10,15 @@ const publicSiteRoot = resolve(scriptDirectory, "..");
 export const paths = Object.freeze({
   source: resolve(publicSiteRoot, "../../YouNew/Resources/Data/younew-runtime-data.json"),
   geography: resolve(publicSiteRoot, "src/generated/netherlands-geography.json"),
+  taxonomy: resolve(publicSiteRoot, "src/data/life-domain-taxonomy.json"),
   content: resolve(publicSiteRoot, "src/generated/public-content.json"),
   search: resolve(publicSiteRoot, "public/data/search-index.json"),
   provenance: resolve(publicSiteRoot, "public/data/content-provenance.json")
 });
 
 const geography = JSON.parse(await readFile(paths.geography, "utf8"));
+const lifeDomains = JSON.parse(await readFile(paths.taxonomy, "utf8"));
+const lifeDomainBySlug = new Map(lifeDomains.map((domain) => [domain.slug, domain]));
 
 const provinceNames = Object.freeze({
   "drenthe": "Drenthe",
@@ -32,7 +35,7 @@ const provinceNames = Object.freeze({
   "zuid-holland": "Zuid-Holland"
 });
 
-const broadCategoryDefinitions = Object.freeze({
+const legacyBroadCategoryDefinitions = Object.freeze({
   government: {
     title: "Government",
     summary: "Municipal services and official administrative information."
@@ -93,6 +96,11 @@ const broadCategoryDefinitions = Object.freeze({
     title: "Places to visit",
     summary: "Published attractions, districts and useful public places."
   }
+});
+
+const broadCategoryDefinitions = Object.freeze({
+  ...legacyBroadCategoryDefinitions,
+  ...Object.fromEntries(lifeDomains.map((domain) => [domain.slug, { title: domain.title, summary: domain.summary }]))
 });
 
 const entityTypeByKind = Object.freeze({
@@ -626,8 +634,11 @@ function buildCategories(entities) {
     }
   }
 
+  for (const slug of Object.keys(broadCategoryDefinitions)) {
+    if (!buckets.has(slug)) buckets.set(slug, []);
+  }
+
   return [...buckets.entries()]
-    .filter(([, records]) => records.length > 0)
     .map(([slug, records]) => {
       const definition = broadCategoryDefinitions[slug] ?? {
         title: titleFromSlug(slug),
@@ -698,6 +709,12 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       cityId: entity.cityId,
       province: entity.provinceId ? provincesById.get(entity.provinceId)?.title ?? titleFromSlug(entity.provinceId) : null,
       provinceId: entity.provinceId,
+      scope: entity.cityId ? "municipal" : entity.provinceId ? "provincial" : "national",
+      locationAliases: [],
+      languages: [entity.language],
+      intentIds: [],
+      officialSourceURLs: [entity.source.url, ...(practical?.officialSources?.map((source) => source.url) ?? [])],
+      qualityScore: entity.contentDepth === "practical" ? 1 : 0.72,
       categories: entity.categorySlugs,
       narrowCategory: entity.narrowCategory,
       organization: entity.type === "organization" ? entity.title : entity.source.publisher,
@@ -718,6 +735,9 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
 
   const categoryDocuments = categories.map((category) => {
     const metadata = categorySearchMetadata[category.slug] ?? {};
+    const domain = lifeDomainBySlug.get(category.slug);
+    const domainAliases = domain ? Object.values(domain.aliases).flat() : [];
+    const domainIntentTerms = domain?.intents.flatMap((intent) => intent.terms) ?? [];
     return {
       id: category.id,
       type: "category",
@@ -731,19 +751,25 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       cityId: null,
       province: null,
       provinceId: null,
+      scope: "national",
+      locationAliases: [],
+      languages: domain ? Object.keys(domain.aliases) : ["en"],
+      intentIds: domain?.intents.map((intent) => intent.id) ?? [],
+      officialSourceURLs: domain?.officialSources.map((source) => source.url) ?? [],
+      qualityScore: domain ? 0.95 : 0.7,
       categories: [category.slug],
       narrowCategory: category.slug,
       organization: null,
-      audienceProfiles: [],
-      numberedSteps: [],
+      audienceProfiles: domain?.profiles ?? [],
+      numberedSteps: domain?.startHere ?? [],
       requiredDocuments: [],
       checklist: [],
       tips: [],
       faqAnswers: [],
       whenYouNeedIt: [],
       tags: [],
-      synonyms: metadata.synonyms ?? [],
-      officialOrganizationNames: [],
+      synonyms: [...new Set([...(metadata.synonyms ?? []), ...domainAliases, ...domainIntentTerms])],
+      officialOrganizationNames: domain?.officialSources.map((source) => source.name) ?? [],
       terminology: metadata.terminology ?? [],
       commonQuestions: []
     };
@@ -755,6 +781,12 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     cityId: null,
     province: null,
     provinceId: null,
+    scope: "national",
+    locationAliases: [],
+    languages: ["en", "nl", "ru"],
+    intentIds: page.id === "page.emergency" ? ["emergency.112"] : [],
+    officialSourceURLs: [],
+    qualityScore: 0.9,
     narrowCategory: null,
     organization: null,
     audienceProfiles: [],
@@ -781,6 +813,12 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     cityId: municipality.slug,
     province: municipality.provinceName,
     provinceId: municipality.provinceSlug,
+    scope: "municipal",
+    locationAliases: municipality.slug === "s-gravenhage" ? ["den-haag", "den haag", "the hague", "denhaag"] : [],
+    languages: ["en", "nl", "ru"],
+    intentIds: ["municipal.register", "municipal.move"],
+    officialSourceURLs: [municipality.officialWebsite].filter(Boolean),
+    qualityScore: 0.86,
     categories: [],
     narrowCategory: null,
     organization: `Municipality of ${municipality.name}`,
@@ -792,7 +830,7 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     faqAnswers: [],
     whenYouNeedIt: [],
     tags: ["municipality", "gemeente", "local government"],
-    synonyms: [`Gemeente ${municipality.name}`, municipality.administrativeSeat ?? ""].filter(Boolean),
+    synonyms: [`Gemeente ${municipality.name}`, municipality.administrativeSeat ?? "", ...(municipality.slug === "s-gravenhage" ? ["Den Haag", "The Hague", "Гаага"] : [])].filter(Boolean),
     officialOrganizationNames: [`Municipality of ${municipality.name}`],
     terminology: ["municipality", "gemeente", "BAG woonplaats"],
     commonQuestions: [`Which municipality contains ${municipality.name}?`]
@@ -816,6 +854,12 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     cityId: null,
     province: province.name,
     provinceId: province.slug,
+    scope: "provincial",
+    locationAliases: [],
+    languages: ["en", "nl", "ru"],
+    intentIds: [],
+    officialSourceURLs: [],
+    qualityScore: 0.84,
     categories: [],
     narrowCategory: null,
     organization: `Province of ${province.name}`,
@@ -834,7 +878,7 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
   }));
 
   return {
-    schemaVersion: 2,
+    schemaVersion: 3,
     generatedAt,
     datasetFingerprint,
     locale: "en",

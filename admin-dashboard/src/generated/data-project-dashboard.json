@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-04T16:46:57+00:00",
+  "generated_at": "2026-08-05T13:02:05+00:00",
   "scope": "DATA PROJECT governed records only; legacy runtime data is excluded until audited and migrated.",
   "runtime_release": {
     "release_id": "legacy-runtime-unversioned",
@@ -33,7 +33,7 @@
   "summary": {
     "batches": 27,
     "records": 450,
-    "published": 182,
+    "published": 181,
     "verified": 450,
     "needs_review": 0,
     "outdated": 0,
@@ -2442,7 +2442,7 @@
       "name": "Cities",
       "status": "active",
       "records": 188,
-      "published": 182,
+      "published": 181,
       "verified": 188,
       "needs_review": 0,
       "outdated": 0,
@@ -2457,9 +2457,9 @@
         "media": 100.0,
         "search": 100.0,
         "ai": 100.0,
-        "publication": 96.8
+        "publication": 96.3
       },
-      "current_release": "0.1.6",
+      "current_release": "0.1.7",
       "next_release": null
     },
     {
@@ -2754,12 +2754,12 @@
       "outdated_records": 0
     },
     "link_check": {
-      "checked_at": "2026-07-28T15:22:44.290395+00:00",
-      "total": 2560,
-      "reachable": 1814,
+      "checked_at": "1970-01-01T00:00:00+00:00",
+      "total": 0,
+      "reachable": 0,
       "confirmed_broken": 0,
-      "access_restricted": 718,
-      "transient_failures": 28
+      "access_restricted": 0,
+      "transient_failures": 0
     }
   }
 }

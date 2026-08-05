@@ -1,0 +1,272 @@
+[
+  {
+    "slug": "housing",
+    "title": "Housing",
+    "summary": "Renting, tenant rights, housing defects, moving and finding the correct local or national housing route.",
+    "aliases": { "en": ["housing", "rent", "rental", "tenant", "landlord", "home"], "nl": ["wonen", "huur", "huurwoning", "huurder", "verhuurder"], "ru": ["жильё", "аренда", "квартира", "арендодатель", "съём жилья"] },
+    "intents": [{ "id": "housing.rent", "terms": ["rent a home", "rental housing", "huurwoning", "снять жильё"] }, { "id": "housing.defects", "terms": ["landlord does not repair", "housing defects", "gebreken huurwoning", "арендодатель не ремонтирует"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Identify whether your question is about finding a home, a contract, rent, or a defect.", "Use the municipality filter for local services; national tenant guidance remains visible.", "Check the responsible official source before sending documents or paying a fee."],
+    "officialSources": [{ "name": "Government of the Netherlands — Housing", "url": "https://www.government.nl/topics/housing" }, { "name": "Huurcommissie", "url": "https://www.huurcommissie.nl/" }]
+  },
+  {
+    "slug": "work",
+    "title": "Work",
+    "summary": "Employment contracts, wages, working conditions, job-search routes and help with workplace problems.",
+    "aliases": { "en": ["work", "job", "employment", "work contract", "salary", "wages"], "nl": ["werk", "baan", "arbeid", "arbeidsovereenkomst", "loon"], "ru": ["работа", "вакансия", "трудовой договор", "зарплата"] },
+    "intents": [{ "id": "work.find", "terms": ["find work", "looking for a job", "werk zoeken", "найти работу"] }, { "id": "work.contract", "terms": ["work contract", "employment contract", "arbeidscontract", "трудовой договор"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Separate job-search questions from contract, pay, dismissal or unsafe-work questions.", "Keep your written contract and payslips when asking for help.", "Use Work in NL or the responsible inspectorate for current official guidance."],
+    "officialSources": [{ "name": "Work in NL", "url": "https://workinnl.nl/en/" }, { "name": "Netherlands Labour Authority", "url": "https://www.nllabourauthority.nl/" }]
+  },
+  {
+    "slug": "documents",
+    "title": "Documents",
+    "summary": "BSN, BRP registration, DigiD, residence documents and other identity or administrative records.",
+    "aliases": { "en": ["documents", "BSN", "BRP", "DigiD", "residence permit", "identity document"], "nl": ["documenten", "burgerservicenummer", "basisregistratie personen", "verblijfsdocument"], "ru": ["документы", "номер BSN", "регистрация BRP", "вид на жительство", "DigiD"] },
+    "intents": [{ "id": "documents.bsn", "terms": ["get BSN", "How do I get a BSN", "BSN registration", "burgerservicenummer aanvragen", "получить BSN"] }, { "id": "documents.digid", "terms": ["apply DigiD", "activate DigiD", "DigiD aanvragen", "оформить DigiD"] }, { "id": "documents.lost-residence-card", "terms": ["lost residence card", "residence permit stolen", "verblijfsdocument kwijt", "потерял вид на жительство"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Choose the document or identifier you need: BSN/BRP, DigiD, residence document or civil record.", "For BSN and BRP, use your municipality or an RNI desk according to your situation.", "For a lost residence document, follow the IND route and do not rely on generic replacement advice."],
+    "officialSources": [{ "name": "Government.nl — Citizen service number (BSN)", "url": "https://www.government.nl/topics/government-and-democracy/personal-data/citizen-service-number-bsn" }, { "name": "DigiD — Apply and activate", "url": "https://www.digid.nl/en/apply-and-activate" }, { "name": "IND — Residence permit lost or stolen", "url": "https://ind.nl/en/replace-extend-renew-and-change/residence-permit-lost-or-stolen" }]
+  },
+  {
+    "slug": "healthcare",
+    "title": "Healthcare",
+    "summary": "Finding and registering with a GP, health insurance, pharmacies, urgent care and navigating Dutch healthcare.",
+    "aliases": { "en": ["healthcare", "doctor", "GP", "family doctor", "health insurance", "pharmacy"], "nl": ["zorg", "huisarts", "zorgverzekering", "apotheek"], "ru": ["медицина", "врач", "семейный врач", "страховка", "аптека"] },
+    "intents": [{ "id": "healthcare.gp", "terms": ["find a GP", "need a doctor", "huisarts zoeken", "найти врача"] }, { "id": "healthcare.insurance", "terms": ["health insurance", "Dutch insurance", "zorgverzekering", "медицинская страховка"] }],
+    "profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["For life-threatening danger call 112; otherwise distinguish routine GP care from urgent out-of-hours care.", "Search for a GP near your residence and ask your insurer for help if practices cannot accept you.", "Verify insurance duties against your residence and work situation."],
+    "officialSources": [{ "name": "Thuisarts — Choosing a GP", "url": "https://www.thuisarts.nl/dutch-healthcare/choosing-gp" }, { "name": "Government.nl — Health insurance", "url": "https://www.government.nl/topics/health-insurance" }]
+  },
+  {
+    "slug": "education",
+    "title": "Education",
+    "summary": "Primary and secondary schools, newcomer classes, higher education, enrolment and qualification routes.",
+    "aliases": { "en": ["education", "school", "Dutch school", "university", "newcomer class"], "nl": ["onderwijs", "school", "basisschool", "middelbare school", "universiteit"], "ru": ["образование", "школа", "голландская школа", "университет"] },
+    "intents": [{ "id": "education.school", "terms": ["find a school", "Dutch school", "school registration", "school inschrijven", "найти школу"] }, { "id": "education.newcomer", "terms": ["newcomer class", "bridging class", "taalklas", "класс для новичков"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Choose primary, secondary, vocational or higher education before selecting a route.", "For a child new to Dutch, ask the school or municipality about newcomer or language support.", "Check local admission rules and availability directly with the school."],
+    "officialSources": [{ "name": "Government.nl — Education", "url": "https://www.government.nl/topics/education" }, { "name": "DUO", "url": "https://duo.nl/particulier/international-visitor/" }]
+  },
+  {
+    "slug": "language-learning",
+    "title": "Language learning",
+    "summary": "Dutch courses, NT2 examinations, language support and choosing a learning route.",
+    "aliases": { "en": ["language learning", "learn Dutch", "Dutch course", "NT2", "language school"], "nl": ["Nederlands leren", "taalcursus", "taalschool", "staatsexamen NT2"], "ru": ["учить голландский", "курсы нидерландского", "языковая школа", "экзамен NT2"] },
+    "intents": [{ "id": "language.course", "terms": ["Dutch course", "learn Dutch", "taalcursus Nederlands", "курсы голландского"] }, { "id": "language.nt2", "terms": ["NT2 exam", "state exam Dutch", "staatsexamen NT2", "экзамен NT2"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Decide whether you need everyday Dutch, work or study Dutch, or a formal examination.", "Check whether your integration route sets a required level before paying for a course.", "Use DUO for current NT2 examination information."],
+    "officialSources": [{ "name": "DUO — State examination NT2", "url": "https://www.duo.nl/particulier/staatsexamen-nt2/" }, { "name": "Inburgeren.nl", "url": "https://www.inburgeren.nl/en/" }]
+  },
+  {
+    "slug": "government",
+    "title": "Government",
+    "summary": "National government services, public administration, official correspondence and finding the responsible authority.",
+    "aliases": { "en": ["government", "official service", "public authority", "government letter"], "nl": ["overheid", "rijksoverheid", "overheidsdienst", "overheidsbrief"], "ru": ["государство", "госуслуги", "официальное письмо", "органы власти"] },
+    "intents": [{ "id": "government.service", "terms": ["government service", "official authority", "overheidsdienst", "госуслуга"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Identify whether the responsible body is national, provincial or municipal.", "Use the sender and reference number on an official letter to find the responsible body.", "Share sensitive identifiers only through the authority's verified channel."],
+    "officialSources": [{ "name": "Government of the Netherlands", "url": "https://www.government.nl/" }]
+  },
+  {
+    "slug": "banking",
+    "title": "Banking",
+    "summary": "Bank accounts, payments, identity checks, fraud awareness and regulated financial-service routes.",
+    "aliases": { "en": ["banking", "bank account", "IBAN", "payments", "debit card"], "nl": ["bankzaken", "bankrekening", "betalen", "betaalpas"], "ru": ["банк", "банковский счёт", "IBAN", "платежи", "карта"] },
+    "intents": [{ "id": "banking.account", "terms": ["open bank account", "Dutch bank account", "bankrekening openen", "открыть счёт"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Check whether the provider is authorised before opening an account or investing.", "Compare identity requirements and service conditions directly with providers.", "Never share login codes or approve an unfamiliar payment."],
+    "officialSources": [{ "name": "De Nederlandsche Bank", "url": "https://www.dnb.nl/en/" }]
+  },
+  {
+    "slug": "taxes",
+    "title": "Taxes",
+    "summary": "Dutch income tax, tax returns, letters, assessments and finding the correct Tax Administration route.",
+    "aliases": { "en": ["tax", "taxes", "tax return", "income tax", "assessment"], "nl": ["belasting", "aangifte", "inkomstenbelasting", "aanslag"], "ru": ["налоги", "налоговая декларация", "подоходный налог", "начисление"] },
+    "intents": [{ "id": "taxes.return", "terms": ["file tax return", "income tax return", "belastingaangifte", "подать декларацию"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident", "tourist"],
+    "startHere": ["Identify the tax year and the type of letter or return.", "Use Mijn Belastingdienst or an official contact route for personal records.", "Do not infer a deadline or amount from a general guide; follow the date on your official notice."],
+    "officialSources": [{ "name": "Belastingdienst — Individuals", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals" }]
+  },
+  {
+    "slug": "benefits",
+    "title": "Benefits",
+    "summary": "Healthcare, housing, childcare and child-related benefits, eligibility checks and reporting changes.",
+    "aliases": { "en": ["benefits", "allowance", "housing benefit", "healthcare benefit", "childcare benefit"], "nl": ["toeslagen", "huurtoeslag", "zorgtoeslag", "kinderopvangtoeslag"], "ru": ["пособия", "субсидия на жильё", "медицинское пособие", "пособие на сад"] },
+    "intents": [{ "id": "benefits.apply", "terms": ["apply for benefits", "toeslag aanvragen", "оформить пособие"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Choose the specific benefit before checking eligibility.", "Use your current household, income and residence information in the official calculator or portal.", "Report relevant changes through the official Benefits service."],
+    "officialSources": [{ "name": "Dienst Toeslagen", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals" }]
+  },
+  {
+    "slug": "sim-telecom",
+    "title": "SIM & telecom",
+    "summary": "Mobile subscriptions, prepaid SIM cards, number portability, coverage and telecom consumer rights.",
+    "aliases": { "en": ["SIM card", "mobile phone", "telecom", "phone plan", "prepaid"], "nl": ["simkaart", "mobiel abonnement", "telefoon", "prepaid"], "ru": ["SIM-карта", "симка", "мобильная связь", "тариф", "предоплата"] },
+    "intents": [{ "id": "telecom.sim", "terms": ["buy SIM card", "get a SIM", "simkaart kopen", "купить SIM-карту"] }, { "id": "telecom.contract", "terms": ["mobile contract", "phone subscription", "mobiel abonnement", "контракт на связь"] }],
+    "profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Choose prepaid or a subscription based on your expected use and documentation.", "Compare the total contract terms, not only the introductory price.", "Use ACM ConsuWijzer if you have a consumer-rights problem."],
+    "officialSources": [{ "name": "ACM ConsuWijzer — Telephone, internet and television", "url": "https://www.consuwijzer.nl/telefoon-internet-en-televisie" }]
+  },
+  {
+    "slug": "internet",
+    "title": "Internet",
+    "summary": "Home internet, installation, provider switching, contract terms and connection problems.",
+    "aliases": { "en": ["internet", "broadband", "wifi", "internet provider", "home internet"], "nl": ["internet", "breedband", "wifi", "internetprovider"], "ru": ["интернет", "домашний интернет", "вайфай", "провайдер"] },
+    "intents": [{ "id": "internet.connect", "terms": ["get home internet", "internet connection", "internet afsluiten", "подключить интернет"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Check which networks and providers serve your exact address.", "Compare the full contract, installation conditions and cancellation terms.", "Keep written confirmation of any switch or cancellation."],
+    "officialSources": [{ "name": "ACM ConsuWijzer — Telephone, internet and television", "url": "https://www.consuwijzer.nl/telefoon-internet-en-televisie" }]
+  },
+  {
+    "slug": "utilities",
+    "title": "Utilities",
+    "summary": "Electricity, gas, water, meters, moving notifications and consumer problems with utility contracts.",
+    "aliases": { "en": ["utilities", "electricity", "gas", "water", "energy contract"], "nl": ["nutsvoorzieningen", "elektriciteit", "gas", "water", "energiecontract"], "ru": ["коммунальные услуги", "электричество", "газ", "вода", "энергия"] },
+    "intents": [{ "id": "utilities.connect", "terms": ["connect electricity", "energy contract", "energiecontract afsluiten", "подключить электричество"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Record meter readings and the handover date when moving.", "Identify whether the issue concerns the supplier, network operator, landlord or municipality.", "Compare contract conditions and use the regulator's consumer guidance for disputes."],
+    "officialSources": [{ "name": "ACM ConsuWijzer — Energy", "url": "https://www.consuwijzer.nl/elektriciteit-en-gas" }]
+  },
+  {
+    "slug": "transport",
+    "title": "Transport",
+    "summary": "Public transport, OV payments, cycling, driving, parking and travel-planning routes.",
+    "aliases": { "en": ["transport", "public transport", "train", "bus", "OV card", "cycling"], "nl": ["vervoer", "openbaar vervoer", "trein", "bus", "OV-chipkaart", "fietsen"], "ru": ["транспорт", "общественный транспорт", "поезд", "автобус", "велосипед"] },
+    "intents": [{ "id": "transport.public", "terms": ["public transport", "train travel", "openbaar vervoer", "общественный транспорт"] }, { "id": "transport.ovpay", "terms": ["OV card", "OVpay", "OV-chipkaart", "оплата транспорта"] }],
+    "profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Choose public transport, cycling, driving or parking.", "Use the operator for a specific journey and national guidance for payment rules.", "Check local parking rules on the relevant municipality's official website."],
+    "officialSources": [{ "name": "Government.nl — Mobility, public transport and road safety", "url": "https://www.government.nl/topics/mobility-public-transport-and-road-safety" }, { "name": "OVpay", "url": "https://www.ovpay.nl/en" }]
+  },
+  {
+    "slug": "rules",
+    "title": "Rules",
+    "summary": "National and local rules, permits, duties and identifying which authority sets or enforces a requirement.",
+    "aliases": { "en": ["rules", "regulations", "law", "permit", "obligation"], "nl": ["regels", "wetgeving", "vergunning", "verplichting"], "ru": ["правила", "законы", "разрешение", "обязанность"] },
+    "intents": [{ "id": "rules.local", "terms": ["local rules", "municipal rules", "gemeentelijke regels", "местные правила"] }],
+    "profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Identify the activity, address and responsible authority.", "Separate national law from municipal rules and permits.", "Verify the current text or official service before acting."],
+    "officialSources": [{ "name": "Government of the Netherlands", "url": "https://www.government.nl/" }, { "name": "Overheid.nl", "url": "https://www.overheid.nl/english" }]
+  },
+  {
+    "slug": "fines",
+    "title": "Fines",
+    "summary": "Traffic and parking fines, official letters, payment routes and finding the correct objection or appeal process.",
+    "aliases": { "en": ["fine", "fines", "parking fine", "traffic fine", "ticket", "appeal fine"], "nl": ["boete", "parkeerboete", "verkeersboete", "bezwaar"], "ru": ["штраф", "штраф за парковку", "дорожный штраф", "обжаловать штраф"] },
+    "intents": [{ "id": "fines.parking", "terms": ["parking fine", "parkeerboete", "штраф за парковку"] }, { "id": "fines.appeal", "terms": ["appeal a fine", "object to fine", "bezwaar boete", "обжаловать штраф"] }],
+    "profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Read who issued the fine: municipality, CJIB or another authority.", "Use the objection or appeal instructions and date printed on the official notice.", "Do not send payment or identity data through an unverified link."],
+    "officialSources": [{ "name": "CJIB", "url": "https://www.cjib.nl/en" }]
+  },
+  {
+    "slug": "legal-help",
+    "title": "Legal help",
+    "summary": "Finding appropriate legal information, low-threshold advice, representation and urgent protection routes.",
+    "aliases": { "en": ["legal help", "lawyer", "legal advice", "rights", "court"], "nl": ["juridische hulp", "advocaat", "juridisch advies", "rechten", "rechtbank"], "ru": ["юридическая помощь", "адвокат", "правовая консультация", "права", "суд"] },
+    "intents": [{ "id": "legal.advice", "terms": ["need legal advice", "find a lawyer", "juridisch advies", "нужен юрист"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Record the issue, deadline, responsible organisation and documents you have.", "Use a low-threshold legal information service to identify the correct route.", "Treat court or objection deadlines as urgent and follow the official notice."],
+    "officialSources": [{ "name": "Het Juridisch Loket", "url": "https://www.juridischloket.nl/" }, { "name": "Dutch judiciary", "url": "https://www.rechtspraak.nl/English" }]
+  },
+  {
+    "slug": "family",
+    "title": "Family",
+    "summary": "Marriage, partnership, family records, family migration and finding the relevant official route.",
+    "aliases": { "en": ["family", "marriage", "partner", "family migration", "civil status"], "nl": ["familie", "huwelijk", "partner", "gezinsmigratie", "burgerlijke stand"], "ru": ["семья", "брак", "партнёр", "воссоединение семьи", "акты ЗАГС"] },
+    "intents": [{ "id": "family.records", "terms": ["marriage registration", "civil status record", "burgerlijke stand", "регистрация брака"] }, { "id": "family.migration", "terms": ["family reunification", "family migration", "gezinshereniging", "воссоединение семьи"] }],
+    "profiles": ["expat", "refugee", "worker", "resident"],
+    "startHere": ["Separate municipal civil-status matters from IND family-migration matters.", "Check whether foreign documents need translation or legalisation on the responsible authority's site.", "Use the exact route for your relationship and residence situation."],
+    "officialSources": [{ "name": "Government.nl — Family law", "url": "https://www.government.nl/topics/family-law" }, { "name": "IND — Family and partner", "url": "https://ind.nl/en/residence-permits/family-and-partner" }]
+  },
+  {
+    "slug": "children",
+    "title": "Children",
+    "summary": "Birth registration, childcare, school, youth healthcare and services for parents and children.",
+    "aliases": { "en": ["children", "child", "baby", "childcare", "birth registration"], "nl": ["kinderen", "kind", "baby", "kinderopvang", "geboorteaangifte"], "ru": ["дети", "ребёнок", "младенец", "детский сад", "регистрация рождения"] },
+    "intents": [{ "id": "children.birth", "terms": ["register a birth", "birth registration", "geboorteaangifte", "зарегистрировать рождение"] }, { "id": "children.childcare", "terms": ["find childcare", "daycare", "kinderopvang", "найти детский сад"] }],
+    "profiles": ["expat", "refugee", "worker", "resident", "student"],
+    "startHere": ["Choose birth registration, childcare, school, health or family support.", "Use your municipality for local registration and support routes.", "Verify benefit and childcare requirements separately with the responsible service."],
+    "officialSources": [{ "name": "Government.nl — Family, health and care", "url": "https://www.government.nl/topics/family-health-and-care" }]
+  },
+  {
+    "slug": "safety",
+    "title": "Safety",
+    "summary": "Police contact, reporting crime, scams, domestic safety and non-emergency support.",
+    "aliases": { "en": ["safety", "police", "report crime", "scam", "domestic violence"], "nl": ["veiligheid", "politie", "aangifte", "oplichting", "huiselijk geweld"], "ru": ["безопасность", "полиция", "заявить о преступлении", "мошенничество", "домашнее насилие"] },
+    "intents": [{ "id": "safety.police", "terms": ["contact police", "report crime", "aangifte doen", "обратиться в полицию"] }, { "id": "safety.scam", "terms": ["report scam", "fraud", "oplichting", "мошенничество"] }],
+    "profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["If there is immediate danger, use the emergency route.", "For non-emergency police matters, use the verified national police channel.", "Preserve messages, payment records or other evidence without sharing it publicly."],
+    "officialSources": [{ "name": "Politie Nederland", "url": "https://www.politie.nl/en" }]
+  },
+  {
+    "slug": "emergency",
+    "title": "Emergency",
+    "summary": "Immediate danger, urgent medical help and verified emergency contact routes in the Netherlands.",
+    "aliases": { "en": ["emergency", "urgent help", "ambulance", "fire", "police emergency", "112"], "nl": ["noodgeval", "spoed", "ambulance", "brandweer", "112"], "ru": ["экстренная помощь", "срочно", "скорая", "пожарные", "112"] },
+    "intents": [{ "id": "emergency.112", "terms": ["call 112", "life threatening emergency", "bel 112", "позвонить 112"] }],
+    "profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["For immediate danger to life or property, call 112.", "For urgent but non-life-threatening medical needs, contact your GP or the out-of-hours GP service.", "Do not delay emergency contact while searching for general information."],
+    "officialSources": [{ "name": "Government.nl — Emergency number 112", "url": "https://www.government.nl/topics/emergency-number-112" }]
+  },
+  {
+    "slug": "shopping",
+    "title": "Shopping",
+    "summary": "Consumer rights, returns, warranties, online purchases, complaints and avoiding misleading sellers.",
+    "aliases": { "en": ["shopping", "consumer rights", "return purchase", "warranty", "online shop"], "nl": ["winkelen", "consumentenrecht", "retourneren", "garantie", "webwinkel"], "ru": ["покупки", "права потребителя", "возврат", "гарантия", "интернет-магазин"] },
+    "intents": [{ "id": "shopping.return", "terms": ["return a purchase", "refund", "aankoop retourneren", "вернуть покупку"] }, { "id": "shopping.complaint", "terms": ["seller complaint", "consumer complaint", "klacht verkoper", "жалоба на продавца"] }],
+    "profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Keep the order, receipt, seller terms and written communication.", "Identify whether the purchase was online, in a shop or from a private seller.", "Use ACM ConsuWijzer for current Dutch consumer guidance."],
+    "officialSources": [{ "name": "ACM ConsuWijzer", "url": "https://www.consuwijzer.nl/" }]
+  },
+  {
+    "slug": "daily-life",
+    "title": "Daily life",
+    "summary": "Everyday practical questions, local routines, neighbourhood services and directing a question to the right domain.",
+    "aliases": { "en": ["daily life", "everyday life", "living in Netherlands", "local information"], "nl": ["dagelijks leven", "wonen in Nederland", "lokale informatie"], "ru": ["повседневная жизнь", "жизнь в Нидерландах", "местная информация"] },
+    "intents": [{ "id": "daily.start", "terms": ["new in Netherlands", "getting started", "nieuw in Nederland", "первые шаги в Нидерландах"] }],
+    "profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Name the task you need to complete rather than searching only for a broad topic.", "Add your municipality when the answer depends on local services.", "Use a specialised domain for legal, health, financial or emergency questions."],
+    "officialSources": [{ "name": "Government of the Netherlands", "url": "https://www.government.nl/" }]
+  },
+  {
+    "slug": "pets",
+    "title": "Pets",
+    "summary": "Bringing, registering and caring for pets, travel requirements and local animal-related rules.",
+    "aliases": { "en": ["pets", "dog", "cat", "bring pet", "vet"], "nl": ["huisdieren", "hond", "kat", "dier meenemen", "dierenarts"], "ru": ["домашние животные", "собака", "кошка", "ввезти животное", "ветеринар"] },
+    "intents": [{ "id": "pets.bring", "terms": ["bring pet to Netherlands", "travel with dog", "huisdier meenemen", "ввезти животное"] }, { "id": "pets.local", "terms": ["register dog", "dog tax", "hond registreren", "зарегистрировать собаку"] }],
+    "profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["For travel, check the animal, origin country and travel date against current official requirements.", "For local registration or tax, use the municipality's official site.", "Use a veterinarian for individual animal-health advice."],
+    "officialSources": [{ "name": "Netherlands Food and Consumer Product Safety Authority", "url": "https://english.nvwa.nl/topics/travelling-to-the-netherlands-with-your-dog-or-cat" }]
+  },
+  {
+    "slug": "business",
+    "title": "Business",
+    "summary": "Starting and running a business, registration, tax, permits, hiring and official entrepreneur support.",
+    "aliases": { "en": ["business", "start company", "entrepreneur", "self employed", "KVK"], "nl": ["bedrijf", "ondernemen", "zzp", "zelfstandig", "Kamer van Koophandel"], "ru": ["бизнес", "открыть компанию", "предприниматель", "самозанятый", "KVK"] },
+    "intents": [{ "id": "business.start", "terms": ["start a business", "register company", "bedrijf starten", "открыть бизнес"] }, { "id": "business.kvk", "terms": ["KVK registration", "Chamber of Commerce", "inschrijven KVK", "регистрация KVK"] }],
+    "profiles": ["expat", "refugee", "worker", "resident", "student"],
+    "startHere": ["Check whether your residence status allows the intended work or business activity.", "Use the official entrepreneur checklist to identify registration, tax and permit duties.", "Keep private commercial offers separate from mandatory public registrations."],
+    "officialSources": [{ "name": "Business.gov.nl", "url": "https://business.gov.nl/" }, { "name": "KVK", "url": "https://www.kvk.nl/en/" }]
+  },
+  {
+    "slug": "integration",
+    "title": "Integration",
+    "summary": "Civic integration, official notices, learning routes, examinations and support from the municipality or DUO.",
+    "aliases": { "en": ["integration", "civic integration", "inburgering", "integration exam"], "nl": ["inburgering", "inburgeren", "inburgeringsexamen"], "ru": ["интеграция", "инбургеринг", "экзамен по интеграции"] },
+    "intents": [{ "id": "integration.route", "terms": ["civic integration route", "inburgering route", "inburgeringsroute", "маршрут интеграции"] }, { "id": "integration.exam", "terms": ["integration exam", "inburgeringsexamen", "экзамен инбургеринг"] }],
+    "profiles": ["expat", "refugee", "worker", "resident"],
+    "startHere": ["Check which law and integration route apply to the date and basis of your obligation.", "Use the municipality and DUO roles shown in your official notice.", "Verify examination and payment information before booking or paying."],
+    "officialSources": [{ "name": "Inburgeren.nl", "url": "https://www.inburgeren.nl/en/" }]
+  },
+  {
+    "slug": "municipal-services",
+    "title": "Municipal services",
+    "summary": "Registration, address changes, civil records, permits, waste, parking and other services provided by your municipality.",
+    "aliases": { "en": ["municipal services", "municipality", "city hall", "local government", "register municipality"], "nl": ["gemeentezaken", "gemeente", "stadhuis", "gemeentelijke diensten", "inschrijven gemeente"], "ru": ["муниципальные услуги", "муниципалитет", "мэрия", "регистрация в gemeente"] },
+    "intents": [{ "id": "municipal.register", "terms": ["register municipality", "register gemeente", "gemeente registration", "inschrijven gemeente", "регистрация в муниципалитете"] }, { "id": "municipal.move", "terms": ["report address change", "report move", "verhuizing doorgeven", "сообщить о переезде"] }],
+    "profiles": ["student", "expat", "refugee", "worker", "resident"],
+    "startHere": ["Select your municipality because services and forms are local.", "Choose the exact task, such as BRP registration, moving, a certificate, parking or waste.", "Open the municipality's official site from its YouNew municipality page."],
+    "officialSources": [{ "name": "Government.nl — Municipalities", "url": "https://www.government.nl/topics/municipalities" }]
+  }
+]

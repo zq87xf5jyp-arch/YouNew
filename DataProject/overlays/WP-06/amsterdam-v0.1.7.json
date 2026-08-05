@@ -1,0 +1,102 @@
+{
+  "schema_version": 1,
+  "release_id": "amsterdam-v0.1.7",
+  "version": "0.1.7",
+  "status": "published",
+  "work_package": "WP-06",
+  "dataset": "Amsterdam City 01",
+  "base_release_id": "amsterdam-v0.1.6",
+  "supersedes": "amsterdam-v0.1.6",
+  "base_batch_sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "evidence": [
+    {
+      "id": "evidence.unity-concert-ended-2026-08-05",
+      "kind": "replacement_review",
+      "url": "https://pride.amsterdam/en/event/unity-concert/",
+      "checked_at": "2026-08-05",
+      "note": "The official Pride Amsterdam page was opened after the event ended and states that the UNITY Concert ran on 4 August 2026 from 17:30 to 23:00. The stable record is retired because its end date has passed."
+    }
+  ],
+  "replacements": [
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-unity-concert",
+      "original_canonical_sha256": "aa6e2d1ce48c9ac655b5156509bce8875431ba41778be445cac28016c438d5f9",
+      "replacement_canonical_sha256": "84ddff1cd2eb39e940385a886daa9b4afd0b169ac08e5281f679ee3b827a8b2d",
+      "reason": "The official event ended on 4 August 2026. Retire it from current public discovery while preserving its stable ID and source history.",
+      "evidence_refs": [
+        "evidence.unity-concert-ended-2026-08-05"
+      ],
+      "record": {
+        "id": "event.worldpride-amsterdam-2026-unity-concert",
+        "entity_type": "event",
+        "category": "concert",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3572706,
+          "longitude": 4.8815398
+        },
+        "title": "WorldPride Amsterdam 2026 UNITY Concert",
+        "description": "WorldPride Amsterdam 2026 UNITY Concert took place in Amsterdam on 4 August 2026. The official event page remains the responsible source for archival or updated information. This record is retired from current public discovery because its recorded end date has passed.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/47873224@N06/51367690375",
+            "asset_url": "https://live.staticflickr.com/65535/51367690375_ed21afac0d_b.jpg",
+            "license": "PDM",
+            "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+            "attribution": "\"CDA Verloop and the U.S. Mission community joins the #EqualRightsCoalition at Amsterdam’s Pride Walk\" by U.S. Embassy The Hague is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.event.worldpride-amsterdam-2026-unity-concert.hero.ba5177e02c"
+          }
+        ],
+        "official_source": {
+          "title": "WorldPride Amsterdam 2026 UNITY Concert official website",
+          "publisher": "Pride Amsterdam",
+          "url": "https://pride.amsterdam/en/event/unity-concert/",
+          "is_official": true,
+          "checked_at": "2026-08-05",
+          "status": "verified_opened"
+        },
+        "website": "https://pride.amsterdam/en/event/unity-concert/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-08-05",
+        "review_frequency_days": 30,
+        "verification_status": "verified",
+        "ai_summary": "WorldPride Amsterdam 2026 UNITY Concert ended on 4 August 2026 and is retired from current public discovery. Use the official Pride Amsterdam page for archival or updated information.",
+        "search_keywords": [
+          "WorldPride Amsterdam 2026 UNITY Concert",
+          "WorldPride Amsterdam 2026 UNITY Concert Amsterdam",
+          "concert",
+          "current event Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "retired",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 25965389",
+          "source_http_status": "200",
+          "source_final_url": "https://pride.amsterdam/en/event/unity-concert/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "1",
+          "start_date": "2026-08-04",
+          "end_date": "2026-08-04",
+          "retired_at": "2026-08-05",
+          "retirement_reason": "event_end_date_passed"
+        }
+      }
+    }
+  ]
+}

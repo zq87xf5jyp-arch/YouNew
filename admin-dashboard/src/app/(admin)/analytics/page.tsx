@@ -1,4 +1,4 @@
-import { Activity, Database, Gauge, ShieldCheck, Users } from "lucide-react";
+import { Activity, Database, Gauge, Search, ShieldCheck, Users } from "lucide-react";
 import { AnalyticsAutoRefresh } from "@/components/admin/analytics-auto-refresh";
 import { AnalyticsTrendChart } from "@/components/admin/analytics-trend-chart";
 import { PageHeader } from "@/components/admin/page-header";
@@ -51,7 +51,7 @@ export default async function AnalyticsPage() {
   const since = new Date(now);
   since.setUTCDate(since.getUTCDate() - 29);
   const sinceDate = since.toISOString().slice(0, 10);
-  const [dailyResult, funnelResult, healthResult] = supabase
+  const [dailyResult, funnelResult, healthResult, searchGapsResult, searchTasksResult] = supabase
     ? await Promise.all([
         supabase
           .from("analytics_daily_metrics")
@@ -64,9 +64,23 @@ export default async function AnalyticsPage() {
           .gte("metric_date", sinceDate),
         supabase
           .from("analytics_source_health")
-          .select("platform,total_events,active_instances,sessions,first_event_at,last_event_at,last_ingested_at,delayed_events,error_events")
+          .select("platform,total_events,active_instances,sessions,first_event_at,last_event_at,last_ingested_at,delayed_events,error_events"),
+        supabase
+          .from("analytics_search_gaps")
+          .select("normalized_query_safe,intent_ids,filter_city,filter_category,filter_profile,search_count,zero_result_count,average_result_count,result_open_count,result_open_rate,last_searched_at")
+          .order("zero_result_count", { ascending: false })
+          .order("search_count", { ascending: false })
+          .limit(30),
+        supabase
+          .from("search_improvement_tasks")
+          .select("normalized_query_safe,intent_ids,filter_city,filter_category,filter_profile,occurrence_count,status,priority,last_seen_at")
+          .in("status", ["observed", "open", "in_progress"])
+          .order("occurrence_count", { ascending: false })
+          .limit(30)
       ])
     : [
+        { data: null, error: new Error("not configured") },
+        { data: null, error: new Error("not configured") },
         { data: null, error: new Error("not configured") },
         { data: null, error: new Error("not configured") },
         { data: null, error: new Error("not configured") }
@@ -81,7 +95,9 @@ export default async function AnalyticsPage() {
   const connected = Boolean(supabase)
     && !dailyResult.error
     && !funnelResult.error
-    && !healthResult.error;
+    && !healthResult.error
+    && !searchGapsResult.error
+    && !searchTasksResult.error;
   const lastIngested = dashboard.lastIngestedAt
     ? new Date(dashboard.lastIngestedAt).toLocaleString("ru-RU", {
         dateStyle: "medium",
@@ -99,6 +115,30 @@ export default async function AnalyticsPage() {
   const eventRows = dashboard.topEvents.map((event) => ({
     event: event.eventName,
     count: event.events
+  }));
+  const searchGapRows = (searchGapsResult.data ?? []).map((row) => ({
+    query: row.normalized_query_safe,
+    intent: row.intent_ids,
+    city: row.filter_city,
+    category: row.filter_category,
+    profile: row.filter_profile,
+    searches: row.search_count,
+    zero_results: row.zero_result_count,
+    avg_results: row.average_result_count,
+    result_opens: row.result_open_count,
+    open_rate: percentFormatter.format(Number(row.result_open_rate ?? 0)),
+    last_seen: row.last_searched_at
+  }));
+  const searchTaskRows = (searchTasksResult.data ?? []).map((row) => ({
+    query: row.normalized_query_safe,
+    intent: row.intent_ids,
+    city: row.filter_city,
+    category: row.filter_category,
+    profile: row.filter_profile,
+    occurrences: row.occurrence_count,
+    status: row.status,
+    priority: row.priority,
+    last_seen: row.last_seen_at
   }));
   const changeNote = dashboard.sevenDayEventChange === null
     ? "Нет сопоставимого предыдущего 7-дневного периода"
@@ -187,6 +227,32 @@ export default async function AnalyticsPage() {
           </CardContent>
         </Card>
         <AnalyticsTrendChart points={dashboard.trend} />
+        <Card>
+          <CardHeader className="flex-row items-start gap-3">
+            <Search className="mt-1 text-cyan-200" />
+            <div>
+              <CardTitle>Качество поиска</CardTitle>
+              <CardDescription>Только контролируемые нормализованные термины; свободный текст, email, телефоны и длинные идентификаторы отбрасываются до отправки.</CardDescription>
+            </div>
+          </CardHeader>
+          <CardContent className="text-sm text-muted-foreground">
+            Нулевые ответы группируются по запросу и активным фильтрам. После 3 повторений сигнал автоматически становится открытой задачей; после 10 — критической.
+          </CardContent>
+        </Card>
+        <div className="grid gap-6 xl:grid-cols-2">
+          <CrudTable
+            title="Поисковые разрывы — 30 дней"
+            description="Нули, среднее число результатов и переходы по результатам."
+            rows={searchGapRows}
+            columns={["query", "intent", "city", "category", "profile", "searches", "zero_results", "avg_results", "result_opens", "open_rate", "last_seen"]}
+          />
+          <CrudTable
+            title="Автоматические задачи поиска"
+            description="Повторяющиеся privacy-safe zero-result комбинации."
+            rows={searchTaskRows}
+            columns={["query", "intent", "city", "category", "profile", "occurrences", "status", "priority", "last_seen"]}
+          />
+        </div>
         <div className="grid gap-6 xl:grid-cols-2">
           <CrudTable
             title="Платформы"
