@@ -60,7 +60,7 @@ const storageKey = "younew-admin-articles-v1";
 const emptyDraft: ArticleDraft = {
   title: "",
   slug: "",
-  category: "documents-services",
+  category: "documents",
   language: "ru",
   status: "draft",
   priority: 1,
@@ -401,13 +401,16 @@ export function ContentManager({
               <div className="flex flex-col gap-2"><Label>Категория</Label><Select value={draft.category} onValueChange={(value) => updateDraft("category", value)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectGroup>{Object.entries(categoryLabels).map(([value, label]) => <SelectItem value={value} key={value}>{label}</SelectItem>)}</SelectGroup></SelectContent></Select></div>
               <div className="flex flex-col gap-2"><Label>Статус</Label><Select value={draft.status} onValueChange={(value) => updateDraft("status", value as ArticleStatus)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectGroup>{Object.entries(statusLabels).map(([value, label]) => <SelectItem value={value} key={value} disabled={value === "published"}>{label}</SelectItem>)}</SelectGroup></SelectContent></Select></div>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-description">Короткое описание</Label><Input id="managed-description" value={draft.description} onChange={(event) => updateDraft("description", event.target.value)} /></div>
-              <fieldset className="grid gap-4 rounded-md border border-border bg-secondary/20 p-3 lg:col-span-2 lg:grid-cols-2">
+              <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-content">Полный текст</Label><Textarea id="managed-content" value={draft.content} onChange={(event) => updateDraft("content", event.target.value)} placeholder="Напишите текст материала…" /></div>
+              <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-source">Официальный источник</Label><Input id="managed-source" type="url" value={draft.source} onChange={(event) => updateDraft("source", event.target.value)} placeholder="https://www.government.nl/..." /></div>
+              <fieldset className="grid gap-4 rounded-md border border-border bg-secondary/20 p-4 lg:col-span-2 lg:grid-cols-2">
                 <legend className="px-1 text-sm font-medium">Search applicability — обязательные поля</legend>
-                <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-canonical-title">Canonical title</Label><Input id="managed-canonical-title" value={draft.canonicalTitle} onChange={(event) => updateDraft("canonicalTitle", event.target.value)} /></div>
-                <div className="flex flex-col gap-2"><Label htmlFor="managed-subcategory">Подкатегория</Label><Input id="managed-subcategory" value={draft.subcategory} onChange={(event) => updateDraft("subcategory", event.target.value)} /></div>
+                <p className="text-xs text-muted-foreground lg:col-span-2">Фильтры усиливают ранжирование, но не скрывают national guidance. Database publication gate блокирует неполную search metadata.</p>
+                <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-canonical-title">Canonical title</Label><Input id="managed-canonical-title" value={draft.canonicalTitle} onChange={(event) => updateDraft("canonicalTitle", event.target.value)} placeholder={draft.title || "Canonical search title"} /></div>
+                <div className="flex flex-col gap-2"><Label htmlFor="managed-subcategory">Подкатегория</Label><Input id="managed-subcategory" value={draft.subcategory} onChange={(event) => updateDraft("subcategory", event.target.value)} placeholder="rental-rights" /></div>
                 <div className="flex flex-col gap-2"><Label htmlFor="managed-quality">Content quality score, 0–100</Label><Input id="managed-quality" type="number" min={0} max={100} value={draft.contentQualityScore} onChange={(event) => updateDraft("contentQualityScore", Number(event.target.value))} /></div>
                 <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-intents">Intents</Label><Textarea id="managed-intents" value={draft.intents} onChange={(event) => updateDraft("intents", event.target.value)} placeholder="documents.bsn, documents.registration" /></div>
-                <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-synonyms">Synonyms / aliases</Label><Textarea id="managed-synonyms" value={draft.synonyms} onChange={(event) => updateDraft("synonyms", event.target.value)} placeholder="BSN, registration, inschrijving, регистрация" /></div>
+                <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-synonyms">Synonyms / aliases (EN, NL, RU)</Label><Textarea id="managed-synonyms" value={draft.synonyms} onChange={(event) => updateDraft("synonyms", event.target.value)} placeholder="BSN, registration, inschrijving, регистрация" /></div>
                 <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-keywords">Search keywords</Label><Input id="managed-keywords" value={draft.keywords} onChange={(event) => updateDraft("keywords", event.target.value)} /></div>
                 <div className="flex flex-col gap-2"><Label htmlFor="managed-languages">Supported languages</Label><Input id="managed-languages" value={draft.supportedLanguages} onChange={(event) => updateDraft("supportedLanguages", event.target.value)} placeholder="en, nl, ru" /></div>
                 <div className="flex flex-col gap-2"><Label htmlFor="managed-profiles">Applicable profiles</Label><Input id="managed-profiles" value={draft.applicableProfiles} onChange={(event) => updateDraft("applicableProfiles", event.target.value)} placeholder="student, expat, worker" /></div>
@@ -420,8 +423,6 @@ export function ContentManager({
                 <label className="flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1" checked={draft.nationalFallback} onChange={(event) => updateDraft("nationalFallback", event.target.checked)} />National fallback разрешён.</label>
                 <label className="flex items-start gap-2 text-sm"><input type="checkbox" className="mt-1" checked={draft.searchIndexed} onChange={(event) => updateDraft("searchIndexed", event.target.checked)} />Материал подтверждён в production search index.</label>
               </fieldset>
-              <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-content">Полный текст</Label><Textarea id="managed-content" value={draft.content} onChange={(event) => updateDraft("content", event.target.value)} placeholder="Напишите текст материала…" /></div>
-              <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-source">Официальный источник</Label><Input id="managed-source" type="url" value={draft.source} onChange={(event) => updateDraft("source", event.target.value)} placeholder="https://www.government.nl/..." /></div>
               <div className="rounded-md border border-cyan-400/20 bg-cyan-400/10 p-3 text-sm lg:col-span-2">
                 <p className="font-medium text-cyan-100">Verification evidence отделено от редактирования</p>
                 <p className="mt-1 text-xs text-muted-foreground">Изменение текста не обновляет reviewer, дату проверки или confidence. Используйте Trust & Review → Verified now после отдельной проверки источника.</p>

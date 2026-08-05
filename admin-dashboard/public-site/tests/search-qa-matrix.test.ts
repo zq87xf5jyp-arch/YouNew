@@ -129,7 +129,13 @@ test("official and common city aliases resolve to one municipality", () => {
 });
 
 test("canonical intent aliases outrank incidental entity titles", () => {
-  assert.equal(rankSearchDocuments(index.documents, "room", { limit: 1 })[0]?.document.id, "category.housing");
-  assert.equal(rankSearchDocuments(index.documents, "contract", { limit: 1 })[0]?.document.id, "category.work");
-  assert.equal(rankSearchDocuments(index.documents, "registration", { limit: 1 })[0]?.document.id, "category.documents");
+  assert.ok(
+    ["category.housing", "national.housing"].includes(rankSearchDocuments(index.documents, "room", { limit: 1 })[0]?.document.id ?? "")
+  );
+  assert.ok(
+    ["category.work", "national.work"].includes(rankSearchDocuments(index.documents, "contract", { limit: 1 })[0]?.document.id ?? "")
+  );
+  assert.ok(
+    ["category.documents", "national.documents"].includes(rankSearchDocuments(index.documents, "registration", { limit: 1 })[0]?.document.id ?? "")
+  );
 });

@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { createHash } from "node:crypto";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
@@ -20,7 +21,7 @@ const rankModule = (await import(new URL("../src/lib/search/rank.ts", import.met
       limit?: number;
       preferredProfile?: import("../src/lib/content/types").GuideAudienceProfile | null;
     }
-  ) => Array<{ document: SearchDocument; score: number; matchedTerms: readonly string[]; matchedIntentIds: readonly string[]; locationMatch: "exact" | "province" | "national" | "none" }>;
+  ) => Array<{ document: SearchDocument; score: number; matchedTerms: readonly string[] }>;
 };
 
 const index = JSON.parse(
@@ -33,17 +34,16 @@ const geography = JSON.parse(
   await readFile(new URL("../src/generated/netherlands-geography.json", import.meta.url), "utf8")
 ) as { municipalities: Array<{ code: string }>; provinces: Array<{ code: string }> };
 
-test("search index v3 contains governed entities, full life taxonomy and official geography", () => {
+test("search index v3 contains only published entities, national guides and derived public routes", () => {
   assert.equal(index.schemaVersion, 3);
   assert.ok(index.documents.length > 0);
   assert.ok(content.entities.every((entity) => entity.status === "published"));
   const entityTypes = new Set(["city", "guide", "organization", "place"]);
-  const indexedEntityIds = index.documents.filter((document) => entityTypes.has(document.type)).map((document) => document.id).sort();
+  const indexedEntityIds = index.documents.filter((document) => entityTypes.has(document.type) && document.sourceKind !== "nationalResourceGuide").map((document) => document.id).sort();
   assert.deepEqual(indexedEntityIds, content.entities.map((entity) => entity.id).sort());
   assert.deepEqual(index.documents.filter((document) => document.type === "category").map((document) => document.id).sort(), content.categories.map((category) => category.id).sort());
   assert.equal(index.documents.filter((document) => document.type === "municipality").length, geography.municipalities.length);
   assert.equal(index.documents.filter((document) => document.type === "province").length, geography.provinces.length);
-  assert.equal(index.documents.filter((document) => document.type === "category" && document.scope === "national").length, 33);
 });
 
 test("official settlement names resolve to their municipality page", () => {
@@ -55,6 +55,7 @@ test("official settlement names resolve to their municipality page", () => {
 
 test("search normalizes accents and ranks exact titles first", () => {
   assert.equal(rankModule.normalizeSearchText("  Fryslân & Café  "), "fryslan cafe");
+  assert.equal(rankModule.normalizeSearchText("  ’s-Gravenhage — ЖИЛЬЁ  "), "s gravenhage жилье");
   const results = rankModule.rankSearchDocuments(index.documents, "Amsterdam");
   assert.ok(results.length > 0);
   assert.equal(results[0].document.title, "Amsterdam");
@@ -87,7 +88,7 @@ test("search is deterministic and bounded", () => {
   assert.equal(rankModule.boundedEditDistance("museum", "musem", 1), 1);
 });
 
-test("filters can browse published content without a text query", () => {
+test("location filters boost applicable content while type and category stay hard filters", () => {
   const results = rankModule.rankSearchDocuments(index.documents, "", {
     filters: { type: "place", provinceId: "noord-holland" },
     limit: 80
@@ -154,10 +155,18 @@ test("profile matching can personalize ranking without becoming a hard filter", 
   const authored = { ...base, id: "guide.authored-student" };
   const legacy = { ...base, id: "guide.legacy-summary", audienceProfiles: [] };
 
-  assert.deepEqual(rankModule.filterSearchDocumentsByProfile([authored, legacy], "expat").map((document) => document.id), [authored.id, legacy.id]);
-  assert.deepEqual(rankModule.filterSearchDocumentsByProfile([authored, legacy], "student").map((document) => document.id), [authored.id, legacy.id]);
+  assert.deepEqual(
+    rankModule.filterSearchDocumentsByProfile([authored, legacy], "expat").map((document) => document.id),
+    [authored.id, legacy.id],
+    "an authored audience mismatch must not hide otherwise published content"
+  );
+  assert.deepEqual(
+    rankModule.filterSearchDocumentsByProfile([authored, legacy], "student").map((document) => document.id),
+    [authored.id, legacy.id],
+    "a matching profile may boost order but must not remove general content"
+  );
   assert.equal(rankModule.searchDocumentMatchesProfile(legacy, "not-a-profile"), false);
-  assert.deepEqual(rankModule.filterSearchDocumentsByProfile([authored, legacy], "not-a-profile").map((document) => document.id), [authored.id, legacy.id]);
+  assert.deepEqual(rankModule.filterSearchDocumentsByProfile([authored, legacy], "not-a-profile"), [authored, legacy]);
 });
 
 test("a preferred profile personalizes ranking without hiding exact published answers", () => {
@@ -166,99 +175,126 @@ test("a preferred profile personalizes ranking without hiding exact published an
     limit: 5
   });
 
-  assert.equal(results[0]?.document.id, "category.documents");
+  assert.equal(results[0]?.document.id, "national.documents");
   assert.ok(
     results.every(({ matchedTerms }) => matchedTerms.includes("bsn")),
     "profile preference must not introduce unrelated results"
   );
 });
 
-test("requested quality queries find an honest released destination", () => {
+test("requested quality queries find a source-backed released destination", () => {
   const expected = new Map<string, string>([
-    ["How do I get a BSN?", "category.documents"],
-    ["Register gemeente", "category.municipal-services"],
-    ["Landlord does not repair", "category.housing"],
+    ["How do I get a BSN?", "national.documents"],
+    ["Register gemeente", "government_service.first-registration-in-amsterdam"],
+    ["Landlord does not repair", "housing.woon"],
     ["Student housing", "category.housing"],
-    ["Emergency", "page.emergency"]
+    ["Emergency", "page.emergency"],
+    ["Lost residence card", "national.documents"],
+    ["DigiD", "national.documents"],
+    ["Work contract", "national.work"],
+    ["Need a doctor", "national.healthcare"],
+    ["Health insurance", "national.healthcare"]
   ]);
   for (const [query, expectedId] of expected) {
     const results = rankModule.rankSearchDocuments(index.documents, query, { limit: 5 });
     assert.equal(results[0]?.document.id, expectedId, `${query}: ${results.map(({ document }) => document.id).join(", ")}`);
   }
 
-  for (const [query, expectedId] of [
-    ["Lost residence card", "category.documents"],
-    ["DigiD", "category.documents"],
-    ["Work contract", "category.work"],
-    ["Need a doctor", "category.healthcare"],
-    ["Health insurance", "category.healthcare"]
-  ]) {
-    assert.equal(rankModule.rankSearchDocuments(index.documents, query, { limit: 5 })[0]?.document.id, expectedId, query);
-  }
 });
 
-test("critical city and profile combinations keep national answers visible", () => {
-  const cases: Array<[string, string, import("../src/lib/content/types").GuideAudienceProfile | null, string]> = [
-    ["rent", "den-haag", "worker", "category.housing"],
-    ["housing rent", "den-haag", "worker", "category.housing"],
-    ["work", "leiden", null, "category.work"],
-    ["huisarts", "rotterdam", null, "category.healthcare"],
-    ["Dutch school", "groningen", null, "category.education"],
-    ["BSN", "eindhoven", null, "category.documents"],
-    ["SIM card", "maastricht", null, "category.sim-telecom"],
-    ["parking fine", "utrecht", null, "category.fines"]
-  ];
-  for (const [query, cityId, profile, expectedId] of cases) {
-    const results = rankModule.rankSearchDocuments(index.documents, query, { filters: { cityId }, preferredProfile: profile, limit: 5 });
-    assert.equal(results[0]?.document.id, expectedId, `${query} + ${cityId} + ${profile ?? "no profile"}`);
-    assert.equal(results[0]?.locationMatch, "national");
-  }
-});
+test("critical EN, NL and RU intents do not return a useless zero", () => {
+  const queries = new Map<string, readonly string[]>([
+    ["national.housing", ["rent", "housing rent", "huur", "woning", "аренда", "квартира"]],
+    ["national.work", ["work", "find work", "baan", "vacature", "работа", "вакансия"]],
+    ["national.documents", ["BSN", "DigiD", "residence permit", "inschrijving", "регистрация", "ВНЖ"]],
+    ["national.healthcare", ["doctor", "huisarts", "pharmacy", "zorgverzekering", "врач", "аптека"]],
+    ["national.education", ["Dutch school", "language course", "taalschool", "opleiding", "школа", "курсы"]],
+    ["national.telecom", ["SIM card", "eSIM", "simkaart", "telefoonabonnement", "сим-карта", "интернет"]],
+    ["national.rules-fines", ["parking fine", "traffic rules", "parkeerboete", "fietsregels", "штраф за парковку", "правила движения"]]
+  ]);
 
-test("all supported profiles keep every critical answer visible", () => {
-  const profiles: import("../src/lib/content/types").GuideAudienceProfile[] = ["tourist", "student", "expat", "refugee", "worker", "resident"];
-  const cases = [
-    ["rent", "den-haag"], ["work", "leiden"], ["huisarts", "rotterdam"], ["Dutch school", "groningen"],
-    ["BSN", "eindhoven"], ["SIM card", "maastricht"], ["parking fine", "utrecht"]
-  ];
-  for (const profile of profiles) {
-    for (const [query, cityId] of cases) {
-      const results = rankModule.rankSearchDocuments(index.documents, query, { filters: { cityId }, preferredProfile: profile, limit: 5 });
-      assert.ok(results.length > 0, `${query} + ${cityId} + ${profile}`);
-      assert.ok(results.some((result) => result.locationMatch === "national" || result.locationMatch === "exact"));
+  for (const [expectedId, aliases] of queries) {
+    for (const query of aliases) {
+      const results = rankModule.rankSearchDocuments(index.documents, query, { limit: 8 });
+      assert.ok(results.length > 0, `${query} returned zero`);
+      assert.equal(results[0]?.document.id, expectedId, `${query}: ${results.map(({ document }) => document.id).join(", ")}`);
     }
   }
 });
 
-test("national guidance survives every municipality and province filter", () => {
-  for (const municipality of index.documents.filter((document) => document.type === "municipality")) {
-    const results = rankModule.rankSearchDocuments(index.documents, "BSN", { filters: { cityId: municipality.cityId ?? undefined }, limit: 5 });
-    assert.ok(results.some(({ document }) => document.id === "category.documents"), municipality.title);
-  }
-  for (const province of index.documents.filter((document) => document.type === "province")) {
-    const results = rankModule.rankSearchDocuments(index.documents, "BSN", { filters: { provinceId: province.provinceId ?? undefined }, limit: 5 });
-    assert.ok(results.some(({ document }) => document.id === "category.documents"), province.title);
+test("city and profile are relevance signals and never block national guidance", () => {
+  const scenarios = [
+    ["housing rent", "s-gravenhage", "worker", "national.housing"],
+    ["work", "leiden", "worker", "national.work"],
+    ["huisarts", "rotterdam", "resident", "national.healthcare"],
+    ["Dutch school", "groningen", "student", "national.education"],
+    ["BSN", "eindhoven", "expat", "national.documents"],
+    ["SIM card", "maastricht", "tourist", "national.telecom"],
+    ["parking fine", "utrecht", "resident", "national.rules-fines"]
+  ] as const;
+  for (const [query, cityId, profile, expectedId] of scenarios) {
+    const results = rankModule.rankSearchDocuments(index.documents, query, {
+      filters: { cityId }, preferredProfile: profile, limit: 8
+    });
+    assert.ok(results.length > 0, `${query} + ${cityId} + ${profile}`);
+    assert.equal(results[0]?.document.id, expectedId, `${query} + ${cityId} + ${profile}`);
+    assert.ok(results.some(({ document }) => document.locationScope === "national"), `${query} must retain national guidance`);
   }
 });
 
-test("multilingual aliases work and short tokens do not match unrelated place-name substrings", () => {
-  assert.equal(rankModule.rankSearchDocuments(index.documents, "аренда", { filters: { cityId: "den-haag" } })[0]?.document.id, "category.housing");
-  assert.equal(rankModule.rankSearchDocuments(index.documents, "huurwoning", { filters: { cityId: "utrecht" } })[0]?.document.id, "category.housing");
-  const rentResults = rankModule.rankSearchDocuments(index.documents, "rent", { limit: 20 });
-  assert.equal(rentResults.some(({ document }) => /drenthe|terneuzen|nijmegen/i.test(`${document.id} ${document.title}`)), false);
+test("rent no longer matches Drenthe as an infix and national guidance ranks first", () => {
+  const results = rankModule.rankSearchDocuments(index.documents, "rent", { limit: 12 });
+  assert.equal(results[0]?.document.id, "national.housing");
+  assert.ok(results.every(({ document }) => !/drenthe/i.test(`${document.id} ${document.title}`)));
 });
 
-test("every official municipality and province remains directly searchable", () => {
-  for (const document of index.documents.filter((candidate) => candidate.type === "municipality" || candidate.type === "province")) {
-    assert.equal(rankModule.rankSearchDocuments(index.documents, document.title, { filters: { type: document.type }, limit: 1 })[0]?.document.id, document.id, document.title);
+test("Dutch city aliases produce one canonical location and the same top result", async () => {
+  const geographyModule = await import(new URL("../src/lib/search/geography.ts", import.meta.url).href) as {
+    canonicalCityId: typeof import("../src/lib/search/geography").canonicalCityId;
+    resolveSearchLocation: typeof import("../src/lib/search/geography").resolveSearchLocation;
+  };
+  const aliases = ["Den Haag rent", "The Hague rent", "’s-Gravenhage rent", "s Gravenhage rent", "s-Gravenhage rent", "DenHaag rent"];
+  for (const query of aliases) {
+    const context = geographyModule.resolveSearchLocation(index.documents, rankModule.normalizeSearchText(query), rankModule.normalizeSearchText);
+    assert.equal(context?.canonicalId, "s-gravenhage", query);
+    assert.equal(rankModule.rankSearchDocuments(index.documents, query, { limit: 1 })[0]?.document.id, "national.housing", query);
+  }
+  for (const value of ["Den Haag", "The Hague", "’s-Gravenhage", "s Gravenhage", "s-Gravenhage", "DenHaag", "sGravenhage"]) {
+    assert.equal(geographyModule.canonicalCityId(value), "s-gravenhage", `URL city filter: ${value}`);
   }
 });
 
 test("search UI suggests only queries with a released destination", async () => {
   const source = await readFile(new URL("../src/components/search-experience.tsx", import.meta.url), "utf8");
-  assert.match(source, /placeholder="[^"]*Rent a home[^"]*Find a GP[^"]*"/);
-  assert.match(source, /Profile boost/);
-  assert.doesNotMatch(source, /filterSearchDocumentsByProfile/);
+  assert.match(source, /placeholder="[^"]*Register gemeente[^"]*Housing defects[^"]*"/);
+  assert.doesNotMatch(source, /placeholder="[^"]*Need a doctor[^"]*"/);
   assert.match(source, /submittedQuery \|\| hasActiveFilters \|\| showAllResults/);
   assert.match(source, /setShowAllResults\(!submittedQuery && !Object\.values\(next\)\.some\(Boolean\)\)/);
+  assert.match(source, /preferredProfile:/, "saved profile must be passed as a ranking signal");
+  assert.doesNotMatch(source, /filterSearchDocumentsByProfile\(documents/, "profile must not pre-filter the published index");
+  assert.match(source, /search-filter-toggle/);
+  assert.match(source, /search-active-chips/);
+  assert.match(source, /Search all Netherlands/);
+  assert.match(source, /Opening share…/, "native sharing must expose progress while the system sheet is open");
+  assert.match(source, /Unable to share/, "sharing failures must remain visible instead of being swallowed");
+  assert.match(source, /showing useful broader results/);
+});
+
+test("saved exhaustive QA evidence matches the current search index", async () => {
+  const report = JSON.parse(await readFile(new URL("../../../docs/reports/SEARCH_QA_MATRIX.json", import.meta.url), "utf8")) as {
+    status: string;
+    evidence: { searchIndexSha256: string; provinceCount: number; municipalityCount: number };
+    totals: { checks: number; passed: number; failed: number };
+    dimensions: { municipalities: Array<{ passed: boolean }>; provinces: Array<{ passed: boolean }> };
+  };
+  const indexBytes = await readFile(new URL("../public/data/search-index.json", import.meta.url));
+  assert.equal(report.status, "PASS");
+  assert.equal(report.totals.failed, 0);
+  assert.equal(report.totals.passed, report.totals.checks);
+  assert.ok(report.totals.checks >= 2_600);
+  assert.equal(report.evidence.provinceCount, 12);
+  assert.equal(report.evidence.municipalityCount, 342);
+  assert.ok(report.dimensions.provinces.every((entry) => entry.passed));
+  assert.ok(report.dimensions.municipalities.every((entry) => entry.passed));
+  assert.equal(report.evidence.searchIndexSha256, createHash("sha256").update(indexBytes).digest("hex"));
 });

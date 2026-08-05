@@ -1,0 +1,239 @@
+{
+  "schemaVersion": 1,
+  "verifiedAt": "2026-08-05",
+  "guides": [
+    {
+      "id": "national.housing",
+      "slug": "housing-and-renting",
+      "title": "Housing and renting in the Netherlands",
+      "summary": "A national starting point for renting, contracts, deposits, tenant rights, housing benefit and local housing support.",
+      "category": "housing",
+      "subcategories": ["private-rent", "social-housing", "temporary-housing", "contracts", "deposits", "tenant-rights", "rent-benefit", "housing-scams"],
+      "intents": ["housing", "benefits", "legal-help"],
+      "synonyms": {
+        "en": ["rent", "housing rent", "apartment", "room", "private rental", "social housing", "rental contract", "deposit", "tenant rights", "rent benefit", "housing scam"],
+        "nl": ["huur", "huren", "woning", "kamer", "sociale huur", "huurcontract", "borg", "huurrecht", "huurtoeslag"],
+        "ru": ["аренда", "жильё", "квартира", "комната", "социальное жильё", "договор аренды", "депозит", "права арендатора"]
+      },
+      "keywords": ["Huurcommissie", "rent tribunal", "landlord", "maintenance", "service costs", "registration at an address"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national",
+      "nationalFallback": true,
+      "qualityScore": 92,
+      "sections": {
+        "what": "Rental rules and routes differ for social, mid-price and private-sector housing. Start with the national rules, then check the municipality and the exact contract before acting.",
+        "who": "Use this route if you are looking for a room or home, checking a tenancy agreement, dealing with maintenance or service costs, or checking whether an allowance may apply.",
+        "steps": [
+          "Identify whether the offer is a room, self-contained home, social, mid-price or private-sector rental.",
+          "Read the complete tenancy agreement and verify the landlord or agent before transferring money.",
+          "Check whether registration at the address is possible and which municipality handles the address.",
+          "Use the national tenant guidance and Huurcommissie route for rent, maintenance or service-cost questions.",
+          "Check the municipality for local permits, housing teams and local support."
+        ],
+        "documents": ["The exact documents depend on the provider and your situation. Keep the proposed contract, written offer, payment evidence and relevant correspondence; verify any additional request with the responsible official source."],
+        "cost": "YouNew does not reproduce changing rent limits, fees or allowance amounts. Check the dated official source before making a financial decision.",
+        "timing": "Waiting times and application periods differ by housing route and municipality. The responsible provider or authority is the source for current timing.",
+        "problems": ["For a dispute about rent, maintenance or service costs, use the Huurcommissie guidance to check whether it can handle the case.", "For suspected fraud or pressure to pay before verification, stop and verify the provider and contract independently.", "For local registration or permit questions, contact the municipality for the address."],
+        "mistakes": ["Treating every rental as governed by the same rules.", "Paying before verifying the home, provider and written terms.", "Assuming an address can be registered without checking."],
+        "localDifferences": "Selecting a city keeps this national guidance visible and adds verified province, municipality and local results when they exist. It never invents local services."
+      },
+      "relatedTopics": ["documents", "benefits", "legal-help", "utilities"],
+      "officialSources": [
+        {"title": "Rented housing", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/building-and-housing/housing/rented-housing", "checkedAt": "2026-08-05"},
+        {"title": "English information", "publisher": "Huurcommissie", "url": "https://www.huurcommissie.nl/huurcommissie-helpt/english-information", "checkedAt": "2026-08-05"}
+      ]
+    },
+    {
+      "id": "national.work",
+      "slug": "work-and-employment",
+      "title": "Work and employment in the Netherlands",
+      "summary": "A national route for finding work and checking contracts, pay, working conditions, sick leave, dismissal and UWV services.",
+      "category": "work",
+      "subcategories": ["job-search", "contracts", "salary", "minimum-wage", "payslip", "holiday-allowance", "sick-leave", "dismissal", "uwv", "agency-work", "self-employment"],
+      "intents": ["work", "legal-help", "business"],
+      "synonyms": {"en": ["work", "find work", "looking for a job", "job", "vacancy", "employment", "work contract", "salary", "minimum wage", "sick leave", "UWV"], "nl": ["werk", "werk zoeken", "baan", "vacature", "arbeidscontract", "salaris", "minimumloon", "ziekteverlof", "UWV"], "ru": ["работа", "найти работу", "вакансия", "трудовой договор", "зарплата", "минимальная зарплата", "больничный"]},
+      "keywords": ["employment contract", "collective labour agreement", "working conditions", "dismissal", "agency work", "discrimination"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national",
+      "nationalFallback": true,
+      "qualityScore": 91,
+      "sections": {
+        "what": "Dutch employment rules cover contracts, pay, working time, leave, illness, working conditions and ending employment. The applicable route depends on your contract and status.",
+        "who": "Use this route when looking for a job, reviewing an offer or contract, checking pay or leave, reporting unsafe work, or dealing with unemployment or dismissal.",
+        "steps": ["Identify whether the role is direct employment, agency work, self-employment or another contract form.", "Keep the written offer and contract and check the employer, hours, pay components and applicable collective agreement.", "Use official Government.nl guidance for employment rules and Werk.nl or UWV for the relevant work or unemployment service.", "Use an official labour or legal-help route when terms are unclear or a problem cannot be resolved."],
+        "documents": ["Requirements depend on the employer and legal route. Keep the contract, payslips, work schedule and relevant correspondence; verify identity or residence-document requests with the responsible authority."],
+        "cost": "YouNew does not reproduce changing salary thresholds, benefit amounts or service fees. Use the current official calculation or decision.",
+        "timing": "Application, notice and objection periods depend on the specific process. Check the official page or decision immediately rather than relying on a generic deadline.",
+        "problems": ["For unemployment or work-service questions, use UWV or Werk.nl.", "For unsafe or unfair working conditions, use the official labour-inspection or legal-help route appropriate to the issue."],
+        "mistakes": ["Starting without understanding the contract form.", "Relying on verbal promises that are absent from the written terms.", "Using an outdated wage or notice-period figure."],
+        "localDifferences": "Most employment rules are national. City selection adds verified local job services when available but cannot hide this national route."
+      },
+      "relatedTopics": ["documents", "taxes", "business", "legal-help"],
+      "officialSources": [
+        {"title": "Work", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/work", "checkedAt": "2026-08-05"},
+        {"title": "Werk.nl for jobseekers", "publisher": "UWV", "url": "https://www.werk.nl/werkzoekenden/", "checkedAt": "2026-08-05"}
+      ]
+    },
+    {
+      "id": "national.documents",
+      "slug": "documents-registration-and-digid",
+      "title": "BSN, registration, DigiD and residence documents",
+      "summary": "A national route that separates municipal registration and BSN, DigiD, address changes and IND residence documents.",
+      "category": "documents",
+      "subcategories": ["bsn", "brp", "digid", "municipality-registration", "address-change", "residence-documents"],
+      "intents": ["documents", "government", "integration"],
+      "synonyms": {"en": ["BSN", "DigiD", "registration", "BRP", "residence permit", "residence card", "lost residence card", "residence permit stolen", "change address"], "nl": ["burgerservicenummer", "DigiD", "inschrijving", "BRP", "verblijfsvergunning", "verblijfsdocument", "verblijfsdocument kwijt", "verhuizing"], "ru": ["BSN", "DigiD", "регистрация", "ВНЖ", "вид на жительство", "потерял вид на жительство", "смена адреса", "муниципалитет"]},
+      "keywords": ["citizen service number", "personal records database", "municipality appointment", "IND"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national",
+      "nationalFallback": true,
+      "qualityScore": 94,
+      "sections": {
+        "what": "BSN, BRP registration, DigiD and residence documents are related but different. Municipalities handle local registration routes, DigiD is the government login service, and IND handles residence applications and documents.",
+        "who": "Use this route when you need a BSN, need to register or change an address, need DigiD, or need the correct IND residence-document route.",
+        "steps": ["Choose the exact task: BSN, municipality registration, DigiD, address change or an IND residence matter.", "For registration, open the official municipality page for the address and check its current appointment and document list.", "Use the official DigiD site for application, activation and recovery.", "Use IND for residence-permit and residence-document procedures.", "Do not send identity documents through an unofficial form or contact route."],
+        "documents": ["The required documents depend on the task and personal situation. Use the official municipality, DigiD or IND checklist for the exact application."],
+        "cost": "Fees depend on the procedure and can change. Use the current official page or formal decision.",
+        "timing": "Appointment availability and decision periods differ. The responsible municipality, DigiD or IND page is authoritative for current timing.",
+        "problems": ["If a municipality route is unclear, use its official contact page.", "For DigiD access problems, use DigiD support without sharing login credentials.", "For a residence case, use the IND route that matches the permit or document."],
+        "mistakes": ["Treating DigiD as a BSN application.", "Using the wrong municipality for an address.", "Uploading identity documents to an unverified website."],
+        "localDifferences": "Municipal registration and appointments are local. The national explanation and official national services remain available for every selected city."
+      },
+      "relatedTopics": ["government", "integration", "work", "housing"],
+      "officialSources": [
+        {"title": "Citizen service number (BSN)", "publisher": "NetherlandsWorldwide", "url": "https://www.netherlandsworldwide.nl/bsn", "checkedAt": "2026-08-05"},
+        {"title": "Apply and activate DigiD", "publisher": "DigiD", "url": "https://www.digid.nl/en/apply-and-activate", "checkedAt": "2026-08-05"},
+        {"title": "Residence permits", "publisher": "Immigration and Naturalisation Service", "url": "https://ind.nl/en/residence-permits", "checkedAt": "2026-08-05"}
+      ]
+    },
+    {
+      "id": "national.healthcare",
+      "slug": "healthcare-doctor-and-insurance",
+      "title": "Healthcare, huisarts and health insurance",
+      "summary": "A national starting point for huisarts care, hospitals, pharmacies, dentists, urgent care and Dutch health insurance.",
+      "category": "healthcare",
+      "subcategories": ["huisarts", "hospital", "huisartsenpost", "pharmacy", "dentist", "specialist", "mental-health", "health-insurance", "emergency-care"],
+      "intents": ["healthcare", "insurance", "emergency"],
+      "synonyms": {"en": ["doctor", "GP", "hospital", "dentist", "pharmacy", "health insurance", "mental health"], "nl": ["huisarts", "huisartsenpost", "ziekenhuis", "tandarts", "apotheek", "zorgverzekering", "geestelijke gezondheidszorg"], "ru": ["врач", "терапевт", "больница", "стоматолог", "аптека", "медицинская страховка"]},
+      "keywords": ["general practitioner", "urgent care", "specialist referral", "prescription medicine"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national",
+      "nationalFallback": true,
+      "qualityScore": 92,
+      "sections": {
+        "what": "Dutch healthcare uses different routes for routine primary care, urgent care, hospital care and emergencies. Insurance questions are separate from finding the right care route.",
+        "who": "Use this route to find a huisarts, understand which care route to use, locate a hospital or pharmacy, or check official health-insurance information.",
+        "steps": ["For immediate life-threatening danger, use the emergency route and call 112.", "For non-emergency care, identify whether you need routine huisarts care, urgent out-of-hours care, dental care, a pharmacy or another service.", "Use the official health-insurance guidance for coverage obligations and choices.", "Use verified local results or the municipality and insurer directories; call the provider to confirm availability."],
+        "documents": ["A provider or insurer may require identification, insurance details or a referral depending on the service. Confirm the exact requirement with that provider."],
+        "cost": "Coverage and personal costs depend on the service and policy. Verify them with the insurer and provider before non-emergency treatment when possible.",
+        "timing": "Availability varies by provider and urgency. Do not delay emergency care while checking a directory.",
+        "problems": ["If you cannot find a local huisarts accepting patients, ask your insurer for its current care-finding route.", "For urgent but non-life-threatening problems outside normal hours, use the local official out-of-hours route."],
+        "mistakes": ["Using an emergency route for routine administration.", "Assuming every provider has the same availability or insurance contract.", "Treating a directory entry as confirmation that new patients are accepted."],
+        "localDifferences": "Provider availability is local and changes. YouNew shows only verified local entries and keeps national healthcare guidance visible."
+      },
+      "relatedTopics": ["insurance", "emergency", "documents", "family"],
+      "officialSources": [
+        {"title": "Health insurance", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/health-insurance", "checkedAt": "2026-08-05"},
+        {"title": "Thuisarts", "publisher": "Dutch College of General Practitioners", "url": "https://www.thuisarts.nl/", "checkedAt": "2026-08-05"}
+      ]
+    },
+    {
+      "id": "national.education",
+      "slug": "education-and-learning-dutch",
+      "title": "Education and learning Dutch",
+      "summary": "A national route for schools, MBO, HBO, university, adult learning, Dutch courses, NT2, Taalhuis and diploma questions.",
+      "category": "education",
+      "subcategories": ["schools", "dutch-courses", "language-schools", "taalhuis", "mbo", "hbo", "university", "adult-education", "student-finance", "diploma-recognition"],
+      "intents": ["education", "language-learning", "integration"],
+      "synonyms": {"en": ["Dutch school", "Dutch course", "language school", "study", "university", "MBO", "HBO", "adult education", "diploma recognition"], "nl": ["Nederlandse les", "taalschool", "Taalhuis", "opleiding", "universiteit", "MBO", "HBO", "volwassenenonderwijs", "diplomawaardering"], "ru": ["голландская школа", "курсы голландского", "языковая школа", "учёба", "университет", "признание диплома"]},
+      "keywords": ["DUO", "NT2", "B1", "B2", "student finance", "library language activities"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national",
+      "nationalFallback": true,
+      "qualityScore": 91,
+      "sections": {
+        "what": "Education routes include school, MBO, HBO, university, adult learning and Dutch-language learning. Admission, fees and finance depend on the programme and personal situation.",
+        "who": "Use this route when choosing an education level, looking for Dutch lessons, checking DUO services, or finding the responsible route for a diploma.",
+        "steps": ["Choose the goal: compulsory school, vocational or higher education, adult learning, Dutch language or diploma recognition.", "Use the official education overview and the institution's own admission information.", "Use DUO for the relevant registration, finance, exam or diploma service.", "For local Dutch practice and Taalhuis activities, check the municipality or public library and verify the current programme."],
+        "documents": ["Admission and finance documents depend on the institution, level, nationality and situation. Use the exact institution and DUO checklist."],
+        "cost": "Course fees, tuition and finance amounts change. YouNew links to the authoritative provider instead of storing an amount.",
+        "timing": "Application and enrolment periods differ by programme. Check them before relying on a general academic calendar.",
+        "problems": ["Contact the institution for admission or enrolment issues.", "Use DUO for its official service or decision.", "For local language support, check a verified municipality or library route."],
+        "mistakes": ["Assuming every Dutch course is an approved civic-integration school.", "Missing an institution-specific application period.", "Using an unofficial diploma or finance service."],
+        "localDifferences": "Schools, courses, libraries and Taalhuis activities are local. National education and DUO guidance remains visible for every city."
+      },
+      "relatedTopics": ["integration", "documents", "work", "finance"],
+      "officialSources": [
+        {"title": "Education", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/education", "checkedAt": "2026-08-05"},
+        {"title": "Student finance", "publisher": "DUO", "url": "https://duo.nl/particulier/student-finance/", "checkedAt": "2026-08-05"}
+      ]
+    },
+    {
+      "id": "national.telecom",
+      "slug": "sim-phone-and-internet",
+      "title": "SIM cards, phone contracts and internet",
+      "summary": "A national consumer route for prepaid SIM, eSIM, mobile contracts, internet services, switching and provider complaints.",
+      "category": "telecom",
+      "subcategories": ["sim-card", "prepaid", "esim", "phone-contract", "mobile", "internet", "switching", "complaints"],
+      "intents": ["telecom", "internet", "daily-life"],
+      "synonyms": {"en": ["SIM", "SIM card", "prepaid", "eSIM", "phone contract", "mobile", "internet"], "nl": ["simkaart", "prepaid", "eSIM", "telefoonabonnement", "mobiel", "internet"], "ru": ["SIM-карта", "сим карта", "предоплата", "eSIM", "мобильная связь", "телефонный контракт", "интернет"]},
+      "keywords": ["telecom provider", "subscription", "coverage", "switching", "complaint"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national",
+      "nationalFallback": true,
+      "qualityScore": 88,
+      "sections": {
+        "what": "Mobile and internet offers differ by provider, contract form, coverage and identity checks. ACM ConsuWijzer publishes independent consumer guidance in Dutch.",
+        "who": "Use this route when choosing prepaid or a contract, comparing eSIM or physical SIM options, arranging internet, switching or handling a provider complaint.",
+        "steps": ["Choose prepaid or a contract and check whether the device supports the required SIM type.", "Compare the complete contract, duration, cancellation and coverage information directly with providers.", "Verify identity and payment requests on the provider's official domain.", "Use ACM ConsuWijzer for independent consumer guidance and complaints routes."],
+        "documents": ["Provider requirements differ. Confirm identification, address and payment requirements directly with the provider before starting an order."],
+        "cost": "Plans and promotions change frequently. YouNew does not rank providers or reproduce prices.",
+        "timing": "Activation and installation times are provider-specific. Check the order confirmation and provider status.",
+        "problems": ["Contact the provider first for activation, billing or cancellation issues.", "Use the independent ACM consumer route if the problem is not resolved."],
+        "mistakes": ["Choosing only by a temporary headline price.", "Ignoring contract duration or cancellation terms.", "Sending identity documents to an unverified seller."],
+        "localDifferences": "Coverage and fixed-network availability depend on the exact address. YouNew does not request or store a precise address."
+      },
+      "relatedTopics": ["internet", "daily-life", "shopping"],
+      "officialSources": [
+        {"title": "Telephone, internet and television", "publisher": "ACM ConsuWijzer", "url": "https://consument.acm.nl/telefoon-internet-en-televisie", "checkedAt": "2026-08-05"}
+      ]
+    },
+    {
+      "id": "national.rules-fines",
+      "slug": "rules-and-fines",
+      "title": "Rules, traffic and fines in the Netherlands",
+      "summary": "A national route for traffic and bicycle rules, CJIB letters and fines, with municipality links for parking, waste, noise and local rules.",
+      "category": "rules",
+      "subcategories": ["traffic-rules", "bicycle-rules", "parking-fines", "traffic-fines", "waste-rules", "noise", "pets", "municipal-rules"],
+      "intents": ["rules", "fines", "transport", "government", "legal-help"],
+      "synonyms": {"en": ["parking fine", "traffic fine", "traffic rules", "bicycle rules", "waste fine", "municipal rules"], "nl": ["parkeerboete", "verkeersboete", "verkeersregels", "fietsregels", "afvalboete", "gemeentelijke regels"], "ru": ["штраф за парковку", "дорожный штраф", "правила движения", "правила для велосипедов", "штраф за мусор"]},
+      "keywords": ["CJIB", "fine letter", "appeal information", "municipality parking", "waste rules"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national",
+      "nationalFallback": true,
+      "qualityScore": 90,
+      "sections": {
+        "what": "National traffic enforcement and CJIB correspondence are different from municipality parking, waste, noise and other local rules. Start with the issuer shown on the official notice.",
+        "who": "Use this route when checking a traffic or parking fine, road or bicycle rules, a CJIB letter, or a municipality rule.",
+        "steps": ["Read the notice and identify the issuer, reference and official response route.", "For a CJIB notice, use the official CJIB website typed or opened independently.", "For municipality parking, waste or noise matters, use the selected municipality's official website.", "Check the official decision for the applicable payment, objection or appeal route and date."],
+        "documents": ["Keep the original notice, reference, date and any evidence. The official notice states the exact information required for payment or challenge."],
+        "cost": "YouNew does not reproduce fine amounts or payment details. Use only the official notice and official authority website.",
+        "timing": "Deadlines are case-specific and legally important. Follow the date and route on the official notice immediately.",
+        "problems": ["If a payment request looks suspicious, do not use its link; navigate independently to the named authority.", "Use the formal objection or appeal information in the decision rather than a generic contact form."],
+        "mistakes": ["Assuming every parking fine is issued by the same authority.", "Paying through an unverified message or QR code.", "Missing a case-specific deadline while searching for general information."],
+        "localDifferences": "Parking, waste, noise and pet rules can be municipal. City selection adds the verified municipality site and never removes national CJIB or traffic guidance."
+      },
+      "relatedTopics": ["transport", "government", "legal-help", "pets"],
+      "officialSources": [
+        {"title": "CJIB English", "publisher": "Central Judicial Collection Agency", "url": "https://www.cjib.nl/en", "checkedAt": "2026-08-05"}
+      ]
+    }
+  ]
+}

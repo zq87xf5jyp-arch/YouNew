@@ -18,6 +18,14 @@ fi
 mkdir -p "$(dirname "$association_payload")"
 mv "$association_source" "$association_payload"
 
+service_worker_source="$project_root/dist/client/sw.js"
+service_worker_payload="$payload_root/sw.js.payload"
+if [[ ! -f "$service_worker_source" ]]; then
+  echo "Sites packaging failed: service worker is missing." >&2
+  exit 1
+fi
+mv "$service_worker_source" "$service_worker_payload"
+
 html_count=0
 while IFS= read -r -d '' html_file; do
   relative_path=${html_file#"$project_root/dist/client/"}

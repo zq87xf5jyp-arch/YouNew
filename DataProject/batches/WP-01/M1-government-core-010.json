@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-01-M1-government-core-010",
+  "work_package": "WP-01",
+  "milestone": "WP-01-M1",
+  "target_release": "government-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-08-05",
+    "build": "Admin production build generated 32 routes and public-site production build generated 609 static pages successfully.",
+    "static": "Data Project, priority research, practical-guide and content-readiness integrity checks passed with the new records.",
+    "duplicate": "Data Project QA validated unique entity IDs, normalized titles, canonical websites and cross-batch relations across 454 governed records.",
+    "source": "The exact HTTPS pages from UWV, Rijksoverheid and De Nederlandsche Bank were opened and reviewed on 2026-08-05; each record limits its claims to the responsible primary source.",
+    "media": "The records intentionally contain no media assets, so no unverified or unlicensed media is introduced.",
+    "search": "Every record has at least three distinct search terms and every related entity ID resolves in the governed catalogue.",
+    "ai": "Every AI summary passed the Data Project substantive-length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "government.finding-work-with-uwv",
+      "entity_type": "government_service",
+      "category": "employment",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Find work through UWV, EURES and werk.nl",
+      "description": "UWV coordinates the EURES network in the Netherlands and points jobseekers to official job-search support. The available route depends on nationality and residence status; people with a BSN and DigiD can also use werk.nl for vacancies and jobseeker resources.",
+      "images": [],
+      "official_source": {
+        "title": "Working in the Netherlands as an EU/EEA or Swiss national",
+        "publisher": "UWV",
+        "url": "https://www.uwv.nl/en/individuals/working-in-the-netherlands/eu-eea-swiss-national",
+        "is_official": true,
+        "checked_at": "2026-08-05",
+        "status": "verified_opened"
+      },
+      "website": "https://www.uwv.nl/en/individuals/working-in-the-netherlands/eu-eea-swiss-national",
+      "related_entity_ids": [
+        "government.work-permit",
+        "government.employment-contract",
+        "government.bsn"
+      ],
+      "last_checked": "2026-08-05",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Start with the UWV route matching nationality and work status. Use EURES before moving where appropriate, then use werk.nl after obtaining the credentials it requires; verify work-authorisation rules separately.",
+      "search_keywords": [
+        "find work Netherlands",
+        "UWV job search",
+        "EURES Netherlands",
+        "werk.nl vacancies",
+        "vacature zoeken"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "UWV",
+        "coverage_family": "Employment and job search",
+        "nationality_caveat": "Routes differ for EU/EEA/Swiss and other nationals"
+      }
+    },
+    {
+      "id": "government.basic-payment-account",
+      "entity_type": "government_service",
+      "category": "banking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Request a Dutch basic payment account",
+      "description": "A consumer who cannot obtain a regular Dutch payment account can check eligibility for a statutory basic payment account or, in specified cases, the Basic Bank Account Covenant route. Banks still apply legal anti-money-laundering checks and may refuse an application on defined grounds.",
+      "images": [],
+      "official_source": {
+        "title": "Wat kan ik als consument doen als ik geen betaalrekening kan krijgen?",
+        "publisher": "Rijksoverheid",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/betalingsverkeer/afwijzing-betaalrekening-consument",
+        "is_official": true,
+        "checked_at": "2026-08-05",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/betalingsverkeer/afwijzing-betaalrekening-consument",
+      "related_entity_ids": [
+        "government.bank-customer-verification",
+        "government.consumer-complaint",
+        "government.bsn"
+      ],
+      "last_checked": "2026-08-05",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "If a regular account is refused, compare the official basic-account and covenant routes, confirm the current eligibility conditions, keep the written refusal and use the bank complaint process before escalating where appropriate.",
+      "search_keywords": [
+        "open Dutch bank account",
+        "basic payment account",
+        "basisbetaalrekening",
+        "bank account refused",
+        "Dutch IBAN"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Ministry of Finance and regulated banks",
+        "coverage_family": "Consumer banking",
+        "fallback_route": "Basic Bank Account Covenant may apply in specified cases"
+      }
+    },
+    {
+      "id": "government.bank-customer-verification",
+      "entity_type": "government_service",
+      "category": "banking",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Understand bank identity and customer checks",
+      "description": "Dutch banks must identify customers and assess money-laundering and financial-crime risks. They may request identity and other risk-relevant information, must be able to explain why it is needed, and may decline a customer relationship when risks cannot be managed.",
+      "images": [],
+      "official_source": {
+        "title": "Combating money laundering and fraud",
+        "publisher": "De Nederlandsche Bank",
+        "url": "https://www.dnb.nl/en/reliable-financial-sector/combating-money-laundering-and-fraud/",
+        "is_official": true,
+        "checked_at": "2026-08-05",
+        "status": "verified_opened"
+      },
+      "website": "https://www.dnb.nl/en/reliable-financial-sector/combating-money-laundering-and-fraud/",
+      "related_entity_ids": [
+        "government.basic-payment-account",
+        "government.consumer-complaint",
+        "government.bsn"
+      ],
+      "last_checked": "2026-08-05",
+      "review_frequency_days": 60,
+      "verification_status": "verified",
+      "ai_summary": "Ask the bank which identity or source-of-funds information is required and why, provide accurate evidence through the bank's official channel, and keep the decision and complaint correspondence if an application is refused.",
+      "search_keywords": [
+        "bank identity check",
+        "KYC Netherlands",
+        "bank asks personal data",
+        "Wwft customer due diligence",
+        "proof of identity bank"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "De Nederlandsche Bank",
+        "coverage_family": "Consumer banking",
+        "legal_context": "Know-your-customer and anti-money-laundering duties"
+      }
+    }
+  ]
+}

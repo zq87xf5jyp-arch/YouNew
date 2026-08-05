@@ -521,10 +521,12 @@
       }
     },
     {
-      "source_entity_ids": [],
+      "source_entity_ids": [
+        "government.finding-work-with-uwv",
+        "government.work-permit",
+        "government.employment-contract"
+      ],
       "publication_gaps": [
-        "No governed QA record covers the end-to-end task of finding work.",
-        "Work-permit and employment-contract records are adjacent topics, not a substitute for a reviewed job-search guide.",
         "No sourced step-by-step content has been reviewed for publication.",
         "Per-fact source IDs have not been mapped into the practical guide.",
         "Verification date and reviewer have not been assigned.",
@@ -711,9 +713,11 @@
       }
     },
     {
-      "source_entity_ids": [],
+      "source_entity_ids": [
+        "government.basic-payment-account",
+        "government.bank-customer-verification"
+      ],
       "publication_gaps": [
-        "No governed QA record covers opening a Dutch bank account.",
         "The published ING partner record is commercial and must not be used as an editorial source.",
         "No sourced step-by-step content has been reviewed for publication.",
         "Per-fact source IDs have not been mapped into the practical guide.",
@@ -1033,10 +1037,12 @@
       }
     },
     {
-      "source_entity_ids": [],
+      "source_entity_ids": [
+        "housing.student-room-basics",
+        "housing.tenancy-agreement",
+        "housing.rent-price-check"
+      ],
       "publication_gaps": [
-        "No governed QA record covers student-specific housing.",
-        "General renting records must not be presented as student-housing instructions without dedicated review.",
         "No sourced step-by-step content has been reviewed for publication.",
         "Per-fact source IDs have not been mapped into the practical guide.",
         "Verification date and reviewer have not been assigned.",

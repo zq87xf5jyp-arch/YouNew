@@ -118,6 +118,29 @@ test("official source analytics keeps only a bounded content identifier", () => 
   });
 });
 
+test("App Store CTA analytics records intent without claiming a download", () => {
+  const envelope = createAnalyticsEnvelope(
+    {
+      name: "app_cta_click",
+      location: "app page hero<script>?private=value"
+    },
+    identifiers,
+    {
+      now: () => new Date("2026-08-05T20:00:00.000Z"),
+      randomUUID: () => "77777777-7777-4777-8777-777777777777",
+      pathname: () => "/app/",
+      language: () => "en",
+      environment: () => "production"
+    }
+  );
+
+  assert.equal(envelope.event_name, "app_cta_click");
+  assert.deepEqual(envelope.properties, {
+    location: "app page hero-script--private-value"
+  });
+  assert.equal(JSON.stringify(envelope).includes("download_completed"), false);
+});
+
 test("UUID fallback creates a valid version 4 identifier", () => {
   const descriptor = Object.getOwnPropertyDescriptor(globalThis, "crypto");
   Object.defineProperty(globalThis, "crypto", {

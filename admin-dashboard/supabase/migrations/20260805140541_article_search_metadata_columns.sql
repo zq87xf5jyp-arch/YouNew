@@ -1,0 +1,15 @@
+alter table public.articles
+  add column if not exists canonical_title text,
+  add column if not exists subcategory text,
+  add column if not exists search_intents text[] not null default '{}',
+  add column if not exists search_synonyms text[] not null default '{}',
+  add column if not exists search_keywords text[] not null default '{}',
+  add column if not exists supported_languages text[] not null default '{}',
+  add column if not exists country_scope text not null default 'NL',
+  add column if not exists scope_level text not null default 'national',
+  add column if not exists municipality text,
+  add column if not exists national_fallback boolean not null default true,
+  add column if not exists applicable_profiles text[] not null default '{}',
+  add column if not exists source_urls text[] not null default '{}',
+  add column if not exists content_quality_score integer not null default 0,
+  add column if not exists search_indexed boolean not null default false;

@@ -16,7 +16,7 @@
     "summaryGuides": 15,
     "organizations": 30,
     "places": 131,
-    "categories": 33,
+    "categories": 32,
     "provinces": 4
   },
   "entities": [
@@ -33042,18 +33042,6 @@
       "entityTypes": [
         "organization"
       ]
-    },
-    {
-      "id": "category.finance",
-      "slug": "finance",
-      "route": "/categories/finance",
-      "title": "Money & finance",
-      "summary": "Practical information about banking, taxes and allowances.",
-      "status": "published",
-      "language": "en",
-      "entityCount": 0,
-      "entityIds": [],
-      "entityTypes": []
     },
     {
       "id": "category.municipal-services",

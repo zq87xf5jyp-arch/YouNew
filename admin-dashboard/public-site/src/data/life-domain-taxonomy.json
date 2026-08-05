@@ -13,7 +13,7 @@
     "slug": "work",
     "title": "Work",
     "summary": "Employment contracts, wages, working conditions, job-search routes and help with workplace problems.",
-    "aliases": { "en": ["work", "job", "employment", "vacancy", "career", "work contract", "salary", "wages", "employer"], "nl": ["werk", "baan", "vacature", "arbeid", "arbeidsovereenkomst", "contract", "salaris", "loon", "werkgever"], "ru": ["работа", "вакансия", "карьера", "трудовой договор", "зарплата", "работодатель"] },
+    "aliases": { "en": ["work", "job", "employment", "vacancy", "career", "contract", "work contract", "salary", "wages", "employer"], "nl": ["werk", "baan", "vacature", "arbeid", "arbeidsovereenkomst", "contract", "salaris", "loon", "werkgever"], "ru": ["работа", "вакансия", "карьера", "трудовой договор", "зарплата", "работодатель"] },
     "intents": [{ "id": "work.find", "terms": ["find work", "looking for a job", "job search", "employment agency", "vacancy", "werk zoeken", "vacature zoeken", "найти работу"] }, { "id": "work.contract", "terms": ["work contract", "employment contract", "agency work", "arbeidscontract", "uitzendwerk", "трудовой договор"] }, { "id": "work.rights", "terms": ["minimum wage", "payslip", "holiday allowance", "sick leave", "dismissal", "minimumloon", "loonstrook", "vakantiegeld", "ziekteverlof", "ontslag"] }],
     "profiles": ["student", "expat", "refugee", "worker", "resident"],
     "startHere": ["Separate job-search questions from contract, pay, dismissal or unsafe-work questions.", "Keep your written contract and payslips when asking for help.", "Use Work in NL or the responsible inspectorate for current official guidance."],

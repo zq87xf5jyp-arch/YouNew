@@ -13,14 +13,14 @@ const requestedBrowsers = new Set(
   (process.env.PUBLIC_SEARCH_BROWSERS ?? "chromium,webkit").split(",").map((value) => value.trim()).filter(Boolean)
 );
 const criticalCases = [
-  { query: "rent", city: "den-haag", profile: "worker", expected: /Housing/i },
-  { query: "housing rent", city: "den-haag", profile: "worker", expected: /Housing/i },
+  { query: "rent", city: "s-gravenhage", profile: "worker", expected: /Housing/i },
+  { query: "housing rent", city: "s-gravenhage", profile: "worker", expected: /Housing/i },
   { query: "work", city: "leiden", expected: /Work/i },
   { query: "huisarts", city: "rotterdam", expected: /Healthcare/i },
   { query: "Dutch school", city: "groningen", expected: /Education/i },
-  { query: "BSN", city: "eindhoven", expected: /Documents/i },
-  { query: "SIM card", city: "maastricht", expected: /SIM.*telecom/i },
-  { query: "parking fine", city: "utrecht", expected: /Fines/i }
+  { query: "BSN", city: "eindhoven", expected: /BSN|Documents/i },
+  { query: "SIM card", city: "maastricht", expected: /SIM|telecom/i },
+  { query: "parking fine", city: "utrecht", expected: /Rules|Fines/i }
 ];
 
 function searchUrl({ query, city, profile }) {
@@ -40,11 +40,12 @@ async function resultEvidence(page, scenario, environment) {
   assert.ok(Number.isFinite(count) && count > 0, `${environment}: ${scenario.query} returned ${headingText}`);
   const firstTitle = (await page.locator(".search-result-list article h3").first().textContent()) ?? "";
   assert.match(firstTitle, scenario.expected, `${environment}: ${scenario.query} first result was ${firstTitle}`);
-  assert.equal(new URL(page.url()).searchParams.get("q"), scenario.query, `${environment}: query URL state`);
-  assert.equal(new URL(page.url()).searchParams.get("city"), scenario.city, `${environment}: city URL state`);
+  const currentUrl = new URL(page.url());
+  assert.equal(currentUrl.searchParams.get("q"), scenario.query, `${environment}: query URL state`);
+  assert.equal(currentUrl.searchParams.get("city"), scenario.city, `${environment}: city URL state`);
   if (scenario.profile) {
-    assert.equal(new URL(page.url()).searchParams.get("profile"), scenario.profile, `${environment}: profile URL state`);
-    await page.getByText(/profile boosts relevant results/i).waitFor({ state: "visible" });
+    assert.equal(currentUrl.searchParams.get("profile"), scenario.profile, `${environment}: profile URL state`);
+    await page.getByText(/Worker profile is a ranking boost/i).waitFor({ state: "visible" });
   }
   return { query: scenario.query, city: scenario.city, profile: scenario.profile ?? null, count, firstTitle };
 }
@@ -70,7 +71,7 @@ async function runBrowser(name, browserType, contextOptions, launchOptions = {})
     for (const scenario of criticalCases) cases.push(await resultEvidence(page, scenario, name));
 
     if (name === "mobile-webkit") {
-      assert.equal(await page.locator("#search-filter-panel").isHidden(), true, "mobile filters must start collapsed");
+      assert.equal(await page.locator("#search-filter-fields").isHidden(), true, "mobile filters must start collapsed");
       await page.locator(".search-result-list article").first().waitFor({ state: "visible" });
       const filterToggle = await page.locator(".search-filter-toggle").boundingBox();
       assert.ok(filterToggle && filterToggle.height >= 44, "mobile filter touch target must be at least 44px high");
@@ -85,10 +86,10 @@ async function runBrowser(name, browserType, contextOptions, launchOptions = {})
     assert.match((await page.locator(".search-result-list article h3").first().textContent()) ?? "", /'s-Hertogenbosch/i);
 
     if (name === "desktop-chromium") {
-      await page.goto(searchUrl({ query: "rent", city: "den-haag" }), { waitUntil: "domcontentloaded" });
-      await page.getByLabel("Profile boost").selectOption("worker");
-      await page.goto(searchUrl({ query: "rent", city: "den-haag" }), { waitUntil: "domcontentloaded" });
-      await page.getByText(/Worker profile boosts relevant results/i).waitFor({ state: "visible" });
+      await page.goto(searchUrl({ query: "rent", city: "s-gravenhage" }), { waitUntil: "domcontentloaded" });
+      await page.getByLabel("Profile").selectOption("worker");
+      await page.goto(searchUrl({ query: "rent", city: "s-gravenhage" }), { waitUntil: "domcontentloaded" });
+      await page.getByText(/Worker profile is a ranking boost/i).waitFor({ state: "visible" });
 
       await page.getByRole("button", { name: "Share results" }).click();
       await page.getByRole("button", { name: "Link copied" }).waitFor({ state: "visible" });
@@ -106,11 +107,11 @@ async function runBrowser(name, browserType, contextOptions, launchOptions = {})
       assert.equal(clearedUrl.searchParams.has("profile"), false, "clear all must remove the profile boost");
     }
 
-    await page.goto(searchUrl({ query: "zzzxxyy", city: "den-haag", profile: "worker" }), { waitUntil: "domcontentloaded" });
-    await page.getByRole("heading", { name: "No useful published result matched" }).waitFor({ state: "visible" });
+    await page.goto(searchUrl({ query: "zzzxxyy", city: "s-gravenhage", profile: "worker" }), { waitUntil: "domcontentloaded" });
+    await page.getByRole("heading", { name: "No useful published match yet" }).waitFor({ state: "visible" });
     await page.getByRole("button", { name: "Search all Netherlands" }).waitFor({ state: "visible" });
     await page.getByRole("button", { name: "Remove profile boost" }).waitFor({ state: "visible" });
-    await page.getByRole("link", { name: "Browse life domains" }).waitFor({ state: "visible" });
+    await page.getByRole("link", { name: "Browse guides" }).waitFor({ state: "visible" });
 
     assert.deepEqual(runtimeErrors, [], `${name} runtime errors`);
     return { name, cases, runtimeErrors };

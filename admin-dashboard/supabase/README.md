@@ -17,7 +17,7 @@ YouNew production project `pgdzdxsiagfjioxwuqxf`.
 - `docs/SUPABASE_PRODUCTION.md` records hashes, current advisor evidence, the
   historical-baseline limitation, and the rollout procedure.
 
-The complete set of 13 production SQL hashes was verified on 2026-08-01. Check
+The complete source-controlled production migration set is hash-pinned. Check
 it locally with:
 
 ```bash

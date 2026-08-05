@@ -98,6 +98,59 @@ test("Sites package routes the association file through a worker-first payload",
   assert.match(sitesBuildScript, /mv "\$association_source" "\$association_payload"/);
 });
 
+test("Sites package routes the service worker through a worker-first payload", () => {
+  assert.match(sitesBuildScript, /service_worker_source="\$project_root\/dist\/client\/sw\.js"/);
+  assert.match(sitesBuildScript, /service_worker_payload="\$payload_root\/sw\.js\.payload"/);
+  assert.match(sitesBuildScript, /mv "\$service_worker_source" "\$service_worker_payload"/);
+});
+
+test("Sites worker serves the service worker with security and no-cache headers", async () => {
+  const payloadPathname = "/__site_payloads/sw.js.payload";
+  const mock = createAssets({
+    [payloadPathname]: new Response("self.addEventListener('fetch', () => {});", {
+      status: 200,
+      headers: { "content-type": "application/octet-stream" }
+    })
+  });
+  const response = await worker.fetch(
+    new Request("https://younew.nl/sw.js"),
+    { ASSETS: mock.assets }
+  );
+
+  assert.equal(response.status, 200);
+  assert.deepEqual(mock.calls, [payloadPathname]);
+  assert.equal(response.headers.get("content-type"), "text/javascript; charset=utf-8");
+  assert.equal(response.headers.get("cache-control"), "no-cache, no-store, must-revalidate");
+  assert.equal(response.headers.get("x-content-type-options"), "nosniff");
+  assert.match(response.headers.get("content-security-policy") ?? "", /default-src 'self'/);
+});
+
+test("Sites worker recovers crawler-only null image requests without changing real 404 semantics", async () => {
+  const mock = createAssets({});
+  const crawlerResponse = await worker.fetch(
+    new Request("https://younew.nl/places/example/null", {
+      headers: { Accept: "image/avif,image/webp,image/*,*/*;q=0.8" }
+    }),
+    { ASSETS: mock.assets }
+  );
+  const navigationResponse = await worker.fetch(
+    new Request("https://younew.nl/places/example/null", {
+      headers: { Accept: "text/html" }
+    }),
+    { ASSETS: mock.assets }
+  );
+
+  assert.equal(crawlerResponse.status, 302);
+  assert.equal(crawlerResponse.headers.get("location"), "https://younew.nl/images/og-younew.jpg");
+  assert.equal(crawlerResponse.headers.get("x-robots-tag"), "noindex, nofollow, noarchive");
+  assert.equal(navigationResponse.status, 404);
+  assert.deepEqual(mock.calls, [
+    "/places/example/null",
+    "/__site_payloads/places/example/null/index.html.payload",
+    "/__site_payloads/404.html.payload"
+  ]);
+});
+
 test("Sites worker serves the worker-first association payload as JSON", async () => {
   const pathname = "/.well-known/apple-app-site-association";
   const payloadPathname = "/__site_payloads/.well-known/apple-app-site-association.payload";

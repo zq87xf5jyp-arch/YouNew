@@ -24,7 +24,7 @@ export default async function ContentPage() {
     category: String(
       (row as { categories?: { slug?: unknown } | null }).categories?.slug ??
       (row as { category?: unknown }).category ??
-      "documents-services"
+      "documents"
     ),
     language: String((row as { language?: unknown }).language ?? "ru"),
     status: ((row as { status?: unknown }).status ?? "draft") as ManagedArticle["status"],

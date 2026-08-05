@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getPublicContent } from "@/lib/content";
 import { getGeographyProvinces, getMunicipalities } from "@/lib/geography";
+import { getNationalGuides, nationalGuidesVerifiedAt } from "@/lib/search/national-guides";
 
 export const dynamic = "force-static";
 
@@ -36,5 +37,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
     priority: 0.68
   }));
-  return [...staticEntries, ...aggregateEntries, ...municipalityEntries, ...entityEntries];
+  const nationalGuideEntries: MetadataRoute.Sitemap = getNationalGuides().map((guide) => ({
+    url: `https://younew.nl/essentials/${guide.slug}/`,
+    lastModified: new Date(`${nationalGuidesVerifiedAt()}T00:00:00Z`),
+    changeFrequency: "monthly",
+    priority: 0.85
+  }));
+  return [...staticEntries, ...nationalGuideEntries, ...aggregateEntries, ...municipalityEntries, ...entityEntries];
 }
