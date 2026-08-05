@@ -6,9 +6,13 @@ import { Bookmark, LifeBuoy, Menu, Search, X } from "lucide-react";
 
 const navigation = [
   ["Start", "/start"],
+  ["Discover", "/discover"],
   ["Guides", "/guides"],
+  ["Journeys", "/journeys"],
   ["Cities", "/cities"],
-  ["Map", "/map"]
+  ["Map", "/map"],
+  ["Updates", "/updates"],
+  ["Business", "/business"]
 ];
 
 export function SiteHeader() {
