@@ -29,6 +29,9 @@ type ProductionBaseline = {
     total_cases: number;
     useful_result_cases: number;
     zero_result_cases: number;
+    zero_result_blocker_cleared: boolean;
+    mobile_viewport_smoke: string;
+    safari_smoke: string;
   };
   cases: ProductionCase[];
   limitations: string[];
@@ -61,24 +64,26 @@ test("production summary reconciles with the rendered observations", () => {
   const useful = baseline.cases.filter((item) => item.useful_answer_visible).length;
   const zero = baseline.cases.filter((item) => item.matching_result_count === 0).length;
 
-  assert.deepEqual(baseline.summary, {
-    total_cases: baseline.cases.length,
-    useful_result_cases: useful,
-    zero_result_cases: zero
-  });
+  assert.equal(baseline.summary.total_cases, baseline.cases.length);
+  assert.equal(baseline.summary.useful_result_cases, useful);
+  assert.equal(baseline.summary.zero_result_cases, zero);
+  assert.equal(baseline.summary.zero_result_blocker_cleared, true);
+  assert.equal(baseline.summary.mobile_viewport_smoke, "passed_at_390x844");
+  assert.equal(baseline.summary.safari_smoke, "not_verified_automation_timeout");
 
   for (const item of baseline.cases) {
-    assert.equal(item.matching_result_count, 0, `${item.name} count`);
-    assert.equal(item.no_result_state_visible, true, `${item.name} no-result state`);
-    assert.equal(item.useful_answer_visible, false, `${item.name} useful answer`);
-    assert.deepEqual(item.top_result_titles, [], `${item.name} result titles`);
-    assert.match(item.heading, /^0 matching results for /, `${item.name} heading`);
+    assert.ok(item.matching_result_count > 0, `${item.name} count`);
+    assert.equal(item.no_result_state_visible, false, `${item.name} no-result state`);
+    assert.equal(item.useful_answer_visible, true, `${item.name} useful answer`);
+    assert.ok(item.top_result_titles.length > 0, `${item.name} result titles`);
+    assert.match(item.heading, /^\d+ matching results? for /, `${item.name} heading`);
   }
 });
 
-test("a failed critical production matrix cannot be labelled GO", () => {
-  assert.equal(baseline.release_decision, "NO-GO");
-  assert.ok(baseline.summary.zero_result_cases > 0);
-  assert.ok(baseline.limitations.some((item) => /Chrome and Safari/i.test(item)));
-  assert.ok(baseline.limitations.some((item) => /retested after/i.test(item)));
+test("a cleared search blocker does not overstate the full release decision", () => {
+  assert.equal(baseline.release_decision, "NO-GO_PENDING_BROWSER_MATRIX_AND_EDITORIAL_REVIEW");
+  assert.equal(baseline.summary.zero_result_cases, 0);
+  assert.ok(baseline.limitations.some((item) => /Chrome evidence/i.test(item)));
+  assert.ok(baseline.limitations.some((item) => /Safari remains unverified/i.test(item)));
+  assert.ok(baseline.limitations.some((item) => /human editorial review/i.test(item)));
 });

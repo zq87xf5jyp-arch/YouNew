@@ -2,15 +2,25 @@
   "schema_version": 1,
   "environment": "production",
   "origin": "https://younew.nl",
-  "observed_at": "2026-08-05T19:42:50Z",
+  "observed_at": "2026-08-05T21:09:46Z",
   "browser_surface": "in_app_browser",
   "browser_engine": "not_asserted",
   "method": "Each query was entered through the production search control, the required city and profile filters were explicitly selected, and Search was activated in the in-app browser. The visible matching-results heading, no-result state and result titles were read from the rendered production DOM.",
-  "release_decision": "NO-GO",
+  "release_decision": "NO-GO_PENDING_BROWSER_MATRIX_AND_EDITORIAL_REVIEW",
+  "deployment": {
+    "sites_version_id": "appgprj_6a556b9f4cb481918f72f85c4f88aeea~appgver_caacc02ae88c819194b1845654345374",
+    "deployment_id": "appgdep_6a73a0e9f65c8191bccdf4340020da5e",
+    "source_commit": "2a4102f26ba459b78c4e7587f4919bd1df8cca55",
+    "status": "succeeded",
+    "published_at": "2026-08-05T20:46:40Z"
+  },
   "summary": {
     "total_cases": 8,
-    "useful_result_cases": 0,
-    "zero_result_cases": 8
+    "useful_result_cases": 8,
+    "zero_result_cases": 0,
+    "zero_result_blocker_cleared": true,
+    "mobile_viewport_smoke": "passed_at_390x844",
+    "safari_smoke": "not_verified_automation_timeout"
   },
   "cases": [
     {
@@ -19,11 +29,11 @@
       "query": "rent",
       "city": "den-haag",
       "profile": "worker",
-      "matching_result_count": 0,
-      "heading": "0 matching results for “rent”",
-      "no_result_state_visible": true,
-      "top_result_titles": [],
-      "useful_answer_visible": false
+      "matching_result_count": 1,
+      "heading": "1 matching result for “rent”",
+      "no_result_state_visible": false,
+      "top_result_titles": ["Housing"],
+      "useful_answer_visible": true
     },
     {
       "name": "housing rent + Den Haag + Worker",
@@ -31,11 +41,11 @@
       "query": "housing rent",
       "city": "den-haag",
       "profile": "worker",
-      "matching_result_count": 0,
-      "heading": "0 matching results for “housing rent”",
-      "no_result_state_visible": true,
-      "top_result_titles": [],
-      "useful_answer_visible": false
+      "matching_result_count": 1,
+      "heading": "1 matching result for “housing rent”",
+      "no_result_state_visible": false,
+      "top_result_titles": ["Housing"],
+      "useful_answer_visible": true
     },
     {
       "name": "work + Leiden",
@@ -43,11 +53,11 @@
       "query": "work",
       "city": "leiden",
       "profile": null,
-      "matching_result_count": 0,
-      "heading": "0 matching results for “work”",
-      "no_result_state_visible": true,
-      "top_result_titles": [],
-      "useful_answer_visible": false
+      "matching_result_count": 4,
+      "heading": "4 matching results for “work”",
+      "no_result_state_visible": false,
+      "top_result_titles": ["Work", "Business", "Healthcare", "Language learning"],
+      "useful_answer_visible": true
     },
     {
       "name": "huisarts + Rotterdam",
@@ -55,11 +65,11 @@
       "query": "huisarts",
       "city": "rotterdam",
       "profile": null,
-      "matching_result_count": 0,
-      "heading": "0 matching results for “huisarts”",
-      "no_result_state_visible": true,
-      "top_result_titles": [],
-      "useful_answer_visible": false
+      "matching_result_count": 1,
+      "heading": "1 matching result for “huisarts”",
+      "no_result_state_visible": false,
+      "top_result_titles": ["Healthcare"],
+      "useful_answer_visible": true
     },
     {
       "name": "Dutch school + Groningen",
@@ -67,11 +77,11 @@
       "query": "Dutch school",
       "city": "groningen",
       "profile": null,
-      "matching_result_count": 0,
-      "heading": "0 matching results for “Dutch school”",
-      "no_result_state_visible": true,
-      "top_result_titles": [],
-      "useful_answer_visible": false
+      "matching_result_count": 2,
+      "heading": "2 matching results for “Dutch school”",
+      "no_result_state_visible": false,
+      "top_result_titles": ["Education", "Language learning"],
+      "useful_answer_visible": true
     },
     {
       "name": "BSN + Eindhoven",
@@ -79,11 +89,11 @@
       "query": "BSN",
       "city": "eindhoven",
       "profile": null,
-      "matching_result_count": 0,
-      "heading": "0 matching results for “BSN”",
-      "no_result_state_visible": true,
-      "top_result_titles": [],
-      "useful_answer_visible": false
+      "matching_result_count": 1,
+      "heading": "1 matching result for “BSN”",
+      "no_result_state_visible": false,
+      "top_result_titles": ["Documents"],
+      "useful_answer_visible": true
     },
     {
       "name": "SIM card + Maastricht",
@@ -91,11 +101,11 @@
       "query": "SIM card",
       "city": "maastricht",
       "profile": null,
-      "matching_result_count": 0,
-      "heading": "0 matching results for “SIM card”",
-      "no_result_state_visible": true,
-      "top_result_titles": [],
-      "useful_answer_visible": false
+      "matching_result_count": 1,
+      "heading": "1 matching result for “SIM card”",
+      "no_result_state_visible": false,
+      "top_result_titles": ["SIM & telecom"],
+      "useful_answer_visible": true
     },
     {
       "name": "parking fine + Utrecht",
@@ -103,16 +113,17 @@
       "query": "parking fine",
       "city": "utrecht",
       "profile": null,
-      "matching_result_count": 0,
-      "heading": "0 matching results for “parking fine”",
-      "no_result_state_visible": true,
-      "top_result_titles": [],
-      "useful_answer_visible": false
+      "matching_result_count": 1,
+      "heading": "1 matching result for “parking fine”",
+      "no_result_state_visible": false,
+      "top_result_titles": ["Fines"],
+      "useful_answer_visible": true
     }
   ],
   "limitations": [
-    "The browser engine is not asserted, so this does not satisfy the required production Chrome and Safari evidence.",
-    "The evidence describes the currently deployed production site only; it does not evaluate the undeployed Sites version or draft content bundles.",
-    "Production must be retested after an explicitly approved deployment."
+    "The in-app browser engine is not asserted, so this does not satisfy the required production Chrome evidence.",
+    "Safari automation timed out twice before the page could be inspected; Safari remains unverified and the timeouts are not evidence of a site defect.",
+    "A responsive smoke test at a 390x844 viewport passed with no horizontal overflow and all search/filter controls visible.",
+    "The eight queries now resolve to relevant published category pages, but the draft full practical guides remain unpublished and require human editorial review."
   ]
 }
