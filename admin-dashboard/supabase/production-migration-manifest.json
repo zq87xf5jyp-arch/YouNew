@@ -142,6 +142,12 @@
       "name": "remove_premature_article_search_indexes",
       "md5": "c4ad61442048834a3c760d93d4de2358",
       "bytes": 400
+    },
+    {
+      "version": "20260805173500",
+      "name": "normalize_article_search_taxonomy",
+      "md5": "ea265966b977ac1824b84f5b3e78e990",
+      "bytes": 5711
     }
   ]
 }

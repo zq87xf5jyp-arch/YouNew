@@ -163,6 +163,82 @@ with checks(name, passed, evidence) as (
       'Expected no client TRUNCATE, REFERENCES, or TRIGGER privilege'
     ),
     (
+      'canonical search taxonomy mappings',
+      not exists (
+        select 1
+        from (
+          values
+            ('documents-services', 'documents'),
+            ('work-taxes', 'work'),
+            ('rules-fines', 'fines')
+        ) as expected(legacy_slug, canonical_slug)
+        left join public.categories legacy
+          on legacy.slug = expected.legacy_slug
+        left join public.categories canonical
+          on canonical.id = legacy.canonical_category_id
+        where legacy.id is null
+          or canonical.slug is distinct from expected.canonical_slug
+          or legacy.status is distinct from 'archived'
+          or legacy.published_at is not null
+      ),
+      'Expected all three legacy composite categories to resolve to an archived canonical target'
+    ),
+    (
+      'bounded article search metadata backfill',
+      exists (
+        select 1
+        from public.articles article
+        join public.categories category on category.id = article.category_id
+        where article.id = '469dbf9f-0045-4718-8023-7f1a28547e56'::uuid
+          and article.status = 'published'
+          and category.slug = 'documents'
+          and article.search_indexed
+          and article.content_quality_score = 50
+          and cardinality(article.search_synonyms) >= 10
+          and article.official_source
+          and article.validation_passed
+          and article.reviewer_id is not null
+          and article.reviewed_at is not null
+      )
+      and exists (
+        select 1
+        from public.articles article
+        join public.categories category on category.id = article.category_id
+        where article.id = '9009fb71-23b1-45fd-85e4-7ff65e540563'::uuid
+          and article.status = 'review'
+          and category.slug = 'transport'
+          and not article.search_indexed
+          and article.content_quality_score = 25
+      )
+      and exists (
+        select 1
+        from public.articles article
+        join public.categories category on category.id = article.category_id
+        where article.id = '5f435c43-d4be-4ea8-b22a-8dd06b5e43c9'::uuid
+          and article.status = 'draft'
+          and category.slug = 'fines'
+          and not article.search_indexed
+          and article.content_quality_score = 20
+      ),
+      'Expected only the already-reviewed published article to be indexed; review and draft states stay unchanged'
+    ),
+    (
+      'article publication triggers enabled',
+      (
+        select count(*) = 4 and bool_and(trigger_definition.tgenabled = 'O')
+        from pg_trigger trigger_definition
+        where trigger_definition.tgrelid = 'public.articles'::regclass
+          and not trigger_definition.tgisinternal
+          and trigger_definition.tgname in (
+            'enforce_article_publication_gate',
+            'articles_search_metadata_gate',
+            'enqueue_article_publication',
+            'set_updated_at'
+          )
+      ),
+      'Expected every temporarily disabled publication/search trigger to be enabled after migration'
+    ),
+    (
       'multiple permissive policies',
       not exists (
         select 1
@@ -217,6 +293,11 @@ with checks(name, passed, evidence) as (
               'linked_screenshot_id'
             ),
             ('categories', 'categories_author_id_idx', 'author_id'),
+            (
+              'categories',
+              'categories_canonical_category_id_idx',
+              'canonical_category_id'
+            ),
             ('faq_items', 'faq_items_category_id_idx', 'category_id'),
             (
               'release_checklist_items',
@@ -256,7 +337,7 @@ with checks(name, passed, evidence) as (
               indexed_column.attnum
         )
       ),
-      'Expected all 13 valid advisor-requested single-column indexes'
+      'Expected all 14 valid advisor-requested or canonical-taxonomy single-column indexes'
     )
 )
 select name, passed, evidence

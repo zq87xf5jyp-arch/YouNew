@@ -34,10 +34,18 @@ const indexCleanupMigration = await readFile(
   new URL("../supabase/migrations/20260805140933_remove_premature_article_search_indexes.sql", import.meta.url),
   "utf8"
 );
-const migration = [canonicalTitleMigration, taxonomyMigration, columnsMigration, backfillMigration, constraintsMigration, publicationGateMigration, readinessViewMigration, indexCleanupMigration].join("\n");
+const normalizationMigration = await readFile(
+  new URL("../supabase/migrations/20260805173500_normalize_article_search_taxonomy.sql", import.meta.url),
+  "utf8"
+);
+const migration = [canonicalTitleMigration, taxonomyMigration, columnsMigration, backfillMigration, constraintsMigration, publicationGateMigration, readinessViewMigration, indexCleanupMigration, normalizationMigration].join("\n");
 const manager = await readFile(new URL("../src/components/admin/content-manager.tsx", import.meta.url), "utf8");
 const actions = await readFile(new URL("../src/app/(admin)/content/actions.ts", import.meta.url), "utf8");
 const productionSmoke = await readFile(new URL("../scripts/production-search-smoke.mjs", import.meta.url), "utf8");
+const databaseVerification = await readFile(
+  new URL("../supabase/verification/verify_after_migration.sql", import.meta.url),
+  "utf8"
+);
 
 test("article storage contains the mandatory search applicability model", () => {
   for (const column of [
@@ -88,6 +96,32 @@ test("all 27 canonical life domains are provisioned without overwriting existing
   const inserts = [...taxonomyMigration.matchAll(/\('[^']+', '[a-z0-9-]+', '[^']+', 'draft', \d+\)/g)];
   assert.equal(inserts.length, 27);
   assert.match(taxonomyMigration, /on conflict \(slug\) do nothing/);
+});
+
+test("legacy composite categories resolve to canonical taxonomy without promoting drafts", () => {
+  assert.match(normalizationMigration, /add column if not exists canonical_category_id uuid/);
+  for (const mapping of [
+    "('documents-services', 'documents')",
+    "('work-taxes', 'work')",
+    "('rules-fines', 'fines')"
+  ]) assert.ok(normalizationMigration.includes(mapping), mapping);
+
+  for (const trigger of [
+    "enforce_article_publication_gate", "articles_search_metadata_gate",
+    "enqueue_article_publication", "set_updated_at"
+  ]) {
+    assert.match(normalizationMigration, new RegExp(`disable trigger ${trigger}`), `${trigger} disabled`);
+    assert.match(normalizationMigration, new RegExp(`enable trigger ${trigger}`), `${trigger} re-enabled`);
+  }
+  assert.doesNotMatch(normalizationMigration, /disable trigger all/i);
+  assert.doesNotMatch(normalizationMigration, /full_content\s*=/i);
+  assert.match(normalizationMigration, /status = 'published'[\s\S]*official_source is true[\s\S]*validation_passed is true[\s\S]*reviewer_id is not null[\s\S]*reviewed_at is not null/);
+  assert.match(normalizationMigration, /status = 'review'/);
+  assert.match(normalizationMigration, /status = 'draft'/);
+  assert.match(databaseVerification, /canonical search taxonomy mappings/);
+  assert.match(databaseVerification, /bounded article search metadata backfill/);
+  assert.match(databaseVerification, /article publication triggers enabled/);
+  assert.match(databaseVerification, /categories_canonical_category_id_idx/);
 });
 
 test("production search smoke covers both browser engines and every release blocker", () => {

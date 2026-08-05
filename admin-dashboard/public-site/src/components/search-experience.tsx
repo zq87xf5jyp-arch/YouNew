@@ -290,6 +290,35 @@ export function SearchExperience() {
     }
   }
 
+  const filterControls = (
+    <div className={`search-filter-bar${filtersOpen ? " is-open" : ""}`} aria-label="Search filters">
+      <button
+        className="search-filter-toggle"
+        type="button"
+        aria-expanded={!compactFilters || filtersOpen}
+        aria-controls="search-filter-fields"
+        onClick={() => setFiltersOpen((open) => !open)}
+      >
+        <span><SlidersHorizontal aria-hidden /> Filters{activeFilterChips.length ? ` (${activeFilterChips.length})` : ""}</span>
+        <ChevronDown aria-hidden />
+      </button>
+      <div className="search-filter-fields" id="search-filter-fields">
+        <label>Type<select value={filters.type} onChange={(event) => setFilter("type", event.target.value)}><option value="">All</option><option value="guide">Guides & summaries</option><option value="city">Reviewed city guides</option><option value="municipality">Municipalities</option><option value="province">Provinces</option><option value="organization">Organizations</option><option value="place">Places</option><option value="category">Categories</option><option value="page">Useful pages</option></select></label>
+        <label>City<select value={filters.city} onChange={(event) => setFilter("city", event.target.value)}><option value="">All Netherlands</option>{options.cities.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}</select></label>
+        <label>Province<select value={filters.province} onChange={(event) => setFilter("province", event.target.value)}><option value="">All Netherlands</option>{options.provinces.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}</select></label>
+        <label>Category<select value={filters.category} onChange={(event) => setFilter("category", event.target.value)}><option value="">All</option>{options.categories.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}</select></label>
+        <label>Profile<select value={filters.profile} onChange={(event) => setFilter("profile", event.target.value)}><option value="">All</option><option value="tourist">Tourist</option><option value="student">Student</option><option value="expat">Expat</option><option value="refugee">Refugee</option><option value="worker">Worker</option><option value="resident">Resident</option></select></label>
+      </div>
+    </div>
+  );
+
+  const profileContext = activeProfileLabel ? (
+    <div className="search-active-context" role="status">
+      <div><strong>{activeProfileLabel} profile is a ranking boost</strong><span>It improves the order of relevant results but never hides general published guidance.</span></div>
+      <button type="button" onClick={clearAllFilters}>Show all content</button>
+    </div>
+  ) : null;
+
   return (
     <div className="search-experience">
       <form className="search-form" role="search" onSubmit={submit}>
@@ -305,25 +334,7 @@ export function SearchExperience() {
         ) : null}
       </form>
 
-      <div className={`search-filter-bar${filtersOpen ? " is-open" : ""}`} aria-label="Search filters">
-        <button
-          className="search-filter-toggle"
-          type="button"
-          aria-expanded={!compactFilters || filtersOpen}
-          aria-controls="search-filter-fields"
-          onClick={() => setFiltersOpen((open) => !open)}
-        >
-          <span><SlidersHorizontal aria-hidden /> Filters{activeFilterChips.length ? ` (${activeFilterChips.length})` : ""}</span>
-          <ChevronDown aria-hidden />
-        </button>
-        <div className="search-filter-fields" id="search-filter-fields">
-          <label>Type<select value={filters.type} onChange={(event) => setFilter("type", event.target.value)}><option value="">All</option><option value="guide">Guides & summaries</option><option value="city">Reviewed city guides</option><option value="municipality">Municipalities</option><option value="province">Provinces</option><option value="organization">Organizations</option><option value="place">Places</option><option value="category">Categories</option><option value="page">Useful pages</option></select></label>
-          <label>City<select value={filters.city} onChange={(event) => setFilter("city", event.target.value)}><option value="">All Netherlands</option>{options.cities.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}</select></label>
-          <label>Province<select value={filters.province} onChange={(event) => setFilter("province", event.target.value)}><option value="">All Netherlands</option>{options.provinces.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}</select></label>
-          <label>Category<select value={filters.category} onChange={(event) => setFilter("category", event.target.value)}><option value="">All</option>{options.categories.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}</select></label>
-          <label>Profile<select value={filters.profile} onChange={(event) => setFilter("profile", event.target.value)}><option value="">All</option><option value="tourist">Tourist</option><option value="student">Student</option><option value="expat">Expat</option><option value="refugee">Refugee</option><option value="worker">Worker</option><option value="resident">Resident</option></select></label>
-        </div>
-      </div>
+      {!compactFilters ? filterControls : null}
       {activeFilterChips.length ? (
         <div className="search-active-chips" aria-label="Active search filters">
           {activeFilterChips.map((chip) => (
@@ -334,12 +345,7 @@ export function SearchExperience() {
           <button className="search-clear-all" type="button" onClick={clearAllFilters}>Clear all</button>
         </div>
       ) : null}
-      {activeProfileLabel ? (
-        <div className="search-active-context" role="status">
-          <div><strong>{activeProfileLabel} profile is a ranking boost</strong><span>It improves the order of relevant results but never hides general published guidance.</span></div>
-          <button type="button" onClick={clearAllFilters}>Show all content</button>
-        </div>
-      ) : null}
+      {!compactFilters ? profileContext : null}
 
       {!submittedQuery && !showAllResults ? (
         <><div className="search-starters"><section><h2>Popular searches</h2><div>{popularSearches.map((value) => <button type="button" key={value} onClick={() => executeSearch(value)}>{value}</button>)}</div></section>{recentSearches.length ? <section><div className="search-starter-heading"><h2>Recent searches</h2><button type="button" onClick={() => { localContentRepository.clearRecentSearches(); setRecentSearches([]); }}>Clear</button></div><div>{recentSearches.map((value) => <button type="button" key={value} onClick={() => executeSearch(value)}>{value}</button>)}</div></section> : null}</div>
@@ -384,6 +390,8 @@ export function SearchExperience() {
           )}
         </section>
       ) : null}
+      {compactFilters ? profileContext : null}
+      {compactFilters ? filterControls : null}
     </div>
   );
 }
