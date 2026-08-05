@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-02-M1-housing-student-005",
+  "work_package": "WP-02",
+  "milestone": "WP-02-M1",
+  "target_release": "housing-v1.0.0",
+  "publication_status": "qa",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "qa_evidence": {
+    "checked_at": "2026-08-05",
+    "build": "Admin production build generated 32 routes and public-site production build generated 609 static pages successfully.",
+    "static": "Data Project, priority research, practical-guide and content-readiness integrity checks passed with the new record.",
+    "duplicate": "Data Project QA validated unique entity IDs, normalized titles, canonical websites and cross-batch relations across 454 governed records.",
+    "source": "The exact Rijksoverheid student-room HTTPS page was opened and reviewed on 2026-08-05; the record preserves municipality and property-specific caveats.",
+    "media": "The record intentionally contains no media assets, so no unverified or unlicensed media is introduced.",
+    "search": "The record has at least three distinct search terms and every related entity ID resolves in the governed catalogue.",
+    "ai": "The AI summary passed the Data Project substantive-length and placeholder-content validation."
+  },
+  "records": [
+    {
+      "id": "housing.student-room-basics",
+      "entity_type": "knowledge_topic",
+      "category": "renting",
+      "city_id": null,
+      "province_id": null,
+      "coordinates": null,
+      "title": "Prepare to rent a student room",
+      "description": "A person moving into a student room or other rented room needs a tenancy agreement and may need a municipal housing permit. Registration, contract, rent and local permit requirements must be checked for the actual address and tenancy arrangement.",
+      "images": [],
+      "official_source": {
+        "title": "Op kamers: wat moet ik regelen?",
+        "publisher": "Rijksoverheid",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/op-kamers-wat-moet-ik-regelen",
+        "is_official": true,
+        "checked_at": "2026-08-05",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/op-kamers-wat-moet-ik-regelen",
+      "related_entity_ids": [
+        "housing.tenancy-agreement",
+        "housing.housing-association",
+        "housing.rent-price-check"
+      ],
+      "last_checked": "2026-08-05",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "Before accepting a room, verify the tenancy agreement, address-registration possibility, rent and any municipal housing-permit requirement. Use the national guidance together with rules for the actual municipality and property.",
+      "search_keywords": [
+        "student housing Netherlands",
+        "student room",
+        "studentenkamer",
+        "op kamers",
+        "student accommodation"
+      ],
+      "lifecycle_status": "qa",
+      "attributes": {
+        "responsible_authority": "Municipality and national housing framework",
+        "coverage_family": "Student and room renting",
+        "municipality_caveat": "Permit and address rules vary by municipality and property"
+      }
+    }
+  ]
+}

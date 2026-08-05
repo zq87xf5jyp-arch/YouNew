@@ -874,6 +874,200 @@
         "Housing-association registration, campus housing, local allocation, housing permits and address-registration rules require city and institution sources.",
         "Housing-benefit eligibility for a particular room is not established by this dossier."
       ]
+    },
+    {
+      "id": "research.guide.dutch-integration-exams.2026-08-05",
+      "guide_id": "guide.dutch-integration-exams",
+      "title": "Dutch integration exams",
+      "status": "research_draft",
+      "verified_at": "2026-08-05",
+      "jurisdiction": "national_with_municipal_execution",
+      "scope": "National route selection and DUO exam administration; the applicable act, PIP, learning route and municipal components remain person- and municipality-specific.",
+      "facts": [
+        {
+          "id": "integration.check-personal-route",
+          "statement": "The exams and level a person needs depend on the applicable civic-integration act and personal route; Mijn Inburgering and, under the 2021 Act, the personal integration and participation plan (PIP) identify the applicable requirements.",
+          "source_ids": ["integration.duo-overview", "integration.duo-which-exams"],
+          "jurisdiction": "national"
+        },
+        {
+          "id": "integration.pip-and-municipality",
+          "statement": "Under the 2021 Act, the municipality carries out the broad intake and establishes the PIP, which records the learning route and required examinations.",
+          "source_ids": ["integration.duo-overview", "integration.duo-which-exams"],
+          "jurisdiction": "municipal"
+        },
+        {
+          "id": "integration.registration-routes",
+          "statement": "PVT and MAP activities are arranged with the municipality, B1 and B2 language examinations use the Nt2 state-exam route, and KNM, ONA and A2 language examinations can be registered through Mijn Inburgering.",
+          "source_ids": ["integration.duo-register"],
+          "jurisdiction": "mixed"
+        },
+        {
+          "id": "integration.register-and-confirm",
+          "statement": "For supported exams in Mijn Inburgering, the person logs in, selects an examination date and location, and receives confirmation by email and letter; official forms are available when portal login is not possible.",
+          "source_ids": ["integration.duo-register", "integration.duo-portal"],
+          "jurisdiction": "national",
+          "caveat": "Exam availability and the appropriate fallback form must be checked at action time."
+        },
+        {
+          "id": "integration.portal-requirements",
+          "statement": "Mijn Inburgering requires DigiD with SMS verification or the DigiD app and can show required exams, registrations, dates, results, invoices and DUO letters.",
+          "source_ids": ["integration.duo-portal"],
+          "jurisdiction": "national"
+        },
+        {
+          "id": "integration.results-by-exam-type",
+          "statement": "DUO publishes A2 language and knowledge-exam results by letter within eight weeks and in Mijn Inburgering; B1 and B2 Nt2 results follow the separate state-exam result process.",
+          "source_ids": ["integration.duo-results"],
+          "jurisdiction": "national",
+          "caveat": "This processing statement must be reverified before publication because operational timelines can change."
+        }
+      ],
+      "sources": [
+        {
+          "id": "integration.duo-overview",
+          "title": "Integration in the Netherlands",
+          "publisher": "Education Executive Agency (DUO)",
+          "url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/index.jsp",
+          "verified_at": "2026-08-05",
+          "jurisdiction": "national_with_municipal_execution",
+          "supports_fact_ids": ["integration.check-personal-route", "integration.pip-and-municipality"]
+        },
+        {
+          "id": "integration.duo-which-exams",
+          "title": "Which exams",
+          "publisher": "Education Executive Agency (DUO)",
+          "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/index.jsp",
+          "verified_at": "2026-08-05",
+          "jurisdiction": "national",
+          "supports_fact_ids": ["integration.check-personal-route", "integration.pip-and-municipality"]
+        },
+        {
+          "id": "integration.duo-register",
+          "title": "Registering for an exam",
+          "publisher": "Education Executive Agency (DUO)",
+          "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/registering.jsp",
+          "verified_at": "2026-08-05",
+          "jurisdiction": "mixed",
+          "supports_fact_ids": ["integration.registration-routes", "integration.register-and-confirm"]
+        },
+        {
+          "id": "integration.duo-portal",
+          "title": "Log in to Mijn Inburgering",
+          "publisher": "Education Executive Agency (DUO)",
+          "url": "https://www.inburgeren.nl/en/log-in-to-mijn-inburgering/index.jsp",
+          "verified_at": "2026-08-05",
+          "jurisdiction": "national",
+          "supports_fact_ids": ["integration.register-and-confirm", "integration.portal-requirements"]
+        },
+        {
+          "id": "integration.duo-results",
+          "title": "Exam results and diploma",
+          "publisher": "Education Executive Agency (DUO)",
+          "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/results.jsp",
+          "verified_at": "2026-08-05",
+          "jurisdiction": "national",
+          "supports_fact_ids": ["integration.results-by-exam-type"]
+        }
+      ],
+      "gaps": [
+        "The applicable act, route, level, exemptions and required components cannot be inferred safely without the person's DUO record and, where relevant, PIP.",
+        "PVT and MAP execution, appointments and support are municipality-specific; B1/B2 Nt2 administration follows a separate route.",
+        "Current fees, examination availability, accommodations and exceptional routes require action-time verification.",
+        "A named human reviewer must check the source-to-step interpretation before publication."
+      ]
+    },
+    {
+      "id": "research.guide.reporting-discrimination.2026-08-05",
+      "guide_id": "guide.reporting-discrimination",
+      "title": "Reporting discrimination",
+      "status": "research_draft",
+      "verified_at": "2026-08-05",
+      "jurisdiction": "national_with_local_services",
+      "scope": "National route selection for advice, organisational complaints, anti-discrimination services, equal-treatment assessment, police reporting and online discrimination; case-specific legal advice remains outside scope.",
+      "facts": [
+        {
+          "id": "discrimination.route-selection",
+          "statement": "Government.nl lists several possible routes depending on the incident and desired outcome: the organisation involved, a local anti-discrimination service, the national helpline, the Netherlands Institute for Human Rights, a court, the police or the internet discrimination hotline.",
+          "source_ids": ["discrimination.gov-reporting"],
+          "jurisdiction": "national"
+        },
+        {
+          "id": "discrimination.local-service",
+          "statement": "Every municipality has access to an anti-discrimination service; anyone can approach it for advice or with a complaint, and the service can provide assistance and register the report.",
+          "source_ids": ["discrimination.gov-reporting"],
+          "jurisdiction": "municipal"
+        },
+        {
+          "id": "discrimination.helpline",
+          "statement": "Government.nl publishes 0800 0880 as the national discrimination helpline and directs users to Discriminatie.nl for local service and reporting-office contact details.",
+          "source_ids": ["discrimination.gov-reporting"],
+          "jurisdiction": "national",
+          "caveat": "Contact details must be rechecked before publication."
+        },
+        {
+          "id": "discrimination.institute-scope",
+          "statement": "The Netherlands Institute for Human Rights can assess individual complaints within the scope of equal-treatment law; its decisions are non-binding and Government.nl states that complaints are handled free of charge.",
+          "source_ids": ["discrimination.gov-reporting", "discrimination.gov-institute-complaint", "discrimination.institute-english"],
+          "jurisdiction": "national"
+        },
+        {
+          "id": "discrimination.police-route",
+          "statement": "Government.nl says a person can make a criminal complaint to the police when the incident includes an offence such as harassment or intimidation connected to protected grounds.",
+          "source_ids": ["discrimination.gov-reporting"],
+          "jurisdiction": "national",
+          "caveat": "Whether conduct is a criminal offence is case-specific and must not be decided by YouNew."
+        },
+        {
+          "id": "discrimination.online-and-anonymous-routes",
+          "statement": "Government.nl directs online discriminatory statements to the internet discrimination hotline and identifies the anonymous crime-reporting number 0800 7000 as another route for reporting information to police anonymously.",
+          "source_ids": ["discrimination.gov-reporting"],
+          "jurisdiction": "national",
+          "caveat": "An anonymous information report is not the same as filing a formal criminal complaint."
+        }
+      ],
+      "sources": [
+        {
+          "id": "discrimination.gov-reporting",
+          "title": "Reporting discrimination",
+          "publisher": "Government of the Netherlands",
+          "url": "https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination",
+          "verified_at": "2026-08-05",
+          "jurisdiction": "national_with_local_services",
+          "supports_fact_ids": [
+            "discrimination.route-selection",
+            "discrimination.local-service",
+            "discrimination.helpline",
+            "discrimination.institute-scope",
+            "discrimination.police-route",
+            "discrimination.online-and-anonymous-routes"
+          ]
+        },
+        {
+          "id": "discrimination.gov-institute-complaint",
+          "title": "Filing a complaint about discrimination with the Netherlands Institute for Human Rights",
+          "publisher": "Government of the Netherlands",
+          "url": "https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination/filing-a-complaint-about-discrimination-with-the-netherlands-institute-for-human-rights",
+          "verified_at": "2026-08-05",
+          "jurisdiction": "national",
+          "supports_fact_ids": ["discrimination.institute-scope"]
+        },
+        {
+          "id": "discrimination.institute-english",
+          "title": "Netherlands Institute for Human Rights",
+          "publisher": "Netherlands Institute for Human Rights",
+          "url": "https://www.mensenrechten.nl/english",
+          "verified_at": "2026-08-05",
+          "jurisdiction": "national",
+          "supports_fact_ids": ["discrimination.institute-scope"]
+        }
+      ],
+      "gaps": [
+        "The correct route depends on the facts, protected ground, organisation involved, desired remedy and whether a criminal offence may have occurred.",
+        "Local anti-discrimination service details must be resolved from the user's municipality or current Discriminatie.nl directory rather than copied into evergreen content.",
+        "Evidence preservation, limitation periods, court strategy and legal assessment require qualified case-specific advice.",
+        "A named human reviewer must check the source-to-step interpretation before publication."
+      ]
     }
   ]
 }

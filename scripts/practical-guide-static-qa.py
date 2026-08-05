@@ -35,10 +35,10 @@ EXPECTED_TITLES = (
     "Reporting discrimination",
     "Starting a business",
 )
-EXPLICIT_GAP_TITLES = {
-    "Finding work": "No governed QA record covers the end-to-end task of finding work.",
-    "Opening a Dutch bank account": "No governed QA record covers opening a Dutch bank account.",
-    "Student housing": "No governed QA record covers student-specific housing.",
+REQUIRED_GOVERNED_SOURCE_TITLES = {
+    "Finding work",
+    "Opening a Dutch bank account",
+    "Student housing",
 }
 CONTENT_ARRAYS = (
     "prerequisites",
@@ -532,10 +532,8 @@ def main():
             source = record["official_source"]
             expect(source["is_official"] is True and source["status"] == "verified_opened", f"{label} references entity {entity_id} without an opened official source")
 
-        explicit_gap = EXPLICIT_GAP_TITLES.get(guide["title"])
-        if explicit_gap:
-            expect(source_entity_ids == [], f"{label} must not substitute an adjacent record for its missing topic")
-            expect(explicit_gap in item["publication_gaps"], f"{label} does not state its governed-content gap")
+        if guide["title"] in REQUIRED_GOVERNED_SOURCE_TITLES:
+            expect(source_entity_ids, f"{label} has no governed QA source for its required topic")
 
     # Regression proof: changing a scaffold status alone can never make it publishable.
     incomplete = copy.deepcopy(guides[0]["practical_guide"])
@@ -553,7 +551,7 @@ def main():
     print("- Draft scaffolds: 20")
     print("- Published practical guides in staging: 0")
     print("- Governed QA entity references and opened official sources: validated")
-    print("- Explicit content gaps: finding work, bank account, student housing")
+    print("- Explicit governed-content gaps: none")
     print("- Incomplete published-guide fail-closed check: passed")
     print("- Published projection and per-fact source-ID checks: passed")
     print("- Unrouted locale publication check: passed")

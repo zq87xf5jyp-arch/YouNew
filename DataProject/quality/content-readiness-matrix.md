@@ -6,15 +6,15 @@ Evidence date: **2026-08-05**. This is a read-only local audit; no live URL chec
 
 **NOT PRODUCTION READY for the attached 100%-content brief.** The repository has substantial governed summary inventory, but no practical guide passes the fail-closed production contract.
 
-- Governed records: **450**; effectively published: **181**.
-- Guide-capable material records: **277**; effectively published material records: **15**.
-- Material lifecycle states: **{"published": 15, "qa": 262}**.
+- Governed records: **454**; effectively published: **181**.
+- Guide-capable material records: **281**; effectively published material records: **15**.
+- Material lifecycle states: **{"published": 15, "qa": 266}**.
 - Public guides: **15 summary / 0 full**.
 - Editorial scaffolds: **20 draft/review**; production-ready guides: **0**.
 - Published FAQ: **0/300**; staged draft FAQ: **0**; staged search questions (not FAQ): **21**.
 - Governed topic families with zero inventory records: **0**.
 - Governed topic families with zero effective published records: **36/36**.
-- Repository content-target coverage: **262/3000 (8.7%)**; production-ready: **0/3000 (0.0%)**.
+- Repository content-target coverage: **266/3000 (8.9%)**; production-ready: **0/3000 (0.0%)**.
 - Stale governed records: **10**; stale guide-capable records: **0**.
 - Audit integrity/reconciliation: **PASSED**.
 
@@ -26,8 +26,8 @@ Coverage is not an invented score. Target-level coverage uses `DataProject/cover
 
 | Target | Materials | Target denominator | Coverage | Published | Ready full guides | Production ready |
 | --- | --- | --- | --- | --- | --- | --- |
-| government | 102 | 1000 | 10.2% | 0 | 0 | 0.0% |
-| housing | 40 | 500 | 8.0% | 0 | 0 | 0.0% |
+| government | 105 | 1000 | 10.5% | 0 | 0 | 0.0% |
+| housing | 41 | 500 | 8.2% | 0 | 0 | 0.0% |
 | healthcare | 40 | 500 | 8.0% | 0 | 0 | 0.0% |
 | transport | 40 | 500 | 8.0% | 0 | 0 | 0.0% |
 | education | 40 | 500 | 8.0% | 0 | 0 | 0.0% |
@@ -58,7 +58,7 @@ P1/P2/P3 is a report-only editorial proposal over existing topic-family keys. Th
 | 1 | healthcare | health-insurance | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 2 | healthcare | hospitals-specialists | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
 | 1 | healthcare | emergency-care | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
-| 1 | housing | renting | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
+| 1 | housing | renting | 11 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 2 |
 | 3 | housing | home-buying | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
 | 1 | housing | tenant-rights | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 2 |
 | 2 | housing | utilities | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
@@ -68,7 +68,7 @@ P1/P2/P3 is a report-only editorial proposal over existing topic-family keys. Th
 | 1 | government | citizenship-integration | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 1 | government | taxes | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 2 |
 | 1 | government | benefits-allowances | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
-| 1 | government | employment-unemployment | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
+| 1 | government | employment-unemployment | 6 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 2 |
 | 2 | government | business-entrepreneurship | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 1 | government | health-insurance | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 2 |
 | 2 | government | family-parenthood | 6 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
@@ -89,6 +89,7 @@ This table uses the observed category count as the denominator for summary-field
 
 | WP | Category | Denominator | Base complete | Completeness | Published | Ready | No image | No steps | No FAQ |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| WP-01 | banking | 2 | 2/2 | 100.0% | 0 | 0 | 2 | 2 | 2 |
 | WP-01 | benefits | 5 | 5/5 | 100.0% | 0 | 0 | 5 | 5 | 5 |
 | WP-01 | business | 5 | 5/5 | 100.0% | 0 | 0 | 5 | 5 | 5 |
 | WP-01 | certificates | 3 | 3/3 | 100.0% | 0 | 0 | 3 | 3 | 3 |
@@ -105,7 +106,7 @@ This table uses the observed category count as the denominator for summary-field
 | WP-01 | education_finance | 5 | 5/5 | 100.0% | 0 | 0 | 5 | 5 | 5 |
 | WP-01 | elections | 4 | 4/4 | 100.0% | 0 | 0 | 4 | 4 | 4 |
 | WP-01 | emergencies | 1 | 1/1 | 100.0% | 0 | 0 | 1 | 1 | 1 |
-| WP-01 | employment | 5 | 5/5 | 100.0% | 0 | 0 | 5 | 5 | 5 |
+| WP-01 | employment | 6 | 6/6 | 100.0% | 0 | 0 | 6 | 6 | 6 |
 | WP-01 | family_leave | 2 | 2/2 | 100.0% | 0 | 0 | 2 | 2 | 2 |
 | WP-01 | healthcare | 4 | 4/4 | 100.0% | 0 | 0 | 4 | 4 | 4 |
 | WP-01 | healthcare_registration | 1 | 1/1 | 100.0% | 0 | 0 | 1 | 1 | 1 |
@@ -124,7 +125,7 @@ This table uses the observed category count as the denominator for summary-field
 | WP-01 | social_security | 5 | 5/5 | 100.0% | 0 | 0 | 5 | 5 | 5 |
 | WP-01 | taxes | 5 | 5/5 | 100.0% | 0 | 0 | 5 | 5 | 5 |
 | WP-02 | home_buying | 10 | 10/10 | 100.0% | 0 | 0 | 10 | 10 | 10 |
-| WP-02 | renting | 10 | 10/10 | 100.0% | 0 | 0 | 10 | 10 | 10 |
+| WP-02 | renting | 11 | 11/11 | 100.0% | 0 | 0 | 11 | 11 | 11 |
 | WP-02 | tenant_rights | 10 | 10/10 | 100.0% | 0 | 0 | 10 | 10 | 10 |
 | WP-02 | utilities | 10 | 10/10 | 100.0% | 0 | 0 | 10 | 10 | 10 |
 | WP-03 | emergency_care | 10 | 10/10 | 100.0% | 0 | 0 | 10 | 10 | 10 |
@@ -154,12 +155,12 @@ This table uses the observed category count as the denominator for summary-field
 
 ## Quality gaps
 
-- Material records without an official parent source: **0/277**.
-- Material records without a verified image: **262/277**.
-- Material records without published steps: **277/277**.
-- Material records without published FAQ: **277/277**.
+- Material records without an official parent source: **0/281**.
+- Material records without a verified image: **266/281**.
+- Material records without published steps: **281/281**.
+- Material records without published FAQ: **281/281**.
 - Staged guides without reviewer, verified date, official guide sources, steps and FAQ: **20/20**, **20/20**, **20/20**, **20/20**, **20/20**.
-- Staged guides with no canonical source entity IDs: **3** (guide.finding-work, guide.opening-a-dutch-bank-account, guide.student-housing).
+- Staged guides with no canonical source entity IDs: **0** (none).
 - Conservative placeholder hits: canonical **0**, staged guides **0**.
 - Missing canonical source IDs referenced by scaffolds: **0** (none).
 - Stale governed records under `freshness-policy.json`: **10** (event.worldpride-amsterdam-2026-pride-walk, event.worldpride-amsterdam-2026-pride-park, event.worldpride-amsterdam-2026-open-air-film-festival, event.worldpride-amsterdam-2026-senior-pride-concert, event.worldpride-amsterdam-2026-canal-parade, event.worldpride-amsterdam-2026-unity-concert, event.worldpride-amsterdam-2026-human-rights-conference, event.worldpride-amsterdam-2026-worldpride-village, event.worldpride-amsterdam-2026-worldpride-march, event.worldpride-amsterdam-2026-closing-concert).

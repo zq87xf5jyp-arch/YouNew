@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-05T17:15:53+00:00",
+  "generated_at": "2026-08-05T19:16:37+00:00",
   "scope": "DATA PROJECT governed records only; legacy runtime data is excluded until audited and migrated.",
   "runtime_release": {
     "release_id": "legacy-runtime-unversioned",
@@ -31,10 +31,10 @@
     }
   },
   "summary": {
-    "batches": 27,
-    "records": 450,
+    "batches": 29,
+    "records": 454,
     "published": 181,
-    "verified": 450,
+    "verified": 454,
     "needs_review": 0,
     "outdated": 0,
     "blocked": 0,
@@ -94,17 +94,17 @@
       "key": "government",
       "label": "Government topics",
       "work_package": "WP-01",
-      "current": 102,
+      "current": 105,
       "target": 1000,
-      "coverage_percent": 10.2
+      "coverage_percent": 10.5
     },
     {
       "key": "housing",
       "label": "Housing topics",
       "work_package": "WP-02",
-      "current": 40,
+      "current": 41,
       "target": 500,
-      "coverage_percent": 8.0
+      "coverage_percent": 8.2
     },
     {
       "key": "healthcare",
@@ -357,7 +357,7 @@
         {
           "key": "renting",
           "label": "Renting a home",
-          "count": 10
+          "count": 11
         },
         {
           "key": "home-buying",
@@ -379,7 +379,7 @@
         {
           "key": "renting",
           "label": "Renting a home",
-          "count": 10
+          "count": 11
         },
         {
           "key": "home-buying",
@@ -448,7 +448,7 @@
         {
           "key": "employment-unemployment",
           "label": "Employment and unemployment",
-          "count": 5
+          "count": 6
         },
         {
           "key": "business-entrepreneurship",
@@ -550,7 +550,7 @@
         {
           "key": "employment-unemployment",
           "label": "Employment and unemployment",
-          "count": 5
+          "count": 6
         },
         {
           "key": "business-entrepreneurship",
@@ -2316,9 +2316,9 @@
       "id": "WP-01",
       "name": "Government",
       "status": "active",
-      "records": 102,
+      "records": 105,
       "published": 0,
-      "verified": 102,
+      "verified": 105,
       "needs_review": 0,
       "outdated": 0,
       "blocked": 0,
@@ -2341,9 +2341,9 @@
       "id": "WP-02",
       "name": "Housing",
       "status": "active",
-      "records": 40,
+      "records": 41,
       "published": 0,
-      "verified": 40,
+      "verified": 41,
       "needs_review": 0,
       "outdated": 0,
       "blocked": 0,
