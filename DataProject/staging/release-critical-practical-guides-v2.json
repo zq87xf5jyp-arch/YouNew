@@ -1,0 +1,783 @@
+{
+  "schema_version": 2,
+  "collection_id": "release-critical-practical-guides-v2",
+  "status": "editorial_draft",
+  "publication_authorized": false,
+  "purpose": "Human-review bundle for the eight practical guides needed to answer the release-critical search journeys. This file is private staging input and is not part of the public content pipeline.",
+  "source_policy": "Every factual block maps to a retrieved primary official source. Direct-access restrictions are marked explicitly. Missing universal rules are stated as limitations, not filled with assumptions. Volatile values must be rechecked during human review.",
+  "guides": [
+    {
+      "source_entity_ids": ["government.bsn", "government.brp-registration", "government.rni-registration"],
+      "research_inputs": ["DataProject/research/priority-1-government/priority-1-government-sources-2026-07-20.json"],
+      "publication_gaps": [
+        "A named human editor has not reviewed the source-to-instruction interpretation.",
+        "Municipality-specific appointment and document requirements still need local review.",
+        "Reviewed media, accessibility evidence and a passed publication gate are missing.",
+        "Dutch and Russian translations have not been prepared or reviewed."
+      ],
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.getting-a-bsn",
+        "slug": "getting-a-bsn",
+        "locale": "en",
+        "title": "Getting a BSN",
+        "short_summary": {"id": "bsn.summary", "text": "A BSN is assigned through registration: residents use the municipal BRP route, while eligible non-residents use an RNI desk. It is normally not a separate BSN application.", "source_ids": ["src.gov.bsn-overview", "src.nww.bsn-get"]},
+        "audience_profiles": ["student", "expat", "refugee", "worker", "resident"],
+        "who_this_is_for": {"id": "bsn.audience", "text": "Use this guide if you are moving to the Netherlands, staying for a short period, or need to check whether a BSN was already assigned during an earlier stay.", "source_ids": ["src.gov.brp-resident", "src.nww.bsn-get"]},
+        "when_you_need_it": {"id": "bsn.when", "text": "Choose the route before booking: living in the Netherlands for more than four months normally means resident BRP registration; living abroad or staying for less than four months points to RNI registration.", "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"]},
+        "applicability": {"city_ids": [], "province_ids": []},
+        "jurisdiction": {"level": "mixed", "country_code": "NL", "municipality_dependent": true, "note": "The resident/non-resident split is national; municipalities and RNI desks execute registration and set operational appointment requirements.", "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"]},
+        "prerequisites": [
+          {"id": "bsn.pre.route", "text": "Determine whether you will live in the Netherlands for more than four months or remain a non-resident/short-stay visitor.", "source_ids": ["src.gov.brp-resident"]},
+          {"id": "bsn.pre.existing", "text": "If you previously lived, worked or studied in the Netherlands, check whether you already have a BSN before starting a new registration.", "source_ids": ["src.nww.bsn-get"]}
+        ],
+        "required_documents": [
+          {"id": "bsn.docs.identity", "text": "Bring a valid identity document. The responsible municipality or RNI desk may request additional identity, lawful-residence, address or civil-status evidence for your route.", "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"]},
+          {"id": "bsn.docs.child", "text": "For an RNI registration of a child under 16, the official route also requires the child's identity document and evidence of parentage; foreign documents may need legalisation or translation.", "source_ids": ["src.nww.rni-register"]}
+        ],
+        "estimated_time": {"state": "varies", "value": null, "note": "There is no universal processing time. Appointment availability and any identity or lawful-residence investigation can change the timing.", "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"]},
+        "estimated_cost": {"state": "varies", "value": "RNI registration is free", "note": "Travel, translation or legalisation can still create costs; this draft does not claim a universal total.", "currency": "EUR", "source_ids": ["src.nww.rni-register"]},
+        "numbered_steps": [
+          {"id": "bsn.step.route", "position": 1, "title": "Choose BRP or RNI", "body": "Use expected residence duration and where you live to select the resident BRP route or the non-resident RNI route.", "source_ids": ["src.gov.brp-resident"], "municipality_dependent": false},
+          {"id": "bsn.step.existing", "position": 2, "title": "Check for an existing BSN", "body": "If you had an earlier Dutch connection, follow the official check route rather than trying to obtain a second number.", "source_ids": ["src.nww.bsn-get"], "municipality_dependent": false},
+          {"id": "bsn.step.resident", "position": 3, "title": "Register as a resident", "body": "If you will live in the Netherlands for more than four months, register with the municipality where you live. The national page says a newly arrived resident should do this within five days of arrival.", "source_ids": ["src.gov.brp-resident"], "municipality_dependent": true},
+          {"id": "bsn.step.nonresident", "position": 4, "title": "Use an eligible RNI desk", "body": "If you live abroad or will stay for less than four months, check the current RNI desk eligibility and appointment instructions before travelling to a desk.", "source_ids": ["src.nww.rni-register"], "municipality_dependent": true},
+          {"id": "bsn.step.receive", "position": 5, "title": "Keep the assigned number securely", "body": "The BSN is assigned as a result of BRP or RNI registration and is used for contacts with Dutch public services.", "source_ids": ["src.gov.bsn-overview", "src.nww.bsn-get"], "municipality_dependent": false}
+        ],
+        "warnings": [
+          {"id": "bsn.warn.not-standalone", "text": "Do not treat the BSN as a standalone commercial product or a separate ordinary application; first choose the correct registration route.", "source_ids": ["src.gov.bsn-overview", "src.nww.bsn-get"]},
+          {"id": "bsn.warn.local", "text": "Do not copy one municipality's appointment or document list to another municipality; operational requirements vary.", "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"]}
+        ],
+        "common_mistakes": [
+          {"id": "bsn.mistake.route", "text": "Booking an RNI desk while actually becoming a resident for more than four months.", "source_ids": ["src.gov.brp-resident"]},
+          {"id": "bsn.mistake.duplicate", "text": "Trying to obtain a new BSN without checking whether an earlier Dutch stay already produced one.", "source_ids": ["src.nww.bsn-get"]}
+        ],
+        "tips": [
+          {"id": "bsn.tip.local", "text": "Open the current page of your municipality or selected RNI desk immediately before booking and travelling.", "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"]},
+          {"id": "bsn.tip.family", "text": "For resident registration, accompanying partners and children who moved with you should attend as described by the national route.", "source_ids": ["src.gov.brp-resident"]}
+        ],
+        "checklist": [
+          {"id": "bsn.check.route", "text": "I selected BRP or RNI based on my actual residence situation.", "source_ids": ["src.gov.brp-resident"]},
+          {"id": "bsn.check.id", "text": "I checked the responsible office's current identity and supporting-document requirements.", "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"]},
+          {"id": "bsn.check.existing", "text": "I checked whether I may already have a BSN.", "source_ids": ["src.nww.bsn-get"]}
+        ],
+        "faqs": [
+          {"id": "bsn.faq.what", "question": "What is a BSN?", "answer": "It is a unique personal number assigned to people registered in the BRP, including through the relevant resident or non-resident registration route.", "source_ids": ["src.gov.bsn-overview"]},
+          {"id": "bsn.faq.where", "question": "Where do I get a BSN?", "answer": "Residents receive it through municipal BRP registration. Eligible non-residents receive it through RNI registration. Limited government-organisation routes exist only for specified situations.", "source_ids": ["src.nww.bsn-get", "src.nww.rni-register"]},
+          {"id": "bsn.faq.old", "question": "Do I need a new BSN after returning?", "answer": "Not necessarily. If you previously lived, worked or studied in the Netherlands, first check whether a BSN was already assigned.", "source_ids": ["src.nww.bsn-get"]}
+        ],
+        "emergency_information": [{"id": "bsn.urgent", "text": "There is no national emergency BSN route in these sources. If a deadline is close, contact the responsible municipality or RNI desk and explain the specific deadline.", "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"]}],
+        "sections": [
+          {"id": "bsn.section.local", "title": "Local variation", "body": "Municipal appointment channels, desk availability and supporting-document checks are operational details. This national guide must link to the user's own municipality or eligible RNI desk.", "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"]},
+          {"id": "bsn.section.related", "title": "What comes next", "body": "A BSN is used in government, healthcare and education workflows. DigiD is a separate digital identity process and is not created automatically by obtaining a BSN.", "source_ids": ["src.gov.bsn-overview"]}
+        ],
+        "official_sources": [
+          {"id": "src.gov.bsn-overview", "title": "Citizen service number (BSN)", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "src.gov.brp-resident", "title": "When should I register with the Personal Records Database as a resident?", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/faq/when-should-i-register-with-the-personal-records-database-as-a-resident", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "src.nww.rni-register", "title": "How can I register in the Non-residents Records Database (RNI)?", "publisher": "NetherlandsWorldwide", "url": "https://www.netherlandsworldwide.nl/non-residents-records-database/register", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "src.nww.bsn-get", "title": "How can I get a citizen service number (BSN) if I live abroad?", "publisher": "NetherlandsWorldwide", "url": "https://www.netherlandsworldwide.nl/bsn/how-to-get", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"}
+        ],
+        "contact_options": [{"id": "bsn.contact.local", "kind": "other", "label": "Your municipality or selected RNI desk", "value": "Use the current official municipality or NetherlandsWorldwide RNI contact route for your registration branch.", "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"]}],
+        "related_guide_ids": ["guide.registering-at-a-municipality", "guide.applying-for-digid"],
+        "next_actions": [
+          {"id": "bsn.next.register", "text": "Open the current municipal BRP or RNI instructions for your route and prepare only the documents that route requests.", "source_ids": ["src.gov.brp-resident", "src.nww.rni-register"]},
+          {"id": "bsn.next.digid", "text": "After registration, use the separate official DigiD process if you need Dutch online public services.", "source_ids": ["src.gov.bsn-overview"]}
+        ],
+        "verified_at": null,
+        "updated_at": "2026-08-05",
+        "reviewer": null,
+        "reading_time_minutes": 7,
+        "difficulty": "basic",
+        "confidence_level": "medium",
+        "tags": ["BSN", "BRP", "RNI", "documents"],
+        "publication_gate": null,
+        "disclaimer": "Draft orientation only. Confirm the current appointment and evidence rules with the responsible municipality or RNI desk.",
+        "seo": {"title": "How to get a BSN in the Netherlands | YouNew", "description": "Choose the correct BRP or RNI route, check required evidence and avoid duplicate BSN applications in the Netherlands.", "canonical_path": "/guides/getting-a-bsn/"},
+        "synonyms": ["citizen service number", "burgerservicenummer", "BSN number", "RNI number"],
+        "common_questions": ["How do I get a BSN in Eindhoven?", "Do I use BRP or RNI?", "Can I already have a BSN?"],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": ["healthcare.gp-practice-team", "healthcare.gp-care-mediation"],
+      "research_inputs": ["DataProject/research/priority-1-daily/priority-1-dossiers.json"],
+      "publication_gaps": [
+        "A medical-domain human reviewer has not approved the wording.",
+        "No national source guarantees practice capacity or one registration form.",
+        "Local practice discovery and out-of-hours contacts still require locality-aware data.",
+        "Reviewed media, accessibility evidence and translations are missing."
+      ],
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.finding-a-huisarts",
+        "slug": "finding-a-huisarts",
+        "locale": "en",
+        "title": "Finding and registering with a huisarts",
+        "short_summary": {"id": "gp.summary", "text": "Find a nearby GP practice, ask whether it accepts new patients and register with your ID, BSN and insurance details. If you cannot find a practice, ask your insurer for help.", "source_ids": ["gp.thuisarts-choosing", "gp.nza-care-mediation"]},
+        "audience_profiles": ["student", "expat", "refugee", "worker", "resident"],
+        "who_this_is_for": {"id": "gp.audience", "text": "For people settled in the Netherlands who need a regular family doctor, including people whose first-choice practice is full or too far away.", "source_ids": ["gp.thuisarts-choosing"]},
+        "when_you_need_it": {"id": "gp.when", "text": "Register after you are settled, before you need routine care. This guide is not a substitute for urgent or emergency medical triage.", "source_ids": ["gp.thuisarts-choosing", "gp.gov-112"]},
+        "applicability": {"city_ids": [], "province_ids": []},
+        "jurisdiction": {"level": "mixed", "country_code": "NL", "municipality_dependent": true, "note": "Insurance coverage rules are national, but practice capacity, distance and registration channels are local/provider-specific.", "source_ids": ["gp.thuisarts-choosing", "gp.zin-gp-coverage"]},
+        "prerequisites": [
+          {"id": "gp.pre.settled", "text": "Use your place of residence to look for practices in your area; a practice may decline because it is full or you live too far away.", "source_ids": ["gp.thuisarts-choosing"]},
+          {"id": "gp.pre.insurance", "text": "Have your health-insurance details available and check provider contracting if your policy restricts contracted care.", "source_ids": ["gp.thuisarts-choosing"]}
+        ],
+        "required_documents": [
+          {"id": "gp.docs.registration", "text": "Have your ID, BSN and health-insurance name and number available when registering.", "source_ids": ["gp.thuisarts-choosing"]},
+          {"id": "gp.docs.medical", "text": "For the first visit, bring available medical records and a current medication list.", "source_ids": ["gp.thuisarts-choosing"]}
+        ],
+        "estimated_time": {"state": "varies", "value": null, "note": "No official national processing time or capacity guarantee exists; timing depends on local practice availability.", "source_ids": ["gp.thuisarts-choosing", "gp.nza-care-mediation"]},
+        "estimated_cost": {"state": "varies", "value": "GP care itself is covered by the basic package and exempt from the compulsory deductible", "note": "Medicines, external tests, referred care and non-contracted-provider consequences may still create costs under the policy.", "currency": "EUR", "source_ids": ["gp.zin-gp-coverage"]},
+        "numbered_steps": [
+          {"id": "gp.step.search", "position": 1, "title": "Search near your home", "body": "Search for GP or huisarts together with your place of residence and identify practices close enough for local care.", "source_ids": ["gp.thuisarts-choosing"], "municipality_dependent": true},
+          {"id": "gp.step.check", "position": 2, "title": "Check acceptance and policy", "body": "Ask the practice whether it accepts new patients and confirm any distance or insurance-contract issue before submitting details.", "source_ids": ["gp.thuisarts-choosing"], "municipality_dependent": true},
+          {"id": "gp.step.register", "position": 3, "title": "Register", "body": "Follow the practice's current online or in-person process and provide ID, BSN and health-insurance details.", "source_ids": ["gp.thuisarts-choosing"], "municipality_dependent": true},
+          {"id": "gp.step.records", "position": 4, "title": "Transfer useful records", "body": "Bring records and a medication list to the first visit. If changing Dutch GPs, authorise the previous GP to send the record to the new practice.", "source_ids": ["gp.thuisarts-choosing"], "municipality_dependent": false},
+          {"id": "gp.step.help", "position": 5, "title": "Escalate a failed search", "body": "If practices are full or waits are excessive, ask your health insurer for help or care mediation.", "source_ids": ["gp.thuisarts-choosing", "gp.nza-care-mediation"], "municipality_dependent": false}
+        ],
+        "warnings": [
+          {"id": "gp.warn.capacity", "text": "Free choice does not guarantee acceptance; practices may be full, too far away or incompatible with policy contracting.", "source_ids": ["gp.thuisarts-choosing"]},
+          {"id": "gp.warn.cost", "text": "Do not assume every service ordered by a GP is deductible-free; external tests, medicines and referred care may use the deductible.", "source_ids": ["gp.zin-gp-coverage"]}
+        ],
+        "common_mistakes": [
+          {"id": "gp.mistake.wait", "text": "Waiting until routine care is needed before beginning the local registration search.", "source_ids": ["gp.thuisarts-choosing"]},
+          {"id": "gp.mistake.one", "text": "Treating one refusal as proof that no help is available instead of asking the insurer for mediation.", "source_ids": ["gp.nza-care-mediation"]}
+        ],
+        "tips": [
+          {"id": "gp.tip.pharmacy", "text": "Register with a nearby pharmacy so the practice knows where to send prescriptions.", "source_ids": ["gp.thuisarts-choosing"]},
+          {"id": "gp.tip.list", "text": "Keep a concise current medication list ready for the first appointment.", "source_ids": ["gp.thuisarts-choosing"]}
+        ],
+        "checklist": [
+          {"id": "gp.check.area", "text": "I searched near my actual place of residence and checked whether the practice accepts patients.", "source_ids": ["gp.thuisarts-choosing"]},
+          {"id": "gp.check.details", "text": "I have ID, BSN and health-insurance details ready.", "source_ids": ["gp.thuisarts-choosing"]},
+          {"id": "gp.check.records", "text": "I prepared relevant records and a medication list.", "source_ids": ["gp.thuisarts-choosing"]}
+        ],
+        "faqs": [
+          {"id": "gp.faq.mandatory", "question": "Is registering with a GP mandatory?", "answer": "Government guidance describes registration as recommended rather than mandatory, so care is easier to access when needed.", "source_ids": ["gp.gov-moving-arrangements"]},
+          {"id": "gp.faq.refused", "question": "What if every nearby GP is full?", "answer": "Ask your health insurer to help find a practice or provide care mediation when capacity or waiting time is the problem.", "source_ids": ["gp.thuisarts-choosing", "gp.nza-care-mediation"]},
+          {"id": "gp.faq.cost", "question": "Does GP care use the compulsory deductible?", "answer": "GP care itself is in the basic package and exempt from the compulsory deductible, but external tests, medicines and referred care may not be.", "source_ids": ["gp.zin-gp-coverage"]}
+        ],
+        "emergency_information": [{"id": "gp.emergency", "text": "For immediate danger or a serious injury needing prompt medical attention, call 112. Do not wait for ordinary GP registration.", "source_ids": ["gp.gov-112"]}],
+        "sections": [
+          {"id": "gp.section.local", "title": "Local variation", "body": "Actual practices, registration forms, capacity and out-of-hours contacts vary by area. The public guide needs a city-aware handoff rather than a single national form.", "source_ids": ["gp.thuisarts-choosing"]},
+          {"id": "gp.section.problems", "title": "If registration fails", "body": "Record which practices you contacted, then ask the insurer for help. Care mediation is the official escalation when availability or waiting time is excessive.", "source_ids": ["gp.nza-care-mediation"]}
+        ],
+        "official_sources": [
+          {"id": "gp.thuisarts-choosing", "title": "Choosing a GP", "publisher": "Thuisarts / Dutch College of General Practitioners", "url": "https://www.thuisarts.nl/dutch-healthcare/choosing-gp", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "gp.gov-moving-arrangements", "title": "What do I need to arrange if I’m moving to the Netherlands?", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "gp.nza-care-mediation", "title": "Zorgbemiddeling", "publisher": "Nederlandse Zorgautoriteit", "url": "https://www.nza.nl/onderwerpen/i/informatieverstrekking-door-zorgaanbieders/zorgbemiddeling", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "gp.zin-gp-coverage", "title": "Huisarts (Zvw)", "publisher": "Zorginstituut Nederland", "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/h/huisarts-zvw", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "gp.gov-112", "title": "When can I call 112?", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/faq/emergency-number-112/when-can-i-call-112", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"}
+        ],
+        "contact_options": [
+          {"id": "gp.contact.insurer", "kind": "other", "label": "Your health insurer's care-mediation service", "value": "Use the current contact route printed on your policy or insurer website.", "source_ids": ["gp.nza-care-mediation"]},
+          {"id": "gp.contact.emergency", "kind": "phone", "label": "Emergency services", "value": "112", "source_ids": ["gp.gov-112"]}
+        ],
+        "related_guide_ids": ["guide.dutch-health-insurance", "guide.emergency-numbers-and-urgent-help"],
+        "next_actions": [
+          {"id": "gp.next.search", "text": "Search huisarts plus Rotterdam or your actual city, then contact nearby practices directly.", "source_ids": ["gp.thuisarts-choosing"]},
+          {"id": "gp.next.insurer", "text": "If the local search fails, request care mediation from your insurer.", "source_ids": ["gp.nza-care-mediation"]}
+        ],
+        "verified_at": null,
+        "updated_at": "2026-08-05",
+        "reviewer": null,
+        "reading_time_minutes": 7,
+        "difficulty": "basic",
+        "confidence_level": "medium",
+        "tags": ["huisarts", "GP", "healthcare", "insurance"],
+        "publication_gate": null,
+        "disclaimer": "Draft healthcare orientation, not medical advice. Use 112 for immediate danger and verify local practice availability directly.",
+        "seo": {"title": "Find and register with a huisarts | YouNew", "description": "Find a nearby Dutch GP, prepare registration details and use insurer care mediation when local practices are full.", "canonical_path": "/guides/finding-a-huisarts/"},
+        "synonyms": ["GP", "family doctor", "general practitioner", "huisarts registration"],
+        "common_questions": ["How do I find a huisarts in Rotterdam?", "What documents does a GP need?", "What if local GPs are full?"],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": ["housing.rent-check", "housing.tenancy-contract", "housing.good-landlordship"],
+      "research_inputs": ["DataProject/research/priority-1-daily/priority-1-dossiers.json"],
+      "publication_gaps": [
+        "A housing-domain human reviewer has not checked the draft.",
+        "No official national live rental inventory or landlord-verification service is established.",
+        "Municipal permit and allocation branches still need city-specific review.",
+        "Volatile annual thresholds must be rechecked before publication.",
+        "Reviewed media, accessibility evidence and translations are missing."
+      ],
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.renting-a-home",
+        "slug": "renting-a-home",
+        "locale": "en",
+        "title": "Renting a home safely",
+        "short_summary": {"id": "rent.summary", "text": "Once you find a possible home, check its rental sector and points, the basic rent and service costs, the deposit, any mediation fee, local permit rules and the written tenancy agreement before committing.", "source_ids": ["renting.gov-tenant-plan", "renting.huurcommissie-rent-check"]},
+        "audience_profiles": ["student", "expat", "refugee", "worker", "resident"],
+        "who_this_is_for": {"id": "rent.audience", "text": "For people comparing or entering a Dutch tenancy, including workers whose employer also arranges accommodation.", "source_ids": ["renting.gov-tenant-plan"]},
+        "when_you_need_it": {"id": "rent.when", "text": "Use the checks before paying a deposit or signing, and use the escalation section if the landlord later breaches rent, service-cost, deposit or conduct rules.", "source_ids": ["renting.gov-tenant-plan"]},
+        "applicability": {"city_ids": [], "province_ids": []},
+        "jurisdiction": {"level": "mixed", "country_code": "NL", "municipality_dependent": true, "note": "National tenancy rules apply, while rental permits, allocation rules and municipal reporting routes can vary by city.", "source_ids": ["renting.gov-tenant-plan"]},
+        "prerequisites": [
+          {"id": "rent.pre.candidate", "text": "Have the address, proposed basic rent, service costs, deposit, contract date and whether the home is self-contained or shared.", "source_ids": ["renting.gov-tenant-plan", "renting.huurcommissie-rent-check"]},
+          {"id": "rent.pre.local", "text": "Check whether the municipality requires a rental or housing permit for this address and household.", "source_ids": ["renting.gov-tenant-plan"]}
+        ],
+        "required_documents": [
+          {"id": "rent.docs.contract", "text": "Obtain the written tenancy agreement and the landlord's written information about use, access, repair, contacts, deposit and service costs.", "source_ids": ["renting.gov-tenant-plan", "renting.rijk-contract-content"]},
+          {"id": "rent.docs.condition", "text": "Record the condition of the home at the start and keep the agreed property-condition record with the contract.", "source_ids": ["renting.rijk-contract-content"]},
+          {"id": "rent.docs.payments", "text": "Keep evidence of the deposit, rent, service-cost and any agency payments.", "source_ids": ["renting.gov-tenant-plan"]}
+        ],
+        "estimated_time": {"state": "varies", "value": null, "note": "There is no official national search or approval time. Permit, allocation and landlord processes vary locally.", "source_ids": ["renting.gov-tenant-plan"]},
+        "estimated_cost": {"state": "varies", "value": "Rent, actual service costs and any lawful deposit", "note": "For agreements dated 1 July 2023 or later, the current government plan caps the deposit at two months' basic rent. Recheck current annual rent thresholds before publication.", "currency": "EUR", "source_ids": ["renting.gov-tenant-plan"]},
+        "numbered_steps": [
+          {"id": "rent.step.local", "position": 1, "title": "Check local eligibility", "body": "Open the municipality's current housing pages and verify whether this address or tenancy needs a permit or follows local allocation rules.", "source_ids": ["renting.gov-tenant-plan"], "municipality_dependent": true},
+          {"id": "rent.step.sector", "position": 2, "title": "Check sector and rent", "body": "Use the official Rent Check for a self-contained or shared home and identify whether social, midprice or private-sector rules apply.", "source_ids": ["renting.gov-tenant-plan", "renting.huurcommissie-rent-check"], "municipality_dependent": false},
+          {"id": "rent.step.costs", "position": 3, "title": "Separate every cost", "body": "Separate basic rent, actual service costs, utilities, deposit and any mediation fee; do not accept one unexplained total.", "source_ids": ["renting.gov-tenant-plan", "renting.rijk-contract-content"], "municipality_dependent": false},
+          {"id": "rent.step.contract", "position": 4, "title": "Read the written agreement", "body": "Check the core terms, written landlord information and starting condition of the property before signing or moving in.", "source_ids": ["renting.gov-tenant-plan", "renting.rijk-contract-content"], "municipality_dependent": false},
+          {"id": "rent.step.benefit", "position": 5, "title": "Check possible housing benefit", "body": "Use the official Dienst Toeslagen route to check possible eligibility; do not assume the property or household qualifies.", "source_ids": ["renting.gov-tenant-plan"], "municipality_dependent": false},
+          {"id": "rent.step.problem", "position": 6, "title": "Use the correct dispute route", "body": "First document the issue and contact the landlord. Depending on the issue and sector, use the Huurcommissie, municipal reporting office or district court route described by the official plan.", "source_ids": ["renting.gov-tenant-plan"], "municipality_dependent": true}
+        ],
+        "warnings": [
+          {"id": "rent.warn.deposit", "text": "The two-month deposit rule cited here applies to tenancy agreements dated 1 July 2023 or later; do not reuse it for older contracts without review.", "source_ids": ["renting.gov-tenant-plan"]},
+          {"id": "rent.warn.fee", "text": "An agency acting for the landlord cannot also charge the tenant mediation fees; a separately instructed tenant agent is a different case.", "source_ids": ["renting.gov-tenant-plan"]},
+          {"id": "rent.warn.worker", "text": "For covered European labour migrants with employer-provided housing, agreements dated 1 July 2023 or later must separate the tenancy from the employment contract.", "source_ids": ["renting.gov-tenant-plan"]}
+        ],
+        "common_mistakes": [
+          {"id": "rent.mistake.total", "text": "Comparing only one total price without separating basic rent, service costs, utilities and deposit.", "source_ids": ["renting.gov-tenant-plan"]},
+          {"id": "rent.mistake.verbal", "text": "Relying on verbal promises that are absent from the written tenancy information.", "source_ids": ["renting.gov-tenant-plan"]},
+          {"id": "rent.mistake.local", "text": "Assuming Den Haag or another municipality uses the same permit and allocation rules as every other city.", "source_ids": ["renting.gov-tenant-plan"]}
+        ],
+        "tips": [
+          {"id": "rent.tip.check", "text": "Run the official Rent Check before committing and save the result with the listing and contract.", "source_ids": ["renting.huurcommissie-rent-check"]},
+          {"id": "rent.tip.condition", "text": "Create a dated condition record at move-in so later damage discussions can be compared with the starting state.", "source_ids": ["renting.rijk-contract-content"]}
+        ],
+        "checklist": [
+          {"id": "rent.check.local", "text": "I checked the municipality's current permit or allocation rules for this address.", "source_ids": ["renting.gov-tenant-plan"]},
+          {"id": "rent.check.cost", "text": "I separated basic rent, service costs, utilities, deposit and agency fees.", "source_ids": ["renting.gov-tenant-plan"]},
+          {"id": "rent.check.written", "text": "I have a written agreement, landlord information and starting-condition record.", "source_ids": ["renting.gov-tenant-plan", "renting.rijk-contract-content"]},
+          {"id": "rent.check.receipts", "text": "I kept receipts and correspondence for every payment and promise.", "source_ids": ["renting.gov-tenant-plan"]}
+        ],
+        "faqs": [
+          {"id": "rent.faq.deposit", "question": "How large can the deposit be?", "answer": "For tenancy agreements dated 1 July 2023 or later, the current Government.nl plan says a maximum of two months' basic rent. Older agreements require separate review.", "source_ids": ["renting.gov-tenant-plan"]},
+          {"id": "rent.faq.fee", "question": "Can the rental agent charge both parties?", "answer": "An agent acting for the landlord cannot also charge the tenant mediation fees. If the tenant independently instructed an agent, that is treated differently.", "source_ids": ["renting.gov-tenant-plan"]},
+          {"id": "rent.faq.problem", "question": "Where do I report a landlord problem?", "answer": "The route depends on the issue and rental sector. The official plan routes relevant cases to the landlord, Huurcommissie, municipal reporting office or district court.", "source_ids": ["renting.gov-tenant-plan"]}
+        ],
+        "emergency_information": [{"id": "rent.urgent", "text": "This guide does not establish an emergency gas, fire or structural-safety procedure. Use the relevant emergency service for immediate danger and do not wait for a tenancy dispute route.", "source_ids": ["renting.gov-tenant-plan"]}],
+        "sections": [
+          {"id": "rent.section.local", "title": "Local variation", "body": "Den Haag and other municipalities may add rental permits, allocation conditions or local reporting routes. Link to the municipality for the exact address rather than presenting one city as national law.", "source_ids": ["renting.gov-tenant-plan"]},
+          {"id": "rent.section.related", "title": "Related topics", "body": "Housing benefit, defect repair, registration at the address and employer-provided accommodation are separate journeys that need their own eligibility and evidence checks.", "source_ids": ["renting.gov-tenant-plan"]}
+        ],
+        "official_sources": [
+          {"id": "renting.gov-tenant-plan", "title": "Step-by-step plan for tenants", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/building-and-housing/housing/rented-housing/step-by-step-plan-for-tenants", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "renting.rijk-contract-content", "title": "Welke afspraken staan er in het huurcontract van mijn woning?", "publisher": "Rijksoverheid", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/welke-afspraken-staan-er-in-het-huurcontract-van-mijn-woning", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "renting.huurcommissie-rent-check", "title": "Huurprijscheck", "publisher": "Huurcommissie", "url": "https://www.huurcommissie.nl/support/huurprijscheck", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"}
+        ],
+        "contact_options": [
+          {"id": "rent.contact.huurcommissie", "kind": "url", "label": "Huurcommissie", "value": "https://www.huurcommissie.nl/", "source_ids": ["renting.gov-tenant-plan", "renting.huurcommissie-rent-check"]},
+          {"id": "rent.contact.local", "kind": "other", "label": "Your municipality's landlord reporting office", "value": "Use the current municipality website for the address concerned.", "source_ids": ["renting.gov-tenant-plan"]}
+        ],
+        "related_guide_ids": ["guide.reporting-housing-defects", "guide.registering-at-a-municipality"],
+        "next_actions": [
+          {"id": "rent.next.check", "text": "Run the Huurcommissie Rent Check and save the result before signing.", "source_ids": ["renting.huurcommissie-rent-check"]},
+          {"id": "rent.next.local", "text": "Open the housing pages for Den Haag or your actual municipality and verify permit and reporting rules.", "source_ids": ["renting.gov-tenant-plan"]}
+        ],
+        "verified_at": null,
+        "updated_at": "2026-08-05",
+        "reviewer": null,
+        "reading_time_minutes": 10,
+        "difficulty": "intermediate",
+        "confidence_level": "medium",
+        "tags": ["housing", "rent", "tenancy", "deposit", "Huurcommissie"],
+        "publication_gate": null,
+        "disclaimer": "Draft general information, not individual legal advice. Check the current contract date, rental sector and municipal rules.",
+        "seo": {"title": "Rent a home safely in the Netherlands | YouNew", "description": "Check rent, deposit, service costs, agency fees, tenancy terms and local permit rules before renting a Dutch home.", "canonical_path": "/guides/renting-a-home/"},
+        "synonyms": ["housing rent", "rent apartment", "huurwoning", "tenancy agreement", "rental home"],
+        "common_questions": ["How do I rent housing in Den Haag as a worker?", "How much deposit can a landlord ask?", "How do I check Dutch rent?"],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": ["work.job-search", "government.work-permit"],
+      "research_inputs": ["DataProject/research/priority-1-daily/priority-1-dossiers.json"],
+      "publication_gaps": [
+        "A labour-domain human reviewer has not approved the route branches.",
+        "Work-authorisation conditions need nationality, residence and job-specific review.",
+        "No official source establishes a universal job-search duration or outcome.",
+        "Reviewed media, accessibility evidence and translations are missing."
+      ],
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.finding-work",
+        "slug": "finding-work",
+        "locale": "en",
+        "title": "Finding work in the Netherlands",
+        "short_summary": {"id": "work.summary", "text": "First verify whether you can work under your nationality and residence route, then use UWV/EURES tools to prepare a CV, search vacancies and keep evidence required by any applicable benefit rules.", "source_ids": ["work.gov-permits", "work.uwv-working-netherlands", "work.uwv-portals"]},
+        "audience_profiles": ["student", "expat", "refugee", "worker", "resident"],
+        "who_this_is_for": {"id": "work.audience", "text": "For jobseekers in the Netherlands, including EU/EEA/Swiss jobseekers and non-EEA residents who must first check their work-authorisation route.", "source_ids": ["work.gov-permits", "work.uwv-working-netherlands"]},
+        "when_you_need_it": {"id": "work.when", "text": "Use this before applying or accepting work, especially when nationality, residence status, an unemployment benefit or an agency relationship may change the route.", "source_ids": ["work.gov-permits", "work.uwv-job-search-requirement"]},
+        "applicability": {"city_ids": [], "province_ids": []},
+        "jurisdiction": {"level": "national", "country_code": "NL", "municipality_dependent": false, "note": "Work authorisation and UWV services are national; vacancy availability remains market- and location-specific.", "source_ids": ["work.gov-permits", "work.uwv-working-netherlands"]},
+        "prerequisites": [
+          {"id": "work.pre.permission", "text": "Check whether you can work without a permit or whether the employer/route needs a TWV or GVVA; exceptions are status-specific.", "source_ids": ["work.gov-permits"]},
+          {"id": "work.pre.route", "text": "If you receive an unemployment benefit or bring a PD U2 from another eligible country, check the specific UWV registration and activity rules for that route.", "source_ids": ["work.uwv-foreign-job-search", "work.uwv-job-search-requirement"]}
+        ],
+        "required_documents": [
+          {"id": "work.docs.cv", "text": "Prepare a current CV for the UWV Work Folder or vacancy applications.", "source_ids": ["work.uwv-portals"]},
+          {"id": "work.docs.permission", "text": "Keep the residence/work-authorisation evidence relevant to your route; do not assume one permit rule applies to all nationalities.", "source_ids": ["work.gov-permits"]},
+          {"id": "work.docs.evidence", "text": "If UWV benefit rules require job-search activities, retain the evidence specified for those activities.", "source_ids": ["work.uwv-job-search-requirement"]}
+        ],
+        "estimated_time": {"state": "unknown", "value": null, "note": "The official sources provide no universal time to find a job or receive an offer.", "source_ids": ["work.uwv-working-netherlands"]},
+        "estimated_cost": {"state": "unknown", "value": null, "note": "No universal job-search cost is supported; permits, travel, recognition or training can be route-specific.", "currency": null, "source_ids": ["work.gov-permits", "work.uwv-portals"]},
+        "numbered_steps": [
+          {"id": "work.step.permission", "position": 1, "title": "Verify the right-to-work route", "body": "Separate Dutch/EEA/Swiss access from non-EEA and exception routes, then follow the relevant current government or IND/UWV instructions.", "source_ids": ["work.gov-permits"], "municipality_dependent": false},
+          {"id": "work.step.profile", "position": 2, "title": "Prepare a job profile", "body": "Create a current CV and the information needed to use the UWV Work Folder or apply directly to vacancies.", "source_ids": ["work.uwv-portals"], "municipality_dependent": false},
+          {"id": "work.step.search", "position": 3, "title": "Search official channels", "body": "Use UWV and, where relevant, EURES services to search vacancies and access job-search support.", "source_ids": ["work.uwv-working-netherlands", "work.uwv-portals"], "municipality_dependent": false},
+          {"id": "work.step.rules", "position": 4, "title": "Follow only applicable benefit rules", "body": "If you receive a benefit, follow the UWV activity and evidence requirements for your case; do not apply those duties to every jobseeker.", "source_ids": ["work.uwv-job-search-requirement"], "municipality_dependent": false},
+          {"id": "work.step.offer", "position": 5, "title": "Review the offer and contract", "body": "Before starting, verify the employer, work authorisation and written employment terms, then use the separate employment-contract guide.", "source_ids": ["work.gov-permits", "work.uwv-working-netherlands"], "municipality_dependent": false}
+        ],
+        "warnings": [
+          {"id": "work.warn.permission", "text": "Do not generalise EEA/Swiss work access to non-EEA nationals; permits and exceptions depend on the person's status and job.", "source_ids": ["work.gov-permits"]},
+          {"id": "work.warn.pdu2", "text": "The seven-day PD U2 registration rule applies to the specified cross-border benefit route, not to every jobseeker.", "source_ids": ["work.uwv-foreign-job-search"]}
+        ],
+        "common_mistakes": [
+          {"id": "work.mistake.apply", "text": "Applying widely before confirming whether the intended job and residence status allow work.", "source_ids": ["work.gov-permits"]},
+          {"id": "work.mistake.rules", "text": "Treating benefit-specific job-search reporting duties as universal employment law.", "source_ids": ["work.uwv-job-search-requirement"]}
+        ],
+        "tips": [
+          {"id": "work.tip.eures", "text": "Use EURES support when your job-search route is within the EU/EEA or Switzerland.", "source_ids": ["work.uwv-working-netherlands"]},
+          {"id": "work.tip.folder", "text": "Keep the Work Folder profile and CV current if you use UWV services.", "source_ids": ["work.uwv-portals"]}
+        ],
+        "checklist": [
+          {"id": "work.check.permission", "text": "I verified my exact work-authorisation route.", "source_ids": ["work.gov-permits"]},
+          {"id": "work.check.cv", "text": "My CV and job profile are current.", "source_ids": ["work.uwv-portals"]},
+          {"id": "work.check.rules", "text": "I know whether any UWV benefit reporting duties actually apply to me.", "source_ids": ["work.uwv-job-search-requirement"]}
+        ],
+        "faqs": [
+          {"id": "work.faq.permit", "question": "Do I need a work permit?", "answer": "Dutch, EEA and Swiss nationals generally do not. Non-EEA routes commonly require a TWV or GVVA unless a specific exception applies; verify the exact status before work starts.", "source_ids": ["work.gov-permits"]},
+          {"id": "work.faq.where", "question": "Where can I search for work?", "answer": "UWV provides job-search portals and coordinates EURES support in the Netherlands for eligible European routes.", "source_ids": ["work.uwv-working-netherlands", "work.uwv-portals"]},
+          {"id": "work.faq.time", "question": "How long does finding work take?", "answer": "The official sources do not provide a universal duration or guarantee. It depends on the role, location, qualifications, permission route and labour market.", "source_ids": ["work.uwv-working-netherlands"]}
+        ],
+        "emergency_information": [{"id": "work.urgent", "text": "A job-search problem is not an emergency route. If an employer is withholding wages or making unlawful deductions, use the official labour-reporting routes linked by WorkinNL rather than delaying for a general job-search guide.", "source_ids": ["work.workinnl-wages"]}],
+        "sections": [
+          {"id": "work.section.local", "title": "Local variation", "body": "The legal route is national, but jobs and language requirements vary by sector and city. A Leiden query should boost Leiden vacancies or services without hiding national work-authorisation guidance.", "source_ids": ["work.uwv-working-netherlands"]},
+          {"id": "work.section.related", "title": "Related checks", "body": "An offer still requires a contract, wage and payslip review. Work authorisation does not prove that every contract term is correct.", "source_ids": ["work.workinnl-wages"]}
+        ],
+        "official_sources": [
+          {"id": "work.uwv-working-netherlands", "title": "Working in the Netherlands", "publisher": "UWV", "url": "https://www.uwv.nl/en/individuals/working-in-the-netherlands", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "work.uwv-portals", "title": "How to use and access our UWV portals", "publisher": "UWV", "url": "https://www.uwv.nl/en/accessingoursecureportals/how-to-use-and-access-our-uwv-portals", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "work.uwv-foreign-job-search", "title": "Werk zoeken in Nederland", "publisher": "UWV", "url": "https://www.uwv.nl/nl/buitenland/werken-in-nederland/werk-zoeken-nederland", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "work.uwv-job-search-requirement", "title": "The job search requirement", "publisher": "UWV", "url": "https://www.uwv.nl/en/individuals/unemployment-benefit/job-search-requirement", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "work.gov-permits", "title": "What permits do foreign workers need?", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/faq/foreign-citizens-working-in-the-netherlands/what-permits-do-foreign-workers-need", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "work.workinnl-wages", "title": "Wages", "publisher": "WorkinNL / Ministry of Social Affairs and Employment", "url": "https://workinnl.nl/en/contract-en/contract-wages/default.aspx", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"}
+        ],
+        "contact_options": [{"id": "work.contact.uwv", "kind": "url", "label": "UWV working in the Netherlands", "value": "https://www.uwv.nl/en/individuals/working-in-the-netherlands", "source_ids": ["work.uwv-working-netherlands"]}],
+        "related_guide_ids": ["guide.understanding-an-employment-contract", "guide.getting-a-bsn"],
+        "next_actions": [
+          {"id": "work.next.permission", "text": "Verify the route-specific permission before accepting work.", "source_ids": ["work.gov-permits"]},
+          {"id": "work.next.portal", "text": "Prepare a CV and open the relevant UWV/EURES search route.", "source_ids": ["work.uwv-working-netherlands", "work.uwv-portals"]}
+        ],
+        "verified_at": null,
+        "updated_at": "2026-08-05",
+        "reviewer": null,
+        "reading_time_minutes": 8,
+        "difficulty": "intermediate",
+        "confidence_level": "medium",
+        "tags": ["work", "jobs", "UWV", "work permit"],
+        "publication_gate": null,
+        "disclaimer": "Draft general orientation, not immigration or employment-law advice. Verify the route for the person's nationality, residence status and job.",
+        "seo": {"title": "Find work in the Netherlands | YouNew", "description": "Check work authorisation, prepare a CV and use official UWV and EURES routes to search for jobs in the Netherlands.", "canonical_path": "/guides/finding-work/"},
+        "synonyms": ["jobs", "vacatures", "employment", "job search", "work in Leiden"],
+        "common_questions": ["How do I find work in Leiden?", "Do I need a Dutch work permit?", "Where can I search official vacancies?"],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": ["work.employment-contract", "work.collective-agreement", "work.payslip"],
+      "research_inputs": ["DataProject/research/priority-1-daily/priority-1-dossiers.json"],
+      "publication_gaps": [
+        "A labour-law human reviewer has not checked the draft.",
+        "No individual contract, CAO or sector has been reviewed.",
+        "Probation, dismissal, notice, agency and zero-hours branches need separate evidence.",
+        "Reviewed media, accessibility evidence and translations are missing."
+      ],
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.understanding-an-employment-contract",
+        "slug": "understanding-an-employment-contract",
+        "locale": "en",
+        "title": "Understanding a Dutch employment contract",
+        "short_summary": {"id": "contract.summary", "text": "Check the written core terms, whether the job is fixed-term or permanent, the applicable collective agreement, gross wage and deductions, and compare the first payslip with the agreement.", "source_ids": ["contract.rijk-content", "contract.rijk-fixed-permanent", "contract.rijk-cao", "contract.workinnl-payslip"]},
+        "audience_profiles": ["student", "expat", "refugee", "worker", "resident"],
+        "who_this_is_for": {"id": "contract.audience", "text": "For employees reviewing an offer, a newly started job or a payslip against the promised Dutch employment terms.", "source_ids": ["contract.rijk-content", "contract.workinnl-payslip"]},
+        "when_you_need_it": {"id": "contract.when", "text": "Use it before signing and again after work starts, because specified information is due in writing within one week and other information within one month.", "source_ids": ["contract.rijk-content"]},
+        "applicability": {"city_ids": [], "province_ids": []},
+        "jurisdiction": {"level": "national", "country_code": "NL", "municipality_dependent": false, "note": "Employment-contract rules are national; the applicable CAO and sector terms vary by employer and role.", "source_ids": ["contract.rijk-content", "contract.rijk-cao"]},
+        "prerequisites": [
+          {"id": "contract.pre.offer", "text": "Have the offer or employment agreement and identify the employer, role, start date, hours and proposed gross wage.", "source_ids": ["contract.rijk-content"]},
+          {"id": "contract.pre.cao", "text": "Ask which CAO, if any, applies to the employer and role.", "source_ids": ["contract.rijk-cao"]}
+        ],
+        "required_documents": [
+          {"id": "contract.docs.agreement", "text": "Keep the employment agreement and every written statement of employment terms supplied by the employer.", "source_ids": ["contract.rijk-content"]},
+          {"id": "contract.docs.cao", "text": "Keep or link the current applicable CAO when one applies.", "source_ids": ["contract.rijk-cao"]},
+          {"id": "contract.docs.payslip", "text": "Keep the first payslip and later payslips when pay or tax information changes.", "source_ids": ["contract.workinnl-payslip"]}
+        ],
+        "estimated_time": {"state": "known", "value": "Core written information within one week; specified additional information within one month after employment starts", "note": "These are employer information deadlines, not a guarantee for resolving a contract dispute.", "source_ids": ["contract.rijk-content"]},
+        "estimated_cost": {"state": "unknown", "value": null, "note": "Reading and checking the documents has no universal official fee; professional advice or proceedings can cost money.", "currency": null, "source_ids": ["contract.rijk-content"]},
+        "numbered_steps": [
+          {"id": "contract.step.core", "position": 1, "title": "Check the core terms", "body": "Confirm employer and employee details, place of work, role, start date, hours, wage and payment timing in the written information.", "source_ids": ["contract.rijk-content"], "municipality_dependent": false},
+          {"id": "contract.step.type", "position": 2, "title": "Identify the contract type", "body": "Determine whether the contract is fixed-term or permanent and whether early termination is expressly possible for a fixed term.", "source_ids": ["contract.rijk-fixed-permanent"], "municipality_dependent": false},
+          {"id": "contract.step.cao", "position": 3, "title": "Check the CAO", "body": "Identify any applicable collective agreement and compare its binding terms with the individual contract.", "source_ids": ["contract.rijk-cao"], "municipality_dependent": false},
+          {"id": "contract.step.wage", "position": 4, "title": "Check wage and deductions", "body": "Separate gross and net wage, hours, holiday pay and every deduction; fines are not an allowed wage deduction under the cited WorkinNL guidance.", "source_ids": ["contract.workinnl-wages", "contract.workinnl-payslip"], "municipality_dependent": false},
+          {"id": "contract.step.compare", "position": 5, "title": "Compare the first payslip", "body": "Compare the hours, contract type, gross wage, tax, contributions and net payment on the payslip with the written terms.", "source_ids": ["contract.workinnl-payslip"], "municipality_dependent": false}
+        ],
+        "warnings": [
+          {"id": "contract.warn.oral", "text": "An oral employment contract can exist, but Rijksoverheid advises recording the agreement in writing; do not rely on memory for disputed terms.", "source_ids": ["contract.rijk-content"]},
+          {"id": "contract.warn.cao", "text": "Do not review the individual contract without checking an applicable CAO, which can take priority under the official rules.", "source_ids": ["contract.rijk-cao"]},
+          {"id": "contract.warn.scope", "text": "This draft does not decide whether a probation, dismissal, notice, non-compete, agency or zero-hours clause is lawful in an individual case.", "source_ids": ["contract.rijk-content", "contract.rijk-cao"]}
+        ],
+        "common_mistakes": [
+          {"id": "contract.mistake.net", "text": "Comparing only the net payment and not the gross wage, hours, holiday pay, tax and deductions.", "source_ids": ["contract.workinnl-payslip"]},
+          {"id": "contract.mistake.term", "text": "Assuming a fixed-term contract can always be ended early without checking the agreement.", "source_ids": ["contract.rijk-fixed-permanent"]}
+        ],
+        "tips": [
+          {"id": "contract.tip.copy", "text": "Keep dated copies of the signed agreement, written terms, CAO and payslips outside the employer's system.", "source_ids": ["contract.rijk-content", "contract.workinnl-payslip"]},
+          {"id": "contract.tip.questions", "text": "Ask the employer to answer unclear terms in writing before signing or before the applicable information deadline.", "source_ids": ["contract.rijk-content"]}
+        ],
+        "checklist": [
+          {"id": "contract.check.core", "text": "I can identify the employer, role, start date, hours, gross wage and payment schedule.", "source_ids": ["contract.rijk-content"]},
+          {"id": "contract.check.type", "text": "I know whether the contract is fixed-term or permanent and whether a CAO applies.", "source_ids": ["contract.rijk-fixed-permanent", "contract.rijk-cao"]},
+          {"id": "contract.check.pay", "text": "I compared the first payslip and deductions with the written terms.", "source_ids": ["contract.workinnl-payslip", "contract.workinnl-wages"]}
+        ],
+        "faqs": [
+          {"id": "contract.faq.written", "question": "Must an employment contract be written?", "answer": "An oral contract can exist, but the employer must provide specified employment information in writing and Rijksoverheid advises recording the agreement in writing.", "source_ids": ["contract.rijk-content"]},
+          {"id": "contract.faq.fixed", "question": "What is the main fixed-term difference?", "answer": "A fixed term normally ends automatically and usually cannot be ended early unless that possibility was agreed; a permanent contract continues until properly ended.", "source_ids": ["contract.rijk-fixed-permanent"]},
+          {"id": "contract.faq.cao", "question": "Why must I check the CAO?", "answer": "An applicable CAO can take priority over the individual employment agreement under the official collective-agreement rules.", "source_ids": ["contract.rijk-cao"]}
+        ],
+        "emergency_information": [{"id": "contract.urgent", "text": "If wages appear below the applicable minimum or unlawful deductions are made, use the official reporting routes linked by WorkinNL and preserve the contract and payslips as evidence.", "source_ids": ["contract.workinnl-wages", "contract.workinnl-payslip"]}],
+        "sections": [
+          {"id": "contract.section.problems", "title": "If the documents disagree", "body": "Mark each difference between the offer, contract, CAO, hours worked and payslip. Ask for a written correction and obtain qualified advice before accepting a waiver or signing a replacement document.", "source_ids": ["contract.rijk-content", "contract.rijk-cao", "contract.workinnl-payslip"]},
+          {"id": "contract.section.related", "title": "Related topics", "body": "Work permission, dismissal, sickness, agency work and housing deductions are separate branches and should not be inferred from this general contract review.", "source_ids": ["contract.workinnl-wages"]}
+        ],
+        "official_sources": [
+          {"id": "contract.rijk-content", "title": "Wat staat er in een arbeidsovereenkomst?", "publisher": "Rijksoverheid", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsovereenkomst-en-cao/wat-staat-er-in-een-arbeidsovereenkomst", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "contract.rijk-fixed-permanent", "title": "Wat is het verschil tussen een tijdelijk contract en een vast contract?", "publisher": "Rijksoverheid", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsomstandigheden/wat-is-het-verschil-tussen-een-tijdelijk-contract-en-een-vast-contract", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "contract.rijk-cao", "title": "Wat is een cao?", "publisher": "Rijksoverheid", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/arbeidsovereenkomst-en-cao/wat-is-een-cao", "is_official": true, "checked_at": "2026-07-20", "status": "verified_opened"},
+          {"id": "contract.workinnl-payslip", "title": "Payslip", "publisher": "WorkinNL / Ministry of Social Affairs and Employment", "url": "https://workinnl.nl/en/wages/payslip/default.aspx", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "contract.workinnl-wages", "title": "Wages", "publisher": "WorkinNL / Ministry of Social Affairs and Employment", "url": "https://workinnl.nl/en/contract-en/contract-wages/default.aspx", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"}
+        ],
+        "contact_options": [{"id": "contract.contact.workinnl", "kind": "url", "label": "WorkinNL contract and wage information", "value": "https://workinnl.nl/en/", "source_ids": ["contract.workinnl-wages", "contract.workinnl-payslip"]}],
+        "related_guide_ids": ["guide.finding-work", "guide.dutch-health-insurance"],
+        "next_actions": [
+          {"id": "contract.next.matrix", "text": "Create a one-page comparison of offer, agreement, CAO and payslip before accepting unexplained differences.", "source_ids": ["contract.rijk-content", "contract.rijk-cao", "contract.workinnl-payslip"]},
+          {"id": "contract.next.question", "text": "Ask the employer to confirm missing or unclear terms in writing.", "source_ids": ["contract.rijk-content"]}
+        ],
+        "verified_at": null,
+        "updated_at": "2026-08-05",
+        "reviewer": null,
+        "reading_time_minutes": 9,
+        "difficulty": "intermediate",
+        "confidence_level": "medium",
+        "tags": ["employment contract", "CAO", "wages", "payslip"],
+        "publication_gate": null,
+        "disclaimer": "Draft general information, not individual employment-law advice. A qualified reviewer must assess the actual contract and CAO.",
+        "seo": {"title": "Check a Dutch employment contract | YouNew", "description": "Review written terms, contract type, CAO, gross wage, deductions and payslips before and after starting a Dutch job.", "canonical_path": "/guides/understanding-an-employment-contract/"},
+        "synonyms": ["work contract", "arbeidsovereenkomst", "labour agreement", "CAO", "payslip"],
+        "common_questions": ["What should I check in a Dutch work contract?", "When must written terms be provided?", "Does a CAO override my contract?"],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": ["education.primary-registration", "education.secondary-registration"],
+      "research_inputs": ["Official-source review performed 2026-08-05"],
+      "publication_gaps": [
+        "An education-domain human reviewer has not approved the primary/secondary branching.",
+        "Groningen and other municipal allocation, newcomer-language and waiting-list routes need local sources.",
+        "Registration-week dates must be rechecked for the applicable school year.",
+        "Reviewed media, accessibility evidence and translations are missing."
+      ],
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.registering-a-child-at-school",
+        "slug": "registering-a-child-at-school",
+        "locale": "en",
+        "title": "Registering a child at a Dutch school",
+        "short_summary": {"id": "school.summary", "text": "Choose the primary or secondary route, check municipal allocation and school capacity, ask about needed support, then register with the child's BSN and identity evidence or the official no-BSN route.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+        "audience_profiles": ["expat", "refugee", "worker", "resident"],
+        "who_this_is_for": {"id": "school.audience", "text": "For parents or guardians registering a child for Dutch primary or secondary education, including families who have just moved municipality or whose child needs extra support.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+        "when_you_need_it": {"id": "school.when", "text": "Primary registration can begin once a child is three; primary education can start at four and is compulsory from five. Secondary registration follows the current central-registration rules, while a move can allow registration during the year.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+        "applicability": {"city_ids": [], "province_ids": []},
+        "jurisdiction": {"level": "mixed", "country_code": "NL", "municipality_dependent": true, "note": "National education rules apply, while municipalities and school boards may use local allocation, catchment, ranking or lottery arrangements.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+        "prerequisites": [
+          {"id": "school.pre.level", "text": "Identify whether the child needs primary or secondary education and, for secondary school, obtain the primary-school advice where applicable.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+          {"id": "school.pre.local", "text": "Check the municipality and school websites for local catchment, allocation, lottery, capacity and registration arrangements.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+          {"id": "school.pre.support", "text": "Tell the school about extra support needs and ask how its duty of care will be applied if it cannot provide the needed support itself.", "source_ids": ["school.gov-primary", "school.gov-secondary", "school.gov-support"]}
+        ],
+        "required_documents": [
+          {"id": "school.docs.bsn", "text": "Provide the child's BSN and proof of identity. The primary-school page accepts a birth certificate, passport or proof of identity for this purpose.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+          {"id": "school.docs.old", "text": "When transferring from another school, bring the old school's certificate or proof of deregistration.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+          {"id": "school.docs.advice", "text": "For secondary admission, have the primary school's definitive school advice where that transition route applies.", "source_ids": ["school.gov-secondary"]}
+        ],
+        "estimated_time": {"state": "varies", "value": null, "note": "Capacity, waiting lists, lotteries and local procedures vary. The current secondary page gives a 25–31 March central week, but the date must be rechecked for the relevant year.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+        "estimated_cost": {"state": "unknown", "value": null, "note": "These registration sources do not provide one universal total for school-related costs.", "currency": null, "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+        "numbered_steps": [
+          {"id": "school.step.route", "position": 1, "title": "Choose primary or secondary", "body": "Use the child's age, current school stage and school advice to select the correct registration route.", "source_ids": ["school.gov-primary", "school.gov-secondary"], "municipality_dependent": false},
+          {"id": "school.step.local", "position": 2, "title": "Check Groningen or your municipality", "body": "Review the local school-allocation rules, catchment areas, lotteries and newcomer support instead of assuming one national application form.", "source_ids": ["school.gov-primary", "school.gov-secondary"], "municipality_dependent": true},
+          {"id": "school.step.compare", "position": 3, "title": "Ask schools about capacity and support", "body": "Check available places, waiting-list rules and whether the school can provide the child's required support.", "source_ids": ["school.gov-primary", "school.gov-secondary", "school.gov-support"], "municipality_dependent": true},
+          {"id": "school.step.register", "position": 4, "title": "Register with evidence", "body": "Submit the child's BSN and identity evidence, plus school advice or old-school deregistration evidence when the route requires them.", "source_ids": ["school.gov-primary", "school.gov-secondary"], "municipality_dependent": true},
+          {"id": "school.step.nobsn", "position": 5, "title": "Use the no-BSN route if needed", "body": "For secondary registration, the official page says the school can issue a temporary education number when the child has no BSN; give the school the BSN after BRP registration.", "source_ids": ["school.gov-secondary"], "municipality_dependent": false},
+          {"id": "school.step.confirm", "position": 6, "title": "Confirm placement", "body": "Keep the school's registration or placement confirmation and follow any stated next steps, waiting-list process or suitable-place route.", "source_ids": ["school.gov-primary", "school.gov-secondary"], "municipality_dependent": true}
+        ],
+        "warnings": [
+          {"id": "school.warn.date", "text": "Do not reuse the stated secondary central-registration dates without checking the current school year and local process.", "source_ids": ["school.gov-secondary"]},
+          {"id": "school.warn.capacity", "text": "Registration does not guarantee the first-choice school has space; waiting lists, lotteries and school-board decisions can apply.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+          {"id": "school.warn.local", "text": "Do not present Groningen's local arrangements as national rules or another municipality's process.", "source_ids": ["school.gov-primary", "school.gov-secondary"]}
+        ],
+        "common_mistakes": [
+          {"id": "school.mistake.single", "text": "Relying on one preferred school without checking capacity, waiting lists or permitted multiple registrations.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+          {"id": "school.mistake.support", "text": "Waiting until after admission to disclose support needs that the school must assess.", "source_ids": ["school.gov-support"]}
+        ],
+        "tips": [
+          {"id": "school.tip.open", "text": "Use school open days and school websites to compare the programme, support and current registration route.", "source_ids": ["school.gov-secondary"]},
+          {"id": "school.tip.move", "text": "If moving house requires a new secondary school, the national page says registration can occur during the year.", "source_ids": ["school.gov-secondary"]}
+        ],
+        "checklist": [
+          {"id": "school.check.route", "text": "I selected the correct primary or secondary route.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+          {"id": "school.check.local", "text": "I checked the current municipality and school-board allocation rules.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+          {"id": "school.check.docs", "text": "I prepared BSN/identity, old-school and school-advice evidence as applicable.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+          {"id": "school.check.support", "text": "I described any extra support needs and asked how a suitable place will be arranged.", "source_ids": ["school.gov-support"]}
+        ],
+        "faqs": [
+          {"id": "school.faq.age", "question": "When can a child start primary school?", "answer": "A child can attend from age four, compulsory attendance begins at five, and registration can start once the child is three.", "source_ids": ["school.gov-primary"]},
+          {"id": "school.faq.bsn", "question": "What if my child has no BSN yet?", "answer": "For secondary registration, the official page says the school can provide a temporary education number; after BRP registration, supply the BSN to the school.", "source_ids": ["school.gov-secondary"]},
+          {"id": "school.faq.full", "question": "What if the chosen school is full?", "answer": "A waiting list, lottery or alternative-school route may apply. Check the municipality and school-board rules and ask about another suitable place, especially when support is needed.", "source_ids": ["school.gov-primary", "school.gov-secondary", "school.gov-support"]}
+        ],
+        "emergency_information": [{"id": "school.urgent", "text": "There is no national emergency placement procedure in these pages. When a move requires a prompt school change, contact the municipality and schools directly; secondary registration can occur during the year for a move.", "source_ids": ["school.gov-secondary"]}],
+        "sections": [
+          {"id": "school.section.local", "title": "Local variation", "body": "Groningen may use local school-allocation and newcomer-support arrangements. The finished guide must resolve the user's municipality before showing operational steps.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+          {"id": "school.section.support", "title": "Extra support", "body": "If a school cannot provide required support, its duty of care means it should work with the family to find another suitable place.", "source_ids": ["school.gov-support"]}
+        ],
+        "official_sources": [
+          {"id": "school.gov-primary", "title": "Registering a child with a primary school", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/education/primary-education/registering-a-child-with-a-primary-school", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "school.gov-secondary", "title": "Registering your child at a secondary school", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/education/secondary-education/registering-a-child-with-a-secondary-school", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "school.gov-support", "title": "Appropriate education at primary school", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/education/primary-education/appropriate-education-at-primary-school", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"}
+        ],
+        "contact_options": [{"id": "school.contact.local", "kind": "other", "label": "Municipality and selected school", "value": "Use the current municipal education page and the school's own official registration contact.", "source_ids": ["school.gov-primary", "school.gov-secondary"]}],
+        "related_guide_ids": ["guide.getting-a-bsn", "guide.moving-to-another-municipality"],
+        "next_actions": [
+          {"id": "school.next.local", "text": "Open Groningen's education page or the actual municipality's current school-registration route.", "source_ids": ["school.gov-primary", "school.gov-secondary"]},
+          {"id": "school.next.schools", "text": "Contact suitable schools about capacity, support and the exact evidence they require.", "source_ids": ["school.gov-primary", "school.gov-secondary", "school.gov-support"]}
+        ],
+        "verified_at": null,
+        "updated_at": "2026-08-05",
+        "reviewer": null,
+        "reading_time_minutes": 9,
+        "difficulty": "intermediate",
+        "confidence_level": "medium",
+        "tags": ["school", "education", "primary school", "secondary school", "BSN"],
+        "publication_gate": null,
+        "disclaimer": "Draft general orientation. Verify the current school year, municipality, school-board rules, capacity and support route directly.",
+        "seo": {"title": "Register a child at a Dutch school | YouNew", "description": "Choose primary or secondary school, check local allocation, prepare BSN and transfer documents, and ask about support.", "canonical_path": "/guides/registering-a-child-at-school/"},
+        "synonyms": ["Dutch school", "school enrolment", "basisschool", "secondary school", "school registration"],
+        "common_questions": ["How do I register for a Dutch school in Groningen?", "Can a child register without a BSN?", "What if the school is full?"],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": ["telecom.mobile-subscription"],
+      "research_inputs": ["Official-source review performed 2026-08-05"],
+      "publication_gaps": [
+        "A Dutch consumer-rights human reviewer has not approved the translation and interpretation.",
+        "Provider-specific prepaid, eSIM activation, identity, credit-check and coverage requirements are not established.",
+        "Maastricht-specific provider coverage must be checked on live provider maps.",
+        "Reviewed media, accessibility evidence and NL/RU translations are missing."
+      ],
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.choosing-a-sim-card",
+        "slug": "choosing-a-sim-card",
+        "locale": "en",
+        "title": "Choosing a SIM card or mobile plan",
+        "short_summary": {"id": "sim.summary", "text": "For a mobile subscription, compare network coverage, data and minutes, total and out-of-bundle costs, contract duration, cancellation costs and the readable contract summary before agreeing.", "source_ids": ["sim.acm-choose"]},
+        "audience_profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+        "who_this_is_for": {"id": "sim.audience", "text": "For people choosing or switching a Dutch mobile subscription and anyone deciding whether the contract terms fit a short or long stay.", "source_ids": ["sim.acm-choose", "sim.acm-cancel"]},
+        "when_you_need_it": {"id": "sim.when", "text": "Use this before buying a SIM with a subscription, porting a number or cancelling an existing telecom contract.", "source_ids": ["sim.acm-choose", "sim.acm-cancel"]},
+        "applicability": {"city_ids": [], "province_ids": []},
+        "jurisdiction": {"level": "national", "country_code": "NL", "municipality_dependent": false, "note": "Consumer contract rules are national; actual network coverage and provider onboarding are provider- and location-specific.", "source_ids": ["sim.acm-choose"]},
+        "prerequisites": [
+          {"id": "sim.pre.usage", "text": "Estimate the minutes, data, international use and contract duration you actually need.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.pre.coverage", "text": "Check each candidate provider's current coverage map at home, work or study locations such as Maastricht.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.pre.current", "text": "If switching, check whether the current subscription can be cancelled without an early-termination charge.", "source_ids": ["sim.acm-cancel"]}
+        ],
+        "required_documents": [
+          {"id": "sim.docs.summary", "text": "Keep the readable contract summary showing product characteristics, duration, fixed and usage costs and cancellation costs.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.docs.current", "text": "Keep the current contract and cancellation confirmation when switching or porting a number.", "source_ids": ["sim.acm-cancel"]},
+          {"id": "sim.docs.provider", "text": "Check the provider's own current onboarding requirements; the ACM sources do not establish one universal identity or payment-document list.", "source_ids": ["sim.acm-choose"]}
+        ],
+        "estimated_time": {"state": "varies", "value": null, "note": "Activation, number porting and switching time are provider-specific; the ACM sources do not give one universal duration.", "source_ids": ["sim.acm-choose"]},
+        "estimated_cost": {"state": "varies", "value": "Subscription, one-off, out-of-bundle, roaming and possible cancellation costs", "note": "Compare the provider's current contract summary and tariff pages; ACM does not set provider prices.", "currency": "EUR", "source_ids": ["sim.acm-choose", "sim.acm-cancel"]},
+        "numbered_steps": [
+          {"id": "sim.step.needs", "position": 1, "title": "Define the real need", "body": "Estimate monthly data and calls, international use, desired flexibility and whether a device is included.", "source_ids": ["sim.acm-choose"], "municipality_dependent": false},
+          {"id": "sim.step.coverage", "position": 2, "title": "Check coverage", "body": "Compare provider coverage maps for Maastricht and the exact places where the phone will be used; advertised maximum speed can differ from actual speed.", "source_ids": ["sim.acm-choose"], "municipality_dependent": false},
+          {"id": "sim.step.total", "position": 3, "title": "Compare total cost", "body": "Compare monthly and one-off prices, out-of-bundle rates, roaming, rounding, data caps, duration and cancellation costs.", "source_ids": ["sim.acm-choose"], "municipality_dependent": false},
+          {"id": "sim.step.summary", "position": 4, "title": "Read the contract summary", "body": "Do not accept based only on an advert; retain the readable summary of the main product and contract properties.", "source_ids": ["sim.acm-choose"], "municipality_dependent": false},
+          {"id": "sim.step.switch", "position": 5, "title": "Plan switching and number porting", "body": "Check the current contract's end and cancellation terms; the new provider can arrange number retention and often the switch.", "source_ids": ["sim.acm-choose", "sim.acm-cancel"], "municipality_dependent": false},
+          {"id": "sim.step.cancel", "position": 6, "title": "Use cancellation rights correctly", "body": "For a subscription concluded online, by phone or on the street, ACM states a 14-day cooling-off period. After a fixed term, cancellation is normally free with at most one month's notice.", "source_ids": ["sim.acm-choose", "sim.acm-cancel"], "municipality_dependent": false}
+        ],
+        "warnings": [
+          {"id": "sim.warn.scope", "text": "The official source supports subscription comparison; it does not establish one national prepaid/eSIM activation or ID rule.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.warn.out", "text": "Out-of-bundle and non-EU roaming costs can be much higher than the headline monthly price.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.warn.term", "text": "Cancelling during a fixed term can create remaining-term or device costs; read the individual contract.", "source_ids": ["sim.acm-cancel"]}
+        ],
+        "common_mistakes": [
+          {"id": "sim.mistake.price", "text": "Choosing only by the headline monthly price without checking one-off, out-of-bundle, roaming and cancellation costs.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.mistake.coverage", "text": "Assuming national marketing claims prove good coverage at the exact home or workplace.", "source_ids": ["sim.acm-choose"]}
+        ],
+        "tips": [
+          {"id": "sim.tip.cap", "text": "Consider a plan with usage alerts or a data cap to reduce unexpected bills.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.tip.proof", "text": "Request and keep written cancellation confirmation so a later dispute can be evidenced.", "source_ids": ["sim.acm-cancel"]}
+        ],
+        "checklist": [
+          {"id": "sim.check.coverage", "text": "I checked live coverage at my actual Maastricht/home/work locations.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.check.total", "text": "I compared the full cost, duration and cancellation terms.", "source_ids": ["sim.acm-choose", "sim.acm-cancel"]},
+          {"id": "sim.check.summary", "text": "I saved the readable contract summary and provider requirements.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.check.current", "text": "If switching, I checked the old contract and requested cancellation confirmation.", "source_ids": ["sim.acm-cancel"]}
+        ],
+        "faqs": [
+          {"id": "sim.faq.cooling", "question": "Can I change my mind after buying online?", "answer": "ACM says a mobile subscription concluded online, by phone or on the street has a 14-day cooling-off period.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.faq.cancel", "question": "When can I cancel without charge?", "answer": "After the fixed term, a telecom subscription can normally be cancelled free at any time with a notice period of no more than one month. During the fixed term, contract or device costs may remain.", "source_ids": ["sim.acm-cancel"]},
+          {"id": "sim.faq.number", "question": "Can I keep my mobile number?", "answer": "The ACM page says the new provider arranges number retention when switching; check its operational requirements before ordering.", "source_ids": ["sim.acm-choose"]}
+        ],
+        "emergency_information": [{"id": "sim.urgent", "text": "The ACM subscription pages do not provide an emergency activation route. If uninterrupted calling is critical, keep the existing service until the agreed switch and confirm the new service is active.", "source_ids": ["sim.acm-choose"]}],
+        "sections": [
+          {"id": "sim.section.local", "title": "Local variation", "body": "Consumer contract rules are national, but coverage in Maastricht can differ by street and building. Use provider maps and do not convert one user's signal result into a city-wide guarantee.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.section.problems", "title": "If switching goes wrong", "body": "Complain to the provider in writing, state the requested solution and deadline, preserve evidence and use ACM ConsuWijzer's complaint escalation information if unresolved.", "source_ids": ["sim.acm-cancel", "sim.acm-complaint"]}
+        ],
+        "official_sources": [
+          {"id": "sim.acm-choose", "title": "Tips bij het kiezen van een abonnement voor mobiele telefonie", "publisher": "ACM ConsuWijzer", "url": "https://consument.acm.nl/vergelijken-en-overstappen/telecom/tips-bij-het-kiezen-van-mobiel-abonnement", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "sim.acm-cancel", "title": "Telecomabonnement opzeggen", "publisher": "ACM ConsuWijzer", "url": "https://consument.acm.nl/telefoon-internet-en-televisie/abonnementen/wanneer-abonnement-opzeggen", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "sim.acm-complaint", "title": "Een klacht over mijn telecomaanbieder", "publisher": "ACM ConsuWijzer", "url": "https://consument.acm.nl/telefoon-internet-en-televisie/een-klacht-over-mijn-telecomaanbieder", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"}
+        ],
+        "contact_options": [{"id": "sim.contact.acm", "kind": "url", "label": "ACM ConsuWijzer telecom advice", "value": "https://consument.acm.nl/telefoon-internet-en-televisie", "source_ids": ["sim.acm-choose", "sim.acm-complaint"]}],
+        "related_guide_ids": ["guide.opening-a-dutch-bank-account", "guide.emergency-numbers-and-urgent-help"],
+        "next_actions": [
+          {"id": "sim.next.matrix", "text": "Compare at least the coverage, data, total cost, duration and cancellation columns before choosing.", "source_ids": ["sim.acm-choose"]},
+          {"id": "sim.next.provider", "text": "Open the selected provider's current Maastricht coverage and onboarding pages before ordering.", "source_ids": ["sim.acm-choose"]}
+        ],
+        "verified_at": null,
+        "updated_at": "2026-08-05",
+        "reviewer": null,
+        "reading_time_minutes": 8,
+        "difficulty": "basic",
+        "confidence_level": "medium",
+        "tags": ["SIM card", "mobile plan", "telecom", "subscription", "Maastricht"],
+        "publication_gate": null,
+        "disclaimer": "Draft consumer orientation. Provider-specific identity, payment, activation, prepaid/eSIM and coverage rules must be checked directly.",
+        "seo": {"title": "Choose a SIM card or mobile plan | YouNew", "description": "Compare Dutch mobile coverage, data, total cost, contract duration, cooling-off and cancellation before buying a SIM plan.", "canonical_path": "/guides/choosing-a-sim-card/"},
+        "synonyms": ["SIM card", "eSIM", "mobile subscription", "phone plan", "prepaid SIM"],
+        "common_questions": ["How do I choose a SIM card in Maastricht?", "Can I cancel a Dutch mobile plan?", "Can I keep my phone number?"],
+        "status": "draft"
+      }
+    },
+    {
+      "source_entity_ids": ["transport.parking-fines", "transport.municipal-parking-rules"],
+      "research_inputs": ["Official-source review performed 2026-08-05"],
+      "publication_gaps": [
+        "A Dutch administrative-law human reviewer has not approved the two-branch procedure.",
+        "Municipal charges outside Utrecht need issuer-specific sources.",
+        "CJIB content was retrievable through the official search result but direct automated opening returned HTTP 403; a human must reopen the live pages.",
+        "The Utrecht surcharge and all deadlines must be rechecked at publication.",
+        "Reviewed media, accessibility evidence and translations are missing."
+      ],
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.handling-a-parking-fine",
+        "slug": "handling-a-parking-fine",
+        "locale": "en",
+        "title": "Handling a parking or traffic fine",
+        "short_summary": {"id": "fine.summary", "text": "First identify the issuer and letter type: an Utrecht parking-tax assessment follows the BghU municipal route, while a CJIB letter code M follows the national traffic-fine route. The deadlines, payment effect and appeal recipient differ.", "source_ids": ["fine.utrecht-parking", "fine.bghu-parking", "fine.cjib-appeal"]},
+        "audience_profiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+        "who_this_is_for": {"id": "fine.audience", "text": "For a vehicle owner, driver or lease-car user who received an Utrecht parking-tax assessment or a CJIB traffic-fine letter and needs the correct official route.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]},
+        "when_you_need_it": {"id": "fine.when", "text": "Use the guide immediately after receiving the notice so you can classify it, preserve evidence and meet the applicable six-week objection or appeal deadline.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]},
+        "applicability": {"city_ids": ["utrecht"], "province_ids": ["utrecht"]},
+        "jurisdiction": {"level": "mixed", "country_code": "NL", "municipality_dependent": true, "note": "Utrecht parking tax is handled through Utrecht/BghU; CJIB letter-code-M traffic fines use the national Public Prosecution Service route.", "source_ids": ["fine.utrecht-parking", "fine.bghu-parking", "fine.cjib-appeal"]},
+        "prerequisites": [
+          {"id": "fine.pre.classify", "text": "Read the heading, issuer and letter code. 'Naheffingsaanslag parkeerbelasting' indicates the municipal parking-tax branch; CJIB letter code M indicates a traffic fine.", "source_ids": ["fine.utrecht-parking", "fine.cjib-procedure"]},
+          {"id": "fine.pre.deadline", "text": "Record the notice date and the payment, objection or appeal deadline before taking action.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal", "fine.cjib-procedure"]}
+        ],
+        "required_documents": [
+          {"id": "fine.docs.notice", "text": "Keep the complete notice, envelope and payment details; use the notice reference in every action.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]},
+          {"id": "fine.docs.evidence", "text": "Keep relevant parking receipts, app confirmations, permit data, photographs of signs/location and other evidence supporting the objection.", "source_ids": ["fine.bghu-parking"]},
+          {"id": "fine.docs.bghu", "text": "A written BghU objection lists the vehicle owner's name, address, phone, BSN, notice date/time, registration plate, relevant permit/card copies, reasons and signature; lease-car cases require the stated lease evidence.", "source_ids": ["fine.bghu-parking"]},
+          {"id": "fine.docs.cjib", "text": "A CJIB M appeal letter lists name, address, residence, date and place of birth, reasons, IBAN, letter date and signature, with a copy of the fine notice.", "source_ids": ["fine.cjib-appeal"]}
+        ],
+        "estimated_time": {"state": "varies", "value": "Object or appeal within six weeks", "note": "CJIB says the Public Prosecution Service decision letter may take up to sixteen weeks. Municipal handling time is not stated as one fixed value here.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]},
+        "estimated_cost": {"state": "varies", "value": "Utrecht parking-tax assessment: hourly tariff plus a €78.80 surcharge on the checked 2026-08-05 page", "note": "CJIB fine amounts vary by notice; unpaid CJIB M fines increase at the first and second reminders. Recheck all current amounts before publication.", "currency": "EUR", "source_ids": ["fine.utrecht-parking", "fine.cjib-procedure"]},
+        "numbered_steps": [
+          {"id": "fine.step.classify", "position": 1, "title": "Classify the notice", "body": "Separate an Utrecht/BghU parking-tax assessment from a CJIB letter-code-M traffic fine. Do not send one branch's objection to the other authority.", "source_ids": ["fine.utrecht-parking", "fine.cjib-procedure"], "municipality_dependent": true},
+          {"id": "fine.step.verify", "position": 2, "title": "Verify the facts", "body": "Check number plate, location, date/time, paid-parking proof, permit details and the stated offence or tax basis against your records.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"], "municipality_dependent": true},
+          {"id": "fine.step.evidence", "position": 3, "title": "Preserve evidence", "body": "Save the notice, receipts, app records, photos, permit data and any lease or authorisation documents before systems or signage change.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"], "municipality_dependent": true},
+          {"id": "fine.step.utrecht", "position": 4, "title": "Use BghU for Utrecht parking tax", "body": "Pay or object through the current BghU route. BghU says an objection can be submitted within six weeks and that payment deferral is granted after receipt of the objection.", "source_ids": ["fine.utrecht-parking", "fine.bghu-parking"], "municipality_dependent": true},
+          {"id": "fine.step.cjib", "position": 5, "title": "Use the CJIB M appeal route", "body": "Send the complete appeal to the Public Prosecution Service within six weeks. CJIB says not to pay the outstanding amount while that appeal is pending.", "source_ids": ["fine.cjib-appeal"], "municipality_dependent": false},
+          {"id": "fine.step.track", "position": 6, "title": "Track the decision", "body": "Keep proof of submission and all correspondence. Follow the next route stated in the authority's decision rather than repeating the original objection.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"], "municipality_dependent": true}
+        ],
+        "warnings": [
+          {"id": "fine.warn.branch", "text": "A municipal parking-tax assessment is not the same as every traffic fine; the issuer, payment effect and appeal recipient differ.", "source_ids": ["fine.utrecht-parking", "fine.cjib-appeal"]},
+          {"id": "fine.warn.cjibpay", "text": "For a CJIB M appeal, the official page says not to pay while the appeal is pending. Do not transfer that instruction automatically to a municipal assessment.", "source_ids": ["fine.cjib-appeal"]},
+          {"id": "fine.warn.reminder", "text": "Ignoring a CJIB M fine can trigger reminders that increase the payable amount.", "source_ids": ["fine.cjib-procedure"]}
+        ],
+        "common_mistakes": [
+          {"id": "fine.mistake.recipient", "text": "Sending an Utrecht parking-tax objection to CJIB or a CJIB M appeal to BghU.", "source_ids": ["fine.utrecht-parking", "fine.cjib-appeal"]},
+          {"id": "fine.mistake.deadline", "text": "Waiting for more information while the six-week deadline expires instead of preserving evidence and following the stated route.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]},
+          {"id": "fine.mistake.signature", "text": "Submitting a written BghU or CJIB appeal without the required identifying details and signature.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]}
+        ],
+        "tips": [
+          {"id": "fine.tip.copy", "text": "Save a PDF or screenshot of the completed online submission and the confirmation reference.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]},
+          {"id": "fine.tip.photo", "text": "When a CJIB camera photo exists, use the official request route before finalising factual grounds for an appeal.", "source_ids": ["fine.cjib-photo"]}
+        ],
+        "checklist": [
+          {"id": "fine.check.type", "text": "I identified the issuer and whether this is parking tax or a CJIB M traffic fine.", "source_ids": ["fine.utrecht-parking", "fine.cjib-procedure"]},
+          {"id": "fine.check.date", "text": "I recorded the notice date and deadline.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]},
+          {"id": "fine.check.evidence", "text": "I saved the notice, payment/permit evidence and relevant photos.", "source_ids": ["fine.bghu-parking"]},
+          {"id": "fine.check.proof", "text": "I kept proof of payment, objection or appeal submission.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]}
+        ],
+        "faqs": [
+          {"id": "fine.faq.utrechtcost", "question": "What does an Utrecht parking assessment cost?", "answer": "On the page checked 5 August 2026, Utrecht states the unpaid hourly parking tariff plus a €78.80 enforcement surcharge. Recheck the current page before acting.", "source_ids": ["fine.utrecht-parking"]},
+          {"id": "fine.faq.deadline", "question": "How long do I have to object?", "answer": "The current BghU parking-tax and CJIB M routes both state six weeks, measured from the date specified by each route. Confirm the date on the actual notice.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]},
+          {"id": "fine.faq.pay", "question": "Should I pay while objecting?", "answer": "For a CJIB M appeal, CJIB says not to pay while the appeal is pending. BghU states it grants payment deferral after receiving a parking-tax objection. Follow the correct issuer's instructions.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]}
+        ],
+        "emergency_information": [{"id": "fine.urgent", "text": "A fine is deadline-sensitive but not an emergency-service matter. Act promptly, preserve evidence and use only the issuer's current official contact route.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]}],
+        "sections": [
+          {"id": "fine.section.local", "title": "Local variation", "body": "The Utrecht/BghU branch applies to Utrecht parking tax. Another municipality can use a different tax authority, surcharge and objection portal, so resolve the issuer from the notice.", "source_ids": ["fine.utrecht-parking", "fine.bghu-parking"]},
+          {"id": "fine.section.cjib", "title": "CJIB traffic-fine branch", "body": "A letter code M is enforced nationally by CJIB. The first notice has an eight-week payment period, while an appeal to the Public Prosecution Service must be made within six weeks.", "source_ids": ["fine.cjib-procedure", "fine.cjib-appeal"]}
+        ],
+        "official_sources": [
+          {"id": "fine.utrecht-parking", "title": "Parkeerbon, betalen en bezwaar maken", "publisher": "Gemeente Utrecht", "url": "https://loket.digitaal.utrecht.nl/nl/products/parkeerbon-betalen-en-bezwaar-maken", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "fine.bghu-parking", "title": "Parkeerbelasting", "publisher": "Belastingsamenwerking gemeenten en hoogheemraadschap Utrecht", "url": "https://bghu.nl/Alles-over/Belastingen/Parkeerbelasting", "is_official": true, "checked_at": "2026-08-05", "status": "verified_opened"},
+          {"id": "fine.cjib-procedure", "title": "Our procedures – traffic fines", "publisher": "CJIB", "url": "https://www.cjib.nl/en/our-procedures-traffic-fines", "is_official": true, "checked_at": "2026-08-05", "status": "access_restricted"},
+          {"id": "fine.cjib-appeal", "title": "Do you disagree with a traffic fine?", "publisher": "CJIB", "url": "https://www.cjib.nl/en/do-you-disagree-traffic-fine", "is_official": true, "checked_at": "2026-08-05", "status": "access_restricted"},
+          {"id": "fine.cjib-photo", "title": "I'd like to see my photo", "publisher": "CJIB", "url": "https://www.cjib.nl/en/id-see-my-camera-photo", "is_official": true, "checked_at": "2026-08-05", "status": "access_restricted"}
+        ],
+        "contact_options": [
+          {"id": "fine.contact.bghu", "kind": "url", "label": "BghU parking tax", "value": "https://bghu.nl/Alles-over/Belastingen/Parkeerbelasting", "source_ids": ["fine.bghu-parking"]},
+          {"id": "fine.contact.cjib", "kind": "url", "label": "CJIB traffic-fine procedure", "value": "https://www.cjib.nl/en/our-procedures-traffic-fines", "source_ids": ["fine.cjib-procedure"]}
+        ],
+        "related_guide_ids": ["guide.using-public-transport", "guide.emergency-numbers-and-urgent-help"],
+        "next_actions": [
+          {"id": "fine.next.classify", "text": "Read the notice heading and letter code now, then open the matching BghU or CJIB page.", "source_ids": ["fine.utrecht-parking", "fine.cjib-procedure"]},
+          {"id": "fine.next.evidence", "text": "Save the notice and evidence before submitting the correct payment, objection or appeal action.", "source_ids": ["fine.bghu-parking", "fine.cjib-appeal"]}
+        ],
+        "verified_at": null,
+        "updated_at": "2026-08-05",
+        "reviewer": null,
+        "reading_time_minutes": 10,
+        "difficulty": "intermediate",
+        "confidence_level": "medium",
+        "tags": ["parking fine", "Utrecht", "BghU", "CJIB", "appeal"],
+        "publication_gate": null,
+        "disclaimer": "Draft procedural orientation, not individual legal advice. Use the exact issuer, notice date and current official instructions.",
+        "seo": {"title": "Handle a Dutch parking or traffic fine | YouNew", "description": "Distinguish Utrecht parking tax from a CJIB traffic fine, preserve evidence and use the correct payment or appeal route.", "canonical_path": "/guides/handling-a-parking-fine/"},
+        "synonyms": ["parking fine", "parking ticket", "parkeerbon", "naheffingsaanslag", "traffic fine", "CJIB"],
+        "common_questions": ["How do I handle a parking fine in Utrecht?", "Is my parking notice from BghU or CJIB?", "Should I pay while appealing?"],
+        "status": "draft"
+      }
+    }
+  ]
+}
