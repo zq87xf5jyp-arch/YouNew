@@ -31,15 +31,14 @@ Each draft includes the user need, audience, prerequisites, documents, timing, c
 
 The companion localization package contains one Dutch and one Russian **search-surface draft** for every guide: 16 locale records in total. Each record includes a localized title, a localized short summary, at least eight search synonyms, at least three common questions and terminology notes for terms that should not be translated loosely.
 
-The private full-body overlay now adds complete Dutch and Russian narrative-field drafts for **Getting a BSN**: 47 stable fields per locale, or 2 of the required 16 guide-locale pairs. It is pinned to both the English evidence bundle and the search-surface bundle. The remaining 14 full-body pairs have not been drafted.
+The private full-body overlay now contains complete Dutch and Russian narrative-field drafts for all eight guides: 16 of 16 guide-locale pairs. Each overlay has exact field coverage against its English guide (47 BSN, 48 huisarts, 53 rent, 45 work, 47 employment contract, 54 school, 51 SIM and 53 fine fields per locale). It is pinned to both the English evidence bundle and the search-surface bundle.
 
 Both localization packages keep `publication_authorized: false`, `reviewer: null` and `verified_at: null`. The search-surface package intentionally does not claim full translation, while the full-body overlay labels its two entries `machine_assisted_full_body_draft`. Overall blockers are:
 
-1. full-body translation for the remaining 14 guide-locale pairs;
-2. independent Dutch and Russian language review;
-3. source-to-translation review for legal, municipal and provider terminology;
-4. editorial and domain review;
-5. media and accessibility review.
+1. independent Dutch and Russian language review;
+2. source-to-translation review for legal, municipal and provider terminology;
+3. editorial and domain review;
+4. media and accessibility review.
 
 The localized copy must remain outside the runtime dataset and search index until those gaps and the general publication steps below are closed.
 

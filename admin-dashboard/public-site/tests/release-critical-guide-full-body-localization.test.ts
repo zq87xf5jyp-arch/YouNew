@@ -21,7 +21,7 @@ type Locale = "nl" | "ru";
 type TextItem = { id: string; text: string };
 type TitledItem = { id: string; title: string; body: string };
 type FAQ = { id: string; question: string; answer: string };
-type Contact = { id: string; label: string; value: string };
+type Contact = { id: string; kind: string; label: string; value: string };
 
 type PracticalGuide = {
   id: string;
@@ -30,8 +30,8 @@ type PracticalGuide = {
   jurisdiction: { note: string };
   prerequisites: TextItem[];
   required_documents: TextItem[];
-  estimated_time: { note: string };
-  estimated_cost: { value: string; note: string };
+  estimated_time: { value: string | null; note: string };
+  estimated_cost: { value: string | null; note: string };
   numbered_steps: TitledItem[];
   warnings: TextItem[];
   common_mistakes: TextItem[];
@@ -91,12 +91,17 @@ function sourceNarrativeFields(guide: PracticalGuide): Map<string, string> {
     ["when_you_need_it.text", guide.when_you_need_it.text],
     ["jurisdiction.note", guide.jurisdiction.note],
     ["estimated_time.note", guide.estimated_time.note],
-    ["estimated_cost.value", guide.estimated_cost.value],
     ["estimated_cost.note", guide.estimated_cost.note],
     ["disclaimer", guide.disclaimer],
     ["seo.title", guide.seo.title],
     ["seo.description", guide.seo.description]
   ]);
+  if (guide.estimated_cost.value !== null) {
+    fields.set("estimated_cost.value", guide.estimated_cost.value);
+  }
+  if (guide.estimated_time.value !== null) {
+    fields.set("estimated_time.value", guide.estimated_time.value);
+  }
 
   const addTextItems = (group: string, items: TextItem[]) => {
     for (const item of items) fields.set(`${group}.${item.id}.text`, item.text);
@@ -122,8 +127,12 @@ function sourceNarrativeFields(guide: PracticalGuide): Map<string, string> {
   addTextItems("emergency_information", guide.emergency_information);
   addTitledItems("sections", guide.sections);
   for (const contact of guide.contact_options) {
-    fields.set(`contact_options.${contact.id}.label`, contact.label);
-    fields.set(`contact_options.${contact.id}.value`, contact.value);
+    if (contact.kind !== "url") {
+      fields.set(`contact_options.${contact.id}.label`, contact.label);
+    }
+    if (/\p{L}/u.test(contact.value) && !/^https?:/u.test(contact.value)) {
+      fields.set(`contact_options.${contact.id}.value`, contact.value);
+    }
   }
   addTextItems("next_actions", guide.next_actions);
 
@@ -146,30 +155,57 @@ test("full-body localization is pinned to both exact source bundles", () => {
   );
 });
 
-test("BSN has complete Dutch and Russian narrative overlays", () => {
-  const guide = guideBundle.guides.find(
-    ({ practical_guide }) => practical_guide.id === "guide.getting-a-bsn"
-  )?.practical_guide;
-  assert.ok(guide);
-  const sourceFields = sourceNarrativeFields(guide);
-  assert.equal(sourceFields.size, 47, "the source narrative contract changed");
-
+test("completed guide pairs have complete Dutch and Russian narrative overlays", () => {
   assert.equal(fullBodyBundle.schema_version, 1);
   assert.equal(fullBodyBundle.status, "machine_assisted_full_body_draft");
   assert.equal(fullBodyBundle.publication_authorized, false);
   assert.deepEqual(fullBodyBundle.completion_summary, {
     expected_guide_locale_pairs: 16,
-    full_body_draft_pairs: 2,
-    remaining_pairs: 14
+    full_body_draft_pairs: 16,
+    remaining_pairs: 0
   });
   assert.deepEqual(
     fullBodyBundle.entries.map((entry) => `${entry.source_guide_id}:${entry.locale}`),
-    ["guide.getting-a-bsn:nl", "guide.getting-a-bsn:ru"]
+    [
+      "guide.getting-a-bsn:nl",
+      "guide.getting-a-bsn:ru",
+      "guide.finding-a-huisarts:nl",
+      "guide.finding-a-huisarts:ru",
+      "guide.renting-a-home:nl",
+      "guide.renting-a-home:ru",
+      "guide.finding-work:nl",
+      "guide.finding-work:ru",
+      "guide.understanding-an-employment-contract:nl",
+      "guide.understanding-an-employment-contract:ru",
+      "guide.registering-a-child-at-school:nl",
+      "guide.registering-a-child-at-school:ru",
+      "guide.choosing-a-sim-card:nl",
+      "guide.choosing-a-sim-card:ru",
+      "guide.handling-a-parking-fine:nl",
+      "guide.handling-a-parking-fine:ru"
+    ]
   );
 
   for (const entry of fullBodyBundle.entries) {
     const context = `${entry.source_guide_id}:${entry.locale}`;
-    assert.equal(entry.source_guide_id, guide.id);
+    const guide = guideBundle.guides.find(
+      ({ practical_guide }) => practical_guide.id === entry.source_guide_id
+    )?.practical_guide;
+    assert.ok(guide, `${context} references an unknown guide`);
+    const sourceFields = sourceNarrativeFields(guide);
+    const expectedFieldCounts: Record<string, number> = {
+      "guide.getting-a-bsn": 47,
+      "guide.finding-a-huisarts": 48,
+      "guide.renting-a-home": 53,
+      "guide.finding-work": 45,
+      "guide.understanding-an-employment-contract": 47,
+      "guide.registering-a-child-at-school": 54,
+      "guide.choosing-a-sim-card": 51,
+      "guide.handling-a-parking-fine": 53
+    };
+    const expectedFieldCount = expectedFieldCounts[entry.source_guide_id];
+    assert.ok(expectedFieldCount, `${entry.source_guide_id} has no field-count contract`);
+    assert.equal(sourceFields.size, expectedFieldCount, `${entry.source_guide_id} source contract changed`);
     assert.equal(entry.source_locale, "en");
     assert.equal(entry.search_surface_ref, context);
     assert.ok(
