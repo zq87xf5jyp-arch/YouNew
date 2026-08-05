@@ -3,8 +3,49 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const packageURL = new URL("../../../DataProject/staging/release-critical-practical-guides-v2.json", import.meta.url);
-const bundle = JSON.parse(await readFile(packageURL, "utf8"));
-const guides = bundle.guides.map((entry: { practical_guide: Record<string, unknown> }) => entry.practical_guide);
+
+type OfficialSource = {
+  id: string;
+  is_official: boolean;
+  status: string;
+  checked_at: string;
+  url: string;
+};
+
+type DraftGuide = Record<string, unknown> & {
+  schema_version: number;
+  id: string;
+  title: string;
+  status: string;
+  reviewer: unknown;
+  verified_at: unknown;
+  publication_gate: unknown;
+  confidence_level: unknown;
+  short_summary: unknown;
+  who_this_is_for: unknown;
+  when_you_need_it: unknown;
+  official_sources: OfficialSource[];
+  numbered_steps: Array<{ position: number; source_ids: string[] }>;
+  faqs: unknown[];
+  sections: unknown[];
+  contact_options: unknown[];
+  related_guide_ids: string[];
+  estimated_time: { note: unknown };
+  estimated_cost: { note: unknown };
+  seo: unknown;
+  synonyms: string[];
+  common_questions: string[];
+};
+
+type ReviewBundle = {
+  schema_version: number;
+  status: string;
+  publication_authorized: boolean;
+  guides: Array<{ publication_gaps: unknown; practical_guide: DraftGuide }>;
+};
+
+const bundle = JSON.parse(await readFile(packageURL, "utf8")) as ReviewBundle;
+const guides = bundle.guides.map((entry) => entry.practical_guide);
 
 const expectedGuideIDs = [
   "guide.getting-a-bsn",
@@ -55,7 +96,7 @@ function assertSourced(value: unknown, sourceIDs: Set<string>, context: string) 
   }
 }
 
-function allSourceReferences(guide: Record<string, any>) {
+function allSourceReferences(guide: Record<string, unknown>) {
   const references: string[] = [];
   const visit = (value: unknown, key = "") => {
     if (key === "source_ids" && Array.isArray(value)) references.push(...value as string[]);
@@ -115,7 +156,7 @@ test("every draft answers all twelve practical-content areas without bypassing g
 });
 
 test("draft sources are primary official URLs and disclose access restrictions", () => {
-  for (const guide of guides as Array<Record<string, any>>) {
+  for (const guide of guides) {
     for (const source of guide.official_sources) {
       assert.equal(source.is_official, true, `${guide.id}:${source.id} must be official`);
       assert.ok(["verified_opened", "access_restricted"].includes(source.status), `${guide.id}:${source.id} status`);
@@ -126,7 +167,7 @@ test("draft sources are primary official URLs and disclose access restrictions",
 });
 
 test("the exact release-critical journeys are represented in the editorial bundle", () => {
-  const corpus = new Map<string, string>(guides.map((guide: Record<string, any>) => [
+  const corpus = new Map<string, string>(guides.map((guide) => [
     guide.id,
     [guide.title, ...guide.synonyms, ...guide.common_questions].join(" ").toLocaleLowerCase("en")
   ] as [string, string]));
