@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "environment": "production",
+  "origin": "https://younew.nl",
+  "observed_at": "2026-08-05T17:14:40Z",
+  "browser_surface": "in_app_browser",
+  "browser_engine": "not_asserted",
+  "method": "Each exact query URL was opened in the in-app browser. The visible matching-results heading, no-result state and first five result titles were read from the rendered production DOM.",
+  "release_decision": "NO-GO",
+  "summary": {
+    "total_cases": 8,
+    "useful_result_cases": 0,
+    "zero_result_cases": 8
+  },
+  "cases": [
+    {
+      "name": "rent + Den Haag + Worker",
+      "url": "https://younew.nl/search/?q=rent&city=den-haag&profile=worker",
+      "query": "rent",
+      "city": "den-haag",
+      "profile": "worker",
+      "matching_result_count": 0,
+      "heading": "0 matching results for “rent”",
+      "no_result_state_visible": true,
+      "top_result_titles": [],
+      "useful_answer_visible": false
+    },
+    {
+      "name": "housing rent + Den Haag + Worker",
+      "url": "https://younew.nl/search/?q=housing%20rent&city=den-haag&profile=worker",
+      "query": "housing rent",
+      "city": "den-haag",
+      "profile": "worker",
+      "matching_result_count": 0,
+      "heading": "0 matching results for “housing rent”",
+      "no_result_state_visible": true,
+      "top_result_titles": [],
+      "useful_answer_visible": false
+    },
+    {
+      "name": "work + Leiden",
+      "url": "https://younew.nl/search/?q=work&city=leiden",
+      "query": "work",
+      "city": "leiden",
+      "profile": null,
+      "matching_result_count": 0,
+      "heading": "0 matching results for “work”",
+      "no_result_state_visible": true,
+      "top_result_titles": [],
+      "useful_answer_visible": false
+    },
+    {
+      "name": "huisarts + Rotterdam",
+      "url": "https://younew.nl/search/?q=huisarts&city=rotterdam",
+      "query": "huisarts",
+      "city": "rotterdam",
+      "profile": null,
+      "matching_result_count": 0,
+      "heading": "0 matching results for “huisarts”",
+      "no_result_state_visible": true,
+      "top_result_titles": [],
+      "useful_answer_visible": false
+    },
+    {
+      "name": "Dutch school + Groningen",
+      "url": "https://younew.nl/search/?q=Dutch%20school&city=groningen",
+      "query": "Dutch school",
+      "city": "groningen",
+      "profile": null,
+      "matching_result_count": 0,
+      "heading": "0 matching results for “Dutch school”",
+      "no_result_state_visible": true,
+      "top_result_titles": [],
+      "useful_answer_visible": false
+    },
+    {
+      "name": "BSN + Eindhoven",
+      "url": "https://younew.nl/search/?q=BSN&city=eindhoven",
+      "query": "BSN",
+      "city": "eindhoven",
+      "profile": null,
+      "matching_result_count": 0,
+      "heading": "0 matching results for “BSN”",
+      "no_result_state_visible": true,
+      "top_result_titles": [],
+      "useful_answer_visible": false
+    },
+    {
+      "name": "SIM card + Maastricht",
+      "url": "https://younew.nl/search/?q=SIM%20card&city=maastricht",
+      "query": "SIM card",
+      "city": "maastricht",
+      "profile": null,
+      "matching_result_count": 0,
+      "heading": "0 matching results for “SIM card”",
+      "no_result_state_visible": true,
+      "top_result_titles": [],
+      "useful_answer_visible": false
+    },
+    {
+      "name": "parking fine + Utrecht",
+      "url": "https://younew.nl/search/?q=parking%20fine&city=utrecht",
+      "query": "parking fine",
+      "city": "utrecht",
+      "profile": null,
+      "matching_result_count": 0,
+      "heading": "0 matching results for “parking fine”",
+      "no_result_state_visible": true,
+      "top_result_titles": [],
+      "useful_answer_visible": false
+    }
+  ],
+  "limitations": [
+    "The browser engine is not asserted, so this does not satisfy the required production Chrome and Safari evidence.",
+    "The evidence describes the currently deployed production site only; it does not evaluate the undeployed Sites version or draft content bundles.",
+    "Production must be retested after an explicitly approved deployment."
+  ]
+}

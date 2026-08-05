@@ -6,6 +6,8 @@ Prepared: 2026-08-05
 
 Bundle: `DataProject/staging/release-critical-practical-guides-v2.json`
 
+Localization readiness: `DataProject/staging/release-critical-practical-guides-v2-localization.json`
+
 ## Scope
 
 The bundle contains eight English schema-v2 draft guides covering the seven distinct journeys behind the eight required production searches:
@@ -22,6 +24,38 @@ The bundle contains eight English schema-v2 draft guides covering the seven dist
 | Handling a parking or traffic fine | `parking fine + Utrecht` | Utrecht/BghU parking tax versus national CJIB M fine |
 
 Each draft includes the user need, audience, prerequisites, documents, timing, costs, numbered steps, warnings, mistakes, tips, checklist, at least three FAQs, urgent context, local variation, official contacts, related topics and per-fact source IDs.
+
+## NL/RU localization readiness
+
+The companion localization package contains one Dutch and one Russian **search-surface draft** for every guide: 16 locale records in total. Each record includes a localized title, a localized short summary, at least eight search synonyms, at least three common questions and terminology notes for terms that should not be translated loosely.
+
+This package is intentionally not a full translation. It is pinned to the SHA-256 digest of the English source bundle so that any English edit invalidates the localization contract until the localized records are reviewed again. The package keeps `publication_authorized: false`, `reviewer: null` and `verified_at: null` and explicitly retains these blockers:
+
+1. full body translation;
+2. independent Dutch and Russian language review;
+3. source-to-translation review for legal, municipal and provider terminology;
+4. media and accessibility review.
+
+The localized copy must remain outside the runtime dataset and search index until those four gaps and the general publication steps below are closed.
+
+## Production browser baseline — 2026-08-05
+
+Machine-readable evidence: `DataProject/quality/release-critical-production-search-baseline-2026-08-05.json`
+
+The eight exact production URLs were opened in the in-app browser at 2026-08-05T17:14:40Z. All eight rendered `0 matching results`, displayed the no-result state and exposed no result titles:
+
+| Exact journey | Production result |
+|---|---:|
+| `rent + Den Haag + Worker` | 0 |
+| `housing rent + Den Haag + Worker` | 0 |
+| `work + Leiden` | 0 |
+| `huisarts + Rotterdam` | 0 |
+| `Dutch school + Groningen` | 0 |
+| `BSN + Eindhoven` | 0 |
+| `SIM card + Maastricht` | 0 |
+| `parking fine + Utrecht` | 0 |
+
+This is authoritative evidence for the currently deployed site and keeps the release decision at **NO-GO**. The browser engine was not asserted, so this run does not replace the required post-deployment Chrome and Safari checks.
 
 ## Confirmed source risks
 

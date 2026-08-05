@@ -118,6 +118,9 @@ admin-dashboard/public-site/.openai/
 /DataProject/staging/*
 !/DataProject/staging/practical-guides-wave-1.json
 !/DataProject/staging/brp-amsterdam-governance-candidate.json
+!/DataProject/staging/release-critical-practical-guides-v2.json
+!/DataProject/staging/release-critical-practical-guides-v2-localization.json
+!/DataProject/staging/release-critical-practical-guides-v2-review.md
 /DataProject/reports/
 
 # Generated network-link evidence. Offline static QA uses an explicit sentinel;
