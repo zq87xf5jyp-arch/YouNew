@@ -10,11 +10,18 @@ const [homepage, header, footer, analytics, staticShell] = await Promise.all([
   readFile(new URL("../public/static-shell.js", import.meta.url), "utf8")
 ]);
 
-test("homepage has one promise, eight user sections and no operational evidence", () => {
+test("homepage keeps one promise, adds discovery and business, and exposes no operational evidence", () => {
   assert.equal(homepage.match(/<h1\b/g)?.length, 1);
-  assert.equal(homepage.match(/<section\b/g)?.length, 8);
+  assert.equal(homepage.match(/<section\b/g)?.length, 11);
   assert.match(homepage, /Find your next step in the Netherlands\./);
+  assert.match(homepage, /Discover the Netherlands/);
+  assert.match(homepage, /Cities, provinces, places and organizations\./);
   assert.match(homepage, /City coverage for five Dutch cities\./);
+  assert.match(homepage, /0[\s\S]*live public campaigns/);
+  assert.match(homepage, /Sponsored placements are off\./);
+  assert.match(homepage, /Never shown in emergency guidance/);
+  assert.match(homepage, /Never replaces responsible official sources/);
+  assert.match(homepage, /Never changes organic search ranking/);
   assert.doesNotMatch(homepage, /Detailed web guides for five Dutch cities\./);
   assert.doesNotMatch(homepage, /Supabase|\bCI\b|test counts|release authority|SystemEvidence/i);
 });
@@ -36,12 +43,16 @@ test("homepage task titles expose Amsterdam scope before navigation", () => {
   assert.doesNotMatch(emergencyTask, /Amsterdam/i);
 });
 
-test("global navigation and footer expose the compact public information architecture", () => {
+test("global navigation restores discovery, journeys, updates and business", () => {
   assert.match(header, /\["Start", "\/start"\]/);
+  assert.match(header, /\["Discover", "\/discover"\]/);
   assert.match(header, /\["Guides", "\/guides"\]/);
+  assert.match(header, /\["Journeys", "\/journeys"\]/);
   assert.match(header, /\["Cities", "\/cities"\]/);
   assert.match(header, /\["Map", "\/map"\]/);
-  assert.doesNotMatch(header, /Updates|Business|Organizations|Provinces|App status|My YouNew/);
+  assert.match(header, /\["Updates", "\/updates"\]/);
+  assert.match(header, /\["Business", "\/business"\]/);
+  assert.doesNotMatch(header, /Organizations|Provinces|App status|My YouNew/);
   assert.match(footer, /Website language:<\/strong> English/);
   assert.doesNotMatch(footer, /pending content review/i);
 });
@@ -56,6 +67,6 @@ test("exported homepage runtime preserves profile personalization without a focu
   assert.match(staticShell, /homeProfileStorageKey = "younew\.web\.profile\.v1"/);
   assert.match(staticShell, /analyticsProvider\?\.track\("profile_selected"\)/);
   assert.match(staticShell, /renderHomeProfile\(readHomeProfile\(\)\)/);
-  const menuHandler = staticShell.slice(staticShell.indexOf('menu.addEventListener("keydown"'), staticShell.indexOf('window.matchMedia("(min-width: 1001px)"'));
+  const menuHandler = staticShell.slice(staticShell.indexOf('menu.addEventListener("keydown"'), staticShell.indexOf('window.matchMedia("(min-width: 1281px)"'));
   assert.doesNotMatch(menuHandler, /event\.key !== "Tab"|focusable|const items/);
 });

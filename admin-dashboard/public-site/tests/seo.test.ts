@@ -21,6 +21,10 @@ test("primary navigation and profile links keep descriptive accessible names", a
   ]);
 
   assert.match(header, /\["Start", "\/start"\]/);
-  assert.doesNotMatch(header, /"Updates"|"Business"|"App status"|"My YouNew"/);
+  assert.match(header, /\["Discover", "\/discover"\]/);
+  assert.match(header, /\["Journeys", "\/journeys"\]/);
+  assert.match(header, /\["Updates", "\/updates"\]/);
+  assert.match(header, /\["Business", "\/business"\]/);
+  assert.doesNotMatch(header, /"App status"|"My YouNew"/);
   assert.doesNotMatch(homepage, /profile-row[^>]*aria-label/);
 });

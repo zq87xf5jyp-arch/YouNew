@@ -118,7 +118,7 @@
           closeMenu(true);
         }
       });
-      window.matchMedia("(min-width: 1001px)").addEventListener("change", (event) => {
+      window.matchMedia("(min-width: 1281px)").addEventListener("change", (event) => {
         if (event.matches) closeMenu();
       });
     }

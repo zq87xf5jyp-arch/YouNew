@@ -3,7 +3,7 @@
 import { useEffect } from "react";
 import { usePathname } from "next/navigation";
 
-const DESKTOP_MEDIA_QUERY = "(min-width: 1001px)";
+const DESKTOP_MEDIA_QUERY = "(min-width: 1281px)";
 
 function normalisePathname(pathname: string) {
   if (pathname === "/") return pathname;

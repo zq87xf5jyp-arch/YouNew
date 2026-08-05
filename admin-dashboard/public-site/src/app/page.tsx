@@ -3,18 +3,31 @@ import Link from "next/link";
 import {
   ArrowRight,
   BookOpen,
+  Building2,
   CheckCircle2,
+  Compass,
   ExternalLink,
   Landmark,
+  Layers3,
+  LayoutGrid,
   MapPinned,
+  Megaphone,
+  Newspaper,
+  Route,
   Search,
   ShieldCheck,
-  Smartphone
+  Smartphone,
+  Waypoints
 } from "lucide-react";
+import { ContentMedia, preferredMedia } from "@/components/content-media";
 import { HomepageProfileSelector } from "@/components/homepage-profile-selector";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
+import { advertisingSurfaceCatalog } from "@/lib/business/catalog";
+import { SPONSORED_PLACEMENTS_ENABLED } from "@/lib/business/sponsored";
+import { getPublicContent } from "@/lib/content";
+import { getNetherlandsGeography } from "@/lib/geography/repository";
 import { links } from "@/lib/site-data";
 import statusSnapshot from "@/config/status.json";
 
@@ -72,6 +85,7 @@ const popularTasks: readonly Readonly<{
 ];
 
 const cities = ["Amsterdam", "Rotterdam", "Den Haag", "Utrecht", "Eindhoven"] as const;
+const galleryCityIds = ["city.amsterdam", "city.rotterdam", "city.den-haag", "city.utrecht", "city.eindhoven"] as const;
 
 function humanDate(value: string) {
   return publicDate.format(new Date(`${value}T00:00:00Z`));
@@ -96,6 +110,22 @@ function HomeRouteVisual() {
 
 export default function HomePage() {
   const checkedDate = humanDate(statusSnapshot.content.asOf);
+  const content = getPublicContent();
+  const geography = getNetherlandsGeography();
+  const galleryCities = galleryCityIds.flatMap((id) => {
+    const entity = content.entities.find((candidate) => candidate.id === id);
+    return entity ? [entity] : [];
+  });
+  const netherlandsDirectory = [
+    { title: "Cities", text: "Published local guides for the five current focus cities.", href: "/cities", value: content.stats.cities, icon: MapPinned },
+    { title: "Provinces", text: "Browse all Dutch provinces and their municipality directories.", href: "/provinces", value: geography.stats.provinces, icon: Layers3 },
+    { title: "Municipalities", text: "Find local authority details across the Netherlands.", href: "/municipalities", value: geography.stats.municipalities, icon: Landmark },
+    { title: "Places", text: "Explore published cultural, practical and public places.", href: "/places", value: content.stats.places, icon: Compass },
+    { title: "Organizations", text: "Find published public and community organizations.", href: "/organizations", value: content.stats.organizations, icon: Building2 },
+    { title: "Journeys", text: "Follow connected routes through practical newcomer tasks.", href: "/journeys", value: null, icon: Route },
+    { title: "Updates", text: "See the latest published additions and content changes.", href: "/updates", value: null, icon: Newspaper },
+    { title: "Categories", text: "Browse the full catalogue by practical topic.", href: "/categories", value: content.stats.categories, icon: LayoutGrid }
+  ] as const;
 
   return (
     <div id="top" className="marketing-page user-first-home">
@@ -134,6 +164,38 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section className="uf-section uf-discover-section" aria-labelledby="discover-title">
+          <div className="section-shell">
+            <div className="uf-section-heading uf-discover-heading">
+              <div>
+                <p className="uf-eyebrow">Discover the Netherlands</p>
+                <h2 id="discover-title">See more than the next task.</h2>
+              </div>
+              <div>
+                <p>Explore verified city imagery and continue to the wider catalogue of places, organizations and local context.</p>
+                <Link href="/discover">Open Discover <ArrowRight aria-hidden /></Link>
+              </div>
+            </div>
+            <div className="uf-discover-gallery">
+              {galleryCities.map((city, index) => {
+                const media = preferredMedia(city.images, ["gallery", "hero", "thumbnail"]);
+                if (!media) return null;
+                return (
+                  <article className={index === 0 ? "uf-discover-card is-featured" : "uf-discover-card"} key={city.id}>
+                    <ContentMedia asset={media} variant="gallery" />
+                    <div>
+                      <span>City guide</span>
+                      <h3><Link href={city.route}>{city.title}</Link></h3>
+                      <p>{city.summary}</p>
+                      <Link href={city.route} aria-label={`Explore ${city.title}`}>Explore <ArrowRight aria-hidden /></Link>
+                    </div>
+                  </article>
+                );
+              })}
+            </div>
+          </div>
+        </section>
+
         <section className="uf-section uf-profile-section" aria-labelledby="profile-title">
           <div className="section-shell">
             <div className="uf-section-heading">
@@ -168,6 +230,30 @@ export default function HomePage() {
               <TrackedOfficialSourceLink contentId="home.bsn-government" href="https://www.government.nl/topics/personal-data/question-and-answer/what-is-a-citizen-service-number-bsn" rel="noreferrer" target="_blank">Open the official source <ExternalLink aria-hidden /></TrackedOfficialSourceLink>
             </div>
           </article>
+        </section>
+
+        <section className="uf-section uf-netherlands-section" aria-labelledby="netherlands-title">
+          <div className="section-shell">
+            <div className="uf-section-heading">
+              <p className="uf-eyebrow">Across the Netherlands</p>
+              <h2 id="netherlands-title">Cities, provinces, places and organizations.</h2>
+              <p>Use the national directory when your question is broader than one guide or one city.</p>
+            </div>
+            <div className="uf-netherlands-directory">
+              {netherlandsDirectory.map((item) => {
+                const Icon = item.icon;
+                return (
+                  <Link href={item.href} className="uf-directory-card" key={item.title}>
+                    <Icon aria-hidden />
+                    <span>{item.value === null ? "Explore" : item.value.toLocaleString("en-GB")}</span>
+                    <h3>{item.title}</h3>
+                    <p>{item.text}</p>
+                    <strong>Open directory <ArrowRight aria-hidden /></strong>
+                  </Link>
+                );
+              })}
+            </div>
+          </div>
         </section>
 
         <section className="uf-section uf-product-section" aria-labelledby="product-title">
@@ -224,6 +310,32 @@ export default function HomePage() {
           <nav className="uf-city-list" aria-label="Published city guides">
             {cities.map((city) => <Link href={`/cities/${city.toLowerCase().replaceAll(" ", "-")}`} key={city}><MapPinned aria-hidden /><span>{city}</span><ArrowRight aria-hidden /></Link>)}
           </nav>
+        </section>
+
+        <section className="uf-section uf-business-section" aria-labelledby="business-title">
+          <div className="section-shell uf-business-layout">
+            <div className="uf-business-copy">
+              <p className="uf-eyebrow">Business on YouNew</p>
+              <h2 id="business-title">A reviewed route for relevant local organizations.</h2>
+              <p>Organizations can propose advertising or partnership ideas. Submission does not create a public placement: identity, destination, relevance and campaign dates must be checked before activation.</p>
+              <div className="uf-business-actions">
+                <Link className="button button-primary" href="/business">Business overview <ArrowRight aria-hidden /></Link>
+                <Link className="button button-outline" href="/business/advertise">Advertising standards <ArrowRight aria-hidden /></Link>
+              </div>
+            </div>
+            <aside className="uf-business-status" aria-label="Current advertising status">
+              <div className="uf-business-status-label"><Megaphone aria-hidden /><span>Current public status</span></div>
+              <strong>0</strong>
+              <h3>live public campaigns</h3>
+              <p>{SPONSORED_PLACEMENTS_ENABLED ? "Eligible reviewed campaigns may be delivered." : "Sponsored placements are off."} {advertisingSurfaceCatalog.length} surfaces are defined as reserved, not live.</p>
+              <ul>
+                <li><ShieldCheck aria-hidden /> Never shown in emergency guidance</li>
+                <li><ShieldCheck aria-hidden /> Never replaces responsible official sources</li>
+                <li><ShieldCheck aria-hidden /> Never changes organic search ranking</li>
+              </ul>
+              <Link href="/business/apply">Start a reviewed inquiry <Waypoints aria-hidden /></Link>
+            </aside>
+          </div>
         </section>
 
         <section className="uf-section uf-trust-section" aria-labelledby="trust-title">
