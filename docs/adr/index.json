@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "nextNumber": 11,
+  "nextNumber": 12,
   "migrationHistoryAlignedAt": "2026-08-01",
   "decisionOwnerPolicy": "accepted ADRs require a real human decision owner",
   "records": [
@@ -13,6 +13,7 @@
     {"id": "ADR-007", "file": "0007-ai-evaluation-and-explainability.md", "status": "proposed"},
     {"id": "ADR-008", "file": "0008-research-and-release-gates.md", "status": "proposed"},
     {"id": "ADR-009", "file": "0009-content-governance-database-hardening.md", "status": "proposed"},
-    {"id": "ADR-010", "file": "0010-production-migration-history-and-runtime-trust-boundary.md", "status": "proposed"}
+    {"id": "ADR-010", "file": "0010-production-migration-history-and-runtime-trust-boundary.md", "status": "proposed"},
+    {"id": "ADR-011", "file": "0011-privacy-safe-search-gap-governance.md", "status": "proposed"}
   ]
 }
