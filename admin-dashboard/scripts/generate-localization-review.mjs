@@ -30,6 +30,42 @@ function sha256(value) {
   return createHash("sha256").update(value).digest("hex");
 }
 
+function resolveRepositoryFile(relativePath, label) {
+  requireCondition(typeof relativePath === "string" && relativePath.length > 0 && !isAbsolute(relativePath), `${label} has an unsafe path`);
+  const absolutePath = resolve(repositoryRoot, relativePath);
+  requireCondition(!relative(repositoryRoot, absolutePath).startsWith(".."), `${label} escapes the repository`);
+  return absolutePath;
+}
+
+function sourceField(guide, path, pair) {
+  const segments = path.split(".");
+  let owner;
+  let value;
+
+  if (segments.length === 1) {
+    owner = guide;
+    value = guide[segments[0]];
+  } else if (segments.length === 2) {
+    owner = guide[segments[0]];
+    value = owner?.[segments[1]];
+  } else if (segments.length >= 3) {
+    const collection = guide[segments[0]];
+    requireCondition(Array.isArray(collection), `${pair} source path ${path} does not reference a collection`);
+    const itemId = segments.slice(1, -1).join(".");
+    owner = collection.find((item) => item?.id === itemId);
+    value = owner?.[segments.at(-1)];
+  } else {
+    requireCondition(false, `${pair} source path ${path} has an unsupported shape`);
+  }
+
+  requireCondition(typeof value === "string" && value.trim().length > 0, `${pair} source path ${path} does not resolve to text`);
+  return {
+    path,
+    source_text: value,
+    source_ids: Array.isArray(owner?.source_ids) ? owner.source_ids : []
+  };
+}
+
 async function writeAtomically(path, contents) {
   const temporaryPath = `${path}.tmp`;
   await writeFile(temporaryPath, contents, "utf8");
@@ -42,9 +78,15 @@ const reviewerRegistryText = await readFile(resolve(repositoryRoot, reviewerRegi
 const evidenceRegistryText = await readFile(resolve(repositoryRoot, evidenceRegistryRelativePath), "utf8");
 const reviewerRegistry = JSON.parse(reviewerRegistryText);
 const evidenceRegistry = JSON.parse(evidenceRegistryText);
-const translationPath = resolve(repositoryRoot, matrix.translation_bundle ?? "");
+const translationPath = resolveRepositoryFile(matrix.translation_bundle, "translation bundle");
 const translationText = await readFile(translationPath, "utf8");
 const translation = JSON.parse(translationText);
+const sourceBundlePath = resolveRepositoryFile(translation.source_bundle, "English source bundle");
+const sourceBundleText = await readFile(sourceBundlePath, "utf8");
+const sourceBundle = JSON.parse(sourceBundleText);
+const searchSurfacePath = resolveRepositoryFile(translation.search_surface_bundle, "search-surface bundle");
+const searchSurfaceText = await readFile(searchSurfacePath, "utf8");
+const searchSurface = JSON.parse(searchSurfaceText);
 const sourceSha256 = sha256(sourceText);
 const translationSha256 = sha256(translationText);
 
@@ -61,6 +103,11 @@ requireCondition(
 requireCondition(translationSha256 === matrix.translation_bundle_sha256, "translation bundle SHA-256 mismatch");
 requireCondition(translation.publication_authorized === false, "translation bundle is unexpectedly publication-authorized");
 requireCondition(translation.entries?.length === 16, "translation bundle must contain 16 guide-locale drafts");
+requireCondition(sha256(sourceBundleText) === translation.source_bundle_sha256, "English source bundle SHA-256 mismatch");
+requireCondition(sourceBundle.schema_version === 2 && sourceBundle.guides?.length === 8, "English source bundle must contain eight schema-v2 guides");
+requireCondition(sha256(searchSurfaceText) === translation.search_surface_bundle_sha256, "search-surface bundle SHA-256 mismatch");
+requireCondition(searchSurface.publication_authorized === false, "search-surface bundle is unexpectedly publication-authorized");
+requireCondition(searchSurface.entries?.length === 16, "search-surface bundle must contain 16 guide-locale drafts");
 requireCondition(matrix.records?.length === 16, "review matrix must contain 16 guide-locale records");
 requireCondition(reviewerRegistry.schema_version === 1, "unsupported reviewer registry schema");
 requireCondition(reviewerRegistry.policy?.automated_reviewers_allowed === false, "unsafe reviewer registry policy");
@@ -98,12 +145,36 @@ const translationPairs = new Map(
     Object.keys(entry.fields ?? {}).length
   ])
 );
+const sourceGuides = new Map();
+for (const sourceRecord of sourceBundle.guides) {
+  const guide = sourceRecord?.practical_guide;
+  requireCondition(typeof guide?.id === "string" && !sourceGuides.has(guide.id), "English source bundle contains a missing or duplicate guide ID");
+  requireCondition(guide.locale === "en", `English source guide ${guide.id} has an unexpected locale`);
+  sourceGuides.set(guide.id, guide);
+}
+
+const searchSurfacePairs = new Map();
+for (const entry of searchSurface.entries) {
+  const pair = `${entry.source_guide_id}:${entry.locale}`;
+  requireCondition(!searchSurfacePairs.has(pair), `duplicate search-surface record ${pair}`);
+  requireCondition(entry.translation_status === "search_surface_draft", `${pair} has an unexpected search-surface status`);
+  requireCondition(entry.publication_authorized === false && entry.reviewer === null && entry.verified_at === null, `${pair} contains premature search-surface approval`);
+  requireCondition(typeof entry.title === "string" && entry.title.trim(), `${pair} has no localized title`);
+  requireCondition(typeof entry.short_summary === "string" && entry.short_summary.trim(), `${pair} has no localized summary`);
+  requireCondition(Array.isArray(entry.synonyms) && entry.synonyms.length >= 8, `${pair} has incomplete localized synonyms`);
+  requireCondition(Array.isArray(entry.common_questions) && entry.common_questions.length >= 3, `${pair} has incomplete localized questions`);
+  requireCondition(Array.isArray(entry.terminology) && entry.terminology.length > 0, `${pair} has no terminology review notes`);
+  searchSurfacePairs.set(pair, entry);
+}
+
 const reviewPairs = new Set();
+const reviewRecords = new Map();
 
 for (const record of matrix.records) {
   const pair = `${record.source_guide_id}:${record.locale}`;
   requireCondition(!reviewPairs.has(pair), `duplicate review record ${pair}`);
   reviewPairs.add(pair);
+  reviewRecords.set(pair, record);
   requireCondition(translationPairs.has(pair), `review record ${pair} has no translation draft`);
   requireCondition(record.translated_field_count === translationPairs.get(pair), `field count mismatch for ${pair}`);
   requireCondition(["nl", "ru"].includes(record.locale), `unsupported locale for ${pair}`);
@@ -142,20 +213,81 @@ for (const record of matrix.records) {
 }
 
 requireCondition(reviewPairs.size === translationPairs.size, "translation and review pair sets differ");
+requireCondition(reviewPairs.size === searchSurfacePairs.size, "search-surface and review pair sets differ");
 requireCondition(
   matrix.publication_authorized === false || matrix.records.every((record) => record.review_status === "passed" && record.publication_eligible === true),
   "publication authorization exists before every review record passed"
 );
 
+const reviewPackets = translation.entries.map((entry) => {
+  const pair = `${entry.source_guide_id}:${entry.locale}`;
+  const guide = sourceGuides.get(entry.source_guide_id);
+  const surface = searchSurfacePairs.get(pair);
+  const reviewRecord = reviewRecords.get(pair);
+  requireCondition(guide, `${pair} has no English source guide`);
+  requireCondition(surface, `${pair} has no search-surface draft`);
+  requireCondition(reviewRecord, `${pair} has no review record`);
+  requireCondition(entry.translation_status === "machine_assisted_full_body_draft", `${pair} has an unexpected full-body status`);
+  requireCondition(entry.publication_authorized === false && entry.reviewer === null && entry.verified_at === null, `${pair} contains premature full-body approval`);
+
+  const officialSources = new Map((guide.official_sources ?? []).map((source) => [source.id, source]));
+  const fields = Object.entries(entry.fields ?? {})
+    .sort(([left], [right]) => left.localeCompare(right))
+    .map(([path, targetText]) => {
+      requireCondition(typeof targetText === "string" && targetText.trim().length > 0, `${pair} target path ${path} has no text`);
+      const source = sourceField(guide, path, pair);
+      for (const sourceId of source.source_ids) {
+        requireCondition(officialSources.has(sourceId), `${pair} field ${path} references missing source ${sourceId}`);
+      }
+      return { ...source, target_text: targetText };
+    });
+
+  requireCondition(fields.length === reviewRecord.translated_field_count, `${pair} review packet field count mismatch`);
+
+  return {
+    packet_id: `${guide.slug}-${entry.locale}`,
+    source_guide_id: entry.source_guide_id,
+    locale: entry.locale,
+    review_category: reviewRecord.review_category,
+    source_title: guide.title,
+    target_title: surface.title,
+    search_surface: {
+      source_summary: guide.short_summary.text,
+      target_summary: surface.short_summary,
+      source_synonyms: guide.synonyms,
+      target_synonyms: surface.synonyms,
+      source_common_questions: guide.common_questions,
+      target_common_questions: surface.common_questions,
+      terminology: surface.terminology
+    },
+    review_state: {
+      review_status: reviewRecord.review_status,
+      reviewer_id: reviewRecord.reviewer_id,
+      evidence_registry_entry_id: reviewRecord.evidence_registry_entry_id,
+      checked_at: reviewRecord.checked_at,
+      publication_eligible: reviewRecord.publication_eligible
+    },
+    fields,
+    official_sources: [...officialSources.values()]
+  };
+});
+
+requireCondition(new Set(reviewPackets.map((packet) => packet.packet_id)).size === reviewPackets.length, "review packet IDs are not unique");
+
 const artifact = {
   ...matrix,
+  review_packets: reviewPackets,
   admin_snapshot: {
     source: sourceRelativePath,
     source_sha256: sourceSha256,
     translation_bundle_sha256: translationSha256,
+    source_bundle_sha256: sha256(sourceBundleText),
+    search_surface_bundle_sha256: sha256(searchSurfaceText),
     reviewer_registry_sha256: sha256(reviewerRegistryText),
     evidence_registry_sha256: sha256(evidenceRegistryText),
     record_count: matrix.records.length,
+    review_packet_count: reviewPackets.length,
+    review_packet_field_count: reviewPackets.reduce((total, packet) => total + packet.fields.length, 0),
     required_review_checks: matrix.records.length * requiredDimensions.length
   }
 };

@@ -2,10 +2,10 @@
   "schema_version": 1,
   "environment": "production",
   "origin": "https://younew.nl",
-  "observed_at": "2026-08-05T17:14:40Z",
+  "observed_at": "2026-08-05T19:42:50Z",
   "browser_surface": "in_app_browser",
   "browser_engine": "not_asserted",
-  "method": "Each exact query URL was opened in the in-app browser. The visible matching-results heading, no-result state and first five result titles were read from the rendered production DOM.",
+  "method": "Each query was entered through the production search control, the required city and profile filters were explicitly selected, and Search was activated in the in-app browser. The visible matching-results heading, no-result state and result titles were read from the rendered production DOM.",
   "release_decision": "NO-GO",
   "summary": {
     "total_cases": 8,
@@ -27,7 +27,7 @@
     },
     {
       "name": "housing rent + Den Haag + Worker",
-      "url": "https://younew.nl/search/?q=housing%20rent&city=den-haag&profile=worker",
+      "url": "https://younew.nl/search/?q=housing+rent&city=den-haag&profile=worker",
       "query": "housing rent",
       "city": "den-haag",
       "profile": "worker",
@@ -63,7 +63,7 @@
     },
     {
       "name": "Dutch school + Groningen",
-      "url": "https://younew.nl/search/?q=Dutch%20school&city=groningen",
+      "url": "https://younew.nl/search/?q=Dutch+school&city=groningen",
       "query": "Dutch school",
       "city": "groningen",
       "profile": null,
@@ -87,7 +87,7 @@
     },
     {
       "name": "SIM card + Maastricht",
-      "url": "https://younew.nl/search/?q=SIM%20card&city=maastricht",
+      "url": "https://younew.nl/search/?q=SIM+card&city=maastricht",
       "query": "SIM card",
       "city": "maastricht",
       "profile": null,
@@ -99,7 +99,7 @@
     },
     {
       "name": "parking fine + Utrecht",
-      "url": "https://younew.nl/search/?q=parking%20fine&city=utrecht",
+      "url": "https://younew.nl/search/?q=parking+fine&city=utrecht",
       "query": "parking fine",
       "city": "utrecht",
       "profile": null,

@@ -37,6 +37,8 @@ The private full-body overlay now contains complete Dutch and Russian narrative-
 
 The fail-closed human review matrix is pinned to that exact overlay and reserves one record for every guide-locale pair. Each record declares the reviewer category scope, and every record remains `review_status: not_started`, `reviewer_id: null`, `evidence_registry_entry_id: null` and `publication_eligible: false`. It cannot replace a registered human reviewer or a passed hashed artifact in the operational evidence registry.
 
+The Admin localization workbench generates 16 read-only review packets from the SHA-pinned English, search-surface and full-body bundles. The packets expose all 796 full-body source-to-target field pairs, controlled terminology and official source IDs side by side on mobile and desktop. They support human inspection but contain no assignment, approval or publication controls.
+
 Both localization packages keep `publication_authorized: false`, `reviewer: null` and `verified_at: null`. The search-surface package intentionally does not claim full translation, while the full-body overlay labels its two entries `machine_assisted_full_body_draft`. Overall blockers are:
 
 1. independent Dutch and Russian language review;
@@ -50,7 +52,7 @@ The localized copy must remain outside the runtime dataset and search index unti
 
 Machine-readable evidence: `DataProject/quality/release-critical-production-search-baseline-2026-08-05.json`
 
-The eight exact production URLs were opened in the in-app browser at 2026-08-05T17:14:40Z. All eight rendered `0 matching results`, displayed the no-result state and exposed no result titles:
+The eight queries and required city/profile filters were exercised through the production controls in the in-app browser, with the latest observation completed at 2026-08-05T19:42:50Z. All eight rendered `0 matching results`, displayed the no-result state and exposed no result titles:
 
 | Exact journey | Production result |
 |---|---:|

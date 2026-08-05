@@ -30,7 +30,7 @@ function runVerifier(fixtureRoot: string) {
 test("Hostinger package accepts the fail-closed localization review snapshot", (context) => {
   const fixtureRoot = createPackagedFixture();
   context.after(() => rmSync(fixtureRoot, { recursive: true, force: true }));
-  assert.match(runVerifier(fixtureRoot), /Verified packaged localization review: 16 records, 64 required human checks/);
+  assert.match(runVerifier(fixtureRoot), /Verified packaged localization review: 16 records, 16 review packets, 64 required human checks/);
 });
 
 test("Hostinger package rejects publication eligibility before human review passes", (context) => {
@@ -44,5 +44,19 @@ test("Hostinger package rejects publication eligibility before human review pass
   assert.throws(
     () => runVerifier(fixtureRoot),
     /is eligible before passing review/
+  );
+});
+
+test("Hostinger package rejects review packets with unresolved source evidence", (context) => {
+  const fixtureRoot = createPackagedFixture();
+  context.after(() => rmSync(fixtureRoot, { recursive: true, force: true }));
+  const fixtureSnapshotPath = resolve(fixtureRoot, "src/generated/localization-review.json");
+  const snapshot = JSON.parse(readFileSync(fixtureSnapshotPath, "utf8"));
+  snapshot.review_packets[0].fields[0].source_ids.push("src.missing");
+  writeFileSync(fixtureSnapshotPath, `${JSON.stringify(snapshot, null, 2)}\n`);
+
+  assert.throws(
+    () => runVerifier(fixtureRoot),
+    /has an unresolved source ID/
   );
 });

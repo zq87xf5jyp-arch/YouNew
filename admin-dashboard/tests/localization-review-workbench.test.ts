@@ -14,6 +14,7 @@ const generated = JSON.parse(
   await readFile(new URL("../src/generated/localization-review.json", import.meta.url), "utf8")
 ) as LocalizationReviewSnapshot;
 const page = await readFile(new URL("../src/app/(admin)/localization-review/page.tsx", import.meta.url), "utf8");
+const packetPage = await readFile(new URL("../src/app/(admin)/localization-review/[packetId]/page.tsx", import.meta.url), "utf8");
 const nav = await readFile(new URL("../src/components/admin/nav.tsx", import.meta.url), "utf8");
 
 test("generated review snapshot is pinned to the governed source matrix", () => {
@@ -22,7 +23,27 @@ test("generated review snapshot is pinned to the governed source matrix", () => 
   assert.deepEqual(generated.records, source.records);
   assert.deepEqual(generated.review_dimensions, source.review_dimensions);
   assert.equal(generated.admin_snapshot.record_count, 16);
+  assert.equal(generated.admin_snapshot.review_packet_count, 16);
+  assert.equal(generated.admin_snapshot.review_packet_field_count, 796);
   assert.equal(generated.admin_snapshot.required_review_checks, 64);
+});
+
+test("review packets expose complete source-to-target comparisons without approval claims", () => {
+  assert.equal(generated.review_packets.length, 16);
+  assert.equal(generated.review_packets.reduce((total, packet) => total + packet.fields.length, 0), 796);
+  assert.equal(new Set(generated.review_packets.map((packet) => packet.packet_id)).size, 16);
+
+  for (const packet of generated.review_packets) {
+    const sourceIds = new Set(packet.official_sources.map((source) => source.id));
+    assert.ok(packet.source_title.length > 0);
+    assert.ok(packet.target_title.length > 0);
+    assert.ok(packet.search_surface.target_synonyms.length >= 8);
+    assert.ok(packet.search_surface.target_common_questions.length >= 3);
+    assert.ok(packet.search_surface.terminology.length > 0);
+    assert.ok(packet.fields.every((field) => field.source_text.length > 0 && field.target_text.length > 0));
+    assert.ok(packet.fields.flatMap((field) => field.source_ids).every((sourceId) => sourceIds.has(sourceId)));
+    assert.equal(packet.review_state.publication_eligible, false);
+  }
 });
 
 test("review summary fails closed while human evidence is absent", () => {
@@ -47,7 +68,12 @@ test("Admin exposes a read-only evidence matrix without approval controls", () =
   assert.match(page, /Machine-assisted drafts are never treated as human approval/);
   assert.match(page, /No automated reviewer may satisfy these gates/);
   assert.match(page, /summary\.releaseStatus/);
-  assert.match(page, /overflow-x-auto/);
-  assert.match(page, /min-w-\[960px\]/);
-  assert.doesNotMatch(page, /<form|<button|action=/i);
+  assert.match(page, /Inspect source and translation/);
+  assert.match(page, /md:hidden/);
+  assert.match(page, /min-w-\[1040px\]/);
+  assert.match(packetPage, /English evidence text and the machine-assisted target draft are shown side by side/);
+  assert.match(packetPage, /This packet is inspection material only/);
+  assert.match(packetPage, /Full-body source comparison/);
+  assert.match(packetPage, /Official source register/);
+  assert.doesNotMatch(`${page}\n${packetPage}`, /<form|<button|action=/i);
 });
