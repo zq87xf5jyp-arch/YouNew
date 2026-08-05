@@ -237,6 +237,8 @@ export default async function AnalyticsPage({
       ? "error" as const
       : insights.appStore.sourceConnected
         ? "connected" as const
+        : appStoreSyncState?.status === "success"
+          ? "connected" as const
         : appStoreSyncState?.status === "empty"
           ? "empty" as const
           : "missing" as const;

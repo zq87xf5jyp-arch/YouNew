@@ -10,6 +10,10 @@ const syncScript = await readFile(
   new URL("../scripts/sync-app-store-analytics.mjs", import.meta.url),
   "utf8"
 );
+const analyticsPage = await readFile(
+  new URL("../src/app/(admin)/analytics/page.tsx", import.meta.url),
+  "utf8"
+);
 
 test("analytics expansion keeps private aggregates behind RLS", () => {
   for (const view of [
@@ -37,4 +41,9 @@ test("App Store sync stores aggregates and keeps server credentials server-side"
   assert.match(syncScript, /updates/);
   assert.doesNotMatch(syncScript, /console\.log\(configuration|process\.env\)/);
   assert.doesNotMatch(syncScript, /email|device_id|user_id/i);
+});
+
+test("a successful App Store sync remains connected when the selected period is empty", () => {
+  assert.match(analyticsPage, /appStoreSyncState\?\.status === "success"[\s\S]*?"connected" as const/);
+  assert.match(analyticsPage, /appStoreSyncState\?\.status === "empty"[\s\S]*?"empty" as const/);
 });
