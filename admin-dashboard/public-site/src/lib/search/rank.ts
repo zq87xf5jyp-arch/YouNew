@@ -1,6 +1,9 @@
 import type { ContentEntityType, GuideAudienceProfile } from "../content/types";
+import { canonicalCityId, resolveSearchLocation, selectedLocationContext } from "./geography.ts";
+import { matchSearchIntents, taxonomyTopic } from "./taxonomy.ts";
 
 export type SearchDocumentType = ContentEntityType | "category" | "municipality" | "province" | "page";
+export type SearchLocationScope = "national" | "province" | "municipality" | "city" | "neighbourhood" | "organization" | "emergency" | "online-service";
 
 export interface SearchDocument {
   readonly id: string;
@@ -16,7 +19,17 @@ export interface SearchDocument {
   readonly cityId: string | null;
   readonly province: string | null;
   readonly provinceId: string | null;
+  readonly municipalityId?: string | null;
+  readonly locationScope?: SearchLocationScope;
+  readonly country?: "NL";
   readonly categories: readonly string[];
+  readonly intents?: readonly string[];
+  readonly languages?: readonly ("en" | "nl" | "ru")[];
+  readonly nationalFallback?: boolean;
+  readonly qualityScore?: number;
+  readonly verifiedAt?: string | null;
+  readonly officialSourceUrls?: readonly string[];
+  readonly relatedOrganizationIds?: readonly string[];
   readonly narrowCategory: string | null;
   readonly organization: string | null;
   readonly audienceProfiles: readonly GuideAudienceProfile[];
@@ -84,8 +97,9 @@ export function normalizeSearchText(value: string): string {
   return value
     .normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[’`´]/g, "'")
     .toLocaleLowerCase("en")
-    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/[^\p{L}\p{N}]+/gu, " ")
     .trim();
 }
 
@@ -94,7 +108,9 @@ function tokens(value: string): string[] {
 }
 
 const queryStopWords = new Set([
-  "a", "an", "and", "are", "can", "do", "does", "for", "get", "how", "i", "in", "is", "my", "need", "not", "of", "the", "to", "what", "where"
+  "a", "an", "and", "are", "can", "do", "does", "for", "get", "how", "i", "in", "is", "my", "need", "not", "of", "the", "to", "what", "where",
+  "de", "een", "en", "heb", "het", "hoe", "ik", "in", "is", "nodig", "van", "waar",
+  "в", "где", "для", "как", "мне", "мой", "нужно", "получить", "что"
 ]);
 
 function semanticQueryTokens(value: string): string[] {
@@ -127,22 +143,68 @@ function tokenScore(queryToken: string, candidate: string, weight: number): numb
   if (queryToken === candidate) return weight;
   if (candidate.startsWith(queryToken)) return weight * 0.72;
   if (queryToken.startsWith(candidate) && candidate.length / queryToken.length >= 0.8) return weight * 0.64;
-  if (candidate.includes(queryToken)) return weight * 0.56;
+  if (queryToken.length >= 6 && candidate.includes(queryToken)) return weight * 0.48;
 
   if (queryToken.length >= 4 && candidate.length >= 4) {
-    const maximumDistance = queryToken.length >= 8 ? 2 : 1;
+    const maximumDistance = queryToken.length >= 7 ? 2 : 1;
+    if (queryToken[0] !== candidate[0]) return 0;
     const distance = boundedEditDistance(queryToken, candidate, maximumDistance);
     if (distance <= maximumDistance) return weight * (distance === 1 ? 0.5 : 0.34);
   }
   return 0;
 }
 
-function matchesFilters(document: SearchDocument, filters: SearchFilters): boolean {
+function matchesHardFilters(document: SearchDocument, filters: SearchFilters): boolean {
   if (filters.type && document.type !== filters.type) return false;
-  if (filters.cityId && document.cityId !== filters.cityId) return false;
-  if (filters.provinceId && document.provinceId !== filters.provinceId) return false;
   if (filters.category && !document.categories.includes(filters.category)) return false;
   return true;
+}
+
+function documentScope(document: SearchDocument): SearchLocationScope {
+  if (document.locationScope) return document.locationScope;
+  if (document.type === "municipality") return "municipality";
+  if (document.type === "province") return "province";
+  if (document.type === "organization") return "organization";
+  if (document.cityId) return "city";
+  if (document.provinceId) return "province";
+  return "national";
+}
+
+function locationScore(
+  document: SearchDocument,
+  location: ReturnType<typeof selectedLocationContext>,
+  fromExplicitFilter: boolean
+): number {
+  if (!location) return 0;
+  const scope = documentScope(document);
+  if (scope === "national" || scope === "emergency" || scope === "online-service" || document.nationalFallback) {
+    return fromExplicitFilter ? 22 : 12;
+  }
+
+  if (location.kind === "province") {
+    if (document.provinceId === location.provinceId) return 28;
+    return fromExplicitFilter ? -48 : scope === "organization" ? -12 : -22;
+  }
+
+  const documentCity = canonicalCityId(document.municipalityId ?? document.cityId ?? (document.type === "municipality" ? document.slug : null));
+  if (documentCity === location.canonicalId) return 36;
+  if (location.provinceId && document.provinceId === location.provinceId) return 16;
+  return fromExplicitFilter ? -64 : scope === "organization" ? -12 : -24;
+}
+
+function freshnessScore(value: string | null | undefined): number {
+  if (!value) return 0;
+  const timestamp = Date.parse(value);
+  if (Number.isNaN(timestamp)) return 0;
+  const ageDays = Math.max(0, (Date.now() - timestamp) / 86_400_000);
+  if (ageDays <= 45) return 4;
+  if (ageDays <= 180) return 2;
+  return 0;
+}
+
+function qualityScore(document: SearchDocument): number {
+  const value = document.qualityScore;
+  return typeof value === "number" && Number.isFinite(value) ? Math.max(-5, Math.min(8, (value - 50) / 10)) : 0;
 }
 
 export function rankSearchDocuments(
@@ -151,14 +213,23 @@ export function rankSearchDocuments(
   options: SearchOptions = {}
 ): RankedSearchResult[] {
   const queryText = normalizeSearchText(query);
-  const queryTokens = semanticQueryTokens(queryText);
+  const inferredLocation = resolveSearchLocation(documents, queryText, normalizeSearchText);
+  const explicitLocation = selectedLocationContext(documents, options.filters?.cityId, options.filters?.provinceId);
+  const location = explicitLocation ?? inferredLocation;
+  const allQueryTokens = semanticQueryTokens(queryText);
+  const nonLocationTokens = inferredLocation
+    ? allQueryTokens.filter((token) => !inferredLocation.consumedTokens.includes(token))
+    : allQueryTokens;
+  const queryTokens = nonLocationTokens.length > 0 ? nonLocationTokens : allQueryTokens;
+  const intentMatches = matchSearchIntents(queryText, normalizeSearchText);
   const limit = Math.max(1, Math.min(options.limit ?? 40, 200));
   const filters = options.filters ?? {};
   if (!queryText || queryTokens.length === 0) {
     return documents
-      .filter((document) => matchesFilters(document, filters))
+      .filter((document) => matchesHardFilters(document, filters))
       .sort(
         (left, right) =>
+          locationScore(right, location, Boolean(explicitLocation)) - locationScore(left, location, Boolean(explicitLocation)) ||
           Number(searchDocumentMatchesProfile(right, options.preferredProfile)) -
             Number(searchDocumentMatchesProfile(left, options.preferredProfile)) ||
           left.title.localeCompare(right.title) || left.id.localeCompare(right.id)
@@ -170,11 +241,12 @@ export function rankSearchDocuments(
   const results: RankedSearchResult[] = [];
 
   for (const document of documents) {
-    if (!matchesFilters(document, filters)) continue;
+    if (!matchesHardFilters(document, filters)) continue;
 
     const titleText = normalizeSearchText(document.title);
     const weightedFields = [
       { values: tokens(document.title), weight: 28 },
+      { values: (document.intents ?? []).flatMap(tokens), weight: 25 },
       { values: (document.synonyms ?? []).flatMap(tokens), weight: 22 },
       { values: (document.terminology ?? []).flatMap(tokens), weight: 19 },
       { values: document.keywords.flatMap(tokens), weight: 18 },
@@ -192,11 +264,15 @@ export function rankSearchDocuments(
       { values: tokens(document.province ?? ""), weight: 10 },
       { values: document.categories.flatMap(tokens), weight: 10 },
       { values: tokens(document.narrowCategory ?? ""), weight: 9 },
-      { values: tokens(document.summary), weight: 4 }
+      { values: tokens(document.summary), weight: 4 },
+      { values: (document.officialSourceUrls ?? []).flatMap(tokens), weight: 3 }
     ];
 
-    let score = titleText === queryText ? 180 : titleText.startsWith(queryText) ? 90 : titleText.includes(queryText) ? 58 : 0;
-    const matchedTerms = [];
+    const paddedTitle = ` ${titleText} `;
+    const titleStartsWithPhrase = titleText.startsWith(`${queryText} `);
+    const titleContainsPhrase = paddedTitle.includes(` ${queryText} `);
+    let score = titleText === queryText ? 180 : titleStartsWithPhrase ? 90 : titleContainsPhrase ? 58 : 0;
+    const matchedTerms: string[] = [];
 
     for (const queryToken of queryTokens) {
       let best = 0;
@@ -211,10 +287,34 @@ export function rankSearchDocuments(
       }
     }
 
+    const documentIntents = new Set([...(document.intents ?? []), ...document.categories]);
+    let intentScore = 0;
+    for (const match of intentMatches) {
+      if (documentIntents.has(match.intent)) {
+        intentScore = Math.max(intentScore, match.exact ? 126 : 104);
+        for (const token of semanticQueryTokens(match.alias)) if (!matchedTerms.includes(token)) matchedTerms.push(token);
+      } else {
+        const topic = taxonomyTopic(match.intent);
+        if (topic?.relatedIntents.some((intent) => documentIntents.has(intent))) intentScore = Math.max(intentScore, 18);
+      }
+    }
+    score += intentScore;
+
     const minimumCoverage = queryTokens.length <= 2 ? queryTokens.length : Math.ceil(queryTokens.length * 0.6);
-    if (score > 0 && matchedTerms.length >= minimumCoverage) {
-      const profileBoost = searchDocumentMatchesProfile(document, options.preferredProfile) ? 8 : 0;
-      results.push({ document, score: Math.round((score + profileBoost) * 100) / 100, matchedTerms });
+    const intentMatched = intentScore >= 100;
+    if (score > 0 && (matchedTerms.length >= minimumCoverage || intentMatched)) {
+      const profileBoost = searchDocumentMatchesProfile(document, options.preferredProfile) ? 12 : 0;
+      const geoBoost = locationScore(document, location, Boolean(explicitLocation));
+      const verificationBoost = freshnessScore(document.verifiedAt);
+      const contentQualityBoost = qualityScore(document);
+      const finalScore = Math.round((score + profileBoost + geoBoost + verificationBoost + contentQualityBoost) * 100) / 100;
+      if (finalScore >= 12) {
+        results.push({
+          document,
+          score: finalScore,
+          matchedTerms: [...new Set(matchedTerms)]
+        });
+      }
     }
   }
 

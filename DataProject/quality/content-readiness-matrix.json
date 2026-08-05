@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-08-04",
+  "as_of": "2026-08-05",
   "scope": {
     "governed_batches": "DataProject/batches",
     "canonical_runtime": "YouNew/Resources/Data/younew-runtime-data.json",
@@ -34,7 +34,7 @@
       "published": 188,
       "qa": 262
     },
-    "effective_published_records": 182,
+    "effective_published_records": 181,
     "material_records": 277,
     "material_lifecycle_status_counts": {
       "published": 15,
@@ -2714,9 +2714,9 @@
     "note": "Runtime/public mirrors are reconciled below and are not counted as source-of-truth duplicates."
   },
   "runtime_reconciliation": {
-    "effective_published_denominator": 182,
-    "runtime_entity_count": 182,
-    "public_entity_count": 182,
+    "effective_published_denominator": 181,
+    "runtime_entity_count": 181,
+    "public_entity_count": 181,
     "duplicate_runtime_ids": [],
     "duplicate_public_ids": [],
     "effective_missing_from_runtime": [],
@@ -2727,7 +2727,7 @@
     "public_has_practical_guide": 0
   },
   "existing_link_health_evidence": {
-    "generated_at": "2026-08-04T16:46:57+00:00",
+    "generated_at": "2026-08-05T12:47:02+00:00",
     "checked_at": "2026-07-28T15:22:44.290395+00:00",
     "total": 2560,
     "reachable": 1814,

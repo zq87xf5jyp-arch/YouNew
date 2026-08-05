@@ -6,6 +6,8 @@ import {
   createAnalyticsEnvelope,
   createSupabaseAnalyticsProvider,
   randomUUIDv4,
+  searchQueryTokenBucket,
+  searchResultBucket,
   type AnalyticsConfiguration
 } from "../src/lib/analytics/client.ts";
 
@@ -36,7 +38,17 @@ test("analytics environment treats only local development hosts as staging", () 
 
 test("analytics envelopes contain only bounded allowlisted values", () => {
   const envelope = createAnalyticsEnvelope(
-    { name: "search", resultCount: 7.8, hasResults: true },
+    {
+      name: "search",
+      searchId: "77777777-7777-4777-8777-777777777777",
+      searchIntent: "documents",
+      resultCount: 7.8,
+      hasResults: true,
+      queryTokenBucket: "2-3",
+      cityId: "s-gravenhage",
+      profile: "worker",
+      locationScope: "municipality"
+    },
     identifiers,
     {
       now: () => new Date("2026-07-28T20:00:00.000Z"),
@@ -49,10 +61,90 @@ test("analytics envelopes contain only bounded allowlisted values", () => {
 
   assert.equal(envelope.event_name, "search");
   assert.equal(envelope.screen, "/discover/");
-  assert.deepEqual(envelope.properties, { result_count: 7, has_results: true });
+  assert.deepEqual(envelope.properties, {
+    search_id: "77777777-7777-4777-8777-777777777777",
+    search_intent: "documents",
+    result_count: 7,
+    result_bucket: "6-10",
+    has_results: true,
+    query_token_bucket: "2-3",
+    city_id: "s-gravenhage",
+    profile: "worker",
+    location_scope: "municipality"
+  });
   assert.equal(JSON.stringify(envelope).includes("BSN-sensitive-text"), false);
   assert.equal(envelope.environment, "production");
   assert.equal(envelope.consent_version, "2026-07-28");
+});
+
+test("search analytics uses bounded buckets and never includes free text", () => {
+  assert.equal(searchResultBucket(0), "0");
+  assert.equal(searchResultBucket(1), "1");
+  assert.equal(searchResultBucket(5), "2-5");
+  assert.equal(searchResultBucket(51), "51+");
+  assert.equal(searchQueryTokenBucket("rent"), "1");
+  assert.equal(searchQueryTokenBucket("housing rent worker"), "2-3");
+  assert.equal(searchQueryTokenBucket("one two three four five six seven eight"), "8+");
+
+  const envelope = createAnalyticsEnvelope(
+    {
+      name: "search",
+      searchId: "88888888-8888-4888-8888-888888888888",
+      searchIntent: "unclassified",
+      resultCount: 0,
+      hasResults: false,
+      queryTokenBucket: "4-7",
+      categoryId: "housing",
+      locationScope: "national"
+    },
+    identifiers,
+    {
+      now: () => new Date("2026-08-05T12:00:00.000Z"),
+      randomUUID: () => "99999999-9999-4999-8999-999999999999",
+      pathname: () => "/search/?q=private+free+text",
+      language: () => "nl",
+      environment: () => "production"
+    }
+  );
+
+  const serialized = JSON.stringify(envelope);
+  assert.equal(serialized.includes("private"), false);
+  assert.equal(serialized.includes("free"), false);
+  assert.deepEqual(envelope.properties, {
+    search_id: "88888888-8888-4888-8888-888888888888",
+    search_intent: "unclassified",
+    result_count: 0,
+    result_bucket: "0",
+    has_results: false,
+    query_token_bucket: "4-7",
+    category_id: "housing",
+    location_scope: "national"
+  });
+});
+
+test("result-open analytics links by random search id without query text", () => {
+  const envelope = createAnalyticsEnvelope(
+    {
+      name: "search_result_opened",
+      searchId: "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+      contentId: "national.housing<script>",
+      resultRank: 500
+    },
+    identifiers,
+    {
+      now: () => new Date("2026-08-05T12:00:00.000Z"),
+      randomUUID: () => "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+      pathname: () => "/search/",
+      language: () => "en",
+      environment: () => "production"
+    }
+  );
+
+  assert.deepEqual(envelope.properties, {
+    search_id: "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+    content_id: "national.housing-script-",
+    result_rank: 200
+  });
 });
 
 test("planner save analytics uses the production allowlisted event and no free text", () => {

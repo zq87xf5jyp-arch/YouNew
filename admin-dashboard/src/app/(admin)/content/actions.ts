@@ -40,6 +40,10 @@ function contentValidationErrors(input: ArticleInput, categoryId: string | null)
   return errors;
 }
 
+function commaSeparated(value: string) {
+  return [...new Set(value.split(",").map((item) => item.trim()).filter(Boolean))];
+}
+
 function articlePayload(input: ArticleInput, categoryId: string | null, authorId: string) {
   if (input.status === "published") {
     throw new Error(
@@ -60,6 +64,22 @@ function articlePayload(input: ArticleInput, categoryId: string | null, authorId
     source_url: source,
     official_source: Boolean(source?.startsWith("https://")),
     tags: input.tags?.split(",").map((tag) => tag.trim()).filter(Boolean) ?? [],
+    canonical_title: input.canonicalTitle.trim() || input.title.trim(),
+    search_subcategory: input.searchSubcategory.trim() || null,
+    search_intents: commaSeparated(input.searchIntents),
+    search_synonyms: {
+      en: commaSeparated(input.synonymsEn),
+      nl: commaSeparated(input.synonymsNl),
+      ru: commaSeparated(input.synonymsRu)
+    },
+    search_keywords: commaSeparated(input.searchKeywords),
+    search_languages: commaSeparated(input.searchLanguages),
+    content_scope: input.contentScope,
+    province_id: input.provinceId.trim() || null,
+    municipality_id: input.municipalityId.trim() || null,
+    city_id: input.cityId.trim() || null,
+    national_fallback: input.nationalFallback,
+    audience_profiles: commaSeparated(input.audienceProfiles),
     images: normalizeManagedContentImages(input.images),
     requires_media: input.requiresMedia,
     source_mapping: source ? [{ url: source, type: "official" }] : [],
@@ -77,12 +97,19 @@ export async function createArticle(input: ArticleInput) {
   const { data, error } = await supabase
     .from("articles")
     .insert(articlePayload(input, categoryId, user.id))
-    .select("id,updated_at")
+    .select("id,updated_at,search_quality_score,search_indexed,search_warnings")
     .single();
 
   if (error) throw new Error(error.code === "23505" ? "Материал с таким слагом уже существует." : error.message);
   revalidatePath("/content");
-  return { ...input, id: data.id, updatedAt: data.updated_at } satisfies ManagedArticle;
+  return {
+    ...input,
+    id: data.id,
+    updatedAt: data.updated_at,
+    searchQualityScore: data.search_quality_score,
+    searchIndexed: data.search_indexed,
+    searchWarnings: data.search_warnings
+  } satisfies ManagedArticle;
 }
 
 export async function updateArticle(id: string, input: ArticleInput) {
@@ -92,12 +119,19 @@ export async function updateArticle(id: string, input: ArticleInput) {
     .from("articles")
     .update(articlePayload(input, categoryId, user.id))
     .eq("id", id)
-    .select("id,updated_at")
+    .select("id,updated_at,search_quality_score,search_indexed,search_warnings")
     .single();
 
   if (error) throw new Error(error.code === "23505" ? "Материал с таким слагом уже существует." : error.message);
   revalidatePath("/content");
-  return { ...input, id: data.id, updatedAt: data.updated_at } satisfies ManagedArticle;
+  return {
+    ...input,
+    id: data.id,
+    updatedAt: data.updated_at,
+    searchQualityScore: data.search_quality_score,
+    searchIndexed: data.search_indexed,
+    searchWarnings: data.search_warnings
+  } satisfies ManagedArticle;
 }
 
 export async function deleteArticle(id: string) {

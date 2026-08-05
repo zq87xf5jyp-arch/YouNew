@@ -10,12 +10,26 @@ const publicSiteRoot = resolve(scriptDirectory, "..");
 export const paths = Object.freeze({
   source: resolve(publicSiteRoot, "../../YouNew/Resources/Data/younew-runtime-data.json"),
   geography: resolve(publicSiteRoot, "src/generated/netherlands-geography.json"),
+  nationalGuides: resolve(publicSiteRoot, "src/content/national-guides.json"),
   content: resolve(publicSiteRoot, "src/generated/public-content.json"),
   search: resolve(publicSiteRoot, "public/data/search-index.json"),
   provenance: resolve(publicSiteRoot, "public/data/content-provenance.json")
 });
 
 const geography = JSON.parse(await readFile(paths.geography, "utf8"));
+const nationalGuideDataset = JSON.parse(await readFile(paths.nationalGuides, "utf8"));
+
+if (nationalGuideDataset?.schemaVersion !== 1 || !Array.isArray(nationalGuideDataset.guides) || nationalGuideDataset.guides.length === 0) {
+  throw new Error("The national guide dataset is missing or invalid.");
+}
+for (const guide of nationalGuideDataset.guides) {
+  if (!guide?.id || !guide?.slug || !guide?.title || guide.scope !== "national" || guide.nationalFallback !== true) {
+    throw new Error(`Invalid national guide metadata: ${String(guide?.id ?? "unknown")}.`);
+  }
+  if (!Array.isArray(guide.officialSources) || guide.officialSources.length === 0 || guide.officialSources.some((source) => !source?.url?.startsWith("https://") || !source?.checkedAt)) {
+    throw new Error(`National guide ${guide.id} must have checked HTTPS official sources.`);
+  }
+}
 
 const provinceNames = Object.freeze({
   "drenthe": "Drenthe",
@@ -134,6 +148,13 @@ const routePrefixByType = Object.freeze({
   organization: "/organizations",
   place: "/places"
 });
+
+function canonicalMunicipalityId(value) {
+  if (!value) return null;
+  if (value === "den-haag" || value === "the-hague") return "s-gravenhage";
+  if (value === "den-bosch") return "s-hertogenbosch";
+  return value;
+}
 
 // Backward-compatible search vocabulary for the brief canonical records that
 // pre-date `practical_guide`. This adds discoverability, not procedural facts;
@@ -698,7 +719,17 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       cityId: entity.cityId,
       province: entity.provinceId ? provincesById.get(entity.provinceId)?.title ?? titleFromSlug(entity.provinceId) : null,
       provinceId: entity.provinceId,
+      municipalityId: canonicalMunicipalityId(entity.cityId),
+      locationScope: entity.cityId ? (entity.type === "organization" ? "organization" : "city") : entity.provinceId ? "province" : "national",
+      country: "NL",
       categories: entity.categorySlugs,
+      intents: entity.categorySlugs,
+      languages: ["en"],
+      nationalFallback: !entity.cityId && !entity.provinceId,
+      qualityScore: entity.contentDepth === "practical" ? 94 : 70,
+      verifiedAt: entity.verifiedAt,
+      officialSourceUrls: [...new Set([entity.source.url, ...(practical?.officialSources?.map((source) => source.url) ?? [])].filter(Boolean))],
+      relatedOrganizationIds: entity.relatedEntityIds.filter((id) => id.startsWith("organization.")),
       narrowCategory: entity.narrowCategory,
       organization: entity.type === "organization" ? entity.title : entity.source.publisher,
       audienceProfiles: practical?.audienceProfiles ?? [],
@@ -716,6 +747,47 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     };
   });
 
+  const nationalGuideDocuments = nationalGuideDataset.guides.map((guide) => ({
+    id: guide.id,
+    type: "guide",
+    sourceKind: "nationalResourceGuide",
+    slug: guide.slug,
+    route: `/essentials/${guide.slug}`,
+    title: guide.title,
+    summary: guide.summary,
+    contentDepth: "practical",
+    keywords: [...guide.keywords, ...guide.subcategories],
+    city: null,
+    cityId: null,
+    province: null,
+    provinceId: null,
+    municipalityId: null,
+    locationScope: "national",
+    country: "NL",
+    categories: [guide.category],
+    intents: guide.intents,
+    languages: guide.languages,
+    nationalFallback: true,
+    qualityScore: guide.qualityScore,
+    verifiedAt: nationalGuideDataset.verifiedAt,
+    officialSourceUrls: guide.officialSources.map((source) => source.url),
+    relatedOrganizationIds: [],
+    narrowCategory: guide.subcategories[0] ?? guide.category,
+    organization: guide.officialSources.map((source) => source.publisher).join(", "),
+    audienceProfiles: guide.applicableProfiles,
+    numberedSteps: guide.sections.steps,
+    requiredDocuments: guide.sections.documents,
+    checklist: guide.sections.steps,
+    tips: [guide.sections.localDifferences],
+    faqAnswers: [guide.sections.cost, guide.sections.timing, ...guide.sections.problems],
+    whenYouNeedIt: [guide.sections.who],
+    tags: [...guide.subcategories, ...guide.relatedTopics],
+    synonyms: Object.values(guide.synonyms).flat(),
+    officialOrganizationNames: guide.officialSources.map((source) => source.publisher),
+    terminology: guide.subcategories,
+    commonQuestions: []
+  }));
+
   const categoryDocuments = categories.map((category) => {
     const metadata = categorySearchMetadata[category.slug] ?? {};
     return {
@@ -731,7 +803,17 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       cityId: null,
       province: null,
       provinceId: null,
+      municipalityId: null,
+      locationScope: "national",
+      country: "NL",
       categories: [category.slug],
+      intents: [category.slug],
+      languages: ["en"],
+      nationalFallback: true,
+      qualityScore: 62,
+      verifiedAt: generatedAt,
+      officialSourceUrls: [],
+      relatedOrganizationIds: [],
       narrowCategory: category.slug,
       organization: null,
       audienceProfiles: [],
@@ -755,6 +837,16 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     cityId: null,
     province: null,
     provinceId: null,
+    municipalityId: null,
+    locationScope: page.id === "page.emergency" ? "emergency" : "national",
+    country: "NL",
+    intents: page.id === "page.emergency" ? [...new Set([...page.categories, "emergency"])] : page.categories,
+    languages: ["en"],
+    nationalFallback: true,
+    qualityScore: 82,
+    verifiedAt: generatedAt,
+    officialSourceUrls: [],
+    relatedOrganizationIds: [],
     narrowCategory: null,
     organization: null,
     audienceProfiles: [],
@@ -781,7 +873,17 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     cityId: municipality.slug,
     province: municipality.provinceName,
     provinceId: municipality.provinceSlug,
+    municipalityId: canonicalMunicipalityId(municipality.slug),
+    locationScope: "municipality",
+    country: "NL",
     categories: [],
+    intents: ["government", "municipal-services"],
+    languages: ["en"],
+    nationalFallback: false,
+    qualityScore: municipality.officialWebsite ? 76 : 62,
+    verifiedAt: municipality.sourceCheckedAt,
+    officialSourceUrls: [municipality.officialWebsite].filter(Boolean),
+    relatedOrganizationIds: [],
     narrowCategory: null,
     organization: `Municipality of ${municipality.name}`,
     audienceProfiles: [],
@@ -816,7 +918,17 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     cityId: null,
     province: province.name,
     provinceId: province.slug,
+    municipalityId: null,
+    locationScope: "province",
+    country: "NL",
     categories: [],
+    intents: ["government"],
+    languages: ["en"],
+    nationalFallback: false,
+    qualityScore: province.officialWebsite ? 76 : 62,
+    verifiedAt: province.sourceCheckedAt,
+    officialSourceUrls: [province.officialWebsite].filter(Boolean),
+    relatedOrganizationIds: [],
     narrowCategory: null,
     organization: `Province of ${province.name}`,
     audienceProfiles: [],
@@ -834,12 +946,12 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
   }));
 
   return {
-    schemaVersion: 2,
+    schemaVersion: 3,
     generatedAt,
     datasetFingerprint,
     locale: "en",
     geographyEffectiveDate: geography.effectiveDate,
-    documents: [...entityDocuments, ...categoryDocuments, ...provinceDocuments, ...municipalityDocuments, ...utilityDocuments]
+    documents: [...entityDocuments, ...nationalGuideDocuments, ...categoryDocuments, ...provinceDocuments, ...municipalityDocuments, ...utilityDocuments]
   };
 }
 
