@@ -404,7 +404,7 @@ create policy "approved admins read App Store metrics"
 on public.app_store_metrics_daily
 for select
 to authenticated
-using (public.is_approved_admin());
+using ((select private.is_approved_admin()));
 
 drop policy if exists "approved admins read analytics source state"
   on public.analytics_source_sync_state;
@@ -412,7 +412,7 @@ create policy "approved admins read analytics source state"
 on public.analytics_source_sync_state
 for select
 to authenticated
-using (public.is_approved_admin());
+using ((select private.is_approved_admin()));
 
 revoke all on table public.analytics_page_metrics_daily from public, anon;
 revoke all on table public.analytics_audience_metrics_daily from public, anon;
