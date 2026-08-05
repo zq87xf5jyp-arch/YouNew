@@ -6,7 +6,7 @@ export const metadata = metadataForPage("Privacy Policy", "How YouNew handles lo
 
 export default function PrivacyPage() {
   return (
-    <ContentPage title="Privacy Policy" description="Effective 28 July 2026 · YouNew is a local-first informational guide for life in the Netherlands.">
+    <ContentPage title="Privacy Policy" description="Effective 5 August 2026 · YouNew is a local-first informational guide for life in the Netherlands.">
       <h2>Data stored on your device</h2>
       <p>
         YouNew may store your profile choices, selected city, checklist progress, saved items, recent searches, translator history, assistant conversation history, imported document files and document metadata locally on your device.
@@ -33,7 +33,7 @@ export default function PrivacyPage() {
         The website offers optional first-party product analytics. Analytics stays off until you actively choose “Allow anonymous analytics”; declining does not restrict the website. You can reopen “Privacy choices” on any page and withdraw permission at any time. Global Privacy Control and browser Do Not Track signals are treated as a decline when you have not already saved a choice.
       </p>
       <p>
-        When enabled, YouNew sends a random event ID, random browser-tab session IDs, the page path without query parameters, event type, website version, language, timestamp and a small allowlisted set of action results such as result count or content identifier. YouNew does not send search text, form contents, saved items, selected profile data, precise location, advertising IDs or a cross-site identifier. The browser-tab identifiers are stored only in session storage and are not used to recognise you across browser sessions or other websites.
+        When enabled, YouNew sends a random event ID, random browser-tab session IDs, the page path without query parameters, event type, website version, language, timestamp and a small allowlisted set of action results such as result count or content identifier. For search-quality events, that allowlist may also contain a normalised term only when every word maps to YouNew&apos;s controlled public topic vocabulary, matched topic identifiers, selected filters (including city, province, category and profile), result count, whether no result was found and the recovery tier used. Free-form or identifier-like searches are replaced with <code>[unmapped]</code> or <code>[redacted]</code> before they leave the browser. YouNew does not send raw free-form search text, form contents, saved items, precise device location, advertising IDs or a cross-site identifier. The browser-tab identifiers are stored only in session storage and are not used to recognise you across browser sessions or other websites.
       </p>
       <p>
         Analytics events are sent directly to YouNew&apos;s EU-hosted Supabase project, are available only to approved administrators, and are removed after 90 days. Dashboard reporting uses aggregated counts for sessions, page and product events, key actions, platforms, errors and source freshness. Supabase and the network providers involved in delivering the HTTPS request may process technical connection data such as the IP address in their infrastructure logs; YouNew does not copy the raw IP address into the analytics event record.
@@ -55,7 +55,7 @@ export default function PrivacyPage() {
         The public website does not require an account and contains no payment flow. When you contact support by email, we receive the address, message and attachments you choose to send. Do not email sensitive identity, medical or financial documents.
       </p>
       <p>
-        The web version stores saved items, recently viewed pages and your selected profile in this browser. Search history is off by default and is stored locally only if you enable “Remember searches on this device”. These values and search text are not sent to YouNew analytics. The website stores your analytics accept/decline choice in local storage and, only after acceptance, uses session storage for random identifiers that last for the browser-tab session.
+        The web version stores saved items, recently viewed pages and your selected profile in this browser. Search history is off by default and is stored locally only if you enable “Remember searches on this device”. Saved items, recently viewed pages and locally remembered search history are not sent to YouNew analytics. If analytics is enabled, search-quality events are limited to the privacy-safe controlled values and filters described above. The website stores your analytics accept/decline choice in local storage and, only after acceptance, uses session storage for random identifiers that last for the browser-tab session.
       </p>
       <p>
         The business inquiry form sends the details you enter to a protected YouNew endpoint. After browser and server validation, the inquiry is stored in YouNew&apos;s EU-hosted Supabase project and receives a confirmation ID. It includes the contact and proposal fields, source page, consent time and any campaign parameters present in the page URL. The form does not accept uploads. Business inquiries are used to evaluate and respond to the proposal, not as consent for unrelated marketing.

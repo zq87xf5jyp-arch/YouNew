@@ -1,6 +1,15 @@
 export type AnalyticsEvent =
   | { name: "page_view"; path: string }
-  | { name: "search"; resultCount: number; hasResults: boolean }
+  | {
+    name: "search";
+    normalizedQuery: string;
+    intentIds: readonly string[];
+    filters: Readonly<{ type: string; city: string; province: string; category: string; profile: string }>;
+    resultCount: number;
+    zeroResult: boolean;
+    fallbackTier: "exact" | "national" | "broadened";
+  }
+  | { name: "search_result_opened"; contentId: string; position: number; normalizedQuery: string }
   | { name: "official_source_click"; contentId: string }
   | { name: "partner_click"; contentId: string }
   | { name: "item_saved"; contentId: string }
@@ -137,7 +146,8 @@ function safeScreen(value: string) {
 
 function safeProperty(value: string) {
   return value
-    .replace(/[^A-Za-z0-9_./: -]/g, "-")
+    .normalize("NFC")
+    .replace(/[^\p{L}\p{N}_./: \[\]-]/gu, "-")
     .slice(0, 160);
 }
 
@@ -145,8 +155,23 @@ function eventProperties(event: AnalyticsEvent): Record<string, string | number 
   switch (event.name) {
     case "search":
       return {
+        normalized_query_safe: safeProperty(event.normalizedQuery),
+        intent_ids: event.intentIds.map(safeProperty).join(",").slice(0, 160),
+        filter_type: safeProperty(event.filters.type),
+        filter_city: safeProperty(event.filters.city),
+        filter_province: safeProperty(event.filters.province),
+        filter_category: safeProperty(event.filters.category),
+        filter_profile: safeProperty(event.filters.profile),
         result_count: Math.max(0, Math.trunc(event.resultCount)),
-        has_results: event.hasResults
+        has_results: !event.zeroResult,
+        zero_result: event.zeroResult,
+        fallback_tier: event.fallbackTier
+      };
+    case "search_result_opened":
+      return {
+        content_id: safeProperty(event.contentId),
+        position: Math.max(1, Math.trunc(event.position)),
+        normalized_query_safe: safeProperty(event.normalizedQuery)
       };
     case "official_source_click":
     case "partner_click":

@@ -16,7 +16,7 @@ const generator = (await import(new URL("scripts/generate-public-content.mjs", s
 
 test("generated public content comes only from governed production releases", () => {
   assert.equal(provenance.sourceMode, "production");
-  assert.deepEqual(provenance.acceptedReleaseIds, ["amsterdam-v0.1.6", "cities-v0.1.0"]);
+  assert.deepEqual(provenance.acceptedReleaseIds, ["amsterdam-v0.1.7", "cities-v0.1.0"]);
   assert.equal(content.stats.entities, provenance.counts.acceptedRecords);
   assert.equal(content.entities.length, content.stats.entities);
   assert.ok(content.entities.every((entity: { status: string; releaseId: string; trust: { sourceChecked: boolean } }) =>
@@ -49,8 +49,9 @@ test("derived collections, routes and slugs are internally consistent", () => {
 
   assert.ok(content.categories.length > 0);
   assert.ok(content.categories.every((category: { entityCount: number; entityIds: string[] }) =>
-    category.entityCount > 0 && category.entityCount === category.entityIds.length
+    category.entityCount >= 0 && category.entityCount === category.entityIds.length
   ));
+  assert.ok(content.categories.filter((category: { entityCount: number }) => category.entityCount === 0).length >= 20);
   assert.ok(content.provinces.every((province: { entityCount: number; entityIds: string[] }) =>
     province.entityCount > 0 && province.entityCount === province.entityIds.length
   ));
