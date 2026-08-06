@@ -1,7 +1,11 @@
 import { ArrowUpRight, Languages, MapPinned, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { getNationalGuides } from "@/lib/search/national-guides";
 import type { LifeDomain } from "@/lib/search/taxonomy";
 
 export function LifeDomainGuide({ domain }: { domain: LifeDomain }) {
+  const guideCategory = domain.slug === "sim-telecom" ? "telecom" : domain.slug;
+  const nationalGuide = getNationalGuides().find((guide) => guide.category === guideCategory);
   return (
     <section className="section-shell life-domain-guide" aria-labelledby="life-domain-start-title">
       <div className="life-domain-start">
@@ -15,6 +19,7 @@ export function LifeDomainGuide({ domain }: { domain: LifeDomain }) {
 
       <aside className="life-domain-sources" aria-label="Official starting sources">
         <div><ShieldCheck aria-hidden /><span><strong>Official starting sources</strong><small>Open the responsible source before acting.</small></span></div>
+        {nationalGuide ? <Link href={`/essentials/${nationalGuide.slug}/`}>Open the full national guide<ArrowUpRight aria-hidden /></Link> : null}
         {domain.officialSources.map((source) => (
           <a data-analytics-official-source-id={`category.${domain.slug}`} href={source.url} key={source.url} rel="noreferrer" target="_blank">
             {source.name}<ArrowUpRight aria-hidden />

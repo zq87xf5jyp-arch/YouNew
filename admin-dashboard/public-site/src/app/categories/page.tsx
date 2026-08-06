@@ -6,13 +6,13 @@ import { PageShell } from "@/components/page-shell";
 import { getEntitiesForCategory, getPublicContent } from "@/lib/content";
 import { metadataForPage } from "@/lib/seo/metadata";
 
-export const metadata = metadataForPage("Categories", "Browse every non-empty category in the published YouNew web dataset.", "/categories");
+export const metadata = metadataForPage("Categories", "Browse YouNew life areas with published content or a national starting route.", "/categories");
 
 export default function CategoriesPage() {
   const { categories } = getPublicContent();
   return (
     <PageShell>
-      <section className="app-hero section-shell compact-hero"><Breadcrumbs items={[{ label: "Categories" }]} /><h1>Browse by category</h1><p>Only categories with published, source-checked content appear here. Draft and review materials remain private.</p></section>
+      <section className="app-hero section-shell compact-hero"><Breadcrumbs items={[{ label: "Categories" }]} /><h1>Browse by category</h1><p>Each life area opens either published, source-checked content or a national starting route. Draft and review materials remain private.</p></section>
       <section className="section-shell app-content-block category-index-grid">
         {categories.map((category) => {
           const representative = getEntitiesForCategory(category.slug).find((entity) => entity.images.length > 0);

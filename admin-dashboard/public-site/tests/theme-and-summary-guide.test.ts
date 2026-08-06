@@ -66,6 +66,7 @@ test("operational evidence stays off the user-first homepage", () => {
   assert.match(systemEvidence, /staticRoutes:\s*581/);
   assert.match(systemEvidence, /indexableUrls:\s*571/);
   assert.match(systemEvidence, /passingWebAdminAiTests:\s*129/);
-  assert.match(homepage, /statusSnapshot\.content\.asOf/);
+  assert.match(homepage, /<time dateTime=\{guide\.updatedAt\}>/);
+  assert.match(homepage, /Recently checked additions from the published content snapshot\./);
   assert.doesNotMatch(homepage, /SystemEvidence|staticRoutes|passingWebAdminAiTests|Supabase|controlled release candidate/i);
 });

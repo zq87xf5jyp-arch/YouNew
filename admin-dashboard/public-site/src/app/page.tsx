@@ -1,194 +1,280 @@
-import Image from "next/image";
+import type { Metadata } from "next";
 import Link from "next/link";
+import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
+  Banknote,
+  Bike,
   BookOpen,
+  BriefcaseBusiness,
   Building2,
-  CheckCircle2,
-  Compass,
   ExternalLink,
+  FileCheck2,
+  FileText,
+  Globe2,
+  GraduationCap,
+  HandCoins,
+  HeartHandshake,
+  HeartPulse,
+  Home,
   Landmark,
-  Layers3,
-  LayoutGrid,
+  Languages,
+  LifeBuoy,
+  ListChecks,
+  Luggage,
   MapPinned,
-  Megaphone,
-  Newspaper,
-  Route,
+  PawPrint,
+  ReceiptText,
+  RefreshCw,
   Search,
   ShieldCheck,
+  ShoppingBasket,
   Smartphone,
-  Waypoints
+  Stethoscope,
+  TrainFront,
+  Trees,
+  Truck,
+  Users,
+  UtensilsCrossed
 } from "lucide-react";
 import { ContentMedia, preferredMedia } from "@/components/content-media";
-import { HomepageProfileSelector } from "@/components/homepage-profile-selector";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
-import { advertisingSurfaceCatalog } from "@/lib/business/catalog";
-import { SPONSORED_PLACEMENTS_ENABLED } from "@/lib/business/sponsored";
-import { getPublicContent } from "@/lib/content";
-import { getNetherlandsGeography } from "@/lib/geography/repository";
-import { links } from "@/lib/site-data";
-import statusSnapshot from "@/config/status.json";
+import { getPublicContent, type PublicMediaAsset } from "@/lib/content";
 
-const publicDate = new Intl.DateTimeFormat("en-GB", {
+export const metadata: Metadata = {
+  title: { absolute: "YouNew — Your guide to life in the Netherlands" },
+  description: "Find housing, work, documents, healthcare, schools and trusted services in the Netherlands—with clear next steps and official sources.",
+  alternates: { canonical: "https://younew.nl/" }
+};
+
+type Destination = Readonly<{
+  title: string;
+  example: string;
+  href: string;
+  icon: LucideIcon;
+  urgent?: boolean;
+}>;
+
+type Direction = Readonly<{
+  title: string;
+  href: string;
+  icon: LucideIcon;
+}>;
+
+const searchHref = (query: string) => `/search/?q=${encodeURIComponent(query)}`;
+
+const heroSuggestions = [
+  "I need housing in Leiden",
+  "I need work",
+  "I need a GP",
+  "I need BSN"
+] as const;
+
+const taskDestinations: readonly Destination[] = [
+  { title: "Find housing", example: "Rent a home", href: searchHref("housing"), icon: Home },
+  { title: "Find work", example: "Search jobs", href: searchHref("work"), icon: BriefcaseBusiness },
+  { title: "Healthcare", example: "Find a GP", href: searchHref("healthcare GP"), icon: HeartPulse },
+  { title: "Documents", example: "Get a BSN", href: searchHref("BSN documents"), icon: FileText },
+  { title: "Study", example: "Find a course", href: searchHref("study education"), icon: GraduationCap },
+  { title: "Daily life", example: "Open a bank account", href: searchHref("daily life bank account"), icon: ShoppingBasket },
+  { title: "Emergency", example: "Get urgent help", href: "/emergency/", icon: LifeBuoy, urgent: true },
+  { title: "LGBTQ+", example: "Find support", href: searchHref("LGBTQ support"), icon: HeartHandshake },
+  { title: "Pets", example: "Register your pet", href: searchHref("pets registration"), icon: PawPrint },
+  { title: "Families", example: "Find childcare", href: searchHref("families childcare"), icon: Users }
+];
+
+const lifeDirections: readonly Direction[] = [
+  { title: "Living", href: "/start/", icon: Home },
+  { title: "Working", href: searchHref("work"), icon: BriefcaseBusiness },
+  { title: "Studying", href: searchHref("education study"), icon: GraduationCap },
+  { title: "Travelling", href: "/discover/", icon: Luggage },
+  { title: "Moving", href: searchHref("moving registration"), icon: Truck },
+  { title: "Business", href: "/business/", icon: Building2 },
+  { title: "Culture", href: "/categories/culture/", icon: Landmark },
+  { title: "History", href: "/discover/", icon: BookOpen },
+  { title: "Nature", href: "/categories/outdoors/", icon: Trees },
+  { title: "Cities", href: "/cities/", icon: MapPinned },
+  { title: "Food", href: "/categories/food-drink/", icon: UtensilsCrossed },
+  { title: "Transport", href: "/categories/transport/", icon: TrainFront }
+];
+
+const popularTasks: readonly Direction[] = [
+  { title: "Get a BSN", href: "/guides/first-registration-in-amsterdam/", icon: FileCheck2 },
+  { title: "Find housing", href: "/categories/housing/", icon: Home },
+  { title: "Register with a municipality", href: "/municipalities/", icon: Building2 },
+  { title: "Open a bank account", href: searchHref("open a bank account"), icon: Banknote },
+  { title: "Find work", href: searchHref("find work"), icon: BriefcaseBusiness },
+  { title: "Register with a huisarts", href: searchHref("register with a huisarts GP"), icon: Stethoscope },
+  { title: "Get DigiD", href: searchHref("DigiD"), icon: Smartphone },
+  { title: "Arrange health insurance", href: searchHref("health insurance"), icon: ShieldCheck },
+  { title: "Learn Dutch", href: searchHref("Dutch lessons"), icon: Languages },
+  { title: "Buy a bicycle", href: searchHref("buy a bicycle"), icon: Bike }
+];
+
+const usefulServices: readonly Destination[] = [
+  { title: "Government", example: "National services and information", href: "/categories/government/", icon: Landmark },
+  { title: "Municipalities", example: "Local services where you live", href: "/municipalities/", icon: Building2 },
+  { title: "Healthcare", example: "Doctors, insurance and care", href: "/categories/healthcare/", icon: HeartPulse },
+  { title: "Education", example: "Schools, study and diplomas", href: "/categories/education/", icon: GraduationCap },
+  { title: "Housing", example: "Renting, rights and permits", href: "/categories/housing/", icon: Home },
+  { title: "Transport", example: "Public transport and driving", href: "/categories/transport/", icon: TrainFront },
+  { title: "Tax", example: "Returns, allowances and payments", href: searchHref("tax Belastingdienst"), icon: ReceiptText },
+  { title: "Benefits", example: "Allowances and support", href: searchHref("benefits allowances"), icon: HandCoins },
+  { title: "Immigration", example: "Visas, residence and citizenship", href: searchHref("immigration residence permit"), icon: Globe2 }
+];
+
+const proofPoints: readonly Destination[] = [
+  { title: "Verified information", example: "Published content is checked before release.", href: "/status/", icon: ShieldCheck },
+  { title: "Official sources", example: "Responsible Dutch institutions stay visible.", href: "/status/", icon: ExternalLink },
+  { title: "Updated regularly", example: "Review dates and limitations are published.", href: "/updates/", icon: RefreshCw },
+  { title: "Clear step-by-step guides", example: "Practical actions without invented steps.", href: "/guides/", icon: ListChecks },
+  { title: "Built for newcomers", example: "Start with a real task, not bureaucracy.", href: "/start/", icon: Users },
+  { title: "Fast search", example: "Find a useful route in a few words.", href: "/search/", icon: Search }
+];
+
+const leidenMedia: PublicMediaAsset = {
+  id: "homepage.leiden-kanaal",
+  role: "hero",
+  url: "https://upload.wikimedia.org/wikipedia/commons/a/a5/Leiden_Kanaal.jpg",
+  alt: "Canal, bridge and historic houses in Leiden",
+  attribution: "K. Graf",
+  license: "CC BY-SA 3.0",
+  licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
+  sourcePageUrl: "https://commons.wikimedia.org/wiki/File:Leiden_Kanaal.jpg",
+  retrievedAt: "2026-08-06"
+};
+
+const featuredCityIds = [
+  "city.amsterdam",
+  "city.rotterdam",
+  "city.den-haag",
+  "city.utrecht",
+  "city.eindhoven"
+] as const;
+
+const latestGuideIds = [
+  "government_service.driving-licence-amsterdam",
+  "housing.renting-a-home-in-amsterdam",
+  "government_service.first-registration-in-amsterdam"
+] as const;
+
+const dateFormatter = new Intl.DateTimeFormat("en-GB", {
   day: "numeric",
   month: "long",
   year: "numeric",
   timeZone: "UTC"
 });
 
-const popularTasks: readonly Readonly<{
-  title: string;
-  text: string;
-  href: string;
-  label: string;
-  urgent?: boolean;
-}>[] = [
-  {
-    title: "Register in Amsterdam and get a BSN",
-    text: "Start with registration in Amsterdam and check the municipality requirements.",
-    href: "/guides/first-registration-in-amsterdam",
-    label: "Registration"
-  },
-  {
-    title: "Renting a home in Amsterdam",
-    text: "Review the published Amsterdam renting summary and its responsible sources.",
-    href: "/guides/renting-a-home-in-amsterdam",
-    label: "Housing"
-  },
-  {
-    title: "Driving licence in Amsterdam",
-    text: "See the current Amsterdam starting points for applying or exchanging a licence.",
-    href: "/guides/driving-licence-amsterdam",
-    label: "Transport"
-  },
-  {
-    title: "Amsterdam municipal taxes",
-    text: "Find the published Amsterdam overview and continue to the official source.",
-    href: "/guides/municipal-taxes-amsterdam",
-    label: "Money"
-  },
-  {
-    title: "Report a street problem in Amsterdam",
-    text: "Find where Amsterdam accepts reports about streets and public areas.",
-    href: "/guides/report-a-problem-in-public-space-amsterdam",
-    label: "Local services"
-  },
-  {
-    title: "Get emergency help",
-    text: "Use 112 for immediate danger or find the right non-emergency route.",
-    href: "/emergency",
-    label: "Safety",
-    urgent: true
-  }
-];
-
-const cities = ["Amsterdam", "Rotterdam", "Den Haag", "Utrecht", "Eindhoven"] as const;
-const galleryCityIds = ["city.amsterdam", "city.rotterdam", "city.den-haag", "city.utrecht", "city.eindhoven"] as const;
-
-function humanDate(value: string) {
-  return publicDate.format(new Date(`${value}T00:00:00Z`));
+function formatDate(value: string) {
+  return dateFormatter.format(new Date(`${value}T00:00:00Z`));
 }
 
-function HomeRouteVisual() {
+function TaskCard({ destination }: { destination: Destination }) {
+  const Icon = destination.icon;
   return (
-    <div className="home-route-visual" aria-hidden="true">
-      <svg viewBox="0 0 560 500" role="presentation">
-        <path className="home-route-map-line" d="M24 394C92 322 112 244 185 252c76 9 78 106 157 92 76-13 63-120 178-173" />
-        <path className="home-route-street" d="M-12 112c123 19 213-42 318-13 83 23 126 7 268-48M55 502c92-139 201-190 313-212 70-14 125-52 196-125" />
-        <circle cx="189" cy="253" r="13" />
-        <circle cx="341" cy="344" r="13" />
-        <circle className="home-route-destination" cx="520" cy="171" r="19" />
-      </svg>
-      <span className="home-route-label home-route-label-start">Your question</span>
-      <span className="home-route-label home-route-label-guide">Useful guidance</span>
-      <span className="home-route-label home-route-label-source">Official source</span>
+    <Link className={destination.urgent ? "vision-task is-emergency" : "vision-task"} href={destination.href}>
+      <Icon aria-hidden />
+      <span>
+        <strong>{destination.title}</strong>
+        <small>{destination.example}</small>
+      </span>
+      <ArrowRight aria-hidden />
+    </Link>
+  );
+}
+
+function HomeSearch() {
+  return (
+    <div className="vision-search-assistant">
+      <form action="/search/" method="get">
+        <label htmlFor="home-search">What do you need in the Netherlands?</label>
+        <div>
+          <input id="home-search" name="q" placeholder="For example: I need housing in Leiden" type="search" />
+          <button aria-label="Search YouNew" type="submit"><Search aria-hidden /></button>
+        </div>
+      </form>
+      <nav aria-label="Search examples">
+        {heroSuggestions.map((suggestion) => <Link href={searchHref(suggestion)} key={suggestion}>{suggestion}</Link>)}
+      </nav>
     </div>
   );
 }
 
 export default function HomePage() {
-  const checkedDate = humanDate(statusSnapshot.content.asOf);
   const content = getPublicContent();
-  const geography = getNetherlandsGeography();
-  const galleryCities = galleryCityIds.flatMap((id) => {
+  const cityEntities = featuredCityIds.flatMap((id) => {
     const entity = content.entities.find((candidate) => candidate.id === id);
     return entity ? [entity] : [];
   });
-  const netherlandsDirectory = [
-    { title: "Cities", text: "Published local guides for the five current focus cities.", href: "/cities", value: content.stats.cities, icon: MapPinned },
-    { title: "Provinces", text: "Browse all Dutch provinces and their municipality directories.", href: "/provinces", value: geography.stats.provinces, icon: Layers3 },
-    { title: "Municipalities", text: "Find local authority details across the Netherlands.", href: "/municipalities", value: geography.stats.municipalities, icon: Landmark },
-    { title: "Places", text: "Explore published cultural, practical and public places.", href: "/places", value: content.stats.places, icon: Compass },
-    { title: "Organizations", text: "Find published public and community organizations.", href: "/organizations", value: content.stats.organizations, icon: Building2 },
-    { title: "Journeys", text: "Follow connected routes through practical newcomer tasks.", href: "/journeys", value: null, icon: Route },
-    { title: "Updates", text: "See the latest published additions and content changes.", href: "/updates", value: null, icon: Newspaper },
-    { title: "Categories", text: "Browse the full catalogue by practical topic.", href: "/categories", value: content.stats.categories, icon: LayoutGrid }
-  ] as const;
+  const cities = [
+    cityEntities.find((city) => city.id === "city.amsterdam"),
+    { id: "city.leiden", title: "Leiden", route: "/municipalities/leiden/", images: [leidenMedia] },
+    cityEntities.find((city) => city.id === "city.rotterdam"),
+    cityEntities.find((city) => city.id === "city.den-haag"),
+    cityEntities.find((city) => city.id === "city.utrecht"),
+    cityEntities.find((city) => city.id === "city.eindhoven")
+  ].filter((city): city is NonNullable<typeof city> => Boolean(city));
+  const latestGuides = latestGuideIds.flatMap((id) => {
+    const entity = content.entities.find((candidate) => candidate.id === id);
+    return entity ? [entity] : [];
+  });
 
   return (
-    <div id="top" className="marketing-page user-first-home">
+    <div className="product-vision-home">
       <a className="skip-link" href="#main-content">Skip to content</a>
       <SiteHeader />
 
       <main id="main-content">
-        <section className="uf-hero section-shell" aria-labelledby="hero-title">
-          <div className="uf-hero-copy">
-            <p className="uf-eyebrow">Practical guidance for life in the Netherlands</p>
-            <h1 id="hero-title">Find your next step in the Netherlands.</h1>
-            <p className="uf-hero-summary">YouNew helps newcomers understand everyday tasks, find relevant local guidance and continue to the responsible official source.</p>
-            <div className="uf-hero-actions">
-              <Link className="button button-primary" href="/start">Find my next step <ArrowRight aria-hidden /></Link>
-              <Link className="button button-outline" href="/search">Search guides <Search aria-hidden /></Link>
+        <section className="vision-hero" aria-labelledby="vision-hero-title">
+          <div className="section-shell vision-hero-grid">
+            <div className="vision-hero-copy">
+              <h1 id="vision-hero-title">Your guide to life in the Netherlands.</h1>
+              <p>Find housing, work, documents, healthcare, schools and trusted services — with clear next steps and official sources.</p>
+              <HomeSearch />
+              <div className="vision-hero-actions">
+                <Link className="vision-primary-action" href="/start/">Find my next step <ArrowRight aria-hidden /></Link>
+                <Link className="vision-secondary-action" href="/discover/">Explore the Netherlands <ArrowRight aria-hidden /></Link>
+              </div>
             </div>
-            <p className="uf-trust-line"><ShieldCheck aria-hidden /> Source links visible <span aria-hidden>·</span> Published content snapshot checked <time dateTime={statusSnapshot.content.asOf}>{checkedDate}</time></p>
-          </div>
-          <HomeRouteVisual />
-        </section>
-
-        <section className="uf-section uf-popular section-shell" aria-labelledby="popular-title">
-          <div className="uf-section-heading">
-            <p className="uf-eyebrow">Popular tasks</p>
-            <h2 id="popular-title">Start with what you need to do.</h2>
-          </div>
-          <div className="uf-task-grid">
-            {popularTasks.map((task) => (
-              <Link className={task.urgent ? "uf-task-card is-safety" : "uf-task-card"} href={task.href} key={task.title}>
-                <span>{task.label}</span>
-                <h3>{task.title}</h3>
-                <p>{task.text}</p>
-                <strong>Open guidance <ArrowRight aria-hidden /></strong>
-              </Link>
-            ))}
+            <div className="vision-hero-media"><ContentMedia asset={leidenMedia} eager variant="hero" /></div>
           </div>
         </section>
 
-        <section className="uf-section uf-discover-section" aria-labelledby="discover-title">
+        <section className="vision-section vision-needs section-shell" aria-labelledby="needs-title">
+          <div className="vision-heading"><h2 id="needs-title">What do you need?</h2><p>Choose one task. YouNew will narrow the next screen instead of opening another catalogue.</p></div>
+          <div className="vision-task-grid">{taskDestinations.map((destination) => <TaskCard destination={destination} key={destination.title} />)}</div>
+        </section>
+
+        <section className="vision-life-band" aria-labelledby="life-title">
           <div className="section-shell">
-            <div className="uf-section-heading uf-discover-heading">
-              <div>
-                <p className="uf-eyebrow">Discover the Netherlands</p>
-                <h2 id="discover-title">See more than the next task.</h2>
-              </div>
-              <div>
-                <p>Explore verified city imagery and continue to the wider catalogue of places, organizations and local context.</p>
-                <Link href="/discover">Open Discover <ArrowRight aria-hidden /></Link>
-              </div>
-            </div>
-            <div className="uf-discover-gallery">
-              {galleryCities.map((city, index) => {
+            <div className="vision-heading"><h2 id="life-title">Life in the Netherlands</h2><p>Explore one part of everyday life at a time.</p></div>
+            <nav className="vision-direction-rail" aria-label="Life in the Netherlands">
+              {lifeDirections.map(({ title, href, icon: Icon }) => <Link href={href} key={title}><Icon aria-hidden /><span>{title}</span></Link>)}
+            </nav>
+          </div>
+        </section>
+
+        <section className="vision-section section-shell" aria-labelledby="popular-tasks-title">
+          <div className="vision-heading"><h2 id="popular-tasks-title">Popular tasks</h2><p>Direct routes to common newcomer actions.</p></div>
+          <ol className="vision-popular-list">
+            {popularTasks.map(({ title, href, icon: Icon }, index) => (
+              <li key={title}><Link href={href}><span>{index + 1}</span><Icon aria-hidden /><strong>{title}</strong><ArrowRight aria-hidden /></Link></li>
+            ))}
+          </ol>
+        </section>
+
+        <section className="vision-section vision-cities" aria-labelledby="cities-title">
+          <div className="section-shell">
+            <div className="vision-heading is-row"><div><h2 id="cities-title">Cities</h2><p>Start with a place and continue to its responsible local services.</p></div><Link href="/cities/">View all cities <ArrowRight aria-hidden /></Link></div>
+            <div className="vision-city-rail">
+              {cities.map((city) => {
                 const media = preferredMedia(city.images, ["gallery", "hero", "thumbnail"]);
-                if (!media) return null;
                 return (
-                  <article className={index === 0 ? "uf-discover-card is-featured" : "uf-discover-card"} key={city.id}>
-                    <ContentMedia asset={media} variant="gallery" />
-                    <div>
-                      <span>City guide</span>
-                      <h3><Link href={city.route}>{city.title}</Link></h3>
-                      <p>{city.summary}</p>
-                      <Link href={city.route} aria-label={`Explore ${city.title}`}>Explore <ArrowRight aria-hidden /></Link>
-                    </div>
+                  <article key={city.id}>
+                    {media ? <ContentMedia asset={media} variant="gallery" /> : null}
+                    <h3><Link href={city.route}>{city.title}<ArrowRight aria-hidden /></Link></h3>
                   </article>
                 );
               })}
@@ -196,173 +282,65 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="uf-section uf-profile-section" aria-labelledby="profile-title">
-          <div className="section-shell">
-            <div className="uf-section-heading">
-              <p className="uf-eyebrow">Choose your situation</p>
-              <h2 id="profile-title">See a more relevant starting point.</h2>
-              <p>Your choice changes the suggested links below. It does not hide other published material.</p>
-            </div>
-            <HomepageProfileSelector />
-          </div>
-        </section>
-
-        <section className="uf-section section-shell uf-how" aria-labelledby="how-title">
-          <div className="uf-section-heading">
-            <p className="uf-eyebrow">How YouNew works</p>
-            <h2 id="how-title">From a question to a responsible source.</h2>
-          </div>
-          <ol className="uf-steps">
-            <li><span>1</span><div><h3>Choose what you need help with.</h3><p>Start with one task and add your situation and area.</p></div></li>
-            <li><span>2</span><div><h3>Review the available guidance.</h3><p>YouNew shows published information without inventing missing steps.</p></div></li>
-            <li><span>3</span><div><h3>Verify the latest details.</h3><p>Continue to the responsible institution before you act.</p></div></li>
-          </ol>
-          <article className="uf-example">
+        <section className="vision-section vision-services" aria-label="Useful services and trusted resources">
+          <div className="section-shell vision-services-grid">
             <div>
-              <span>Example · First registration in Amsterdam</span>
-              <h3>Prepare for a BSN registration appointment.</h3>
-              <p>Understand what registration is, review the published preparation summary and confirm the current documents with the municipality.</p>
-              <Link href="/guides/first-registration-in-amsterdam">Open the published summary <ArrowRight aria-hidden /></Link>
+              <div className="vision-heading"><h2>Useful services</h2><p>Start with the service you need, not the institution behind it.</p></div>
+              <div className="vision-service-list">{usefulServices.map((service) => <TaskCard destination={service} key={service.title} />)}</div>
             </div>
-            <div className="uf-example-source">
-              <ShieldCheck aria-hidden />
-              <p><strong>Responsible source</strong> Government.nl explains what a citizen service number is.</p>
-              <TrackedOfficialSourceLink contentId="home.bsn-government" href="https://www.government.nl/topics/personal-data/question-and-answer/what-is-a-citizen-service-number-bsn" rel="noreferrer" target="_blank">Open the official source <ExternalLink aria-hidden /></TrackedOfficialSourceLink>
+            <div>
+              <div className="vision-heading"><h2>Trusted resources</h2><p>Use YouNew for orientation, then confirm important details with the responsible authority.</p></div>
+              <div className="vision-official-list">
+                <TrackedOfficialSourceLink contentId="home.government" href="https://www.government.nl/" rel="noreferrer" target="_blank"><Landmark aria-hidden /><span><strong>Government.nl</strong><small>Official information from the Dutch national government.</small></span><ExternalLink aria-hidden /></TrackedOfficialSourceLink>
+                <Link href="/municipalities/"><Building2 aria-hidden /><span><strong>Your municipality</strong><small>Find local information and services where you live.</small></span><ArrowRight aria-hidden /></Link>
+                <TrackedOfficialSourceLink contentId="home.belastingdienst" href="https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals" rel="noreferrer" target="_blank"><ReceiptText aria-hidden /><span><strong>Belastingdienst</strong><small>Official information about Dutch taxes and payments.</small></span><ExternalLink aria-hidden /></TrackedOfficialSourceLink>
+                <TrackedOfficialSourceLink contentId="home.ind" href="https://ind.nl/en" rel="noreferrer" target="_blank"><FileCheck2 aria-hidden /><span><strong>IND</strong><small>Immigration and Naturalisation Service.</small></span><ExternalLink aria-hidden /></TrackedOfficialSourceLink>
+              </div>
             </div>
-          </article>
+          </div>
         </section>
 
-        <section className="uf-section uf-netherlands-section" aria-labelledby="netherlands-title">
-          <div className="section-shell">
-            <div className="uf-section-heading">
-              <p className="uf-eyebrow">Across the Netherlands</p>
-              <h2 id="netherlands-title">Cities, provinces, places and organizations.</h2>
-              <p>Use the national directory when your question is broader than one guide or one city.</p>
+        <section className="vision-section section-shell" aria-labelledby="why-title">
+          <div className="vision-heading"><h2 id="why-title">Why YouNew</h2><p>Clear orientation without hiding uncertainty or official responsibility.</p></div>
+          <div className="vision-proof-grid">
+            {proofPoints.map(({ title, example, href, icon: Icon }) => <Link href={href} key={title}><Icon aria-hidden /><strong>{title}</strong><span>{example}</span></Link>)}
+          </div>
+        </section>
+
+        <section className="vision-business" aria-labelledby="business-title">
+          <div className="section-shell vision-business-panel">
+            <div>
+              <span>For businesses</span>
+              <h2 id="business-title">Reach newcomers responsibly.</h2>
+              <p>Advertising and partnerships remain separate from organic guidance. Campaigns appear only after review and activation.</p>
+              <nav aria-label="Business options">
+                <Link href="/business/advertise">Advertising standards <ArrowRight aria-hidden /></Link>
+                <Link href="/business/partners">Explore partnerships <ArrowRight aria-hidden /></Link>
+              </nav>
             </div>
-            <div className="uf-netherlands-directory">
-              {netherlandsDirectory.map((item) => {
-                const Icon = item.icon;
+            <div className="vision-campaign-state">
+              <ShieldCheck aria-hidden />
+              <strong>No live public campaigns</strong>
+              <p>Sponsored placements are never shown in emergency guidance, never replace responsible official sources, and never change organic search ranking.</p>
+            </div>
+          </div>
+        </section>
+
+        <section className="vision-section vision-updates" aria-labelledby="updates-title">
+          <div className="section-shell">
+            <div className="vision-heading is-row"><div><h2 id="updates-title">Latest updates</h2><p>Recently checked additions from the published content snapshot.</p></div><Link href="/updates/">View all updates <ArrowRight aria-hidden /></Link></div>
+            <div className="vision-update-list">
+              {latestGuides.map((guide) => {
+                const media = preferredMedia(guide.images, ["thumbnail", "hero", "gallery"]);
                 return (
-                  <Link href={item.href} className="uf-directory-card" key={item.title}>
-                    <Icon aria-hidden />
-                    <span>{item.value === null ? "Explore" : item.value.toLocaleString("en-GB")}</span>
-                    <h3>{item.title}</h3>
-                    <p>{item.text}</p>
-                    <strong>Open directory <ArrowRight aria-hidden /></strong>
-                  </Link>
+                  <article key={guide.id}>
+                    {media ? <ContentMedia asset={media} variant="card" /> : null}
+                    <div><span>{guide.categorySlugs.at(0)?.replaceAll("-", " ") ?? "Guide"}</span><h3><Link href={guide.route}>{guide.title}</Link></h3><p>{guide.summary}</p></div>
+                    <time dateTime={guide.updatedAt}>{formatDate(guide.updatedAt)}</time>
+                    <Link aria-label={`Open ${guide.title}`} href={guide.route}><ArrowRight aria-hidden /></Link>
+                  </article>
                 );
               })}
-            </div>
-          </div>
-        </section>
-
-        <section className="uf-section uf-product-section" aria-labelledby="product-title">
-          <div className="section-shell">
-            <div className="uf-section-heading">
-              <p className="uf-eyebrow">Website and iPhone app</p>
-              <h2 id="product-title">Use the format that fits the moment.</h2>
-              <p>The website works without installation. The iPhone app is a separate experience with its own current features and release cycle.</p>
-            </div>
-            <div className="uf-product-grid">
-              <article className="uf-product-card">
-                <BookOpen aria-hidden />
-                <h3>On the website</h3>
-                <ul>
-                  <li>Search published guidance</li>
-                  <li>Open responsible source links</li>
-                  <li>Browse cities, places and organizations</li>
-                  <li>Save shortcuts in this browser</li>
-                  <li>Works without installation</li>
-                </ul>
-                <Link href="/search">Search the website <ArrowRight aria-hidden /></Link>
-              </article>
-              <figure className="uf-app-preview">
-                <Image src="/images/app-home-nl.webp" alt="Current YouNew iPhone home screen in Dutch showing Leiden, search, emergency help, next actions and categories" width={437} height={946} loading="lazy" sizes="(max-width: 760px) 62vw, 260px" />
-                <figcaption>Current app preview: Leiden local context. Detailed web city guides are listed below.</figcaption>
-              </figure>
-              <article className="uf-product-card">
-                <Smartphone aria-hidden />
-                <h3>In the iPhone app</h3>
-                <ul>
-                  <li>Personal starting view</li>
-                  <li>Saved materials</li>
-                  <li>Map and city context</li>
-                  <li>Quick access to next actions</li>
-                  <li>Assistant or labelled local guide mode</li>
-                </ul>
-                <p>App Store listing available · iOS 17.6 or later</p>
-                <Link href="/app">Check app availability <ArrowRight aria-hidden /></Link>
-              </article>
-            </div>
-          </div>
-        </section>
-
-        <section className="uf-section section-shell uf-coverage" aria-labelledby="coverage-title">
-          <div className="uf-coverage-copy">
-            <p className="uf-eyebrow">Current coverage</p>
-            <h2 id="coverage-title">City coverage for five Dutch cities.</h2>
-            <p>YouNew currently focuses its detailed city pages on Amsterdam, Rotterdam, Den Haag, Utrecht and Eindhoven. Other municipalities remain available through the directory, with national guidance where published.</p>
-            <div className="uf-coverage-actions">
-              <Link href="/cities">View city guidance <ArrowRight aria-hidden /></Link>
-              <Link href="/municipalities">Find a municipality <ArrowRight aria-hidden /></Link>
-            </div>
-          </div>
-          <nav className="uf-city-list" aria-label="Published city guides">
-            {cities.map((city) => <Link href={`/cities/${city.toLowerCase().replaceAll(" ", "-")}`} key={city}><MapPinned aria-hidden /><span>{city}</span><ArrowRight aria-hidden /></Link>)}
-          </nav>
-        </section>
-
-        <section className="uf-section uf-business-section" aria-labelledby="business-title">
-          <div className="section-shell uf-business-layout">
-            <div className="uf-business-copy">
-              <p className="uf-eyebrow">Business on YouNew</p>
-              <h2 id="business-title">A reviewed route for relevant local organizations.</h2>
-              <p>Organizations can propose advertising or partnership ideas. Submission does not create a public placement: identity, destination, relevance and campaign dates must be checked before activation.</p>
-              <div className="uf-business-actions">
-                <Link className="button button-primary" href="/business">Business overview <ArrowRight aria-hidden /></Link>
-                <Link className="button button-outline" href="/business/advertise">Advertising standards <ArrowRight aria-hidden /></Link>
-              </div>
-            </div>
-            <aside className="uf-business-status" aria-label="Current advertising status">
-              <div className="uf-business-status-label"><Megaphone aria-hidden /><span>Current public status</span></div>
-              <strong>0</strong>
-              <h3>live public campaigns</h3>
-              <p>{SPONSORED_PLACEMENTS_ENABLED ? "Eligible reviewed campaigns may be delivered." : "Sponsored placements are off."} {advertisingSurfaceCatalog.length} surfaces are defined as reserved, not live.</p>
-              <ul>
-                <li><ShieldCheck aria-hidden /> Never shown in emergency guidance</li>
-                <li><ShieldCheck aria-hidden /> Never replaces responsible official sources</li>
-                <li><ShieldCheck aria-hidden /> Never changes organic search ranking</li>
-              </ul>
-              <Link href="/business/apply">Start a reviewed inquiry <Waypoints aria-hidden /></Link>
-            </aside>
-          </div>
-        </section>
-
-        <section className="uf-section uf-trust-section" aria-labelledby="trust-title">
-          <div className="section-shell uf-trust-grid">
-            <div>
-              <p className="uf-eyebrow">Trust and sources</p>
-              <h2 id="trust-title">Guidance is not an official decision.</h2>
-            </div>
-            <div>
-              <p>YouNew explains published information and keeps source links visible. Rules can change, so check important details with the responsible institution.</p>
-              <p><CheckCircle2 aria-hidden /> Published content snapshot checked <time dateTime={statusSnapshot.content.asOf}>{checkedDate}</time>.</p>
-              <div className="uf-trust-actions">
-                <Link href="/status">Read the verification method <ArrowRight aria-hidden /></Link>
-                <a href={`mailto:${links.contactEmail}?subject=Incorrect%20website%20information`}>Report incorrect information <ArrowRight aria-hidden /></a>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section className="uf-final" aria-labelledby="final-title">
-          <div className="section-shell">
-            <Landmark aria-hidden />
-            <h2 id="final-title">Start with the question in front of you.</h2>
-            <p>Build a route from the guidance that is published now, or search the catalogue directly.</p>
-            <div>
-              <Link className="button button-primary" href="/start">Find my next step <ArrowRight aria-hidden /></Link>
-              <Link className="button button-outline" href="/search">Search guides <Search aria-hidden /></Link>
             </div>
           </div>
         </section>

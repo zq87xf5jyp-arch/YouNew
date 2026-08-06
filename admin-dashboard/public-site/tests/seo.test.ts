@@ -14,17 +14,17 @@ test("JSON-LD serialization cannot terminate the script element", () => {
   assert.match(serialized, /\\u0026/);
 });
 
-test("primary navigation and profile links keep descriptive accessible names", async () => {
+test("primary navigation and homepage search keep descriptive accessible names", async () => {
   const [header, homepage] = await Promise.all([
     readFile(new URL("../src/components/site-header.tsx", import.meta.url), "utf8"),
     readFile(new URL("../src/app/page.tsx", import.meta.url), "utf8")
   ]);
 
-  assert.match(header, /\["Start", "\/start"\]/);
-  assert.match(header, /\["Discover", "\/discover"\]/);
-  assert.match(header, /\["Journeys", "\/journeys"\]/);
-  assert.match(header, /\["Updates", "\/updates"\]/);
+  assert.match(header, /\["Explore", "\/discover"\]/);
+  assert.match(header, /\["Housing", "\/categories\/housing"\]/);
+  assert.match(header, /\["Healthcare", "\/categories\/healthcare"\]/);
   assert.match(header, /\["Business", "\/business"\]/);
   assert.doesNotMatch(header, /"App status"|"My YouNew"/);
-  assert.doesNotMatch(homepage, /profile-row[^>]*aria-label/);
+  assert.match(homepage, /<label htmlFor="home-search">What do you need in the Netherlands\?<\/label>/);
+  assert.match(homepage, /aria-label="Search YouNew"/);
 });

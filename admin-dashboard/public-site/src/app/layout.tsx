@@ -8,12 +8,12 @@ import { serializeJsonLd } from "@/lib/seo/json-ld";
 import "./globals.css";
 import "./theme.css";
 
-const description = "A practical web and iPhone guide for tourists, students, expats, refugees and new residents in the Netherlands—with local search, city context, saved materials and trusted source links.";
+const description = "Find housing, work, documents, healthcare, schools and trusted services in the Netherlands—with clear next steps and official sources.";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://younew.nl"),
   title: {
-    default: "YouNew — A clearer start in the Netherlands",
+    default: "YouNew — Your guide to life in the Netherlands",
     template: "%s | YouNew"
   },
   description,
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "https://younew.nl/", languages: { "en": "https://younew.nl/", "x-default": "https://younew.nl/" } },
   openGraph: {
-    title: "YouNew — A clearer start in the Netherlands",
+    title: "YouNew — Your guide to life in the Netherlands",
     description,
     url: "https://younew.nl",
     siteName: "YouNew",
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "YouNew — A clearer start in the Netherlands",
+    title: "YouNew — Your guide to life in the Netherlands",
     description,
     images: ["/images/og-younew.jpg"]
   },
