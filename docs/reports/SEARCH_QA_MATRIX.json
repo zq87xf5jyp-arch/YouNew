@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-06T12:38:46.987Z",
+  "generatedAt": "2026-08-06T18:52:26.457Z",
   "status": "PASS",
   "evidence": {
-    "searchIndexSha256": "f8ccc680337071abd0720d9511e6c4594d417740e3ea0da1e806f8bec6f8c6cd",
+    "searchIndexSha256": "516362e83ff56dcc33193f2dcedf557c33617971c1df365ba3e536fa8c29c0ae",
     "searchIndexSchemaVersion": 3,
-    "searchDocumentCount": 585,
-    "nationalGuideCount": 15,
+    "searchDocumentCount": 593,
+    "nationalGuideCount": 23,
     "provinceCount": 12,
     "municipalityCount": 342,
     "profileCount": 6
   },
   "totals": {
-    "checks": 5581,
-    "passed": 5581,
+    "checks": 5605,
+    "passed": 5605,
     "failed": 0
   },
   "dimensions": {
@@ -24,12 +24,12 @@
         "topIds": [
           "national.housing",
           "housing.renting-a-home-in-amsterdam",
+          "national.utilities-moving",
           "category.housing",
           "housing.woon",
+          "national.debt-legal-help",
           "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
-          "page.journeys"
+          "housing.housing-permit-amsterdam"
         ],
         "passed": true
       },
@@ -41,10 +41,10 @@
           "housing.housing-permit-amsterdam",
           "category.housing",
           "housing.affordable-housing-amsterdam",
+          "national.debt-legal-help",
+          "national.utilities-moving",
           "housing.woon",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
-          "page.journeys"
+          "housing.renting-a-home-in-amsterdam"
         ],
         "passed": true
       },
@@ -54,12 +54,12 @@
         "topIds": [
           "national.housing",
           "category.housing",
+          "national.debt-legal-help",
+          "national.utilities-moving",
           "housing.woon",
           "housing.affordable-housing-amsterdam",
           "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
-          "page.journeys"
+          "housing.renting-a-home-in-amsterdam"
         ],
         "passed": true
       },
@@ -69,12 +69,12 @@
         "topIds": [
           "national.housing",
           "category.housing",
+          "national.debt-legal-help",
+          "national.utilities-moving",
           "housing.woon",
           "housing.affordable-housing-amsterdam",
           "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
-          "page.journeys"
+          "housing.renting-a-home-in-amsterdam"
         ],
         "passed": true
       },
@@ -86,10 +86,10 @@
           "housing.renting-a-home-in-amsterdam",
           "category.housing",
           "housing.woon",
+          "national.debt-legal-help",
+          "national.utilities-moving",
           "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
-          "page.journeys"
+          "housing.housing-permit-amsterdam"
         ],
         "passed": true
       },
@@ -101,10 +101,10 @@
           "housing.woningnet-stadsregio-amsterdam",
           "category.housing",
           "housing.renting-a-home-in-amsterdam",
+          "national.debt-legal-help",
+          "national.utilities-moving",
           "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "page.journeys"
+          "housing.affordable-housing-amsterdam"
         ],
         "passed": true
       },
@@ -114,12 +114,12 @@
         "topIds": [
           "national.housing",
           "category.housing",
+          "national.debt-legal-help",
+          "national.utilities-moving",
           "housing.woon",
           "housing.affordable-housing-amsterdam",
           "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
-          "page.journeys"
+          "housing.renting-a-home-in-amsterdam"
         ],
         "passed": true
       },
@@ -129,12 +129,12 @@
         "topIds": [
           "national.housing",
           "category.housing",
+          "national.debt-legal-help",
+          "national.utilities-moving",
           "housing.woon",
           "housing.affordable-housing-amsterdam",
           "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
-          "page.journeys"
+          "housing.renting-a-home-in-amsterdam"
         ],
         "passed": true
       },
@@ -144,12 +144,12 @@
         "topIds": [
           "national.work",
           "category.work",
+          "national.pregnancy",
+          "national.business-zzp",
+          "national.debt-legal-help",
           "national.lgbtiq-support",
           "national.taxes",
-          "national.immigration",
-          "category.business",
-          "national.documents",
-          "national.education"
+          "national.immigration"
         ],
         "passed": true
       },
@@ -158,7 +158,9 @@
         "expected": "national.work",
         "topIds": [
           "national.work",
-          "category.work"
+          "category.work",
+          "national.pregnancy",
+          "national.business-zzp"
         ],
         "passed": true
       },
@@ -167,7 +169,9 @@
         "expected": "national.work",
         "topIds": [
           "national.work",
-          "category.work"
+          "category.work",
+          "national.pregnancy",
+          "national.business-zzp"
         ],
         "passed": true
       },
@@ -176,11 +180,13 @@
         "expected": "national.work",
         "topIds": [
           "national.work",
+          "national.business-zzp",
           "category.work",
+          "national.pregnancy",
+          "national.debt-legal-help",
           "national.lgbtiq-support",
           "national.documents",
-          "national.benefits",
-          "national.education"
+          "national.benefits"
         ],
         "passed": true
       },
@@ -189,7 +195,9 @@
         "expected": "national.work",
         "topIds": [
           "national.work",
-          "category.work"
+          "category.work",
+          "national.pregnancy",
+          "national.business-zzp"
         ],
         "passed": true
       },
@@ -198,13 +206,13 @@
         "expected": "national.work",
         "topIds": [
           "national.work",
+          "national.pregnancy",
+          "national.business-zzp",
           "category.work",
+          "national.debt-legal-help",
           "national.lgbtiq-support",
           "national.taxes",
-          "national.immigration",
-          "category.business",
-          "national.documents",
-          "national.education"
+          "national.immigration"
         ],
         "passed": true
       },
@@ -214,6 +222,8 @@
         "topIds": [
           "national.work",
           "category.work",
+          "national.pregnancy",
+          "national.business-zzp",
           "municipality.gm0308",
           "municipality.gm1876",
           "province.pv26"
@@ -225,7 +235,9 @@
         "expected": "national.work",
         "topIds": [
           "national.work",
-          "category.work"
+          "category.work",
+          "national.pregnancy",
+          "national.business-zzp"
         ],
         "passed": true
       },
@@ -234,7 +246,9 @@
         "expected": "national.work",
         "topIds": [
           "national.work",
-          "category.work"
+          "category.work",
+          "national.pregnancy",
+          "national.business-zzp"
         ],
         "passed": true
       },
@@ -243,13 +257,13 @@
         "expected": "national.healthcare",
         "topIds": [
           "national.healthcare",
+          "national.mental-health",
+          "national.pregnancy",
           "category.healthcare",
+          "national.medicines",
           "national.lgbtiq-support",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin"
+          "national.dental-care",
+          "healthcare.acta"
         ],
         "passed": true
       },
@@ -258,13 +272,13 @@
         "expected": "national.healthcare",
         "topIds": [
           "national.healthcare",
+          "national.mental-health",
           "category.healthcare",
+          "national.medicines",
+          "national.pregnancy",
           "national.lgbtiq-support",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin"
+          "national.dental-care",
+          "healthcare.acta"
         ],
         "passed": true
       },
@@ -274,12 +288,12 @@
         "topIds": [
           "healthcare.bovenij-hospital",
           "national.healthcare",
+          "national.pregnancy",
           "category.healthcare",
           "healthcare.amsterdam-umc-location-amc",
           "healthcare.amsterdam-umc-location-vumc",
           "healthcare.olvg-east",
-          "healthcare.olvg-west",
-          "national.lgbtiq-support"
+          "healthcare.olvg-west"
         ],
         "passed": true
       },
@@ -287,14 +301,14 @@
         "query": "dentist",
         "expected": "national.healthcare",
         "topIds": [
+          "national.dental-care",
           "national.healthcare",
           "category.healthcare",
+          "national.mental-health",
+          "national.medicines",
+          "national.pregnancy",
           "national.lgbtiq-support",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin"
+          "healthcare.acta"
         ],
         "passed": true
       },
@@ -302,14 +316,14 @@
         "query": "pharmacy",
         "expected": "national.healthcare",
         "topIds": [
+          "national.medicines",
           "national.healthcare",
           "category.healthcare",
+          "national.mental-health",
+          "national.pregnancy",
           "national.lgbtiq-support",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin"
+          "national.dental-care",
+          "healthcare.acta"
         ],
         "passed": true
       },
@@ -319,12 +333,12 @@
         "topIds": [
           "national.healthcare",
           "category.healthcare",
+          "national.mental-health",
+          "national.medicines",
+          "national.pregnancy",
           "national.lgbtiq-support",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin"
+          "national.dental-care",
+          "healthcare.acta"
         ],
         "passed": true
       },
@@ -334,12 +348,12 @@
         "topIds": [
           "national.healthcare",
           "category.healthcare",
+          "national.mental-health",
+          "national.medicines",
+          "national.pregnancy",
           "national.lgbtiq-support",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin"
+          "national.dental-care",
+          "healthcare.acta"
         ],
         "passed": true
       },
@@ -347,14 +361,14 @@
         "query": "аптека",
         "expected": "national.healthcare",
         "topIds": [
+          "national.medicines",
           "national.healthcare",
           "category.healthcare",
+          "national.mental-health",
+          "national.pregnancy",
           "national.lgbtiq-support",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin"
+          "national.dental-care",
+          "healthcare.acta"
         ],
         "passed": true
       },
@@ -364,10 +378,12 @@
         "topIds": [
           "national.documents",
           "category.documents",
+          "national.utilities-moving",
+          "national.business-zzp",
           "national.immigration",
           "government_service.first-registration-in-amsterdam",
           "national.benefits",
-          "national.banking"
+          "national.pregnancy"
         ],
         "passed": true
       },
@@ -377,6 +393,8 @@
         "topIds": [
           "national.documents",
           "category.documents",
+          "national.utilities-moving",
+          "national.business-zzp",
           "national.immigration",
           "national.benefits",
           "national.taxes"
@@ -389,12 +407,12 @@
         "topIds": [
           "national.documents",
           "category.documents",
+          "national.utilities-moving",
           "government_service.first-registration-in-amsterdam",
+          "national.business-zzp",
           "national.housing",
           "national.immigration",
-          "national.education",
-          "national.pets",
-          "national.family-childcare"
+          "national.education"
         ],
         "passed": true
       },
@@ -405,6 +423,8 @@
           "national.documents",
           "national.immigration",
           "category.documents",
+          "national.utilities-moving",
+          "national.business-zzp",
           "government_service.parking-permit-amsterdam",
           "category.business",
           "category.family"
@@ -417,11 +437,12 @@
         "topIds": [
           "national.documents",
           "category.documents",
+          "national.utilities-moving",
+          "national.business-zzp",
           "national.healthcare",
           "category.business",
           "category.education",
-          "category.healthcare",
-          "category.municipal-services"
+          "category.healthcare"
         ],
         "passed": true
       },
@@ -431,11 +452,12 @@
         "topIds": [
           "national.documents",
           "category.documents",
+          "national.utilities-moving",
+          "national.business-zzp",
           "national.pets",
           "category.business",
           "category.children",
-          "category.family",
-          "category.municipal-services"
+          "category.family"
         ],
         "passed": true
       },
@@ -445,6 +467,7 @@
         "topIds": [
           "national.documents",
           "category.documents",
+          "national.utilities-moving",
           "national.immigration"
         ],
         "passed": true
@@ -574,6 +597,7 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
+          "national.consumer-rights",
           "category.sim-telecom",
           "municipality.gm0965",
           "municipality.gm1930",
@@ -586,7 +610,9 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
+          "national.consumer-rights",
           "category.sim-telecom",
+          "national.business-zzp",
           "national.taxes",
           "national.banking"
         ],
@@ -597,6 +623,7 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
+          "national.consumer-rights",
           "category.sim-telecom",
           "municipality.gm0118"
         ],
@@ -607,8 +634,11 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
+          "national.consumer-rights",
           "national.work",
+          "national.business-zzp",
           "category.work",
+          "national.pregnancy",
           "category.sim-telecom"
         ],
         "passed": true
@@ -619,6 +649,8 @@
         "topIds": [
           "national.telecom",
           "category.internet",
+          "national.utilities-moving",
+          "national.consumer-rights",
           "category.sim-telecom"
         ],
         "passed": true
@@ -628,6 +660,7 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
+          "national.consumer-rights",
           "category.sim-telecom"
         ],
         "passed": true
@@ -637,6 +670,7 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
+          "national.consumer-rights",
           "category.sim-telecom"
         ],
         "passed": true
@@ -777,7 +811,9 @@
         "expected": "national.banking",
         "topIds": [
           "national.banking",
+          "national.debt-legal-help",
           "category.banking",
+          "national.business-zzp",
           "national.lgbtiq-support"
         ],
         "passed": true
@@ -787,6 +823,7 @@
         "expected": "national.banking",
         "topIds": [
           "national.banking",
+          "national.debt-legal-help",
           "national.taxes",
           "category.banking"
         ],
@@ -832,7 +869,9 @@
         "expected": "national.family-childcare",
         "topIds": [
           "national.family-childcare",
-          "category.family"
+          "category.family",
+          "national.pregnancy",
+          "national.dental-care"
         ],
         "passed": true
       },
@@ -841,6 +880,8 @@
         "expected": "national.family-childcare",
         "topIds": [
           "national.family-childcare",
+          "national.dental-care",
+          "national.pregnancy",
           "category.family",
           "category.children"
         ],
@@ -851,6 +892,8 @@
         "expected": "national.family-childcare",
         "topIds": [
           "national.family-childcare",
+          "national.pregnancy",
+          "national.dental-care",
           "category.family",
           "national.benefits",
           "category.children",
@@ -871,6 +914,8 @@
         "expected": "national.family-childcare",
         "topIds": [
           "national.family-childcare",
+          "national.dental-care",
+          "national.pregnancy",
           "category.family",
           "national.benefits",
           "category.children"
@@ -892,7 +937,8 @@
           "national.pets",
           "category.pets",
           "national.documents",
-          "category.documents"
+          "category.documents",
+          "national.utilities-moving"
         ],
         "passed": true
       },
@@ -929,7 +975,8 @@
           "national.pets",
           "national.documents",
           "category.documents",
-          "category.pets"
+          "category.pets",
+          "national.utilities-moving"
         ],
         "passed": true
       },
@@ -948,6 +995,7 @@
         "topIds": [
           "national.taxes",
           "category.taxes",
+          "national.business-zzp",
           "national.benefits"
         ],
         "passed": true
@@ -957,7 +1005,8 @@
         "expected": "national.taxes",
         "topIds": [
           "national.taxes",
-          "category.taxes"
+          "category.taxes",
+          "national.business-zzp"
         ],
         "passed": true
       },
@@ -966,7 +1015,8 @@
         "expected": "national.taxes",
         "topIds": [
           "national.taxes",
-          "category.taxes"
+          "category.taxes",
+          "national.business-zzp"
         ],
         "passed": true
       },
@@ -975,7 +1025,8 @@
         "expected": "national.taxes",
         "topIds": [
           "national.taxes",
-          "category.taxes"
+          "category.taxes",
+          "national.business-zzp"
         ],
         "passed": true
       },
@@ -984,7 +1035,8 @@
         "expected": "national.taxes",
         "topIds": [
           "national.taxes",
-          "category.taxes"
+          "category.taxes",
+          "national.business-zzp"
         ],
         "passed": true
       },
@@ -993,6 +1045,7 @@
         "expected": "national.taxes",
         "topIds": [
           "national.taxes",
+          "national.business-zzp",
           "category.taxes"
         ],
         "passed": true
@@ -1004,6 +1057,8 @@
           "national.benefits",
           "national.housing",
           "category.benefits",
+          "national.debt-legal-help",
+          "national.pregnancy",
           "national.work"
         ],
         "passed": true
@@ -1013,13 +1068,13 @@
         "expected": "national.benefits",
         "topIds": [
           "national.benefits",
+          "national.pregnancy",
           "category.benefits",
           "national.housing",
+          "national.debt-legal-help",
           "national.healthcare",
-          "national.lgbtiq-support",
-          "category.healthcare",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc"
+          "national.mental-health",
+          "national.medicines"
         ],
         "passed": true
       },
@@ -1029,6 +1084,8 @@
         "topIds": [
           "national.benefits",
           "category.benefits",
+          "national.debt-legal-help",
+          "national.pregnancy",
           "national.housing",
           "national.family-childcare"
         ],
@@ -1041,11 +1098,11 @@
           "national.benefits",
           "national.housing",
           "category.benefits",
+          "national.debt-legal-help",
+          "national.pregnancy",
+          "national.utilities-moving",
           "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "housing.affordable-housing-amsterdam"
         ],
         "passed": true
       },
@@ -1055,6 +1112,8 @@
         "topIds": [
           "national.benefits",
           "category.benefits",
+          "national.debt-legal-help",
+          "national.pregnancy",
           "national.housing"
         ],
         "passed": true
@@ -1065,7 +1124,9 @@
         "topIds": [
           "national.benefits",
           "category.benefits",
-          "national.housing"
+          "national.pregnancy",
+          "national.housing",
+          "national.debt-legal-help"
         ],
         "passed": true
       },
@@ -1166,10 +1227,11 @@
           "national.immigration",
           "national.documents",
           "category.documents",
+          "national.utilities-moving",
+          "national.business-zzp",
           "government_service.parking-permit-amsterdam",
           "national.taxes",
-          "category.business",
-          "category.family"
+          "category.business"
         ],
         "passed": true
       },
@@ -1186,6 +1248,7 @@
         "expected": "national.immigration",
         "topIds": [
           "national.immigration",
+          "national.business-zzp",
           "national.documents",
           "national.taxes",
           "local_partner.everaert-advocaten"
@@ -1198,7 +1261,8 @@
         "topIds": [
           "national.immigration",
           "national.documents",
-          "category.documents"
+          "category.documents",
+          "national.utilities-moving"
         ],
         "passed": true
       },
@@ -3727,7 +3791,9 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "national.utilities-moving",
           "category.housing",
+          "national.debt-legal-help",
           "page.journeys",
           "national.benefits"
         ],
@@ -3738,7 +3804,9 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "national.utilities-moving",
           "category.housing",
+          "national.debt-legal-help",
           "page.journeys",
           "national.benefits"
         ],
@@ -3750,12 +3818,12 @@
         "topIds": [
           "national.work",
           "category.work",
+          "national.pregnancy",
+          "national.business-zzp",
+          "national.debt-legal-help",
           "national.lgbtiq-support",
           "national.taxes",
-          "national.immigration",
-          "category.business",
-          "national.documents",
-          "national.education"
+          "national.immigration"
         ],
         "passed": true
       },
@@ -3764,8 +3832,12 @@
         "expected": "national.healthcare",
         "topIds": [
           "national.healthcare",
+          "national.mental-health",
           "category.healthcare",
+          "national.medicines",
+          "national.pregnancy",
           "national.lgbtiq-support",
+          "national.dental-care",
           "page.emergency"
         ],
         "passed": true
@@ -3786,8 +3858,11 @@
         "topIds": [
           "national.documents",
           "category.documents",
+          "national.utilities-moving",
+          "national.business-zzp",
           "national.immigration",
           "national.benefits",
+          "national.pregnancy",
           "national.banking"
         ],
         "passed": true
@@ -3797,6 +3872,7 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
+          "national.consumer-rights",
           "category.sim-telecom"
         ],
         "passed": true
@@ -3825,7 +3901,9 @@
         "expected": "national.banking",
         "topIds": [
           "national.banking",
+          "national.debt-legal-help",
           "category.banking",
+          "national.business-zzp",
           "national.lgbtiq-support"
         ],
         "passed": true
@@ -3835,7 +3913,9 @@
         "expected": "national.family-childcare",
         "topIds": [
           "national.family-childcare",
-          "category.family"
+          "category.family",
+          "national.pregnancy",
+          "national.dental-care"
         ],
         "passed": true
       },
@@ -3846,7 +3926,8 @@
           "national.pets",
           "category.pets",
           "national.documents",
-          "category.documents"
+          "category.documents",
+          "national.utilities-moving"
         ],
         "passed": true
       },
@@ -3856,6 +3937,7 @@
         "topIds": [
           "national.taxes",
           "category.taxes",
+          "national.business-zzp",
           "national.benefits"
         ],
         "passed": true
@@ -3867,6 +3949,8 @@
           "national.benefits",
           "national.housing",
           "category.benefits",
+          "national.debt-legal-help",
+          "national.pregnancy",
           "national.work"
         ],
         "passed": true
@@ -3888,6 +3972,8 @@
           "national.immigration",
           "national.documents",
           "category.documents",
+          "national.utilities-moving",
+          "national.business-zzp",
           "national.taxes",
           "category.business",
           "category.family"
@@ -3901,13 +3987,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.utilities-moving",
           "category.housing",
+          "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
           "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "housing.affordable-housing-amsterdam"
         ],
         "passed": true
       },
@@ -3916,13 +4002,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.utilities-moving",
           "category.housing",
+          "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
           "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "housing.affordable-housing-amsterdam"
         ],
         "passed": true
       },
@@ -3931,13 +4017,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.utilities-moving",
           "category.housing",
+          "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
           "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "housing.affordable-housing-amsterdam"
         ],
         "passed": true
       },
@@ -3946,13 +4032,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.utilities-moving",
           "category.housing",
+          "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
           "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "housing.affordable-housing-amsterdam"
         ],
         "passed": true
       },
@@ -3961,13 +4047,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.utilities-moving",
           "category.housing",
+          "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
           "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "housing.affordable-housing-amsterdam"
         ],
         "passed": true
       },
@@ -3976,13 +4062,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.utilities-moving",
           "category.housing",
+          "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
           "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "housing.affordable-housing-amsterdam"
         ],
         "passed": true
       }
@@ -3993,13 +4079,13 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "national.debt-legal-help",
+          "national.utilities-moving",
           "national.benefits",
           "national.taxes",
           "national.documents",
           "national.lgbtiq-support",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woon"
+          "housing.affordable-housing-amsterdam"
         ],
         "passed": true
       },
@@ -4017,6 +4103,7 @@
         "expected": "national.healthcare",
         "topIds": [
           "national.healthcare",
+          "national.mental-health",
           "category.healthcare"
         ],
         "passed": true
@@ -4026,13 +4113,13 @@
         "expected": "national.documents",
         "topIds": [
           "national.documents",
+          "national.business-zzp",
           "national.pets",
           "national.housing",
           "national.immigration",
+          "national.pregnancy",
           "national.education",
-          "national.family-childcare",
-          "government_service.first-registration-in-amsterdam",
-          "category.business"
+          "national.family-childcare"
         ],
         "passed": true
       },
@@ -4076,6 +4163,7 @@
         "expected": "national.banking",
         "topIds": [
           "national.banking",
+          "national.debt-legal-help",
           "category.banking"
         ],
         "passed": true
@@ -4105,7 +4193,8 @@
         "expected": "national.taxes",
         "topIds": [
           "national.taxes",
-          "category.taxes"
+          "category.taxes",
+          "national.business-zzp"
         ],
         "passed": true
       },
@@ -4133,6 +4222,7 @@
         "topIds": [
           "national.immigration",
           "national.taxes",
+          "national.business-zzp",
           "national.documents",
           "local_partner.everaert-advocaten"
         ],
@@ -4148,8 +4238,8 @@
       },
       {
         "guide": "national.housing",
-        "url": "https://www.huurcommissie.nl/huurcommissie-helpt/english-information",
-        "checkedAt": "2026-08-05",
+        "url": "https://www.huurcommissie.nl/support/rent-check/rent-check-self-contained",
+        "checkedAt": "2026-08-06",
         "valid": true
       },
       {
@@ -4383,6 +4473,150 @@
       {
         "guide": "national.immigration",
         "url": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.utilities-moving",
+        "url": "https://www.government.nl/faq/how-do-i-inform-the-municipality-of-a-change-of-address",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.utilities-moving",
+        "url": "https://consument.acm.nl/elektriciteit-en-gas/overstappen-vergelijken-en-verhuizen/energiecontract-bij-verhuizen",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.utilities-moving",
+        "url": "https://www.government.nl/themes/nature-and-the-environment/water-management/connecting-water-supply-at-home",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.consumer-rights",
+        "url": "https://consument.acm.nl/aankoop-dienst-annuleren",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.consumer-rights",
+        "url": "https://consument.acm.nl/misleidende-verkoop/wat-kan-ik-doen",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.consumer-rights",
+        "url": "https://www.politie.nl/en/topics/report-a-crime.html",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.debt-legal-help",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/schulden/schuldhulpverlening-aanvragen",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.debt-legal-help",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/bescherming-van-consumenten/waar-kan-ik-terecht-voor-hulp-bij-een-juridisch-probleem-of-conflict",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.debt-legal-help",
+        "url": "https://www.juridischloket.nl/",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.mental-health",
+        "url": "https://www.government.nl/faq/help-for-mental-health-problems",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.mental-health",
+        "url": "https://www.thuisarts.nl/dutch-healthcare/in-case-of-emergency",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.mental-health",
+        "url": "https://www.113.nl/english",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.dental-care",
+        "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/m/mondzorg",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.dental-care",
+        "url": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.dental-care",
+        "url": "https://knmt.nl/praktijkzaken/regelen-rond-kwaliteit-en-klachten/opvang-tandheelkundige-spoedgevallen/beoordeling-van-spoed",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.medicines",
+        "url": "https://www.cbg-meb.nl/onderwerpen/goed-gebruik",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.medicines",
+        "url": "https://www.cbg-meb.nl/onderwerpen/over-ons-ons-werk/over-cbg-samenwerking-in-nederland/npi",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.medicines",
+        "url": "https://www.government.nl/themes/family-health-and-care/health-insurance",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.pregnancy",
+        "url": "https://www.pns.nl/en",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.pregnancy",
+        "url": "https://www.pns.nl/en/multiple-languages",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.pregnancy",
+        "url": "https://www.government.nl/themes/family-health-and-care/pregnancy-and-childbirth/applying-for-maternity-leave",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.business-zzp",
+        "url": "https://business.gov.nl/starting-your-business/starting-as-a-self-employed-professional/get-started-as-a-freelancer-or-zzper/",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.business-zzp",
+        "url": "https://business.gov.nl/starting-your-business/registering-your-business/registration-at-the-netherlands-chamber-of-commerce-kvk/",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.business-zzp",
+        "url": "https://business.gov.nl/starting-your-business/starting-as-a-self-employed-professional/regulations-for-self-employed-professionals/",
         "checkedAt": "2026-08-06",
         "valid": true
       }

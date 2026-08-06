@@ -10,6 +10,17 @@ import { getMunicipalities, getMunicipality } from "@/lib/geography";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 import { metadataForPage } from "@/lib/seo/metadata";
 
+const nationalStartingPoints = [
+  { title: "BSN and registration", text: "Registration, DigiD and residence documents", href: "/essentials/documents-registration-and-digid/" },
+  { title: "Housing", text: "Renting, contracts, deposits and tenant routes", href: "/essentials/housing-and-renting/" },
+  { title: "Utilities and moving", text: "Energy, water, internet, waste and handover steps", href: "/essentials/utilities-and-moving-home/" },
+  { title: "Healthcare", text: "GP, insurance, dentist, medicines and mental health", href: "/essentials/healthcare-doctor-and-insurance/" },
+  { title: "Work and business", text: "Employment, KVK, ZZP and tax starting routes", href: "/essentials/work-and-employment/" },
+  { title: "Family and pregnancy", text: "Childcare, school, midwife and maternity routes", href: "/essentials/family-childcare-and-school/" },
+  { title: "Rights and money problems", text: "Consumer complaints, debt and legal-help routes", href: "/essentials/debt-money-problems-and-legal-help/" },
+  { title: "Transport and local rules", text: "Public transport, bicycles, fines and municipality rules", href: "/essentials/public-transport-and-cycling/" }
+] as const;
+
 export const dynamicParams = false;
 export function generateStaticParams() {
   return getMunicipalities().map(({ slug }) => ({ slug }));
@@ -105,6 +116,16 @@ export default async function MunicipalityDetailPage({ params }: { params: Promi
         </aside>
       </div>
 
+      <section className="section-shell municipality-national-start" aria-labelledby="municipality-national-start-title">
+        <header>
+          <div><span>Available in every municipality</span><h2 id="municipality-national-start-title">Start with national guidance for {municipality.name}</h2><p>These routes stay valid as orientation across the Netherlands. Use the official {municipality.name} links above for appointments, local rules and exact local procedures.</p></div>
+          <Link className="button button-primary" href={`/start/?task=registration&profile=prefer-not-to-say&area=${municipality.slug}`}>Build a {municipality.name} route <ArrowRight aria-hidden /></Link>
+        </header>
+        <nav aria-label={`National starting points for ${municipality.name}`}>
+          {nationalStartingPoints.map((topic, index) => <Link href={topic.href} key={topic.href}><span>{String(index + 1).padStart(2, "0")}</span><div><strong>{topic.title}</strong><small>{topic.text}</small></div><ArrowRight aria-hidden /></Link>)}
+        </nav>
+      </section>
+
       {related.length ? (
         <section className="section-shell municipality-published-coverage" aria-labelledby="municipality-published-title">
           <div className="listing-heading"><div><span>Editorial coverage</span><h2 id="municipality-published-title">Published YouNew material for {municipality.name}</h2><p>These records passed the separate YouNew publication process.</p></div></div>
@@ -112,8 +133,8 @@ export default async function MunicipalityDetailPage({ params }: { params: Promi
         </section>
       ) : (
         <section className="section-shell municipality-coverage-gap" aria-labelledby="municipality-gap-title">
-          <div><span>Editorial status</span><h2 id="municipality-gap-title">A full YouNew city guide is not published yet.</h2><p>The official municipality entry is available now. Practical guides, places and local organizations will appear only after source review.</p></div>
-          <Link className="button button-outline" href="/support">Suggest a local source</Link>
+          <div><span>Local editorial coverage</span><h2 id="municipality-gap-title">The national routes above are ready now.</h2><p>YouNew has not yet published reviewed local places or organizations for {municipality.name}. The official municipality entry remains available, and local records will appear only after source review.</p></div>
+          <div className="municipality-gap-actions"><Link className="button button-outline" href={`/search?city=${municipality.slug}`}>Search current coverage</Link><Link className="button button-outline" href="/support">Suggest a local source</Link></div>
         </section>
       )}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />

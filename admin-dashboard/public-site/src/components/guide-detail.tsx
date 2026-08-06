@@ -1,8 +1,10 @@
-import { AlertTriangle, BookOpen, CheckCircle2, CircleHelp, Clock3, ExternalLink, FileText, Flag, Lightbulb, MapPin, ShieldCheck, Users } from "lucide-react";
+import Link from "next/link";
+import { AlertTriangle, ArrowRight, BookOpen, CheckCircle2, CircleHelp, Clock3, ExternalLink, FileText, Lightbulb, MapPin, ShieldCheck, Users } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CopyTextButton } from "@/components/copy-text-button";
 import { EntityCard } from "@/components/entity-card";
 import { GuideChecklist } from "@/components/guide-checklist";
+import { GuideFeedbackLoop } from "@/components/guide-feedback-loop";
 import { PrintButton } from "@/components/print-button";
 import { ReadingProgress } from "@/components/reading-progress";
 import { RecentViewTracker } from "@/components/recent-view-tracker";
@@ -15,7 +17,25 @@ import { GovernanceDisclosure } from "@/components/governance-disclosure";
 import type { ContentEntity, GuideContactOption, GuideSourcedText, PracticalGuide } from "@/lib/content";
 import { curatedSummaryGuideFor } from "@/lib/content/curated-summary-guides";
 import { publicWebSummary } from "@/lib/content/presentation";
+import { getNationalGuides } from "@/lib/search/national-guides";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
+
+const nationalFallbackByLocalGuideId: Readonly<Record<string, string>> = Object.freeze({
+  "housing.woon": "national.housing",
+  "housing.affordable-housing-amsterdam": "national.housing",
+  "government_service.first-registration-in-amsterdam": "national.documents",
+  "housing.housing-permit-amsterdam": "national.housing",
+  "government_service.marriage-and-registered-partnership-amsterdam": "national.family-childcare",
+  "government_service.moving-within-amsterdam": "national.utilities-moving",
+  "government_service.municipal-taxes-amsterdam": "national.taxes",
+  "government_service.parking-permit-amsterdam": "national.transport",
+  "government_service.passport-and-id-card-amsterdam": "national.documents",
+  "government_service.registering-a-birth-in-amsterdam": "national.family-childcare",
+  "housing.renting-a-home-in-amsterdam": "national.housing",
+  "government_service.report-a-problem-in-public-space-amsterdam": "national.rules-fines",
+  "government_service.waste-and-recycling-amsterdam": "national.utilities-moving",
+  "housing.woningnet-stadsregio-amsterdam": "national.housing"
+});
 
 function titleCase(value: string) {
   return value.replaceAll("-", " ").replace(/\b\w/g, (letter) => letter.toUpperCase());
@@ -177,6 +197,8 @@ function FullPracticalGuide({ guide }: { guide: PracticalGuide }) {
 
 function BriefGuide({ entity }: { entity: ContentEntity }) {
   const municipal = Boolean(entity.cityId);
+  const fallbackGuideId = nationalFallbackByLocalGuideId[entity.id];
+  const fallbackGuide = fallbackGuideId ? getNationalGuides().find((guide) => guide.id === fallbackGuideId) : null;
   return (
     <>
       <section className="guide-section guide-quick-answer" id="quick-answer" aria-labelledby="brief-answer-title">
@@ -186,14 +208,19 @@ function BriefGuide({ entity }: { entity: ContentEntity }) {
       </section>
       <aside className="guide-depth-note" role="note" aria-label="Guide publication status">
         <FileText aria-hidden />
-        <div><strong>Step-by-step guide not yet published</strong><p>This page is a verified starting point, not a complete procedure. Check the responsible source for current requirements{municipal && entity.cityId ? ` and ${titleCase(entity.cityId)}-specific steps` : ""}.</p></div>
+        <div>
+          <strong>Local step-by-step guide not yet published</strong>
+          <p>This page is a verified local starting point, not a complete procedure. Check the responsible source for current requirements{municipal && entity.cityId ? ` and ${titleCase(entity.cityId)}-specific steps` : ""}.</p>
+          {fallbackGuide ? <Link href={`/essentials/${fallbackGuide.slug}/`}>Open the complete national guide: {fallbackGuide.title} <ArrowRight aria-hidden /></Link> : null}
+        </div>
       </aside>
       <section className="guide-section" id="next-actions" aria-labelledby="brief-next-actions-title">
         <h2 id="brief-next-actions-title">What to do next</h2>
         <ol className="next-steps">
           <li><span>1</span><div><strong>Check applicability</strong><p>Confirm that the source covers your municipality and personal situation.</p></div></li>
           <li><span>2</span><div><strong>Read the official page</strong><p>Use the current requirements from the responsible institution before acting.</p></div></li>
-          <li><span>3</span><div><strong>Save or share this record</strong><p>Keep the stable YouNew link available while the full practical guide is under editorial review.</p></div></li>
+          {fallbackGuide ? <li><span>3</span><div><strong>Follow the national checklist</strong><p>Use the complete national guide for preparation, then return to the local source for municipality-specific details.</p></div></li> : null}
+          <li><span>{fallbackGuide ? "4" : "3"}</span><div><strong>Save or share this record</strong><p>Keep the stable YouNew link and responsible source available while local editorial coverage is expanded.</p></div></li>
         </ol>
       </section>
     </>
@@ -205,7 +232,6 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
   const curatedSummary = guide ? null : curatedSummaryGuideFor(entity.id);
   const heroImage = preferredMedia(entity.images, ["hero", "gallery", "thumbnail"]);
   const summary = guide?.shortSummary.text ?? publicWebSummary(entity.summary);
-  const reportHref = `/support/?type=incorrect-information&page=${encodeURIComponent(`${entity.route}/`)}`;
   const structuredData = guide ? {
     "@context": "https://schema.org",
     "@graph": [
@@ -243,7 +269,7 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
         <RecentViewTracker item={{ id: entity.id, route: entity.route, title: curatedSummary.title, kind: entity.type }} />
         <ReadingProgress targetId="guide-article" />
         <UsefulSummaryGuide entity={entity} summary={curatedSummary} />
-        <div className="section-shell guide-report-row"><a className="report-link" href={reportHref}><Flag aria-hidden /> Report outdated information</a></div>
+        <div className="section-shell"><GuideFeedbackLoop pageReference={`${entity.route}/`} /></div>
         {related.length > 0 ? <section className="section-shell related-section" aria-labelledby="related-title"><div className="listing-heading"><div><span>Continue safely</span><h2 id="related-title">Related published content</h2><p>Selected from shared city and category relationships in the governed dataset.</p></div></div><div className="entity-grid compact-grid">{related.slice(0, 6).map((item) => <EntityCard entity={item} key={item.id} />)}</div></section> : null}
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />
       </article>
@@ -273,7 +299,7 @@ export function GuideDetail({ entity, related }: { entity: ContentEntity; relate
         ) : null}
       </div>
 
-      <div className="section-shell guide-report-row"><a className="report-link" href={reportHref}><Flag aria-hidden /> Report outdated information</a></div>
+      <div className="section-shell"><GuideFeedbackLoop pageReference={`${entity.route}/`} /></div>
 
       {related.length > 0 ? <section className="section-shell related-section" aria-labelledby="related-title"><div className="listing-heading"><div><span>Continue safely</span><h2 id="related-title">Related published content</h2><p>Selected from shared city and category relationships in the governed dataset.</p></div></div><div className="entity-grid compact-grid">{related.slice(0, 6).map((item) => <EntityCard entity={item} key={item.id} />)}</div></section> : null}
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />

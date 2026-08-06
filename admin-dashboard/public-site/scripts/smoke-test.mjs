@@ -5,7 +5,8 @@ import { join } from "node:path";
 const root = new URL("../out/", import.meta.url).pathname;
 const requiredFiles = [
   "index.html", "start/index.html", "my-younew/index.html", "naruto/index.html", "discover/index.html", "search/index.html", "guides/index.html", "guides/woon/index.html",
-  "journeys/index.html", "map/index.html",
+  "journeys/index.html", "map/index.html", "about/index.html",
+  "tasks/housing/index.html", "tasks/work/index.html", "tasks/healthcare/index.html",
   "categories/index.html", "categories/housing/index.html", "cities/index.html", "cities/amsterdam/index.html",
   "municipalities/index.html", "municipalities/amsterdam/index.html",
   "provinces/noord-holland/index.html", "places/index.html", "organizations/index.html", "emergency/index.html",
@@ -21,10 +22,10 @@ const requiredFiles = [
 for (const file of requiredFiles) await access(join(root, file));
 
 const home = await readFile(join(root, "index.html"), "utf8");
-assert.match(home, /Your guide to life in the Netherlands/);
+assert.match(home, /Your new life in the Netherlands/);
 assert.match(home, /What do you need in the Netherlands\?/);
 assert.match(home, /name="q"/);
-assert.match(home, /Find my next step/);
+assert.match(home, /One task, one useful next action/);
 for (const title of [
   "Find housing",
   "Find work",
@@ -33,25 +34,21 @@ for (const title of [
   "Study",
   "Daily life",
   "Emergency",
-  "LGBTQ+",
+  "LGBTIQ+",
   "Pets",
-  "Families"
+  "Family"
 ]) assert.match(home, new RegExp(title));
-for (const section of ["Life in the Netherlands", "Popular tasks", "Cities", "Useful services", "Trusted resources", "Why YouNew", "Latest updates"]) {
+for (const section of ["Life in the Netherlands", "Popular tasks", "Big cities", "Trusted services and sources", "Why YouNew", "Latest updates"]) {
   assert.match(home, new RegExp(section));
 }
-assert.match(home, /No live public campaigns/);
-assert.match(home, /never shown in emergency guidance/);
-assert.match(home, /never replace responsible official sources/);
-assert.match(home, /never change organic search ranking/);
+assert.doesNotMatch(home, /No live public campaigns/);
+assert.doesNotMatch(home, /Sponsored|Advertisement|Promoted business/);
 assert.match(home, /support@younew\.nl/);
 assert.match(home, /rel="canonical" href="https:\/\/younew\.nl\/"/);
 assert.match(home, /application\/ld\+json/);
-for (const path of ["/start/", "/search/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
+for (const path of ["/discover/", "/tasks/housing/", "/tasks/work/", "/tasks/healthcare/", "/search/", "/about/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
 assert.match(home, /href="\/naruto\/"/);
 assert.doesNotMatch(home, /href=(?:"|')#(?:"|')/);
-assert.match(home, /href="\/app\/"/);
-assert.match(home, /iOS app/);
 assert.doesNotMatch(home, /<script[^>]+src="\/_next\/static\/chunks\//, "Static homepage should not hydrate the full Next runtime");
 assert.match(home, /<script>[\s\S]*younew\.theme\.v1[\s\S]*prefers-color-scheme: light[\s\S]*<\/script><\/head>/);
 assert.doesNotMatch(home, /<script src="\/theme-init\.js"><\/script>/, "Homepage should inline the tiny theme bootstrap to remove a render-blocking request");
@@ -87,7 +84,7 @@ assert.match(myYouNew, /name="robots" content="noindex, follow"/);
 assert.match(myYouNew, /<script[^>]+src="\/_next\/static\/chunks\//, "My YouNew must retain client JavaScript");
 
 const guide = await readFile(join(root, "guides/woon/index.html"), "utf8");
-for (const text of ["!WOON", "Last verified", "Open source", "Report outdated information", "What to do next", "Source-backed summary", "Print guide", "Step-by-step guide not yet published"]) assert.match(guide, new RegExp(text));
+for (const text of ["!WOON", "Last verified", "Open source", "Report outdated", "What to do next", "Source-backed summary", "Print guide", "Local step-by-step guide not yet published", "Open the complete national guide"]) assert.match(guide, new RegExp(text));
 assert.match(guide, /data-guide-depth="summary"/);
 
 const journeys = await readFile(join(root, "journeys/index.html"), "utf8");

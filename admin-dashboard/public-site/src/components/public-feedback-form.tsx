@@ -27,10 +27,12 @@ function safePageReference(value: string | null, fallback: string) {
 export function PublicFeedbackForm({
   defaultPageReference,
   initialFeedbackType,
+  initialMessage,
   compact = false
 }: {
   defaultPageReference?: string;
   initialFeedbackType?: PublicFeedbackType;
+  initialMessage?: string;
   compact?: boolean;
 } = {}) {
   const id = useId();
@@ -134,7 +136,7 @@ export function PublicFeedbackForm({
         </div>
         <div className="form-field">
           <label htmlFor={messageId}>What should we review?</label>
-          <textarea id={messageId} name="message" rows={compact ? 5 : 7} minLength={20} maxLength={2000} aria-invalid={Boolean(errors.message)} required />
+          <textarea id={messageId} name="message" rows={compact ? 5 : 7} minLength={20} maxLength={2000} defaultValue={initialMessage} aria-invalid={Boolean(errors.message)} required />
           <p className="form-field-help">20–2,000 characters. Referenced page: <code>{pageReference}</code></p>
           {errors.message ? <p className="form-field-error">{errors.message}</p> : null}
         </div>

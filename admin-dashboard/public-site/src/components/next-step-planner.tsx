@@ -4,6 +4,8 @@ import Link from "next/link";
 import {
   ArrowLeft,
   ArrowRight,
+  Baby,
+  Brain,
   BriefcaseBusiness,
   Building2,
   ChevronDown,
@@ -17,8 +19,10 @@ import {
   Plane,
   RotateCcw,
   Save,
+  Scale,
   Search,
   ShieldCheck,
+  UtilityPole,
   Users
 } from "lucide-react";
 import { type KeyboardEvent, useEffect, useId, useMemo, useRef, useState } from "react";
@@ -59,6 +63,11 @@ const goalIcons: Record<PlannerGoalId, typeof Landmark> = {
   work: BriefcaseBusiness,
   "taxes-benefits": Building2,
   transport: MapPin,
+  "utilities-moving": UtilityPole,
+  "consumer-legal": Scale,
+  "health-wellbeing": Brain,
+  "pregnancy-family": Baby,
+  business: BriefcaseBusiness,
   "urgent-help": ShieldCheck,
   other: Search
 };

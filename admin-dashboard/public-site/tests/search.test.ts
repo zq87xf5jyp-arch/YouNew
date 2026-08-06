@@ -200,7 +200,15 @@ test("requested quality queries find a source-backed released destination", () =
     ["Tax Belastingdienst", "national.taxes"],
     ["Benefits allowances", "national.benefits"],
     ["Buy a bicycle", "national.transport"],
-    ["Immigration residence permit", "national.immigration"]
+    ["Immigration residence permit", "national.immigration"],
+    ["Arrange utilities when moving", "national.utilities-moving"],
+    ["Consumer rights complaint", "national.consumer-rights"],
+    ["Debt help legal advice", "national.debt-legal-help"],
+    ["Mental health support", "national.mental-health"],
+    ["Find a dentist", "national.dental-care"],
+    ["Prescription medicines pharmacy", "national.medicines"],
+    ["Pregnancy midwife", "national.pregnancy"],
+    ["Start a business ZZP KVK", "national.business-zzp"]
   ]);
   for (const [query, expectedId] of expected) {
     const results = rankModule.rankSearchDocuments(index.documents, query, { limit: 5 });
@@ -236,6 +244,14 @@ test("every homepage and search-suggestion query opens a useful published destin
     ["tax Belastingdienst", "national.taxes"],
     ["benefits allowances", "national.benefits"],
     ["immigration residence permit", "national.immigration"],
+    ["utilities moving home", "national.utilities-moving"],
+    ["consumer rights complaint", "national.consumer-rights"],
+    ["debt legal help", "national.debt-legal-help"],
+    ["mental health support", "national.mental-health"],
+    ["dentist dental care", "national.dental-care"],
+    ["medicines prescription pharmacy", "national.medicines"],
+    ["pregnancy midwife maternity care", "national.pregnancy"],
+    ["start a business ZZP KVK", "national.business-zzp"],
     ["Register gemeente", "national.documents"],
     ["Housing defects", "national.housing"],
     ["Student housing", "national.housing"],
@@ -255,7 +271,7 @@ test("critical EN, NL and RU intents do not return a useless zero", () => {
     ["national.housing", ["rent", "housing rent", "huur", "woning", "аренда", "квартира"]],
     ["national.work", ["work", "find work", "baan", "vacature", "работа", "вакансия"]],
     ["national.documents", ["BSN", "DigiD", "residence permit", "inschrijving", "регистрация", "ВНЖ"]],
-    ["national.healthcare", ["doctor", "huisarts", "pharmacy", "zorgverzekering", "врач", "аптека"]],
+    ["national.healthcare", ["doctor", "huisarts", "health insurance", "zorgverzekering", "врач", "медицинская страховка"]],
     ["national.education", ["Dutch school", "language course", "taalschool", "opleiding", "школа", "курсы"]],
     ["national.telecom", ["SIM card", "eSIM", "simkaart", "telefoonabonnement", "сим-карта", "интернет"]],
     ["national.rules-fines", ["parking fine", "traffic rules", "parkeerboete", "fietsregels", "штраф за парковку", "правила движения"]],
@@ -266,7 +282,15 @@ test("critical EN, NL and RU intents do not return a useless zero", () => {
     ["national.taxes", ["tax Belastingdienst", "tax return", "belastingaangifte", "inkomstenbelasting", "налоговая декларация", "налоги в Нидерландах"]],
     ["national.benefits", ["benefits allowances", "healthcare benefit", "toeslagen", "huurtoeslag", "пособия", "пособие на аренду"]],
     ["national.transport", ["buy a bicycle", "public transport", "fiets kopen", "openbaar vervoer", "купить велосипед", "общественный транспорт"]],
-    ["national.immigration", ["immigration residence permit", "visa Netherlands", "immigratie", "verblijfsvergunning verlengen", "иммиграция", "виза в Нидерланды"]]
+    ["national.immigration", ["immigration residence permit", "visa Netherlands", "immigratie", "verblijfsvergunning verlengen", "иммиграция", "виза в Нидерланды"]],
+    ["national.utilities-moving", ["utilities moving home", "electricity contract", "energiecontract", "meterstanden", "коммунальные услуги", "переезд"]],
+    ["national.consumer-rights", ["consumer rights complaint", "online purchase problem", "consumentenrecht", "misleidende verkoop", "права потребителя", "жалоба на покупку"]],
+    ["national.debt-legal-help", ["debt legal help", "money problems", "schuldhulpverlening", "juridische hulp", "помощь с долгами", "юридическая помощь"]],
+    ["national.mental-health", ["mental health support", "psychologist", "mentale gezondheid", "psycholoog", "психолог", "психическое здоровье"]],
+    ["national.dental-care", ["find a dentist", "emergency dentist", "tandarts", "spoedtandarts", "стоматолог", "зубная боль"]],
+    ["national.medicines", ["medicine", "patient leaflet", "recept", "apotheek", "лекарство", "инструкция к лекарству"]],
+    ["national.pregnancy", ["pregnancy", "maternity care", "verloskundige", "kraamzorg", "беременность", "родовспоможение"]],
+    ["national.business-zzp", ["start a business ZZP KVK", "open a company", "bedrijf starten zzp", "inschrijven KVK", "открыть бизнес ZZP", "регистрация KVK"]]
   ]);
 
   for (const [expectedId, aliases] of queries) {
@@ -294,7 +318,15 @@ test("city and profile keep national guidance while excluding unrelated local re
     ["tax Belastingdienst", "eindhoven", "worker", "national.taxes"],
     ["benefits allowances", "maastricht", "refugee", "national.benefits"],
     ["buy a bicycle", "leiden", "student", "national.transport"],
-    ["immigration residence permit", "s-gravenhage", "expat", "national.immigration"]
+    ["immigration residence permit", "s-gravenhage", "expat", "national.immigration"],
+    ["utilities moving home", "leiden", "resident", "national.utilities-moving"],
+    ["consumer rights complaint", "utrecht", "tourist", "national.consumer-rights"],
+    ["debt legal help", "rotterdam", "refugee", "national.debt-legal-help"],
+    ["mental health support", "groningen", "student", "national.mental-health"],
+    ["find a dentist", "eindhoven", "worker", "national.dental-care"],
+    ["prescription medicines pharmacy", "maastricht", "resident", "national.medicines"],
+    ["pregnancy midwife", "leiden", "resident", "national.pregnancy"],
+    ["start a business ZZP KVK", "s-gravenhage", "worker", "national.business-zzp"]
   ] as const;
   for (const [query, cityId, profile, expectedId] of scenarios) {
     const results = rankModule.rankSearchDocuments(index.documents, query, {

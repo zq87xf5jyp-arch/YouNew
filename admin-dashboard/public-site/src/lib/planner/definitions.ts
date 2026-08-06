@@ -19,6 +19,11 @@ export const plannerGoalIds = [
   "work",
   "taxes-benefits",
   "transport",
+  "utilities-moving",
+  "consumer-legal",
+  "health-wellbeing",
+  "pregnancy-family",
+  "business",
   "urgent-help",
   "other"
 ] as const;
@@ -99,6 +104,36 @@ export const plannerGoals = [
     preferredGuideId: "national.transport",
     internalHref: "/map/?category=transport",
     internalTitle: "Explore published transport coverage"
+  },
+  {
+    id: "utilities-moving",
+    title: "Utilities & moving",
+    searchQuery: "utilities moving home",
+    preferredGuideId: "national.utilities-moving"
+  },
+  {
+    id: "consumer-legal",
+    title: "Rights & legal help",
+    searchQuery: "consumer rights legal help debt",
+    preferredGuideId: "national.consumer-rights"
+  },
+  {
+    id: "health-wellbeing",
+    title: "Health & wellbeing",
+    searchQuery: "mental health dentist medicines",
+    preferredGuideId: "national.mental-health"
+  },
+  {
+    id: "pregnancy-family",
+    title: "Pregnancy & family",
+    searchQuery: "pregnancy midwife maternity care",
+    preferredGuideId: "national.pregnancy"
+  },
+  {
+    id: "business",
+    title: "Start a business",
+    searchQuery: "start a business ZZP KVK",
+    preferredGuideId: "national.business-zzp"
   },
   {
     id: "urgent-help",

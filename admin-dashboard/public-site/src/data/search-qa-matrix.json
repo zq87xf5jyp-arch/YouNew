@@ -83,7 +83,7 @@
     },
     {
       "id": "telecom",
-      "acceptedCategorySlugs": ["sim-telecom", "internet"],
+      "acceptedCategorySlugs": ["telecom", "sim-telecom", "internet"],
       "queries": [
         { "value": "SIM", "language": "en" },
         { "value": "prepaid", "language": "en" },
@@ -195,6 +195,102 @@
         { "value": "иммиграция", "language": "ru" },
         { "value": "виза в Нидерланды", "language": "ru" }
       ]
+    },
+    {
+      "id": "utilities-moving",
+      "acceptedCategorySlugs": ["utilities"],
+      "queries": [
+        { "value": "utilities moving home", "language": "en" },
+        { "value": "electricity contract", "language": "en" },
+        { "value": "energiecontract", "language": "nl" },
+        { "value": "meterstanden", "language": "nl" },
+        { "value": "коммунальные услуги", "language": "ru" },
+        { "value": "переезд", "language": "ru" }
+      ]
+    },
+    {
+      "id": "consumer-rights",
+      "acceptedCategorySlugs": ["shopping"],
+      "queries": [
+        { "value": "consumer rights complaint", "language": "en" },
+        { "value": "online purchase problem", "language": "en" },
+        { "value": "consumentenrecht", "language": "nl" },
+        { "value": "misleidende verkoop", "language": "nl" },
+        { "value": "права потребителя", "language": "ru" },
+        { "value": "жалоба на покупку", "language": "ru" }
+      ]
+    },
+    {
+      "id": "debt-legal-help",
+      "acceptedCategorySlugs": ["legal-help"],
+      "queries": [
+        { "value": "debt legal help", "language": "en" },
+        { "value": "money problems", "language": "en" },
+        { "value": "schuldhulpverlening", "language": "nl" },
+        { "value": "juridische hulp", "language": "nl" },
+        { "value": "помощь с долгами", "language": "ru" },
+        { "value": "юридическая помощь", "language": "ru" }
+      ]
+    },
+    {
+      "id": "mental-health",
+      "acceptedCategorySlugs": ["healthcare"],
+      "queries": [
+        { "value": "mental health support", "language": "en" },
+        { "value": "psychologist", "language": "en" },
+        { "value": "mentale gezondheid", "language": "nl" },
+        { "value": "psycholoog", "language": "nl" },
+        { "value": "психолог", "language": "ru" },
+        { "value": "психическое здоровье", "language": "ru" }
+      ]
+    },
+    {
+      "id": "dental-care",
+      "acceptedCategorySlugs": ["healthcare"],
+      "queries": [
+        { "value": "find a dentist", "language": "en" },
+        { "value": "emergency dentist", "language": "en" },
+        { "value": "tandarts", "language": "nl" },
+        { "value": "spoedtandarts", "language": "nl" },
+        { "value": "стоматолог", "language": "ru" },
+        { "value": "зубная боль", "language": "ru" }
+      ]
+    },
+    {
+      "id": "medicines",
+      "acceptedCategorySlugs": ["healthcare"],
+      "queries": [
+        { "value": "medicine", "language": "en" },
+        { "value": "patient leaflet", "language": "en" },
+        { "value": "recept", "language": "nl" },
+        { "value": "apotheek", "language": "nl" },
+        { "value": "лекарство", "language": "ru" },
+        { "value": "инструкция к лекарству", "language": "ru" }
+      ]
+    },
+    {
+      "id": "pregnancy",
+      "acceptedCategorySlugs": ["family"],
+      "queries": [
+        { "value": "pregnancy", "language": "en" },
+        { "value": "maternity care", "language": "en" },
+        { "value": "verloskundige", "language": "nl" },
+        { "value": "kraamzorg", "language": "nl" },
+        { "value": "беременность", "language": "ru" },
+        { "value": "родовспоможение", "language": "ru" }
+      ]
+    },
+    {
+      "id": "business-zzp",
+      "acceptedCategorySlugs": ["business"],
+      "queries": [
+        { "value": "start a business ZZP KVK", "language": "en" },
+        { "value": "open a company", "language": "en" },
+        { "value": "bedrijf starten zzp", "language": "nl" },
+        { "value": "inschrijven KVK", "language": "nl" },
+        { "value": "открыть бизнес ZZP", "language": "ru" },
+        { "value": "регистрация KVK", "language": "ru" }
+      ]
     }
   ],
   "typoCases": [
@@ -211,7 +307,15 @@
     { "query": "tax retrn", "acceptedCategorySlugs": ["taxes"] },
     { "query": "toeslaen", "acceptedCategorySlugs": ["benefits"] },
     { "query": "buy bicicle", "acceptedCategorySlugs": ["transport"] },
-    { "query": "imigration", "acceptedCategorySlugs": ["integration"] }
+    { "query": "imigration", "acceptedCategorySlugs": ["integration"] },
+    { "query": "utillities", "acceptedCategorySlugs": ["utilities"] },
+    { "query": "consummer rights", "acceptedCategorySlugs": ["shopping"] },
+    { "query": "debt hellp", "acceptedCategorySlugs": ["legal-help"] },
+    { "query": "mental helth", "acceptedCategorySlugs": ["healthcare"] },
+    { "query": "dentst", "acceptedCategorySlugs": ["healthcare"] },
+    { "query": "presciption medicine", "acceptedCategorySlugs": ["healthcare"] },
+    { "query": "pregnacy midwife", "acceptedCategorySlugs": ["family"] },
+    { "query": "start busines zzp", "acceptedCategorySlugs": ["business"] }
   ],
   "cityAliasCases": [
     {

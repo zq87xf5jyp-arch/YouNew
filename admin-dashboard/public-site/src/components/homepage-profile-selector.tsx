@@ -16,7 +16,7 @@ const profiles = [
     label: "Tourist",
     description: "Transport, short-stay rules and urgent-help routes for a visit.",
     icon: Plane,
-    tasks: [{ id: "transport", label: "Plan transport" }, { id: "urgent-help", label: "Prepare urgent help" }]
+    tasks: [{ id: "transport", label: "Plan transport" }, { id: "consumer-legal", label: "Know consumer rights" }, { id: "urgent-help", label: "Prepare urgent help" }]
   },
   {
     id: "student",
@@ -24,7 +24,7 @@ const profiles = [
     label: "Student",
     description: "Study, registration, housing and everyday setup.",
     icon: GraduationCap,
-    tasks: [{ id: "study", label: "Start studying" }, { id: "housing", label: "Find housing" }]
+    tasks: [{ id: "study", label: "Start studying" }, { id: "housing", label: "Find housing" }, { id: "health-wellbeing", label: "Find health support" }]
   },
   {
     id: "expat",
@@ -32,7 +32,7 @@ const profiles = [
     label: "Expat",
     description: "Registration, housing, work and responsible local services.",
     icon: Building2,
-    tasks: [{ id: "registration", label: "Start registration" }, { id: "work", label: "Start work" }]
+    tasks: [{ id: "registration", label: "Start registration" }, { id: "utilities-moving", label: "Arrange utilities" }, { id: "work", label: "Start work" }]
   },
   {
     id: "refugee",
@@ -40,7 +40,7 @@ const profiles = [
     label: "Refugee",
     description: "Status-aware starting points, safety and published support.",
     icon: Users,
-    tasks: [{ id: "registration", label: "Check registration" }, { id: "urgent-help", label: "Open urgent help" }]
+    tasks: [{ id: "registration", label: "Check registration" }, { id: "consumer-legal", label: "Find rights support" }, { id: "urgent-help", label: "Open urgent help" }]
   },
   {
     id: "worker",
@@ -48,7 +48,7 @@ const profiles = [
     label: "Worker",
     description: "Employment, tax, banking, insurance and benefits.",
     icon: BriefcaseBusiness,
-    tasks: [{ id: "work", label: "Start work" }, { id: "taxes-benefits", label: "Check taxes & benefits" }]
+    tasks: [{ id: "work", label: "Start work" }, { id: "taxes-benefits", label: "Check taxes & benefits" }, { id: "business", label: "Start a business" }]
   },
   {
     id: "resident",
@@ -56,7 +56,7 @@ const profiles = [
     label: "Resident",
     description: "Healthcare, housing and recurring tasks for daily life.",
     icon: Home,
-    tasks: [{ id: "health-insurance", label: "Arrange healthcare" }, { id: "housing", label: "Review housing" }]
+    tasks: [{ id: "health-insurance", label: "Arrange healthcare" }, { id: "utilities-moving", label: "Manage utilities" }, { id: "housing", label: "Review housing" }]
   }
 ] as const satisfies readonly Readonly<{
   id: UserPathProfile;

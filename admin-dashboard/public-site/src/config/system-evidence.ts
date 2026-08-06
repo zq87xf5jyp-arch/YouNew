@@ -1,12 +1,12 @@
 export const systemEvidence = {
-  asOf: "2026-08-01",
-  posture: "Working ecosystem · controlled release candidate",
+  asOf: "2026-08-06",
+  posture: "Production available · release candidate locally verified",
   metrics: {
-    staticRoutes: 581,
-    indexableUrls: 571,
-    publishedRecords: 182,
-    passingWebAdminAiTests: 129,
-    freshnessPercent: 97.8
+    staticRoutes: 626,
+    indexableUrls: 616,
+    publishedRecords: 204,
+    passingWebAdminAiTests: 148,
+    freshnessPercent: 98
   },
   surfaces: [
     {

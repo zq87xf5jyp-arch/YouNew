@@ -60,6 +60,36 @@ const guides: readonly PlannerGuideRoute[] = [
     route: "/essentials/taxes-and-income-tax-return/",
     title: "Taxes and income tax returns",
     contentDepth: "practical"
+  },
+  {
+    id: "national.utilities-moving",
+    route: "/essentials/utilities-and-moving-home/",
+    title: "Utilities and moving home",
+    contentDepth: "practical"
+  },
+  {
+    id: "national.consumer-rights",
+    route: "/essentials/consumer-rights-scams-and-complaints/",
+    title: "Consumer rights, scams and complaints",
+    contentDepth: "practical"
+  },
+  {
+    id: "national.mental-health",
+    route: "/essentials/mental-health-and-crisis-support/",
+    title: "Mental health and crisis support",
+    contentDepth: "practical"
+  },
+  {
+    id: "national.pregnancy",
+    route: "/essentials/pregnancy-midwife-and-maternity-care/",
+    title: "Pregnancy, midwife and maternity care",
+    contentDepth: "practical"
+  },
+  {
+    id: "national.business-zzp",
+    route: "/essentials/starting-a-business-and-zzp/",
+    title: "Starting a business and working as a ZZP'er",
+    contentDepth: "practical"
   }
 ];
 
@@ -99,6 +129,23 @@ test("planner routes published national topics to practical guides", () => {
   ]);
   assert.ok(actions.every((action) => !action.external));
   assert.ok(actions.every((action) => action.href.startsWith("/essentials/")));
+});
+
+test("planner exposes new household, rights, wellbeing, family and business routes", () => {
+  const actions = buildPlannerActions({
+    profile: "resident",
+    municipality: rotterdam,
+    goalIds: ["utilities-moving", "consumer-legal", "health-wellbeing", "pregnancy-family", "business"],
+    guides
+  });
+  assert.deepEqual(actions.map((action) => action.href), [
+    "/essentials/utilities-and-moving-home/",
+    "/essentials/consumer-rights-scams-and-complaints/",
+    "/essentials/mental-health-and-crisis-support/",
+    "/essentials/pregnancy-midwife-and-maternity-care/",
+    "/essentials/starting-a-business-and-zzp/"
+  ]);
+  assert.ok(actions.every((action) => action.status === "Practical guide"));
 });
 
 test("planner keeps emergency guidance inside the dedicated YouNew route", () => {

@@ -29,7 +29,7 @@ export function SystemEvidence({ compact = false }: { compact?: boolean }) {
     [systemEvidence.metrics.publishedRecords, "published records"],
     [systemEvidence.metrics.staticRoutes, "static routes"],
     [systemEvidence.metrics.indexableUrls, "indexable URLs"],
-    [systemEvidence.metrics.passingWebAdminAiTests, "passing web, Admin and AI tests"]
+    [systemEvidence.metrics.passingWebAdminAiTests, "passing public-web tests"]
   ] as const;
 
   return (

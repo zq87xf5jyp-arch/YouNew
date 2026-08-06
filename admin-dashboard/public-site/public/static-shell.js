@@ -443,32 +443,32 @@
     tourist: {
       label: "Tourist",
       plannerProfile: "tourist",
-      tasks: [["Plan transport", "transport"], ["Prepare urgent help", "urgent-help"]]
+      tasks: [["Plan transport", "transport"], ["Know consumer rights", "consumer-legal"], ["Prepare urgent help", "urgent-help"]]
     },
     student: {
       label: "Student",
       plannerProfile: "student",
-      tasks: [["Start studying", "study"], ["Find housing", "housing"]]
+      tasks: [["Start studying", "study"], ["Find housing", "housing"], ["Find health support", "health-wellbeing"]]
     },
     expat: {
       label: "Expat",
       plannerProfile: "expat",
-      tasks: [["Start registration", "registration"], ["Start work", "work"]]
+      tasks: [["Start registration", "registration"], ["Arrange utilities", "utilities-moving"], ["Start work", "work"]]
     },
     refugee: {
       label: "Refugee",
       plannerProfile: "refugee",
-      tasks: [["Check registration", "registration"], ["Open urgent help", "urgent-help"]]
+      tasks: [["Check registration", "registration"], ["Find rights support", "consumer-legal"], ["Open urgent help", "urgent-help"]]
     },
     worker: {
       label: "Worker",
       plannerProfile: "worker",
-      tasks: [["Start work", "work"], ["Check taxes & benefits", "taxes-benefits"]]
+      tasks: [["Start work", "work"], ["Check taxes & benefits", "taxes-benefits"], ["Start a business", "business"]]
     },
     resident: {
       label: "Resident",
       plannerProfile: "resident",
-      tasks: [["Arrange healthcare", "health-insurance"], ["Review housing", "housing"]]
+      tasks: [["Arrange healthcare", "health-insurance"], ["Manage utilities", "utilities-moving"], ["Review housing", "housing"]]
     }
   };
 

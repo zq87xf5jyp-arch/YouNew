@@ -5,6 +5,7 @@ import { ContentMedia, preferredMedia } from "@/components/content-media";
 import { PageShell } from "@/components/page-shell";
 import statusSnapshot from "@/config/status.json";
 import { getPublicContent } from "@/lib/content";
+import { getNationalGuides, nationalGuidesVerifiedAt } from "@/lib/search/national-guides";
 import { metadataForPage } from "@/lib/seo/metadata";
 
 export const metadata = metadataForPage(
@@ -26,6 +27,19 @@ function humanDate(value: string) {
 
 export default function UpdatesPage() {
   const content = getPublicContent();
+  const nationalGuides = getNationalGuides();
+  const nationalReleaseDate = nationalGuidesVerifiedAt();
+  const expandedGuideIds = new Set([
+    "national.utilities-moving",
+    "national.consumer-rights",
+    "national.debt-legal-help",
+    "national.mental-health",
+    "national.dental-care",
+    "national.medicines",
+    "national.pregnancy",
+    "national.business-zzp"
+  ]);
+  const expandedGuides = nationalGuides.filter((guide) => expandedGuideIds.has(guide.id));
   const amsterdamReleaseId = content.publishedReleaseIds.find((releaseId) => releaseId.startsWith("amsterdam-v"));
   const amsterdamEntities = content.entities.filter((entity) => entity.releaseId === amsterdamReleaseId);
   const releaseDate = amsterdamEntities.reduce(
@@ -51,6 +65,23 @@ export default function UpdatesPage() {
       </section>
 
       <main className="section-shell updates-layout">
+        <section className="updates-release updates-national-release" aria-labelledby="national-release-title">
+          <header>
+            <time dateTime={nationalReleaseDate}><CalendarDays aria-hidden /> {humanDate(nationalReleaseDate)}</time>
+            <h2 id="national-release-title">Eight practical routes added</h2>
+            <p>Utilities, consumer rights, debt and legal help, mental health, dentistry, medicines, pregnancy and self-employment now have complete national starting guides with responsible-source links.</p>
+          </header>
+          <nav className="updates-guide-list" aria-label="New national guides">
+            {expandedGuides.map((guide) => (
+              <Link href={`/essentials/${guide.slug}/`} key={guide.id}>
+                <span><strong>{guide.title}</strong><small>{guide.summary}</small></span>
+                <ArrowRight aria-hidden />
+              </Link>
+            ))}
+          </nav>
+          <Link className="updates-more" href="/guides">Browse all {nationalGuides.length} national guides <ArrowRight aria-hidden /></Link>
+        </section>
+
         <section className="updates-release" aria-labelledby="release-title">
           <header>
             <time dateTime={releaseDate}><CalendarDays aria-hidden /> {humanDate(releaseDate)}</time>

@@ -47,7 +47,7 @@ test("homepage keeps the branded hero in every responsive theme state", () => {
   assert.match(globalCss, /html\[data-theme="light"\] \.product-vision-home \.site-header/);
   assert.match(globalCss, /html\[data-theme="dark"\] \.product-vision-home \.vision-hero \{ background-color:#02091a; \}/);
   assert.doesNotMatch(homepage, /vision-hero-media/);
-  assert.match(homepage, /placeholder="For example: housing in Leiden"/);
+  assert.match(homepage, /placeholder="For example: I need housing in Leiden"/);
 });
 
 test("homepage continues the branded visual system below the hero", () => {
@@ -57,7 +57,7 @@ test("homepage continues the branded visual system below the hero", () => {
   assert.match(globalCss, /\.product-vision-home \{[\s\S]*?--vision-ink:#f7fbff/);
   assert.match(globalCss, /\.vision-needs \{[\s\S]*?radial-gradient/);
   assert.match(globalCss, /\.vision-city-rail article \{[\s\S]*?scroll-snap-align:start/);
-  assert.match(globalCss, /\.vision-campaign-state \{[\s\S]*?border-color:rgba\(102,205,221/);
+  assert.match(globalCss, /\.vision-naruto-tip \{[\s\S]*?border:1px solid rgba\(102,205,221/);
   assert.match(globalCss, /html\[data-theme="light"\] \.product-vision-home \.vision-needs/);
   assert.match(globalCss, /html\[data-theme="dark"\] \.product-vision-home \.vision-needs/);
   assert.match(globalCss, /@media \(max-width:760px\)[\s\S]*?\.vision-task-grid \{ grid-template-columns:1fr; \}/);
@@ -90,11 +90,11 @@ test("curated source truth also drives metadata and Article JSON-LD", () => {
 });
 
 test("operational evidence stays off the user-first homepage", () => {
-  assert.match(systemEvidence, /publishedRecords:\s*182/);
-  assert.match(systemEvidence, /staticRoutes:\s*581/);
-  assert.match(systemEvidence, /indexableUrls:\s*571/);
-  assert.match(systemEvidence, /passingWebAdminAiTests:\s*129/);
-  assert.match(homepage, /<time dateTime=\{guide\.updatedAt\}>/);
-  assert.match(homepage, /Recently checked additions from the published content snapshot\./);
+  assert.match(systemEvidence, /publishedRecords:\s*204/);
+  assert.match(systemEvidence, /staticRoutes:\s*626/);
+  assert.match(systemEvidence, /indexableUrls:\s*616/);
+  assert.match(systemEvidence, /passingWebAdminAiTests:\s*148/);
+  assert.match(homepage, /<time dateTime=\{nationalVerifiedAt\}>/);
+  assert.match(homepage, /Three recently checked national additions\./);
   assert.doesNotMatch(homepage, /SystemEvidence|staticRoutes|passingWebAdminAiTests|Supabase|controlled release candidate/i);
 });

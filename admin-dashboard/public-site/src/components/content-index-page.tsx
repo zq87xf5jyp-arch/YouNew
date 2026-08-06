@@ -41,6 +41,7 @@ export function ContentIndexPage({
   description,
   entities,
   datasetNote,
+  preShowcase,
   context,
   featuredId
 }: {
@@ -48,6 +49,7 @@ export function ContentIndexPage({
   description: string;
   entities: readonly ContentEntity[];
   datasetNote?: ReactNode;
+  preShowcase?: ReactNode;
   context?: ReactNode;
   featuredId?: string;
 }) {
@@ -73,6 +75,8 @@ export function ContentIndexPage({
           {datasetNote ?? <><strong>{entities.length}</strong> published item{entities.length === 1 ? "" : "s"} · English reviewed content · source dates shown on every detail page</>}
         </div>
       </section>
+
+      {preShowcase}
 
       {featured ? (
         <section className="section-shell content-index-showcase" aria-labelledby="featured-content-title">

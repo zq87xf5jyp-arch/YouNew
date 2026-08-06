@@ -10240,7 +10240,7 @@
       "verifiedAt": "2026-08-06",
       "officialSourceUrls": [
         "https://www.government.nl/themes/building-and-housing/housing/rented-housing",
-        "https://www.huurcommissie.nl/huurcommissie-helpt/english-information"
+        "https://www.huurcommissie.nl/support/rent-check/rent-check-self-contained"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "private-rent",
@@ -12382,6 +12382,1209 @@
       "commonQuestions": []
     },
     {
+      "id": "national.utilities-moving",
+      "type": "guide",
+      "sourceKind": "nationalResourceGuide",
+      "slug": "utilities-and-moving-home",
+      "route": "/essentials/utilities-and-moving-home",
+      "title": "Utilities and moving home",
+      "summary": "A national route for reporting a move, arranging electricity, gas, water and internet, recording meter readings and checking local waste services.",
+      "contentDepth": "practical",
+      "keywords": [
+        "ACM ConsuWijzer",
+        "energy supplier",
+        "drinking water company",
+        "BRP",
+        "municipality waste calendar",
+        "final bill",
+        "moving-home",
+        "change-of-address",
+        "electricity",
+        "gas",
+        "water",
+        "meter-readings",
+        "internet",
+        "waste",
+        "municipal-taxes"
+      ],
+      "city": null,
+      "cityId": null,
+      "province": null,
+      "provinceId": null,
+      "municipalityId": null,
+      "locationScope": "national",
+      "country": "NL",
+      "categories": [
+        "utilities"
+      ],
+      "intents": [
+        "utilities",
+        "documents",
+        "housing",
+        "daily-life",
+        "internet",
+        "municipal-services"
+      ],
+      "languages": [
+        "en"
+      ],
+      "nationalFallback": true,
+      "qualityScore": 93,
+      "verifiedAt": "2026-08-06",
+      "officialSourceUrls": [
+        "https://www.government.nl/faq/how-do-i-inform-the-municipality-of-a-change-of-address",
+        "https://consument.acm.nl/elektriciteit-en-gas/overstappen-vergelijken-en-verhuizen/energiecontract-bij-verhuizen",
+        "https://www.government.nl/themes/nature-and-the-environment/water-management/connecting-water-supply-at-home"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "moving-home",
+      "organization": "Government of the Netherlands, ACM ConsuWijzer, Government of the Netherlands",
+      "audienceProfiles": [
+        "student",
+        "expat",
+        "refugee",
+        "worker",
+        "resident"
+      ],
+      "numberedSteps": [
+        "Record the old and new address, key dates, contract holders and which services are included in the tenancy.",
+        "Report the address change through the official municipality route and keep the confirmation.",
+        "Contact the current energy supplier and check whether the contract moves, ends or is replaced; record dated electricity and gas meter readings when required.",
+        "Identify the drinking-water company for the new address, register or transfer the account and record the water meter reading when required.",
+        "Arrange internet separately and check the municipality for waste collection, permits, parking and local tax information.",
+        "Keep handover photographs, readings, confirmations and final bills until every old and new account is reconciled."
+      ],
+      "requiredDocuments": [
+        "Keep identification, proof of occupancy, tenancy or purchase documents, meter numbers and readings, provider contracts, handover photographs and official confirmations. Use the exact municipality or provider checklist for additional evidence."
+      ],
+      "checklist": [
+        "Record the old and new address, key dates, contract holders and which services are included in the tenancy.",
+        "Report the address change through the official municipality route and keep the confirmation.",
+        "Contact the current energy supplier and check whether the contract moves, ends or is replaced; record dated electricity and gas meter readings when required.",
+        "Identify the drinking-water company for the new address, register or transfer the account and record the water meter reading when required.",
+        "Arrange internet separately and check the municipality for waste collection, permits, parking and local tax information.",
+        "Keep handover photographs, readings, confirmations and final bills until every old and new account is reconciled."
+      ],
+      "tips": [
+        "Energy suppliers are commercial, drinking-water companies serve defined regions, and waste, parking and local taxes are municipal. City selection adds the responsible municipality without hiding this national checklist."
+      ],
+      "faqAnswers": [
+        "Connection, contract, cancellation and local charges vary by address and provider. YouNew does not reproduce tariffs or rank commercial suppliers.",
+        "Move notifications and provider handovers can be time-sensitive. Check each official route before the moving date and use the date on your contract or confirmation.",
+        "If a meter reading or final bill is wrong, contact the provider in writing and keep the reading evidence.",
+        "If essential supply may be disconnected because of debt, contact the provider and municipality debt-help route promptly.",
+        "If a service is included in rent, ask the landlord or housing provider for the written allocation and settlement."
+      ],
+      "whenYouNeedIt": [
+        "Use this route when moving into, within or out of the Netherlands, taking over a home, changing providers or preparing the handover of an old address."
+      ],
+      "tags": [
+        "moving-home",
+        "change-of-address",
+        "electricity",
+        "gas",
+        "water",
+        "meter-readings",
+        "internet",
+        "waste",
+        "municipal-taxes",
+        "housing",
+        "documents",
+        "internet",
+        "consumer-rights",
+        "debt-help"
+      ],
+      "synonyms": [
+        "utilities",
+        "moving home",
+        "move house",
+        "electricity contract",
+        "gas contract",
+        "water company",
+        "meter readings",
+        "waste collection",
+        "change utilities",
+        "nutsvoorzieningen",
+        "verhuizen",
+        "energiecontract",
+        "elektriciteit",
+        "gas",
+        "waterbedrijf",
+        "meterstanden",
+        "afvalinzameling",
+        "коммунальные услуги",
+        "переезд",
+        "электричество",
+        "газ",
+        "водоснабжение",
+        "показания счётчика",
+        "вывоз мусора",
+        "сменить адрес"
+      ],
+      "officialOrganizationNames": [
+        "Government of the Netherlands",
+        "ACM ConsuWijzer",
+        "Government of the Netherlands"
+      ],
+      "terminology": [
+        "moving-home",
+        "change-of-address",
+        "electricity",
+        "gas",
+        "water",
+        "meter-readings",
+        "internet",
+        "waste",
+        "municipal-taxes"
+      ],
+      "commonQuestions": []
+    },
+    {
+      "id": "national.consumer-rights",
+      "type": "guide",
+      "sourceKind": "nationalResourceGuide",
+      "slug": "consumer-rights-scams-and-complaints",
+      "route": "/essentials/consumer-rights-scams-and-complaints",
+      "title": "Consumer rights, scams and complaints",
+      "summary": "A national route for purchases, subscriptions, misleading sales, online scams, evidence and the correct complaint or reporting channel.",
+      "contentDepth": "practical",
+      "keywords": [
+        "ACM ConsuWijzer",
+        "cooling-off period",
+        "subscription",
+        "statutory guarantee",
+        "internet fraud",
+        "police report",
+        "consumer-rights",
+        "online-shopping",
+        "subscriptions",
+        "cancellation",
+        "warranty",
+        "misleading-sales",
+        "scams",
+        "complaints"
+      ],
+      "city": null,
+      "cityId": null,
+      "province": null,
+      "provinceId": null,
+      "municipalityId": null,
+      "locationScope": "national",
+      "country": "NL",
+      "categories": [
+        "shopping"
+      ],
+      "intents": [
+        "shopping",
+        "legal-help",
+        "safety",
+        "daily-life",
+        "telecom",
+        "utilities"
+      ],
+      "languages": [
+        "en"
+      ],
+      "nationalFallback": true,
+      "qualityScore": 93,
+      "verifiedAt": "2026-08-06",
+      "officialSourceUrls": [
+        "https://consument.acm.nl/aankoop-dienst-annuleren",
+        "https://consument.acm.nl/misleidende-verkoop/wat-kan-ik-doen",
+        "https://www.politie.nl/en/topics/report-a-crime.html"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "consumer-rights",
+      "organization": "ACM ConsuWijzer, ACM ConsuWijzer, Netherlands Police",
+      "audienceProfiles": [
+        "tourist",
+        "student",
+        "expat",
+        "refugee",
+        "worker",
+        "resident"
+      ],
+      "numberedSteps": [
+        "Identify the seller, contract, payment method, purchase date and exact problem.",
+        "Save the offer, terms, order confirmation, invoice, payment evidence, messages, screenshots and delivery information.",
+        "Use ACM ConsuWijzer to check the consumer route that matches the purchase or subscription instead of relying on a generic return rule.",
+        "Contact the seller or provider in writing, state the requested solution and keep proof of delivery and response.",
+        "If the issue is unresolved, use the responsible dispute, legal-help or regulator route; for suspected crime use the police reporting route.",
+        "Contact the payment provider or bank promptly if payment credentials or unauthorised transactions may be involved."
+      ],
+      "requiredDocuments": [
+        "Keep the contract or order, terms shown at purchase, invoices, receipts, payment and delivery records, cancellation or complaint messages, screenshots and the company identity or website."
+      ],
+      "checklist": [
+        "Identify the seller, contract, payment method, purchase date and exact problem.",
+        "Save the offer, terms, order confirmation, invoice, payment evidence, messages, screenshots and delivery information.",
+        "Use ACM ConsuWijzer to check the consumer route that matches the purchase or subscription instead of relying on a generic return rule.",
+        "Contact the seller or provider in writing, state the requested solution and keep proof of delivery and response.",
+        "If the issue is unresolved, use the responsible dispute, legal-help or regulator route; for suspected crime use the police reporting route.",
+        "Contact the payment provider or bank promptly if payment credentials or unauthorised transactions may be involved."
+      ],
+      "tips": [
+        "Most consumer rules and national reporting routes apply across the Netherlands. Municipal legal desks or social advisers can add local help but do not replace the national route."
+      ],
+      "faqAnswers": [
+        "Official consumer information is free. Dispute, legal and payment-recovery routes can have different costs or conditions; verify them before starting.",
+        "Cancellation, warranty, chargeback, complaint and reporting periods depend on the situation. Check the dated official guidance as soon as the problem is discovered.",
+        "Stop further payments or contact the payment provider when credentials may be compromised, but do not destroy transaction evidence.",
+        "Report suspected internet fraud through the appropriate police route and keep the report reference.",
+        "For a civil disagreement, use consumer or legal guidance before threatening criminal action."
+      ],
+      "whenYouNeedIt": [
+        "Use this route when a product or service is defective, missing or different from the offer, when you want to cancel, or when you suspect deceptive sales or online fraud."
+      ],
+      "tags": [
+        "consumer-rights",
+        "online-shopping",
+        "subscriptions",
+        "cancellation",
+        "warranty",
+        "misleading-sales",
+        "scams",
+        "complaints",
+        "legal-help",
+        "debt-help",
+        "banking",
+        "telecom",
+        "utilities"
+      ],
+      "synonyms": [
+        "consumer rights",
+        "online purchase",
+        "return a purchase",
+        "cancel subscription",
+        "warranty",
+        "complaint company",
+        "scam",
+        "fraud",
+        "misleading sale",
+        "consumentenrecht",
+        "online aankoop",
+        "aankoop terugsturen",
+        "abonnement opzeggen",
+        "garantie",
+        "klacht bedrijf",
+        "oplichting",
+        "misleidende verkoop",
+        "права потребителя",
+        "вернуть покупку",
+        "отменить подписку",
+        "гарантия",
+        "жалоба на компанию",
+        "мошенничество",
+        "обман при продаже"
+      ],
+      "officialOrganizationNames": [
+        "ACM ConsuWijzer",
+        "ACM ConsuWijzer",
+        "Netherlands Police"
+      ],
+      "terminology": [
+        "consumer-rights",
+        "online-shopping",
+        "subscriptions",
+        "cancellation",
+        "warranty",
+        "misleading-sales",
+        "scams",
+        "complaints"
+      ],
+      "commonQuestions": []
+    },
+    {
+      "id": "national.debt-legal-help",
+      "type": "guide",
+      "sourceKind": "nationalResourceGuide",
+      "slug": "debt-money-problems-and-legal-help",
+      "route": "/essentials/debt-money-problems-and-legal-help",
+      "title": "Debt, money problems and legal help",
+      "summary": "A national starting route for urgent bills, municipal debt assistance, free legal information and formal decisions without giving personal legal advice.",
+      "contentDepth": "practical",
+      "keywords": [
+        "municipality debt assistance",
+        "Juridisch Loket",
+        "Sociaal Raadslieden",
+        "payment arrangement",
+        "objection",
+        "legal aid",
+        "debt-help",
+        "money-problems",
+        "municipal-debt-assistance",
+        "legal-information",
+        "legal-aid",
+        "objections",
+        "social-advisers"
+      ],
+      "city": null,
+      "cityId": null,
+      "province": null,
+      "provinceId": null,
+      "municipalityId": null,
+      "locationScope": "national",
+      "country": "NL",
+      "categories": [
+        "legal-help"
+      ],
+      "intents": [
+        "legal-help",
+        "benefits",
+        "banking",
+        "housing",
+        "utilities",
+        "municipal-services"
+      ],
+      "languages": [
+        "en"
+      ],
+      "nationalFallback": true,
+      "qualityScore": 94,
+      "verifiedAt": "2026-08-06",
+      "officialSourceUrls": [
+        "https://www.rijksoverheid.nl/vraag-en-antwoord/schulden/schuldhulpverlening-aanvragen",
+        "https://www.rijksoverheid.nl/vraag-en-antwoord/bescherming-van-consumenten/waar-kan-ik-terecht-voor-hulp-bij-een-juridisch-probleem-of-conflict",
+        "https://www.juridischloket.nl/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "debt-help",
+      "organization": "Government of the Netherlands, Government of the Netherlands, Juridisch Loket",
+      "audienceProfiles": [
+        "student",
+        "expat",
+        "refugee",
+        "worker",
+        "resident"
+      ],
+      "numberedSteps": [
+        "Open every official letter and list the issuer, amount or decision, reference, response route and date.",
+        "Create a private overview of income, essential costs, debts, creditors and current payment arrangements; do not upload it to YouNew.",
+        "Contact the creditor or responsible authority through its official channel and ask what formal options exist.",
+        "Contact the municipality for debt assistance when payments are no longer manageable or essential housing, energy or water is at risk.",
+        "Use the Government and Juridisch Loket routes to identify the right legal-information, objection, mediation or legal-aid path.",
+        "Keep confirmations and ask a qualified professional to review case-specific rights, deadlines or documents."
+      ],
+      "requiredDocuments": [
+        "Keep official letters and decisions, contracts, invoices, account and payment records, income and essential-cost information, correspondence and any existing arrangement. Share sensitive records only with the verified responsible service."
+      ],
+      "checklist": [
+        "Open every official letter and list the issuer, amount or decision, reference, response route and date.",
+        "Create a private overview of income, essential costs, debts, creditors and current payment arrangements; do not upload it to YouNew.",
+        "Contact the creditor or responsible authority through its official channel and ask what formal options exist.",
+        "Contact the municipality for debt assistance when payments are no longer manageable or essential housing, energy or water is at risk.",
+        "Use the Government and Juridisch Loket routes to identify the right legal-information, objection, mediation or legal-aid path.",
+        "Keep confirmations and ask a qualified professional to review case-specific rights, deadlines or documents."
+      ],
+      "tips": [
+        "Municipal debt assistance and social-adviser availability differ locally. National legal-information and formal decision routes remain visible for every municipality."
+      ],
+      "faqAnswers": [
+        "Municipal and first-line help may be free, while professional representation can depend on income, assets, eligibility and the case. Verify the terms before agreeing to a paid service.",
+        "Formal notices and decisions can carry strict dates. Use the date and route printed on the official document and seek help promptly when essential services or housing are threatened.",
+        "If eviction or essential-service disconnection is threatened, identify the urgent municipal debt-help route immediately.",
+        "If you disagree with a government decision, use the formal objection information on that decision rather than a general contact form.",
+        "If a legal adviser asks for sensitive data or payment, verify the organisation and engagement terms first."
+      ],
+      "whenYouNeedIt": [
+        "Use this route when bills are becoming unmanageable, a creditor or authority has sent a formal notice, or you need reliable legal information about work, housing, benefits, taxes or a purchase."
+      ],
+      "tags": [
+        "debt-help",
+        "money-problems",
+        "municipal-debt-assistance",
+        "legal-information",
+        "legal-aid",
+        "objections",
+        "social-advisers",
+        "consumer-rights",
+        "benefits",
+        "housing",
+        "utilities",
+        "taxes"
+      ],
+      "synonyms": [
+        "debt help",
+        "money problems",
+        "cannot pay bills",
+        "municipal debt assistance",
+        "legal help",
+        "legal advice",
+        "Juridisch Loket",
+        "social adviser",
+        "schuldhulp",
+        "geldzorgen",
+        "rekeningen niet betalen",
+        "schuldhulpverlening gemeente",
+        "juridische hulp",
+        "juridisch advies",
+        "Juridisch Loket",
+        "sociaal raadslieden",
+        "помощь с долгами",
+        "финансовые проблемы",
+        "не могу оплатить счета",
+        "муниципальная помощь с долгами",
+        "юридическая помощь",
+        "юридическая консультация"
+      ],
+      "officialOrganizationNames": [
+        "Government of the Netherlands",
+        "Government of the Netherlands",
+        "Juridisch Loket"
+      ],
+      "terminology": [
+        "debt-help",
+        "money-problems",
+        "municipal-debt-assistance",
+        "legal-information",
+        "legal-aid",
+        "objections",
+        "social-advisers"
+      ],
+      "commonQuestions": []
+    },
+    {
+      "id": "national.mental-health",
+      "type": "guide",
+      "sourceKind": "nationalResourceGuide",
+      "slug": "mental-health-and-crisis-support",
+      "route": "/essentials/mental-health-and-crisis-support",
+      "title": "Mental health and crisis support",
+      "summary": "A safe national route for routine mental-health support, GP referral, an acute crisis and suicidal thoughts, with emergency routes kept separate.",
+      "contentDepth": "practical",
+      "keywords": [
+        "huisarts",
+        "POH-GGZ",
+        "mental healthcare",
+        "crisis intervention team",
+        "113 Suicide Prevention",
+        "112",
+        "mental-health",
+        "gp-support",
+        "psychologist",
+        "ggz",
+        "referral",
+        "mental-health-crisis",
+        "suicide-prevention"
+      ],
+      "city": null,
+      "cityId": null,
+      "province": null,
+      "provinceId": null,
+      "municipalityId": null,
+      "locationScope": "national",
+      "country": "NL",
+      "categories": [
+        "healthcare"
+      ],
+      "intents": [
+        "healthcare",
+        "safety",
+        "emergency"
+      ],
+      "languages": [
+        "en"
+      ],
+      "nationalFallback": true,
+      "qualityScore": 95,
+      "verifiedAt": "2026-08-06",
+      "officialSourceUrls": [
+        "https://www.government.nl/faq/help-for-mental-health-problems",
+        "https://www.thuisarts.nl/dutch-healthcare/in-case-of-emergency",
+        "https://www.113.nl/english"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "mental-health",
+      "organization": "Government of the Netherlands, Thuisarts, 113 Suicide Prevention",
+      "audienceProfiles": [
+        "tourist",
+        "student",
+        "expat",
+        "refugee",
+        "worker",
+        "resident"
+      ],
+      "numberedSteps": [
+        "For immediate danger to life, call 112; do not wait for a website or routine appointment.",
+        "For suicidal thoughts without immediate danger, use 113 Suicide Prevention or its anonymous chat and involve a trusted person when possible.",
+        "For an acute mental-health crisis, contact the GP or out-of-hours GP service immediately so the local crisis team can be involved if needed.",
+        "For non-urgent concerns, contact the GP, company doctor or appropriate welfare professional and describe how the problem affects daily life.",
+        "Check the referral, provider and insurance route before non-emergency treatment and ask the insurer for care-finding help when necessary."
+      ],
+      "requiredDocuments": [
+        "A provider may ask for identification, insurance details, medication information and a referral. Do not delay urgent help while collecting documents."
+      ],
+      "checklist": [
+        "For immediate danger to life, call 112; do not wait for a website or routine appointment.",
+        "For suicidal thoughts without immediate danger, use 113 Suicide Prevention or its anonymous chat and involve a trusted person when possible.",
+        "For an acute mental-health crisis, contact the GP or out-of-hours GP service immediately so the local crisis team can be involved if needed.",
+        "For non-urgent concerns, contact the GP, company doctor or appropriate welfare professional and describe how the problem affects daily life.",
+        "Check the referral, provider and insurance route before non-emergency treatment and ask the insurer for care-finding help when necessary."
+      ],
+      "tips": [
+        "Providers, crisis teams and waiting times are local. The national GP, 113 and emergency routes remain visible regardless of city."
+      ],
+      "faqAnswers": [
+        "Coverage and personal costs depend on the provider, referral and policy. Confirm them with the insurer and provider; emergency safety takes priority over cost checking.",
+        "Urgent danger and crisis routes are immediate. Routine availability and waiting times vary; ask the GP and insurer about safe interim support when a wait is long.",
+        "If symptoms or risk escalate, move from the routine route to the GP, out-of-hours service or 112 as appropriate.",
+        "If a provider is unavailable, ask the referrer and insurer for the current care-finding route.",
+        "Do not share crisis details through an unverified chatbot or public form."
+      ],
+      "whenYouNeedIt": [
+        "Use this route if you want to discuss ongoing mental-health concerns, understand the Dutch referral path, help someone in crisis or find the correct urgent contact."
+      ],
+      "tags": [
+        "mental-health",
+        "gp-support",
+        "psychologist",
+        "ggz",
+        "referral",
+        "mental-health-crisis",
+        "suicide-prevention",
+        "healthcare",
+        "emergency",
+        "insurance",
+        "family"
+      ],
+      "synonyms": [
+        "mental health",
+        "psychologist",
+        "therapy",
+        "depression help",
+        "anxiety help",
+        "GGZ",
+        "mental health crisis",
+        "suicidal thoughts",
+        "113",
+        "mentale gezondheid",
+        "psycholoog",
+        "therapie",
+        "depressie hulp",
+        "angst hulp",
+        "ggz",
+        "psychische crisis",
+        "suïcidale gedachten",
+        "113",
+        "психическое здоровье",
+        "психолог",
+        "терапия",
+        "помощь при депрессии",
+        "тревога",
+        "психиатрическая помощь",
+        "кризис",
+        "суицидальные мысли",
+        "113"
+      ],
+      "officialOrganizationNames": [
+        "Government of the Netherlands",
+        "Thuisarts",
+        "113 Suicide Prevention"
+      ],
+      "terminology": [
+        "mental-health",
+        "gp-support",
+        "psychologist",
+        "ggz",
+        "referral",
+        "mental-health-crisis",
+        "suicide-prevention"
+      ],
+      "commonQuestions": []
+    },
+    {
+      "id": "national.dental-care",
+      "type": "guide",
+      "sourceKind": "nationalResourceGuide",
+      "slug": "dentist-and-dental-care",
+      "route": "/essentials/dentist-and-dental-care",
+      "title": "Dentist and dental care",
+      "summary": "A national route for finding a dentist, checking treatment and insurance terms, arranging care for children and responding to urgent dental problems.",
+      "contentDepth": "practical",
+      "keywords": [
+        "oral care",
+        "basic health insurance",
+        "supplementary insurance",
+        "KNMT",
+        "urgent dental care",
+        "dentist",
+        "dental-care",
+        "oral-care",
+        "dental-insurance",
+        "children-dental-care",
+        "dental-emergency"
+      ],
+      "city": null,
+      "cityId": null,
+      "province": null,
+      "provinceId": null,
+      "municipalityId": null,
+      "locationScope": "national",
+      "country": "NL",
+      "categories": [
+        "healthcare"
+      ],
+      "intents": [
+        "healthcare",
+        "insurance",
+        "family",
+        "emergency"
+      ],
+      "languages": [
+        "en"
+      ],
+      "nationalFallback": true,
+      "qualityScore": 92,
+      "verifiedAt": "2026-08-06",
+      "officialSourceUrls": [
+        "https://www.zorginstituutnederland.nl/verzekerde-zorg/m/mondzorg",
+        "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance",
+        "https://knmt.nl/praktijkzaken/regelen-rond-kwaliteit-en-klachten/opvang-tandheelkundige-spoedgevallen/beoordeling-van-spoed"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "dentist",
+      "organization": "National Health Care Institute, Government of the Netherlands, Royal Dutch Dental Association",
+      "audienceProfiles": [
+        "tourist",
+        "student",
+        "expat",
+        "refugee",
+        "worker",
+        "resident"
+      ],
+      "numberedSteps": [
+        "For severe injury, uncontrolled bleeding or immediate danger, use the urgent medical route and call 112 when life is at risk.",
+        "For an urgent dental problem, call your dentist or the practice's out-of-hours number; if you have no dentist, use the professional dentist-finder or local urgent route.",
+        "For routine care, ask a practice whether it accepts new patients and request its identification, intake and cancellation terms.",
+        "Before non-urgent treatment, ask for the proposed treatment and cost information and check the current insurance coverage directly.",
+        "Keep invoices, treatment plans and referral information for reimbursement or a complaint."
+      ],
+      "requiredDocuments": [
+        "A practice may request identification, BSN, insurance details, medication information and previous dental records. Confirm what is required before sending sensitive data."
+      ],
+      "checklist": [
+        "For severe injury, uncontrolled bleeding or immediate danger, use the urgent medical route and call 112 when life is at risk.",
+        "For an urgent dental problem, call your dentist or the practice's out-of-hours number; if you have no dentist, use the professional dentist-finder or local urgent route.",
+        "For routine care, ask a practice whether it accepts new patients and request its identification, intake and cancellation terms.",
+        "Before non-urgent treatment, ask for the proposed treatment and cost information and check the current insurance coverage directly.",
+        "Keep invoices, treatment plans and referral information for reimbursement or a complaint."
+      ],
+      "tips": [
+        "Dentist availability and out-of-hours arrangements are local. National coverage information and professional safety guidance remain available for every city."
+      ],
+      "faqAnswers": [
+        "Adult and child coverage differ, and routine adult dental care is often outside the standard package. Verify the policy and treatment proposal; YouNew does not quote fees.",
+        "Urgent pain, bleeding or injury should be triaged promptly. Routine waiting times and intake availability differ by practice.",
+        "Ask the dental provider to explain the treatment plan, invoice and complaint route in writing.",
+        "Check the insurer's contracted-care and reimbursement information before planned treatment.",
+        "Use the provider or out-of-hours triage route instead of self-assessing a serious injury."
+      ],
+      "whenYouNeedIt": [
+        "Use this route when looking for a dentist, planning treatment, checking a child's dental route, reviewing coverage or responding to pain, bleeding or dental injury."
+      ],
+      "tags": [
+        "dentist",
+        "dental-care",
+        "oral-care",
+        "dental-insurance",
+        "children-dental-care",
+        "dental-emergency",
+        "healthcare",
+        "insurance",
+        "family",
+        "emergency"
+      ],
+      "synonyms": [
+        "dentist",
+        "find a dentist",
+        "dental care",
+        "tooth pain",
+        "dental insurance",
+        "dentist child",
+        "emergency dentist",
+        "tandarts",
+        "tandarts zoeken",
+        "mondzorg",
+        "kiespijn",
+        "tandartsverzekering",
+        "tandarts kind",
+        "spoedtandarts",
+        "стоматолог",
+        "найти стоматолога",
+        "стоматология",
+        "зубная боль",
+        "стоматологическая страховка",
+        "детский стоматолог",
+        "экстренный стоматолог"
+      ],
+      "officialOrganizationNames": [
+        "National Health Care Institute",
+        "Government of the Netherlands",
+        "Royal Dutch Dental Association"
+      ],
+      "terminology": [
+        "dentist",
+        "dental-care",
+        "oral-care",
+        "dental-insurance",
+        "children-dental-care",
+        "dental-emergency"
+      ],
+      "commonQuestions": []
+    },
+    {
+      "id": "national.medicines",
+      "type": "guide",
+      "sourceKind": "nationalResourceGuide",
+      "slug": "medicines-prescriptions-and-pharmacies",
+      "route": "/essentials/medicines-prescriptions-and-pharmacies",
+      "title": "Medicines, prescriptions and pharmacies",
+      "summary": "A national route for prescriptions, pharmacies, patient leaflets, safe medicine information, shortages and questions about use or side effects.",
+      "contentDepth": "practical",
+      "keywords": [
+        "CBG Medicines Evaluation Board",
+        "Geneesmiddeleninformatiebank",
+        "Apotheek",
+        "patient information leaflet",
+        "Lareb",
+        "medicines",
+        "prescriptions",
+        "pharmacy",
+        "patient-leaflet",
+        "medicine-information",
+        "side-effects",
+        "medicine-shortage"
+      ],
+      "city": null,
+      "cityId": null,
+      "province": null,
+      "provinceId": null,
+      "municipalityId": null,
+      "locationScope": "national",
+      "country": "NL",
+      "categories": [
+        "healthcare"
+      ],
+      "intents": [
+        "healthcare",
+        "insurance",
+        "safety"
+      ],
+      "languages": [
+        "en"
+      ],
+      "nationalFallback": true,
+      "qualityScore": 94,
+      "verifiedAt": "2026-08-06",
+      "officialSourceUrls": [
+        "https://www.cbg-meb.nl/onderwerpen/goed-gebruik",
+        "https://www.cbg-meb.nl/onderwerpen/over-ons-ons-werk/over-cbg-samenwerking-in-nederland/npi",
+        "https://www.government.nl/themes/family-health-and-care/health-insurance"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "medicines",
+      "organization": "Medicines Evaluation Board, Medicines Evaluation Board, Government of the Netherlands",
+      "audienceProfiles": [
+        "tourist",
+        "student",
+        "expat",
+        "refugee",
+        "worker",
+        "resident"
+      ],
+      "numberedSteps": [
+        "For a severe reaction or immediate danger, call 112; for urgent medical advice contact the GP or out-of-hours GP service.",
+        "Use the prescriber or pharmacist for questions about whether and how to use, stop, combine or replace a medicine.",
+        "Use the CBG medicine information database for the official authorised product information and patient leaflet.",
+        "Check the pharmacy and insurer for dispensing, reimbursement and contracted-care details.",
+        "For a shortage or unavailable product, ask the pharmacist and prescriber about the responsible clinical route rather than changing treatment yourself."
+      ],
+      "requiredDocuments": [
+        "Bring identification, insurance and prescription information when requested, plus an up-to-date medicine and allergy list. Do not post prescriptions or medication details on a public form."
+      ],
+      "checklist": [
+        "For a severe reaction or immediate danger, call 112; for urgent medical advice contact the GP or out-of-hours GP service.",
+        "Use the prescriber or pharmacist for questions about whether and how to use, stop, combine or replace a medicine.",
+        "Use the CBG medicine information database for the official authorised product information and patient leaflet.",
+        "Check the pharmacy and insurer for dispensing, reimbursement and contracted-care details.",
+        "For a shortage or unavailable product, ask the pharmacist and prescriber about the responsible clinical route rather than changing treatment yourself."
+      ],
+      "tips": [
+        "Pharmacy opening hours, stock and local out-of-hours arrangements vary. Official medicine information and emergency routes are national."
+      ],
+      "faqAnswers": [
+        "Coverage, co-payments and pharmacy charges depend on the medicine, policy and dispensing route. Verify the current information with the insurer and pharmacy.",
+        "Urgent reactions require immediate clinical contact. Prescription validity, ordering and shortage timelines are product-specific and should be confirmed with the pharmacy.",
+        "If the name, strength, instructions or packaging differs from what you expected, contact the pharmacist before use.",
+        "Report suspected side effects through the responsible medical or national reporting route after seeking urgent care when needed.",
+        "Do not buy prescription medicines from an unverified website or seller."
+      ],
+      "whenYouNeedIt": [
+        "Use this route when you have a prescription, need a pharmacy, want the official leaflet, have a question about use or side effects, or face a supply problem."
+      ],
+      "tags": [
+        "medicines",
+        "prescriptions",
+        "pharmacy",
+        "patient-leaflet",
+        "medicine-information",
+        "side-effects",
+        "medicine-shortage",
+        "healthcare",
+        "insurance",
+        "emergency",
+        "pregnancy"
+      ],
+      "synonyms": [
+        "medicine",
+        "medication",
+        "prescription",
+        "pharmacy",
+        "chemist",
+        "patient leaflet",
+        "side effects",
+        "medicine shortage",
+        "medicijn",
+        "medicatie",
+        "recept",
+        "apotheek",
+        "bijsluiter",
+        "bijwerkingen",
+        "medicijntekort",
+        "лекарство",
+        "медикаменты",
+        "рецепт",
+        "аптека",
+        "инструкция к лекарству",
+        "побочные эффекты",
+        "дефицит лекарства"
+      ],
+      "officialOrganizationNames": [
+        "Medicines Evaluation Board",
+        "Medicines Evaluation Board",
+        "Government of the Netherlands"
+      ],
+      "terminology": [
+        "medicines",
+        "prescriptions",
+        "pharmacy",
+        "patient-leaflet",
+        "medicine-information",
+        "side-effects",
+        "medicine-shortage"
+      ],
+      "commonQuestions": []
+    },
+    {
+      "id": "national.pregnancy",
+      "type": "guide",
+      "sourceKind": "nationalResourceGuide",
+      "slug": "pregnancy-midwife-and-maternity-care",
+      "route": "/essentials/pregnancy-midwife-and-maternity-care",
+      "title": "Pregnancy, midwife and maternity care",
+      "summary": "A national starting route for contacting a midwife or doctor, prenatal screening, maternity care, insurance questions and urgent symptoms.",
+      "contentDepth": "practical",
+      "keywords": [
+        "verloskundige",
+        "gynaecologist",
+        "RIVM PNS",
+        "NIPT",
+        "maternity care",
+        "newborn screening",
+        "pregnancy",
+        "midwife",
+        "prenatal-care",
+        "prenatal-screening",
+        "maternity-care",
+        "childbirth",
+        "maternity-leave",
+        "newborn-screening"
+      ],
+      "city": null,
+      "cityId": null,
+      "province": null,
+      "provinceId": null,
+      "municipalityId": null,
+      "locationScope": "national",
+      "country": "NL",
+      "categories": [
+        "family"
+      ],
+      "intents": [
+        "family",
+        "healthcare",
+        "insurance",
+        "work",
+        "benefits"
+      ],
+      "languages": [
+        "en"
+      ],
+      "nationalFallback": true,
+      "qualityScore": 94,
+      "verifiedAt": "2026-08-06",
+      "officialSourceUrls": [
+        "https://www.pns.nl/en",
+        "https://www.pns.nl/en/multiple-languages",
+        "https://www.government.nl/themes/family-health-and-care/pregnancy-and-childbirth/applying-for-maternity-leave"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "pregnancy",
+      "organization": "National Institute for Public Health and the Environment, National Institute for Public Health and the Environment, Government of the Netherlands",
+      "audienceProfiles": [
+        "student",
+        "expat",
+        "refugee",
+        "worker",
+        "resident"
+      ],
+      "numberedSteps": [
+        "For severe symptoms or immediate danger, call 112; for urgent pregnancy concerns contact the midwife, GP or out-of-hours service immediately.",
+        "Contact a midwife practice or GP early to arrange the appropriate first assessment and ask which provider should lead care in your situation.",
+        "Review the RIVM prenatal-screening information and discuss voluntary choices with the qualified care professional before deciding.",
+        "Check the insurer and maternity-care provider for current registration, coverage and practical arrangements.",
+        "If employed or receiving a relevant benefit, use the official maternity-leave route and inform the responsible employer or UWV channel.",
+        "Keep care contacts, appointments, screening choices and official confirmations together without uploading them to YouNew."
+      ],
+      "requiredDocuments": [
+        "Providers may request identification, BSN, insurance details, medical history and referral information. Work or benefit routes can require a pregnancy certificate; follow the exact official checklist."
+      ],
+      "checklist": [
+        "For severe symptoms or immediate danger, call 112; for urgent pregnancy concerns contact the midwife, GP or out-of-hours service immediately.",
+        "Contact a midwife practice or GP early to arrange the appropriate first assessment and ask which provider should lead care in your situation.",
+        "Review the RIVM prenatal-screening information and discuss voluntary choices with the qualified care professional before deciding.",
+        "Check the insurer and maternity-care provider for current registration, coverage and practical arrangements.",
+        "If employed or receiving a relevant benefit, use the official maternity-leave route and inform the responsible employer or UWV channel.",
+        "Keep care contacts, appointments, screening choices and official confirmations together without uploading them to YouNew."
+      ],
+      "tips": [
+        "Midwife, hospital and maternity-care availability is local. National screening, insurance and leave sources remain visible in every municipality."
+      ],
+      "faqAnswers": [
+        "Coverage and personal contributions depend on the care, provider and policy. Confirm them with the insurer and provider; do not delay urgent assessment while checking costs.",
+        "Care, screening and leave routes use different time windows. Follow the care professional and dated official source for your stage and situation.",
+        "Contact the care professional promptly if symptoms change or you are unsure whether the issue is urgent.",
+        "Ask the insurer for care-finding help if a local practice cannot accept the registration.",
+        "Use a qualified professional to explain screening choices and results rather than interpreting them from a generic page."
+      ],
+      "whenYouNeedIt": [
+        "Use this route after a positive pregnancy test, when arranging a midwife or doctor, considering screening, preparing maternity care or checking work and insurance information."
+      ],
+      "tags": [
+        "pregnancy",
+        "midwife",
+        "prenatal-care",
+        "prenatal-screening",
+        "maternity-care",
+        "childbirth",
+        "maternity-leave",
+        "newborn-screening",
+        "healthcare",
+        "family",
+        "insurance",
+        "benefits",
+        "work"
+      ],
+      "synonyms": [
+        "pregnancy",
+        "pregnant",
+        "midwife",
+        "prenatal care",
+        "prenatal screening",
+        "maternity care",
+        "childbirth",
+        "maternity leave",
+        "newborn screening",
+        "zwangerschap",
+        "zwanger",
+        "verloskundige",
+        "prenatale zorg",
+        "prenatale screening",
+        "kraamzorg",
+        "bevalling",
+        "zwangerschapsverlof",
+        "neonatale screening",
+        "беременность",
+        "беременна",
+        "акушерка",
+        "дородовое наблюдение",
+        "пренатальный скрининг",
+        "родовспоможение",
+        "декретный отпуск",
+        "скрининг новорождённых"
+      ],
+      "officialOrganizationNames": [
+        "National Institute for Public Health and the Environment",
+        "National Institute for Public Health and the Environment",
+        "Government of the Netherlands"
+      ],
+      "terminology": [
+        "pregnancy",
+        "midwife",
+        "prenatal-care",
+        "prenatal-screening",
+        "maternity-care",
+        "childbirth",
+        "maternity-leave",
+        "newborn-screening"
+      ],
+      "commonQuestions": []
+    },
+    {
+      "id": "national.business-zzp",
+      "type": "guide",
+      "sourceKind": "nationalResourceGuide",
+      "slug": "starting-a-business-and-zzp",
+      "route": "/essentials/starting-a-business-and-zzp",
+      "title": "Starting a business and working as a ZZP'er",
+      "summary": "A national route for checking residence and work rights, choosing a legal structure, registering with KVK and preparing tax, administration and client arrangements.",
+      "contentDepth": "practical",
+      "keywords": [
+        "Business.gov.nl",
+        "KVK Business Register",
+        "legal structure",
+        "BSN",
+        "DigiD",
+        "VAT",
+        "false self-employment",
+        "starting-business",
+        "zzp",
+        "freelancer",
+        "self-employment",
+        "kvk-registration",
+        "legal-structure",
+        "business-tax",
+        "false-self-employment"
+      ],
+      "city": null,
+      "cityId": null,
+      "province": null,
+      "provinceId": null,
+      "municipalityId": null,
+      "locationScope": "national",
+      "country": "NL",
+      "categories": [
+        "business"
+      ],
+      "intents": [
+        "business",
+        "work",
+        "taxes",
+        "banking",
+        "integration"
+      ],
+      "languages": [
+        "en"
+      ],
+      "nationalFallback": true,
+      "qualityScore": 94,
+      "verifiedAt": "2026-08-06",
+      "officialSourceUrls": [
+        "https://business.gov.nl/starting-your-business/starting-as-a-self-employed-professional/get-started-as-a-freelancer-or-zzper/",
+        "https://business.gov.nl/starting-your-business/registering-your-business/registration-at-the-netherlands-chamber-of-commerce-kvk/",
+        "https://business.gov.nl/starting-your-business/starting-as-a-self-employed-professional/regulations-for-self-employed-professionals/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "starting-business",
+      "organization": "Business.gov.nl, Business.gov.nl, Business.gov.nl",
+      "audienceProfiles": [
+        "student",
+        "expat",
+        "refugee",
+        "worker",
+        "resident"
+      ],
+      "numberedSteps": [
+        "Confirm that your residence and work status allows the planned activity; use IND or qualified advice for a case-specific immigration question.",
+        "Describe the activity, customers, location, risks and expected way of working, then use Business.gov.nl and KVK to check whether registration is required.",
+        "Choose a legal structure based on ownership, liability and tax consequences rather than treating ZZP as the structure.",
+        "Prepare the official KVK registration route, identity and business-address evidence and any sector-specific permits or professional requirements.",
+        "Set up reliable bookkeeping, invoices, tax records, privacy and contract terms before trading.",
+        "Check each assignment for false self-employment risk and keep the real working relationship consistent with the agreement."
+      ],
+      "requiredDocuments": [
+        "Requirements depend on legal structure and status. They can include identity, BSN, DigiD, residence evidence, business address, activity description, ownership information and notarial documents; follow the official registration checklist."
+      ],
+      "checklist": [
+        "Confirm that your residence and work status allows the planned activity; use IND or qualified advice for a case-specific immigration question.",
+        "Describe the activity, customers, location, risks and expected way of working, then use Business.gov.nl and KVK to check whether registration is required.",
+        "Choose a legal structure based on ownership, liability and tax consequences rather than treating ZZP as the structure.",
+        "Prepare the official KVK registration route, identity and business-address evidence and any sector-specific permits or professional requirements.",
+        "Set up reliable bookkeeping, invoices, tax records, privacy and contract terms before trading.",
+        "Check each assignment for false self-employment risk and keep the real working relationship consistent with the agreement."
+      ],
+      "tips": [
+        "Business registration and tax are national, while zoning, home-business, parking, permits and local support can be municipal. City selection adds the municipality without hiding the national setup route."
+      ],
+      "faqAnswers": [
+        "Registration, advice, insurance, banking and administration costs vary. Use current official information and written quotes; YouNew does not publish a rate card or tax calculation.",
+        "Registration timing and permit or sector requirements depend on the planned start and legal structure. Confirm them before issuing invoices or accepting work.",
+        "Use KVK or Business.gov.nl when unsure whether the activity qualifies for registration.",
+        "Use the Tax Administration or a qualified adviser for personal VAT and income-tax treatment.",
+        "Seek immigration or employment-law help when residence status or false self-employment could affect the route."
+      ],
+      "whenYouNeedIt": [
+        "Use this route when planning independent work, starting a Dutch company, registering with KVK or checking whether an assignment should be employment instead."
+      ],
+      "tags": [
+        "starting-business",
+        "zzp",
+        "freelancer",
+        "self-employment",
+        "kvk-registration",
+        "legal-structure",
+        "business-tax",
+        "false-self-employment",
+        "work",
+        "taxes",
+        "banking",
+        "immigration",
+        "legal-help"
+      ],
+      "synonyms": [
+        "start a business",
+        "open a company",
+        "ZZP",
+        "freelancer",
+        "self employed",
+        "KVK registration",
+        "sole proprietorship",
+        "business tax",
+        "bedrijf starten",
+        "ondernemen",
+        "zzp",
+        "freelancer",
+        "zelfstandig",
+        "inschrijven KVK",
+        "eenmanszaak",
+        "zakelijke belasting",
+        "открыть бизнес",
+        "открыть компанию",
+        "ZZP",
+        "фрилансер",
+        "самозанятый",
+        "регистрация KVK",
+        "индивидуальный предприниматель",
+        "налоги бизнеса"
+      ],
+      "officialOrganizationNames": [
+        "Business.gov.nl",
+        "Business.gov.nl",
+        "Business.gov.nl"
+      ],
+      "terminology": [
+        "starting-business",
+        "zzp",
+        "freelancer",
+        "self-employment",
+        "kvk-registration",
+        "legal-structure",
+        "business-tax",
+        "false-self-employment"
+      ],
+      "commonQuestions": []
+    },
+    {
       "id": "category.banking",
       "type": "category",
       "sourceKind": "contentCategory",
@@ -12696,7 +13899,7 @@
       "qualityScore": 95,
       "verifiedAt": "2026-08-01T00:00:00Z",
       "officialSourceUrls": [
-        "https://www.government.nl/topics/family-health-and-care"
+        "https://www.government.nl/themes/family-health-and-care"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "children",
@@ -12929,7 +14132,7 @@
       "qualityScore": 95,
       "verifiedAt": "2026-08-01T00:00:00Z",
       "officialSourceUrls": [
-        "https://www.government.nl/topics/government-and-democracy/personal-data/citizen-service-number-bsn",
+        "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn",
         "https://www.digid.nl/en/apply-and-activate",
         "https://ind.nl/en/replace-extend-renew-and-change/residence-permit-lost-or-stolen"
       ],
@@ -13058,7 +14261,7 @@
       "qualityScore": 95,
       "verifiedAt": "2026-08-01T00:00:00Z",
       "officialSourceUrls": [
-        "https://www.government.nl/topics/education",
+        "https://www.government.nl/themes/education",
         "https://duo.nl/particulier/international-visitor/"
       ],
       "relatedOrganizationIds": [],

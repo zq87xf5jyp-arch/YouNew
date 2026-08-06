@@ -5,7 +5,9 @@ import type { LifeDomain } from "@/lib/search/taxonomy";
 
 export function LifeDomainGuide({ domain }: { domain: LifeDomain }) {
   const guideCategory = domain.slug === "sim-telecom" ? "telecom" : domain.slug;
-  const nationalGuide = getNationalGuides().find((guide) => guide.category === guideCategory);
+  const nationalGuides = getNationalGuides()
+    .filter((guide) => guide.category === guideCategory || guide.intents.includes(guideCategory))
+    .slice(0, 4);
   return (
     <section className="section-shell life-domain-guide" aria-labelledby="life-domain-start-title">
       <div className="life-domain-start">
@@ -19,7 +21,7 @@ export function LifeDomainGuide({ domain }: { domain: LifeDomain }) {
 
       <aside className="life-domain-sources" aria-label="Official starting sources">
         <div><ShieldCheck aria-hidden /><span><strong>Official starting sources</strong><small>Open the responsible source before acting.</small></span></div>
-        {nationalGuide ? <Link href={`/essentials/${nationalGuide.slug}/`}>Open the full national guide<ArrowUpRight aria-hidden /></Link> : null}
+        {nationalGuides.map((guide) => <Link href={`/essentials/${guide.slug}/`} key={guide.id}>{guide.title}<ArrowUpRight aria-hidden /></Link>)}
         {domain.officialSources.map((source) => (
           <a data-analytics-official-source-id={`category.${domain.slug}`} href={source.url} key={source.url} rel="noreferrer" target="_blank">
             {source.name}<ArrowUpRight aria-hidden />

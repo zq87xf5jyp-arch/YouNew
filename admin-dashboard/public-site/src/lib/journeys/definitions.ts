@@ -25,6 +25,7 @@ export const practicalJourneys = [
       "national.immigration",
       "national.documents",
       "national.housing",
+      "national.utilities-moving",
       "national.healthcare",
       "national.banking",
       "national.transport"
@@ -41,7 +42,9 @@ export const practicalJourneys = [
       "national.immigration",
       "national.documents",
       "national.housing",
+      "national.utilities-moving",
       "national.healthcare",
+      "national.mental-health",
       "national.banking",
       "national.transport"
     ],
@@ -73,6 +76,9 @@ export const practicalJourneys = [
       "national.documents",
       "national.banking",
       "national.benefits",
+      "national.utilities-moving",
+      "national.consumer-rights",
+      "national.debt-legal-help",
       "national.rules-fines"
     ],
     coverageNote: "Permits, social-housing access and local registration vary by municipality. Never transfer money before checking the home, contract and counterparty."
@@ -85,6 +91,10 @@ export const practicalJourneys = [
     guideIds: [
       "national.documents",
       "national.healthcare",
+      "national.mental-health",
+      "national.dental-care",
+      "national.medicines",
+      "national.pregnancy",
       "national.benefits"
     ],
     coverageNote: "This route is not medical advice. For urgent danger use the Emergency page; insurance duties and access can differ by situation."
@@ -98,7 +108,9 @@ export const practicalJourneys = [
       "national.immigration",
       "national.documents",
       "national.healthcare",
+      "national.mental-health",
       "national.housing",
+      "national.debt-legal-help",
       "national.work",
       "national.benefits",
       "national.lgbtiq-support"
@@ -113,6 +125,7 @@ export const practicalJourneys = [
     guideIds: [
       "national.transport",
       "national.telecom",
+      "national.consumer-rights",
       "national.rules-fines"
     ],
     coverageNote: "These guides are national orientation, not travel insurance or visa advice. Use the Emergency page for urgent help."
@@ -121,15 +134,17 @@ export const practicalJourneys = [
     id: "starting-a-business",
     title: "Starting a business",
     audience: "Entrepreneurs",
-    description: "Check whether you may work, prepare identity and banking, and understand the tax context before registration.",
+    description: "Check whether you may work, prepare the legal structure and KVK route, then arrange banking, tax and client basics.",
     guideIds: [
       "national.immigration",
       "national.documents",
+      "national.business-zzp",
       "national.banking",
       "national.taxes",
-      "national.work"
+      "national.work",
+      "national.consumer-rights"
     ],
-    coverageNote: "Preparation only: YouNew does not yet publish a complete KVK or ZZP registration procedure. Residence and tax rules can change the route."
+    coverageNote: "National preparation route. Residence status, legal structure, sector rules and municipality permits can change the exact procedure."
   }
 ] as const satisfies readonly PracticalJourneyDefinition[];
 

@@ -1,6 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getPublicContent } from "@/lib/content";
 import { getGeographyProvinces, getMunicipalities } from "@/lib/geography";
+import { youNewTasks } from "@/lib/product/task-taxonomy";
 import { getNationalGuides, nationalGuidesVerifiedAt } from "@/lib/search/national-guides";
 
 export const dynamic = "force-static";
@@ -9,9 +10,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const content = getPublicContent();
   const updated = new Date(content.generatedAt);
   const staticPaths = [
-    "", "/start", "/naruto", "/discover", "/guides", "/journeys", "/map", "/categories", "/cities", "/municipalities", "/provinces", "/places", "/organizations", "/updates",
+    "", "/about", "/start", "/naruto", "/discover", "/guides", "/journeys", "/map", "/categories", "/cities", "/municipalities", "/provinces", "/places", "/organizations", "/updates",
     "/emergency", "/status", "/app", "/business", "/business/advertise", "/business/partners", "/business/pricing",
-    "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"
+    "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support",
+    ...youNewTasks.filter((task) => task.id !== "emergency").map((task) => `/tasks/${task.id}`)
   ];
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
     url: path ? `https://younew.nl${path}/` : "https://younew.nl/",

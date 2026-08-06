@@ -15,10 +15,11 @@ const [page, experience, header, footer, sitemap, homepage, globalCss] = await P
 
 test("Naruto is a public, discoverable YouNew route", () => {
   assert.match(page, /metadataForPage\([\s\S]*"Ask Naruto"[\s\S]*"\/naruto"/);
-  assert.match(header, /\["Naruto", "\/naruto"\]/);
+  assert.doesNotMatch(header, /\["Naruto", "\/naruto"\]/);
   assert.match(footer, /href="\/naruto"/);
   assert.match(sitemap, /"\/naruto"/);
   assert.match(homepage, /href="\/naruto\/"/);
+  assert.match(homepage, /Naruto clarifies your situation first/);
 });
 
 test("Naruto uses only the released static index and preserves source visibility", () => {

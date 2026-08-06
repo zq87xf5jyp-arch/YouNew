@@ -29,16 +29,23 @@ test("all six user paths are accepted while unknown stored profiles fail closed"
 });
 
 test("national guides expose bounded local progress, next-step routing and contextual feedback", async () => {
-  const [guidePage, checklist, feedbackForm] = await Promise.all([
+  const [guidePage, checklist, feedbackForm, feedbackLoop] = await Promise.all([
     readFile(new URL("../src/app/essentials/[slug]/page.tsx", import.meta.url), "utf8"),
     readFile(new URL("../src/components/guide-checklist.tsx", import.meta.url), "utf8"),
-    readFile(new URL("../src/components/public-feedback-form.tsx", import.meta.url), "utf8")
+    readFile(new URL("../src/components/public-feedback-form.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../src/components/guide-feedback-loop.tsx", import.meta.url), "utf8")
   ]);
   assert.match(guidePage, /showPersonalisedNextStep/);
-  assert.match(guidePage, /defaultPageReference=\{`\/essentials\/\$\{guide\.slug\}\//);
-  assert.match(guidePage, /Reports do not change the published guide automatically/);
+  assert.match(guidePage, /pageReference=\{`\/essentials\/\$\{guide\.slug\}\//);
+  assert.match(feedbackLoop, /never changes published guidance automatically/);
+  assert.match(feedbackLoop, /Helpful/);
+  assert.match(feedbackLoop, /Not helpful/);
+  assert.match(feedbackLoop, /Report outdated/);
+  assert.match(feedbackLoop, /Missing information/);
+  assert.match(feedbackLoop, /Suggest improvement/);
   assert.match(checklist, /does not prove eligibility, submission or official completion/);
   assert.match(checklist, /Stored only in this browser/);
   assert.match(feedbackForm, /initialFeedbackType/);
   assert.match(feedbackForm, /defaultPageReference/);
+  assert.match(feedbackForm, /initialMessage/);
 });

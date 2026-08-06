@@ -2,25 +2,25 @@
   "schemaVersion": 1,
   "snapshotType": "static",
   "liveMonitoring": false,
-  "checkedAt": "2026-08-02",
+  "checkedAt": "2026-08-06",
   "website": {
     "status": "operational",
     "label": "Website",
-    "summary": "The production website and key public routes were reachable during the 2 August check. A release candidate fixes the Wikimedia image policy and light-theme contrast and passes the complete local pre-deploy gate."
+    "summary": "The production website returned HTTP 200 during the 6 August check. The current release candidate expands national guidance, search coverage and municipality starting routes and passed the complete local pre-deploy gate before publication."
   },
   "content": {
     "status": "current",
     "label": "Published content",
-    "asOf": "2026-08-01",
-    "summary": "The governed public content snapshot contains 182 published records and was regenerated on 1 August 2026. The map combines 167 coordinate-backed records with all 342 official municipalities."
+    "asOf": "2026-08-06",
+    "summary": "The governed public catalogue contains 181 published local records and 23 national practical guides. The local dataset was generated from accepted releases, and sources for the expanded national guide pack were checked on 6 August 2026."
   },
   "ios": {
     "status": "operational",
     "label": "iOS public distribution",
-    "publicVersion": "1.2",
+    "publicVersion": "1.3",
     "testedVersion": "1.3",
     "testedBuild": "8",
-    "summary": "Apple's public lookup service reports App Store version 1.2. Version 1.3 (build 8) was locally built, signed, uploaded and submitted to App Review on 2 August 2026; it is not yet the public store version."
+    "summary": "Apple's public lookup service reports App Store version 1.3, released on 3 August 2026. The locally tested release evidence covers version 1.3 (build 8)."
   },
   "businessForm": {
     "status": "operational",
