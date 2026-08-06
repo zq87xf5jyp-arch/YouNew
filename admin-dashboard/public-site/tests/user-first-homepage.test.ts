@@ -53,8 +53,9 @@ test("homepage exposes ten user needs and ten concrete popular tasks", () => {
   assert.match(popularSource, /title: "Register with a huisarts"/);
 });
 
-test("global navigation keeps the product vision to eight primary destinations", () => {
+test("global navigation keeps the product vision to nine primary destinations", () => {
   assert.match(header, /\["Explore", "\/discover"\]/);
+  assert.match(header, /\["Naruto", "\/naruto"\]/);
   assert.match(header, /\["Housing", "\/categories\/housing"\]/);
   assert.match(header, /\["Work", "\/search\/\?q=work"\]/);
   assert.match(header, /\["Healthcare", "\/categories\/healthcare"\]/);
@@ -62,10 +63,12 @@ test("global navigation keeps the product vision to eight primary destinations",
   assert.match(header, /\["Cities", "\/cities"\]/);
   assert.match(header, /\["Guides", "\/guides"\]/);
   assert.match(header, /\["Business", "\/business"\]/);
-  assert.equal(header.match(/^  \["/gm)?.length, 8);
+  assert.equal(header.match(/^  \["/gm)?.length, 9);
   assert.doesNotMatch(header, /Journeys|Updates|Map|Provinces|App status|My YouNew/);
   assert.match(footer, /Website language:<\/strong> English/);
   assert.match(footer, /Helping newcomers build a confident life in the Netherlands\./);
+  assert.match(homepage, /href="\/naruto\/"/);
+  assert.match(homepage, /Ask Naruto/);
 });
 
 test("profile analytics records only the action and never the selected profile", () => {

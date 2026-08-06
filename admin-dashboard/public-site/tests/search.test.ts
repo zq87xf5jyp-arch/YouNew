@@ -222,7 +222,7 @@ test("critical EN, NL and RU intents do not return a useless zero", () => {
   }
 });
 
-test("city and profile are relevance signals and never block national guidance", () => {
+test("city and profile keep national guidance while excluding unrelated local results", () => {
   const scenarios = [
     ["housing rent", "s-gravenhage", "worker", "national.housing"],
     ["work", "leiden", "worker", "national.work"],
@@ -239,7 +239,23 @@ test("city and profile are relevance signals and never block national guidance",
     assert.ok(results.length > 0, `${query} + ${cityId} + ${profile}`);
     assert.equal(results[0]?.document.id, expectedId, `${query} + ${cityId} + ${profile}`);
     assert.ok(results.some(({ document }) => document.locationScope === "national"), `${query} must retain national guidance`);
+    assert.ok(results.every(({ document }) => {
+      const localCity = document.municipalityId ?? document.cityId;
+      return !localCity || document.nationalFallback || rankModule.normalizeSearchText(localCity) === rankModule.normalizeSearchText(cityId);
+    }), `${query} + ${cityId} must not include another city's local result`);
   }
+});
+
+test("Groningen city filter keeps national education and removes Amsterdam schools", () => {
+  const results = rankModule.rankSearchDocuments(index.documents, "Dutch school", {
+    filters: { cityId: "groningen" },
+    limit: 40
+  });
+
+  assert.equal(results[0]?.document.id, "national.education");
+  assert.ok(results.some(({ document }) => document.locationScope === "national"));
+  assert.ok(results.every(({ document }) => document.cityId !== "amsterdam"));
+  assert.ok(results.every(({ document }) => !document.cityId || document.cityId === "groningen"));
 });
 
 test("rent no longer matches Drenthe as an infix and national guidance ranks first", () => {
@@ -270,11 +286,15 @@ test("search UI suggests only queries with a released destination", async () => 
   assert.doesNotMatch(source, /placeholder="[^"]*Need a doctor[^"]*"/);
   assert.match(source, /submittedQuery \|\| hasActiveFilters \|\| showAllResults/);
   assert.match(source, /setShowAllResults\(!submittedQuery && !Object\.values\(next\)\.some\(Boolean\)\)/);
-  assert.match(source, /preferredProfile:/, "saved profile must be passed as a ranking signal");
+  assert.match(source, /profileParameter === null \? ""/, "a saved Discover profile must not change search unless the URL explicitly requests it");
+  assert.match(source, /preferredProfile:/, "an explicitly selected profile may be passed as a secondary ranking signal");
   assert.doesNotMatch(source, /filterSearchDocumentsByProfile\(documents/, "profile must not pre-filter the published index");
   assert.match(source, /search-filter-toggle/);
   assert.match(source, /search-active-chips/);
   assert.match(source, /Search all Netherlands/);
+  assert.match(source, /No published local match for \{activeLocationLabel\} — showing national guidance\./);
+  assert.match(source, /if \(key === "city" && value\) next\.province = ""/);
+  assert.match(source, /if \(key === "province" && value\) next\.city = ""/);
   assert.match(source, /Opening share…/, "native sharing must expose progress while the system sheet is open");
   assert.match(source, /Unable to share/, "sharing failures must remain visible instead of being swallowed");
   assert.match(source, /showing useful broader results/);

@@ -6,6 +6,7 @@ import { Bookmark, LifeBuoy, Menu, Search, X } from "lucide-react";
 
 const navigation = [
   ["Explore", "/discover"],
+  ["Naruto", "/naruto"],
   ["Housing", "/categories/housing"],
   ["Work", "/search/?q=work"],
   ["Healthcare", "/categories/healthcare"],

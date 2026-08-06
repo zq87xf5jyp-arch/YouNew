@@ -4,7 +4,7 @@ import { join } from "node:path";
 
 const root = new URL("../out/", import.meta.url).pathname;
 const requiredFiles = [
-  "index.html", "start/index.html", "my-younew/index.html", "discover/index.html", "search/index.html", "guides/index.html", "guides/woon/index.html",
+  "index.html", "start/index.html", "my-younew/index.html", "naruto/index.html", "discover/index.html", "search/index.html", "guides/index.html", "guides/woon/index.html",
   "journeys/index.html", "map/index.html",
   "categories/index.html", "categories/housing/index.html", "cities/index.html", "cities/amsterdam/index.html",
   "municipalities/index.html", "municipalities/amsterdam/index.html",
@@ -48,6 +48,7 @@ assert.match(home, /support@younew\.nl/);
 assert.match(home, /rel="canonical" href="https:\/\/younew\.nl\/"/);
 assert.match(home, /application\/ld\+json/);
 for (const path of ["/start/", "/search/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
+assert.match(home, /href="\/naruto\/"/);
 assert.doesNotMatch(home, /href=(?:"|')#(?:"|')/);
 assert.match(home, /href="\/app\/"/);
 assert.match(home, /iOS app/);
@@ -65,6 +66,12 @@ const search = await readFile(join(root, "search/index.html"), "utf8");
 assert.match(search, /Search YouNew and Dutch municipalities/);
 assert.match(search, /name="robots" content="noindex, follow"/);
 assert.match(search, /<script[^>]+src="\/_next\/static\/chunks\//, "Interactive routes must retain client JavaScript");
+
+const naruto = await readFile(join(root, "naruto/index.html"), "utf8");
+for (const text of ["Ask Naruto", "published YouNew guidance", "responsible official sources", "No account or precise location required"]) {
+  assert.match(naruto, new RegExp(text, "i"));
+}
+assert.match(naruto, /<script[^>]+src="\/_next\/static\/chunks\//, "Naruto must retain client JavaScript for local index matching");
 
 const start = await readFile(join(root, "start/index.html"), "utf8");
 for (const text of ["Find your next step in the Netherlands", "What do you need help with", "Next: your situation", "Complete the three steps", "No account, email or precise location"]) {
@@ -179,8 +186,8 @@ assert.match(hostingerRules, /FilesMatch "\^\(sw\\\.js\|theme-init\\\.js\|static
 assert.match(hostingerRules, /Strict-Transport-Security "max-age=31536000"/, "HTTPS responses must advertise HSTS");
 
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
-for (const path of ["https://younew.nl", "/start", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
+for (const path of ["https://younew.nl", "/start", "/naruto", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
 const sitemapCount = (sitemap.match(/<url>/g) ?? []).length;
 assert.equal(new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])).size, sitemapCount, "Sitemap URLs must be unique");
 
-console.log(`Smoke tests passed: ${sitemapCount} indexable URLs, functional planner/My YouNew/guides/journeys/map/search/business, PWA, metadata, legal pages and 404.`);
+console.log(`Smoke tests passed: ${sitemapCount} indexable URLs, functional planner/My YouNew/Naruto/guides/journeys/map/search/business, PWA, metadata, legal pages and 404.`);

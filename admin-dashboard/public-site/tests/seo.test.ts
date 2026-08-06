@@ -21,10 +21,12 @@ test("primary navigation and homepage search keep descriptive accessible names",
   ]);
 
   assert.match(header, /\["Explore", "\/discover"\]/);
+  assert.match(header, /\["Naruto", "\/naruto"\]/);
   assert.match(header, /\["Housing", "\/categories\/housing"\]/);
   assert.match(header, /\["Healthcare", "\/categories\/healthcare"\]/);
   assert.match(header, /\["Business", "\/business"\]/);
   assert.doesNotMatch(header, /"App status"|"My YouNew"/);
   assert.match(homepage, /<label htmlFor="home-search">What do you need in the Netherlands\?<\/label>/);
   assert.match(homepage, /aria-label="Search YouNew"/);
+  assert.match(homepage, /href="\/naruto\/"/);
 });

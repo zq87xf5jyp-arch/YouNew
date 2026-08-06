@@ -33,6 +33,34 @@ test("theme control supports persistent light and dark modes", () => {
   assert.match(globalCss, /\.coverage-map-results li strong \{ color:var\(--text\)/);
   assert.match(globalCss, /\.hero-kicker[^}]*color:var\(--cyan\)!important/);
   assert.match(globalCss, /\.button-outline[^}]*color:var\(--cyan\)/);
+  assert.match(globalCss, /\.product-vision-home \.theme-toggle \{ display:grid; \}/);
+  assert.match(globalCss, /html\[data-theme="dark"\] \.product-vision-home/);
+  assert.doesNotMatch(globalCss, /\.product-vision-home \.theme-toggle \{ display:none; \}/);
+  assert.match(globalCss, /@media \(min-width:380px\) and \(max-width:760px\)[\s\S]*?\.header-emergency \{ width:auto; padding:0 10px; \}/);
+  assert.match(globalCss, /\.theme-toggle,\.mobile-menu summary \{ width:44px; height:44px; \}/);
+});
+
+test("homepage keeps the branded hero in every responsive theme state", () => {
+  assert.match(globalCss, /younew-brand-hero-desktop-v1\.jpg/);
+  assert.match(globalCss, /younew-brand-hero-tablet-portrait-v1\.jpg/);
+  assert.match(globalCss, /younew-brand-hero-mobile-v1\.jpg/);
+  assert.match(globalCss, /html\[data-theme="light"\] \.product-vision-home \.site-header/);
+  assert.match(globalCss, /html\[data-theme="dark"\] \.product-vision-home \.vision-hero \{ background-color:#02091a; \}/);
+  assert.doesNotMatch(homepage, /vision-hero-media/);
+  assert.match(homepage, /placeholder="For example: housing in Leiden"/);
+});
+
+test("homepage continues the branded visual system below the hero", () => {
+  assert.match(homepage, /className="vision-section vision-popular section-shell"/);
+  assert.match(homepage, /className="vision-section vision-why section-shell"/);
+  assert.match(globalCss, /Phase 4: continue the branded Netherlands system through the complete home journey/);
+  assert.match(globalCss, /\.product-vision-home \{[\s\S]*?--vision-ink:#f7fbff/);
+  assert.match(globalCss, /\.vision-needs \{[\s\S]*?radial-gradient/);
+  assert.match(globalCss, /\.vision-city-rail article \{[\s\S]*?scroll-snap-align:start/);
+  assert.match(globalCss, /\.vision-campaign-state \{[\s\S]*?border-color:rgba\(102,205,221/);
+  assert.match(globalCss, /html\[data-theme="light"\] \.product-vision-home \.vision-needs/);
+  assert.match(globalCss, /html\[data-theme="dark"\] \.product-vision-home \.vision-needs/);
+  assert.match(globalCss, /@media \(max-width:760px\)[\s\S]*?\.vision-task-grid \{ grid-template-columns:1fr; \}/);
 });
 
 test("Amsterdam driving licence summary uses the current official source and actionable facts", () => {

@@ -29,6 +29,7 @@ import {
   Search,
   ShieldCheck,
   ShoppingBasket,
+  Sparkles,
   Smartphone,
   Stethoscope,
   TrainFront,
@@ -191,7 +192,7 @@ function HomeSearch() {
       <form action="/search/" method="get">
         <label htmlFor="home-search">What do you need in the Netherlands?</label>
         <div>
-          <input id="home-search" name="q" placeholder="For example: I need housing in Leiden" type="search" />
+          <input id="home-search" name="q" placeholder="For example: housing in Leiden" type="search" />
           <button aria-label="Search YouNew" type="submit"><Search aria-hidden /></button>
         </div>
       </form>
@@ -235,10 +236,10 @@ export default function HomePage() {
               <HomeSearch />
               <div className="vision-hero-actions">
                 <Link className="vision-primary-action" href="/start/">Find my next step <ArrowRight aria-hidden /></Link>
+                <Link className="vision-secondary-action vision-naruto-action" href="/naruto/"><Sparkles aria-hidden /> Ask Naruto</Link>
                 <Link className="vision-secondary-action" href="/discover/">Explore the Netherlands <ArrowRight aria-hidden /></Link>
               </div>
             </div>
-            <div className="vision-hero-media"><ContentMedia asset={leidenMedia} eager variant="hero" /></div>
           </div>
         </section>
 
@@ -256,7 +257,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="vision-section section-shell" aria-labelledby="popular-tasks-title">
+        <section className="vision-section vision-popular section-shell" aria-labelledby="popular-tasks-title">
           <div className="vision-heading"><h2 id="popular-tasks-title">Popular tasks</h2><p>Direct routes to common newcomer actions.</p></div>
           <ol className="vision-popular-list">
             {popularTasks.map(({ title, href, icon: Icon }, index) => (
@@ -300,7 +301,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="vision-section section-shell" aria-labelledby="why-title">
+        <section className="vision-section vision-why section-shell" aria-labelledby="why-title">
           <div className="vision-heading"><h2 id="why-title">Why YouNew</h2><p>Clear orientation without hiding uncertainty or official responsibility.</p></div>
           <div className="vision-proof-grid">
             {proofPoints.map(({ title, example, href, icon: Icon }) => <Link href={href} key={title}><Icon aria-hidden /><strong>{title}</strong><span>{example}</span></Link>)}

@@ -86,6 +86,51 @@ html[data-theme="light"] :is(.entity-card,.profile-picker,.source-card,.status-c
   background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(234,241,247,.92));
 }
 
+html[data-theme="light"] .profile-picker-grid button {
+  border-color:#c7d4e4;
+  background:rgba(255,255,255,.9);
+  color:#071a36;
+}
+html[data-theme="light"] .profile-picker-grid button:hover,
+html[data-theme="light"] .profile-picker-grid button.is-selected {
+  border-color:#006d96;
+  background:linear-gradient(145deg,#f4fbfd,#e6f3f7);
+}
+html[data-theme="light"] .profile-picker-grid span { color:#425a75; }
+html[data-theme="light"] .profile-picker-grid strong { color:#071a36; }
+html[data-theme="light"] .profile-recommendations a,
+html[data-theme="light"] .destination-grid>a { background:rgba(255,255,255,.92); color:#071a36; }
+html[data-theme="light"] .destination-grid>a p { color:#425a75; }
+html[data-theme="light"] .destination-grid>a:hover { background:#fff; }
+
+html[data-theme="light"] .naruto-composer,
+html[data-theme="light"] .naruto-answer,
+html[data-theme="light"] .naruto-intro { background:rgba(255,255,255,.9); }
+html[data-theme="light"] .naruto-input-row { background:#fff; }
+html[data-theme="light"] .naruto-suggestions button,
+html[data-theme="light"] .naruto-answer>header button,
+html[data-theme="light"] .naruto-related a { background:#fff; color:#071a36; }
+html[data-theme="light"] .naruto-primary-route,
+html[data-theme="light"] .naruto-safety-note { background:#f5f8fb; }
+html[data-theme="light"] .naruto-input-row,
+html[data-theme="light"] .naruto-sources a,
+html[data-theme="light"] .naruto-younew-guide,
+html[data-theme="light"] .naruto-empty { border-color:rgba(7,26,54,.12); }
+html[data-theme="light"] .naruto-input-row input { color:#071a36; }
+html[data-theme="light"] .naruto-steps p,
+html[data-theme="light"] .naruto-urgent strong { color:#071a36; }
+html[data-theme="light"] .naruto-sources a:hover,
+html[data-theme="light"] .naruto-related a:hover { background:#edf7f9; }
+
+html[data-theme="light"] .search-filter-bar {
+  border:0;
+  background:transparent;
+  box-shadow:none;
+}
+html[data-theme="light"] .search-filter-toggle { background:rgba(255,255,255,.88); color:#071a36; }
+html[data-theme="light"] .search-filter-fields { border-color:var(--line); background:rgba(255,255,255,.9); }
+html[data-theme="light"] .search-filter-bar select { background:#fff; color:#071a36; }
+
 html[data-theme="light"] .scenario-grid article { background:linear-gradient(145deg,#fff,var(--panel)); }
 html[data-theme="light"] .site-footer .locale-status strong { color:var(--text-secondary); }
 html[data-theme="light"] .coverage-map-filters {
