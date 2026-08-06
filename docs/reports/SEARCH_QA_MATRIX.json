@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-06T12:18:05.000Z",
+  "generatedAt": "2026-08-06T12:38:46.987Z",
   "status": "PASS",
   "evidence": {
-    "searchIndexSha256": "6f8693c4e6fa300ba80decc7456964c428fd12c1a47e4c6bba91ba0cb29473d1",
+    "searchIndexSha256": "f8ccc680337071abd0720d9511e6c4594d417740e3ea0da1e806f8bec6f8c6cd",
     "searchIndexSchemaVersion": 3,
-    "searchDocumentCount": 578,
-    "nationalGuideCount": 8,
+    "searchDocumentCount": 585,
+    "nationalGuideCount": 15,
     "provinceCount": 12,
     "municipalityCount": 342,
     "profileCount": 6
   },
   "totals": {
-    "checks": 2982,
-    "passed": 2982,
+    "checks": 5581,
+    "passed": 5581,
     "failed": 0
   },
   "dimensions": {
@@ -145,11 +145,11 @@
           "national.work",
           "category.work",
           "national.lgbtiq-support",
+          "national.taxes",
+          "national.immigration",
           "category.business",
           "national.documents",
-          "national.education",
-          "category.healthcare",
-          "category.language-learning"
+          "national.education"
         ],
         "passed": true
       },
@@ -179,6 +179,7 @@
           "category.work",
           "national.lgbtiq-support",
           "national.documents",
+          "national.benefits",
           "national.education"
         ],
         "passed": true
@@ -199,11 +200,11 @@
           "national.work",
           "category.work",
           "national.lgbtiq-support",
+          "national.taxes",
+          "national.immigration",
           "category.business",
           "national.documents",
-          "national.education",
-          "municipality.gm1959",
-          "municipality.gm0312"
+          "national.education"
         ],
         "passed": true
       },
@@ -363,7 +364,10 @@
         "topIds": [
           "national.documents",
           "category.documents",
-          "government_service.first-registration-in-amsterdam"
+          "national.immigration",
+          "government_service.first-registration-in-amsterdam",
+          "national.benefits",
+          "national.banking"
         ],
         "passed": true
       },
@@ -372,7 +376,10 @@
         "expected": "national.documents",
         "topIds": [
           "national.documents",
-          "category.documents"
+          "category.documents",
+          "national.immigration",
+          "national.benefits",
+          "national.taxes"
         ],
         "passed": true
       },
@@ -384,10 +391,10 @@
           "category.documents",
           "government_service.first-registration-in-amsterdam",
           "national.housing",
+          "national.immigration",
           "national.education",
-          "government_service.registering-a-birth-in-amsterdam",
-          "category.business",
-          "category.children"
+          "national.pets",
+          "national.family-childcare"
         ],
         "passed": true
       },
@@ -396,6 +403,7 @@
         "expected": "national.documents",
         "topIds": [
           "national.documents",
+          "national.immigration",
           "category.documents",
           "government_service.parking-permit-amsterdam",
           "category.business",
@@ -409,6 +417,7 @@
         "topIds": [
           "national.documents",
           "category.documents",
+          "national.healthcare",
           "category.business",
           "category.education",
           "category.healthcare",
@@ -422,6 +431,7 @@
         "topIds": [
           "national.documents",
           "category.documents",
+          "national.pets",
           "category.business",
           "category.children",
           "category.family",
@@ -434,7 +444,8 @@
         "expected": "national.documents",
         "topIds": [
           "national.documents",
-          "category.documents"
+          "category.documents",
+          "national.immigration"
         ],
         "passed": true
       },
@@ -575,7 +586,9 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
-          "category.sim-telecom"
+          "category.sim-telecom",
+          "national.taxes",
+          "national.banking"
         ],
         "passed": true
       },
@@ -633,7 +646,9 @@
         "expected": "national.rules-fines",
         "topIds": [
           "national.rules-fines",
-          "category.fines"
+          "national.transport",
+          "category.fines",
+          "national.taxes"
         ],
         "passed": true
       },
@@ -651,13 +666,13 @@
         "expected": "national.rules-fines",
         "topIds": [
           "national.rules-fines",
+          "national.transport",
           "category.transport",
           "transport.amsterdam-amstel-station",
           "transport.amsterdam-bijlmer-arena-station",
           "transport.amsterdam-centraal-station",
           "transport.amsterdam-holendrecht-station",
-          "transport.amsterdam-lelylaan-station",
-          "transport.amsterdam-muiderpoort-station"
+          "transport.amsterdam-lelylaan-station"
         ],
         "passed": true
       },
@@ -666,6 +681,7 @@
         "expected": "national.rules-fines",
         "topIds": [
           "national.rules-fines",
+          "national.pets",
           "category.fines"
         ],
         "passed": true
@@ -719,6 +735,7 @@
         "expected": "national.lgbtiq-support",
         "topIds": [
           "national.lgbtiq-support",
+          "national.transport",
           "national.housing"
         ],
         "passed": true
@@ -754,79 +771,525 @@
           "national.lgbtiq-support"
         ],
         "passed": true
+      },
+      {
+        "query": "open a bank account",
+        "expected": "national.banking",
+        "topIds": [
+          "national.banking",
+          "category.banking",
+          "national.lgbtiq-support"
+        ],
+        "passed": true
+      },
+      {
+        "query": "payment account",
+        "expected": "national.banking",
+        "topIds": [
+          "national.banking",
+          "national.taxes",
+          "category.banking"
+        ],
+        "passed": true
+      },
+      {
+        "query": "bankrekening openen",
+        "expected": "national.banking",
+        "topIds": [
+          "national.banking",
+          "category.banking"
+        ],
+        "passed": true
+      },
+      {
+        "query": "betaalrekening",
+        "expected": "national.banking",
+        "topIds": [
+          "national.banking"
+        ],
+        "passed": true
+      },
+      {
+        "query": "открыть банковский счёт",
+        "expected": "national.banking",
+        "topIds": [
+          "national.banking",
+          "category.banking"
+        ],
+        "passed": true
+      },
+      {
+        "query": "банковский счет",
+        "expected": "national.banking",
+        "topIds": [
+          "national.banking",
+          "category.banking"
+        ],
+        "passed": true
+      },
+      {
+        "query": "families childcare",
+        "expected": "national.family-childcare",
+        "topIds": [
+          "national.family-childcare",
+          "category.family"
+        ],
+        "passed": true
+      },
+      {
+        "query": "find childcare",
+        "expected": "national.family-childcare",
+        "topIds": [
+          "national.family-childcare",
+          "category.family",
+          "category.children"
+        ],
+        "passed": true
+      },
+      {
+        "query": "kinderopvang",
+        "expected": "national.family-childcare",
+        "topIds": [
+          "national.family-childcare",
+          "category.family",
+          "national.benefits",
+          "category.children",
+          "category.benefits"
+        ],
+        "passed": true
+      },
+      {
+        "query": "buitenschoolse opvang",
+        "expected": "national.family-childcare",
+        "topIds": [
+          "national.family-childcare"
+        ],
+        "passed": true
+      },
+      {
+        "query": "детский сад",
+        "expected": "national.family-childcare",
+        "topIds": [
+          "national.family-childcare",
+          "category.family",
+          "national.benefits",
+          "category.children"
+        ],
+        "passed": true
+      },
+      {
+        "query": "уход за детьми",
+        "expected": "national.family-childcare",
+        "topIds": [
+          "national.family-childcare"
+        ],
+        "passed": true
+      },
+      {
+        "query": "pets registration",
+        "expected": "national.pets",
+        "topIds": [
+          "national.pets",
+          "category.pets",
+          "national.documents",
+          "category.documents"
+        ],
+        "passed": true
+      },
+      {
+        "query": "register a dog",
+        "expected": "national.pets",
+        "topIds": [
+          "national.pets",
+          "category.pets"
+        ],
+        "passed": true
+      },
+      {
+        "query": "hond registreren",
+        "expected": "national.pets",
+        "topIds": [
+          "national.pets",
+          "category.pets"
+        ],
+        "passed": true
+      },
+      {
+        "query": "dierenpaspoort",
+        "expected": "national.pets",
+        "topIds": [
+          "national.pets"
+        ],
+        "passed": true
+      },
+      {
+        "query": "регистрация питомца",
+        "expected": "national.pets",
+        "topIds": [
+          "national.pets",
+          "national.documents",
+          "category.documents",
+          "category.pets"
+        ],
+        "passed": true
+      },
+      {
+        "query": "зарегистрировать собаку",
+        "expected": "national.pets",
+        "topIds": [
+          "national.pets",
+          "category.pets"
+        ],
+        "passed": true
+      },
+      {
+        "query": "tax Belastingdienst",
+        "expected": "national.taxes",
+        "topIds": [
+          "national.taxes",
+          "category.taxes",
+          "national.benefits"
+        ],
+        "passed": true
+      },
+      {
+        "query": "tax return",
+        "expected": "national.taxes",
+        "topIds": [
+          "national.taxes",
+          "category.taxes"
+        ],
+        "passed": true
+      },
+      {
+        "query": "belastingaangifte",
+        "expected": "national.taxes",
+        "topIds": [
+          "national.taxes",
+          "category.taxes"
+        ],
+        "passed": true
+      },
+      {
+        "query": "inkomstenbelasting",
+        "expected": "national.taxes",
+        "topIds": [
+          "national.taxes",
+          "category.taxes"
+        ],
+        "passed": true
+      },
+      {
+        "query": "налоговая декларация",
+        "expected": "national.taxes",
+        "topIds": [
+          "national.taxes",
+          "category.taxes"
+        ],
+        "passed": true
+      },
+      {
+        "query": "налоги в Нидерландах",
+        "expected": "national.taxes",
+        "topIds": [
+          "national.taxes",
+          "category.taxes"
+        ],
+        "passed": true
+      },
+      {
+        "query": "benefits allowances",
+        "expected": "national.benefits",
+        "topIds": [
+          "national.benefits",
+          "national.housing",
+          "category.benefits",
+          "national.work"
+        ],
+        "passed": true
+      },
+      {
+        "query": "healthcare benefit",
+        "expected": "national.benefits",
+        "topIds": [
+          "national.benefits",
+          "category.benefits",
+          "national.housing",
+          "national.healthcare",
+          "national.lgbtiq-support",
+          "category.healthcare",
+          "healthcare.acta",
+          "healthcare.amsterdam-umc-location-amc"
+        ],
+        "passed": true
+      },
+      {
+        "query": "toeslagen",
+        "expected": "national.benefits",
+        "topIds": [
+          "national.benefits",
+          "category.benefits",
+          "national.housing",
+          "national.family-childcare"
+        ],
+        "passed": true
+      },
+      {
+        "query": "huurtoeslag",
+        "expected": "national.benefits",
+        "topIds": [
+          "national.benefits",
+          "national.housing",
+          "category.benefits",
+          "housing.woon",
+          "housing.affordable-housing-amsterdam",
+          "housing.housing-permit-amsterdam",
+          "housing.renting-a-home-in-amsterdam",
+          "housing.woningnet-stadsregio-amsterdam"
+        ],
+        "passed": true
+      },
+      {
+        "query": "пособия",
+        "expected": "national.benefits",
+        "topIds": [
+          "national.benefits",
+          "category.benefits",
+          "national.housing"
+        ],
+        "passed": true
+      },
+      {
+        "query": "пособие на аренду",
+        "expected": "national.benefits",
+        "topIds": [
+          "national.benefits",
+          "category.benefits",
+          "national.housing"
+        ],
+        "passed": true
+      },
+      {
+        "query": "buy a bicycle",
+        "expected": "national.transport",
+        "topIds": [
+          "national.transport",
+          "national.rules-fines",
+          "category.transport",
+          "transport.amsterdam-amstel-station",
+          "transport.amsterdam-bijlmer-arena-station",
+          "transport.amsterdam-centraal-station",
+          "transport.amsterdam-holendrecht-station",
+          "transport.amsterdam-lelylaan-station"
+        ],
+        "passed": true
+      },
+      {
+        "query": "public transport",
+        "expected": "national.transport",
+        "topIds": [
+          "national.transport",
+          "category.transport",
+          "national.rules-fines",
+          "transport.amsterdam-amstel-station",
+          "transport.amsterdam-bijlmer-arena-station",
+          "transport.amsterdam-centraal-station",
+          "transport.amsterdam-holendrecht-station",
+          "transport.amsterdam-lelylaan-station"
+        ],
+        "passed": true
+      },
+      {
+        "query": "fiets kopen",
+        "expected": "national.transport",
+        "topIds": [
+          "national.transport",
+          "national.rules-fines",
+          "category.transport",
+          "transport.amsterdam-amstel-station",
+          "transport.amsterdam-bijlmer-arena-station",
+          "transport.amsterdam-centraal-station",
+          "transport.amsterdam-holendrecht-station",
+          "transport.amsterdam-lelylaan-station"
+        ],
+        "passed": true
+      },
+      {
+        "query": "openbaar vervoer",
+        "expected": "national.transport",
+        "topIds": [
+          "national.transport",
+          "category.transport",
+          "national.rules-fines",
+          "transport.amsterdam-amstel-station",
+          "transport.amsterdam-bijlmer-arena-station",
+          "transport.amsterdam-centraal-station",
+          "transport.amsterdam-holendrecht-station",
+          "transport.amsterdam-lelylaan-station"
+        ],
+        "passed": true
+      },
+      {
+        "query": "купить велосипед",
+        "expected": "national.transport",
+        "topIds": [
+          "national.transport",
+          "national.rules-fines",
+          "category.transport",
+          "transport.amsterdam-amstel-station",
+          "transport.amsterdam-bijlmer-arena-station",
+          "transport.amsterdam-centraal-station",
+          "transport.amsterdam-holendrecht-station",
+          "transport.amsterdam-lelylaan-station"
+        ],
+        "passed": true
+      },
+      {
+        "query": "общественный транспорт",
+        "expected": "national.transport",
+        "topIds": [
+          "national.transport",
+          "category.transport",
+          "national.rules-fines",
+          "transport.amsterdam-amstel-station",
+          "transport.amsterdam-bijlmer-arena-station",
+          "transport.amsterdam-centraal-station",
+          "transport.amsterdam-holendrecht-station",
+          "transport.amsterdam-lelylaan-station"
+        ],
+        "passed": true
+      },
+      {
+        "query": "immigration residence permit",
+        "expected": "national.immigration",
+        "topIds": [
+          "national.immigration",
+          "national.documents",
+          "category.documents",
+          "government_service.parking-permit-amsterdam",
+          "national.taxes",
+          "category.business",
+          "category.family"
+        ],
+        "passed": true
+      },
+      {
+        "query": "visa Netherlands",
+        "expected": "national.immigration",
+        "topIds": [
+          "national.immigration"
+        ],
+        "passed": true
+      },
+      {
+        "query": "immigratie",
+        "expected": "national.immigration",
+        "topIds": [
+          "national.immigration",
+          "national.documents",
+          "national.taxes",
+          "local_partner.everaert-advocaten"
+        ],
+        "passed": true
+      },
+      {
+        "query": "verblijfsvergunning verlengen",
+        "expected": "national.immigration",
+        "topIds": [
+          "national.immigration",
+          "national.documents",
+          "category.documents"
+        ],
+        "passed": true
+      },
+      {
+        "query": "иммиграция",
+        "expected": "national.immigration",
+        "topIds": [
+          "national.immigration"
+        ],
+        "passed": true
+      },
+      {
+        "query": "виза в Нидерланды",
+        "expected": "national.immigration",
+        "topIds": [
+          "national.immigration"
+        ],
+        "passed": true
       }
     ],
     "provinces": [
       {
         "id": "drenthe",
         "name": "Drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "flevoland",
         "name": "Flevoland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "fryslan",
         "name": "Fryslân",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "gelderland",
         "name": "Gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "groningen",
         "name": "Groningen",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "limburg",
         "name": "Limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "noord-brabant",
         "name": "Noord-Brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "noord-holland",
         "name": "Noord-Holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "overijssel",
         "name": "Overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "utrecht",
         "name": "Utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zeeland",
         "name": "Zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zuid-holland",
         "name": "Zuid-Holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       }
     ],
@@ -835,2426 +1298,2426 @@
         "id": "s-gravenhage",
         "name": "'s-Gravenhage",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "s-hertogenbosch",
         "name": "'s-Hertogenbosch",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "aa-en-hunze",
         "name": "Aa en Hunze",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "aalsmeer",
         "name": "Aalsmeer",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "aalten",
         "name": "Aalten",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "achtkarspelen",
         "name": "Achtkarspelen",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "alblasserdam",
         "name": "Alblasserdam",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "albrandswaard",
         "name": "Albrandswaard",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "alkmaar",
         "name": "Alkmaar",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "almelo",
         "name": "Almelo",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "almere",
         "name": "Almere",
         "province": "flevoland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "alphen-aan-den-rijn",
         "name": "Alphen aan den Rijn",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "alphen-chaam",
         "name": "Alphen-Chaam",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "altena",
         "name": "Altena",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "ameland",
         "name": "Ameland",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "amersfoort",
         "name": "Amersfoort",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "amstelveen",
         "name": "Amstelveen",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "amsterdam",
         "name": "Amsterdam",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "apeldoorn",
         "name": "Apeldoorn",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "arnhem",
         "name": "Arnhem",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "assen",
         "name": "Assen",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "asten",
         "name": "Asten",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "baarle-nassau",
         "name": "Baarle-Nassau",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "baarn",
         "name": "Baarn",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "barendrecht",
         "name": "Barendrecht",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "barneveld",
         "name": "Barneveld",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "beek",
         "name": "Beek",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "beekdaelen",
         "name": "Beekdaelen",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "beesel",
         "name": "Beesel",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "berg-en-dal",
         "name": "Berg en Dal",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "bergeijk",
         "name": "Bergeijk",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "bergen-l",
         "name": "Bergen (L)",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "bergen-nh",
         "name": "Bergen (NH)",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "bergen-op-zoom",
         "name": "Bergen op Zoom",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "berkelland",
         "name": "Berkelland",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "bernheze",
         "name": "Bernheze",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "best",
         "name": "Best",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "beuningen",
         "name": "Beuningen",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "beverwijk",
         "name": "Beverwijk",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "bladel",
         "name": "Bladel",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "blaricum",
         "name": "Blaricum",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "bloemendaal",
         "name": "Bloemendaal",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "bodegraven-reeuwijk",
         "name": "Bodegraven-Reeuwijk",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "boekel",
         "name": "Boekel",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "borger-odoorn",
         "name": "Borger-Odoorn",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "borne",
         "name": "Borne",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "borsele",
         "name": "Borsele",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "boxtel",
         "name": "Boxtel",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "breda",
         "name": "Breda",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "bronckhorst",
         "name": "Bronckhorst",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "brummen",
         "name": "Brummen",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "brunssum",
         "name": "Brunssum",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "bunnik",
         "name": "Bunnik",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "bunschoten",
         "name": "Bunschoten",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "buren",
         "name": "Buren",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "capelle-aan-den-ijssel",
         "name": "Capelle aan den IJssel",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "castricum",
         "name": "Castricum",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "coevorden",
         "name": "Coevorden",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "cranendonck",
         "name": "Cranendonck",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "culemborg",
         "name": "Culemborg",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "dalfsen",
         "name": "Dalfsen",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "dantumadiel",
         "name": "Dantumadiel",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "de-bilt",
         "name": "De Bilt",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "de-fryske-marren",
         "name": "De Fryske Marren",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "de-ronde-venen",
         "name": "De Ronde Venen",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "de-wolden",
         "name": "De Wolden",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "delft",
         "name": "Delft",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "den-helder",
         "name": "Den Helder",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "deurne",
         "name": "Deurne",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "deventer",
         "name": "Deventer",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "diemen",
         "name": "Diemen",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "dijk-en-waard",
         "name": "Dijk en Waard",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "dinkelland",
         "name": "Dinkelland",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "doesburg",
         "name": "Doesburg",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "doetinchem",
         "name": "Doetinchem",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "dongen",
         "name": "Dongen",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "dordrecht",
         "name": "Dordrecht",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "drechterland",
         "name": "Drechterland",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "drimmelen",
         "name": "Drimmelen",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "dronten",
         "name": "Dronten",
         "province": "flevoland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "druten",
         "name": "Druten",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "duiven",
         "name": "Duiven",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "echt-susteren",
         "name": "Echt-Susteren",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "edam-volendam",
         "name": "Edam-Volendam",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "ede",
         "name": "Ede",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "eemnes",
         "name": "Eemnes",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "eemsdelta",
         "name": "Eemsdelta",
         "province": "groningen",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "eersel",
         "name": "Eersel",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "eijsden-margraten",
         "name": "Eijsden-Margraten",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "eindhoven",
         "name": "Eindhoven",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "elburg",
         "name": "Elburg",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "emmen",
         "name": "Emmen",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "enkhuizen",
         "name": "Enkhuizen",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "enschede",
         "name": "Enschede",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "epe",
         "name": "Epe",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "ermelo",
         "name": "Ermelo",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "etten-leur",
         "name": "Etten-Leur",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "geertruidenberg",
         "name": "Geertruidenberg",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "geldrop-mierlo",
         "name": "Geldrop-Mierlo",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "gemert-bakel",
         "name": "Gemert-Bakel",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "gennep",
         "name": "Gennep",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "gilze-en-rijen",
         "name": "Gilze en Rijen",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "goeree-overflakkee",
         "name": "Goeree-Overflakkee",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "goes",
         "name": "Goes",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "goirle",
         "name": "Goirle",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "gooise-meren",
         "name": "Gooise Meren",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "gorinchem",
         "name": "Gorinchem",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "gouda",
         "name": "Gouda",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "groningen",
         "name": "Groningen",
         "province": "groningen",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "gulpen-wittem",
         "name": "Gulpen-Wittem",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "haaksbergen",
         "name": "Haaksbergen",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "haarlem",
         "name": "Haarlem",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "haarlemmermeer",
         "name": "Haarlemmermeer",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "halderberge",
         "name": "Halderberge",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hardenberg",
         "name": "Hardenberg",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "harderwijk",
         "name": "Harderwijk",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hardinxveld-giessendam",
         "name": "Hardinxveld-Giessendam",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "harlingen",
         "name": "Harlingen",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hattem",
         "name": "Hattem",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "heemskerk",
         "name": "Heemskerk",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "heemstede",
         "name": "Heemstede",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "heerde",
         "name": "Heerde",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "heerenveen",
         "name": "Heerenveen",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "heerlen",
         "name": "Heerlen",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "heeze-leende",
         "name": "Heeze-Leende",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "heiloo",
         "name": "Heiloo",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hellendoorn",
         "name": "Hellendoorn",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "helmond",
         "name": "Helmond",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hendrik-ido-ambacht",
         "name": "Hendrik-Ido-Ambacht",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hengelo-o",
         "name": "Hengelo (O)",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "het-hogeland",
         "name": "Het Hogeland",
         "province": "groningen",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "heumen",
         "name": "Heumen",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "heusden",
         "name": "Heusden",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hillegom",
         "name": "Hillegom",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hilvarenbeek",
         "name": "Hilvarenbeek",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hilversum",
         "name": "Hilversum",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hoeksche-waard",
         "name": "Hoeksche Waard",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hof-van-twente",
         "name": "Hof van Twente",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hollands-kroon",
         "name": "Hollands Kroon",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hoogeveen",
         "name": "Hoogeveen",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hoorn",
         "name": "Hoorn",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "horst-aan-de-maas",
         "name": "Horst aan de Maas",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "houten",
         "name": "Houten",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "huizen",
         "name": "Huizen",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "hulst",
         "name": "Hulst",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "ijsselstein",
         "name": "IJsselstein",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "kaag-en-braassem",
         "name": "Kaag en Braassem",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "kampen",
         "name": "Kampen",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "kapelle",
         "name": "Kapelle",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "katwijk",
         "name": "Katwijk",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "kerkrade",
         "name": "Kerkrade",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "koggenland",
         "name": "Koggenland",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "krimpen-aan-den-ijssel",
         "name": "Krimpen aan den IJssel",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "krimpenerwaard",
         "name": "Krimpenerwaard",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "laarbeek",
         "name": "Laarbeek",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "land-van-cuijk",
         "name": "Land van Cuijk",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "landgraaf",
         "name": "Landgraaf",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "landsmeer",
         "name": "Landsmeer",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "lansingerland",
         "name": "Lansingerland",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "laren",
         "name": "Laren",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "leeuwarden",
         "name": "Leeuwarden",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "leiden",
         "name": "Leiden",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "leiderdorp",
         "name": "Leiderdorp",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "leidschendam-voorburg",
         "name": "Leidschendam-Voorburg",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "lelystad",
         "name": "Lelystad",
         "province": "flevoland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "leudal",
         "name": "Leudal",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "leusden",
         "name": "Leusden",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "lingewaard",
         "name": "Lingewaard",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "lisse",
         "name": "Lisse",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "lochem",
         "name": "Lochem",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "loon-op-zand",
         "name": "Loon op Zand",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "lopik",
         "name": "Lopik",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "losser",
         "name": "Losser",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "maasdriel",
         "name": "Maasdriel",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "maasgouw",
         "name": "Maasgouw",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "maashorst",
         "name": "Maashorst",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "maassluis",
         "name": "Maassluis",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "maastricht",
         "name": "Maastricht",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "medemblik",
         "name": "Medemblik",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "meerssen",
         "name": "Meerssen",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "meierijstad",
         "name": "Meierijstad",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "meppel",
         "name": "Meppel",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "middelburg",
         "name": "Middelburg",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "midden-delfland",
         "name": "Midden-Delfland",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "midden-drenthe",
         "name": "Midden-Drenthe",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "midden-groningen",
         "name": "Midden-Groningen",
         "province": "groningen",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "moerdijk",
         "name": "Moerdijk",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "molenlanden",
         "name": "Molenlanden",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "montferland",
         "name": "Montferland",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "montfoort",
         "name": "Montfoort",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "mook-en-middelaar",
         "name": "Mook en Middelaar",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "neder-betuwe",
         "name": "Neder-Betuwe",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "nederweert",
         "name": "Nederweert",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "nieuwegein",
         "name": "Nieuwegein",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "nieuwkoop",
         "name": "Nieuwkoop",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "nijkerk",
         "name": "Nijkerk",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "nijmegen",
         "name": "Nijmegen",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "nissewaard",
         "name": "Nissewaard",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "noardeast-fryslan",
         "name": "Noardeast-Fryslân",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "noord-beveland",
         "name": "Noord-Beveland",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "noordenveld",
         "name": "Noordenveld",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "noordoostpolder",
         "name": "Noordoostpolder",
         "province": "flevoland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "noordwijk",
         "name": "Noordwijk",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "nuenen-gerwen-en-nederwetten",
         "name": "Nuenen, Gerwen en Nederwetten",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "nunspeet",
         "name": "Nunspeet",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oegstgeest",
         "name": "Oegstgeest",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oirschot",
         "name": "Oirschot",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oisterwijk",
         "name": "Oisterwijk",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oldambt",
         "name": "Oldambt",
         "province": "groningen",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oldebroek",
         "name": "Oldebroek",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oldenzaal",
         "name": "Oldenzaal",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "olst-wijhe",
         "name": "Olst-Wijhe",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "ommen",
         "name": "Ommen",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oost-gelre",
         "name": "Oost Gelre",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oosterhout",
         "name": "Oosterhout",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "ooststellingwerf",
         "name": "Ooststellingwerf",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oostzaan",
         "name": "Oostzaan",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "opmeer",
         "name": "Opmeer",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "opsterland",
         "name": "Opsterland",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oss",
         "name": "Oss",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oude-ijsselstreek",
         "name": "Oude IJsselstreek",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "ouder-amstel",
         "name": "Ouder-Amstel",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "oudewater",
         "name": "Oudewater",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "overbetuwe",
         "name": "Overbetuwe",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "papendrecht",
         "name": "Papendrecht",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "peel-en-maas",
         "name": "Peel en Maas",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "pekela",
         "name": "Pekela",
         "province": "groningen",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "pijnacker-nootdorp",
         "name": "Pijnacker-Nootdorp",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "purmerend",
         "name": "Purmerend",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "putten",
         "name": "Putten",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "raalte",
         "name": "Raalte",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "reimerswaal",
         "name": "Reimerswaal",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "renkum",
         "name": "Renkum",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "renswoude",
         "name": "Renswoude",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "reusel-de-mierden",
         "name": "Reusel-De Mierden",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "rheden",
         "name": "Rheden",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "rhenen",
         "name": "Rhenen",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "ridderkerk",
         "name": "Ridderkerk",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "rijssen-holten",
         "name": "Rijssen-Holten",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "rijswijk",
         "name": "Rijswijk",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "roerdalen",
         "name": "Roerdalen",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "roermond",
         "name": "Roermond",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "roosendaal",
         "name": "Roosendaal",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "rotterdam",
         "name": "Rotterdam",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "rozendaal",
         "name": "Rozendaal",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "rucphen",
         "name": "Rucphen",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "schagen",
         "name": "Schagen",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "scherpenzeel",
         "name": "Scherpenzeel",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "schiedam",
         "name": "Schiedam",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "schiermonnikoog",
         "name": "Schiermonnikoog",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "schouwen-duiveland",
         "name": "Schouwen-Duiveland",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "simpelveld",
         "name": "Simpelveld",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "sint-michielsgestel",
         "name": "Sint-Michielsgestel",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "sittard-geleen",
         "name": "Sittard-Geleen",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "sliedrecht",
         "name": "Sliedrecht",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "sluis",
         "name": "Sluis",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "smallingerland",
         "name": "Smallingerland",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "soest",
         "name": "Soest",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "someren",
         "name": "Someren",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "son-en-breugel",
         "name": "Son en Breugel",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "stadskanaal",
         "name": "Stadskanaal",
         "province": "groningen",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "staphorst",
         "name": "Staphorst",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "stede-broec",
         "name": "Stede Broec",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "steenbergen",
         "name": "Steenbergen",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "steenwijkerland",
         "name": "Steenwijkerland",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "stein",
         "name": "Stein",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "stichtse-vecht",
         "name": "Stichtse Vecht",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "sudwest-fryslan",
         "name": "Súdwest-Fryslân",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "terneuzen",
         "name": "Terneuzen",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "terschelling",
         "name": "Terschelling",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "texel",
         "name": "Texel",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "teylingen",
         "name": "Teylingen",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "tholen",
         "name": "Tholen",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "tiel",
         "name": "Tiel",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "tilburg",
         "name": "Tilburg",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "tubbergen",
         "name": "Tubbergen",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "twenterand",
         "name": "Twenterand",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "tynaarlo",
         "name": "Tynaarlo",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "tytsjerksteradiel",
         "name": "Tytsjerksteradiel",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "uitgeest",
         "name": "Uitgeest",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "uithoorn",
         "name": "Uithoorn",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "urk",
         "name": "Urk",
         "province": "flevoland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "utrecht",
         "name": "Utrecht",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "utrechtse-heuvelrug",
         "name": "Utrechtse Heuvelrug",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "vaals",
         "name": "Vaals",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "valkenburg-aan-de-geul",
         "name": "Valkenburg aan de Geul",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "valkenswaard",
         "name": "Valkenswaard",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "veendam",
         "name": "Veendam",
         "province": "groningen",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "veenendaal",
         "name": "Veenendaal",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "veere",
         "name": "Veere",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "veldhoven",
         "name": "Veldhoven",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "velsen",
         "name": "Velsen",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "venlo",
         "name": "Venlo",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "venray",
         "name": "Venray",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "vijfheerenlanden",
         "name": "Vijfheerenlanden",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "vlaardingen",
         "name": "Vlaardingen",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "vlieland",
         "name": "Vlieland",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "vlissingen",
         "name": "Vlissingen",
         "province": "zeeland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "voerendaal",
         "name": "Voerendaal",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "voorne-aan-zee",
         "name": "Voorne aan Zee",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "voorschoten",
         "name": "Voorschoten",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "voorst",
         "name": "Voorst",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "vught",
         "name": "Vught",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "waadhoeke",
         "name": "Waadhoeke",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "waalre",
         "name": "Waalre",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "waalwijk",
         "name": "Waalwijk",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "waddinxveen",
         "name": "Waddinxveen",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "wageningen",
         "name": "Wageningen",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "wassenaar",
         "name": "Wassenaar",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "waterland",
         "name": "Waterland",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "weert",
         "name": "Weert",
         "province": "limburg",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "west-betuwe",
         "name": "West Betuwe",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "west-maas-en-waal",
         "name": "West Maas en Waal",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "westerkwartier",
         "name": "Westerkwartier",
         "province": "groningen",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "westerveld",
         "name": "Westerveld",
         "province": "drenthe",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "westervoort",
         "name": "Westervoort",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "westerwolde",
         "name": "Westerwolde",
         "province": "groningen",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "westland",
         "name": "Westland",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "weststellingwerf",
         "name": "Weststellingwerf",
         "province": "fryslan",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "wierden",
         "name": "Wierden",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "wijchen",
         "name": "Wijchen",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "wijdemeren",
         "name": "Wijdemeren",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "wijk-bij-duurstede",
         "name": "Wijk bij Duurstede",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "winterswijk",
         "name": "Winterswijk",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "woensdrecht",
         "name": "Woensdrecht",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "woerden",
         "name": "Woerden",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "wormerland",
         "name": "Wormerland",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "woudenberg",
         "name": "Woudenberg",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zaanstad",
         "name": "Zaanstad",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zaltbommel",
         "name": "Zaltbommel",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zandvoort",
         "name": "Zandvoort",
         "province": "noord-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zeewolde",
         "name": "Zeewolde",
         "province": "flevoland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zeist",
         "name": "Zeist",
         "province": "utrecht",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zevenaar",
         "name": "Zevenaar",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zoetermeer",
         "name": "Zoetermeer",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zoeterwoude",
         "name": "Zoeterwoude",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zuidplas",
         "name": "Zuidplas",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zundert",
         "name": "Zundert",
         "province": "noord-brabant",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zutphen",
         "name": "Zutphen",
         "province": "gelderland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zwartewaterland",
         "name": "Zwartewaterland",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zwijndrecht",
         "name": "Zwijndrecht",
         "province": "zuid-holland",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "id": "zwolle",
         "name": "Zwolle",
         "province": "overijssel",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       }
     ],
     "profiles": [
       {
         "profile": "tourist",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "profile": "student",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "profile": "expat",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "profile": "refugee",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "profile": "worker",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       },
       {
         "profile": "resident",
-        "checks": 8,
+        "checks": 15,
         "passed": true
       }
     ],
@@ -3265,7 +3728,8 @@
         "topIds": [
           "national.housing",
           "category.housing",
-          "page.journeys"
+          "page.journeys",
+          "national.benefits"
         ],
         "passed": true
       },
@@ -3275,7 +3739,8 @@
         "topIds": [
           "national.housing",
           "category.housing",
-          "page.journeys"
+          "page.journeys",
+          "national.benefits"
         ],
         "passed": true
       },
@@ -3286,11 +3751,11 @@
           "national.work",
           "category.work",
           "national.lgbtiq-support",
+          "national.taxes",
+          "national.immigration",
           "category.business",
           "national.documents",
-          "national.education",
-          "category.healthcare",
-          "category.language-learning"
+          "national.education"
         ],
         "passed": true
       },
@@ -3320,7 +3785,10 @@
         "expected": "national.documents",
         "topIds": [
           "national.documents",
-          "category.documents"
+          "category.documents",
+          "national.immigration",
+          "national.benefits",
+          "national.banking"
         ],
         "passed": true
       },
@@ -3338,7 +3806,9 @@
         "expected": "national.rules-fines",
         "topIds": [
           "national.rules-fines",
-          "category.fines"
+          "national.transport",
+          "category.fines",
+          "national.taxes"
         ],
         "passed": true
       },
@@ -3347,6 +3817,80 @@
         "expected": "national.lgbtiq-support",
         "topIds": [
           "national.lgbtiq-support"
+        ],
+        "passed": true
+      },
+      {
+        "query": "open a bank account",
+        "expected": "national.banking",
+        "topIds": [
+          "national.banking",
+          "category.banking",
+          "national.lgbtiq-support"
+        ],
+        "passed": true
+      },
+      {
+        "query": "families childcare",
+        "expected": "national.family-childcare",
+        "topIds": [
+          "national.family-childcare",
+          "category.family"
+        ],
+        "passed": true
+      },
+      {
+        "query": "pets registration",
+        "expected": "national.pets",
+        "topIds": [
+          "national.pets",
+          "category.pets",
+          "national.documents",
+          "category.documents"
+        ],
+        "passed": true
+      },
+      {
+        "query": "tax Belastingdienst",
+        "expected": "national.taxes",
+        "topIds": [
+          "national.taxes",
+          "category.taxes",
+          "national.benefits"
+        ],
+        "passed": true
+      },
+      {
+        "query": "benefits allowances",
+        "expected": "national.benefits",
+        "topIds": [
+          "national.benefits",
+          "national.housing",
+          "category.benefits",
+          "national.work"
+        ],
+        "passed": true
+      },
+      {
+        "query": "buy a bicycle",
+        "expected": "national.transport",
+        "topIds": [
+          "national.transport",
+          "national.rules-fines",
+          "category.transport"
+        ],
+        "passed": true
+      },
+      {
+        "query": "immigration residence permit",
+        "expected": "national.immigration",
+        "topIds": [
+          "national.immigration",
+          "national.documents",
+          "category.documents",
+          "national.taxes",
+          "category.business",
+          "category.family"
         ],
         "passed": true
       }
@@ -3449,13 +3993,13 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "national.benefits",
+          "national.taxes",
           "national.documents",
           "national.lgbtiq-support",
           "housing.affordable-housing-amsterdam",
           "housing.housing-permit-amsterdam",
-          "housing.woon",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "housing.woon"
         ],
         "passed": true
       },
@@ -3482,13 +4026,13 @@
         "expected": "national.documents",
         "topIds": [
           "national.documents",
+          "national.pets",
           "national.housing",
+          "national.immigration",
           "national.education",
+          "national.family-childcare",
           "government_service.first-registration-in-amsterdam",
-          "category.business",
-          "category.children",
-          "category.documents",
-          "category.education"
+          "category.business"
         ],
         "passed": true
       },
@@ -3524,6 +4068,73 @@
         "expected": "national.lgbtiq-support",
         "topIds": [
           "national.lgbtiq-support"
+        ],
+        "passed": true
+      },
+      {
+        "query": "bank acount",
+        "expected": "national.banking",
+        "topIds": [
+          "national.banking",
+          "category.banking"
+        ],
+        "passed": true
+      },
+      {
+        "query": "childcar",
+        "expected": "national.family-childcare",
+        "topIds": [
+          "national.family-childcare",
+          "national.benefits",
+          "category.children",
+          "category.benefits"
+        ],
+        "passed": true
+      },
+      {
+        "query": "dog registraton",
+        "expected": "national.pets",
+        "topIds": [
+          "national.pets",
+          "category.pets"
+        ],
+        "passed": true
+      },
+      {
+        "query": "tax retrn",
+        "expected": "national.taxes",
+        "topIds": [
+          "national.taxes",
+          "category.taxes"
+        ],
+        "passed": true
+      },
+      {
+        "query": "toeslaen",
+        "expected": "national.benefits",
+        "topIds": [
+          "national.benefits",
+          "national.family-childcare",
+          "category.benefits"
+        ],
+        "passed": true
+      },
+      {
+        "query": "buy bicicle",
+        "expected": "national.transport",
+        "topIds": [
+          "national.transport"
+        ],
+        "passed": true
+      },
+      {
+        "query": "imigration",
+        "expected": "national.immigration",
+        "topIds": [
+          "national.immigration",
+          "national.taxes",
+          "national.documents",
+          "local_partner.everaert-advocaten"
         ],
         "passed": true
       }
@@ -3634,6 +4245,144 @@
       {
         "guide": "national.lgbtiq-support",
         "url": "https://coc.nl/contact/",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.banking",
+        "url": "https://www.dnb.nl/en/public-register/",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.banking",
+        "url": "https://www.dnb.nl/en/public-register/register-of-banks/",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.banking",
+        "url": "https://www.betaalvereniging.nl/kennisbank/rekeningen-en-diensten/?noredirect=nl-NL",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.family-childcare",
+        "url": "https://www.government.nl/themes/family-health-and-care/childcare",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.family-childcare",
+        "url": "https://www.government.nl/themes/family-health-and-care/childcare/childcare-benefit",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.family-childcare",
+        "url": "https://www.government.nl/themes/education/primary-education/costs-of-primary-school",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.pets",
+        "url": "https://www.government.nl/themes/nature-and-the-environment/animal-welfare/welfare-of-pets",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.pets",
+        "url": "https://www.government.nl/themes/nature-and-the-environment/animal-welfare/welfare-of-pets/registering-and-microchipping-a-dog",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.pets",
+        "url": "https://www.rvo.nl/onderwerpen/identificatie-en-registratie-honden",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.taxes",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.taxes",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/filing-an-online-tax-return-in-4-steps",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.taxes",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/non-resident-taxpayer-how-do-i-file-my-income-tax-return",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.benefits",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/individuals/benefits/how_do_benefits_work/i_want_to_apply_for_a_benefit/",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.benefits",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.benefits",
+        "url": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.transport",
+        "url": "https://www.government.nl/themes/transport/public-transport",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.transport",
+        "url": "https://www.ovpay.nl/en/about-ovpay",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.transport",
+        "url": "https://www.government.nl/themes/transport/bicycles/safe-cycling",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.transport",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/fiets/hoe-kan-ik-controleren-of-een-fiets-als-gestolen-staat-geregistreerd",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.immigration",
+        "url": "https://ind.nl/en",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.immigration",
+        "url": "https://ind.nl/en/residence-permits",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.immigration",
+        "url": "https://ind.nl/en/provisional-residence-permit-mvv",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.immigration",
+        "url": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands",
         "checkedAt": "2026-08-06",
         "valid": true
       }

@@ -11,7 +11,7 @@
       "subcategories": ["private-rent", "social-housing", "temporary-housing", "contracts", "deposits", "tenant-rights", "rent-benefit", "housing-scams"],
       "intents": ["housing", "benefits", "legal-help"],
       "synonyms": {
-        "en": ["rent", "housing rent", "apartment", "room", "private rental", "social housing", "rental contract", "deposit", "tenant rights", "rent benefit", "housing scam"],
+        "en": ["rent", "housing rent", "apartment", "room", "private rental", "social housing", "student housing", "housing defects", "rental contract", "deposit", "tenant rights", "rent benefit", "housing scam"],
         "nl": ["huur", "huren", "woning", "kamer", "sociale huur", "huurcontract", "borg", "huurrecht", "huurtoeslag"],
         "ru": ["аренда", "жильё", "квартира", "комната", "социальное жильё", "договор аренды", "депозит", "права арендатора"]
       },
@@ -84,7 +84,7 @@
       "category": "documents",
       "subcategories": ["bsn", "brp", "digid", "municipality-registration", "address-change", "residence-documents"],
       "intents": ["documents", "government", "integration"],
-      "synonyms": {"en": ["BSN", "DigiD", "registration", "BRP", "residence permit", "residence card", "lost residence card", "residence permit stolen", "change address"], "nl": ["burgerservicenummer", "DigiD", "inschrijving", "BRP", "verblijfsvergunning", "verblijfsdocument", "verblijfsdocument kwijt", "verhuizing"], "ru": ["BSN", "DigiD", "регистрация", "ВНЖ", "вид на жительство", "потерял вид на жительство", "смена адреса", "муниципалитет"]},
+      "synonyms": {"en": ["BSN", "DigiD", "registration", "register gemeente", "municipality registration", "moving registration", "BRP", "residence permit", "residence card", "lost residence card", "residence permit stolen", "change address"], "nl": ["burgerservicenummer", "DigiD", "inschrijving", "inschrijven gemeente", "gemeente registratie", "BRP", "verblijfsvergunning", "verblijfsdocument", "verblijfsdocument kwijt", "verhuizing"], "ru": ["BSN", "DigiD", "регистрация", "регистрация в муниципалитете", "ВНЖ", "вид на жительство", "потерял вид на жительство", "смена адреса", "муниципалитет"]},
       "keywords": ["citizen service number", "personal records database", "municipality appointment", "IND"],
       "languages": ["en"],
       "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
@@ -117,7 +117,7 @@
       "category": "healthcare",
       "subcategories": ["huisarts", "hospital", "huisartsenpost", "pharmacy", "dentist", "specialist", "mental-health", "health-insurance", "emergency-care"],
       "intents": ["healthcare", "insurance", "emergency"],
-      "synonyms": {"en": ["doctor", "GP", "hospital", "dentist", "pharmacy", "health insurance", "mental health"], "nl": ["huisarts", "huisartsenpost", "ziekenhuis", "tandarts", "apotheek", "zorgverzekering", "geestelijke gezondheidszorg"], "ru": ["врач", "терапевт", "больница", "стоматолог", "аптека", "медицинская страховка"]},
+      "synonyms": {"en": ["doctor", "GP", "find a GP", "register with a huisarts", "register with a huisarts GP", "hospital", "dentist", "pharmacy", "health insurance", "mental health"], "nl": ["huisarts", "huisarts inschrijven", "huisartsenpost", "ziekenhuis", "tandarts", "apotheek", "zorgverzekering", "geestelijke gezondheidszorg"], "ru": ["врач", "терапевт", "зарегистрироваться у врача", "больница", "стоматолог", "аптека", "медицинская страховка"]},
       "keywords": ["general practitioner", "urgent care", "specialist referral", "prescription medicine"],
       "languages": ["en"],
       "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
@@ -278,6 +278,225 @@
         {"title": "Report discrimination", "publisher": "Discriminatie.nl", "url": "https://discriminatie.nl/discriminatie-melden/", "checkedAt": "2026-08-06"},
         {"title": "LGBTI+ support line", "publisher": "COC Switchboard", "url": "https://switchboard.nl/?language=nl_NL", "checkedAt": "2026-08-06"},
         {"title": "COC contact and regional support", "publisher": "COC Nederland", "url": "https://coc.nl/contact/", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.banking",
+      "slug": "bank-account-and-payments",
+      "title": "Bank accounts and everyday payments",
+      "summary": "A neutral route for choosing a regulated payment provider, preparing a personal bank-account application, understanding Dutch payment options and handling a rejected application.",
+      "category": "banking",
+      "subcategories": ["bank-account", "payment-account", "iban", "debit-card", "basic-payment-account", "provider-check", "payment-safety"],
+      "intents": ["finance"],
+      "synonyms": {"en": ["open a bank account", "bank account", "Dutch bank account", "payment account", "IBAN", "debit card", "basic payment account", "daily life bank account"], "nl": ["bankrekening openen", "bankrekening", "betaalrekening", "Nederlandse IBAN", "betaalpas", "basisbetaalrekening"], "ru": ["открыть банковский счёт", "банковский счет", "банковский счёт", "счёт в Нидерландах", "IBAN", "дебетовая карта", "базовый платежный счёт"]},
+      "keywords": ["De Nederlandsche Bank", "regulated bank", "licensed provider", "identity check", "payment service", "banking fraud"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 92,
+      "sections": {
+        "what": "Banks and other payment providers set their own acceptance process, documents, account features and fees within Dutch and European rules. YouNew does not rank providers or accept account applications.",
+        "who": "Use this route when opening a personal payment account, checking whether a provider is regulated, comparing account conditions or looking for the responsible route after a rejection.",
+        "steps": ["Decide whether you need a personal payment account or a separate business account.", "Compare the complete conditions, identification process, fees and support language on each provider's official website.", "Check the provider in the current DNB public register before sending identity documents or money.", "Prepare only the documents requested by the selected provider and submit them through its verified application route.", "If a regular account is refused, read the official basic-payment-account guidance and the provider's written reason before choosing the next route."],
+        "documents": ["Requirements vary by provider and situation. A provider may ask for valid identification, contact details, residence information, a BSN or tax-residency information; use its current checklist rather than a generic list."],
+        "cost": "Account fees and payment charges change. YouNew does not reproduce prices or recommend a commercial provider.",
+        "timing": "Application and verification times are provider-specific. A complete application can still require additional checks.",
+        "problems": ["Ask the provider for its complaint or review route when an application is delayed or refused.", "Use the basic payment account information when the ordinary route is unavailable and the stated conditions may apply.", "Stop if a message asks for login codes, remote access or payment to release an account."],
+        "mistakes": ["Choosing an account from an advertisement without checking the regulated provider.", "Sending identity documents through email or messaging when the provider has a secure route.", "Assuming every applicant must provide exactly the same documents."],
+        "localDifferences": "Bank accounts are national services. Branch availability and in-person support can differ by city, but a city filter must not hide this national route."
+      },
+      "relatedTopics": ["finance", "taxes", "benefits", "business", "daily-life"],
+      "officialSources": [
+        {"title": "Public register", "publisher": "De Nederlandsche Bank", "url": "https://www.dnb.nl/en/public-register/", "checkedAt": "2026-08-06"},
+        {"title": "Register of banks", "publisher": "De Nederlandsche Bank", "url": "https://www.dnb.nl/en/public-register/register-of-banks/", "checkedAt": "2026-08-06"},
+        {"title": "Special payment accounts and services", "publisher": "Dutch Payments Association", "url": "https://www.betaalvereniging.nl/kennisbank/rekeningen-en-diensten/?noredirect=nl-NL", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.family-childcare",
+      "slug": "family-childcare-and-school",
+      "title": "Family, childcare and school basics",
+      "summary": "A national starting point for childcare, after-school care, childcare benefit and the responsible school or municipality route for families with children.",
+      "category": "family",
+      "subcategories": ["childcare", "daycare", "after-school-care", "childcare-benefit", "primary-school", "family-support"],
+      "intents": ["family"],
+      "synonyms": {"en": ["families childcare", "family childcare", "find childcare", "childcare", "daycare", "nursery", "after-school care", "BSO", "school for my child"], "nl": ["kinderopvang", "kinderdagverblijf", "opvang", "BSO", "buitenschoolse opvang", "basisschool"], "ru": ["детский сад", "уход за детьми", "продлёнка", "школа для ребёнка", "семья с детьми"]},
+      "keywords": ["kinderopvang", "kinderopvangtoeslag", "registered childcare", "primary education", "municipality family support"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 92,
+      "sections": {
+        "what": "Childcare, after-school care, school registration and family support are separate routes. Availability is local, while benefit conditions and education rules are national.",
+        "who": "Use this route when looking for childcare or BSO, checking childcare benefit, arranging school for a child or finding the responsible local family service.",
+        "steps": ["Choose the exact need: childcare, BSO, primary school, benefit or family support.", "For childcare, verify the provider, current availability and contract directly before signing.", "Check the current childcare-benefit conditions before relying on an estimated contribution.", "For school admission, use the municipality and the school's official procedure for your address and the child's age.", "Report relevant changes promptly through the responsible official service."],
+        "documents": ["Requirements depend on the service. Use the provider, school, municipality or Dienst Toeslagen checklist for identification, registration, income and contract information."],
+        "cost": "Childcare prices and benefit calculations change. Use the provider contract and current official calculation; YouNew does not store amounts.",
+        "timing": "Waiting lists, school admission dates and benefit application periods differ. Check them before committing to a start date.",
+        "problems": ["Ask the municipality about local family support when regular childcare or school routes do not fit the situation.", "Contact Dienst Toeslagen for an official benefit decision or correction.", "Use the provider's complaints route for contract or service issues."],
+        "mistakes": ["Treating childcare registration and childcare benefit as one application.", "Assuming a provider has a place because it appears in a directory.", "Using an old benefit estimate after income, hours or household circumstances change."],
+        "localDifferences": "Childcare capacity, school admission procedures and family teams are local. City selection adds verified local routes while keeping national benefit guidance visible."
+      },
+      "relatedTopics": ["education", "benefits", "healthcare", "municipal-services"],
+      "officialSources": [
+        {"title": "Childcare", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/childcare", "checkedAt": "2026-08-06"},
+        {"title": "Applying for childcare benefit", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/childcare/childcare-benefit", "checkedAt": "2026-08-06"},
+        {"title": "Costs of primary school", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/education/primary-education/costs-of-primary-school", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.pets",
+      "slug": "pets-dogs-and-cats",
+      "title": "Pets, dogs and cats in the Netherlands",
+      "summary": "A national route for pet welfare rules, dog microchipping and registration, importing an animal, local dog tax and finding the responsible veterinarian or authority.",
+      "category": "pets",
+      "subcategories": ["dog-registration", "microchip", "pet-passport", "pet-import", "animal-welfare", "dog-tax", "veterinarian"],
+      "intents": ["pets"],
+      "synonyms": {"en": ["pets registration", "register my pet", "register a dog", "dog registration", "dog microchip", "pet passport", "bring a cat", "bring a dog", "veterinarian"], "nl": ["huisdier registreren", "hond registreren", "hond chippen", "dierenpaspoort", "hond invoeren", "kat meenemen", "dierenarts"], "ru": ["регистрация питомца", "зарегистрировать собаку", "чип для собаки", "паспорт животного", "ввезти кошку", "ввезти собаку", "ветеринар"]},
+      "keywords": ["RVO", "NVWA", "microchip", "European pet passport", "animal welfare", "municipality dog tax"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 92,
+      "sections": {
+        "what": "Rules differ by animal and situation. Dog identification and registration, importing an animal, welfare duties and municipality dog rules must be checked separately.",
+        "who": "Use this route when buying, adopting, bringing or keeping a pet, registering a dog, checking a pet passport or finding the correct local rule.",
+        "steps": ["Identify the animal and whether it is already in the Netherlands, being imported, bought or adopted.", "For a dog, check the current microchip, registration and passport route before a transfer or import.", "For travel or import, use the responsible NVWA or RVO route for the country and animal.", "Confirm local dog tax, leash, waste and restricted-area rules with the municipality.", "Use a veterinarian for animal-health advice and for procedures that require an authorised professional."],
+        "documents": ["The required records depend on the animal and route. They may include a microchip record, pet passport, animal health certificate, ownership or import information; use the official checklist."],
+        "cost": "Veterinary, registration and municipality charges differ. Verify current costs with the responsible provider or authority.",
+        "timing": "Registration and import actions can have strict situation-specific periods. Check the current official page before travel, purchase or adoption.",
+        "problems": ["Contact a veterinarian or the responsible authority if the chip, passport or ownership record is missing or inconsistent.", "Use the municipality for a removed animal, local nuisance rule or dog-tax question.", "Do not transport an animal when the official import conditions have not been confirmed."],
+        "mistakes": ["Assuming dogs and cats have identical registration rules.", "Buying an animal without checking the chip, registration and seller information.", "Relying on a municipality rule from a different city."],
+        "localDifferences": "Dog tax, leash areas, waste rules and local animal services differ by municipality. National welfare and registration guidance remains visible for every city."
+      },
+      "relatedTopics": ["rules-fines", "municipal-services", "healthcare", "transport"],
+      "officialSources": [
+        {"title": "Welfare of pets", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/nature-and-the-environment/animal-welfare/welfare-of-pets", "checkedAt": "2026-08-06"},
+        {"title": "Registering and microchipping a dog", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/nature-and-the-environment/animal-welfare/welfare-of-pets/registering-and-microchipping-a-dog", "checkedAt": "2026-08-06"},
+        {"title": "Identification and registration of dogs", "publisher": "Netherlands Enterprise Agency", "url": "https://www.rvo.nl/onderwerpen/identificatie-en-registratie-honden", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.taxes",
+      "slug": "taxes-and-income-tax-return",
+      "title": "Taxes and income tax returns",
+      "summary": "A national route for understanding a Dutch tax letter, preparing an income tax return, distinguishing resident and non-resident routes and using Mijn Belastingdienst safely.",
+      "category": "taxes",
+      "subcategories": ["income-tax", "tax-return", "tax-letter", "mijn-belastingdienst", "resident-taxpayer", "non-resident-taxpayer", "worldwide-income"],
+      "intents": ["taxes"],
+      "synonyms": {"en": ["tax Belastingdienst", "Dutch taxes", "income tax", "tax return", "file taxes", "tax letter", "non-resident tax return", "worldwide income"], "nl": ["belasting", "inkomstenbelasting", "belastingaangifte", "aangifte doen", "Mijn Belastingdienst", "buitenlands belastingplichtige"], "ru": ["налоги в Нидерландах", "налоговая декларация", "подать декларацию", "подоходный налог", "письмо налоговой", "Belastingdienst"]},
+      "keywords": ["Belastingdienst", "DigiD", "income statement", "tax assessment", "tax partner", "emigration immigration return"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 93,
+      "sections": {
+        "what": "The correct tax route depends on where you live, the income involved, whether you received an invitation and whether you moved across a border during the tax year.",
+        "who": "Use this route when you receive a Belastingdienst letter, need to prepare an income tax return, moved into or out of the Netherlands, or have Dutch and foreign income.",
+        "steps": ["Read the complete official letter and identify the tax type, year, deadline and response route.", "Choose the resident, non-resident or migration-year route that matches the official guidance.", "Prepare your DigiD or accepted login and the records listed for the selected return.", "Check pre-filled information against your own annual statements and records before submitting.", "Save the official confirmation and use the formal objection or payment route shown on the decision when needed."],
+        "documents": ["Documents depend on the return. Use the current Belastingdienst preparation list and keep the official letter, annual statements, relevant account and housing records, and information about foreign income when applicable."],
+        "cost": "YouNew does not calculate tax or reproduce thresholds. Use the official return and assessment, or an authorised adviser for personal advice.",
+        "timing": "Deadlines depend on the letter, tax year and return type. Follow the official date rather than a general calendar reminder.",
+        "problems": ["Use the official appointment or help route if you cannot complete the return.", "Request formal clarification or use the objection route stated on an assessment when you disagree.", "Verify payment details independently on the official Belastingdienst domain before paying."],
+        "mistakes": ["Using the non-resident return only because some income came from abroad.", "Submitting without checking pre-filled data.", "Paying through an account number copied from an unverified message."],
+        "localDifferences": "Income tax is national. Municipal taxes are separate and must be checked with the municipality or regional tax authority named on the notice."
+      },
+      "relatedTopics": ["finance", "work", "benefits", "business", "documents"],
+      "officialSources": [
+        {"title": "Individuals", "publisher": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals", "checkedAt": "2026-08-06"},
+        {"title": "Filing an online tax return in four steps", "publisher": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/filing-an-online-tax-return-in-4-steps", "checkedAt": "2026-08-06"},
+        {"title": "Filing a non-resident tax return", "publisher": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/non-resident-taxpayer-how-do-i-file-my-income-tax-return", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.benefits",
+      "slug": "benefits-and-allowances",
+      "title": "Benefits and allowances",
+      "summary": "A national starting point for healthcare, rent, childcare and supplementary child benefits, with safe checks for eligibility, changes and Mijn toeslagen.",
+      "category": "benefits",
+      "subcategories": ["healthcare-benefit", "rent-benefit", "childcare-benefit", "supplementary-child-benefit", "mijn-toeslagen", "benefit-changes"],
+      "intents": ["benefits"],
+      "synonyms": {"en": ["benefits allowances", "benefits", "allowances", "toeslagen", "healthcare benefit", "rent benefit", "housing allowance", "childcare benefit", "child budget"], "nl": ["toeslagen", "zorgtoeslag", "huurtoeslag", "kinderopvangtoeslag", "kindgebonden budget", "Mijn toeslagen"], "ru": ["пособия", "выплаты", "льготы", "пособие на медицинскую страховку", "пособие на аренду", "пособие на детский сад", "детское пособие"]},
+      "keywords": ["Dienst Toeslagen", "DigiD", "BSN", "benefit partner", "household income", "report a change"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 93,
+      "sections": {
+        "what": "Dutch allowances are separate schemes with different conditions. Entitlement can depend on residence status, household, income, assets, insurance, housing or registered childcare.",
+        "who": "Use this route when checking healthcare, rent, childcare or supplementary child benefit, applying through Mijn toeslagen or reporting a change.",
+        "steps": ["Choose the exact allowance and read its current conditions before applying.", "Check which people, income, assets, residence status, contract or insurance information the scheme uses.", "Use Mijn toeslagen or the listed official help route and keep the confirmation.", "Review the decision and estimated information against your actual situation.", "Report relevant changes promptly and stop or adjust a benefit when the official guidance requires it."],
+        "documents": ["Requirements depend on the allowance. You may need BSNs, DigiD, income estimates, housing or childcare contract information and insurance details; follow the current official checklist."],
+        "cost": "Applying through the official service does not require a commercial intermediary. YouNew does not calculate eligibility or amounts.",
+        "timing": "Application periods and change-reporting duties differ by allowance. Check the dated official page and decision immediately.",
+        "problems": ["Use the official help or appointment route if Mijn toeslagen is not accessible or the Dutch-language process is unclear.", "Correct an estimate when circumstances change to reduce the risk of repayment.", "Use the formal decision route when you disagree with an outcome."],
+        "mistakes": ["Treating all allowances as one combined benefit.", "Using an old income estimate after work or household changes.", "Assuming nationality alone decides eligibility."],
+        "localDifferences": "National allowances are handled by Dienst Toeslagen. Separate municipality income support and local schemes can differ and should be checked locally."
+      },
+      "relatedTopics": ["housing", "healthcare", "family", "finance", "documents"],
+      "officialSources": [
+        {"title": "I want to apply for a benefit", "publisher": "Dienst Toeslagen", "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/individuals/benefits/how_do_benefits_work/i_want_to_apply_for_a_benefit/", "checkedAt": "2026-08-06"},
+        {"title": "Individuals and benefits", "publisher": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals", "checkedAt": "2026-08-06"},
+        {"title": "Moving to the Netherlands checklist", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.transport",
+      "slug": "public-transport-and-cycling",
+      "title": "Public transport, bicycles and safe travel",
+      "summary": "A national route for planning public transport, checking in and out, buying a bicycle safely, cycling rules and what to do if a bicycle is stolen or removed.",
+      "category": "transport",
+      "subcategories": ["public-transport", "ovpay", "train", "bus", "bicycle", "buying-a-bicycle", "cycling-safety", "bicycle-theft"],
+      "intents": ["transport"],
+      "synonyms": {"en": ["buy a bicycle", "buy a bike", "second-hand bicycle", "public transport", "OVpay", "check in", "train travel", "train station", "bicycle stolen"], "nl": ["fiets kopen", "tweedehands fiets", "openbaar vervoer", "OVpay", "inchecken", "trein reizen", "treinstation", "fiets gestolen"], "ru": ["купить велосипед", "подержанный велосипед", "общественный транспорт", "оплата транспорта", "поезд", "железнодорожная станция", "украли велосипед"]},
+      "keywords": ["OVpay", "NS", "public transport", "bike lane", "bicycle lights", "frame number", "stolen bicycle register"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 91,
+      "sections": {
+        "what": "Public transport and cycling use different providers and rules. Current travel information, check-in methods, bicycle safety and local parking or removal rules must be verified separately.",
+        "who": "Use this route when planning a journey, choosing a check-in method, buying a new or used bicycle, learning cycling basics or dealing with a missing bicycle.",
+        "steps": ["Plan the journey shortly before departure with the responsible operator or travel planner.", "Use one supported payment or travel card consistently to check in and out and review the provider's correction route for mistakes.", "Before buying a used bicycle, record the seller, receipt and frame or chip number and check the official stolen-bicycle route.", "Read the current cycling and bicycle-light rules before riding.", "If a bicycle is missing, first check the municipality bicycle depot and then use the official theft-reporting route when appropriate."],
+        "documents": ["For public transport, keep the travel or payment reference for a correction. For a bicycle, keep the receipt, frame or chip number, brand, model, colour and photographs."],
+        "cost": "Fares, subscriptions and bicycle prices change. Use the responsible operator or seller for current costs and terms.",
+        "timing": "Timetables and disruptions change in real time. Theft reporting and municipality depot retention periods can also be time-sensitive.",
+        "problems": ["Use the operator's correction route for a missed check-in or check-out.", "Check whether the municipality removed the bicycle before reporting theft.", "Do not ride an electric bicycle that does not meet the applicable vehicle rules."],
+        "mistakes": ["Using different contactless cards for check-in and check-out.", "Buying a used bicycle without recording the frame number and seller.", "Assuming bicycle parking rules are identical in every city."],
+        "localDifferences": "Operators, parking zones, bicycle depots and removal rules differ by city. National travel and safety guidance remains visible with local results."
+      },
+      "relatedTopics": ["rules-fines", "daily-life", "shopping", "municipal-services"],
+      "officialSources": [
+        {"title": "Public transport", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/transport/public-transport", "checkedAt": "2026-08-06"},
+        {"title": "About OVpay", "publisher": "OVpay", "url": "https://www.ovpay.nl/en/about-ovpay", "checkedAt": "2026-08-06"},
+        {"title": "Safe cycling", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/transport/bicycles/safe-cycling", "checkedAt": "2026-08-06"},
+        {"title": "Check whether a bicycle is registered as stolen", "publisher": "Government of the Netherlands", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/fiets/hoe-kan-ik-controleren-of-een-fiets-als-gestolen-staat-geregistreerd", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.immigration",
+      "slug": "immigration-visas-and-residence-permits",
+      "title": "Immigration, visas and residence permits",
+      "summary": "A national route for identifying the responsible IND procedure for short stay, MVV, work, study, family, asylum, extension or permanent residence without mixing it with municipal registration.",
+      "category": "integration",
+      "subcategories": ["visa", "mvv", "residence-permit", "work-permit", "study-permit", "family-reunification", "asylum", "extension", "permanent-residence", "citizenship"],
+      "intents": ["immigration"],
+      "synonyms": {"en": ["immigration residence permit", "immigration", "visa Netherlands", "MVV", "residence permit", "work visa", "study visa", "family reunification", "extend residence permit", "permanent residence", "Dutch citizenship"], "nl": ["immigratie", "visum", "MVV", "verblijfsvergunning", "werkvergunning", "studievergunning", "gezinshereniging", "verlenging verblijfsvergunning", "permanent verblijf", "Nederlandse nationaliteit"], "ru": ["иммиграция", "виза в Нидерланды", "MVV", "вид на жительство", "рабочая виза", "студенческая виза", "воссоединение семьи", "продлить ВНЖ", "постоянный вид на жительство", "гражданство Нидерландов"]},
+      "keywords": ["IND", "Immigration and Naturalisation Service", "sponsor", "recognised sponsor", "residence purpose", "biometrics", "application status"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 94,
+      "sections": {
+        "what": "Immigration procedures depend on nationality, length and purpose of stay, sponsor and current residence status. IND procedures are separate from BRP registration and receiving a BSN from a municipality.",
+        "who": "Use this route to identify the correct IND procedure for entry, work, study, family, asylum, extension, replacement, permanent residence or citizenship.",
+        "steps": ["Identify nationality, current country and intended purpose and duration of stay.", "Use the IND navigation route to choose the exact residence purpose before collecting documents or paying a fee.", "Confirm whether an MVV, sponsor or recognised sponsor is part of the selected procedure.", "Use only the current IND checklist, fee page and application route for that procedure.", "After arrival, handle municipality registration, BSN, DigiD and health insurance as separate tasks where applicable."],
+        "documents": ["Requirements are procedure-specific. Use the selected IND checklist for passports, civil-status documents, sponsor evidence, income evidence, legalisation, translation and biometrics."],
+        "cost": "Fees and exemptions change by procedure and applicant. Use the current IND fee page before payment.",
+        "timing": "Decision periods, appointment availability and document validity differ. Follow the current procedure and formal correspondence.",
+        "problems": ["Check My IND or the official status route for a submitted application.", "Use the IND replacement route for a lost or stolen residence document.", "Seek qualified legal help for an adverse decision or case-specific legal question rather than relying on a general guide."],
+        "mistakes": ["Applying under the wrong residence purpose.", "Treating municipal registration as a residence-permit application.", "Using an unofficial intermediary or sending identity documents outside the official route."],
+        "localDifferences": "IND procedures are national. Municipality registration and local newcomer services differ by address and follow after or alongside the applicable immigration route."
+      },
+      "relatedTopics": ["documents", "work", "education", "family", "legal-help"],
+      "officialSources": [
+        {"title": "How can we help you?", "publisher": "Immigration and Naturalisation Service", "url": "https://ind.nl/en", "checkedAt": "2026-08-06"},
+        {"title": "Residence permits", "publisher": "Immigration and Naturalisation Service", "url": "https://ind.nl/en/residence-permits", "checkedAt": "2026-08-06"},
+        {"title": "Provisional residence permit (MVV)", "publisher": "Immigration and Naturalisation Service", "url": "https://ind.nl/en/provisional-residence-permit-mvv", "checkedAt": "2026-08-06"},
+        {"title": "Moving to the Netherlands checklist", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands", "checkedAt": "2026-08-06"}
       ]
     }
   ]

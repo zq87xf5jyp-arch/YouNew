@@ -111,6 +111,90 @@
         { "value": "правила дорожного движения", "language": "ru" },
         { "value": "штраф за мусор", "language": "ru" }
       ]
+    },
+    {
+      "id": "banking",
+      "acceptedCategorySlugs": ["banking"],
+      "queries": [
+        { "value": "open a bank account", "language": "en" },
+        { "value": "payment account", "language": "en" },
+        { "value": "bankrekening openen", "language": "nl" },
+        { "value": "betaalrekening", "language": "nl" },
+        { "value": "открыть банковский счёт", "language": "ru" },
+        { "value": "банковский счет", "language": "ru" }
+      ]
+    },
+    {
+      "id": "family-and-childcare",
+      "acceptedCategorySlugs": ["family"],
+      "queries": [
+        { "value": "families childcare", "language": "en" },
+        { "value": "find childcare", "language": "en" },
+        { "value": "kinderopvang", "language": "nl" },
+        { "value": "buitenschoolse opvang", "language": "nl" },
+        { "value": "детский сад", "language": "ru" },
+        { "value": "уход за детьми", "language": "ru" }
+      ]
+    },
+    {
+      "id": "pets",
+      "acceptedCategorySlugs": ["pets"],
+      "queries": [
+        { "value": "pets registration", "language": "en" },
+        { "value": "register a dog", "language": "en" },
+        { "value": "hond registreren", "language": "nl" },
+        { "value": "dierenpaspoort", "language": "nl" },
+        { "value": "регистрация питомца", "language": "ru" },
+        { "value": "зарегистрировать собаку", "language": "ru" }
+      ]
+    },
+    {
+      "id": "taxes",
+      "acceptedCategorySlugs": ["taxes"],
+      "queries": [
+        { "value": "tax Belastingdienst", "language": "en" },
+        { "value": "tax return", "language": "en" },
+        { "value": "belastingaangifte", "language": "nl" },
+        { "value": "inkomstenbelasting", "language": "nl" },
+        { "value": "налоговая декларация", "language": "ru" },
+        { "value": "налоги в Нидерландах", "language": "ru" }
+      ]
+    },
+    {
+      "id": "benefits",
+      "acceptedCategorySlugs": ["benefits"],
+      "queries": [
+        { "value": "benefits allowances", "language": "en" },
+        { "value": "healthcare benefit", "language": "en" },
+        { "value": "toeslagen", "language": "nl" },
+        { "value": "huurtoeslag", "language": "nl" },
+        { "value": "пособия", "language": "ru" },
+        { "value": "пособие на аренду", "language": "ru" }
+      ]
+    },
+    {
+      "id": "transport",
+      "acceptedCategorySlugs": ["transport"],
+      "queries": [
+        { "value": "buy a bicycle", "language": "en" },
+        { "value": "public transport", "language": "en" },
+        { "value": "fiets kopen", "language": "nl" },
+        { "value": "openbaar vervoer", "language": "nl" },
+        { "value": "купить велосипед", "language": "ru" },
+        { "value": "общественный транспорт", "language": "ru" }
+      ]
+    },
+    {
+      "id": "immigration",
+      "acceptedCategorySlugs": ["integration"],
+      "queries": [
+        { "value": "immigration residence permit", "language": "en" },
+        { "value": "visa Netherlands", "language": "en" },
+        { "value": "immigratie", "language": "nl" },
+        { "value": "verblijfsvergunning verlengen", "language": "nl" },
+        { "value": "иммиграция", "language": "ru" },
+        { "value": "виза в Нидерланды", "language": "ru" }
+      ]
     }
   ],
   "typoCases": [
@@ -120,7 +204,14 @@
     { "query": "registraton", "acceptedCategorySlugs": ["documents"] },
     { "query": "taalschol", "acceptedCategorySlugs": ["language-learning"] },
     { "query": "prepaod", "acceptedCategorySlugs": ["sim-telecom"] },
-    { "query": "parkin fine", "acceptedCategorySlugs": ["fines"] }
+    { "query": "parkin fine", "acceptedCategorySlugs": ["fines"] },
+    { "query": "bank acount", "acceptedCategorySlugs": ["banking"] },
+    { "query": "childcar", "acceptedCategorySlugs": ["family"] },
+    { "query": "dog registraton", "acceptedCategorySlugs": ["pets"] },
+    { "query": "tax retrn", "acceptedCategorySlugs": ["taxes"] },
+    { "query": "toeslaen", "acceptedCategorySlugs": ["benefits"] },
+    { "query": "buy bicicle", "acceptedCategorySlugs": ["transport"] },
+    { "query": "imigration", "acceptedCategorySlugs": ["integration"] }
   ],
   "cityAliasCases": [
     {

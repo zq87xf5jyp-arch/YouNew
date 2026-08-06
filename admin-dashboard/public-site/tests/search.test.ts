@@ -185,21 +185,69 @@ test("a preferred profile personalizes ranking without hiding exact published an
 test("requested quality queries find a source-backed released destination", () => {
   const expected = new Map<string, string>([
     ["How do I get a BSN?", "national.documents"],
-    ["Register gemeente", "government_service.first-registration-in-amsterdam"],
+    ["Register gemeente", "national.documents"],
     ["Landlord does not repair", "housing.woon"],
-    ["Student housing", "category.housing"],
+    ["Student housing", "national.housing"],
     ["Emergency", "page.emergency"],
     ["Lost residence card", "national.documents"],
     ["DigiD", "national.documents"],
     ["Work contract", "national.work"],
     ["Need a doctor", "national.healthcare"],
-    ["Health insurance", "national.healthcare"]
+    ["Health insurance", "national.healthcare"],
+    ["Open a bank account", "national.banking"],
+    ["Families childcare", "national.family-childcare"],
+    ["Pets registration", "national.pets"],
+    ["Tax Belastingdienst", "national.taxes"],
+    ["Benefits allowances", "national.benefits"],
+    ["Buy a bicycle", "national.transport"],
+    ["Immigration residence permit", "national.immigration"]
   ]);
   for (const [query, expectedId] of expected) {
     const results = rankModule.rankSearchDocuments(index.documents, query, { limit: 5 });
     assert.equal(results[0]?.document.id, expectedId, `${query}: ${results.map(({ document }) => document.id).join(", ")}`);
   }
 
+});
+
+test("every homepage and search-suggestion query opens a useful published destination", () => {
+  const expected = new Map<string, string>([
+    ["I need housing in Leiden", "national.housing"],
+    ["I need work", "national.work"],
+    ["I need a GP", "national.healthcare"],
+    ["I need BSN", "national.documents"],
+    ["housing", "national.housing"],
+    ["work", "national.work"],
+    ["healthcare GP", "national.healthcare"],
+    ["BSN documents", "national.documents"],
+    ["study education", "national.education"],
+    ["daily life bank account", "national.banking"],
+    ["LGBTQ support", "national.lgbtiq-support"],
+    ["pets registration", "national.pets"],
+    ["families childcare", "national.family-childcare"],
+    ["education study", "national.education"],
+    ["moving registration", "national.documents"],
+    ["open a bank account", "national.banking"],
+    ["find work", "national.work"],
+    ["register with a huisarts GP", "national.healthcare"],
+    ["DigiD", "national.documents"],
+    ["health insurance", "national.healthcare"],
+    ["Dutch lessons", "national.education"],
+    ["buy a bicycle", "national.transport"],
+    ["tax Belastingdienst", "national.taxes"],
+    ["benefits allowances", "national.benefits"],
+    ["immigration residence permit", "national.immigration"],
+    ["Register gemeente", "national.documents"],
+    ["Housing defects", "national.housing"],
+    ["Student housing", "national.housing"],
+    ["Emergency", "page.emergency"],
+    ["Amsterdam", "city.amsterdam"],
+    ["train station", "national.transport"]
+  ]);
+  for (const [query, expectedId] of expected) {
+    const results = rankModule.rankSearchDocuments(index.documents, query, { limit: 5 });
+    assert.equal(results[0]?.document.id, expectedId, `${query}: ${results.map(({ document }) => document.id).join(", ")}`);
+    assert.ok(results[0]?.document.route, `${query} must resolve to a published route`);
+  }
 });
 
 test("critical EN, NL and RU intents do not return a useless zero", () => {
@@ -211,7 +259,14 @@ test("critical EN, NL and RU intents do not return a useless zero", () => {
     ["national.education", ["Dutch school", "language course", "taalschool", "opleiding", "школа", "курсы"]],
     ["national.telecom", ["SIM card", "eSIM", "simkaart", "telefoonabonnement", "сим-карта", "интернет"]],
     ["national.rules-fines", ["parking fine", "traffic rules", "parkeerboete", "fietsregels", "штраф за парковку", "правила движения"]],
-    ["national.lgbtiq-support", ["LGBTQ support", "queer support", "trans support", "LHBTI hulp", "discriminatie melden", "ЛГБТ поддержка", "гомофобия"]]
+    ["national.lgbtiq-support", ["LGBTQ support", "queer support", "trans support", "LHBTI hulp", "discriminatie melden", "ЛГБТ поддержка", "гомофобия"]],
+    ["national.banking", ["open a bank account", "payment account", "bankrekening openen", "betaalrekening", "открыть банковский счёт", "банковский счет"]],
+    ["national.family-childcare", ["families childcare", "find childcare", "kinderopvang", "buitenschoolse opvang", "детский сад", "уход за детьми"]],
+    ["national.pets", ["pets registration", "register a dog", "hond registreren", "dierenpaspoort", "регистрация питомца", "зарегистрировать собаку"]],
+    ["national.taxes", ["tax Belastingdienst", "tax return", "belastingaangifte", "inkomstenbelasting", "налоговая декларация", "налоги в Нидерландах"]],
+    ["national.benefits", ["benefits allowances", "healthcare benefit", "toeslagen", "huurtoeslag", "пособия", "пособие на аренду"]],
+    ["national.transport", ["buy a bicycle", "public transport", "fiets kopen", "openbaar vervoer", "купить велосипед", "общественный транспорт"]],
+    ["national.immigration", ["immigration residence permit", "visa Netherlands", "immigratie", "verblijfsvergunning verlengen", "иммиграция", "виза в Нидерланды"]]
   ]);
 
   for (const [expectedId, aliases] of queries) {
@@ -232,7 +287,14 @@ test("city and profile keep national guidance while excluding unrelated local re
     ["BSN", "eindhoven", "expat", "national.documents"],
     ["SIM card", "maastricht", "tourist", "national.telecom"],
     ["parking fine", "utrecht", "resident", "national.rules-fines"],
-    ["LGBTQ support", "groningen", "student", "national.lgbtiq-support"]
+    ["LGBTQ support", "groningen", "student", "national.lgbtiq-support"],
+    ["open a bank account", "utrecht", "resident", "national.banking"],
+    ["families childcare", "rotterdam", "worker", "national.family-childcare"],
+    ["pets registration", "groningen", "expat", "national.pets"],
+    ["tax Belastingdienst", "eindhoven", "worker", "national.taxes"],
+    ["benefits allowances", "maastricht", "refugee", "national.benefits"],
+    ["buy a bicycle", "leiden", "student", "national.transport"],
+    ["immigration residence permit", "s-gravenhage", "expat", "national.immigration"]
   ] as const;
   for (const [query, cityId, profile, expectedId] of scenarios) {
     const results = rankModule.rankSearchDocuments(index.documents, query, {
