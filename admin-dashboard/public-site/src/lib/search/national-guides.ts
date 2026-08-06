@@ -8,6 +8,16 @@ export interface NationalGuideSource {
   readonly checkedAt: string;
 }
 
+export interface NationalGuideService {
+  readonly title: string;
+  readonly provider: string;
+  readonly url: string;
+  readonly purpose: string;
+  readonly kind: "public" | "non-profit" | "directory" | "support";
+  readonly checkedAt: string;
+  readonly caveat?: string;
+}
+
 export interface NationalGuide {
   readonly id: string;
   readonly slug: string;
@@ -35,6 +45,7 @@ export interface NationalGuide {
     localDifferences: string;
   }>;
   readonly relatedTopics: readonly string[];
+  readonly usefulServices?: readonly NationalGuideService[];
   readonly officialSources: readonly NationalGuideSource[];
 }
 

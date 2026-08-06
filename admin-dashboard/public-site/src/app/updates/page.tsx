@@ -37,7 +37,8 @@ export default function UpdatesPage() {
     "national.dental-care",
     "national.medicines",
     "national.pregnancy",
-    "national.business-zzp"
+    "national.business-zzp",
+    "national.student-housing"
   ]);
   const expandedGuides = nationalGuides.filter((guide) => expandedGuideIds.has(guide.id));
   const amsterdamReleaseId = content.publishedReleaseIds.find((releaseId) => releaseId.startsWith("amsterdam-v"));
@@ -68,8 +69,8 @@ export default function UpdatesPage() {
         <section className="updates-release updates-national-release" aria-labelledby="national-release-title">
           <header>
             <time dateTime={nationalReleaseDate}><CalendarDays aria-hidden /> {humanDate(nationalReleaseDate)}</time>
-            <h2 id="national-release-title">Eight practical routes added</h2>
-            <p>Utilities, consumer rights, debt and legal help, mental health, dentistry, medicines, pregnancy and self-employment now have complete national starting guides with responsible-source links.</p>
+            <h2 id="national-release-title">Nine practical routes added</h2>
+            <p>Student housing, utilities, consumer rights, debt and legal help, mental health, dentistry, medicines, pregnancy and self-employment now have complete national starting guides with responsible-source links.</p>
           </header>
           <nav className="updates-guide-list" aria-label="New national guides">
             {expandedGuides.map((guide) => (

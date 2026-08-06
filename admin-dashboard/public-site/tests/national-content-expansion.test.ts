@@ -8,6 +8,7 @@ type NationalGuide = {
   title: string;
   summary: string;
   sections: Record<string, string | string[]>;
+  usefulServices?: Array<{ url: string; checkedAt: string; purpose: string; kind: string }>;
   officialSources: Array<{ url: string; checkedAt: string }>;
 };
 
@@ -28,13 +29,14 @@ const expandedIds = [
   "national.dental-care",
   "national.medicines",
   "national.pregnancy",
-  "national.business-zzp"
+  "national.business-zzp",
+  "national.student-housing"
 ] as const;
 
-test("the public national guide catalogue contains 23 unique source-checked routes", () => {
-  assert.equal(nationalContent.guides.length, 23);
-  assert.equal(new Set(nationalContent.guides.map((guide) => guide.id)).size, 23);
-  assert.equal(new Set(nationalContent.guides.map((guide) => guide.slug)).size, 23);
+test("the public national guide catalogue contains 24 unique source-checked routes", () => {
+  assert.equal(nationalContent.guides.length, 24);
+  assert.equal(new Set(nationalContent.guides.map((guide) => guide.id)).size, 24);
+  assert.equal(new Set(nationalContent.guides.map((guide) => guide.slug)).size, 24);
 
   for (const id of expandedIds) {
     const guide = nationalContent.guides.find((candidate) => candidate.id === id);
@@ -45,6 +47,21 @@ test("the public national guide catalogue contains 23 unique source-checked rout
     assert.ok(guide.officialSources.length >= 2, id);
     assert.ok(guide.officialSources.every((source) => source.url.startsWith("https://") && source.checkedAt === "2026-08-06"), id);
   }
+});
+
+test("work and student housing provide actionable, labelled service links", () => {
+  for (const id of ["national.work", "national.student-housing"]) {
+    const guide = nationalContent.guides.find((candidate) => candidate.id === id);
+    assert.ok(guide, id);
+    assert.ok((guide.usefulServices?.length ?? 0) >= 5, id);
+    assert.ok(guide.usefulServices?.every((service) => service.url.startsWith("https://") && service.checkedAt === "2026-08-06" && service.purpose.length > 30), id);
+  }
+  const work = nationalContent.guides.find((guide) => guide.id === "national.work");
+  assert.ok(work?.usefulServices?.some((service) => /werk\.nl/.test(service.url)));
+  assert.ok(work?.usefulServices?.some((service) => /eures/.test(service.url)));
+  const studentHousing = nationalContent.guides.find((guide) => guide.id === "national.student-housing");
+  assert.ok(studentHousing?.usefulServices?.some((service) => /room\.nl/.test(service.url)));
+  assert.ok(studentHousing?.usefulServices?.some((service) => /rent-check-shared/.test(service.url)));
 });
 
 test("national guidance is reachable from home, Guides, Discover, Updates and every municipality", () => {

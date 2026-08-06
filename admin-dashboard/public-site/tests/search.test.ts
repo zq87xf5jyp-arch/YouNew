@@ -187,7 +187,7 @@ test("requested quality queries find a source-backed released destination", () =
     ["How do I get a BSN?", "national.documents"],
     ["Register gemeente", "national.documents"],
     ["Landlord does not repair", "housing.woon"],
-    ["Student housing", "national.housing"],
+    ["Student housing", "national.student-housing"],
     ["Emergency", "page.emergency"],
     ["Lost residence card", "national.documents"],
     ["DigiD", "national.documents"],
@@ -254,7 +254,7 @@ test("every homepage and search-suggestion query opens a useful published destin
     ["start a business ZZP KVK", "national.business-zzp"],
     ["Register gemeente", "national.documents"],
     ["Housing defects", "national.housing"],
-    ["Student housing", "national.housing"],
+    ["Student housing", "national.student-housing"],
     ["Emergency", "page.emergency"],
     ["Amsterdam", "city.amsterdam"],
     ["train station", "national.transport"]
@@ -269,6 +269,7 @@ test("every homepage and search-suggestion query opens a useful published destin
 test("critical EN, NL and RU intents do not return a useless zero", () => {
   const queries = new Map<string, readonly string[]>([
     ["national.housing", ["rent", "housing rent", "huur", "woning", "аренда", "квартира"]],
+    ["national.student-housing", ["student housing", "studentenkamer", "жильё для студентов"]],
     ["national.work", ["work", "find work", "baan", "vacature", "работа", "вакансия"]],
     ["national.documents", ["BSN", "DigiD", "residence permit", "inschrijving", "регистрация", "ВНЖ"]],
     ["national.healthcare", ["doctor", "huisarts", "health insurance", "zorgverzekering", "врач", "медицинская страховка"]],

@@ -38,10 +38,62 @@
         "mistakes": ["Treating every rental as governed by the same rules.", "Paying before verifying the home, provider and written terms.", "Assuming an address can be registered without checking."],
         "localDifferences": "Selecting a city keeps this national guidance visible and adds verified province, municipality and local results when they exist. It never invents local services."
       },
-      "relatedTopics": ["documents", "benefits", "legal-help", "utilities"],
+      "relatedTopics": ["student-housing", "documents", "benefits", "legal-help", "utilities"],
       "officialSources": [
         {"title": "Rented housing", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/building-and-housing/housing/rented-housing", "checkedAt": "2026-08-05"},
         {"title": "Rent Check self-contained accommodations", "publisher": "Huurcommissie", "url": "https://www.huurcommissie.nl/support/rent-check/rent-check-self-contained", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.student-housing",
+      "slug": "student-housing",
+      "title": "Student housing in the Netherlands",
+      "summary": "A practical route for finding a student room, checking providers and contracts, avoiding scams, registering an address and resolving rent problems.",
+      "category": "housing",
+      "subcategories": ["student-housing", "rooms", "university-housing", "housing-corporations", "campus-contracts", "registration", "rent-check", "housing-scams"],
+      "intents": ["housing", "study", "legal-help"],
+      "synonyms": {
+        "en": ["student housing", "student room", "room for student", "international student housing", "university housing", "campus housing", "ROOM.nl", "Roommatch", "DUWO", "SSH", "student accommodation"],
+        "nl": ["studentenhuisvesting", "studentenkamer", "kamer zoeken", "op kamers", "universiteit huisvesting", "campuscontract", "ROOM.nl", "DUWO", "SSH"],
+        "ru": ["жильё для студентов", "студенческое жильё", "комната студенту", "общежитие", "жильё университета", "аренда комнаты", "ROOM.nl", "DUWO", "SSH"]
+      },
+      "keywords": ["student room", "housing shortage", "education institution housing office", "shared accommodation", "proof of enrolment", "rent contract", "address registration"],
+      "languages": ["en"],
+      "applicableProfiles": ["student"],
+      "scope": "national",
+      "nationalFallback": true,
+      "qualityScore": 90,
+      "sections": {
+        "what": "Student rooms are scarce and are offered through education institutions, non-profit housing providers and private platforms. Start early, use more than one route, and verify the room, provider, contract, total costs and address registration before paying.",
+        "who": "Use this route if you are applying to or enrolled at MBO, HBO or university, including exchange students, international students, PhD candidates and students moving between Dutch cities.",
+        "steps": [
+          "Ask your education institution's housing office first whether it reserves rooms, has a waiting list or uses a specific provider for international students.",
+          "Register early with the student-housing providers that serve your study city; check each city's eligibility, allocation and waiting-time rules before paying a registration fee.",
+          "Search the provider's current rental-offer site and your institution's channels, and use private platforms only as an additional discovery route rather than proof that a listing is safe.",
+          "Before paying, view the room in person or by a live video tour, verify the provider or landlord, confirm that registration at the address is allowed, and read the complete tenancy agreement.",
+          "Check the basic rent, service costs, deposit, utilities, furniture and contract duration in writing; use the Huurcommissie Rent Check for a room or other shared accommodation when applicable.",
+          "After moving, register the new address with the municipality and keep the signed contract, inspection photos, payment records and correspondence."
+        ],
+        "documents": ["Providers set their own requirements. Common evidence can include valid identification, proof of enrolment or admission, residence documents where relevant, income or guarantor evidence, and the signed offer or tenancy agreement. Use the exact provider checklist."],
+        "cost": "Rent, service costs, deposits, utilities, furniture and registration fees differ by provider and city. YouNew does not copy changing prices; compare the full monthly and one-off costs on the dated provider page and contract.",
+        "timing": "The Netherlands has a severe student-housing shortage. Start as soon as study plans are likely, because some routes depend on registration time while others use institution allocation, lottery, matching or first-come-first-served rules.",
+        "problems": ["Ask the education institution's housing officer if its reserved housing or partner process is unclear.", "For rent, maintenance or service-cost issues, first write to the provider and then check the Huurcommissie route and the municipality's Good Landlordship reporting point.", "If a listing, payment request or identity appears suspicious, stop the transfer, preserve evidence and use the appropriate fraud-reporting or police route."],
+        "mistakes": ["Waiting until arrival before starting the search.", "Assuming ROOM registration itself contains all rental offers or guarantees a room.", "Paying before seeing the room and verifying the provider, address and written contract.", "Ignoring whether BRP registration at the address is allowed.", "Treating a platform listing as verified by YouNew, the education institution or the government."],
+        "localDifferences": "Providers, eligibility, allocation rules, permits and reporting points differ by city. Use the city page on the provider website and the municipality for the exact address; national tenant rights remain visible."
+      },
+      "relatedTopics": ["housing", "education", "documents", "utilities", "legal-help"],
+      "usefulServices": [
+        {"title": "Register once, then check the connected providers for rental offers", "provider": "ROOM", "url": "https://www.room.nl/en/how-it-works", "purpose": "National registration platform created by social student-housing providers, with city-specific rules and provider links.", "kind": "non-profit", "checkedAt": "2026-08-06", "caveat": "ROOM is primarily the registration platform; current offers appear on connected provider websites, and registration does not guarantee a room."},
+        {"title": "Search current student-room offers", "provider": "Roommatch", "url": "https://www.roommatch.nl/en/", "purpose": "Non-profit rental-offer platform for several housing associations in participating student cities.", "kind": "non-profit", "checkedAt": "2026-08-06", "caveat": "A ROOM account is required and eligibility differs by city and provider."},
+        {"title": "Student rooms and university housing", "provider": "DUWO", "url": "https://www.duwo.nl/en/i-search/student-room/are-you-searching-for-a-room", "purpose": "Student-housing provider serving Amsterdam, Delft, The Hague, Leiden, Wageningen and other listed regions.", "kind": "non-profit", "checkedAt": "2026-08-06", "caveat": "International university housing may require approval or referral from the education institution."},
+        {"title": "Long-stay and short-stay student housing", "provider": "SSH", "url": "https://www.sshxl.nl/en/inschrijven", "purpose": "Student-housing provider with routes for Utrecht, Rotterdam, Zwolle, Tilburg and limited groups in Groningen.", "kind": "non-profit", "checkedAt": "2026-08-06", "caveat": "Cities, target groups, registration time and allocation methods differ between long stay and short stay."},
+        {"title": "Calculate the maximum basic rent for a room", "provider": "Huurcommissie Rent Check", "url": "https://www.huurcommissie.nl/support/rent-check/rent-check-shared", "purpose": "Public rent tool for rooms and other accommodation with shared kitchen, bathroom or toilet facilities.", "kind": "public", "checkedAt": "2026-08-06"}
+      ],
+      "officialSources": [
+        {"title": "Op kamers: wat moet ik regelen?", "publisher": "Government of the Netherlands", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/op-kamers-wat-moet-ik-regelen", "checkedAt": "2026-08-06"},
+        {"title": "Waar moet ik op letten als ik een kamer ga huren?", "publisher": "Government of the Netherlands", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/waar-moet-ik-op-letten-als-ik-een-kamer-ga-huren", "checkedAt": "2026-08-06"},
+        {"title": "Rent Check shared accommodations", "publisher": "Huurcommissie", "url": "https://www.huurcommissie.nl/support/rent-check/rent-check-shared", "checkedAt": "2026-08-06"},
+        {"title": "Finding a place to live", "publisher": "Study in NL by Nuffic", "url": "https://www.studyinnl.org/life-in-nl/finding-a-place-to-live", "checkedAt": "2026-08-06"}
       ]
     },
     {
@@ -60,20 +112,31 @@
       "nationalFallback": true,
       "qualityScore": 91,
       "sections": {
-        "what": "Dutch employment rules cover contracts, pay, working time, leave, illness, working conditions and ending employment. The applicable route depends on your contract and status.",
-        "who": "Use this route when looking for a job, reviewing an offer or contract, checking pay or leave, reporting unsafe work, or dealing with unemployment or dismissal.",
-        "steps": ["Identify whether the role is direct employment, agency work, self-employment or another contract form.", "Keep the written offer and contract and check the employer, hours, pay components and applicable collective agreement.", "Use official Government.nl guidance for employment rules and Werk.nl or UWV for the relevant work or unemployment service.", "Use an official labour or legal-help route when terms are unclear or a problem cannot be resolved."],
-        "documents": ["Requirements depend on the employer and legal route. Keep the contract, payslips, work schedule and relevant correspondence; verify identity or residence-document requests with the responsible authority."],
+        "what": "Use public job services, specialist vacancy sites, employer career pages, reputable agencies and your professional network together. Before accepting work, check your right to work, the employer, contract form, hours, pay and any link between the job and accommodation.",
+        "who": "Use this route when looking for a job, student job, temporary or agency work, research role or direct employment, and when checking an offer, contract, pay, working conditions, unemployment or dismissal.",
+        "steps": ["Check whether your nationality and residence status allow the work and whether the employer must arrange a permit; use the official route before starting.", "Choose target roles, locations, hours and working languages, then prepare a clear CV and a reusable application that you adapt to each vacancy.", "Search Werk.nl and EURES, then add direct employer career pages, sector-specific sites such as AcademicTransfer, reputable agencies and professional networks.", "Check who the legal employer is, verify the company or agency, and never pay a recruiter or employer to obtain a normal job offer.", "Before accepting, get the offer and contract in writing and check hours, gross pay, holiday allowance, probation, notice, applicable CAO and any deductions for transport, insurance or housing.", "Keep applications, the signed contract, schedules, payslips and messages; use Work in NL, FairWork, legal help or the Labour Authority if the terms or treatment are unfair or unsafe."],
+        "documents": ["Application requirements depend on the role. Employers commonly request a CV and sometimes a motivation letter, certificates, references or portfolio. Only provide identity, residence or bank details when the employer and purpose have been verified; keep the contract, payslips, schedules and correspondence."],
         "cost": "YouNew does not reproduce changing salary thresholds, benefit amounts or service fees. Use the current official calculation or decision.",
         "timing": "Application, notice and objection periods depend on the specific process. Check the official page or decision immediately rather than relying on a generic deadline.",
-        "problems": ["For unemployment or work-service questions, use UWV or Werk.nl.", "For unsafe or unfair working conditions, use the official labour-inspection or legal-help route appropriate to the issue."],
-        "mistakes": ["Starting without understanding the contract form.", "Relying on verbal promises that are absent from the written terms.", "Using an outdated wage or notice-period figure."],
+        "problems": ["For job-search or unemployment services, use UWV or Werk.nl and check which service applies to your situation.", "For questions about a contract, wages, housing linked to work or living in the Netherlands, use a free Work in NL information point.", "For suspected exploitation of a migrant worker, contact FairWork; for unfair, unsafe or unhealthy work or labour exploitation, use the Netherlands Labour Authority reporting route."],
+        "mistakes": ["Applying only through one broad commercial vacancy site and missing public, direct-employer or sector channels.", "Starting without confirming the right to work and the contract form.", "Paying a recruiter or sending identity and bank details before verifying the employer and vacancy.", "Accepting linked job and housing terms without checking each cost, deduction and exit consequence in writing.", "Relying on verbal promises or an outdated wage, permit or notice-period figure."],
         "localDifferences": "Most employment rules are national. City selection adds verified local job services when available but cannot hide this national route."
       },
       "relatedTopics": ["documents", "taxes", "business", "legal-help"],
+      "usefulServices": [
+        {"title": "Search vacancies and use public employment services", "provider": "Werk.nl / UWV", "url": "https://www.werk.nl/werkzoekenden/", "purpose": "Dutch public route for vacancies, job-search support and relevant UWV services.", "kind": "public", "checkedAt": "2026-08-06", "caveat": "Some personalised services may require DigiD or depend on your situation."},
+        {"title": "Find jobs in the Netherlands and across Europe", "provider": "EURES", "url": "https://europa.eu/eures/portal/jv-se/home?lang=en", "purpose": "EU public employment network with vacancies, advisers and living-and-working information.", "kind": "public", "checkedAt": "2026-08-06", "caveat": "Finding a vacancy does not replace Dutch work or residence-permit requirements for non-EU nationals."},
+        {"title": "Research, university and knowledge-sector jobs", "provider": "AcademicTransfer", "url": "https://www.academictransfer.com/en/jobs/?set_language=en", "purpose": "Job platform run by a non-profit cooperative of Dutch universities, university medical centres and research institutes.", "kind": "non-profit", "checkedAt": "2026-08-06", "caveat": "Check the final vacancy and application route on the named employer's website."},
+        {"title": "Find or verify an employment-agency branch", "provider": "ABU member directory", "url": "https://www.abu.nl/over-abu/vestigingen-abu-leden/", "purpose": "Directory of branches belonging to the Dutch employment-agency association ABU.", "kind": "directory", "checkedAt": "2026-08-06", "caveat": "Membership is an additional verification signal, not a guarantee of a specific vacancy or outcome."},
+        {"title": "Free advice about work and life in the Netherlands", "provider": "Work in NL information points", "url": "https://workinnl.nl/en/information-points/default.aspx", "purpose": "Local information points for questions about contracts, wages, housing, healthcare, taxes and learning Dutch.", "kind": "public", "checkedAt": "2026-08-06"},
+        {"title": "Help for migrant workers experiencing exploitation", "provider": "FairWork", "url": "https://www.fairwork.nu/en/homepage/", "purpose": "Independent support, rights information and referral for migrant workers with unfair or exploitative working conditions.", "kind": "support", "checkedAt": "2026-08-06", "caveat": "FairWork is a support organisation, not a vacancy or recruitment service."}
+      ],
       "officialSources": [
-        {"title": "Work", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/work", "checkedAt": "2026-08-05"},
-        {"title": "Werk.nl for jobseekers", "publisher": "UWV", "url": "https://www.werk.nl/werkzoekenden/", "checkedAt": "2026-08-05"}
+        {"title": "Work", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/work", "checkedAt": "2026-08-06"},
+        {"title": "Werk.nl for jobseekers", "publisher": "UWV", "url": "https://www.werk.nl/werkzoekenden/", "checkedAt": "2026-08-06"},
+        {"title": "Work permit", "publisher": "Work in NL", "url": "https://workinnl.nl/en/contract-en/permit/default.aspx", "checkedAt": "2026-08-06"},
+        {"title": "Living and working conditions: Netherlands", "publisher": "EURES", "url": "https://eures.europa.eu/living-and-working/living-and-working-conditions-europe/living-and-working-conditions-netherlands_en", "checkedAt": "2026-08-06"},
+        {"title": "Report unfair, unsafe or unhealthy work", "publisher": "Netherlands Labour Authority", "url": "https://www.nllabourauthority.nl/topics/report", "checkedAt": "2026-08-06"}
       ]
     },
     {

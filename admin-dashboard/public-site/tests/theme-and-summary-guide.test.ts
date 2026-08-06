@@ -81,6 +81,8 @@ test("guide and journey copy follows semantic theme colors instead of dark-theme
   assert.match(globalCss, /\.guide-checklist-widget label \{[^}]*color:var\(--text-secondary\)/);
   assert.match(globalCss, /\.guide-checklist-widget \{[^}]*linear-gradient\(145deg,var\(--panel-2\),var\(--panel\)\)/);
   assert.match(globalCss, /\.guide-source-list p \{[^}]*color:var\(--muted\)/);
+  assert.match(globalCss, /\.guide-service-list p \{[^}]*color:var\(--text-secondary\)/);
+  assert.match(globalCss, /\.guide-service-list \.guide-service-title \{[^}]*color:var\(--text\)/);
   assert.match(globalCss, /\.journey-privacy-note strong \{ color:var\(--text\); \}/);
   assert.doesNotMatch(globalCss, /\.guide-scope-grid p \{[^}]*color:#b4c0d0/);
   assert.doesNotMatch(globalCss, /\.guide-checklist-widget label \{[^}]*color:#c4cedb/);
@@ -121,7 +123,7 @@ test("curated source truth also drives metadata and Article JSON-LD", () => {
 });
 
 test("operational evidence stays off the user-first homepage", () => {
-  assert.match(systemEvidence, /publishedRecords:\s*204/);
+  assert.match(systemEvidence, /publishedRecords:\s*205/);
   assert.match(systemEvidence, /staticRoutes:\s*626/);
   assert.match(systemEvidence, /indexableUrls:\s*616/);
   assert.match(systemEvidence, /passingWebAdminAiTests:\s*148/);

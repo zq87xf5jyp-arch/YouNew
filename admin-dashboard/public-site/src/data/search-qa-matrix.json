@@ -299,7 +299,7 @@
     { "query": "huisart", "acceptedCategorySlugs": ["healthcare"] },
     { "query": "registraton", "acceptedCategorySlugs": ["documents"] },
     { "query": "taalschol", "acceptedCategorySlugs": ["language-learning"] },
-    { "query": "prepaod", "acceptedCategorySlugs": ["sim-telecom"] },
+    { "query": "prepaod", "acceptedCategorySlugs": ["telecom", "sim-telecom"] },
     { "query": "parkin fine", "acceptedCategorySlugs": ["fines"] },
     { "query": "bank acount", "acceptedCategorySlugs": ["banking"] },
     { "query": "childcar", "acceptedCategorySlugs": ["family"] },

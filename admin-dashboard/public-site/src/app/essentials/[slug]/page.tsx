@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CheckCircle2, ExternalLink, MapPin, ShieldCheck } from "lucide-react";
+import { Building2, CheckCircle2, ExternalLink, MapPin, ShieldCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { GuideChecklist } from "@/components/guide-checklist";
 import { GuideFeedbackLoop } from "@/components/guide-feedback-loop";
@@ -15,7 +15,8 @@ export const dynamicParams = false;
 const nextGuideById: Readonly<Record<string, string>> = {
   "national.immigration": "national.documents",
   "national.documents": "national.housing",
-  "national.housing": "national.utilities-moving",
+  "national.housing": "national.student-housing",
+  "national.student-housing": "national.utilities-moving",
   "national.utilities-moving": "national.healthcare",
   "national.healthcare": "national.mental-health",
   "national.mental-health": "national.dental-care",
@@ -32,7 +33,7 @@ const nextGuideById: Readonly<Record<string, string>> = {
   "national.telecom": "national.consumer-rights",
   "national.consumer-rights": "national.debt-legal-help",
   "national.debt-legal-help": "national.education",
-  "national.education": "national.pets",
+  "national.education": "national.student-housing",
   "national.pets": "national.rules-fines",
   "national.rules-fines": "national.lgbtiq-support"
 };
@@ -49,6 +50,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 function List({ items }: { items: readonly string[] }) {
   return <ul className="guide-sourced-list">{items.map((item) => <li key={item}>{item}</li>)}</ul>;
 }
+
+const serviceKindLabels = {
+  public: "Public service",
+  "non-profit": "Non-profit provider",
+  directory: "Provider directory",
+  support: "Independent support"
+} as const;
 
 export default async function NationalGuidePage({ params }: { params: Promise<{ slug: string }> }) {
   const guide = getNationalGuide((await params).slug);
@@ -96,7 +104,8 @@ export default async function NationalGuidePage({ params }: { params: Promise<{ 
             <section className="guide-section"><h2>Documents and evidence</h2><List items={guide.sections.documents} /></section>
             <section className="guide-section"><div className="guide-two-column"><div><h2>Costs</h2><p>{guide.sections.cost}</p></div><div><h2>Timing</h2><p>{guide.sections.timing}</p></div></div></section>
             <section className="guide-section"><div className="guide-two-column"><div><h2>When something goes wrong</h2><List items={guide.sections.problems} /></div><div><h2>Common mistakes</h2><List items={guide.sections.mistakes} /></div></div></section>
-            <section id="official-sources" className="guide-section"><p className="section-label">Verification</p><h2>Official sources</h2><div className="guide-source-list">{guide.officialSources.map((source) => <article key={source.url}><ShieldCheck aria-hidden /><div><h3>{source.publisher}</h3><p>{source.title}</p><p>Checked <time dateTime={source.checkedAt}>{source.checkedAt}</time></p><TrackedOfficialSourceLink contentId={guide.id} href={source.url} rel="noreferrer" target="_blank">Open official source <ExternalLink aria-hidden /></TrackedOfficialSourceLink></div></article>)}</div><p className="review-stamp"><CheckCircle2 aria-hidden /> Source set checked on <time dateTime={verifiedAt}>{verifiedAt}</time>. Recheck the linked page for current requirements.</p></section>
+            {guide.usefulServices?.length ? <section id="useful-services" className="guide-section"><p className="section-label">Take action</p><h2>Useful services and websites</h2><p>These links help you search or get support. The label shows what kind of service it is. A listing, vacancy or provider claim is not verified or endorsed by YouNew.</p><div className="guide-service-list">{guide.usefulServices.map((service) => <article key={service.url}><Building2 aria-hidden /><div><span className="guide-service-kind">{serviceKindLabels[service.kind]}</span><h3>{service.provider}</h3><p className="guide-service-title">{service.title}</p><p>{service.purpose}</p>{service.caveat ? <p className="guide-service-caveat"><strong>Before you use it:</strong> {service.caveat}</p> : null}<p className="guide-service-checked">Link checked <time dateTime={service.checkedAt}>{service.checkedAt}</time></p><a href={service.url} rel="noreferrer" target="_blank">Open website <ExternalLink aria-hidden /></a></div></article>)}</div></section> : null}
+            <section id="official-sources" className="guide-section"><p className="section-label">Verification</p><h2>Official and authoritative sources</h2><div className="guide-source-list">{guide.officialSources.map((source) => <article key={source.url}><ShieldCheck aria-hidden /><div><h3>{source.publisher}</h3><p>{source.title}</p><p>Checked <time dateTime={source.checkedAt}>{source.checkedAt}</time></p><TrackedOfficialSourceLink contentId={guide.id} href={source.url} rel="noreferrer" target="_blank">Open source <ExternalLink aria-hidden /></TrackedOfficialSourceLink></div></article>)}</div><p className="review-stamp"><CheckCircle2 aria-hidden /> Source set checked on <time dateTime={verifiedAt}>{verifiedAt}</time>. Recheck the linked page for current requirements.</p></section>
             <GuideFeedbackLoop pageReference={`/essentials/${guide.slug}/`} />
           </div>
         </div>

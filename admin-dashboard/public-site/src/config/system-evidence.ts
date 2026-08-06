@@ -4,7 +4,7 @@ export const systemEvidence = {
   metrics: {
     staticRoutes: 626,
     indexableUrls: 616,
-    publishedRecords: 204,
+    publishedRecords: 205,
     passingWebAdminAiTests: 148,
     freshnessPercent: 98
   },

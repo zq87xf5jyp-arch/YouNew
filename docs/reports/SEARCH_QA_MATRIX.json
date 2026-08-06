@@ -1,19 +1,19 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-06T18:52:26.457Z",
+  "generatedAt": "2026-08-06T21:29:32.419Z",
   "status": "PASS",
   "evidence": {
-    "searchIndexSha256": "516362e83ff56dcc33193f2dcedf557c33617971c1df365ba3e536fa8c29c0ae",
+    "searchIndexSha256": "fd94d01166600fddd710ef05967238937c80329330a97e52040384f2f7cbfd85",
     "searchIndexSchemaVersion": 3,
-    "searchDocumentCount": 593,
-    "nationalGuideCount": 23,
+    "searchDocumentCount": 594,
+    "nationalGuideCount": 24,
     "provinceCount": 12,
     "municipalityCount": 342,
     "profileCount": 6
   },
   "totals": {
-    "checks": 5605,
-    "passed": 5605,
+    "checks": 5612,
+    "passed": 5612,
     "failed": 0
   },
   "dimensions": {
@@ -23,13 +23,13 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "national.student-housing",
           "housing.renting-a-home-in-amsterdam",
           "national.utilities-moving",
           "category.housing",
           "housing.woon",
           "national.debt-legal-help",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam"
+          "housing.affordable-housing-amsterdam"
         ],
         "passed": true
       },
@@ -39,12 +39,12 @@
         "topIds": [
           "national.housing",
           "housing.housing-permit-amsterdam",
+          "national.student-housing",
           "category.housing",
           "housing.affordable-housing-amsterdam",
           "national.debt-legal-help",
           "national.utilities-moving",
-          "housing.woon",
-          "housing.renting-a-home-in-amsterdam"
+          "housing.woon"
         ],
         "passed": true
       },
@@ -56,10 +56,10 @@
           "category.housing",
           "national.debt-legal-help",
           "national.utilities-moving",
+          "national.student-housing",
           "housing.woon",
           "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam"
+          "housing.housing-permit-amsterdam"
         ],
         "passed": true
       },
@@ -68,13 +68,13 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "national.student-housing",
           "category.housing",
           "national.debt-legal-help",
           "national.utilities-moving",
           "housing.woon",
           "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam"
+          "housing.housing-permit-amsterdam"
         ],
         "passed": true
       },
@@ -83,13 +83,13 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "national.student-housing",
           "housing.renting-a-home-in-amsterdam",
           "category.housing",
           "housing.woon",
           "national.debt-legal-help",
           "national.utilities-moving",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam"
+          "housing.affordable-housing-amsterdam"
         ],
         "passed": true
       },
@@ -101,10 +101,10 @@
           "housing.woningnet-stadsregio-amsterdam",
           "category.housing",
           "housing.renting-a-home-in-amsterdam",
+          "national.student-housing",
           "national.debt-legal-help",
           "national.utilities-moving",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam"
+          "housing.woon"
         ],
         "passed": true
       },
@@ -113,13 +113,13 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "national.student-housing",
           "category.housing",
           "national.debt-legal-help",
           "national.utilities-moving",
           "housing.woon",
           "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam"
+          "housing.housing-permit-amsterdam"
         ],
         "passed": true
       },
@@ -131,10 +131,10 @@
           "category.housing",
           "national.debt-legal-help",
           "national.utilities-moving",
+          "national.student-housing",
           "housing.woon",
           "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam"
+          "housing.housing-permit-amsterdam"
         ],
         "passed": true
       },
@@ -410,9 +410,9 @@
           "national.utilities-moving",
           "government_service.first-registration-in-amsterdam",
           "national.business-zzp",
+          "national.student-housing",
           "national.housing",
-          "national.immigration",
-          "national.education"
+          "national.immigration"
         ],
         "passed": true
       },
@@ -424,10 +424,10 @@
           "national.immigration",
           "category.documents",
           "national.utilities-moving",
+          "national.work",
           "national.business-zzp",
-          "government_service.parking-permit-amsterdam",
-          "category.business",
-          "category.family"
+          "national.student-housing",
+          "government_service.parking-permit-amsterdam"
         ],
         "passed": true
       },
@@ -614,7 +614,8 @@
           "category.sim-telecom",
           "national.business-zzp",
           "national.taxes",
-          "national.banking"
+          "national.banking",
+          "national.work"
         ],
         "passed": true
       },
@@ -770,7 +771,8 @@
         "topIds": [
           "national.lgbtiq-support",
           "national.transport",
-          "national.housing"
+          "national.housing",
+          "national.student-housing"
         ],
         "passed": true
       },
@@ -1101,8 +1103,8 @@
           "national.debt-legal-help",
           "national.pregnancy",
           "national.utilities-moving",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam"
+          "national.student-housing",
+          "housing.woon"
         ],
         "passed": true
       },
@@ -1229,9 +1231,9 @@
           "category.documents",
           "national.utilities-moving",
           "national.business-zzp",
-          "government_service.parking-permit-amsterdam",
-          "national.taxes",
-          "category.business"
+          "national.work",
+          "national.student-housing",
+          "government_service.parking-permit-amsterdam"
         ],
         "passed": true
       },
@@ -3793,6 +3795,7 @@
           "national.housing",
           "national.utilities-moving",
           "category.housing",
+          "national.student-housing",
           "national.debt-legal-help",
           "page.journeys",
           "national.benefits"
@@ -3806,6 +3809,7 @@
           "national.housing",
           "national.utilities-moving",
           "category.housing",
+          "national.student-housing",
           "national.debt-legal-help",
           "page.journeys",
           "national.benefits"
@@ -3974,9 +3978,9 @@
           "category.documents",
           "national.utilities-moving",
           "national.business-zzp",
-          "national.taxes",
-          "category.business",
-          "category.family"
+          "national.work",
+          "national.student-housing",
+          "national.taxes"
         ],
         "passed": true
       }
@@ -3987,13 +3991,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.student-housing",
           "national.utilities-moving",
           "category.housing",
           "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam"
+          "housing.woon"
         ],
         "passed": true
       },
@@ -4002,13 +4006,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.student-housing",
           "national.utilities-moving",
           "category.housing",
           "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam"
+          "housing.woon"
         ],
         "passed": true
       },
@@ -4017,13 +4021,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.student-housing",
           "national.utilities-moving",
           "category.housing",
           "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam"
+          "housing.woon"
         ],
         "passed": true
       },
@@ -4032,13 +4036,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.student-housing",
           "national.utilities-moving",
           "category.housing",
           "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam"
+          "housing.woon"
         ],
         "passed": true
       },
@@ -4047,13 +4051,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.student-housing",
           "national.utilities-moving",
           "category.housing",
           "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam"
+          "housing.woon"
         ],
         "passed": true
       },
@@ -4062,13 +4066,13 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "national.student-housing",
           "national.utilities-moving",
           "category.housing",
           "national.debt-legal-help",
           "housing.renting-a-home-in-amsterdam",
           "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam"
+          "housing.woon"
         ],
         "passed": true
       }
@@ -4079,13 +4083,13 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "national.student-housing",
           "national.debt-legal-help",
           "national.utilities-moving",
           "national.benefits",
+          "national.work",
           "national.taxes",
-          "national.documents",
-          "national.lgbtiq-support",
-          "housing.affordable-housing-amsterdam"
+          "national.documents"
         ],
         "passed": true
       },
@@ -4115,11 +4119,11 @@
           "national.documents",
           "national.business-zzp",
           "national.pets",
+          "national.student-housing",
           "national.housing",
           "national.immigration",
           "national.pregnancy",
-          "national.education",
-          "national.family-childcare"
+          "national.education"
         ],
         "passed": true
       },
@@ -4243,15 +4247,57 @@
         "valid": true
       },
       {
+        "guide": "national.student-housing",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/op-kamers-wat-moet-ik-regelen",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.student-housing",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/waar-moet-ik-op-letten-als-ik-een-kamer-ga-huren",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.student-housing",
+        "url": "https://www.huurcommissie.nl/support/rent-check/rent-check-shared",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.student-housing",
+        "url": "https://www.studyinnl.org/life-in-nl/finding-a-place-to-live",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
         "guide": "national.work",
         "url": "https://www.government.nl/themes/work",
-        "checkedAt": "2026-08-05",
+        "checkedAt": "2026-08-06",
         "valid": true
       },
       {
         "guide": "national.work",
         "url": "https://www.werk.nl/werkzoekenden/",
-        "checkedAt": "2026-08-05",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.work",
+        "url": "https://workinnl.nl/en/contract-en/permit/default.aspx",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.work",
+        "url": "https://eures.europa.eu/living-and-working/living-and-working-conditions-europe/living-and-working-conditions-netherlands_en",
+        "checkedAt": "2026-08-06",
+        "valid": true
+      },
+      {
+        "guide": "national.work",
+        "url": "https://www.nllabourauthority.nl/topics/report",
+        "checkedAt": "2026-08-06",
         "valid": true
       },
       {

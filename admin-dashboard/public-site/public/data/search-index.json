@@ -10292,6 +10292,7 @@
         "tenant-rights",
         "rent-benefit",
         "housing-scams",
+        "student-housing",
         "documents",
         "benefits",
         "legal-help",
@@ -10341,6 +10342,161 @@
         "deposits",
         "tenant-rights",
         "rent-benefit",
+        "housing-scams"
+      ],
+      "commonQuestions": []
+    },
+    {
+      "id": "national.student-housing",
+      "type": "guide",
+      "sourceKind": "nationalResourceGuide",
+      "slug": "student-housing",
+      "route": "/essentials/student-housing",
+      "title": "Student housing in the Netherlands",
+      "summary": "A practical route for finding a student room, checking providers and contracts, avoiding scams, registering an address and resolving rent problems.",
+      "contentDepth": "practical",
+      "keywords": [
+        "student room",
+        "housing shortage",
+        "education institution housing office",
+        "shared accommodation",
+        "proof of enrolment",
+        "rent contract",
+        "address registration",
+        "student-housing",
+        "rooms",
+        "university-housing",
+        "housing-corporations",
+        "campus-contracts",
+        "registration",
+        "rent-check",
+        "housing-scams"
+      ],
+      "city": null,
+      "cityId": null,
+      "province": null,
+      "provinceId": null,
+      "municipalityId": null,
+      "locationScope": "national",
+      "country": "NL",
+      "categories": [
+        "housing"
+      ],
+      "intents": [
+        "housing",
+        "study",
+        "legal-help"
+      ],
+      "languages": [
+        "en"
+      ],
+      "nationalFallback": true,
+      "qualityScore": 90,
+      "verifiedAt": "2026-08-06",
+      "officialSourceUrls": [
+        "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/op-kamers-wat-moet-ik-regelen",
+        "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/waar-moet-ik-op-letten-als-ik-een-kamer-ga-huren",
+        "https://www.huurcommissie.nl/support/rent-check/rent-check-shared",
+        "https://www.studyinnl.org/life-in-nl/finding-a-place-to-live"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "student-housing",
+      "organization": "Government of the Netherlands, Government of the Netherlands, Huurcommissie, Study in NL by Nuffic",
+      "audienceProfiles": [
+        "student"
+      ],
+      "numberedSteps": [
+        "Ask your education institution's housing office first whether it reserves rooms, has a waiting list or uses a specific provider for international students.",
+        "Register early with the student-housing providers that serve your study city; check each city's eligibility, allocation and waiting-time rules before paying a registration fee.",
+        "Search the provider's current rental-offer site and your institution's channels, and use private platforms only as an additional discovery route rather than proof that a listing is safe.",
+        "Before paying, view the room in person or by a live video tour, verify the provider or landlord, confirm that registration at the address is allowed, and read the complete tenancy agreement.",
+        "Check the basic rent, service costs, deposit, utilities, furniture and contract duration in writing; use the Huurcommissie Rent Check for a room or other shared accommodation when applicable.",
+        "After moving, register the new address with the municipality and keep the signed contract, inspection photos, payment records and correspondence."
+      ],
+      "requiredDocuments": [
+        "Providers set their own requirements. Common evidence can include valid identification, proof of enrolment or admission, residence documents where relevant, income or guarantor evidence, and the signed offer or tenancy agreement. Use the exact provider checklist."
+      ],
+      "checklist": [
+        "Ask your education institution's housing office first whether it reserves rooms, has a waiting list or uses a specific provider for international students.",
+        "Register early with the student-housing providers that serve your study city; check each city's eligibility, allocation and waiting-time rules before paying a registration fee.",
+        "Search the provider's current rental-offer site and your institution's channels, and use private platforms only as an additional discovery route rather than proof that a listing is safe.",
+        "Before paying, view the room in person or by a live video tour, verify the provider or landlord, confirm that registration at the address is allowed, and read the complete tenancy agreement.",
+        "Check the basic rent, service costs, deposit, utilities, furniture and contract duration in writing; use the Huurcommissie Rent Check for a room or other shared accommodation when applicable.",
+        "After moving, register the new address with the municipality and keep the signed contract, inspection photos, payment records and correspondence."
+      ],
+      "tips": [
+        "Providers, eligibility, allocation rules, permits and reporting points differ by city. Use the city page on the provider website and the municipality for the exact address; national tenant rights remain visible."
+      ],
+      "faqAnswers": [
+        "Rent, service costs, deposits, utilities, furniture and registration fees differ by provider and city. YouNew does not copy changing prices; compare the full monthly and one-off costs on the dated provider page and contract.",
+        "The Netherlands has a severe student-housing shortage. Start as soon as study plans are likely, because some routes depend on registration time while others use institution allocation, lottery, matching or first-come-first-served rules.",
+        "Ask the education institution's housing officer if its reserved housing or partner process is unclear.",
+        "For rent, maintenance or service-cost issues, first write to the provider and then check the Huurcommissie route and the municipality's Good Landlordship reporting point.",
+        "If a listing, payment request or identity appears suspicious, stop the transfer, preserve evidence and use the appropriate fraud-reporting or police route."
+      ],
+      "whenYouNeedIt": [
+        "Use this route if you are applying to or enrolled at MBO, HBO or university, including exchange students, international students, PhD candidates and students moving between Dutch cities."
+      ],
+      "tags": [
+        "student-housing",
+        "rooms",
+        "university-housing",
+        "housing-corporations",
+        "campus-contracts",
+        "registration",
+        "rent-check",
+        "housing-scams",
+        "housing",
+        "education",
+        "documents",
+        "utilities",
+        "legal-help"
+      ],
+      "synonyms": [
+        "student housing",
+        "student room",
+        "room for student",
+        "international student housing",
+        "university housing",
+        "campus housing",
+        "ROOM.nl",
+        "Roommatch",
+        "DUWO",
+        "SSH",
+        "student accommodation",
+        "studentenhuisvesting",
+        "studentenkamer",
+        "kamer zoeken",
+        "op kamers",
+        "universiteit huisvesting",
+        "campuscontract",
+        "ROOM.nl",
+        "DUWO",
+        "SSH",
+        "жильё для студентов",
+        "студенческое жильё",
+        "комната студенту",
+        "общежитие",
+        "жильё университета",
+        "аренда комнаты",
+        "ROOM.nl",
+        "DUWO",
+        "SSH"
+      ],
+      "officialOrganizationNames": [
+        "Government of the Netherlands",
+        "Government of the Netherlands",
+        "Huurcommissie",
+        "Study in NL by Nuffic"
+      ],
+      "terminology": [
+        "student-housing",
+        "rooms",
+        "university-housing",
+        "housing-corporations",
+        "campus-contracts",
+        "registration",
+        "rent-check",
         "housing-scams"
       ],
       "commonQuestions": []
@@ -10396,11 +10552,14 @@
       "verifiedAt": "2026-08-06",
       "officialSourceUrls": [
         "https://www.government.nl/themes/work",
-        "https://www.werk.nl/werkzoekenden/"
+        "https://www.werk.nl/werkzoekenden/",
+        "https://workinnl.nl/en/contract-en/permit/default.aspx",
+        "https://eures.europa.eu/living-and-working/living-and-working-conditions-europe/living-and-working-conditions-netherlands_en",
+        "https://www.nllabourauthority.nl/topics/report"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "job-search",
-      "organization": "Government of the Netherlands, UWV",
+      "organization": "Government of the Netherlands, UWV, Work in NL, EURES, Netherlands Labour Authority",
       "audienceProfiles": [
         "student",
         "expat",
@@ -10409,19 +10568,23 @@
         "resident"
       ],
       "numberedSteps": [
-        "Identify whether the role is direct employment, agency work, self-employment or another contract form.",
-        "Keep the written offer and contract and check the employer, hours, pay components and applicable collective agreement.",
-        "Use official Government.nl guidance for employment rules and Werk.nl or UWV for the relevant work or unemployment service.",
-        "Use an official labour or legal-help route when terms are unclear or a problem cannot be resolved."
+        "Check whether your nationality and residence status allow the work and whether the employer must arrange a permit; use the official route before starting.",
+        "Choose target roles, locations, hours and working languages, then prepare a clear CV and a reusable application that you adapt to each vacancy.",
+        "Search Werk.nl and EURES, then add direct employer career pages, sector-specific sites such as AcademicTransfer, reputable agencies and professional networks.",
+        "Check who the legal employer is, verify the company or agency, and never pay a recruiter or employer to obtain a normal job offer.",
+        "Before accepting, get the offer and contract in writing and check hours, gross pay, holiday allowance, probation, notice, applicable CAO and any deductions for transport, insurance or housing.",
+        "Keep applications, the signed contract, schedules, payslips and messages; use Work in NL, FairWork, legal help or the Labour Authority if the terms or treatment are unfair or unsafe."
       ],
       "requiredDocuments": [
-        "Requirements depend on the employer and legal route. Keep the contract, payslips, work schedule and relevant correspondence; verify identity or residence-document requests with the responsible authority."
+        "Application requirements depend on the role. Employers commonly request a CV and sometimes a motivation letter, certificates, references or portfolio. Only provide identity, residence or bank details when the employer and purpose have been verified; keep the contract, payslips, schedules and correspondence."
       ],
       "checklist": [
-        "Identify whether the role is direct employment, agency work, self-employment or another contract form.",
-        "Keep the written offer and contract and check the employer, hours, pay components and applicable collective agreement.",
-        "Use official Government.nl guidance for employment rules and Werk.nl or UWV for the relevant work or unemployment service.",
-        "Use an official labour or legal-help route when terms are unclear or a problem cannot be resolved."
+        "Check whether your nationality and residence status allow the work and whether the employer must arrange a permit; use the official route before starting.",
+        "Choose target roles, locations, hours and working languages, then prepare a clear CV and a reusable application that you adapt to each vacancy.",
+        "Search Werk.nl and EURES, then add direct employer career pages, sector-specific sites such as AcademicTransfer, reputable agencies and professional networks.",
+        "Check who the legal employer is, verify the company or agency, and never pay a recruiter or employer to obtain a normal job offer.",
+        "Before accepting, get the offer and contract in writing and check hours, gross pay, holiday allowance, probation, notice, applicable CAO and any deductions for transport, insurance or housing.",
+        "Keep applications, the signed contract, schedules, payslips and messages; use Work in NL, FairWork, legal help or the Labour Authority if the terms or treatment are unfair or unsafe."
       ],
       "tips": [
         "Most employment rules are national. City selection adds verified local job services when available but cannot hide this national route."
@@ -10429,11 +10592,12 @@
       "faqAnswers": [
         "YouNew does not reproduce changing salary thresholds, benefit amounts or service fees. Use the current official calculation or decision.",
         "Application, notice and objection periods depend on the specific process. Check the official page or decision immediately rather than relying on a generic deadline.",
-        "For unemployment or work-service questions, use UWV or Werk.nl.",
-        "For unsafe or unfair working conditions, use the official labour-inspection or legal-help route appropriate to the issue."
+        "For job-search or unemployment services, use UWV or Werk.nl and check which service applies to your situation.",
+        "For questions about a contract, wages, housing linked to work or living in the Netherlands, use a free Work in NL information point.",
+        "For suspected exploitation of a migrant worker, contact FairWork; for unfair, unsafe or unhealthy work or labour exploitation, use the Netherlands Labour Authority reporting route."
       ],
       "whenYouNeedIt": [
-        "Use this route when looking for a job, reviewing an offer or contract, checking pay or leave, reporting unsafe work, or dealing with unemployment or dismissal."
+        "Use this route when looking for a job, student job, temporary or agency work, research role or direct employment, and when checking an offer, contract, pay, working conditions, unemployment or dismissal."
       ],
       "tags": [
         "job-search",
@@ -10483,7 +10647,10 @@
       ],
       "officialOrganizationNames": [
         "Government of the Netherlands",
-        "UWV"
+        "UWV",
+        "Work in NL",
+        "EURES",
+        "Netherlands Labour Authority"
       ],
       "terminology": [
         "job-search",

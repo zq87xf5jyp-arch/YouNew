@@ -1,13 +1,13 @@
 # YouNew search QA matrix
 
-Generated: 2026-08-06T18:52:26.457Z
+Generated: 2026-08-06T21:29:32.419Z
 
 Status: **PASS**
 
-- Checks: 5605
-- Passed: 5605
+- Checks: 5612
+- Passed: 5612
 - Failed: 0
-- Search documents: 593
+- Search documents: 594
 - Provinces: 12/12
 - Municipalities: 342/342
 - Profiles: 6
