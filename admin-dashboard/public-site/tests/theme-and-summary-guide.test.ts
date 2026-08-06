@@ -63,6 +63,17 @@ test("homepage continues the branded visual system below the hero", () => {
   assert.match(globalCss, /@media \(max-width:760px\)[\s\S]*?\.vision-task-grid \{ grid-template-columns:1fr; \}/);
 });
 
+test("light mode restores semantic light surfaces across every public template", () => {
+  assert.match(themeCss, /Site-wide light-theme contract/);
+  assert.match(themeCss, /html\[data-theme="light"\] \.page-shell-main \{[\s\S]*?background:transparent/);
+  assert.match(themeCss, /html\[data-theme="light"\] \.product-vision-home \{[\s\S]*?--vision-ink:#082463[\s\S]*?background:#eef3f8/);
+  assert.match(themeCss, /html\[data-theme="light"\] \.product-vision-home main \{[\s\S]*?linear-gradient\(180deg,#fff,#f7f9fc 46%,#eef3f8\)/);
+  assert.match(themeCss, /html\[data-theme="light"\] :is\(\.task-hub-page,\.about-younew-page\) \.page-shell-main/);
+  assert.match(themeCss, /html\[data-theme="light"\] \.task-choice \{[\s\S]*?background:linear-gradient\(145deg,#fff,var\(--panel\)\)/);
+  assert.match(themeCss, /html\[data-theme="light"\] :is\(\.guide-feedback-loop,[\s\S]*?\.journey-card,[\s\S]*?\.search-input-wrap/);
+  assert.match(themeCss, /html\[data-theme="light"\] :is\(\.business-subnav,\.knowledge-trust-summary/);
+});
+
 test("Amsterdam driving licence summary uses the current official source and actionable facts", () => {
   assert.match(summaryData, /https:\/\/www\.amsterdam\.nl\/en\/civil-affairs\/applying-dutch-driving-licence\//);
   assert.match(summaryData, /Driving licence in Amsterdam/);

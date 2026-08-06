@@ -227,3 +227,193 @@ html[data-theme="light"] .theme-toggle-moon { display:none; }
 
 @media (prefers-reduced-motion:reduce) { .theme-toggle { transition:none; } }
 @media print { .theme-toggle { display:none!important; } }
+
+/*
+ * Site-wide light-theme contract.
+ *
+ * Feature CSS may define an intentionally dark default for the dark theme, but
+ * page shells and interactive surfaces must return to semantic light tokens
+ * whenever the document theme is light. The photographic home hero remains a
+ * deliberate dark media surface; the navigation and the journey below it do not.
+ */
+html[data-theme="light"] .page-shell-main {
+  background:transparent;
+  color:var(--text);
+}
+
+html[data-theme="light"] .site-header,
+html[data-theme="light"] .site-header[data-scrolled="true"],
+html[data-theme="light"] .site-header.is-scrolled {
+  border-color:var(--line);
+  background:rgba(238,243,248,.96);
+  color:var(--text);
+  box-shadow:0 10px 35px rgba(43,68,97,.11);
+}
+
+html[data-theme="light"] .site-header :is(.brand-wordmark,.desktop-nav,.desktop-nav a,.header-search) {
+  color:var(--text-secondary);
+}
+html[data-theme="light"] .site-header :is(.desktop-nav a:hover,.desktop-nav a[aria-current="page"],.header-search:hover,.header-search[aria-current="page"]) {
+  color:var(--text);
+}
+
+/* Product homepage: light navigation and light content after the branded hero. */
+html[data-theme="light"] .product-vision-home {
+  --vision-ink:#082463;
+  --vision-copy:#33486f;
+  --vision-muted:#667796;
+  --vision-blue:#1549bd;
+  --vision-orange:#f05a18;
+  --vision-orange-dark:#c9430a;
+  --vision-line:#d9e2ef;
+  --vision-soft:#f3f8fe;
+  --vision-soft-2:#eaf3fc;
+  --vision-white:#fff;
+  --text:var(--vision-ink);
+  --text-secondary:var(--vision-copy);
+  --muted:var(--vision-muted);
+  --line:var(--vision-line);
+  --line-strong:#bdcbe0;
+  --orange:var(--vision-orange-dark);
+  --orange-2:var(--vision-orange-dark);
+  --cyan:#0b62a8;
+  background:#eef3f8;
+  color:var(--vision-ink);
+}
+html[data-theme="light"] .product-vision-home main {
+  background:linear-gradient(180deg,#fff,#f7f9fc 46%,#eef3f8);
+  color:var(--vision-ink);
+  filter:none;
+}
+html[data-theme="light"] .product-vision-home .site-header,
+html[data-theme="light"] .product-vision-home .site-header[data-scrolled="true"],
+html[data-theme="light"] .product-vision-home .site-header.is-scrolled {
+  border-color:var(--vision-line);
+  background:rgba(255,255,255,.96);
+  color:var(--vision-ink);
+  box-shadow:0 10px 30px rgba(20,51,94,.08);
+}
+html[data-theme="light"] .product-vision-home .brand-mark {
+  border-color:#c8d5e8;
+  background:#fff;
+  box-shadow:0 4px 14px rgba(20,51,94,.1);
+}
+html[data-theme="light"] .product-vision-home :is(.brand-wordmark,.desktop-nav,.desktop-nav a,.header-search) { color:var(--vision-copy); }
+html[data-theme="light"] .product-vision-home :is(.desktop-nav a:hover,.desktop-nav a[aria-current="page"],.header-search:hover,.header-search[aria-current="page"]) { color:var(--vision-ink); }
+html[data-theme="light"] .product-vision-home .header-search,
+html[data-theme="light"] .product-vision-home .theme-toggle,
+html[data-theme="light"] .product-vision-home .mobile-menu summary {
+  border-color:var(--vision-line);
+  background:#fff;
+  color:var(--vision-ink);
+}
+html[data-theme="light"] .product-vision-home .mobile-menu nav { border-color:var(--vision-line); background:#fff; box-shadow:0 20px 60px rgba(20,51,94,.18); }
+html[data-theme="light"] .product-vision-home .mobile-menu nav a { color:var(--vision-copy); }
+html[data-theme="light"] .product-vision-home .mobile-menu nav :is(a:hover,a:focus-visible,a[aria-current="page"]) { background:var(--vision-soft); color:var(--vision-ink); }
+html[data-theme="light"] .product-vision-home .vision-needs {
+  background:radial-gradient(circle at 92% 20%,rgba(21,73,189,.08),transparent 28%),#fff;
+}
+html[data-theme="light"] .product-vision-home .vision-task-grid>.vision-task,
+html[data-theme="light"] .product-vision-home .vision-task {
+  border-color:var(--vision-line);
+  background:#fff;
+  color:var(--vision-ink);
+}
+html[data-theme="light"] .product-vision-home .vision-task:hover { background:var(--vision-soft); }
+html[data-theme="light"] .product-vision-home .vision-task.is-emergency { background:#fff7f1; }
+html[data-theme="light"] .product-vision-home :is(.vision-life-band,.vision-services) { background:var(--vision-soft); }
+html[data-theme="light"] .product-vision-home .vision-direction-rail { background:rgba(255,255,255,.72); }
+html[data-theme="light"] .product-vision-home .vision-direction-rail a:hover { background:#fff; }
+html[data-theme="light"] .product-vision-home :is(.vision-popular,.vision-why) { background:#fff; }
+html[data-theme="light"] .product-vision-home :is(.vision-cities,.vision-business,.vision-updates) { background:#fbfdff; }
+html[data-theme="light"] .product-vision-home .vision-city-rail article { background:#fff; }
+html[data-theme="light"] .product-vision-home .vision-city-rail :is(.content-media,.content-media figcaption) { background:#fff; }
+html[data-theme="light"] .product-vision-home .vision-city-rail .content-media figcaption { color:var(--vision-muted); }
+html[data-theme="light"] .product-vision-home .vision-city-rail .content-media figcaption a { color:#0b62a8; }
+html[data-theme="light"] .product-vision-home .vision-proof-grid { background:rgba(255,255,255,.6); }
+html[data-theme="light"] .product-vision-home .vision-campaign-state { border-color:var(--vision-line); background:var(--vision-soft); box-shadow:none; }
+html[data-theme="light"] .product-vision-home .site-footer {
+  border-color:var(--vision-line);
+  background:var(--vision-soft);
+  color:var(--vision-ink);
+}
+
+/* Task hubs and About share the same semantic page shell. */
+html[data-theme="light"] :is(.task-hub-page,.about-younew-page) { background:var(--bg); color:var(--text); }
+html[data-theme="light"] :is(.task-hub-page,.about-younew-page) .page-shell-main {
+  background:linear-gradient(180deg,#f7f9fc,#eef3f8 54%,#f7f9fc);
+  color:var(--text);
+}
+html[data-theme="light"] .task-hub-hero {
+  border-color:var(--line);
+  background:radial-gradient(circle at 82% 20%,rgba(23,111,176,.1),transparent 28rem),linear-gradient(180deg,#f7f9fc,#eaf1f7);
+}
+html[data-theme="light"] .task-hub-icon { border-color:rgba(0,109,150,.28); background:#e5f3f8; color:var(--cyan); }
+html[data-theme="light"] .task-hub-kicker { color:var(--cyan)!important; }
+html[data-theme="light"] .task-value-contract>strong { color:var(--text); }
+html[data-theme="light"] .task-value-contract li { color:var(--text-secondary); }
+html[data-theme="light"] .task-value-contract>p { color:var(--muted); }
+html[data-theme="light"] .task-choice { border-color:var(--line); background:linear-gradient(145deg,#fff,var(--panel)); color:var(--text); box-shadow:var(--shadow-card); }
+html[data-theme="light"] .task-choice:hover { border-color:rgba(0,109,150,.42); background:#fff; }
+html[data-theme="light"] .task-choice strong { color:var(--cyan); }
+html[data-theme="light"] .task-local-band { border-color:var(--line); background:var(--bg-secondary); }
+html[data-theme="light"] .task-local-grid nav a { color:var(--text); }
+html[data-theme="light"] .task-local-grid nav a:hover { color:var(--cyan); }
+html[data-theme="light"] .task-help-grid article { border-color:var(--line); background:#fff; color:var(--text); box-shadow:var(--shadow-card); }
+html[data-theme="light"] .task-naruto-help { border-color:rgba(0,109,150,.3)!important; background:linear-gradient(145deg,#f4fbfd,#e6f3f7)!important; }
+html[data-theme="light"] .about-golden-rule { border-color:rgba(0,109,150,.3); background:linear-gradient(145deg,#f4fbfd,#e6f3f7); }
+html[data-theme="light"] .about-golden-rule>svg,
+html[data-theme="light"] .about-principles svg { color:var(--cyan); }
+html[data-theme="light"] .about-actions a { color:var(--text); }
+html[data-theme="light"] .about-actions a:first-child { color:#fff; }
+
+/* Reusable content, search, journey and form surfaces. */
+html[data-theme="light"] :is(.guide-feedback-loop,.guide-feedback-panel,.guide-toc,.guide-scope-grid article,.guide-two-column>div,.guide-faq-list details,.guide-source-list article,.journey-card,.search-input-wrap,.search-filter-fields,.search-suggestions,.form-section,.local-data-controls,.status-card) {
+  border-color:var(--line);
+  background:#fff;
+  color:var(--text);
+  box-shadow:var(--shadow-card);
+}
+html[data-theme="light"] .guide-feedback-options button,
+html[data-theme="light"] .guide-copy-button,
+html[data-theme="light"] .search-filter-toggle,
+html[data-theme="light"] .search-suggestions button,
+html[data-theme="light"] .save-button,
+html[data-theme="light"] .share-button {
+  border-color:var(--line-strong);
+  background:#fff;
+  color:var(--text-secondary);
+}
+html[data-theme="light"] .guide-feedback-options button:hover,
+html[data-theme="light"] .guide-feedback-options button.is-selected { border-color:var(--cyan); background:#edf7f9; color:var(--text); }
+html[data-theme="light"] .guide-faq-list summary,
+html[data-theme="light"] .journey-step-heading a { color:var(--text); }
+html[data-theme="light"] .guide-faq-list details>div,
+html[data-theme="light"] .journey-card>header p,
+html[data-theme="light"] .journey-steps>li>p { color:var(--text-secondary); }
+html[data-theme="light"] .journey-coverage-note { border-color:var(--line); background:var(--panel-2); color:var(--muted); }
+html[data-theme="light"] .journey-steps select,
+html[data-theme="light"] .form-field :is(input,select,textarea),
+html[data-theme="light"] .search-filter-bar select {
+  border-color:var(--line-strong);
+  background:#fff;
+  color:var(--text);
+}
+html[data-theme="light"] .search-input-wrap input { color:var(--text); }
+html[data-theme="light"] .search-input-wrap input::placeholder { color:var(--muted); }
+html[data-theme="light"] .search-suggestions button:hover { background:var(--panel-2); color:var(--text); }
+html[data-theme="light"] .guide-feedback-panel { background:rgba(255,255,255,.72); }
+
+/* Business pages use the same light contract; sponsored examples remain labelled. */
+html[data-theme="light"] :is(.business-subnav,.knowledge-trust-summary,.business-comparison article,.business-placement-demo,.business-media-kit .media-kit-partner-demo,.business-media-kit .media-kit-report-demo) {
+  --text:#071a36;
+  --text-secondary:#29415f;
+  --muted:#5b708a;
+  --cyan:#006d96;
+  border-color:var(--line);
+  background:#fff;
+  color:var(--text);
+  box-shadow:var(--shadow-card);
+}
+html[data-theme="light"] .business-subnav { background:rgba(255,255,255,.92); }
+html[data-theme="light"] .knowledge-trust-summary { background:radial-gradient(circle at 94% 8%,rgba(0,109,150,.07),transparent 24rem),#fff; }
