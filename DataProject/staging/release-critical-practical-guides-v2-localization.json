@@ -1,0 +1,709 @@
+{
+  "schema_version": 1,
+  "collection_id": "release-critical-practical-guides-v2-localization-readiness",
+  "source_bundle": "DataProject/staging/release-critical-practical-guides-v2.json",
+  "source_bundle_sha256": "837f213a29d64927813d15e74fac3a8225e3bd737ddbd19c62584e2f253fbe1b",
+  "status": "localization_brief",
+  "publication_authorized": false,
+  "scope": "Search-surface localization drafts only. They provide localized titles, summaries, synonyms, common questions and terminology guidance. They are not full guide translations and must remain outside the runtime dataset and search index.",
+  "locales": [
+    "nl",
+    "ru"
+  ],
+  "required_publication_gaps": [
+    "full_body_translation",
+    "independent_language_review",
+    "source_to_translation_review",
+    "media_and_accessibility_review"
+  ],
+  "entries": [
+    {
+      "source_guide_id": "guide.getting-a-bsn",
+      "source_locale": "en",
+      "locale": "nl",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Een BSN krijgen",
+      "short_summary": "Een BSN wordt toegekend via inschrijving: inwoners gebruiken de BRP-route bij de gemeente, terwijl daarvoor in aanmerking komende niet-ingezetenen zich bij een RNI-loket inschrijven. Meestal dient u geen aparte BSN-aanvraag in.",
+      "synonyms": [
+        "burgerservicenummer",
+        "BSN aanvragen",
+        "BSN krijgen",
+        "inschrijven bij de gemeente",
+        "BRP-inschrijving",
+        "RNI-loket",
+        "registreren in Eindhoven",
+        "verhuizen vanuit het buitenland"
+      ],
+      "common_questions": [
+        "Hoe krijg ik een BSN in Eindhoven?",
+        "Moet ik mij inschrijven in de BRP of de RNI?",
+        "Kan ik al een BSN hebben?"
+      ],
+      "terminology": [
+        {
+          "source": "BSN",
+          "target": "burgerservicenummer (BSN)",
+          "note": "Behoud de officiële afkorting BSN."
+        },
+        {
+          "source": "BRP",
+          "target": "Basisregistratie Personen (BRP)",
+          "note": "Niet als algemene verblijfsregistratie vertalen."
+        },
+        {
+          "source": "RNI",
+          "target": "Registratie Niet-Ingezetenen (RNI)",
+          "note": "De geschiktheidsvoorwaarden moeten bij menselijke review worden gecontroleerd."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.getting-a-bsn",
+      "source_locale": "en",
+      "locale": "ru",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Как получить BSN",
+      "short_summary": "BSN присваивается при регистрации: постоянные жители регистрируются в BRP через муниципалитет, а соответствующие условиям нерезиденты — в одном из пунктов RNI. Обычно отдельное заявление именно на BSN не подаётся.",
+      "synonyms": [
+        "номер BSN",
+        "получить BSN",
+        "оформить BSN",
+        "регистрация в муниципалитете",
+        "регистрация BRP",
+        "регистрация RNI",
+        "регистрация в Эйндховене",
+        "переезд из-за границы"
+      ],
+      "common_questions": [
+        "Как получить BSN в Эйндховене?",
+        "Мне нужна регистрация в BRP или RNI?",
+        "Может ли у меня уже быть BSN?"
+      ],
+      "terminology": [
+        {
+          "source": "BSN",
+          "target": "персональный номер BSN",
+          "note": "Сохранять официальную аббревиатуру BSN."
+        },
+        {
+          "source": "BRP",
+          "target": "реестр жителей BRP",
+          "note": "При первом упоминании пояснять, но не заменять официальное название."
+        },
+        {
+          "source": "RNI",
+          "target": "реестр нерезидентов RNI",
+          "note": "Условия применимости должны быть проверены редактором."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.finding-a-huisarts",
+      "source_locale": "en",
+      "locale": "nl",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Een huisarts vinden en je inschrijven",
+      "short_summary": "Zoek een huisartsenpraktijk in de buurt, vraag of die nieuwe patiënten aanneemt en schrijf je in met je identiteitsbewijs, BSN en verzekeringsgegevens. Vraag je zorgverzekeraar om hulp als je geen praktijk kunt vinden.",
+      "synonyms": [
+        "huisarts vinden",
+        "inschrijven bij huisarts",
+        "huisartsenpraktijk",
+        "dokter in de buurt",
+        "nieuwe patiënten",
+        "huisarts Rotterdam",
+        "zorgverzekeraar hulp",
+        "huisartsenpost"
+      ],
+      "common_questions": [
+        "Hoe vind ik een huisarts in Rotterdam?",
+        "Welke documenten heeft een huisarts nodig?",
+        "Wat kan ik doen als huisartsenpraktijken vol zijn?"
+      ],
+      "terminology": [
+        {
+          "source": "GP",
+          "target": "huisarts",
+          "note": "Gebruik huisarts voor reguliere eerstelijnszorg."
+        },
+        {
+          "source": "GP practice",
+          "target": "huisartsenpraktijk",
+          "note": "Niet verwarren met een individuele huisarts."
+        },
+        {
+          "source": "out-of-hours GP service",
+          "target": "huisartsenpost",
+          "note": "Geen actuele capaciteit of adres zonder live controle noemen."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.finding-a-huisarts",
+      "source_locale": "en",
+      "locale": "ru",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Как найти huisarts и зарегистрироваться",
+      "short_summary": "Найдите ближайшую практику семейного врача, уточните, принимает ли она новых пациентов, и зарегистрируйтесь, предоставив удостоверение личности, BSN и данные медицинской страховки. Если найти практику не удаётся, обратитесь за помощью к страховщику.",
+      "synonyms": [
+        "семейный врач",
+        "врач общей практики",
+        "найти huisarts",
+        "регистрация у huisarts",
+        "врач рядом",
+        "huisarts в Роттердаме",
+        "помощь страховой компании",
+        "неотложная помощь huisartsenpost"
+      ],
+      "common_questions": [
+        "Как найти huisarts в Роттердаме?",
+        "Какие документы нужны для регистрации у врача?",
+        "Что делать, если ближайшие практики не принимают пациентов?"
+      ],
+      "terminology": [
+        {
+          "source": "huisarts",
+          "target": "семейный врач / huisarts",
+          "note": "Сохранять нидерландский термин для поиска и официальных обращений."
+        },
+        {
+          "source": "GP practice",
+          "target": "практика семейного врача",
+          "note": "Не смешивать организацию и конкретного врача."
+        },
+        {
+          "source": "huisartsenpost",
+          "target": "дежурная служба huisarts (huisartsenpost)",
+          "note": "Не указывать вместимость или адрес без актуальной проверки."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.renting-a-home",
+      "source_locale": "en",
+      "locale": "nl",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Veilig een woning huren",
+      "short_summary": "Controleer bij een mogelijke woning vóórdat je toezegt de huursector en het puntenaantal, de kale huur en servicekosten, de borg, eventuele bemiddelingskosten, lokale vergunningseisen en de schriftelijke huurovereenkomst.",
+      "synonyms": [
+        "woning huren",
+        "huurwoning",
+        "appartement huren",
+        "kamer huren",
+        "huurcontract",
+        "borg huurwoning",
+        "woning huren Den Haag",
+        "betaalbare huisvestingsvergunning"
+      ],
+      "common_questions": [
+        "Hoe huur ik als werknemer een woning in Den Haag?",
+        "Hoeveel borg mag een verhuurder vragen?",
+        "Hoe controleer ik de Nederlandse huurprijs?"
+      ],
+      "terminology": [
+        {
+          "source": "basic rent",
+          "target": "kale huur",
+          "note": "Apart houden van servicekosten en totale maandlasten."
+        },
+        {
+          "source": "deposit",
+          "target": "waarborgsom / borg",
+          "note": "Bedrag en contractdatum moeten opnieuw worden gecontroleerd."
+        },
+        {
+          "source": "affordable housing permit",
+          "target": "betaalbare huisvestingsvergunning",
+          "note": "Alleen gebruiken voor de actuele Haagse regeling en na adrescontrole."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.renting-a-home",
+      "source_locale": "en",
+      "locale": "ru",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Как безопасно арендовать жильё",
+      "short_summary": "Прежде чем соглашаться на аренду, проверьте сектор и балльную оценку жилья, базовую арендную плату и сервисные расходы, депозит, возможную комиссию посредника, местные разрешения и письменный договор аренды.",
+      "synonyms": [
+        "аренда жилья",
+        "снять квартиру",
+        "снять комнату",
+        "договор аренды",
+        "депозит за жильё",
+        "аренда в Гааге",
+        "социальное жильё",
+        "разрешение на доступное жильё"
+      ],
+      "common_questions": [
+        "Как работнику арендовать жильё в Гааге?",
+        "Какой депозит может потребовать арендодатель?",
+        "Как проверить размер арендной платы в Нидерландах?"
+      ],
+      "terminology": [
+        {
+          "source": "basic rent",
+          "target": "базовая арендная плата (kale huur)",
+          "note": "Отделять от сервисных расходов и общей суммы платежа."
+        },
+        {
+          "source": "deposit",
+          "target": "залог / депозит (waarborgsom)",
+          "note": "Лимит и дату договора необходимо перепроверить."
+        },
+        {
+          "source": "affordable housing permit",
+          "target": "разрешение на доступное жильё",
+          "note": "Применимость в Гааге зависит от конкретного адреса и актуальных условий."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.finding-work",
+      "source_locale": "en",
+      "locale": "nl",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Werk vinden in Nederland",
+      "short_summary": "Controleer eerst of je op grond van je nationaliteit en verblijfsroute mag werken. Gebruik daarna de hulpmiddelen van UWV en EURES om een cv te maken, vacatures te zoeken en het bewijs te bewaren dat voor eventuele uitkeringsregels nodig is.",
+      "synonyms": [
+        "werk zoeken",
+        "baan vinden",
+        "vacatures",
+        "werk in Leiden",
+        "UWV vacatures",
+        "EURES werk",
+        "werkvergunning",
+        "solliciteren"
+      ],
+      "common_questions": [
+        "Hoe vind ik werk in Leiden?",
+        "Heb ik een Nederlandse werkvergunning nodig?",
+        "Waar vind ik officiële vacatures?"
+      ],
+      "terminology": [
+        {
+          "source": "work authorisation",
+          "target": "toestemming om te werken / werkvergunning",
+          "note": "De juiste term hangt af van nationaliteit en verblijfsroute."
+        },
+        {
+          "source": "benefit rules",
+          "target": "uitkeringsregels",
+          "note": "Geen universele sollicitatieplicht suggereren."
+        },
+        {
+          "source": "municipal reintegration support",
+          "target": "gemeentelijke re-integratieondersteuning",
+          "note": "DZB Leiden is ondersteuning, geen garantie op een vacature."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.finding-work",
+      "source_locale": "en",
+      "locale": "ru",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Как найти работу в Нидерландах",
+      "short_summary": "Сначала проверьте право на работу с учётом гражданства и основания проживания. Затем используйте сервисы UWV и EURES, чтобы подготовить резюме, искать вакансии и сохранять подтверждения, необходимые по применимым правилам получения пособия.",
+      "synonyms": [
+        "поиск работы",
+        "найти работу",
+        "вакансии",
+        "работа в Лейдене",
+        "вакансии UWV",
+        "работа EURES",
+        "разрешение на работу",
+        "отправить резюме"
+      ],
+      "common_questions": [
+        "Как найти работу в Лейдене?",
+        "Нужно ли мне разрешение на работу в Нидерландах?",
+        "Где искать официальные вакансии?"
+      ],
+      "terminology": [
+        {
+          "source": "work authorisation",
+          "target": "право или разрешение на работу",
+          "note": "Точная формулировка зависит от гражданства и статуса проживания."
+        },
+        {
+          "source": "benefit rules",
+          "target": "правила получения пособия",
+          "note": "Не утверждать, что обязанность искать работу универсальна."
+        },
+        {
+          "source": "municipal reintegration support",
+          "target": "муниципальная помощь с возвращением к работе",
+          "note": "DZB Leiden оказывает поддержку, но не гарантирует вакансию."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.understanding-an-employment-contract",
+      "source_locale": "en",
+      "locale": "nl",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Een Nederlandse arbeidsovereenkomst begrijpen",
+      "short_summary": "Controleer de schriftelijke kernvoorwaarden, of het contract tijdelijk of vast is, welke collectieve arbeidsovereenkomst geldt, het brutoloon en de inhoudingen. Vergelijk daarna de eerste loonstrook met de overeenkomst.",
+      "synonyms": [
+        "arbeidsovereenkomst",
+        "arbeidscontract",
+        "werkcontract",
+        "tijdelijk contract",
+        "vast contract",
+        "collectieve arbeidsovereenkomst",
+        "CAO",
+        "loonstrook"
+      ],
+      "common_questions": [
+        "Wat moet ik controleren in een Nederlands arbeidscontract?",
+        "Wanneer moeten de schriftelijke arbeidsvoorwaarden worden verstrekt?",
+        "Gaat een CAO vóór mijn contract?"
+      ],
+      "terminology": [
+        {
+          "source": "collective labour agreement",
+          "target": "collectieve arbeidsovereenkomst (CAO)",
+          "note": "Controleer welke CAO daadwerkelijk van toepassing is."
+        },
+        {
+          "source": "fixed-term contract",
+          "target": "arbeidsovereenkomst voor bepaalde tijd",
+          "note": "Niet versimpelen tot tijdelijk werk zonder contractcontext."
+        },
+        {
+          "source": "payslip",
+          "target": "loonstrook",
+          "note": "Brutoloon, inhoudingen en nettoloon afzonderlijk benoemen."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.understanding-an-employment-contract",
+      "source_locale": "en",
+      "locale": "ru",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Как разобраться в трудовом договоре в Нидерландах",
+      "short_summary": "Проверьте основные письменные условия, срок договора, применимое коллективное соглашение, зарплату до вычетов и удержания. Затем сравните первый расчётный лист с условиями договора.",
+      "synonyms": [
+        "трудовой договор",
+        "рабочий контракт",
+        "временный договор",
+        "постоянный договор",
+        "коллективное соглашение",
+        "CAO",
+        "расчётный лист",
+        "зарплата до вычетов"
+      ],
+      "common_questions": [
+        "Что проверить в трудовом договоре в Нидерландах?",
+        "Когда работодатель должен предоставить письменные условия?",
+        "Имеет ли CAO преимущество перед моим договором?"
+      ],
+      "terminology": [
+        {
+          "source": "collective labour agreement",
+          "target": "коллективное трудовое соглашение (CAO)",
+          "note": "Необходимо проверить, какое CAO действительно применимо."
+        },
+        {
+          "source": "fixed-term contract",
+          "target": "срочный трудовой договор",
+          "note": "Не заменять общим термином временная работа без контекста."
+        },
+        {
+          "source": "payslip",
+          "target": "расчётный лист (loonstrook)",
+          "note": "Разделять зарплату до вычетов, удержания и сумму к выплате."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.registering-a-child-at-school",
+      "source_locale": "en",
+      "locale": "nl",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Een kind inschrijven op een Nederlandse school",
+      "short_summary": "Kies de route voor het basis- of voortgezet onderwijs, controleer de gemeentelijke verdeling en de capaciteit van de school en vraag naar benodigde ondersteuning. Schrijf het kind daarna in met het BSN en identiteitsbewijs, of volg de officiële route zonder BSN.",
+      "synonyms": [
+        "kind inschrijven school",
+        "basisschool aanmelden",
+        "voortgezet onderwijs aanmelden",
+        "Nederlandse school",
+        "schoolinschrijving",
+        "school Groningen",
+        "nieuwkomersonderwijs",
+        "inschrijven zonder BSN"
+      ],
+      "common_questions": [
+        "Hoe schrijf ik mijn kind in op een school in Groningen?",
+        "Kan een kind zonder BSN worden ingeschreven?",
+        "Wat kan ik doen als de school vol is?"
+      ],
+      "terminology": [
+        {
+          "source": "primary school",
+          "target": "basisschool / primair onderwijs",
+          "note": "Kies de term die bij de gemeentelijke bron past."
+        },
+        {
+          "source": "secondary school",
+          "target": "voortgezet onderwijs",
+          "note": "Niet onder de lokale basisschoolroute laten vallen."
+        },
+        {
+          "source": "newcomer classes",
+          "target": "nieuwkomersonderwijs / nieuwkomersklassen",
+          "note": "Leeftijd, deelname en capaciteit moeten live worden gecontroleerd."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.registering-a-child-at-school",
+      "source_locale": "en",
+      "locale": "ru",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Как записать ребёнка в школу в Нидерландах",
+      "short_summary": "Выберите порядок действий для начальной или средней школы, проверьте муниципальные правила распределения и наличие мест и уточните необходимую поддержку. Затем зарегистрируйте ребёнка с BSN и удостоверением личности либо используйте официальный порядок регистрации без BSN.",
+      "synonyms": [
+        "записать ребёнка в школу",
+        "начальная школа",
+        "средняя школа",
+        "нидерландская школа",
+        "регистрация в школе",
+        "школа в Гронингене",
+        "классы для новых приезжих",
+        "регистрация без BSN"
+      ],
+      "common_questions": [
+        "Как записать ребёнка в школу в Гронингене?",
+        "Можно ли зарегистрировать ребёнка без BSN?",
+        "Что делать, если в школе нет мест?"
+      ],
+      "terminology": [
+        {
+          "source": "primary school",
+          "target": "начальная школа (basisschool)",
+          "note": "Сохранять нидерландский термин при ссылке на муниципальный маршрут."
+        },
+        {
+          "source": "secondary school",
+          "target": "средняя школа / voortgezet onderwijs",
+          "note": "Не включать в местный порядок регистрации в basisschool."
+        },
+        {
+          "source": "newcomer classes",
+          "target": "классы для недавно прибывших детей",
+          "note": "Возраст, участие и наличие мест необходимо проверять актуально."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.choosing-a-sim-card",
+      "source_locale": "en",
+      "locale": "nl",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Een simkaart of mobiel abonnement kiezen",
+      "short_summary": "Vergelijk vóór het afsluiten van een mobiel abonnement de netwerkdekking, data en belminuten, de totale kosten en buitenbundelkosten, de contractduur, opzegkosten en de leesbare contractinformatie.",
+      "synonyms": [
+        "simkaart",
+        "eSIM",
+        "prepaid simkaart",
+        "mobiel abonnement",
+        "telefoonabonnement",
+        "simkaart Maastricht",
+        "netwerkdekking",
+        "nummerbehoud"
+      ],
+      "common_questions": [
+        "Hoe kies ik een simkaart in Maastricht?",
+        "Kan ik een Nederlands mobiel abonnement opzeggen?",
+        "Kan ik mijn telefoonnummer behouden?"
+      ],
+      "terminology": [
+        {
+          "source": "out-of-bundle costs",
+          "target": "buitenbundelkosten",
+          "note": "Niet opnemen in de maandprijs als ze variabel zijn."
+        },
+        {
+          "source": "coverage map",
+          "target": "dekkingskaart",
+          "note": "Een dekkingskaart is een schatting en geen adresgarantie."
+        },
+        {
+          "source": "number portability",
+          "target": "nummerbehoud",
+          "note": "Voorwaarden moeten bij de gekozen aanbieder worden gecontroleerd."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.choosing-a-sim-card",
+      "source_locale": "en",
+      "locale": "ru",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Как выбрать SIM-карту или мобильный тариф",
+      "short_summary": "Перед заключением договора сравните покрытие сети, объём данных и минут, общую стоимость и расходы сверх пакета, срок договора, стоимость расторжения и понятное резюме условий.",
+      "synonyms": [
+        "SIM-карта",
+        "eSIM",
+        "предоплаченная SIM-карта",
+        "мобильный тариф",
+        "контракт на телефон",
+        "SIM-карта в Маастрихте",
+        "покрытие сети",
+        "перенос номера"
+      ],
+      "common_questions": [
+        "Как выбрать SIM-карту в Маастрихте?",
+        "Можно ли расторгнуть контракт мобильной связи в Нидерландах?",
+        "Можно ли сохранить номер телефона?"
+      ],
+      "terminology": [
+        {
+          "source": "out-of-bundle costs",
+          "target": "расходы сверх пакета",
+          "note": "Не включать в фиксированную месячную цену, если они переменные."
+        },
+        {
+          "source": "coverage map",
+          "target": "карта покрытия",
+          "note": "Карта даёт оценку и не гарантирует покрытие по конкретному адресу."
+        },
+        {
+          "source": "number portability",
+          "target": "перенос номера",
+          "note": "Условия необходимо проверить у выбранного оператора."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.handling-a-parking-fine",
+      "source_locale": "en",
+      "locale": "nl",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Een parkeer- of verkeersboete afhandelen",
+      "short_summary": "Bepaal eerst de afzender en het type brief: een Utrechtse naheffingsaanslag parkeerbelasting volgt de gemeentelijke route via BghU, terwijl een CJIB-brief met code M onder de landelijke verkeersboeteroute valt. Termijnen, gevolgen van betaling en de bezwaarinstantie verschillen.",
+      "synonyms": [
+        "parkeerboete",
+        "parkeerbon",
+        "naheffingsaanslag parkeerbelasting",
+        "verkeersboete",
+        "CJIB-boete",
+        "BghU bezwaar",
+        "parkeerboete Utrecht",
+        "bezwaar maken"
+      ],
+      "common_questions": [
+        "Hoe handel ik een parkeerboete in Utrecht af?",
+        "Komt mijn parkeerboete van BghU of CJIB?",
+        "Moet ik betalen terwijl ik bezwaar maak?"
+      ],
+      "terminology": [
+        {
+          "source": "parking-tax assessment",
+          "target": "naheffingsaanslag parkeerbelasting",
+          "note": "Niet automatisch als verkeersboete aanduiden."
+        },
+        {
+          "source": "appeal",
+          "target": "bezwaar of beroep",
+          "note": "Gebruik de term die bij de afzender en procedure hoort."
+        },
+        {
+          "source": "CJIB letter code M",
+          "target": "CJIB-brief met lettercode M",
+          "note": "Code, termijn en betaling moeten op de echte brief worden gecontroleerd."
+        }
+      ]
+    },
+    {
+      "source_guide_id": "guide.handling-a-parking-fine",
+      "source_locale": "en",
+      "locale": "ru",
+      "translation_status": "search_surface_draft",
+      "publication_authorized": false,
+      "reviewer": null,
+      "verified_at": null,
+      "title": "Как действовать при штрафе за парковку или нарушение ПДД",
+      "short_summary": "Сначала определите отправителя и тип письма: доначисление парковочного налога в Утрехте рассматривается по муниципальной процедуре BghU, а письмо CJIB с кодом M — по национальной процедуре дорожных штрафов. Сроки, последствия оплаты и адресат возражения различаются.",
+      "synonyms": [
+        "штраф за парковку",
+        "парковочная квитанция",
+        "доначисление парковочного налога",
+        "штраф за нарушение ПДД",
+        "штраф CJIB",
+        "возражение BghU",
+        "штраф за парковку в Утрехте",
+        "подать возражение"
+      ],
+      "common_questions": [
+        "Что делать со штрафом за парковку в Утрехте?",
+        "Моё уведомление отправлено BghU или CJIB?",
+        "Нужно ли платить, пока рассматривается возражение?"
+      ],
+      "terminology": [
+        {
+          "source": "parking-tax assessment",
+          "target": "доначисление парковочного налога",
+          "note": "Не называть автоматически дорожным штрафом."
+        },
+        {
+          "source": "appeal",
+          "target": "возражение или апелляция",
+          "note": "Выбирать термин в соответствии с отправителем и процедурой."
+        },
+        {
+          "source": "CJIB letter code M",
+          "target": "письмо CJIB с буквенным кодом M",
+          "note": "Код, срок и порядок оплаты проверять по фактическому письму."
+        }
+      ]
+    }
+  ]
+}

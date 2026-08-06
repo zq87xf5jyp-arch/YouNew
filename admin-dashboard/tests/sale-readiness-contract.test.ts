@@ -60,4 +60,5 @@ test("Admin E2E has isolated and production-safe modes", () => {
   assert.match(config, /E2E_MUTATION_MODE/);
   assert.match(config, /YOUNEW_ADMIN_DEMO_MODE/);
   assert.match(config, /E2E_BASE_URL/);
+  assert.match(config, /E2E_PORT/);
 });
