@@ -261,7 +261,7 @@ html[data-theme="light"] .site-header :is(.desktop-nav a:hover,.desktop-nav a[ar
 html[data-theme="light"] .product-vision-home {
   --vision-ink:#082463;
   --vision-copy:#33486f;
-  --vision-muted:#667796;
+  --vision-muted:#5b6f8e;
   --vision-blue:#1549bd;
   --vision-orange:#f05a18;
   --vision-orange-dark:#c9430a;
@@ -391,7 +391,7 @@ html[data-theme="light"] .journey-step-heading a { color:var(--text); }
 html[data-theme="light"] .guide-faq-list details>div,
 html[data-theme="light"] .journey-card>header p,
 html[data-theme="light"] .journey-steps>li>p { color:var(--text-secondary); }
-html[data-theme="light"] .journey-coverage-note { border-color:var(--line); background:var(--panel-2); color:var(--muted); }
+html[data-theme="light"] .journey-coverage-note { border-color:var(--line); background:var(--panel-2); color:var(--text-secondary); }
 html[data-theme="light"] .journey-steps select,
 html[data-theme="light"] .form-field :is(input,select,textarea),
 html[data-theme="light"] .search-filter-bar select {

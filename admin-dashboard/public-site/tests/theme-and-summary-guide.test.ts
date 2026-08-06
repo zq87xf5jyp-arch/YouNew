@@ -74,6 +74,17 @@ test("light mode restores semantic light surfaces across every public template",
   assert.match(themeCss, /html\[data-theme="light"\] :is\(\.business-subnav,\.knowledge-trust-summary/);
 });
 
+test("guide and journey copy follows semantic theme colors instead of dark-theme literals", () => {
+  assert.match(globalCss, /\.guide-scope-grid p \{[^}]*color:var\(--text-secondary\)/);
+  assert.match(globalCss, /\.guide-sourced-list li \{[^}]*color:var\(--text-secondary\)/);
+  assert.match(globalCss, /\.guide-checklist-widget label \{[^}]*color:var\(--text-secondary\)/);
+  assert.match(globalCss, /\.guide-checklist-widget \{[^}]*linear-gradient\(145deg,var\(--panel-2\),var\(--panel\)\)/);
+  assert.match(globalCss, /\.guide-source-list p \{[^}]*color:var\(--muted\)/);
+  assert.match(globalCss, /\.journey-privacy-note strong \{ color:var\(--text\); \}/);
+  assert.doesNotMatch(globalCss, /\.guide-scope-grid p \{[^}]*color:#b4c0d0/);
+  assert.doesNotMatch(globalCss, /\.guide-checklist-widget label \{[^}]*color:#c4cedb/);
+});
+
 test("Amsterdam driving licence summary uses the current official source and actionable facts", () => {
   assert.match(summaryData, /https:\/\/www\.amsterdam\.nl\/en\/civil-affairs\/applying-dutch-driving-licence\//);
   assert.match(summaryData, /Driving licence in Amsterdam/);
