@@ -10,51 +10,62 @@ const [homepage, header, footer, analytics, staticShell] = await Promise.all([
   readFile(new URL("../public/static-shell.js", import.meta.url), "utf8")
 ]);
 
-test("homepage keeps one promise, adds discovery and business, and exposes no operational evidence", () => {
+test("homepage starts with one promise, one task search, and a narrowing journey", () => {
   assert.equal(homepage.match(/<h1\b/g)?.length, 1);
-  assert.equal(homepage.match(/<section\b/g)?.length, 11);
-  assert.match(homepage, /Find your next step in the Netherlands\./);
-  assert.match(homepage, /Discover the Netherlands/);
-  assert.match(homepage, /Cities, provinces, places and organizations\./);
-  assert.match(homepage, /City coverage for five Dutch cities\./);
-  assert.match(homepage, /0[\s\S]*live public campaigns/);
-  assert.match(homepage, /Sponsored placements are off\./);
-  assert.match(homepage, /Never shown in emergency guidance/);
-  assert.match(homepage, /Never replaces responsible official sources/);
-  assert.match(homepage, /Never changes organic search ranking/);
-  assert.doesNotMatch(homepage, /Detailed web guides for five Dutch cities\./);
+  assert.equal(homepage.match(/<section\b/g)?.length, 9);
+  assert.match(homepage, /Your guide to life in the Netherlands\./);
+  assert.match(homepage, /What do you need in the Netherlands\?/);
+  assert.match(homepage, /name="q"/);
+  assert.match(homepage, /What do you need\?/);
+  assert.match(homepage, /Life in the Netherlands/);
+  assert.match(homepage, /Popular tasks/);
+  assert.match(homepage, /Useful services/);
+  assert.match(homepage, /Trusted resources/);
+  assert.match(homepage, /No live public campaigns/);
+  assert.match(homepage, /never shown in emergency guidance/);
+  assert.match(homepage, /never replace responsible official sources/);
+  assert.match(homepage, /never change organic search ranking/);
+  assert.doesNotMatch(homepage, /\d+ (?:pages|categories|guides)/i);
   assert.doesNotMatch(homepage, /Supabase|\bCI\b|test counts|release authority|SystemEvidence/i);
 });
 
-test("homepage task titles expose Amsterdam scope before navigation", () => {
-  const taskSource = homepage.slice(homepage.indexOf("const popularTasks"), homepage.indexOf("const cities"));
+test("homepage exposes ten user needs and ten concrete popular tasks", () => {
+  const destinationsSource = homepage.slice(homepage.indexOf("const taskDestinations"), homepage.indexOf("const lifeDirections"));
   for (const title of [
-    "Register in Amsterdam and get a BSN",
-    "Renting a home in Amsterdam",
-    "Driving licence in Amsterdam",
-    "Amsterdam municipal taxes",
-    "Report a street problem in Amsterdam"
+    "Find housing",
+    "Find work",
+    "Healthcare",
+    "Documents",
+    "Study",
+    "Daily life",
+    "Emergency",
+    "LGBTQ+",
+    "Pets",
+    "Families"
   ]) {
-    assert.match(taskSource, new RegExp(`title: "${title}"`));
+    assert.match(destinationsSource, new RegExp(`title: "${title.replace("+", "\\+")}"`));
   }
+  assert.equal(destinationsSource.match(/title:/g)?.length, 10);
 
-  const emergencyTask = taskSource.match(/\{\s*title: "Get emergency help"[\s\S]*?\n\s*\}/)?.[0];
-  assert.ok(emergencyTask, "The national emergency task must remain published");
-  assert.doesNotMatch(emergencyTask, /Amsterdam/i);
+  const popularSource = homepage.slice(homepage.indexOf("const popularTasks"), homepage.indexOf("const usefulServices"));
+  assert.equal(popularSource.match(/title:/g)?.length, 10);
+  assert.match(popularSource, /title: "Get a BSN"/);
+  assert.match(popularSource, /title: "Register with a huisarts"/);
 });
 
-test("global navigation restores discovery, journeys, updates and business", () => {
-  assert.match(header, /\["Start", "\/start"\]/);
-  assert.match(header, /\["Discover", "\/discover"\]/);
-  assert.match(header, /\["Guides", "\/guides"\]/);
-  assert.match(header, /\["Journeys", "\/journeys"\]/);
+test("global navigation keeps the product vision to eight primary destinations", () => {
+  assert.match(header, /\["Explore", "\/discover"\]/);
+  assert.match(header, /\["Housing", "\/categories\/housing"\]/);
+  assert.match(header, /\["Work", "\/search\/\?q=work"\]/);
+  assert.match(header, /\["Healthcare", "\/categories\/healthcare"\]/);
+  assert.match(header, /\["Services", "\/organizations"\]/);
   assert.match(header, /\["Cities", "\/cities"\]/);
-  assert.match(header, /\["Map", "\/map"\]/);
-  assert.match(header, /\["Updates", "\/updates"\]/);
+  assert.match(header, /\["Guides", "\/guides"\]/);
   assert.match(header, /\["Business", "\/business"\]/);
-  assert.doesNotMatch(header, /Organizations|Provinces|App status|My YouNew/);
+  assert.equal(header.match(/^  \["/gm)?.length, 8);
+  assert.doesNotMatch(header, /Journeys|Updates|Map|Provinces|App status|My YouNew/);
   assert.match(footer, /Website language:<\/strong> English/);
-  assert.doesNotMatch(footer, /pending content review/i);
+  assert.match(footer, /Helping newcomers build a confident life in the Netherlands\./);
 });
 
 test("profile analytics records only the action and never the selected profile", () => {

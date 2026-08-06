@@ -21,24 +21,36 @@ const requiredFiles = [
 for (const file of requiredFiles) await access(join(root, file));
 
 const home = await readFile(join(root, "index.html"), "utf8");
-assert.match(home, /Find your next step in the Netherlands/);
+assert.match(home, /Your guide to life in the Netherlands/);
+assert.match(home, /What do you need in the Netherlands\?/);
+assert.match(home, /name="q"/);
 assert.match(home, /Find my next step/);
 for (const title of [
-  "Register in Amsterdam and get a BSN",
-  "Renting a home in Amsterdam",
-  "Driving licence in Amsterdam",
-  "Amsterdam municipal taxes",
-  "Report a street problem in Amsterdam"
+  "Find housing",
+  "Find work",
+  "Healthcare",
+  "Documents",
+  "Study",
+  "Daily life",
+  "Emergency",
+  "LGBTQ+",
+  "Pets",
+  "Families"
 ]) assert.match(home, new RegExp(title));
-assert.match(home, /City coverage for five Dutch cities\./);
-assert.doesNotMatch(home, /Detailed web guides for five Dutch cities\./);
+for (const section of ["Life in the Netherlands", "Popular tasks", "Cities", "Useful services", "Trusted resources", "Why YouNew", "Latest updates"]) {
+  assert.match(home, new RegExp(section));
+}
+assert.match(home, /No live public campaigns/);
+assert.match(home, /never shown in emergency guidance/);
+assert.match(home, /never replace responsible official sources/);
+assert.match(home, /never change organic search ranking/);
 assert.match(home, /support@younew\.nl/);
 assert.match(home, /rel="canonical" href="https:\/\/younew\.nl\/"/);
 assert.match(home, /application\/ld\+json/);
 for (const path of ["/start/", "/search/", "/privacy/", "/terms/", "/support/"]) assert.match(home, new RegExp(`href="${path}"`));
 assert.doesNotMatch(home, /href=(?:"|')#(?:"|')/);
 assert.match(home, /href="\/app\/"/);
-assert.match(home, /Check app availability/);
+assert.match(home, /iOS app/);
 assert.doesNotMatch(home, /<script[^>]+src="\/_next\/static\/chunks\//, "Static homepage should not hydrate the full Next runtime");
 assert.match(home, /<script>[\s\S]*younew\.theme\.v1[\s\S]*prefers-color-scheme: light[\s\S]*<\/script><\/head>/);
 assert.doesNotMatch(home, /<script src="\/theme-init\.js"><\/script>/, "Homepage should inline the tiny theme bootstrap to remove a render-blocking request");

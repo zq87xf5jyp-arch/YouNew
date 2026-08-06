@@ -19,6 +19,7 @@
     "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
     "test": "node --test tests/*.test.ts",
     "qa:search": "node scripts/search-qa-matrix.mjs",
+    "audit:ia": "node scripts/audit-information-architecture.mjs",
     "test:smoke": "node scripts/smoke-test.mjs",
     "check:links": "node scripts/check-links.mjs",
     "check:security": "node scripts/check-security.mjs",
