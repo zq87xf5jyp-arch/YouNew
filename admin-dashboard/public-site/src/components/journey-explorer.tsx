@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
-import { CheckCircle2, Circle, Clock3, LockKeyhole } from "lucide-react";
+import { ArrowRight, CheckCircle2, Circle, Clock3, LockKeyhole } from "lucide-react";
 import { ContentMedia } from "@/components/content-media";
 import type { PublicMediaAsset } from "@/lib/content";
 import { journeyCompletion, localContentRepository, type JourneyProgressState } from "@/lib/storage/local-content";
@@ -87,6 +87,7 @@ export function JourneyExplorer({ journeys }: { journeys: readonly JourneyView[]
   function journeyCard(journey: JourneyView) {
     const completion = journeyCompletion(states, journey.id, journey.guides.map((guide) => guide.id));
     const hasProgress = journey.guides.some((guide) => (states[journey.id]?.[guide.id] ?? "not-started") !== "not-started");
+    const nextGuide = journey.guides.find((guide) => (states[journey.id]?.[guide.id] ?? "not-started") !== "completed");
     const cover = journey.guides.find((guide) => guide.image)?.image ?? null;
     return (
       <section className="journey-card" id={journey.id} key={journey.id} aria-labelledby={`${journey.id}-title`}>
@@ -98,6 +99,15 @@ export function JourneyExplorer({ journeys }: { journeys: readonly JourneyView[]
         <p className="journey-coverage-note">{journey.coverageNote}</p>
         {journey.guides.length > 0 ? (
           <>
+            <div className="journey-next-step">
+              <span>{nextGuide ? "Recommended next reading" : "Reading path reviewed"}</span>
+              {nextGuide ? (
+                <Link href={nextGuide.route}>{nextGuide.title} <ArrowRight aria-hidden /></Link>
+              ) : (
+                <Link href="/start/">Build a route for your municipality <ArrowRight aria-hidden /></Link>
+              )}
+              <small>The order is general guidance, not an eligibility decision or official completion status.</small>
+            </div>
             <ol className="journey-steps">
               {journey.guides.map((guide, index) => {
                 const state = states[journey.id]?.[guide.id] ?? "not-started";

@@ -6,14 +6,20 @@ import { isKnownJourneyStep, practicalJourneys } from "../src/lib/journeys/defin
 import { journeyCompletion, localContentRepository, sanitizeJourneyProgress, withoutJourneyProgress } from "../src/lib/storage/local-content.ts";
 
 const content = JSON.parse(await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8"));
-const publishedGuideIds = new Set(content.guides.map((guide: { id: string }) => guide.id));
+const nationalContent = JSON.parse(await readFile(new URL("../src/content/national-guides.json", import.meta.url), "utf8"));
+const publishedGuideIds = new Set([
+  ...content.guides.map((guide: { id: string }) => guide.id),
+  ...nationalContent.guides.map((guide: { id: string }) => guide.id)
+]);
 
 test("the eight requested journeys have stable unique IDs and never reference an unpublished guide", () => {
   assert.equal(practicalJourneys.length, 8);
   assert.equal(new Set(practicalJourneys.map((journey) => journey.id)).size, 8);
   for (const journey of practicalJourneys) {
+    assert.ok(journey.guideIds.length > 0, `${journey.id} must have a reviewed starting sequence`);
     assert.equal(new Set(journey.guideIds).size, journey.guideIds.length);
     assert.ok(journey.guideIds.every((id) => publishedGuideIds.has(id)), journey.id);
+    assert.ok(journey.guideIds.every((id) => id.startsWith("national.")), `${journey.id} must start from national guidance`);
   }
 });
 

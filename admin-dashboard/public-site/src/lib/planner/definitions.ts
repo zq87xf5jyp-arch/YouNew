@@ -52,12 +52,13 @@ export const plannerGoals = [
     id: "registration",
     title: "BSN & registration",
     searchQuery: "registration BSN",
-    preferredGuideId: "government_service.first-registration-in-amsterdam"
+    preferredGuideId: "national.documents"
   },
   {
     id: "health-insurance",
     title: "Health insurance",
     searchQuery: "health insurance",
+    preferredGuideId: "national.healthcare",
     officialHref: "https://www.government.nl/topics/health-insurance",
     officialTitle: "Check Dutch health insurance rules"
   },
@@ -65,12 +66,13 @@ export const plannerGoals = [
     id: "housing",
     title: "Housing",
     searchQuery: "housing rent",
-    preferredGuideId: "housing.renting-a-home-in-amsterdam"
+    preferredGuideId: "national.housing"
   },
   {
     id: "study",
     title: "Study",
     searchQuery: "study education",
+    preferredGuideId: "national.education",
     internalHref: "/categories/education/",
     internalTitle: "Browse published education guidance"
   },
@@ -78,6 +80,7 @@ export const plannerGoals = [
     id: "work",
     title: "Work",
     searchQuery: "work employment",
+    preferredGuideId: "national.work",
     officialHref: "https://www.workinnl.nl/en/",
     officialTitle: "Open official Work in NL information"
   },
@@ -85,6 +88,7 @@ export const plannerGoals = [
     id: "taxes-benefits",
     title: "Taxes & benefits",
     searchQuery: "taxes benefits",
+    preferredGuideId: "national.taxes",
     officialHref: "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals",
     officialTitle: "Open the Dutch Tax Administration"
   },
@@ -92,6 +96,7 @@ export const plannerGoals = [
     id: "transport",
     title: "Transport",
     searchQuery: "transport",
+    preferredGuideId: "national.transport",
     internalHref: "/map/?category=transport",
     internalTitle: "Explore published transport coverage"
   },
@@ -146,14 +151,18 @@ export function buildPlannerActions(input: Readonly<{
     const preferredGuide = "preferredGuideId" in goal
       ? guideById.get(goal.preferredGuideId)
       : undefined;
-    const guideApplies = preferredGuide && input.municipality.slug === "amsterdam";
+    const guideApplies = preferredGuide && (
+      preferredGuide.id.startsWith("national.") || input.municipality.slug === "amsterdam"
+    );
 
     if (guideApplies) {
       actions.push({
         id: `${goalId}-guide`,
         title: preferredGuide.title,
         description: preferredGuide.contentDepth === "practical"
-          ? "Follow the published step-by-step YouNew guide."
+          ? input.municipality.slug === "national"
+            ? "Follow the published national guide and verify the current requirements with its responsible sources."
+            : `Start with the published national guide, then check the local details for ${input.municipality.name}.`
           : "Start with the published YouNew summary, then verify the current procedure with the responsible source.",
         status: preferredGuide.contentDepth === "practical" ? "Practical guide" : "Published summary",
         href: preferredGuide.route,

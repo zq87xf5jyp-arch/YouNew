@@ -432,23 +432,43 @@
 
   const homeProfileButtons = [...document.querySelectorAll("[data-home-profile]")];
   const homeProfileResult = document.querySelector("[data-home-profile-result]");
+  const homeProfileCopy = document.querySelector("[data-home-profile-copy]");
+  const homeProfileTitle = document.querySelector("[data-home-profile-title]");
+  const homeProfileLinks = document.querySelector("[data-home-profile-links]");
+  const homeProfileClear = document.querySelector("[data-home-profile-clear]");
+  const homeProfileEmpty = document.querySelector("[data-home-profile-empty]");
+  const homeMunicipality = document.querySelector("[data-home-municipality]");
   const homeProfileStorageKey = "younew.web.profile.v1";
   const homeProfiles = {
     tourist: {
       label: "Tourist",
-      links: [["Browse places", "/places/"], ["Find transport", "/categories/transport/"]]
+      plannerProfile: "tourist",
+      tasks: [["Plan transport", "transport"], ["Prepare urgent help", "urgent-help"]]
     },
     student: {
       label: "Student",
-      links: [["View education guidance", "/categories/education/"], ["Find housing guidance", "/categories/housing/"]]
+      plannerProfile: "student",
+      tasks: [["Start studying", "study"], ["Find housing", "housing"]]
     },
     expat: {
       label: "Expat",
-      links: [["Start with registration", "/guides/first-registration-in-amsterdam/"], ["View government services", "/categories/government/"]]
+      plannerProfile: "expat",
+      tasks: [["Start registration", "registration"], ["Start work", "work"]]
     },
     refugee: {
       label: "Refugee",
-      links: [["Open emergency help", "/emergency/"], ["View government services", "/categories/government/"]]
+      plannerProfile: "refugee",
+      tasks: [["Check registration", "registration"], ["Open urgent help", "urgent-help"]]
+    },
+    worker: {
+      label: "Worker",
+      plannerProfile: "worker",
+      tasks: [["Start work", "work"], ["Check taxes & benefits", "taxes-benefits"]]
+    },
+    resident: {
+      label: "Resident",
+      plannerProfile: "resident",
+      tasks: [["Arrange healthcare", "health-insurance"], ["Review housing", "housing"]]
     }
   };
 
@@ -473,38 +493,40 @@
       button.setAttribute("aria-pressed", String(selected));
     });
     if (!homeProfileResult) return;
-    homeProfileResult.replaceChildren();
     const current = profile ? homeProfiles[profile] : undefined;
     if (!current) {
-      const empty = document.createElement("p");
-      empty.textContent = "Choose a situation to show two relevant starting points. All published content stays available.";
-      homeProfileResult.append(empty);
+      if (homeProfileCopy) homeProfileCopy.hidden = true;
+      if (homeProfileLinks) homeProfileLinks.hidden = true;
+      if (homeProfileClear) homeProfileClear.hidden = true;
+      if (homeProfileEmpty) homeProfileEmpty.hidden = false;
       return;
     }
-    const copy = document.createElement("div");
-    const title = document.createElement("strong");
-    title.textContent = `Suggested starting points for ${current.label.toLowerCase()}s`;
-    const storage = document.createElement("span");
-    storage.textContent = "This preference is saved only in this browser.";
-    copy.append(title, storage);
-    const navigation = document.createElement("nav");
-    navigation.setAttribute("aria-label", `${current.label} suggestions`);
-    current.links.forEach(([label, href]) => {
-      const link = document.createElement("a");
-      link.href = href;
-      link.textContent = `${label} →`;
-      navigation.append(link);
-    });
-    const clear = document.createElement("button");
-    clear.type = "button";
-    clear.textContent = "Clear choice";
-    clear.addEventListener("click", () => {
-      writeHomeProfile(null);
-      renderHomeProfile(null);
-      homeProfileButtons[0]?.focus();
-    });
-    homeProfileResult.append(copy, navigation, clear);
+    if (homeProfileCopy) homeProfileCopy.hidden = false;
+    if (homeProfileTitle) homeProfileTitle.textContent = `Starting points for ${current.label.toLowerCase()}s`;
+    if (homeProfileClear) homeProfileClear.hidden = false;
+    if (homeProfileEmpty) homeProfileEmpty.hidden = true;
+    if (homeProfileLinks) {
+      homeProfileLinks.hidden = false;
+      homeProfileLinks.replaceChildren();
+      const area = homeMunicipality?.value || "national";
+      const areaName = homeMunicipality?.selectedOptions[0]?.textContent || "National guidance";
+      homeProfileLinks.setAttribute("aria-label", `${current.label} suggestions for ${areaName}`);
+      current.tasks.forEach(([label, task]) => {
+        const params = new URLSearchParams({ task, profile: current.plannerProfile, area });
+        const link = document.createElement("a");
+        link.href = `/start/?${params.toString()}`;
+        link.textContent = `${label} →`;
+        homeProfileLinks.append(link);
+      });
+    }
   };
+
+  homeProfileClear?.addEventListener("click", () => {
+    writeHomeProfile(null);
+    renderHomeProfile(null);
+    homeProfileButtons[0]?.focus();
+  });
+  homeMunicipality?.addEventListener("change", () => renderHomeProfile(readHomeProfile()));
 
   homeProfileButtons.forEach((button) => {
     button.addEventListener("click", () => {

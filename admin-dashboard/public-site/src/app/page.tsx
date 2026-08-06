@@ -39,10 +39,12 @@ import {
   UtensilsCrossed
 } from "lucide-react";
 import { ContentMedia, preferredMedia } from "@/components/content-media";
+import { HomepageProfileSelector } from "@/components/homepage-profile-selector";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
 import { getPublicContent, type PublicMediaAsset } from "@/lib/content";
+import { getMunicipalities } from "@/lib/geography";
 
 export const metadata: Metadata = {
   title: { absolute: "YouNew — Your guide to life in the Netherlands" },
@@ -102,7 +104,7 @@ const lifeDirections: readonly Direction[] = [
 ];
 
 const popularTasks: readonly Direction[] = [
-  { title: "Get a BSN", href: "/guides/first-registration-in-amsterdam/", icon: FileCheck2 },
+  { title: "Get a BSN", href: "/essentials/documents-registration-and-digid/", icon: FileCheck2 },
   { title: "Find housing", href: "/categories/housing/", icon: Home },
   { title: "Register with a municipality", href: "/municipalities/", icon: Building2 },
   { title: "Open a bank account", href: searchHref("open a bank account"), icon: Banknote },
@@ -205,6 +207,10 @@ function HomeSearch() {
 
 export default function HomePage() {
   const content = getPublicContent();
+  const municipalities = [
+    { slug: "national", name: "National guidance" },
+    ...getMunicipalities().map(({ slug, name }) => ({ slug, name }))
+  ];
   const cityEntities = featuredCityIds.flatMap((id) => {
     const entity = content.entities.find((candidate) => candidate.id === id);
     return entity ? [entity] : [];
@@ -246,6 +252,13 @@ export default function HomePage() {
         <section className="vision-section vision-needs section-shell" aria-labelledby="needs-title">
           <div className="vision-heading"><h2 id="needs-title">What do you need?</h2><p>Choose one task. YouNew will narrow the next screen instead of opening another catalogue.</p></div>
           <div className="vision-task-grid">{taskDestinations.map((destination) => <TaskCard destination={destination} key={destination.title} />)}</div>
+        </section>
+
+        <section className="vision-section uf-profile-section" aria-labelledby="profile-title">
+          <div className="section-shell">
+            <div className="vision-heading"><h2 id="profile-title">Make the route relevant to you</h2><p>Choose a situation and, optionally, a municipality. YouNew keeps national guidance visible and adds local context.</p></div>
+            <HomepageProfileSelector municipalities={municipalities} />
+          </div>
         </section>
 
         <section className="vision-life-band" aria-labelledby="life-title">

@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { guideChecklistCompletion, sanitizeGuideChecklistState, sanitizeUserPathProfile, userPathProfiles } from "../src/lib/storage/local-content.ts";
+import { readFile } from "node:fs/promises";
 
 test("guide checklist state accepts only stable IDs and booleans", () => {
   const state = sanitizeGuideChecklistState({
@@ -25,4 +26,19 @@ test("all six user paths are accepted while unknown stored profiles fail closed"
   for (const profile of userPathProfiles) assert.equal(sanitizeUserPathProfile(profile), profile);
   assert.equal(sanitizeUserPathProfile("administrator"), null);
   assert.equal(sanitizeUserPathProfile({ profile: "worker" }), null);
+});
+
+test("national guides expose bounded local progress, next-step routing and contextual feedback", async () => {
+  const [guidePage, checklist, feedbackForm] = await Promise.all([
+    readFile(new URL("../src/app/essentials/[slug]/page.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../src/components/guide-checklist.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../src/components/public-feedback-form.tsx", import.meta.url), "utf8")
+  ]);
+  assert.match(guidePage, /showPersonalisedNextStep/);
+  assert.match(guidePage, /defaultPageReference=\{`\/essentials\/\$\{guide\.slug\}\//);
+  assert.match(guidePage, /Reports do not change the published guide automatically/);
+  assert.match(checklist, /does not prove eligibility, submission or official completion/);
+  assert.match(checklist, /Stored only in this browser/);
+  assert.match(feedbackForm, /initialFeedbackType/);
+  assert.match(feedbackForm, /defaultPageReference/);
 });

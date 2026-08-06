@@ -12,13 +12,16 @@ const [homepage, header, footer, analytics, staticShell] = await Promise.all([
 
 test("homepage starts with one promise, one task search, and a narrowing journey", () => {
   assert.equal(homepage.match(/<h1\b/g)?.length, 1);
-  assert.equal(homepage.match(/<section\b/g)?.length, 9);
+  assert.equal(homepage.match(/<section\b/g)?.length, 10);
   assert.match(homepage, /Your guide to life in the Netherlands\./);
   assert.match(homepage, /What do you need in the Netherlands\?/);
   assert.match(homepage, /name="q"/);
   assert.match(homepage, /What do you need\?/);
   assert.match(homepage, /Life in the Netherlands/);
   assert.match(homepage, /Popular tasks/);
+  assert.match(homepage, /Make the route relevant to you/);
+  assert.match(homepage, /keeps national guidance visible and adds local context/);
+  assert.match(homepage, /getMunicipalities/);
   assert.match(homepage, /Useful services/);
   assert.match(homepage, /Trusted resources/);
   assert.match(homepage, /No live public campaigns/);
@@ -81,6 +84,11 @@ test("exported homepage runtime preserves profile personalization without a focu
   assert.match(staticShell, /homeProfileStorageKey = "younew\.web\.profile\.v1"/);
   assert.match(staticShell, /analyticsProvider\?\.track\("profile_selected"\)/);
   assert.match(staticShell, /renderHomeProfile\(readHomeProfile\(\)\)/);
+  assert.match(staticShell, /worker:\s*\{/);
+  assert.match(staticShell, /resident:\s*\{/);
+  assert.match(staticShell, /data-home-municipality/);
+  assert.match(staticShell, /new URLSearchParams\(\{ task, profile: current\.plannerProfile, area \}\)/);
+  assert.doesNotMatch(staticShell, /first-registration-in-amsterdam/);
   const menuHandler = staticShell.slice(staticShell.indexOf('menu.addEventListener("keydown"'), staticShell.indexOf('window.matchMedia("(min-width: 1281px)"'));
   assert.doesNotMatch(menuHandler, /event\.key !== "Tab"|focusable|const items/);
 });
