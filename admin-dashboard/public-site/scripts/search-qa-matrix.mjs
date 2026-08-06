@@ -156,6 +156,25 @@ const typoRows = [
   ["imigration", "national.immigration"]
 ].map(([query, expected]) => evaluate({ dimension: "typo", context: query, query, expected }));
 
+const usefulServiceSearchRows = [
+  ["Huurcommissie Rent Check", "national.housing"],
+  ["MijnOverheid", "national.documents"],
+  ["Zorgkaart huisarts", "national.healthcare"],
+  ["Taalhuis", "national.education"],
+  ["Fraudehelpdesk", "national.consumer-rights"],
+  ["Geldfit", "national.debt-legal-help"],
+  ["113 Suicide Prevention", "national.mental-health"],
+  ["Apotheek.nl", "national.medicines"],
+  ["9292 journey planner", "national.transport"],
+  ["Studielink", "national.education"]
+].map(([query, expected]) => evaluate({
+  dimension: "useful-service-search",
+  context: query,
+  query,
+  expected,
+  requireFirst: true
+}));
+
 const guideSourceChecks = nationalGuides.guides.flatMap((guide) => guide.officialSources.map((source) => ({
   guide: guide.id,
   url: source.url,
@@ -165,6 +184,22 @@ const guideSourceChecks = nationalGuides.guides.flatMap((guide) => guide.officia
 for (const source of guideSourceChecks) {
   checks += 1;
   if (!source.valid) failures.push({ dimension: "official-source", context: source.guide, query: source.url, expected: "HTTPS and ISO checkedAt", topIds: [] });
+}
+
+const guideServiceChecks = nationalGuides.guides.flatMap((guide) => (guide.usefulServices ?? []).map((service) => ({
+  guide: guide.id,
+  url: service.url,
+  checkedAt: service.checkedAt,
+  kind: service.kind,
+  purpose: service.purpose,
+  valid: service.url.startsWith("https://")
+    && /^\d{4}-\d{2}-\d{2}$/.test(service.checkedAt)
+    && ["public", "non-profit", "support", "directory"].includes(service.kind)
+    && service.purpose.length > 30
+})));
+for (const service of guideServiceChecks) {
+  checks += 1;
+  if (!service.valid) failures.push({ dimension: "useful-service", context: service.guide, query: service.url, expected: "complete actionable service metadata", topIds: [] });
 }
 
 const report = {
@@ -189,7 +224,9 @@ const report = {
     combinedScenarios,
     aliases,
     typoRows,
-    officialSourceMetadata: guideSourceChecks
+    usefulServiceSearchRows,
+    officialSourceMetadata: guideSourceChecks,
+    usefulServiceMetadata: guideServiceChecks
   },
   failures
 };

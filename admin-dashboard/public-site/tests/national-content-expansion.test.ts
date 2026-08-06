@@ -8,7 +8,15 @@ type NationalGuide = {
   title: string;
   summary: string;
   sections: Record<string, string | string[]>;
-  usefulServices?: Array<{ url: string; checkedAt: string; purpose: string; kind: string }>;
+  usefulServices?: Array<{
+    title: string;
+    provider: string;
+    url: string;
+    checkedAt: string;
+    purpose: string;
+    kind: string;
+    caveat?: string;
+  }>;
   officialSources: Array<{ url: string; checkedAt: string }>;
 };
 
@@ -49,19 +57,47 @@ test("the public national guide catalogue contains 24 unique source-checked rout
   }
 });
 
-test("work and student housing provide actionable, labelled service links", () => {
-  for (const id of ["national.work", "national.student-housing"]) {
-    const guide = nationalContent.guides.find((candidate) => candidate.id === id);
-    assert.ok(guide, id);
-    assert.ok((guide.usefulServices?.length ?? 0) >= 5, id);
-    assert.ok(guide.usefulServices?.every((service) => service.url.startsWith("https://") && service.checkedAt === "2026-08-06" && service.purpose.length > 30), id);
+test("every national guide provides actionable, labelled and dated service links", () => {
+  const allowedKinds = new Set(["public", "non-profit", "support", "directory"]);
+
+  for (const guide of nationalContent.guides) {
+    const services = guide.usefulServices ?? [];
+    assert.ok(services.length >= 3, `${guide.id}: needs at least three useful services`);
+    assert.equal(new Set(services.map((service) => service.url)).size, services.length, `${guide.id}: duplicate service URL`);
+    assert.ok(services.every((service) => (
+      service.title.length > 12
+      && service.provider.length > 1
+      && service.url.startsWith("https://")
+      && /^\d{4}-\d{2}-\d{2}$/.test(service.checkedAt)
+      && service.purpose.length > 30
+      && allowedKinds.has(service.kind)
+      && (!service.caveat || service.caveat.length > 20)
+    )), `${guide.id}: incomplete service metadata`);
   }
+
   const work = nationalContent.guides.find((guide) => guide.id === "national.work");
   assert.ok(work?.usefulServices?.some((service) => /werk\.nl/.test(service.url)));
   assert.ok(work?.usefulServices?.some((service) => /eures/.test(service.url)));
   const studentHousing = nationalContent.guides.find((guide) => guide.id === "national.student-housing");
   assert.ok(studentHousing?.usefulServices?.some((service) => /room\.nl/.test(service.url)));
   assert.ok(studentHousing?.usefulServices?.some((service) => /rent-check-shared/.test(service.url)));
+
+  const expectedCoverage: Record<string, RegExp[]> = {
+    "national.housing": [/huurcommissie/, /juridischloket/],
+    "national.documents": [/digid/, /mijn\.overheid/, /ind\.nl/],
+    "national.healthcare": [/zorgkaartnederland/, /zorgverzekeringslijn/, /thuisarts/],
+    "national.education": [/studyinnl/, /studielink/, /taalhuis/],
+    "national.consumer-rights": [/consument\.acm/, /fraudehelpdesk/],
+    "national.mental-health": [/113\.nl/, /mindhulplijn/],
+    "national.medicines": [/apotheek\.nl/, /lareb/],
+    "national.business-zzp": [/business\.gov\.nl/, /belastingdienst/]
+  };
+  for (const [id, patterns] of Object.entries(expectedCoverage)) {
+    const guide = nationalContent.guides.find((candidate) => candidate.id === id);
+    assert.ok(guide, id);
+    const urls = guide.usefulServices?.map((service) => service.url).join(" ") ?? "";
+    for (const pattern of patterns) assert.match(urls, pattern, `${id}: missing ${pattern}`);
+  }
 });
 
 test("national guidance is reachable from home, Guides, Discover, Updates and every municipality", () => {

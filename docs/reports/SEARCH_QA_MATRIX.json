@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-06T21:29:32.419Z",
+  "generatedAt": "2026-08-06T22:18:21.767Z",
   "status": "PASS",
   "evidence": {
-    "searchIndexSha256": "fd94d01166600fddd710ef05967238937c80329330a97e52040384f2f7cbfd85",
+    "searchIndexSha256": "8864a71050050c81ead4c22a25db81fb46c1b1386c07a4d2555b12e4c012e42a",
     "searchIndexSchemaVersion": 3,
     "searchDocumentCount": 594,
     "nationalGuideCount": 24,
@@ -12,8 +12,8 @@
     "profileCount": 6
   },
   "totals": {
-    "checks": 5612,
-    "passed": 5612,
+    "checks": 5710,
+    "passed": 5710,
     "failed": 0
   },
   "dimensions": {
@@ -185,8 +185,8 @@
           "national.pregnancy",
           "national.debt-legal-help",
           "national.lgbtiq-support",
-          "national.documents",
-          "national.benefits"
+          "national.taxes",
+          "national.education"
         ],
         "passed": true
       },
@@ -273,8 +273,8 @@
         "topIds": [
           "national.healthcare",
           "national.mental-health",
-          "category.healthcare",
           "national.medicines",
+          "category.healthcare",
           "national.pregnancy",
           "national.lgbtiq-support",
           "national.dental-care",
@@ -396,6 +396,7 @@
           "national.utilities-moving",
           "national.business-zzp",
           "national.immigration",
+          "national.work",
           "national.benefits",
           "national.taxes"
         ],
@@ -406,8 +407,8 @@
         "expected": "national.documents",
         "topIds": [
           "national.documents",
-          "category.documents",
           "national.utilities-moving",
+          "category.documents",
           "government_service.first-registration-in-amsterdam",
           "national.business-zzp",
           "national.student-housing",
@@ -683,6 +684,7 @@
           "national.rules-fines",
           "national.transport",
           "category.fines",
+          "national.utilities-moving",
           "national.taxes"
         ],
         "passed": true
@@ -717,7 +719,8 @@
         "topIds": [
           "national.rules-fines",
           "national.pets",
-          "category.fines"
+          "category.fines",
+          "national.utilities-moving"
         ],
         "passed": true
       },
@@ -771,7 +774,9 @@
         "topIds": [
           "national.lgbtiq-support",
           "national.transport",
-          "national.housing",
+          "national.work",
+          "national.telecom",
+          "national.pregnancy",
           "national.student-housing"
         ],
         "passed": true
@@ -816,7 +821,10 @@
           "national.debt-legal-help",
           "category.banking",
           "national.business-zzp",
-          "national.lgbtiq-support"
+          "national.taxes",
+          "national.rules-fines",
+          "national.lgbtiq-support",
+          "national.transport"
         ],
         "passed": true
       },
@@ -827,7 +835,9 @@
           "national.banking",
           "national.debt-legal-help",
           "national.taxes",
-          "category.banking"
+          "national.student-housing",
+          "category.banking",
+          "national.rules-fines"
         ],
         "passed": true
       },
@@ -939,8 +949,8 @@
           "national.pets",
           "category.pets",
           "national.documents",
-          "category.documents",
-          "national.utilities-moving"
+          "national.utilities-moving",
+          "category.documents"
         ],
         "passed": true
       },
@@ -958,7 +968,8 @@
         "expected": "national.pets",
         "topIds": [
           "national.pets",
-          "category.pets"
+          "category.pets",
+          "national.transport"
         ],
         "passed": true
       },
@@ -1250,8 +1261,8 @@
         "expected": "national.immigration",
         "topIds": [
           "national.immigration",
-          "national.business-zzp",
           "national.documents",
+          "national.business-zzp",
           "national.taxes",
           "local_partner.everaert-advocaten"
         ],
@@ -3837,8 +3848,8 @@
         "topIds": [
           "national.healthcare",
           "national.mental-health",
-          "category.healthcare",
           "national.medicines",
+          "category.healthcare",
           "national.pregnancy",
           "national.lgbtiq-support",
           "national.dental-care",
@@ -3888,6 +3899,7 @@
           "national.rules-fines",
           "national.transport",
           "category.fines",
+          "national.utilities-moving",
           "national.taxes"
         ],
         "passed": true
@@ -3908,7 +3920,10 @@
           "national.debt-legal-help",
           "category.banking",
           "national.business-zzp",
-          "national.lgbtiq-support"
+          "national.taxes",
+          "national.rules-fines",
+          "national.lgbtiq-support",
+          "national.transport"
         ],
         "passed": true
       },
@@ -3930,8 +3945,8 @@
           "national.pets",
           "category.pets",
           "national.documents",
-          "category.documents",
-          "national.utilities-moving"
+          "national.utilities-moving",
+          "category.documents"
         ],
         "passed": true
       },
@@ -3979,8 +3994,8 @@
           "national.utilities-moving",
           "national.business-zzp",
           "national.work",
-          "national.student-housing",
-          "national.taxes"
+          "national.taxes",
+          "national.student-housing"
         ],
         "passed": true
       }
@@ -4108,6 +4123,7 @@
         "topIds": [
           "national.healthcare",
           "national.mental-health",
+          "national.medicines",
           "category.healthcare"
         ],
         "passed": true
@@ -4123,7 +4139,7 @@
           "national.housing",
           "national.immigration",
           "national.pregnancy",
-          "national.education"
+          "national.family-childcare"
         ],
         "passed": true
       },
@@ -4168,6 +4184,7 @@
         "topIds": [
           "national.banking",
           "national.debt-legal-help",
+          "national.rules-fines",
           "category.banking"
         ],
         "passed": true
@@ -4225,10 +4242,120 @@
         "expected": "national.immigration",
         "topIds": [
           "national.immigration",
+          "national.documents",
           "national.taxes",
           "national.business-zzp",
-          "national.documents",
           "local_partner.everaert-advocaten"
+        ],
+        "passed": true
+      }
+    ],
+    "usefulServiceSearchRows": [
+      {
+        "query": "Huurcommissie Rent Check",
+        "expected": "national.housing",
+        "topIds": [
+          "national.housing",
+          "national.student-housing",
+          "category.housing",
+          "national.utilities-moving",
+          "national.debt-legal-help",
+          "housing.renting-a-home-in-amsterdam",
+          "housing.woon",
+          "page.journeys"
+        ],
+        "passed": true
+      },
+      {
+        "query": "MijnOverheid",
+        "expected": "national.documents",
+        "topIds": [
+          "national.documents"
+        ],
+        "passed": true
+      },
+      {
+        "query": "Zorgkaart huisarts",
+        "expected": "national.healthcare",
+        "topIds": [
+          "national.healthcare",
+          "national.mental-health",
+          "national.medicines",
+          "national.dental-care",
+          "category.healthcare",
+          "national.pregnancy",
+          "national.lgbtiq-support",
+          "healthcare.acta"
+        ],
+        "passed": true
+      },
+      {
+        "query": "Taalhuis",
+        "expected": "national.education",
+        "topIds": [
+          "national.education",
+          "category.education",
+          "education.amsterdam-university-college",
+          "education.amsterdam-university-of-applied-sciences",
+          "education.conservatorium-van-amsterdam",
+          "education.gerrit-rietveld-academie",
+          "education.hotelschool-the-hague-amsterdam",
+          "education.inholland-amsterdam"
+        ],
+        "passed": true
+      },
+      {
+        "query": "Fraudehelpdesk",
+        "expected": "national.consumer-rights",
+        "topIds": [
+          "national.consumer-rights"
+        ],
+        "passed": true
+      },
+      {
+        "query": "Geldfit",
+        "expected": "national.debt-legal-help",
+        "topIds": [
+          "national.debt-legal-help"
+        ],
+        "passed": true
+      },
+      {
+        "query": "113 Suicide Prevention",
+        "expected": "national.mental-health",
+        "topIds": [
+          "national.mental-health"
+        ],
+        "passed": true
+      },
+      {
+        "query": "Apotheek.nl",
+        "expected": "national.medicines",
+        "topIds": [
+          "national.medicines",
+          "national.healthcare",
+          "category.healthcare",
+          "national.lgbtiq-support",
+          "national.mental-health",
+          "national.pregnancy",
+          "national.dental-care",
+          "healthcare.acta"
+        ],
+        "passed": true
+      },
+      {
+        "query": "9292 journey planner",
+        "expected": "national.transport",
+        "topIds": [
+          "national.transport"
+        ],
+        "passed": true
+      },
+      {
+        "query": "Studielink",
+        "expected": "national.education",
+        "topIds": [
+          "national.education"
         ],
         "passed": true
       }
@@ -4664,6 +4791,712 @@
         "guide": "national.business-zzp",
         "url": "https://business.gov.nl/starting-your-business/starting-as-a-self-employed-professional/regulations-for-self-employed-professionals/",
         "checkedAt": "2026-08-06",
+        "valid": true
+      }
+    ],
+    "usefulServiceMetadata": [
+      {
+        "guide": "national.housing",
+        "url": "https://www.huurcommissie.nl/support/rent-check/rent-check-self-contained",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Public calculation tool for the points score and maximum basic rent of a self-contained rental home.",
+        "valid": true
+      },
+      {
+        "guide": "national.housing",
+        "url": "https://www.huurcommissie.nl/huurders",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Public route for tenants to identify whether the Rent Tribunal can handle a rent, maintenance or service-cost issue.",
+        "valid": true
+      },
+      {
+        "guide": "national.housing",
+        "url": "https://www.juridischloket.nl/wonen-en-buren/huurwoning/",
+        "checkedAt": "2026-08-07",
+        "kind": "support",
+        "purpose": "Independent first-line information about tenancy agreements, deposits, defects, service costs and ending a tenancy.",
+        "valid": true
+      },
+      {
+        "guide": "national.student-housing",
+        "url": "https://www.room.nl/en/how-it-works",
+        "checkedAt": "2026-08-06",
+        "kind": "non-profit",
+        "purpose": "National registration platform created by social student-housing providers, with city-specific rules and provider links.",
+        "valid": true
+      },
+      {
+        "guide": "national.student-housing",
+        "url": "https://www.roommatch.nl/en/",
+        "checkedAt": "2026-08-06",
+        "kind": "non-profit",
+        "purpose": "Non-profit rental-offer platform for several housing associations in participating student cities.",
+        "valid": true
+      },
+      {
+        "guide": "national.student-housing",
+        "url": "https://www.duwo.nl/en/i-search/student-room/are-you-searching-for-a-room",
+        "checkedAt": "2026-08-06",
+        "kind": "non-profit",
+        "purpose": "Student-housing provider serving Amsterdam, Delft, The Hague, Leiden, Wageningen and other listed regions.",
+        "valid": true
+      },
+      {
+        "guide": "national.student-housing",
+        "url": "https://www.sshxl.nl/en/inschrijven",
+        "checkedAt": "2026-08-06",
+        "kind": "non-profit",
+        "purpose": "Student-housing provider with routes for Utrecht, Rotterdam, Zwolle, Tilburg and limited groups in Groningen.",
+        "valid": true
+      },
+      {
+        "guide": "national.student-housing",
+        "url": "https://www.huurcommissie.nl/support/rent-check/rent-check-shared",
+        "checkedAt": "2026-08-06",
+        "kind": "public",
+        "purpose": "Public rent tool for rooms and other accommodation with shared kitchen, bathroom or toilet facilities.",
+        "valid": true
+      },
+      {
+        "guide": "national.work",
+        "url": "https://www.werk.nl/werkzoekenden/",
+        "checkedAt": "2026-08-06",
+        "kind": "public",
+        "purpose": "Dutch public route for vacancies, job-search support and relevant UWV services.",
+        "valid": true
+      },
+      {
+        "guide": "national.work",
+        "url": "https://europa.eu/eures/portal/jv-se/home?lang=en",
+        "checkedAt": "2026-08-06",
+        "kind": "public",
+        "purpose": "EU public employment network with vacancies, advisers and living-and-working information.",
+        "valid": true
+      },
+      {
+        "guide": "national.work",
+        "url": "https://www.academictransfer.com/en/jobs/?set_language=en",
+        "checkedAt": "2026-08-06",
+        "kind": "non-profit",
+        "purpose": "Job platform run by a non-profit cooperative of Dutch universities, university medical centres and research institutes.",
+        "valid": true
+      },
+      {
+        "guide": "national.work",
+        "url": "https://www.abu.nl/over-abu/vestigingen-abu-leden/",
+        "checkedAt": "2026-08-06",
+        "kind": "directory",
+        "purpose": "Directory of branches belonging to the Dutch employment-agency association ABU.",
+        "valid": true
+      },
+      {
+        "guide": "national.work",
+        "url": "https://workinnl.nl/en/information-points/default.aspx",
+        "checkedAt": "2026-08-06",
+        "kind": "public",
+        "purpose": "Local information points for questions about contracts, wages, housing, healthcare, taxes and learning Dutch.",
+        "valid": true
+      },
+      {
+        "guide": "national.work",
+        "url": "https://www.fairwork.nu/en/homepage/",
+        "checkedAt": "2026-08-06",
+        "kind": "support",
+        "purpose": "Independent support, rights information and referral for migrant workers with unfair or exploitative working conditions.",
+        "valid": true
+      },
+      {
+        "guide": "national.documents",
+        "url": "https://www.netherlandsworldwide.nl/bsn",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official explanation of BSN routes for residents and people living outside the Netherlands.",
+        "valid": true
+      },
+      {
+        "guide": "national.documents",
+        "url": "https://www.digid.nl/en/apply-and-activate",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official service for applying for, activating and recovering the personal Dutch government login.",
+        "valid": true
+      },
+      {
+        "guide": "national.documents",
+        "url": "https://mijn.overheid.nl/about-mijnoverheid/",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official personal portal containing the Berichtenbox, registered data and links to participating government organisations.",
+        "valid": true
+      },
+      {
+        "guide": "national.documents",
+        "url": "https://ind.nl/en/residence-permits",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official IND directory for residence purposes, requirements, application routes and residence documents.",
+        "valid": true
+      },
+      {
+        "guide": "national.healthcare",
+        "url": "https://www.zorgkaartnederland.nl/huisarts",
+        "checkedAt": "2026-08-07",
+        "kind": "directory",
+        "purpose": "National provider directory from Patiëntenfederatie Nederland with practice details, locations and patient reviews.",
+        "valid": true
+      },
+      {
+        "guide": "national.healthcare",
+        "url": "https://www.thuisarts.nl/",
+        "checkedAt": "2026-08-07",
+        "kind": "non-profit",
+        "purpose": "Medical information developed by Dutch general practitioners about symptoms, self-care, appointments and urgent situations.",
+        "valid": true
+      },
+      {
+        "guide": "national.healthcare",
+        "url": "https://www.zorgverzekeringslijn.nl/english/",
+        "checkedAt": "2026-08-07",
+        "kind": "support",
+        "purpose": "Independent information and contact route about insurance obligations, premiums, arrears and access to the Dutch system.",
+        "valid": true
+      },
+      {
+        "guide": "national.healthcare",
+        "url": "https://www.government.nl/themes/family-health-and-care/health-insurance",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Government starting point for standard insurance, coverage rules and related official questions.",
+        "valid": true
+      },
+      {
+        "guide": "national.education",
+        "url": "https://www.studyinnl.org/",
+        "checkedAt": "2026-08-07",
+        "kind": "non-profit",
+        "purpose": "Government-funded non-profit starting point for international students, programme search, admission guidance and practical preparation.",
+        "valid": true
+      },
+      {
+        "guide": "national.education",
+        "url": "https://www.studielink.nl/",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official registration and application portal used by many Dutch higher-education institutions.",
+        "valid": true
+      },
+      {
+        "guide": "national.education",
+        "url": "https://duo.nl/particulier/student-finance/",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official route for student-finance information, eligibility and related education administration.",
+        "valid": true
+      },
+      {
+        "guide": "national.education",
+        "url": "https://www.lezenenschrijven.nl/taalhuis",
+        "checkedAt": "2026-08-07",
+        "kind": "support",
+        "purpose": "Local intake and referral network, often based in a library or community centre, for Dutch language and other basic skills.",
+        "valid": true
+      },
+      {
+        "guide": "national.telecom",
+        "url": "https://consument.acm.nl/telefoon-internet-en-televisie",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Public consumer-information hub for telecom contracts, service problems, switching and complaints.",
+        "valid": true
+      },
+      {
+        "guide": "national.telecom",
+        "url": "https://consument.acm.nl/telefoon-internet-en-televisie/abonnementen/wanneer-abonnement-opzeggen",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official consumer guidance on fixed terms, renewal, notice periods, moving and cancellation evidence.",
+        "valid": true
+      },
+      {
+        "guide": "national.telecom",
+        "url": "https://consument.acm.nl/vergelijken-en-overstappen/telecom/telefoonnummer-meenemen",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official explanation of number portability, timing, costs and what to do if the transfer fails.",
+        "valid": true
+      },
+      {
+        "guide": "national.rules-fines",
+        "url": "https://www.cjib.nl/en",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official international starting point for Dutch fines, letters, payments and the meaning of CJIB letter codes.",
+        "valid": true
+      },
+      {
+        "guide": "national.rules-fines",
+        "url": "https://www.cjib.nl/en/id-pay-my-fine",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official payment instructions, including the payment reference and routes for international bank transfers.",
+        "valid": true
+      },
+      {
+        "guide": "national.rules-fines",
+        "url": "https://www.cjib.nl/ik-ben-het-niet-eens-met-mijn-boete",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official route explaining that objection or appeal steps depend on the letter code and type of decision.",
+        "valid": true
+      },
+      {
+        "guide": "national.lgbtiq-support",
+        "url": "https://discriminatie.nl/discriminatie-melden/",
+        "checkedAt": "2026-08-07",
+        "kind": "support",
+        "purpose": "National reporting route that connects a report with the responsible regional anti-discrimination service.",
+        "valid": true
+      },
+      {
+        "guide": "national.lgbtiq-support",
+        "url": "https://switchboard.nl/?language=nl_NL",
+        "checkedAt": "2026-08-07",
+        "kind": "support",
+        "purpose": "Peer support and referral for LGBTIQ+ questions, loneliness, coming out, safety and finding suitable help.",
+        "valid": true
+      },
+      {
+        "guide": "national.lgbtiq-support",
+        "url": "https://coc.nl/contact/",
+        "checkedAt": "2026-08-07",
+        "kind": "directory",
+        "purpose": "National contact directory for COC Nederland and regional organisations offering community information and support.",
+        "valid": true
+      },
+      {
+        "guide": "national.lgbtiq-support",
+        "url": "https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official overview of reporting options for discrimination, criminal conduct and workplace situations.",
+        "valid": true
+      },
+      {
+        "guide": "national.banking",
+        "url": "https://www.dnb.nl/en/public-register/",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official public register for checking supervised banks and other financial service providers.",
+        "valid": true
+      },
+      {
+        "guide": "national.banking",
+        "url": "https://www.dnb.nl/en/public-register/register-of-banks/",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Direct official register for banks authorised or passported to provide services in the Netherlands.",
+        "valid": true
+      },
+      {
+        "guide": "national.banking",
+        "url": "https://www.betaalvereniging.nl/kennisbank/rekeningen-en-diensten/?noredirect=nl-NL",
+        "checkedAt": "2026-08-07",
+        "kind": "non-profit",
+        "purpose": "Sector information about payment accounts and services, including routes intended for people who cannot open a regular account.",
+        "valid": true
+      },
+      {
+        "guide": "national.family-childcare",
+        "url": "https://www.landelijkregisterkinderopvang.nl/",
+        "checkedAt": "2026-08-07",
+        "kind": "directory",
+        "purpose": "Public register for checking registered childcare centres, childminders and official inspection information.",
+        "valid": true
+      },
+      {
+        "guide": "national.family-childcare",
+        "url": "https://scholenopdekaart.nl/",
+        "checkedAt": "2026-08-07",
+        "kind": "directory",
+        "purpose": "National school-information platform with school profiles, results and contextual information for primary and secondary education.",
+        "valid": true
+      },
+      {
+        "guide": "national.family-childcare",
+        "url": "https://www.government.nl/themes/family-health-and-care/childcare/childcare-benefit",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official starting point for childcare-benefit conditions and application information.",
+        "valid": true
+      },
+      {
+        "guide": "national.pets",
+        "url": "https://www.rvo.nl/onderwerpen/identificatie-en-registratie-honden",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official route for dog microchipping, registration, passports and recognised registration databases.",
+        "valid": true
+      },
+      {
+        "guide": "national.pets",
+        "url": "https://www.licg.nl/",
+        "checkedAt": "2026-08-07",
+        "kind": "non-profit",
+        "purpose": "Independent national information centre with practical guidance about keeping, buying and caring for companion animals.",
+        "valid": true
+      },
+      {
+        "guide": "national.pets",
+        "url": "https://www.government.nl/themes/nature-and-the-environment/animal-welfare/welfare-of-pets",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Government overview of owner responsibilities and national animal-welfare rules.",
+        "valid": true
+      },
+      {
+        "guide": "national.taxes",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official English starting point for Dutch individual taxes, filing and contact information.",
+        "valid": true
+      },
+      {
+        "guide": "national.taxes",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/filing-an-online-tax-return-in-4-steps",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official step-by-step route for preparing, signing and submitting an online income-tax return.",
+        "valid": true
+      },
+      {
+        "guide": "national.taxes",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/non-resident-taxpayer-how-do-i-file-my-income-tax-return",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official explanation of the online and paper return routes for non-resident taxpayers.",
+        "valid": true
+      },
+      {
+        "guide": "national.benefits",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/individuals/benefits/how_do_benefits_work/i_want_to_apply_for_a_benefit/",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official application starting point for rent, healthcare, childcare and child-related benefits.",
+        "valid": true
+      },
+      {
+        "guide": "national.benefits",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official English overview linking tax and benefit information for individuals.",
+        "valid": true
+      },
+      {
+        "guide": "national.benefits",
+        "url": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official checklist connecting registration, insurance, benefits and other arrangements after moving.",
+        "valid": true
+      },
+      {
+        "guide": "national.transport",
+        "url": "https://9292.nl/en",
+        "checkedAt": "2026-08-07",
+        "kind": "directory",
+        "purpose": "National journey planner combining train, bus, tram, metro and ferry information from Dutch operators.",
+        "valid": true
+      },
+      {
+        "guide": "national.transport",
+        "url": "https://www.ns.nl/en/journeyplanner/",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Nederlandse Spoorwegen journey planner with train times, transfers, platform information and disruptions.",
+        "valid": true
+      },
+      {
+        "guide": "national.transport",
+        "url": "https://www.ovpay.nl/en/about-ovpay",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official information about checking in and out with a contactless bank card, credit card or mobile device.",
+        "valid": true
+      },
+      {
+        "guide": "national.transport",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/fiets/hoe-kan-ik-controleren-of-een-fiets-als-gestolen-staat-geregistreerd",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official route to the bicycle-theft register and purchase checks for a second-hand bicycle.",
+        "valid": true
+      },
+      {
+        "guide": "national.immigration",
+        "url": "https://ind.nl/en/residence-permits",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official IND directory for residence permits based on work, study, family and other purposes.",
+        "valid": true
+      },
+      {
+        "guide": "national.immigration",
+        "url": "https://ind.nl/en/my-ind",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official personal IND portal for the application and document functions available to the logged-in user.",
+        "valid": true
+      },
+      {
+        "guide": "national.immigration",
+        "url": "https://ind.nl/en/provisional-residence-permit-mvv",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official information about the provisional residence permit and combined entry-and-residence procedures.",
+        "valid": true
+      },
+      {
+        "guide": "national.immigration",
+        "url": "https://www.netherlandsworldwide.nl/visa-the-netherlands",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official visa information organised by nationality, residence country and travel situation.",
+        "valid": true
+      },
+      {
+        "guide": "national.utilities-moving",
+        "url": "https://www.government.nl/faq/how-do-i-inform-the-municipality-of-a-change-of-address",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official explanation of who reports a move, where to report it and the connection with municipal registration.",
+        "valid": true
+      },
+      {
+        "guide": "national.utilities-moving",
+        "url": "https://consument.acm.nl/elektriciteit-en-gas/overstappen-vergelijken-en-verhuizen/energiecontract-bij-verhuizen",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official consumer guidance about taking, ending or changing an electricity and gas contract during a move.",
+        "valid": true
+      },
+      {
+        "guide": "national.utilities-moving",
+        "url": "https://www.government.nl/themes/nature-and-the-environment/water-management/connecting-water-supply-at-home",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Government explanation of regional drinking-water suppliers and connecting water at a Dutch address.",
+        "valid": true
+      },
+      {
+        "guide": "national.consumer-rights",
+        "url": "https://consument.acm.nl/aankoop-dienst-annuleren",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Public consumer route for cancelling a purchase or service and identifying the evidence and next step.",
+        "valid": true
+      },
+      {
+        "guide": "national.consumer-rights",
+        "url": "https://consument.acm.nl/misleidende-verkoop/wat-kan-ik-doen",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official consumer guidance and example routes for misleading information, pressure and unwanted agreements.",
+        "valid": true
+      },
+      {
+        "guide": "national.consumer-rights",
+        "url": "https://www.fraudehelpdesk.nl/",
+        "checkedAt": "2026-08-07",
+        "kind": "support",
+        "purpose": "National fraud-information and reporting service for suspicious messages, payments, identities and online schemes.",
+        "valid": true
+      },
+      {
+        "guide": "national.consumer-rights",
+        "url": "https://www.politie.nl/en/topics/report-a-crime.html",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official explanation of online, telephone and in-person crime-reporting routes.",
+        "valid": true
+      },
+      {
+        "guide": "national.debt-legal-help",
+        "url": "https://geldfit.nl/english/",
+        "checkedAt": "2026-08-07",
+        "kind": "support",
+        "purpose": "Free, anonymous route for assessing money concerns and finding relevant national or local support.",
+        "valid": true
+      },
+      {
+        "guide": "national.debt-legal-help",
+        "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/schulden/schuldhulpverlening-aanvragen",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official explanation of the municipality's debt-assistance duty and how to start an application.",
+        "valid": true
+      },
+      {
+        "guide": "national.debt-legal-help",
+        "url": "https://www.juridischloket.nl/",
+        "checkedAt": "2026-08-07",
+        "kind": "support",
+        "purpose": "Independent first-line legal information and help for people who meet the applicable conditions.",
+        "valid": true
+      },
+      {
+        "guide": "national.mental-health",
+        "url": "https://www.government.nl/faq/help-for-mental-health-problems",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official overview of huisarts, crisis and longer-term mental-health routes in the Netherlands.",
+        "valid": true
+      },
+      {
+        "guide": "national.mental-health",
+        "url": "https://www.thuisarts.nl/dutch-healthcare/in-case-of-emergency",
+        "checkedAt": "2026-08-07",
+        "kind": "non-profit",
+        "purpose": "Medical guidance from Dutch general practitioners on 112, the huisarts and out-of-hours care.",
+        "valid": true
+      },
+      {
+        "guide": "national.mental-health",
+        "url": "https://www.113.nl/english",
+        "checkedAt": "2026-08-07",
+        "kind": "support",
+        "purpose": "Confidential suicide-prevention support with English information and contact routes.",
+        "valid": true
+      },
+      {
+        "guide": "national.mental-health",
+        "url": "https://mindhulplijn.nl/",
+        "checkedAt": "2026-08-07",
+        "kind": "support",
+        "purpose": "Independent information, listening support and referral for mental-health questions and concerns about someone else.",
+        "valid": true
+      },
+      {
+        "guide": "national.dental-care",
+        "url": "https://www.zorgkaartnederland.nl/tandarts",
+        "checkedAt": "2026-08-07",
+        "kind": "directory",
+        "purpose": "National healthcare-provider directory with dentist locations, practice details and patient reviews.",
+        "valid": true
+      },
+      {
+        "guide": "national.dental-care",
+        "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/m/mondzorg",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official coverage explanation for oral and dental care under the statutory insurance package.",
+        "valid": true
+      },
+      {
+        "guide": "national.dental-care",
+        "url": "https://knmt.nl/praktijkzaken/regelen-rond-kwaliteit-en-klachten/opvang-tandheelkundige-spoedgevallen/beoordeling-van-spoed",
+        "checkedAt": "2026-08-07",
+        "kind": "non-profit",
+        "purpose": "Professional guidance on assessing urgent dental situations and arranging out-of-hours coverage.",
+        "valid": true
+      },
+      {
+        "guide": "national.medicines",
+        "url": "https://www.apotheek.nl/",
+        "checkedAt": "2026-08-07",
+        "kind": "non-profit",
+        "purpose": "Independent medicine and pharmacy information maintained by the Dutch pharmacists' professional organisation.",
+        "valid": true
+      },
+      {
+        "guide": "national.medicines",
+        "url": "https://www.geneesmiddeleninformatiebank.nl/",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official database for authorised medicines, package leaflets and product information in the Netherlands.",
+        "valid": true
+      },
+      {
+        "guide": "national.medicines",
+        "url": "https://www.lareb.nl/en/",
+        "checkedAt": "2026-08-07",
+        "kind": "support",
+        "purpose": "National pharmacovigilance centre with medicine-safety information and patient reporting routes.",
+        "valid": true
+      },
+      {
+        "guide": "national.medicines",
+        "url": "https://www.cbg-meb.nl/onderwerpen/goed-gebruik",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official information about safe medicine use, online purchasing risks and responsible use.",
+        "valid": true
+      },
+      {
+        "guide": "national.pregnancy",
+        "url": "https://deverloskundige.nl/zoek-een-verloskundige",
+        "checkedAt": "2026-08-07",
+        "kind": "directory",
+        "purpose": "Public-facing directory from the Dutch midwives' professional organisation for locating a midwifery practice.",
+        "valid": true
+      },
+      {
+        "guide": "national.pregnancy",
+        "url": "https://www.pns.nl/en",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official information about prenatal screening, heel-prick screening and hearing screening.",
+        "valid": true
+      },
+      {
+        "guide": "national.pregnancy",
+        "url": "https://www.pns.nl/en/multiple-languages",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official translated information supporting informed choices about prenatal and newborn screening.",
+        "valid": true
+      },
+      {
+        "guide": "national.pregnancy",
+        "url": "https://www.government.nl/themes/family-health-and-care/pregnancy-and-childbirth/applying-for-maternity-leave",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Government overview of applying for pregnancy and maternity leave and the connected benefit route.",
+        "valid": true
+      },
+      {
+        "guide": "national.business-zzp",
+        "url": "https://business.gov.nl/starting-your-business/starting-as-a-self-employed-professional/get-started-as-a-freelancer-or-zzper/",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Government-backed checklist connecting registration, taxes, contracts, insurance and business administration.",
+        "valid": true
+      },
+      {
+        "guide": "national.business-zzp",
+        "url": "https://business.gov.nl/starting-your-business/registering-your-business/registration-at-the-netherlands-chamber-of-commerce-kvk/",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official explanation of KVK registration, preparation, appointment and follow-up registrations.",
+        "valid": true
+      },
+      {
+        "guide": "national.business-zzp",
+        "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/business/business",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Official English starting point for VAT, income tax, payroll and other business tax responsibilities.",
+        "valid": true
+      },
+      {
+        "guide": "national.business-zzp",
+        "url": "https://business.gov.nl/starting-your-business/starting-as-a-self-employed-professional/regulations-for-self-employed-professionals/",
+        "checkedAt": "2026-08-07",
+        "kind": "public",
+        "purpose": "Government-backed overview of contracts, false self-employment, model agreements, insurance and sector duties.",
         "valid": true
       }
     ]

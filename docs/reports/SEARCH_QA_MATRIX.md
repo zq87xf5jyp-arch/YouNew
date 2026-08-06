@@ -1,11 +1,11 @@
 # YouNew search QA matrix
 
-Generated: 2026-08-06T21:29:32.419Z
+Generated: 2026-08-06T22:18:21.767Z
 
 Status: **PASS**
 
-- Checks: 5612
-- Passed: 5612
+- Checks: 5710
+- Passed: 5710
 - Failed: 0
 - Search documents: 594
 - Provinces: 12/12

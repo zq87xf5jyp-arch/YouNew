@@ -69,8 +69,8 @@ export default function UpdatesPage() {
         <section className="updates-release updates-national-release" aria-labelledby="national-release-title">
           <header>
             <time dateTime={nationalReleaseDate}><CalendarDays aria-hidden /> {humanDate(nationalReleaseDate)}</time>
-            <h2 id="national-release-title">Nine practical routes added</h2>
-            <p>Student housing, utilities, consumer rights, debt and legal help, mental health, dentistry, medicines, pregnancy and self-employment now have complete national starting guides with responsible-source links.</p>
+            <h2 id="national-release-title">Action links added to every national guide</h2>
+            <p>All {nationalGuides.length} national routes now connect the instructions to at least three named public, non-profit, support or specialist directory services. Links explain what the service is for, when a limitation applies and when it was checked.</p>
           </header>
           <nav className="updates-guide-list" aria-label="New national guides">
             {expandedGuides.map((guide) => (
