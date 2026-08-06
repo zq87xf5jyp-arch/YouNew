@@ -210,7 +210,8 @@ test("critical EN, NL and RU intents do not return a useless zero", () => {
     ["national.healthcare", ["doctor", "huisarts", "pharmacy", "zorgverzekering", "врач", "аптека"]],
     ["national.education", ["Dutch school", "language course", "taalschool", "opleiding", "школа", "курсы"]],
     ["national.telecom", ["SIM card", "eSIM", "simkaart", "telefoonabonnement", "сим-карта", "интернет"]],
-    ["national.rules-fines", ["parking fine", "traffic rules", "parkeerboete", "fietsregels", "штраф за парковку", "правила движения"]]
+    ["national.rules-fines", ["parking fine", "traffic rules", "parkeerboete", "fietsregels", "штраф за парковку", "правила движения"]],
+    ["national.lgbtiq-support", ["LGBTQ support", "queer support", "trans support", "LHBTI hulp", "discriminatie melden", "ЛГБТ поддержка", "гомофобия"]]
   ]);
 
   for (const [expectedId, aliases] of queries) {
@@ -230,7 +231,8 @@ test("city and profile keep national guidance while excluding unrelated local re
     ["Dutch school", "groningen", "student", "national.education"],
     ["BSN", "eindhoven", "expat", "national.documents"],
     ["SIM card", "maastricht", "tourist", "national.telecom"],
-    ["parking fine", "utrecht", "resident", "national.rules-fines"]
+    ["parking fine", "utrecht", "resident", "national.rules-fines"],
+    ["LGBTQ support", "groningen", "student", "national.lgbtiq-support"]
   ] as const;
   for (const [query, cityId, profile, expectedId] of scenarios) {
     const results = rankModule.rankSearchDocuments(index.documents, query, {

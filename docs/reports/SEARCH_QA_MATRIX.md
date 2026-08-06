@@ -1,13 +1,13 @@
 # YouNew search QA matrix
 
-Generated: 2026-08-05T17:03:59.306Z
+Generated: 2026-08-06T12:18:05.000Z
 
 Status: **PASS**
 
-- Checks: 2608
-- Passed: 2608
+- Checks: 2982
+- Passed: 2982
 - Failed: 0
-- Search documents: 577
+- Search documents: 578
 - Provinces: 12/12
 - Municipalities: 342/342
 - Profiles: 6
@@ -24,6 +24,7 @@ Status: **PASS**
 | BSN + Eindhoven | PASS | national.documents |
 | SIM card + Maastricht | PASS | national.telecom |
 | parking fine + Utrecht | PASS | national.rules-fines |
+| LGBTQ support + Groningen | PASS | national.lgbtiq-support |
 
 ## Failure evidence
 

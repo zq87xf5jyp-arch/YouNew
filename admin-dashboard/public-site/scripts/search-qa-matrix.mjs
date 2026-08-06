@@ -31,7 +31,8 @@ const groups = [
   { id: "documents", expected: "national.documents", representative: "BSN", queries: ["BSN", "DigiD", "registration", "residence permit", "inschrijving", "регистрация", "ВНЖ"] },
   { id: "education", expected: "national.education", representative: "Dutch course", queries: ["Dutch course", "language school", "university", "MBO", "study", "taalschool", "школа", "курсы"] },
   { id: "telecom", expected: "national.telecom", representative: "SIM card", queries: ["SIM", "prepaid", "eSIM", "phone contract", "internet", "simkaart", "сим-карта"] },
-  { id: "rules-fines", expected: "national.rules-fines", representative: "parking fine", queries: ["parking fine", "traffic rules", "bicycle rules", "waste fine", "parkeerboete", "fietsregels", "штраф за парковку"] }
+  { id: "rules-fines", expected: "national.rules-fines", representative: "parking fine", queries: ["parking fine", "traffic rules", "bicycle rules", "waste fine", "parkeerboete", "fietsregels", "штраф за парковку"] },
+  { id: "lgbtiq-support", expected: "national.lgbtiq-support", representative: "LGBTQ support", queries: ["LGBTQ support", "queer support", "trans support", "LHBTI hulp", "discriminatie melden", "ЛГБТ поддержка", "гомофобия"] }
 ];
 const profiles = ["tourist", "student", "expat", "refugee", "worker", "resident"];
 const failures = [];
@@ -100,7 +101,8 @@ const combinedScenarios = [
   ["Dutch school + Groningen", "Dutch school", "groningen", "student", "national.education"],
   ["BSN + Eindhoven", "BSN", "eindhoven", "expat", "national.documents"],
   ["SIM card + Maastricht", "SIM card", "maastricht", "tourist", "national.telecom"],
-  ["parking fine + Utrecht", "parking fine", "utrecht", "resident", "national.rules-fines"]
+  ["parking fine + Utrecht", "parking fine", "utrecht", "resident", "national.rules-fines"],
+  ["LGBTQ support + Groningen", "LGBTQ support", "groningen", "student", "national.lgbtiq-support"]
 ].map(([label, query, cityId, preferredProfile, expected]) => evaluate({
   dimension: "city-profile",
   context: label,
@@ -128,7 +130,8 @@ const typoRows = [
   ["registraton", "national.documents"],
   ["taalschol", "national.education"],
   ["simkart", "national.telecom"],
-  ["parkeerboet", "national.rules-fines"]
+  ["parkeerboet", "national.rules-fines"],
+  ["LGBT suport", "national.lgbtiq-support"]
 ].map(([query, expected]) => evaluate({ dimension: "typo", context: query, query, expected }));
 
 const guideSourceChecks = nationalGuides.guides.flatMap((guide) => guide.officialSources.map((source) => ({
@@ -183,7 +186,7 @@ const markdown = `# YouNew search QA matrix\n\n` +
   `- Profiles: ${report.evidence.profileCount}\n\n` +
   `## Required production scenarios\n\n` +
   `| Scenario | Result | First result |\n|---|---:|---|\n` +
-  combinedScenarios.map((row, index) => `| ${["Rent + Den Haag + Worker", "housing rent + Den Haag + Worker", "work + Leiden", "huisarts + Rotterdam", "Dutch school + Groningen", "BSN + Eindhoven", "SIM card + Maastricht", "parking fine + Utrecht"][index]} | ${row.passed ? "PASS" : "FAIL"} | ${row.topIds[0] ?? "none"} |`).join("\n") +
+  combinedScenarios.map((row, index) => `| ${["Rent + Den Haag + Worker", "housing rent + Den Haag + Worker", "work + Leiden", "huisarts + Rotterdam", "Dutch school + Groningen", "BSN + Eindhoven", "SIM card + Maastricht", "parking fine + Utrecht", "LGBTQ support + Groningen"][index]} | ${row.passed ? "PASS" : "FAIL"} | ${row.topIds[0] ?? "none"} |`).join("\n") +
   `\n\n## Failure evidence\n\n${failures.length ? failures.map((failure) => `- ${failure.dimension} / ${failure.context} / ${failure.query}: expected ${failure.expected}; got ${failure.topIds.join(", ") || "zero"}`).join("\n") : "No failures."}\n`;
 await writeFile(reportMarkdownPath, markdown);
 

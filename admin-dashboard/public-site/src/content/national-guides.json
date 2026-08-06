@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-08-05",
+  "verifiedAt": "2026-08-06",
   "guides": [
     {
       "id": "national.housing",
@@ -233,6 +233,51 @@
       "relatedTopics": ["transport", "government", "legal-help", "pets"],
       "officialSources": [
         {"title": "CJIB English", "publisher": "Central Judicial Collection Agency", "url": "https://www.cjib.nl/en", "checkedAt": "2026-08-05"}
+      ]
+    },
+    {
+      "id": "national.lgbtiq-support",
+      "slug": "lgbtiq-support-and-discrimination-help",
+      "title": "LGBTIQ+ support and discrimination help",
+      "summary": "A safe national starting point for LGBTIQ+ community support, discrimination advice, reporting an incident and urgent danger in the Netherlands.",
+      "category": "legal-help",
+      "subcategories": ["lgbtiq-support", "community-support", "discrimination", "equal-treatment", "safety", "reporting"],
+      "intents": ["legal-help", "safety", "healthcare", "integration"],
+      "synonyms": {
+        "en": ["LGBTQ support", "LGBTQ+ support", "LGBTIQ support", "queer support", "gay support", "lesbian support", "bisexual support", "trans support", "non-binary support", "homophobia", "transphobia", "report discrimination"],
+        "nl": ["LHBTI hulp", "LHBTIQ steun", "queer hulp", "homofobie", "transfobie", "discriminatie melden", "seksuele gerichtheid", "genderidentiteit"],
+        "ru": ["ЛГБТ поддержка", "ЛГБТК поддержка", "квир поддержка", "гомофобия", "трансфобия", "сообщить о дискриминации", "дискриминация по ориентации"]
+      },
+      "keywords": ["COC Nederland", "Switchboard", "Discriminatie.nl", "sexual orientation", "gender identity", "gender expression", "equal treatment", "LGBTIQ+ safety"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national",
+      "nationalFallback": true,
+      "qualityScore": 93,
+      "sections": {
+        "what": "Different routes apply to community support, discrimination advice, a formal report and immediate danger. YouNew keeps those routes separate and links to the responsible national service.",
+        "who": "Use this route if you want a confidential LGBTIQ+ support contact, have experienced discrimination or intimidation, want to understand reporting options, or need a safer next step.",
+        "steps": [
+          "If there is immediate danger or violence is happening now, call 112. Do not wait for an online directory or form.",
+          "For a confidential conversation about sexual orientation or gender identity, open the current COC Switchboard contact options.",
+          "For discrimination advice or a report, use Discriminatie.nl and choose whether you want follow-up contact or an anonymous report.",
+          "For legal context and other complaint routes, read the current Government.nl guidance on reporting discrimination.",
+          "For community activities or a local contact, use COC Nederland's regional network and confirm the current details with the organization."
+        ],
+        "documents": ["Support conversations generally do not require a YouNew account. For a report, keep relevant dates, messages, screenshots or other evidence, but follow the chosen service's current form and privacy guidance."],
+        "cost": "YouNew does not charge for this guidance. Check the responsible service for its current contact conditions; never pay an unverified intermediary to file a discrimination report.",
+        "timing": "Response times and opening hours can change. Open the responsible source for current availability; use 112 immediately when there is urgent danger.",
+        "problems": ["If one support channel is closed, use the provider's listed alternative contact method or another responsible source on this page.", "If an incident may be criminal or there is a continuing safety risk, use the police or emergency route appropriate to the urgency.", "For discrimination by an employer, landlord, school or service provider, keep written evidence and check the formal complaint route as well as independent advice."],
+        "mistakes": ["Using a community support line as an emergency service.", "Publishing sensitive personal information in a public review or social-media post before considering privacy and safety.", "Assuming a national directory confirms a local organization's current opening hours."],
+        "localDifferences": "Local community activities and discrimination services differ by region. City selection may add verified local options, while this national route remains visible everywhere in the Netherlands."
+      },
+      "relatedTopics": ["legal-help", "safety", "healthcare", "family", "work", "housing"],
+      "officialSources": [
+        {"title": "Reporting discrimination", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination", "checkedAt": "2026-08-06"},
+        {"title": "Combating discrimination and violence against LGBTIQ+ people", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/justice-security-and-defence/gender-equality/combating-discrimination-and-violence-against-lgbtiq-people", "checkedAt": "2026-08-06"},
+        {"title": "Report discrimination", "publisher": "Discriminatie.nl", "url": "https://discriminatie.nl/discriminatie-melden/", "checkedAt": "2026-08-06"},
+        {"title": "LGBTI+ support line", "publisher": "COC Switchboard", "url": "https://switchboard.nl/?language=nl_NL", "checkedAt": "2026-08-06"},
+        {"title": "COC contact and regional support", "publisher": "COC Nederland", "url": "https://coc.nl/contact/", "checkedAt": "2026-08-06"}
       ]
     }
   ]
