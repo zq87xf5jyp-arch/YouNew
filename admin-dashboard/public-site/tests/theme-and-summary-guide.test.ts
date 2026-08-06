@@ -16,6 +16,7 @@ const pageHelpers = await readFile(new URL("src/lib/content/page-helpers.ts", ro
 const shareButton = await readFile(new URL("src/components/share-button.tsx", root), "utf8");
 const systemEvidence = await readFile(new URL("src/config/system-evidence.ts", root), "utf8");
 const homepage = await readFile(new URL("src/app/page.tsx", root), "utf8");
+const serviceWorker = await readFile(new URL("public/sw.js", root), "utf8");
 
 test("theme control supports persistent light and dark modes", () => {
   assert.match(themeInit, /younew\.theme\.v1/);
@@ -83,6 +84,14 @@ test("guide and journey copy follows semantic theme colors instead of dark-theme
   assert.match(globalCss, /\.journey-privacy-note strong \{ color:var\(--text\); \}/);
   assert.doesNotMatch(globalCss, /\.guide-scope-grid p \{[^}]*color:#b4c0d0/);
   assert.doesNotMatch(globalCss, /\.guide-checklist-widget label \{[^}]*color:#c4cedb/);
+});
+
+test("updated styles and scripts bypass stale cache while retaining an offline fallback", () => {
+  assert.match(serviceWorker, /const networkFirstCodeAsset = async \(request\)/);
+  assert.match(serviceWorker, /fetch\(request, \{ cache: "no-store" \}\)/);
+  assert.match(serviceWorker, /return \(await cache\.match\(request\)\) \|\| Response\.error\(\)/);
+  assert.match(serviceWorker, /\["style", "script"\][\s\S]*?networkFirstCodeAsset\(request\)/);
+  assert.match(serviceWorker, /\["image", "font"\][\s\S]*?staleWhileRevalidateAsset\(request\)/);
 });
 
 test("Amsterdam driving licence summary uses the current official source and actionable facts", () => {
