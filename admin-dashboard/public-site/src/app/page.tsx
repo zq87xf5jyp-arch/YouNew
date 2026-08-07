@@ -52,6 +52,7 @@ export const metadata: Metadata = {
 };
 
 type Direction = Readonly<{ title: string; href: string; icon: LucideIcon }>;
+type LifeDirection = Direction & Readonly<{ description: string; topics: readonly string[] }>;
 
 const taskIcons: Record<TaskIconName, LucideIcon> = {
   home: Home,
@@ -70,15 +71,63 @@ const searchHref = (query: string) => `/search/?q=${encodeURIComponent(query)}`;
 
 const heroSuggestions = ["Housing in Leiden", "Find work", "Register with a GP", "Get a BSN"] as const;
 
-const lifeDirections: readonly Direction[] = [
-  { title: "Living", href: "/tasks/housing/", icon: Home },
-  { title: "Working", href: "/tasks/work/", icon: BriefcaseBusiness },
-  { title: "Studying", href: "/tasks/study/", icon: GraduationCap },
-  { title: "Travelling", href: "/discover/", icon: Luggage },
-  { title: "Moving", href: "/essentials/utilities-and-moving-home/", icon: Truck },
-  { title: "Culture", href: "/categories/culture/", icon: Landmark },
-  { title: "Nature", href: "/categories/outdoors/", icon: Trees },
-  { title: "Cities", href: "/cities/", icon: MapPinned }
+const lifeDirections: readonly LifeDirection[] = [
+  {
+    title: "Living",
+    description: "Housing, healthcare, money and the essentials of daily life.",
+    topics: ["Housing", "Healthcare", "Daily life"],
+    href: "/tasks/housing/",
+    icon: Home
+  },
+  {
+    title: "Working",
+    description: "Find vacancies and understand contracts, pay and worker rights.",
+    topics: ["Jobs", "Contracts", "Rights"],
+    href: "/tasks/work/",
+    icon: BriefcaseBusiness
+  },
+  {
+    title: "Studying",
+    description: "Choose a school or programme and arrange finance and Dutch lessons.",
+    topics: ["Schools", "Higher education", "Dutch"],
+    href: "/tasks/study/",
+    icon: GraduationCap
+  },
+  {
+    title: "Travelling",
+    description: "Plan public transport, cycling and useful places around the country.",
+    topics: ["Trains", "Cycling", "Places"],
+    href: "/discover/",
+    icon: Luggage
+  },
+  {
+    title: "Moving",
+    description: "Handle registration, utilities, address changes and settling in.",
+    topics: ["Registration", "Utilities", "Address"],
+    href: "/essentials/utilities-and-moving-home/",
+    icon: Truck
+  },
+  {
+    title: "Culture",
+    description: "Discover museums, heritage, events and Dutch traditions.",
+    topics: ["Museums", "Events", "Heritage"],
+    href: "/categories/culture/",
+    icon: Landmark
+  },
+  {
+    title: "Nature",
+    description: "Explore parks, beaches, forests and outdoor activities.",
+    topics: ["Parks", "Coast", "Outdoors"],
+    href: "/categories/outdoors/",
+    icon: Trees
+  },
+  {
+    title: "Cities",
+    description: "Open local guides, municipality routes and nearby services.",
+    topics: ["Municipalities", "Local services", "Guides"],
+    href: "/cities/",
+    icon: MapPinned
+  }
 ];
 
 const popularTasks: readonly Direction[] = [
@@ -205,7 +254,14 @@ export default function HomePage() {
           <div className="section-shell">
             <div className="vision-heading"><h2 id="life-title">Life in the Netherlands</h2><p>Explore a direction when you do not yet have one specific task.</p></div>
             <nav className="vision-direction-rail" aria-label="Life in the Netherlands">
-              {lifeDirections.map(({ title, href, icon: Icon }) => <Link href={href} key={title}><Icon aria-hidden /><span>{title}</span></Link>)}
+              {lifeDirections.map(({ title, description, topics, href, icon: Icon }) => (
+                <Link href={href} key={title}>
+                  <span className="vision-direction-icon"><Icon aria-hidden /></span>
+                  <span className="vision-direction-copy"><strong>{title}</strong><small>{description}</small></span>
+                  <span className="vision-direction-topics">{topics.join(" · ")}</span>
+                  <span className="vision-direction-action">Explore {title.toLowerCase()} <ArrowRight aria-hidden /></span>
+                </Link>
+              ))}
             </nav>
           </div>
         </section>

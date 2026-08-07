@@ -54,6 +54,18 @@ test("homepage exposes exactly ten practical needs and six direct popular tasks"
   assert.match(popularSource, /title: "Learn Dutch"/);
 });
 
+test("every life direction is a filled card with guidance and concrete topics", () => {
+  const lifeSource = homepage.slice(homepage.indexOf("const lifeDirections"), homepage.indexOf("const popularTasks"));
+  assert.equal(lifeSource.match(/title: "/g)?.length, 8);
+  assert.equal(lifeSource.match(/description: "/g)?.length, 8);
+  assert.equal(lifeSource.match(/topics: \[/g)?.length, 8);
+  for (const label of ["Living", "Working", "Studying", "Travelling", "Moving", "Culture", "Nature", "Cities"]) {
+    assert.match(lifeSource, new RegExp(`title: "${label}"`));
+  }
+  assert.match(homepage, /topics\.join\(" · "\)/);
+  assert.match(homepage, /Explore \{title\.toLowerCase\(\)\}/);
+});
+
 test("global navigation keeps the approved ten primary destinations", () => {
   assert.match(header, /\["Explore", "\/discover"\]/);
   assert.match(header, /\["Housing", "\/tasks\/housing"\]/);
