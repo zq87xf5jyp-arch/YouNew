@@ -123,7 +123,7 @@ const advertise = await readFile(join(root, "business/advertise/index.html"), "u
 for (const text of ["Where advertising can appear", "defined placement surfaces", "0", "live public campaigns", "Reserved", "Advertising is excluded from"]) assert.match(advertise, new RegExp(text, "i"));
 
 const status = await readFile(join(root, "status/index.html"), "utf8");
-assert.match(status, /Static status snapshot/);
+assert.match(status, /Generated release snapshot/);
 assert.match(status, /does not (?:use|provide) live (?:uptime )?monitoring/i);
 assert.match(status, /Business and feedback forms/);
 assert.match(status, /Knowledge trust stays independent/i);

@@ -4,7 +4,7 @@ import { ArrowRight, CheckCircle2, Smartphone } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageShell } from "@/components/page-shell";
 import { TrackedAppStoreLink } from "@/components/tracked-app-store-link";
-import statusSnapshot from "@/config/status.json";
+import statusSnapshot from "@/generated/status.json";
 import { metadataForPage } from "@/lib/seo/metadata";
 import { links } from "@/lib/site-data";
 

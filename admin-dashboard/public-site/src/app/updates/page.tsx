@@ -3,7 +3,7 @@ import { ArrowRight, CalendarDays, Info, ShieldCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { ContentMedia, preferredMedia } from "@/components/content-media";
 import { PageShell } from "@/components/page-shell";
-import statusSnapshot from "@/config/status.json";
+import statusSnapshot from "@/generated/status.json";
 import { getPublicContent } from "@/lib/content";
 import { getNationalGuides, nationalGuidesVerifiedAt } from "@/lib/search/national-guides";
 import { metadataForPage } from "@/lib/seo/metadata";

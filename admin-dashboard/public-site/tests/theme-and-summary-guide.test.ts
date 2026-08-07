@@ -123,11 +123,11 @@ test("curated source truth also drives metadata and Article JSON-LD", () => {
 });
 
 test("operational evidence stays off the user-first homepage", () => {
-  assert.match(systemEvidence, /publishedRecords:\s*205/);
-  assert.match(systemEvidence, /staticRoutes:\s*626/);
-  assert.match(systemEvidence, /indexableUrls:\s*616/);
-  assert.match(systemEvidence, /passingWebAdminAiTests:\s*148/);
+  assert.match(systemEvidence, /releaseEvidence\.metrics\.publishedRecords/);
+  assert.match(systemEvidence, /releaseEvidence\.metrics\.nationalGuides/);
+  assert.match(systemEvidence, /releaseEvidence\.metrics\.municipalityRoutes/);
+  assert.match(systemEvidence, /releaseEvidence\.metrics\.searchQualityChecks/);
   assert.match(homepage, /<time dateTime=\{nationalVerifiedAt\}>/);
   assert.match(homepage, /Three recently checked national additions\./);
-  assert.doesNotMatch(homepage, /SystemEvidence|staticRoutes|passingWebAdminAiTests|Supabase|controlled release candidate/i);
+  assert.doesNotMatch(homepage, /SystemEvidence|municipalityRoutes|searchQualityChecks|Supabase|controlled release candidate/i);
 });

@@ -343,6 +343,23 @@ test("city and profile keep national guidance while excluding unrelated local re
   }
 });
 
+test("the two externally reported S Gravenhage Worker regressions return Housing first", async () => {
+  const geographyModule = await import(new URL("../src/lib/search/geography.ts", import.meta.url).href) as {
+    canonicalCityId: typeof import("../src/lib/search/geography").canonicalCityId;
+  };
+  const cityId = geographyModule.canonicalCityId("S Gravenhage");
+  assert.equal(cityId, "s-gravenhage");
+  for (const query of ["Rent", "housing rent"]) {
+    const results = rankModule.rankSearchDocuments(index.documents, query, {
+      filters: { cityId: cityId ?? undefined },
+      preferredProfile: "worker",
+      limit: 8
+    });
+    assert.equal(results[0]?.document.id, "national.housing", query);
+    assert.ok(results.some(({ document }) => document.locationScope === "national"), query);
+  }
+});
+
 test("Groningen city filter keeps national education and removes Amsterdam schools", () => {
   const results = rankModule.rankSearchDocuments(index.documents, "Dutch school", {
     filters: { cityId: "groningen" },
@@ -395,6 +412,7 @@ test("search UI suggests only queries with a released destination", async () => 
   assert.match(source, /Opening share…/, "native sharing must expose progress while the system sheet is open");
   assert.match(source, /Unable to share/, "sharing failures must remain visible instead of being swallowed");
   assert.match(source, /showing useful broader results/);
+  assert.match(source, /\{visibleResults\.length \? <button type="button" onClick=\{shareResults\}>/);
 });
 
 test("saved exhaustive QA evidence matches the current search index", async () => {

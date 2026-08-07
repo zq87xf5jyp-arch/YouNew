@@ -1,11 +1,13 @@
+import releaseEvidence from "@/generated/release-evidence.json";
+
 export const systemEvidence = {
-  asOf: "2026-08-06",
+  asOf: releaseEvidence.asOf,
   posture: "Production available · release candidate locally verified",
   metrics: {
-    staticRoutes: 626,
-    indexableUrls: 616,
-    publishedRecords: 205,
-    passingWebAdminAiTests: 148,
+    publishedRecords: releaseEvidence.metrics.publishedRecords,
+    nationalGuides: releaseEvidence.metrics.nationalGuides,
+    municipalityRoutes: releaseEvidence.metrics.municipalityRoutes,
+    searchQualityChecks: releaseEvidence.metrics.searchQualityChecks,
     freshnessPercent: 98
   },
   surfaces: [
