@@ -14,6 +14,18 @@ test("JSON-LD serialization cannot terminate the script element", () => {
   assert.match(serialized, /\\u0026/);
 });
 
+test("JSON-LD keeps the canonical origin without a rewrite-sensitive hostname literal", () => {
+  const value = {
+    url: "https://younew.nl/discover/",
+    email: "support@younew.nl"
+  };
+  const serialized = serializeJsonLd(value);
+
+  assert.doesNotMatch(serialized, /younew\.nl/);
+  assert.match(serialized, /younew\\u002enl/);
+  assert.deepEqual(JSON.parse(serialized), value);
+});
+
 test("primary navigation and homepage search keep descriptive accessible names", async () => {
   const [header, homepage] = await Promise.all([
     readFile(new URL("../src/components/site-header.tsx", import.meta.url), "utf8"),
