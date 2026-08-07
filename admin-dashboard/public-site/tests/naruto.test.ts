@@ -18,6 +18,7 @@ test("Naruto is a public, discoverable YouNew route", () => {
   assert.doesNotMatch(header, /\["Naruto", "\/naruto"\]/);
   assert.match(footer, /href="\/naruto"/);
   assert.match(sitemap, /"\/naruto"/);
+  assert.match(homepage, /className="vision-search-naruto" href="\/naruto\/"/);
   assert.match(homepage, /href="\/naruto\/"/);
   assert.match(homepage, /Naruto clarifies your situation first/);
 });

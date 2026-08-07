@@ -5824,6 +5824,25 @@ html[data-theme="light"] .product-vision-home .mobile-menu summary { border-colo
 .vision-search-assistant button:hover { background:rgba(69,181,218,.12); }
 .vision-search-assistant nav a { border-color:rgba(133,178,239,.3); background:rgba(8,29,66,.72); color:#eaf3ff; }
 .vision-search-assistant nav a:hover { border-color:#71d8ef; background:rgba(69,181,218,.12); }
+.vision-search-naruto {
+  width:max-content;
+  max-width:100%;
+  min-height:38px;
+  display:inline-flex;
+  align-items:center;
+  gap:8px;
+  margin-top:12px;
+  padding:8px 11px;
+  border:1px solid rgba(113,216,239,.34);
+  border-radius:8px;
+  background:rgba(69,181,218,.08);
+  color:#9deaf4;
+  font-size:12px;
+  font-weight:780;
+}
+.vision-search-naruto:hover { border-color:#71d8ef; background:rgba(69,181,218,.16); color:#f7fbff; }
+.vision-search-naruto svg { width:16px; flex:none; }
+.vision-search-naruto svg:last-child { margin-left:auto; }
 .vision-hero-actions { gap:12px 18px; margin-top:16px; }
 .vision-primary-action { background:linear-gradient(135deg,#ff7d2b,#e95410); box-shadow:0 12px 28px rgba(235,83,13,.28); }
 .vision-primary-action:hover { background:linear-gradient(135deg,#ff914c,#cf4306); }

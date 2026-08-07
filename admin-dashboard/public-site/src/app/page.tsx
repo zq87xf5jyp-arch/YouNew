@@ -194,6 +194,9 @@ function HomeSearch() {
       <nav aria-label="Search examples">
         {heroSuggestions.map((suggestion) => <Link href={searchHref(suggestion)} key={suggestion}>{suggestion}</Link>)}
       </nav>
+      <Link className="vision-search-naruto" href="/naruto/">
+        <Sparkles aria-hidden /> Not sure what to ask? Ask Naruto <ArrowRight aria-hidden />
+      </Link>
     </div>
   );
 }
