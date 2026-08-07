@@ -27,9 +27,9 @@ const verifiedDate = new Intl.DateTimeFormat("en-GB", {
 export function SystemEvidence({ compact = false }: { compact?: boolean }) {
   const metrics = [
     [systemEvidence.metrics.publishedRecords, "published records"],
-    [systemEvidence.metrics.staticRoutes, "static routes"],
-    [systemEvidence.metrics.indexableUrls, "indexable URLs"],
-    [systemEvidence.metrics.passingWebAdminAiTests, "passing web, Admin and AI tests"]
+    [systemEvidence.metrics.nationalGuides, "national guides"],
+    [systemEvidence.metrics.municipalityRoutes, "municipality routes"],
+    [systemEvidence.metrics.searchQualityChecks, "passing search checks"]
   ] as const;
 
   return (

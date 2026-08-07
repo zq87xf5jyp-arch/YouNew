@@ -75,7 +75,6 @@ export function SearchExperience() {
   const [rememberSearches, setRememberSearches] = useState(false);
   const [showAllResults, setShowAllResults] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
-  const [compactFilters, setCompactFilters] = useState(false);
   const initialUrlSearch = useRef<{ query: string; filters: Filters } | null>(null);
   const initialUrlSearchTracked = useRef(false);
 
@@ -86,9 +85,7 @@ export function SearchExperience() {
     const initialFilters = {
       type: params.get("type") ?? "", city: canonicalCityId(params.get("city")) ?? "", province: params.get("province") ?? "",
       category: params.get("category") ?? "",
-      profile: profileParameter === null
-        ? localContentRepository.profile() ?? ""
-        : sanitizeUserPathProfile(profileParameter) ?? ""
+      profile: profileParameter === null ? "" : sanitizeUserPathProfile(profileParameter) ?? ""
     };
     const historyEnabled = localContentRepository.searchHistoryEnabled();
     initialUrlSearch.current = initialQuery.trim() ? { query: initialQuery.trim(), filters: initialFilters } : null;
@@ -109,14 +106,6 @@ export function SearchExperience() {
     const analyticsEvent = createSearchAnalyticsEvent(documents, initial.query, initial.filters);
     track(analyticsEvent);
   }, [documents, loading]);
-
-  useEffect(() => {
-    const media = window.matchMedia("(max-width: 760px)");
-    const update = () => setCompactFilters(media.matches);
-    update();
-    media.addEventListener("change", update);
-    return () => media.removeEventListener("change", update);
-  }, []);
 
   const options = useMemo(() => {
     const cityMap = new Map<string, string>();
@@ -164,6 +153,14 @@ export function SearchExperience() {
   }, [documents, filters, ranked.length, submittedQuery]);
 
   const visibleResults = ranked.length > 0 ? ranked : recovery.results;
+  const hasLocalFilter = Boolean(filters.city || filters.province);
+  const hasLocalResult = ranked.some(({ document }) =>
+    document.locationScope !== "national" &&
+    document.locationScope !== "emergency" &&
+    document.locationScope !== "online-service" &&
+    !document.nationalFallback
+  );
+  const nationalOnlyForLocalFilter = hasLocalFilter && ranked.length > 0 && !hasLocalResult;
   const intentMatches = useMemo(() => matchSearchIntents(submittedQuery, normalizeSearchText), [submittedQuery]);
   const primaryIntent = intentMatches[0]?.intent ?? null;
   const primaryNationalGuide = primaryIntent
@@ -172,6 +169,11 @@ export function SearchExperience() {
 
   const hasActiveFilters = Object.values(filters).some(Boolean);
   const activeProfileLabel = filters.profile ? titleCase(filters.profile) : null;
+  const activeLocationLabel = filters.city
+    ? options.cities.find((option) => option.value === filters.city)?.label ?? cityDisplayName(filters.city)
+    : filters.province
+      ? options.provinces.find((option) => option.value === filters.province)?.label ?? humanize(filters.province)
+      : null;
   const activeFilterChips = (Object.entries(filters) as Array<[FilterKey, string]>)
     .filter((entry): entry is [FilterKey, string] => Boolean(entry[1]))
     .map(([key, value]) => {
@@ -240,6 +242,8 @@ export function SearchExperience() {
       else localContentRepository.clearProfile();
     }
     const next = { ...filters, [key]: value };
+    if (key === "city" && value) next.province = "";
+    if (key === "province" && value) next.city = "";
     setFilters(next);
     setShowAllResults(!submittedQuery && !Object.values(next).some(Boolean));
     syncUrl(submittedQuery, next);
@@ -295,7 +299,7 @@ export function SearchExperience() {
       <button
         className="search-filter-toggle"
         type="button"
-        aria-expanded={!compactFilters || filtersOpen}
+        aria-expanded={filtersOpen}
         aria-controls="search-filter-fields"
         onClick={() => setFiltersOpen((open) => !open)}
       >
@@ -334,7 +338,7 @@ export function SearchExperience() {
         ) : null}
       </form>
 
-      {!compactFilters ? filterControls : null}
+      {filterControls}
       {activeFilterChips.length ? (
         <div className="search-active-chips" aria-label="Active search filters">
           {activeFilterChips.map((chip) => (
@@ -345,7 +349,7 @@ export function SearchExperience() {
           <button className="search-clear-all" type="button" onClick={clearAllFilters}>Clear all</button>
         </div>
       ) : null}
-      {!compactFilters ? profileContext : null}
+      {profileContext}
 
       {!submittedQuery && !showAllResults ? (
         <><div className="search-starters"><section><h2>Popular searches</h2><div>{popularSearches.map((value) => <button type="button" key={value} onClick={() => executeSearch(value)}>{value}</button>)}</div></section>{recentSearches.length ? <section><div className="search-starter-heading"><h2>Recent searches</h2><button type="button" onClick={() => { localContentRepository.clearRecentSearches(); setRecentSearches([]); }}>Clear</button></div><div>{recentSearches.map((value) => <button type="button" key={value} onClick={() => executeSearch(value)}>{value}</button>)}</div></section> : null}</div>
@@ -356,7 +360,7 @@ export function SearchExperience() {
       {loadError ? <div className="empty-state"><h2>Search index unavailable</h2><p>Browse <Link href="/discover">published content</Link> or retry when the connection is restored.</p></div> : null}
       {!loading && !loadError && (submittedQuery || hasActiveFilters || showAllResults) ? (
         <section className="search-results" aria-labelledby="results-title">
-          <div className="search-results-heading"><div><h2 id="results-title" aria-live="polite">{visibleResults.length} helpful result{visibleResults.length === 1 ? "" : "s"}{submittedQuery ? ` for “${submittedQuery}”` : ""}</h2>{submittedQuery ? <p>Intent, synonyms, spelling variants, national guidance and local relevance all influence the order.</p> : null}</div><button type="button" onClick={shareResults}>{shareState === "copied" || shareState === "shared" ? <Check aria-hidden /> : <Share2 aria-hidden />}{shareState === "copied" ? "Link copied" : shareState === "shared" ? "Shared" : shareState === "sharing" ? "Opening share…" : shareState === "error" ? "Unable to share" : "Share results"}</button></div>
+          <div className="search-results-heading"><div><h2 id="results-title" aria-live="polite">{visibleResults.length} helpful result{visibleResults.length === 1 ? "" : "s"}{submittedQuery ? ` for “${submittedQuery}”` : ""}</h2>{submittedQuery ? <p>Intent, synonyms, spelling variants, national guidance and local relevance all influence the order.</p> : null}</div>{visibleResults.length ? <button type="button" onClick={shareResults}>{shareState === "copied" || shareState === "shared" ? <Check aria-hidden /> : <Share2 aria-hidden />}{shareState === "copied" ? "Link copied" : shareState === "shared" ? "Shared" : shareState === "sharing" ? "Opening share…" : shareState === "error" ? "Unable to share" : "Share results"}</button> : null}</div>
           {ranked.length === 0 && recovery.results.length ? (
             <div className="search-recovery-banner" role="status">
               <Globe2 aria-hidden />
@@ -368,6 +372,18 @@ export function SearchExperience() {
                 {recovery.cleared.includes("city") || recovery.cleared.includes("province") ? <button type="button" onClick={() => clearSelectedFilters(["city", "province"])}>Search all Netherlands</button> : null}
                 {filters.profile ? <button type="button" onClick={() => clearSelectedFilters(["profile"])}>Remove profile boost</button> : null}
                 {primaryNationalGuide ? <Link href={primaryNationalGuide.route}>Open national guidance</Link> : null}
+              </div>
+            </div>
+          ) : null}
+          {nationalOnlyForLocalFilter ? (
+            <div className="search-recovery-banner" role="status">
+              <Globe2 aria-hidden />
+              <div>
+                <strong>No published local match for {activeLocationLabel} — showing national guidance.</strong>
+                <span>These routes apply across the Netherlands. Confirm appointments and local requirements with the responsible municipality.</span>
+              </div>
+              <div className="search-recovery-actions">
+                <button type="button" onClick={() => clearSelectedFilters(["city", "province"])}>Search all Netherlands</button>
               </div>
             </div>
           ) : null}
@@ -390,8 +406,6 @@ export function SearchExperience() {
           )}
         </section>
       ) : null}
-      {compactFilters ? profileContext : null}
-      {compactFilters ? filterControls : null}
     </div>
   );
 }

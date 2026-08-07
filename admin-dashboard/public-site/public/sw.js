@@ -1,4 +1,4 @@
-const CACHE_VERSION = "younew-web-3913ffbadfe2";
+const CACHE_VERSION = "younew-web-9e4163420984";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const GUIDE_CACHE = `${CACHE_VERSION}-guides`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
@@ -66,6 +66,17 @@ const staleWhileRevalidateAsset = async (request) => {
   return cached || (await network) || Response.error();
 };
 
+const networkFirstCodeAsset = async (request) => {
+  const cache = await caches.open(ASSET_CACHE);
+  try {
+    const response = await fetch(request, { cache: "no-store" });
+    if (response.ok) await cache.put(request, response.clone());
+    return response;
+  } catch {
+    return (await cache.match(request)) || Response.error();
+  }
+};
+
 self.addEventListener("fetch", (event) => {
   const { request } = event;
   if (request.method !== "GET") return;
@@ -83,7 +94,12 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  if (["style", "script", "image", "font"].includes(request.destination)) {
+  if (["style", "script"].includes(request.destination)) {
+    event.respondWith(networkFirstCodeAsset(request));
+    return;
+  }
+
+  if (["image", "font"].includes(request.destination)) {
     event.respondWith(staleWhileRevalidateAsset(request));
   }
 });

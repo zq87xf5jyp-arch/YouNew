@@ -185,15 +185,30 @@ test("a preferred profile personalizes ranking without hiding exact published an
 test("requested quality queries find a source-backed released destination", () => {
   const expected = new Map<string, string>([
     ["How do I get a BSN?", "national.documents"],
-    ["Register gemeente", "government_service.first-registration-in-amsterdam"],
+    ["Register gemeente", "national.documents"],
     ["Landlord does not repair", "housing.woon"],
-    ["Student housing", "category.housing"],
+    ["Student housing", "national.student-housing"],
     ["Emergency", "page.emergency"],
     ["Lost residence card", "national.documents"],
     ["DigiD", "national.documents"],
     ["Work contract", "national.work"],
     ["Need a doctor", "national.healthcare"],
-    ["Health insurance", "national.healthcare"]
+    ["Health insurance", "national.healthcare"],
+    ["Open a bank account", "national.banking"],
+    ["Families childcare", "national.family-childcare"],
+    ["Pets registration", "national.pets"],
+    ["Tax Belastingdienst", "national.taxes"],
+    ["Benefits allowances", "national.benefits"],
+    ["Buy a bicycle", "national.transport"],
+    ["Immigration residence permit", "national.immigration"],
+    ["Arrange utilities when moving", "national.utilities-moving"],
+    ["Consumer rights complaint", "national.consumer-rights"],
+    ["Debt help legal advice", "national.debt-legal-help"],
+    ["Mental health support", "national.mental-health"],
+    ["Find a dentist", "national.dental-care"],
+    ["Prescription medicines pharmacy", "national.medicines"],
+    ["Pregnancy midwife", "national.pregnancy"],
+    ["Start a business ZZP KVK", "national.business-zzp"]
   ]);
   for (const [query, expectedId] of expected) {
     const results = rankModule.rankSearchDocuments(index.documents, query, { limit: 5 });
@@ -202,15 +217,81 @@ test("requested quality queries find a source-backed released destination", () =
 
 });
 
+test("every homepage and search-suggestion query opens a useful published destination", () => {
+  const expected = new Map<string, string>([
+    ["I need housing in Leiden", "national.housing"],
+    ["I need work", "national.work"],
+    ["I need a GP", "national.healthcare"],
+    ["I need BSN", "national.documents"],
+    ["housing", "national.housing"],
+    ["work", "national.work"],
+    ["healthcare GP", "national.healthcare"],
+    ["BSN documents", "national.documents"],
+    ["study education", "national.education"],
+    ["daily life bank account", "national.banking"],
+    ["LGBTQ support", "national.lgbtiq-support"],
+    ["pets registration", "national.pets"],
+    ["families childcare", "national.family-childcare"],
+    ["education study", "national.education"],
+    ["moving registration", "national.documents"],
+    ["open a bank account", "national.banking"],
+    ["find work", "national.work"],
+    ["register with a huisarts GP", "national.healthcare"],
+    ["DigiD", "national.documents"],
+    ["health insurance", "national.healthcare"],
+    ["Dutch lessons", "national.education"],
+    ["buy a bicycle", "national.transport"],
+    ["tax Belastingdienst", "national.taxes"],
+    ["benefits allowances", "national.benefits"],
+    ["immigration residence permit", "national.immigration"],
+    ["utilities moving home", "national.utilities-moving"],
+    ["consumer rights complaint", "national.consumer-rights"],
+    ["debt legal help", "national.debt-legal-help"],
+    ["mental health support", "national.mental-health"],
+    ["dentist dental care", "national.dental-care"],
+    ["medicines prescription pharmacy", "national.medicines"],
+    ["pregnancy midwife maternity care", "national.pregnancy"],
+    ["start a business ZZP KVK", "national.business-zzp"],
+    ["Register gemeente", "national.documents"],
+    ["Housing defects", "national.housing"],
+    ["Student housing", "national.student-housing"],
+    ["Emergency", "page.emergency"],
+    ["Amsterdam", "city.amsterdam"],
+    ["train station", "national.transport"]
+  ]);
+  for (const [query, expectedId] of expected) {
+    const results = rankModule.rankSearchDocuments(index.documents, query, { limit: 5 });
+    assert.equal(results[0]?.document.id, expectedId, `${query}: ${results.map(({ document }) => document.id).join(", ")}`);
+    assert.ok(results[0]?.document.route, `${query} must resolve to a published route`);
+  }
+});
+
 test("critical EN, NL and RU intents do not return a useless zero", () => {
   const queries = new Map<string, readonly string[]>([
     ["national.housing", ["rent", "housing rent", "huur", "woning", "аренда", "квартира"]],
+    ["national.student-housing", ["student housing", "studentenkamer", "жильё для студентов"]],
     ["national.work", ["work", "find work", "baan", "vacature", "работа", "вакансия"]],
     ["national.documents", ["BSN", "DigiD", "residence permit", "inschrijving", "регистрация", "ВНЖ"]],
-    ["national.healthcare", ["doctor", "huisarts", "pharmacy", "zorgverzekering", "врач", "аптека"]],
+    ["national.healthcare", ["doctor", "huisarts", "health insurance", "zorgverzekering", "врач", "медицинская страховка"]],
     ["national.education", ["Dutch school", "language course", "taalschool", "opleiding", "школа", "курсы"]],
     ["national.telecom", ["SIM card", "eSIM", "simkaart", "telefoonabonnement", "сим-карта", "интернет"]],
-    ["national.rules-fines", ["parking fine", "traffic rules", "parkeerboete", "fietsregels", "штраф за парковку", "правила движения"]]
+    ["national.rules-fines", ["parking fine", "traffic rules", "parkeerboete", "fietsregels", "штраф за парковку", "правила движения"]],
+    ["national.lgbtiq-support", ["LGBTQ support", "queer support", "trans support", "LHBTI hulp", "discriminatie melden", "ЛГБТ поддержка", "гомофобия"]],
+    ["national.banking", ["open a bank account", "payment account", "bankrekening openen", "betaalrekening", "открыть банковский счёт", "банковский счет"]],
+    ["national.family-childcare", ["families childcare", "find childcare", "kinderopvang", "buitenschoolse opvang", "детский сад", "уход за детьми"]],
+    ["national.pets", ["pets registration", "register a dog", "hond registreren", "dierenpaspoort", "регистрация питомца", "зарегистрировать собаку"]],
+    ["national.taxes", ["tax Belastingdienst", "tax return", "belastingaangifte", "inkomstenbelasting", "налоговая декларация", "налоги в Нидерландах"]],
+    ["national.benefits", ["benefits allowances", "healthcare benefit", "toeslagen", "huurtoeslag", "пособия", "пособие на аренду"]],
+    ["national.transport", ["buy a bicycle", "public transport", "fiets kopen", "openbaar vervoer", "купить велосипед", "общественный транспорт"]],
+    ["national.immigration", ["immigration residence permit", "visa Netherlands", "immigratie", "verblijfsvergunning verlengen", "иммиграция", "виза в Нидерланды"]],
+    ["national.utilities-moving", ["utilities moving home", "electricity contract", "energiecontract", "meterstanden", "коммунальные услуги", "переезд"]],
+    ["national.consumer-rights", ["consumer rights complaint", "online purchase problem", "consumentenrecht", "misleidende verkoop", "права потребителя", "жалоба на покупку"]],
+    ["national.debt-legal-help", ["debt legal help", "money problems", "schuldhulpverlening", "juridische hulp", "помощь с долгами", "юридическая помощь"]],
+    ["national.mental-health", ["mental health support", "psychologist", "mentale gezondheid", "psycholoog", "психолог", "психическое здоровье"]],
+    ["national.dental-care", ["find a dentist", "emergency dentist", "tandarts", "spoedtandarts", "стоматолог", "зубная боль"]],
+    ["national.medicines", ["medicine", "patient leaflet", "recept", "apotheek", "лекарство", "инструкция к лекарству"]],
+    ["national.pregnancy", ["pregnancy", "maternity care", "verloskundige", "kraamzorg", "беременность", "родовспоможение"]],
+    ["national.business-zzp", ["start a business ZZP KVK", "open a company", "bedrijf starten zzp", "inschrijven KVK", "открыть бизнес ZZP", "регистрация KVK"]]
   ]);
 
   for (const [expectedId, aliases] of queries) {
@@ -222,7 +303,7 @@ test("critical EN, NL and RU intents do not return a useless zero", () => {
   }
 });
 
-test("city and profile are relevance signals and never block national guidance", () => {
+test("city and profile keep national guidance while excluding unrelated local results", () => {
   const scenarios = [
     ["housing rent", "s-gravenhage", "worker", "national.housing"],
     ["work", "leiden", "worker", "national.work"],
@@ -230,7 +311,23 @@ test("city and profile are relevance signals and never block national guidance",
     ["Dutch school", "groningen", "student", "national.education"],
     ["BSN", "eindhoven", "expat", "national.documents"],
     ["SIM card", "maastricht", "tourist", "national.telecom"],
-    ["parking fine", "utrecht", "resident", "national.rules-fines"]
+    ["parking fine", "utrecht", "resident", "national.rules-fines"],
+    ["LGBTQ support", "groningen", "student", "national.lgbtiq-support"],
+    ["open a bank account", "utrecht", "resident", "national.banking"],
+    ["families childcare", "rotterdam", "worker", "national.family-childcare"],
+    ["pets registration", "groningen", "expat", "national.pets"],
+    ["tax Belastingdienst", "eindhoven", "worker", "national.taxes"],
+    ["benefits allowances", "maastricht", "refugee", "national.benefits"],
+    ["buy a bicycle", "leiden", "student", "national.transport"],
+    ["immigration residence permit", "s-gravenhage", "expat", "national.immigration"],
+    ["utilities moving home", "leiden", "resident", "national.utilities-moving"],
+    ["consumer rights complaint", "utrecht", "tourist", "national.consumer-rights"],
+    ["debt legal help", "rotterdam", "refugee", "national.debt-legal-help"],
+    ["mental health support", "groningen", "student", "national.mental-health"],
+    ["find a dentist", "eindhoven", "worker", "national.dental-care"],
+    ["prescription medicines pharmacy", "maastricht", "resident", "national.medicines"],
+    ["pregnancy midwife", "leiden", "resident", "national.pregnancy"],
+    ["start a business ZZP KVK", "s-gravenhage", "worker", "national.business-zzp"]
   ] as const;
   for (const [query, cityId, profile, expectedId] of scenarios) {
     const results = rankModule.rankSearchDocuments(index.documents, query, {
@@ -239,7 +336,40 @@ test("city and profile are relevance signals and never block national guidance",
     assert.ok(results.length > 0, `${query} + ${cityId} + ${profile}`);
     assert.equal(results[0]?.document.id, expectedId, `${query} + ${cityId} + ${profile}`);
     assert.ok(results.some(({ document }) => document.locationScope === "national"), `${query} must retain national guidance`);
+    assert.ok(results.every(({ document }) => {
+      const localCity = document.municipalityId ?? document.cityId;
+      return !localCity || document.nationalFallback || rankModule.normalizeSearchText(localCity) === rankModule.normalizeSearchText(cityId);
+    }), `${query} + ${cityId} must not include another city's local result`);
   }
+});
+
+test("the two externally reported S Gravenhage Worker regressions return Housing first", async () => {
+  const geographyModule = await import(new URL("../src/lib/search/geography.ts", import.meta.url).href) as {
+    canonicalCityId: typeof import("../src/lib/search/geography").canonicalCityId;
+  };
+  const cityId = geographyModule.canonicalCityId("S Gravenhage");
+  assert.equal(cityId, "s-gravenhage");
+  for (const query of ["Rent", "housing rent"]) {
+    const results = rankModule.rankSearchDocuments(index.documents, query, {
+      filters: { cityId: cityId ?? undefined },
+      preferredProfile: "worker",
+      limit: 8
+    });
+    assert.equal(results[0]?.document.id, "national.housing", query);
+    assert.ok(results.some(({ document }) => document.locationScope === "national"), query);
+  }
+});
+
+test("Groningen city filter keeps national education and removes Amsterdam schools", () => {
+  const results = rankModule.rankSearchDocuments(index.documents, "Dutch school", {
+    filters: { cityId: "groningen" },
+    limit: 40
+  });
+
+  assert.equal(results[0]?.document.id, "national.education");
+  assert.ok(results.some(({ document }) => document.locationScope === "national"));
+  assert.ok(results.every(({ document }) => document.cityId !== "amsterdam"));
+  assert.ok(results.every(({ document }) => !document.cityId || document.cityId === "groningen"));
 });
 
 test("rent no longer matches Drenthe as an infix and national guidance ranks first", () => {
@@ -270,14 +400,19 @@ test("search UI suggests only queries with a released destination", async () => 
   assert.doesNotMatch(source, /placeholder="[^"]*Need a doctor[^"]*"/);
   assert.match(source, /submittedQuery \|\| hasActiveFilters \|\| showAllResults/);
   assert.match(source, /setShowAllResults\(!submittedQuery && !Object\.values\(next\)\.some\(Boolean\)\)/);
-  assert.match(source, /preferredProfile:/, "saved profile must be passed as a ranking signal");
+  assert.match(source, /profileParameter === null \? ""/, "a saved Discover profile must not change search unless the URL explicitly requests it");
+  assert.match(source, /preferredProfile:/, "an explicitly selected profile may be passed as a secondary ranking signal");
   assert.doesNotMatch(source, /filterSearchDocumentsByProfile\(documents/, "profile must not pre-filter the published index");
   assert.match(source, /search-filter-toggle/);
   assert.match(source, /search-active-chips/);
   assert.match(source, /Search all Netherlands/);
+  assert.match(source, /No published local match for \{activeLocationLabel\} — showing national guidance\./);
+  assert.match(source, /if \(key === "city" && value\) next\.province = ""/);
+  assert.match(source, /if \(key === "province" && value\) next\.city = ""/);
   assert.match(source, /Opening share…/, "native sharing must expose progress while the system sheet is open");
   assert.match(source, /Unable to share/, "sharing failures must remain visible instead of being swallowed");
   assert.match(source, /showing useful broader results/);
+  assert.match(source, /\{visibleResults\.length \? <button type="button" onClick=\{shareResults\}>/);
 });
 
 test("saved exhaustive QA evidence matches the current search index", async () => {

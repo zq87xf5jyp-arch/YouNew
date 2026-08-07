@@ -16,6 +16,7 @@ const pageHelpers = await readFile(new URL("src/lib/content/page-helpers.ts", ro
 const shareButton = await readFile(new URL("src/components/share-button.tsx", root), "utf8");
 const systemEvidence = await readFile(new URL("src/config/system-evidence.ts", root), "utf8");
 const homepage = await readFile(new URL("src/app/page.tsx", root), "utf8");
+const serviceWorker = await readFile(new URL("public/sw.js", root), "utf8");
 
 test("theme control supports persistent light and dark modes", () => {
   assert.match(themeInit, /younew\.theme\.v1/);
@@ -33,6 +34,66 @@ test("theme control supports persistent light and dark modes", () => {
   assert.match(globalCss, /\.coverage-map-results li strong \{ color:var\(--text\)/);
   assert.match(globalCss, /\.hero-kicker[^}]*color:var\(--cyan\)!important/);
   assert.match(globalCss, /\.button-outline[^}]*color:var\(--cyan\)/);
+  assert.match(globalCss, /\.product-vision-home \.theme-toggle \{ display:grid; \}/);
+  assert.match(globalCss, /html\[data-theme="dark"\] \.product-vision-home/);
+  assert.doesNotMatch(globalCss, /\.product-vision-home \.theme-toggle \{ display:none; \}/);
+  assert.match(globalCss, /@media \(min-width:380px\) and \(max-width:760px\)[\s\S]*?\.header-emergency \{ width:auto; padding:0 10px; \}/);
+  assert.match(globalCss, /\.theme-toggle,\.mobile-menu summary \{ width:44px; height:44px; \}/);
+});
+
+test("homepage keeps the branded hero in every responsive theme state", () => {
+  assert.match(globalCss, /younew-brand-hero-desktop-v1\.jpg/);
+  assert.match(globalCss, /younew-brand-hero-tablet-portrait-v1\.jpg/);
+  assert.match(globalCss, /younew-brand-hero-mobile-v1\.jpg/);
+  assert.match(globalCss, /html\[data-theme="light"\] \.product-vision-home \.site-header/);
+  assert.match(globalCss, /html\[data-theme="dark"\] \.product-vision-home \.vision-hero \{ background-color:#02091a; \}/);
+  assert.doesNotMatch(homepage, /vision-hero-media/);
+  assert.match(homepage, /placeholder="For example: I need housing in Leiden"/);
+});
+
+test("homepage continues the branded visual system below the hero", () => {
+  assert.match(homepage, /className="vision-section vision-popular section-shell"/);
+  assert.match(homepage, /className="vision-section vision-why section-shell"/);
+  assert.match(globalCss, /Phase 4: continue the branded Netherlands system through the complete home journey/);
+  assert.match(globalCss, /\.product-vision-home \{[\s\S]*?--vision-ink:#f7fbff/);
+  assert.match(globalCss, /\.vision-needs \{[\s\S]*?radial-gradient/);
+  assert.match(globalCss, /\.vision-city-rail article \{[\s\S]*?scroll-snap-align:start/);
+  assert.match(globalCss, /\.vision-naruto-tip \{[\s\S]*?border:1px solid rgba\(102,205,221/);
+  assert.match(globalCss, /html\[data-theme="light"\] \.product-vision-home \.vision-needs/);
+  assert.match(globalCss, /html\[data-theme="dark"\] \.product-vision-home \.vision-needs/);
+  assert.match(globalCss, /@media \(max-width:760px\)[\s\S]*?\.vision-task-grid \{ grid-template-columns:1fr; \}/);
+});
+
+test("light mode restores semantic light surfaces across every public template", () => {
+  assert.match(themeCss, /Site-wide light-theme contract/);
+  assert.match(themeCss, /html\[data-theme="light"\] \.page-shell-main \{[\s\S]*?background:transparent/);
+  assert.match(themeCss, /html\[data-theme="light"\] \.product-vision-home \{[\s\S]*?--vision-ink:#082463[\s\S]*?background:#eef3f8/);
+  assert.match(themeCss, /html\[data-theme="light"\] \.product-vision-home main \{[\s\S]*?linear-gradient\(180deg,#fff,#f7f9fc 46%,#eef3f8\)/);
+  assert.match(themeCss, /html\[data-theme="light"\] :is\(\.task-hub-page,\.about-younew-page\) \.page-shell-main/);
+  assert.match(themeCss, /html\[data-theme="light"\] \.task-choice \{[\s\S]*?background:linear-gradient\(145deg,#fff,var\(--panel\)\)/);
+  assert.match(themeCss, /html\[data-theme="light"\] :is\(\.guide-feedback-loop,[\s\S]*?\.journey-card,[\s\S]*?\.search-input-wrap/);
+  assert.match(themeCss, /html\[data-theme="light"\] :is\(\.business-subnav,\.knowledge-trust-summary/);
+});
+
+test("guide and journey copy follows semantic theme colors instead of dark-theme literals", () => {
+  assert.match(globalCss, /\.guide-scope-grid p \{[^}]*color:var\(--text-secondary\)/);
+  assert.match(globalCss, /\.guide-sourced-list li \{[^}]*color:var\(--text-secondary\)/);
+  assert.match(globalCss, /\.guide-checklist-widget label \{[^}]*color:var\(--text-secondary\)/);
+  assert.match(globalCss, /\.guide-checklist-widget \{[^}]*linear-gradient\(145deg,var\(--panel-2\),var\(--panel\)\)/);
+  assert.match(globalCss, /\.guide-source-list p \{[^}]*color:var\(--muted\)/);
+  assert.match(globalCss, /\.guide-service-list p \{[^}]*color:var\(--text-secondary\)/);
+  assert.match(globalCss, /\.guide-service-list \.guide-service-title \{[^}]*color:var\(--text\)/);
+  assert.match(globalCss, /\.journey-privacy-note strong \{ color:var\(--text\); \}/);
+  assert.doesNotMatch(globalCss, /\.guide-scope-grid p \{[^}]*color:#b4c0d0/);
+  assert.doesNotMatch(globalCss, /\.guide-checklist-widget label \{[^}]*color:#c4cedb/);
+});
+
+test("updated styles and scripts bypass stale cache while retaining an offline fallback", () => {
+  assert.match(serviceWorker, /const networkFirstCodeAsset = async \(request\)/);
+  assert.match(serviceWorker, /fetch\(request, \{ cache: "no-store" \}\)/);
+  assert.match(serviceWorker, /return \(await cache\.match\(request\)\) \|\| Response\.error\(\)/);
+  assert.match(serviceWorker, /\["style", "script"\][\s\S]*?networkFirstCodeAsset\(request\)/);
+  assert.match(serviceWorker, /\["image", "font"\][\s\S]*?staleWhileRevalidateAsset\(request\)/);
 });
 
 test("Amsterdam driving licence summary uses the current official source and actionable facts", () => {
@@ -62,11 +123,11 @@ test("curated source truth also drives metadata and Article JSON-LD", () => {
 });
 
 test("operational evidence stays off the user-first homepage", () => {
-  assert.match(systemEvidence, /publishedRecords:\s*182/);
-  assert.match(systemEvidence, /staticRoutes:\s*581/);
-  assert.match(systemEvidence, /indexableUrls:\s*571/);
-  assert.match(systemEvidence, /passingWebAdminAiTests:\s*129/);
-  assert.match(homepage, /<time dateTime=\{guide\.updatedAt\}>/);
-  assert.match(homepage, /Recently checked additions from the published content snapshot\./);
-  assert.doesNotMatch(homepage, /SystemEvidence|staticRoutes|passingWebAdminAiTests|Supabase|controlled release candidate/i);
+  assert.match(systemEvidence, /releaseEvidence\.metrics\.publishedRecords/);
+  assert.match(systemEvidence, /releaseEvidence\.metrics\.nationalGuides/);
+  assert.match(systemEvidence, /releaseEvidence\.metrics\.municipalityRoutes/);
+  assert.match(systemEvidence, /releaseEvidence\.metrics\.searchQualityChecks/);
+  assert.match(homepage, /<time dateTime=\{nationalVerifiedAt\}>/);
+  assert.match(homepage, /Three recently checked national additions\./);
+  assert.doesNotMatch(homepage, /SystemEvidence|municipalityRoutes|searchQualityChecks|Supabase|controlled release candidate/i);
 });

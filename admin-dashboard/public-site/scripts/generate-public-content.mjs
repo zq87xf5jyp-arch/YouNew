@@ -32,6 +32,16 @@ for (const guide of nationalGuideDataset.guides) {
   if (!Array.isArray(guide.officialSources) || guide.officialSources.length === 0 || guide.officialSources.some((source) => !source?.url?.startsWith("https://") || !source?.checkedAt)) {
     throw new Error(`National guide ${guide.id} must have checked HTTPS official sources.`);
   }
+  if (!Array.isArray(guide.usefulServices) || guide.usefulServices.length < 3 || guide.usefulServices.some((service) => (
+    !service?.title
+    || !service?.provider
+    || !service?.url?.startsWith("https://")
+    || !service?.purpose
+    || !["public", "non-profit", "directory", "support"].includes(service?.kind)
+    || !/^\d{4}-\d{2}-\d{2}$/.test(service?.checkedAt ?? "")
+  ))) {
+    throw new Error(`National guide ${guide.id} must have at least three complete, checked useful services.`);
+  }
 }
 if (!Array.isArray(lifeDomains) || lifeDomains.length === 0 || lifeDomains.some((domain) => !domain?.slug || !domain?.title || !Array.isArray(domain?.officialSources))) {
   throw new Error("The life-domain taxonomy is missing or invalid.");
@@ -761,46 +771,58 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     };
   });
 
-  const nationalGuideDocuments = nationalGuideDataset.guides.map((guide) => ({
-    id: guide.id,
-    type: "guide",
-    sourceKind: "nationalResourceGuide",
-    slug: guide.slug,
-    route: `/essentials/${guide.slug}`,
-    title: guide.title,
-    summary: guide.summary,
-    contentDepth: "practical",
-    keywords: [...guide.keywords, ...guide.subcategories],
-    city: null,
-    cityId: null,
-    province: null,
-    provinceId: null,
-    municipalityId: null,
-    locationScope: "national",
-    country: "NL",
-    categories: [guide.category],
-    intents: guide.intents,
-    languages: guide.languages,
-    nationalFallback: true,
-    qualityScore: guide.qualityScore,
-    verifiedAt: nationalGuideDataset.verifiedAt,
-    officialSourceUrls: guide.officialSources.map((source) => source.url),
-    relatedOrganizationIds: [],
-    narrowCategory: guide.subcategories[0] ?? guide.category,
-    organization: guide.officialSources.map((source) => source.publisher).join(", "),
-    audienceProfiles: guide.applicableProfiles,
-    numberedSteps: guide.sections.steps,
-    requiredDocuments: guide.sections.documents,
-    checklist: guide.sections.steps,
-    tips: [guide.sections.localDifferences],
-    faqAnswers: [guide.sections.cost, guide.sections.timing, ...guide.sections.problems],
-    whenYouNeedIt: [guide.sections.who],
-    tags: [...guide.subcategories, ...guide.relatedTopics],
-    synonyms: Object.values(guide.synonyms).flat(),
-    officialOrganizationNames: guide.officialSources.map((source) => source.publisher),
-    terminology: guide.subcategories,
-    commonQuestions: []
-  }));
+  const nationalGuideDocuments = nationalGuideDataset.guides.map((guide) => {
+    const usefulServices = guide.usefulServices ?? [];
+    const serviceNames = usefulServices.flatMap((service) => [service.provider, service.title]);
+    const serviceExplanations = usefulServices.flatMap((service) => [
+      service.purpose,
+      ...(service.caveat ? [service.caveat] : [])
+    ]);
+
+    return {
+      id: guide.id,
+      type: "guide",
+      sourceKind: "nationalResourceGuide",
+      slug: guide.slug,
+      route: `/essentials/${guide.slug}`,
+      title: guide.title,
+      summary: guide.summary,
+      contentDepth: "practical",
+      keywords: [...guide.keywords, ...guide.subcategories, ...serviceNames],
+      city: null,
+      cityId: null,
+      province: null,
+      provinceId: null,
+      municipalityId: null,
+      locationScope: "national",
+      country: "NL",
+      categories: [guide.category],
+      intents: guide.intents,
+      languages: guide.languages,
+      nationalFallback: true,
+      qualityScore: guide.qualityScore,
+      verifiedAt: nationalGuideDataset.verifiedAt,
+      officialSourceUrls: guide.officialSources.map((source) => source.url),
+      relatedOrganizationIds: [],
+      narrowCategory: guide.subcategories[0] ?? guide.category,
+      organization: [
+        ...guide.officialSources.map((source) => source.publisher),
+        ...usefulServices.map((service) => service.provider)
+      ].join(", "),
+      audienceProfiles: guide.applicableProfiles,
+      numberedSteps: guide.sections.steps,
+      requiredDocuments: guide.sections.documents,
+      checklist: guide.sections.steps,
+      tips: [guide.sections.localDifferences],
+      faqAnswers: [guide.sections.cost, guide.sections.timing, ...guide.sections.problems, ...serviceExplanations],
+      whenYouNeedIt: [guide.sections.who],
+      tags: [...guide.subcategories, ...guide.relatedTopics, ...usefulServices.map((service) => service.provider)],
+      synonyms: Object.values(guide.synonyms).flat(),
+      officialOrganizationNames: guide.officialSources.map((source) => source.publisher),
+      terminology: guide.subcategories,
+      commonQuestions: []
+    };
+  });
 
   const categoryDocuments = categories.map((category) => {
     const metadata = categorySearchMetadata[category.slug] ?? {};

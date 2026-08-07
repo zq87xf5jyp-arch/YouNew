@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-08-07",
+  "metrics": {
+    "publishedRecords": 205,
+    "localRecords": 181,
+    "nationalGuides": 24,
+    "municipalityRoutes": 342,
+    "searchQualityChecks": 5710
+  },
+  "searchQuality": {
+    "status": "PASS",
+    "searchIndexSha256": "8864a71050050c81ead4c22a25db81fb46c1b1386c07a4d2555b12e4c012e42a",
+    "failedChecks": 0
+  },
+  "releaseGates": {
+    "liveMonitoring": false,
+    "authenticatedAdminE2E": false,
+    "backupRestore": false
+  }
+}

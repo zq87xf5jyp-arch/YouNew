@@ -152,7 +152,11 @@ export const SEARCH_TAXONOMY: readonly SearchTaxonomyTopic[] = [
   {
     id: "benefits",
     title: "Benefits and allowances",
-    aliases: { en: ["benefit", "benefits", "allowance", "allowances", "toeslag"], nl: ["uitkering", "uitkeringen", "toeslag", "toeslagen"], ru: ["пособие", "пособия", "выплаты", "льготы"] },
+    aliases: {
+      en: ["benefit", "benefits", "allowance", "allowances", "toeslag", "healthcare benefit", "rent benefit", "childcare benefit", "supplementary child benefit"],
+      nl: ["uitkering", "uitkeringen", "toeslag", "toeslagen", "zorgtoeslag", "huurtoeslag", "kinderopvangtoeslag", "kindgebonden budget"],
+      ru: ["пособие", "пособия", "выплаты", "льготы", "пособие на страховку", "пособие на аренду", "пособие на детский сад", "детское пособие"]
+    },
     relatedIntents: ["housing", "finance", "healthcare"]
   },
   {
@@ -160,6 +164,16 @@ export const SEARCH_TAXONOMY: readonly SearchTaxonomyTopic[] = [
     title: "Starting a business",
     aliases: { en: ["business", "start a business", "company", "self employed", "freelance", "kvk"], nl: ["bedrijf", "ondernemen", "zzp", "zelfstandig", "kvk"], ru: ["бизнес", "открыть бизнес", "компания", "предприниматель", "фриланс"] },
     relatedIntents: ["work", "taxes", "finance"]
+  },
+  {
+    id: "immigration",
+    title: "Immigration and residence",
+    aliases: {
+      en: ["immigration", "visa", "mvv", "residence permit", "work visa", "study visa", "family reunification", "permanent residence", "citizenship"],
+      nl: ["immigratie", "visum", "mvv", "verblijfsvergunning", "werkvisum", "studievisum", "gezinshereniging", "permanent verblijf", "nationaliteit"],
+      ru: ["иммиграция", "виза", "mvv", "вид на жительство", "рабочая виза", "студенческая виза", "воссоединение семьи", "постоянный вид на жительство", "гражданство"]
+    },
+    relatedIntents: ["documents", "integration", "government", "legal-help"]
   },
   {
     id: "integration",
@@ -180,7 +194,7 @@ export const SEARCH_TAXONOMY: readonly SearchTaxonomyTopic[] = [
     ["safety", "Safety", ["safety", "police help"], ["veiligheid", "politiehulp"], ["безопасность", "помощь полиции"]],
     ["shopping", "Shopping", ["shopping", "supermarket", "shop"], ["winkelen", "supermarkt", "winkel"], ["покупки", "супермаркет", "магазин"]],
     ["daily-life", "Daily life", ["daily life", "living in the netherlands"], ["dagelijks leven", "leven in nederland"], ["повседневная жизнь", "жизнь в нидерландах"]],
-    ["pets", "Pets", ["pet", "pets", "dog", "cat"], ["huisdier", "huisdieren", "hond", "kat"], ["домашние животные", "собака", "кошка"]],
+    ["pets", "Pets", ["pet", "pets", "pet registration", "dog", "cat"], ["huisdier", "huisdieren", "huisdier registreren", "hond", "kat"], ["питомец", "питомца", "регистрация питомца", "домашние животные", "собака", "кошка"]],
     ["municipal-services", "Municipal services", ["municipal services", "local government"], ["gemeentelijke diensten", "lokale overheid"], ["муниципальные услуги", "местные органы власти"]],
     ["internet", "Internet", ["internet", "broadband", "wifi"], ["internet", "breedband", "wifi"], ["интернет", "вайфай"]],
     ["insurance", "Insurance", ["insurance", "insured"], ["verzekering", "verzekerd"], ["страхование", "страховка"]]

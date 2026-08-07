@@ -14,6 +14,18 @@ test("JSON-LD serialization cannot terminate the script element", () => {
   assert.match(serialized, /\\u0026/);
 });
 
+test("JSON-LD keeps the canonical origin without a rewrite-sensitive hostname literal", () => {
+  const value = {
+    url: "https://younew.nl/discover/",
+    email: "support@younew.nl"
+  };
+  const serialized = serializeJsonLd(value);
+
+  assert.doesNotMatch(serialized, /younew\.nl/);
+  assert.match(serialized, /younew\\u002enl/);
+  assert.deepEqual(JSON.parse(serialized), value);
+});
+
 test("primary navigation and homepage search keep descriptive accessible names", async () => {
   const [header, homepage] = await Promise.all([
     readFile(new URL("../src/components/site-header.tsx", import.meta.url), "utf8"),
@@ -21,10 +33,13 @@ test("primary navigation and homepage search keep descriptive accessible names",
   ]);
 
   assert.match(header, /\["Explore", "\/discover"\]/);
-  assert.match(header, /\["Housing", "\/categories\/housing"\]/);
-  assert.match(header, /\["Healthcare", "\/categories\/healthcare"\]/);
+  assert.match(header, /\["Housing", "\/tasks\/housing"\]/);
+  assert.match(header, /\["Healthcare", "\/tasks\/healthcare"\]/);
   assert.match(header, /\["Business", "\/business"\]/);
+  assert.match(header, /\["Search", "\/search"\]/);
+  assert.match(header, /\["About", "\/about"\]/);
   assert.doesNotMatch(header, /"App status"|"My YouNew"/);
   assert.match(homepage, /<label htmlFor="home-search">What do you need in the Netherlands\?<\/label>/);
   assert.match(homepage, /aria-label="Search YouNew"/);
+  assert.match(homepage, /href="\/naruto\/"/);
 });

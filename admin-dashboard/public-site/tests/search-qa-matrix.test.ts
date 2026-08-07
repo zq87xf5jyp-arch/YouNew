@@ -61,7 +61,10 @@ function assertUsefulResult(
 test("the saved search QA matrix covers every mandatory language and query group", () => {
   assert.equal(matrix.schemaVersion, 1);
   assert.deepEqual(matrix.requiredQueryGroups.map((group) => group.id), [
-    "housing", "work", "healthcare", "documents", "education", "telecom", "rules-and-fines"
+    "housing", "work", "healthcare", "documents", "education", "telecom", "rules-and-fines",
+    "banking", "family-and-childcare", "pets", "taxes", "benefits", "transport", "immigration",
+    "utilities-moving", "consumer-rights", "debt-legal-help", "mental-health", "dental-care",
+    "medicines", "pregnancy", "business-zzp"
   ]);
   for (const group of matrix.requiredQueryGroups) {
     assert.deepEqual(new Set(group.queries.map((query) => query.language)), new Set(["en", "nl", "ru"]), group.id);

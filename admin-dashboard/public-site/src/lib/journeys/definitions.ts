@@ -11,93 +11,140 @@ export interface PracticalJourneyDefinition {
 }
 
 /**
- * Journeys only reference records already present in the published canonical
- * artifact. Missing national topics are not substituted with draft content.
+ * Journeys reference only source-checked national guides in the published web
+ * dataset. A journey is a suggested reading order, not an eligibility decision
+ * or proof that an administrative process is complete.
  */
 export const practicalJourneys = [
   {
     id: "new-in-the-netherlands",
     title: "New in the Netherlands",
     audience: "New residents",
-    description: "A local reading path for first registration, housing and municipal basics.",
+    description: "Start with residence status and registration, then arrange the essentials for everyday life.",
     guideIds: [
-      "government_service.first-registration-in-amsterdam",
-      "housing.renting-a-home-in-amsterdam",
-      "government_service.municipal-taxes-amsterdam",
-      "government_service.moving-within-amsterdam"
+      "national.immigration",
+      "national.documents",
+      "national.housing",
+      "national.utilities-moving",
+      "national.healthcare",
+      "national.banking",
+      "national.transport"
     ],
-    coverageNote: "The currently published steps are Amsterdam-specific. National BSN and DigiD guides remain in editorial review."
+    coverageNote: "National starting point. Your municipality, residence status and personal circumstances can change the exact order and documents."
   },
   {
     id: "international-student",
     title: "International student",
     audience: "Students",
-    description: "Published housing starting points relevant to students looking in Amsterdam.",
+    description: "A national route through study, registration, housing, healthcare and daily payments.",
     guideIds: [
-      "housing.renting-a-home-in-amsterdam",
-      "housing.affordable-housing-amsterdam",
-      "housing.woningnet-stadsregio-amsterdam",
-      "housing.woon"
+      "national.education",
+      "national.immigration",
+      "national.documents",
+      "national.housing",
+      "national.utilities-moving",
+      "national.healthcare",
+      "national.mental-health",
+      "national.banking",
+      "national.transport"
     ],
-    coverageNote: "Study enrolment and student-housing procedures are not yet published as practical guides."
+    coverageNote: "Admission, visa and housing rules depend on the institution, nationality and length of stay. Confirm them with the responsible organisation."
   },
   {
     id: "starting-work",
     title: "Starting work",
     audience: "Workers and expats",
-    description: "A planned path for contracts, taxes, banking and employee essentials.",
-    guideIds: [],
-    coverageNote: "No governed work guide is in the production release yet, so YouNew does not show an unverified sequence."
+    description: "Review work rights, registration, pay, tax, insurance and benefits in a practical order.",
+    guideIds: [
+      "national.immigration",
+      "national.work",
+      "national.documents",
+      "national.banking",
+      "national.taxes",
+      "national.healthcare",
+      "national.benefits"
+    ],
+    coverageNote: "This is general employee guidance. Contract type, residence status and cross-border work can require a different route."
   },
   {
     id: "looking-for-housing",
     title: "Looking for housing",
     audience: "Renters",
-    description: "Published Amsterdam housing resources in a suggested reading order.",
+    description: "Prepare for a rental search, documents, costs, allowances and problems with a landlord.",
     guideIds: [
-      "housing.renting-a-home-in-amsterdam",
-      "housing.affordable-housing-amsterdam",
-      "housing.housing-permit-amsterdam",
-      "housing.woningnet-stadsregio-amsterdam",
-      "housing.woon"
+      "national.housing",
+      "national.documents",
+      "national.banking",
+      "national.benefits",
+      "national.utilities-moving",
+      "national.consumer-rights",
+      "national.debt-legal-help",
+      "national.rules-fines"
     ],
-    coverageNote: "These are verified source cards, not a national rental procedure. Requirements can differ by municipality."
+    coverageNote: "Permits, social-housing access and local registration vary by municipality. Never transfer money before checking the home, contract and counterparty."
   },
   {
     id: "healthcare-setup",
     title: "Healthcare setup",
     audience: "New residents",
-    description: "A planned path for a huisarts, insurance and urgent-care access.",
-    guideIds: [],
-    coverageNote: "Healthcare organizations are published, but no complete healthcare procedure has passed the guide release gate."
+    description: "Set up registration and insurance, then learn how routine and urgent care are organised.",
+    guideIds: [
+      "national.documents",
+      "national.healthcare",
+      "national.mental-health",
+      "national.dental-care",
+      "national.medicines",
+      "national.pregnancy",
+      "national.benefits"
+    ],
+    coverageNote: "This route is not medical advice. For urgent danger use the Emergency page; insurance duties and access can differ by situation."
   },
   {
     id: "refugee-essentials",
     title: "Refugee essentials",
     audience: "Refugees and support networks",
-    description: "Currently published municipal registration and housing source cards.",
+    description: "Find national starting points for status, registration, housing, healthcare, work and support.",
     guideIds: [
-      "government_service.first-registration-in-amsterdam",
-      "housing.renting-a-home-in-amsterdam",
-      "housing.woon"
+      "national.immigration",
+      "national.documents",
+      "national.healthcare",
+      "national.mental-health",
+      "national.housing",
+      "national.debt-legal-help",
+      "national.work",
+      "national.benefits",
+      "national.lgbtiq-support"
     ],
-    coverageNote: "This limited Amsterdam path is not asylum or legal advice. National refugee procedures remain under specialist review."
+    coverageNote: "This is not an asylum procedure or legal advice. Follow COA, IND, VluchtelingenWerk and municipal instructions for the specific case."
   },
   {
     id: "tourist-essentials",
     title: "Tourist essentials",
     audience: "Tourists",
-    description: "A planned path for transport, local orientation and urgent help.",
-    guideIds: [],
-    coverageNote: "Use Cities, Map and Emergency today; the ordered guide sequence has not been published."
+    description: "Prepare transport, connectivity and key Dutch rules before and during a short visit.",
+    guideIds: [
+      "national.transport",
+      "national.telecom",
+      "national.consumer-rights",
+      "national.rules-fines"
+    ],
+    coverageNote: "These guides are national orientation, not travel insurance or visa advice. Use the Emergency page for urgent help."
   },
   {
     id: "starting-a-business",
     title: "Starting a business",
     audience: "Entrepreneurs",
-    description: "A planned path for registration, tax and local business setup.",
-    guideIds: [],
-    coverageNote: "The business-registration practical guide is a draft until its composed instructions receive editorial approval."
+    description: "Check whether you may work, prepare the legal structure and KVK route, then arrange banking, tax and client basics.",
+    guideIds: [
+      "national.immigration",
+      "national.documents",
+      "national.business-zzp",
+      "national.banking",
+      "national.taxes",
+      "national.work",
+      "national.consumer-rights"
+    ],
+    coverageNote: "National preparation route. Residence status, legal structure, sector rules and municipality permits can change the exact procedure."
   }
 ] as const satisfies readonly PracticalJourneyDefinition[];
 

@@ -11,8 +11,10 @@ if [[ ! -f "$next_cli" ]]; then
 fi
 
 "$node_command" scripts/generate-public-content.mjs
+"$node_command" scripts/search-qa-matrix.mjs
+"$node_command" scripts/generate-release-evidence.mjs
 mkdir -p public/data
-cp src/config/status.json public/data/status.json
+cp src/generated/status.json public/data/status.json
 cp src/config/site-config.json public/data/site-config.json
 "$node_command" scripts/version-service-worker.mjs
 

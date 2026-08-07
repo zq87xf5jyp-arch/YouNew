@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "verifiedAt": "2026-08-05",
+  "verifiedAt": "2026-08-07",
   "guides": [
     {
       "id": "national.housing",
@@ -11,7 +11,7 @@
       "subcategories": ["private-rent", "social-housing", "temporary-housing", "contracts", "deposits", "tenant-rights", "rent-benefit", "housing-scams"],
       "intents": ["housing", "benefits", "legal-help"],
       "synonyms": {
-        "en": ["rent", "housing rent", "apartment", "room", "private rental", "social housing", "rental contract", "deposit", "tenant rights", "rent benefit", "housing scam"],
+        "en": ["rent", "housing rent", "apartment", "room", "private rental", "social housing", "student housing", "housing defects", "rental contract", "deposit", "tenant rights", "rent benefit", "housing scam"],
         "nl": ["huur", "huren", "woning", "kamer", "sociale huur", "huurcontract", "borg", "huurrecht", "huurtoeslag"],
         "ru": ["аренда", "жильё", "квартира", "комната", "социальное жильё", "договор аренды", "депозит", "права арендатора"]
       },
@@ -25,11 +25,12 @@
         "what": "Rental rules and routes differ for social, mid-price and private-sector housing. Start with the national rules, then check the municipality and the exact contract before acting.",
         "who": "Use this route if you are looking for a room or home, checking a tenancy agreement, dealing with maintenance or service costs, or checking whether an allowance may apply.",
         "steps": [
-          "Identify whether the offer is a room, self-contained home, social, mid-price or private-sector rental.",
-          "Read the complete tenancy agreement and verify the landlord or agent before transferring money.",
-          "Check whether registration at the address is possible and which municipality handles the address.",
-          "Use the national tenant guidance and Huurcommissie route for rent, maintenance or service-cost questions.",
-          "Check the municipality for local permits, housing teams and local support."
+          "Choose the correct route first: a room or self-contained home, social or private rental, student accommodation or temporary stay.",
+          "Search the municipality and registered housing-association routes alongside verified rental platforms; waiting lists, permits and eligibility differ locally.",
+          "Before paying, verify the landlord or agent, view the property, read the complete agreement and confirm that registration at the address is allowed.",
+          "Separate the basic rent from service costs, utilities, deposit and agency charges, and keep the advert, contract, inspection report and payment evidence.",
+          "Use the Huurcommissie Rent Check to estimate the maximum basic rent and identify the correct rent, maintenance or service-cost procedure.",
+          "Raise problems with the landlord in writing; if unresolved, check Huurcommissie, Juridisch Loket and the municipality's tenant-support or reporting route."
         ],
         "documents": ["The exact documents depend on the provider and your situation. Keep the proposed contract, written offer, payment evidence and relevant correspondence; verify any additional request with the responsible official source."],
         "cost": "YouNew does not reproduce changing rent limits, fees or allowance amounts. Check the dated official source before making a financial decision.",
@@ -38,10 +39,67 @@
         "mistakes": ["Treating every rental as governed by the same rules.", "Paying before verifying the home, provider and written terms.", "Assuming an address can be registered without checking."],
         "localDifferences": "Selecting a city keeps this national guidance visible and adds verified province, municipality and local results when they exist. It never invents local services."
       },
-      "relatedTopics": ["documents", "benefits", "legal-help", "utilities"],
+      "relatedTopics": ["student-housing", "documents", "benefits", "legal-help", "utilities"],
+      "usefulServices": [
+        {"title": "Check the maximum basic rent for a self-contained home", "provider": "Huurcommissie Rent Check", "url": "https://www.huurcommissie.nl/support/rent-check/rent-check-self-contained", "purpose": "Public calculation tool for the points score and maximum basic rent of a self-contained rental home.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Choose the shared-accommodation version instead when the kitchen, bathroom or toilet is shared."},
+        {"title": "Check which rent, maintenance or service-cost procedure applies", "provider": "Huurcommissie", "url": "https://www.huurcommissie.nl/huurders", "purpose": "Public route for tenants to identify whether the Rent Tribunal can handle a rent, maintenance or service-cost issue.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Not every private-sector dispute is within Huurcommissie jurisdiction; use the procedure check before applying."},
+        {"title": "Get first-line legal information about renting", "provider": "Juridisch Loket", "url": "https://www.juridischloket.nl/wonen-en-buren/huurwoning/", "purpose": "Independent first-line information about tenancy agreements, deposits, defects, service costs and ending a tenancy.", "kind": "support", "checkedAt": "2026-08-07", "caveat": "Personal help and eligibility can depend on income and the type of legal problem."}
+      ],
       "officialSources": [
         {"title": "Rented housing", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/building-and-housing/housing/rented-housing", "checkedAt": "2026-08-05"},
-        {"title": "English information", "publisher": "Huurcommissie", "url": "https://www.huurcommissie.nl/huurcommissie-helpt/english-information", "checkedAt": "2026-08-05"}
+        {"title": "Rent Check self-contained accommodations", "publisher": "Huurcommissie", "url": "https://www.huurcommissie.nl/support/rent-check/rent-check-self-contained", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.student-housing",
+      "slug": "student-housing",
+      "title": "Student housing in the Netherlands",
+      "summary": "A practical route for finding a student room, checking providers and contracts, avoiding scams, registering an address and resolving rent problems.",
+      "category": "housing",
+      "subcategories": ["student-housing", "rooms", "university-housing", "housing-corporations", "campus-contracts", "registration", "rent-check", "housing-scams"],
+      "intents": ["housing", "study", "legal-help"],
+      "synonyms": {
+        "en": ["student housing", "student room", "room for student", "international student housing", "university housing", "campus housing", "ROOM.nl", "Roommatch", "DUWO", "SSH", "student accommodation"],
+        "nl": ["studentenhuisvesting", "studentenkamer", "kamer zoeken", "op kamers", "universiteit huisvesting", "campuscontract", "ROOM.nl", "DUWO", "SSH"],
+        "ru": ["жильё для студентов", "студенческое жильё", "комната студенту", "общежитие", "жильё университета", "аренда комнаты", "ROOM.nl", "DUWO", "SSH"]
+      },
+      "keywords": ["student room", "housing shortage", "education institution housing office", "shared accommodation", "proof of enrolment", "rent contract", "address registration"],
+      "languages": ["en"],
+      "applicableProfiles": ["student"],
+      "scope": "national",
+      "nationalFallback": true,
+      "qualityScore": 90,
+      "sections": {
+        "what": "Student rooms are scarce and are offered through education institutions, non-profit housing providers and private platforms. Start early, use more than one route, and verify the room, provider, contract, total costs and address registration before paying.",
+        "who": "Use this route if you are applying to or enrolled at MBO, HBO or university, including exchange students, international students, PhD candidates and students moving between Dutch cities.",
+        "steps": [
+          "Ask your education institution's housing office first whether it reserves rooms, has a waiting list or uses a specific provider for international students.",
+          "Register early with the student-housing providers that serve your study city; check each city's eligibility, allocation and waiting-time rules before paying a registration fee.",
+          "Search the provider's current rental-offer site and your institution's channels, and use private platforms only as an additional discovery route rather than proof that a listing is safe.",
+          "Before paying, view the room in person or by a live video tour, verify the provider or landlord, confirm that registration at the address is allowed, and read the complete tenancy agreement.",
+          "Check the basic rent, service costs, deposit, utilities, furniture and contract duration in writing; use the Huurcommissie Rent Check for a room or other shared accommodation when applicable.",
+          "After moving, register the new address with the municipality and keep the signed contract, inspection photos, payment records and correspondence."
+        ],
+        "documents": ["Providers set their own requirements. Common evidence can include valid identification, proof of enrolment or admission, residence documents where relevant, income or guarantor evidence, and the signed offer or tenancy agreement. Use the exact provider checklist."],
+        "cost": "Rent, service costs, deposits, utilities, furniture and registration fees differ by provider and city. YouNew does not copy changing prices; compare the full monthly and one-off costs on the dated provider page and contract.",
+        "timing": "The Netherlands has a severe student-housing shortage. Start as soon as study plans are likely, because some routes depend on registration time while others use institution allocation, lottery, matching or first-come-first-served rules.",
+        "problems": ["Ask the education institution's housing officer if its reserved housing or partner process is unclear.", "For rent, maintenance or service-cost issues, first write to the provider and then check the Huurcommissie route and the municipality's Good Landlordship reporting point.", "If a listing, payment request or identity appears suspicious, stop the transfer, preserve evidence and use the appropriate fraud-reporting or police route."],
+        "mistakes": ["Waiting until arrival before starting the search.", "Assuming ROOM registration itself contains all rental offers or guarantees a room.", "Paying before seeing the room and verifying the provider, address and written contract.", "Ignoring whether BRP registration at the address is allowed.", "Treating a platform listing as verified by YouNew, the education institution or the government."],
+        "localDifferences": "Providers, eligibility, allocation rules, permits and reporting points differ by city. Use the city page on the provider website and the municipality for the exact address; national tenant rights remain visible."
+      },
+      "relatedTopics": ["housing", "education", "documents", "utilities", "legal-help"],
+      "usefulServices": [
+        {"title": "Register once, then check the connected providers for rental offers", "provider": "ROOM", "url": "https://www.room.nl/en/how-it-works", "purpose": "National registration platform created by social student-housing providers, with city-specific rules and provider links.", "kind": "non-profit", "checkedAt": "2026-08-06", "caveat": "ROOM is primarily the registration platform; current offers appear on connected provider websites, and registration does not guarantee a room."},
+        {"title": "Search current student-room offers", "provider": "Roommatch", "url": "https://www.roommatch.nl/en/", "purpose": "Non-profit rental-offer platform for several housing associations in participating student cities.", "kind": "non-profit", "checkedAt": "2026-08-06", "caveat": "A ROOM account is required and eligibility differs by city and provider."},
+        {"title": "Student rooms and university housing", "provider": "DUWO", "url": "https://www.duwo.nl/en/i-search/student-room/are-you-searching-for-a-room", "purpose": "Student-housing provider serving Amsterdam, Delft, The Hague, Leiden, Wageningen and other listed regions.", "kind": "non-profit", "checkedAt": "2026-08-06", "caveat": "International university housing may require approval or referral from the education institution."},
+        {"title": "Long-stay and short-stay student housing", "provider": "SSH", "url": "https://www.sshxl.nl/en/inschrijven", "purpose": "Student-housing provider with routes for Utrecht, Rotterdam, Zwolle, Tilburg and limited groups in Groningen.", "kind": "non-profit", "checkedAt": "2026-08-06", "caveat": "Cities, target groups, registration time and allocation methods differ between long stay and short stay."},
+        {"title": "Calculate the maximum basic rent for a room", "provider": "Huurcommissie Rent Check", "url": "https://www.huurcommissie.nl/support/rent-check/rent-check-shared", "purpose": "Public rent tool for rooms and other accommodation with shared kitchen, bathroom or toilet facilities.", "kind": "public", "checkedAt": "2026-08-06"}
+      ],
+      "officialSources": [
+        {"title": "Op kamers: wat moet ik regelen?", "publisher": "Government of the Netherlands", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/op-kamers-wat-moet-ik-regelen", "checkedAt": "2026-08-06"},
+        {"title": "Waar moet ik op letten als ik een kamer ga huren?", "publisher": "Government of the Netherlands", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/waar-moet-ik-op-letten-als-ik-een-kamer-ga-huren", "checkedAt": "2026-08-06"},
+        {"title": "Rent Check shared accommodations", "publisher": "Huurcommissie", "url": "https://www.huurcommissie.nl/support/rent-check/rent-check-shared", "checkedAt": "2026-08-06"},
+        {"title": "Finding a place to live", "publisher": "Study in NL by Nuffic", "url": "https://www.studyinnl.org/life-in-nl/finding-a-place-to-live", "checkedAt": "2026-08-06"}
       ]
     },
     {
@@ -60,20 +118,31 @@
       "nationalFallback": true,
       "qualityScore": 91,
       "sections": {
-        "what": "Dutch employment rules cover contracts, pay, working time, leave, illness, working conditions and ending employment. The applicable route depends on your contract and status.",
-        "who": "Use this route when looking for a job, reviewing an offer or contract, checking pay or leave, reporting unsafe work, or dealing with unemployment or dismissal.",
-        "steps": ["Identify whether the role is direct employment, agency work, self-employment or another contract form.", "Keep the written offer and contract and check the employer, hours, pay components and applicable collective agreement.", "Use official Government.nl guidance for employment rules and Werk.nl or UWV for the relevant work or unemployment service.", "Use an official labour or legal-help route when terms are unclear or a problem cannot be resolved."],
-        "documents": ["Requirements depend on the employer and legal route. Keep the contract, payslips, work schedule and relevant correspondence; verify identity or residence-document requests with the responsible authority."],
+        "what": "Use public job services, specialist vacancy sites, employer career pages, reputable agencies and your professional network together. Before accepting work, check your right to work, the employer, contract form, hours, pay and any link between the job and accommodation.",
+        "who": "Use this route when looking for a job, student job, temporary or agency work, research role or direct employment, and when checking an offer, contract, pay, working conditions, unemployment or dismissal.",
+        "steps": ["Check whether your nationality and residence status allow the work and whether the employer must arrange a permit; use the official route before starting.", "Choose target roles, locations, hours and working languages, then prepare a clear CV and a reusable application that you adapt to each vacancy.", "Search Werk.nl and EURES, then add direct employer career pages, sector-specific sites such as AcademicTransfer, reputable agencies and professional networks.", "Check who the legal employer is, verify the company or agency, and never pay a recruiter or employer to obtain a normal job offer.", "Before accepting, get the offer and contract in writing and check hours, gross pay, holiday allowance, probation, notice, applicable CAO and any deductions for transport, insurance or housing.", "Keep applications, the signed contract, schedules, payslips and messages; use Work in NL, FairWork, legal help or the Labour Authority if the terms or treatment are unfair or unsafe."],
+        "documents": ["Application requirements depend on the role. Employers commonly request a CV and sometimes a motivation letter, certificates, references or portfolio. Only provide identity, residence or bank details when the employer and purpose have been verified; keep the contract, payslips, schedules and correspondence."],
         "cost": "YouNew does not reproduce changing salary thresholds, benefit amounts or service fees. Use the current official calculation or decision.",
         "timing": "Application, notice and objection periods depend on the specific process. Check the official page or decision immediately rather than relying on a generic deadline.",
-        "problems": ["For unemployment or work-service questions, use UWV or Werk.nl.", "For unsafe or unfair working conditions, use the official labour-inspection or legal-help route appropriate to the issue."],
-        "mistakes": ["Starting without understanding the contract form.", "Relying on verbal promises that are absent from the written terms.", "Using an outdated wage or notice-period figure."],
+        "problems": ["For job-search or unemployment services, use UWV or Werk.nl and check which service applies to your situation.", "For questions about a contract, wages, housing linked to work or living in the Netherlands, use a free Work in NL information point.", "For suspected exploitation of a migrant worker, contact FairWork; for unfair, unsafe or unhealthy work or labour exploitation, use the Netherlands Labour Authority reporting route."],
+        "mistakes": ["Applying only through one broad commercial vacancy site and missing public, direct-employer or sector channels.", "Starting without confirming the right to work and the contract form.", "Paying a recruiter or sending identity and bank details before verifying the employer and vacancy.", "Accepting linked job and housing terms without checking each cost, deduction and exit consequence in writing.", "Relying on verbal promises or an outdated wage, permit or notice-period figure."],
         "localDifferences": "Most employment rules are national. City selection adds verified local job services when available but cannot hide this national route."
       },
       "relatedTopics": ["documents", "taxes", "business", "legal-help"],
+      "usefulServices": [
+        {"title": "Search vacancies and use public employment services", "provider": "Werk.nl / UWV", "url": "https://www.werk.nl/werkzoekenden/", "purpose": "Dutch public route for vacancies, job-search support and relevant UWV services.", "kind": "public", "checkedAt": "2026-08-06", "caveat": "Some personalised services may require DigiD or depend on your situation."},
+        {"title": "Find jobs in the Netherlands and across Europe", "provider": "EURES", "url": "https://europa.eu/eures/portal/jv-se/home?lang=en", "purpose": "EU public employment network with vacancies, advisers and living-and-working information.", "kind": "public", "checkedAt": "2026-08-06", "caveat": "Finding a vacancy does not replace Dutch work or residence-permit requirements for non-EU nationals."},
+        {"title": "Research, university and knowledge-sector jobs", "provider": "AcademicTransfer", "url": "https://www.academictransfer.com/en/jobs/?set_language=en", "purpose": "Job platform run by a non-profit cooperative of Dutch universities, university medical centres and research institutes.", "kind": "non-profit", "checkedAt": "2026-08-06", "caveat": "Check the final vacancy and application route on the named employer's website."},
+        {"title": "Find or verify an employment-agency branch", "provider": "ABU member directory", "url": "https://www.abu.nl/over-abu/vestigingen-abu-leden/", "purpose": "Directory of branches belonging to the Dutch employment-agency association ABU.", "kind": "directory", "checkedAt": "2026-08-06", "caveat": "Membership is an additional verification signal, not a guarantee of a specific vacancy or outcome."},
+        {"title": "Free advice about work and life in the Netherlands", "provider": "Work in NL information points", "url": "https://workinnl.nl/en/information-points/default.aspx", "purpose": "Local information points for questions about contracts, wages, housing, healthcare, taxes and learning Dutch.", "kind": "public", "checkedAt": "2026-08-06"},
+        {"title": "Help for migrant workers experiencing exploitation", "provider": "FairWork", "url": "https://www.fairwork.nu/en/homepage/", "purpose": "Independent support, rights information and referral for migrant workers with unfair or exploitative working conditions.", "kind": "support", "checkedAt": "2026-08-06", "caveat": "FairWork is a support organisation, not a vacancy or recruitment service."}
+      ],
       "officialSources": [
-        {"title": "Work", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/work", "checkedAt": "2026-08-05"},
-        {"title": "Werk.nl for jobseekers", "publisher": "UWV", "url": "https://www.werk.nl/werkzoekenden/", "checkedAt": "2026-08-05"}
+        {"title": "Work", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/work", "checkedAt": "2026-08-06"},
+        {"title": "Werk.nl for jobseekers", "publisher": "UWV", "url": "https://www.werk.nl/werkzoekenden/", "checkedAt": "2026-08-06"},
+        {"title": "Work permit", "publisher": "Work in NL", "url": "https://workinnl.nl/en/contract-en/permit/default.aspx", "checkedAt": "2026-08-06"},
+        {"title": "Living and working conditions: Netherlands", "publisher": "EURES", "url": "https://eures.europa.eu/living-and-working/living-and-working-conditions-europe/living-and-working-conditions-netherlands_en", "checkedAt": "2026-08-06"},
+        {"title": "Report unfair, unsafe or unhealthy work", "publisher": "Netherlands Labour Authority", "url": "https://www.nllabourauthority.nl/topics/report", "checkedAt": "2026-08-06"}
       ]
     },
     {
@@ -84,7 +153,7 @@
       "category": "documents",
       "subcategories": ["bsn", "brp", "digid", "municipality-registration", "address-change", "residence-documents"],
       "intents": ["documents", "government", "integration"],
-      "synonyms": {"en": ["BSN", "DigiD", "registration", "BRP", "residence permit", "residence card", "lost residence card", "residence permit stolen", "change address"], "nl": ["burgerservicenummer", "DigiD", "inschrijving", "BRP", "verblijfsvergunning", "verblijfsdocument", "verblijfsdocument kwijt", "verhuizing"], "ru": ["BSN", "DigiD", "регистрация", "ВНЖ", "вид на жительство", "потерял вид на жительство", "смена адреса", "муниципалитет"]},
+      "synonyms": {"en": ["BSN", "DigiD", "registration", "register gemeente", "municipality registration", "moving registration", "BRP", "residence permit", "residence card", "lost residence card", "residence permit stolen", "change address"], "nl": ["burgerservicenummer", "DigiD", "inschrijving", "inschrijven gemeente", "gemeente registratie", "BRP", "verblijfsvergunning", "verblijfsdocument", "verblijfsdocument kwijt", "verhuizing"], "ru": ["BSN", "DigiD", "регистрация", "регистрация в муниципалитете", "ВНЖ", "вид на жительство", "потерял вид на жительство", "смена адреса", "муниципалитет"]},
       "keywords": ["citizen service number", "personal records database", "municipality appointment", "IND"],
       "languages": ["en"],
       "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
@@ -94,7 +163,7 @@
       "sections": {
         "what": "BSN, BRP registration, DigiD and residence documents are related but different. Municipalities handle local registration routes, DigiD is the government login service, and IND handles residence applications and documents.",
         "who": "Use this route when you need a BSN, need to register or change an address, need DigiD, or need the correct IND residence-document route.",
-        "steps": ["Choose the exact task: BSN, municipality registration, DigiD, address change or an IND residence matter.", "For registration, open the official municipality page for the address and check its current appointment and document list.", "Use the official DigiD site for application, activation and recovery.", "Use IND for residence-permit and residence-document procedures.", "Do not send identity documents through an unofficial form or contact route."],
+        "steps": ["Choose the exact task: BSN, municipality registration, DigiD, address change or an IND residence matter.", "For BRP registration or an address change, open the official page of the municipality responsible for the address and check its current appointment and document list.", "Apply for, activate or recover DigiD only through the official DigiD service; never share its password, PIN or verification code.", "Use MijnOverheid to inspect registered personal data and the Berichtenbox, while continuing to check physical post and messages from the responsible authority.", "Use IND and My IND for residence-permit requirements, applications and status; the applicable route depends on nationality, sponsor and purpose of residence.", "Keep appointment confirmations, submission receipts and copies of documents, and send identity documents only through the authority's stated secure route."],
         "documents": ["The required documents depend on the task and personal situation. Use the official municipality, DigiD or IND checklist for the exact application."],
         "cost": "Fees depend on the procedure and can change. Use the current official page or formal decision.",
         "timing": "Appointment availability and decision periods differ. The responsible municipality, DigiD or IND page is authoritative for current timing.",
@@ -103,6 +172,12 @@
         "localDifferences": "Municipal registration and appointments are local. The national explanation and official national services remain available for every selected city."
       },
       "relatedTopics": ["government", "integration", "work", "housing"],
+      "usefulServices": [
+        {"title": "Check how to obtain or find a citizen service number", "provider": "NetherlandsWorldwide", "url": "https://www.netherlandsworldwide.nl/bsn", "purpose": "Official explanation of BSN routes for residents and people living outside the Netherlands.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Municipal registration and appointment requirements remain local."},
+        {"title": "Apply for and activate your government login", "provider": "DigiD", "url": "https://www.digid.nl/en/apply-and-activate", "purpose": "Official service for applying for, activating and recovering the personal Dutch government login.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "DigiD is personal; never give another person your password, PIN or verification code."},
+        {"title": "Read government messages and check registered personal data", "provider": "MijnOverheid", "url": "https://mijn.overheid.nl/about-mijnoverheid/", "purpose": "Official personal portal containing the Berichtenbox, registered data and links to participating government organisations.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Not every authority or message is available only through MijnOverheid; continue checking physical post and the responsible authority."},
+        {"title": "Choose the correct residence-permit procedure", "provider": "Immigration and Naturalisation Service", "url": "https://ind.nl/en/residence-permits", "purpose": "Official IND directory for residence purposes, requirements, application routes and residence documents.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
       "officialSources": [
         {"title": "Citizen service number (BSN)", "publisher": "NetherlandsWorldwide", "url": "https://www.netherlandsworldwide.nl/bsn", "checkedAt": "2026-08-05"},
         {"title": "Apply and activate DigiD", "publisher": "DigiD", "url": "https://www.digid.nl/en/apply-and-activate", "checkedAt": "2026-08-05"},
@@ -117,7 +192,7 @@
       "category": "healthcare",
       "subcategories": ["huisarts", "hospital", "huisartsenpost", "pharmacy", "dentist", "specialist", "mental-health", "health-insurance", "emergency-care"],
       "intents": ["healthcare", "insurance", "emergency"],
-      "synonyms": {"en": ["doctor", "GP", "hospital", "dentist", "pharmacy", "health insurance", "mental health"], "nl": ["huisarts", "huisartsenpost", "ziekenhuis", "tandarts", "apotheek", "zorgverzekering", "geestelijke gezondheidszorg"], "ru": ["врач", "терапевт", "больница", "стоматолог", "аптека", "медицинская страховка"]},
+      "synonyms": {"en": ["doctor", "GP", "find a GP", "register with a huisarts", "register with a huisarts GP", "hospital", "dentist", "pharmacy", "health insurance", "mental health"], "nl": ["huisarts", "huisarts inschrijven", "huisartsenpost", "ziekenhuis", "tandarts", "apotheek", "zorgverzekering", "geestelijke gezondheidszorg"], "ru": ["врач", "терапевт", "зарегистрироваться у врача", "больница", "стоматолог", "аптека", "медицинская страховка"]},
       "keywords": ["general practitioner", "urgent care", "specialist referral", "prescription medicine"],
       "languages": ["en"],
       "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
@@ -127,7 +202,7 @@
       "sections": {
         "what": "Dutch healthcare uses different routes for routine primary care, urgent care, hospital care and emergencies. Insurance questions are separate from finding the right care route.",
         "who": "Use this route to find a huisarts, understand which care route to use, locate a hospital or pharmacy, or check official health-insurance information.",
-        "steps": ["For immediate life-threatening danger, use the emergency route and call 112.", "For non-emergency care, identify whether you need routine huisarts care, urgent out-of-hours care, dental care, a pharmacy or another service.", "Use the official health-insurance guidance for coverage obligations and choices.", "Use verified local results or the municipality and insurer directories; call the provider to confirm availability."],
+        "steps": ["Classify the need first: life-threatening emergency, urgent out-of-hours problem, routine huisarts care, dental care, pharmacy or specialist follow-up.", "Call 112 only for immediate life-threatening danger; for urgent problems that cannot wait until the GP opens, contact the regional huisartsenpost before attending.", "Search a national provider directory or your insurer's directory for a huisarts, then call practices directly because a listing does not confirm new-patient capacity.", "Register with an available huisarts and use Thuisarts for evidence-based general information about symptoms, self-care and when to seek help.", "Check whether Dutch basic health insurance is required for your situation and complete the insurer's policy before assuming care is covered.", "Keep referral, invoice and insurer correspondence; for independent insurance-system help use Zorgverzekeringslijn."],
         "documents": ["A provider or insurer may require identification, insurance details or a referral depending on the service. Confirm the exact requirement with that provider."],
         "cost": "Coverage and personal costs depend on the service and policy. Verify them with the insurer and provider before non-emergency treatment when possible.",
         "timing": "Availability varies by provider and urgency. Do not delay emergency care while checking a directory.",
@@ -136,6 +211,12 @@
         "localDifferences": "Provider availability is local and changes. YouNew shows only verified local entries and keeps national healthcare guidance visible."
       },
       "relatedTopics": ["insurance", "emergency", "documents", "family"],
+      "usefulServices": [
+        {"title": "Search huisarts practices and other healthcare providers", "provider": "ZorgkaartNederland", "url": "https://www.zorgkaartnederland.nl/huisarts", "purpose": "National provider directory from Patiëntenfederatie Nederland with practice details, locations and patient reviews.", "kind": "directory", "checkedAt": "2026-08-07", "caveat": "A directory listing or review does not confirm that a practice accepts new patients; contact the practice directly."},
+        {"title": "Read evidence-based information about symptoms and care routes", "provider": "Thuisarts", "url": "https://www.thuisarts.nl/", "purpose": "Medical information developed by Dutch general practitioners about symptoms, self-care, appointments and urgent situations.", "kind": "non-profit", "checkedAt": "2026-08-07", "caveat": "General information does not replace an individual assessment by a healthcare professional."},
+        {"title": "Get independent help with Dutch health-insurance questions", "provider": "Zorgverzekeringslijn", "url": "https://www.zorgverzekeringslijn.nl/english/", "purpose": "Independent information and contact route about insurance obligations, premiums, arrears and access to the Dutch system.", "kind": "support", "checkedAt": "2026-08-07"},
+        {"title": "Check the official health-insurance rules", "provider": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/health-insurance", "purpose": "Government starting point for standard insurance, coverage rules and related official questions.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
       "officialSources": [
         {"title": "Health insurance", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/health-insurance", "checkedAt": "2026-08-05"},
         {"title": "Thuisarts", "publisher": "Dutch College of General Practitioners", "url": "https://www.thuisarts.nl/", "checkedAt": "2026-08-05"}
@@ -159,7 +240,7 @@
       "sections": {
         "what": "Education routes include school, MBO, HBO, university, adult learning and Dutch-language learning. Admission, fees and finance depend on the programme and personal situation.",
         "who": "Use this route when choosing an education level, looking for Dutch lessons, checking DUO services, or finding the responsible route for a diploma.",
-        "steps": ["Choose the goal: compulsory school, vocational or higher education, adult learning, Dutch language or diploma recognition.", "Use the official education overview and the institution's own admission information.", "Use DUO for the relevant registration, finance, exam or diploma service.", "For local Dutch practice and Taalhuis activities, check the municipality or public library and verify the current programme."],
+        "steps": ["Choose the route: primary or secondary school, MBO, higher education, adult learning, Dutch language, civic integration or diploma recognition.", "For a child, use the municipality and Schools on the Map to compare nearby schools, then ask each school about admission, capacity and newcomer support.", "For higher education, use Study in NL and the institution's own programme page to verify entry requirements, tuition, language evidence and deadlines.", "Use Studielink when the institution instructs you to do so, and complete any separate institution portal or selection procedure as well.", "Use DUO for applicable student finance, exams, diplomas and education administration; eligibility depends on personal circumstances.", "For local Dutch practice, ask the library or Taalhuis; if civic integration is mandatory, follow the official inburgering route instead of treating a language activity as a substitute."],
         "documents": ["Admission and finance documents depend on the institution, level, nationality and situation. Use the exact institution and DUO checklist."],
         "cost": "Course fees, tuition and finance amounts change. YouNew links to the authoritative provider instead of storing an amount.",
         "timing": "Application and enrolment periods differ by programme. Check them before relying on a general academic calendar.",
@@ -168,6 +249,12 @@
         "localDifferences": "Schools, courses, libraries and Taalhuis activities are local. National education and DUO guidance remains visible for every city."
       },
       "relatedTopics": ["integration", "documents", "work", "finance"],
+      "usefulServices": [
+        {"title": "Find English-taught programmes and application guidance", "provider": "Study in NL by Nuffic", "url": "https://www.studyinnl.org/", "purpose": "Government-funded non-profit starting point for international students, programme search, admission guidance and practical preparation.", "kind": "non-profit", "checkedAt": "2026-08-07", "caveat": "The education institution's programme page remains authoritative for its admission requirements and deadline."},
+        {"title": "Apply to participating Dutch higher-education programmes", "provider": "Studielink", "url": "https://www.studielink.nl/", "purpose": "Official registration and application portal used by many Dutch higher-education institutions.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Check the institution first because some applicants or programmes must use an additional or different process."},
+        {"title": "Check student finance and education administration", "provider": "DUO", "url": "https://duo.nl/particulier/student-finance/", "purpose": "Official route for student-finance information, eligibility and related education administration.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Eligibility differs by nationality, age, residence, study and work situation; do not rely on another student's outcome."},
+        {"title": "Ask for local help learning Dutch and basic skills", "provider": "Taalhuis", "url": "https://www.lezenenschrijven.nl/taalhuis", "purpose": "Local intake and referral network, often based in a library or community centre, for Dutch language and other basic skills.", "kind": "support", "checkedAt": "2026-08-07", "caveat": "Local providers, costs, levels and waiting times differ; this route does not replace a mandatory civic-integration requirement."}
+      ],
       "officialSources": [
         {"title": "Education", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/education", "checkedAt": "2026-08-05"},
         {"title": "Student finance", "publisher": "DUO", "url": "https://duo.nl/particulier/student-finance/", "checkedAt": "2026-08-05"}
@@ -200,6 +287,11 @@
         "localDifferences": "Coverage and fixed-network availability depend on the exact address. YouNew does not request or store a precise address."
       },
       "relatedTopics": ["internet", "daily-life", "shopping"],
+      "usefulServices": [
+        {"title": "Check consumer rules for phone, internet and television", "provider": "ACM ConsuWijzer", "url": "https://consument.acm.nl/telefoon-internet-en-televisie", "purpose": "Public consumer-information hub for telecom contracts, service problems, switching and complaints.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Check when and how a telecom contract can be cancelled", "provider": "ACM ConsuWijzer", "url": "https://consument.acm.nl/telefoon-internet-en-televisie/abonnementen/wanneer-abonnement-opzeggen", "purpose": "Official consumer guidance on fixed terms, renewal, notice periods, moving and cancellation evidence.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Keep a mobile or fixed telephone number when switching", "provider": "ACM ConsuWijzer", "url": "https://consument.acm.nl/vergelijken-en-overstappen/telecom/telefoonnummer-meenemen", "purpose": "Official explanation of number portability, timing, costs and what to do if the transfer fails.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
       "officialSources": [
         {"title": "Telephone, internet and television", "publisher": "ACM ConsuWijzer", "url": "https://consument.acm.nl/telefoon-internet-en-televisie", "checkedAt": "2026-08-05"}
       ]
@@ -231,8 +323,645 @@
         "localDifferences": "Parking, waste, noise and pet rules can be municipal. City selection adds the verified municipality site and never removes national CJIB or traffic guidance."
       },
       "relatedTopics": ["transport", "government", "legal-help", "pets"],
+      "usefulServices": [
+        {"title": "Understand a Dutch fine and choose the correct route", "provider": "CJIB", "url": "https://www.cjib.nl/en", "purpose": "Official international starting point for Dutch fines, letters, payments and the meaning of CJIB letter codes.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Pay a fine using the details on the CJIB letter", "provider": "CJIB", "url": "https://www.cjib.nl/en/id-pay-my-fine", "purpose": "Official payment instructions, including the payment reference and routes for international bank transfers.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Use the amount, deadline, IBAN and reference on the actual letter; do not pay from an unsolicited message."},
+        {"title": "Check how to challenge the type of fine you received", "provider": "CJIB", "url": "https://www.cjib.nl/ik-ben-het-niet-eens-met-mijn-boete", "purpose": "Official route explaining that objection or appeal steps depend on the letter code and type of decision.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Deadlines can be short and are stated in the decision; open the route immediately."}
+      ],
       "officialSources": [
         {"title": "CJIB English", "publisher": "Central Judicial Collection Agency", "url": "https://www.cjib.nl/en", "checkedAt": "2026-08-05"}
+      ]
+    },
+    {
+      "id": "national.lgbtiq-support",
+      "slug": "lgbtiq-support-and-discrimination-help",
+      "title": "LGBTIQ+ support and discrimination help",
+      "summary": "A safe national starting point for LGBTIQ+ community support, discrimination advice, reporting an incident and urgent danger in the Netherlands.",
+      "category": "legal-help",
+      "subcategories": ["lgbtiq-support", "community-support", "discrimination", "equal-treatment", "safety", "reporting"],
+      "intents": ["legal-help", "safety", "healthcare", "integration"],
+      "synonyms": {
+        "en": ["LGBTQ support", "LGBTQ+ support", "LGBTIQ support", "queer support", "gay support", "lesbian support", "bisexual support", "trans support", "non-binary support", "homophobia", "transphobia", "report discrimination"],
+        "nl": ["LHBTI hulp", "LHBTIQ steun", "queer hulp", "homofobie", "transfobie", "discriminatie melden", "seksuele gerichtheid", "genderidentiteit"],
+        "ru": ["ЛГБТ поддержка", "ЛГБТК поддержка", "квир поддержка", "гомофобия", "трансфобия", "сообщить о дискриминации", "дискриминация по ориентации"]
+      },
+      "keywords": ["COC Nederland", "Switchboard", "Discriminatie.nl", "sexual orientation", "gender identity", "gender expression", "equal treatment", "LGBTIQ+ safety"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national",
+      "nationalFallback": true,
+      "qualityScore": 93,
+      "sections": {
+        "what": "Different routes apply to community support, discrimination advice, a formal report and immediate danger. YouNew keeps those routes separate and links to the responsible national service.",
+        "who": "Use this route if you want a confidential LGBTIQ+ support contact, have experienced discrimination or intimidation, want to understand reporting options, or need a safer next step.",
+        "steps": [
+          "If there is immediate danger or violence is happening now, call 112. Do not wait for an online directory or form.",
+          "For a confidential conversation about sexual orientation or gender identity, open the current COC Switchboard contact options.",
+          "For discrimination advice or a report, use Discriminatie.nl and choose whether you want follow-up contact or an anonymous report.",
+          "For legal context and other complaint routes, read the current Government.nl guidance on reporting discrimination.",
+          "For community activities or a local contact, use COC Nederland's regional network and confirm the current details with the organization."
+        ],
+        "documents": ["Support conversations generally do not require a YouNew account. For a report, keep relevant dates, messages, screenshots or other evidence, but follow the chosen service's current form and privacy guidance."],
+        "cost": "YouNew does not charge for this guidance. Check the responsible service for its current contact conditions; never pay an unverified intermediary to file a discrimination report.",
+        "timing": "Response times and opening hours can change. Open the responsible source for current availability; use 112 immediately when there is urgent danger.",
+        "problems": ["If one support channel is closed, use the provider's listed alternative contact method or another responsible source on this page.", "If an incident may be criminal or there is a continuing safety risk, use the police or emergency route appropriate to the urgency.", "For discrimination by an employer, landlord, school or service provider, keep written evidence and check the formal complaint route as well as independent advice."],
+        "mistakes": ["Using a community support line as an emergency service.", "Publishing sensitive personal information in a public review or social-media post before considering privacy and safety.", "Assuming a national directory confirms a local organization's current opening hours."],
+        "localDifferences": "Local community activities and discrimination services differ by region. City selection may add verified local options, while this national route remains visible everywhere in the Netherlands."
+      },
+      "relatedTopics": ["legal-help", "safety", "healthcare", "family", "work", "housing"],
+      "usefulServices": [
+        {"title": "Report discrimination to the regional anti-discrimination service", "provider": "Discriminatie.nl", "url": "https://discriminatie.nl/discriminatie-melden/", "purpose": "National reporting route that connects a report with the responsible regional anti-discrimination service.", "kind": "support", "checkedAt": "2026-08-07"},
+        {"title": "Talk confidentially about sexual orientation or gender identity", "provider": "COC Switchboard", "url": "https://switchboard.nl/?language=nl_NL", "purpose": "Peer support and referral for LGBTIQ+ questions, loneliness, coming out, safety and finding suitable help.", "kind": "support", "checkedAt": "2026-08-07", "caveat": "Switchboard is not an emergency service; call 112 when there is immediate danger."},
+        {"title": "Find regional COC organisations and contact routes", "provider": "COC Nederland", "url": "https://coc.nl/contact/", "purpose": "National contact directory for COC Nederland and regional organisations offering community information and support.", "kind": "directory", "checkedAt": "2026-08-07"},
+        {"title": "Check the government route for reporting discrimination", "provider": "Government of the Netherlands", "url": "https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination", "purpose": "Official overview of reporting options for discrimination, criminal conduct and workplace situations.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "Reporting discrimination", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination", "checkedAt": "2026-08-06"},
+        {"title": "Combating discrimination and violence against LGBTIQ+ people", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/justice-security-and-defence/gender-equality/combating-discrimination-and-violence-against-lgbtiq-people", "checkedAt": "2026-08-06"},
+        {"title": "Report discrimination", "publisher": "Discriminatie.nl", "url": "https://discriminatie.nl/discriminatie-melden/", "checkedAt": "2026-08-06"},
+        {"title": "LGBTI+ support line", "publisher": "COC Switchboard", "url": "https://switchboard.nl/?language=nl_NL", "checkedAt": "2026-08-06"},
+        {"title": "COC contact and regional support", "publisher": "COC Nederland", "url": "https://coc.nl/contact/", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.banking",
+      "slug": "bank-account-and-payments",
+      "title": "Bank accounts and everyday payments",
+      "summary": "A neutral route for choosing a regulated payment provider, preparing a personal bank-account application, understanding Dutch payment options and handling a rejected application.",
+      "category": "banking",
+      "subcategories": ["bank-account", "payment-account", "iban", "debit-card", "basic-payment-account", "provider-check", "payment-safety"],
+      "intents": ["finance"],
+      "synonyms": {"en": ["open a bank account", "bank account", "Dutch bank account", "payment account", "IBAN", "debit card", "basic payment account", "daily life bank account"], "nl": ["bankrekening openen", "bankrekening", "betaalrekening", "Nederlandse IBAN", "betaalpas", "basisbetaalrekening"], "ru": ["открыть банковский счёт", "банковский счет", "банковский счёт", "счёт в Нидерландах", "IBAN", "дебетовая карта", "базовый платежный счёт"]},
+      "keywords": ["De Nederlandsche Bank", "regulated bank", "licensed provider", "identity check", "payment service", "banking fraud"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 92,
+      "sections": {
+        "what": "Banks and other payment providers set their own acceptance process, documents, account features and fees within Dutch and European rules. YouNew does not rank providers or accept account applications.",
+        "who": "Use this route when opening a personal payment account, checking whether a provider is regulated, comparing account conditions or looking for the responsible route after a rejection.",
+        "steps": ["Decide whether you need a personal payment account or a separate business account.", "Compare the complete conditions, identification process, fees and support language on each provider's official website.", "Check the provider in the current DNB public register before sending identity documents or money.", "Prepare only the documents requested by the selected provider and submit them through its verified application route.", "If a regular account is refused, read the official basic-payment-account guidance and the provider's written reason before choosing the next route."],
+        "documents": ["Requirements vary by provider and situation. A provider may ask for valid identification, contact details, residence information, a BSN or tax-residency information; use its current checklist rather than a generic list."],
+        "cost": "Account fees and payment charges change. YouNew does not reproduce prices or recommend a commercial provider.",
+        "timing": "Application and verification times are provider-specific. A complete application can still require additional checks.",
+        "problems": ["Ask the provider for its complaint or review route when an application is delayed or refused.", "Use the basic payment account information when the ordinary route is unavailable and the stated conditions may apply.", "Stop if a message asks for login codes, remote access or payment to release an account."],
+        "mistakes": ["Choosing an account from an advertisement without checking the regulated provider.", "Sending identity documents through email or messaging when the provider has a secure route.", "Assuming every applicant must provide exactly the same documents."],
+        "localDifferences": "Bank accounts are national services. Branch availability and in-person support can differ by city, but a city filter must not hide this national route."
+      },
+      "relatedTopics": ["finance", "taxes", "benefits", "business", "daily-life"],
+      "usefulServices": [
+        {"title": "Verify whether a bank or financial provider is registered", "provider": "De Nederlandsche Bank public register", "url": "https://www.dnb.nl/en/public-register/", "purpose": "Official public register for checking supervised banks and other financial service providers.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "A register entry does not mean that every product, intermediary or message using the provider's name is genuine."},
+        {"title": "Open the official register of banks", "provider": "De Nederlandsche Bank", "url": "https://www.dnb.nl/en/public-register/register-of-banks/", "purpose": "Direct official register for banks authorised or passported to provide services in the Netherlands.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Check special and basic payment-account routes", "provider": "Dutch Payments Association", "url": "https://www.betaalvereniging.nl/kennisbank/rekeningen-en-diensten/?noredirect=nl-NL", "purpose": "Sector information about payment accounts and services, including routes intended for people who cannot open a regular account.", "kind": "non-profit", "checkedAt": "2026-08-07", "caveat": "A bank decides applications using the applicable conditions; the page does not guarantee account approval."}
+      ],
+      "officialSources": [
+        {"title": "Public register", "publisher": "De Nederlandsche Bank", "url": "https://www.dnb.nl/en/public-register/", "checkedAt": "2026-08-06"},
+        {"title": "Register of banks", "publisher": "De Nederlandsche Bank", "url": "https://www.dnb.nl/en/public-register/register-of-banks/", "checkedAt": "2026-08-06"},
+        {"title": "Special payment accounts and services", "publisher": "Dutch Payments Association", "url": "https://www.betaalvereniging.nl/kennisbank/rekeningen-en-diensten/?noredirect=nl-NL", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.family-childcare",
+      "slug": "family-childcare-and-school",
+      "title": "Family, childcare and school basics",
+      "summary": "A national starting point for childcare, after-school care, childcare benefit and the responsible school or municipality route for families with children.",
+      "category": "family",
+      "subcategories": ["childcare", "daycare", "after-school-care", "childcare-benefit", "primary-school", "family-support"],
+      "intents": ["family"],
+      "synonyms": {"en": ["families childcare", "family childcare", "find childcare", "childcare", "daycare", "nursery", "after-school care", "BSO", "school for my child"], "nl": ["kinderopvang", "kinderdagverblijf", "opvang", "BSO", "buitenschoolse opvang", "basisschool"], "ru": ["детский сад", "уход за детьми", "продлёнка", "школа для ребёнка", "семья с детьми"]},
+      "keywords": ["kinderopvang", "kinderopvangtoeslag", "registered childcare", "primary education", "municipality family support"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 92,
+      "sections": {
+        "what": "Childcare, after-school care, school registration and family support are separate routes. Availability is local, while benefit conditions and education rules are national.",
+        "who": "Use this route when looking for childcare or BSO, checking childcare benefit, arranging school for a child or finding the responsible local family service.",
+        "steps": ["Choose the exact need: childcare, BSO, primary school, benefit or family support.", "For childcare, verify the provider, current availability and contract directly before signing.", "Check the current childcare-benefit conditions before relying on an estimated contribution.", "For school admission, use the municipality and the school's official procedure for your address and the child's age.", "Report relevant changes promptly through the responsible official service."],
+        "documents": ["Requirements depend on the service. Use the provider, school, municipality or Dienst Toeslagen checklist for identification, registration, income and contract information."],
+        "cost": "Childcare prices and benefit calculations change. Use the provider contract and current official calculation; YouNew does not store amounts.",
+        "timing": "Waiting lists, school admission dates and benefit application periods differ. Check them before committing to a start date.",
+        "problems": ["Ask the municipality about local family support when regular childcare or school routes do not fit the situation.", "Contact Dienst Toeslagen for an official benefit decision or correction.", "Use the provider's complaints route for contract or service issues."],
+        "mistakes": ["Treating childcare registration and childcare benefit as one application.", "Assuming a provider has a place because it appears in a directory.", "Using an old benefit estimate after income, hours or household circumstances change."],
+        "localDifferences": "Childcare capacity, school admission procedures and family teams are local. City selection adds verified local routes while keeping national benefit guidance visible."
+      },
+      "relatedTopics": ["education", "benefits", "healthcare", "municipal-services"],
+      "usefulServices": [
+        {"title": "Search the official childcare register", "provider": "National Childcare Register", "url": "https://www.landelijkregisterkinderopvang.nl/", "purpose": "Public register for checking registered childcare centres, childminders and official inspection information.", "kind": "directory", "checkedAt": "2026-08-07", "caveat": "A registration does not confirm current capacity, opening hours or a place for a child; contact the provider directly."},
+        {"title": "Compare schools and their published information", "provider": "Schools on the Map", "url": "https://scholenopdekaart.nl/", "purpose": "National school-information platform with school profiles, results and contextual information for primary and secondary education.", "kind": "directory", "checkedAt": "2026-08-07", "caveat": "Admissions, catchment rules and capacity must be confirmed with the school and municipality."},
+        {"title": "Check childcare-benefit rules and the official application route", "provider": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/childcare/childcare-benefit", "purpose": "Official starting point for childcare-benefit conditions and application information.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "Childcare", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/childcare", "checkedAt": "2026-08-06"},
+        {"title": "Applying for childcare benefit", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/childcare/childcare-benefit", "checkedAt": "2026-08-06"},
+        {"title": "Costs of primary school", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/education/primary-education/costs-of-primary-school", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.pets",
+      "slug": "pets-dogs-and-cats",
+      "title": "Pets, dogs and cats in the Netherlands",
+      "summary": "A national route for pet welfare rules, dog microchipping and registration, importing an animal, local dog tax and finding the responsible veterinarian or authority.",
+      "category": "pets",
+      "subcategories": ["dog-registration", "microchip", "pet-passport", "pet-import", "animal-welfare", "dog-tax", "veterinarian"],
+      "intents": ["pets"],
+      "synonyms": {"en": ["pets registration", "register my pet", "register a dog", "dog registration", "dog microchip", "pet passport", "bring a cat", "bring a dog", "veterinarian"], "nl": ["huisdier registreren", "hond registreren", "hond chippen", "dierenpaspoort", "hond invoeren", "kat meenemen", "dierenarts"], "ru": ["регистрация питомца", "зарегистрировать собаку", "чип для собаки", "паспорт животного", "ввезти кошку", "ввезти собаку", "ветеринар"]},
+      "keywords": ["RVO", "NVWA", "microchip", "European pet passport", "animal welfare", "municipality dog tax"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 92,
+      "sections": {
+        "what": "Rules differ by animal and situation. Dog identification and registration, importing an animal, welfare duties and municipality dog rules must be checked separately.",
+        "who": "Use this route when buying, adopting, bringing or keeping a pet, registering a dog, checking a pet passport or finding the correct local rule.",
+        "steps": ["Identify the animal and whether it is already in the Netherlands, being imported, bought or adopted.", "For a dog, check the current microchip, registration and passport route before a transfer or import.", "For travel or import, use the responsible NVWA or RVO route for the country and animal.", "Confirm local dog tax, leash, waste and restricted-area rules with the municipality.", "Use a veterinarian for animal-health advice and for procedures that require an authorised professional."],
+        "documents": ["The required records depend on the animal and route. They may include a microchip record, pet passport, animal health certificate, ownership or import information; use the official checklist."],
+        "cost": "Veterinary, registration and municipality charges differ. Verify current costs with the responsible provider or authority.",
+        "timing": "Registration and import actions can have strict situation-specific periods. Check the current official page before travel, purchase or adoption.",
+        "problems": ["Contact a veterinarian or the responsible authority if the chip, passport or ownership record is missing or inconsistent.", "Use the municipality for a removed animal, local nuisance rule or dog-tax question.", "Do not transport an animal when the official import conditions have not been confirmed."],
+        "mistakes": ["Assuming dogs and cats have identical registration rules.", "Buying an animal without checking the chip, registration and seller information.", "Relying on a municipality rule from a different city."],
+        "localDifferences": "Dog tax, leash areas, waste rules and local animal services differ by municipality. National welfare and registration guidance remains visible for every city."
+      },
+      "relatedTopics": ["rules-fines", "municipal-services", "healthcare", "transport"],
+      "usefulServices": [
+        {"title": "Check the official dog identification and registration rules", "provider": "Netherlands Enterprise Agency", "url": "https://www.rvo.nl/onderwerpen/identificatie-en-registratie-honden", "purpose": "Official route for dog microchipping, registration, passports and recognised registration databases.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Read practical pet-care and ownership guidance", "provider": "LICG", "url": "https://www.licg.nl/", "purpose": "Independent national information centre with practical guidance about keeping, buying and caring for companion animals.", "kind": "non-profit", "checkedAt": "2026-08-07", "caveat": "For illness, injury or a local rule, contact a veterinarian or the responsible municipality."},
+        {"title": "Check national welfare rules for pets", "provider": "Government of the Netherlands", "url": "https://www.government.nl/themes/nature-and-the-environment/animal-welfare/welfare-of-pets", "purpose": "Government overview of owner responsibilities and national animal-welfare rules.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "Welfare of pets", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/nature-and-the-environment/animal-welfare/welfare-of-pets", "checkedAt": "2026-08-06"},
+        {"title": "Registering and microchipping a dog", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/nature-and-the-environment/animal-welfare/welfare-of-pets/registering-and-microchipping-a-dog", "checkedAt": "2026-08-06"},
+        {"title": "Identification and registration of dogs", "publisher": "Netherlands Enterprise Agency", "url": "https://www.rvo.nl/onderwerpen/identificatie-en-registratie-honden", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.taxes",
+      "slug": "taxes-and-income-tax-return",
+      "title": "Taxes and income tax returns",
+      "summary": "A national route for understanding a Dutch tax letter, preparing an income tax return, distinguishing resident and non-resident routes and using Mijn Belastingdienst safely.",
+      "category": "taxes",
+      "subcategories": ["income-tax", "tax-return", "tax-letter", "mijn-belastingdienst", "resident-taxpayer", "non-resident-taxpayer", "worldwide-income"],
+      "intents": ["taxes"],
+      "synonyms": {"en": ["tax Belastingdienst", "Dutch taxes", "income tax", "tax return", "file taxes", "tax letter", "non-resident tax return", "worldwide income"], "nl": ["belasting", "inkomstenbelasting", "belastingaangifte", "aangifte doen", "Mijn Belastingdienst", "buitenlands belastingplichtige"], "ru": ["налоги в Нидерландах", "налоговая декларация", "подать декларацию", "подоходный налог", "письмо налоговой", "Belastingdienst"]},
+      "keywords": ["Belastingdienst", "DigiD", "income statement", "tax assessment", "tax partner", "emigration immigration return"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 93,
+      "sections": {
+        "what": "The correct tax route depends on where you live, the income involved, whether you received an invitation and whether you moved across a border during the tax year.",
+        "who": "Use this route when you receive a Belastingdienst letter, need to prepare an income tax return, moved into or out of the Netherlands, or have Dutch and foreign income.",
+        "steps": ["Read the complete official letter and identify the tax type, year, deadline and response route.", "Choose the resident, non-resident or migration-year route that matches the official guidance.", "Prepare your DigiD or accepted login and the records listed for the selected return.", "Check pre-filled information against your own annual statements and records before submitting.", "Save the official confirmation and use the formal objection or payment route shown on the decision when needed."],
+        "documents": ["Documents depend on the return. Use the current Belastingdienst preparation list and keep the official letter, annual statements, relevant account and housing records, and information about foreign income when applicable."],
+        "cost": "YouNew does not calculate tax or reproduce thresholds. Use the official return and assessment, or an authorised adviser for personal advice.",
+        "timing": "Deadlines depend on the letter, tax year and return type. Follow the official date rather than a general calendar reminder.",
+        "problems": ["Use the official appointment or help route if you cannot complete the return.", "Request formal clarification or use the objection route stated on an assessment when you disagree.", "Verify payment details independently on the official Belastingdienst domain before paying."],
+        "mistakes": ["Using the non-resident return only because some income came from abroad.", "Submitting without checking pre-filled data.", "Paying through an account number copied from an unverified message."],
+        "localDifferences": "Income tax is national. Municipal taxes are separate and must be checked with the municipality or regional tax authority named on the notice."
+      },
+      "relatedTopics": ["finance", "work", "benefits", "business", "documents"],
+      "usefulServices": [
+        {"title": "Open the official tax route for individuals", "provider": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals", "purpose": "Official English starting point for Dutch individual taxes, filing and contact information.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Follow the official online income-tax-return steps", "provider": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/filing-an-online-tax-return-in-4-steps", "purpose": "Official step-by-step route for preparing, signing and submitting an online income-tax return.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "The correct return and deadline depend on the invitation, residence status and tax year."},
+        {"title": "File as a non-resident taxpayer when that route applies", "provider": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/non-resident-taxpayer-how-do-i-file-my-income-tax-return", "purpose": "Official explanation of the online and paper return routes for non-resident taxpayers.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "Individuals", "publisher": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals", "checkedAt": "2026-08-06"},
+        {"title": "Filing an online tax return in four steps", "publisher": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/filing-an-online-tax-return-in-4-steps", "checkedAt": "2026-08-06"},
+        {"title": "Filing a non-resident tax return", "publisher": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/non-resident-taxpayer-how-do-i-file-my-income-tax-return", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.benefits",
+      "slug": "benefits-and-allowances",
+      "title": "Benefits and allowances",
+      "summary": "A national starting point for healthcare, rent, childcare and supplementary child benefits, with safe checks for eligibility, changes and Mijn toeslagen.",
+      "category": "benefits",
+      "subcategories": ["healthcare-benefit", "rent-benefit", "childcare-benefit", "supplementary-child-benefit", "mijn-toeslagen", "benefit-changes"],
+      "intents": ["benefits"],
+      "synonyms": {"en": ["benefits allowances", "benefits", "allowances", "toeslagen", "healthcare benefit", "rent benefit", "housing allowance", "childcare benefit", "child budget"], "nl": ["toeslagen", "zorgtoeslag", "huurtoeslag", "kinderopvangtoeslag", "kindgebonden budget", "Mijn toeslagen"], "ru": ["пособия", "выплаты", "льготы", "пособие на медицинскую страховку", "пособие на аренду", "пособие на детский сад", "детское пособие"]},
+      "keywords": ["Dienst Toeslagen", "DigiD", "BSN", "benefit partner", "household income", "report a change"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 93,
+      "sections": {
+        "what": "Dutch allowances are separate schemes with different conditions. Entitlement can depend on residence status, household, income, assets, insurance, housing or registered childcare.",
+        "who": "Use this route when checking healthcare, rent, childcare or supplementary child benefit, applying through Mijn toeslagen or reporting a change.",
+        "steps": ["Choose the exact allowance and read its current conditions before applying.", "Check which people, income, assets, residence status, contract or insurance information the scheme uses.", "Use Mijn toeslagen or the listed official help route and keep the confirmation.", "Review the decision and estimated information against your actual situation.", "Report relevant changes promptly and stop or adjust a benefit when the official guidance requires it."],
+        "documents": ["Requirements depend on the allowance. You may need BSNs, DigiD, income estimates, housing or childcare contract information and insurance details; follow the current official checklist."],
+        "cost": "Applying through the official service does not require a commercial intermediary. YouNew does not calculate eligibility or amounts.",
+        "timing": "Application periods and change-reporting duties differ by allowance. Check the dated official page and decision immediately.",
+        "problems": ["Use the official help or appointment route if Mijn toeslagen is not accessible or the Dutch-language process is unclear.", "Correct an estimate when circumstances change to reduce the risk of repayment.", "Use the formal decision route when you disagree with an outcome."],
+        "mistakes": ["Treating all allowances as one combined benefit.", "Using an old income estimate after work or household changes.", "Assuming nationality alone decides eligibility."],
+        "localDifferences": "National allowances are handled by Dienst Toeslagen. Separate municipality income support and local schemes can differ and should be checked locally."
+      },
+      "relatedTopics": ["housing", "healthcare", "family", "finance", "documents"],
+      "usefulServices": [
+        {"title": "Check and apply for the benefit that matches your situation", "provider": "Dienst Toeslagen", "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/individuals/benefits/how_do_benefits_work/i_want_to_apply_for_a_benefit/", "purpose": "Official application starting point for rent, healthcare, childcare and child-related benefits.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Eligibility and amounts depend on current personal, household, income, asset and residence data."},
+        {"title": "Open the official individual tax and benefit portal", "provider": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals", "purpose": "Official English overview linking tax and benefit information for individuals.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Use the government moving checklist before applying", "provider": "Government of the Netherlands", "url": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands", "purpose": "Official checklist connecting registration, insurance, benefits and other arrangements after moving.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "I want to apply for a benefit", "publisher": "Dienst Toeslagen", "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/belastingdienst/individuals/benefits/how_do_benefits_work/i_want_to_apply_for_a_benefit/", "checkedAt": "2026-08-06"},
+        {"title": "Individuals and benefits", "publisher": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/individuals", "checkedAt": "2026-08-06"},
+        {"title": "Moving to the Netherlands checklist", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.transport",
+      "slug": "public-transport-and-cycling",
+      "title": "Public transport, bicycles and safe travel",
+      "summary": "A national route for planning public transport, checking in and out, buying a bicycle safely, cycling rules and what to do if a bicycle is stolen or removed.",
+      "category": "transport",
+      "subcategories": ["public-transport", "ovpay", "train", "bus", "bicycle", "buying-a-bicycle", "cycling-safety", "bicycle-theft"],
+      "intents": ["transport"],
+      "synonyms": {"en": ["buy a bicycle", "buy a bike", "second-hand bicycle", "public transport", "OVpay", "check in", "train travel", "train station", "bicycle stolen"], "nl": ["fiets kopen", "tweedehands fiets", "openbaar vervoer", "OVpay", "inchecken", "trein reizen", "treinstation", "fiets gestolen"], "ru": ["купить велосипед", "подержанный велосипед", "общественный транспорт", "оплата транспорта", "поезд", "железнодорожная станция", "украли велосипед"]},
+      "keywords": ["OVpay", "NS", "public transport", "bike lane", "bicycle lights", "frame number", "stolen bicycle register"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 91,
+      "sections": {
+        "what": "Public transport and cycling use different providers and rules. Current travel information, check-in methods, bicycle safety and local parking or removal rules must be verified separately.",
+        "who": "Use this route when planning a journey, choosing a check-in method, buying a new or used bicycle, learning cycling basics or dealing with a missing bicycle.",
+        "steps": ["Plan the journey shortly before departure with the responsible operator or travel planner.", "Use one supported payment or travel card consistently to check in and out and review the provider's correction route for mistakes.", "Before buying a used bicycle, record the seller, receipt and frame or chip number and check the official stolen-bicycle route.", "Read the current cycling and bicycle-light rules before riding.", "If a bicycle is missing, first check the municipality bicycle depot and then use the official theft-reporting route when appropriate."],
+        "documents": ["For public transport, keep the travel or payment reference for a correction. For a bicycle, keep the receipt, frame or chip number, brand, model, colour and photographs."],
+        "cost": "Fares, subscriptions and bicycle prices change. Use the responsible operator or seller for current costs and terms.",
+        "timing": "Timetables and disruptions change in real time. Theft reporting and municipality depot retention periods can also be time-sensitive.",
+        "problems": ["Use the operator's correction route for a missed check-in or check-out.", "Check whether the municipality removed the bicycle before reporting theft.", "Do not ride an electric bicycle that does not meet the applicable vehicle rules."],
+        "mistakes": ["Using different contactless cards for check-in and check-out.", "Buying a used bicycle without recording the frame number and seller.", "Assuming bicycle parking rules are identical in every city."],
+        "localDifferences": "Operators, parking zones, bicycle depots and removal rules differ by city. National travel and safety guidance remains visible with local results."
+      },
+      "relatedTopics": ["rules-fines", "daily-life", "shopping", "municipal-services"],
+      "usefulServices": [
+        {"title": "Plan a door-to-door public-transport journey", "provider": "9292", "url": "https://9292.nl/en", "purpose": "National journey planner combining train, bus, tram, metro and ferry information from Dutch operators.", "kind": "directory", "checkedAt": "2026-08-07", "caveat": "Check live disruption and the operator's final travel conditions before departure."},
+        {"title": "Plan a train journey and check current disruptions", "provider": "NS", "url": "https://www.ns.nl/en/journeyplanner/", "purpose": "Nederlandse Spoorwegen journey planner with train times, transfers, platform information and disruptions.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Check how contactless public-transport payment works", "provider": "OVpay", "url": "https://www.ovpay.nl/en/about-ovpay", "purpose": "Official information about checking in and out with a contactless bank card, credit card or mobile device.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Fare products and cards are not interchangeable in every situation; check the operator and product rules."},
+        {"title": "Check whether a bicycle is registered as stolen", "provider": "Government of the Netherlands", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/fiets/hoe-kan-ik-controleren-of-een-fiets-als-gestolen-staat-geregistreerd", "purpose": "Official route to the bicycle-theft register and purchase checks for a second-hand bicycle.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "Public transport", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/transport/public-transport", "checkedAt": "2026-08-06"},
+        {"title": "About OVpay", "publisher": "OVpay", "url": "https://www.ovpay.nl/en/about-ovpay", "checkedAt": "2026-08-06"},
+        {"title": "Safe cycling", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/transport/bicycles/safe-cycling", "checkedAt": "2026-08-06"},
+        {"title": "Check whether a bicycle is registered as stolen", "publisher": "Government of the Netherlands", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/fiets/hoe-kan-ik-controleren-of-een-fiets-als-gestolen-staat-geregistreerd", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.immigration",
+      "slug": "immigration-visas-and-residence-permits",
+      "title": "Immigration, visas and residence permits",
+      "summary": "A national route for identifying the responsible IND procedure for short stay, MVV, work, study, family, asylum, extension or permanent residence without mixing it with municipal registration.",
+      "category": "integration",
+      "subcategories": ["visa", "mvv", "residence-permit", "work-permit", "study-permit", "family-reunification", "asylum", "extension", "permanent-residence", "citizenship"],
+      "intents": ["immigration"],
+      "synonyms": {"en": ["immigration residence permit", "immigration", "visa Netherlands", "MVV", "residence permit", "work visa", "study visa", "family reunification", "extend residence permit", "permanent residence", "Dutch citizenship"], "nl": ["immigratie", "visum", "MVV", "verblijfsvergunning", "werkvergunning", "studievergunning", "gezinshereniging", "verlenging verblijfsvergunning", "permanent verblijf", "Nederlandse nationaliteit"], "ru": ["иммиграция", "виза в Нидерланды", "MVV", "вид на жительство", "рабочая виза", "студенческая виза", "воссоединение семьи", "продлить ВНЖ", "постоянный вид на жительство", "гражданство Нидерландов"]},
+      "keywords": ["IND", "Immigration and Naturalisation Service", "sponsor", "recognised sponsor", "residence purpose", "biometrics", "application status"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 94,
+      "sections": {
+        "what": "Immigration procedures depend on nationality, length and purpose of stay, sponsor and current residence status. IND procedures are separate from BRP registration and receiving a BSN from a municipality.",
+        "who": "Use this route to identify the correct IND procedure for entry, work, study, family, asylum, extension, replacement, permanent residence or citizenship.",
+        "steps": ["Identify nationality, current country and intended purpose and duration of stay.", "Use the IND navigation route to choose the exact residence purpose before collecting documents or paying a fee.", "Confirm whether an MVV, sponsor or recognised sponsor is part of the selected procedure.", "Use only the current IND checklist, fee page and application route for that procedure.", "After arrival, handle municipality registration, BSN, DigiD and health insurance as separate tasks where applicable."],
+        "documents": ["Requirements are procedure-specific. Use the selected IND checklist for passports, civil-status documents, sponsor evidence, income evidence, legalisation, translation and biometrics."],
+        "cost": "Fees and exemptions change by procedure and applicant. Use the current IND fee page before payment.",
+        "timing": "Decision periods, appointment availability and document validity differ. Follow the current procedure and formal correspondence.",
+        "problems": ["Check My IND or the official status route for a submitted application.", "Use the IND replacement route for a lost or stolen residence document.", "Seek qualified legal help for an adverse decision or case-specific legal question rather than relying on a general guide."],
+        "mistakes": ["Applying under the wrong residence purpose.", "Treating municipal registration as a residence-permit application.", "Using an unofficial intermediary or sending identity documents outside the official route."],
+        "localDifferences": "IND procedures are national. Municipality registration and local newcomer services differ by address and follow after or alongside the applicable immigration route."
+      },
+      "relatedTopics": ["documents", "work", "education", "family", "legal-help"],
+      "usefulServices": [
+        {"title": "Choose the residence purpose that matches your situation", "provider": "Immigration and Naturalisation Service", "url": "https://ind.nl/en/residence-permits", "purpose": "Official IND directory for residence permits based on work, study, family and other purposes.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "View available personal application information", "provider": "My IND", "url": "https://ind.nl/en/my-ind", "purpose": "Official personal IND portal for the application and document functions available to the logged-in user.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "The portal display does not replace a formal decision letter or case-specific IND instruction."},
+        {"title": "Check whether an MVV is required and how the procedure works", "provider": "Immigration and Naturalisation Service", "url": "https://ind.nl/en/provisional-residence-permit-mvv", "purpose": "Official information about the provisional residence permit and combined entry-and-residence procedures.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Check the visa route for travelling to the Netherlands", "provider": "NetherlandsWorldwide", "url": "https://www.netherlandsworldwide.nl/visa-the-netherlands", "purpose": "Official visa information organised by nationality, residence country and travel situation.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "How can we help you?", "publisher": "Immigration and Naturalisation Service", "url": "https://ind.nl/en", "checkedAt": "2026-08-06"},
+        {"title": "Residence permits", "publisher": "Immigration and Naturalisation Service", "url": "https://ind.nl/en/residence-permits", "checkedAt": "2026-08-06"},
+        {"title": "Provisional residence permit (MVV)", "publisher": "Immigration and Naturalisation Service", "url": "https://ind.nl/en/provisional-residence-permit-mvv", "checkedAt": "2026-08-06"},
+        {"title": "Moving to the Netherlands checklist", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.utilities-moving",
+      "slug": "utilities-and-moving-home",
+      "title": "Utilities and moving home",
+      "summary": "A national route for reporting a move, arranging electricity, gas, water and internet, recording meter readings and checking local waste services.",
+      "category": "utilities",
+      "subcategories": ["moving-home", "change-of-address", "electricity", "gas", "water", "meter-readings", "internet", "waste", "municipal-taxes"],
+      "intents": ["utilities", "documents", "housing", "daily-life", "internet", "municipal-services"],
+      "synonyms": {
+        "en": ["utilities", "moving home", "move house", "electricity contract", "gas contract", "water company", "meter readings", "waste collection", "change utilities"],
+        "nl": ["nutsvoorzieningen", "verhuizen", "energiecontract", "elektriciteit", "gas", "waterbedrijf", "meterstanden", "afvalinzameling"],
+        "ru": ["коммунальные услуги", "переезд", "электричество", "газ", "водоснабжение", "показания счётчика", "вывоз мусора", "сменить адрес"]
+      },
+      "keywords": ["ACM ConsuWijzer", "energy supplier", "drinking water company", "BRP", "municipality waste calendar", "final bill"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 93,
+      "sections": {
+        "what": "A move can affect municipal registration, energy, drinking water, internet, waste collection, local taxes and housing records. These are separate services and not every change is passed on automatically.",
+        "who": "Use this route when moving into, within or out of the Netherlands, taking over a home, changing providers or preparing the handover of an old address.",
+        "steps": ["Record the old and new address, key dates, contract holders and which services are included in the tenancy.", "Report the address change through the official municipality route and keep the confirmation.", "Contact the current energy supplier and check whether the contract moves, ends or is replaced; record dated electricity and gas meter readings when required.", "Identify the drinking-water company for the new address, register or transfer the account and record the water meter reading when required.", "Arrange internet separately and check the municipality for waste collection, permits, parking and local tax information.", "Keep handover photographs, readings, confirmations and final bills until every old and new account is reconciled."],
+        "documents": ["Keep identification, proof of occupancy, tenancy or purchase documents, meter numbers and readings, provider contracts, handover photographs and official confirmations. Use the exact municipality or provider checklist for additional evidence."],
+        "cost": "Connection, contract, cancellation and local charges vary by address and provider. YouNew does not reproduce tariffs or rank commercial suppliers.",
+        "timing": "Move notifications and provider handovers can be time-sensitive. Check each official route before the moving date and use the date on your contract or confirmation.",
+        "problems": ["If a meter reading or final bill is wrong, contact the provider in writing and keep the reading evidence.", "If essential supply may be disconnected because of debt, contact the provider and municipality debt-help route promptly.", "If a service is included in rent, ask the landlord or housing provider for the written allocation and settlement."],
+        "mistakes": ["Assuming municipal registration automatically transfers every utility.", "Leaving without dated meter readings and photographs.", "Starting a new contract without checking an existing fixed-term agreement or tenancy inclusion."],
+        "localDifferences": "Energy suppliers are commercial, drinking-water companies serve defined regions, and waste, parking and local taxes are municipal. City selection adds the responsible municipality without hiding this national checklist."
+      },
+      "relatedTopics": ["housing", "documents", "internet", "consumer-rights", "debt-help"],
+      "usefulServices": [
+        {"title": "Report a change of address through the correct municipality", "provider": "Government of the Netherlands", "url": "https://www.government.nl/faq/how-do-i-inform-the-municipality-of-a-change-of-address", "purpose": "Official explanation of who reports a move, where to report it and the connection with municipal registration.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Check what happens to an energy contract when moving", "provider": "ACM ConsuWijzer", "url": "https://consument.acm.nl/elektriciteit-en-gas/overstappen-vergelijken-en-verhuizen/energiecontract-bij-verhuizen", "purpose": "Official consumer guidance about taking, ending or changing an electricity and gas contract during a move.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Find out how the home's water connection is arranged", "provider": "Government of the Netherlands", "url": "https://www.government.nl/themes/nature-and-the-environment/water-management/connecting-water-supply-at-home", "purpose": "Government explanation of regional drinking-water suppliers and connecting water at a Dutch address.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "How do I inform the municipality of a change of address?", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/faq/how-do-i-inform-the-municipality-of-a-change-of-address", "checkedAt": "2026-08-06"},
+        {"title": "Energy contract when moving", "publisher": "ACM ConsuWijzer", "url": "https://consument.acm.nl/elektriciteit-en-gas/overstappen-vergelijken-en-verhuizen/energiecontract-bij-verhuizen", "checkedAt": "2026-08-06"},
+        {"title": "Connecting the water supply at home", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/nature-and-the-environment/water-management/connecting-water-supply-at-home", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.consumer-rights",
+      "slug": "consumer-rights-scams-and-complaints",
+      "title": "Consumer rights, scams and complaints",
+      "summary": "A national route for purchases, subscriptions, misleading sales, online scams, evidence and the correct complaint or reporting channel.",
+      "category": "shopping",
+      "subcategories": ["consumer-rights", "online-shopping", "subscriptions", "cancellation", "warranty", "misleading-sales", "scams", "complaints"],
+      "intents": ["shopping", "legal-help", "safety", "daily-life", "telecom", "utilities"],
+      "synonyms": {
+        "en": ["consumer rights", "online purchase", "return a purchase", "cancel subscription", "warranty", "complaint company", "scam", "fraud", "misleading sale"],
+        "nl": ["consumentenrecht", "online aankoop", "aankoop terugsturen", "abonnement opzeggen", "garantie", "klacht bedrijf", "oplichting", "misleidende verkoop"],
+        "ru": ["права потребителя", "вернуть покупку", "отменить подписку", "гарантия", "жалоба на компанию", "мошенничество", "обман при продаже"]
+      },
+      "keywords": ["ACM ConsuWijzer", "cooling-off period", "subscription", "statutory guarantee", "internet fraud", "police report"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 93,
+      "sections": {
+        "what": "The correct route depends on what was bought, how the agreement was made, the seller, the contract stage and whether the issue is a civil complaint, misleading practice or suspected crime.",
+        "who": "Use this route when a product or service is defective, missing or different from the offer, when you want to cancel, or when you suspect deceptive sales or online fraud.",
+        "steps": ["Identify the seller, contract, payment method, purchase date and exact problem.", "Save the offer, terms, order confirmation, invoice, payment evidence, messages, screenshots and delivery information.", "Use ACM ConsuWijzer to check the consumer route that matches the purchase or subscription instead of relying on a generic return rule.", "Contact the seller or provider in writing, state the requested solution and keep proof of delivery and response.", "If the issue is unresolved, use the responsible dispute, legal-help or regulator route; for suspected crime use the police reporting route.", "Contact the payment provider or bank promptly if payment credentials or unauthorised transactions may be involved."],
+        "documents": ["Keep the contract or order, terms shown at purchase, invoices, receipts, payment and delivery records, cancellation or complaint messages, screenshots and the company identity or website."],
+        "cost": "Official consumer information is free. Dispute, legal and payment-recovery routes can have different costs or conditions; verify them before starting.",
+        "timing": "Cancellation, warranty, chargeback, complaint and reporting periods depend on the situation. Check the dated official guidance as soon as the problem is discovered.",
+        "problems": ["Stop further payments or contact the payment provider when credentials may be compromised, but do not destroy transaction evidence.", "Report suspected internet fraud through the appropriate police route and keep the report reference.", "For a civil disagreement, use consumer or legal guidance before threatening criminal action."],
+        "mistakes": ["Assuming every in-store and online purchase has the same cancellation right.", "Communicating only by telephone without keeping written evidence.", "Paying a recovery or cancellation intermediary before checking the provider's own route."],
+        "localDifferences": "Most consumer rules and national reporting routes apply across the Netherlands. Municipal legal desks or social advisers can add local help but do not replace the national route."
+      },
+      "relatedTopics": ["legal-help", "debt-help", "banking", "telecom", "utilities"],
+      "usefulServices": [
+        {"title": "Choose the correct cancellation or complaint route", "provider": "ACM ConsuWijzer", "url": "https://consument.acm.nl/aankoop-dienst-annuleren", "purpose": "Public consumer route for cancelling a purchase or service and identifying the evidence and next step.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Respond to misleading or aggressive sales", "provider": "ACM ConsuWijzer", "url": "https://consument.acm.nl/misleidende-verkoop/wat-kan-ik-doen", "purpose": "Official consumer guidance and example routes for misleading information, pressure and unwanted agreements.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Check or report suspected fraud", "provider": "Fraudehelpdesk", "url": "https://www.fraudehelpdesk.nl/", "purpose": "National fraud-information and reporting service for suspicious messages, payments, identities and online schemes.", "kind": "support", "checkedAt": "2026-08-07", "caveat": "For an immediate threat call 112; for a crime that requires a police report, use the police route."},
+        {"title": "Report a crime to the Dutch police", "provider": "Netherlands Police", "url": "https://www.politie.nl/en/topics/report-a-crime.html", "purpose": "Official explanation of online, telephone and in-person crime-reporting routes.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "Purchase or service cancellation", "publisher": "ACM ConsuWijzer", "url": "https://consument.acm.nl/aankoop-dienst-annuleren", "checkedAt": "2026-08-06"},
+        {"title": "Misleading sales: what can I do?", "publisher": "ACM ConsuWijzer", "url": "https://consument.acm.nl/misleidende-verkoop/wat-kan-ik-doen", "checkedAt": "2026-08-06"},
+        {"title": "Report a crime", "publisher": "Netherlands Police", "url": "https://www.politie.nl/en/topics/report-a-crime.html", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.debt-legal-help",
+      "slug": "debt-money-problems-and-legal-help",
+      "title": "Debt, money problems and legal help",
+      "summary": "A national starting route for urgent bills, municipal debt assistance, free legal information and formal decisions without giving personal legal advice.",
+      "category": "legal-help",
+      "subcategories": ["debt-help", "money-problems", "municipal-debt-assistance", "legal-information", "legal-aid", "objections", "social-advisers"],
+      "intents": ["legal-help", "benefits", "banking", "housing", "utilities", "municipal-services"],
+      "synonyms": {
+        "en": ["debt help", "money problems", "cannot pay bills", "municipal debt assistance", "legal help", "legal advice", "Juridisch Loket", "social adviser"],
+        "nl": ["schuldhulp", "geldzorgen", "rekeningen niet betalen", "schuldhulpverlening gemeente", "juridische hulp", "juridisch advies", "Juridisch Loket", "sociaal raadslieden"],
+        "ru": ["помощь с долгами", "финансовые проблемы", "не могу оплатить счета", "муниципальная помощь с долгами", "юридическая помощь", "юридическая консультация"]
+      },
+      "keywords": ["municipality debt assistance", "Juridisch Loket", "Sociaal Raadslieden", "payment arrangement", "objection", "legal aid"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 94,
+      "sections": {
+        "what": "Money problems can involve ordinary bills, threatening disconnection or eviction, multiple creditors, a government decision or a legal dispute. The responsible route and urgency are different in each case.",
+        "who": "Use this route when bills are becoming unmanageable, a creditor or authority has sent a formal notice, or you need reliable legal information about work, housing, benefits, taxes or a purchase.",
+        "steps": ["Open every official letter and list the issuer, amount or decision, reference, response route and date.", "Create a private overview of income, essential costs, debts, creditors and current payment arrangements; do not upload it to YouNew.", "Contact the creditor or responsible authority through its official channel and ask what formal options exist.", "Contact the municipality for debt assistance when payments are no longer manageable or essential housing, energy or water is at risk.", "Use the Government and Juridisch Loket routes to identify the right legal-information, objection, mediation or legal-aid path.", "Keep confirmations and ask a qualified professional to review case-specific rights, deadlines or documents."],
+        "documents": ["Keep official letters and decisions, contracts, invoices, account and payment records, income and essential-cost information, correspondence and any existing arrangement. Share sensitive records only with the verified responsible service."],
+        "cost": "Municipal and first-line help may be free, while professional representation can depend on income, assets, eligibility and the case. Verify the terms before agreeing to a paid service.",
+        "timing": "Formal notices and decisions can carry strict dates. Use the date and route printed on the official document and seek help promptly when essential services or housing are threatened.",
+        "problems": ["If eviction or essential-service disconnection is threatened, identify the urgent municipal debt-help route immediately.", "If you disagree with a government decision, use the formal objection information on that decision rather than a general contact form.", "If a legal adviser asks for sensitive data or payment, verify the organisation and engagement terms first."],
+        "mistakes": ["Ignoring unopened letters while searching for a complete solution.", "Using a commercial debt or legal intermediary without checking identity, costs and authority.", "Treating general web information as personal legal advice."],
+        "localDifferences": "Municipal debt assistance and social-adviser availability differ locally. National legal-information and formal decision routes remain visible for every municipality."
+      },
+      "relatedTopics": ["consumer-rights", "benefits", "housing", "utilities", "taxes"],
+      "usefulServices": [
+        {"title": "Start an anonymous money check and find nearby help", "provider": "Geldfit", "url": "https://geldfit.nl/english/", "purpose": "Free, anonymous route for assessing money concerns and finding relevant national or local support.", "kind": "support", "checkedAt": "2026-08-07", "caveat": "Geldfit does not make a formal debt-assistance decision; the municipality handles the statutory route."},
+        {"title": "Apply for municipal debt assistance", "provider": "Government of the Netherlands", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/schulden/schuldhulpverlening-aanvragen", "purpose": "Official explanation of the municipality's debt-assistance duty and how to start an application.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Get first-line legal information and check personal-help eligibility", "provider": "Juridisch Loket", "url": "https://www.juridischloket.nl/", "purpose": "Independent first-line legal information and help for people who meet the applicable conditions.", "kind": "support", "checkedAt": "2026-08-07", "caveat": "Personal advice and subsidised legal-help eligibility depend on income, assets and the legal issue."}
+      ],
+      "officialSources": [
+        {"title": "Applying for municipal debt assistance", "publisher": "Government of the Netherlands", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/schulden/schuldhulpverlening-aanvragen", "checkedAt": "2026-08-06"},
+        {"title": "Free help or advice for a legal problem", "publisher": "Government of the Netherlands", "url": "https://www.rijksoverheid.nl/vraag-en-antwoord/bescherming-van-consumenten/waar-kan-ik-terecht-voor-hulp-bij-een-juridisch-probleem-of-conflict", "checkedAt": "2026-08-06"},
+        {"title": "Legal information and first-line help", "publisher": "Juridisch Loket", "url": "https://www.juridischloket.nl/", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.mental-health",
+      "slug": "mental-health-and-crisis-support",
+      "title": "Mental health and crisis support",
+      "summary": "A safe national route for routine mental-health support, GP referral, an acute crisis and suicidal thoughts, with emergency routes kept separate.",
+      "category": "healthcare",
+      "subcategories": ["mental-health", "gp-support", "psychologist", "ggz", "referral", "mental-health-crisis", "suicide-prevention"],
+      "intents": ["healthcare", "safety", "emergency"],
+      "synonyms": {
+        "en": ["mental health", "psychologist", "therapy", "depression help", "anxiety help", "GGZ", "mental health crisis", "suicidal thoughts", "113"],
+        "nl": ["mentale gezondheid", "psycholoog", "therapie", "depressie hulp", "angst hulp", "ggz", "psychische crisis", "suïcidale gedachten", "113"],
+        "ru": ["психическое здоровье", "психолог", "терапия", "помощь при депрессии", "тревога", "психиатрическая помощь", "кризис", "суицидальные мысли", "113"]
+      },
+      "keywords": ["huisarts", "POH-GGZ", "mental healthcare", "crisis intervention team", "113 Suicide Prevention", "112"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 95,
+      "sections": {
+        "what": "Routine support, referral to mental healthcare, an acute mental-health crisis and immediate danger are different routes. YouNew does not assess symptoms, diagnose or decide urgency.",
+        "who": "Use this route if you want to discuss ongoing mental-health concerns, understand the Dutch referral path, help someone in crisis or find the correct urgent contact.",
+        "steps": ["For immediate danger to life, call 112; do not wait for a website or routine appointment.", "For suicidal thoughts without immediate danger, use 113 Suicide Prevention or its anonymous chat and involve a trusted person when possible.", "For an acute mental-health crisis, contact the GP or out-of-hours GP service immediately so the local crisis team can be involved if needed.", "For non-urgent concerns, contact the GP, company doctor or appropriate welfare professional and describe how the problem affects daily life.", "Check the referral, provider and insurance route before non-emergency treatment and ask the insurer for care-finding help when necessary."],
+        "documents": ["A provider may ask for identification, insurance details, medication information and a referral. Do not delay urgent help while collecting documents."],
+        "cost": "Coverage and personal costs depend on the provider, referral and policy. Confirm them with the insurer and provider; emergency safety takes priority over cost checking.",
+        "timing": "Urgent danger and crisis routes are immediate. Routine availability and waiting times vary; ask the GP and insurer about safe interim support when a wait is long.",
+        "problems": ["If symptoms or risk escalate, move from the routine route to the GP, out-of-hours service or 112 as appropriate.", "If a provider is unavailable, ask the referrer and insurer for the current care-finding route.", "Do not share crisis details through an unverified chatbot or public form."],
+        "mistakes": ["Waiting for an online answer during immediate danger.", "Assuming every psychologist or counsellor is covered without checking referral and policy conditions.", "Treating a general checklist as a diagnosis or safety assessment."],
+        "localDifferences": "Providers, crisis teams and waiting times are local. The national GP, 113 and emergency routes remain visible regardless of city."
+      },
+      "relatedTopics": ["healthcare", "emergency", "insurance", "family"],
+      "usefulServices": [
+        {"title": "Check the correct route for urgent and non-urgent mental-health help", "provider": "Government of the Netherlands", "url": "https://www.government.nl/faq/help-for-mental-health-problems", "purpose": "Official overview of huisarts, crisis and longer-term mental-health routes in the Netherlands.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Read the huisarts emergency route before acting", "provider": "Thuisarts", "url": "https://www.thuisarts.nl/dutch-healthcare/in-case-of-emergency", "purpose": "Medical guidance from Dutch general practitioners on 112, the huisarts and out-of-hours care.", "kind": "non-profit", "checkedAt": "2026-08-07", "caveat": "If there is immediate danger, call 112 instead of waiting for online guidance."},
+        {"title": "Call or chat when you are thinking about suicide", "provider": "113 Suicide Prevention", "url": "https://www.113.nl/english", "purpose": "Confidential suicide-prevention support with English information and contact routes.", "kind": "support", "checkedAt": "2026-08-07", "caveat": "Call 112 when there is immediate danger or an attempt is underway."},
+        {"title": "Ask an independent mental-health support line", "provider": "MIND Hulplijn", "url": "https://mindhulplijn.nl/", "purpose": "Independent information, listening support and referral for mental-health questions and concerns about someone else.", "kind": "support", "checkedAt": "2026-08-07", "caveat": "This is not an emergency or treatment service."}
+      ],
+      "officialSources": [
+        {"title": "Where can I get help for mental health problems?", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/faq/help-for-mental-health-problems", "checkedAt": "2026-08-06"},
+        {"title": "In case of emergency", "publisher": "Thuisarts", "url": "https://www.thuisarts.nl/dutch-healthcare/in-case-of-emergency", "checkedAt": "2026-08-06"},
+        {"title": "Thinking of suicide? English help", "publisher": "113 Suicide Prevention", "url": "https://www.113.nl/english", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.dental-care",
+      "slug": "dentist-and-dental-care",
+      "title": "Dentist and dental care",
+      "summary": "A national route for finding a dentist, checking treatment and insurance terms, arranging care for children and responding to urgent dental problems.",
+      "category": "healthcare",
+      "subcategories": ["dentist", "dental-care", "oral-care", "dental-insurance", "children-dental-care", "dental-emergency"],
+      "intents": ["healthcare", "insurance", "family", "emergency"],
+      "synonyms": {
+        "en": ["dentist", "find a dentist", "dental care", "tooth pain", "dental insurance", "dentist child", "emergency dentist"],
+        "nl": ["tandarts", "tandarts zoeken", "mondzorg", "kiespijn", "tandartsverzekering", "tandarts kind", "spoedtandarts"],
+        "ru": ["стоматолог", "найти стоматолога", "стоматология", "зубная боль", "стоматологическая страховка", "детский стоматолог", "экстренный стоматолог"]
+      },
+      "keywords": ["oral care", "basic health insurance", "supplementary insurance", "KNMT", "urgent dental care"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 92,
+      "sections": {
+        "what": "Routine dentistry, urgent dental care and insurance reimbursement are separate questions. Coverage differs by age, treatment and policy, and a directory entry does not confirm that a practice accepts new patients.",
+        "who": "Use this route when looking for a dentist, planning treatment, checking a child's dental route, reviewing coverage or responding to pain, bleeding or dental injury.",
+        "steps": ["For severe injury, uncontrolled bleeding or immediate danger, use the urgent medical route and call 112 when life is at risk.", "For an urgent dental problem, call your dentist or the practice's out-of-hours number; if you have no dentist, use the professional dentist-finder or local urgent route.", "For routine care, ask a practice whether it accepts new patients and request its identification, intake and cancellation terms.", "Before non-urgent treatment, ask for the proposed treatment and cost information and check the current insurance coverage directly.", "Keep invoices, treatment plans and referral information for reimbursement or a complaint."],
+        "documents": ["A practice may request identification, BSN, insurance details, medication information and previous dental records. Confirm what is required before sending sensitive data."],
+        "cost": "Adult and child coverage differ, and routine adult dental care is often outside the standard package. Verify the policy and treatment proposal; YouNew does not quote fees.",
+        "timing": "Urgent pain, bleeding or injury should be triaged promptly. Routine waiting times and intake availability differ by practice.",
+        "problems": ["Ask the dental provider to explain the treatment plan, invoice and complaint route in writing.", "Check the insurer's contracted-care and reimbursement information before planned treatment.", "Use the provider or out-of-hours triage route instead of self-assessing a serious injury."],
+        "mistakes": ["Assuming adult dental care is automatically covered by the standard package.", "Treating an online listing as confirmation that a practice accepts patients.", "Delaying urgent triage while comparing prices."],
+        "localDifferences": "Dentist availability and out-of-hours arrangements are local. National coverage information and professional safety guidance remain available for every city."
+      },
+      "relatedTopics": ["healthcare", "insurance", "family", "emergency"],
+      "usefulServices": [
+        {"title": "Search dentists by place", "provider": "ZorgkaartNederland", "url": "https://www.zorgkaartnederland.nl/tandarts", "purpose": "National healthcare-provider directory with dentist locations, practice details and patient reviews.", "kind": "directory", "checkedAt": "2026-08-07", "caveat": "A listing does not confirm current patient capacity, fees or insurer contracting; contact the practice directly."},
+        {"title": "Check which oral care is in the standard insurance package", "provider": "National Health Care Institute", "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/m/mondzorg", "purpose": "Official coverage explanation for oral and dental care under the statutory insurance package.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Age, indication and treatment conditions matter; confirm the individual policy and treatment proposal."},
+        {"title": "Understand when a dental problem needs urgent care", "provider": "Royal Dutch Dental Association", "url": "https://knmt.nl/praktijkzaken/regelen-rond-kwaliteit-en-klachten/opvang-tandheelkundige-spoedgevallen/beoordeling-van-spoed", "purpose": "Professional guidance on assessing urgent dental situations and arranging out-of-hours coverage.", "kind": "non-profit", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "Oral and dental care in the standard package", "publisher": "National Health Care Institute", "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/m/mondzorg", "checkedAt": "2026-08-06"},
+        {"title": "Standard health insurance", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance", "checkedAt": "2026-08-06"},
+        {"title": "Assessment of urgent dental care", "publisher": "Royal Dutch Dental Association", "url": "https://knmt.nl/praktijkzaken/regelen-rond-kwaliteit-en-klachten/opvang-tandheelkundige-spoedgevallen/beoordeling-van-spoed", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.medicines",
+      "slug": "medicines-prescriptions-and-pharmacies",
+      "title": "Medicines, prescriptions and pharmacies",
+      "summary": "A national route for prescriptions, pharmacies, patient leaflets, safe medicine information, shortages and questions about use or side effects.",
+      "category": "healthcare",
+      "subcategories": ["medicines", "prescriptions", "pharmacy", "patient-leaflet", "medicine-information", "side-effects", "medicine-shortage"],
+      "intents": ["healthcare", "insurance", "safety"],
+      "synonyms": {
+        "en": ["medicine", "medication", "prescription", "pharmacy", "chemist", "patient leaflet", "side effects", "medicine shortage"],
+        "nl": ["medicijn", "medicatie", "recept", "apotheek", "bijsluiter", "bijwerkingen", "medicijntekort"],
+        "ru": ["лекарство", "медикаменты", "рецепт", "аптека", "инструкция к лекарству", "побочные эффекты", "дефицит лекарства"]
+      },
+      "keywords": ["CBG Medicines Evaluation Board", "Geneesmiddeleninformatiebank", "Apotheek", "patient information leaflet", "Lareb"],
+      "languages": ["en"],
+      "applicableProfiles": ["tourist", "student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 94,
+      "sections": {
+        "what": "Prescribing, dispensing, reimbursement and official medicine information are connected but separate. YouNew does not recommend a medicine, dose, substitution or treatment.",
+        "who": "Use this route when you have a prescription, need a pharmacy, want the official leaflet, have a question about use or side effects, or face a supply problem.",
+        "steps": ["For a severe reaction or immediate danger, call 112; for urgent medical advice contact the GP or out-of-hours GP service.", "Use the prescriber or pharmacist for questions about whether and how to use, stop, combine or replace a medicine.", "Use the CBG medicine information database for the official authorised product information and patient leaflet.", "Check the pharmacy and insurer for dispensing, reimbursement and contracted-care details.", "For a shortage or unavailable product, ask the pharmacist and prescriber about the responsible clinical route rather than changing treatment yourself."],
+        "documents": ["Bring identification, insurance and prescription information when requested, plus an up-to-date medicine and allergy list. Do not post prescriptions or medication details on a public form."],
+        "cost": "Coverage, co-payments and pharmacy charges depend on the medicine, policy and dispensing route. Verify the current information with the insurer and pharmacy.",
+        "timing": "Urgent reactions require immediate clinical contact. Prescription validity, ordering and shortage timelines are product-specific and should be confirmed with the pharmacy.",
+        "problems": ["If the name, strength, instructions or packaging differs from what you expected, contact the pharmacist before use.", "Report suspected side effects through the responsible medical or national reporting route after seeking urgent care when needed.", "Do not buy prescription medicines from an unverified website or seller."],
+        "mistakes": ["Changing a dose or stopping treatment based on a general web page.", "Using another person's prescription or medicine.", "Assuming a brand substitution, reimbursement or availability without asking the pharmacist."],
+        "localDifferences": "Pharmacy opening hours, stock and local out-of-hours arrangements vary. Official medicine information and emergency routes are national."
+      },
+      "relatedTopics": ["healthcare", "insurance", "emergency", "pregnancy"],
+      "usefulServices": [
+        {"title": "Read medicine instructions written for patients", "provider": "Apotheek.nl", "url": "https://www.apotheek.nl/", "purpose": "Independent medicine and pharmacy information maintained by the Dutch pharmacists' professional organisation.", "kind": "non-profit", "checkedAt": "2026-08-07", "caveat": "Follow the label, leaflet and advice from the prescribing clinician or pharmacist for your own medicine."},
+        {"title": "Search the official medicines information database", "provider": "Medicines Evaluation Board", "url": "https://www.geneesmiddeleninformatiebank.nl/", "purpose": "Official database for authorised medicines, package leaflets and product information in the Netherlands.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Check safety information and report a suspected side effect", "provider": "Pharmacovigilance Centre Lareb", "url": "https://www.lareb.nl/en/", "purpose": "National pharmacovigilance centre with medicine-safety information and patient reporting routes.", "kind": "support", "checkedAt": "2026-08-07", "caveat": "A side-effect report is not a request for urgent medical care; contact a clinician, huisarts post or 112 when needed."},
+        {"title": "Check safe and appropriate medicine use", "provider": "Medicines Evaluation Board", "url": "https://www.cbg-meb.nl/onderwerpen/goed-gebruik", "purpose": "Official information about safe medicine use, online purchasing risks and responsible use.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "Safe and appropriate medicine use", "publisher": "Medicines Evaluation Board", "url": "https://www.cbg-meb.nl/onderwerpen/goed-gebruik", "checkedAt": "2026-08-06"},
+        {"title": "Patient Information Network", "publisher": "Medicines Evaluation Board", "url": "https://www.cbg-meb.nl/onderwerpen/over-ons-ons-werk/over-cbg-samenwerking-in-nederland/npi", "checkedAt": "2026-08-06"},
+        {"title": "Health insurance", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/health-insurance", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.pregnancy",
+      "slug": "pregnancy-midwife-and-maternity-care",
+      "title": "Pregnancy, midwife and maternity care",
+      "summary": "A national starting route for contacting a midwife or doctor, prenatal screening, maternity care, insurance questions and urgent symptoms.",
+      "category": "family",
+      "subcategories": ["pregnancy", "midwife", "prenatal-care", "prenatal-screening", "maternity-care", "childbirth", "maternity-leave", "newborn-screening"],
+      "intents": ["family", "healthcare", "insurance", "work", "benefits"],
+      "synonyms": {
+        "en": ["pregnancy", "pregnant", "midwife", "prenatal care", "prenatal screening", "maternity care", "childbirth", "maternity leave", "newborn screening"],
+        "nl": ["zwangerschap", "zwanger", "verloskundige", "prenatale zorg", "prenatale screening", "kraamzorg", "bevalling", "zwangerschapsverlof", "neonatale screening"],
+        "ru": ["беременность", "беременна", "акушерка", "дородовое наблюдение", "пренатальный скрининг", "родовспоможение", "декретный отпуск", "скрининг новорождённых"]
+      },
+      "keywords": ["verloskundige", "gynaecologist", "RIVM PNS", "NIPT", "maternity care", "newborn screening"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 94,
+      "sections": {
+        "what": "Routine pregnancy care, prenatal screening, maternity care, urgent medical assessment, insurance and work leave are different routes. YouNew does not interpret symptoms or screening results.",
+        "who": "Use this route after a positive pregnancy test, when arranging a midwife or doctor, considering screening, preparing maternity care or checking work and insurance information.",
+        "steps": ["For severe symptoms or immediate danger, call 112; for urgent pregnancy concerns contact the midwife, GP or out-of-hours service immediately.", "Contact a midwife practice or GP early to arrange the appropriate first assessment and ask which provider should lead care in your situation.", "Review the RIVM prenatal-screening information and discuss voluntary choices with the qualified care professional before deciding.", "Check the insurer and maternity-care provider for current registration, coverage and practical arrangements.", "If employed or receiving a relevant benefit, use the official maternity-leave route and inform the responsible employer or UWV channel.", "Keep care contacts, appointments, screening choices and official confirmations together without uploading them to YouNew."],
+        "documents": ["Providers may request identification, BSN, insurance details, medical history and referral information. Work or benefit routes can require a pregnancy certificate; follow the exact official checklist."],
+        "cost": "Coverage and personal contributions depend on the care, provider and policy. Confirm them with the insurer and provider; do not delay urgent assessment while checking costs.",
+        "timing": "Care, screening and leave routes use different time windows. Follow the care professional and dated official source for your stage and situation.",
+        "problems": ["Contact the care professional promptly if symptoms change or you are unsure whether the issue is urgent.", "Ask the insurer for care-finding help if a local practice cannot accept the registration.", "Use a qualified professional to explain screening choices and results rather than interpreting them from a generic page."],
+        "mistakes": ["Waiting for a routine appointment during urgent symptoms.", "Treating prenatal screening as mandatory or as a diagnosis.", "Assuming maternity care, leave and benefit applications are one combined process."],
+        "localDifferences": "Midwife, hospital and maternity-care availability is local. National screening, insurance and leave sources remain visible in every municipality."
+      },
+      "relatedTopics": ["healthcare", "family", "insurance", "benefits", "work"],
+      "usefulServices": [
+        {"title": "Find a midwifery practice by place", "provider": "De Verloskundige", "url": "https://deverloskundige.nl/zoek-een-verloskundige", "purpose": "Public-facing directory from the Dutch midwives' professional organisation for locating a midwifery practice.", "kind": "directory", "checkedAt": "2026-08-07", "caveat": "Availability, catchment area and intake timing must be confirmed with the practice."},
+        {"title": "Check prenatal and newborn screening choices", "provider": "National Institute for Public Health and the Environment", "url": "https://www.pns.nl/en", "purpose": "Official information about prenatal screening, heel-prick screening and hearing screening.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Open screening information in additional languages", "provider": "National Institute for Public Health and the Environment", "url": "https://www.pns.nl/en/multiple-languages", "purpose": "Official translated information supporting informed choices about prenatal and newborn screening.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Check maternity-leave rules and the employer route", "provider": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/pregnancy-and-childbirth/applying-for-maternity-leave", "purpose": "Government overview of applying for pregnancy and maternity leave and the connected benefit route.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "Prenatal and newborn screening", "publisher": "National Institute for Public Health and the Environment", "url": "https://www.pns.nl/en", "checkedAt": "2026-08-06"},
+        {"title": "Information in multiple languages", "publisher": "National Institute for Public Health and the Environment", "url": "https://www.pns.nl/en/multiple-languages", "checkedAt": "2026-08-06"},
+        {"title": "Applying for maternity leave", "publisher": "Government of the Netherlands", "url": "https://www.government.nl/themes/family-health-and-care/pregnancy-and-childbirth/applying-for-maternity-leave", "checkedAt": "2026-08-06"}
+      ]
+    },
+    {
+      "id": "national.business-zzp",
+      "slug": "starting-a-business-and-zzp",
+      "title": "Starting a business and working as a ZZP'er",
+      "summary": "A national route for checking residence and work rights, choosing a legal structure, registering with KVK and preparing tax, administration and client arrangements.",
+      "category": "business",
+      "subcategories": ["starting-business", "zzp", "freelancer", "self-employment", "kvk-registration", "legal-structure", "business-tax", "false-self-employment"],
+      "intents": ["business", "work", "taxes", "banking", "integration"],
+      "synonyms": {
+        "en": ["start a business", "open a company", "ZZP", "freelancer", "self employed", "KVK registration", "sole proprietorship", "business tax"],
+        "nl": ["bedrijf starten", "ondernemen", "zzp", "freelancer", "zelfstandig", "inschrijven KVK", "eenmanszaak", "zakelijke belasting"],
+        "ru": ["открыть бизнес", "открыть компанию", "ZZP", "фрилансер", "самозанятый", "регистрация KVK", "индивидуальный предприниматель", "налоги бизнеса"]
+      },
+      "keywords": ["Business.gov.nl", "KVK Business Register", "legal structure", "BSN", "DigiD", "VAT", "false self-employment"],
+      "languages": ["en"],
+      "applicableProfiles": ["student", "expat", "refugee", "worker", "resident"],
+      "scope": "national", "nationalFallback": true, "qualityScore": 94,
+      "sections": {
+        "what": "ZZP'er and freelancer describe ways of working, not legal structures. The route can involve immigration or work rights, KVK registration, a legal structure, taxes, records, contracts and insurance.",
+        "who": "Use this route when planning independent work, starting a Dutch company, registering with KVK or checking whether an assignment should be employment instead.",
+        "steps": ["Confirm that your residence and work status allows the planned activity; use IND or qualified advice for a case-specific immigration question.", "Describe the activity, customers, location, risks and expected way of working, then use Business.gov.nl and KVK to check whether registration is required.", "Choose a legal structure based on ownership, liability and tax consequences rather than treating ZZP as the structure.", "Prepare the official KVK registration route, identity and business-address evidence and any sector-specific permits or professional requirements.", "Set up reliable bookkeeping, invoices, tax records, privacy and contract terms before trading.", "Check each assignment for false self-employment risk and keep the real working relationship consistent with the agreement."],
+        "documents": ["Requirements depend on legal structure and status. They can include identity, BSN, DigiD, residence evidence, business address, activity description, ownership information and notarial documents; follow the official registration checklist."],
+        "cost": "Registration, advice, insurance, banking and administration costs vary. Use current official information and written quotes; YouNew does not publish a rate card or tax calculation.",
+        "timing": "Registration timing and permit or sector requirements depend on the planned start and legal structure. Confirm them before issuing invoices or accepting work.",
+        "problems": ["Use KVK or Business.gov.nl when unsure whether the activity qualifies for registration.", "Use the Tax Administration or a qualified adviser for personal VAT and income-tax treatment.", "Seek immigration or employment-law help when residence status or false self-employment could affect the route."],
+        "mistakes": ["Treating freelancer or ZZP'er as a legal structure.", "Registering before checking residence rights, liability and sector requirements.", "Assuming every client relationship is independent work because the contract uses freelance wording."],
+        "localDifferences": "Business registration and tax are national, while zoning, home-business, parking, permits and local support can be municipal. City selection adds the municipality without hiding the national setup route."
+      },
+      "relatedTopics": ["work", "taxes", "banking", "immigration", "legal-help"],
+      "usefulServices": [
+        {"title": "Follow the official route for starting as a freelancer or ZZP'er", "provider": "Business.gov.nl", "url": "https://business.gov.nl/starting-your-business/starting-as-a-self-employed-professional/get-started-as-a-freelancer-or-zzper/", "purpose": "Government-backed checklist connecting registration, taxes, contracts, insurance and business administration.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Prepare and complete business registration", "provider": "Business.gov.nl / KVK", "url": "https://business.gov.nl/starting-your-business/registering-your-business/registration-at-the-netherlands-chamber-of-commerce-kvk/", "purpose": "Official explanation of KVK registration, preparation, appointment and follow-up registrations.", "kind": "public", "checkedAt": "2026-08-07", "caveat": "Residence rights, regulated professions and sector permits must be checked separately before trading."},
+        {"title": "Check official tax information for businesses", "provider": "Tax Administration", "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/business/business", "purpose": "Official English starting point for VAT, income tax, payroll and other business tax responsibilities.", "kind": "public", "checkedAt": "2026-08-07"},
+        {"title": "Review rules that apply specifically to self-employed professionals", "provider": "Business.gov.nl", "url": "https://business.gov.nl/starting-your-business/starting-as-a-self-employed-professional/regulations-for-self-employed-professionals/", "purpose": "Government-backed overview of contracts, false self-employment, model agreements, insurance and sector duties.", "kind": "public", "checkedAt": "2026-08-07"}
+      ],
+      "officialSources": [
+        {"title": "Get started as a freelancer or ZZP'er", "publisher": "Business.gov.nl", "url": "https://business.gov.nl/starting-your-business/starting-as-a-self-employed-professional/get-started-as-a-freelancer-or-zzper/", "checkedAt": "2026-08-06"},
+        {"title": "Register your Dutch business with KVK", "publisher": "Business.gov.nl", "url": "https://business.gov.nl/starting-your-business/registering-your-business/registration-at-the-netherlands-chamber-of-commerce-kvk/", "checkedAt": "2026-08-06"},
+        {"title": "Regulations for self-employed professionals", "publisher": "Business.gov.nl", "url": "https://business.gov.nl/starting-your-business/starting-as-a-self-employed-professional/regulations-for-self-employed-professionals/", "checkedAt": "2026-08-06"}
       ]
     }
   ]

@@ -4,13 +4,14 @@ import { ArrowRight, CheckCircle2, Smartphone } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageShell } from "@/components/page-shell";
 import { TrackedAppStoreLink } from "@/components/tracked-app-store-link";
-import statusSnapshot from "@/config/status.json";
+import statusSnapshot from "@/generated/status.json";
 import { metadataForPage } from "@/lib/seo/metadata";
 import { links } from "@/lib/site-data";
 
 export const metadata = metadataForPage("YouNew for iPhone", "Current verified information about the YouNew iPhone app and available web alternatives.", "/app");
 
 export default function AppPage() {
+  const currentVersionIsTested = statusSnapshot.ios.publicVersion === statusSnapshot.ios.testedVersion;
   return (
     <PageShell>
       <section className="app-hero section-shell app-download-hero">
@@ -18,7 +19,7 @@ export default function AppPage() {
           <Breadcrumbs items={[{ label: "App" }]} />
           <Smartphone aria-hidden className="hero-line-icon" />
           <h1>YouNew on iPhone</h1>
-          <p>The public YouNew App Store listing currently serves version {statusSnapshot.ios.publicVersion}. Version {statusSnapshot.ios.testedVersion} (build {statusSnapshot.ios.testedBuild}) has been submitted to App Review and is not public yet; the web guide remains available without an install.</p>
+          <p>The public YouNew App Store listing currently serves version {statusSnapshot.ios.publicVersion}. {currentVersionIsTested ? `This is the locally tested version backed by build ${statusSnapshot.ios.testedBuild} release evidence.` : `The locally tested version is ${statusSnapshot.ios.testedVersion} (build ${statusSnapshot.ios.testedBuild}).`} The web guide remains available without an install.</p>
           <div className="hero-actions">
             <TrackedAppStoreLink
               className="button button-primary"

@@ -3,6 +3,7 @@ import { NextStepPlanner } from "@/components/next-step-planner";
 import { PageShell } from "@/components/page-shell";
 import { getPublicContent } from "@/lib/content";
 import { getMunicipalities } from "@/lib/geography";
+import { getNationalGuides } from "@/lib/search/national-guides";
 import { metadataForPage } from "@/lib/seo/metadata";
 
 export const metadata = metadataForPage(
@@ -22,12 +23,17 @@ export default function StartPage() {
     name: municipality.name,
     officialWebsite: municipality.officialWebsite
   }))];
-  const guides = content.guides.map((guide) => ({
+  const guides = [...content.guides.map((guide) => ({
     id: guide.id,
     route: guide.route,
     title: guide.title,
     contentDepth: guide.contentDepth
-  }));
+  })), ...getNationalGuides().map((guide) => ({
+    id: guide.id,
+    route: `/essentials/${guide.slug}/`,
+    title: guide.title,
+    contentDepth: "practical" as const
+  }))];
 
   return (
     <PageShell className="start-page">

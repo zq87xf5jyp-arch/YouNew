@@ -27,7 +27,7 @@
     "intents": [{ "id": "documents.bsn", "terms": ["get BSN", "How do I get a BSN", "BSN registration", "burgerservicenummer aanvragen", "получить BSN"] }, { "id": "documents.digid", "terms": ["apply DigiD", "activate DigiD", "DigiD aanvragen", "оформить DigiD"] }, { "id": "documents.lost-residence-card", "terms": ["lost residence card", "residence permit stolen", "verblijfsdocument kwijt", "потерял вид на жительство"] }],
     "profiles": ["student", "expat", "refugee", "worker", "resident"],
     "startHere": ["Choose the document or identifier you need: BSN/BRP, DigiD, residence document or civil record.", "For BSN and BRP, use your municipality or an RNI desk according to your situation.", "For a lost residence document, follow the IND route and do not rely on generic replacement advice."],
-    "officialSources": [{ "name": "Government.nl — Citizen service number (BSN)", "url": "https://www.government.nl/topics/government-and-democracy/personal-data/citizen-service-number-bsn" }, { "name": "DigiD — Apply and activate", "url": "https://www.digid.nl/en/apply-and-activate" }, { "name": "IND — Residence permit lost or stolen", "url": "https://ind.nl/en/replace-extend-renew-and-change/residence-permit-lost-or-stolen" }]
+    "officialSources": [{ "name": "Government.nl — Citizen service number (BSN)", "url": "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn" }, { "name": "DigiD — Apply and activate", "url": "https://www.digid.nl/en/apply-and-activate" }, { "name": "IND — Residence permit lost or stolen", "url": "https://ind.nl/en/replace-extend-renew-and-change/residence-permit-lost-or-stolen" }]
   },
   {
     "slug": "healthcare",
@@ -47,7 +47,7 @@
     "intents": [{ "id": "education.school", "terms": ["find a school", "Dutch school", "school registration", "school inschrijven", "найти школу"] }, { "id": "education.vocational", "terms": ["MBO study", "vocational education", "MBO opleiding", "профессиональное образование"] }, { "id": "education.higher", "terms": ["HBO study", "university study", "higher education", "HBO opleiding", "universitaire opleiding", "высшее образование"] }, { "id": "education.newcomer", "terms": ["newcomer class", "bridging class", "taalklas", "класс для новичков"] }],
     "profiles": ["student", "expat", "refugee", "worker", "resident"],
     "startHere": ["Choose primary, secondary, vocational or higher education before selecting a route.", "For a child new to Dutch, ask the school or municipality about newcomer or language support.", "Check local admission rules and availability directly with the school."],
-    "officialSources": [{ "name": "Government.nl — Education", "url": "https://www.government.nl/topics/education" }, { "name": "DUO", "url": "https://duo.nl/particulier/international-visitor/" }]
+    "officialSources": [{ "name": "Government.nl — Education", "url": "https://www.government.nl/themes/education" }, { "name": "DUO", "url": "https://duo.nl/particulier/international-visitor/" }]
   },
   {
     "slug": "language-learning",
@@ -187,7 +187,7 @@
     "intents": [{ "id": "children.birth", "terms": ["register a birth", "birth registration", "geboorteaangifte", "зарегистрировать рождение"] }, { "id": "children.childcare", "terms": ["find childcare", "daycare", "kinderopvang", "найти детский сад"] }],
     "profiles": ["expat", "refugee", "worker", "resident", "student"],
     "startHere": ["Choose birth registration, childcare, school, health or family support.", "Use your municipality for local registration and support routes.", "Verify benefit and childcare requirements separately with the responsible service."],
-    "officialSources": [{ "name": "Government.nl — Family, health and care", "url": "https://www.government.nl/topics/family-health-and-care" }]
+    "officialSources": [{ "name": "Government.nl — Family, health and care", "url": "https://www.government.nl/themes/family-health-and-care" }]
   },
   {
     "slug": "safety",

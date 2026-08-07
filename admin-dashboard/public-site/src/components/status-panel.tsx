@@ -70,7 +70,7 @@ export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
   return (
     <div className="status-panel">
       <p className="status-snapshot-note">
-        <strong>Static status snapshot.</strong> This page does not use live monitoring. Snapshot checked{" "}
+        <strong>Generated release snapshot.</strong> Counts are rebuilt from current release artifacts; this page does not use live monitoring. Snapshot checked{" "}
         <time dateTime={current.checkedAt}>{humanDate(current.checkedAt)}</time>.
       </p>
 

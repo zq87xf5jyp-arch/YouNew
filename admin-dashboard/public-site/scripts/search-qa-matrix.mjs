@@ -31,7 +31,15 @@ const groups = [
   { id: "documents", expected: "national.documents", representative: "BSN", queries: ["BSN", "DigiD", "registration", "residence permit", "inschrijving", "регистрация", "ВНЖ"] },
   { id: "education", expected: "national.education", representative: "Dutch course", queries: ["Dutch course", "language school", "university", "MBO", "study", "taalschool", "школа", "курсы"] },
   { id: "telecom", expected: "national.telecom", representative: "SIM card", queries: ["SIM", "prepaid", "eSIM", "phone contract", "internet", "simkaart", "сим-карта"] },
-  { id: "rules-fines", expected: "national.rules-fines", representative: "parking fine", queries: ["parking fine", "traffic rules", "bicycle rules", "waste fine", "parkeerboete", "fietsregels", "штраф за парковку"] }
+  { id: "rules-fines", expected: "national.rules-fines", representative: "parking fine", queries: ["parking fine", "traffic rules", "bicycle rules", "waste fine", "parkeerboete", "fietsregels", "штраф за парковку"] },
+  { id: "lgbtiq-support", expected: "national.lgbtiq-support", representative: "LGBTQ support", queries: ["LGBTQ support", "queer support", "trans support", "LHBTI hulp", "discriminatie melden", "ЛГБТ поддержка", "гомофобия"] },
+  { id: "banking", expected: "national.banking", representative: "open a bank account", queries: ["open a bank account", "payment account", "bankrekening openen", "betaalrekening", "открыть банковский счёт", "банковский счет"] },
+  { id: "family-childcare", expected: "national.family-childcare", representative: "families childcare", queries: ["families childcare", "find childcare", "kinderopvang", "buitenschoolse opvang", "детский сад", "уход за детьми"] },
+  { id: "pets", expected: "national.pets", representative: "pets registration", queries: ["pets registration", "register a dog", "hond registreren", "dierenpaspoort", "регистрация питомца", "зарегистрировать собаку"] },
+  { id: "taxes", expected: "national.taxes", representative: "tax Belastingdienst", queries: ["tax Belastingdienst", "tax return", "belastingaangifte", "inkomstenbelasting", "налоговая декларация", "налоги в Нидерландах"] },
+  { id: "benefits", expected: "national.benefits", representative: "benefits allowances", queries: ["benefits allowances", "healthcare benefit", "toeslagen", "huurtoeslag", "пособия", "пособие на аренду"] },
+  { id: "transport", expected: "national.transport", representative: "buy a bicycle", queries: ["buy a bicycle", "public transport", "fiets kopen", "openbaar vervoer", "купить велосипед", "общественный транспорт"] },
+  { id: "immigration", expected: "national.immigration", representative: "immigration residence permit", queries: ["immigration residence permit", "visa Netherlands", "immigratie", "verblijfsvergunning verlengen", "иммиграция", "виза в Нидерланды"] }
 ];
 const profiles = ["tourist", "student", "expat", "refugee", "worker", "resident"];
 const failures = [];
@@ -92,7 +100,7 @@ const profileRows = profiles.map((profile) => {
   return { profile, checks: rows.length, passed: rows.every((row) => row.passed) };
 });
 
-const combinedScenarios = [
+const combinedScenarioSpecs = [
   ["Rent + Den Haag + Worker", "rent", "s-gravenhage", "worker", "national.housing"],
   ["housing rent + Den Haag + Worker", "housing rent", "s-gravenhage", "worker", "national.housing"],
   ["work + Leiden", "work", "leiden", "worker", "national.work"],
@@ -100,8 +108,17 @@ const combinedScenarios = [
   ["Dutch school + Groningen", "Dutch school", "groningen", "student", "national.education"],
   ["BSN + Eindhoven", "BSN", "eindhoven", "expat", "national.documents"],
   ["SIM card + Maastricht", "SIM card", "maastricht", "tourist", "national.telecom"],
-  ["parking fine + Utrecht", "parking fine", "utrecht", "resident", "national.rules-fines"]
-].map(([label, query, cityId, preferredProfile, expected]) => evaluate({
+  ["parking fine + Utrecht", "parking fine", "utrecht", "resident", "national.rules-fines"],
+  ["LGBTQ support + Groningen", "LGBTQ support", "groningen", "student", "national.lgbtiq-support"],
+  ["Bank account + Utrecht", "open a bank account", "utrecht", "resident", "national.banking"],
+  ["Childcare + Rotterdam", "families childcare", "rotterdam", "worker", "national.family-childcare"],
+  ["Pets + Groningen", "pets registration", "groningen", "expat", "national.pets"],
+  ["Tax + Eindhoven", "tax Belastingdienst", "eindhoven", "worker", "national.taxes"],
+  ["Benefits + Maastricht", "benefits allowances", "maastricht", "refugee", "national.benefits"],
+  ["Bicycle + Leiden", "buy a bicycle", "leiden", "student", "national.transport"],
+  ["Immigration + Den Haag", "immigration residence permit", "s-gravenhage", "expat", "national.immigration"]
+];
+const combinedScenarios = combinedScenarioSpecs.map(([label, query, cityId, preferredProfile, expected]) => evaluate({
   dimension: "city-profile",
   context: label,
   query,
@@ -128,8 +145,35 @@ const typoRows = [
   ["registraton", "national.documents"],
   ["taalschol", "national.education"],
   ["simkart", "national.telecom"],
-  ["parkeerboet", "national.rules-fines"]
+  ["parkeerboet", "national.rules-fines"],
+  ["LGBT suport", "national.lgbtiq-support"],
+  ["bank acount", "national.banking"],
+  ["childcar", "national.family-childcare"],
+  ["dog registraton", "national.pets"],
+  ["tax retrn", "national.taxes"],
+  ["toeslaen", "national.benefits"],
+  ["buy bicicle", "national.transport"],
+  ["imigration", "national.immigration"]
 ].map(([query, expected]) => evaluate({ dimension: "typo", context: query, query, expected }));
+
+const usefulServiceSearchRows = [
+  ["Huurcommissie Rent Check", "national.housing"],
+  ["MijnOverheid", "national.documents"],
+  ["Zorgkaart huisarts", "national.healthcare"],
+  ["Taalhuis", "national.education"],
+  ["Fraudehelpdesk", "national.consumer-rights"],
+  ["Geldfit", "national.debt-legal-help"],
+  ["113 Suicide Prevention", "national.mental-health"],
+  ["Apotheek.nl", "national.medicines"],
+  ["9292 journey planner", "national.transport"],
+  ["Studielink", "national.education"]
+].map(([query, expected]) => evaluate({
+  dimension: "useful-service-search",
+  context: query,
+  query,
+  expected,
+  requireFirst: true
+}));
 
 const guideSourceChecks = nationalGuides.guides.flatMap((guide) => guide.officialSources.map((source) => ({
   guide: guide.id,
@@ -140,6 +184,22 @@ const guideSourceChecks = nationalGuides.guides.flatMap((guide) => guide.officia
 for (const source of guideSourceChecks) {
   checks += 1;
   if (!source.valid) failures.push({ dimension: "official-source", context: source.guide, query: source.url, expected: "HTTPS and ISO checkedAt", topIds: [] });
+}
+
+const guideServiceChecks = nationalGuides.guides.flatMap((guide) => (guide.usefulServices ?? []).map((service) => ({
+  guide: guide.id,
+  url: service.url,
+  checkedAt: service.checkedAt,
+  kind: service.kind,
+  purpose: service.purpose,
+  valid: service.url.startsWith("https://")
+    && /^\d{4}-\d{2}-\d{2}$/.test(service.checkedAt)
+    && ["public", "non-profit", "support", "directory"].includes(service.kind)
+    && service.purpose.length > 30
+})));
+for (const service of guideServiceChecks) {
+  checks += 1;
+  if (!service.valid) failures.push({ dimension: "useful-service", context: service.guide, query: service.url, expected: "complete actionable service metadata", topIds: [] });
 }
 
 const report = {
@@ -164,7 +224,9 @@ const report = {
     combinedScenarios,
     aliases,
     typoRows,
-    officialSourceMetadata: guideSourceChecks
+    usefulServiceSearchRows,
+    officialSourceMetadata: guideSourceChecks,
+    usefulServiceMetadata: guideServiceChecks
   },
   failures
 };
@@ -183,7 +245,7 @@ const markdown = `# YouNew search QA matrix\n\n` +
   `- Profiles: ${report.evidence.profileCount}\n\n` +
   `## Required production scenarios\n\n` +
   `| Scenario | Result | First result |\n|---|---:|---|\n` +
-  combinedScenarios.map((row, index) => `| ${["Rent + Den Haag + Worker", "housing rent + Den Haag + Worker", "work + Leiden", "huisarts + Rotterdam", "Dutch school + Groningen", "BSN + Eindhoven", "SIM card + Maastricht", "parking fine + Utrecht"][index]} | ${row.passed ? "PASS" : "FAIL"} | ${row.topIds[0] ?? "none"} |`).join("\n") +
+  combinedScenarios.map((row, index) => `| ${combinedScenarioSpecs[index][0]} | ${row.passed ? "PASS" : "FAIL"} | ${row.topIds[0] ?? "none"} |`).join("\n") +
   `\n\n## Failure evidence\n\n${failures.length ? failures.map((failure) => `- ${failure.dimension} / ${failure.context} / ${failure.query}: expected ${failure.expected}; got ${failure.topIds.join(", ") || "zero"}`).join("\n") : "No failures."}\n`;
 await writeFile(reportMarkdownPath, markdown);
 

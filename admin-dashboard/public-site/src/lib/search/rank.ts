@@ -168,10 +168,34 @@ function tokenScore(queryToken: string, candidate: string, weight: number): numb
   return 0;
 }
 
-function matchesHardFilters(document: SearchDocument, filters: SearchFilters): boolean {
+function matchesExplicitLocation(
+  document: SearchDocument,
+  location: ReturnType<typeof selectedLocationContext>
+): boolean {
+  if (!location) return true;
+  const scope = documentScope(document);
+  if (scope === "national" || scope === "emergency" || scope === "online-service" || document.nationalFallback) return true;
+
+  if (location.kind === "province") {
+    const documentProvince = document.provinceId ?? (document.type === "province" ? document.slug : null);
+    return documentProvince === location.provinceId;
+  }
+
+  const documentCity = canonicalCityId(
+    document.municipalityId ?? document.cityId ?? (document.type === "municipality" || document.type === "city" ? document.slug : null)
+  );
+  if (documentCity === location.canonicalId) return true;
+  return scope === "province" && Boolean(location.provinceId) && document.provinceId === location.provinceId;
+}
+
+function matchesHardFilters(
+  document: SearchDocument,
+  filters: SearchFilters,
+  explicitLocation: ReturnType<typeof selectedLocationContext>
+): boolean {
   if (filters.type && document.type !== filters.type) return false;
   if (filters.category && !document.categories.includes(filters.category)) return false;
-  return true;
+  return matchesExplicitLocation(document, explicitLocation);
 }
 
 function documentScope(document: SearchDocument): SearchLocationScope {
@@ -284,7 +308,7 @@ export function rankSearchDocuments(
   const filters = options.filters ?? {};
   if (!queryText || queryTokens.length === 0) {
     return documents
-      .filter((document) => matchesHardFilters(document, filters))
+      .filter((document) => matchesHardFilters(document, filters, explicitLocation))
       .sort(
         (left, right) =>
           locationScore(right, location, Boolean(explicitLocation)) - locationScore(left, location, Boolean(explicitLocation)) ||
@@ -299,7 +323,7 @@ export function rankSearchDocuments(
   const results: RankedSearchResult[] = [];
 
   for (const document of documents) {
-    if (!matchesHardFilters(document, filters)) continue;
+    if (!matchesHardFilters(document, filters, explicitLocation)) continue;
 
     const titleText = normalizeSearchText(document.title);
     const documentFields = weightedFields(document);

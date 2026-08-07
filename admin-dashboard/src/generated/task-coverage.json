@@ -1,0 +1,530 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-08-06T18:21:25.454Z",
+  "sourceArtifact": "public-site/src/content/national-guides.json + public-site/src/app/emergency/page.tsx",
+  "datasetVerifiedAt": "2026-08-06",
+  "formula": "Weighted mean of seven binary useful-solution criteria across the required published solutions for each top-level task.",
+  "formulaVersion": 1,
+  "criteria": [
+    {
+      "key": "answer",
+      "label": "Verified answer"
+    },
+    {
+      "key": "officialSource",
+      "label": "Official source"
+    },
+    {
+      "key": "nextAction",
+      "label": "Useful next action"
+    },
+    {
+      "key": "requirements",
+      "label": "Requirements or documents"
+    },
+    {
+      "key": "checkedDate",
+      "label": "Checked date"
+    },
+    {
+      "key": "localDisclosure",
+      "label": "Local-difference disclosure"
+    },
+    {
+      "key": "qa",
+      "label": "QA evidence"
+    }
+  ],
+  "weightedCoverage": 97,
+  "establishedTaskCount": 10,
+  "taskCount": 10,
+  "tasks": [
+    {
+      "id": "housing",
+      "label": "Housing",
+      "weight": 14,
+      "requiredSolutions": 3,
+      "availableSolutions": 3,
+      "coveragePercent": 100,
+      "evidenceState": "established",
+      "missing": [],
+      "records": [
+        {
+          "id": "national.housing",
+          "title": "Housing and renting in the Netherlands",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.utilities-moving",
+          "title": "Utilities and moving home",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.consumer-rights",
+          "title": "Consumer rights, scams and complaints",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "work",
+      "label": "Work",
+      "weight": 13,
+      "requiredSolutions": 3,
+      "availableSolutions": 3,
+      "coveragePercent": 100,
+      "evidenceState": "established",
+      "missing": [],
+      "records": [
+        {
+          "id": "national.work",
+          "title": "Work and employment in the Netherlands",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.taxes",
+          "title": "Taxes and income tax returns",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.business-zzp",
+          "title": "Starting a business and working as a ZZP'er",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "healthcare",
+      "label": "Healthcare",
+      "weight": 14,
+      "requiredSolutions": 5,
+      "availableSolutions": 5,
+      "coveragePercent": 100,
+      "evidenceState": "established",
+      "missing": [],
+      "records": [
+        {
+          "id": "national.healthcare",
+          "title": "Healthcare, huisarts and health insurance",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.mental-health",
+          "title": "Mental health and crisis support",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.dental-care",
+          "title": "Dentist and dental care",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.medicines",
+          "title": "Medicines, prescriptions and pharmacies",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.pregnancy",
+          "title": "Pregnancy, midwife and maternity care",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "documents",
+      "label": "Documents",
+      "weight": 13,
+      "requiredSolutions": 3,
+      "availableSolutions": 3,
+      "coveragePercent": 100,
+      "evidenceState": "established",
+      "missing": [],
+      "records": [
+        {
+          "id": "national.documents",
+          "title": "BSN, registration, DigiD and residence documents",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.immigration",
+          "title": "Immigration, visas and residence permits",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.benefits",
+          "title": "Benefits and allowances",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "study",
+      "label": "Study",
+      "weight": 9,
+      "requiredSolutions": 3,
+      "availableSolutions": 3,
+      "coveragePercent": 100,
+      "evidenceState": "established",
+      "missing": [],
+      "records": [
+        {
+          "id": "national.education",
+          "title": "Education and learning Dutch",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.family-childcare",
+          "title": "Family, childcare and school basics",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.immigration",
+          "title": "Immigration, visas and residence permits",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "daily-life",
+      "label": "Daily life",
+      "weight": 12,
+      "requiredSolutions": 5,
+      "availableSolutions": 5,
+      "coveragePercent": 100,
+      "evidenceState": "established",
+      "missing": [],
+      "records": [
+        {
+          "id": "national.banking",
+          "title": "Bank accounts and everyday payments",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.transport",
+          "title": "Public transport, bicycles and safe travel",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.telecom",
+          "title": "SIM cards, phone contracts and internet",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.utilities-moving",
+          "title": "Utilities and moving home",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.rules-fines",
+          "title": "Rules, traffic and fines in the Netherlands",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "emergency",
+      "label": "Emergency",
+      "weight": 10,
+      "requiredSolutions": 1,
+      "availableSolutions": 1,
+      "coveragePercent": 71,
+      "evidenceState": "partial",
+      "missing": [
+        "Requirements or documents",
+        "Checked date"
+      ],
+      "records": [
+        {
+          "id": "page.emergency",
+          "title": "Emergency help",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": false,
+            "checkedDate": false,
+            "localDisclosure": true,
+            "qa": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "lgbtiq",
+      "label": "LGBTIQ+",
+      "weight": 5,
+      "requiredSolutions": 1,
+      "availableSolutions": 1,
+      "coveragePercent": 100,
+      "evidenceState": "established",
+      "missing": [],
+      "records": [
+        {
+          "id": "national.lgbtiq-support",
+          "title": "LGBTIQ+ support and discrimination help",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "pets",
+      "label": "Pets",
+      "weight": 4,
+      "requiredSolutions": 1,
+      "availableSolutions": 1,
+      "coveragePercent": 100,
+      "evidenceState": "established",
+      "missing": [],
+      "records": [
+        {
+          "id": "national.pets",
+          "title": "Pets, dogs and cats in the Netherlands",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        }
+      ]
+    },
+    {
+      "id": "family",
+      "label": "Family",
+      "weight": 6,
+      "requiredSolutions": 3,
+      "availableSolutions": 3,
+      "coveragePercent": 100,
+      "evidenceState": "established",
+      "missing": [],
+      "records": [
+        {
+          "id": "national.family-childcare",
+          "title": "Family, childcare and school basics",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.pregnancy",
+          "title": "Pregnancy, midwife and maternity care",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        },
+        {
+          "id": "national.benefits",
+          "title": "Benefits and allowances",
+          "checks": {
+            "answer": true,
+            "officialSource": true,
+            "nextAction": true,
+            "requirements": true,
+            "checkedDate": true,
+            "localDisclosure": true,
+            "qa": true
+          }
+        }
+      ]
+    }
+  ]
+}

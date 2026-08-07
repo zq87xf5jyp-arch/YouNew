@@ -102,12 +102,20 @@ const secretPatterns = [
   /\b(?:OPENAI_API_KEY|SUPABASE_SERVICE_ROLE_KEY)\s*[:=]/,
   /\bsk-[A-Za-z0-9_-]{20,}\b/
 ];
+const rewriteSensitiveFlightText = /:T[0-9a-f]+,"\]\)<\/script><script>self\.__next_f\.push\(\[1,"(?:(?!<\/script>).)*younew\.nl/s;
 for (const path of outFiles) {
   const rel = relative(outRoot, path).replaceAll("\\", "/");
   const authoredJavaScript = rel === "sw.js" || rel === "theme-init.js" || /^static-shell(?:\.[a-f0-9]{12})?\.js$/.test(rel);
   if (!authoredExtensions.has(extname(path)) && !path.endsWith(".htaccess") && !authoredJavaScript) continue;
   const value = await readFile(path, "utf8");
   assert.doesNotMatch(value, localUrlPattern, `Local-only URL/path leaked into ${rel}`);
+  if (extname(path) === ".html") {
+    assert.doesNotMatch(
+      value,
+      rewriteSensitiveFlightText,
+      `Hostinger may corrupt a length-prefixed React Flight text row in ${rel}`
+    );
+  }
   for (const pattern of secretPatterns) assert.doesNotMatch(value, pattern, `Potential secret leaked into ${rel}`);
 }
 

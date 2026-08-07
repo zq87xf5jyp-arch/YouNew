@@ -2,61 +2,79 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Building2, GraduationCap, Plane, RotateCcw, Users } from "lucide-react";
+import { Building2, BriefcaseBusiness, GraduationCap, Home, Plane, RotateCcw, Users } from "lucide-react";
 import { track } from "@/lib/analytics/client";
+import type { PlannerGoalId, PlannerProfileId } from "@/lib/planner/definitions";
 import { localContentRepository, type UserPathProfile } from "@/lib/storage/local-content";
+
+type HomepageMunicipality = Readonly<{ slug: string; name: string }>;
 
 const profiles = [
   {
     id: "tourist",
+    plannerProfile: "tourist",
     label: "Tourist",
-    description: "See places, transport and short-stay information relevant to visiting the Netherlands.",
+    description: "Transport, short-stay rules and urgent-help routes for a visit.",
     icon: Plane,
-    links: [
-      { label: "Browse places", href: "/places" },
-      { label: "Find transport", href: "/categories/transport" }
-    ]
+    tasks: [{ id: "transport", label: "Plan transport" }, { id: "consumer-legal", label: "Know consumer rights" }, { id: "urgent-help", label: "Prepare urgent help" }]
   },
   {
     id: "student",
+    plannerProfile: "student",
     label: "Student",
-    description: "See tasks and guidance relevant to studying and settling in the Netherlands.",
+    description: "Study, registration, housing and everyday setup.",
     icon: GraduationCap,
-    links: [
-      { label: "View education guidance", href: "/categories/education" },
-      { label: "Find housing guidance", href: "/categories/housing" }
-    ]
+    tasks: [{ id: "study", label: "Start studying" }, { id: "housing", label: "Find housing" }, { id: "health-wellbeing", label: "Find health support" }]
   },
   {
     id: "expat",
+    plannerProfile: "expat",
     label: "Expat",
-    description: "See starting points for registration, housing, work and local services.",
+    description: "Registration, housing, work and responsible local services.",
     icon: Building2,
-    links: [
-      { label: "Start with registration", href: "/guides/first-registration-in-amsterdam" },
-      { label: "View government services", href: "/categories/government" }
-    ]
+    tasks: [{ id: "registration", label: "Start registration" }, { id: "utilities-moving", label: "Arrange utilities" }, { id: "work", label: "Start work" }]
   },
   {
     id: "refugee",
+    plannerProfile: "refugee",
     label: "Refugee",
-    description: "See essential services, safety routes and published support information.",
+    description: "Status-aware starting points, safety and published support.",
     icon: Users,
-    links: [
-      { label: "Open emergency help", href: "/emergency" },
-      { label: "View government services", href: "/categories/government" }
-    ]
+    tasks: [{ id: "registration", label: "Check registration" }, { id: "consumer-legal", label: "Find rights support" }, { id: "urgent-help", label: "Open urgent help" }]
+  },
+  {
+    id: "worker",
+    plannerProfile: "worker",
+    label: "Worker",
+    description: "Employment, tax, banking, insurance and benefits.",
+    icon: BriefcaseBusiness,
+    tasks: [{ id: "work", label: "Start work" }, { id: "taxes-benefits", label: "Check taxes & benefits" }, { id: "business", label: "Start a business" }]
+  },
+  {
+    id: "resident",
+    plannerProfile: "resident",
+    label: "Resident",
+    description: "Healthcare, housing and recurring tasks for daily life.",
+    icon: Home,
+    tasks: [{ id: "health-insurance", label: "Arrange healthcare" }, { id: "utilities-moving", label: "Manage utilities" }, { id: "housing", label: "Review housing" }]
   }
 ] as const satisfies readonly Readonly<{
-  id: Extract<UserPathProfile, "tourist" | "student" | "expat" | "refugee">;
+  id: UserPathProfile;
+  plannerProfile: PlannerProfileId;
   label: string;
   description: string;
   icon: typeof Plane;
-  links: readonly Readonly<{ label: string; href: string }>[];
+  tasks: readonly Readonly<{ id: PlannerGoalId; label: string }>[];
 }>[];
 
-export function HomepageProfileSelector() {
+function plannerHref(profile: PlannerProfileId, task: PlannerGoalId, area: string) {
+  const params = new URLSearchParams({ task, profile, area });
+  return `/start/?${params.toString()}`;
+}
+
+export function HomepageProfileSelector({ municipalities }: { municipalities: readonly HomepageMunicipality[] }) {
   const [selected, setSelected] = useState<UserPathProfile | null>(null);
+  const [municipalitySlug, setMunicipalitySlug] = useState("national");
 
   useEffect(() => {
     const stored = localContentRepository.profile();
@@ -64,6 +82,7 @@ export function HomepageProfileSelector() {
   }, []);
 
   const active = profiles.find((profile) => profile.id === selected);
+  const municipality = municipalities.find((candidate) => candidate.slug === municipalitySlug) ?? municipalities[0];
 
   function choose(profile: UserPathProfile) {
     setSelected(profile);
@@ -87,19 +106,23 @@ export function HomepageProfileSelector() {
         ))}
       </div>
       <div className="uf-profile-result" aria-live="polite" data-home-profile-result>
-        {active ? (
-          <>
-            <div><strong>Suggested starting points for {active.label.toLowerCase()}s</strong><span>This preference is saved only in this browser.</span></div>
-            <nav aria-label={`${active.label} suggestions`}>
-              {active.links.map((link) => <Link href={link.href} key={link.href}>{link.label} <ArrowIcon /></Link>)}
-            </nav>
-            <button onClick={clear} type="button"><RotateCcw aria-hidden /> Clear choice</button>
-          </>
-        ) : (
-          <p>Choose a situation to show two relevant starting points. All published content stays available.</p>
-        )}
+        <div data-home-profile-copy hidden={!active}>
+          <strong data-home-profile-title>{active ? `Starting points for ${active.label.toLowerCase()}s` : "Situation starting points"}</strong>
+          <span>The situation preference is saved only in this browser. National results always remain available.</span>
+          <label className="uf-profile-location" htmlFor="homepage-municipality">
+            Add local context
+            <select data-home-municipality id="homepage-municipality" value={municipalitySlug} onChange={(event) => setMunicipalitySlug(event.target.value)}>
+              {municipalities.map((candidate) => <option key={candidate.slug} value={candidate.slug}>{candidate.name}</option>)}
+            </select>
+          </label>
+        </div>
+        <nav aria-label={active ? `${active.label} suggestions${municipality ? ` for ${municipality.name}` : ""}` : "Situation suggestions"} data-home-profile-links hidden={!active}>
+          {active?.tasks.map((task) => <Link href={plannerHref(active.plannerProfile, task.id, municipality?.slug ?? "national")} key={task.id}>{task.label} <ArrowIcon /></Link>)}
+        </nav>
+        <button data-home-profile-clear hidden={!active} onClick={clear} type="button"><RotateCcw aria-hidden /> Clear choice</button>
+        <p data-home-profile-empty hidden={Boolean(active)}>Choose your situation to see relevant starting tasks. This does not hide the rest of YouNew.</p>
       </div>
-      <p className="uf-profile-note">These profiles are browsing preferences, not legal or immigration classifications.</p>
+      <p className="uf-profile-note">These are browsing preferences, not legal, medical or immigration classifications. Exact requirements remain on the responsible official source.</p>
     </div>
   );
 }

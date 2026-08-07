@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CheckCircle2, ExternalLink, MapPin, ShieldCheck } from "lucide-react";
+import { Building2, CheckCircle2, ExternalLink, MapPin, ShieldCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { GuideChecklist } from "@/components/guide-checklist";
+import { GuideFeedbackLoop } from "@/components/guide-feedback-loop";
 import { PageShell } from "@/components/page-shell";
 import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
 import { getNationalGuide, getNationalGuides, nationalGuidesVerifiedAt } from "@/lib/search/national-guides";
@@ -9,6 +11,32 @@ import { metadataForPage } from "@/lib/seo/metadata";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 export const dynamicParams = false;
+
+const nextGuideById: Readonly<Record<string, string>> = {
+  "national.immigration": "national.documents",
+  "national.documents": "national.housing",
+  "national.housing": "national.student-housing",
+  "national.student-housing": "national.utilities-moving",
+  "national.utilities-moving": "national.healthcare",
+  "national.healthcare": "national.mental-health",
+  "national.mental-health": "national.dental-care",
+  "national.dental-care": "national.medicines",
+  "national.medicines": "national.pregnancy",
+  "national.pregnancy": "national.family-childcare",
+  "national.family-childcare": "national.work",
+  "national.work": "national.business-zzp",
+  "national.business-zzp": "national.taxes",
+  "national.taxes": "national.benefits",
+  "national.benefits": "national.banking",
+  "national.banking": "national.transport",
+  "national.transport": "national.telecom",
+  "national.telecom": "national.consumer-rights",
+  "national.consumer-rights": "national.debt-legal-help",
+  "national.debt-legal-help": "national.education",
+  "national.education": "national.student-housing",
+  "national.pets": "national.rules-fines",
+  "national.rules-fines": "national.lgbtiq-support"
+};
 
 export function generateStaticParams() {
   return getNationalGuides().map(({ slug }) => ({ slug }));
@@ -23,10 +51,18 @@ function List({ items }: { items: readonly string[] }) {
   return <ul className="guide-sourced-list">{items.map((item) => <li key={item}>{item}</li>)}</ul>;
 }
 
+const serviceKindLabels = {
+  public: "Public service",
+  "non-profit": "Non-profit provider",
+  directory: "Provider directory",
+  support: "Independent support"
+} as const;
+
 export default async function NationalGuidePage({ params }: { params: Promise<{ slug: string }> }) {
   const guide = getNationalGuide((await params).slug);
   if (!guide) notFound();
   const verifiedAt = nationalGuidesVerifiedAt();
+  const nextGuide = getNationalGuides().find((candidate) => candidate.id === nextGuideById[guide.id]);
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -64,11 +100,13 @@ export default async function NationalGuidePage({ params }: { params: Promise<{ 
               <div><strong>How this page is bounded</strong><p>This guide gives a verified route to responsible sources. It does not invent local providers, eligibility, prices or deadlines. Check the exact official source before acting.</p></div>
             </aside>
             <section className="guide-section guide-quick-answer"><p className="section-label">Quick answer</p><h2>What this covers</h2><p>{guide.sections.what}</p><div className="guide-scope-grid"><article><h3>Who this is for</h3><p>{guide.sections.who}</p></article><article><h3>Location</h3><p>{guide.sections.localDifferences}</p></article></div></section>
-            <section className="guide-section"><p className="section-label">Step by step</p><h2>What to do</h2><ol className="practical-steps">{guide.sections.steps.map((step, index) => <li key={step}><span className="practical-step-number" aria-hidden>{index + 1}</span><div><p>{step}</p></div></li>)}</ol></section>
+            <section className="guide-section"><p className="section-label">Step by step</p><h2>What to do</h2><GuideChecklist guideId={guide.id} items={guide.sections.steps} nextGuide={nextGuide ? { title: nextGuide.title, route: `/essentials/${nextGuide.slug}/` } : undefined} showPersonalisedNextStep /></section>
             <section className="guide-section"><h2>Documents and evidence</h2><List items={guide.sections.documents} /></section>
             <section className="guide-section"><div className="guide-two-column"><div><h2>Costs</h2><p>{guide.sections.cost}</p></div><div><h2>Timing</h2><p>{guide.sections.timing}</p></div></div></section>
             <section className="guide-section"><div className="guide-two-column"><div><h2>When something goes wrong</h2><List items={guide.sections.problems} /></div><div><h2>Common mistakes</h2><List items={guide.sections.mistakes} /></div></div></section>
-            <section id="official-sources" className="guide-section"><p className="section-label">Verification</p><h2>Official sources</h2><div className="guide-source-list">{guide.officialSources.map((source) => <article key={source.url}><ShieldCheck aria-hidden /><div><h3>{source.publisher}</h3><p>{source.title}</p><p>Checked <time dateTime={source.checkedAt}>{source.checkedAt}</time></p><TrackedOfficialSourceLink contentId={guide.id} href={source.url} rel="noreferrer" target="_blank">Open official source <ExternalLink aria-hidden /></TrackedOfficialSourceLink></div></article>)}</div><p className="review-stamp"><CheckCircle2 aria-hidden /> Source set checked on <time dateTime={verifiedAt}>{verifiedAt}</time>. Recheck the linked page for current requirements.</p></section>
+            {guide.usefulServices?.length ? <section id="useful-services" className="guide-section"><p className="section-label">Take action</p><h2>Useful services and websites</h2><p>These links help you search or get support. The label shows what kind of service it is. A listing, vacancy or provider claim is not verified or endorsed by YouNew.</p><div className="guide-service-list">{guide.usefulServices.map((service) => <article key={service.url}><Building2 aria-hidden /><div><span className="guide-service-kind">{serviceKindLabels[service.kind]}</span><h3>{service.provider}</h3><p className="guide-service-title">{service.title}</p><p>{service.purpose}</p>{service.caveat ? <p className="guide-service-caveat"><strong>Before you use it:</strong> {service.caveat}</p> : null}<p className="guide-service-checked">Link checked <time dateTime={service.checkedAt}>{service.checkedAt}</time></p><a href={service.url} rel="noreferrer" target="_blank">Open website <ExternalLink aria-hidden /></a></div></article>)}</div></section> : null}
+            <section id="official-sources" className="guide-section"><p className="section-label">Verification</p><h2>Official and authoritative sources</h2><div className="guide-source-list">{guide.officialSources.map((source) => <article key={source.url}><ShieldCheck aria-hidden /><div><h3>{source.publisher}</h3><p>{source.title}</p><p>Checked <time dateTime={source.checkedAt}>{source.checkedAt}</time></p><TrackedOfficialSourceLink contentId={guide.id} href={source.url} rel="noreferrer" target="_blank">Open source <ExternalLink aria-hidden /></TrackedOfficialSourceLink></div></article>)}</div><p className="review-stamp"><CheckCircle2 aria-hidden /> Source set checked on <time dateTime={verifiedAt}>{verifiedAt}</time>. Recheck the linked page for current requirements.</p></section>
+            <GuideFeedbackLoop pageReference={`/essentials/${guide.slug}/`} />
           </div>
         </div>
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: serializeJsonLd(structuredData) }} />

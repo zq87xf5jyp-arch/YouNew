@@ -1,13 +1,13 @@
 # YouNew search QA matrix
 
-Generated: 2026-08-05T17:03:59.306Z
+Generated: 2026-08-07T12:54:27.031Z
 
 Status: **PASS**
 
-- Checks: 2608
-- Passed: 2608
+- Checks: 5710
+- Passed: 5710
 - Failed: 0
-- Search documents: 577
+- Search documents: 594
 - Provinces: 12/12
 - Municipalities: 342/342
 - Profiles: 6
@@ -24,6 +24,14 @@ Status: **PASS**
 | BSN + Eindhoven | PASS | national.documents |
 | SIM card + Maastricht | PASS | national.telecom |
 | parking fine + Utrecht | PASS | national.rules-fines |
+| LGBTQ support + Groningen | PASS | national.lgbtiq-support |
+| Bank account + Utrecht | PASS | national.banking |
+| Childcare + Rotterdam | PASS | national.family-childcare |
+| Pets + Groningen | PASS | national.pets |
+| Tax + Eindhoven | PASS | national.taxes |
+| Benefits + Maastricht | PASS | national.benefits |
+| Bicycle + Leiden | PASS | national.transport |
+| Immigration + Den Haag | PASS | national.immigration |
 
 ## Failure evidence
 

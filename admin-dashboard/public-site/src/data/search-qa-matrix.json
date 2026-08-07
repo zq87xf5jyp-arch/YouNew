@@ -83,7 +83,7 @@
     },
     {
       "id": "telecom",
-      "acceptedCategorySlugs": ["sim-telecom", "internet"],
+      "acceptedCategorySlugs": ["telecom", "sim-telecom", "internet"],
       "queries": [
         { "value": "SIM", "language": "en" },
         { "value": "prepaid", "language": "en" },
@@ -111,6 +111,186 @@
         { "value": "правила дорожного движения", "language": "ru" },
         { "value": "штраф за мусор", "language": "ru" }
       ]
+    },
+    {
+      "id": "banking",
+      "acceptedCategorySlugs": ["banking"],
+      "queries": [
+        { "value": "open a bank account", "language": "en" },
+        { "value": "payment account", "language": "en" },
+        { "value": "bankrekening openen", "language": "nl" },
+        { "value": "betaalrekening", "language": "nl" },
+        { "value": "открыть банковский счёт", "language": "ru" },
+        { "value": "банковский счет", "language": "ru" }
+      ]
+    },
+    {
+      "id": "family-and-childcare",
+      "acceptedCategorySlugs": ["family"],
+      "queries": [
+        { "value": "families childcare", "language": "en" },
+        { "value": "find childcare", "language": "en" },
+        { "value": "kinderopvang", "language": "nl" },
+        { "value": "buitenschoolse opvang", "language": "nl" },
+        { "value": "детский сад", "language": "ru" },
+        { "value": "уход за детьми", "language": "ru" }
+      ]
+    },
+    {
+      "id": "pets",
+      "acceptedCategorySlugs": ["pets"],
+      "queries": [
+        { "value": "pets registration", "language": "en" },
+        { "value": "register a dog", "language": "en" },
+        { "value": "hond registreren", "language": "nl" },
+        { "value": "dierenpaspoort", "language": "nl" },
+        { "value": "регистрация питомца", "language": "ru" },
+        { "value": "зарегистрировать собаку", "language": "ru" }
+      ]
+    },
+    {
+      "id": "taxes",
+      "acceptedCategorySlugs": ["taxes"],
+      "queries": [
+        { "value": "tax Belastingdienst", "language": "en" },
+        { "value": "tax return", "language": "en" },
+        { "value": "belastingaangifte", "language": "nl" },
+        { "value": "inkomstenbelasting", "language": "nl" },
+        { "value": "налоговая декларация", "language": "ru" },
+        { "value": "налоги в Нидерландах", "language": "ru" }
+      ]
+    },
+    {
+      "id": "benefits",
+      "acceptedCategorySlugs": ["benefits"],
+      "queries": [
+        { "value": "benefits allowances", "language": "en" },
+        { "value": "healthcare benefit", "language": "en" },
+        { "value": "toeslagen", "language": "nl" },
+        { "value": "huurtoeslag", "language": "nl" },
+        { "value": "пособия", "language": "ru" },
+        { "value": "пособие на аренду", "language": "ru" }
+      ]
+    },
+    {
+      "id": "transport",
+      "acceptedCategorySlugs": ["transport"],
+      "queries": [
+        { "value": "buy a bicycle", "language": "en" },
+        { "value": "public transport", "language": "en" },
+        { "value": "fiets kopen", "language": "nl" },
+        { "value": "openbaar vervoer", "language": "nl" },
+        { "value": "купить велосипед", "language": "ru" },
+        { "value": "общественный транспорт", "language": "ru" }
+      ]
+    },
+    {
+      "id": "immigration",
+      "acceptedCategorySlugs": ["integration"],
+      "queries": [
+        { "value": "immigration residence permit", "language": "en" },
+        { "value": "visa Netherlands", "language": "en" },
+        { "value": "immigratie", "language": "nl" },
+        { "value": "verblijfsvergunning verlengen", "language": "nl" },
+        { "value": "иммиграция", "language": "ru" },
+        { "value": "виза в Нидерланды", "language": "ru" }
+      ]
+    },
+    {
+      "id": "utilities-moving",
+      "acceptedCategorySlugs": ["utilities"],
+      "queries": [
+        { "value": "utilities moving home", "language": "en" },
+        { "value": "electricity contract", "language": "en" },
+        { "value": "energiecontract", "language": "nl" },
+        { "value": "meterstanden", "language": "nl" },
+        { "value": "коммунальные услуги", "language": "ru" },
+        { "value": "переезд", "language": "ru" }
+      ]
+    },
+    {
+      "id": "consumer-rights",
+      "acceptedCategorySlugs": ["shopping"],
+      "queries": [
+        { "value": "consumer rights complaint", "language": "en" },
+        { "value": "online purchase problem", "language": "en" },
+        { "value": "consumentenrecht", "language": "nl" },
+        { "value": "misleidende verkoop", "language": "nl" },
+        { "value": "права потребителя", "language": "ru" },
+        { "value": "жалоба на покупку", "language": "ru" }
+      ]
+    },
+    {
+      "id": "debt-legal-help",
+      "acceptedCategorySlugs": ["legal-help"],
+      "queries": [
+        { "value": "debt legal help", "language": "en" },
+        { "value": "money problems", "language": "en" },
+        { "value": "schuldhulpverlening", "language": "nl" },
+        { "value": "juridische hulp", "language": "nl" },
+        { "value": "помощь с долгами", "language": "ru" },
+        { "value": "юридическая помощь", "language": "ru" }
+      ]
+    },
+    {
+      "id": "mental-health",
+      "acceptedCategorySlugs": ["healthcare"],
+      "queries": [
+        { "value": "mental health support", "language": "en" },
+        { "value": "psychologist", "language": "en" },
+        { "value": "mentale gezondheid", "language": "nl" },
+        { "value": "psycholoog", "language": "nl" },
+        { "value": "психолог", "language": "ru" },
+        { "value": "психическое здоровье", "language": "ru" }
+      ]
+    },
+    {
+      "id": "dental-care",
+      "acceptedCategorySlugs": ["healthcare"],
+      "queries": [
+        { "value": "find a dentist", "language": "en" },
+        { "value": "emergency dentist", "language": "en" },
+        { "value": "tandarts", "language": "nl" },
+        { "value": "spoedtandarts", "language": "nl" },
+        { "value": "стоматолог", "language": "ru" },
+        { "value": "зубная боль", "language": "ru" }
+      ]
+    },
+    {
+      "id": "medicines",
+      "acceptedCategorySlugs": ["healthcare"],
+      "queries": [
+        { "value": "medicine", "language": "en" },
+        { "value": "patient leaflet", "language": "en" },
+        { "value": "recept", "language": "nl" },
+        { "value": "apotheek", "language": "nl" },
+        { "value": "лекарство", "language": "ru" },
+        { "value": "инструкция к лекарству", "language": "ru" }
+      ]
+    },
+    {
+      "id": "pregnancy",
+      "acceptedCategorySlugs": ["family"],
+      "queries": [
+        { "value": "pregnancy", "language": "en" },
+        { "value": "maternity care", "language": "en" },
+        { "value": "verloskundige", "language": "nl" },
+        { "value": "kraamzorg", "language": "nl" },
+        { "value": "беременность", "language": "ru" },
+        { "value": "родовспоможение", "language": "ru" }
+      ]
+    },
+    {
+      "id": "business-zzp",
+      "acceptedCategorySlugs": ["business"],
+      "queries": [
+        { "value": "start a business ZZP KVK", "language": "en" },
+        { "value": "open a company", "language": "en" },
+        { "value": "bedrijf starten zzp", "language": "nl" },
+        { "value": "inschrijven KVK", "language": "nl" },
+        { "value": "открыть бизнес ZZP", "language": "ru" },
+        { "value": "регистрация KVK", "language": "ru" }
+      ]
     }
   ],
   "typoCases": [
@@ -119,8 +299,23 @@
     { "query": "huisart", "acceptedCategorySlugs": ["healthcare"] },
     { "query": "registraton", "acceptedCategorySlugs": ["documents"] },
     { "query": "taalschol", "acceptedCategorySlugs": ["language-learning"] },
-    { "query": "prepaod", "acceptedCategorySlugs": ["sim-telecom"] },
-    { "query": "parkin fine", "acceptedCategorySlugs": ["fines"] }
+    { "query": "prepaod", "acceptedCategorySlugs": ["telecom", "sim-telecom"] },
+    { "query": "parkin fine", "acceptedCategorySlugs": ["fines"] },
+    { "query": "bank acount", "acceptedCategorySlugs": ["banking"] },
+    { "query": "childcar", "acceptedCategorySlugs": ["family"] },
+    { "query": "dog registraton", "acceptedCategorySlugs": ["pets"] },
+    { "query": "tax retrn", "acceptedCategorySlugs": ["taxes"] },
+    { "query": "toeslaen", "acceptedCategorySlugs": ["benefits"] },
+    { "query": "buy bicicle", "acceptedCategorySlugs": ["transport"] },
+    { "query": "imigration", "acceptedCategorySlugs": ["integration"] },
+    { "query": "utillities", "acceptedCategorySlugs": ["utilities"] },
+    { "query": "consummer rights", "acceptedCategorySlugs": ["shopping"] },
+    { "query": "debt hellp", "acceptedCategorySlugs": ["legal-help"] },
+    { "query": "mental helth", "acceptedCategorySlugs": ["healthcare"] },
+    { "query": "dentst", "acceptedCategorySlugs": ["healthcare"] },
+    { "query": "presciption medicine", "acceptedCategorySlugs": ["healthcare"] },
+    { "query": "pregnacy midwife", "acceptedCategorySlugs": ["family"] },
+    { "query": "start busines zzp", "acceptedCategorySlugs": ["business"] }
   ],
   "cityAliasCases": [
     {
