@@ -1,6 +1,6 @@
 # YouNew content readiness matrix
 
-Evidence date: **2026-08-09**. This is a read-only local audit; no live URL check was performed.
+Evidence date: **2026-08-10**. This is a read-only local audit; no live URL check was performed.
 
 ## Outcome
 
@@ -201,5 +201,5 @@ Production-ready explicit audience coverage is **0/6 (0.0%)**. All six brief pat
 ## Reproduction
 
 ```bash
-python3 scripts/content-readiness-audit.py --as-of 2026-08-09 --check
+python3 scripts/content-readiness-audit.py --as-of 2026-08-10 --check
 ```
