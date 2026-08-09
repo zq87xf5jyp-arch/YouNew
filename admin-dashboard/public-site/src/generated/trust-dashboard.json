@@ -76,8 +76,8 @@
       "evidenceState": "established"
     },
     "publicCoverage": {
-      "value": 39.9,
-      "numerator": 181,
+      "value": 39.0,
+      "numerator": 177,
       "denominator": 454,
       "formula": "legacy/public canonical records / canonical records",
       "formulaVersion": 1,
@@ -136,7 +136,7 @@
       "evidenceState": "not_established"
     },
     "sourceTrustScore": {
-      "value": 99.5,
+      "value": 99.7,
       "numerator": null,
       "denominator": 454,
       "formula": "separate publisher/source reliability score; not record confidence",
@@ -188,8 +188,8 @@
       "evidenceState": "established"
     },
     "public": {
-      "value": 39.9,
-      "numerator": 181,
+      "value": 39.0,
+      "numerator": 177,
       "denominator": 454,
       "formula": "legacy/public canonical records / canonical records",
       "formulaVersion": 1,
