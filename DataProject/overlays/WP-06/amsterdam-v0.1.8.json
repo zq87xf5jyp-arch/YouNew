@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "release_id": "amsterdam-v0.1.8",
+  "version": "0.1.8",
+  "status": "published",
+  "work_package": "WP-06",
+  "dataset": "Amsterdam City 01",
+  "base_release_id": "amsterdam-v0.1.7",
+  "supersedes": "amsterdam-v0.1.7",
+  "base_batch_sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "evidence": [
+    {
+      "id": "evidence.human-rights-conference-ended-2026-08-09",
+      "kind": "replacement_review",
+      "url": "https://pride.amsterdam/en/event/human-rights-conference/",
+      "checked_at": "2026-08-09",
+      "note": "The official Pride Amsterdam page returned HTTP 200 on 9 August 2026 and publishes an end date of 7 August 2026. The stable record is retired because its end date has passed."
+    },
+    {
+      "id": "evidence.worldpride-village-ended-2026-08-09",
+      "kind": "replacement_review",
+      "url": "https://pride.amsterdam/en/event/worldpride-village/",
+      "checked_at": "2026-08-09",
+      "note": "The official Pride Amsterdam page returned HTTP 200 on 9 August 2026 and publishes an end date of 8 August 2026. The stable record is retired because its end date has passed."
+    },
+    {
+      "id": "evidence.worldpride-march-ended-2026-08-09",
+      "kind": "replacement_review",
+      "url": "https://pride.amsterdam/en/event/worldpride-march/",
+      "checked_at": "2026-08-09",
+      "note": "The official Pride Amsterdam page returned HTTP 200 on 9 August 2026 and publishes an end date of 8 August 2026. The stable record is retired because its end date has passed."
+    },
+    {
+      "id": "evidence.closing-concert-ended-2026-08-09",
+      "kind": "replacement_review",
+      "url": "https://pride.amsterdam/en/event/closing-concert/",
+      "checked_at": "2026-08-09",
+      "note": "The official Pride Amsterdam page returned HTTP 200 on 9 August 2026 and publishes an end date of 8 August 2026. The stable record is retired because its end date has passed."
+    }
+  ],
+  "replacements": [
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-human-rights-conference",
+      "original_canonical_sha256": "b147f95f384d1df1a835d99e7318fded6e0e5dd4f56b1a01819a682d1d927477",
+      "replacement_canonical_sha256": "e53dcb066dc648637a46d71a9e2220ba6ad0e319eb029975de39133778170914",
+      "reason": "The official event ended on 7 August 2026. Retire it from current public discovery while preserving its stable ID and source history.",
+      "evidence_refs": [
+        "evidence.human-rights-conference-ended-2026-08-09"
+      ],
+      "record": {
+        "id": "event.worldpride-amsterdam-2026-human-rights-conference",
+        "entity_type": "event",
+        "category": "conference",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3750218,
+          "longitude": 4.8962647
+        },
+        "title": "WorldPride Amsterdam 2026 Human Rights Conference",
+        "description": "WorldPride Amsterdam 2026 Human Rights Conference took place in Amsterdam and ended on 7 August 2026. The official event page remains the responsible source for archival or updated information. This record is retired from current public discovery because its recorded end date has passed.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/47873224@N06/51365922082",
+            "asset_url": "https://live.staticflickr.com/65535/51365922082_177552ace6_b.jpg",
+            "license": "PDM",
+            "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+            "attribution": "\"CDA Verloop and the U.S. Mission community joins the #EqualRightsCoalition at Amsterdam’s Pride Walk\" by U.S. Embassy The Hague is marked with Public Domain Mark 1.0. To view the terms, visit https://creativecommons.org/publicdomain/mark/1.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.event.worldpride-amsterdam-2026-human-rights-conference.hero.8df0c57086"
+          }
+        ],
+        "official_source": {
+          "title": "WorldPride Amsterdam 2026 Human Rights Conference official website",
+          "publisher": "Pride Amsterdam",
+          "url": "https://pride.amsterdam/en/event/human-rights-conference/",
+          "is_official": true,
+          "checked_at": "2026-08-09",
+          "status": "verified_opened"
+        },
+        "website": "https://pride.amsterdam/en/event/human-rights-conference/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-08-09",
+        "review_frequency_days": 30,
+        "verification_status": "verified",
+        "ai_summary": "WorldPride Amsterdam 2026 Human Rights Conference ended on 7 August 2026 and is retired from current public discovery. Use the official Pride Amsterdam page for archival or updated information.",
+        "search_keywords": [
+          "WorldPride Amsterdam 2026 Human Rights Conference",
+          "WorldPride Amsterdam 2026 Human Rights Conference Amsterdam",
+          "conference",
+          "current event Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "retired",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 57858502",
+          "source_http_status": "200",
+          "source_final_url": "https://pride.amsterdam/en/event/human-rights-conference/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "1",
+          "start_date": "2026-08-05",
+          "end_date": "2026-08-07",
+          "retired_at": "2026-08-09",
+          "retirement_reason": "event_end_date_passed"
+        }
+      }
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-worldpride-village",
+      "original_canonical_sha256": "b4bdfa9e9628afa9a1eacdcc7cdf03d9ea1d79ddccb71c5b0310309ca6c36eb5",
+      "replacement_canonical_sha256": "5e6ad9e3e4f16226e519ae125a81bf8fbb29dac2691fe9c1e6ab89c3ca961732",
+      "reason": "The official event ended on 8 August 2026. Retire it from current public discovery while preserving its stable ID and source history.",
+      "evidence_refs": [
+        "evidence.worldpride-village-ended-2026-08-09"
+      ],
+      "record": {
+        "id": "event.worldpride-amsterdam-2026-worldpride-village",
+        "entity_type": "event",
+        "category": "festival-village",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3572706,
+          "longitude": 4.8815398
+        },
+        "title": "WorldPride Amsterdam 2026 WorldPride Village",
+        "description": "WorldPride Amsterdam 2026 WorldPride Village took place in Amsterdam and ended on 8 August 2026. The official event page remains the responsible source for archival or updated information. This record is retired from current public discovery because its recorded end date has passed.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/95672737@N00/20099896458",
+            "asset_url": "https://live.staticflickr.com/336/20099896458_bfe763a9df_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Amsterdam Pride 2015\" by Kyle Taylor, Dream It. Do It. is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.event.worldpride-amsterdam-2026-worldpride-village.hero.3f34a6fba3"
+          }
+        ],
+        "official_source": {
+          "title": "WorldPride Amsterdam 2026 WorldPride Village official website",
+          "publisher": "Pride Amsterdam",
+          "url": "https://pride.amsterdam/en/event/worldpride-village/",
+          "is_official": true,
+          "checked_at": "2026-08-09",
+          "status": "verified_opened"
+        },
+        "website": "https://pride.amsterdam/en/event/worldpride-village/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-08-09",
+        "review_frequency_days": 30,
+        "verification_status": "verified",
+        "ai_summary": "WorldPride Amsterdam 2026 WorldPride Village ended on 8 August 2026 and is retired from current public discovery. Use the official Pride Amsterdam page for archival or updated information.",
+        "search_keywords": [
+          "WorldPride Amsterdam 2026 WorldPride Village",
+          "WorldPride Amsterdam 2026 WorldPride Village Amsterdam",
+          "festival village",
+          "current event Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "retired",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 25965389",
+          "source_http_status": "200",
+          "source_final_url": "https://pride.amsterdam/en/event/worldpride-village/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "1",
+          "start_date": "2026-08-05",
+          "end_date": "2026-08-08",
+          "retired_at": "2026-08-09",
+          "retirement_reason": "event_end_date_passed"
+        }
+      }
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-worldpride-march",
+      "original_canonical_sha256": "9e4dd2da9c0873770b976a2ba6c72bf0cbe89e5f7e6068edfc4c3be5ed81fb0c",
+      "replacement_canonical_sha256": "4e7f9fe37060372573752a9ecd6c6cb7f0d9cd2e2c66bb46edfac58c8e842132",
+      "reason": "The official event ended on 8 August 2026. Retire it from current public discovery while preserving its stable ID and source history.",
+      "evidence_refs": [
+        "evidence.worldpride-march-ended-2026-08-09"
+      ],
+      "record": {
+        "id": "event.worldpride-amsterdam-2026-worldpride-march",
+        "entity_type": "event",
+        "category": "march",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3384994,
+          "longitude": 4.9054316
+        },
+        "title": "WorldPride Amsterdam 2026 WorldPride March",
+        "description": "WorldPride Amsterdam 2026 WorldPride March took place in Amsterdam and ended on 8 August 2026. The official event page remains the responsible source for archival or updated information. This record is retired from current public discovery because its recorded end date has passed.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://www.flickr.com/photos/69505536@N03/35431475293",
+            "asset_url": "https://live.staticflickr.com/4300/35431475293_a7da9c189e_b.jpg",
+            "license": "CC BY 2.0",
+            "license_url": "https://creativecommons.org/licenses/by/2.0/",
+            "attribution": "\"Amsterdam Pride 2017 early morning\" by hollyfh is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.event.worldpride-amsterdam-2026-worldpride-march.hero.f401d53fbe"
+          }
+        ],
+        "official_source": {
+          "title": "WorldPride Amsterdam 2026 WorldPride March official website",
+          "publisher": "Pride Amsterdam",
+          "url": "https://pride.amsterdam/en/event/worldpride-march/",
+          "is_official": true,
+          "checked_at": "2026-08-09",
+          "status": "verified_opened"
+        },
+        "website": "https://pride.amsterdam/en/event/worldpride-march/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-08-09",
+        "review_frequency_days": 30,
+        "verification_status": "verified",
+        "ai_summary": "WorldPride Amsterdam 2026 WorldPride March ended on 8 August 2026 and is retired from current public discovery. Use the official Pride Amsterdam page for archival or updated information.",
+        "search_keywords": [
+          "WorldPride Amsterdam 2026 WorldPride March",
+          "WorldPride Amsterdam 2026 WorldPride March Amsterdam",
+          "march",
+          "current event Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "retired",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 21592446",
+          "source_http_status": "200",
+          "source_final_url": "https://pride.amsterdam/en/event/worldpride-march/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "1",
+          "start_date": "2026-08-08",
+          "end_date": "2026-08-08",
+          "retired_at": "2026-08-09",
+          "retirement_reason": "event_end_date_passed"
+        }
+      }
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-closing-concert",
+      "original_canonical_sha256": "ed23c5c73a50408324c415e278e0349e447e6f57ecbe9eb970a68d31b3f5ffd7",
+      "replacement_canonical_sha256": "caeb7e875371fce269ea96a14c2e8fb47c4e41beb138d4e7cee54f67be4fdc37",
+      "reason": "The official event ended on 8 August 2026. Retire it from current public discovery while preserving its stable ID and source history.",
+      "evidence_refs": [
+        "evidence.closing-concert-ended-2026-08-09"
+      ],
+      "record": {
+        "id": "event.worldpride-amsterdam-2026-closing-concert",
+        "entity_type": "event",
+        "category": "concert",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3572706,
+          "longitude": 4.8815398
+        },
+        "title": "WorldPride Amsterdam 2026 Closing Concert",
+        "description": "WorldPride Amsterdam 2026 Closing Concert took place in Amsterdam and ended on 8 August 2026. The official event page remains the responsible source for archival or updated information. This record is retired from current public discovery because its recorded end date has passed.",
+        "images": [
+          {
+            "role": "hero",
+            "source_page_url": "https://commons.wikimedia.org/w/index.php?curid=67257637",
+            "asset_url": "https://upload.wikimedia.org/wikipedia/commons/b/b5/Iran_in_Amsterdam_Pride_Walk_2017.jpg",
+            "license": "CC BY 4.0",
+            "license_url": "https://creativecommons.org/licenses/by/4.0/",
+            "attribution": "\"Iran in Amsterdam Pride Walk 2017\" by JoopeA is licensed under CC BY 4.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/4.0/.",
+            "verified": true,
+            "retrieved_at": "2026-07-18",
+            "id": "media.event.worldpride-amsterdam-2026-closing-concert.hero.c0bca2c568"
+          }
+        ],
+        "official_source": {
+          "title": "WorldPride Amsterdam 2026 Closing Concert official website",
+          "publisher": "Pride Amsterdam",
+          "url": "https://pride.amsterdam/en/event/closing-concert/",
+          "is_official": true,
+          "checked_at": "2026-08-09",
+          "status": "verified_opened"
+        },
+        "website": "https://pride.amsterdam/en/event/closing-concert/",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-08-09",
+        "review_frequency_days": 30,
+        "verification_status": "verified",
+        "ai_summary": "WorldPride Amsterdam 2026 Closing Concert ended on 8 August 2026 and is retired from current public discovery. Use the official Pride Amsterdam page for archival or updated information.",
+        "search_keywords": [
+          "WorldPride Amsterdam 2026 Closing Concert",
+          "WorldPride Amsterdam 2026 Closing Concert Amsterdam",
+          "concert",
+          "current event Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "retired",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap Nominatim: way 25965389",
+          "source_http_status": "200",
+          "source_final_url": "https://pride.amsterdam/en/event/closing-concert/",
+          "source_verification_method": "direct request",
+          "media_match": "contextual",
+          "media_roles_count": "1",
+          "start_date": "2026-08-08",
+          "end_date": "2026-08-08",
+          "retired_at": "2026-08-09",
+          "retirement_reason": "event_end_date_passed"
+        }
+      }
+    }
+  ]
+}

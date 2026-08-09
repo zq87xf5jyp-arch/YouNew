@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-05T17:03:59.306Z",
+  "generatedAt": "2026-08-09T21:01:35.675Z",
   "status": "PASS",
   "evidence": {
-    "searchIndexSha256": "3de14b0962037fce6559794823931f42d40680d0ea6565453a67554ded777c63",
+    "searchIndexSha256": "68a0d201921d8ab2c7ef1078422575132c3a202d30bf1e9678f1b39a93802052",
     "searchIndexSchemaVersion": 3,
-    "searchDocumentCount": 577,
+    "searchDocumentCount": 573,
     "nationalGuideCount": 7,
     "provinceCount": 12,
     "municipalityCount": 342,
