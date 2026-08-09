@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "as_of": "2026-08-09",
+  "as_of": "2026-08-10",
   "scope": {
     "governed_batches": "DataProject/batches",
     "canonical_runtime": "YouNew/Resources/Data/younew-runtime-data.json",
@@ -2742,7 +2742,7 @@
     "public_has_practical_guide": 0
   },
   "existing_link_health_evidence": {
-    "generated_at": "2026-08-09T21:21:41+00:00",
+    "generated_at": "2026-08-09T23:34:21+00:00",
     "checked_at": "1970-01-01T00:00:00+00:00",
     "total": 0,
     "reachable": 0,
