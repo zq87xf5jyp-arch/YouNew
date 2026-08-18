@@ -81,6 +81,7 @@ select is(
   3,
   'the three approved lead events are accepted together'
 );
+reset role;
 select is(
   (select properties from public.app_events where client_event_id = '00000000-0000-4000-8000-000000000041'),
   '{}'::jsonb,
@@ -91,6 +92,7 @@ select is(
   '{}'::jsonb,
   'lead_submit stores an empty properties object'
 );
+set local role service_role;
 select throws_ok(
   $$
     select public.ingest_analytics_batch(
@@ -115,6 +117,7 @@ select throws_ok(
   'lead events do not accept properties',
   'lead events reject every submitted property'
 );
+reset role;
 select is(
   (select properties from public.app_events where client_event_id = '00000000-0000-4000-8000-000000000046'),
   '{}'::jsonb,
@@ -164,7 +167,5 @@ select is(
   0::bigint,
   'the rejected property-bearing event is not stored'
 );
-
-reset role;
 select * from finish();
 rollback;

@@ -52,7 +52,7 @@ Pending local migrations:
 | --- | --- | --- | ---: |
 | `20260818145801` | `harden_analytics_ingest_windows_rls` | `e702afeef312705d2a5bc5a8858da0c4` | 19 assertions |
 | `20260818191112` | `harden_business_inquiry_pipeline` | `716b6222ca3010e4f385082414169440` | 19 assertions |
-| `20260818192423` | `deduplicate_business_inquiry_submissions` | `f64ea4cab3ced4eaa9e61474d5116c3f` | 13 assertions |
+| `20260818192423` | `deduplicate_business_inquiry_submissions` | `d3010eb22035a572d0b36a8c522e68a0` | 13 assertions |
 | `20260818193310` | `extend_lead_analytics_funnel` | `220bfa6bddd463acb67a86b31bbea285` | 12 assertions |
 | `20260818194626` | `add_business_inquiry_notification_inbox` | `e9df9c0cbd8828bbe6cfa26f57c5a295` | 18 assertions |
 

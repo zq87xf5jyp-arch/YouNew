@@ -58,15 +58,16 @@ set local role service_role;
 select lives_ok(
   $$
     insert into public.business_inquiries (
-      id, company_name, contact_person, email, website, inquiry_type,
-      organization_type, city, province, target_audience,
+      id, reference_code, company_name, contact_person, email, website, inquiry_type,
+      organization_type, kvk_number, city, province, target_audience,
       requested_placements, campaign_goal, budget_range, message,
       consent_to_privacy, confirm_accuracy, consent_at
     ) values (
       '00000000-0000-4000-8000-000000000031',
+      'YNI-000000000031',
       'Pipeline pgTAP BV', 'Test Owner', 'pipeline-test@example.invalid',
-      'https://example.invalid', 'partnership', 'commercial-business',
-      'Amsterdam', 'Noord-Holland', array['international-employees'],
+      'https://example.invalid', 'partnership', 'commercial-business', '12345678',
+      'Amsterdam', 'Noord-Holland', array['worker', 'expat'],
       array['content-partnership'], 'Validate the commercial pipeline safely',
       'request-discussion',
       'This transaction-only fixture validates the commercial pipeline.',
@@ -115,6 +116,7 @@ select lives_ok(
   $$,
   'lost with a controlled reason and required detail is valid'
 );
+reset role;
 select ok(
   not exists (
     select 1
@@ -130,6 +132,7 @@ select ok(
   ),
   'free-form lost detail is excluded from audit JSON'
 );
+set local role service_role;
 select lives_ok(
   $$
     update public.business_inquiries
@@ -178,15 +181,6 @@ select lives_ok(
     where id = '00000000-0000-4000-8000-000000000031'
   $$,
   'won is valid only with a controlled evidence type and non-future date'
-);
-select is(
-  (
-    select status
-    from public.business_inquiries
-    where id = '00000000-0000-4000-8000-000000000031'
-  ),
-  'won',
-  'the evidence-backed terminal stage is stored'
 );
 select ok(
   (

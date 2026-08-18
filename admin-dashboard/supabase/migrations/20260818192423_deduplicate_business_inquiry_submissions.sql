@@ -238,7 +238,9 @@ begin
   );
 
   return query
-  select v_id, v_code, v_now;
+  select bi.id, bi.reference_code, bi.created_at
+  from public.business_inquiries as bi
+  where bi.id = v_id;
 end;
 $$;
 

@@ -97,31 +97,28 @@ select is(
   1::bigint,
   'an exact retry creates one correctly classified pilot inquiry row'
 );
-select is(
+reset role;
+select ok(
   (
-    select count(*) filter (where action = 'business_inquiry_created')::text
-      || ':' ||
-      count(*) filter (where action = 'business_inquiry_duplicate_suppressed')::text
+    select count(*) filter (where action = 'business_inquiry_created') = 1
+      and count(*) filter (where action = 'business_inquiry_duplicate_suppressed') = 1
     from public.audit_logs
     where entity_type = 'business_inquiry'
       and entity_id = (select id::text from dedupe_receipts where label = 'first')
-  ),
-  '1:1',
-  'the duplicate is recorded separately from creation'
+  )
+  and not exists (
+      select 1
+      from public.audit_logs
+      where action = 'business_inquiry_duplicate_suppressed'
+        and entity_id = (select id::text from dedupe_receipts where label = 'first')
+        and (
+          new_value ?| array['email', 'company', 'contact', 'message', 'payload']
+          or new_value::text like '%dedupe-pgtap@example.invalid%'
+        )
+    ),
+  'the duplicate audit is separate from creation and contains no submitted PII'
 );
-select ok(
-  not exists (
-    select 1
-    from public.audit_logs
-    where action = 'business_inquiry_duplicate_suppressed'
-      and entity_id = (select id::text from dedupe_receipts where label = 'first')
-      and (
-        new_value ?| array['email', 'company', 'contact', 'message', 'payload']
-        or new_value::text like '%dedupe-pgtap@example.invalid%'
-      )
-  ),
-  'the duplicate audit entry contains no submitted PII'
-);
+set local role service_role;
 select lives_ok(
   $$
     insert into dedupe_receipts
