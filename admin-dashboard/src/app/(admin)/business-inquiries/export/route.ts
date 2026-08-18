@@ -1,10 +1,6 @@
 import { NextResponse } from "next/server";
+import { csvCell } from "@/lib/business-inquiry-export";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-
-function csvCell(value: unknown) {
-  const text = String(value ?? "");
-  return `"${text.replaceAll("\"", "\"\"")}"`;
-}
 
 export async function GET() {
   const supabase = await createSupabaseServerClient();
@@ -18,12 +14,27 @@ export async function GET() {
 
   const { data, error } = await supabase
     .from("business_inquiries")
-    .select("confirmation_code,company,contact_name,work_email,inquiry_type,status,source_page,created_at")
+    .select("reference_code,company_name,contact_person,email,contact_role,inquiry_type,offer_interest,status,lost_reason,won_evidence_type,won_evidence_at,status_changed_at,source_page,created_at")
     .order("created_at", { ascending: false })
     .limit(1000);
   if (error) return NextResponse.json({ error: "Unavailable" }, { status: 503 });
 
-  const columns = ["confirmation_code", "company", "contact_name", "work_email", "inquiry_type", "status", "source_page", "created_at"] as const;
+  const columns = [
+    "reference_code",
+    "company_name",
+    "contact_person",
+    "email",
+    "contact_role",
+    "inquiry_type",
+    "offer_interest",
+    "status",
+    "lost_reason",
+    "won_evidence_type",
+    "won_evidence_at",
+    "status_changed_at",
+    "source_page",
+    "created_at"
+  ] as const;
   const csv = [
     columns.join(","),
     ...(data ?? []).map((row) => columns.map((column) => csvCell(row[column])).join(","))

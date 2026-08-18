@@ -7,26 +7,23 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
+import {
+  BUSINESS_INQUIRY_STATUS_LABELS,
+  type BusinessInquiryStatus
+} from "@/lib/business-inquiry-pipeline";
 
 export type BusinessInquiryListRow = {
   id: string;
-  confirmation_code: string;
-  company: string;
-  contact_name: string;
-  work_email: string;
+  reference_code: string;
+  company_name: string;
+  contact_person: string;
+  email: string;
   inquiry_type: string;
-  status: "new" | "contacted" | "qualified" | "closed" | "rejected" | "spam";
+  status: BusinessInquiryStatus;
+  offer_interest: string;
+  status_changed_at: string;
   source_page: string;
   created_at: string;
-};
-
-const statusLabels: Record<BusinessInquiryListRow["status"], string> = {
-  new: "новая",
-  contacted: "связались",
-  qualified: "подтверждена",
-  closed: "закрыта",
-  rejected: "отклонена",
-  spam: "спам"
 };
 
 export function BusinessInquiryList({
@@ -43,10 +40,10 @@ export function BusinessInquiryList({
     return rows.filter((row) => {
       const statusMatches = !status || row.status === status;
       const queryMatches = !normalized || [
-        row.confirmation_code,
-        row.company,
-        row.contact_name,
-        row.work_email,
+        row.reference_code,
+        row.company_name,
+        row.contact_person,
+        row.email,
         row.inquiry_type
       ].join(" ").toLocaleLowerCase("ru").includes(normalized);
       return statusMatches && queryMatches;
@@ -79,7 +76,7 @@ export function BusinessInquiryList({
           <label className="sr-only" htmlFor="business-inquiry-status">Статус заявки</label>
           <select id="business-inquiry-status" className="h-10 rounded-md border border-input bg-secondary/50 px-3 text-sm" value={status} onChange={(event) => setStatus(event.target.value)}>
             <option value="">Все статусы</option>
-            {Object.entries(statusLabels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}
+            {Object.entries(BUSINESS_INQUIRY_STATUS_LABELS).map(([value, label]) => <option value={value} key={value}>{label}</option>)}
           </select>
         </div>
       </CardHeader>
@@ -90,15 +87,15 @@ export function BusinessInquiryList({
             <tbody>
               {filtered.map((row) => (
                 <tr key={row.id}>
-                  <td className="font-mono text-xs">{row.confirmation_code}</td>
-                  <td><p className="font-medium">{row.company}</p><p className="text-xs text-muted-foreground">{row.contact_name} · {row.work_email}</p></td>
+                  <td className="font-mono text-xs">{row.reference_code}</td>
+                  <td><p className="font-medium">{row.company_name}</p><p className="text-xs text-muted-foreground">{row.contact_person} · {row.email}</p></td>
                   <td>{row.inquiry_type}</td>
-                  <td><Badge variant={row.status === "new" ? "warning" : row.status === "qualified" ? "success" : "secondary"}>{statusLabels[row.status]}</Badge></td>
+                  <td><Badge variant={row.status === "new" ? "warning" : row.status === "won" ? "success" : row.status === "lost" ? "destructive" : "secondary"}>{BUSINESS_INQUIRY_STATUS_LABELS[row.status]}</Badge></td>
                   <td>{new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short" }).format(new Date(row.created_at))}</td>
                   <td><Link className="text-cyan-200 underline-offset-4 hover:underline" href={`/business-inquiries/${row.id}`}>Открыть</Link></td>
                 </tr>
               ))}
-              {filtered.length === 0 ? <tr><td colSpan={6} className="py-10 text-center text-muted-foreground">Подтверждённых заявок по выбранным фильтрам нет.</td></tr> : null}
+              {filtered.length === 0 ? <tr><td colSpan={6} className="py-10 text-center text-muted-foreground">Заявок по выбранным фильтрам нет.</td></tr> : null}
             </tbody>
           </table>
         </div>

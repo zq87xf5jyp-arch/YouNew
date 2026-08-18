@@ -1,0 +1,166 @@
+name: Supabase Disposable Verification
+
+on:
+  pull_request:
+    paths:
+      - "admin-dashboard/supabase/**"
+      - "admin-dashboard/tests/**"
+      - "scripts/verify-supabase-migration-manifest.py"
+      - ".github/workflows/supabase-disposable-ci.yml"
+  push:
+    branches:
+      - "agent/monetization-preprod-validation-2026-08-18"
+    paths:
+      - "admin-dashboard/supabase/**"
+      - "admin-dashboard/tests/**"
+      - "scripts/verify-supabase-migration-manifest.py"
+      - ".github/workflows/supabase-disposable-ci.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: supabase-disposable-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  migration-and-pgtap:
+    name: Five pending migrations and 81 pgTAP assertions
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      SUPABASE_TELEMETRY_DISABLED: "1"
+      DO_NOT_TRACK: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Enable the pinned package manager
+        run: corepack enable
+      - name: Record the pinned CLI contract
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p supabase/ci-artifacts
+          {
+            pnpm dlx supabase@2.109.1 --version
+            pnpm dlx supabase@2.109.1 test db --help
+            pnpm dlx supabase@2.109.1 db reset --help
+          } | tee supabase/ci-artifacts/supabase-cli-contract.txt
+      - name: Verify migration identity and exact assertion count
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 scripts/verify-supabase-migration-manifest.py
+          assertion_count="$({
+            sed -nE 's/.*select plan\(([0-9]+)\).*/\1/p' \
+              admin-dashboard/supabase/tests/analytics_ingest_windows_rls_test.sql \
+              admin-dashboard/supabase/tests/business_inquiry_pipeline_test.sql \
+              admin-dashboard/supabase/tests/business_inquiry_deduplication_test.sql \
+              admin-dashboard/supabase/tests/lead_analytics_funnel_test.sql \
+              admin-dashboard/supabase/tests/business_inquiry_notification_test.sql
+          } | awk '{ total += $1 } END { print total + 0 }')"
+          test "$assertion_count" -eq 81
+          echo "Verified $assertion_count pending-migration assertions."
+          echo "$assertion_count" > admin-dashboard/supabase/ci-artifacts/assertion-count.txt
+      - name: Start generated local Supabase stack
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm dlx supabase@2.109.1 start --workdir . 2>&1 | tee supabase/ci-artifacts/start.log
+      - name: Rebuild from migrations with no seed data
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm dlx supabase@2.109.1 db reset --local --no-seed --workdir . 2>&1 | tee supabase/ci-artifacts/db-reset.log
+      - name: Record the offline production migration dry-run
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 - <<'PY' | tee supabase/ci-artifacts/production-migration-dry-run.txt
+          import hashlib
+          import json
+          import re
+          from pathlib import Path
+
+          root = Path("supabase")
+          manifest = json.loads((root / "production-migration-manifest.json").read_text())
+          pending = manifest["pendingMigrations"]
+          if len(pending) != 5:
+              raise SystemExit(f"Expected five pending migrations, found {len(pending)}")
+
+          blocked = re.compile(r"\b(?:drop\s+(?:table|schema)|truncate\s+table|alter\s+table\b[^;]*\bdrop\s+column)\b", re.I | re.S)
+          print("OFFLINE PRODUCTION MIGRATION DRY-RUN")
+          print("No production connection or credentials were used.")
+          print("The clean disposable database was rebuilt before this check.")
+          for entry in pending:
+              filename = f'{entry["version"]}_{entry["name"]}.sql'
+              data = (root / "migrations" / filename).read_bytes()
+              digest = hashlib.md5(data).hexdigest()
+              if digest != entry["md5"] or len(data) != entry["bytes"]:
+                  raise SystemExit(f"Manifest mismatch for {filename}")
+              if blocked.search(data.decode("utf-8")):
+                  raise SystemExit(f"Destructive production operation found in {filename}")
+              print(f'PASS {filename} bytes={len(data)} md5={digest}')
+          print("PASS exact five-file identity, ordering and destructive-operation screen")
+          PY
+          pnpm dlx supabase@2.109.1 migration list --local --workdir . \
+            2>&1 | tee supabase/ci-artifacts/local-migration-list.txt
+      - name: Run the five pgTAP suites
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm dlx supabase@2.109.1 test db \
+            supabase/tests/analytics_ingest_windows_rls_test.sql \
+            supabase/tests/business_inquiry_pipeline_test.sql \
+            supabase/tests/business_inquiry_deduplication_test.sql \
+            supabase/tests/lead_analytics_funnel_test.sql \
+            supabase/tests/business_inquiry_notification_test.sql \
+            --local --workdir . \
+            2>&1 | tee supabase/ci-artifacts/pgtap-results.tap
+      - name: Lint local public and private schemas
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm dlx supabase@2.109.1 db lint --local --schema public,private --level error --fail-on error --workdir . \
+            2>&1 | tee supabase/ci-artifacts/db-lint.log
+      - name: Write pgTAP summary
+        if: always()
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          {
+            echo "## Supabase disposable pre-production verification"
+            echo
+            echo "- Production credentials: not referenced"
+            echo "- Production connection: not used"
+            echo "- Pending migrations: 5 manifest-pinned files"
+            if grep -q "Result: PASS" supabase/ci-artifacts/pgtap-results.tap 2>/dev/null; then
+              echo "- pgTAP: 81/81 PASS"
+            else
+              echo "- pgTAP: FAIL or incomplete"
+            fi
+            echo "- Logs and offline migration dry-run: attached as artifacts"
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Stop and delete the disposable stack
+        if: always()
+        working-directory: admin-dashboard
+        run: pnpm dlx supabase@2.109.1 stop --no-backup --workdir .
+      - name: Upload pgTAP output
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: younew-pgtap-${{ github.run_id }}-${{ github.run_attempt }}
+          path: admin-dashboard/supabase/ci-artifacts/
+          if-no-files-found: warn
+          retention-days: 14

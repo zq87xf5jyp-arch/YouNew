@@ -41,7 +41,7 @@ export const SEARCH_TAXONOMY: readonly SearchTaxonomyTopic[] = [
     id: "housing",
     title: "Housing",
     aliases: {
-      en: ["housing", "rent", "rental", "renting", "home", "apartment", "room", "house", "accommodation", "social housing", "private rental", "temporary housing", "tenant rights", "rental contract", "deposit", "housing scam", "rent benefit"],
+      en: ["housing", "rent", "rental", "renting", "home", "apartment", "room", "house", "accommodation", "social housing", "private rental", "temporary housing", "tenant rights", "landlord problem", "landlord does not repair", "housing defects", "rental contract", "deposit", "housing scam", "rent benefit"],
       nl: ["huur", "huren", "woning", "woonruimte", "appartement", "kamer", "sociale huur", "particuliere huur", "huurcontract", "borg", "huurtoeslag", "huurrecht"],
       ru: ["жилье", "жильё", "аренда", "снять жилье", "снять жильё", "квартира", "комната", "дом", "договор аренды", "депозит", "права арендатора", "пособие на жилье", "пособие на жильё", "zhile", "arenda"]
     },
@@ -61,7 +61,7 @@ export const SEARCH_TAXONOMY: readonly SearchTaxonomyTopic[] = [
     id: "documents",
     title: "Documents",
     aliases: {
-      en: ["documents", "document", "bsn", "digid", "residence permit", "residence card", "registration", "municipality registration", "address registration", "change address", "brp", "citizen service number"],
+      en: ["documents", "document", "bsn", "digid", "residence permit", "residence card", "registration", "municipality registration", "register gemeente", "gemeente registration", "address registration", "change address", "brp", "citizen service number"],
       nl: ["documenten", "document", "burgerservicenummer", "verblijfsvergunning", "verblijfsdocument", "inschrijving", "gemeente inschrijving", "adresregistratie", "verhuizing", "basisregistratie personen"],
       ru: ["документы", "документ", "регистрация", "вид на жительство", "внж", "регистрация адреса", "муниципалитет", "номер bsn", "dokumenty", "registratsiya"]
     },

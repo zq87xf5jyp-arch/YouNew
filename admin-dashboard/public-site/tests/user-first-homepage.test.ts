@@ -29,6 +29,15 @@ test("homepage starts with one promise, one task search, and a narrowing journey
   assert.doesNotMatch(homepage, /Supabase|\bCI\b|test counts|release authority|SystemEvidence/i);
 });
 
+test("homepage LCP media is local while preserving its governed attribution", () => {
+  const heroMediaSource = homepage.slice(homepage.indexOf("const homeHeroMedia"), homepage.indexOf("const featuredCityIds"));
+  assert.match(heroMediaSource, /url: "\/images\/app-amsterdam-evening-background\.webp"/);
+  assert.match(heroMediaSource, /attribution: "Basile Morin"/);
+  assert.match(heroMediaSource, /license: "CC BY-SA 4\.0"/);
+  assert.match(heroMediaSource, /sourcePageUrl: "https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
+  assert.match(homepage, /<ContentMedia asset=\{homeHeroMedia\} eager variant="hero" \/>/);
+});
+
 test("homepage exposes ten user needs and ten concrete popular tasks", () => {
   const destinationsSource = homepage.slice(homepage.indexOf("const taskDestinations"), homepage.indexOf("const lifeDirections"));
   for (const title of [
@@ -61,7 +70,7 @@ test("global navigation keeps the product vision to eight primary destinations",
   assert.match(header, /\["Services", "\/organizations"\]/);
   assert.match(header, /\["Cities", "\/cities"\]/);
   assert.match(header, /\["Guides", "\/guides"\]/);
-  assert.match(header, /\["Business", "\/business"\]/);
+  assert.match(header, /\["Business", "\/for-business"\]/);
   assert.equal(header.match(/^  \["/gm)?.length, 8);
   assert.doesNotMatch(header, /Journeys|Updates|Map|Provinces|App status|My YouNew/);
   assert.match(footer, /Website language:<\/strong> English/);

@@ -10,7 +10,7 @@ import {
 } from "@/lib/business/catalog";
 import { metadataForPage } from "@/lib/seo/metadata";
 
-export const metadata = metadataForPage("Advertise with YouNew", "Request a clearly labelled, relevant advertising placement on YouNew without compromising editorial guidance.", "/business/advertise");
+export const metadata = metadataForPage("Advertise with YouNew", "Request a clearly labelled, relevant advertising placement on YouNew without compromising editorial guidance.", "/business/advertise", { noIndex: true, follow: true });
 
 export default function AdvertisePage() {
   return (

@@ -3,9 +3,10 @@ import { spawnSync } from "node:child_process";
 import { mkdtemp, mkdir, rm, writeFile } from "node:fs/promises";
 import { tmpdir } from "node:os";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 import test from "node:test";
 
-const checkScript = new URL("../scripts/check-links.mjs", import.meta.url).pathname;
+const checkScript = fileURLToPath(new URL("../scripts/check-links.mjs", import.meta.url));
 
 function runAssetCheck(root: string) {
   return spawnSync(process.execPath, [checkScript], {

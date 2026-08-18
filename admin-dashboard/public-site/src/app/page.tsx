@@ -91,7 +91,7 @@ const lifeDirections: readonly Direction[] = [
   { title: "Studying", href: searchHref("education study"), icon: GraduationCap },
   { title: "Travelling", href: "/discover/", icon: Luggage },
   { title: "Moving", href: searchHref("moving registration"), icon: Truck },
-  { title: "Business", href: "/business/", icon: Building2 },
+  { title: "Business", href: "/for-business/", icon: Building2 },
   { title: "Culture", href: "/categories/culture/", icon: Landmark },
   { title: "History", href: "/discover/", icon: BookOpen },
   { title: "Nature", href: "/categories/outdoors/", icon: Trees },
@@ -144,6 +144,18 @@ const leidenMedia: PublicMediaAsset = {
   licenseUrl: "https://creativecommons.org/licenses/by-sa/3.0/",
   sourcePageUrl: "https://commons.wikimedia.org/wiki/File:Leiden_Kanaal.jpg",
   retrievedAt: "2026-08-06"
+};
+
+const homeHeroMedia: PublicMediaAsset = {
+  id: "homepage.amsterdam-damrak",
+  role: "hero",
+  url: "/images/app-amsterdam-evening-background.webp",
+  alt: "Canal houses reflected in the Damrak in Amsterdam at blue hour",
+  attribution: "Basile Morin",
+  license: "CC BY-SA 4.0",
+  licenseUrl: "https://creativecommons.org/licenses/by-sa/4.0/",
+  sourcePageUrl: "https://commons.wikimedia.org/wiki/File:Water_reflection_of_canal_houses_at_blue_hour_in_Damrak_Amsterdam_the_Netherlands.jpg",
+  retrievedAt: "2026-07-14"
 };
 
 const featuredCityIds = [
@@ -238,7 +250,7 @@ export default function HomePage() {
                 <Link className="vision-secondary-action" href="/discover/">Explore the Netherlands <ArrowRight aria-hidden /></Link>
               </div>
             </div>
-            <div className="vision-hero-media"><ContentMedia asset={leidenMedia} eager variant="hero" /></div>
+            <div className="vision-hero-media"><ContentMedia asset={homeHeroMedia} eager variant="hero" /></div>
           </div>
         </section>
 
@@ -314,8 +326,8 @@ export default function HomePage() {
               <h2 id="business-title">Reach newcomers responsibly.</h2>
               <p>Advertising and partnerships remain separate from organic guidance. Campaigns appear only after review and activation.</p>
               <nav aria-label="Business options">
-                <Link href="/business/advertise">Advertising standards <ArrowRight aria-hidden /></Link>
-                <Link href="/business/partners">Explore partnerships <ArrowRight aria-hidden /></Link>
+                <Link href="/for-business/pilot">90-day onboarding pilot <ArrowRight aria-hidden /></Link>
+                <Link href="/partners">Partner principles <ArrowRight aria-hidden /></Link>
               </nav>
             </div>
             <div className="vision-campaign-state">

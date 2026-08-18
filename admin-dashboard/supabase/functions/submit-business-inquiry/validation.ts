@@ -20,6 +20,13 @@ const inquiryTypes = new Set([
   "public-interest",
   "other",
 ]);
+const offerInterests = new Set([
+  "not_specified",
+  "onboarding_pilot",
+  "founding_partner_page",
+  "sponsored_practical_guide",
+  "other",
+]);
 const audienceIds = new Set([
   "tourist",
   "student",
@@ -96,6 +103,13 @@ export function validateBusinessInquiryPayload(
   if (text(value.websiteConfirmation)) fields.push("form");
   if (!validText(value.companyName, 2, 120)) fields.push("companyName");
   if (!validText(value.contactPerson, 2, 120)) fields.push("contactPerson");
+  if (
+    (text(value.offerInterest) === "onboarding_pilot" && !validText(value.contactRole, 2, 120)) ||
+    (text(value.contactRole) && !validText(value.contactRole, 2, 120))
+  ) {
+    fields.push("contactRole");
+  }
+  if (!offerInterests.has(text(value.offerInterest))) fields.push("offerInterest");
   if (!emailPattern.test(text(value.email)) || text(value.email).length > 254) {
     fields.push("email");
   }
@@ -132,7 +146,7 @@ export function validateBusinessInquiryPayload(
   if (!validText(value.description, 30, 600)) fields.push("description");
   if (value.consentToPrivacy !== true) fields.push("consentToPrivacy");
   if (value.confirmAccuracy !== true) fields.push("confirmAccuracy");
-  if (!/^\/business(?:\/|$)/.test(text(value.sourcePage))) {
+  if (!["/business/apply/", "/partners/apply/"].includes(text(value.sourcePage))) {
     fields.push("sourcePage");
   }
 

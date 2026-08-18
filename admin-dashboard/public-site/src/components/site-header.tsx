@@ -12,7 +12,7 @@ const navigation = [
   ["Services", "/organizations"],
   ["Cities", "/cities"],
   ["Guides", "/guides"],
-  ["Business", "/business"]
+  ["Business", "/for-business"]
 ];
 
 export function SiteHeader() {

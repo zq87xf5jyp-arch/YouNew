@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "verifiedAt": "2026-08-05",
+  "schemaVersion": 2,
+  "verifiedAt": "2026-08-18",
   "projectRef": "pgdzdxsiagfjioxwuqxf",
   "historicalBootstrapFiles": [
     "0001_younew_admin_schema.sql",
@@ -144,16 +144,50 @@
       "bytes": 400
     },
     {
-      "version": "20260805173500",
+      "version": "20260805221430",
+      "localVersion": "20260805173500",
       "name": "normalize_article_search_taxonomy",
       "md5": "ea265966b977ac1824b84f5b3e78e990",
       "bytes": 5711
     },
     {
-      "version": "20260805223000",
+      "version": "20260805231047",
+      "localVersion": "20260805223000",
       "name": "expand_privacy_safe_analytics_dashboard",
       "md5": "e04e3378050bbe7cd5ecf79c28126807",
       "bytes": 17709
+    }
+  ],
+  "pendingMigrations": [
+    {
+      "version": "20260818145801",
+      "name": "harden_analytics_ingest_windows_rls",
+      "md5": "e702afeef312705d2a5bc5a8858da0c4",
+      "bytes": 5294
+    },
+    {
+      "version": "20260818191112",
+      "name": "harden_business_inquiry_pipeline",
+      "md5": "716b6222ca3010e4f385082414169440",
+      "bytes": 8280
+    },
+    {
+      "version": "20260818192423",
+      "name": "deduplicate_business_inquiry_submissions",
+      "md5": "f64ea4cab3ced4eaa9e61474d5116c3f",
+      "bytes": 11328
+    },
+    {
+      "version": "20260818193310",
+      "name": "extend_lead_analytics_funnel",
+      "md5": "220bfa6bddd463acb67a86b31bbea285",
+      "bytes": 12423
+    },
+    {
+      "version": "20260818194626",
+      "name": "add_business_inquiry_notification_inbox",
+      "md5": "e9df9c0cbd8828bbe6cfa26f57c5a295",
+      "bytes": 4858
     }
   ]
 }

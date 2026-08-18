@@ -1,0 +1,86 @@
+name: Monetization Visual Pre-production Verification
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - "agent/monetization-preprod-validation-2026-08-18"
+    paths:
+      - "admin-dashboard/public-site/**"
+      - "admin-dashboard/e2e/monetization-visual.spec.ts"
+      - "admin-dashboard/playwright.monetization.config.ts"
+      - ".github/workflows/monetization-visual-validation.yml"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: monetization-visual-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visual-validation:
+    name: Six routes at 1440x900 and 390x844
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CI: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+      DO_NOT_TRACK: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Enable the pinned package manager
+        run: corepack enable
+      - name: Install public dependencies without changing the lockfile
+        working-directory: admin-dashboard/public-site
+        run: pnpm install --frozen-lockfile
+      - name: Install Playwright runner without changing the lockfile
+        working-directory: admin-dashboard
+        run: pnpm install --frozen-lockfile
+      - name: Public TypeScript
+        working-directory: admin-dashboard/public-site
+        run: pnpm typecheck
+      - name: Public ESLint
+        working-directory: admin-dashboard/public-site
+        run: pnpm lint
+      - name: Public tests
+        working-directory: admin-dashboard/public-site
+        run: pnpm test
+      - name: Build the static public site
+        working-directory: admin-dashboard/public-site
+        run: pnpm build
+      - name: Install disposable Chromium
+        working-directory: admin-dashboard
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Run isolated Playwright validation
+        working-directory: admin-dashboard
+        run: pnpm exec playwright test --config playwright.monetization.config.ts
+      - name: Write visual summary
+        if: always()
+        shell: bash
+        run: |
+          {
+            echo "## Monetization visual pre-production validation"
+            echo
+            echo "- Runtime: local static preview in this disposable runner"
+            echo "- Viewports: 1440x900 and 390x844"
+            echo "- External HTTP(S): intercepted; no request reaches production"
+            echo "- Lead data: synthetic .test values only"
+            echo "- Screenshots and Playwright JSON: attached as run artifacts"
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Upload screenshots and reports
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: younew-visual-validation-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            admin-dashboard/visual-validation/screenshots/
+            admin-dashboard/visual-validation/playwright-results.json
+            admin-dashboard/visual-validation/test-results/
+          if-no-files-found: warn
+          retention-days: 14

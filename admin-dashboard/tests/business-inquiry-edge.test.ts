@@ -7,6 +7,8 @@ import { validatePublicFeedbackPayload } from "../supabase/functions/submit-publ
 const validPayload = {
   companyName: "Example Amsterdam BV",
   contactPerson: "Ada Example",
+  contactRole: "Global Mobility Lead",
+  offerInterest: "onboarding_pilot",
   email: "ada@example.nl",
   phone: "+31 20 123 4567",
   website: "https://example.nl",
@@ -25,7 +27,7 @@ const validPayload = {
   consentToPrivacy: true,
   confirmAccuracy: true,
   websiteConfirmation: "",
-  sourcePage: "/business/apply/",
+  sourcePage: "/partners/apply/",
   utmSource: "release-test",
   utmMedium: "qa",
   utmCampaign: "2026-07-29",
@@ -35,6 +37,13 @@ const validPayload = {
 
 test("edge validation accepts the complete browser contract", () => {
   assert.deepEqual(validateBusinessInquiryPayload(validPayload), { valid: true, fields: [] });
+});
+
+test("edge validation requires a reviewed offer and validates the optional contact role", () => {
+  const missingOffer = validateBusinessInquiryPayload({ ...validPayload, offerInterest: "" });
+  const shortRole = validateBusinessInquiryPayload({ ...validPayload, contactRole: "x" });
+  assert.ok(missingOffer.fields.includes("offerInterest"));
+  assert.ok(shortRole.fields.includes("contactRole"));
 });
 
 test("edge validation rejects bot fields, unknown selections and missing consent", () => {

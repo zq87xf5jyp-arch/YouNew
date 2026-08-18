@@ -70,21 +70,25 @@ select count(*) from pg_namespace where nspname in ('auth','storage');")"
 [ "$required_schemas" -eq 2 ] || fail "local Supabase target is missing required managed schemas"
 
 managed_entries="$rehearsal_root/managed-migrations.tsv"
-jq -r '.managedMigrations[]? | [.version, .name] | @tsv' "$migration_manifest" > "$managed_entries"
+jq -r '.managedMigrations[]? | [.version, (.localVersion // .version), .name] | @tsv' "$migration_manifest" > "$managed_entries"
 managed_count="$(awk 'NF { count += 1 } END { print count + 0 }' "$managed_entries")"
 [ "$managed_count" -gt 0 ] || fail "production migration manifest has no managed versions"
 mkdir -p "$rehearsal_root/supabase/migrations"
-while IFS=$'\t' read -r managed_version managed_name; do
+while IFS=$'\t' read -r managed_version local_version managed_name; do
   case "$managed_version" in
     20????????????) ;;
     *) fail "invalid managed migration version: $managed_version" ;;
   esac
+  case "$local_version" in
+    20????????????) ;;
+    *) fail "invalid local migration version: $local_version" ;;
+  esac
   case "$managed_name" in
     ''|*[!a-z0-9_]*) fail "invalid managed migration name: $managed_name" ;;
   esac
-  managed_file="$migration_source_dir/${managed_version}_${managed_name}.sql"
+  managed_file="$migration_source_dir/${local_version}_${managed_name}.sql"
   [ -f "$managed_file" ] || fail "managed migration file is missing: $managed_file"
-  cp "$managed_file" "$rehearsal_root/supabase/migrations/"
+  cp "$managed_file" "$rehearsal_root/supabase/migrations/${managed_version}_${managed_name}.sql"
 done < "$managed_entries"
 managed_versions="$(cut -f1 "$managed_entries")"
 

@@ -1,8 +1,9 @@
 import { createHash } from "node:crypto";
 import { readFile, writeFile } from "node:fs/promises";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const outputRoot = new URL("../out/", import.meta.url).pathname;
+const outputRoot = fileURLToPath(new URL("../out/", import.meta.url));
 const file = join(outputRoot, "index.html");
 const html = await readFile(file, "utf8");
 const staticShell = await readFile(join(outputRoot, "static-shell.js"));

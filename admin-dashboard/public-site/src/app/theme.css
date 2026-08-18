@@ -86,6 +86,57 @@ html[data-theme="light"] :is(.entity-card,.profile-picker,.source-card,.status-c
   background:linear-gradient(145deg,rgba(255,255,255,.96),rgba(234,241,247,.92));
 }
 
+html[data-theme="light"] .pilot-offer-page :is(
+  .business-hero,
+  .pilot-offer-card,
+  .pilot-process-card,
+  .demo-report-header
+) {
+  --text:#f2f7ff;
+  --text-secondary:#c3d2e5;
+  --muted:#a9bbd2;
+  --orange:#e6681a;
+  --orange-2:#ff8836;
+  --cyan:#70dce8;
+  color:var(--text);
+}
+
+html[data-theme="light"] .pilot-offer-page .pilot-price-line strong { color:var(--text); }
+html[data-theme="light"] .pilot-offer-page .pilot-scope-panel li { color:var(--text-secondary); }
+html[data-theme="light"] .pilot-offer-page .pilot-card-grid article {
+  background:linear-gradient(145deg,#fff,var(--panel-2));
+  color:var(--text);
+}
+html[data-theme="light"] .pilot-offer-page .pilot-card-grid p { color:#526984; }
+
+html[data-theme="light"] .pilot-request-form .form-section {
+  background:linear-gradient(145deg,#fff,var(--panel));
+  color:var(--text);
+}
+html[data-theme="light"] .pilot-request-form .form-section>legend,
+html[data-theme="light"] .pilot-request-form .form-field>label,
+html[data-theme="light"] .pilot-request-form .form-label { color:var(--text); }
+html[data-theme="light"] .pilot-request-form .form-field label span,
+html[data-theme="light"] .pilot-request-form .form-label span,
+html[data-theme="light"] .pilot-request-form .form-field-help { color:var(--muted); }
+html[data-theme="light"] .pilot-request-form :is(.form-field input,.form-field select,.form-field textarea) {
+  border-color:var(--line-strong);
+  background:#fff;
+  color:var(--text);
+}
+html[data-theme="light"] .pilot-request-form :is(.form-field input,.form-field textarea)::placeholder { color:var(--muted); }
+html[data-theme="light"] .pilot-request-form .form-confirmations>label {
+  border-color:var(--line-strong);
+  background:var(--bg-secondary);
+  color:var(--text-secondary);
+}
+html[data-theme="light"] .pilot-request-form .form-field-error { color:#9f252d; }
+html[data-theme="light"] .pilot-request-form .form-error-summary {
+  border-color:rgba(174,49,56,.45);
+  background:rgba(174,49,56,.07);
+}
+html[data-theme="light"] .pilot-request-form .form-error-summary p { color:#842129; }
+
 html[data-theme="light"] .scenario-grid article { background:linear-gradient(145deg,#fff,var(--panel)); }
 html[data-theme="light"] .site-footer .locale-status strong { color:var(--text-secondary); }
 html[data-theme="light"] .coverage-map-filters {

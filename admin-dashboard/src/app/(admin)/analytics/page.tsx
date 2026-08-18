@@ -94,6 +94,9 @@ function eventLabel(event: string) {
     app_cta_click: "Переход в App Store",
     profile_selected: "Выбор профиля",
     business_mailto_prepared: "Начало бизнес-контакта",
+    lead_start: "Начало заполнения заявки",
+    lead_submit: "Получен безопасный номер заявки",
+    pilot_request: "Получен запрос на 90-дневный пилот",
     analytics_consent_granted: "Согласие на аналитику",
     app_error: "Ошибка приложения",
     sync_failed: "Ошибка синхронизации"
@@ -125,6 +128,7 @@ export default async function AnalyticsPage({
     audienceResult,
     sessionQualityResult,
     conversionFunnelResult,
+    leadFunnelResult,
     appStoreResult,
     appStoreSyncResult,
     businessResult
@@ -173,6 +177,10 @@ export default async function AnalyticsPage({
           .select("platform,funnel_step,events,sessions,last_event_at")
           .eq("period_days", days),
         supabase
+          .from("analytics_lead_funnel_periods")
+          .select("platform,funnel_step,events,sessions,last_event_at")
+          .eq("period_days", days),
+        supabase
           .from("app_store_metrics_daily")
           .select("metric_date,territory,first_time_downloads,redownloads,updates,impressions,product_page_views,installations,app_sessions,crashes,synced_at")
           .gte("metric_date", sinceDate),
@@ -186,7 +194,7 @@ export default async function AnalyticsPage({
           .select("id", { count: "exact", head: true })
           .gte("created_at", sinceTimestamp)
       ])
-    : Array.from({ length: 12 }, () => ({ data: null, count: null, error: new Error("not configured") }));
+    : Array.from({ length: 13 }, () => ({ data: null, count: null, error: new Error("not configured") }));
 
   const dashboard = buildAnalyticsDashboard({
     dailyRows: (dailyResult.data ?? []) as AnalyticsDailyMetricRow[],
@@ -202,7 +210,7 @@ export default async function AnalyticsPage({
     funnelRows: (conversionFunnelResult.data ?? []) as AnalyticsConversionFunnelRow[],
     appStoreRows: (appStoreResult.data ?? []) as AppStoreMetricRow[]
   });
-  const coreResults = [dailyResult, funnelResult, healthResult, pageMetricsResult, audienceResult, sessionQualityResult, conversionFunnelResult];
+  const coreResults = [dailyResult, funnelResult, healthResult, pageMetricsResult, audienceResult, sessionQualityResult, conversionFunnelResult, leadFunnelResult];
   const webConnected = Boolean(supabase) && coreResults.every((result) => !result.error);
   const searchConnected = Boolean(supabase) && !searchGapsResult.error && !searchTasksResult.error;
   const webSessions = insights.sessions.find((row) => row.platform.toLowerCase() === "web") ?? insights.sessions[0];
@@ -284,6 +292,13 @@ export default async function AnalyticsPage({
     status: row.status,
     priority: row.priority,
     last_seen: row.last_seen_at
+  }));
+  const leadFunnelRows = (leadFunnelResult.data ?? []).map((row) => ({
+    step: eventLabel(String(row.funnel_step)),
+    platform: String(row.platform),
+    events: Number(row.events ?? 0),
+    sessions: Number(row.sessions ?? 0),
+    last_event: row.last_event_at
   }));
   const changeNote = dashboard.sevenDayEventChange === null
     ? "Нет сопоставимого предыдущего 7-дневного периода"
@@ -444,7 +459,7 @@ export default async function AnalyticsPage({
               title: "Бизнес-результаты",
               detail: businessResult.error
                 ? "Агрегат business_inquiries недоступен."
-                : `${businessResult.count ?? 0} подтверждённых заявок за выбранный период.`,
+                : `${businessResult.count ?? 0} полученных заявок за выбранный период.`,
               status: businessResult.error ? "error" : (businessResult.count ?? 0) > 0 ? "connected" : "empty",
               kind: "database"
             },
@@ -514,6 +529,12 @@ export default async function AnalyticsPage({
         </div>
 
         <div className="grid gap-6 xl:grid-cols-2">
+          <CrudTable
+            title={`Воронка заявок — ${days} дней`}
+            description="Consented receipt-return events, not unique leads. Отправка считается только после возврата безопасного номера заявки; это не платёж."
+            rows={leadFunnelRows}
+            columns={["step", "platform", "events", "sessions", "last_event"]}
+          />
           <CrudTable
             title={`Страницы — ${days} дней`}
             description="Просмотры, сессии, ключевые действия и глубина просмотра."

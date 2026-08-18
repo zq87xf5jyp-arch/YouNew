@@ -20,7 +20,8 @@ import { metadataForPage } from "@/lib/seo/metadata";
 export const metadata = metadataForPage(
   "YouNew media kit",
   "Review YouNew's published coverage, advertising formats, editorial safeguards, partner checks and request-for-quote process.",
-  "/business/media-kit"
+  "/business/media-kit",
+  { noIndex: true, follow: true }
 );
 
 const reviewSteps = [
@@ -176,11 +177,11 @@ export default function MediaKitPage() {
       <section className="business-section section-shell" aria-labelledby="media-kit-data">
         <div className="section-intro">
           <p className="section-label orange">Data handling now</p>
-          <h2 id="media-kit-data">A browser-to-email inquiry, not a hidden submission</h2>
+          <h2 id="media-kit-data">A validated stored inquiry with a visible fallback</h2>
         </div>
         <div className="media-kit-data-grid">
-          <article><LockKeyhole aria-hidden /><h3>Before you send</h3><p>The application is validated in your browser. YouNew receives nothing when you fill it in or press “Review and prepare email”. No file upload is offered.</p></article>
-          <article><FileCheck2 aria-hidden /><h3>When you choose to send</h3><p>The site opens a prefilled draft in your email application. Only after you review and send it do the chosen email providers and support@younew.nl receive the details.</p></article>
+          <article><LockKeyhole aria-hidden /><h3>Validated before storage</h3><p>The application is checked in the browser and again by YouNew&apos;s protected inquiry endpoint. A record exists only after server validation succeeds and a confirmation ID is returned. No file upload is offered.</p></article>
+          <article><FileCheck2 aria-hidden /><h3>Fallback stays under your control</h3><p>If the protected endpoint cannot save the inquiry, the form keeps your entries and can prepare an email draft. Opening the draft sends nothing; only you can review and send it.</p></article>
           <article><ShieldCheck aria-hidden /><h3>Data minimisation</h3><p>Do not include identity documents, health information, payment details or other sensitive personal data. Inquiry data is not a purchase or blanket marketing consent.</p></article>
         </div>
         <p className="business-source-links">Read the <Link href="/privacy">Privacy Policy</Link>. For access, correction or deletion questions about business correspondence, email <a href="mailto:support@younew.nl">support@younew.nl</a>.</p>

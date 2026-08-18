@@ -10,8 +10,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const updated = new Date(content.generatedAt);
   const staticPaths = [
     "", "/start", "/discover", "/guides", "/journeys", "/map", "/categories", "/cities", "/municipalities", "/provinces", "/places", "/organizations", "/updates",
-    "/emergency", "/status", "/app", "/business", "/business/advertise", "/business/partners", "/business/pricing",
-    "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"
+    "/emergency", "/status", "/app", "/for-business", "/for-business/pilot", "/for-business/demo-report",
+    "/partners", "/partners/apply", "/privacy", "/terms", "/support"
   ];
   const staticEntries: MetadataRoute.Sitemap = staticPaths.map((path) => ({
     url: path ? `https://younew.nl${path}/` : "https://younew.nl/",

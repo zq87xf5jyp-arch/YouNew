@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
   createApiPartnerApplicationRepository,
   mailtoPartnerApplicationRepository,
@@ -19,6 +19,7 @@ import type {
   OrganizationType,
   RequestedPlacementId
 } from "@/lib/business/types";
+import { track } from "@/lib/analytics/client";
 
 const organizationOptions: Array<{ value: OrganizationType; label: string }> = [
   { value: "commercial-business", label: "Commercial business" },
@@ -64,6 +65,8 @@ function applicationFrom(formData: FormData): BusinessApplicationInput {
   return {
     companyName: valueOf(formData, "companyName"),
     contactPerson: valueOf(formData, "contactPerson"),
+    contactRole: valueOf(formData, "contactRole"),
+    offerInterest: "not_specified",
     email: valueOf(formData, "email"),
     phone: valueOf(formData, "phone"),
     website: valueOf(formData, "website"),
@@ -109,10 +112,31 @@ export function PartnerApplicationForm({
   const [result, setResult] = useState<BusinessApplicationResult | null>(null);
   const [submissionError, setSubmissionError] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const leadStarted = useRef(false);
   const kvkRequired = requiresKvkNumber(organizationType);
   const repository = createApiPartnerApplicationRepository(siteConfig.businessInquiry.endpoint);
 
   useEffect(() => setInteractive(true), []);
+
+  const handleInput = (event: FormEvent<HTMLFormElement>) => {
+    if (result) setResult(null);
+    if (submissionError) setSubmissionError("");
+    if (Object.keys(errors).length) setErrors({});
+
+    const target = event.target;
+    if (target instanceof HTMLInputElement && target.name === "websiteConfirmation") return;
+
+    const meaningful = target instanceof HTMLInputElement
+      ? ((target.type === "checkbox" || target.type === "radio") ? target.checked : target.value.trim().length > 0)
+      : target instanceof HTMLSelectElement || target instanceof HTMLTextAreaElement
+        ? target.value.trim().length > 0
+        : false;
+    if (!meaningful) return;
+    if (!leadStarted.current) {
+      leadStarted.current = true;
+      track({ name: "lead_start" });
+    }
+  };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -129,12 +153,16 @@ export function PartnerApplicationForm({
 
     setSubmitting(true);
     try {
-      setResult(await repository.submit(application));
+      const submission = await repository.submit(application);
+      setResult(submission);
+      track({ name: "lead_submit" });
     } catch (error) {
       setSubmissionError(error instanceof Error
         ? error.message
         : "The inquiry was not saved. Your entries are still available; please retry.");
-      setResult(await mailtoPartnerApplicationRepository.submit(application));
+      const handoff = await mailtoPartnerApplicationRepository.submit(application);
+      setResult(handoff);
+      track({ name: "business_mailto_prepared", organizationType: application.organizationType });
     } finally {
       setSubmitting(false);
     }
@@ -148,7 +176,7 @@ export function PartnerApplicationForm({
           <p>The form below is disabled and no details have been sent. Email support@younew.nl directly instead.</p>
         </div>
       </noscript>
-      <form className="business-application-form" action="/business/apply/" method="post" onSubmit={handleSubmit} onInput={() => { if (result) setResult(null); if (submissionError) setSubmissionError(""); if (Object.keys(errors).length) setErrors({}); }} noValidate inert={interactive ? undefined : true}>
+      <form className="business-application-form" action="/business/apply/" method="post" onSubmit={handleSubmit} onInput={handleInput} noValidate inert={interactive ? undefined : true}>
       {Object.keys(errors).length ? (
         <div className="form-error-summary" id="business-form-errors" role="alert" tabIndex={-1}>
           <h2>Review the highlighted fields</h2>

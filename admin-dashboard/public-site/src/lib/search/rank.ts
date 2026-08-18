@@ -190,10 +190,22 @@ function documentScope(document: SearchDocument): SearchLocationScope {
 function locationScore(
   document: SearchDocument,
   location: ReturnType<typeof selectedLocationContext>,
-  fromExplicitFilter: boolean
+  fromExplicitFilter: boolean,
+  penalizeUnscopedLocal = false
 ): number {
-  if (!location) return 0;
   const scope = documentScope(document);
+  if (!location) {
+    if (!penalizeUnscopedLocal) return 0;
+    const hasLocalIdentity = Boolean(
+      document.municipalityId ??
+        document.cityId ??
+        document.provinceId ??
+        (document.type === "municipality" || document.type === "province" ? document.slug : null)
+    );
+    return hasLocalIdentity && ["province", "municipality", "city", "neighbourhood", "organization"].includes(scope)
+      ? -64
+      : 0;
+  }
   if (scope === "national" || scope === "emergency" || scope === "online-service" || document.nationalFallback) {
     return fromExplicitFilter ? 22 : 12;
   }
@@ -347,7 +359,7 @@ export function rankSearchDocuments(
     const intentMatched = intentScore >= 100;
     if (score > 0 && (matchedTerms.length >= minimumCoverage || intentMatched)) {
       const profileBoost = searchDocumentMatchesProfile(document, options.preferredProfile) ? 12 : 0;
-      const geoBoost = locationScore(document, location, Boolean(explicitLocation));
+      const geoBoost = locationScore(document, location, Boolean(explicitLocation), intentMatches.length > 0);
       const verificationBoost = freshnessScore(document.verifiedAt);
       const contentQualityBoost = qualityScore(document);
       const answerUsefulnessBoost = usefulnessScore(document);

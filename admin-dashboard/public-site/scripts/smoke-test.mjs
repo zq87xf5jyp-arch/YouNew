@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import { access, readFile } from "node:fs/promises";
 import { join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = new URL("../out/", import.meta.url).pathname;
+const root = fileURLToPath(new URL("../out/", import.meta.url));
 const requiredFiles = [
   "index.html", "start/index.html", "my-younew/index.html", "discover/index.html", "search/index.html", "guides/index.html", "guides/woon/index.html",
   "journeys/index.html", "map/index.html",
@@ -10,7 +11,7 @@ const requiredFiles = [
   "municipalities/index.html", "municipalities/amsterdam/index.html",
   "provinces/noord-holland/index.html", "places/index.html", "organizations/index.html", "emergency/index.html",
   "saved/index.html", "status/index.html", "offline/index.html", "app/index.html", "business/index.html",
-  "business/workspace/index.html", "business/apply/index.html", "business/media-kit/index.html", "privacy/index.html", "terms/index.html", "support/index.html", "robots.txt",
+  "for-business/index.html", "for-business/pilot/index.html", "for-business/demo-report/index.html", "partners/index.html", "partners/apply/index.html", "partners/apply/success/index.html", "privacy/index.html", "terms/index.html", "support/index.html", "robots.txt",
   "sitemap.xml", "manifest.webmanifest", "sw.js", ".htaccess", "404.html", "data/search-index.json",
   "acquisition/index.html", "acquisition/YouNew_Acquisition_Demo_2026-08-28.mp4", "acquisition/YouNew_Acquisition_Brief_2026-08-28.pdf",
   ".well-known/apple-app-site-association",
@@ -180,7 +181,7 @@ assert.match(hostingerRules, /FilesMatch "\^\(sw\\\.js\|theme-init\\\.js\|static
 assert.match(hostingerRules, /Strict-Transport-Security "max-age=31536000"/, "HTTPS responses must advertise HSTS");
 
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
-for (const path of ["https://younew.nl", "/start", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/business/apply", "/business/media-kit", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
+for (const path of ["https://younew.nl", "/start", "/discover", "/guides/woon", "/journeys", "/map", "/cities/amsterdam", "/categories/housing", "/for-business", "/for-business/pilot", "/for-business/demo-report", "/partners", "/partners/apply", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
 const sitemapCount = (sitemap.match(/<url>/g) ?? []).length;
 assert.equal(new Set([...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1])).size, sitemapCount, "Sitemap URLs must be unique");
 

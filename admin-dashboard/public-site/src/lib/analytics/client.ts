@@ -16,6 +16,9 @@ export type AnalyticsEvent =
   | { name: "app_cta_click"; location: string }
   | { name: "profile_selected" }
   | { name: "business_mailto_prepared"; organizationType: string }
+  | { name: "lead_start" }
+  | { name: "lead_submit" }
+  | { name: "pilot_request" }
   | { name: "analytics_consent_granted" };
 
 export type AnalyticsProvider = {
@@ -182,6 +185,9 @@ function eventProperties(event: AnalyticsEvent): Record<string, string | number 
     case "business_mailto_prepared":
       return { organization_type: safeProperty(event.organizationType) };
     case "page_view":
+    case "lead_start":
+    case "lead_submit":
+    case "pilot_request":
     case "profile_selected":
     case "analytics_consent_granted":
       return {};

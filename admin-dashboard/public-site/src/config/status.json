@@ -2,11 +2,11 @@
   "schemaVersion": 1,
   "snapshotType": "static",
   "liveMonitoring": false,
-  "checkedAt": "2026-08-10",
+  "checkedAt": "2026-08-18",
   "website": {
     "status": "operational",
     "label": "Website",
-    "summary": "The production website and key public routes were reachable during the 10 August check. Sites v53 is linked to the exact green GitHub main commit, and the required routes passed the HTTP, canonical redirect and security-header audit."
+    "summary": "The production website and key public routes were reachable during the 18 August check. Sites v53 matches the recorded artifact subset for GitHub commit 60accbcb8f8c169e1ef6e09cd7b56824bea6d08e; the hosting-provider record does not independently expose a source SHA."
   },
   "content": {
     "status": "current",

@@ -4,8 +4,9 @@ import { spawn } from "node:child_process";
 import { once } from "node:events";
 import { readdir, readFile } from "node:fs/promises";
 import { extname, join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const siteRoot = new URL("../", import.meta.url).pathname;
+const siteRoot = fileURLToPath(new URL("../", import.meta.url));
 const outRoot = join(siteRoot, "out");
 const mirrorRoot = join(siteRoot, "dist/client");
 const canonicalOrigin = "https://younew.nl";

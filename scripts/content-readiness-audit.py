@@ -1143,7 +1143,7 @@ def render_markdown(report: dict[str, Any]) -> str:
         f"- Guide-capable material records: **{headline['material_records']}**; effectively published material records: **{headline['effective_published_material_records']}**.",
         f"- Material lifecycle states: **{json.dumps(headline['material_lifecycle_status_counts'], sort_keys=True)}**.",
         f"- Public guides: **{headline['public_summary_guides']} summary / {headline['public_full_practical_guides']} full**.",
-        f"- Editorial scaffolds: **{headline['staged_draft_or_review_guides']} draft/review**; production-ready guides: **{headline['production_ready_guides']}**.",
+        f"- Source-backed guide QA packets: **{headline['staged_draft_or_review_guides']}**; production-ready guides: **{headline['production_ready_guides']}**.",
         f"- Published FAQ: **{headline['published_faq_items']}/300**; staged draft FAQ: **{headline['staged_draft_faq_items']}**; staged search questions (not FAQ): **{headline['staged_search_question_items']}**.",
         f"- Governed topic families with zero inventory records: **{headline['empty_governed_topic_families']}**.",
         f"- Governed topic families with zero effective published records: **{headline['governed_topic_families_without_effective_publication']}/{len(report['governed_topic_family_matrix'])}**.",
@@ -1271,7 +1271,7 @@ def main() -> int:
     print(f"- Governed records: {headline['governed_records']}")
     print(f"- Material records: {headline['material_records']}")
     print(f"- Public guides: {headline['public_summary_guides']} summary / {headline['public_full_practical_guides']} full")
-    print(f"- Draft/review guide scaffolds: {headline['staged_draft_or_review_guides']}")
+    print(f"- Source-backed guide QA packets: {headline['staged_draft_or_review_guides']}")
     print(f"- Production-ready guides: {headline['production_ready_guides']}")
     print(f"- Audit integrity: {report['audit_integrity']['status']}")
     print(f"- JSON: {args.json_output}")

@@ -1,6 +1,6 @@
 # YouNew content readiness matrix
 
-Evidence date: **2026-08-10**. This is a read-only local audit; no live URL check was performed.
+Evidence date: **2026-08-18**. This is a read-only local audit; no live URL check was performed.
 
 ## Outcome
 
@@ -10,12 +10,12 @@ Evidence date: **2026-08-10**. This is a read-only local audit; no live URL chec
 - Guide-capable material records: **281**; effectively published material records: **15**.
 - Material lifecycle states: **{"published": 15, "qa": 266}**.
 - Public guides: **15 summary / 0 full**.
-- Editorial scaffolds: **20 draft/review**; production-ready guides: **0**.
-- Published FAQ: **0/300**; staged draft FAQ: **0**; staged search questions (not FAQ): **21**.
+- Source-backed guide QA packets: **20**; production-ready guides: **0**.
+- Published FAQ: **0/300**; staged draft FAQ: **60**; staged search questions (not FAQ): **20**.
 - Governed topic families with zero inventory records: **0**.
 - Governed topic families with zero effective published records: **36/36**.
 - Repository content-target coverage: **266/3000 (8.9%)**; production-ready: **0/3000 (0.0%)**.
-- Stale governed records: **10**; stale guide-capable records: **0**.
+- Stale governed records: **70**; stale guide-capable records: **0**.
 - Audit integrity/reconciliation: **PASSED**.
 
 ## Denominators and interpretation
@@ -46,7 +46,7 @@ P1/P2/P3 is a report-only editorial proposal over existing topic-family keys. Th
 
 | P | Target | Family | Materials | Minimum | Coverage | Published | Full | Ready | Ready % | Draft associations |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| 2 | education | schools | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
+| 2 | education | schools | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 1 | education | higher-education | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 1 | education | duo | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
 | 1 | education | civic-integration | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
@@ -60,16 +60,16 @@ P1/P2/P3 is a report-only editorial proposal over existing topic-family keys. Th
 | 1 | healthcare | emergency-care | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 1 | housing | renting | 11 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 2 |
 | 3 | housing | home-buying | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
-| 1 | housing | tenant-rights | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 2 |
+| 1 | housing | tenant-rights | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 3 |
 | 2 | housing | utilities | 10 | 10 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
-| 1 | government | identity-registration | 6 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 3 |
+| 1 | government | identity-registration | 6 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 1 | government | digital-government | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 1 | government | immigration-residency | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 1 | government | citizenship-integration | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
-| 1 | government | taxes | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 2 |
-| 1 | government | benefits-allowances | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
+| 1 | government | taxes | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
+| 1 | government | benefits-allowances | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 2 |
 | 1 | government | employment-unemployment | 6 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 2 |
-| 2 | government | business-entrepreneurship | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
+| 2 | government | business-entrepreneurship | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
 | 1 | government | health-insurance | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 2 |
 | 2 | government | family-parenthood | 6 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
 | 1 | government | education-finance | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
@@ -80,7 +80,7 @@ P1/P2/P3 is a report-only editorial proposal over existing topic-family keys. Th
 | 1 | government | justice-legal-aid | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 1 | government | safety-emergencies | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 3 | government | voting-democracy | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
-| 2 | government | consumer-privacy | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
+| 2 | government | consumer-privacy | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 1 |
 | 3 | government | death-inheritance | 5 | 5 | 100.0% | 0 | 0 | 0 | 0.0% | 0 |
 
 ## Observed canonical material categories
@@ -159,11 +159,11 @@ This table uses the observed category count as the denominator for summary-field
 - Material records without a verified image: **266/281**.
 - Material records without published steps: **281/281**.
 - Material records without published FAQ: **281/281**.
-- Staged guides without reviewer, verified date, official guide sources, steps and FAQ: **20/20**, **20/20**, **20/20**, **20/20**, **20/20**.
-- Staged guides with no canonical source entity IDs: **0** (none).
+- Staged guides without reviewer, verified date, official guide sources, steps and FAQ: **20/20**, **0/20**, **0/20**, **0/20**, **0/20**.
+- Staged guides with no canonical source entity IDs: **1** (guide.pets-and-veterinary-care).
 - Conservative placeholder hits: canonical **0**, staged guides **0**.
 - Missing canonical source IDs referenced by scaffolds: **0** (none).
-- Stale governed records under `freshness-policy.json`: **10** (event.worldpride-amsterdam-2026-pride-walk, event.worldpride-amsterdam-2026-pride-park, event.worldpride-amsterdam-2026-open-air-film-festival, event.worldpride-amsterdam-2026-senior-pride-concert, event.worldpride-amsterdam-2026-canal-parade, event.worldpride-amsterdam-2026-unity-concert, event.worldpride-amsterdam-2026-human-rights-conference, event.worldpride-amsterdam-2026-worldpride-village, event.worldpride-amsterdam-2026-worldpride-march, event.worldpride-amsterdam-2026-closing-concert).
+- Stale governed records under `freshness-policy.json`: **70** (restaurant.restaurant-de-kas, restaurant.rijks, restaurant.ciel-bleu, restaurant.restaurant-212, restaurant.kaagman-and-kortekaas, restaurant.breda, restaurant.choux, restaurant.daalder, restaurant.flore, restaurant.the-white-room, restaurant.vinkeles, restaurant.restaurant-vermeer, restaurant.bougainville, restaurant.mos-amsterdam, restaurant.restaurant-moon, restaurant.jansz, restaurant.ron-gastrobar, restaurant.cannibale-royale, restaurant.moeders, restaurant.bak, restaurant.entrepot, restaurant.scheepskameel, restaurant.wils, restaurant.coulisse, restaurant.gitane, restaurant.caf-caron, restaurant.toscanini, restaurant.domenica, restaurant.yamazato, restaurant.sazanka, restaurant.visaandeschelde, restaurant.pesca, restaurant.restaurant-de-juwelier, restaurant.wilde-zwijnen, restaurant.gebr-hartering, restaurant.de-belhamel, restaurant.restaurant-europa, restaurant.restaurant-as, restaurant.de-plantage, restaurant.caf-restaurant-amsterdam, cafe.bocca-coffee, cafe.lot-sixty-one-coffee-roasters, cafe.white-label-coffee, cafe.back-to-black, cafe.scandinavian-embassy, cafe.screaming-beans, cafe.monks-coffee-roasters, cafe.rum-baba, cafe.fuku-friedhats, cafe.toki, cafe.coffee-and-coconuts, cafe.de-koffiesalon, cafe.bakers-and-roasters, cafe.koffie-academie, cafe.coffee-bru, cafe.uncommon-amsterdam, cafe.saint-jean, cafe.dignita-hoftuin, cafe.pluk-amsterdam, cafe.caf-de-jaren, event.worldpride-amsterdam-2026-pride-walk, event.worldpride-amsterdam-2026-pride-park, event.worldpride-amsterdam-2026-open-air-film-festival, event.worldpride-amsterdam-2026-senior-pride-concert, event.worldpride-amsterdam-2026-canal-parade, event.worldpride-amsterdam-2026-unity-concert, event.worldpride-amsterdam-2026-human-rights-conference, event.worldpride-amsterdam-2026-worldpride-village, event.worldpride-amsterdam-2026-worldpride-march, event.worldpride-amsterdam-2026-closing-concert).
 - Scenario interpretation: The canonical guide schema has no separate scenario field. numbered_steps is used as the auditable procedural/scenario proxy; no published material has numbered steps.
 
 ## Duplicates
@@ -201,5 +201,5 @@ Production-ready explicit audience coverage is **0/6 (0.0%)**. All six brief pat
 ## Reproduction
 
 ```bash
-python3 scripts/content-readiness-audit.py --as-of 2026-08-10 --check
+python3 scripts/content-readiness-audit.py --as-of 2026-08-18 --check
 ```

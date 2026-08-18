@@ -108,7 +108,7 @@ async function ingest(events: unknown) {
   }
 
   const response = await fetch(
-    `${projectURL}/rest/v1/rpc/ingest_analytics_batch_v2`,
+    `${projectURL}/rest/v1/rpc/ingest_analytics_batch`,
     {
       method: "POST",
       headers: {
