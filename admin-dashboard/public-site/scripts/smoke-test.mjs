@@ -12,6 +12,7 @@ const requiredFiles = [
   "saved/index.html", "status/index.html", "offline/index.html", "app/index.html", "business/index.html",
   "business/workspace/index.html", "business/apply/index.html", "business/media-kit/index.html", "privacy/index.html", "terms/index.html", "support/index.html", "robots.txt",
   "sitemap.xml", "manifest.webmanifest", "sw.js", ".htaccess", "404.html", "data/search-index.json",
+  "acquisition/index.html", "acquisition/YouNew_Acquisition_Demo_2026-08-28.mp4", "acquisition/YouNew_Acquisition_Brief_2026-08-28.pdf",
   ".well-known/apple-app-site-association",
   "data/content-provenance.json", "data/status.json", "data/site-config.json", "images/app-home-nl.webp", "images/app-amsterdam-evening-background.webp",
   "images/app-map-en.webp", "images/app-map-nl.webp", "images/og-younew.jpg",

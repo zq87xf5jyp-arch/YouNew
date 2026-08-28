@@ -93,8 +93,13 @@ extension NetherlandsKnowledgeEntity {
     }
 
     var verificationStatus: DataVerificationStatus {
+        verificationStatus(at: Date())
+    }
+
+    func verificationStatus(at now: Date) -> DataVerificationStatus {
         guard let checked = Self.parseReviewDate(lastChecked) else { return .unknown }
-        let age = Calendar(identifier: .gregorian).dateComponents([.day], from: checked, to: Date()).day ?? 0
+        guard checked <= now else { return .unknown }
+        let age = Calendar(identifier: .gregorian).dateComponents([.day], from: checked, to: now).day ?? 0
         if age > updateFrequency.maximumAgeDays { return .outdated }
         if requiresOfficialSource && source?.url == nil { return .needsReview }
         if !hasCompleteVisualSet { return .pending }
@@ -116,13 +121,18 @@ extension NetherlandsKnowledgeEntity {
     }
 
     var isPublishableRecord: Bool {
+        isPublishableRecord(at: Date())
+    }
+
+    func isPublishableRecord(at now: Date) -> Bool {
         let requiredText = [id, title, summary, category, lastChecked, aiSummary]
         guard requiredText.allSatisfy({ !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty }) else { return false }
         guard !requiresOfficialSource || source?.url?.scheme?.lowercased() == "https" else { return false }
         guard !requiresCoordinates || coordinate != nil else { return false }
         guard hasCompleteVisualSet else { return false }
-        guard kind != .event || isActiveEvent() else { return false }
-        return verificationStatus != .outdated && verificationStatus != .unknown
+        guard kind != .event || isActiveEvent(now: now) else { return false }
+        let status = verificationStatus(at: now)
+        return status != .outdated && status != .unknown
     }
 
     func isActiveEvent(now: Date = Date()) -> Bool {
@@ -185,24 +195,31 @@ extension NetherlandsKnowledgeEntity {
 
 extension NetherlandsKnowledgeDatabase {
     var publishedEntities: [NetherlandsKnowledgeEntity] {
+        publishedEntities(at: Date())
+    }
+
+    func publishedEntities(at now: Date) -> [NetherlandsKnowledgeEntity] {
         let canonicalCities = Set(entities.filter { $0.kind == .city }.map { KnowledgeNormalizer.normalize($0.title) })
         return entities.filter { entity in
-            guard entity.isPublishableRecord else { return false }
+            guard entity.isPublishableRecord(at: now) else { return false }
             guard let city = entity.cityId else { return true }
             return canonicalCities.contains(KnowledgeNormalizer.normalize(city))
         }
     }
 
     func premiumReport(now: Date = Date()) -> PremiumKnowledgeDatabaseReport {
-        let records = publishedEntities
+        let records = publishedEntities(at: now)
         let websites: Set<String> = Set(records.compactMap { entity -> String? in
-            guard entity.verificationStatus == .verified, let url = entity.source?.url else { return nil }
+            guard entity.verificationStatus(at: now) == .verified, let url = entity.source?.url else { return nil }
             return NetherlandsKnowledgeEntity.canonicalURL(url)
         })
         let mediaCounts = Dictionary(grouping: records.compactMap(\.primaryMediaIdentity), by: { $0 }).mapValues(\.count)
         let recordsWithMedia = records.filter { $0.primaryMediaIdentity != nil }
         let uniqueMediaRecords = recordsWithMedia.filter { mediaCounts[$0.primaryMediaIdentity ?? ""] == 1 }.count
-        let currentCount = records.filter { $0.verificationStatus == .verified || $0.verificationStatus == .pending }.count
+        let currentCount = records.filter {
+            let status = $0.verificationStatus(at: now)
+            return status == .verified || status == .pending
+        }.count
 
         return PremiumKnowledgeDatabaseReport(
             cities: records.filter { $0.kind == .city }.count,
@@ -274,13 +291,14 @@ enum KnowledgeDataValidator {
             if let url = entity.source?.url, url.scheme?.lowercased() != "https" {
                 issues.append(issue(.invalidWebsite, [entity.id], "Source URL must use HTTPS."))
             }
-            if entity.verificationStatus == .outdated {
+            let verificationStatus = entity.verificationStatus(at: now)
+            if verificationStatus == .outdated {
                 issues.append(issue(.outdatedRecord, [entity.id], "Review date exceeds \(entity.updateFrequency.rawValue.lowercased()) policy."))
             }
             if entity.kind == .event && !entity.isActiveEvent(now: now) {
                 issues.append(issue(.expiredEvent, [entity.id], "Completed event must not be published or indexed."))
             }
-            if !entity.isPublishableRecord && entity.verificationStatus != .outdated {
+            if !entity.isPublishableRecord(at: now) && verificationStatus != .outdated {
                 issues.append(issue(.incompleteRecord, [entity.id], "Record does not satisfy publication gates."))
             }
         }

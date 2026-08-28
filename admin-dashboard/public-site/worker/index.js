@@ -22,8 +22,9 @@ const serviceWorkerPath = "/sw.js";
 const serviceWorkerPayloadPath = "/__site_payloads/sw.js.payload";
 const socialImagePath = "/images/og-younew.jpg";
 const notFoundPayloadPath = "/__site_payloads/404.html.payload";
+const acquisitionPathPrefix = "/acquisition";
 
-function withSecurityHeaders(response, pathname) {
+function withSecurityHeaders(response, pathname = "") {
   const headers = new Headers(response.headers);
   for (const [name, value] of Object.entries(securityHeaders)) {
     headers.set(name, value);
@@ -36,6 +37,9 @@ function withSecurityHeaders(response, pathname) {
     headers.set("Cache-Control", "no-cache, no-store, must-revalidate");
     headers.set("Pragma", "no-cache");
     headers.set("Expires", "0");
+  }
+  if (pathname === acquisitionPathPrefix || pathname.startsWith(`${acquisitionPathPrefix}/`)) {
+    headers.set("X-Robots-Tag", "noindex, nofollow, noarchive, nosnippet");
   }
   if (/^text\/html\b/i.test(headers.get("Content-Type") ?? "")) {
     const cacheDirectives = (headers.get("Cache-Control") ?? "public, max-age=0, must-revalidate")

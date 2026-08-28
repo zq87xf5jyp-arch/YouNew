@@ -154,7 +154,12 @@ struct ContentExpansionCompletenessTests {
     }
 
     @Test func expandedSearchFindsNewCategoryAndPartnerContent() {
-        let search = AppSearchEngine()
+        let auditDate = Date(timeIntervalSince1970: 1_786_276_800) // 2026-08-09T12:00:00Z, deterministic audit reference
+        let items = KnowledgeIndexBuilder.buildItems(now: auditDate)
+        let search = AppSearchEngine(
+            index: KnowledgeIndex(items: items),
+            repository: ContentRepository(legacyItems: items, now: auditDate, performsValidation: false)
+        )
 
         #expect(search.search("weather warning", language: .english, activePersona: .tourist).contains {
             $0.item.title(.english) == "Weather Planning"

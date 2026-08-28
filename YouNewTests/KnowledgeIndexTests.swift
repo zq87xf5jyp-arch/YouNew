@@ -43,7 +43,7 @@ struct KnowledgeIndexTests {
     }
 
     @Test func indexContainsCoreAppKnowledgeSources() {
-        let index = KnowledgeIndex.shared
+        let index = auditedKnowledgeIndex()
 
         #expect(index.items.contains { $0.type == .topic && $0.title(.english).localizedCaseInsensitiveContains("BSN") })
         #expect(index.items.contains { $0.type == .article && $0.id == "article:documents:bsn" })
@@ -89,8 +89,7 @@ struct KnowledgeIndexTests {
 
     @Test func unifiedDatabaseFeedsSearchAndKnowledgeGraph() throws {
         let database = NetherlandsKnowledgeDatabase.shared
-        let index = KnowledgeIndex.shared
-        let engine = AppSearchEngine(index: index)
+        let (index, engine) = auditedSearchContext()
 
         #expect(database.entity(id: "city:leiden") != nil)
         #expect(database.entity(id: "source:government-brp") != nil)
@@ -256,7 +255,7 @@ struct KnowledgeIndexTests {
     }
 
     @Test func localPartnersAreIndexedForEverySupportedCityAndCoreCategory() {
-        let index = KnowledgeIndex.shared
+        let (index, engine) = auditedSearchContext()
         let partners = index.items.filter { $0.type == .localPartner }
         let cities = Set(CityDashboardContentData.supportedCityNames)
         let indexedCities = Set(partners.compactMap(\.city))
@@ -281,12 +280,12 @@ struct KnowledgeIndexTests {
         #expect(cities.isSubset(of: indexedCities))
         #expect(requiredSubcategories.isSubset(of: indexedSubcategories))
         #expect(partners.allSatisfy { !$0.sources.compactMap(\.url).isEmpty })
-        #expect(AppSearchEngine().search("dentist Rotterdam", language: .english, activePersona: .worker).contains { $0.item.type == .localPartner && $0.item.city == "Rotterdam" })
-        #expect(AppSearchEngine().search("language school Eindhoven", language: .english, activePersona: .student).contains { $0.item.type == .localPartner && $0.item.city == "Eindhoven" })
+        #expect(engine.search("dentist Rotterdam", language: .english, activePersona: .worker).contains { $0.item.type == .localPartner && $0.item.city == "Rotterdam" })
+        #expect(engine.search("language school Eindhoven", language: .english, activePersona: .student).contains { $0.item.type == .localPartner && $0.item.city == "Eindhoven" })
     }
 
     @Test func studentEindhovenScenarioConnectsLifeStepsAndRealLocalServices() {
-        let index = KnowledgeIndex.shared
+        let index = auditedKnowledgeIndex()
         let scenario = index.itemsByID["scenario:student-eindhoven"]
         #expect(scenario != nil)
         #expect(scenario?.city == "Eindhoven")
@@ -962,4 +961,21 @@ struct KnowledgeIndexTests {
         #expect(context.completedGuideIDs.contains("search") == false)
         #expect(context.journeyProgress?.contains("checklist") == true)
     }
+
+    private func auditedKnowledgeIndex() -> KnowledgeIndex {
+        KnowledgeIndex(items: auditedKnowledgeItems())
+    }
+
+    private func auditedSearchContext() -> (KnowledgeIndex, AppSearchEngine) {
+        let items = auditedKnowledgeItems()
+        let index = KnowledgeIndex(items: items)
+        let repository = ContentRepository(legacyItems: items, now: Self.auditDate, performsValidation: false)
+        return (index, AppSearchEngine(index: index, repository: repository))
+    }
+
+    private func auditedKnowledgeItems() -> [KnowledgeItem] {
+        KnowledgeIndexBuilder.buildItems(now: Self.auditDate)
+    }
+
+    private static let auditDate = Date(timeIntervalSince1970: 1_786_276_800) // 2026-08-09T12:00:00Z, deterministic audit reference
 }

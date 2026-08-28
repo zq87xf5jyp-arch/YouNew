@@ -59,7 +59,7 @@ assert.deepEqual(new Set(sitemapUrls), indexableRoutes, `Sitemap/HTML route mism
 const robots = await readFile(join(outRoot, "robots.txt"), "utf8");
 assert.match(robots, /Sitemap: https:\/\/younew\.nl\/sitemap\.xml/);
 for (const route of ["/admin/", "/business/dashboard/", "/_next/data/"]) assert.match(robots, new RegExp(`Disallow: ${route.replaceAll("/", "\\/")}`));
-for (const route of ["/saved/", "/search/", "/offline/"]) assert.doesNotMatch(robots, new RegExp(`Disallow: ${route.replaceAll("/", "\\/")}`), `${route} must remain crawlable so its page-level noindex can be read`);
+for (const route of ["/saved/", "/search/", "/offline/", "/acquisition/"]) assert.doesNotMatch(robots, new RegExp(`Disallow: ${route.replaceAll("/", "\\/")}`), `${route} must remain crawlable so its page/header noindex can be read`);
 
 const manifest = JSON.parse(await readFile(join(outRoot, "manifest.webmanifest"), "utf8"));
 assert.equal(manifest.display, "standalone");
@@ -84,12 +84,26 @@ for (const marker of ["/offline/", "/guides/", "/journeys/", "/_next/static/css/
 assert.match(serviceWorker, /\/static-shell\.[a-f0-9]{12}\.js/);
 assert.match(serviceWorker, /\/theme-init\.js/);
 
+const acquisitionHtml = await readFile(join(outRoot, "acquisition/index.html"), "utf8");
+assert.match(acquisitionHtml, /name="robots" content="noindex,nofollow,noarchive,nosnippet"/);
+assert.match(acquisitionHtml, /href="\/acquisition\/YouNew_Acquisition_Demo_2026-08-28\.mp4"/);
+assert.match(acquisitionHtml, /href="\/acquisition\/YouNew_Acquisition_Brief_2026-08-28\.pdf"/);
+assert.match(acquisitionHtml, /mailto:ivandarkfox@gmail\.com/);
+assert.doesNotMatch(acquisitionHtml, /Owner-review draft|not deployed|€\s*(?:119|139)[,.]?000/i);
+for (const asset of [
+  "acquisition/YouNew_Acquisition_Demo_2026-08-28.mp4",
+  "acquisition/YouNew_Acquisition_Brief_2026-08-28.pdf"
+]) {
+  assert.ok(outFiles.includes(join(outRoot, asset)), `${asset} is missing from the deployment package`);
+}
+
 const headers = await readFile(join(outRoot, ".htaccess"), "utf8");
 assert.match(headers, /ErrorDocument 404 \/404\.html/);
 assert.match(headers, /AddType application\/manifest\+json \.webmanifest/);
 assert.match(headers, /ForceType application\/manifest\+json/);
 assert.match(headers, /FilesMatch "\^\(sw\\\.js\|theme-init\\\.js\|static-shell\\\.js\|manifest\\\.webmanifest/);
 assert.match(headers, /Strict-Transport-Security "max-age=31536000"/);
+assert.match(headers, /X-Robots-Tag "noindex, nofollow, noarchive, nosnippet" env=is_acquisition_route/);
 assert.match(headers, /Cache-Control "public, max-age=0, must-revalidate"/);
 const csp = headers.match(/Content-Security-Policy "([^"]+)"/)?.[1];
 assert.ok(csp, "CSP is missing");

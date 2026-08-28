@@ -24,11 +24,12 @@ enum KnowledgeDataHealthService {
         now: Date = Date()
     ) -> KnowledgeDataHealthSnapshot {
         let issues = database.dataQualityIssues(now: now)
+        let publishedEntities = database.publishedEntities(at: now)
         return KnowledgeDataHealthSnapshot(
             checkedAt: now,
             totalRecords: database.entities.count,
-            publishableRecords: database.publishedEntities.count,
-            activeEvents: database.publishedEntities.filter { $0.kind == .event && $0.isActiveEvent(now: now) }.count,
+            publishableRecords: publishedEntities.count,
+            activeEvents: publishedEntities.filter { $0.kind == .event && $0.isActiveEvent(now: now) }.count,
             expiredEvents: issues.filter { $0.kind == .expiredEvent }.count,
             outdatedRecords: issues.filter { $0.kind == .outdatedRecord }.count,
             invalidSourceURLs: issues.filter { $0.kind == .invalidWebsite || $0.kind == .missingOfficialSource }.count,
