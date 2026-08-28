@@ -136,7 +136,7 @@
       "evidenceState": "not_established"
     },
     "sourceTrustScore": {
-      "value": 99.7,
+      "value": 96.2,
       "numerator": null,
       "denominator": 454,
       "formula": "separate publisher/source reliability score; not record confidence",
