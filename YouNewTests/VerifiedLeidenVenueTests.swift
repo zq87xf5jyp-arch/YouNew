@@ -4,7 +4,7 @@ import Testing
 
 @MainActor
 struct VerifiedLeidenVenueTests {
-    @Test func auditedVerifiedVenuesArePublishedAndSearchable() {
+    @Test func verifiedVenuesArePublishedAndSearchable() {
         let seeded = VerifiedLeidenVenueData.entities
         let publishedIDs = Set(NetherlandsKnowledgeDatabase.shared.publishedEntities(at: Self.auditDate).map(\.id))
         let index = KnowledgeIndex(items: KnowledgeIndexBuilder.buildItems(now: Self.auditDate))
@@ -33,7 +33,7 @@ struct VerifiedLeidenVenueTests {
         })
     }
 
-    @Test func auditedFoodAndCultureCoverageIsEnrichedWithoutChangingHomeArchitecture() {
+    @Test func foodAndCultureCoverageIsEnrichedWithoutChangingHomeArchitecture() {
         let records = NetherlandsKnowledgeDatabase.shared.publishedEntities(at: Self.auditDate)
         #expect(records.filter { $0.kind == .restaurant }.count >= 7)
         #expect(records.filter { $0.kind == .cafe }.count >= 4)

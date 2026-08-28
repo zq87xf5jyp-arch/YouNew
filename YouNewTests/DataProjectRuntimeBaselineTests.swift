@@ -4,7 +4,7 @@ import Testing
 
 @MainActor
 struct DataProjectRuntimeBaselineTests {
-    @Test func auditedRuntimeBaselineRemainsMeasurableDuringMigration() {
+    @Test func runtimeBaselineRemainsMeasurableDuringMigration() {
         let database = NetherlandsKnowledgeDatabase.shared
         let auditDate = Date(timeIntervalSince1970: 1_786_276_800) // 2026-08-09T12:00:00Z, deterministic audit reference
         let premium = database.premiumReport(now: auditDate)

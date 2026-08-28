@@ -42,7 +42,7 @@ struct KnowledgeIndexTests {
         )
     }
 
-    @Test func auditedIndexContainsCoreAppKnowledgeSources() {
+    @Test func indexContainsCoreAppKnowledgeSources() {
         let index = auditedKnowledgeIndex()
 
         #expect(index.items.contains { $0.type == .topic && $0.title(.english).localizedCaseInsensitiveContains("BSN") })
@@ -87,7 +87,7 @@ struct KnowledgeIndexTests {
         }
     }
 
-    @Test func auditedUnifiedDatabaseFeedsSearchAndKnowledgeGraph() throws {
+    @Test func unifiedDatabaseFeedsSearchAndKnowledgeGraph() throws {
         let database = NetherlandsKnowledgeDatabase.shared
         let (index, engine) = auditedSearchContext()
 
@@ -254,7 +254,7 @@ struct KnowledgeIndexTests {
         }
     }
 
-    @Test func auditedLocalPartnersCoverEverySupportedCityAndCoreCategory() {
+    @Test func localPartnersAreIndexedForEverySupportedCityAndCoreCategory() {
         let (index, engine) = auditedSearchContext()
         let partners = index.items.filter { $0.type == .localPartner }
         let cities = Set(CityDashboardContentData.supportedCityNames)
@@ -284,7 +284,7 @@ struct KnowledgeIndexTests {
         #expect(engine.search("language school Eindhoven", language: .english, activePersona: .student).contains { $0.item.type == .localPartner && $0.item.city == "Eindhoven" })
     }
 
-    @Test func auditedStudentEindhovenScenarioConnectsLifeStepsAndRealLocalServices() {
+    @Test func studentEindhovenScenarioConnectsLifeStepsAndRealLocalServices() {
         let index = auditedKnowledgeIndex()
         let scenario = index.itemsByID["scenario:student-eindhoven"]
         #expect(scenario != nil)

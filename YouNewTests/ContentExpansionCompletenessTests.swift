@@ -153,7 +153,7 @@ struct ContentExpansionCompletenessTests {
         })
     }
 
-    @Test func auditedExpandedSearchFindsNewCategoryAndPartnerContent() {
+    @Test func expandedSearchFindsNewCategoryAndPartnerContent() {
         let auditDate = Date(timeIntervalSince1970: 1_786_276_800) // 2026-08-09T12:00:00Z, deterministic audit reference
         let items = KnowledgeIndexBuilder.buildItems(now: auditDate)
         let search = AppSearchEngine(

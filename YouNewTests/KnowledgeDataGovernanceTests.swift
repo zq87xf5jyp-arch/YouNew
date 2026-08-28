@@ -4,7 +4,7 @@ import Testing
 
 @MainActor
 struct KnowledgeDataGovernanceTests {
-    @Test func auditedGovernmentIntegrityIncludesEveryRequiredService() {
+    @Test func governmentIntegrityIncludesEveryRequiredService() {
         let services = NetherlandsKnowledgeDatabase.shared.publishedEntities(at: Self.auditDate).filter { $0.kind == .governmentService }
         let names = Set(services.map(\.title))
         let required = [
@@ -19,7 +19,7 @@ struct KnowledgeDataGovernanceTests {
         #expect(services.allSatisfy { !$0.aiSummary.isEmpty && !$0.lastChecked.isEmpty })
     }
 
-    @Test func auditedPlacesAndCityProvinceIntegrityUseCanonicalEntities() {
+    @Test func placesAndCityProvinceIntegrityUseCanonicalEntities() {
         let database = NetherlandsKnowledgeDatabase.shared
         let cities = Set(database.entities(kind: .city).map { KnowledgeNormalizer.normalize($0.title) })
         let placeKinds: Set<NetherlandsEntityKind> = [.place, .attraction, .museum, .park, .restaurant, .cafe, .hotel, .healthcare, .university, .transport]
@@ -50,7 +50,7 @@ struct KnowledgeDataGovernanceTests {
         #expect(NetherlandsKnowledgeDatabase.shared.publishedEntities(at: now).filter { $0.kind == .event }.allSatisfy { $0.isActiveEvent(now: now) })
     }
 
-    @Test func auditedPartnerVerificationRequiresRealWebsiteAndStatus() {
+    @Test func partnerVerificationRequiresRealWebsiteAndStatus() {
         let partners = NetherlandsKnowledgeDatabase.shared.publishedEntities(at: Self.auditDate).filter { $0.kind == .localPartner }
 
         #expect(!partners.isEmpty)
@@ -59,7 +59,7 @@ struct KnowledgeDataGovernanceTests {
         #expect(partners.allSatisfy { $0.attributes["verified"] != nil && $0.attributes["sponsored"] != nil })
     }
 
-    @Test func auditedImageCompletenessAndLicensingMetadataAreAuditable() {
+    @Test func imageCompletenessAndLicensingMetadataAreAuditable() {
         let records = NetherlandsKnowledgeDatabase.shared.publishedEntities(at: Self.auditDate)
         #expect(records.allSatisfy { $0.hasCompleteVisualSet })
         #expect(records.flatMap { $0.images.allImages }.allSatisfy { !$0.sourceName.isEmpty && $0.verified })
@@ -69,7 +69,7 @@ struct KnowledgeDataGovernanceTests {
         #expect((0 ... 100).contains(report.uniquePhotoPercentage))
     }
 
-    @Test func auditedOfficialSourceValidationAcceptsOnlySecureSeededServices() {
+    @Test func officialSourceValidationAcceptsOnlySecureSeededServices() {
         let seededIDs = Set(PremiumKnowledgeSeedData.entities.filter { $0.kind == .governmentService }.map(\.id))
         let services = NetherlandsKnowledgeDatabase.shared.publishedEntities(at: Self.auditDate).filter { seededIDs.contains($0.id) }
         let hosts = Set(services.compactMap { $0.source?.url?.host?.replacingOccurrences(of: "www.", with: "") })
@@ -79,7 +79,7 @@ struct KnowledgeDataGovernanceTests {
         #expect(hosts.isSubset(of: allowed))
     }
 
-    @Test func auditedSearchAndAIRoutingUseTheCentralDatabase() {
+    @Test func searchAndAIRoutingUseTheCentralDatabase() {
         let items = KnowledgeIndexBuilder.buildItems(now: Self.auditDate)
         let index = KnowledgeIndex(items: items)
         let engine = AppSearchEngine(
@@ -103,7 +103,7 @@ struct KnowledgeDataGovernanceTests {
         #expect(kinds.contains(.duplicateWebsite))
     }
 
-    @Test func auditedFinalReportContainsEveryRequestedMetric() {
+    @Test func finalReportContainsEveryRequestedMetric() {
         let report = NetherlandsKnowledgeDatabase.shared.premiumReport(now: Self.auditDate)
 
         #expect(report.cities >= 12)

@@ -4,7 +4,7 @@ import Testing
 
 @MainActor
 struct BuildWeekNewcomerDemoTests {
-    @Test func boundedScenarioUsesAuditedCatalogRecordsAndRoutes() {
+    @Test func boundedScenarioUsesExistingKnowledgeIndexRecordsAndRoutes() {
         let index = KnowledgeIndex(items: KnowledgeIndexBuilder.buildItems(now: Self.auditDate))
 
         #expect(BuildWeekNewcomerDemo.steps.count == 4)
