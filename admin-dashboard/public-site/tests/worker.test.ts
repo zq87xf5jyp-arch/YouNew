@@ -215,6 +215,70 @@ test("Sites worker resolves an exported directory through its index asset", asyn
   assert.equal(response.headers.get("x-frame-options"), "DENY");
 });
 
+test("Sites worker keeps every acquisition asset out of search indexes", async () => {
+  const fixtures = [
+    ["/acquisition/", "text/html; charset=utf-8", "<!doctype html>"],
+    ["/acquisition/YouNew_Acquisition_Brief_2026-08-28.pdf", "application/pdf", "%PDF"],
+    ["/acquisition/YouNew_Acquisition_Demo_2026-08-28.mp4", "video/mp4", "video"]
+  ];
+
+  for (const [pathname, contentType, body] of fixtures) {
+    const assetPath = pathname === "/acquisition/"
+      ? "/__site_payloads/acquisition/index.html.payload"
+      : pathname;
+    const mock = createAssets({
+      [assetPath]: new Response(body, {
+        status: 200,
+        headers: { "content-type": contentType }
+      })
+    });
+    const response = await worker.fetch(
+      new Request(`https://younew.nl${pathname}`),
+      { ASSETS: mock.assets }
+    );
+
+    assert.equal(response.status, 200);
+    assert.equal(response.headers.get("x-robots-tag"), "noindex, nofollow, noarchive, nosnippet");
+  }
+});
+
+test("Sites worker preserves byte-range delivery for the acquisition demo", async () => {
+  const pathname = "/acquisition/YouNew_Acquisition_Demo_2026-08-28.mp4";
+  const calls: Array<{ pathname: string; range: string | null }> = [];
+  const assets = {
+    async fetch(request: Request) {
+      calls.push({
+        pathname: new URL(request.url).pathname,
+        range: request.headers.get("range")
+      });
+      return new Response(new Uint8Array(1024), {
+        status: 206,
+        headers: {
+          "accept-ranges": "bytes",
+          "content-length": "1024",
+          "content-range": "bytes 0-1023/35008204",
+          "content-type": "video/mp4"
+        }
+      });
+    }
+  };
+
+  const response = await worker.fetch(
+    new Request(`https://younew.nl${pathname}`, {
+      headers: { Range: "bytes=0-1023" }
+    }),
+    { ASSETS: assets }
+  );
+
+  assert.equal(response.status, 206);
+  assert.deepEqual(calls, [{ pathname, range: "bytes=0-1023" }]);
+  assert.equal(response.headers.get("accept-ranges"), "bytes");
+  assert.equal(response.headers.get("content-range"), "bytes 0-1023/35008204");
+  assert.equal(response.headers.get("content-length"), "1024");
+  assert.equal(response.headers.get("x-robots-tag"), "noindex, nofollow, noarchive, nosnippet");
+  assert.equal((await response.arrayBuffer()).byteLength, 1024);
+});
+
 test("Sites worker keeps a real missing route at 404", async () => {
   const mock = createAssets({
     "/__site_payloads/404.html.payload": new Response(
