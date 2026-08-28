@@ -4,8 +4,8 @@ import Testing
 
 @MainActor
 struct BuildWeekNewcomerDemoTests {
-    @Test func boundedScenarioUsesExistingKnowledgeIndexRecordsAndRoutes() {
-        let index = KnowledgeIndex.shared
+    @Test func boundedScenarioUsesAuditedCatalogRecordsAndRoutes() {
+        let index = KnowledgeIndex(items: KnowledgeIndexBuilder.buildItems(now: Self.auditDate))
 
         #expect(BuildWeekNewcomerDemo.steps.count == 4)
         #expect(BuildWeekNewcomerDemo.steps.map(\.id) == [
@@ -123,6 +123,8 @@ struct BuildWeekNewcomerDemoTests {
     private static func validPayload() throws -> Data {
         try JSONSerialization.data(withJSONObject: validJSONObject())
     }
+
+    private static let auditDate = Date(timeIntervalSince1970: 1_786_276_800) // 2026-08-09T12:00:00Z, deterministic audit reference
 
     private static func validJSONObject() -> [String: Any] {
         let titles = [

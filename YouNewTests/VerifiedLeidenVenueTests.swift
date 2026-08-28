@@ -4,15 +4,16 @@ import Testing
 
 @MainActor
 struct VerifiedLeidenVenueTests {
-    @Test func verifiedVenuesArePublishedAndSearchable() {
+    @Test func auditedVerifiedVenuesArePublishedAndSearchable() {
         let seeded = VerifiedLeidenVenueData.entities
-        let publishedIDs = Set(NetherlandsKnowledgeDatabase.shared.publishedEntities.map(\.id))
+        let publishedIDs = Set(NetherlandsKnowledgeDatabase.shared.publishedEntities(at: Self.auditDate).map(\.id))
+        let index = KnowledgeIndex(items: KnowledgeIndexBuilder.buildItems(now: Self.auditDate))
 
         #expect(seeded.count == 12)
         #expect(seeded.allSatisfy { publishedIDs.contains($0.id) })
         #expect(seeded.allSatisfy { $0.cityId == "Leiden" && $0.coordinate != nil })
         #expect(seeded.allSatisfy { $0.source?.url?.scheme == "https" })
-        #expect(KnowledgeIndex.shared.itemsByID["restaurant:leiden:pakhuis"] != nil)
+        #expect(index.itemsByID["restaurant:leiden:pakhuis"] != nil)
     }
 
     @Test func verifiedVenueMediaHasHonestReusableRightsMetadata() {
@@ -32,8 +33,8 @@ struct VerifiedLeidenVenueTests {
         })
     }
 
-    @Test func foodAndCultureCoverageIsEnrichedWithoutChangingHomeArchitecture() {
-        let records = NetherlandsKnowledgeDatabase.shared.publishedEntities
+    @Test func auditedFoodAndCultureCoverageIsEnrichedWithoutChangingHomeArchitecture() {
+        let records = NetherlandsKnowledgeDatabase.shared.publishedEntities(at: Self.auditDate)
         #expect(records.filter { $0.kind == .restaurant }.count >= 7)
         #expect(records.filter { $0.kind == .cafe }.count >= 4)
         #expect(records.filter { $0.kind == .museum }.count >= 27)
@@ -43,7 +44,7 @@ struct VerifiedLeidenVenueTests {
         let database = NetherlandsKnowledgeDatabase.shared
         let now = Date(timeIntervalSince1970: 1_784_721_600)
         let snapshot = KnowledgeDataHealthService.snapshot(database: database, now: now)
-        let expectedActiveEvents = database.publishedEntities.filter {
+        let expectedActiveEvents = database.publishedEntities(at: now).filter {
             $0.kind == .event && $0.isActiveEvent(now: now)
         }.count
 
@@ -53,4 +54,6 @@ struct VerifiedLeidenVenueTests {
         #expect(snapshot.missingPhotoLicenses >= 0)
         #expect(snapshot.duplicatePrimaryPhotos >= 0)
     }
+
+    private static let auditDate = Date(timeIntervalSince1970: 1_786_276_800) // 2026-08-09T12:00:00Z, deterministic audit reference
 }

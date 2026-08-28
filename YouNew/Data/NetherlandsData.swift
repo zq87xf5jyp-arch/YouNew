@@ -1551,16 +1551,16 @@ struct NetherlandsKnowledgeDatabase {
         entities.filter { $0.cityId?.caseInsensitiveCompare(cityId) == .orderedSame }
     }
 
-    func knowledgeItems() -> [KnowledgeItem] {
+    func knowledgeItems(now: Date = Date()) -> [KnowledgeItem] {
         // Canonical runtime records already passed the production publication,
         // verification, governance and checksum gates in DataProjectRuntimeLoader.
         // Legacy records retain the older visual-completeness/freshness gate.
         // Events remain time-bounded regardless of their source.
         let canonicalRuntimeEntities = entities.filter { entity in
             canonicalEntityIDs.contains(entity.id)
-                && (entity.kind != .event || entity.isActiveEvent())
+                && (entity.kind != .event || entity.isActiveEvent(now: now))
         }
-        let legacyPublishedEntities = publishedEntities.filter {
+        let legacyPublishedEntities = publishedEntities(at: now).filter {
             !canonicalEntityIDs.contains($0.id)
         }
 

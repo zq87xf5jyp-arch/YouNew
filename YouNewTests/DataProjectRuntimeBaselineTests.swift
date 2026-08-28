@@ -4,13 +4,15 @@ import Testing
 
 @MainActor
 struct DataProjectRuntimeBaselineTests {
-    @Test func runtimeBaselineRemainsMeasurableDuringMigration() {
+    @Test func auditedRuntimeBaselineRemainsMeasurableDuringMigration() {
         let database = NetherlandsKnowledgeDatabase.shared
-        let premium = database.premiumReport()
+        let auditDate = Date(timeIntervalSince1970: 1_786_276_800) // 2026-08-09T12:00:00Z, deterministic audit reference
+        let premium = database.premiumReport(now: auditDate)
         let complete = database.report
-        let health = KnowledgeDataHealthService.snapshot(database: database)
+        let health = KnowledgeDataHealthService.snapshot(database: database, now: auditDate)
 
         let snapshot: [String: Any] = [
+            "asOf": "2026-08-09T12:00:00Z",
             "totalRecords": health.totalRecords,
             "publishableRecords": health.publishableRecords,
             "cities": premium.cities,

@@ -331,9 +331,9 @@ struct KnowledgeIndex {
 }
 
 enum KnowledgeIndexBuilder {
-    static func buildItems() -> [KnowledgeItem] {
+    static func buildItems(now: Date = Date()) -> [KnowledgeItem] {
         var items: [KnowledgeItem] = []
-        items += NetherlandsKnowledgeDatabase.shared.knowledgeItems()
+        items += NetherlandsKnowledgeDatabase.shared.knowledgeItems(now: now)
         items += appScreens()
         items += knowledgeTopics()
         items += lifeScenarios()
