@@ -262,14 +262,24 @@ def main() -> None:
         "government.health-insurance": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/taking-out-compulsory-health-insurance",
         "government.register-family-doctor": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands",
     }
+    # Dates advance only with the separate, source-bound review receipt.
+    confirmations = json.loads(read("DataProject/research/freshness-wave-1-confirmations.json"))
+    reviewed_sources = {item["entity_id"]: item for item in confirmations["records"]}
     for record_id, source_url in expected_release_sources.items():
+        receipt = reviewed_sources.get(record_id)
+        expected_checked_at = "2026-07-14"
+        if receipt is not None:
+            expect(receipt.get("status") == "confirmed_current", f"{record_id} review not confirmed")
+            expect(receipt.get("source_url") == source_url, f"{record_id} review source mismatch")
+            expect(bool(receipt.get("reviewer")) and bool(receipt.get("confirmed_fields")), f"{record_id} incomplete review receipt")
+            expected_checked_at = receipt["reviewed_at"]
         record = governed_records.get(record_id)
         expect(record is not None, f"missing bounded DataProject record {record_id}")
         expect(record.get("lifecycle_status") == "qa", f"{record_id} must remain QA")
-        expect(record.get("last_checked") == "2026-07-14", f"{record_id} checked-date drift")
+        expect(record.get("last_checked") == expected_checked_at, f"{record_id} checked-date drift")
         official_source = record.get("official_source", {})
         expect(official_source.get("url") == source_url, f"{record_id} source URL drift")
-        expect(official_source.get("checked_at") == "2026-07-14", f"{record_id} source-date drift")
+        expect(official_source.get("checked_at") == expected_checked_at, f"{record_id} source-date drift")
     expect(
         "console.log" not in backend
         and "console.error" not in backend
@@ -603,7 +613,7 @@ def main() -> None:
         ai_context_builder,
         [
             "static func automaticContext",
-            "recentSearches()",
+            "lastSearches: [],",
             "SavedItemsStore.shared.savedItems",
             "appState.visibleRecentRouteIDs()",
             "appState.visibleCompletedGuideIDs()",
@@ -611,6 +621,7 @@ def main() -> None:
         ],
         "AIContextBuilder context assembly",
     )
+    expect("recentSearches()" not in ai_context_builder, "AI context must not recover persisted raw search history")
     static_source_checks = expect_no_duplicate_static_sources(ai_context_builder, "AIContextBuilder")
     static_source_checks += expect_no_duplicate_static_sources(ai_composer, "AIResponseComposer")
 
@@ -626,7 +637,7 @@ def main() -> None:
             "whatNextWorkflowUsesContextAndChecklistRoutes",
             "whatNextWorkflowAvoidsRepeatingCurrentChecklistRoute",
             "workflowQuickActionDestinationsResolve",
-            "aiContextCarriesRouteSearchProgressAndCompletionSignals",
+            "aiContextCarriesProgressWithoutReadingLegacySearchText",
             "missingInformationResponseStillLinksSourceAndContextDestinations",
             "representativeAssistantQueriesUseKnowledgeNavigationSourcesAndActions",
             "unverifiedFallbackResponsesStillExposeBasicActions",

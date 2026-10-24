@@ -6,6 +6,7 @@ const isolatedProfile = process.env.E2E_ISOLATED_PROFILE ?? "demo";
 const routes = [
   ["/dashboard", "Панель управления", "Панель"],
   ["/analytics", "Аналитика", "Аналитика"],
+  ["/finance", "Финансы YouNew", "Финансы"],
   ["/sync", "Публикация и синхронизация", "Синхронизация"],
   ["/trust", "Trust Dashboard & Human Review Queue", "Trust & Review"],
   ["/content", "Управление контентом", "Контент"],

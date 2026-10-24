@@ -51,7 +51,8 @@ python3 scripts/generate-asset-rights-ledger.py --check
 python3 scripts/asset-rights-gate.py
 python3 -m unittest \
   scripts/tests/test_asset_rights_gate.py \
-  scripts/tests/test_generate_asset_rights_ledger.py
+  scripts/tests/test_generate_asset_rights_ledger.py \
+  scripts/tests/test_public_runtime_contract.py
 python3 scripts/media-static-qa.py
 python3 scripts/place-media-static-qa.py
 python3 scripts/history-media-static-qa.py

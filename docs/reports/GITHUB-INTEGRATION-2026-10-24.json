@@ -23,7 +23,7 @@
     "typescript": "pass both",
     "eslint": "pass both",
     "acquisition_preview_range_redirect": "pass",
-    "ci": "intentionally skipped",
+    "ci": "GitHub Actions skipped; independent Xcode Cloud pre-build failed. Further pushes held pending verified cloud exclusion.",
     "ios_full_tests": "not run",
     "browser_e2e": "not rerun",
     "database_tests": "not run"
