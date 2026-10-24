@@ -8,7 +8,10 @@ export function metadataForEntity(entity: ContentEntity): Metadata {
   const curatedSummary = curatedSummaryGuideFor(entity.id);
   const title = entity.type === "city" ? `${entity.title} city guide` : entity.practicalGuide?.seo.title ?? curatedSummary?.title ?? entity.title;
   const description = entity.practicalGuide?.seo.description ?? curatedSummary?.answer ?? publicWebSummary(entity.seo.description);
-  const metadata = metadataForPage(title, description, entity.route);
+  const metadata = metadataForPage(title, description, entity.route, {
+    noIndex: !entity.indexable,
+    follow: true
+  });
   return { ...metadata, openGraph: { ...metadata.openGraph, type: "article" } };
 }
 
@@ -34,7 +37,7 @@ export function relatedForEntity(entity: ContentEntity, limit = 18): ContentEnti
 }
 
 export const listingCopy: Record<ContentEntityType, { title: string; description: string }> = {
-  city: { title: "City guides for everyday life in the Netherlands.", description: "Reviewed local context, useful places and source-backed starting points for the five cities currently published by YouNew." },
+  city: { title: "City guides for everyday life in the Netherlands.", description: "Confirmed city profiles appear here only after record-level review; use the complete official municipality directory while legacy summaries remain noindex." },
   guide: { title: "Practical guides for life in the Netherlands.", description: "Source-backed starting points for registration, housing, municipal services and everyday life. Publication depth is always labelled clearly." },
   organization: { title: "Organizations that help you get things done.", description: "Healthcare, education and local-service organizations with visible responsible sources and current verification dates." },
   place: { title: "Places worth knowing across YouNew cities.", description: "Published stations, museums, parks, food, culture and useful destinations from the reviewed YouNew catalogue." }

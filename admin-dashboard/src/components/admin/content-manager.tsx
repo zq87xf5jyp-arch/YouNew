@@ -6,12 +6,16 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { ContentImageUploader } from "@/components/admin/content-image-uploader";
+import { canEditorManageArticleStatus } from "@/lib/authorization";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
 import { slugify } from "@/lib/utils";
-import type { ManagedContentImage } from "@/lib/content-images";
+import {
+  CONTENT_IMAGE_CLEANUP_CANDIDATE_LIMIT,
+  type ManagedContentImage
+} from "@/lib/content-images";
 import { createArticle, deleteArticle as deleteRemoteArticle, updateArticle } from "@/app/(admin)/content/actions";
 import lifeDomainTaxonomy from "../../../public-site/src/data/life-domain-taxonomy.json";
 
@@ -143,13 +147,17 @@ const statusLabels: Record<ArticleStatus, string> = {
 
 export function ContentManager({
   initialRows,
-  supabaseEnabled,
-  canEdit
+  dataMode,
+  canEdit,
+  canManagePublished
 }: {
   initialRows: ManagedArticle[];
-  supabaseEnabled: boolean;
+  dataMode: "supabase" | "demo" | "forbidden" | "unavailable";
   canEdit: boolean;
+  canManagePublished: boolean;
 }) {
+  const supabaseEnabled = dataMode === "supabase";
+  const localDemoEnabled = dataMode === "demo";
   const [rows, setRows] = useState(initialRows);
   const [draft, setDraft] = useState<ArticleDraft>(emptyDraft);
   const [editingId, setEditingId] = useState<string | null>(null);
@@ -157,9 +165,10 @@ export function ContentManager({
   const [notice, setNotice] = useState("");
   const [ready, setReady] = useState(false);
   const [saving, setSaving] = useState(false);
+  const [cleanupCandidatePaths, setCleanupCandidatePaths] = useState<string[]>([]);
 
   useEffect(() => {
-    if (supabaseEnabled) {
+    if (!localDemoEnabled) {
       setReady(true);
       return;
     }
@@ -185,11 +194,11 @@ export function ContentManager({
       }
     }
     setReady(true);
-  }, [supabaseEnabled]);
+  }, [localDemoEnabled]);
 
   useEffect(() => {
-    if (ready && !supabaseEnabled) window.localStorage.setItem(storageKey, JSON.stringify(rows));
-  }, [ready, rows, supabaseEnabled]);
+    if (ready && localDemoEnabled) window.localStorage.setItem(storageKey, JSON.stringify(rows));
+  }, [localDemoEnabled, ready, rows]);
 
   const filteredRows = useMemo(() => {
     const normalized = query.trim().toLocaleLowerCase("ru");
@@ -213,6 +222,21 @@ export function ContentManager({
   function resetForm() {
     setDraft(emptyDraft);
     setEditingId(null);
+    setCleanupCandidatePaths([]);
+  }
+
+  function handleImageRemoved(image: ManagedContentImage, wasPersisted: boolean) {
+    if (wasPersisted) {
+      setNotice("Изображение убрано из формы. После успешного сохранения сервер удалит файл, только если он больше нигде не используется.");
+      return;
+    }
+    if (cleanupCandidatePaths.includes(image.path)) return;
+    if (cleanupCandidatePaths.length >= CONTENT_IMAGE_CLEANUP_CANDIDATE_LIMIT) {
+      setNotice(`Достигнут лимит безопасной очистки (${CONTENT_IMAGE_CLEANUP_CANDIDATE_LIMIT}). Сохраните материал перед новыми загрузками.`);
+      return;
+    }
+    setCleanupCandidatePaths((current) => [...current, image.path]);
+    setNotice("Новое изображение убрано из формы. Браузер не удаляет Storage-объект; сервер безопасно проверит его только после успешного сохранения.");
   }
 
   async function submitArticle(event: React.FormEvent<HTMLFormElement>) {
@@ -230,17 +254,29 @@ export function ContentManager({
     try {
       const updatedAt = new Date().toISOString();
       if (editingId) {
-        const article = supabaseEnabled
-          ? await updateArticle(editingId, draft)
-          : { ...draft, id: editingId, updatedAt };
+        let article: ManagedArticle;
+        let cleanupWarning: string | null = null;
+        if (supabaseEnabled) {
+          const result = await updateArticle(editingId, draft, cleanupCandidatePaths);
+          article = result.article;
+          cleanupWarning = result.cleanupWarning;
+        } else {
+          article = { ...draft, id: editingId, updatedAt };
+        }
         setRows((current) => current.map((row) => row.id === editingId ? article : row));
-        setNotice(supabaseEnabled ? "Материал обновлён в Supabase." : "Материал обновлён и сохранён локально.");
+        setNotice(cleanupWarning ?? (supabaseEnabled ? "Материал обновлён в Supabase." : "Материал обновлён и сохранён локально."));
       } else {
-        const article = supabaseEnabled
-          ? await createArticle(draft)
-          : { ...draft, id: crypto.randomUUID(), updatedAt };
+        let article: ManagedArticle;
+        let cleanupWarning: string | null = null;
+        if (supabaseEnabled) {
+          const result = await createArticle(draft, cleanupCandidatePaths);
+          article = result.article;
+          cleanupWarning = result.cleanupWarning;
+        } else {
+          article = { ...draft, id: crypto.randomUUID(), updatedAt };
+        }
         setRows((current) => [article, ...current]);
-        setNotice(supabaseEnabled ? "Материал создан в Supabase." : "Материал создан и сохранён локально.");
+        setNotice(cleanupWarning ?? (supabaseEnabled ? "Материал создан в Supabase." : "Материал создан и сохранён локально."));
       }
       resetForm();
     } catch (error) {
@@ -251,12 +287,14 @@ export function ContentManager({
   }
 
   function editArticle(article: ManagedArticle) {
+    const requiresFreshReview = article.status === "published";
+    setCleanupCandidatePaths([]);
     setDraft({
       title: article.title,
       slug: article.slug,
       category: article.category,
       language: article.language,
-      status: article.status,
+      status: requiresFreshReview ? "review" : article.status,
       priority: article.priority,
       description: article.description ?? "",
       content: article.content ?? "",
@@ -284,7 +322,9 @@ export function ContentManager({
       requiresMedia: article.requiresMedia
     });
     setEditingId(article.id);
-    setNotice("");
+    setNotice(requiresFreshReview
+      ? "Опубликованный материал открыт в статусе review. Сохранение снимет его с публикации и потребует новой Human Review Queue проверки."
+      : "");
     window.scrollTo({ top: 0, behavior: "smooth" });
   }
 
@@ -325,16 +365,16 @@ export function ContentManager({
     <div className="space-y-6">
       <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-cyan-400/20 bg-cyan-400/10 px-4 py-3">
         <div>
-          <p className="text-sm font-semibold text-cyan-100">{supabaseEnabled ? "Supabase подключён" : "Рабочий локальный режим"}</p>
-          <p className="text-xs text-muted-foreground">{supabaseEnabled ? "Материалы централизованно сохраняются в защищённой базе данных." : "Добавьте параметры Supabase — до этого изменения сохраняются только в этом браузере."}</p>
+          <p className="text-sm font-semibold text-cyan-100">{supabaseEnabled ? "Supabase: подтверждённый read" : localDemoEnabled ? "Явный локальный demo-режим" : dataMode === "forbidden" ? "Supabase: доступ запрещён" : "Supabase: источник недоступен"}</p>
+          <p className="text-xs text-muted-foreground">{supabaseEnabled ? "Чтение подтверждено; разрешённые изменения проходят server actions и RLS." : localDemoEnabled ? "Synthetic rows сохраняются только в этом браузере и не считаются operational data." : "Редактирование заблокировано; ошибка источника не трактуется как пустой успешный результат."}</p>
         </div>
         <div className="flex flex-wrap gap-2">
-          {!supabaseEnabled && <Button type="button" variant="outline" size="sm" onClick={restoreInitialRows}>
+          {localDemoEnabled && <Button type="button" variant="outline" size="sm" onClick={restoreInitialRows}>
             <RotateCcw className="size-4" /> Восстановить
           </Button>}
-          <Button type="button" size="sm" onClick={exportJson}>
+          {(supabaseEnabled || localDemoEnabled) && <Button type="button" size="sm" onClick={exportJson}>
             <Download className="size-4" /> Экспорт JSON
-          </Button>
+          </Button>}
         </div>
       </div>
 
@@ -373,10 +413,10 @@ export function ContentManager({
                             : (warningsById.get(row.id) ?? []).map((warning) => <Badge variant="warning" key={warning}>{warningLabels[warning] ?? warning}</Badge>)}
                         </div>
                       </td>
-                      <td>{canEdit ? <div className="flex gap-2">
+                      <td>{canEdit && (canManagePublished || canEditorManageArticleStatus(row.status)) ? <div className="flex gap-2">
                         <Button type="button" variant="outline" size="icon" aria-label={`Редактировать ${row.title}`} onClick={() => editArticle(row)}><Edit className="size-4" /></Button>
                         <Button type="button" variant="ghost" size="icon" aria-label={`Удалить ${row.title}`} onClick={() => deleteArticle(row)}><Trash2 className="size-4" /></Button>
-                      </div> : <span className="text-xs text-muted-foreground">Только просмотр</span>}</td>
+                      </div> : <span className="text-xs text-muted-foreground">{row.status === "published" && canEdit ? "Только Owner/Admin" : "Только просмотр"}</span>}</td>
                     </tr>
                   ))}
                   {filteredRows.length === 0 && <tr><td colSpan={6} className="py-10 text-center text-muted-foreground">Материалы не найдены.</td></tr>}
@@ -399,7 +439,7 @@ export function ContentManager({
               <div className="flex flex-col gap-2"><Label htmlFor="managed-slug">Слаг</Label><Input id="managed-slug" value={draft.slug} onChange={(event) => updateDraft("slug", event.target.value)} /></div>
               <div className="flex flex-col gap-2"><Label htmlFor="managed-language">Язык</Label><Input id="managed-language" value={draft.language} onChange={(event) => updateDraft("language", event.target.value)} /></div>
               <div className="flex flex-col gap-2"><Label>Категория</Label><Select value={draft.category} onValueChange={(value) => updateDraft("category", value)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectGroup>{Object.entries(categoryLabels).map(([value, label]) => <SelectItem value={value} key={value}>{label}</SelectItem>)}</SelectGroup></SelectContent></Select></div>
-              <div className="flex flex-col gap-2"><Label>Статус</Label><Select value={draft.status} onValueChange={(value) => updateDraft("status", value as ArticleStatus)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectGroup>{Object.entries(statusLabels).map(([value, label]) => <SelectItem value={value} key={value} disabled={value === "published"}>{label}</SelectItem>)}</SelectGroup></SelectContent></Select></div>
+              <div className="flex flex-col gap-2"><Label>Статус</Label><Select value={draft.status} onValueChange={(value) => updateDraft("status", value as ArticleStatus)}><SelectTrigger><SelectValue /></SelectTrigger><SelectContent><SelectGroup>{Object.entries(statusLabels).map(([value, label]) => <SelectItem value={value} key={value} disabled={value === "published" || (!canManagePublished && !canEditorManageArticleStatus(value))}>{label}</SelectItem>)}</SelectGroup></SelectContent></Select></div>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-description">Короткое описание</Label><Input id="managed-description" value={draft.description} onChange={(event) => updateDraft("description", event.target.value)} /></div>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-content">Полный текст</Label><Textarea id="managed-content" value={draft.content} onChange={(event) => updateDraft("content", event.target.value)} placeholder="Напишите текст материала…" /></div>
               <div className="flex flex-col gap-2 lg:col-span-2"><Label htmlFor="managed-source">Официальный источник</Label><Input id="managed-source" type="url" value={draft.source} onChange={(event) => updateDraft("source", event.target.value)} placeholder="https://www.government.nl/..." /></div>
@@ -437,7 +477,9 @@ export function ContentManager({
                 images={draft.images}
                 folder={editingId ?? (draft.slug || "new-material")}
                 enabled={supabaseEnabled}
+                persistedPaths={editingId ? (rows.find((row) => row.id === editingId)?.images ?? []).map((image) => image.path) : []}
                 onChange={(images) => updateDraft("images", images)}
+                onRemove={handleImageRemoved}
                 onNotice={setNotice}
               />
               {notice && <p role="status" className="text-sm text-cyan-100 lg:col-span-2">{notice}</p>}

@@ -1,0 +1,71 @@
+name: Monetization Dependency Audit
+
+on:
+  pull_request:
+    paths:
+      - "admin-dashboard/package.json"
+      - "admin-dashboard/pnpm-lock.yaml"
+      - "admin-dashboard/pnpm-workspace.yaml"
+      - "admin-dashboard/public-site/package.json"
+      - "admin-dashboard/public-site/pnpm-lock.yaml"
+      - "admin-dashboard/public-site/pnpm-workspace.yaml"
+      - ".github/workflows/monetization-dependency-audit.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: monetization-dependency-audit-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  audit:
+    name: Frozen installs and high-severity audit
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      CI: "true"
+      NEXT_TELEMETRY_DISABLED: "1"
+      DO_NOT_TRACK: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Enable the pinned package manager
+        run: corepack enable
+      - name: Frozen installs
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm --dir admin-dashboard install --frozen-lockfile
+          pnpm --dir admin-dashboard/public-site install --frozen-lockfile
+      - name: Audit Admin and public dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          artifact_dir="admin-dashboard/dependency-audit-artifacts"
+          mkdir -p "$artifact_dir"
+          admin_status=0
+          public_status=0
+          pnpm --dir admin-dashboard audit --audit-level high --json \
+            > "$artifact_dir/admin-audit.json" || admin_status=$?
+          pnpm --dir admin-dashboard/public-site audit --audit-level high --json \
+            > "$artifact_dir/public-audit.json" || public_status=$?
+          {
+            echo "admin_status=$admin_status"
+            echo "public_status=$public_status"
+          } > "$artifact_dir/summary.txt"
+          test "$admin_status" -eq 0
+          test "$public_status" -eq 0
+      - name: Upload audit evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: younew-dependency-audit-${{ github.run_id }}-${{ github.run_attempt }}
+          path: admin-dashboard/dependency-audit-artifacts/
+          if-no-files-found: warn
+          retention-days: 14

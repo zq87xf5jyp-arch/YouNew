@@ -7,6 +7,11 @@ on:
       - "admin-dashboard/tests/**"
       - "admin-dashboard/scripts/prepare-disposable-supabase-baseline.py"
       - "admin-dashboard/scripts/run-disposable-pgtap.py"
+      - "admin-dashboard/scripts/validate-admin-schema-inventory.py"
+      - "admin-dashboard/scripts/backup-postgres.sh"
+      - "admin-dashboard/scripts/restore-postgres.sh"
+      - "admin-dashboard/scripts/restore-rehearsal.sh"
+      - "admin-dashboard/scripts/validate-local-postgres-dsn.py"
       - "scripts/verify-supabase-migration-manifest.py"
       - ".github/workflows/supabase-disposable-ci.yml"
   push:
@@ -17,6 +22,11 @@ on:
       - "admin-dashboard/tests/**"
       - "admin-dashboard/scripts/prepare-disposable-supabase-baseline.py"
       - "admin-dashboard/scripts/run-disposable-pgtap.py"
+      - "admin-dashboard/scripts/validate-admin-schema-inventory.py"
+      - "admin-dashboard/scripts/backup-postgres.sh"
+      - "admin-dashboard/scripts/restore-postgres.sh"
+      - "admin-dashboard/scripts/restore-rehearsal.sh"
+      - "admin-dashboard/scripts/validate-local-postgres-dsn.py"
       - "scripts/verify-supabase-migration-manifest.py"
       - ".github/workflows/supabase-disposable-ci.yml"
   workflow_dispatch:
@@ -30,9 +40,9 @@ concurrency:
 
 jobs:
   migration-and-pgtap:
-    name: Five pending migrations and 81 pgTAP assertions
+    name: Manifest migrations and every checked-in pgTAP assertion
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 60
     env:
       SUPABASE_TELEMETRY_DISABLED: "1"
       DO_NOT_TRACK: "1"
@@ -72,24 +82,133 @@ jobs:
           test "$assertion_count" -eq 81
           echo "Verified $assertion_count pending-migration assertions."
           echo "$assertion_count" > admin-dashboard/supabase/ci-artifacts/assertion-count.txt
+          compliance_count="$({
+            sed -nE 's/.*select plan\(([0-9]+)\).*/\1/p' \
+              admin-dashboard/supabase/tests/monetization_retention_policy_test.sql \
+              admin-dashboard/supabase/tests/pilot_usage_report_privacy_test.sql
+          } | awk '{ total += $1 } END { print total + 0 }')"
+          test "$compliance_count" -eq 67
+          echo "Verified $compliance_count retention and aggregation assertions."
+          echo "$compliance_count" > admin-dashboard/supabase/ci-artifacts/compliance-assertion-count.txt
+          geo_count="$({
+            sed -nE 's/.*select plan\(([0-9]+)\).*/\1/p' \
+              admin-dashboard/supabase/tests/geo_relevance_analytics_test.sql
+          } | awk '{ total += $1 } END { print total + 0 }')"
+          test "$geo_count" -eq 43
+          echo "Verified $geo_count geo analytics assertions."
+          echo "$geo_count" > admin-dashboard/supabase/ci-artifacts/geo-assertion-count.txt
+          admin_remediation_count="$({
+            find admin-dashboard/supabase/tests -maxdepth 1 -type f -name '*.sql' -print \
+              | sort \
+              | grep -Ev '/(analytics_ingest_windows_rls_test|business_inquiry_pipeline_test|business_inquiry_deduplication_test|lead_analytics_funnel_test|business_inquiry_notification_test|monetization_retention_policy_test|pilot_usage_report_privacy_test|geo_relevance_analytics_test|content_governance_test)\.sql$' \
+              | xargs sed -nE 's/.*select plan\(([0-9]+)\).*/\1/p'
+          } | awk '{ total += $1 } END { print total + 0 }')"
+          test "$admin_remediation_count" -gt 0
+          echo "Verified $admin_remediation_count additive Admin remediation assertions."
+          echo "$admin_remediation_count" > admin-dashboard/supabase/ci-artifacts/admin-remediation-assertion-count.txt
+          all_count="$({
+            find admin-dashboard/supabase/tests -maxdepth 1 -type f -name '*.sql' -print0 \
+              | sort -z \
+              | xargs -0 sed -nE 's/.*select plan\(([0-9]+)\).*/\1/p'
+          } | awk '{ total += $1 } END { print total + 0 }')"
+          test "$all_count" -gt 203
+          all_files="$(find admin-dashboard/supabase/tests -maxdepth 1 -type f -name '*.sql' | wc -l | tr -d ' ')"
+          echo "Verified $all_count assertions across every checked-in pgTAP suite."
+          echo "$all_count" > admin-dashboard/supabase/ci-artifacts/all-pgtap-assertion-count.txt
+          echo "$all_files" > admin-dashboard/supabase/ci-artifacts/all-pgtap-file-count.txt
       - name: Prepare clean disposable baseline
         working-directory: admin-dashboard
         run: python3 scripts/prepare-disposable-supabase-baseline.py
-      - name: Start generated local Supabase stack
+      - name: Capture schema immediately before Admin remediation migrations
         working-directory: admin-dashboard
         shell: bash
         run: |
           set -euo pipefail
           pnpm dlx supabase@2.109.1 start \
             --exclude edge-runtime,gotrue,imgproxy,kong,logflare,mailpit,postgres-meta,postgrest,realtime,storage-api,studio,supavisor,vector \
-            --workdir .supabase-ci-runtime \
-            2>&1 | tee supabase/ci-artifacts/start.log
+            --workdir .supabase-ci-before-admin \
+            >"$RUNNER_TEMP/supabase-before-start.log" 2>&1
+          pnpm dlx supabase@2.109.1 db reset --local --no-seed --workdir .supabase-ci-before-admin \
+            >"$RUNNER_TEMP/supabase-before-reset.log" 2>&1
+          mapfile -t before_containers < <(docker ps --format '{{.Names}}' --filter 'name=^supabase_db_')
+          test "${#before_containers[@]}" -eq 1
+          docker exec "${before_containers[0]}" pg_dump -U postgres -d postgres \
+            --schema-only --no-owner --schema=public --schema=private --schema=storage \
+            | sed -E '/^\\(restrict|unrestrict) /d' \
+            > supabase/ci-artifacts/admin-schema-before.sql
+          docker exec -i "${before_containers[0]}" psql -X -A -t -F '|' -v ON_ERROR_STOP=1 -U postgres -d postgres \
+            < supabase/verification/capture_admin_schema_inventory.sql \
+            > supabase/ci-artifacts/admin-schema-inventory-before.txt
+          pnpm dlx supabase@2.109.1 stop --no-backup --workdir .supabase-ci-before-admin
+          echo "PASS pre-Admin disposable schema captured; raw local credentials were not retained." \
+            > supabase/ci-artifacts/admin-schema-before-summary.txt
+      - name: Start generated local Supabase stack
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          start_log="$RUNNER_TEMP/supabase-start.log"
+          if pnpm dlx supabase@2.109.1 start \
+              --exclude edge-runtime,gotrue,imgproxy,kong,logflare,mailpit,postgres-meta,postgrest,realtime,storage-api,studio,supavisor,vector \
+              --workdir .supabase-ci-runtime \
+              >"$start_log" 2>&1; then
+            {
+              echo "PASS disposable Supabase database started"
+              echo "Raw CLI output intentionally remains in the ephemeral runner temp directory."
+              echo "It is not uploaded because local start output can contain generated credentials."
+            } | tee supabase/ci-artifacts/start-summary.txt
+          else
+            {
+              echo "FAIL disposable Supabase database did not start"
+              echo "Raw CLI output was not printed or uploaded because it may contain generated credentials."
+            } | tee supabase/ci-artifacts/start-summary.txt
+            exit 1
+          fi
       - name: Rebuild from migrations with no seed data
         working-directory: admin-dashboard
         shell: bash
         run: |
           set -euo pipefail
           pnpm dlx supabase@2.109.1 db reset --local --no-seed --workdir .supabase-ci-runtime 2>&1 | tee supabase/ci-artifacts/db-reset.log
+      - name: Verify and remove the pre-migration legacy sync fixture
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t sync_fixture_containers < <(docker ps --format '{{.Names}}' --filter 'name=^supabase_db_')
+          test "${#sync_fixture_containers[@]}" -eq 1
+          docker exec -i "${sync_fixture_containers[0]}" psql -v ON_ERROR_STOP=1 -U postgres -d postgres \
+            < supabase/verification/verify_legacy_sync_backfill.sql \
+            | tee supabase/ci-artifacts/legacy-sync-backfill-drill.log
+          grep -q "PASS synthetic legacy sync fixture removed" supabase/ci-artifacts/legacy-sync-backfill-drill.log
+      - name: Capture reviewed Admin schema diff
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t after_containers < <(docker ps --format '{{.Names}}' --filter 'name=^supabase_db_')
+          test "${#after_containers[@]}" -eq 1
+          docker exec "${after_containers[0]}" pg_dump -U postgres -d postgres \
+            --schema-only --no-owner --schema=public --schema=private --schema=storage \
+            | sed -E '/^\\(restrict|unrestrict) /d' \
+            > supabase/ci-artifacts/admin-schema-after.sql
+          docker exec -i "${after_containers[0]}" psql -X -A -t -F '|' -v ON_ERROR_STOP=1 -U postgres -d postgres \
+            < supabase/verification/capture_admin_schema_inventory.sql \
+            > supabase/ci-artifacts/admin-schema-inventory-after.txt
+          diff_status=0
+          diff -u \
+            supabase/ci-artifacts/admin-schema-before.sql \
+            supabase/ci-artifacts/admin-schema-after.sql \
+            > supabase/ci-artifacts/admin-schema-before-after.diff || diff_status="$?"
+          test "$diff_status" -eq 1
+          python3 scripts/validate-admin-schema-inventory.py \
+            supabase/ci-artifacts/admin-schema-inventory-before.txt \
+            supabase/ci-artifacts/admin-schema-inventory-after.txt \
+            --reviewed supabase/verification/admin-schema-reviewed-delta.json \
+            --candidate supabase/ci-artifacts/admin-schema-reviewed-delta-candidate.json \
+            --report supabase/ci-artifacts/admin-schema-inventory-review.txt
+          echo "PASS Admin remediation produced the exact human-reviewed schema delta." \
+            > supabase/ci-artifacts/admin-schema-diff-summary.txt
       - name: Record the offline production migration dry-run
         working-directory: admin-dashboard
         shell: bash
@@ -104,8 +223,8 @@ jobs:
           root = Path("supabase")
           manifest = json.loads((root / "production-migration-manifest.json").read_text())
           pending = manifest["pendingMigrations"]
-          if len(pending) != 5:
-              raise SystemExit(f"Expected five pending migrations, found {len(pending)}")
+          if not pending:
+              raise SystemExit("The production migration manifest has no pending migrations")
 
           blocked = re.compile(r"\b(?:drop\s+(?:table|schema)|truncate\s+table|alter\s+table\b[^;]*\bdrop\s+column)\b", re.I | re.S)
           print("OFFLINE PRODUCTION MIGRATION DRY-RUN")
@@ -120,16 +239,27 @@ jobs:
               if blocked.search(data.decode("utf-8")):
                   raise SystemExit(f"Destructive production operation found in {filename}")
               print(f'PASS {filename} bytes={len(data)} md5={digest}')
-          print("PASS exact five-file identity, ordering and destructive-operation screen")
+          print(f"PASS exact {len(pending)}-file identity, ordering and destructive-operation screen")
           PY
           pnpm dlx supabase@2.109.1 migration list --local --workdir .supabase-ci-runtime \
             2>&1 | tee supabase/ci-artifacts/local-migration-list.txt
-      - name: Run the five pgTAP suites
+      - name: Run the core and compliance pgTAP suites
         working-directory: admin-dashboard
         shell: bash
         run: |
           set -euo pipefail
           python3 scripts/run-disposable-pgtap.py
+      - name: Run every checked-in pgTAP suite
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm dlx supabase@2.109.1 test db --local --workdir .supabase-ci-runtime \
+            2>&1 | tee supabase/ci-artifacts/all-pgtap.log
+          expected_tests="$(cat supabase/ci-artifacts/all-pgtap-assertion-count.txt)"
+          expected_files="$(cat supabase/ci-artifacts/all-pgtap-file-count.txt)"
+          grep -q "Files=${expected_files}, Tests=${expected_tests}" supabase/ci-artifacts/all-pgtap.log
+          grep -q "Result: PASS" supabase/ci-artifacts/all-pgtap.log
       - name: Lint local public and private schemas
         working-directory: admin-dashboard
         shell: bash
@@ -137,6 +267,70 @@ jobs:
           set -euo pipefail
           pnpm dlx supabase@2.109.1 db lint --local --schema public,private --level error --fail-on error --workdir .supabase-ci-runtime \
             2>&1 | tee supabase/ci-artifacts/db-lint.log
+      - name: Capture PII-free Admin operational dry-run inventories
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t inventory_containers < <(docker ps --format '{{.Names}}' --filter 'name=^supabase_db_')
+          test "${#inventory_containers[@]}" -eq 1
+          docker exec -i "${inventory_containers[0]}" psql -v ON_ERROR_STOP=1 -U postgres -d postgres \
+            < supabase/verification/capture_admin_operational_dry_run.sql \
+            | tee supabase/ci-artifacts/admin-operational-dry-run.log
+          grep -q 'admin_operational_dry_run' supabase/ci-artifacts/admin-operational-dry-run.log
+      - name: Profile Analytics v2 for exact 7, 30 and 90 day periods
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          mapfile -t analytics_containers < <(docker ps --format '{{.Names}}' --filter 'name=^supabase_db_')
+          test "${#analytics_containers[@]}" -eq 1
+          docker exec -i "${analytics_containers[0]}" psql -v ON_ERROR_STOP=1 -U postgres -d postgres \
+            < supabase/verification/profile_admin_analytics_v2.sql \
+            | tee supabase/ci-artifacts/admin-analytics-v2-explain.log
+          grep -q 'PROFILE analytics_v2_overview_periods Web 7 days' supabase/ci-artifacts/admin-analytics-v2-explain.log
+          grep -q 'PROFILE analytics_v2_overview_periods Web 30 days' supabase/ci-artifacts/admin-analytics-v2-explain.log
+          grep -q 'PROFILE analytics_v2_overview_periods Web 90 days' supabase/ci-artifacts/admin-analytics-v2-explain.log
+          grep -q 'Buffers:' supabase/ci-artifacts/admin-analytics-v2-explain.log
+      - name: Prove deterministic full rebuild after verification
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm dlx supabase@2.109.1 db reset --local --no-seed --workdir .supabase-ci-runtime \
+            2>&1 | tee supabase/ci-artifacts/db-rebuild.log
+          mapfile -t rebuild_containers < <(docker ps --format '{{.Names}}' --filter 'name=^supabase_db_')
+          test "${#rebuild_containers[@]}" -eq 1
+          docker exec "${rebuild_containers[0]}" pg_dump -U postgres -d postgres \
+            --schema-only --no-owner --schema=public --schema=private --schema=storage \
+            | sed -E '/^\\(restrict|unrestrict) /d' \
+            > supabase/ci-artifacts/admin-schema-rebuild.sql
+          cmp supabase/ci-artifacts/admin-schema-after.sql supabase/ci-artifacts/admin-schema-rebuild.sql
+          sha256sum supabase/ci-artifacts/admin-schema-after.sql \
+            | tee supabase/ci-artifacts/admin-schema-rebuild.sha256
+      - name: Prove the previous-schema snapshot is reproducible
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm dlx supabase@2.109.1 stop --no-backup --workdir .supabase-ci-runtime
+          pnpm dlx supabase@2.109.1 start \
+            --exclude edge-runtime,gotrue,imgproxy,kong,logflare,mailpit,postgres-meta,postgrest,realtime,storage-api,studio,supavisor,vector \
+            --workdir .supabase-ci-before-admin \
+            >"$RUNNER_TEMP/supabase-previous-schema-start.log" 2>&1
+          pnpm dlx supabase@2.109.1 db reset --local --no-seed --workdir .supabase-ci-before-admin \
+            >"$RUNNER_TEMP/supabase-previous-schema-reset.log" 2>&1
+          mapfile -t rollback_containers < <(docker ps --format '{{.Names}}' --filter 'name=^supabase_db_')
+          test "${#rollback_containers[@]}" -eq 1
+          docker exec "${rollback_containers[0]}" pg_dump -U postgres -d postgres \
+            --schema-only --no-owner --schema=public --schema=private --schema=storage \
+            | sed -E '/^\\(restrict|unrestrict) /d' \
+            > supabase/ci-artifacts/admin-previous-schema-rebuild.sql
+          cmp supabase/ci-artifacts/admin-schema-before.sql supabase/ci-artifacts/admin-previous-schema-rebuild.sql
+          sha256sum supabase/ci-artifacts/admin-previous-schema-rebuild.sql \
+            | tee supabase/ci-artifacts/admin-previous-schema-rebuild.sha256
+          echo "PASS previous-schema snapshot rebuilt byte-for-byte in a separate disposable runtime. This is not a destructive rollback of the post-migration database." \
+            > supabase/ci-artifacts/admin-previous-schema-rebuild-summary.txt
       - name: Write pgTAP summary
         if: always()
         working-directory: admin-dashboard
@@ -147,23 +341,223 @@ jobs:
             echo
             echo "- Production credentials: not referenced"
             echo "- Production connection: not used"
-            echo "- Pending migrations: 5 manifest-pinned files"
+            pending_count="$(python3 -c 'import json; print(len(json.load(open("supabase/production-migration-manifest.json"))["pendingMigrations"]))')"
+            all_count="$(cat supabase/ci-artifacts/all-pgtap-assertion-count.txt 2>/dev/null || echo unknown)"
+            all_files="$(cat supabase/ci-artifacts/all-pgtap-file-count.txt 2>/dev/null || echo unknown)"
+            admin_count="$(cat supabase/ci-artifacts/admin-remediation-assertion-count.txt 2>/dev/null || echo unknown)"
+            targeted_count="$(cat supabase/ci-artifacts/targeted-pgtap-assertion-count.txt 2>/dev/null || echo unknown)"
+            echo "- Pending migrations: ${pending_count} manifest-pinned files"
             if grep -q "Result: PASS" supabase/ci-artifacts/pgtap-results.tap 2>/dev/null; then
               echo "- pgTAP: 81/81 PASS"
+              echo "- Retention and aggregation privacy: 67/67 PASS"
+              echo "- Geo analytics security/privacy: 43/43 PASS"
+              echo "- Additive Admin remediation: ${admin_count}/${admin_count} PASS"
+              echo "- Targeted migration assertions: ${targeted_count}/${targeted_count} PASS"
             else
-              echo "- pgTAP: FAIL or incomplete"
+              echo "- Targeted migration assertions: FAIL or incomplete"
+            fi
+            if grep -q "Files=${all_files}, Tests=${all_count}" supabase/ci-artifacts/all-pgtap.log 2>/dev/null \
+              && grep -q "Result: PASS" supabase/ci-artifacts/all-pgtap.log 2>/dev/null; then
+              echo "- Every checked-in pgTAP suite: ${all_count}/${all_count} PASS across ${all_files} files"
+            else
+              echo "- Every checked-in pgTAP suite: FAIL or incomplete"
             fi
             echo "- Logs and offline migration dry-run: attached as artifacts"
           } >> "$GITHUB_STEP_SUMMARY"
       - name: Stop and delete the disposable stack
         if: always()
         working-directory: admin-dashboard
-        run: pnpm dlx supabase@2.109.1 stop --no-backup --workdir .supabase-ci-runtime
+        shell: bash
+        run: |
+          pnpm dlx supabase@2.109.1 stop --no-backup --workdir .supabase-ci-before-admin || true
+          pnpm dlx supabase@2.109.1 stop --no-backup --workdir .supabase-ci-runtime || true
       - name: Upload pgTAP output
         if: always()
         uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
         with:
           name: younew-pgtap-${{ github.run_id }}-${{ github.run_attempt }}
           path: admin-dashboard/supabase/ci-artifacts/
+          if-no-files-found: warn
+          retention-days: 14
+
+  synthetic-backup-restore:
+    name: Encrypted synthetic post-migration backup and disposable restore
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      SUPABASE_TELEMETRY_DISABLED: "1"
+      DO_NOT_TRACK: "1"
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - name: Install the disposable restore tools
+        shell: bash
+        run: |
+          set -euo pipefail
+          corepack enable
+          sudo apt-get update -qq
+          sudo apt-get install -y --no-install-recommends age postgresql-client
+          age --version
+          psql --version
+      - name: Prepare the exact full migration chain
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p supabase/ci-artifacts
+          python3 ../scripts/verify-supabase-migration-manifest.py
+          python3 scripts/prepare-disposable-supabase-baseline.py
+          test ! -e .supabase-ci-restore-source
+          cp -R .supabase-ci-runtime .supabase-ci-restore-source
+          test -f .supabase-ci-restore-source/supabase/config.toml
+      - name: Build and seed a synthetic post-migration source
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          pnpm dlx supabase@2.109.1 start \
+            --exclude edge-runtime,imgproxy,kong,logflare,mailpit,postgres-meta,postgrest,realtime,storage-api,studio,supavisor,vector \
+            --workdir .supabase-ci-restore-source \
+            >"$RUNNER_TEMP/supabase-restore-source-start.log" 2>&1
+          pnpm dlx supabase@2.109.1 db reset --local --no-seed \
+            --workdir .supabase-ci-restore-source \
+            >"$RUNNER_TEMP/supabase-restore-source-reset.log" 2>&1
+          mapfile -t source_containers < <(docker ps --format '{{.Names}}' --filter 'name=^supabase_db_')
+          test "${#source_containers[@]}" -eq 1
+          docker exec -i "${source_containers[0]}" psql -v ON_ERROR_STOP=1 -U postgres -d postgres \
+            < supabase/verification/verify_legacy_sync_backfill.sql \
+            | tee supabase/ci-artifacts/synthetic-restore-legacy-fixture-cleanup.txt
+          grep -q "PASS synthetic legacy sync fixture removed" \
+            supabase/ci-artifacts/synthetic-restore-legacy-fixture-cleanup.txt
+          docker exec -e PGAPPNAME=younew-disposable-restore-drill \
+            -i "${source_containers[0]}" psql -v ON_ERROR_STOP=1 -U postgres -d postgres \
+            < supabase/verification/seed_synthetic_restore_drill.sql \
+            | tee supabase/ci-artifacts/synthetic-restore-seed-summary.txt
+          grep -q '"fixture": "synthetic-only"' supabase/ci-artifacts/synthetic-restore-seed-summary.txt
+          docker exec -i "${source_containers[0]}" psql -X -A -t -F '|' \
+            -v ON_ERROR_STOP=1 -U postgres -d postgres \
+            < supabase/verification/capture_admin_schema_inventory.sql \
+            > supabase/ci-artifacts/synthetic-restore-source-schema-inventory.txt
+      - name: Create an encrypted synthetic backup
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          supabase() { pnpm dlx supabase@2.109.1 "$@"; }
+          export -f supabase
+          status_json="$(supabase status --workdir .supabase-ci-restore-source --output json)"
+          source_url="$(jq -r '.DB_URL // .db_url // empty' <<<"$status_json")"
+          test -n "$source_url"
+          identity_file="$RUNNER_TEMP/younew-restore-age-identity.txt"
+          age-keygen -o "$identity_file" >/dev/null 2>&1
+          recipient="$(age-keygen -y "$identity_file")"
+          backup_dir="$RUNNER_TEMP/younew-synthetic-backup"
+          started="$(date +%s)"
+          DATABASE_URL="$source_url" \
+          AGE_RECIPIENT="$recipient" \
+          BACKUP_DIR="$backup_dir" \
+          BACKUP_RETENTION_DAYS=0 \
+            bash scripts/backup-postgres.sh >"$RUNNER_TEMP/backup-output.txt"
+          finished="$(date +%s)"
+          archive="$(find "$backup_dir" -maxdepth 1 -type f -name 'younew-*.dump.age' -print -quit)"
+          test -n "$archive"
+          test -f "$archive.manifest.json"
+          {
+            echo "archive=$archive"
+            echo "identity_file=$identity_file"
+          } >> "$GITHUB_ENV"
+          {
+            echo "PASS encrypted synthetic backup created"
+            echo "backup_seconds=$((finished - started))"
+            echo "archive_sha256=$(sha256sum "$archive" | awk '{print $1}')"
+            echo "archive_bytes=$(wc -c < "$archive" | tr -d ' ')"
+            echo "archive and private age identity intentionally remain in runner temp"
+          } | tee supabase/ci-artifacts/synthetic-backup-summary.txt
+      - name: Stop the source before isolated restore
+        working-directory: admin-dashboard
+        shell: bash
+        run: pnpm dlx supabase@2.109.1 stop --no-backup --workdir .supabase-ci-restore-source
+      - name: Restore and verify the encrypted synthetic backup
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          set -euo pipefail
+          supabase() { pnpm dlx supabase@2.109.1 "$@"; }
+          export -f supabase
+          report="$PWD/supabase/ci-artifacts/synthetic-restore-report.json"
+          inventory="$PWD/supabase/ci-artifacts/synthetic-restore-inventory.json"
+          restored_schema_inventory="$PWD/supabase/ci-artifacts/synthetic-restore-target-schema-inventory.txt"
+          BACKUP_ARCHIVE="$archive" \
+          AGE_IDENTITY_FILE="$identity_file" \
+          RESTORE_REHEARSAL_BASE_DIR="$RUNNER_TEMP" \
+          RESTORE_REPORT_PATH="$report" \
+          RESTORE_VERIFICATION_SQL="$PWD/supabase/verification/verify_synthetic_restore_drill.sql" \
+          RESTORE_INVENTORY_SQL="$PWD/supabase/verification/capture_restore_drill_inventory.sql" \
+          RESTORE_INVENTORY_PATH="$inventory" \
+          RESTORE_SCHEMA_INVENTORY_SQL="$PWD/supabase/verification/capture_admin_schema_inventory.sql" \
+          RESTORE_SCHEMA_INVENTORY_PATH="$restored_schema_inventory" \
+            bash scripts/restore-rehearsal.sh
+          expected_count="$(jq '(.managedMigrations + .pendingMigrations) | length' supabase/production-migration-manifest.json)"
+          jq --argjson expected "$expected_count" \
+            -e '.status == "pass" and .migration_records == $expected and .target == "isolated-local-database"' "$report"
+          jq --argjson expected "$expected_count" \
+            -e '.fixture == "synthetic-only" and .schema.migration_records == $expected' "$inventory"
+          source_inventory="supabase/ci-artifacts/synthetic-restore-source-schema-inventory.txt"
+          source_normalized="supabase/ci-artifacts/synthetic-restore-source-schema-inventory.normalized.txt"
+          target_normalized="supabase/ci-artifacts/synthetic-restore-target-schema-inventory.normalized.txt"
+          platform_default_acl='^default_acl\|supabase_admin:public:[^|]*:(anon|authenticated):'
+          grep -Ev "$platform_default_acl" "$source_inventory" > "$source_normalized"
+          grep -Ev "$platform_default_acl" "$restored_schema_inventory" > "$target_normalized"
+          if grep -Eq "$platform_default_acl" "$restored_schema_inventory"; then
+            echo "FAIL restored target retained implicit supabase_admin browser default ACLs" >&2
+            exit 1
+          fi
+          cmp "$source_normalized" "$target_normalized"
+          {
+            echo "PASS normalized application schema/security inventory matches source byte-for-byte"
+            echo "source_supabase_admin_browser_default_acl_rows=$(grep -Ec "$platform_default_acl" "$source_inventory" || true)"
+            echo "target_supabase_admin_browser_default_acl_rows=0"
+            echo "The excluded source rows are local platform defaults deliberately revoked before restore; every other captured identity and fingerprint is exact."
+          } | tee supabase/ci-artifacts/synthetic-restore-schema-normalization-summary.txt
+          sha256sum \
+            "$source_normalized" \
+            "$target_normalized" \
+            | tee supabase/ci-artifacts/synthetic-restore-schema-inventory.sha256
+          {
+            echo "PASS encrypted synthetic post-migration restore drill"
+            echo "restore_seconds=$(jq -r '.rto_seconds' "$report")"
+            echo "migration_records=$(jq -r '.migration_records' "$report")"
+            echo "Production credentials/data were not used. Archive and identity were not uploaded."
+          } | tee supabase/ci-artifacts/synthetic-restore-verdict.txt
+      - name: Stop all disposable restore stacks
+        if: always()
+        working-directory: admin-dashboard
+        shell: bash
+        run: |
+          pnpm dlx supabase@2.109.1 stop --no-backup --workdir .supabase-ci-restore-source || true
+          find "$RUNNER_TEMP" -maxdepth 1 -type f -name 'younew-restore-age-identity.txt' -delete
+          find "$RUNNER_TEMP" -maxdepth 2 -type f -name 'younew-*.dump.age' -delete
+      - name: Upload sanitized restore evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: younew-synthetic-restore-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            admin-dashboard/supabase/ci-artifacts/synthetic-backup-summary.txt
+            admin-dashboard/supabase/ci-artifacts/synthetic-restore-legacy-fixture-cleanup.txt
+            admin-dashboard/supabase/ci-artifacts/synthetic-restore-seed-summary.txt
+            admin-dashboard/supabase/ci-artifacts/synthetic-restore-report.json
+            admin-dashboard/supabase/ci-artifacts/synthetic-restore-inventory.json
+            admin-dashboard/supabase/ci-artifacts/synthetic-restore-source-schema-inventory.txt
+            admin-dashboard/supabase/ci-artifacts/synthetic-restore-target-schema-inventory.txt
+            admin-dashboard/supabase/ci-artifacts/synthetic-restore-source-schema-inventory.normalized.txt
+            admin-dashboard/supabase/ci-artifacts/synthetic-restore-target-schema-inventory.normalized.txt
+            admin-dashboard/supabase/ci-artifacts/synthetic-restore-schema-normalization-summary.txt
+            admin-dashboard/supabase/ci-artifacts/synthetic-restore-schema-inventory.sha256
+            admin-dashboard/supabase/ci-artifacts/synthetic-restore-verdict.txt
           if-no-files-found: warn
           retention-days: 14

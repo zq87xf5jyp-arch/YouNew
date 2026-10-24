@@ -11,3 +11,9 @@ test("business inquiry CSV cells escape quotes and neutralize spreadsheet formul
   assert.equal(csvCell("\t=SUM(1,1)"), '"\'\t=SUM(1,1)"');
   assert.equal(csvCell(null), '""');
 });
+
+test("business inquiry CSV also neutralizes control and whitespace-prefixed cells", () => {
+  for (const value of ["\v=1+1", "\u0000@SUM(1)", "\u00a0+1+1", "\tplain text"]) {
+    assert.equal(csvCell(value), `"'${value}"`);
+  }
+});

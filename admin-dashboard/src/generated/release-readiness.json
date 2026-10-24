@@ -1,89 +1,34 @@
 {
-  "as_of": "2026-08-02T05:04:45+02:00",
-  "posture": "full_product_live",
+  "schemaVersion": "release-truth-compatibility-v1",
+  "deprecated": true,
+  "replacement": "release-truth.json",
+  "generatedAt": "2026-10-24T11:22:48.000Z",
+  "snapshotID": "release-truth.f5ef59380676b569",
+  "snapshotDigest": "f5ef59380676b569f8634c7b814c55e6228626971ee57868a9626a49ab1cf3b2",
   "release_identity": {
-    "branch": "codex/release-candidate-20260801",
-    "draft_pr": 27,
-    "ci": "pass"
+    "candidate_commit": "491ba5d4d7f3de167cbfcc9f3ef6858b6189316a",
+    "source_tree_state": "dirty",
+    "packaged_fingerprint": "f9887ff0ec6a4652414fef94e59f86e6a5679c31cd3c5d397cd2b5165b56ea86"
   },
-  "release_status_label": "FULL PRODUCT LIVE",
-  "release_summary": "Public Site, Admin и iOS 1.2 опубликованы. Apple Lookup API подтверждает public App Store release, а iPhone launch/process smoke завершён успешно.",
-  "evidence": {
-    "public_site": {
-      "deployment": "live",
-      "sites_version": 30,
-      "html_files": 578,
-      "indexable_urls": 571,
-      "tests_passed": 108,
-      "route_smoke": "pass",
-      "security_headers": "pass"
-    },
-    "admin": {
-      "deployment": "active_production_bundle",
-      "deployment_status": "live",
-      "lint": "pass",
-      "typecheck": "pass",
-      "tests_passed": 29,
-      "build": "pass",
-      "authenticated_browser_smoke": "pass",
-      "csp_enforcement": "upstream_header_plus_html_meta_fallback"
-    },
-    "supabase": {
-      "health": "ACTIVE_HEALTHY",
-      "remote_migrations": 13,
-      "active_edge_functions": 4,
-      "backup_restore_evidence": "pass",
-      "backup_sha256": "e5fc5c297d0bf2520bdfe8212a78d01f879f8fb69e450ce08fcc3c0afd912196",
-      "temporary_access_revoked": true
-    },
-    "data_project": {
-      "governed_records": 450,
-      "public_records": 182,
-      "current_release": "amsterdam-v0.1.6",
-      "summary_guides": 15,
-      "production_ready_full_guides": 0
-    },
-    "ios": {
-      "version": "1.2",
-      "build": 7,
-      "release_status_label": "Version 1.2 LIVE",
-      "release_note": "build 7 · physical launch PASS",
-      "unit_tests": "479 passed",
-      "universal_link_tests": "7 passed",
-      "memory_check": "0 leaks / 0 bytes",
-      "app_store_distribution": "pass",
-      "app_review": "approved_and_released",
-      "public_release": "live",
-      "public_release_at": "2026-08-01T23:46:52+02:00",
-      "public_release_source": "apple_lookup_api_country_nl",
-      "automatic_release_after_approval": true,
-      "physical_device_install": "pass",
-      "physical_device_launch": "pass",
-      "physical_device_process_health": "running_after_30_seconds",
-      "physical_device_launch_at": "2026-08-02T05:03:54+02:00"
-    }
+  "posture": "PARTIAL",
+  "release_status_label": "PARTIAL",
+  "release_summary": "Packaged content is measured, while link health, exact-candidate CI, and full deployed-payload verification are not established.",
+  "proven": {
+    "inventory_records": 454,
+    "packaged_published_records": 7,
+    "packaged_release_ids": [
+      "amsterdam-v0.1.8",
+      "cities-v0.1.0"
+    ]
   },
-  "proven": [
-    "Public Site version 30 опубликован; route, redirect, 404 и security-header smoke прошли",
-    "Admin active production bundle опубликован; 29 тестов, build и Browser smoke прошли",
-    "Draft PR #27 release branch прошёл обязательные GitHub checks",
-    "Supabase ACTIVE_HEALTHY; 13 managed migrations и 4 active Edge Functions",
-    "Encrypted database backup проверен реальным isolated PostgreSQL 17.6 restore",
-    "Временные Supabase PAT и read-only access rule отозваны",
-    "Apple Distribution build 1.2 (7) одобрен и публично выпущен 1 августа 2026 года в 23:46:52 CEST",
-    "iOS 1.2 (7) установлен и запущен на физическом iPhone; процесс оставался активным после 30-second smoke",
-    "iOS quality evidence: 479 unit tests, 7 Universal Link tests и accessibility smoke прошли"
-  ],
   "remaining_items": [
-    {
-      "id": "storage-backup-automation",
-      "label": "Автоматический payload backup до появления Storage objects",
-      "status": "future_hardening"
-    },
-    {
-      "id": "guide-depth",
-      "label": "Human-reviewed full practical guides",
-      "status": "editorial_backlog"
-    }
-  ]
+    "deployedPayload",
+    "linkHealth",
+    "candidateCI"
+  ],
+  "evidence": {
+    "deployed_state": "unknown",
+    "link_health_state": "unknown",
+    "deployment_authorization": "not_granted"
+  }
 }

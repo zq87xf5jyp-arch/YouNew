@@ -1,7 +1,7 @@
 import { type NextRequest, NextResponse } from "next/server";
 import { createServerClient } from "@supabase/ssr";
 import type { CookieOptions } from "@supabase/ssr";
-import { canAccessPath, type AdminRole } from "@/lib/authorization";
+import { canAccessPath, resolveLocalDemoAdminRole, type AdminRole } from "@/lib/authorization";
 
 type CookieToSet = {
   name: string;
@@ -12,12 +12,20 @@ type CookieToSet = {
 export async function middleware(request: NextRequest) {
   const url = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
+  const pathname = request.nextUrl.pathname;
+  const isLogin = pathname === "/login";
+  const isProtected = !pathname.startsWith("/api/public/") && !pathname.startsWith("/api/mobile/") && pathname !== "/" && !isLogin;
+  const isProtectedAdminUI = isProtected && !pathname.startsWith("/api/");
   if (!url || !anonKey) {
     const explicitLocalDemo = process.env.NODE_ENV !== "production" && process.env.YOUNEW_ADMIN_DEMO_MODE === "true";
     if (!explicitLocalDemo) {
-      return request.nextUrl.pathname === "/login"
+      return isLogin
         ? NextResponse.next()
         : NextResponse.redirect(new URL("/login?error=configuration", request.url));
+    }
+    const demoRole = resolveLocalDemoAdminRole(process.env.YOUNEW_ADMIN_DEMO_ROLE);
+    if (isProtectedAdminUI && !canAccessPath(demoRole, pathname)) {
+      return NextResponse.redirect(new URL("/dashboard?error=forbidden", request.url));
     }
     return NextResponse.next();
   }
@@ -36,21 +44,26 @@ export async function middleware(request: NextRequest) {
     }
   });
 
-  const { data: { user } } = await supabase.auth.getUser();
-  const pathname = request.nextUrl.pathname;
-  const isLogin = pathname === "/login";
-  const isProtected = !pathname.startsWith("/api/public/") && !pathname.startsWith("/api/mobile/") && pathname !== "/" && !isLogin;
-
+  const { data: { user }, error: userError } = await supabase.auth.getUser();
+  if (userError && isProtected) {
+    return NextResponse.redirect(new URL("/login?error=authorization-source", request.url));
+  }
   if (!user && isProtected) {
     return NextResponse.redirect(new URL("/login", request.url));
   }
 
   if (user) {
-    const { data: profile } = await supabase
+    const { data: profile, error: profileError } = await supabase
       .from("profiles")
       .select("role,is_approved")
       .eq("id", user.id)
       .maybeSingle();
+
+    if (profileError) {
+      return isLogin
+        ? NextResponse.next()
+        : NextResponse.redirect(new URL("/login?error=authorization-source", request.url));
+    }
 
     if (!profile?.is_approved) {
       await supabase.auth.signOut();
@@ -59,7 +72,7 @@ export async function middleware(request: NextRequest) {
 
     const role = (profile.role ?? "viewer") as AdminRole;
     if (isLogin) return NextResponse.redirect(new URL("/dashboard", request.url));
-    if (isProtected && !canAccessPath(role, pathname)) {
+    if (isProtectedAdminUI && !canAccessPath(role, pathname)) {
       return NextResponse.redirect(new URL("/dashboard?error=forbidden", request.url));
     }
   }

@@ -96,14 +96,20 @@ class AnalyticsIngestSecurityContractTests(unittest.TestCase):
                     "20260805223000",
                     "expand_privacy_safe_analytics_dashboard",
                 ),
+                (
+                    "20260919161612",
+                    "20260919140355",
+                    "arrival_commerce_private_store",
+                ),
             },
         )
 
     def test_restore_rehearsal_maps_local_files_to_production_versions(self) -> None:
         source = RESTORE_REHEARSAL.read_text(encoding="utf-8")
         self.assertIn("(.localVersion // .version)", source)
-        self.assertIn('${local_version}_${managed_name}.sql', source)
-        self.assertIn('${managed_version}_${managed_name}.sql', source)
+        self.assertIn(".managedMigrations + .pendingMigrations", source)
+        self.assertIn('${local_version}_${migration_name}.sql', source)
+        self.assertIn('${migration_version}_${migration_name}.sql', source)
 
 
 if __name__ == "__main__":

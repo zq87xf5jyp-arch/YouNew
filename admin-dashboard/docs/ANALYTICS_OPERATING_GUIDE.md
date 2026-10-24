@@ -17,12 +17,13 @@ click with a completed download.
 
 | Metric | Definition | Source | Important limit |
 |---|---|---|---|
-| Session | One anonymous browser-tab or app session | Supabase `app_sessions` and distinct `app_events.session_id` | Not a unique person |
+| Period session | One distinct consented `app_events.session_id` observed inside the selected UTC period and platform scope | `analytics_v2_overview_periods` | Not a unique person; never derived by summing daily distinct sessions |
 | Active instance | Random consented instance identifier | Supabase `app_events` | Web identifier lives in `sessionStorage`; not cross-session identity |
-| Page/screen view | `page_view` or `screen_view` for a bounded path without query parameters | Supabase `app_events` | Does not include people who declined analytics |
-| Engaged session | Session with duration of at least 10 seconds | `analytics_session_quality_periods` | Diagnostic threshold, not proof of value |
-| Median duration | Median non-negative session duration | `analytics_session_quality_periods` | Preferred over the mean for long-open tabs |
-| Key action | Source/result open, save, completed step, business intent, or App Store CTA | `analytics_daily_metrics` | Events can occur more than once per session |
+| Page/screen view | `page_view` or `screen_view` for a bounded path without query parameters | `analytics_v2_overview_periods` | Does not include people who declined analytics |
+| Engaged matched session | A period session with a matching `app_sessions` row and duration of at least 10 seconds | `analytics_v2_session_quality_periods` | Diagnostic threshold; missing/mismatched session rows are shown separately |
+| Median duration | Median non-negative duration among matched session rows | `analytics_v2_session_quality_periods` | Preferred over the mean for long-open tabs |
+| Key action | Official-source/result open, save, completed step, business intent, or App Store CTA | `analytics_v2_overview_periods` | Action Panel CTA is contextual telemetry and is not counted again as a canonical key action |
+| Geo relevance signal | One allowlisted, normalized geo event such as local result/fallback/correction | `analytics_v2_overview_periods` | Aggregate count only; no raw query, coordinates, address or individual timeline |
 | App Store intent | `app_cta_click` on younew.nl | Web analytics | A click, not a download |
 | First-time download | App Store Connect Summary Sales app unit | `app_store_metrics_daily` | Confirmed only after the private Apple report sync |
 | Redownload | App Store Connect redownload unit | `app_store_metrics_daily` | Separate from first-time download |
@@ -36,21 +37,65 @@ click with a completed download.
   precise location and user-agent values are not stored in analytics events.
 - Admin analytics views use `security_invoker = true` and are readable only by
   approved Supabase `owner` and `admin` accounts through RLS.
+- Each analytics v2 view explicitly revokes `public` and `anon` access, grants
+  read-only access to `authenticated`, and relies on the base-table Admin RLS
+  policy. The views expose aggregates, not identifiers or raw event properties.
 - Audience breakdowns are hidden in the dashboard below three sessions per
   selected period.
 - App Store tables store daily country-level aggregates only; no Apple customer
   or device identifiers are accepted.
 - Raw analytics retention remains 90 days.
 
-## Periods and reconciliation
+## Scope, periods and reconciliation
 
-The dashboard supports exact 7, 30 and 90-day periods. The headline session
-count uses distinct `session_id` values observed in events. Session quality uses
-the session table. If the counts disagree, the dashboard shows the difference
-as a data-quality warning instead of selecting the more convenient value.
+The dashboard URL contract is `?days=7|30|90&platform=web|ios|all`. Invalid or
+missing values safely default to `days=30&platform=web`. A Web selection never
+falls back to iOS data (and vice versa); an absent selected scope is displayed as
+no data. `all` is an explicit cross-platform scope and is never implicit.
+
+The headline period covers the selected number of UTC calendar dates including
+the current partial UTC date. Its session count is the exact number of distinct
+`session_id` values observed in the selected event rows. Daily session values
+are retained for the trend only and must not be summed to reconstruct the
+headline. Session quality starts with that same event-period denominator, then
+reports matched, missing and platform-mismatched `app_sessions` rows.
+
+The comparison card has a deliberately different boundary: the last seven
+complete UTC days versus the preceding seven complete UTC days. It never mixes
+the partial current UTC day into either comparison window.
 
 Average session duration is capped at 30 minutes per session for diagnostics.
 Median duration is the primary duration statistic.
+
+The event distribution lists the twelve most frequent event names. Everything
+outside that list is reconciled to the headline event total as `Other`; it is
+not silently dropped.
+
+## Freshness semantics
+
+Freshness is scoped to the selected platform and uses the most recent accepted
+ingestion timestamp, not activity from another platform:
+
+- `recent`: accepted telemetry within six hours;
+- `quiet`: last accepted telemetry is more than six and no more than 24 hours old;
+- `stale`: last accepted telemetry is more than 24 hours old;
+- `no-data`: the selected scope has no accepted ingestion timestamp.
+
+`quiet` and `stale` describe the age of the latest accepted record. They do not
+by themselves prove that ingestion is broken; query health is shown separately.
+
+## Geo and Action Panel interpretation
+
+Geo counters are aggregate operational signals for explicit city detection,
+city filter use/correction, local-result availability, national fallback and
+wrong-geo reports. First-result opens and median time to first action remain
+aggregate measures. No report exposes event properties, raw queries, person or
+device identifiers, or individual navigation timelines.
+
+`action_panel_cta_clicked` is shown as its own contextual counter. If the same
+interaction also emits a canonical destination event, only the canonical event
+contributes to key-action and source-open KPIs. This prevents one interaction
+from inflating headline conversion measures.
 
 ## App Store Connect setup
 
@@ -104,6 +149,12 @@ After the migration is applied, verify:
   `analytics_source_sync_state`;
 - `anon` cannot read any protected analytics table or view;
 - approved Admin can read all 7/30/90-day views;
+- Web, iOS and explicit Web+iOS scopes return their own exact period totals;
+- daily session totals are not used as the period-session headline;
+- the complete-week comparison excludes the current partial UTC day;
+- Action Panel context does not increase canonical key-action/source-open KPIs;
+- event totals reconcile through the top twelve events plus `Other`;
+- freshness never falls through to a different platform;
 - the dashboard labels absent App Store data as unconfigured or unconfirmed,
   never as zero downloads;
 - the public App Store button emits `app_cta_click` only after analytics consent;
@@ -113,8 +164,9 @@ After the migration is applied, verify:
 
 - Web analytics excludes people who decline optional analytics.
 - Web `active_instances` are not unique people.
-- iOS product telemetry remains empty until the released app uploads consented
-  events and the App Store privacy information matches that behavior.
+- iOS product telemetry is intentionally labelled as not connected until a
+  consent-gated ingest route passes privacy/security validation. The Admin must
+  show no data in iOS scope; it must not substitute Web totals.
 - App Store downloads remain unconfirmed until the private reporting workflow
   is configured and completes successfully.
 - Product error events are not a substitute for Sentry, MetricKit or another

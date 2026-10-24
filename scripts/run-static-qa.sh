@@ -25,6 +25,7 @@ python3 scripts/ai-subsystem-static-qa.py
 python3 scripts/persona-ia-static-qa.py
 python3 scripts/content-static-qa.py
 python3 scripts/data-project-qa.py
+python3 scripts/build-practical-guide-qa-packets.py --check
 python3 scripts/practical-guide-static-qa.py
 python3 scripts/priority-research-static-qa.py
 python3 scripts/build-priority-1-editorial-handoff.py --check

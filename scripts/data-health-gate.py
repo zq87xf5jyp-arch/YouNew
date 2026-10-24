@@ -9,6 +9,9 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 REPORT = ROOT / "DataProject" / "reports" / "data-health.json"
+PUBLIC_EXCLUSIONS = ROOT / "admin-dashboard" / "public-site" / "src" / "generated" / "public-freshness-exclusions.json"
+PUBLIC_CONTENT = ROOT / "admin-dashboard" / "public-site" / "src" / "generated" / "public-content.json"
+PUBLIC_PROVENANCE = ROOT / "admin-dashboard" / "public-site" / "public" / "data" / "content-provenance.json"
 REQUIRED_ISSUES = {
     "governed_broken_links",
     "legacy_runtime_broken_links",
@@ -46,6 +49,16 @@ def load_report() -> dict:
     return payload
 
 
+def load_json(path: Path, label: str) -> dict:
+    try:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, json.JSONDecodeError) as error:
+        fail(f"{label} is unavailable or invalid: {error}")
+    if not isinstance(payload, dict):
+        fail(f"{label} root must be an object")
+    return payload
+
+
 def parse_timestamp(value, label: str) -> datetime:
     try:
         timestamp = datetime.fromisoformat(value)
@@ -62,6 +75,11 @@ def main() -> None:
         "--require-network",
         action="store_true",
         help="Require link evidence generated within the last 36 hours.",
+    )
+    parser.add_argument(
+        "--public-safe",
+        action="store_true",
+        help="Accept source freshness debt only when every stale record is explicitly excluded from the public artifact.",
     )
     args = parser.parse_args()
 
@@ -104,12 +122,47 @@ def main() -> None:
         if link_check["total"] == 0:
             fail("network audit did not inspect any URLs")
 
-    if calculated_total:
+    if calculated_total and not args.public_safe:
         details = ", ".join(f"{key}={value}" for key, value in issues.items() if value)
         fail(details)
 
-    print("Data Health gate passed")
-    print(f"- Structural issues: {calculated_total}")
+    excluded_count = 0
+    if args.public_safe:
+        non_freshness_issues = {key: value for key, value in issues.items() if key != "outdated_records" and value}
+        if non_freshness_issues:
+            fail("public-safe mode cannot waive non-freshness issues: " + ", ".join(f"{key}={value}" for key, value in non_freshness_issues.items()))
+        exclusions = load_json(PUBLIC_EXCLUSIONS, "public freshness exclusions")
+        content = load_json(PUBLIC_CONTENT, "filtered public content")
+        provenance = load_json(PUBLIC_PROVENANCE, "public content provenance")
+        records = exclusions.get("records")
+        if exclusions.get("schemaVersion") != 1 or exclusions.get("policy") != "fail_closed_until_field_level_reverification" or not isinstance(records, list):
+            fail("public freshness exclusion contract is invalid")
+        excluded_ids = [record.get("id") for record in records if isinstance(record, dict)]
+        if len(excluded_ids) != len(records) or len(set(excluded_ids)) != exclusions.get("count"):
+            fail("public freshness exclusions are incomplete or duplicated")
+        excluded_count = len(excluded_ids)
+        # The production deny-list may intentionally be stricter than the
+        # current freshness report while a newly reverified release is still
+        # awaiting human acceptance.  It must never be smaller: that would let
+        # stale records escape the fail-closed boundary.  Equality resumes
+        # when the accepted release and its public exclusions are promoted
+        # together.
+        if issues["outdated_records"] > excluded_count:
+            fail("outdated source count exceeds fail-closed public exclusions")
+        public_ids = {record.get("id") for record in content.get("entities", []) if isinstance(record, dict)}
+        if public_ids.intersection(excluded_ids):
+            fail("a freshness-excluded record is still present in public content")
+        counts = provenance.get("counts") or {}
+        if counts.get("acceptedRecords") != len(public_ids) or counts.get("freshnessExcludedRecords") != excluded_count or counts.get("sourceRecords") != len(public_ids) + excluded_count:
+            fail("public provenance does not exactly partition accepted and freshness-excluded records")
+
+    print("Data Health gate passed" if not args.public_safe else "Public publication health gate passed")
+    print(f"- Structural issues: {calculated_total if not args.public_safe else calculated_total - issues['outdated_records']}")
+    if args.public_safe:
+        print(f"- Source freshness debt safely excluded from public output: {excluded_count}")
+        guarded_candidates = excluded_count - issues["outdated_records"]
+        if guarded_candidates:
+            print(f"- Reverified candidates still guarded pending release acceptance: {guarded_candidates}")
     print(f"- Link evidence: {link_check['total']} URLs, {link_check['confirmed_broken']} confirmed broken")
     if args.require_network:
         print(f"- Network evidence checked at: {checked_at.isoformat()}")

@@ -4,6 +4,7 @@ export const CONTENT_IMAGE_MAX_WIDTH = 1920;
 export const CONTENT_IMAGE_MAX_HEIGHT = 1280;
 export const CONTENT_IMAGE_QUALITY = 0.84;
 export const CONTENT_IMAGE_LIMIT = 12;
+export const CONTENT_IMAGE_CLEANUP_CANDIDATE_LIMIT = CONTENT_IMAGE_LIMIT * 2;
 
 export type ManagedContentImage = {
   id: string;
@@ -28,12 +29,16 @@ function isSupabaseImageUrl(value: unknown) {
   }
 }
 
+export function isManagedContentImagePath(value: unknown): value is string {
+  return typeof value === "string" && /^articles\/[a-zA-Z0-9_-]{1,80}\/[a-zA-Z0-9][a-zA-Z0-9._-]{0,219}\.webp$/.test(value);
+}
+
 export function isManagedContentImage(value: unknown): value is ManagedContentImage {
   if (!value || typeof value !== "object") return false;
   const image = value as Partial<ManagedContentImage>;
   return Boolean(
     typeof image.id === "string" &&
-    typeof image.path === "string" && /^articles\/[a-zA-Z0-9_-]+\/[a-zA-Z0-9._-]+\.webp$/.test(image.path) &&
+    isManagedContentImagePath(image.path) &&
     isSupabaseImageUrl(image.url) &&
     isSupabaseImageUrl(image.thumbnailUrl) &&
     typeof image.alt === "string" &&

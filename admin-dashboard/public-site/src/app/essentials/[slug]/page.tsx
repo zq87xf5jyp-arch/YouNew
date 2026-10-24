@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { CheckCircle2, ExternalLink, MapPin, ShieldCheck } from "lucide-react";
+import { CheckCircle2, ExternalLink, ShieldCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
+import { NationalGuideActionPanel } from "@/components/national-guide-action-panel";
 import { PageShell } from "@/components/page-shell";
 import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
+import { getMunicipalities } from "@/lib/geography";
 import { getNationalGuide, getNationalGuides, nationalGuidesVerifiedAt } from "@/lib/search/national-guides";
 import { metadataForPage } from "@/lib/seo/metadata";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
@@ -23,10 +25,56 @@ function List({ items }: { items: readonly string[] }) {
   return <ul className="guide-sourced-list">{items.map((item) => <li key={item}>{item}</li>)}</ul>;
 }
 
+const actionCopyByCategory: Readonly<Record<string, Readonly<{ shortAnswer: string; primaryAction: string; warning: string }>>> = {
+  housing: {
+    shortAnswer: "Start with the national rental rules, then verify the address, contract and responsible municipality.",
+    primaryAction: "Select your municipality and open its official housing or registration route.",
+    warning: "Do not transfer money before verifying the home, provider and written terms."
+  },
+  work: {
+    shortAnswer: "Dutch employment rules are national; local job support depends on the service and municipality.",
+    primaryAction: "Open the national work guidance and use your municipality only for confirmed local support.",
+    warning: "Check the written contract form, employer and official employment terms before starting."
+  },
+  documents: {
+    shortAnswer: "Your BSN is normally issued after registration with a Dutch municipality.",
+    primaryAction: "Select your municipality and open its official registration page.",
+    warning: "DigiD is not a BSN application. Never send identity documents through an unverified form."
+  },
+  healthcare: {
+    shortAnswer: "Use a huisarts for routine primary care; call 112 only for immediate life-threatening danger.",
+    primaryAction: "Select your municipality, then use the national care route and confirmed local provider information.",
+    warning: "A directory entry does not confirm that a practice accepts new patients."
+  },
+  education: {
+    shortAnswer: "Choose the education level or Dutch-language goal before comparing institutions and requirements.",
+    primaryAction: "Open the national education source and use your municipality for verified local learning support.",
+    warning: "Admission, fees and recognition rules depend on the exact institution and programme."
+  },
+  telecom: {
+    shortAnswer: "Choose prepaid or a contract, then verify coverage, duration and cancellation with the provider.",
+    primaryAction: "Open the independent national consumer source before ordering or sharing identity details.",
+    warning: "YouNew does not rank providers or reproduce temporary prices."
+  },
+  rules: {
+    shortAnswer: "The issuer on the official notice determines the payment, objection or appeal route.",
+    primaryAction: "Use the national source for CJIB matters or select your municipality for local rules.",
+    warning: "Do not pay through an unverified message, QR code or copied link."
+  }
+};
+
 export default async function NationalGuidePage({ params }: { params: Promise<{ slug: string }> }) {
   const guide = getNationalGuide((await params).slug);
   if (!guide) notFound();
   const verifiedAt = nationalGuidesVerifiedAt();
+  const actionCopy = actionCopyByCategory[guide.category] ?? {
+    shortAnswer: guide.sections.what,
+    primaryAction: guide.sections.steps[0] ?? "Open the responsible official source.",
+    warning: "Check the latest official source before acting."
+  };
+  const municipalities = getMunicipalities()
+    .map(({ slug, name, officialWebsite }) => ({ slug, name, officialWebsite }))
+    .sort((left, right) => left.name.localeCompare(right.name));
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -44,16 +92,24 @@ export default async function NationalGuidePage({ params }: { params: Promise<{ 
       <article className="guide-detail national-guide" aria-labelledby="guide-title" aria-describedby="guide-summary">
         <header className="entity-detail-hero section-shell">
           <Breadcrumbs items={[{ label: "Search", href: "/search" }, { label: "National guidance" }, { label: guide.title }]} />
-          <div className="entity-detail-heading">
+          <div className="entity-detail-heading national-guide-hero-grid">
             <div>
               <span className="entity-kind">Verified national starting point</span>
               <h1 id="guide-title">{guide.title}</h1>
               <p id="guide-summary">{guide.summary}</p>
-              <dl className="guide-hero-metadata" aria-label="Guide scope and verification">
-                <div><dt><MapPin aria-hidden /> Scope</dt><dd>All Netherlands</dd></div>
-                <div><dt><ShieldCheck aria-hidden /> Sources checked</dt><dd><time dateTime={verifiedAt}>{verifiedAt}</time></dd></div>
-              </dl>
             </div>
+            <NationalGuideActionPanel
+              guideId={guide.id}
+              guideSlug={guide.slug}
+              guideTitle={guide.title}
+              shortAnswer={actionCopy.shortAnswer}
+              primaryAction={actionCopy.primaryAction}
+              warning={actionCopy.warning}
+              verifiedAt={verifiedAt}
+              sourceCount={guide.officialSources.length}
+              nationalSourceUrl={guide.officialSources[0].url}
+              municipalities={municipalities}
+            />
           </div>
         </header>
 

@@ -15,7 +15,8 @@ export function getPublicContent(): PublicContentDataset {
 }
 
 export function getContentEntities(type?: ContentEntityType): readonly ContentEntity[] {
-  return type ? dataset.entities.filter((entity) => entity.type === type) : dataset.entities;
+  const indexable = dataset.entities.filter((entity) => entity.indexable);
+  return type ? indexable.filter((entity) => entity.type === type) : indexable;
 }
 
 export function getContentEntity(type: ContentEntityType, slug: string): ContentEntity | undefined {
@@ -35,11 +36,11 @@ export function getProvince(slug: string): ContentProvince | undefined {
 }
 
 export function getEntitiesForCategory(slug: string): readonly ContentEntity[] {
-  return dataset.entities.filter((entity) => entity.categorySlugs.includes(slug));
+  return dataset.entities.filter((entity) => entity.indexable && entity.categorySlugs.includes(slug));
 }
 
 export function getEntitiesForProvince(slug: string): readonly ContentEntity[] {
-  return dataset.entities.filter((entity) => entity.provinceId === slug);
+  return dataset.entities.filter((entity) => entity.indexable && entity.provinceId === slug);
 }
 
 export function getStaticEntityParams(type: ContentEntityType): Array<{ slug: string }> {

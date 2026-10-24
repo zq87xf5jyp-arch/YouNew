@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "id": "fixture-orientation-001",
+  "mode": "sandbox",
+  "organization": "Example employer — synthetic demonstration",
+  "region": "Example Dutch city — scope awaiting real agreement",
+  "language": "en",
+  "amount_minor": 150000,
+  "currency": "EUR",
+  "start_date": "2026-09-19",
+  "end_date": "2026-12-17",
+  "contact": {
+    "name": "Example support — not a working inbox",
+    "email": "pilot@example.invalid"
+  },
+  "agreement": {
+    "status": "accepted",
+    "reference": "fixture-only:synthetic-agreement-not-owner-approval",
+    "accepted_at": "2026-09-19T10:00:00Z",
+    "reviewed_by": "synthetic-test-operator"
+  },
+  "guides": [
+    {
+      "id": "fixture-guide-1",
+      "title": "Example starting point 1 — replace only after actual source approval",
+      "url": "https://example.invalid/starting-point-1",
+      "language": "en",
+      "publisher": "Synthetic fixture, not an official source",
+      "checked_at": "2026-09-19",
+      "review_due_at": "2026-10-19",
+      "approval_status": "approved",
+      "approval_reference": "fixture-only:synthetic-source-review-not-factual-approval",
+      "approved_at": "2026-09-19T10:00:00Z"
+    },
+    {
+      "id": "fixture-guide-2",
+      "title": "Example starting point 2 — replace only after actual source approval",
+      "url": "https://example.invalid/starting-point-2",
+      "language": "en",
+      "publisher": "Synthetic fixture, not an official source",
+      "checked_at": "2026-09-19",
+      "review_due_at": "2026-10-19",
+      "approval_status": "approved",
+      "approval_reference": "fixture-only:synthetic-source-review-not-factual-approval",
+      "approved_at": "2026-09-19T10:00:00Z"
+    },
+    {
+      "id": "fixture-guide-3",
+      "title": "Example starting point 3 — replace only after actual source approval",
+      "url": "https://example.invalid/starting-point-3",
+      "language": "en",
+      "publisher": "Synthetic fixture, not an official source",
+      "checked_at": "2026-09-19",
+      "review_due_at": "2026-10-19",
+      "approval_status": "approved",
+      "approval_reference": "fixture-only:synthetic-source-review-not-factual-approval",
+      "approved_at": "2026-09-19T10:00:00Z"
+    }
+  ]
+}

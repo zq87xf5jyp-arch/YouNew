@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-24",
+  "method": "Manual field-level review of the official NS Amsterdam/station pages plus exact OpenStreetMap objects for coordinates. HTTP availability alone was not accepted as proof.",
+  "reviewer": "OpenAI Codex assisted review",
+  "candidate_release_id": "amsterdam-v0.1.9",
+  "confirmed_current_qa_candidates": 10,
+  "production_public_records_added": 0,
+  "records": [
+    {
+      "entity_id": "transport.amsterdam-amstel-station",
+      "status": "confirmed_current_qa_candidate",
+      "reviewed_at": "2026-10-24",
+      "official_source_url": "https://www.ns.nl/en/station-information/amsterdam-amstel.html",
+      "coordinate_source_url": "https://www.openstreetmap.org/node/4040491812",
+      "confirmed_fields": [
+        "station name",
+        "Amsterdam location",
+        "rail-station identity",
+        "official NS route",
+        "map coordinate",
+        "absence of copied mutable timetable, price and opening-hour facts"
+      ],
+      "excluded_fields": [
+        "live departures",
+        "temporary disruptions",
+        "facility opening hours",
+        "real-time availability",
+        "ticket prices"
+      ],
+      "production_publication_status": "withheld_pending_release_acceptance_and_deployment_authorisation"
+    },
+    {
+      "entity_id": "transport.amsterdam-bijlmer-arena-station",
+      "status": "confirmed_current_qa_candidate",
+      "reviewed_at": "2026-10-24",
+      "official_source_url": "https://www.ns.nl/en/station-information/amsterdam-bijlmer-arena.html",
+      "coordinate_source_url": "https://www.openstreetmap.org/node/4005961975",
+      "confirmed_fields": [
+        "station name",
+        "Amsterdam location",
+        "rail-station identity",
+        "official NS route",
+        "map coordinate",
+        "absence of copied mutable timetable, price and opening-hour facts"
+      ],
+      "excluded_fields": [
+        "live departures",
+        "temporary disruptions",
+        "facility opening hours",
+        "real-time availability",
+        "ticket prices"
+      ],
+      "production_publication_status": "withheld_pending_release_acceptance_and_deployment_authorisation"
+    },
+    {
+      "entity_id": "transport.amsterdam-centraal-station",
+      "status": "confirmed_current_qa_candidate",
+      "reviewed_at": "2026-10-24",
+      "official_source_url": "https://www.ns.nl/en/station-information/amsterdam-centraal.html",
+      "coordinate_source_url": "https://www.openstreetmap.org/node/4290854847",
+      "confirmed_fields": [
+        "station name",
+        "Amsterdam location",
+        "rail-station identity",
+        "official NS route",
+        "map coordinate",
+        "absence of copied mutable timetable, price and opening-hour facts"
+      ],
+      "excluded_fields": [
+        "live departures",
+        "temporary disruptions",
+        "facility opening hours",
+        "real-time availability",
+        "ticket prices"
+      ],
+      "production_publication_status": "withheld_pending_release_acceptance_and_deployment_authorisation"
+    },
+    {
+      "entity_id": "transport.amsterdam-holendrecht-station",
+      "status": "confirmed_current_qa_candidate",
+      "reviewed_at": "2026-10-24",
+      "official_source_url": "https://www.ns.nl/en/station-information/amsterdam-holendrecht.html",
+      "coordinate_source_url": "https://www.openstreetmap.org/node/250233810",
+      "confirmed_fields": [
+        "station name",
+        "Amsterdam location",
+        "rail-station identity",
+        "official NS route",
+        "map coordinate",
+        "absence of copied mutable timetable, price and opening-hour facts"
+      ],
+      "excluded_fields": [
+        "live departures",
+        "temporary disruptions",
+        "facility opening hours",
+        "real-time availability",
+        "ticket prices"
+      ],
+      "production_publication_status": "withheld_pending_release_acceptance_and_deployment_authorisation"
+    },
+    {
+      "entity_id": "transport.amsterdam-lelylaan-station",
+      "status": "confirmed_current_qa_candidate",
+      "reviewed_at": "2026-10-24",
+      "official_source_url": "https://www.ns.nl/en/station-information/amsterdam-lelylaan.html",
+      "coordinate_source_url": "https://www.openstreetmap.org/node/4076017504",
+      "confirmed_fields": [
+        "station name",
+        "Amsterdam location",
+        "rail-station identity",
+        "official NS route",
+        "map coordinate",
+        "absence of copied mutable timetable, price and opening-hour facts"
+      ],
+      "excluded_fields": [
+        "live departures",
+        "temporary disruptions",
+        "facility opening hours",
+        "real-time availability",
+        "ticket prices"
+      ],
+      "production_publication_status": "withheld_pending_release_acceptance_and_deployment_authorisation"
+    },
+    {
+      "entity_id": "transport.amsterdam-muiderpoort-station",
+      "status": "confirmed_current_qa_candidate",
+      "reviewed_at": "2026-10-24",
+      "official_source_url": "https://www.ns.nl/en/station-information/amsterdam-muiderpoort.html",
+      "coordinate_source_url": "https://www.openstreetmap.org/way/1409848101",
+      "confirmed_fields": [
+        "station name",
+        "Amsterdam location",
+        "rail-station identity",
+        "official NS route",
+        "map coordinate",
+        "absence of copied mutable timetable, price and opening-hour facts"
+      ],
+      "excluded_fields": [
+        "live departures",
+        "temporary disruptions",
+        "facility opening hours",
+        "real-time availability",
+        "ticket prices"
+      ],
+      "production_publication_status": "withheld_pending_release_acceptance_and_deployment_authorisation"
+    },
+    {
+      "entity_id": "transport.amsterdam-rai-station",
+      "status": "confirmed_current_qa_candidate",
+      "reviewed_at": "2026-10-24",
+      "official_source_url": "https://www.ns.nl/en/station-information/amsterdam-rai.html",
+      "coordinate_source_url": "https://www.openstreetmap.org/node/4046323545",
+      "confirmed_fields": [
+        "station name",
+        "Amsterdam location",
+        "rail-station identity",
+        "official NS route",
+        "map coordinate",
+        "absence of copied mutable timetable, price and opening-hour facts"
+      ],
+      "excluded_fields": [
+        "live departures",
+        "temporary disruptions",
+        "facility opening hours",
+        "real-time availability",
+        "ticket prices"
+      ],
+      "production_publication_status": "withheld_pending_release_acceptance_and_deployment_authorisation"
+    },
+    {
+      "entity_id": "transport.amsterdam-science-park-station",
+      "status": "confirmed_current_qa_candidate",
+      "reviewed_at": "2026-10-24",
+      "official_source_url": "https://www.ns.nl/en/station-information/amsterdam-science-park.html",
+      "coordinate_source_url": "https://www.openstreetmap.org/node/7606648992",
+      "confirmed_fields": [
+        "station name",
+        "Amsterdam location",
+        "rail-station identity",
+        "official NS route",
+        "map coordinate",
+        "absence of copied mutable timetable, price and opening-hour facts"
+      ],
+      "excluded_fields": [
+        "live departures",
+        "temporary disruptions",
+        "facility opening hours",
+        "real-time availability",
+        "ticket prices"
+      ],
+      "production_publication_status": "withheld_pending_release_acceptance_and_deployment_authorisation"
+    },
+    {
+      "entity_id": "transport.amsterdam-sloterdijk-station",
+      "status": "confirmed_current_qa_candidate",
+      "reviewed_at": "2026-10-24",
+      "official_source_url": "https://www.ns.nl/en/station-information/amsterdam-sloterdijk.html",
+      "coordinate_source_url": "https://www.openstreetmap.org/node/3938547498",
+      "confirmed_fields": [
+        "station name",
+        "Amsterdam location",
+        "rail-station identity",
+        "official NS route",
+        "map coordinate",
+        "absence of copied mutable timetable, price and opening-hour facts"
+      ],
+      "excluded_fields": [
+        "live departures",
+        "temporary disruptions",
+        "facility opening hours",
+        "real-time availability",
+        "ticket prices"
+      ],
+      "production_publication_status": "withheld_pending_release_acceptance_and_deployment_authorisation"
+    },
+    {
+      "entity_id": "transport.amsterdam-zuid-station",
+      "status": "confirmed_current_qa_candidate",
+      "reviewed_at": "2026-10-24",
+      "official_source_url": "https://www.ns.nl/en/station-information/amsterdam-zuid.html",
+      "coordinate_source_url": "https://www.openstreetmap.org/node/5252944882",
+      "confirmed_fields": [
+        "station name",
+        "Amsterdam location",
+        "rail-station identity",
+        "official NS route",
+        "map coordinate",
+        "absence of copied mutable timetable, price and opening-hour facts"
+      ],
+      "excluded_fields": [
+        "live departures",
+        "temporary disruptions",
+        "facility opening hours",
+        "real-time availability",
+        "ticket prices"
+      ],
+      "production_publication_status": "withheld_pending_release_acceptance_and_deployment_authorisation"
+    }
+  ]
+}

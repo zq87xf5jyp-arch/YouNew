@@ -118,6 +118,56 @@ test("official source analytics keeps only a bounded content identifier", () => 
   });
 });
 
+test("geo relevance analytics stores only normalized city, intent and bounded timing", () => {
+  const runtime = {
+    now: () => new Date("2026-08-19T10:00:00.000Z"),
+    randomUUID: () => "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+    pathname: () => "/search/?q=My+private+health+question+in+Leiden",
+    language: () => "en",
+    environment: () => "production" as const
+  };
+  const detected = createAnalyticsEnvelope(
+    { name: "explicit_city_detected", city: "leiden<script>", intentId: "healthcare<script>" },
+    identifiers,
+    runtime
+  );
+  const timing = createAnalyticsEnvelope(
+    { name: "time_to_first_action", city: "leiden", intentId: "healthcare", durationMilliseconds: 9_999_999 },
+    identifiers,
+    runtime
+  );
+
+  assert.deepEqual(detected.properties, { city: "leiden-script-", intent_id: "healthcare-script-" });
+  assert.deepEqual(timing.properties, { city: "leiden", intent_id: "healthcare", duration_ms: 3_600_000 });
+  assert.equal(detected.screen, "/search/");
+  assert.doesNotMatch(JSON.stringify([detected, timing]), /private|health question|My\+/i);
+});
+
+test("action-panel analytics has no person, free-text query or URL fields", () => {
+  const envelope = createAnalyticsEnvelope(
+    {
+      name: "action_panel_cta_clicked",
+      contentId: "national.documents.municipality.leiden<script>",
+      city: "leiden"
+    },
+    identifiers,
+    {
+      now: () => new Date("2026-08-19T10:00:00.000Z"),
+      randomUUID: () => "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+      pathname: () => "/essentials/documents/?city=leiden&email=private@example.com",
+      language: () => "en",
+      environment: () => "production"
+    }
+  );
+
+  assert.deepEqual(envelope.properties, {
+    content_id: "national.documents.municipality.leiden-script-",
+    city: "leiden"
+  });
+  assert.equal(envelope.screen, "/essentials/documents/");
+  assert.doesNotMatch(JSON.stringify(envelope), /private@example|email=/i);
+});
+
 test("App Store CTA analytics records intent without claiming a download", () => {
   const envelope = createAnalyticsEnvelope(
     {

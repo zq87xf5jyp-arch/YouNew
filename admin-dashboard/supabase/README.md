@@ -19,9 +19,17 @@ YouNew production project `pgdzdxsiagfjioxwuqxf`.
   `tests/business_inquiry_pipeline_test.sql` and
   `tests/business_inquiry_deduplication_test.sql` and
   `tests/lead_analytics_funnel_test.sql` and
-  `tests/business_inquiry_notification_test.sql` provide 81 assertions for the
-  five pending 2026-08-18 migrations. They must pass on a disposable database
-  before any migration is eligible for a production approval request.
+  `tests/business_inquiry_notification_test.sql` provide 81 core assertions,
+  while `tests/monetization_retention_policy_test.sql` and
+  `tests/pilot_usage_report_privacy_test.sql` provide 67 retention and aggregate
+  privacy assertions, and `tests/geo_relevance_analytics_test.sql` provides 43
+  geo analytics privacy/security assertions. The additive Admin remediation
+  suites contribute 184 assertions: 37 content/security, 60 operational truth,
+  43 Analytics v2, and 44 canonical Map/Links compatibility assertions. All
+  385 targeted assertions must pass on a disposable database. The historical
+  12-assertion content-governance suite is also executed, producing a complete
+  gate of 397 assertions across all 14 checked-in pgTAP files before any
+  migration is eligible for a production approval request.
 - `docs/SUPABASE_PRODUCTION.md` records hashes, current advisor evidence, the
   historical-baseline limitation, and the rollout procedure.
 

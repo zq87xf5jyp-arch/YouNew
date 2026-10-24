@@ -67,7 +67,6 @@ final class SearchViewModel: ObservableObject {
     @Published private(set) var displayedResults: [SearchAnswer] = []
     @Published private(set) var beginnerGuideResults: [BeginnerGuideItem] = []
 
-    private let recentKey = "question_search_recent_v1"
     private let allAnswers = MockSearchAnswersData.items
     private var searchRefreshTask: Task<Void, Never>?
     private var isAligningCategoryWithQuery = false
@@ -158,7 +157,6 @@ final class SearchViewModel: ObservableObject {
         self.language = language
         self.activePersona = activePersona
         self.personaSearchScope = personaSearchScope
-        recentSearches = UserDefaults.standard.stringArray(forKey: recentKey) ?? []
         refreshSearchState()
     }
 
@@ -230,7 +228,7 @@ final class SearchViewModel: ObservableObject {
         guard !trimmed.isEmpty else { return }
         recentSearches = [trimmed] + recentSearches.filter { $0.caseInsensitiveCompare(trimmed) != .orderedSame }
         recentSearches = Array(recentSearches.prefix(8))
-        UserDefaults.standard.set(recentSearches, forKey: recentKey)
+        // Keep recent queries only for this view model's lifetime.
     }
 
     func setQuery(_ value: String) {

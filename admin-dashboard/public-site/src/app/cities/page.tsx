@@ -5,7 +5,7 @@ import { getContentEntities } from "@/lib/content";
 import { getNetherlandsGeography } from "@/lib/geography";
 import { metadataForPage } from "@/lib/seo/metadata";
 
-const description = "Start with reviewed YouNew city guides, or search the complete official directory of 342 Dutch municipalities and 2,502 BAG settlements.";
+const description = "Search the complete official directory of 342 Dutch municipalities and 2,502 BAG settlements. Legacy city summaries stay outside indexing until record-level confirmation.";
 
 export const metadata = metadataForPage("Cities and municipalities", description, "/cities");
 
@@ -22,7 +22,7 @@ export default function CitiesPage() {
       description={description}
       entities={cities}
       featuredId="city.amsterdam"
-      datasetNote={<><strong>{cities.length}</strong> reviewed city guides · <strong>{geography.stats.municipalities}</strong> official municipalities · <strong>{geography.stats.settlements}</strong> settlements</>}
+      datasetNote={<><strong>{cities.length}</strong> confirmed indexable city profiles · <strong>{geography.stats.municipalities}</strong> official municipalities · <strong>{geography.stats.settlements}</strong> settlements</>}
       context={(
         <section className="section-shell geography-coverage-preview" aria-labelledby="geography-coverage-title">
           <div className="geography-coverage-heading">

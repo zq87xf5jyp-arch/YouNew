@@ -32,6 +32,8 @@ require(isinstance(pending, list), "pending migration list is missing")
 expected_managed_files: set[str] = set()
 seen_production_versions: set[str] = set()
 seen_local_versions: set[str] = set()
+managed_production_versions: list[str] = []
+managed_local_versions: list[str] = []
 for entry in managed:
     production_version = entry.get("version")
     local_version = entry.get("localVersion", production_version)
@@ -45,6 +47,8 @@ for entry in managed:
     require(local_version not in seen_local_versions, f"duplicate local version {local_version}")
     seen_production_versions.add(production_version)
     seen_local_versions.add(local_version)
+    managed_production_versions.append(production_version)
+    managed_local_versions.append(local_version)
 
     filename = f"{local_version}_{name}.sql"
     expected_managed_files.add(filename)
@@ -54,6 +58,12 @@ for entry in managed:
     require(len(data) == expected_bytes, f"byte size drifted for {filename}")
     require(hashlib.md5(data).hexdigest() == expected_md5, f"MD5 drifted for {filename}")
 
+require(
+    managed_production_versions == sorted(managed_production_versions),
+    "managed production versions are not strictly ordered",
+)
+
+pending_versions: list[str] = []
 for entry in pending:
     version = entry.get("version")
     name = entry.get("name")
@@ -64,6 +74,7 @@ for entry in pending:
     require(version not in seen_production_versions, f"pending version already exists in production {version}")
     require(version not in seen_local_versions, f"duplicate local version {version}")
     seen_local_versions.add(version)
+    pending_versions.append(version)
 
     filename = f"{version}_{name}.sql"
     expected_managed_files.add(filename)
@@ -72,6 +83,13 @@ for entry in pending:
     data = path.read_bytes()
     require(len(data) == expected_bytes, f"byte size drifted for {filename}")
     require(hashlib.md5(data).hexdigest() == expected_md5, f"MD5 drifted for {filename}")
+
+require(pending_versions == sorted(pending_versions), "pending versions are not strictly ordered")
+require(len(pending_versions) == len(set(pending_versions)), "pending versions are not unique")
+# Production can contain later, independently approved migrations while older
+# reviewed candidates remain pending. Identity, uniqueness, ordering within each
+# set, and pinned bytes are the safety invariants; a global timestamp boundary
+# would reject that valid state and hide the actual production history.
 
 actual_managed_files = {path.name for path in MIGRATIONS.glob("20*.sql")}
 require(actual_managed_files == expected_managed_files, "managed migration file set differs from the production manifest")

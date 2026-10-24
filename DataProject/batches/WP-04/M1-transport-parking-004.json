@@ -118,12 +118,12 @@
       "official_source": {
         "title": "P+R parking",
         "publisher": "Nederlandse Spoorwegen",
-        "url": "https://www.ns.nl/en/door-to-door/park-and-ride",
+        "url": "https://www.ns.nl/en/products/door-to-door/park-and-ride/",
         "is_official": true,
-        "checked_at": "2026-07-14",
+        "checked_at": "2026-09-20",
         "status": "verified_opened"
       },
-      "website": "https://www.ns.nl/en/door-to-door/park-and-ride",
+      "website": "https://www.ns.nl/en/products/door-to-door/park-and-ride/",
       "related_entity_ids": [
         "transport.journey-planning",
         "transport.paid-parking",

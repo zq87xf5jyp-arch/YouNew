@@ -1,4 +1,7 @@
+import { CURRENT_INQUIRY_CONTRACT } from "@/lib/business-inquiry-compatibility";
 import { createClient } from "@supabase/supabase-js";
+import { canonicalOfficialLinks } from "@/lib/canonical-admin-data";
+import { classifyOfficialLinkObservation } from "@/lib/official-link-health";
 
 export const dynamic = "force-dynamic";
 
@@ -14,6 +17,7 @@ function json(status: number, payload: Record<string, unknown>) {
 }
 
 export async function GET(request: Request) {
+  const checkedAt = new Date().toISOString();
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
   const authorization = request.headers.get("authorization");
@@ -27,11 +31,12 @@ export async function GET(request: Request) {
   const { data: userData, error: userError } = await supabase.auth.getUser();
   if (userError || !userData.user) return json(401, { error: "invalid_session" });
 
-  const { data: profile } = await supabase
+  const { data: profile, error: profileError } = await supabase
     .from("profiles")
     .select("role,is_approved")
     .eq("id", userData.user.id)
     .maybeSingle();
+  if (profileError) return json(503, { error: "authorization_source_unavailable" });
   if (
     !profile?.is_approved ||
     (profile.role !== "owner" && profile.role !== "admin")
@@ -50,38 +55,61 @@ export async function GET(request: Request) {
     currentRelease,
     serviceStatuses
   ] = await Promise.all([
-    supabase.from("business_inquiries").select("id", { count: "exact", head: true }).in("status", ["new", "qualified", "discovery", "proposal"]),
-    supabase.from("feedback").select("id", { count: "exact", head: true }).in("status", ["new", "reviewed", "planned"]),
-    supabase.from("sync_jobs").select("id", { count: "exact", head: true }).eq("status", "failed"),
+    supabase.from("business_inquiries").select("id", { count: "exact", head: true }).in("status", CURRENT_INQUIRY_CONTRACT.openStatuses),
+    supabase.from("feedback").select("id", { count: "exact", head: true }).eq("record_origin", "user_submission").in("status", ["new", "reviewed", "planned"]),
+    supabase.from("sync_jobs").select("id", { count: "exact", head: true }).in("status", ["failed", "timed_out"]),
     supabase.from("articles").select("id", { count: "exact", head: true }).in("status", ["draft", "research", "review", "qa", "needs_review"]),
-    supabase.from("official_links").select("id", { count: "exact", head: true }).eq("status", "broken"),
+    supabase.from("official_link_operational_latest").select("source_key,link_health_state,checked_at").limit(1000),
     supabase.from("sync_jobs").select("id,type,status,completed_at,artifact_fingerprint,error_summary").order("created_at", { ascending: false }).limit(1).maybeSingle(),
     supabase.from("deployment_status").select("id,service_id,environment,status,commit_sha,artifact_fingerprint,deployed_at,error_summary").order("created_at", { ascending: false }).limit(1).maybeSingle(),
     supabase.from("releases").select("version,platform,status,release_date").order("created_at", { ascending: false }).limit(1).maybeSingle(),
     supabase.from("service_status").select("service_id,status,checked_at,public_message").order("checked_at", { ascending: false }).limit(50)
   ]);
 
-  const results = [inquiries, feedback, failedSync, reviewContent, brokenLinks, latestSync, latestDeployment, currentRelease, serviceStatuses];
+  const results = [inquiries, feedback, failedSync, reviewContent, latestSync, latestDeployment, currentRelease, serviceStatuses];
   if (results.some((result) => result.error)) {
     return json(503, {
       schemaVersion: 1,
       status: "degraded",
-      checkedAt: new Date().toISOString(),
+      checkedAt,
       error: "operational_data_unavailable"
     });
   }
+
+  const canonicalSourceKeys = new Set(canonicalOfficialLinks.links.map((link) => link.source_key));
+  const classifiedLinkRows = brokenLinks.error
+    ? []
+    : (brokenLinks.data ?? [])
+      .filter((row) => canonicalSourceKeys.has(row.source_key))
+      .map((row) => classifyOfficialLinkObservation(row, checkedAt));
+  const freshLinkRows = classifiedLinkRows.filter((row) => row.countsTowardCoverage);
+  const staleLinkRows = classifiedLinkRows.filter((row) => row.freshness === "stale");
+  const linkHealthSourceState = brokenLinks.error
+    ? "unavailable"
+    : freshLinkRows.length > 0
+      ? "available"
+      : staleLinkRows.length > 0
+        ? "stale"
+        : "unmeasured";
+  const freshBrokenLinks = freshLinkRows.filter((row) => row.observedHealth === "broken").length;
 
   return json(200, {
     schemaVersion: 1,
     visibility: "private",
     refresh: "manual",
-    checkedAt: new Date().toISOString(),
+    checkedAt,
     counters: {
       openInquiries: inquiries.count ?? 0,
       openFeedback: feedback.count ?? 0,
       failedSyncJobs: failedSync.count ?? 0,
       contentNeedingReview: reviewContent.count ?? 0,
-      brokenLinks: brokenLinks.count ?? 0
+      brokenLinks: linkHealthSourceState === "available" ? freshBrokenLinks : null
+    },
+    linkHealth: {
+      sourceState: linkHealthSourceState,
+      measuredCount: freshLinkRows.length,
+      expectedCount: canonicalOfficialLinks.counts.canonicalLinks,
+      brokenCount: linkHealthSourceState === "available" ? freshBrokenLinks : null
     },
     latestContentSync: latestSync.data,
     latestDeployment: latestDeployment.data,

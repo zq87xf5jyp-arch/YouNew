@@ -1,13 +1,13 @@
 # Supabase production migrations
 
-Verified read-only: **2026-08-18**
+Verified read-only: **2026-08-19**
 
 Production project: `pgdzdxsiagfjioxwuqxf` (`YouNew Project`, `eu-west-1`)
 
 ## Canonical contract
 
 Production has 24 applied timestamped migrations. The repository has exact SQL
-bytes for all 24 plus five reviewed, unapplied forward migrations.
+bytes for all 24 plus seven reviewed, unapplied forward migrations.
 `production-migration-manifest.json` schema 2 is the machine-checked contract:
 `managedMigrations` records production history, optional `localVersion` records
 two evidence-backed filename timestamp aliases, and `pendingMigrations` keeps
@@ -55,8 +55,10 @@ Pending local migrations:
 | `20260818192423` | `deduplicate_business_inquiry_submissions` | `d3010eb22035a572d0b36a8c522e68a0` | 13 assertions |
 | `20260818193310` | `extend_lead_analytics_funnel` | `220bfa6bddd463acb67a86b31bbea285` | 12 assertions |
 | `20260818194626` | `add_business_inquiry_notification_inbox` | `e9df9c0cbd8828bbe6cfa26f57c5a295` | 18 assertions |
+| `20260818235619` | `enforce_monetization_retention_and_private_reports` | `8f7e418080a080e3204106f344836ee0` | 67 assertions |
+| `20260819080242` | `allow_geo_relevance_analytics` | `113043c51e207e6d0d7c7ae6da4b5df2` | 43 assertions |
 
-None of these migrations is applied or authorized for production. The five
+None of these migrations is applied or authorized for production. The seven
 pending migrations are pinned to the Supabase CLI 2.109.1 verification
 workflow. The pipeline migration
 conservatively preserves retired statuses without promoting any existing
@@ -67,7 +69,14 @@ analytics migration accepts only property-free `lead_start`, `lead_submit` and
 aggregate whose receipt events are not labelled as unique leads or payments.
 The notification migration creates one RLS-protected, PII-minimised Admin inbox
 record only for a newly inserted inquiry; an exact retry creates none, and no
-email, webhook or third-party delivery is configured.
+email, webhook or third-party delivery is configured. The retention and private
+report migration adds configurable cleanup defaults, legal holds, count-only
+deletion audit, consent-gated client isolation and five-subject/five-event
+small-cohort suppression. It does not persist temporary CSV exports. The geo
+analytics migration permits eight bounded relevance events, rejects top-level
+city values and raw-query/PII-shaped properties, and preserves the existing
+service-role-only ingest boundary. It remains production-blocked pending the
+recorded privacy decisions in the geo analytics production approval packet.
 
 ## Historical baseline
 
@@ -111,7 +120,9 @@ owner-controlled action subject to the accepted project-plan limitation.
 
 1. Create and verify a backup or point-in-time recovery checkpoint.
 2. Run new migrations on a disposable branch or local database.
-3. Run all five migration-specific pgTAP contracts and
+3. Run all seven migration-specific pgTAP contracts (81 core assertions, 67
+   retention/aggregation assertions and 43 geo analytics assertions; 191
+   targeted assertions total) plus every checked-in pgTAP suite and
    `admin-dashboard/supabase/verification/verify_after_migration.sql` on a
    disposable database.
 4. Verify the anonymous, unapproved, and approved-role API matrix.

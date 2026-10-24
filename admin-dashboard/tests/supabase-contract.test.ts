@@ -31,6 +31,8 @@ test("workspace handoff endpoint is private and never uses a service-role browse
   assert.match(source, /authorization\?\.startsWith\("Bearer "\)/);
   assert.match(source, /X-Robots-Tag/);
   assert.match(source, /no-store, private/);
+  assert.match(source, /official_link_operational_latest/);
+  assert.match(source, /brokenLinks: linkHealthSourceState === "available" \? freshBrokenLinks : null/);
   assert.doesNotMatch(source, /SUPABASE_SERVICE_ROLE_KEY|service_role/);
 });
 
@@ -62,49 +64,53 @@ test("admin responses enforce a bounded CSP and transport security", async () =>
   assert.doesNotMatch(adminScriptSourceDirective("production"), /'unsafe-eval'/);
 });
 
-test("release control reflects the verified GO LIVE evidence", async () => {
+test("release control uses one fail-closed deterministic truth snapshot", async () => {
   const component = await readFile(
     new URL("../src/components/admin/release-readiness-overview.tsx", import.meta.url),
     "utf8"
   );
-  const readiness = JSON.parse(
-    await readFile(new URL("../src/generated/release-readiness.json", import.meta.url), "utf8")
+  const truth = JSON.parse(
+    await readFile(new URL("../src/generated/release-truth.json", import.meta.url), "utf8")
   ) as {
-    posture: string;
-    evidence: {
-      admin: { tests_passed: number; deployment_status: string; csp_enforcement: string };
-      supabase: { backup_restore_evidence: string; temporary_access_revoked: boolean };
-      ios: {
-        app_store_distribution: string;
-        app_review: string;
-        public_release: string;
-        public_release_source: string;
-        physical_device_install: string;
-        physical_device_launch: string;
-        physical_device_process_health: string;
-      };
+    schemaVersion: number;
+    snapshotDigest: string;
+    candidateCommit: string;
+    sourceTreeState: string;
+    technicalVerdict: string;
+    deploymentAuthorization: string;
+    publication: {
+      inventory: { total: number };
+      packaged: { entityCount: number };
+      deployed: { state: string; entityCount: number | null; declaredEntityCount: number | null };
     };
-    remaining_items: Array<{ id: string }>;
+    metrics: { linkHealth: { state: string; value: number | null; denominator: number | null } };
+    gates: Record<string, { result: string }>;
   };
 
-  assert.equal(readiness.posture, "full_product_live");
-  assert.equal(readiness.evidence.admin.tests_passed, 29);
-  assert.equal(readiness.evidence.admin.deployment_status, "live");
-  assert.equal(readiness.evidence.admin.csp_enforcement, "upstream_header_plus_html_meta_fallback");
-  assert.equal(readiness.evidence.supabase.backup_restore_evidence, "pass");
-  assert.equal(readiness.evidence.supabase.temporary_access_revoked, true);
-  assert.equal(readiness.evidence.ios.app_store_distribution, "pass");
-  assert.equal(readiness.evidence.ios.app_review, "approved_and_released");
-  assert.equal(readiness.evidence.ios.public_release, "live");
-  assert.equal(readiness.evidence.ios.public_release_source, "apple_lookup_api_country_nl");
-  assert.equal(readiness.evidence.ios.physical_device_install, "pass");
-  assert.equal(readiness.evidence.ios.physical_device_launch, "pass");
-  assert.equal(readiness.evidence.ios.physical_device_process_health, "running_after_30_seconds");
-  assert.match(component, /readiness\.evidence\.ios\.release_status_label/);
-  assert.match(component, /readiness\.evidence\.ios\.release_note/);
-  assert.doesNotMatch(component, /Waiting for Review|installed on iPhone/);
-  assert.deepEqual(readiness.remaining_items.map((item) => item.id), [
-    "storage-backup-automation",
-    "guide-depth"
-  ]);
+  assert.equal(truth.schemaVersion, 2);
+  assert.match(truth.snapshotDigest, /^[a-f0-9]{64}$/);
+  assert.match(truth.candidateCommit, /^[a-f0-9]{40}$/);
+  assert.ok(["clean", "dirty"].includes(truth.sourceTreeState));
+  assert.equal(truth.technicalVerdict, "PARTIAL");
+  assert.equal(truth.deploymentAuthorization, "not_granted");
+  assert.equal(truth.publication.inventory.total, 454);
+  assert.equal(truth.publication.packaged.entityCount, 7);
+  assert.equal(truth.publication.deployed.state, "unknown");
+  assert.equal(truth.publication.deployed.entityCount, null);
+  assert.equal(truth.publication.deployed.declaredEntityCount, null);
+  assert.deepEqual(truth.metrics.linkHealth, {
+    kind: "ratio",
+    unit: "percent",
+    value: null,
+    numerator: null,
+    denominator: null,
+    state: "unknown",
+    reasonCode: "network_check_not_run",
+    formula: { id: "reachable-links-over-inspected-links", version: 1 },
+    sourceIDs: ["link-health"]
+  });
+  assert.equal(truth.gates.linkHealth.result, "blocked");
+  assert.match(component, /releaseTruth\.technicalVerdict/);
+  assert.match(component, /production не разрешён/);
+  assert.doesNotMatch(component, /GO LIVE завершён|full_product_live/);
 });

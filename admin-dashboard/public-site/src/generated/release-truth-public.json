@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "snapshotID": "release-truth.f5ef59380676b569",
+  "snapshotDigest": "f5ef59380676b569f8634c7b814c55e6228626971ee57868a9626a49ab1cf3b2",
+  "generatedAt": "2026-10-24T11:22:48.000Z",
+  "technicalVerdict": "PARTIAL",
+  "deploymentAuthorization": "not_granted",
+  "verdictReason": "Packaged content is measured, while link health, exact-candidate CI, and full deployed-payload verification are not established.",
+  "publication": {
+    "inventoryRecords": 454,
+    "packagedPublishedRecords": 7,
+    "packagedCoverage": {
+      "kind": "ratio",
+      "unit": "percent",
+      "value": 1.5,
+      "numerator": 7,
+      "denominator": 454,
+      "state": "measured",
+      "reasonCode": null,
+      "formula": {
+        "id": "packaged-published-over-governed-inventory",
+        "version": 1
+      },
+      "sourceIDs": [
+        "data-project-inventory",
+        "packaged-runtime",
+        "public-content-provenance"
+      ]
+    },
+    "deployedState": "unknown",
+    "deployedEvidenceLevel": "none"
+  },
+  "linkHealth": {
+    "kind": "ratio",
+    "unit": "percent",
+    "value": null,
+    "numerator": null,
+    "denominator": null,
+    "state": "unknown",
+    "reasonCode": "network_check_not_run",
+    "formula": {
+      "id": "reachable-links-over-inspected-links",
+      "version": 1
+    },
+    "sourceIDs": [
+      "link-health"
+    ]
+  },
+  "gates": {
+    "sourceIntegrity": "pass",
+    "packagedPublication": "pass",
+    "deployedPayload": "blocked",
+    "linkHealth": "blocked",
+    "candidateCI": "blocked",
+    "legacyCompatibilityArtifacts": "pass"
+  },
+  "limitations": [
+    "This snapshot does not authorize production deployment.",
+    "The recorded candidate commit does not include current uncommitted source-tree changes.",
+    "Production evidence is metadata-attested, not a complete deployed-payload verification.",
+    "Link reachability is unknown until a fresh network check inspects a non-empty URL set.",
+    "Legacy release-readiness and trust-dashboard JSON files are deprecated compatibility projections, not independent release authorities.",
+    "Operational Supabase data is loaded independently and cannot upgrade this build-time verdict."
+  ]
+}

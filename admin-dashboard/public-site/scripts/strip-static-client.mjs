@@ -6,16 +6,14 @@ import { fileURLToPath } from "node:url";
 const outputRoot = fileURLToPath(new URL("../out/", import.meta.url));
 const file = join(outputRoot, "index.html");
 const html = await readFile(file, "utf8");
-const staticShell = await readFile(join(outputRoot, "static-shell.js"));
-const themeInit = await readFile(join(outputRoot, "theme-init.js"), "utf8");
-const staticShellVersion = createHash("sha256").update(staticShell).digest("hex").slice(0, 12);
-const staticShellPath = `/static-shell.${staticShellVersion}.js`;
-await writeFile(join(outputRoot, staticShellPath.slice(1)), staticShell);
-const staticHtml = html
-  .replace(/<script(?![^>]*type="application\/ld\+json")[^>]*>[\s\S]*?<\/script>/g, "")
-  .replace(/<link(?=[^>]*rel="preload")(?=[^>]*as="script")[^>]*>/g, "")
-  .replace("</head>", `<script>${themeInit}</script></head>`)
-  .replace("</body>", `<script src="${staticShellPath}" defer></script></body>`);
-
-await writeFile(file, staticHtml);
-console.log(`Replaced unnecessary homepage hydration with progressive enhancement ${staticShellPath}.`);
+// The private search handoff lives only in the current document's memory.
+// Removing hydration would force a native navigation and lose that query.
+// Keep this build step as a guard rather than silently restoring a raw GET.
+if (!html.includes('data-private-search-form="true"') || !html.includes("/_next/static/")) {
+  throw new Error("Homepage private search requires its form and client runtime.");
+}
+console.log("Retained homepage hydration for the private in-memory search handoff.");
+// Preserve the existing offline manifest contract without loading a second runtime.
+const staticShell = await readFile(join(outputRoot, "static-shell.js"), "utf8");
+const staticShellName = `static-shell.${createHash("sha256").update(staticShell).digest("hex").slice(0, 12)}.js`;
+await writeFile(join(outputRoot, staticShellName), staticShell, "utf8");

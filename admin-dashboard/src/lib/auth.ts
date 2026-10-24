@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
-import { canEditContent, type AdminRole } from "@/lib/authorization";
+import { canEditContent, resolveLocalDemoAdminRole, type AdminRole } from "@/lib/authorization";
 export { roleLabels, rolePermissions, canAccessPath, canEditContent } from "@/lib/authorization";
 export type { AdminRole } from "@/lib/authorization";
 
@@ -18,24 +18,33 @@ export async function requireAdmin() {
     return {
       id: "demo-admin",
       email: "demo@younew.nl",
-      role: "owner" as AdminRole,
+      role: resolveLocalDemoAdminRole(process.env.YOUNEW_ADMIN_DEMO_ROLE),
       full_name: "Демо-владелец"
     };
   }
 
   const {
-    data: { user }
+    data: { user },
+    error: userError
   } = await supabase.auth.getUser();
+
+  if (userError) {
+    redirect("/login?error=authorization-source");
+  }
 
   if (!user) {
     redirect("/login");
   }
 
-  const { data: profile } = await supabase
+  const { data: profile, error: profileError } = await supabase
     .from("profiles")
     .select("id,email,full_name,role,is_approved")
     .eq("id", user.id)
     .maybeSingle();
+
+  if (profileError) {
+    redirect("/login?error=authorization-source");
+  }
 
   if (!profile?.is_approved) {
     redirect("/login?error=not-approved");

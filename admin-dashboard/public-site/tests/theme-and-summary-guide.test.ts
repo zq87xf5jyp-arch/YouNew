@@ -15,6 +15,7 @@ const guideDetail = await readFile(new URL("src/components/guide-detail.tsx", ro
 const pageHelpers = await readFile(new URL("src/lib/content/page-helpers.ts", root), "utf8");
 const shareButton = await readFile(new URL("src/components/share-button.tsx", root), "utf8");
 const systemEvidence = await readFile(new URL("src/config/system-evidence.ts", root), "utf8");
+const layout = await readFile(new URL("src/app/layout.tsx", root), "utf8");
 const homepage = await readFile(new URL("src/app/page.tsx", root), "utf8");
 
 test("theme control supports persistent light and dark modes", () => {
@@ -24,8 +25,8 @@ test("theme control supports persistent light and dark modes", () => {
   assert.match(themeToggle, /localStorage\.setItem\(STORAGE_KEY, nextTheme\)/);
   assert.match(themeCss, /html\[data-theme="light"\]/);
   assert.match(themeCss, /color-scheme:light/);
-  assert.match(staticStripper, /readFile\(join\(outputRoot, "theme-init\.js"\)/);
-  assert.match(staticStripper, /<script>\$\{themeInit\}<\/script><\/head>/);
+  assert.match(layout, /src="\/theme-init\.js" strategy="beforeInteractive"/);
+  assert.match(staticStripper, /Retained homepage hydration/);
   assert.match(staticShell, /themeButton\?\.addEventListener\("click"/);
   assert.match(staticShell, /localStorage\.setItem\(themeStorageKey, nextTheme\)/);
   assert.match(themeCss, /--cyan:#006d96/);
@@ -67,6 +68,6 @@ test("operational evidence stays off the user-first homepage", () => {
   assert.match(systemEvidence, /indexableUrls:\s*571/);
   assert.match(systemEvidence, /passingWebAdminAiTests:\s*129/);
   assert.match(homepage, /<time dateTime=\{guide\.updatedAt\}>/);
-  assert.match(homepage, /Recently checked additions from the published content snapshot\./);
+  assert.match(homepage, /Recently released additions\. Open each page to see its source-check and governance status\./);
   assert.doesNotMatch(homepage, /SystemEvidence|staticRoutes|passingWebAdminAiTests|Supabase|controlled release candidate/i);
 });

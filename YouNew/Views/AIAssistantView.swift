@@ -2066,6 +2066,46 @@ private struct AssistantStructuredResponseCard: View {
         }
     }
 
+    private var governanceLabel: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Границы ответа"
+        case .dutch: return "Grenzen van het antwoord"
+        case .english: return "Answer boundaries"
+        }
+    }
+
+    private var verifiedDateLabel: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Проверено"
+        case .dutch: return "Gecontroleerd"
+        case .english: return "Verified"
+        }
+    }
+
+    private var locationAssumptionLabel: String {
+        switch languageManager.appLanguage {
+        case .russian: return "География"
+        case .dutch: return "Locatie"
+        case .english: return "Location"
+        }
+    }
+
+    private var uncertaintyLabel: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Неопределённость"
+        case .dutch: return "Onzekerheid"
+        case .english: return "Uncertainty"
+        }
+    }
+
+    private var escalationLabel: String {
+        switch languageManager.appLanguage {
+        case .russian: return "Когда обратиться дальше"
+        case .dutch: return "Wanneer verder hulp vragen"
+        case .english: return "When to escalate"
+        }
+    }
+
     private var openRelatedSectionLabel: String {
         switch languageManager.appLanguage {
         case .russian: return "Открыть связанный раздел"
@@ -2167,6 +2207,30 @@ private struct AssistantStructuredResponseCard: View {
                     Divider()
                         .overlay(Color.white.opacity(0.08))
                 }
+            }
+
+            if response.isLiveOpenAI,
+               let governance = response.governance,
+               governance.isMachineValid {
+                Divider()
+                    .overlay(Color.white.opacity(0.08))
+
+                VStack(alignment: .leading, spacing: 9) {
+                    Label(governanceLabel, systemImage: "checkmark.shield.fill")
+                        .font(.system(size: 12, weight: .bold, design: .rounded))
+                        .foregroundStyle(accent)
+
+                    Text("\(verifiedDateLabel): \(governance.verifiedDate) · \(governance.contentReleaseID)")
+                        .font(.system(size: 10, design: .monospaced))
+                        .foregroundStyle(AppColors.textSecondary)
+
+                    boundaryText(locationAssumptionLabel, governance.locationAssumption)
+                    boundaryText(uncertaintyLabel, governance.uncertainty)
+                    boundaryText(escalationLabel, governance.escalation)
+                }
+                .padding(.vertical, 10)
+                .accessibilityElement(children: .contain)
+                .accessibilityIdentifier("assistant.response.governance")
             }
 
             if let nextStep = response.nextStep,
@@ -2381,6 +2445,19 @@ private struct AssistantStructuredResponseCard: View {
         )
         .accessibilityElement(children: .contain)
         .accessibilityIdentifier("assistant.response.structured")
+    }
+
+    private func boundaryText(_ label: String, _ value: String) -> some View {
+        VStack(alignment: .leading, spacing: 2) {
+            Text(label)
+                .font(.system(size: 10, weight: .semibold))
+                .foregroundStyle(Color.white.opacity(0.60))
+                .textCase(.uppercase)
+            Text(value)
+                .font(.system(size: 12))
+                .foregroundStyle(AppColors.textSecondary)
+                .fixedSize(horizontal: false, vertical: true)
+        }
     }
 
     private var responseOriginLabel: String {

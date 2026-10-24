@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-09T21:01:35.675Z",
+  "generatedAt": "2026-10-24T12:02:05.243Z",
   "status": "PASS",
   "evidence": {
-    "searchIndexSha256": "68a0d201921d8ab2c7ef1078422575132c3a202d30bf1e9678f1b39a93802052",
+    "searchIndexSha256": "ab865bce524a1f85fce1c0d045db0e383984a8441755305ae7075645d572e64a",
     "searchIndexSchemaVersion": 3,
-    "searchDocumentCount": 573,
+    "searchDocumentCount": 404,
     "nationalGuideCount": 7,
     "provinceCount": 12,
     "municipalityCount": 342,
@@ -23,12 +23,7 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
-          "housing.renting-a-home-in-amsterdam",
           "category.housing",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
           "page.journeys"
         ],
         "passed": true
@@ -38,13 +33,10 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
-          "housing.housing-permit-amsterdam",
           "category.housing",
-          "housing.affordable-housing-amsterdam",
-          "housing.woon",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
-          "page.journeys"
+          "page.journeys",
+          "national.documents",
+          "category.benefits"
         ],
         "passed": true
       },
@@ -54,11 +46,6 @@
         "topIds": [
           "national.housing",
           "category.housing",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
           "page.journeys"
         ],
         "passed": true
@@ -69,11 +56,6 @@
         "topIds": [
           "national.housing",
           "category.housing",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
           "page.journeys"
         ],
         "passed": true
@@ -83,13 +65,9 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
-          "housing.renting-a-home-in-amsterdam",
           "category.housing",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
-          "page.journeys"
+          "page.journeys",
+          "category.benefits"
         ],
         "passed": true
       },
@@ -98,12 +76,7 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
-          "housing.woningnet-stadsregio-amsterdam",
           "category.housing",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
           "page.journeys"
         ],
         "passed": true
@@ -114,11 +87,6 @@
         "topIds": [
           "national.housing",
           "category.housing",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
           "page.journeys"
         ],
         "passed": true
@@ -129,11 +97,6 @@
         "topIds": [
           "national.housing",
           "category.housing",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
           "page.journeys"
         ],
         "passed": true
@@ -148,8 +111,7 @@
           "national.documents",
           "national.education",
           "category.healthcare",
-          "category.language-learning",
-          "municipality.gm1900"
+          "category.language-learning"
         ],
         "passed": true
       },
@@ -200,9 +162,8 @@
           "category.business",
           "national.documents",
           "national.education",
-          "municipality.gm1959",
-          "municipality.gm0312",
-          "category.healthcare"
+          "category.healthcare",
+          "category.language-learning"
         ],
         "passed": true
       },
@@ -211,10 +172,7 @@
         "expected": "national.work",
         "topIds": [
           "national.work",
-          "category.work",
-          "municipality.gm0308",
-          "municipality.gm1876",
-          "province.pv26"
+          "category.work"
         ],
         "passed": true
       },
@@ -242,12 +200,7 @@
         "topIds": [
           "national.healthcare",
           "category.healthcare",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin",
-          "healthcare.bovenij-hospital"
+          "page.emergency"
         ],
         "passed": true
       },
@@ -257,12 +210,7 @@
         "topIds": [
           "national.healthcare",
           "category.healthcare",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin",
-          "healthcare.bovenij-hospital"
+          "page.emergency"
         ],
         "passed": true
       },
@@ -270,14 +218,9 @@
         "query": "hospital",
         "expected": "national.healthcare",
         "topIds": [
-          "healthcare.bovenij-hospital",
           "national.healthcare",
           "category.healthcare",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.olvg-east",
-          "healthcare.olvg-west",
-          "healthcare.acta"
+          "page.emergency"
         ],
         "passed": true
       },
@@ -287,12 +230,7 @@
         "topIds": [
           "national.healthcare",
           "category.healthcare",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin",
-          "healthcare.bovenij-hospital"
+          "page.emergency"
         ],
         "passed": true
       },
@@ -302,12 +240,7 @@
         "topIds": [
           "national.healthcare",
           "category.healthcare",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin",
-          "healthcare.bovenij-hospital"
+          "page.emergency"
         ],
         "passed": true
       },
@@ -317,12 +250,7 @@
         "topIds": [
           "national.healthcare",
           "category.healthcare",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin",
-          "healthcare.bovenij-hospital"
+          "page.emergency"
         ],
         "passed": true
       },
@@ -332,12 +260,7 @@
         "topIds": [
           "national.healthcare",
           "category.healthcare",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin",
-          "healthcare.bovenij-hospital"
+          "page.emergency"
         ],
         "passed": true
       },
@@ -347,12 +270,7 @@
         "topIds": [
           "national.healthcare",
           "category.healthcare",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin",
-          "healthcare.bovenij-hospital"
+          "page.emergency"
         ],
         "passed": true
       },
@@ -361,8 +279,7 @@
         "expected": "national.documents",
         "topIds": [
           "national.documents",
-          "category.documents",
-          "government_service.first-registration-in-amsterdam"
+          "category.documents"
         ],
         "passed": true
       },
@@ -381,12 +298,12 @@
         "topIds": [
           "national.documents",
           "category.documents",
-          "government_service.first-registration-in-amsterdam",
           "national.housing",
           "national.education",
-          "government_service.registering-a-birth-in-amsterdam",
           "category.business",
-          "category.children"
+          "category.children",
+          "category.education",
+          "category.family"
         ],
         "passed": true
       },
@@ -396,7 +313,6 @@
         "topIds": [
           "national.documents",
           "category.documents",
-          "government_service.parking-permit-amsterdam",
           "category.business",
           "category.family"
         ],
@@ -443,12 +359,7 @@
         "topIds": [
           "national.education",
           "category.education",
-          "education.amsterdam-university-college",
-          "education.amsterdam-university-of-applied-sciences",
-          "education.conservatorium-van-amsterdam",
-          "education.gerrit-rietveld-academie",
-          "education.hotelschool-the-hague-amsterdam",
-          "education.inholland-amsterdam"
+          "category.language-learning"
         ],
         "passed": true
       },
@@ -458,12 +369,7 @@
         "topIds": [
           "national.education",
           "category.education",
-          "category.language-learning",
-          "education.tio-business-school-amsterdam",
-          "education.hotelschool-the-hague-amsterdam",
-          "education.amsterdam-university-college",
-          "education.amsterdam-university-of-applied-sciences",
-          "education.conservatorium-van-amsterdam"
+          "category.language-learning"
         ],
         "passed": true
       },
@@ -471,14 +377,8 @@
         "query": "university",
         "expected": "national.education",
         "topIds": [
-          "education.university-of-amsterdam",
-          "education.amsterdam-university-college",
-          "education.amsterdam-university-of-applied-sciences",
           "national.education",
-          "category.education",
-          "education.inholland-amsterdam",
-          "education.vrije-universiteit-amsterdam",
-          "education.conservatorium-van-amsterdam"
+          "category.education"
         ],
         "passed": true
       },
@@ -487,13 +387,7 @@
         "expected": "national.education",
         "topIds": [
           "national.education",
-          "category.education",
-          "education.amsterdam-university-college",
-          "education.amsterdam-university-of-applied-sciences",
-          "education.conservatorium-van-amsterdam",
-          "education.gerrit-rietveld-academie",
-          "education.hotelschool-the-hague-amsterdam",
-          "education.inholland-amsterdam"
+          "category.education"
         ],
         "passed": true
       },
@@ -503,12 +397,7 @@
         "topIds": [
           "national.education",
           "category.education",
-          "education.inholland-amsterdam",
-          "education.amsterdam-university-college",
-          "education.amsterdam-university-of-applied-sciences",
-          "education.conservatorium-van-amsterdam",
-          "education.gerrit-rietveld-academie",
-          "education.hotelschool-the-hague-amsterdam"
+          "category.language-learning"
         ],
         "passed": true
       },
@@ -518,12 +407,7 @@
         "topIds": [
           "national.education",
           "category.education",
-          "education.amsterdam-university-college",
-          "education.amsterdam-university-of-applied-sciences",
-          "education.conservatorium-van-amsterdam",
-          "education.gerrit-rietveld-academie",
-          "education.hotelschool-the-hague-amsterdam",
-          "education.inholland-amsterdam"
+          "category.language-learning"
         ],
         "passed": true
       },
@@ -533,12 +417,7 @@
         "topIds": [
           "national.education",
           "category.education",
-          "education.amsterdam-university-college",
-          "education.amsterdam-university-of-applied-sciences",
-          "education.conservatorium-van-amsterdam",
-          "education.gerrit-rietveld-academie",
-          "education.hotelschool-the-hague-amsterdam",
-          "education.inholland-amsterdam"
+          "category.language-learning"
         ],
         "passed": true
       },
@@ -548,12 +427,7 @@
         "topIds": [
           "national.education",
           "category.education",
-          "education.amsterdam-university-college",
-          "education.amsterdam-university-of-applied-sciences",
-          "education.conservatorium-van-amsterdam",
-          "education.gerrit-rietveld-academie",
-          "education.hotelschool-the-hague-amsterdam",
-          "education.inholland-amsterdam"
+          "category.language-learning"
         ],
         "passed": true
       },
@@ -562,10 +436,7 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
-          "category.sim-telecom",
-          "municipality.gm0965",
-          "municipality.gm1930",
-          "province.pv31"
+          "category.sim-telecom"
         ],
         "passed": true
       },
@@ -583,8 +454,7 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
-          "category.sim-telecom",
-          "municipality.gm0118"
+          "category.sim-telecom"
         ],
         "passed": true
       },
@@ -603,8 +473,8 @@
         "query": "internet",
         "expected": "national.telecom",
         "topIds": [
-          "national.telecom",
           "category.internet",
+          "national.telecom",
           "category.sim-telecom"
         ],
         "passed": true
@@ -651,12 +521,7 @@
         "topIds": [
           "national.rules-fines",
           "category.transport",
-          "transport.amsterdam-amstel-station",
-          "transport.amsterdam-bijlmer-arena-station",
-          "transport.amsterdam-centraal-station",
-          "transport.amsterdam-holendrecht-station",
-          "transport.amsterdam-lelylaan-station",
-          "transport.amsterdam-muiderpoort-station"
+          "category.rules"
         ],
         "passed": true
       },
@@ -3206,13 +3071,9 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "municipality.gm0518",
           "category.housing",
-          "page.journeys",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "page.journeys"
         ],
         "passed": true
       },
@@ -3221,13 +3082,9 @@
         "expected": "national.housing",
         "topIds": [
           "national.housing",
+          "municipality.gm0518",
           "category.housing",
-          "page.journeys",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "page.journeys"
         ],
         "passed": true
       },
@@ -3236,6 +3093,7 @@
         "expected": "national.work",
         "topIds": [
           "national.work",
+          "municipality.gm0546",
           "category.work",
           "category.business",
           "national.documents",
@@ -3250,13 +3108,9 @@
         "expected": "national.healthcare",
         "topIds": [
           "national.healthcare",
+          "municipality.gm0599",
           "category.healthcare",
-          "page.emergency",
-          "healthcare.acta",
-          "healthcare.amsterdam-umc-location-amc",
-          "healthcare.amsterdam-umc-location-vumc",
-          "healthcare.antoni-van-leeuwenhoek",
-          "healthcare.arkin"
+          "page.emergency"
         ],
         "passed": true
       },
@@ -3265,13 +3119,9 @@
         "expected": "national.education",
         "topIds": [
           "national.education",
+          "municipality.gm0014",
           "category.education",
-          "category.language-learning",
-          "education.tio-business-school-amsterdam",
-          "education.hotelschool-the-hague-amsterdam",
-          "education.amsterdam-university-college",
-          "education.amsterdam-university-of-applied-sciences",
-          "education.conservatorium-van-amsterdam"
+          "category.language-learning"
         ],
         "passed": true
       },
@@ -3280,6 +3130,7 @@
         "expected": "national.documents",
         "topIds": [
           "national.documents",
+          "municipality.gm0772",
           "category.documents"
         ],
         "passed": true
@@ -3289,6 +3140,7 @@
         "expected": "national.telecom",
         "topIds": [
           "national.telecom",
+          "municipality.gm0935",
           "category.sim-telecom"
         ],
         "passed": true
@@ -3298,6 +3150,7 @@
         "expected": "national.rules-fines",
         "topIds": [
           "national.rules-fines",
+          "municipality.gm0344",
           "category.fines"
         ],
         "passed": true
@@ -3309,13 +3162,9 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "municipality.gm0518",
           "category.housing",
-          "housing.renting-a-home-in-amsterdam",
-          "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "page.journeys"
         ],
         "passed": true
       },
@@ -3324,13 +3173,9 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "municipality.gm0518",
           "category.housing",
-          "housing.renting-a-home-in-amsterdam",
-          "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "page.journeys"
         ],
         "passed": true
       },
@@ -3339,13 +3184,9 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "municipality.gm0518",
           "category.housing",
-          "housing.renting-a-home-in-amsterdam",
-          "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "page.journeys"
         ],
         "passed": true
       },
@@ -3354,13 +3195,9 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "municipality.gm0518",
           "category.housing",
-          "housing.renting-a-home-in-amsterdam",
-          "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "page.journeys"
         ],
         "passed": true
       },
@@ -3369,13 +3206,9 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "municipality.gm0518",
           "category.housing",
-          "housing.renting-a-home-in-amsterdam",
-          "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "page.journeys"
         ],
         "passed": true
       },
@@ -3384,13 +3217,9 @@
         "canonical": "s-gravenhage",
         "topIds": [
           "national.housing",
+          "municipality.gm0518",
           "category.housing",
-          "housing.renting-a-home-in-amsterdam",
-          "page.journeys",
-          "housing.woon",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam"
+          "page.journeys"
         ],
         "passed": true
       }
@@ -3402,12 +3231,9 @@
         "topIds": [
           "national.housing",
           "national.documents",
-          "housing.affordable-housing-amsterdam",
-          "housing.housing-permit-amsterdam",
-          "housing.woon",
-          "housing.renting-a-home-in-amsterdam",
-          "housing.woningnet-stadsregio-amsterdam",
-          "category.housing"
+          "category.housing",
+          "category.benefits",
+          "page.journeys"
         ],
         "passed": true
       },
@@ -3436,11 +3262,11 @@
           "national.documents",
           "national.housing",
           "national.education",
-          "government_service.first-registration-in-amsterdam",
           "category.business",
           "category.children",
           "category.documents",
-          "category.education"
+          "category.education",
+          "category.family"
         ],
         "passed": true
       },
@@ -3481,8 +3307,8 @@
       },
       {
         "guide": "national.housing",
-        "url": "https://www.huurcommissie.nl/huurcommissie-helpt/english-information",
-        "checkedAt": "2026-08-05",
+        "url": "https://www.huurcommissie.nl/service/contact",
+        "checkedAt": "2026-09-19",
         "valid": true
       },
       {

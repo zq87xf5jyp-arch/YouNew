@@ -1,0 +1,290 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "catalog-safety",
+      "title": "How were the 170 stale Amsterdam records handled?",
+      "assumptions": [
+        "HTTP reachability, a redirect, or a restricted response does not confirm any catalogue fact.",
+        "A record remains unconfirmed until named fields are compared with an authoritative source."
+      ],
+      "queries": [
+        {
+          "id": "phase4-amsterdam-disposition",
+          "source": {
+            "label": "YouNew governed catalog disposition",
+            "files": [
+              { "label": "phase4-amsterdam-stale-disposition.json" },
+              { "label": "public-freshness-exclusions.json" },
+              { "label": "public-content.json" },
+              { "label": "phase4-predeploy-2026-10-23.log" }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Confirmed current",
+                "definition": "Confirmed current counts records whose named facts received field-level review against a recorded authoritative source."
+              },
+              {
+                "label": "Safely excluded",
+                "definition": "Safely excluded counts stale effective-head records blocked from generated public pages and SEO output without deleting their governed source data."
+              }
+            ],
+            "filters": [
+              "Effective published Amsterdam baseline",
+              "As-of date: 23 October 2026",
+              "First source-observation wave: 50 records"
+            ],
+            "caveats": [
+              "The public package contains seven accepted governed records; the 170 exclusions remain editorial freshness debt."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Partition check",
+                "detail": "The 177 governed source records reconcile to seven accepted public records plus 170 exact freshness exclusions."
+              },
+              {
+                "kind": "validation",
+                "title": "Public package check",
+                "detail": "The public-safe data-health gate found no excluded record in the generated public dataset."
+              }
+            ]
+          },
+          "reportingPeriod": "23 October 2026",
+          "columns": [
+            { "field": "metric", "label": "Metric" },
+            { "field": "count", "label": "Count" }
+          ],
+          "rows": [
+            { "metric": "Problem records", "count": 170 },
+            { "metric": "Critical", "count": 108 },
+            { "metric": "Secondary", "count": 62 },
+            { "metric": "Confirmed current", "count": 0 },
+            { "metric": "Safely excluded", "count": 170 },
+            { "metric": "Priority source observations", "count": 50 }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "Complete aggregate of the Phase 4 Amsterdam disposition; row-level details remain in the governed JSON and CSV."
+          }
+        }
+      ]
+    },
+    {
+      "id": "database-and-edge",
+      "title": "Did the migration chain and application round trip pass?",
+      "queries": [
+        {
+          "id": "disposable-database-validation",
+          "source": {
+            "label": "YouNew disposable Supabase evidence",
+            "files": [
+              { "label": "prepare-final.log" },
+              { "label": "db-reset-definitive.log" },
+              { "label": "targeted-pgtap-definitive.log" },
+              { "label": "full-supabase-test-db-definitive.log" },
+              { "label": "db-lint-final-clean.log" },
+              { "label": "edge-e2e-evidence.md" }
+            ],
+            "links": [
+              { "href": "https://supabase.com/docs/guides/local-development/testing/overview", "label": "Supabase testing overview" },
+              { "href": "https://supabase.com/docs/guides/database/extensions/pgtap", "label": "Supabase pgTAP" }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Complete database tests",
+                "definition": "Complete database tests are the pgTAP assertions executed after a clean disposable reset across all 15 SQL test files."
+              },
+              {
+                "label": "Successful Edge round trip",
+                "definition": "A successful Edge round trip returned HTTP 201 and produced the expected application, consent and PII-minimised notification records in the isolated database."
+              }
+            ],
+            "filters": [
+              "Local disposable Supabase only",
+              "Production database not contacted",
+              "EN and NL application routes"
+            ],
+            "caveats": [
+              "A hosted staging project was not modified; the isolated staging target was the local disposable stack."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Source migration integrity",
+                "detail": "Fifty-two historical source migrations and 18 pending migrations were checked byte-for-byte; generated compatibility normalisations stayed outside the source files."
+              },
+              {
+                "kind": "validation",
+                "title": "Security tests",
+                "detail": "The suite exercised RLS, relation privileges, function execution, rate limits, deduplication and notification privacy."
+              },
+              {
+                "kind": "validation",
+                "title": "Round-trip persistence",
+                "detail": "The two isolated HTTP submissions returned distinct confirmation IDs and exactly two expected application rows before fixture cleanup."
+              }
+            ]
+          },
+          "reportingPeriod": "23 October 2026",
+          "columns": [
+            { "field": "check", "label": "Check" },
+            { "field": "result", "label": "Result" }
+          ],
+          "rows": [
+            { "check": "Focused pgTAP", "result": "392/392 PASS" },
+            { "check": "Complete pgTAP", "result": "404/404 PASS" },
+            { "check": "Database lint", "result": "No schema errors" },
+            { "check": "EN Edge application", "result": "HTTP 201 and persisted" },
+            { "check": "NL Edge application", "result": "HTTP 201 and persisted" }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "Recorded validation outcomes; synthetic form values and credentials are excluded."
+          }
+        }
+      ]
+    },
+    {
+      "id": "restore-rehearsal",
+      "title": "Was backup restoration actually rehearsed?",
+      "queries": [
+        {
+          "id": "isolated-restore",
+          "source": {
+            "label": "YouNew restore verification",
+            "files": [
+              { "label": "restore-verification.json" },
+              { "label": "restore-inventory.json" },
+              { "label": "restore-rehearsal-definitive.log" },
+              { "label": "younew-20261023T181035Z.dump.age.manifest.json" }
+            ],
+            "links": [
+              { "href": "https://supabase.com/docs/guides/platform/backups", "label": "Supabase database backups" },
+              { "href": "https://supabase.com/docs/guides/platform/clone-project", "label": "Supabase restore to a new project" }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Restore pass",
+                "definition": "Restore pass means the encrypted logical archive restored into a fresh isolated PostgreSQL target and the recorded schema and managed-boundary inventory matched."
+              }
+            ],
+            "filters": [
+              "Archive timestamp: 23 October 2026 18:10:35 UTC",
+              "Restore target: isolated local database",
+              "PostgreSQL version: 17.6"
+            ],
+            "caveats": [
+              "The one-second RTO is a local synthetic measurement and is not a production recovery promise.",
+              "RPO requires the timestamp of the real production backup.",
+              "Database dumps contain Storage metadata, not Storage object payloads; Edge functions and project settings are checked separately."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Integrity check",
+                "detail": "The restore used the manifest-bound archive and managed-boundary companion; digest mismatch is a hard failure."
+              },
+              {
+                "kind": "validation",
+                "title": "Restored inventory",
+                "detail": "The isolated target contained 43 public tables, 98 policies, 61 functions, three buckets and 52 migration records."
+              }
+            ]
+          },
+          "reportingPeriod": "23 October 2026",
+          "columns": [
+            { "field": "metric", "label": "Restored metric" },
+            { "field": "value", "label": "Value" }
+          ],
+          "rows": [
+            { "metric": "Status", "value": "PASS" },
+            { "metric": "Public tables", "value": 43 },
+            { "metric": "RLS policies", "value": 98 },
+            { "metric": "Database functions", "value": 61 },
+            { "metric": "Storage buckets", "value": 3 },
+            { "metric": "Migration records", "value": 52 }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "Complete aggregate inventory from the isolated restore verifier."
+          }
+        }
+      ]
+    },
+    {
+      "id": "partner-contact-readiness",
+      "title": "How many companies are ready for lawful first contact?",
+      "assumptions": [
+        "A company website, public general contact page or business-interest page is not by itself consent for digital direct marketing.",
+        "Ready for contact requires a recorded human decision that the exact channel and purpose are legally appropriate."
+      ],
+      "queries": [
+        {
+          "id": "phase4-partner-wave",
+          "source": {
+            "label": "YouNew Phase 4 partner verification wave",
+            "files": [
+              { "label": "business-partner-verification-wave-1.json" },
+              { "label": "business-partner-status-tracker.csv" },
+              { "label": "business-partner-offers-nl-phase3.md" }
+            ],
+            "links": [
+              { "href": "https://autoriteitpersoonsgegevens.nl/en/themes/internet-and-smart-devices/advertising/digital-direct-marketing", "label": "Dutch DPA digital direct marketing" }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Identity evidence",
+                "definition": "Identity evidence counts supplied organisations whose name and identity were observed on their official public site."
+              },
+              {
+                "label": "Ready for lawful contact",
+                "definition": "Ready for lawful contact counts organisations with both a suitable published channel and a documented channel-specific legal decision; no such decisions were completed."
+              }
+            ],
+            "filters": [
+              "Supplied wave: 30 organisations",
+              "No personal email extraction",
+              "No automated outreach",
+              "No message sent"
+            ],
+            "caveats": [
+              "Fourteen records can advance to manual legal and channel review but are not approved for sending."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Identity and route classification",
+                "detail": "Identity evidence was observed for 27 organisations and public routes for 16; route purpose was classified separately."
+              },
+              {
+                "kind": "validation",
+                "title": "No false contact status",
+                "detail": "The tracker records zero ready, sent, replied, interested and registered organisations."
+              }
+            ]
+          },
+          "reportingPeriod": "23 October 2026",
+          "columns": [
+            { "field": "metric", "label": "Metric" },
+            { "field": "count", "label": "Count" }
+          ],
+          "rows": [
+            { "metric": "Companies", "count": 30 },
+            { "metric": "Identity evidence", "count": 27 },
+            { "metric": "Official public route observed", "count": 16 },
+            { "metric": "Manual legal/channel review", "count": 14 },
+            { "metric": "Inbound or research only", "count": 16 },
+            { "metric": "Ready for lawful contact", "count": 0 },
+            { "metric": "Messages sent", "count": 0 },
+            { "metric": "Registered", "count": 0 }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "Aggregate status only; direct contact identifiers are deliberately excluded."
+          }
+        }
+      ]
+    }
+  ]
+}

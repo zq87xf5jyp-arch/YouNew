@@ -7,32 +7,22 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-import {
-  BUSINESS_INQUIRY_STATUS_LABELS,
-  type BusinessInquiryStatus
-} from "@/lib/business-inquiry-pipeline";
-
-export type BusinessInquiryListRow = {
-  id: string;
-  reference_code: string;
-  company_name: string;
-  contact_person: string;
-  email: string;
-  inquiry_type: string;
-  status: BusinessInquiryStatus;
-  offer_interest: string;
-  status_changed_at: string;
-  source_page: string;
-  created_at: string;
-};
+import { inquiryLabels, type InquirySchema, type CompatibleInquiryListRow } from "@/lib/business-inquiry-compatibility";
+import type { BusinessInquiryIntegrityIssue } from "@/lib/business-inquiry-admin";
+export type { BusinessInquiryListRow } from "@/lib/business-inquiry-admin";
 
 export function BusinessInquiryList({
   rows,
-  available
+  available,
+  schema,
+  integrityIssues = []
 }: {
-  rows: BusinessInquiryListRow[];
+  rows: CompatibleInquiryListRow[];
+  schema: InquirySchema;
   available: boolean;
+  integrityIssues?: BusinessInquiryIntegrityIssue[];
 }) {
+  const BUSINESS_INQUIRY_STATUS_LABELS = inquiryLabels(schema);
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("");
   const filtered = useMemo(() => {
@@ -58,7 +48,7 @@ export function BusinessInquiryList({
             <CardTitle>Входящие бизнес-заявки</CardTitle>
             <CardDescription>
               {available
-                ? `${rows.length} заявок · показано ${filtered.length}`
+                ? `Последняя ограниченная выборка: ${rows.length} заявок · после локальных фильтров показано ${filtered.length}. Глобальный total не заявляется.`
                 : "Таблица business_inquiries пока недоступна в подключённом Supabase."}
             </CardDescription>
           </div>
@@ -81,9 +71,14 @@ export function BusinessInquiryList({
         </div>
       </CardHeader>
       <CardContent>
+        {integrityIssues.length > 0 ? (
+          <p className="mb-4 rounded-md border border-red-400/30 bg-red-400/10 p-3 text-sm text-red-100" role="alert">
+            Data integrity error: {integrityIssues.length} заявок скрыто из списка из-за отсутствующих обязательных полей. Значения и контакты не записаны в сообщение об ошибке.
+          </p>
+        ) : null}
         <div className="overflow-x-auto">
           <table className="younew-table">
-            <thead><tr><th>ID</th><th>Компания</th><th>Тип</th><th>Статус</th><th>Создано</th><th /></tr></thead>
+            <thead><tr><th>ID</th><th>Компания</th><th>Тип</th><th>Статус</th><th>Создано (Амстердам)</th><th>Действия</th></tr></thead>
             <tbody>
               {filtered.map((row) => (
                 <tr key={row.id}>
@@ -91,11 +86,11 @@ export function BusinessInquiryList({
                   <td><p className="font-medium">{row.company_name}</p><p className="text-xs text-muted-foreground">{row.contact_person} · {row.email}</p></td>
                   <td>{row.inquiry_type}</td>
                   <td><Badge variant={row.status === "new" ? "warning" : row.status === "won" ? "success" : row.status === "lost" ? "destructive" : "secondary"}>{BUSINESS_INQUIRY_STATUS_LABELS[row.status]}</Badge></td>
-                  <td>{new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short" }).format(new Date(row.created_at))}</td>
+                  <td>{new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Amsterdam" }).format(new Date(row.created_at))}</td>
                   <td><Link className="text-cyan-200 underline-offset-4 hover:underline" href={`/business-inquiries/${row.id}`}>Открыть</Link></td>
                 </tr>
               ))}
-              {filtered.length === 0 ? <tr><td colSpan={6} className="py-10 text-center text-muted-foreground">Заявок по выбранным фильтрам нет.</td></tr> : null}
+              {filtered.length === 0 ? <tr><td colSpan={6} className="py-10 text-center text-muted-foreground">{available ? "В загруженных заявках нет совпадений." : "Количество заявок неизвестно: источник недоступен."}</td></tr> : null}
             </tbody>
           </table>
         </div>

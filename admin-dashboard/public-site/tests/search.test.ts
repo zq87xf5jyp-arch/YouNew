@@ -29,7 +29,7 @@ const index = JSON.parse(
 ) as { schemaVersion: number; documents: SearchDocument[] };
 const content = JSON.parse(
   await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8")
-) as { entities: Array<{ id: string; status: string }>; categories: Array<{ id: string }> };
+) as { entities: Array<{ id: string; status: string; indexable: boolean }>; categories: Array<{ id: string }> };
 const geography = JSON.parse(
   await readFile(new URL("../src/generated/netherlands-geography.json", import.meta.url), "utf8")
 ) as { municipalities: Array<{ code: string }>; provinces: Array<{ code: string }> };
@@ -62,9 +62,9 @@ test("search normalizes accents and ranks exact titles first", () => {
 });
 
 test("search tolerates a useful typo without returning the whole index", () => {
-  const results = rankModule.rankSearchDocuments(index.documents, "Rijksmusem");
+  const results = rankModule.rankSearchDocuments(index.documents, "Begijnhf");
   assert.ok(results.length > 0);
-  assert.match(results[0].document.title, /Rijksmuseum/i);
+  assert.match(results[0].document.title, /Begijnhof/i);
   assert.ok(results.length < index.documents.length);
 });
 

@@ -58,17 +58,21 @@ pnpm dlx supabase@2.109.1 migration list --linked
 pnpm dlx supabase@2.109.1 db push --dry-run
 ```
 
-The reviewed 2026-08-18 source state is 24 applied production migrations with
-exact local bytes, two manifest-recorded timestamp aliases, and five explicitly
+The reviewed 2026-08-19 source state is 24 applied production migrations with
+exact local bytes, two manifest-recorded timestamp aliases, and seven explicitly
 pending migrations: `20260818145801_harden_analytics_ingest_windows_rls` and
 `20260818191112_harden_business_inquiry_pipeline` and
 `20260818192423_deduplicate_business_inquiry_submissions` and
 `20260818193310_extend_lead_analytics_funnel` and
-`20260818194626_add_business_inquiry_notification_inbox`. Stop on any missing version,
+`20260818194626_add_business_inquiry_notification_inbox` and
+`20260818235619_enforce_monetization_retention_and_private_reports` and
+`20260819080242_allow_geo_relevance_analytics`. Stop on any missing version,
 hash drift, unrecorded pending migration or destructive statement. No pending
 migration is authorized by `GO LIVE`; database apply requires its own
-explicit approval after all five migration-specific pgTAP suites (81 assertions
-total) pass on a disposable database and backup evidence is recorded. The `0001` through
+explicit approval after all seven migration-specific pgTAP suites (81 core plus
+67 retention/aggregation plus 43 geo analytics assertions; 191 targeted) pass
+on a disposable database and backup
+evidence is recorded. The `0001` through
 `0006` files are historical bootstrap and must not be included as new
 production migrations.
 

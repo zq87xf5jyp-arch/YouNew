@@ -111,7 +111,7 @@ export function validateBusinessApplication(input: BusinessApplicationInput): Bu
   if (input.description.trim().length > 600) errors.description = "Keep the description under 600 characters for the email handoff.";
   if (!input.consentToPrivacy) errors.consentToPrivacy = "Consent to the Privacy Policy is required.";
   if (!input.confirmAccuracy) errors.confirmAccuracy = "Confirm that the submitted information is accurate.";
-  if (!["/business/apply/", "/partners/apply/"].includes(input.sourcePage)) errors.sourcePage = "The inquiry source page is invalid.";
+  if (!["/business/apply/", "/partners/apply/", "/for-business/local/apply/", "/nl/voor-bedrijven/aanmelden/"].includes(input.sourcePage)) errors.sourcePage = "The inquiry source page is invalid.";
 
   return { valid: Object.keys(errors).length === 0, errors };
 }

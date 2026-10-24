@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { NextStepPlanner } from "@/components/next-step-planner";
 import { PageShell } from "@/components/page-shell";
@@ -39,6 +40,13 @@ export default function StartPage() {
 
       <section className="section-shell start-planner-section" aria-label="Personal route planner">
         <NextStepPlanner guides={guides} municipalities={municipalities} />
+      </section>
+      <section className="business-section section-shell" aria-labelledby="optional-arrival-planner">
+        <p className="section-label cyan">Optional planning tool</p>
+        <h2 className="mb-4 text-3xl font-semibold tracking-tight" id="optional-arrival-planner">Keep an editable plan of your own.</h2>
+        <p>Arrival Planner is a ready-made HTML template you edit yourself, with JSON save and restore, calendar export and printing. The guidance and route above stay free.</p>
+        <p>€14.99 is a test amount only; no real charge. Real sales are not open, and the final sales price and tax treatment are not set. The planned product has no subscription or automatic renewal.</p>
+        <Link className="button button-outline" href="/arrival-planner/">Explore the optional Arrival Planner</Link>
       </section>
     </PageShell>
   );

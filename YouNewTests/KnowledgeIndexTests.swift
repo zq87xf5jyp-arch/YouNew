@@ -57,7 +57,8 @@ struct KnowledgeIndexTests {
         #expect(index.items.contains { $0.type == .dutchTerm })
         #expect(index.items.contains { $0.type == .letter })
         #expect(index.items.contains { $0.type == .resource })
-        #expect(index.items.contains { $0.type == .localPartner && $0.city == "Rotterdam" })
+        #expect(NetherlandsKnowledgeDatabase.shared.entities(kind: .localPartner).contains { $0.cityId == "Rotterdam" })
+        #expect(index.items.filter { $0.type == .localPartner }.allSatisfy { !$0.sources.compactMap(\.url).isEmpty })
         #expect(index.items.contains { $0.type == .knmModule })
         #expect(index.items.contains { $0.type == .dutchCourseModule })
     }
@@ -89,7 +90,8 @@ struct KnowledgeIndexTests {
 
     @Test func unifiedDatabaseFeedsSearchAndKnowledgeGraph() throws {
         let database = NetherlandsKnowledgeDatabase.shared
-        let (index, engine) = auditedSearchContext()
+        let index = auditedKnowledgeIndex()
+        let engine = auditedPartnerSearchEngine()
 
         #expect(database.entity(id: "city:leiden") != nil)
         #expect(database.entity(id: "source:government-brp") != nil)
@@ -104,7 +106,7 @@ struct KnowledgeIndexTests {
         let placeResults = engine.search("Rijksmuseum Amsterdam", language: .english, scope: .allContentWithOutsidePathWarning, limit: 12)
         #expect(placeResults.contains { $0.item.title(.english).localizedCaseInsensitiveContains("Rijksmuseum") })
 
-        let partnerResults = engine.search("lawyer Eindhoven", language: .english, scope: .allContentWithOutsidePathWarning, limit: 12)
+        let partnerResults = auditedPartnerSearchEngine().search("lawyer Eindhoven", language: .english, scope: .allContentWithOutsidePathWarning, limit: 12)
         #expect(partnerResults.contains { $0.item.type == .localPartner || $0.item.category.localizedCaseInsensitiveContains("legal") })
     }
 
@@ -254,11 +256,11 @@ struct KnowledgeIndexTests {
         }
     }
 
-    @Test func localPartnersAreIndexedForEverySupportedCityAndCoreCategory() {
-        let (index, engine) = auditedSearchContext()
+    @Test func auditedLocalPartnerCatalogCoversEverySupportedCityAndCoreCategory() {
+        let index = auditedKnowledgeIndex()
         let partners = index.items.filter { $0.type == .localPartner }
-        let cities = Set(CityDashboardContentData.supportedCityNames)
-        let indexedCities = Set(partners.compactMap(\.city))
+        let cities = Set(CityDashboardContentData.supportedCityNames.map(KnowledgeNormalizer.normalize))
+        let indexedCities = Set(partners.compactMap(\.city).map(KnowledgeNormalizer.normalize))
         let requiredSubcategories: Set<String> = [
             "Hotels",
             "Restaurants",
@@ -280,8 +282,8 @@ struct KnowledgeIndexTests {
         #expect(cities.isSubset(of: indexedCities))
         #expect(requiredSubcategories.isSubset(of: indexedSubcategories))
         #expect(partners.allSatisfy { !$0.sources.compactMap(\.url).isEmpty })
-        #expect(engine.search("dentist Rotterdam", language: .english, activePersona: .worker).contains { $0.item.type == .localPartner && $0.item.city == "Rotterdam" })
-        #expect(engine.search("language school Eindhoven", language: .english, activePersona: .student).contains { $0.item.type == .localPartner && $0.item.city == "Eindhoven" })
+        #expect(auditedPartnerSearchEngine().search("dentist Rotterdam", language: .english, activePersona: .worker).contains { $0.item.type == .localPartner && $0.item.city == "Rotterdam" })
+        #expect(auditedPartnerSearchEngine().search("language school Eindhoven", language: .english, activePersona: .student).contains { $0.item.type == .localPartner && $0.item.city == "Eindhoven" })
     }
 
     @Test func studentEindhovenScenarioConnectsLifeStepsAndRealLocalServices() {
@@ -928,10 +930,10 @@ struct KnowledgeIndexTests {
         }
     }
 
-    @Test func aiContextCarriesRouteSearchProgressAndCompletionSignals() {
+    @Test func aiContextCarriesProgressWithoutReadingLegacySearchText() {
         let defaultsKey = "question_search_recent_v1"
         let previous = UserDefaults.standard.stringArray(forKey: defaultsKey)
-        UserDefaults.standard.set(["BSN appointment", "health insurance"], forKey: defaultsKey)
+        UserDefaults.standard.set(["person@example.invalid", "BSN 123456782"], forKey: defaultsKey)
         defer { UserDefaults.standard.set(previous, forKey: defaultsKey) }
 
         let appState = AppStateViewModel()
@@ -955,7 +957,7 @@ struct KnowledgeIndexTests {
         #expect(context.selectedCity == "Leiden")
         #expect(context.selectedProvince == "Zuid-Holland")
         #expect(context.recentRouteIDs.contains("guide:documents"))
-        #expect(context.lastSearches.contains("BSN appointment"))
+        #expect(context.lastSearches.isEmpty)
         #expect(context.completedChecklistItemIDs.isEmpty == false)
         #expect(context.completedGuideIDs.contains("guide:documents"))
         #expect(context.completedGuideIDs.contains("search") == false)
@@ -966,16 +968,17 @@ struct KnowledgeIndexTests {
         KnowledgeIndex(items: auditedKnowledgeItems())
     }
 
-    private func auditedSearchContext() -> (KnowledgeIndex, AppSearchEngine) {
+    private func auditedPartnerSearchEngine() -> AppSearchEngine {
+        let auditDate = Date(timeIntervalSince1970: 1_785_412_800) // 2026-07-30T12:00:00Z
         let items = auditedKnowledgeItems()
-        let index = KnowledgeIndex(items: items)
-        let repository = ContentRepository(legacyItems: items, now: Self.auditDate, performsValidation: false)
-        return (index, AppSearchEngine(index: index, repository: repository))
+        return AppSearchEngine(
+            index: KnowledgeIndex(items: items),
+            repository: ContentRepository(legacyItems: items, now: auditDate, performsValidation: false)
+        )
     }
 
     private func auditedKnowledgeItems() -> [KnowledgeItem] {
-        KnowledgeIndexBuilder.buildItems(now: Self.auditDate)
+        let auditDate = Date(timeIntervalSince1970: 1_785_412_800) // 2026-07-30T12:00:00Z
+        return KnowledgeIndexBuilder.buildItems(now: auditDate)
     }
-
-    private static let auditDate = Date(timeIntervalSince1970: 1_786_276_800) // 2026-08-09T12:00:00Z, deterministic audit reference
 }

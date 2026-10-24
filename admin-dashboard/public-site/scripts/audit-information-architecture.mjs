@@ -53,9 +53,14 @@ const canonicalOwners = new Map();
 const titleOwners = new Map();
 const lowChoicePages = [];
 const lowTextPages = [];
+const noIndexRoutes = new Set();
 
 for (const [sourceRoute, file] of routeEntries) {
   const html = await readFile(file, "utf8");
+  const noIndex = /<meta\b[^>]*\bname=["']robots["'][^>]*\bcontent=["'][^"']*noindex/i.test(html)
+    || /<meta\b[^>]*\bcontent=["'][^"']*noindex[^"']*["'][^>]*\bname=["']robots["']/i.test(html);
+  if (noIndex) noIndexRoutes.add(sourceRoute);
+  const auditExcluded = noIndex || ["/404/", "/404.html", "/offline/"].includes(sourceRoute);
   const main = html.match(/<main\b[^>]*>([\s\S]*?)<\/main>/i)?.[1] ?? "";
   const outgoing = new Set();
 
@@ -70,20 +75,20 @@ for (const [sourceRoute, file] of routeEntries) {
     if (target && target !== sourceRoute) outgoing.add(target);
   }
 
-  if (main && outgoing.size <= 1) lowChoicePages.push({ route: sourceRoute, outgoing: [...outgoing] });
-  if (main && readableText(main).length < 120) lowTextPages.push({ route: sourceRoute, textLength: readableText(main).length });
+  if (!auditExcluded && main && outgoing.size <= 1) lowChoicePages.push({ route: sourceRoute, outgoing: [...outgoing] });
+  if (!auditExcluded && main && readableText(main).length < 120) lowTextPages.push({ route: sourceRoute, textLength: readableText(main).length });
 
   const canonical = html.match(/<link\b[^>]*\brel=["']canonical["'][^>]*\bhref=["']([^"']+)/i)?.[1]
     ?? html.match(/<link\b[^>]*\bhref=["']([^"']+)["'][^>]*\brel=["']canonical["']/i)?.[1];
-  if (canonical) canonicalOwners.set(canonical, [...(canonicalOwners.get(canonical) ?? []), sourceRoute]);
+  if (!auditExcluded && canonical) canonicalOwners.set(canonical, [...(canonicalOwners.get(canonical) ?? []), sourceRoute]);
 
   const title = html.match(/<title>(.*?)<\/title>/i)?.[1]?.trim();
-  if (title) titleOwners.set(title, [...(titleOwners.get(title) ?? []), sourceRoute]);
+  if (!auditExcluded && title) titleOwners.set(title, [...(titleOwners.get(title) ?? []), sourceRoute]);
 }
 
 const ignoredRoutes = new Set(["/404/", "/404.html", "/offline/"]);
 const orphanRoutes = [...incoming]
-  .filter(([route, sources]) => route !== "/" && !ignoredRoutes.has(route) && sources.size === 0)
+  .filter(([route, sources]) => route !== "/" && !ignoredRoutes.has(route) && !noIndexRoutes.has(route) && sources.size === 0)
   .map(([route]) => route)
   .sort();
 const duplicateCanonicals = [...canonicalOwners]

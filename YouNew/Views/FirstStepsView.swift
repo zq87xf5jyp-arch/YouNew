@@ -69,7 +69,7 @@ struct FirstStepsView: View {
                 title: localized(en: "Transport", nl: "Vervoer", ru: "Транспорт"),
                 subtitle: localized(en: "Learn check-in rules, route planning, and local operators before commuting.", nl: "Leer incheckregels, routeplanning en lokale vervoerders voordat je reist.", ru: "Изучите правила check-in, маршруты и местных операторов перед поездками."),
                 destination: .practicalGuide(.transportBasics),
-                sourceURL: AppURL.make("https://www.government.nl/topics/mobility-public-transport-and-road-safety"),
+                sourceURL: AppURL.make("https://www.government.nl/themes/transport"),
                 tint: AppColors.dutchOrange
             ),
             FirstStepItem(
@@ -1000,7 +1000,7 @@ private extension PracticalGuideTopic {
                 sourceTitle: sourceTitle(lang),
                 sourceName: "Government.nl",
                 sourceDescription: text(lang, "Official information about mobility, public transport, and road safety.", "Officiële informatie over mobiliteit, openbaar vervoer en verkeersveiligheid.", "Официальная информация о мобильности, общественном транспорте и безопасности движения."),
-                sourceURL: AppURL.make("https://www.government.nl/topics/mobility-public-transport-and-road-safety"),
+                sourceURL: AppURL.make("https://www.government.nl/themes/transport"),
                 mapFocus: .transport
             )
         case .housingBasics:

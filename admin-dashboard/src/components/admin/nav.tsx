@@ -25,6 +25,7 @@ import { canAccessPath, type AdminRole } from "@/lib/authorization";
 const items = [
   { href: "/dashboard", label: "Панель", icon: LayoutDashboard },
   { href: "/analytics", label: "Аналитика", icon: BarChart3 },
+  { href: "/finance", label: "Финансы", icon: BarChart3 },
   { href: "/sync", label: "Синхронизация", icon: RefreshCcw },
   { href: "/trust", label: "Trust & Review", icon: ShieldEllipsis },
   { href: "/content", label: "Контент", icon: BookOpen },
@@ -54,6 +55,7 @@ export function AdminSidebar({ pathname, role }: { pathname: string; role: Admin
             <Link
               href={item.href}
               key={item.href}
+              aria-current={active ? "page" : undefined}
               className={cn(
                 "flex items-center gap-3 rounded-md px-3 py-2.5 text-sm font-medium text-muted-foreground transition hover:bg-secondary hover:text-foreground",
                 active && "bg-primary/15 text-orange-100 ring-1 ring-primary/25"
@@ -70,7 +72,7 @@ export function AdminSidebar({ pathname, role }: { pathname: string; role: Admin
           <ShieldCheck className="size-4" />
           <p className="text-sm font-semibold">Защита админки активна</p>
         </div>
-        <p className="mt-2 text-xs text-muted-foreground">Доступ только для одобренных ролей. Все изменения пишутся в журнал.</p>
+        <p className="mt-2 text-xs text-muted-foreground">Доступ только для одобренных ролей. Права доступа проверяются сервером.</p>
       </div>
     </aside>
   );
@@ -86,6 +88,7 @@ export function AdminMobileNav({ pathname, role }: { pathname: string; role: Adm
           <Link
             href={item.href}
             key={item.href}
+            aria-current={active ? "page" : undefined}
             className={cn(
               "inline-flex shrink-0 items-center gap-2 rounded-md border border-border bg-secondary/60 px-3 py-2 text-sm font-medium text-muted-foreground",
               active && "border-primary/40 bg-primary/15 text-orange-100"

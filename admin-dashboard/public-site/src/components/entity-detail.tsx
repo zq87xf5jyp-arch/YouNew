@@ -14,6 +14,7 @@ import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 const labels = { city: "Cities", guide: "Guides", organization: "Organizations", place: "Places" } as const;
 const roots = { city: "/cities", guide: "/guides", organization: "/organizations", place: "/places" } as const;
+const launchCityGuideSlugs = new Set(["amsterdam", "rotterdam", "den-haag", "utrecht", "eindhoven"]);
 
 export function EntityDetail({ entity, related }: { entity: ContentEntity; related: readonly ContentEntity[] }) {
   const reportSubject = encodeURIComponent(`Outdated information: ${entity.title} (${entity.id})`);
@@ -115,7 +116,7 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
           <h2>{entity.source.publisher}</h2>
           <p>{entity.source.title}</p>
           <dl>
-            <div><dt>Last verified</dt><dd><time dateTime={entity.verifiedAt}>{entity.verifiedAt}</time></dd></div>
+            <div><dt>Source checked</dt><dd><time dateTime={entity.verifiedAt}>{entity.verifiedAt}</time></dd></div>
             <div><dt>Content release</dt><dd>{entity.releaseId}</dd></div>
             <div><dt>Jurisdiction</dt><dd>Netherlands{entity.cityId ? ` · ${entity.cityId.replaceAll("-", " ")}` : ""}</dd></div>
           </dl>
@@ -128,7 +129,7 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
         <section className="section-shell city-topic-directory" aria-labelledby="city-topics-title">
           <div className="listing-heading">
             <div><span>Published local directory</span><h2 id="city-topics-title">Explore {entity.title} by topic</h2><p>These links reflect current YouNew coverage and do not imply a complete city directory.</p></div>
-            <Link href={`/map?city=${entity.slug}`}>Open the city map <ArrowRight aria-hidden /></Link>
+            <div>{launchCityGuideSlugs.has(entity.slug) ? <Link href={`/city-guides/${entity.slug}`}>Open the city guide <ArrowRight aria-hidden /></Link> : null}<Link href={`/map?city=${entity.slug}`}>Open the city map <ArrowRight aria-hidden /></Link></div>
           </div>
           <div className="city-topic-grid">
             {topicGroups.slice(0, 8).map((group) => (

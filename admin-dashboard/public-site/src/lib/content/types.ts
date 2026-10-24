@@ -245,6 +245,7 @@ export interface ContentEntity {
   readonly source: PublicSource;
   readonly trust: ContentTrust;
   readonly governance: ContentGovernanceEnvelope | null;
+  readonly indexable: boolean;
   readonly verifiedAt: string;
   readonly updatedAt: string;
   readonly releaseId: string;

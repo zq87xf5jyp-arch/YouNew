@@ -12,6 +12,8 @@ export const paths = Object.freeze({
   geography: resolve(publicSiteRoot, "src/generated/netherlands-geography.json"),
   nationalGuides: resolve(publicSiteRoot, "src/content/national-guides.json"),
   taxonomy: resolve(publicSiteRoot, "src/data/life-domain-taxonomy.json"),
+  freshnessExclusions: resolve(publicSiteRoot, "src/generated/public-freshness-exclusions.json"),
+  legacyGovernanceConfirmations: resolve(publicSiteRoot, "../../DataProject/quality/phase6-1-public-record-confirmations.json"),
   content: resolve(publicSiteRoot, "src/generated/public-content.json"),
   search: resolve(publicSiteRoot, "public/data/search-index.json"),
   provenance: resolve(publicSiteRoot, "public/data/content-provenance.json")
@@ -20,7 +22,40 @@ export const paths = Object.freeze({
 const geography = JSON.parse(await readFile(paths.geography, "utf8"));
 const nationalGuideDataset = JSON.parse(await readFile(paths.nationalGuides, "utf8"));
 const lifeDomains = JSON.parse(await readFile(paths.taxonomy, "utf8"));
+const freshnessExclusions = JSON.parse(await readFile(paths.freshnessExclusions, "utf8"));
+const legacyGovernanceConfirmations = JSON.parse(await readFile(paths.legacyGovernanceConfirmations, "utf8"));
 const lifeDomainBySlug = new Map(lifeDomains.map((domain) => [domain.slug, domain]));
+
+if (
+  freshnessExclusions?.schemaVersion !== 1 ||
+  freshnessExclusions?.policy !== "fail_closed_until_field_level_reverification" ||
+  !Array.isArray(freshnessExclusions?.records) ||
+  freshnessExclusions.records.length !== freshnessExclusions.count ||
+  new Set(freshnessExclusions.records.map((record) => record?.id)).size !== freshnessExclusions.records.length ||
+  freshnessExclusions.records.some((record) => !record?.id || record?.reason !== "freshness_sla_expired")
+) {
+  throw new Error("The governed public freshness-exclusion registry is missing or invalid.");
+}
+const freshnessExcludedEntityIds = new Set(freshnessExclusions.records.map((record) => record.id));
+
+if (
+  legacyGovernanceConfirmations?.schema_version !== 1 ||
+  legacyGovernanceConfirmations?.policy !== "explicit_source_bound_legacy_review_disposition" ||
+  legacyGovernanceConfirmations?.human_review_credit !== false ||
+  legacyGovernanceConfirmations?.independent_review_credit !== false ||
+  !Array.isArray(legacyGovernanceConfirmations?.records) ||
+  legacyGovernanceConfirmations.records.length !== 6 ||
+  new Set(legacyGovernanceConfirmations.records.map((record) => record?.id)).size !== legacyGovernanceConfirmations.records.length ||
+  legacyGovernanceConfirmations.records.some((record) =>
+    !record?.id || !record?.release_id || record?.record_status !== "legacy_not_confirmed" || record?.indexing_strategy !== "noindex" || !record?.exact_source_url?.startsWith("https://") ||
+    !Array.isArray(record?.confirmed_claims) || record.confirmed_claims.length === 0 || !record?.governance
+  )
+) {
+  throw new Error("The source-bound legacy governance-confirmation registry is missing or invalid.");
+}
+const legacyGovernanceConfirmationById = new Map(
+  legacyGovernanceConfirmations.records.map((record) => [record.id, record])
+);
 
 if (nationalGuideDataset?.schemaVersion !== 1 || !Array.isArray(nationalGuideDataset.guides) || nationalGuideDataset.guides.length === 0) {
   throw new Error("The national guide dataset is missing or invalid.");
@@ -518,19 +553,50 @@ function titleFromSlug(value) {
     .join(" ");
 }
 
+function normalizeImageSourceDescription(value) {
+  const normalized = cleanText(value, 500)
+    .replace(/^File:/i, "")
+    .replace(/\.(?:avif|gif|jpe?g|png|webp)$/i, "")
+    .replace(/_/g, " ")
+    .replace(/\s+,/g, ",")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (normalized.length <= 160) return normalized;
+  const shortened = normalized.slice(0, 159).replace(/\s+\S*$/, "").trim();
+  return `${shortened || normalized.slice(0, 159)}…`;
+}
+
+function imageSourceDescription(image) {
+  const attribution = cleanText(image?.attribution, 500);
+  const quotedTitle = attribution.match(/^["“]([^"”]+)["”]\s+by\b/i)?.[1];
+  if (quotedTitle) return normalizeImageSourceDescription(quotedTitle);
+
+  const sourceURL = cleanURL(image?.sourcePageURL) ?? cleanURL(image?.assetURL);
+  if (!sourceURL) return "";
+
+  try {
+    const pathname = new URL(sourceURL).pathname;
+    const filename = normalizeImageSourceDescription(decodeURIComponent(pathname.split("/").filter(Boolean).at(-1) ?? ""));
+    return /^\d+$/.test(filename) ? "" : filename;
+  } catch {
+    return "";
+  }
+}
+
 function sanitizeImage(image, entityTitle) {
-  if (!image || image.verified !== true) return null;
+  if (!image || image.verified !== true || image.id === "media.museum.amsterdam-museum.thumbnail.3e34aacbba") return null;
   const url = cleanPublicAssetPath(image.publicAssetPath) ?? cleanURL(image.assetURL);
   if (!url) return null;
 
   const role = new Set(["hero", "thumbnail", "gallery", "map_preview"]).has(image.role)
     ? image.role
     : "gallery";
+  const sourceDescription = imageSourceDescription(image);
   return {
     id: cleanIdentifier(image.id) || `media.${hash(url, 12)}`,
     role,
     url,
-    alt: cleanText(image.alt, 300) || `${entityTitle} — ${role.replace("_", " ")}`,
+    alt: cleanText(image.alt, 300) || (sourceDescription ? `${entityTitle}: ${sourceDescription}` : `${entityTitle} in the Netherlands`),
     attribution: cleanText(image.attribution, 500),
     license: cleanText(image.license, 80),
     licenseUrl: cleanURL(image.licenseURL),
@@ -542,6 +608,7 @@ function sanitizeImage(image, entityTitle) {
 function isPublishableEntity(entity, publishedReleaseIds) {
   return Boolean(
     entity &&
+      !freshnessExcludedEntityIds.has(entity.id) &&
       entityTypeFor(entity.kind) &&
       categoryFor(entity) &&
       publishedReleaseIds.has(entity.attributes?.dataProjectRelease) &&
@@ -551,6 +618,26 @@ function isPublishableEntity(entity, publishedReleaseIds) {
       entity.attributes?.verificationStatus === "verified" &&
       entity.source?.status === "verified_opened"
   );
+}
+
+function governanceInputFor(entity) {
+  if (entity.governance != null) return entity.governance;
+  const confirmation = legacyGovernanceConfirmationById.get(entity.id);
+  if (!confirmation) return null;
+
+  const releaseId = cleanIdentifier(entity.attributes?.dataProjectRelease);
+  const sourceURL = cleanURL(entity.source?.url);
+  const expectedURL = cleanURL(confirmation.exact_source_url);
+  if (releaseId !== confirmation.release_id) {
+    throw new Error(`Legacy governance confirmation release mismatch for ${entity.id}.`);
+  }
+  if (sourceURL !== expectedURL || cleanURL(confirmation.governance?.officialSourceURL) !== expectedURL) {
+    throw new Error(`Legacy governance confirmation source URL mismatch for ${entity.id}.`);
+  }
+  if (entity.source?.isOfficial !== true || entity.source?.status !== "verified_opened") {
+    throw new Error(`Legacy governance confirmation requires a checked official source for ${entity.id}.`);
+  }
+  return confirmation.governance;
 }
 
 function sanitizeEntity(entity, slug) {
@@ -565,7 +652,9 @@ function sanitizeEntity(entity, slug) {
   const provinceId = slugify(entity.provinceId);
   const isLocalPartner = sourceKind === "localPartner";
   const sourceUrl = cleanURL(entity.source?.url);
-  const verifiedAt = cleanDate(entity.source?.checkedAt) ?? cleanDate(entity.lastChecked);
+  const governance = sanitizeGovernanceEnvelope(governanceInputFor(entity), id);
+  const legacyDisposition = legacyGovernanceConfirmationById.get(id);
+  const verifiedAt = cleanDate(governance?.lastVerifiedAt) ?? cleanDate(entity.source?.checkedAt) ?? cleanDate(entity.lastChecked);
 
   if (!id || !sourceKind || !type || !broadCategorySlug || !title || !summary || !sourceUrl || !verifiedAt) {
     throw new Error(`Published entity ${entity.id ?? "<missing id>"} is missing a required public field.`);
@@ -633,7 +722,8 @@ function sanitizeEntity(entity, slug) {
       sourceChecked: true,
       officialSource: !isLocalPartner && entity.source?.isOfficial === true
     },
-    governance: sanitizeGovernanceEnvelope(entity.governance, id),
+    governance,
+    indexable: legacyDisposition?.indexing_strategy !== "noindex",
     verifiedAt,
     updatedAt: cleanDate(entity.lastChecked) ?? verifiedAt,
     releaseId: cleanIdentifier(entity.attributes?.dataProjectRelease),
@@ -660,6 +750,13 @@ function buildCategories(entities) {
 
   for (const domain of lifeDomains) {
     if (!buckets.has(domain.slug)) buckets.set(domain.slug, []);
+  }
+
+  // Preserve useful category landing routes even when every underlying local
+  // record is temporarily withheld by the freshness gate. The pages render an
+  // explicit empty state and are noindexed until they contain current records.
+  for (const slug of Object.keys(broadCategoryDefinitions)) {
+    if (!buckets.has(slug)) buckets.set(slug, []);
   }
 
   return [...buckets.entries()]
@@ -735,6 +832,7 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       provinceId: entity.provinceId,
       municipalityId: canonicalMunicipalityId(entity.cityId),
       locationScope: entity.cityId ? (entity.type === "organization" ? "organization" : "city") : entity.provinceId ? "province" : "national",
+      serviceAreaCityIds: [],
       country: "NL",
       categories: entity.categorySlugs,
       intents: entity.categorySlugs,
@@ -777,6 +875,7 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     provinceId: null,
     municipalityId: null,
     locationScope: "national",
+    serviceAreaCityIds: [],
     country: "NL",
     categories: [guide.category],
     intents: guide.intents,
@@ -822,6 +921,7 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       provinceId: null,
       municipalityId: null,
       locationScope: "national",
+      serviceAreaCityIds: [],
       country: "NL",
       categories: [category.slug],
       intents: [...new Set([category.slug, ...(domain?.intents.map((intent) => intent.id) ?? [])])],
@@ -856,6 +956,7 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     provinceId: null,
     municipalityId: null,
     locationScope: page.id === "page.emergency" ? "emergency" : "national",
+    serviceAreaCityIds: [],
     country: "NL",
     intents: page.id === "page.emergency" ? [...new Set([...page.categories, "emergency"])] : page.categories,
     languages: ["en"],
@@ -892,6 +993,7 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     provinceId: municipality.provinceSlug,
     municipalityId: canonicalMunicipalityId(municipality.slug),
     locationScope: "municipality",
+    serviceAreaCityIds: [],
     country: "NL",
     scope: "municipal",
     locationAliases: municipality.slug === "s-gravenhage"
@@ -950,6 +1052,7 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
     provinceId: province.slug,
     municipalityId: null,
     locationScope: "province",
+    serviceAreaCityIds: [],
     country: "NL",
     categories: [],
     intents: ["government"],
@@ -1034,8 +1137,9 @@ export function buildPublicDataset(runtime, { verifyChecksum = true } = {}) {
   const guides = entities.filter((entity) => entity.type === "guide");
   const organizations = entities.filter((entity) => entity.type === "organization");
   const places = entities.filter((entity) => entity.type === "place");
-  const categories = buildCategories(entities.filter((entity) => entity.type !== "city"));
-  const provinces = buildProvinces(entities);
+  const indexableEntities = entities.filter((entity) => entity.indexable);
+  const categories = buildCategories(indexableEntities.filter((entity) => entity.type !== "city"));
+  const provinces = buildProvinces(indexableEntities);
   const citiesById = new Map(cities.map((city) => [city.cityId, city]));
   const provincesById = new Map(provinces.map((province) => [province.slug, province]));
 
@@ -1092,12 +1196,14 @@ export function buildPublicDataset(runtime, { verifyChecksum = true } = {}) {
       releaseStatus: "published",
       recordLifecycleStatus: "published",
       recordVerificationStatus: "verified",
-      sourceStatus: "verified_opened"
+      sourceStatus: "verified_opened",
+      temporaryFreshnessExclusionPolicy: freshnessExclusions.policy
     },
     counts: {
       sourceRecords: sourceEntities.length,
       acceptedRecords: entities.length,
-      excludedRecords: sourceEntities.length - entities.length
+      excludedRecords: sourceEntities.length - entities.length,
+      freshnessExcludedRecords: sourceEntities.filter((entity) => freshnessExcludedEntityIds.has(entity.id)).length
     }
   };
 

@@ -25,13 +25,14 @@ const legacyPages = await Promise.all([
   "business/apply/page.tsx"
 ].map((path) => readFile(new URL(path, appRoot), "utf8")));
 
-test("the canonical employer page uses the owner-approved promise and CTAs verbatim", () => {
-  assert.match(forBusiness, /For employers and relocation teams/);
-  assert.match(forBusiness, /Give international employees one clear place to start in the Netherlands\./);
-  assert.match(forBusiness, /YouNew turns verified public information about registration, healthcare, housing, work and daily life into practical, location-aware steps\./);
-  assert.match(forBusiness, /Request a 90-day pilot/);
-  assert.match(forBusiness, /View sample report/);
-  assert.match(forBusiness, /YouNew provides practical navigation, not individual legal, medical or tax advice\. Critical guidance links to official sources and displays its latest verification date\./);
+test("the canonical business page routes local businesses and employers without merging their offers", () => {
+  assert.match(forBusiness, /For local businesses, employers and relocation teams/);
+  assert.match(forBusiness, /Build a useful, trusted presence for newcomers\./);
+  assert.match(forBusiness, /Add or claim a business/);
+  assert.match(forBusiness, /Explore employee pilot/);
+  assert.match(forBusiness, /Free reviewed request · add or claim/);
+  assert.match(forBusiness, /90-day pilot · €1,500 excl\. VAT/);
+  assert.match(forBusiness, /Commercial activity never buys official status or organic ranking\./);
 });
 
 test("the pilot page fixes the approved scope and honest founding price", () => {
@@ -78,6 +79,7 @@ test("navigation and sitemap expose only the approved canonical commercial route
   const navigation = `${sitemap}\n${header}\n${footer}`;
   for (const route of [
     "/for-business",
+    "/for-business/local",
     "/for-business/pilot",
     "/for-business/demo-report",
     "/partners",

@@ -6,13 +6,15 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { CONTENT_IMAGE_LIMIT, type ManagedContentImage } from "@/lib/content-images";
-import { removeContentImage, uploadContentImages } from "@/lib/supabase/content-image-storage";
+import { uploadContentImages } from "@/lib/supabase/content-image-storage";
 
 type ContentImageUploaderProps = {
   images: ManagedContentImage[];
   folder: string;
   enabled: boolean;
+  persistedPaths: readonly string[];
   onChange: (images: ManagedContentImage[]) => void;
+  onRemove: (image: ManagedContentImage, wasPersisted: boolean) => void;
   onNotice: (message: string) => void;
 };
 
@@ -21,7 +23,7 @@ function formatBytes(bytes: number) {
   return `${(bytes / (1024 * 1024)).toFixed(1)} МБ`;
 }
 
-export function ContentImageUploader({ images, folder, enabled, onChange, onNotice }: ContentImageUploaderProps) {
+export function ContentImageUploader({ images, folder, enabled, persistedPaths, onChange, onRemove, onNotice }: ContentImageUploaderProps) {
   const inputRef = useRef<HTMLInputElement>(null);
   const [busy, setBusy] = useState(false);
   const [dragging, setDragging] = useState(false);
@@ -36,9 +38,9 @@ export function ContentImageUploader({ images, folder, enabled, onChange, onNoti
 
     setBusy(true);
     try {
-      const uploaded = await uploadContentImages(files, folder, images.length);
-      onChange([...images, ...uploaded]);
-      onNotice(`Загружено в Supabase Storage: ${uploaded.length}. URL созданы автоматически.`);
+      const result = await uploadContentImages(files, folder, images.length);
+      if (result.images.length > 0) onChange([...images, ...result.images]);
+      onNotice(result.warning ?? `Загружено в Supabase Storage: ${result.images.length}. URL созданы автоматически.`);
     } catch (error) {
       onNotice(error instanceof Error ? error.message : "Не удалось загрузить изображения.");
     } finally {
@@ -47,20 +49,12 @@ export function ContentImageUploader({ images, folder, enabled, onChange, onNoti
     }
   }
 
-  async function removeImage(image: ManagedContentImage) {
-    if (!window.confirm(`Удалить изображение «${image.alt || "без подписи"}» из Supabase Storage?`)) return;
-    setBusy(true);
-    try {
-      await removeContentImage(image.path);
-      const remaining = images.filter((candidate) => candidate.id !== image.id);
-      if (image.role === "cover" && remaining[0]) remaining[0] = { ...remaining[0], role: "cover" };
-      onChange(remaining);
-      onNotice("Изображение удалено из Supabase Storage.");
-    } catch (error) {
-      onNotice(error instanceof Error ? error.message : "Не удалось удалить изображение.");
-    } finally {
-      setBusy(false);
-    }
+  function removeImage(image: ManagedContentImage) {
+    if (!window.confirm(`Убрать изображение «${image.alt || "без подписи"}» из материала?`)) return;
+    const remaining = images.filter((candidate) => candidate.id !== image.id);
+    if (image.role === "cover" && remaining[0]) remaining[0] = { ...remaining[0], role: "cover" };
+    onChange(remaining);
+    onRemove(image, persistedPaths.includes(image.path));
   }
 
   function setCover(id: string) {
@@ -123,7 +117,7 @@ export function ContentImageUploader({ images, folder, enabled, onChange, onNoti
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {image.role !== "cover" ? <Button type="button" size="sm" variant="outline" disabled={busy} onClick={() => setCover(image.id)}><Star className="size-4" /> Сделать обложкой</Button> : null}
-                  <Button type="button" size="sm" variant="ghost" disabled={busy} onClick={() => void removeImage(image)}><Trash2 className="size-4" /> Удалить</Button>
+                  <Button type="button" size="sm" variant="ghost" disabled={busy} onClick={() => removeImage(image)}><Trash2 className="size-4" /> Убрать</Button>
                 </div>
               </div>
             </article>

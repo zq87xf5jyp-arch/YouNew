@@ -21,7 +21,7 @@ function applyTheme(theme: Theme) {
   );
 }
 
-export function ThemeToggle() {
+export function ThemeToggle({ locale = "en" }: { locale?: "en" | "nl" }) {
   const [theme, setTheme] = useState<Theme | null>(null);
 
   useEffect(() => {
@@ -36,19 +36,25 @@ export function ThemeToggle() {
   }
 
   const nextTheme = theme === "light" ? "dark" : "light";
+  const nextThemeLabel = nextTheme === "dark" ? "donkere" : "lichte";
+  const label = locale === "nl"
+    ? theme ? `Schakel naar ${nextThemeLabel} modus` : "Kleurthema wijzigen"
+    : theme ? `Switch to ${nextTheme} mode` : "Change color theme";
+  const localizedAria = locale === "nl" ? { "aria-label": label } : {};
 
   return (
     <button
       className="theme-toggle"
       type="button"
       aria-label={theme ? `Switch to ${nextTheme} mode` : "Change color theme"}
+      {...localizedAria}
       aria-pressed={theme === "light"}
-      title={theme ? `Switch to ${nextTheme} mode` : "Change color theme"}
+      title={label}
       onClick={toggleTheme}
     >
       <Sun className="theme-toggle-sun" aria-hidden />
       <Moon className="theme-toggle-moon" aria-hidden />
-      <span className="visually-hidden">{theme ? `${theme} mode active` : "Color theme"}</span>
+      <span className="visually-hidden">{locale === "nl" ? "Kleurthema" : theme ? `${theme} mode active` : "Color theme"}</span>
     </button>
   );
 }

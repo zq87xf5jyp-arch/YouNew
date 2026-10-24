@@ -1,0 +1,54 @@
+{
+  "checked_at_utc": "2026-09-19T13:15:58.740311+00:00",
+  "status": "LOCAL_CHECKS_PASSED_LAUNCH_BLOCKED",
+  "sources_preserved": true,
+  "tests": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 python3 -m unittest -v",
+      "passed": 25,
+      "failed": 0,
+      "scope": "Copied existing 20 tests plus five retry/integrity regressions"
+    },
+    {
+      "command": "node --test test_reconcile.mjs",
+      "runtime": "Node 24 bundled runtime",
+      "passed": 21,
+      "failed": 0,
+      "scope": "Synthetic provider objects, one pinned SDK in-memory HTTP test, actual Node-to-Python preparation/refreshed retry/refund-denial test"
+    }
+  ],
+  "dependency_install": {
+    "command": "npm ci --offline --ignore-scripts --no-audit --no-fund",
+    "result": "PASS; install used Node22 and warned about required Node24; tests used Node24",
+    "stripe_sdk": "22.6.2",
+    "api_version": "2026-08-26.dahlia",
+    "new_network_install": false
+  },
+  "production_mutations": 0,
+  "provider_api_requests": 0,
+  "new_checkout_sessions": 0,
+  "real_purchases": 0,
+  "real_cash_received_minor": 0,
+  "real_spend_minor": 0,
+  "customer_deliveries": 0,
+  "current_run_billing_status": "NO_LIVE_PAYMENT_ACTIVATION",
+  "gates": [
+    "No Stripe test read key available; actual API readback has not run",
+    "No hosted webhook or continuously running executor",
+    "No customer delivery/access service",
+    "No real agreement/source approval/VAT decision",
+    "Live payment onboarding not completed in existing dashboard evidence"
+  ],
+  "hashes": {
+    "test_reconcile.mjs": "633486d02900e8ea40fbc041e98171c06c8c039c4ab6b128a07953c9047fc247",
+    "reconcile_prepare.py": "8b63f72807dc20cc1154b1e22be77ae80dbf9b739068b86acde2dd17bf2142f1",
+    "PROVENANCE.json": "64086d61979d8d28e892ec2ca997c3f6a2b29b1149b186c50570eebc150f5aa1",
+    "fulfill.py": "761bfcb12411895366f2b054954690c18e91ce41ebf9c53a7fbe9ae78d2eae27",
+    "test_fulfill.py": "b8567c2c8779b754a3d27c82eebfb02a5ff643fa862069e35064f9136fe6d4c2",
+    "README.md": "2a5a54530f3955b6402f27ffd0ae3f8d4dff27ef5638e4ddfe78b464e4221d5e",
+    ".gitignore": "3adcf2b19e11482a2df25e20880dbe78c8787aab6a205a0be5ebd68d8846eb32",
+    "package-lock.json": "6855ab2aebeea868072ab00df094ee57703b161399d4075195dbda7c69292fea",
+    "package.json": "3964af64991229cf09c59d16172d580350d2b23e74f651703f3eb1b20ec93aff",
+    "reconcile.mjs": "8de60e435564e329893c9a7ee87ee242a1c9b1aafb7e8b9af5c564f85eccdda5"
+  }
+}

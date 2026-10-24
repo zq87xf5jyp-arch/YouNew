@@ -38,6 +38,9 @@ export default function SupportPage() {
       <p>
         YouNew.nl is an informational guide. For urgent, legal, medical, financial or immigration matters, verify with official services or qualified professionals.
       </p>
+      <p>
+        Review the <a href="/privacy/">Privacy Policy</a>, check the <a href="/status/">content status</a>, or use the <a href="/emergency/">emergency page</a> when every second counts.
+      </p>
     </ContentPage>
   );
 }

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
-  "nextNumber": 15,
-  "migrationHistoryAlignedAt": "2026-08-01",
+  "nextNumber": 17,
+  "migrationHistoryAlignedAt": "2026-08-18",
   "decisionOwnerPolicy": "accepted ADRs require a real human decision owner",
   "records": [
     {"id": "ADR-001", "file": "0001-content-source-of-truth.md", "status": "proposed"},
@@ -17,6 +17,8 @@
     {"id": "ADR-011", "file": "0011-privacy-safe-search-gap-governance.md", "status": "proposed"},
     {"id": "ADR-012", "file": "0012-search-ready-content-publication-contract.md", "status": "proposed"},
     {"id": "ADR-013", "file": "0013-research-evidence-and-editorial-publication-boundary.md", "status": "proposed"},
-    {"id": "ADR-014", "file": "0014-unapplied-analytics-migration-policy-fix.md", "status": "proposed"}
+    {"id": "ADR-014", "file": "0014-unapplied-analytics-migration-policy-fix.md", "status": "proposed"},
+    {"id": "ADR-015", "file": "0015-server-only-analytics-rls-and-migration-identity.md", "status": "proposed"},
+    {"id": "ADR-016", "file": "0016-bounded-responses-api-before-agent-loop.md", "status": "proposed"}
   ]
 }

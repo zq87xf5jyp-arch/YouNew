@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "source": "YouNew/Resources/Data/younew-runtime-data.json",
-  "generatedAt": "2026-08-01T00:00:00Z",
-  "datasetFingerprint": "72ef389733b1b785092353a75768b3af2dcdf878443f703ccd146156672f3552",
-  "outputChecksum": "62cda6c0866ecb76db5906cae3e02b50134ab4a6b979b1c104dff28392f16425",
-  "sourceSha256": "7882104a60d84f53c186256fbfc1e16782f119bd38e0ccd8603b72bd5d5e0e7e",
+  "generatedAt": "2026-10-23T00:00:00Z",
+  "datasetFingerprint": "f9887ff0ec6a4652414fef94e59f86e6a5679c31cd3c5d397cd2b5165b56ea86",
+  "outputChecksum": "c658b552fcdb314aa82f555dc971f346c0130a3aaeae36c46c1f2de23050dba4",
+  "sourceSha256": "fae92bbb28d19e40530571bfd6d67ae6b344c938b39da02b0647e7e7537695f2",
   "entityCount": 177,
   "publishedReleaseIds": [
     "amsterdam-v0.1.8",

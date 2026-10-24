@@ -2,20 +2,22 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const [homepage, header, footer, analytics, staticShell] = await Promise.all([
+const [homepage, header, footer, analytics, staticShell, homeForm] = await Promise.all([
   readFile(new URL("../src/app/page.tsx", import.meta.url), "utf8"),
   readFile(new URL("../src/components/site-header.tsx", import.meta.url), "utf8"),
   readFile(new URL("../src/components/site-footer.tsx", import.meta.url), "utf8"),
   readFile(new URL("../src/lib/analytics/client.ts", import.meta.url), "utf8"),
-  readFile(new URL("../public/static-shell.js", import.meta.url), "utf8")
+  readFile(new URL("../public/static-shell.js", import.meta.url), "utf8"),
+  readFile(new URL("../src/components/home-search-form.tsx", import.meta.url), "utf8")
 ]);
 
 test("homepage starts with one promise, one task search, and a narrowing journey", () => {
   assert.equal(homepage.match(/<h1\b/g)?.length, 1);
   assert.equal(homepage.match(/<section\b/g)?.length, 9);
   assert.match(homepage, /Your guide to life in the Netherlands\./);
-  assert.match(homepage, /What do you need in the Netherlands\?/);
-  assert.match(homepage, /name="q"/);
+  assert.match(homeForm, /What do you need in the Netherlands\?/);
+  assert.match(homepage, /<HomeSearchForm \/>/);
+  assert.doesNotMatch(homeForm, /name="q"/);
   assert.match(homepage, /What do you need\?/);
   assert.match(homepage, /Life in the Netherlands/);
   assert.match(homepage, /Popular tasks/);
@@ -58,7 +60,7 @@ test("homepage exposes ten user needs and ten concrete popular tasks", () => {
 
   const popularSource = homepage.slice(homepage.indexOf("const popularTasks"), homepage.indexOf("const usefulServices"));
   assert.equal(popularSource.match(/title:/g)?.length, 10);
-  assert.match(popularSource, /title: "Get a BSN"/);
+  assert.match(popularSource, /title: "Apply for a driving licence"/);
   assert.match(popularSource, /title: "Register with a huisarts"/);
 });
 

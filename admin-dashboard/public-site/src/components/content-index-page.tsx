@@ -122,7 +122,15 @@ export function ContentIndexPage({
           <div><span>Published collection</span><h2>Explore all {collectionLabel}</h2><p>Each page shows its source, verification date and related material.</p></div>
         </div>
         <EntityListing entities={listingEntities} viewAllHref={continuationHref} variant="editorial" />
-      </section> : null}
+      </section> : (
+        <section className="section-shell app-content-block content-index-listing">
+          <div className="empty-state">
+            <h2>No current profiles are published here</h2>
+            <p>YouNew does not fill this page with records whose facts are overdue for verification. Use search for current national guidance or choose another category while source review continues.</p>
+            <Link className="button button-outline" href="/search">Search current guidance</Link>
+          </div>
+        </section>
+      )}
 
       <section className="section-shell content-index-trust" aria-label="How YouNew publishes content">
         <div><ShieldCheck aria-hidden /><span><strong>Source trail</strong><small>Responsible links stay visible on detail pages.</small></span></div>

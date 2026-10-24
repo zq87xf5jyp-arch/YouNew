@@ -1,0 +1,267 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-24",
+  "scope": "Fourteen Phase 4 prospects waiting for channel/legal assessment",
+  "legal_note": "Operational risk classification, not legal advice.",
+  "authoritative_references": [
+    "https://autoriteitpersoonsgegevens.nl/en/themes/internet-and-smart-devices/advertising/digital-direct-marketing",
+    "https://autoriteitpersoonsgegevens.nl/nl/onderwerpen/internet-telefoon-tv-en-post/direct-marketing",
+    "https://www.acm.nl/nl/verkoop-aan-consumenten/reclame-en-verleiden/spam-voorkomen-uw-reclame",
+    "https://wetten.overheid.nl/BWBR0009950/#Hoofdstuk11_Artikel11.7"
+  ],
+  "summary": {
+    "reviewed": 14,
+    "ready_for_lawful_first_contact": 0,
+    "specific_purpose_context_requires_human_validation": 3,
+    "general_contact_only": 11,
+    "messages_sent": 0,
+    "personal_contacts_collected": 0
+  },
+  "records": [
+    {
+      "account_name": "BAK",
+      "entity_id": "restaurant.bak",
+      "segment": "restaurants",
+      "official_source_url": "https://bakrestaurant.nl/",
+      "public_routes": [
+        "https://bakrestaurant.nl/contact/"
+      ],
+      "route_assessment": "general_contact_route_only_not_marketing_permission",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Prior consent or a route consciously published for receiving this specific commercial proposal; a general contact page is insufficient.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "Bougainville",
+      "entity_id": "restaurant.bougainville",
+      "segment": "restaurants",
+      "official_source_url": "https://www.restaurantbougainville.com/",
+      "public_routes": [
+        "https://www.restaurantbougainville.com/contact"
+      ],
+      "route_assessment": "general_contact_route_only_not_marketing_permission",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Prior consent or a route consciously published for receiving this specific commercial proposal; a general contact page is insufficient.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "Moeders",
+      "entity_id": "restaurant.moeders",
+      "segment": "restaurants",
+      "official_source_url": "https://moeders.com/en/",
+      "public_routes": [
+        "https://moeders.com/en/contact"
+      ],
+      "route_assessment": "general_contact_route_only_not_marketing_permission",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Prior consent or a route consciously published for receiving this specific commercial proposal; a general contact page is insufficient.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "Bocca Coffee",
+      "entity_id": "cafe.bocca-coffee",
+      "segment": "shops_and_cafes",
+      "official_source_url": "https://bocca.nl/en/pages/contact/",
+      "public_routes": [
+        "https://bocca.nl/en/pages/contact",
+        "https://bocca.nl/pages/contact",
+        "https://bocca.nl/en/pages/business-to-business"
+      ],
+      "route_assessment": "specific_business_or_partnership_context_observed_requires_manual_terms_and_purpose_review",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Human reviewer must confirm that the exact published route expressly invites this type of proposal and record the applicable terms, purpose and objection mechanism.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "Café de Jaren",
+      "entity_id": "cafe.caf-de-jaren",
+      "segment": "shops_and_cafes",
+      "official_source_url": "https://cafedejaren.nl/",
+      "public_routes": [
+        "https://cafedejaren.nl/contact/",
+        "https://cafedejaren.nl/partijen-en-events/zakelijk-event/"
+      ],
+      "route_assessment": "general_contact_route_only_not_marketing_permission",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Prior consent or a route consciously published for receiving this specific commercial proposal; a general contact page is insufficient.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "FUKU Friedhats",
+      "entity_id": "cafe.fuku-friedhats",
+      "segment": "shops_and_cafes",
+      "official_source_url": "https://friedhats.com/fuku",
+      "public_routes": [
+        "https://friedhats.com/contact"
+      ],
+      "route_assessment": "general_contact_route_only_not_marketing_permission",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Prior consent or a route consciously published for receiving this specific commercial proposal; a general contact page is insufficient.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "Lot Sixty One Coffee Roasters",
+      "entity_id": "cafe.lot-sixty-one-coffee-roasters",
+      "segment": "shops_and_cafes",
+      "official_source_url": "https://lot61.com/",
+      "public_routes": [
+        "https://lot61.com/contact"
+      ],
+      "route_assessment": "general_contact_route_only_not_marketing_permission",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Prior consent or a route consciously published for receiving this specific commercial proposal; a general contact page is insufficient.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "White Label Coffee",
+      "entity_id": "cafe.white-label-coffee",
+      "segment": "shops_and_cafes",
+      "official_source_url": "https://www.whitelabelcoffee.nl/",
+      "public_routes": [
+        "https://www.whitelabelcoffee.nl/contact"
+      ],
+      "route_assessment": "general_contact_route_only_not_marketing_permission",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Prior consent or a route consciously published for receiving this specific commercial proposal; a general contact page is insufficient.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "Everaert Advocaten",
+      "entity_id": "local_partner.everaert-advocaten",
+      "segment": "local_services",
+      "official_source_url": "https://www.everaert.nl/en/home/",
+      "public_routes": [
+        "https://www.everaert.nl/en/business-in-the-netherlands/",
+        "https://www.everaert.nl/en/contact-2/"
+      ],
+      "route_assessment": "general_contact_route_only_not_marketing_permission",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Prior consent or a route consciously published for receiving this specific commercial proposal; a general contact page is insufficient.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "Funda",
+      "entity_id": "local_partner.funda",
+      "segment": "local_services",
+      "official_source_url": "https://www.funda.nl/",
+      "public_routes": [
+        "https://www.funda.nl/contact/"
+      ],
+      "route_assessment": "general_contact_route_only_not_marketing_permission",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Prior consent or a route consciously published for receiving this specific commercial proposal; a general contact page is insufficient.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "MacBike Amsterdam",
+      "entity_id": "local_partner.macbike-amsterdam",
+      "segment": "local_services",
+      "official_source_url": "https://www.macbike.nl/",
+      "public_routes": [
+        "https://www.macbike.nl/contact/"
+      ],
+      "route_assessment": "general_contact_route_only_not_marketing_permission",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Prior consent or a route consciously published for receiving this specific commercial proposal; a general contact page is insufficient.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "TCA Taxi Amsterdam",
+      "entity_id": "local_partner.tca-taxi-amsterdam",
+      "segment": "local_services",
+      "official_source_url": "https://www.tcataxi.nl/en/",
+      "public_routes": [
+        "https://www.tcataxi.nl/en/proud-of-our-partners/",
+        "https://www.tcataxi.nl/en/contact/",
+        "https://www.tcataxi.nl/en/business-tca/"
+      ],
+      "route_assessment": "specific_business_or_partnership_context_observed_requires_manual_terms_and_purpose_review",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Human reviewer must confirm that the exact published route expressly invites this type of proposal and record the applicable terms, purpose and objection mechanism.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "Van der Valk Hotel Amsterdam-Amstel",
+      "entity_id": "local_partner.van-der-valk-hotel-amsterdam-amstel",
+      "segment": "local_services",
+      "official_source_url": "https://www.vandervalkamsterdam.com/",
+      "public_routes": [
+        "https://www.vandervalkamsterdam.com/contact"
+      ],
+      "route_assessment": "general_contact_route_only_not_marketing_permission",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Prior consent or a route consciously published for receiving this specific commercial proposal; a general contact page is insufficient.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    },
+    {
+      "account_name": "De Hallen Amsterdam",
+      "entity_id": "place.de-hallen-amsterdam",
+      "segment": "local_services",
+      "official_source_url": "https://www.dehallen-amsterdam.nl/en",
+      "public_routes": [
+        "https://www.dehallen-amsterdam.nl/en/partners",
+        "https://www.dehallen-amsterdam.nl/en/contact"
+      ],
+      "route_assessment": "specific_business_or_partnership_context_observed_requires_manual_terms_and_purpose_review",
+      "permitted_now": "inbound_only_no_outreach",
+      "legal_basis_status": "not_established",
+      "contact_readiness": "hold_do_not_contact",
+      "reviewed_at": "2026-10-24",
+      "next_evidence_required": "Human reviewer must confirm that the exact published route expressly invites this type of proposal and record the applicable terms, purpose and objection mechanism.",
+      "message_sent": false,
+      "personal_contact_collected": false
+    }
+  ]
+}

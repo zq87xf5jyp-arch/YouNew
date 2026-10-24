@@ -25,7 +25,7 @@ concurrency:
 jobs:
   admin-dashboard:
     runs-on: ubuntu-24.04
-    timeout-minutes: 20
+    timeout-minutes: 60
     defaults:
       run:
         working-directory: admin-dashboard
@@ -61,3 +61,17 @@ jobs:
           pnpm dlx deno@2.9.4 check --config supabase/functions/prepare-content-sync/deno.json supabase/functions/prepare-content-sync/index.ts
       - name: Build
         run: pnpm build
+      - name: Install isolated Admin browser
+        run: pnpm exec playwright install --with-deps chromium
+      - name: Run isolated Admin role and viewport matrix
+        run: pnpm test:e2e:admin:isolated
+      - name: Upload isolated Admin evidence
+        if: always()
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: younew-admin-isolated-e2e-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            admin-dashboard/e2e-reports/
+            admin-dashboard/test-results/
+          if-no-files-found: warn
+          retention-days: 14

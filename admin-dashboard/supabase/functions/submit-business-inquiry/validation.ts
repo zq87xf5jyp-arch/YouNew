@@ -146,7 +146,7 @@ export function validateBusinessInquiryPayload(
   if (!validText(value.description, 30, 600)) fields.push("description");
   if (value.consentToPrivacy !== true) fields.push("consentToPrivacy");
   if (value.confirmAccuracy !== true) fields.push("confirmAccuracy");
-  if (!["/business/apply/", "/partners/apply/"].includes(text(value.sourcePage))) {
+  if (!["/business/apply/", "/partners/apply/", "/for-business/local/apply/", "/nl/voor-bedrijven/aanmelden/"].includes(text(value.sourcePage))) {
     fields.push("sourcePage");
   }
 

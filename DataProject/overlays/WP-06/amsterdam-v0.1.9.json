@@ -1,0 +1,753 @@
+{
+  "schema_version": 1,
+  "release_id": "amsterdam-v0.1.9",
+  "version": "0.1.9",
+  "status": "qa",
+  "work_package": "WP-06",
+  "dataset": "Amsterdam City 01",
+  "base_release_id": "amsterdam-v0.1.8",
+  "supersedes": "amsterdam-v0.1.8",
+  "base_batch_sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07",
+  "qa": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "evidence": [
+    {
+      "id": "evidence.phase5.ns-amsterdam-station-list-2026-10-24",
+      "kind": "replacement_review",
+      "url": "https://www.ns.nl/en/travel/destinations/amsterdam",
+      "checked_at": "2026-10-24",
+      "note": "The official NS Amsterdam destination page lists ten Amsterdam stations, including every station in this verification wave. It is evidence for the station names and Amsterdam location, not for mutable departure times."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-amstel-station.official-ns-page",
+      "kind": "replacement_review",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-amstel.html",
+      "checked_at": "2026-10-24",
+      "note": "The official NS page identifies Amsterdam Amstel and provides the current departures, disruption, facilities and map surfaces. No changing timetable, price, opening-hour or availability value is copied."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-amstel-station.osm-coordinate",
+      "kind": "replacement_review",
+      "url": "https://www.openstreetmap.org/node/4040491812",
+      "checked_at": "2026-10-24",
+      "note": "OpenStreetMap node 4040491812 identifies the station as Amsterdam Amstel (or Muiderpoortstation for Amsterdam Muiderpoort) and matches the stored map coordinate."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-bijlmer-arena-station.official-ns-page",
+      "kind": "replacement_review",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-bijlmer-arena.html",
+      "checked_at": "2026-10-24",
+      "note": "The official NS page identifies Amsterdam Bijlmer ArenA and provides the current departures, disruption, facilities and map surfaces. No changing timetable, price, opening-hour or availability value is copied."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-bijlmer-arena-station.osm-coordinate",
+      "kind": "replacement_review",
+      "url": "https://www.openstreetmap.org/node/4005961975",
+      "checked_at": "2026-10-24",
+      "note": "OpenStreetMap node 4005961975 identifies the station as Amsterdam Bijlmer ArenA (or Muiderpoortstation for Amsterdam Muiderpoort) and matches the stored map coordinate."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-centraal-station.official-ns-page",
+      "kind": "replacement_review",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-centraal.html",
+      "checked_at": "2026-10-24",
+      "note": "The official NS page identifies Amsterdam Centraal and provides the current departures, disruption, facilities and map surfaces. No changing timetable, price, opening-hour or availability value is copied."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-centraal-station.osm-coordinate",
+      "kind": "replacement_review",
+      "url": "https://www.openstreetmap.org/node/4290854847",
+      "checked_at": "2026-10-24",
+      "note": "OpenStreetMap node 4290854847 identifies the station as Amsterdam Centraal (or Muiderpoortstation for Amsterdam Muiderpoort) and matches the stored map coordinate."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-holendrecht-station.official-ns-page",
+      "kind": "replacement_review",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-holendrecht.html",
+      "checked_at": "2026-10-24",
+      "note": "The official NS page identifies Amsterdam Holendrecht and provides the current departures, disruption, facilities and map surfaces. No changing timetable, price, opening-hour or availability value is copied."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-holendrecht-station.osm-coordinate",
+      "kind": "replacement_review",
+      "url": "https://www.openstreetmap.org/node/250233810",
+      "checked_at": "2026-10-24",
+      "note": "OpenStreetMap node 250233810 identifies the station as Amsterdam Holendrecht (or Muiderpoortstation for Amsterdam Muiderpoort) and matches the stored map coordinate."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-lelylaan-station.official-ns-page",
+      "kind": "replacement_review",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-lelylaan.html",
+      "checked_at": "2026-10-24",
+      "note": "The official NS page identifies Amsterdam Lelylaan and provides the current departures, disruption, facilities and map surfaces. No changing timetable, price, opening-hour or availability value is copied."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-lelylaan-station.osm-coordinate",
+      "kind": "replacement_review",
+      "url": "https://www.openstreetmap.org/node/4076017504",
+      "checked_at": "2026-10-24",
+      "note": "OpenStreetMap node 4076017504 identifies the station as Amsterdam Lelylaan (or Muiderpoortstation for Amsterdam Muiderpoort) and matches the stored map coordinate."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-muiderpoort-station.official-ns-page",
+      "kind": "replacement_review",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-muiderpoort.html",
+      "checked_at": "2026-10-24",
+      "note": "The official NS page identifies Amsterdam Muiderpoort and provides the current departures, disruption, facilities and map surfaces. No changing timetable, price, opening-hour or availability value is copied."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-muiderpoort-station.osm-coordinate",
+      "kind": "replacement_review",
+      "url": "https://www.openstreetmap.org/way/1409848101",
+      "checked_at": "2026-10-24",
+      "note": "OpenStreetMap way 1409848101 identifies the station as Amsterdam Muiderpoort (or Muiderpoortstation for Amsterdam Muiderpoort) and matches the stored map coordinate."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-rai-station.official-ns-page",
+      "kind": "replacement_review",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-rai.html",
+      "checked_at": "2026-10-24",
+      "note": "The official NS page identifies Amsterdam RAI and provides the current departures, disruption, facilities and map surfaces. No changing timetable, price, opening-hour or availability value is copied."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-rai-station.osm-coordinate",
+      "kind": "replacement_review",
+      "url": "https://www.openstreetmap.org/node/4046323545",
+      "checked_at": "2026-10-24",
+      "note": "OpenStreetMap node 4046323545 identifies the station as Amsterdam RAI (or Muiderpoortstation for Amsterdam Muiderpoort) and matches the stored map coordinate."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-science-park-station.official-ns-page",
+      "kind": "replacement_review",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-science-park.html",
+      "checked_at": "2026-10-24",
+      "note": "The official NS page identifies Amsterdam Science Park and provides the current departures, disruption, facilities and map surfaces. No changing timetable, price, opening-hour or availability value is copied."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-science-park-station.osm-coordinate",
+      "kind": "replacement_review",
+      "url": "https://www.openstreetmap.org/node/7606648992",
+      "checked_at": "2026-10-24",
+      "note": "OpenStreetMap node 7606648992 identifies the station as Amsterdam Science Park (or Muiderpoortstation for Amsterdam Muiderpoort) and matches the stored map coordinate."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-sloterdijk-station.official-ns-page",
+      "kind": "replacement_review",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-sloterdijk.html",
+      "checked_at": "2026-10-24",
+      "note": "The official NS page identifies Amsterdam Sloterdijk and provides the current departures, disruption, facilities and map surfaces. No changing timetable, price, opening-hour or availability value is copied."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-sloterdijk-station.osm-coordinate",
+      "kind": "replacement_review",
+      "url": "https://www.openstreetmap.org/node/3938547498",
+      "checked_at": "2026-10-24",
+      "note": "OpenStreetMap node 3938547498 identifies the station as Amsterdam Sloterdijk (or Muiderpoortstation for Amsterdam Muiderpoort) and matches the stored map coordinate."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-zuid-station.official-ns-page",
+      "kind": "replacement_review",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-zuid.html",
+      "checked_at": "2026-10-24",
+      "note": "The official NS page identifies Amsterdam Zuid and provides the current departures, disruption, facilities and map surfaces. No changing timetable, price, opening-hour or availability value is copied."
+    },
+    {
+      "id": "evidence.phase5.transport-amsterdam-zuid-station.osm-coordinate",
+      "kind": "replacement_review",
+      "url": "https://www.openstreetmap.org/node/5252944882",
+      "checked_at": "2026-10-24",
+      "note": "OpenStreetMap node 5252944882 identifies the station as Amsterdam Zuid (or Muiderpoortstation for Amsterdam Muiderpoort) and matches the stored map coordinate."
+    }
+  ],
+  "replacements": [
+    {
+      "entity_id": "transport.amsterdam-amstel-station",
+      "original_canonical_sha256": "a36c7f0780988c68efcef46e010a2195232d28c8856fb591bb228ed6e9bcd2c6",
+      "replacement_canonical_sha256": "eeff608f5e5906b77afef8ee5db91e302f19ff841b588248c7fef75176945f22",
+      "reason": "Field-level review against the official NS station surfaces and the identified OpenStreetMap object. Optional imagery was removed and public copy was narrowed to the confirmed facts.",
+      "evidence_refs": [
+        "evidence.phase5.ns-amsterdam-station-list-2026-10-24",
+        "evidence.phase5.transport-amsterdam-amstel-station.official-ns-page",
+        "evidence.phase5.transport-amsterdam-amstel-station.osm-coordinate"
+      ],
+      "record": {
+        "id": "transport.amsterdam-amstel-station",
+        "entity_type": "transport",
+        "category": "rail-station",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3464656,
+          "longitude": 4.9175567
+        },
+        "title": "Amsterdam Amstel station",
+        "description": "NS lists Amsterdam Amstel among Amsterdam's railway stations. The official station page provides current departures, disruptions, facilities and a station map. YouNew does not copy changing times or availability; check NS before travel.",
+        "images": [],
+        "official_source": {
+          "title": "Amsterdam Amstel station official website",
+          "publisher": "NS",
+          "url": "https://www.ns.nl/en/station-information/amsterdam-amstel.html",
+          "is_official": true,
+          "checked_at": "2026-10-24",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ns.nl/en/station-information/amsterdam-amstel.html",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-10-24",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Amsterdam Amstel is listed by NS as an Amsterdam station. Use the official NS station page for current departures, disruptions, facilities and the station map.",
+        "search_keywords": [
+          "Amsterdam Amstel",
+          "Amsterdam Amstel Amsterdam",
+          "railway station",
+          "train station Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap node 4040491812; field-reviewed 2026-10-24",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ns.nl/en/station-information/amsterdam-amstel.html",
+          "source_verification_method": "manual_field_level_review_ns_and_openstreetmap",
+          "media_match": "not_applicable",
+          "media_roles_count": "0",
+          "confirmed_fields": "station name; Amsterdam location; rail-station identity; official NS route; map coordinate; absence of copied mutable timetable, price and opening-hour facts"
+        }
+      }
+    },
+    {
+      "entity_id": "transport.amsterdam-bijlmer-arena-station",
+      "original_canonical_sha256": "e5831e20bc3de621529eea2ecef29a4e54d42a01406f950a1d7c1f9ff0d3cd17",
+      "replacement_canonical_sha256": "de753f288c09599da9c9ad54addc64eaeef17e74c18dfd5a831107e51511345d",
+      "reason": "Field-level review against the official NS station surfaces and the identified OpenStreetMap object. Optional imagery was removed and public copy was narrowed to the confirmed facts.",
+      "evidence_refs": [
+        "evidence.phase5.ns-amsterdam-station-list-2026-10-24",
+        "evidence.phase5.transport-amsterdam-bijlmer-arena-station.official-ns-page",
+        "evidence.phase5.transport-amsterdam-bijlmer-arena-station.osm-coordinate"
+      ],
+      "record": {
+        "id": "transport.amsterdam-bijlmer-arena-station",
+        "entity_type": "transport",
+        "category": "rail-station",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3122449,
+          "longitude": 4.9470883
+        },
+        "title": "Amsterdam Bijlmer ArenA station",
+        "description": "NS lists Amsterdam Bijlmer ArenA among Amsterdam's railway stations. The official station page provides current departures, disruptions, facilities and a station map. YouNew does not copy changing times or availability; check NS before travel.",
+        "images": [],
+        "official_source": {
+          "title": "Amsterdam Bijlmer ArenA station official website",
+          "publisher": "NS",
+          "url": "https://www.ns.nl/en/station-information/amsterdam-bijlmer-arena.html",
+          "is_official": true,
+          "checked_at": "2026-10-24",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ns.nl/en/station-information/amsterdam-bijlmer-arena.html",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-10-24",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Amsterdam Bijlmer ArenA is listed by NS as an Amsterdam station. Use the official NS station page for current departures, disruptions, facilities and the station map.",
+        "search_keywords": [
+          "Amsterdam Bijlmer ArenA",
+          "Amsterdam Bijlmer ArenA Amsterdam",
+          "railway station",
+          "train station Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap node 4005961975; field-reviewed 2026-10-24",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ns.nl/en/station-information/amsterdam-bijlmer-arena.html",
+          "source_verification_method": "manual_field_level_review_ns_and_openstreetmap",
+          "media_match": "not_applicable",
+          "media_roles_count": "0",
+          "media_replacement_review": "All replacement source pages, raster assets, subjects, creators and licences reviewed on 2026-07-22; the Funda logo is used only for entity identification and retains its trademark notice.",
+          "media_replacement_modification_note": "Remote Wikimedia Commons raster originals or generated raster thumbnails are used without local modification.",
+          "confirmed_fields": "station name; Amsterdam location; rail-station identity; official NS route; map coordinate; absence of copied mutable timetable, price and opening-hour facts"
+        }
+      }
+    },
+    {
+      "entity_id": "transport.amsterdam-centraal-station",
+      "original_canonical_sha256": "83a85cad442be66520a422fd87ed0d9936f4253a8a456e56607155e73b7e2d23",
+      "replacement_canonical_sha256": "7dfa071f6e0ca031a2330168e7e814cd664ecbab4b10a453cc69990a56eb4293",
+      "reason": "Field-level review against the official NS station surfaces and the identified OpenStreetMap object. Optional imagery was removed and public copy was narrowed to the confirmed facts.",
+      "evidence_refs": [
+        "evidence.phase5.ns-amsterdam-station-list-2026-10-24",
+        "evidence.phase5.transport-amsterdam-centraal-station.official-ns-page",
+        "evidence.phase5.transport-amsterdam-centraal-station.osm-coordinate"
+      ],
+      "record": {
+        "id": "transport.amsterdam-centraal-station",
+        "entity_type": "transport",
+        "category": "rail-station",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.378901,
+          "longitude": 4.9005805
+        },
+        "title": "Amsterdam Centraal station",
+        "description": "NS lists Amsterdam Centraal among Amsterdam's railway stations. The official station page provides current departures, disruptions, facilities and a station map. YouNew does not copy changing times or availability; check NS before travel.",
+        "images": [],
+        "official_source": {
+          "title": "Amsterdam Centraal station official website",
+          "publisher": "NS",
+          "url": "https://www.ns.nl/en/station-information/amsterdam-centraal.html",
+          "is_official": true,
+          "checked_at": "2026-10-24",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ns.nl/en/station-information/amsterdam-centraal.html",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-10-24",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Amsterdam Centraal is listed by NS as an Amsterdam station. Use the official NS station page for current departures, disruptions, facilities and the station map.",
+        "search_keywords": [
+          "Amsterdam Centraal",
+          "Amsterdam Centraal Amsterdam",
+          "railway station",
+          "train station Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap node 4290854847; field-reviewed 2026-10-24",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ns.nl/en/station-information/amsterdam-centraal.html",
+          "source_verification_method": "manual_field_level_review_ns_and_openstreetmap",
+          "media_match": "not_applicable",
+          "media_roles_count": "0",
+          "confirmed_fields": "station name; Amsterdam location; rail-station identity; official NS route; map coordinate; absence of copied mutable timetable, price and opening-hour facts"
+        }
+      }
+    },
+    {
+      "entity_id": "transport.amsterdam-holendrecht-station",
+      "original_canonical_sha256": "b04b5ef706b4cabe09471136c3e90b904b65d0b2d5b1ecfd1d4c612514f78c20",
+      "replacement_canonical_sha256": "9a6aedaba74bc2550fdc6829fd976cf95cf82d7206862f1a90378758bde781a2",
+      "reason": "Field-level review against the official NS station surfaces and the identified OpenStreetMap object. Optional imagery was removed and public copy was narrowed to the confirmed facts.",
+      "evidence_refs": [
+        "evidence.phase5.ns-amsterdam-station-list-2026-10-24",
+        "evidence.phase5.transport-amsterdam-holendrecht-station.official-ns-page",
+        "evidence.phase5.transport-amsterdam-holendrecht-station.osm-coordinate"
+      ],
+      "record": {
+        "id": "transport.amsterdam-holendrecht-station",
+        "entity_type": "transport",
+        "category": "rail-station",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.2979886,
+          "longitude": 4.9601712
+        },
+        "title": "Amsterdam Holendrecht station",
+        "description": "NS lists Amsterdam Holendrecht among Amsterdam's railway stations. The official station page provides current departures, disruptions, facilities and a station map. YouNew does not copy changing times or availability; check NS before travel.",
+        "images": [],
+        "official_source": {
+          "title": "Amsterdam Holendrecht station official website",
+          "publisher": "NS",
+          "url": "https://www.ns.nl/en/station-information/amsterdam-holendrecht.html",
+          "is_official": true,
+          "checked_at": "2026-10-24",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ns.nl/en/station-information/amsterdam-holendrecht.html",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-10-24",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Amsterdam Holendrecht is listed by NS as an Amsterdam station. Use the official NS station page for current departures, disruptions, facilities and the station map.",
+        "search_keywords": [
+          "Amsterdam Holendrecht",
+          "Amsterdam Holendrecht Amsterdam",
+          "railway station",
+          "train station Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap node 250233810; field-reviewed 2026-10-24",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ns.nl/en/station-information/amsterdam-holendrecht.html",
+          "source_verification_method": "manual_field_level_review_ns_and_openstreetmap",
+          "media_match": "not_applicable",
+          "media_roles_count": "0",
+          "confirmed_fields": "station name; Amsterdam location; rail-station identity; official NS route; map coordinate; absence of copied mutable timetable, price and opening-hour facts"
+        }
+      }
+    },
+    {
+      "entity_id": "transport.amsterdam-lelylaan-station",
+      "original_canonical_sha256": "e61e0c28eed8d6ad106583803fa5c51ee18b66bef6ab3ea0f386cab1a73f36cf",
+      "replacement_canonical_sha256": "b7d08f34e506534ab07f0aa9415efbce56f87407d44816ccca5395d8817b3e74",
+      "reason": "Field-level review against the official NS station surfaces and the identified OpenStreetMap object. Optional imagery was removed and public copy was narrowed to the confirmed facts.",
+      "evidence_refs": [
+        "evidence.phase5.ns-amsterdam-station-list-2026-10-24",
+        "evidence.phase5.transport-amsterdam-lelylaan-station.official-ns-page",
+        "evidence.phase5.transport-amsterdam-lelylaan-station.osm-coordinate"
+      ],
+      "record": {
+        "id": "transport.amsterdam-lelylaan-station",
+        "entity_type": "transport",
+        "category": "rail-station",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3578369,
+          "longitude": 4.8340268
+        },
+        "title": "Amsterdam Lelylaan station",
+        "description": "NS lists Amsterdam Lelylaan among Amsterdam's railway stations. The official station page provides current departures, disruptions, facilities and a station map. YouNew does not copy changing times or availability; check NS before travel.",
+        "images": [],
+        "official_source": {
+          "title": "Amsterdam Lelylaan station official website",
+          "publisher": "NS",
+          "url": "https://www.ns.nl/en/station-information/amsterdam-lelylaan.html",
+          "is_official": true,
+          "checked_at": "2026-10-24",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ns.nl/en/station-information/amsterdam-lelylaan.html",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-10-24",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Amsterdam Lelylaan is listed by NS as an Amsterdam station. Use the official NS station page for current departures, disruptions, facilities and the station map.",
+        "search_keywords": [
+          "Amsterdam Lelylaan",
+          "Amsterdam Lelylaan Amsterdam",
+          "railway station",
+          "train station Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap node 4076017504; field-reviewed 2026-10-24",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ns.nl/en/station-information/amsterdam-lelylaan.html",
+          "source_verification_method": "manual_field_level_review_ns_and_openstreetmap",
+          "media_match": "not_applicable",
+          "media_roles_count": "0",
+          "confirmed_fields": "station name; Amsterdam location; rail-station identity; official NS route; map coordinate; absence of copied mutable timetable, price and opening-hour facts"
+        }
+      }
+    },
+    {
+      "entity_id": "transport.amsterdam-muiderpoort-station",
+      "original_canonical_sha256": "ea1ac8b218c7a43d3364c3932bcc1a58bcb8ff89d9894ba4c55fc1322c38de1b",
+      "replacement_canonical_sha256": "1989c87d5539ed1be0fa62e5a151ac334a1b574a2e16d3f2db0f3e48163f8483",
+      "reason": "Field-level review against the official NS station surfaces and the identified OpenStreetMap object. Optional imagery was removed and public copy was narrowed to the confirmed facts.",
+      "evidence_refs": [
+        "evidence.phase5.ns-amsterdam-station-list-2026-10-24",
+        "evidence.phase5.transport-amsterdam-muiderpoort-station.official-ns-page",
+        "evidence.phase5.transport-amsterdam-muiderpoort-station.osm-coordinate"
+      ],
+      "record": {
+        "id": "transport.amsterdam-muiderpoort-station",
+        "entity_type": "transport",
+        "category": "rail-station",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3608208,
+          "longitude": 4.9312094
+        },
+        "title": "Amsterdam Muiderpoort station",
+        "description": "NS lists Amsterdam Muiderpoort among Amsterdam's railway stations. The official station page provides current departures, disruptions, facilities and a station map. YouNew does not copy changing times or availability; check NS before travel.",
+        "images": [],
+        "official_source": {
+          "title": "Amsterdam Muiderpoort station official website",
+          "publisher": "NS",
+          "url": "https://www.ns.nl/en/station-information/amsterdam-muiderpoort.html",
+          "is_official": true,
+          "checked_at": "2026-10-24",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ns.nl/en/station-information/amsterdam-muiderpoort.html",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-10-24",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Amsterdam Muiderpoort is listed by NS as an Amsterdam station. Use the official NS station page for current departures, disruptions, facilities and the station map.",
+        "search_keywords": [
+          "Amsterdam Muiderpoort",
+          "Amsterdam Muiderpoort Amsterdam",
+          "railway station",
+          "train station Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap way 1409848101; field-reviewed 2026-10-24",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ns.nl/en/station-information/amsterdam-muiderpoort.html",
+          "source_verification_method": "manual_field_level_review_ns_and_openstreetmap",
+          "media_match": "not_applicable",
+          "media_roles_count": "0",
+          "confirmed_fields": "station name; Amsterdam location; rail-station identity; official NS route; map coordinate; absence of copied mutable timetable, price and opening-hour facts"
+        }
+      }
+    },
+    {
+      "entity_id": "transport.amsterdam-rai-station",
+      "original_canonical_sha256": "4a9d315f2692d11752f208d609587545e5c661acccde9fd6bd211bd987771cb1",
+      "replacement_canonical_sha256": "7e9ae09928a4fe84e189101ffcbf20f53ef2cfa817e4cfa7ccc6ac65cf7c9818",
+      "reason": "Field-level review against the official NS station surfaces and the identified OpenStreetMap object. Optional imagery was removed and public copy was narrowed to the confirmed facts.",
+      "evidence_refs": [
+        "evidence.phase5.ns-amsterdam-station-list-2026-10-24",
+        "evidence.phase5.transport-amsterdam-rai-station.official-ns-page",
+        "evidence.phase5.transport-amsterdam-rai-station.osm-coordinate"
+      ],
+      "record": {
+        "id": "transport.amsterdam-rai-station",
+        "entity_type": "transport",
+        "category": "rail-station",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3370349,
+          "longitude": 4.8902289
+        },
+        "title": "Amsterdam RAI station",
+        "description": "NS lists Amsterdam RAI among Amsterdam's railway stations. The official station page provides current departures, disruptions, facilities and a station map. YouNew does not copy changing times or availability; check NS before travel.",
+        "images": [],
+        "official_source": {
+          "title": "Amsterdam RAI station official website",
+          "publisher": "NS",
+          "url": "https://www.ns.nl/en/station-information/amsterdam-rai.html",
+          "is_official": true,
+          "checked_at": "2026-10-24",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ns.nl/en/station-information/amsterdam-rai.html",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-10-24",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Amsterdam RAI is listed by NS as an Amsterdam station. Use the official NS station page for current departures, disruptions, facilities and the station map.",
+        "search_keywords": [
+          "Amsterdam RAI",
+          "Amsterdam RAI Amsterdam",
+          "railway station",
+          "train station Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap node 4046323545; field-reviewed 2026-10-24",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ns.nl/en/station-information/amsterdam-rai.html",
+          "source_verification_method": "manual_field_level_review_ns_and_openstreetmap",
+          "media_match": "not_applicable",
+          "media_roles_count": "0",
+          "confirmed_fields": "station name; Amsterdam location; rail-station identity; official NS route; map coordinate; absence of copied mutable timetable, price and opening-hour facts"
+        }
+      }
+    },
+    {
+      "entity_id": "transport.amsterdam-science-park-station",
+      "original_canonical_sha256": "ffea82009c7cb225d7539b7b6a5688c3d74b3e1d42d85f08ae6ea1477be5e673",
+      "replacement_canonical_sha256": "5ba23295bc5f8968171d2778500fd3c2f430760d77ce6244d21bc76454f4cf58",
+      "reason": "Field-level review against the official NS station surfaces and the identified OpenStreetMap object. Optional imagery was removed and public copy was narrowed to the confirmed facts.",
+      "evidence_refs": [
+        "evidence.phase5.ns-amsterdam-station-list-2026-10-24",
+        "evidence.phase5.transport-amsterdam-science-park-station.official-ns-page",
+        "evidence.phase5.transport-amsterdam-science-park-station.osm-coordinate"
+      ],
+      "record": {
+        "id": "transport.amsterdam-science-park-station",
+        "entity_type": "transport",
+        "category": "rail-station",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.352926,
+          "longitude": 4.948315
+        },
+        "title": "Amsterdam Science Park station",
+        "description": "NS lists Amsterdam Science Park among Amsterdam's railway stations. The official station page provides current departures, disruptions, facilities and a station map. YouNew does not copy changing times or availability; check NS before travel.",
+        "images": [],
+        "official_source": {
+          "title": "Amsterdam Science Park station official website",
+          "publisher": "NS",
+          "url": "https://www.ns.nl/en/station-information/amsterdam-science-park.html",
+          "is_official": true,
+          "checked_at": "2026-10-24",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ns.nl/en/station-information/amsterdam-science-park.html",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-10-24",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Amsterdam Science Park is listed by NS as an Amsterdam station. Use the official NS station page for current departures, disruptions, facilities and the station map.",
+        "search_keywords": [
+          "Amsterdam Science Park",
+          "Amsterdam Science Park Amsterdam",
+          "railway station",
+          "train station Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap node 7606648992; field-reviewed 2026-10-24",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ns.nl/en/station-information/amsterdam-science-park.html",
+          "source_verification_method": "manual_field_level_review_ns_and_openstreetmap",
+          "media_match": "not_applicable",
+          "media_roles_count": "0",
+          "confirmed_fields": "station name; Amsterdam location; rail-station identity; official NS route; map coordinate; absence of copied mutable timetable, price and opening-hour facts"
+        }
+      }
+    },
+    {
+      "entity_id": "transport.amsterdam-sloterdijk-station",
+      "original_canonical_sha256": "3b42797ce88634a8b8fe56352066decb94f863b3734f7d98366bc12b6f14c8ef",
+      "replacement_canonical_sha256": "fb9332d3f742e4897f74abccf07a0f294c2e7b68a1cf1c377cd31cc258fd46db",
+      "reason": "Field-level review against the official NS station surfaces and the identified OpenStreetMap object. Optional imagery was removed and public copy was narrowed to the confirmed facts.",
+      "evidence_refs": [
+        "evidence.phase5.ns-amsterdam-station-list-2026-10-24",
+        "evidence.phase5.transport-amsterdam-sloterdijk-station.official-ns-page",
+        "evidence.phase5.transport-amsterdam-sloterdijk-station.osm-coordinate"
+      ],
+      "record": {
+        "id": "transport.amsterdam-sloterdijk-station",
+        "entity_type": "transport",
+        "category": "rail-station",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3890317,
+          "longitude": 4.8381062
+        },
+        "title": "Amsterdam Sloterdijk station",
+        "description": "NS lists Amsterdam Sloterdijk among Amsterdam's railway stations. The official station page provides current departures, disruptions, facilities and a station map. YouNew does not copy changing times or availability; check NS before travel.",
+        "images": [],
+        "official_source": {
+          "title": "Amsterdam Sloterdijk station official website",
+          "publisher": "NS",
+          "url": "https://www.ns.nl/en/station-information/amsterdam-sloterdijk.html",
+          "is_official": true,
+          "checked_at": "2026-10-24",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ns.nl/en/station-information/amsterdam-sloterdijk.html",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-10-24",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Amsterdam Sloterdijk is listed by NS as an Amsterdam station. Use the official NS station page for current departures, disruptions, facilities and the station map.",
+        "search_keywords": [
+          "Amsterdam Sloterdijk",
+          "Amsterdam Sloterdijk Amsterdam",
+          "railway station",
+          "train station Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap node 3938547498; field-reviewed 2026-10-24",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ns.nl/en/station-information/amsterdam-sloterdijk.html",
+          "source_verification_method": "manual_field_level_review_ns_and_openstreetmap",
+          "media_match": "not_applicable",
+          "media_roles_count": "0",
+          "confirmed_fields": "station name; Amsterdam location; rail-station identity; official NS route; map coordinate; absence of copied mutable timetable, price and opening-hour facts"
+        }
+      }
+    },
+    {
+      "entity_id": "transport.amsterdam-zuid-station",
+      "original_canonical_sha256": "ef0f6f1e2e9ea71758eda90bdf9860f76c645727a7a5b2101dcace039aeaa84c",
+      "replacement_canonical_sha256": "7291980de26d60d028ac1ce618fd205a43bd53f6e39a7c7cb1dc3ed91dd284ee",
+      "reason": "Field-level review against the official NS station surfaces and the identified OpenStreetMap object. Optional imagery was removed and public copy was narrowed to the confirmed facts.",
+      "evidence_refs": [
+        "evidence.phase5.ns-amsterdam-station-list-2026-10-24",
+        "evidence.phase5.transport-amsterdam-zuid-station.official-ns-page",
+        "evidence.phase5.transport-amsterdam-zuid-station.osm-coordinate"
+      ],
+      "record": {
+        "id": "transport.amsterdam-zuid-station",
+        "entity_type": "transport",
+        "category": "rail-station",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "coordinates": {
+          "latitude": 52.3388074,
+          "longitude": 4.873191
+        },
+        "title": "Amsterdam Zuid station",
+        "description": "NS lists Amsterdam Zuid among Amsterdam's railway stations. The official station page provides current departures, disruptions, facilities and a station map. YouNew does not copy changing times or availability; check NS before travel.",
+        "images": [],
+        "official_source": {
+          "title": "Amsterdam Zuid station official website",
+          "publisher": "NS",
+          "url": "https://www.ns.nl/en/station-information/amsterdam-zuid.html",
+          "is_official": true,
+          "checked_at": "2026-10-24",
+          "status": "verified_opened"
+        },
+        "website": "https://www.ns.nl/en/station-information/amsterdam-zuid.html",
+        "related_entity_ids": [
+          "city.amsterdam"
+        ],
+        "last_checked": "2026-10-24",
+        "review_frequency_days": 90,
+        "verification_status": "verified",
+        "ai_summary": "Amsterdam Zuid is listed by NS as an Amsterdam station. Use the official NS station page for current departures, disruptions, facilities and the station map.",
+        "search_keywords": [
+          "Amsterdam Zuid",
+          "Amsterdam Zuid Amsterdam",
+          "railway station",
+          "train station Amsterdam",
+          "Noord-Holland"
+        ],
+        "lifecycle_status": "published",
+        "attributes": {
+          "coordinate_source": "OpenStreetMap node 5252944882; field-reviewed 2026-10-24",
+          "source_http_status": "200",
+          "source_final_url": "https://www.ns.nl/en/station-information/amsterdam-zuid.html",
+          "source_verification_method": "manual_field_level_review_ns_and_openstreetmap",
+          "media_match": "not_applicable",
+          "media_roles_count": "0",
+          "confirmed_fields": "station name; Amsterdam location; rail-station identity; official NS route; map coordinate; absence of copied mutable timetable, price and opening-hour facts"
+        }
+      }
+    }
+  ]
+}

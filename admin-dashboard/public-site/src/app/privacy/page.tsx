@@ -55,7 +55,7 @@ export default function PrivacyPage() {
         The public website does not require an account and contains no payment flow. When you contact support by email, we receive the address, message and attachments you choose to send. Do not email sensitive identity, medical or financial documents.
       </p>
       <p>
-        The web version stores saved items, recently viewed pages and your selected profile in this browser. Search history is off by default and is stored locally only if you enable “Remember searches on this device”. Saved items, recently viewed pages and locally remembered search history are not sent to YouNew analytics. If analytics is enabled, search-quality events are limited to the privacy-safe controlled values and filters described above. The website stores your analytics accept/decline choice in local storage and, only after acceptance, uses session storage for random identifiers that last for the browser-tab session.
+        The web version stores saved items, recently viewed pages, checklist progress and your selected profile in this browser. Optional recent searches are off by default and stay only in the open tab&apos;s memory; they clear on reload and are excluded from local-data exports. The updated search removes its two former persistent-history keys without removing saved items or your profile. Search text is not added to new search URLs or shared links; a legacy incoming query is read into memory and then removed from the current URL. Reloading or reopening a link restores filters, not the phrase. Saved items and recent searches are not sent to YouNew analytics. If analytics is enabled, search-quality events are limited to the privacy-safe controlled values and filters described above. The website stores your analytics accept/decline choice in local storage and, only after acceptance, uses session storage for random identifiers that last for the browser-tab session.
       </p>
       <p>
         The business inquiry form sends the details you enter to a protected YouNew endpoint. After browser and server validation, the inquiry is stored in YouNew&apos;s EU-hosted Supabase project and receives a confirmation ID. It includes the contact and proposal fields, source page, consent time and any campaign parameters present in the page URL. The form does not accept uploads. Business inquiries are used to evaluate and respond to the proposal, not as consent for unrelated marketing.
@@ -86,6 +86,9 @@ export default function PrivacyPage() {
       <h2>Contact</h2>
       <p>
         For privacy questions, access requests or deletion requests concerning support, business inquiry or feedback records, email <a href={`mailto:${links.contactEmail}`}>{links.contactEmail}</a>. Include the confirmation ID when available.
+      </p>
+      <p>
+        Read the <a href="/terms/">Terms of Use</a> or open <a href="/support/">Support</a> for a correction or product question.
       </p>
     </ContentPage>
   );

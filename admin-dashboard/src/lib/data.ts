@@ -41,15 +41,32 @@ export const sampleBugs = [
 ];
 
 export type DataSource = "supabase" | "demo" | "unavailable";
+export type DataState = "data" | "empty" | "forbidden" | "unavailable" | "demo";
 
 export type FetchRowsResult<T> = {
   rows: T[];
   source: DataSource;
-  error?: "configuration" | "query";
+  state: DataState;
+  observedAt: string;
+  error?: "configuration" | "query" | "forbidden";
 };
 
 function isExplicitLocalDemoEnabled() {
   return process.env.NODE_ENV !== "production" && process.env.YOUNEW_ADMIN_DEMO_MODE === "true";
+}
+
+function isForbiddenQuery(error: unknown) {
+  if (!error || typeof error !== "object") return false;
+  const record = error as { code?: unknown; message?: unknown };
+  const code = String(record.code ?? "");
+  const message = String(record.message ?? "").toLowerCase();
+  return ["42501", "PGRST301", "PGRST302"].includes(code)
+    || message.includes("permission denied")
+    || message.includes("row-level security");
+}
+
+export function classifyDataQueryError(error: unknown): Extract<DataState, "forbidden" | "unavailable"> {
+  return isForbiddenQuery(error) ? "forbidden" : "unavailable";
 }
 
 export async function fetchRowsResult<T>(
@@ -58,11 +75,12 @@ export async function fetchRowsResult<T>(
   limit = 50,
   orderBy: "updated_at" | "created_at" | "occurred_at" | "started_at" = "updated_at"
 ): Promise<FetchRowsResult<T>> {
+  const observedAt = new Date().toISOString();
   const supabase = await createSupabaseServerClient();
   if (!supabase) {
     return isExplicitLocalDemoEnabled()
-      ? { rows: fallback, source: "demo" }
-      : { rows: [], source: "unavailable", error: "configuration" };
+      ? { rows: fallback, source: "demo", state: "demo", observedAt }
+      : { rows: [], source: "unavailable", state: "unavailable", observedAt, error: "configuration" };
   }
 
   const { data, error } = await supabase
@@ -72,12 +90,14 @@ export async function fetchRowsResult<T>(
     .limit(limit);
 
   if (error || !data) {
+    const failureState = classifyDataQueryError(error);
+    const errorKind = failureState === "forbidden" ? "forbidden" : "query";
     return isExplicitLocalDemoEnabled()
-      ? { rows: fallback, source: "demo", error: "query" }
-      : { rows: [], source: "unavailable", error: "query" };
+      ? { rows: fallback, source: "demo", state: "demo", observedAt, error: errorKind }
+      : { rows: [], source: "unavailable", state: failureState, observedAt, error: errorKind };
   }
 
-  return { rows: data as T[], source: "supabase" };
+  return { rows: data as T[], source: "supabase", state: data.length === 0 ? "empty" : "data", observedAt };
 }
 
 export async function fetchRows<T>(

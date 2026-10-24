@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { HomeSearchForm } from "@/components/home-search-form";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
@@ -42,11 +43,12 @@ import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
 import { getPublicContent, type PublicMediaAsset } from "@/lib/content";
+import { canonicalCityId } from "@/lib/search/geography";
 
 export const metadata: Metadata = {
   title: { absolute: "YouNew — Your guide to life in the Netherlands" },
   description: "Find housing, work, documents, healthcare, schools and trusted services in the Netherlands—with clear next steps and official sources.",
-  alternates: { canonical: "https://younew.nl/" }
+  alternates: { canonical: "https://younew.nl/", languages: { en: "https://younew.nl/", nl: "https://younew.nl/nl/", "x-default": "https://younew.nl/" } }
 };
 
 type Destination = Readonly<{
@@ -101,7 +103,7 @@ const lifeDirections: readonly Direction[] = [
 ];
 
 const popularTasks: readonly Direction[] = [
-  { title: "Get a BSN", href: "/guides/first-registration-in-amsterdam/", icon: FileCheck2 },
+  { title: "Apply for a driving licence", href: "/guides/driving-licence-amsterdam/", icon: FileCheck2 },
   { title: "Find housing", href: "/categories/housing/", icon: Home },
   { title: "Register with a municipality", href: "/municipalities/", icon: Building2 },
   { title: "Open a bank account", href: searchHref("open a bank account"), icon: Banknote },
@@ -126,7 +128,7 @@ const usefulServices: readonly Destination[] = [
 ];
 
 const proofPoints: readonly Destination[] = [
-  { title: "Verified information", example: "Published content is checked before release.", href: "/status/", icon: ShieldCheck },
+  { title: "Visible verification status", example: "Unconfirmed legacy pages stay outside search indexing.", href: "/status/", icon: ShieldCheck },
   { title: "Official sources", example: "Responsible Dutch institutions stay visible.", href: "/status/", icon: ExternalLink },
   { title: "Updated regularly", example: "Review dates and limitations are published.", href: "/updates/", icon: RefreshCw },
   { title: "Clear step-by-step guides", example: "Practical actions without invented steps.", href: "/guides/", icon: ListChecks },
@@ -200,13 +202,7 @@ function TaskCard({ destination }: { destination: Destination }) {
 function HomeSearch() {
   return (
     <div className="vision-search-assistant">
-      <form action="/search/" method="get">
-        <label htmlFor="home-search">What do you need in the Netherlands?</label>
-        <div>
-          <input id="home-search" name="q" placeholder="For example: I need housing in Leiden" type="search" />
-          <button aria-label="Search YouNew" type="submit"><Search aria-hidden /></button>
-        </div>
-      </form>
+      <HomeSearchForm />
       <nav aria-label="Search examples">
         {heroSuggestions.map((suggestion) => <Link href={searchHref(suggestion)} key={suggestion}>{suggestion}</Link>)}
       </nav>
@@ -218,7 +214,8 @@ export default function HomePage() {
   const content = getPublicContent();
   const cityEntities = featuredCityIds.flatMap((id) => {
     const entity = content.entities.find((candidate) => candidate.id === id);
-    return entity ? [entity] : [];
+    const municipalitySlug = canonicalCityId(entity?.cityId ?? entity?.slug);
+    return entity && municipalitySlug ? [{ ...entity, route: `/municipalities/${municipalitySlug}/` }] : [];
   });
   const cities = [
     cityEntities.find((city) => city.id === "city.amsterdam"),
@@ -326,6 +323,7 @@ export default function HomePage() {
               <h2 id="business-title">Reach newcomers responsibly.</h2>
               <p>Advertising and partnerships remain separate from organic guidance. Campaigns appear only after review and activation.</p>
               <nav aria-label="Business options">
+                <Link href="/for-business/local">Add or claim a business <ArrowRight aria-hidden /></Link>
                 <Link href="/for-business/pilot">90-day onboarding pilot <ArrowRight aria-hidden /></Link>
                 <Link href="/partners">Partner principles <ArrowRight aria-hidden /></Link>
               </nav>
@@ -340,7 +338,7 @@ export default function HomePage() {
 
         <section className="vision-section vision-updates" aria-labelledby="updates-title">
           <div className="section-shell">
-            <div className="vision-heading is-row"><div><h2 id="updates-title">Latest updates</h2><p>Recently checked additions from the published content snapshot.</p></div><Link href="/updates/">View all updates <ArrowRight aria-hidden /></Link></div>
+            <div className="vision-heading is-row"><div><h2 id="updates-title">Published content snapshot</h2><p>Recently released additions. Open each page to see its source-check and governance status.</p></div><Link href="/updates/">View all updates <ArrowRight aria-hidden /></Link></div>
             <div className="vision-update-list">
               {latestGuides.map((guide) => {
                 const media = preferredMedia(guide.images, ["thumbnail", "hero", "gallery"]);

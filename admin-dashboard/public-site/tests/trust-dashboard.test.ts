@@ -2,34 +2,44 @@ import assert from "node:assert/strict";
 import { readFile } from "node:fs/promises";
 import test from "node:test";
 
-const publicDashboard = JSON.parse(
-  await readFile(new URL("../src/generated/trust-dashboard.json", import.meta.url), "utf8"),
+const publicTruth = JSON.parse(
+  await readFile(new URL("../src/generated/release-truth-public.json", import.meta.url), "utf8")
 );
-const adminDashboard = JSON.parse(
-  await readFile(new URL("../../src/generated/trust-dashboard.json", import.meta.url), "utf8"),
+const adminTruth = JSON.parse(
+  await readFile(new URL("../../src/generated/release-truth.json", import.meta.url), "utf8")
 );
 
-test("public and admin trust surfaces use the same generated evidence", () => {
-  assert.deepEqual(publicDashboard, adminDashboard);
+test("public and admin surfaces identify the same release-truth snapshot", () => {
+  assert.equal(publicTruth.snapshotID, adminTruth.snapshotID);
+  assert.equal(publicTruth.snapshotDigest, adminTruth.snapshotDigest);
+  assert.equal(publicTruth.technicalVerdict, adminTruth.technicalVerdict);
+  assert.equal(publicTruth.deploymentAuthorization, "not_granted");
 });
 
-test("the public trust summary preserves hard release authority", () => {
-  assert.equal(publicDashboard.currentReleaseAuthority, "NO_GO");
-  assert.equal(publicDashboard.readiness.status, "NO_GO");
-  assert.deepEqual(publicDashboard.readiness.hardGates, {
-    contentGovernance: false,
-    ai: false,
-    userOutcome: false,
+test("public release truth is fail-closed without inventing zero link health", () => {
+  assert.equal(publicTruth.technicalVerdict, "PARTIAL");
+  assert.equal(publicTruth.publication.packagedPublishedRecords, 7);
+  assert.equal(publicTruth.publication.inventoryRecords, 454);
+  assert.deepEqual(publicTruth.publication.packagedCoverage, {
+    kind: "ratio",
+    unit: "percent",
+    value: 1.5,
+    numerator: 7,
+    denominator: 454,
+    state: "measured",
+    reasonCode: null,
+    formula: { id: "packaged-published-over-governed-inventory", version: 1 },
+    sourceIDs: ["data-project-inventory", "packaged-runtime", "public-content-provenance"]
   });
-  assert.equal(publicDashboard.readiness.overall.evidenceState, "not_established");
-  assert.equal(publicDashboard.readiness.overall.value, null);
+  assert.equal(publicTruth.linkHealth.state, "unknown");
+  assert.equal(publicTruth.linkHealth.value, null);
+  assert.equal(publicTruth.linkHealth.denominator, null);
+  assert.equal(publicTruth.gates.linkHealth, "blocked");
 });
 
-test("record confidence remains separate from the provisional source score", () => {
-  assert.equal(
-    publicDashboard.metrics.sourceTrustScore.formula,
-    "separate publisher/source reliability score; not record confidence",
-  );
-  assert.equal(publicDashboard.metrics.sourceTrustScore.evidenceState, "provisional");
-  assert.match(publicDashboard.metrics.averageConfidence.formula, /not probability/i);
+test("unobserved deployed metadata does not become an exact or declared deployed count", () => {
+  assert.equal(publicTruth.publication.deployedState, "unknown");
+  assert.equal(publicTruth.publication.deployedEvidenceLevel, "none");
+  assert.equal(adminTruth.publication.deployed.entityCount, null);
+  assert.equal(adminTruth.publication.deployed.declaredEntityCount, null);
 });

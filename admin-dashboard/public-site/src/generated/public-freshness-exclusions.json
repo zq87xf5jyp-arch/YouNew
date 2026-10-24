@@ -1,0 +1,1029 @@
+{
+  "schemaVersion": 1,
+  "asOf": "2026-10-23",
+  "policy": "fail_closed_until_field_level_reverification",
+  "source": "DataProject/quality/phase4-amsterdam-stale-disposition.json",
+  "count": 170,
+  "records": [
+    {
+      "id": "government_service.first-registration-in-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "government_service.marriage-and-registered-partnership-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "government_service.moving-within-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "government_service.municipal-taxes-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "government_service.parking-permit-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "government_service.passport-and-id-card-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "government_service.registering-a-birth-in-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "government_service.report-a-problem-in-public-space-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "government_service.waste-and-recycling-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "healthcare.acta",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "healthcare.amsterdam-umc-location-amc",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "healthcare.arkin",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "healthcare.bovenij-hospital",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "healthcare.ggd-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "healthcare.olvg-east",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "healthcare.olvg-west",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "healthcare.reade-overtoom",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "healthcare.amsterdam-umc-location-vumc",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "healthcare.antoni-van-leeuwenhoek",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "transport.amsterdam-amstel-station",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "transport.amsterdam-centraal-station",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "transport.amsterdam-holendrecht-station",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "transport.amsterdam-lelylaan-station",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "transport.amsterdam-muiderpoort-station",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "transport.amsterdam-rai-station",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "transport.amsterdam-science-park-station",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "transport.amsterdam-sloterdijk-station",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "transport.amsterdam-zuid-station",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "transport.amsterdam-bijlmer-arena-station",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "local_partner.citizenm-amsterdam-south",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "local_partner.everaert-advocaten",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "local_partner.ikea-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "local_partner.ing-group",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "local_partner.rob-peetoom-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "local_partner.tca-taxi-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "local_partner.uva-talen",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "local_partner.van-der-valk-hotel-amsterdam-amstel",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.bak",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.caf-restaurant-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.cannibale-royale",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.choux",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.de-belhamel",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.domenica",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.flore",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "local_partner.funda",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.gebr-hartering",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.kaagman-and-kortekaas",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "local_partner.macbike-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.moeders",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.pesca",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.restaurant-212",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.restaurant-as",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.restaurant-de-juwelier",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.restaurant-de-kas",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.restaurant-europa",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.restaurant-moon",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.restaurant-vermeer",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.rijks",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.ron-gastrobar",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.sazanka",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.scheepskameel",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.the-white-room",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.toscanini",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.visaandeschelde",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.yamazato",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.back-to-black",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.bakers-and-roasters",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.bocca-coffee",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.caf-de-jaren",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.coffee-and-coconuts",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.coffee-bru",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.de-koffiesalon",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.dignita-hoftuin",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.fuku-friedhats",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.koffie-academie",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.lot-sixty-one-coffee-roasters",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.monks-coffee-roasters",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.pluk-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.rum-baba",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.scandinavian-embassy",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.screaming-beans",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.toki",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.uncommon-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "cafe.white-label-coffee",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "restaurant.bougainville",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.caf-caron",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.ciel-bleu",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.coulisse",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.daalder",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.de-plantage",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.entrepot",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.gitane",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.jansz",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.mos-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.vinkeles",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.wilde-zwijnen",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "restaurant.wils",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "cafe.saint-jean",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "education.amsterdam-university-college",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "education.amsterdam-university-of-applied-sciences",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "education.conservatorium-van-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "education.gerrit-rietveld-academie",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "education.hotelschool-the-hague-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "education.inholland-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "education.roc-van-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "education.tio-business-school-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "education.university-of-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "education.vrije-universiteit-amsterdam",
+      "classification": "critical",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.allard-pierson",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.amsterdam-museum",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.anne-frank-house",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.artis-micropia",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.dutch-resistance-museum",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.eye-filmmuseum",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.foam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.hart-museum",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.het-scheepvaartmuseum",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.huis-marseille",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.jewish-museum",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.museum-of-the-canals",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.museum-ons-lieve-heer-op-solder",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.museum-rembrandthuis",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.museum-van-loon",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.nemo-science-museum",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.rijksmuseum",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.stedelijk-museum-amsterdam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.van-gogh-museum",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "museum.wereldmuseum-amsterdam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.albert-cuyp-market",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.amsterdam-centrum",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.amsterdam-nieuw-west",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.amsterdam-noord",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.amsterdam-oost",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.amsterdam-zuid",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.amsterdam-zuidoost",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.artis",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.de-hallen-amsterdam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.de-nieuwe-kerk-amsterdam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.heineken-experience",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.johan-cruijff-arena",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.oba-oosterdok",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.oude-kerk",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.royal-palace-amsterdam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.this-is-holland",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.waterlooplein-market",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.westerkerk",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.wondr-experience",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "place.adam-lookout",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "place.amsterdam-west",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "place.amsterdam-westpoort",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "place.bloemenmarkt",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "place.dam-square",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "place.hortus-botanicus-amsterdam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "place.ndsm",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "place.seventeenth-century-canal-ring-of-amsterdam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "housing.woon",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "housing.affordable-housing-amsterdam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "nature.amsterdamse-bos",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "nature.erasmuspark",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "housing.housing-permit-amsterdam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "nature.noorderpark",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "nature.oosterpark",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "nature.park-frankendael",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "nature.rembrandtpark",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "housing.renting-a-home-in-amsterdam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "nature.vondelpark",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "nature.westerpark",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "housing.woningnet-stadsregio-amsterdam",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-16"
+    },
+    {
+      "id": "nature.sarphatipark",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    },
+    {
+      "id": "nature.sloterpark-and-sloterplas",
+      "classification": "secondary",
+      "reason": "freshness_sla_expired",
+      "reviewDue": "2026-10-20"
+    }
+  ]
+}

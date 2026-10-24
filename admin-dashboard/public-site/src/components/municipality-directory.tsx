@@ -58,7 +58,6 @@ export function MunicipalityDirectory({
     if (!queryReady) return;
     const params = new URLSearchParams();
     if (province !== "all") params.set("province", province);
-    if (query.trim()) params.set("q", query.trim());
     window.history.replaceState(null, "", `${window.location.pathname}${params.size ? `?${params}` : ""}`);
   }, [province, query, queryReady]);
 

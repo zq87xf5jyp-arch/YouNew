@@ -358,12 +358,12 @@
       "official_source": {
         "title": "Saldo terugvragen",
         "publisher": "OV-chipkaart",
-        "url": "https://www.ov-chipkaart.nl/saldo-terugvragen",
+        "url": "https://www.ov-chipkaart.nl/check",
         "is_official": true,
-        "checked_at": "2026-07-20",
+        "checked_at": "2026-09-20",
         "status": "verified_opened"
       },
-      "website": "https://www.ov-chipkaart.nl/saldo-terugvragen",
+      "website": "https://www.ov-chipkaart.nl/check",
       "related_entity_ids": [
         "transport.card-expiry",
         "transport.lost-card",

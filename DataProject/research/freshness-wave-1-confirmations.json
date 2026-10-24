@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-23",
+  "method": "Manual field-level review of authoritative public sources. Only the named fields were confirmed and updated.",
+  "reviewer": "OpenAI Codex assisted review",
+  "records": [
+    {
+      "entity_id": "government.bsn",
+      "status": "confirmed_current",
+      "source_url": "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn",
+      "reviewed_at": "2026-10-23",
+      "reviewer": "OpenAI Codex assisted review",
+      "confirmed_fields": ["BSN purpose", "automatic allocation on BRP registration", "use across government, healthcare and education", "official website"],
+      "notes": "Government.nl confirms that a BSN is a unique personal number and is allocated automatically to everyone registered in the BRP."
+    },
+    {
+      "entity_id": "government.brp-registration",
+      "status": "confirmed_current",
+      "source_url": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/privacy-en-persoonsgegevens/basisregistratie-personen-brp",
+      "reviewed_at": "2026-10-23",
+      "reviewer": "OpenAI Codex assisted review",
+      "confirmed_fields": ["BRP scope", "municipal responsibility", "resident and non-resident registration", "official website"],
+      "notes": "Rijksoverheid confirms the BRP contents, municipal responsibility and the RNI route for people staying less than four months."
+    },
+    {
+      "entity_id": "government.digid",
+      "status": "confirmed_current",
+      "source_url": "https://www.digid.nl/en/apply-and-activate/apply-digid",
+      "reviewed_at": "2026-10-23",
+      "reviewer": "OpenAI Codex assisted review",
+      "confirmed_fields": ["DigiD purpose", "BSN requirement", "municipal registration address", "mobile phone", "postal activation", "official website"],
+      "notes": "The official DigiD application page confirms the application requirements and that an activation letter is sent to the municipal registration address."
+    },
+    {
+      "entity_id": "government.residence-permit",
+      "status": "confirmed_current",
+      "source_url": "https://ind.nl/en/residence-permits",
+      "reviewed_at": "2026-10-23",
+      "reviewer": "OpenAI Codex assisted review",
+      "confirmed_fields": ["permit depends on situation", "family, work, study and other routes", "IND responsibility", "official website"],
+      "notes": "The IND overview confirms that the required residence route depends on the applicant's situation and publishes the current route families."
+    },
+    {
+      "entity_id": "government.health-insurance",
+      "status": "confirmed_current",
+      "source_url": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/taking-out-compulsory-health-insurance",
+      "reviewed_at": "2026-10-23",
+      "reviewer": "OpenAI Codex assisted review",
+      "confirmed_fields": ["basic insurance obligation", "supplementary insurance optional", "health insurer registration", "official website"],
+      "notes": "Government.nl confirms that people who live or work in the Netherlands must take out basic insurance and that supplementary cover is optional."
+    }
+  ]
+}

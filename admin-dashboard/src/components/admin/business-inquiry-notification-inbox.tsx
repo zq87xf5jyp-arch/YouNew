@@ -35,7 +35,7 @@ export function BusinessInquiryNotificationInbox({
   const unread = visible.filter((notification) => notification.status === "unread").length;
 
   return (
-    <Card className="mb-6">
+    <Card className="mb-6 scroll-mt-24" id="notifications">
       <CardHeader>
         <div className="flex flex-wrap items-start gap-3">
           <BellRing className="mt-1 size-5 text-cyan-200" aria-hidden="true" />
@@ -43,7 +43,7 @@ export function BusinessInquiryNotificationInbox({
             <CardTitle>Внутренние уведомления</CardTitle>
             <CardDescription>
               {available
-                ? `${unread} новых · только безопасный номер заявки и время, без контактных данных или сообщения.`
+                ? `Среди последних ${notifications.length} уведомлений: ${unread} непрочитанных · время Амстердама · только безопасный номер заявки и время, без контактных данных или сообщения.`
                 : "Inbox ещё не доступен в подключённом Supabase; внешние email/webhook не отправляются."}
             </CardDescription>
           </div>
@@ -61,7 +61,7 @@ export function BusinessInquiryNotificationInbox({
                   {notification.reference_code}
                 </Link>
                 <time className="text-xs text-muted-foreground" dateTime={notification.created_at}>
-                  {new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short" }).format(new Date(notification.created_at))}
+                  {new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Amsterdam" }).format(new Date(notification.created_at))}
                 </time>
                 <form action={updateBusinessInquiryNotification} className="ml-auto">
                   <input name="id" type="hidden" value={notification.id} />

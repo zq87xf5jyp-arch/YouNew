@@ -48,6 +48,8 @@ struct YouNewApp: App {
     @StateObject private var documentStore = DocumentStore()
 
     init() {
+        // Do not bump the display-cache schema: that migration also clears bookmarks.
+        SearchHistoryPrivacy.removeLegacyQueries()
 #if DEBUG
 #if canImport(UIKit)
         if Self.isUITesting {

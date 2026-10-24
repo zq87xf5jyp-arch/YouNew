@@ -1,7 +1,3642 @@
 {
   "schema_version": 1,
-  "status": "not_established",
-  "checked_at": null,
-  "sources": [],
-  "note": "A reviewed canonical URL snapshot is required before source URL changes can be detected."
+  "status": "established",
+  "checked_at": "2026-10-23T12:54:18.221248+00:00",
+  "scope": "Canonical URL change detection; this is not factual verification.",
+  "source_report": "DataProject/reports/source-check-attempts.json",
+  "sources": [
+    {
+      "entity_id": "cafe.back-to-black",
+      "url": "https://backtoblackcoffee.nl/en/locations/",
+      "original_url": "https://backtoblackcoffee.nl/en/locations/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.bakers-and-roasters",
+      "url": "https://bakersandroasters.com/",
+      "original_url": "https://bakersandroasters.com/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.bocca-coffee",
+      "url": "https://bocca.nl/en/pages/contact/",
+      "original_url": "https://bocca.nl/info-contact/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.caf-de-jaren",
+      "url": "https://cafedejaren.nl/",
+      "original_url": "https://cafedejaren.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.coffee-and-coconuts",
+      "url": "https://coffeeandcoconuts.com/",
+      "original_url": "https://coffeeandcoconuts.com/",
+      "outcome": "restricted",
+      "http_status": 429,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.coffee-bru",
+      "url": "https://www.coffeebru.nl/",
+      "original_url": "https://www.coffeebru.nl/",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.de-koffiesalon",
+      "url": "https://dekoffiesalon.nl/",
+      "original_url": "https://dekoffiesalon.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.dignita-hoftuin",
+      "url": "https://dignita-restaurant.com/wp-content/uploads/2026/05/Dignita-Hoftuin.jpg",
+      "original_url": "https://eatwelldogood.nl/dignita-hoftuin/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.fuku-friedhats",
+      "url": "https://friedhats.com/fuku",
+      "original_url": "https://friedhats.com/pages/fuku",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.koffie-academie",
+      "url": "https://koffie-academie.nl/",
+      "original_url": "https://koffie-academie.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.lot-sixty-one-coffee-roasters",
+      "url": "https://lot61.com/",
+      "original_url": "https://lot61.com/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.monks-coffee-roasters",
+      "url": "https://monkscoffee.nl/",
+      "original_url": "https://monkscoffee.nl/",
+      "outcome": "restricted",
+      "http_status": 429,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.pluk-amsterdam",
+      "url": "https://www.pluk-amsterdam.com/nl/",
+      "original_url": "https://pluk-amsterdam.com/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.rum-baba",
+      "url": "https://rumbaba.nl/",
+      "original_url": "https://rumbaba.nl/",
+      "outcome": "restricted",
+      "http_status": 429,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.saint-jean",
+      "url": "https://www.saintjean.nl/",
+      "original_url": "https://www.saintjean.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.scandinavian-embassy",
+      "url": "https://scandinavianembassy.nl/",
+      "original_url": "https://scandinavianembassy.nl/",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.screaming-beans",
+      "url": "https://screamingbeans.nl/",
+      "original_url": "https://screamingbeans.nl/",
+      "outcome": "restricted",
+      "http_status": 429,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.toki",
+      "url": "https://tokiho.amsterdam/",
+      "original_url": "https://tokiho.amsterdam/",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.uncommon-amsterdam",
+      "url": "https://uncommonams.com/",
+      "original_url": "https://uncommonams.com/",
+      "outcome": "restricted",
+      "http_status": 429,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "cafe.white-label-coffee",
+      "url": "https://www.whitelabelcoffee.nl/",
+      "original_url": "https://www.whitelabelcoffee.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "city.amsterdam",
+      "url": "https://www.amsterdam.nl/en/governance/",
+      "original_url": "https://www.amsterdam.nl/en/governance/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "city.den-haag",
+      "url": "https://www.denhaag.nl/en/",
+      "original_url": "https://www.denhaag.nl/en/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "city.eindhoven",
+      "url": "https://www.eindhoven.nl/",
+      "original_url": "https://www.eindhoven.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "city.rotterdam",
+      "url": "https://www.rotterdam.nl/en/city-government",
+      "original_url": "https://www.rotterdam.nl/en/city-government",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "city.utrecht",
+      "url": "https://www.utrecht.nl/city-of-utrecht/contact-us",
+      "original_url": "https://www.utrecht.nl/city-of-utrecht/contact-us",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.accreditation-check",
+      "url": "https://www.nvao.net/en/the-netherlands",
+      "original_url": "https://www.nvao.net/en/the-netherlands",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.amsterdam-university-college",
+      "url": "https://www.auc.nl/",
+      "original_url": "https://www.auc.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.amsterdam-university-of-applied-sciences",
+      "url": "https://www.amsterdamuas.com/",
+      "original_url": "https://www.amsterdamuas.com/",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.application-process",
+      "url": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+      "original_url": "https://www.studyinnl.org/plan-your-stay/how-to-apply",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.compulsory-education",
+      "url": "https://www.government.nl/themes/education/compulsory-school-attendance",
+      "original_url": "https://www.government.nl/themes/education/compulsory-school-attendance",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.conservatorium-van-amsterdam",
+      "url": "https://www.conservatoriumvanamsterdam.nl/en/",
+      "original_url": "https://www.conservatoriumvanamsterdam.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.credential-evaluation",
+      "url": "https://www.nuffic.nl/en/study-and-work-in-the-netherlands/applying-for-a-credential-evaluation",
+      "original_url": "https://www.nuffic.nl/en/study-and-work-in-the-netherlands/applying-for-a-credential-evaluation",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.degree-levels",
+      "url": "https://www.nuffic.nl/en/education-systems/the-netherlands/level-of-dutch-diplomas",
+      "original_url": "https://www.nuffic.nl/en/education-systems/the-netherlands/level-of-dutch-diplomas",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.diploma-register",
+      "url": "https://duo.nl/particulier/system/error/404.jsp?originalurl=/particulier/diplomas-and-certificates/diploma-register.jsp",
+      "original_url": "https://duo.nl/particulier/diplomas-and-certificates/diploma-register.jsp",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.duo-account",
+      "url": "https://duo.nl/particulier/system/error/404.jsp?originalurl=/particulier/international-visitor.jsp",
+      "original_url": "https://duo.nl/particulier/international-visitor.jsp",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.finance-amounts",
+      "url": "https://duo.nl/particulier/student-finance/amounts.jsp",
+      "original_url": "https://duo.nl/particulier/student-finance/amounts.jsp",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.foreign-diploma-admission",
+      "url": "https://www.nuffic.nl/en/study-and-work-in-the-netherlands/studying-in-the-netherlands-with-a-foreign-diploma",
+      "original_url": "https://www.nuffic.nl/en/study-and-work-in-the-netherlands/studying-in-the-netherlands-with-a-foreign-diploma",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.gerrit-rietveld-academie",
+      "url": "https://rietveldacademie.nl/en/",
+      "original_url": "https://rietveldacademie.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.graduation-changes",
+      "url": "https://duo.nl/particulier/you-graduated/what-do-you-need-to-arrange.jsp",
+      "original_url": "https://duo.nl/particulier/you-graduated/what-do-you-need-to-arrange.jsp",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.hbo-wo-choice",
+      "url": "https://www.nuffic.nl/en/education-systems/the-netherlands",
+      "original_url": "https://www.nuffic.nl/en/education-systems/the-netherlands",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.higher-education-system",
+      "url": "https://www.nuffic.nl/en/education-systems/the-netherlands/higher-education",
+      "original_url": "https://www.nuffic.nl/en/education-systems/the-netherlands/higher-education",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.hotelschool-the-hague-amsterdam",
+      "url": "https://www.hotelschool.nl/campuses/amsterdam/",
+      "original_url": "https://www.hotelschool.nl/campuses/amsterdam",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.inholland-amsterdam",
+      "url": "https://www.inholland.nl/locaties/amsterdam/",
+      "original_url": "https://www.inholland.nl/locaties/amsterdam/",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.integration-costs",
+      "url": "https://www.inburgeren.nl/en/paying-for-integration/index.jsp",
+      "original_url": "https://www.inburgeren.nl/en/paying-for-integration/index.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.integration-deadline",
+      "url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/fines.jsp",
+      "original_url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/fines.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.integration-diploma",
+      "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/diploma.jsp",
+      "original_url": "https://www.inburgeren.nl/en/taking-the-integration-exam/diploma.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.integration-exams",
+      "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/index.jsp",
+      "original_url": "https://www.inburgeren.nl/en/taking-the-integration-exam/index.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.integration-knowledge",
+      "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/content-knowledge-exams.jsp",
+      "original_url": "https://www.inburgeren.nl/en/taking-the-integration-exam/content-knowledge-exams.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.integration-obligation",
+      "url": "https://www.inburgeren.nl/en/step-by-step-plans-several-languages.jsp",
+      "original_url": "https://www.inburgeren.nl/en/step-by-step-plans-several-languages.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.integration-pip-routes",
+      "url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/choosing-course.jsp",
+      "original_url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/choosing-course.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.integration-register-exam",
+      "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/locations.jsp",
+      "original_url": "https://www.inburgeren.nl/en/taking-the-integration-exam/locations.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.integration-results",
+      "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/results.jsp",
+      "original_url": "https://www.inburgeren.nl/en/taking-the-integration-exam/results.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.integration-school",
+      "url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/choosing-school.jsp",
+      "original_url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/choosing-school.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.international-student-code",
+      "url": "https://www.nuffic.nl/en/education-systems/the-netherlands/educational-institutions-and-study-programmes",
+      "original_url": "https://www.nuffic.nl/en/education-systems/the-netherlands/educational-institutions-and-study-programmes",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.programme-recognition",
+      "url": "https://www.internationalstudy.nl/en/",
+      "original_url": "https://www.internationalstudy.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.repay-student-debt",
+      "url": "https://duo.nl/particulier/repaying-your-student-loan/how-loan-repayments-work.jsp",
+      "original_url": "https://duo.nl/particulier/repaying-your-student-loan/index.jsp",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.roc-van-amsterdam",
+      "url": "https://www.rocva.nl/",
+      "original_url": "https://www.rocva.nl/",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.school-absence",
+      "url": "https://www.government.nl/themes/education/compulsory-school-attendance/exemptions-from-compulsory-school-attendance",
+      "original_url": "https://www.government.nl/themes/education/compulsory-school-attendance/exemptions-from-compulsory-school-attendance",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.school-complaints",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/basisonderwijs/klacht-indienen-over-school",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/basisonderwijs/klacht-indienen-over-school",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.school-costs-primary",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/basisonderwijs/kosten-basisschool-kind",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/basisonderwijs/kosten-basisschool-kind",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.school-costs-secondary",
+      "url": "https://www.government.nl/themes/education/secondary-education/secondary-education-fees-and-other-educational-costs",
+      "original_url": "https://www.government.nl/themes/education/secondary-education/secondary-education-fees-and-other-educational-costs",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.school-holidays",
+      "url": "https://www.government.nl/themes/education/school-holidays",
+      "original_url": "https://www.government.nl/themes/education/school-holidays",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.school-inspection",
+      "url": "https://www.rijksoverheid.nl/service/contact/contactgids/i/inspectie-van-het-onderwijs-onderwijsinspectie",
+      "original_url": "https://www.rijksoverheid.nl/service/contact/contactgids/i/inspectie-van-het-onderwijs-onderwijsinspectie",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.school-support",
+      "url": "https://www.government.nl/themes/education/primary-education/appropriate-education-at-primary-school",
+      "original_url": "https://www.government.nl/themes/education/primary-education/appropriate-education-at-primary-school",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.school-system",
+      "url": "https://www.government.nl/themes/education/primary-education",
+      "original_url": "https://www.government.nl/themes/education/primary-education",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.secondary-pathways",
+      "url": "https://www.government.nl/themes/education/secondary-education",
+      "original_url": "https://www.government.nl/themes/education/secondary-education",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.student-finance-overview",
+      "url": "https://duo.nl/particulier/student-finance/",
+      "original_url": "https://duo.nl/particulier/student-finance/index.jsp",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.student-loan",
+      "url": "https://www.duo.nl/particulier/student-finance/regular-loan.jsp",
+      "original_url": "https://www.duo.nl/particulier/student-finance/regular-loan.jsp",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.student-travel-product",
+      "url": "https://duo.nl/particulier/student-travel-product/",
+      "original_url": "https://duo.nl/particulier/student-travel-product/index.jsp",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.studielink-enrolment",
+      "url": "https://www.studielink.nl/",
+      "original_url": "https://www.studielink.nl/",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.supplementary-grant",
+      "url": "https://duo.nl/particulier/supplementary-grant/",
+      "original_url": "https://duo.nl/particulier/student-finance/supplementary-grant.jsp",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.tio-business-school-amsterdam",
+      "url": "https://www.tio.nl/en/campuses/amsterdam/",
+      "original_url": "https://www.tio.nl/en/locations/amsterdam/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.tuition-and-fees",
+      "url": "https://duo.nl/particulier/system/error/404.jsp?originalurl=/particulier/student-finance/tuition-fees-loan.jsp",
+      "original_url": "https://duo.nl/particulier/student-finance/tuition-fees-loan.jsp",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.university-of-amsterdam",
+      "url": "https://www.uva.nl/en",
+      "original_url": "https://www.uva.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "education.vrije-universiteit-amsterdam",
+      "url": "https://vu.nl/en",
+      "original_url": "https://vu.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-canal-parade",
+      "url": "https://pride.amsterdam/en/event/canal-parade/",
+      "original_url": "https://pride.amsterdam/en/event/canal-parade/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-closing-concert",
+      "url": "https://pride.amsterdam/en/event/closing-concert/",
+      "original_url": "https://pride.amsterdam/en/event/closing-concert/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-human-rights-conference",
+      "url": "https://pride.amsterdam/en/event/human-rights-conference/",
+      "original_url": "https://pride.amsterdam/en/event/human-rights-conference/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-open-air-film-festival",
+      "url": "https://pride.amsterdam/en/event/open-air-film-festival/",
+      "original_url": "https://pride.amsterdam/en/event/open-air-film-festival/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-pride-park",
+      "url": "https://pride.amsterdam/en/event/pride-park/",
+      "original_url": "https://pride.amsterdam/en/event/pride-park/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-pride-walk",
+      "url": "https://pride.amsterdam/en/event/pride-walk/",
+      "original_url": "https://pride.amsterdam/en/event/pride-walk/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-senior-pride-concert",
+      "url": "https://pride.amsterdam/en/event/senior-pride-concert/",
+      "original_url": "https://pride.amsterdam/en/event/senior-pride-concert/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-unity-concert",
+      "url": "https://pride.amsterdam/en/event/unity-concert/",
+      "original_url": "https://pride.amsterdam/en/event/unity-concert/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-worldpride-march",
+      "url": "https://pride.amsterdam/en/event/worldpride-march/",
+      "original_url": "https://pride.amsterdam/en/event/worldpride-march/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "event.worldpride-amsterdam-2026-worldpride-village",
+      "url": "https://pride.amsterdam/en/event/worldpride-village/",
+      "original_url": "https://pride.amsterdam/en/event/worldpride-village/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.acknowledge-child",
+      "url": "https://www.government.nl/themes/family-health-and-care/family-law/birth-of-a-child",
+      "original_url": "https://www.government.nl/themes/family-health-and-care/family-law/birth-of-a-child",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.after-death-checklist",
+      "url": "https://www.government.nl/documents/question-and-answer/death-and-bereavement/after-a-death-what-do-i-need-to-arrange",
+      "original_url": "https://www.government.nl/faq/death-and-bereavement/after-a-death-what-do-i-need-to-arrange",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.anw-survivor-benefit",
+      "url": "https://www.svb.nl/en/anw/what-are-the-conditions/what-are-the-qualifying-conditions-for-an-anw-survivor-benefit",
+      "original_url": "https://www.svb.nl/en/anw/what-are-the-conditions/what-are-the-qualifying-conditions-for-an-anw-survivor-benefit",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.aow-pension",
+      "url": "https://www.svb.nl/en/aow-pension/what-is-aow/what-is-aow",
+      "original_url": "https://www.svb.nl/en/aow-pension/what-is-aow/what-is-aow",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.bank-customer-verification",
+      "url": "https://www.dnb.nl/en/reliable-financial-sector/combating-money-laundering-and-fraud/",
+      "original_url": "https://www.dnb.nl/en/reliable-financial-sector/combating-money-laundering-and-fraud/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.basic-payment-account",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/betalingsverkeer/afwijzing-betaalrekening-consument",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/betalingsverkeer/afwijzing-betaalrekening-consument",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.birth-registration",
+      "url": "https://www.government.nl/themes/family-health-and-care/registering-a-birth-and-name-of-child/rules-for-registering-a-birth",
+      "original_url": "https://www.government.nl/themes/family-health-and-care/registering-a-birth-and-name-of-child/rules-for-registering-a-birth",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.brp-registration",
+      "url": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/privacy-en-persoonsgegevens/basisregistratie-personen-brp",
+      "original_url": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/privacy-en-persoonsgegevens/basisregistratie-personen-brp",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.bsn",
+      "url": "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn",
+      "original_url": "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.business-legal-structure",
+      "url": "https://business.gov.nl/running-your-business/legal-forms-and-governance/business-structures-in-the-netherlands-overview/",
+      "original_url": "https://business.gov.nl/running-your-business/legal-forms-and-governance/business-structures-in-the-netherlands-overview/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.business-records-retention",
+      "url": "https://business.gov.nl/regulations/keeping-business-records/",
+      "original_url": "https://business.gov.nl/regulations/keeping-business-records/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.business-registration",
+      "url": "https://business.gov.nl/regulations/register-your-business-in-the-business-register/",
+      "original_url": "https://business.gov.nl/regulations/register-your-business-in-the-business-register/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.cancel-subscription",
+      "url": "https://consument.acm.nl/aankoop-dienst-annuleren/abonnement-opzeggen",
+      "original_url": "https://consument.acm.nl/aankoop-dienst-annuleren/abonnement-opzeggen",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.certificate-of-life",
+      "url": "https://www.netherlandsworldwide.nl/declaration/certificate-life",
+      "original_url": "https://www.netherlandsworldwide.nl/declaration/certificate-life",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.change-address",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gemeenten/hoe-kan-ik-mijn-verhuizing-doorgeven-aan-de-gemeente",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/gemeenten/hoe-kan-ik-mijn-verhuizing-doorgeven-aan-de-gemeente",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.change-health-insurance",
+      "url": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/changing-your-health-insurance",
+      "original_url": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/changing-your-health-insurance",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.child-benefit",
+      "url": "https://www.svb.nl/en/child-benefit",
+      "original_url": "https://www.svb.nl/en/child-benefit",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.child-budget",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/kindgebonden-budget/kindgebonden-budget",
+      "original_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/kindgebonden-budget/kindgebonden-budget",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.childcare-benefit",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/kinderopvangtoeslag/",
+      "original_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/kinderopvangtoeslag/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.civic-integration",
+      "url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/index.jsp",
+      "original_url": "https://www.inburgeren.nl/en/integration-in-the-netherlands/index.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.civil-status-extract",
+      "url": "https://www.government.nl/documents/question-and-answer/how-can-i-request-an-extract-or-an-official-copy-of-a-civil-status-record",
+      "original_url": "https://www.government.nl/faq/how-can-i-request-an-extract-or-an-official-copy-of-a-civil-status-record",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.claim-aow-pension",
+      "url": "https://www.svb.nl/en/aow-pension/arranging-your-affairs/applying-for-an-aow-pension-if-you-live-in-the-netherlands",
+      "original_url": "https://www.svb.nl/en/aow-pension/arranging-your-affairs/applying-for-an-aow-pension-if-you-live-in-the-netherlands",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.consular-certificate",
+      "url": "https://www.netherlandsworldwide.nl/declaration/what-is-a-consular-certificate",
+      "original_url": "https://www.netherlandsworldwide.nl/declaration/what-is-a-consular-certificate",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.consumer-complaint",
+      "url": "https://consument.acm.nl/doe-uw-melding-bij-acm-consuwijzer",
+      "original_url": "https://consument.acm.nl/doe-uw-melding-bij-acm-consuwijzer",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.cooling-off-period",
+      "url": "https://consument.acm.nl/aankoop-dienst-annuleren/bedenktijd",
+      "original_url": "https://consument.acm.nl/aankoop-dienst-annuleren/bedenktijd",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.credential-evaluation",
+      "url": "https://www.idw.nl/en/",
+      "original_url": "https://www.idw.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.crisis-information",
+      "url": "https://www.government.nl/themes/justice-security-and-defence/counterterrorism-and-national-security/preventing-crises-and-disasters",
+      "original_url": "https://www.government.nl/themes/justice-security-and-defence/counterterrorism-and-national-security/preventing-crises-and-disasters",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.deregister-business",
+      "url": "https://business.gov.nl/ending-or-transferring-your-business/ending-your-business/deregister-from-the-business-register-at-kvk/",
+      "original_url": "https://business.gov.nl/ending-or-transferring-your-business/ending-your-business/deregister-from-the-business-register-at-kvk/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.deregister-moving-abroad",
+      "url": "https://www.government.nl/documents/question-and-answer/when-should-i-deregister-from-the-personal-records-database",
+      "original_url": "https://www.government.nl/faq/when-should-i-deregister-from-the-personal-records-database",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.digid",
+      "url": "https://www.digid.nl/en/apply-and-activate/apply-digid",
+      "original_url": "https://www.digid.nl/en/apply-and-activate/apply-digid",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.digid-authorisation",
+      "url": "https://www.digid.nl/en/apply-and-activate/authorisation",
+      "original_url": "https://www.digid.nl/en/apply-and-activate/authorisation/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.donor-register",
+      "url": "https://english.donorregister.nl/recording-your-choise/how-do-i-record-my-choice",
+      "original_url": "https://english.donorregister.nl/recording-your-choise/how-do-i-record-my-choice",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.drive-with-foreign-licence",
+      "url": "https://www.rdw.nl/en/driving-licence/foreign-driving-licence/driving-with-a-foreign-driving-licence",
+      "original_url": "https://www.rdw.nl/en/driving-licence/foreign-driving-licence/driving-with-a-foreign-driving-licence",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.driving-licence-application",
+      "url": "https://www.government.nl/themes/transport/driving-licence/applying-or-renewing-a-driving-licence",
+      "original_url": "https://www.government.nl/themes/transport/driving-licence/applying-or-renewing-a-driving-licence",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.eherkenning",
+      "url": "https://business.gov.nl/regulations/applying-for-eherkenning/",
+      "original_url": "https://business.gov.nl/regulations/applying-for-eherkenning/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.emergency-kit",
+      "url": "https://www.government.nl/documents/question-and-answer/the-emergency-kit",
+      "original_url": "https://www.government.nl/faq/the-emergency-kit",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.emergency-number-112",
+      "url": "https://www.government.nl/documents/question-and-answer/emergency-number-112/when-can-i-call-112",
+      "original_url": "https://www.government.nl/faq/emergency-number-112/when-can-i-call-112",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.employment-contract",
+      "url": "https://business.gov.nl/regulations/contract-employment/",
+      "original_url": "https://business.gov.nl/regulations/contract-employment/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.european-certificate-succession",
+      "url": "https://www.government.nl/themes/taxes-benefits-and-allowances/inheritance-tax/applying-for-a-european-certificate-of-succession",
+      "original_url": "https://www.government.nl/themes/taxes-benefits-and-allowances/inheritance-tax/applying-for-a-european-certificate-of-succession",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.european-login",
+      "url": "https://www.government.nl/themes/government-and-democracy/online-access-to-public-services-european-economic-area-eidas/everything-you-need-to-know-about-eidas",
+      "original_url": "https://www.government.nl/themes/government-and-democracy/online-access-to-public-services-european-economic-area-eidas/everything-you-need-to-know-about-eidas",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.expat-scheme-30-percent",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/coming-to-work-in-the-netherlands-30-percent-facility?trk=public_post_comment-text",
+      "original_url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/coming-to-work-in-the-netherlands-30-percent-facility?trk=public_post_comment-text",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.finding-work-with-uwv",
+      "url": "https://www.uwv.nl/en/individuals/working-in-the-netherlands/eu-eea-swiss-national",
+      "original_url": "https://www.uwv.nl/en/individuals/working-in-the-netherlands/eu-eea-swiss-national",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.foreign-document-legalisation",
+      "url": "https://www.netherlandsworldwide.nl/legalisation/foreign-documents",
+      "original_url": "https://www.netherlandsworldwide.nl/legalisation/foreign-documents",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.foreign-driving-licence-exchange",
+      "url": "https://www.rdw.nl/en/driving-licence/foreign-driving-licence/exchanging-a-foreign-driving-licence",
+      "original_url": "https://www.rdw.nl/en/driving-licence/foreign-driving-licence/exchanging-a-foreign-driving-licence",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.going-to-court",
+      "url": "https://www.government.nl/themes/justice-security-and-defence/administration-of-justice-and-dispute-settlement/going-to-court",
+      "original_url": "https://www.government.nl/themes/justice-security-and-defence/administration-of-justice-and-dispute-settlement/going-to-court",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.health-insurance",
+      "url": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/taking-out-compulsory-health-insurance",
+      "original_url": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/taking-out-compulsory-health-insurance",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.healthcare-benefit",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/zorgtoeslag/zorgtoeslag",
+      "original_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/zorgtoeslag/zorgtoeslag",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.higher-education-enrolment",
+      "url": "https://www.duo.nl/particulier/enrolling-at-school-or-university.jsp",
+      "original_url": "https://www.duo.nl/particulier/enrolling-at-school-or-university.jsp",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.highly-skilled-migrant",
+      "url": "https://ind.nl/en/residence-permits/work/highly-skilled-migrant",
+      "original_url": "https://ind.nl/en/residence-permits/work/highly-skilled-migrant",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.holiday-hours",
+      "url": "https://www.government.nl/themes/work/working-hours/taking-holiday-hours",
+      "original_url": "https://www.government.nl/themes/work/working-hours/taking-holiday-hours",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.housing-benefit",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/woning-huren/kan-ik-huurtoeslag-krijgen",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/kan-ik-huurtoeslag-krijgen",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.housing-permit",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/huurwoning-zoeken/heb-ik-een-huisvestingsvergunning-nodig-om-een-huurwoning-te-krijgen",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/heb-ik-een-huisvestingsvergunning-nodig-om-een-huurwoning-te-krijgen",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.income-tax-return",
+      "url": "https://www.government.nl/themes/taxes-benefits-and-allowances/income-tax/filing-a-tax-return",
+      "original_url": "https://www.government.nl/themes/taxes-benefits-and-allowances/income-tax/filing-a-tax-return",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.inheritance-choice",
+      "url": "https://www.government.nl/documents/question-and-answer/do-i-have-to-accept-an-inheritance",
+      "original_url": "https://www.government.nl/faq/do-i-have-to-accept-an-inheritance",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.inheritance-tax-return",
+      "url": "https://www.government.nl/themes/taxes-benefits-and-allowances/inheritance-tax/filing-an-inheritance-tax-return",
+      "original_url": "https://www.government.nl/themes/taxes-benefits-and-allowances/inheritance-tax/filing-an-inheritance-tax-return",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.integration-exam-registration",
+      "url": "https://www.inburgeren.nl/en/taking-the-integration-exam/registering.jsp",
+      "original_url": "https://www.inburgeren.nl/en/taking-the-integration-exam/registering.jsp",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.legal-product-guarantee",
+      "url": "https://consument.acm.nl/garantie-reparatie-geld-terug/garantie",
+      "original_url": "https://consument.acm.nl/garantie-reparatie-geld-terug/garantie",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.legalise-dutch-document",
+      "url": "https://www.netherlandsworldwide.nl/legalisation/dutch-documents",
+      "original_url": "https://www.netherlandsworldwide.nl/legalisation/dutch-documents",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.lost-driving-licence",
+      "url": "https://www.rdw.nl/en/driving-licence/dutch-driving-licence-lost-or-stolen",
+      "original_url": "https://www.rdw.nl/en/driving-licence/dutch-driving-licence-lost-or-stolen",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.marriage-registered-partnership",
+      "url": "https://www.government.nl/documents/question-and-answer/what-do-i-need-to-take-into-account-if-i-decide-to-marry-or-enter-into-a-civil-partnership",
+      "original_url": "https://www.government.nl/faq/what-do-i-need-to-take-into-account-if-i-decide-to-marry-or-enter-into-a-civil-partnership",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.maternity-pay",
+      "url": "https://www.uwv.nl/en/individuals/maternity-and-parental-leave/maternity-pay",
+      "original_url": "https://www.uwv.nl/en/individuals/maternity-and-parental-leave/maternity-pay",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.mijnoverheid",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/digitale-overheid/wat-is-mijnoverheid",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/digitale-overheid/wat-is-mijnoverheid",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.minimum-wage",
+      "url": "https://www.government.nl/themes/work/minimum-wage/entitlement-to-statutory-minimum-wage",
+      "original_url": "https://www.government.nl/themes/work/minimum-wage/entitlement-to-statutory-minimum-wage",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.municipal-election-voting",
+      "url": "https://www.government.nl/documents/question-and-answer/elections/what-do-i-need-to-vote-in-the-municipal-elections",
+      "original_url": "https://www.government.nl/faq/elections/what-do-i-need-to-vote-in-the-municipal-elections",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.municipal-taxes",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gemeenten/welke-belastingen-heft-de-gemeente",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/gemeenten/welke-belastingen-heft-de-gemeente",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.naturalisation",
+      "url": "https://ind.nl/en/dutch-citizenship/becoming-a-dutch-national-through-naturalisation",
+      "original_url": "https://ind.nl/en/dutch-citizenship/becoming-a-dutch-national-through-naturalisation",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.nl-alert",
+      "url": "https://www.nl-alert.nl/english",
+      "original_url": "https://www.nl-alert.nl/english",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.option-procedure",
+      "url": "https://ind.nl/en/dutch-citizenship/becoming-a-dutch-national-through-option",
+      "original_url": "https://ind.nl/en/dutch-citizenship/becoming-a-dutch-national-through-option",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.orphan-benefit",
+      "url": "https://www.svb.nl/en/orphan-s-benefit/additional-qualifying-conditions-for-an-orphan-s-benefit",
+      "original_url": "https://www.svb.nl/en/orphan-s-benefit/additional-qualifying-conditions-for-an-orphan-s-benefit",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.parental-leave",
+      "url": "https://www.government.nl/themes/work/parental-leave-for-partners/applying-for-parental-leave",
+      "original_url": "https://www.government.nl/themes/work/parental-leave-for-partners/applying-for-parental-leave",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.parliamentary-democracy",
+      "url": "https://www.government.nl/themes/government-and-democracy/democracy/the-workings-of-democracy",
+      "original_url": "https://www.government.nl/themes/government-and-democracy/democracy/the-workings-of-democracy",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.partner-residence-permit",
+      "url": "https://ind.nl/en/residence-permits/family-and-partner/residence-permit-for-partner",
+      "original_url": "https://ind.nl/en/residence-permits/family-and-partner/residence-permit-for-partner",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.passport-id-card",
+      "url": "https://www.government.nl/themes/justice-security-and-defence/identification-documents/passports-identity-cards-and-dutch-nationality-certificates",
+      "original_url": "https://www.government.nl/themes/justice-security-and-defence/identification-documents/passports-identity-cards-and-dutch-nationality-certificates",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.permanent-residence",
+      "url": "https://ind.nl/en/replace-extend-renew-and-change/permanent-residency/permanent-residence-permit",
+      "original_url": "https://ind.nl/en/replace-extend-renew-and-change/permanent-residency/permanent-residence-permit",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.privacy-rights",
+      "url": "https://www.autoriteitpersoonsgegevens.nl/en/you-and-your-online-data/your-privacy-rights",
+      "original_url": "https://www.autoriteitpersoonsgegevens.nl/en/node/4316",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.provisional-tax-assessment",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/how-do-i-apply-for-a-provisional-assessment",
+      "original_url": "https://www.belastingdienst.nl/wps/wcm/connect/en/individuals/content/how-do-i-apply-for-a-provisional-assessment",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.proxy-vote",
+      "url": "https://www.government.nl/documents/question-and-answer/elections/can-i-let-someone-else-cast-my-vote-for-me",
+      "original_url": "https://www.government.nl/faq/elections/can-i-let-someone-else-cast-my-vote-for-me",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.public-authority-complaint",
+      "url": "https://www.government.nl/themes/government-and-democracy/objections-complaints-and-appeals/filing-a-complaint-about-a-public-authority",
+      "original_url": "https://www.government.nl/themes/government-and-democracy/objections-complaints-and-appeals/filing-a-complaint-about-a-public-authority",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.register-family-doctor",
+      "url": "https://www.government.nl/documents/question-and-answer/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands",
+      "original_url": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.renew-driving-licence-online",
+      "url": "https://www.rdw.nl/en/driving-licence/applying-or-renewing/renewing-a-dutch-driving-licence-online-if-you-live-in-the-netherlands",
+      "original_url": "https://www.rdw.nl/en/driving-licence/applying-or-renewing/renewing-a-dutch-driving-licence-online-if-you-live-in-the-netherlands",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.renounce-nationality",
+      "url": "https://ind.nl/en/renouncing-your-nationality",
+      "original_url": "https://ind.nl/en/renouncing-your-nationality",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.rent-increase-rules",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/woning-huren/welke-regels-gelden-er-voor-een-huurverhoging",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/welke-regels-gelden-er-voor-een-huurverhoging",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.rent-tribunal",
+      "url": "https://www.government.nl/themes/building-and-housing/housing/rented-housing",
+      "original_url": "https://www.government.nl/themes/building-and-housing/housing/rented-housing",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.replacement-voting-pass",
+      "url": "https://www.kiesraad.nl/verkiezingen/tweede-kamer/stemmen/stempas",
+      "original_url": "https://www.kiesraad.nl/verkiezingen/tweede-kamer/stemmen/stempas",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.report-crime",
+      "url": "https://www.politie.nl/en/topics/report-a-crime.html",
+      "original_url": "https://www.politie.nl/en/topics/report-a-crime.html",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.report-death-abroad",
+      "url": "https://www.netherlandsworldwide.nl/death-abroad/death-report",
+      "original_url": "https://www.netherlandsworldwide.nl/death-abroad/death-report",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.report-discrimination",
+      "url": "https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination",
+      "original_url": "https://www.government.nl/themes/migration-and-travel/discrimination/reporting-discrimination",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.residence-permit",
+      "url": "https://ind.nl/en/residence-permits",
+      "original_url": "https://ind.nl/en/residence-permits",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.rni-registration",
+      "url": "https://www.government.nl/documents/question-and-answer/when-should-i-register-with-the-personal-records-database-as-a-resident",
+      "original_url": "https://www.government.nl/faq/when-should-i-register-with-the-personal-records-database-as-a-resident",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.sickness-benefit",
+      "url": "https://www.government.nl/themes/taxes-benefits-and-allowances/sickness-benefit/receiving-sickness-benefit",
+      "original_url": "https://www.government.nl/themes/taxes-benefits-and-allowances/sickness-benefit/receiving-sickness-benefit",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.student-finance",
+      "url": "https://www.duo.nl/particulier/student-finance/apply.jsp",
+      "original_url": "https://www.duo.nl/particulier/student-finance/apply.jsp",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.student-residence-permit",
+      "url": "https://ind.nl/en/residence-permits/study",
+      "original_url": "https://ind.nl/en/residence-permits/study",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.student-travel-product",
+      "url": "https://duo.nl/particulier/student-travel-product/apply.jsp",
+      "original_url": "https://duo.nl/particulier/student-travel-product/apply.jsp",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.subsidised-legal-aid",
+      "url": "https://www.government.nl/themes/justice-security-and-defence/administration-of-justice-and-dispute-settlement/costs-of-judicial-proceedings",
+      "original_url": "https://www.government.nl/themes/justice-security-and-defence/administration-of-justice-and-dispute-settlement/costs-of-judicial-proceedings",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.tax-disagreement",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/standaard_functies/individuals/contact/you_do_not_agree/",
+      "original_url": "https://www.belastingdienst.nl/wps/wcm/connect/bldcontenten/standaard_functies/individuals/contact/you_do_not_agree/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.tuition-fees",
+      "url": "https://www.duo.nl/particulier/tuition-fees.jsp",
+      "original_url": "https://www.duo.nl/particulier/tuition-fees.jsp",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.ubo-register",
+      "url": "https://business.gov.nl/regulations/ubo-register-ultimate-beneficial-owner/",
+      "original_url": "https://business.gov.nl/regulations/ubo-register-ultimate-beneficial-owner/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.unemployment-benefit",
+      "url": "https://www.uwv.nl/en/individuals/unemployment-benefit/applying-for",
+      "original_url": "https://www.uwv.nl/en/individuals/unemployment-benefit/applying-for",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.uninsured-health-insurance",
+      "url": "https://www.hetcak.nl/en/uninsured/",
+      "original_url": "https://www.hetcak.nl/en/uninsured/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.vat-numbers",
+      "url": "https://business.gov.nl/finance-and-taxes/vat/numbers-for-vat/",
+      "original_url": "https://business.gov.nl/finance-and-taxes/vat/numbers-for-vat/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.vog",
+      "url": "https://www.justis.nl/producten/verklaring-omtrent-het-gedrag/wat-is-een-vog",
+      "original_url": "https://www.justis.nl/producten/verklaring-omtrent-het-gedrag/wat-is-een-vog",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.voting-abroad",
+      "url": "https://www.netherlandsworldwide.nl/voting-abroad",
+      "original_url": "https://www.netherlandsworldwide.nl/voting-abroad",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.warning-siren",
+      "url": "https://www.government.nl/documents/question-and-answer/what-to-do-when-the-public-warning-siren-sounds",
+      "original_url": "https://www.government.nl/faq/what-to-do-when-the-public-warning-siren-sounds",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.work-permit",
+      "url": "https://www.government.nl/documents/question-and-answer/foreign-citizens-working-in-the-netherlands/what-permits-do-foreign-workers-need",
+      "original_url": "https://www.government.nl/faq/foreign-citizens-working-in-the-netherlands/what-permits-do-foreign-workers-need",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government.woz-objection",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/waardering-onroerende-zaken-woz/bezwaar-woz-beschikking",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/waardering-onroerende-zaken-woz/bezwaar-woz-beschikking",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government_service.driving-licence-amsterdam",
+      "url": "https://www.amsterdam.nl/en/civil-affairs/applying-dutch-driving-licence/",
+      "original_url": "https://www.amsterdam.nl/en/civil-affairs/applying-dutch-driving-licence/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government_service.first-registration-in-amsterdam",
+      "url": "https://www.amsterdam.nl/en/civil-affairs/first-registration/",
+      "original_url": "https://www.amsterdam.nl/en/civil-affairs/first-registration/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government_service.marriage-and-registered-partnership-amsterdam",
+      "url": "https://www.amsterdam.nl/en/civil-affairs/marriage-registered-partnership/",
+      "original_url": "https://www.amsterdam.nl/en/civil-affairs/marriage-registered-partnership/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government_service.moving-within-amsterdam",
+      "url": "https://www.amsterdam.nl/en/civil-affairs/moving-amsterdam/",
+      "original_url": "https://www.amsterdam.nl/en/civil-affairs/moving-amsterdam/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government_service.municipal-taxes-amsterdam",
+      "url": "https://www.amsterdam.nl/en/municipal-taxes/",
+      "original_url": "https://www.amsterdam.nl/en/municipal-taxes/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government_service.parking-permit-amsterdam",
+      "url": "https://www.amsterdam.nl/en/parking/parking-permit/",
+      "original_url": "https://www.amsterdam.nl/en/parking/parking-permit/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government_service.passport-and-id-card-amsterdam",
+      "url": "https://www.amsterdam.nl/en/civil-affairs/passport-id-card/",
+      "original_url": "https://www.amsterdam.nl/en/civil-affairs/passport-id-card/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government_service.registering-a-birth-in-amsterdam",
+      "url": "https://www.amsterdam.nl/en/civil-affairs/birth/",
+      "original_url": "https://www.amsterdam.nl/en/civil-affairs/birth/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government_service.report-a-problem-in-public-space-amsterdam",
+      "url": "https://www.amsterdam.nl/en/contact-information/report-problem/",
+      "original_url": "https://www.amsterdam.nl/en/contact-information/report-problem/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "government_service.waste-and-recycling-amsterdam",
+      "url": "https://www.amsterdam.nl/en/waste-recycling/",
+      "original_url": "https://www.amsterdam.nl/en/waste-recycling/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.112nl-app",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/alarmnummer-112/112-app-van-de-overheid",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/alarmnummer-112/112-app-van-de-overheid",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.acta",
+      "url": "https://acta.nl/en",
+      "original_url": "https://acta.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.acute-care-network",
+      "url": "https://www.rivm.nl/acute-zorg",
+      "original_url": "https://www.rivm.nl/acute-zorg",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.aed-use",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/wat-is-een-automatische-externe-defibrillator-aed-en-wie-mag-een-aed-bedienen",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/wat-is-een-automatische-externe-defibrillator-aed-en-wie-mag-een-aed-bedienen",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.amsterdam-umc-location-amc",
+      "url": "https://www.amsterdamumc.nl/en/location-amc/public-transport",
+      "original_url": "https://www.amsterdamumc.nl/en/location-amc/public-transport",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.amsterdam-umc-location-vumc",
+      "url": "https://www.amsterdamumc.nl/en/location-vumc/address-and-contact",
+      "original_url": "https://www.amsterdamumc.nl/en/location-vumc/address-and-contact",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.antoni-van-leeuwenhoek",
+      "url": "https://www.avl.nl/en/",
+      "original_url": "https://www.avl.nl/en/",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.arkin",
+      "url": "https://arkin.nl/en/",
+      "original_url": "https://arkin.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.basic-package",
+      "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/z/zvw-algemeen-hoe-werkt-de-zorgverzekeringswet",
+      "original_url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/z/zvw-algemeen-hoe-werkt-de-zorgverzekeringswet",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.bovenij-hospital",
+      "url": "https://www.bovenij.nl/",
+      "original_url": "https://www.bovenij.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.choose-gp",
+      "url": "https://www.thuisarts.nl/dutch-healthcare/choosing-gp",
+      "original_url": "https://www.thuisarts.nl/dutch-healthcare/choosing-gp",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.contact-gp-practice",
+      "url": "https://www.thuisarts.nl/contact-met-huisartsenpraktijk",
+      "original_url": "https://www.thuisarts.nl/contact-met-huisartsenpraktijk",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.cross-border-insurance",
+      "url": "https://www.hetcak.nl/zorgverzekering-buitenland",
+      "original_url": "https://www.hetcak.nl/zorgverzekering-buitenland",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.dental-care",
+      "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/t/tandarts-en-mondzorg-zvw",
+      "original_url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/t/tandarts-en-mondzorg-zvw",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.district-nursing",
+      "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/w/wijkverpleging-zvw",
+      "original_url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/w/wijkverpleging-zvw",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.emergency-112",
+      "url": "https://www.government.nl/themes/justice-security-and-defence/emergency-number-112",
+      "original_url": "https://www.government.nl/themes/justice-security-and-defence/emergency-number-112",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.emergency-accessibility",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/alarmnummer-112/112-bellen-doven-slechthorenden",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/alarmnummer-112/112-bellen-doven-slechthorenden",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.emergency-dental-care",
+      "url": "https://knmt.nl/praktijkzaken/regelen-rond-kwaliteit-en-klachten/opvang-tandheelkundige-spoedgevallen",
+      "original_url": "https://knmt.nl/praktijkzaken/regelen-rond-kwaliteit-en-klachten/opvang-tandheelkundige-spoedgevallen",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.ggd-amsterdam",
+      "url": "https://www.ggd.amsterdam.nl/english/",
+      "original_url": "https://www.ggd.amsterdam.nl/english/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.gp-basic-package",
+      "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/h/huisarts-zvw",
+      "original_url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/h/huisarts-zvw",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.gp-mental-health",
+      "url": "https://www.government.nl/documents/question-and-answer/help-for-mental-health-problems",
+      "original_url": "https://www.government.nl/faq/help-for-mental-health-problems",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.gp-practice-team",
+      "url": "https://www.thuisarts.nl/met-wie-krijg-je-te-maken-bij-huisartsenpraktijk",
+      "original_url": "https://www.thuisarts.nl/met-wie-krijg-je-te-maken-bij-huisartsenpraktijk",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.healthcare-provider-complaint",
+      "url": "https://www.igj.nl/onderwerpen/klachten-en-melden/klacht-of-vraag-over-zorg-of-jeugdhulpverlening/ik-heb-een-klacht/klacht-zorgaanbieder",
+      "original_url": "https://www.igj.nl/onderwerpen/klachten-en-melden/klacht-of-vraag-over-zorg-of-jeugdhulpverlening/ik-heb-een-klacht/klacht-zorgaanbieder",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.hospital-billing",
+      "url": "https://www.nza.nl/documenten/videos/2017/12/12/betalen-van-ziekenhuiszorg",
+      "original_url": "https://www.nza.nl/documenten/videos/2017/12/12/betalen-van-ziekenhuiszorg",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.hospital-specialist-care",
+      "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/m/medisch-specialistische-zorg-zvw",
+      "original_url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/m/medisch-specialistische-zorg-zvw",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.hospital-stay",
+      "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/v/verblijf-zvw",
+      "original_url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/v/verblijf-zvw",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.hospital-waiting-list",
+      "url": "https://www.nza.nl/onderwerpen/i/informatieverstrekking-door-zorgaanbieders/zorgbemiddeling",
+      "original_url": "https://www.nza.nl/onderwerpen/i/informatieverstrekking-door-zorgaanbieders/zorgbemiddeling",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.igj-care-report",
+      "url": "https://www.igj.nl/onderwerpen/klachten-en-melden/klacht-of-vraag-over-zorg-of-jeugdhulpverlening/ik-wil-iets-melden",
+      "original_url": "https://www.igj.nl/onderwerpen/klachten-en-melden/klacht-of-vraag-over-zorg-of-jeugdhulpverlening/ik-wil-iets-melden",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.insurance-children",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/zorgverzekering/tips-zorgverzekering",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/tips-zorgverzekering",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.insurer-acceptance-duty",
+      "url": "https://www.zorginstituutnederland.nl/financiering/fondsbeheer-zvf-en-flz/zorgverzekeringsfonds",
+      "original_url": "https://www.zorginstituutnederland.nl/financiering/fondsbeheer-zvf-en-flz/zorgverzekeringsfonds",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.insurer-complaint",
+      "url": "https://www.skgz.nl/klacht-indienen-zo-werkt-dat",
+      "original_url": "https://www.skgz.nl/klacht-indienen-zo-werkt-dat",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.long-term-care",
+      "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/w/wlz-algemeen-hoe-werkt-de-wet-langdurige-zorg",
+      "original_url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/w/wlz-algemeen-hoe-werkt-de-wet-langdurige-zorg",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.mandatory-deductible",
+      "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/e/eigen-risico-zvw",
+      "original_url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/e/eigen-risico-zvw",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.mandatory-insurance",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/zorgverzekering/ben-ik-verplicht-een-zorgverzekering-af-te-sluiten",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/zorgverzekering/ben-ik-verplicht-een-zorgverzekering-af-te-sluiten",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.medical-records",
+      "url": "https://www.government.nl/themes/family-health-and-care/patients-rights-and-privacy/accessing-updating-or-deleting-medical-records",
+      "original_url": "https://www.government.nl/themes/family-health-and-care/patients-rights-and-privacy/accessing-updating-or-deleting-medical-records",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.medicines-pharmacy",
+      "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/g/geneesmiddelen-zvw",
+      "original_url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/g/geneesmiddelen-zvw",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.mental-health-crisis",
+      "url": "https://www.thuisarts.nl/psychische-klachten-bij-volwassenen/iemand-die-ik-goed-ken-heeft-psychische-crisis-wat-moet-ik-doen",
+      "original_url": "https://www.thuisarts.nl/psychische-klachten/ik-heb-acute-psychische-crisis",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.midwifery-care",
+      "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/v/verloskundige-zorg-zvw",
+      "original_url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/v/verloskundige-zorg-zvw",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.noncontracted-care",
+      "url": "https://www.nza.nl/onderwerpen/i/informatieverstrekking-door-zorgaanbieders/niet-gecontracteerde-zorg",
+      "original_url": "https://www.nza.nl/onderwerpen/i/informatieverstrekking-door-zorgaanbieders/niet-gecontracteerde-zorg",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.olvg-east",
+      "url": "https://www.olvg.nl/uw-bezoek-aan-olvg/voorzieningen-olvg-locatie-oost/",
+      "original_url": "https://www.olvg.nl/uw-bezoek-aan-olvg/voorzieningen-olvg-locatie-oost/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.olvg-west",
+      "url": "https://www.olvg.nl/uw-bezoek-aan-olvg/voorzieningen-olvg-locatie-west/",
+      "original_url": "https://www.olvg.nl/uw-bezoek-aan-olvg/voorzieningen-olvg-locatie-west/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.out-of-hours-gp",
+      "url": "https://www.thuisarts.nl/spoed-wie-bel-je",
+      "original_url": "https://www.thuisarts.nl/spoed-wie-bel-je",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.patient-rights",
+      "url": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/rechten-van-patient-en-privacy/rechten-bij-een-medische-behandeling/rechten-en-plichten-bij-medische-behandeling",
+      "original_url": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/rechten-van-patient-en-privacy/rechten-bij-een-medische-behandeling/rechten-en-plichten-bij-medische-behandeling",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.physiotherapy",
+      "url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/f/fysiotherapie-en-oefentherapie-zvw",
+      "original_url": "https://www.zorginstituutnederland.nl/verzekerde-zorg/f/fysiotherapie-en-oefentherapie-zvw",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.reade-overtoom",
+      "url": "https://reade.nl/over-ons/locaties/overtoom",
+      "original_url": "https://reade.nl/over-ons/locaties/overtoom",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.specialist-referral",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/wanneer-heb-ik-een-verwijsbrief-van-mijn-huisarts-nodig-en-wanneer-mag-hij-deze-weigeren",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/eerstelijnszorg/wanneer-heb-ik-een-verwijsbrief-van-mijn-huisarts-nodig-en-wanneer-mag-hij-deze-weigeren",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.suicide-crisis-help",
+      "url": "https://www.thuisarts.nl/denken-aan-zelfmoord/ik-denk-aan-zelfmoord",
+      "original_url": "https://www.thuisarts.nl/denken-aan-zelfmoord/ik-denk-aan-zelfmoord",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.treatment-representation",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/levenseinde-en-euthanasie/wilsonbekwaamheid",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/levenseinde-en-euthanasie/wilsonbekwaamheid",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.urgent-gp-system",
+      "url": "https://www.rivm.nl/acute-zorg/spoedeisende-huisartsenzorg",
+      "original_url": "https://www.rivm.nl/acute-zorg/spoedeisende-huisartsenzorg",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "healthcare.waiting-time-mediation",
+      "url": "https://www.nza.nl/documenten/vraag-en-antwoord/zorgverzekeraars/de-wachttijden-bij-gecontracteerde-zorgaanbieder-zijn-te-lang.-wat-moet-de-zorgverzekeraar-doen",
+      "original_url": "https://www.nza.nl/vraag-en-antwoord/zorgverzekeraars/de-wachttijden-bij-gecontracteerde-zorgaanbieder-zijn-te-lang.-wat-moet-de-zorgverzekeraar-doen",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.affordable-housing-amsterdam",
+      "url": "https://www.amsterdam.nl/en/housing/affordable-housing/",
+      "original_url": "https://www.amsterdam.nl/en/housing/affordable-housing/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.all-in-rent",
+      "url": "https://www.huurcommissie.nl/onderwerpen/huurder-sociale--en-middensector/servicekosten-sociale-middensector-huurder/all-in-prijs-splitsen",
+      "original_url": "https://www.huurcommissie.nl/onderwerpen/huurder-sociale--en-middensector/servicekosten-sociale-middensector-huurder/all-in-prijs-splitsen",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.defects-rent-reduction",
+      "url": "https://www.huurcommissie.nl/onderwerpen/huurder-vrije-sector/huurprijs-punten-vrije-sector-huurder/tijdelijke-huurverlaging-ernstige-gebreken",
+      "original_url": "https://www.huurcommissie.nl/onderwerpen/huurder-vrije-sector/huurprijs-punten-vrije-sector-huurder/tijdelijke-huurverlaging-ernstige-gebreken",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.district-heating-rights",
+      "url": "https://www.acm.nl/nl/energie/warmte-en-koude/rechten-van-verbruikers-met-een-kleine-aansluiting/uw-rechten-bij-warmte-een-warmteleverancier",
+      "original_url": "https://www.acm.nl/nl/energie/warmte-en-koude/rechten-van-verbruikers-met-een-kleine-aansluiting/uw-rechten-bij-warmte-een-warmteleverancier",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.drinking-water-tax",
+      "url": "https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/drinkwater/belasting-op-drinkwater",
+      "original_url": "https://www.rijksoverheid.nl/themas/klimaat-milieu-en-natuur/drinkwater/belasting-op-drinkwater",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.ending-tenancy",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/woning-huren/huur-opzeggen-woning",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/huur-opzeggen-woning",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.energy-contract-ending",
+      "url": "https://consument.acm.nl/elektriciteit-en-gas/overstappen-vergelijken-en-verhuizen/energiecontract-opzeggen-alles-over-opzegvergoeding-en-opzegtermijn",
+      "original_url": "https://consument.acm.nl/elektriciteit-en-gas/overstappen-vergelijken-en-verhuizen/energiecontract-opzeggen-alles-over-opzegvergoeding-en-opzegtermijn",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.energy-contract-moving",
+      "url": "https://consument.acm.nl/elektriciteit-en-gas/overstappen-vergelijken-en-verhuizen/energiecontract-bij-verhuizen",
+      "original_url": "https://consument.acm.nl/elektriciteit-en-gas/overstappen-vergelijken-en-verhuizen/energiecontract-bij-verhuizen",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.energy-label-home",
+      "url": "https://www.rvo.nl/onderwerpen/wetten-en-regels-gebouwen/energielabel-woningen",
+      "original_url": "https://www.rvo.nl/onderwerpen/wetten-en-regels-gebouwen/energielabel-woningen",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.energy-supplier-choice",
+      "url": "https://consument.acm.nl/elektriciteit-en-gas/overstappen-vergelijken-en-verhuizen/tips-bij-het-kiezen-van-een-energieleverancier",
+      "original_url": "https://consument.acm.nl/elektriciteit-en-gas/overstappen-vergelijken-en-verhuizen/tips-bij-het-kiezen-van-een-energieleverancier",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.grid-costs",
+      "url": "https://consument.acm.nl/elektriciteit-en-gas/wat-betaal-ik-voor-mijn-energie/wat-zijn-netwerkkosten-capaciteitstarief-aansluittarief-meettarief",
+      "original_url": "https://consument.acm.nl/elektriciteit-en-gas/wat-betaal-ik-voor-mijn-energie/wat-zijn-netwerkkosten-capaciteitstarief-aansluittarief-meettarief",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.home-buying-checklist",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/huis-kopen/checklist-woning-kopen",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/checklist-woning-kopen",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.home-buying-costs",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/huis-kopen/met-welke-kosten-krijg-ik-te-maken-als-ik-een-huis-koop",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/met-welke-kosten-krijg-ik-te-maken-als-ik-een-huis-koop",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.home-tax-deductions",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/koopwoning/",
+      "original_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/koopwoning/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.housing-association",
+      "url": "https://www.government.nl/themes/building-and-housing/housing/housing-associations",
+      "original_url": "https://www.government.nl/topics/housing/housing-associations",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.housing-permit-amsterdam",
+      "url": "https://www.amsterdam.nl/en/housing/housing-permit/",
+      "original_url": "https://www.amsterdam.nl/en/housing/housing-permit/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.huurcommissie-procedure",
+      "url": "https://www.huurcommissie.nl/onderwerpen/procedure/procedure-starten/kosten",
+      "original_url": "https://www.huurcommissie.nl/onderwerpen/procedure/procedure-starten/kosten",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.landlord-ending-tenancy",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/woning-huren/verhuurder-zegt-huur-op-woning",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/verhuurder-zegt-huur-op-woning",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.landlord-reporting-point",
+      "url": "https://www.rijksoverheid.nl/site/binaries/site-content/collections/documents/2024/02/15/wat-betekent-de-wet-goed-verhuurderschap-voor-huurders-en-woningzoekenden/Wet%2Bgoed%2Bverhuurderschap%2BNEDERLANDS.pdf",
+      "original_url": "https://www.rijksoverheid.nl/binaries/rijksoverheid/documenten/publicaties/2024/02/15/wat-betekent-de-wet-goed-verhuurderschap-voor-huurders-en-woningzoekenden/Wet%2Bgoed%2Bverhuurderschap%2BNEDERLANDS.pdf",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.licensed-energy-suppliers",
+      "url": "https://consument.acm.nl/elektriciteit-en-gas/wie-is-wie-energiemarkt/energieleveranciers-met-vergunning",
+      "original_url": "https://consument.acm.nl/elektriciteit-en-gas/wie-is-wie-energiemarkt/energieleveranciers-met-vergunning",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.maximum-mortgage",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/huis-kopen/maximaal-bedrag-lenen-koopwoning",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/maximaal-bedrag-lenen-koopwoning",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.mediation-fees",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/huurwoning-zoeken/moet-ik-bemiddelingskosten-betalen-voor-een-kamer-of-huurwoning",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/moet-ik-bemiddelingskosten-betalen-voor-een-kamer-of-huurwoning",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.mortgage-application",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/huis-kopen/hypotheek-aanvragen-wat-moet-ik-regelen",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/hypotheek-aanvragen-wat-moet-ik-regelen",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.notarial-transfer",
+      "url": "https://www.notaris.nl/wonen/koopcontract-en-overdracht/de-overdracht-van-een-woning-bij-de-notaris",
+      "original_url": "https://www.notaris.nl/wonen/koopcontract-en-overdracht/de-overdracht-van-een-woning-bij-de-notaris",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.power-outage-compensation",
+      "url": "https://consument.acm.nl/elektriciteit-en-gas/ik-heb-een-probleem/stroomstoring-vergoeding",
+      "original_url": "https://consument.acm.nl/elektriciteit-en-gas/ik-heb-een-probleem/stroomstoring-vergoeding",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.property-research",
+      "url": "https://www.kadaster.nl/situaties/woning/kopen",
+      "original_url": "https://www.kadaster.nl/situaties/woning/kopen",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.purchase-cooling-off",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/huis-kopen/hoeveel-bedenktijd-heb-ik-na-het-kopen-van-een-woning",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huis-kopen/hoeveel-bedenktijd-heb-ik-na-het-kopen-van-een-woning",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.rent-increase-objection",
+      "url": "https://www.huurcommissie.nl/onderwerpen/huurder-sociale--en-middensector/huurverhoging-sociale-middensector-huurder/jaarlijkse-huurverhoging-sociale-huur",
+      "original_url": "https://www.huurcommissie.nl/onderwerpen/huurder-sociale--en-middensector/huurverhoging-sociale-middensector-huurder/jaarlijkse-huurverhoging-sociale-huur",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.rent-price-check",
+      "url": "https://www.huurcommissie.nl/support/huurprijscheck",
+      "original_url": "https://www.huurcommissie.nl/support/huurprijscheck",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.rent-reduction-points",
+      "url": "https://www.huurcommissie.nl/onderwerpen/huurder-sociale--en-middensector/huurprijs-punten-sociale-middensector-huurder/huurverlaging-op-puntenaantal",
+      "original_url": "https://www.huurcommissie.nl/onderwerpen/huurder-sociale--en-middensector/huurprijs-punten-sociale-middensector-huurder/huurverlaging-op-puntenaantal",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.rental-deposit",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/woning-huren/woning-huren-waarborgsom",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/woning-huren-waarborgsom",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.renting-a-home-in-amsterdam",
+      "url": "https://www.amsterdam.nl/en/housing/renting-home/",
+      "original_url": "https://www.amsterdam.nl/en/housing/renting-home/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.renting-step-by-step",
+      "url": "https://www.government.nl/themes/building-and-housing/housing/rented-housing/step-by-step-plan-for-tenants",
+      "original_url": "https://www.government.nl/themes/building-and-housing/housing/rented-housing/step-by-step-plan-for-tenants",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.repair-responsibility",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/woning-huren/welke-kosten-zijn-voor-de-huurder-en-welke-voor-de-verhuurder",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/welke-kosten-zijn-voor-de-huurder-en-welke-voor-de-verhuurder",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.service-cost-basics",
+      "url": "https://www.huurcommissie.nl/onderwerpen/huurder-sociale--en-middensector/servicekosten-sociale-middensector-huurder/servicekosten-en-nutsvoorzieningen",
+      "original_url": "https://www.huurcommissie.nl/onderwerpen/huurder-sociale--en-middensector/servicekosten-sociale-middensector-huurder/servicekosten-en-nutsvoorzieningen",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.service-cost-statement",
+      "url": "https://www.huurcommissie.nl/onderwerpen/huurder-vrije-sector/servicekosten-vrije-sector-huurder",
+      "original_url": "https://www.huurcommissie.nl/onderwerpen/huurder-vrije-sector/servicekosten-vrije-sector-huurder",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.sewer-water-charges",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/waterschappen/hoe-wordt-de-riolering-en-afvalwaterzuivering-betaald",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/waterschappen/hoe-wordt-de-riolering-en-afvalwaterzuivering-betaald",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.student-room-basics",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/huurwoning-zoeken/op-kamers-wat-moet-ik-regelen",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/op-kamers-wat-moet-ik-regelen",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.temporary-rental-contract",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/huurwoning-zoeken/wanneer-kan-ik-tijdelijk-huren",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/huurwoning-zoeken/wanneer-kan-ik-tijdelijk-huren",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.tenancy-agreement",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/woning-huren/welke-afspraken-staan-er-in-het-huurcontract-van-mijn-woning",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/welke-afspraken-staan-er-in-het-huurcontract-van-mijn-woning",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.tenant-duties",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/woning-huren/welke-rechten-en-plichten-heb-ik-als-huurder",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/welke-rechten-en-plichten-heb-ik-als-huurder",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.tenant-protection",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/woning-huren/heb-ik-recht-op-huurbescherming",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/woning-huren/heb-ik-recht-op-huurbescherming",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.transfer-tax",
+      "url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/koopwoning/content/overdrachtsbelasting-betalen-bij-koop-huis",
+      "original_url": "https://www.belastingdienst.nl/wps/wcm/connect/nl/koopwoning/content/overdrachtsbelasting-betalen-bij-koop-huis",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.utility-emergency",
+      "url": "https://consument.acm.nl/elektriciteit-en-gas/ik-heb-een-probleem/ruik-gas-in-huis-of-heb-andere-storing",
+      "original_url": "https://consument.acm.nl/elektriciteit-en-gas/ik-heb-een-probleem/ruik-gas-in-huis-of-heb-andere-storing",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.woningnet-stadsregio-amsterdam",
+      "url": "https://amsterdam.mijndak.nl/",
+      "original_url": "https://www.woningnetregioamsterdam.nl/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "housing.woon",
+      "url": "https://www.wooninfo.nl/english/",
+      "original_url": "https://www.wooninfo.nl/english/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "local_partner.citizenm-amsterdam-south",
+      "url": "https://www.marriott.com/brands/citizenm.mi",
+      "original_url": "https://www.citizenm.com/hotels/europe/amsterdam/amsterdam-south-hotel",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "local_partner.everaert-advocaten",
+      "url": "https://www.everaert.nl/en/home/",
+      "original_url": "https://www.everaert.nl/en/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "local_partner.funda",
+      "url": "https://www.funda.nl/",
+      "original_url": "https://www.funda.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "local_partner.ikea-amsterdam",
+      "url": "https://www.ikea.com/nl/en/stores/amsterdam/",
+      "original_url": "https://www.ikea.com/nl/en/stores/amsterdam/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "local_partner.ing-group",
+      "url": "https://ing.com/about-us/ing-at-a-glance",
+      "original_url": "https://ing.com/about-us/ing-at-a-glance",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "local_partner.macbike-amsterdam",
+      "url": "https://www.macbike.nl/",
+      "original_url": "https://www.macbike.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "local_partner.rob-peetoom-amsterdam",
+      "url": "https://www.robpeetoom.com/",
+      "original_url": "https://www.robpeetoom.nl/salons/amsterdam",
+      "outcome": "restricted",
+      "http_status": 429,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "local_partner.tca-taxi-amsterdam",
+      "url": "https://www.tcataxi.nl/en/",
+      "original_url": "https://www.tcataxi.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "local_partner.uva-talen",
+      "url": "https://www.uvatalen.nl/en",
+      "original_url": "https://www.uvatalen.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "local_partner.van-der-valk-hotel-amsterdam-amstel",
+      "url": "https://www.vandervalkamsterdam.com/",
+      "original_url": "https://www.hotelamsterdamamstel.nl/en",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.allard-pierson",
+      "url": "https://www.allardpierson.nl/en/",
+      "original_url": "https://allardpierson.nl/en/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.amsterdam-museum",
+      "url": "https://www.amsterdammuseum.nl/en",
+      "original_url": "https://www.amsterdammuseum.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.anne-frank-house",
+      "url": "https://www.annefrank.org/en/museum/",
+      "original_url": "https://www.annefrank.org/en/museum/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.artis-micropia",
+      "url": "https://www.artis.nl/en/artis-micropia",
+      "original_url": "https://www.micropia.nl/en/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.dutch-resistance-museum",
+      "url": "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands",
+      "original_url": "https://www.verzetsmuseum.org/en",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.eye-filmmuseum",
+      "url": "https://www.eyefilm.nl/en",
+      "original_url": "https://www.eyefilm.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.foam",
+      "url": "https://www.foam.org/",
+      "original_url": "https://www.foam.org/",
+      "outcome": "restricted",
+      "http_status": 429,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.hart-museum",
+      "url": "https://www.hartmuseum.nl/en/",
+      "original_url": "https://www.hartmuseum.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.het-scheepvaartmuseum",
+      "url": "https://www.hetscheepvaartmuseum.com/",
+      "original_url": "https://www.hetscheepvaartmuseum.com/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.huis-marseille",
+      "url": "https://huismarseille.nl/en/",
+      "original_url": "https://huismarseille.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.jewish-museum",
+      "url": "https://jck.nl/en/location/jewish-museum",
+      "original_url": "https://jck.nl/en/location/jewish-museum",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.museum-of-the-canals",
+      "url": "https://grachten.museum/en/",
+      "original_url": "https://grachten.museum/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.museum-ons-lieve-heer-op-solder",
+      "url": "https://opsolder.nl/en/",
+      "original_url": "https://opsolder.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.museum-rembrandthuis",
+      "url": "https://www.rembrandthuis.nl/en/",
+      "original_url": "https://www.rembrandthuis.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.museum-van-loon",
+      "url": "https://www.museumvanloon.nl/en",
+      "original_url": "https://www.museumvanloon.nl/en",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.nemo-science-museum",
+      "url": "https://www.nemosciencemuseum.nl/en",
+      "original_url": "https://www.nemosciencemuseum.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.rijksmuseum",
+      "url": "https://www.rijksmuseum.nl/en",
+      "original_url": "https://www.rijksmuseum.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.stedelijk-museum-amsterdam",
+      "url": "https://www.stedelijk.nl/en",
+      "original_url": "https://www.stedelijk.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.van-gogh-museum",
+      "url": "https://www.vangoghmuseum.nl/en",
+      "original_url": "https://www.vangoghmuseum.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "museum.wereldmuseum-amsterdam",
+      "url": "https://amsterdam.wereldmuseum.nl/en",
+      "original_url": "https://amsterdam.wereldmuseum.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "nature.amsterdamse-bos",
+      "url": "https://www.amsterdamsebos.nl/english/",
+      "original_url": "https://www.amsterdamsebos.nl/english/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "nature.erasmuspark",
+      "url": "https://www.amsterdam.nl/en/leisure/parks/erasmuspark/",
+      "original_url": "https://www.amsterdam.nl/en/leisure/parks/erasmuspark/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "nature.noorderpark",
+      "url": "https://www.amsterdam.nl/en/leisure/parks/noorderpark/",
+      "original_url": "https://www.amsterdam.nl/en/leisure/parks/noorderpark/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "nature.oosterpark",
+      "url": "https://www.amsterdam.nl/en/leisure/parks/oosterpark/",
+      "original_url": "https://www.amsterdam.nl/en/leisure/parks/oosterpark/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "nature.park-frankendael",
+      "url": "https://www.amsterdam.nl/en/leisure/parks/park-frankendael/",
+      "original_url": "https://www.amsterdam.nl/en/leisure/parks/park-frankendael/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "nature.rembrandtpark",
+      "url": "https://www.amsterdam.nl/en/leisure/parks/rembrandtpark/",
+      "original_url": "https://www.amsterdam.nl/en/leisure/parks/rembrandtpark/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "nature.sarphatipark",
+      "url": "https://www.amsterdam.nl/en/leisure/parks/sarphatipark/",
+      "original_url": "https://www.amsterdam.nl/en/leisure/parks/sarphatipark/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "nature.sloterpark-and-sloterplas",
+      "url": "https://www.amsterdam.nl/en/leisure/parks/sloterpark/",
+      "original_url": "https://www.amsterdam.nl/en/leisure/parks/sloterpark/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "nature.vondelpark",
+      "url": "https://www.amsterdam.nl/en/leisure/parks/vondelpark/",
+      "original_url": "https://www.amsterdam.nl/en/leisure/parks/vondelpark/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "nature.westerpark",
+      "url": "https://www.amsterdam.nl/en/leisure/parks/westerpark/",
+      "original_url": "https://www.amsterdam.nl/en/leisure/parks/westerpark/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.adam-lookout",
+      "url": "https://www.adamlookout.com/en/",
+      "original_url": "https://www.adamlookout.com/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.albert-cuyp-market",
+      "url": "https://www.amsterdam.nl/en/leisure/markets/albert-cuypmarkt/",
+      "original_url": "https://www.amsterdam.nl/en/leisure/markets/albert-cuypmarkt/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.amsterdam-centrum",
+      "url": "https://www.amsterdam.nl/en/districts/centrum/",
+      "original_url": "https://www.amsterdam.nl/en/districts/centrum/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.amsterdam-nieuw-west",
+      "url": "https://www.amsterdam.nl/en/districts/nieuw-west/",
+      "original_url": "https://www.amsterdam.nl/en/districts/nieuw-west/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.amsterdam-noord",
+      "url": "https://www.amsterdam.nl/en/districts/noord/",
+      "original_url": "https://www.amsterdam.nl/en/districts/noord/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.amsterdam-oost",
+      "url": "https://www.amsterdam.nl/en/districts/oost/",
+      "original_url": "https://www.amsterdam.nl/en/districts/oost/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.amsterdam-west",
+      "url": "https://www.amsterdam.nl/en/districts/west/",
+      "original_url": "https://www.amsterdam.nl/en/districts/west/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.amsterdam-westpoort",
+      "url": "https://www.amsterdam.nl/en/districts/westpoort/",
+      "original_url": "https://www.amsterdam.nl/en/districts/westpoort/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.amsterdam-zuid",
+      "url": "https://www.amsterdam.nl/en/districts/zuid/",
+      "original_url": "https://www.amsterdam.nl/en/districts/zuid/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.amsterdam-zuidoost",
+      "url": "https://www.amsterdam.nl/en/districts/zuidoost/",
+      "original_url": "https://www.amsterdam.nl/en/districts/zuidoost/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.artis",
+      "url": "https://www.artis.nl/en",
+      "original_url": "https://www.artis.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.begijnhof-amsterdam",
+      "url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
+      "original_url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.bloemenmarkt",
+      "url": "https://www.iamsterdam.com/en/see-and-do/shopping-and-markets/top-markets-in-amsterdam-for-food-and-flowers",
+      "original_url": "https://www.iamsterdam.com/en/see-and-do/shopping-and-markets/top-markets-in-amsterdam-for-food-and-flowers",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.dam-square",
+      "url": "https://www.iamsterdam.com/en/explore/neighbourhoods/centrum/things-to-do-in-paleiskwartier-the-royal-mile",
+      "original_url": "https://www.iamsterdam.com/en/explore/neighbourhoods/centrum/things-to-do-in-paleiskwartier-the-royal-mile",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.de-hallen-amsterdam",
+      "url": "https://www.dehallen-amsterdam.nl/en",
+      "original_url": "https://dehallen-amsterdam.nl/en/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.de-nieuwe-kerk-amsterdam",
+      "url": "https://www.nieuwekerk.nl/en/",
+      "original_url": "https://www.nieuwekerk.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.heineken-experience",
+      "url": "https://www.heinekenexperience.com/en",
+      "original_url": "https://www.heinekenexperience.com/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.hortus-botanicus-amsterdam",
+      "url": "https://www.dehortus.nl/en/",
+      "original_url": "https://www.dehortus.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.johan-cruijff-arena",
+      "url": "https://www.johancruijffarena.nl/en/home/",
+      "original_url": "https://www.johancruijffarena.nl/en/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.ndsm",
+      "url": "https://www.ndsm.nl/en",
+      "original_url": "https://www.ndsm.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.oba-oosterdok",
+      "url": "https://oba.nl/en/locations/oba-oosterdok.html",
+      "original_url": "https://oba.nl/en/locations/oba-oosterdok.html",
+      "outcome": "restricted",
+      "http_status": 429,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.oude-kerk",
+      "url": "https://www.oudekerk.nl/en",
+      "original_url": "https://oudekerk.nl/en/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.royal-palace-amsterdam",
+      "url": "https://www.paleisamsterdam.nl/en/",
+      "original_url": "https://www.paleisamsterdam.nl/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.seventeenth-century-canal-ring-of-amsterdam",
+      "url": "https://whc.unesco.org/en/list/1349/",
+      "original_url": "https://whc.unesco.org/en/list/1349/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.this-is-holland",
+      "url": "https://www.thisisholland.com/en/",
+      "original_url": "https://www.thisisholland.com/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.waterlooplein-market",
+      "url": "https://www.amsterdam.nl/en/leisure/markets/waterlooplein/",
+      "original_url": "https://www.amsterdam.nl/en/leisure/markets/waterlooplein/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.westerkerk",
+      "url": "https://westerkerk.nl/",
+      "original_url": "https://westerkerk.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "place.wondr-experience",
+      "url": "https://wondrexperience.com/ams/",
+      "original_url": "https://www.wondrexperience.com/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.bak",
+      "url": "https://bakrestaurant.nl/",
+      "original_url": "https://bakrestaurant.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.bougainville",
+      "url": "https://www.restaurantbougainville.com/",
+      "original_url": "https://www.restaurantbougainville.com/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.breda",
+      "url": "https://bredagroup-amsterdam.com/",
+      "original_url": "https://bredagroup-amsterdam.com/",
+      "outcome": "transient_failure",
+      "http_status": 503,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.caf-caron",
+      "url": "https://cafecaron.nl/",
+      "original_url": "https://cafecaron.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.caf-restaurant-amsterdam",
+      "url": "https://cradam.nl/en/",
+      "original_url": "https://caferestaurantamsterdam.nl/en/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.cannibale-royale",
+      "url": "https://cannibaleroyale.nl/",
+      "original_url": "https://cannibaleroyale.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.choux",
+      "url": "https://choux.nl/",
+      "original_url": "https://choux.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.ciel-bleu",
+      "url": "https://www.cielbleu.nl/nl",
+      "original_url": "https://www.cielbleu.nl/nl",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.coulisse",
+      "url": "https://coulisse-amsterdam.nl/",
+      "original_url": "https://coulisse-amsterdam.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.daalder",
+      "url": "https://daalderamsterdam.nl/",
+      "original_url": "https://daalderamsterdam.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.de-belhamel",
+      "url": "https://www.belhamel.nl/en/romantic-restaurant-amsterdam-de-belhamel/",
+      "original_url": "https://belhamel.nl/en/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.de-plantage",
+      "url": "https://deplantage.amsterdam/en/",
+      "original_url": "https://deplantage.amsterdam/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.domenica",
+      "url": "https://www.restaurantdomenica.com/",
+      "original_url": "https://restaurantdomenica.com/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.entrepot",
+      "url": "https://restaurantentrepot.nl/",
+      "original_url": "https://restaurantentrepot.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.flore",
+      "url": "https://restaurantflore.com/",
+      "original_url": "https://restaurantflore.com/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.gebr-hartering",
+      "url": "https://gebrhartering.nl/",
+      "original_url": "https://gebrhartering.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.gitane",
+      "url": "https://www.restaurantgitane.nl/",
+      "original_url": "https://gitane.amsterdam/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.jansz",
+      "url": "https://www.janszamsterdam.com/",
+      "original_url": "https://www.janszamsterdam.com/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.kaagman-and-kortekaas",
+      "url": "https://kaagmanenkortekaas.nl/",
+      "original_url": "https://kaagmanenkortekaas.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.moeders",
+      "url": "https://moeders.com/en/",
+      "original_url": "https://moeders.com/en/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.mos-amsterdam",
+      "url": "https://mosamsterdam.nl/",
+      "original_url": "https://mosamsterdam.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.pesca",
+      "url": "https://pesca.restaurant/",
+      "original_url": "https://pesca.restaurant/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.restaurant-212",
+      "url": "https://www.212.amsterdam/",
+      "original_url": "https://www.212.amsterdam/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.restaurant-as",
+      "url": "https://restaurantas.nl/",
+      "original_url": "https://restaurantas.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.restaurant-de-juwelier",
+      "url": "https://www.restaurant-dejuwelier.nl/restaurantdejuwelier",
+      "original_url": "https://www.restaurant-dejuwelier.nl/restaurantdejuwelier",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.restaurant-de-kas",
+      "url": "https://restaurantdekas.com/",
+      "original_url": "https://restaurantdekas.com/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.restaurant-europa",
+      "url": "https://restaurant-europa.com/",
+      "original_url": "https://restaurant-europa.com/",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.restaurant-moon",
+      "url": "https://restaurantmoon.nl/en/home-en/",
+      "original_url": "https://www.restaurantmoon.nl/en/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.restaurant-vermeer",
+      "url": "https://www.restaurantvermeer.nl/en/",
+      "original_url": "https://restaurantvermeer.nl/en/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.rijks",
+      "url": "https://www.rijksrestaurant.nl/en/",
+      "original_url": "https://www.rijksrestaurant.nl/en",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.ron-gastrobar",
+      "url": "https://rongastrobar.nl/",
+      "original_url": "https://rongastrobar.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.sazanka",
+      "url": "https://www.okura.nl/sazanka",
+      "original_url": "https://www.okura.nl/dine-and-drink/teppanyaki-restaurant-sazanka/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.scheepskameel",
+      "url": "https://scheepskameel.nl/",
+      "original_url": "https://scheepskameel.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.the-white-room",
+      "url": "https://www.restaurantthewhiteroom.com/",
+      "original_url": "https://www.restaurantthewhiteroom.com/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.toscanini",
+      "url": "https://restauranttoscanini.nl/",
+      "original_url": "https://restauranttoscanini.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.vinkeles",
+      "url": "https://www.vinkeles.com/",
+      "original_url": "https://www.vinkeles.com/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.visaandeschelde",
+      "url": "https://visaandeschelde.nl/en/welcome/",
+      "original_url": "https://visaandeschelde.nl/en/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.wilde-zwijnen",
+      "url": "https://www.wildezwijnenwinkel.nl/english/",
+      "original_url": "https://www.wildezwijnenwinkel.nl/english/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.wils",
+      "url": "https://www.restaurantwils.nl/",
+      "original_url": "https://www.restaurantwils.nl/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "restaurant.yamazato",
+      "url": "https://www.okura.nl/yamazato",
+      "original_url": "https://www.okura.nl/dine-and-drink/yamazato-restaurant/",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.airport-parking",
+      "url": "https://www.schiphol.nl/en/parking/",
+      "original_url": "https://www.schiphol.nl/en/parking/",
+      "outcome": "restricted",
+      "http_status": 403,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.amsterdam-amstel-station",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-amstel.html",
+      "original_url": "https://www.ns.nl/en/station-information/amsterdam-amstel.html",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.amsterdam-bijlmer-arena-station",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-bijlmer-arena.html",
+      "original_url": "https://www.ns.nl/en/station-information/amsterdam-bijlmer-arena.html",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.amsterdam-centraal-station",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-centraal.html",
+      "original_url": "https://www.ns.nl/en/station-information/amsterdam-centraal.html",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.amsterdam-holendrecht-station",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-holendrecht.html",
+      "original_url": "https://www.ns.nl/en/station-information/amsterdam-holendrecht.html",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.amsterdam-lelylaan-station",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-lelylaan.html",
+      "original_url": "https://www.ns.nl/en/station-information/amsterdam-lelylaan.html",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.amsterdam-muiderpoort-station",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-muiderpoort.html",
+      "original_url": "https://www.ns.nl/en/station-information/amsterdam-muiderpoort.html",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.amsterdam-rai-station",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-rai.html",
+      "original_url": "https://www.ns.nl/en/station-information/amsterdam-rai.html",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.amsterdam-science-park-station",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-science-park.html",
+      "original_url": "https://www.ns.nl/en/station-information/amsterdam-science-park.html",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.amsterdam-sloterdijk-station",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-sloterdijk.html",
+      "original_url": "https://www.ns.nl/en/station-information/amsterdam-sloterdijk.html",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.amsterdam-zuid-station",
+      "url": "https://www.ns.nl/en/station-information/amsterdam-zuid.html",
+      "original_url": "https://www.ns.nl/en/station-information/amsterdam-zuid.html",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.app-notifications",
+      "url": "https://www.ns.nl/en/travel/ns-app/notifications",
+      "original_url": "https://www.ns.nl/en/travel/ns-app/notifications",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.automatic-reload",
+      "url": "https://www.ov-chipkaart.nl/auth/signin?callbackUrl=%2Fmijn-ov-chip%2Fautomatisch-opladen-aanvragen",
+      "original_url": "https://www.ov-chipkaart.nl/nl/mijn-ov-chip/automatisch-opladen-aanvragen",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.balance-refund",
+      "url": "https://www.ov-chipkaart.nl/check",
+      "original_url": "https://www.ov-chipkaart.nl/check",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.bicycle-lights",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/fiets/wat-zijn-de-regels-voor-fietsverlichting-en-reflectie-op-een-fiets",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/fiets/wat-zijn-de-regels-voor-fietsverlichting-en-reflectie-op-een-fiets",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.bike-on-train",
+      "url": "https://www.ns.nl/en/travel/on-the-train/bikes-on-the-train",
+      "original_url": "https://www.ns.nl/en/travel/on-the-train/bikes-on-the-train",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.bike-storage",
+      "url": "https://www.ns.nl/en/bicycle-storage",
+      "original_url": "https://www.ns.nl/en/bicycle-storage",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.bike-theft",
+      "url": "https://www.politie.nl/aangifte-of-melding-doen/aangifte-van-diefstal-fiets.html",
+      "original_url": "https://www.politie.nl/aangifte-of-melding-doen/aangifte-van-diefstal-fiets.html",
+      "outcome": "transient_failure",
+      "http_status": null,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.card-expiry",
+      "url": "https://www.ov-chipkaart.nl/en/email-service",
+      "original_url": "https://www.ov-chipkaart.nl/en/email-service",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.check-in-out",
+      "url": "https://www.ns.nl/en/travel/check-in-check-out",
+      "original_url": "https://www.ns.nl/en/travel/check-in-check-out",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.child-on-bike",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/voertuigen-op-de-weg/moet-mijn-kind-achterop-een-fiets-snorfiets-of-bromfiets-in-een-fietsstoeltje",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/voertuigen-op-de-weg/moet-mijn-kind-achterop-een-fiets-snorfiets-of-bromfiets-in-een-fietsstoeltje",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.cycling-alcohol",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/rijbewijs/raak-ik-mijn-rijbewijs-kwijt-als-ik-dronken-op-de-fiets-word-aangehouden-door-de-politie",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/rijbewijs/raak-ik-mijn-rijbewijs-kwijt-als-ik-dronken-op-de-fiets-word-aangehouden-door-de-politie",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.cycling-rules",
+      "url": "https://www.government.nl/documents/2024/02/09/participating-in-dutch-traffic",
+      "original_url": "https://www.government.nl/documents/reports/2024/02/09/participating-in-dutch-traffic",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.delay-refund",
+      "url": "https://www.ns.nl/en/service-and-contact/refund/refunds-for-delays-on-a-domestic-route",
+      "original_url": "https://www.ns.nl/en/service-and-contact/refunds/refunds-for-delays-on-a-domestic-route",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.disabled-parking",
+      "url": "https://www.utrecht.nl/city-of-utrecht/mobility/disabled-parking-permit",
+      "original_url": "https://www.utrecht.nl/city-of-utrecht/mobility/disabled-parking-permit",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.disruptions",
+      "url": "https://www.ns.nl/en/travel-information/current-situation-on-the-tracks/",
+      "original_url": "https://www.ns.nl/en/travel-information/current-situation-on-the-tracks",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.e-tickets",
+      "url": "https://www.ns.nl/en/travel/check-in-check-out/mobile-tickets",
+      "original_url": "https://www.ns.nl/en/travel/check-in-check-out/mobile-tickets",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.ebike-rules",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/fiets/welke-regels-gelden-voor-mijn-elektrische-fiets-e-bike",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/fiets/welke-regels-gelden-voor-mijn-elektrische-fiets-e-bike",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.journey-planning",
+      "url": "https://www.ns.nl/en/journeyplanner/",
+      "original_url": "https://www.ns.nl/en/journeyplanner/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.lost-card",
+      "url": "https://www.ov-chipkaart.nl/en/frequently-asked-questions",
+      "original_url": "https://www.ov-chipkaart.nl/en/frequently-asked-questions",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.lost-property",
+      "url": "https://www.ns.nl/en/service-and-contact/lost-and-found-items",
+      "original_url": "https://www.ns.nl/en/customer-service/lost-or-stolen/lost-and-found-items.html",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.missed-checkout",
+      "url": "https://www.ns.nl/en/service-and-contact/refund/forgot-to-check-in-or-check-out",
+      "original_url": "https://www.ns.nl/en/service-and-contact/refunds/forgot-to-check-in-or-check-out",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.municipal-parking-rules",
+      "url": "https://www.utrecht.nl/wonen-en-leven/parkeren/regels",
+      "original_url": "https://www.utrecht.nl/wonen-en-leven/parkeren/regels",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.ov-fiets",
+      "url": "https://www.ns.nl/en/products/door-to-door/ov-fiets",
+      "original_url": "https://www.ns.nl/en/door-to-door/ov-fiets/how-it-works.html",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.ov-pas",
+      "url": "https://www.ovpay.nl/en/about-ovpay",
+      "original_url": "https://www.ovpay.nl/en/about-ovpay",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.ov-privacy",
+      "url": "https://www.ov-chipkaart.nl/en/privacy",
+      "original_url": "https://www.ov-chipkaart.nl/en/privacy",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.paid-parking",
+      "url": "https://www.utrecht.nl/wonen-en-leven/parkeren/kosten",
+      "original_url": "https://www.utrecht.nl/wonen-en-leven/parkeren/kosten",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.park-and-ride",
+      "url": "https://www.ns.nl/en/products/door-to-door/park-and-ride/",
+      "original_url": "https://www.ns.nl/en/products/door-to-door/park-and-ride/",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.parking-fines",
+      "url": "https://www.utrecht.nl/wonen-en-leven/parkeren/veelgestelde-vragen",
+      "original_url": "https://www.utrecht.nl/wonen-en-leven/parkeren/veelgestelde-vragen",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.parking-signs",
+      "url": "https://www.government.nl/site/binaries/site-content/collections/documents/2024/02/09/road-traffic-signs-and-regulations-in-the-netherlands/Road%2BTraffic%2BSigns%2Band%2BRegulations%2Bin%2Bthe%2BNetherlands.pdf",
+      "original_url": "https://www.government.nl/site/binaries/site-content/collections/documents/2024/02/09/road-traffic-signs-and-regulations-in-the-netherlands/Road%2BTraffic%2BSigns%2Band%2BRegulations%2Bin%2Bthe%2BNetherlands.pdf",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.payment-card",
+      "url": "https://www.ovpay.nl/en/paymentcard",
+      "original_url": "https://www.ovpay.nl/en/paymentcard",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.personal-ov-chipkaart",
+      "url": "https://www.ov-chipkaart.nl/en/personal-ov-chipkaart",
+      "original_url": "https://www.ov-chipkaart.nl/en/personal-ov-chipkaart",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.resident-parking-permit",
+      "url": "https://www.rotterdam.nl/parkeervergunning-bewoner-aanvragen",
+      "original_url": "https://www.rotterdam.nl/parkeervergunning-bewoner-aanvragen",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.season-tickets",
+      "url": "https://www.ns.nl/en/season-tickets/",
+      "original_url": "https://www.ns.nl/en/season-tickets",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.speed-pedelec-helmet",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/verkeersveiligheid/helmplicht-brommer-snorfiets-speedpedelec",
+      "original_url": "https://www.rijksoverheid.nl/vraag-en-antwoord/verkeersveiligheid/helmplicht-brommer-snorfiets-speedpedelec",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.station-information",
+      "url": "https://www.ns.nl/en/station-information/",
+      "original_url": "https://www.ns.nl/en/station-information",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.station-parking",
+      "url": "https://www.ns.nl/en/business/door-to-door/park-and-ride",
+      "original_url": "https://www.ns.nl/en/business/door-to-door/park-and-ride",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.travel-assistance",
+      "url": "https://www.ns.nl/en/travel/traveling-with-a-disability/ns-travel-assistance",
+      "original_url": "https://www.ns.nl/en/travel-information/traveling-with-a-disability/ns-travel-assistance.html",
+      "outcome": "redirected",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.travel-history",
+      "url": "https://www.ovpay.nl/en/regelen-zonder-account",
+      "original_url": "https://www.ovpay.nl/en/regelen-zonder-account",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    },
+    {
+      "entity_id": "transport.visitor-parking",
+      "url": "https://www.utrecht.nl/city-of-utrecht/mobility/guide-to-parking-discounts",
+      "original_url": "https://www.utrecht.nl/city-of-utrecht/mobility/guide-to-parking-discounts",
+      "outcome": "reachable",
+      "http_status": 200,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00"
+    }
+  ],
+  "note": "A reachable URL proves availability only. Factual status remains pending until a reviewer confirms named fields."
 }

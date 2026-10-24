@@ -1,0 +1,15 @@
+{
+  "name": "younew-b2b-fulfillment",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "engines": {
+    "node": ">=24 <25"
+  },
+  "scripts": {
+    "test": "node --test test_reconcile.mjs"
+  },
+  "dependencies": {
+    "stripe": "22.6.2"
+  }
+}

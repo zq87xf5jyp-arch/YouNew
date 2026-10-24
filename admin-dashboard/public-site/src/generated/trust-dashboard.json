@@ -1,352 +1,109 @@
 {
-  "schemaVersion": 1,
-  "title": "YouNew Trust Dashboard",
-  "generatedAt": "2026-07-30T12:00:00Z",
-  "currentReleaseAuthority": "NO_GO",
-  "releaseAuthorityReason": "End-to-end validation and the User Outcome study are not complete; critical governance, AI and municipality denominators are not established.",
-  "metrics": {
-    "verified": {
-      "value": 0.0,
-      "numerator": 0,
-      "denominator": 454,
-      "formula": "governed verified or review_due_soon records / canonical records",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/schema/content-governance.schema.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "fresh": {
-      "value": 0.0,
-      "numerator": 0,
-      "denominator": 454,
-      "formula": "fresh governed records / canonical records",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/governance/status-policy.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "overdue": {
-      "value": 0,
-      "numerator": 0,
-      "denominator": null,
-      "formula": "overdue governed records / governed records",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/governance/status-policy.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "disputed": {
-      "value": 0,
-      "numerator": 0,
-      "denominator": null,
-      "formula": "disputed governed records",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/governance/status-policy.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "sourceUnavailable": {
-      "value": 0,
-      "numerator": 0,
-      "denominator": null,
-      "formula": "source-unavailable governed records",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/governance/status-policy.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "reviewQueue": {
-      "value": null,
-      "numerator": null,
-      "denominator": null,
-      "formula": "open Supabase review tasks",
-      "formulaVersion": 1,
-      "sourceArtifact": "public.content_review_tasks",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "not_established"
-    },
-    "aiCoverage": {
-      "value": 0.0,
-      "numerator": 0,
-      "denominator": 454,
-      "formula": "AI-summary records eligible for governed retrieval / canonical records",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/governance/status-policy.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "publicCoverage": {
-      "value": 39.0,
-      "numerator": 177,
-      "denominator": 454,
-      "formula": "legacy/public canonical records / canonical records",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/releases/releases.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "governedPublicCoverage": {
-      "value": 0.0,
-      "numerator": 0,
-      "denominator": 454,
-      "formula": "production-ready governed public records / canonical records",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/schema/content-governance.schema.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "municipalityCoverage": {
-      "value": null,
-      "numerator": null,
-      "denominator": null,
-      "formula": "production-ready municipality-topic cells / official registry municipality-topic cells",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/governance/municipality-registry.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "not_established"
-    },
-    "pilotMunicipalityCoverage": {
-      "value": 0.0,
-      "numerator": 0,
-      "denominator": 5,
-      "formula": "production-ready pilot municipality-topic cells / pilot required cells",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/governance/municipality-topic-policy.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "averageConfidence": {
-      "value": null,
-      "numerator": null,
-      "denominator": null,
-      "formula": "mean governed record evidence coverage index; not probability",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/governance/status-policy.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "not_established"
-    },
-    "medianConfidence": {
-      "value": null,
-      "numerator": null,
-      "denominator": null,
-      "formula": "median governed record evidence coverage index; not probability",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/governance/status-policy.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "not_established"
-    },
-    "sourceTrustScore": {
-      "value": 96.2,
-      "numerator": null,
-      "denominator": 454,
-      "formula": "separate publisher/source reliability score; not record confidence",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/reports/source-reliability.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "provisional"
-    },
-    "semanticDuplicateCandidates": {
-      "value": null,
-      "numerator": null,
-      "denominator": null,
-      "formula": "review-only candidates with cosine similarity >= 0.90",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/reports/semantic-duplicate-candidates.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "not_established"
-    }
+  "schemaVersion": "release-truth-compatibility-v1",
+  "deprecated": true,
+  "replacement": "release-truth-public.json",
+  "title": "Deprecated release-truth compatibility projection",
+  "generatedAt": "2026-10-24T11:22:48.000Z",
+  "snapshotID": "release-truth.f5ef59380676b569",
+  "snapshotDigest": "f5ef59380676b569f8634c7b814c55e6228626971ee57868a9626a49ab1cf3b2",
+  "currentReleaseAuthority": "packaged-governed-runtime",
+  "releaseAuthorityReason": "Packaged content is measured, while link health, exact-candidate CI, and full deployed-payload verification are not established.",
+  "readiness": {
+    "status": "PARTIAL",
+    "deploymentAuthorization": "not_granted"
   },
   "knowledgeCoverage": {
-    "inventory": {
-      "value": 2.6,
-      "numerator": 454,
-      "denominator": 17650,
-      "formula": "canonical inventory records / existing coverage-target total",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/coverage-targets.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
+    "kind": "ratio",
+    "unit": "percent",
+    "value": 1.5,
+    "numerator": 7,
+    "denominator": 454,
+    "state": "measured",
+    "reasonCode": null,
+    "formula": {
+      "id": "packaged-published-over-governed-inventory",
+      "version": 1
     },
-    "verified": {
-      "value": 0.0,
-      "numerator": 0,
-      "denominator": 454,
-      "formula": "governed verified or review_due_soon records / canonical records",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/schema/content-governance.schema.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "productionReady": {
-      "value": 0.0,
-      "numerator": 0,
-      "denominator": 17650,
-      "formula": "production-ready records / existing coverage-target total",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/coverage-targets.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "public": {
-      "value": 39.0,
-      "numerator": 177,
-      "denominator": 454,
-      "formula": "legacy/public canonical records / canonical records",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/releases/releases.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    },
-    "municipalityTopic": {
-      "value": null,
-      "numerator": null,
-      "denominator": null,
-      "formula": "production-ready municipality-topic cells / official registry municipality-topic cells",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/governance/municipality-registry.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "not_established"
-    },
-    "pilotMunicipalityTopic": {
-      "value": 0.0,
-      "numerator": 0,
-      "denominator": 5,
-      "formula": "production-ready pilot municipality-topic cells / pilot required cells",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/governance/municipality-topic-policy.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "established"
-    }
+    "sourceIDs": [
+      "data-project-inventory",
+      "packaged-runtime",
+      "public-content-provenance"
+    ]
   },
-  "readiness": {
-    "dimensions": {
-      "trust": {
-        "value": null,
-        "numerator": null,
-        "denominator": null,
-        "formula": "minimum critical acceptable status, reachable official sources and median confidence",
-        "formulaVersion": 1,
-        "sourceArtifact": "DataProject/reports/trust-dashboard.json",
-        "generatedAt": "2026-07-30T12:00:00Z",
-        "evidenceState": "not_established"
+  "metrics": {
+    "inventoryRecords": {
+      "kind": "count",
+      "unit": "count",
+      "value": 454,
+      "numerator": null,
+      "denominator": null,
+      "state": "measured",
+      "reasonCode": null,
+      "formula": {
+        "id": "effective-governed-inventory-count",
+        "version": 1
       },
-      "knowledge": {
-        "value": null,
-        "numerator": null,
-        "denominator": null,
-        "formula": "minimum production-ready topic and municipality coverage",
-        "formulaVersion": 1,
-        "sourceArtifact": "DataProject/reports/trust-dashboard.json",
-        "generatedAt": "2026-07-30T12:00:00Z",
-        "evidenceState": "not_established"
-      },
-      "ai": {
-        "value": null,
-        "numerator": 0,
-        "denominator": 1000,
-        "formula": "minimum pass rate among critical AI objectives",
-        "formulaVersion": 1,
-        "sourceArtifact": "DataProject/ai-evaluation/manifest.json",
-        "generatedAt": "2026-07-30T12:00:00Z",
-        "evidenceState": "not_established"
-      },
-      "ux": {
-        "value": null,
-        "numerator": null,
-        "denominator": 20,
-        "formula": "minimum completion, within-time, source-open and no-human-help rates",
-        "formulaVersion": 1,
-        "sourceArtifact": "DataProject/research/user-outcome-study-status.json",
-        "generatedAt": "2026-07-30T12:00:00Z",
-        "evidenceState": "not_established"
-      },
-      "governance": {
-        "value": null,
-        "numerator": null,
-        "denominator": null,
-        "formula": "minimum owner, freshness, version-history and review-SLA compliance",
-        "formulaVersion": 1,
-        "sourceArtifact": "public.content_governance_health_summary",
-        "generatedAt": "2026-07-30T12:00:00Z",
-        "evidenceState": "not_established"
-      },
-      "research": {
-        "value": 0.0,
-        "numerator": 0,
-        "denominator": 20,
-        "formula": "valid completed observations / 20 planned observations",
-        "formulaVersion": 1,
-        "sourceArtifact": "docs/user-validation/RESEARCH_PROTOCOL.md",
-        "generatedAt": "2026-07-30T12:00:00Z",
-        "evidenceState": "established"
-      }
+      "sourceIDs": [
+        "data-project-inventory"
+      ]
     },
-    "overall": {
+    "packagedPublishedRecords": {
+      "kind": "count",
+      "unit": "count",
+      "value": 7,
+      "numerator": null,
+      "denominator": null,
+      "state": "measured",
+      "reasonCode": null,
+      "formula": {
+        "id": "packaged-published-record-count",
+        "version": 1
+      },
+      "sourceIDs": [
+        "packaged-runtime",
+        "public-content-provenance"
+      ]
+    },
+    "linkHealth": {
+      "kind": "ratio",
+      "unit": "percent",
       "value": null,
       "numerator": null,
       "denominator": null,
-      "formula": "minimum of all established readiness dimensions",
-      "formulaVersion": 1,
-      "sourceArtifact": "DataProject/reports/trust-dashboard.json",
-      "generatedAt": "2026-07-30T12:00:00Z",
-      "evidenceState": "not_established"
-    },
-    "hardGates": {
-      "contentGovernance": false,
-      "ai": false,
-      "userOutcome": false
-    },
-    "status": "NO_GO"
+      "state": "unknown",
+      "reasonCode": "network_check_not_run",
+      "formula": {
+        "id": "reachable-links-over-inspected-links",
+        "version": 1
+      },
+      "sourceIDs": [
+        "link-health"
+      ]
+    }
   },
   "topRiskAreas": [
     {
-      "priority": 3,
-      "type": "critical_municipality_coverage_missing",
-      "recordID": "government.brp-registration",
-      "title": "Personal Records Database registration (BRP)",
-      "evidenceState": "established"
+      "id": "deployedPayload",
+      "result": "blocked",
+      "reason": "Production metadata does not match the packaged artifact."
     },
     {
-      "priority": 3,
-      "type": "critical_municipality_coverage_missing",
-      "recordID": "government.digid",
-      "title": "Apply for a DigiD",
-      "evidenceState": "established"
+      "id": "linkHealth",
+      "result": "blocked",
+      "reason": "No fresh non-empty network observation is attached."
     },
     {
-      "priority": 3,
-      "type": "critical_municipality_coverage_missing",
-      "recordID": "government.employment-contract",
-      "title": "Understand a Dutch employment contract",
-      "evidenceState": "established"
-    },
-    {
-      "priority": 3,
-      "type": "critical_municipality_coverage_missing",
-      "recordID": "government.healthcare-benefit",
-      "title": "Healthcare benefit (zorgtoeslag)",
-      "evidenceState": "established"
-    },
-    {
-      "priority": 3,
-      "type": "critical_municipality_coverage_missing",
-      "recordID": "government.register-family-doctor",
-      "title": "Register with a family doctor",
-      "evidenceState": "established"
-    },
-    {
-      "priority": 3,
-      "type": "critical_municipality_coverage_missing",
-      "recordID": "government_service.first-registration-in-amsterdam",
-      "title": "First registration in Amsterdam",
-      "evidenceState": "established"
+      "id": "candidateCI",
+      "result": "blocked",
+      "reason": "The source tree is dirty and no exact-commit CI evidence manifest is attached."
     }
   ],
   "limitations": [
-    "Missing ContentGovernanceEnvelope is treated as unverified.",
-    "The national municipality denominator is not established.",
-    "Supabase review-queue metrics are unavailable until the additive migration is approved and applied.",
-    "Semantic model dependencies are not fully locked and no calibrated report exists.",
-    "All 1,000 AI evaluation cases still require human approval."
+    "This snapshot does not authorize production deployment.",
+    "The recorded candidate commit does not include current uncommitted source-tree changes.",
+    "Production evidence is metadata-attested, not a complete deployed-payload verification.",
+    "Link reachability is unknown until a fresh network check inspects a non-empty URL set.",
+    "Legacy release-readiness and trust-dashboard JSON files are deprecated compatibility projections, not independent release authorities.",
+    "Operational Supabase data is loaded independently and cannot upgrade this build-time verdict."
   ]
 }
