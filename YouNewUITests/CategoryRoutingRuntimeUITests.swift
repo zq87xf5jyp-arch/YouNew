@@ -514,11 +514,23 @@ final class CategoryRoutingRuntimeUITests: XCTestCase {
     private func tapDiscoveryChip(groupID: String, chipID: String, in app: XCUIApplication) {
         let menu = app.descendants(matching: .any)["home.discoveryMenu"]
         XCTAssertTrue(menu.waitForExistence(timeout: 8), "Discovery menu trigger is missing")
+        XCTAssertTrue(waitForHittable(menu, timeout: 4), "Discovery menu trigger is not hittable")
+        guard menu.isHittable else { return }
         menu.tap()
 
+        let overlay = app.descendants(matching: .any)["sideMenu.overlay"]
+        if !overlay.waitForExistence(timeout: 4), menu.exists && menu.isHittable {
+            // Match the guarded retry used by verifyDiscoveryChip: do not scroll
+            // the underlying Home screen when the simulator ignored the tap.
+            menu.tap()
+        }
+        XCTAssertTrue(overlay.waitForExistence(timeout: 4), "Discovery menu did not open")
+        guard overlay.exists else { return }
+
         let group = app.descendants(matching: .any)[groupID]
-        scrollToElement(group, in: app)
+        scrollToElement(group, in: overlay)
         XCTAssertTrue(group.exists && group.isHittable, "Discovery group is unavailable: \(groupID)")
+        guard group.exists && group.isHittable else { return }
         group.tap()
 
         let chip = app.descendants(matching: .any)[chipID]
