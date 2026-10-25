@@ -318,18 +318,13 @@
     return button;
   };
 
-  let previouslyFocused;
-  let declineButton;
   const openConsent = () => {
-    previouslyFocused = document.activeElement instanceof HTMLElement ? document.activeElement : null;
     consentTrigger.hidden = true;
     consentDialog.hidden = false;
-    requestAnimationFrame(() => declineButton?.focus());
   };
   const closeConsent = () => {
     consentDialog.hidden = true;
     consentTrigger.hidden = false;
-    requestAnimationFrame(() => (consentTrigger ?? previouslyFocused)?.focus());
   };
   const consentTrigger = createConsentButton("Privacy choices", "analytics-settings-trigger", openConsent);
   consentTrigger.setAttribute("aria-label", "Open analytics privacy choices");
@@ -341,9 +336,9 @@
 
   const consentDialog = document.createElement("section");
   consentDialog.className = "analytics-consent";
-  consentDialog.role = "dialog";
-  consentDialog.setAttribute("aria-modal", "true");
+  consentDialog.role = "region";
   consentDialog.setAttribute("aria-labelledby", "analytics-consent-title");
+  consentDialog.setAttribute("aria-live", "polite");
 
   const consentCopy = document.createElement("div");
   const consentEyebrow = document.createElement("p");
@@ -378,31 +373,13 @@
     closeConsent();
     void startHomepageAnalytics(true);
   };
-  declineButton = createConsentButton("Decline analytics", "button-secondary", declineAnalytics);
+  const declineButton = createConsentButton("Decline analytics", "button-secondary", declineAnalytics);
   const allowButton = createConsentButton("Allow anonymous analytics", "button-primary", acceptAnalytics);
   consentActions.append(
     declineButton,
     allowButton
   );
   consentDialog.append(consentCopy, consentActions);
-  consentDialog.addEventListener("keydown", (event) => {
-    if (event.key === "Escape") {
-      event.preventDefault();
-      closeConsent();
-      return;
-    }
-    if (event.key !== "Tab") return;
-    const items = [...consentDialog.querySelectorAll('a[href],button:not([disabled])')];
-    const first = items[0];
-    const last = items[items.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last?.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first?.focus();
-    }
-  });
   document.body.append(consentTrigger, consentDialog);
 
   const storedAnalyticsChoice = readAnalyticsConsent();
@@ -413,7 +390,6 @@
     consentDialog.hidden = true;
   } else {
     consentTrigger.hidden = true;
-    requestAnimationFrame(() => declineButton.focus());
   }
 
   window.addEventListener("pagehide", () => {

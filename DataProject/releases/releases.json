@@ -370,6 +370,33 @@
         "search": "pending",
         "ai": "pending"
       }
+    },
+    {
+      "id": "amsterdam-v0.1.9",
+      "work_package": "WP-06",
+      "dataset": "Amsterdam City 01",
+      "version": "0.1.9",
+      "status": "qa",
+      "milestone": "WP-06-M2",
+      "target_records": 184,
+      "published_records": 0,
+      "published_at": null,
+      "publication_timestamp": null,
+      "approver": null,
+      "base_release_id": "amsterdam-v0.1.8",
+      "supersedes": "amsterdam-v0.1.8",
+      "base_batch_sha256": "a24f464c86e1880a542b23f1606f8622218cc0c7aa75464a9a19402847813b07",
+      "overlay_path": "DataProject/overlays/WP-06/amsterdam-v0.1.9.json",
+      "acceptance_lock_path": "DataProject/releases/acceptance-locks/amsterdam-v0.1.8.json",
+      "qa": {
+        "build": "passed",
+        "static": "passed",
+        "duplicate": "passed",
+        "source": "passed",
+        "media": "passed",
+        "search": "passed",
+        "ai": "passed"
+      }
     }
   ]
 }

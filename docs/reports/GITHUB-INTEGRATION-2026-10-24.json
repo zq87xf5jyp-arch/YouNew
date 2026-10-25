@@ -1,0 +1,31 @@
+{
+  "release": "YouNew integration review build 2026-10-24",
+  "archive": "younew-public-integration-2026-10-24.tar.gz",
+  "sha256": "463c85df36dc9ae091eb8e429b0c6c6035ed492b46353c326d7c566e4cc6f7fe",
+  "supersedes_candidate_sha256": "68c87fcd29901473a6852adc5dbd8ddbac8ac60c8bc7ee970915d328e917d3f2",
+  "supersession_scope": "Old hash remains valid for unchanged Phase 6.1 archive, but is stale for this integrated build. No deployment authorization.",
+  "production_authorized": false,
+  "production_deployed": false,
+  "launch_gate_passed": false,
+  "branch": "codex/younew-integration-2026-10-24",
+  "base": "dd03f4f121cb829e080cde8df2ee191ede96c882",
+  "build_context": "Isolated integration worktree, Node 24.19.0, local existing dependencies, no env files copied",
+  "validation": {
+    "public_tests": 203,
+    "admin_tests": 162,
+    "search_checks": 2608,
+    "internal_references": 37846,
+    "content_pass": 456,
+    "content_review": 0,
+    "content_fail": 0,
+    "public_build": "pass",
+    "admin_build": "pass",
+    "typescript": "pass both",
+    "eslint": "pass both",
+    "acquisition_preview_range_redirect": "pass",
+    "ci": "GitHub Actions skipped; independent Xcode Cloud pre-build failed. Further pushes held pending verified cloud exclusion.",
+    "ios_full_tests": "not run",
+    "browser_e2e": "not rerun",
+    "database_tests": "not run"
+  }
+}

@@ -7,35 +7,22 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
-
-export type BusinessInquiryListRow = {
-  id: string;
-  confirmation_code: string;
-  company: string;
-  contact_name: string;
-  work_email: string;
-  inquiry_type: string;
-  status: "new" | "contacted" | "qualified" | "closed" | "rejected" | "spam";
-  source_page: string;
-  created_at: string;
-};
-
-const statusLabels: Record<BusinessInquiryListRow["status"], string> = {
-  new: "новая",
-  contacted: "связались",
-  qualified: "подтверждена",
-  closed: "закрыта",
-  rejected: "отклонена",
-  spam: "спам"
-};
+import { inquiryLabels, type InquirySchema, type CompatibleInquiryListRow } from "@/lib/business-inquiry-compatibility";
+import type { BusinessInquiryIntegrityIssue } from "@/lib/business-inquiry-admin";
+export type { BusinessInquiryListRow } from "@/lib/business-inquiry-admin";
 
 export function BusinessInquiryList({
   rows,
-  available
+  available,
+  schema,
+  integrityIssues = []
 }: {
-  rows: BusinessInquiryListRow[];
+  rows: CompatibleInquiryListRow[];
+  schema: InquirySchema;
   available: boolean;
+  integrityIssues?: BusinessInquiryIntegrityIssue[];
 }) {
+  const BUSINESS_INQUIRY_STATUS_LABELS = inquiryLabels(schema);
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState("");
   const filtered = useMemo(() => {
@@ -43,10 +30,10 @@ export function BusinessInquiryList({
     return rows.filter((row) => {
       const statusMatches = !status || row.status === status;
       const queryMatches = !normalized || [
-        row.confirmation_code,
-        row.company,
-        row.contact_name,
-        row.work_email,
+        row.reference_code,
+        row.company_name,
+        row.contact_person,
+        row.email,
         row.inquiry_type
       ].join(" ").toLocaleLowerCase("ru").includes(normalized);
       return statusMatches && queryMatches;
@@ -61,7 +48,7 @@ export function BusinessInquiryList({
             <CardTitle>Входящие бизнес-заявки</CardTitle>
             <CardDescription>
               {available
-                ? `${rows.length} заявок · показано ${filtered.length}`
+                ? `Последняя ограниченная выборка: ${rows.length} заявок · после локальных фильтров показано ${filtered.length}. Глобальный total не заявляется.`
                 : "Таблица business_inquiries пока недоступна в подключённом Supabase."}
             </CardDescription>
           </div>
@@ -79,26 +66,31 @@ export function BusinessInquiryList({
           <label className="sr-only" htmlFor="business-inquiry-status">Статус заявки</label>
           <select id="business-inquiry-status" className="h-10 rounded-md border border-input bg-secondary/50 px-3 text-sm" value={status} onChange={(event) => setStatus(event.target.value)}>
             <option value="">Все статусы</option>
-            {Object.entries(statusLabels).map(([value, label]) => <option value={value} key={value}>{label}</option>)}
+            {Object.entries(BUSINESS_INQUIRY_STATUS_LABELS).map(([value, label]) => <option value={value} key={value}>{label}</option>)}
           </select>
         </div>
       </CardHeader>
       <CardContent>
+        {integrityIssues.length > 0 ? (
+          <p className="mb-4 rounded-md border border-red-400/30 bg-red-400/10 p-3 text-sm text-red-100" role="alert">
+            Data integrity error: {integrityIssues.length} заявок скрыто из списка из-за отсутствующих обязательных полей. Значения и контакты не записаны в сообщение об ошибке.
+          </p>
+        ) : null}
         <div className="overflow-x-auto">
           <table className="younew-table">
-            <thead><tr><th>ID</th><th>Компания</th><th>Тип</th><th>Статус</th><th>Создано</th><th /></tr></thead>
+            <thead><tr><th>ID</th><th>Компания</th><th>Тип</th><th>Статус</th><th>Создано (Амстердам)</th><th>Действия</th></tr></thead>
             <tbody>
               {filtered.map((row) => (
                 <tr key={row.id}>
-                  <td className="font-mono text-xs">{row.confirmation_code}</td>
-                  <td><p className="font-medium">{row.company}</p><p className="text-xs text-muted-foreground">{row.contact_name} · {row.work_email}</p></td>
+                  <td className="font-mono text-xs">{row.reference_code}</td>
+                  <td><p className="font-medium">{row.company_name}</p><p className="text-xs text-muted-foreground">{row.contact_person} · {row.email}</p></td>
                   <td>{row.inquiry_type}</td>
-                  <td><Badge variant={row.status === "new" ? "warning" : row.status === "qualified" ? "success" : "secondary"}>{statusLabels[row.status]}</Badge></td>
-                  <td>{new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short" }).format(new Date(row.created_at))}</td>
+                  <td><Badge variant={row.status === "new" ? "warning" : row.status === "won" ? "success" : row.status === "lost" ? "destructive" : "secondary"}>{BUSINESS_INQUIRY_STATUS_LABELS[row.status]}</Badge></td>
+                  <td>{new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Amsterdam" }).format(new Date(row.created_at))}</td>
                   <td><Link className="text-cyan-200 underline-offset-4 hover:underline" href={`/business-inquiries/${row.id}`}>Открыть</Link></td>
                 </tr>
               ))}
-              {filtered.length === 0 ? <tr><td colSpan={6} className="py-10 text-center text-muted-foreground">Подтверждённых заявок по выбранным фильтрам нет.</td></tr> : null}
+              {filtered.length === 0 ? <tr><td colSpan={6} className="py-10 text-center text-muted-foreground">{available ? "В загруженных заявках нет совпадений." : "Количество заявок неизвестно: источник недоступен."}</td></tr> : null}
             </tbody>
           </table>
         </div>

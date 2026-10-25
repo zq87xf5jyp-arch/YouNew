@@ -307,9 +307,9 @@ class AmsterdamCandidateIntegrationTests(unittest.TestCase):
         spec = importlib.util.spec_from_file_location("external_link_checker", checker_path)
         checker = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(checker)
-        for status in (400, 402, 404, 405, 406, 410, 451):
+        for status in (400, 404, 405, 406, 410, 451):
             self.assertTrue(checker.is_confirmed_failure(status))
-        for status in (200, 301, 401, 403, 429, 500, None):
+        for status in (200, 301, 401, 402, 403, 429, 500, None):
             self.assertFalse(checker.is_confirmed_failure(status))
 
     def test_link_checker_does_not_turn_get_transport_failure_into_404(self):
@@ -318,9 +318,9 @@ class AmsterdamCandidateIntegrationTests(unittest.TestCase):
         checker = importlib.util.module_from_spec(spec)
         spec.loader.exec_module(checker)
         url = "https://example.com/temporarily-unreachable"
-        head_404 = checker.urllib.error.HTTPError(url, 404, "Not Found", None, None)
+        head_404 = checker.urllib.error.HTTPError(url, 404, "Not Found", None, io.BytesIO())
         get_timeout = checker.urllib.error.URLError("temporary timeout")
-        with mock.patch.object(checker.urllib.request, "urlopen", side_effect=[head_404, get_timeout]):
+        with mock.patch.object(checker.urllib.request, "urlopen", side_effect=[head_404, get_timeout, get_timeout]), mock.patch.object(checker.time, "sleep"):
             result = checker.check((url, "fixture:1"), None)
         self.assertEqual(result[2], "")
         self.assertEqual(result[4], "URLError")

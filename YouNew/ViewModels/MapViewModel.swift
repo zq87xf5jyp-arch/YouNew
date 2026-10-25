@@ -175,7 +175,6 @@ final class MapViewModel: ObservableObject {
 
     let locationService = LocationService()
     private var cancellables = Set<AnyCancellable>()
-    private let recentSearchesKey = "map_recent_searches_v1"
     private let selectedCityKey = "map_selected_city_v1"
     private let selectedCategoryKey = "map_selected_category_v1"
     private let selectedJourneyKey = "map_selected_journey_v1"
@@ -184,7 +183,6 @@ final class MapViewModel: ObservableObject {
     private var isBatchConfiguring = false
 
     init(loadInitialData: Bool = true) {
-        recentSearches = UserDefaults.standard.stringArray(forKey: recentSearchesKey) ?? []
         if let city = UserDefaults.standard.string(forKey: selectedCityKey),
            MockNearbyPlacesData.supportedCities.contains(city) {
             selectedCity = city
@@ -508,7 +506,7 @@ final class MapViewModel: ObservableObject {
         guard !term.isEmpty else { return }
         recentSearches = [term] + recentSearches.filter { $0.caseInsensitiveCompare(term) != .orderedSame }
         recentSearches = Array(recentSearches.prefix(8))
-        UserDefaults.standard.set(recentSearches, forKey: recentSearchesKey)
+        // Keep recent queries only for this view model's lifetime.
     }
 
     func applyJourneyPreset(_ preset: JourneyPreset) {

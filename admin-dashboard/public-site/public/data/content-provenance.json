@@ -1,12 +1,12 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-01T00:00:00Z",
+  "generatedAt": "2026-10-23T00:00:00Z",
   "generatorVersion": 1,
   "source": "../../YouNew/Resources/Data/younew-runtime-data.json",
   "sourceMode": "production",
   "sourceSchemaVersion": 1,
-  "datasetFingerprint": "72ef389733b1b785092353a75768b3af2dcdf878443f703ccd146156672f3552",
-  "sourceOutputChecksum": "62cda6c0866ecb76db5906cae3e02b50134ab4a6b979b1c104dff28392f16425",
+  "datasetFingerprint": "f9887ff0ec6a4652414fef94e59f86e6a5679c31cd3c5d397cd2b5165b56ea86",
+  "sourceOutputChecksum": "c658b552fcdb314aa82f555dc971f346c0130a3aaeae36c46c1f2de23050dba4",
   "acceptedReleaseIds": [
     "amsterdam-v0.1.8",
     "cities-v0.1.0"
@@ -31,11 +31,13 @@
     "releaseStatus": "published",
     "recordLifecycleStatus": "published",
     "recordVerificationStatus": "verified",
-    "sourceStatus": "verified_opened"
+    "sourceStatus": "verified_opened",
+    "temporaryFreshnessExclusionPolicy": "fail_closed_until_field_level_reverification"
   },
   "counts": {
     "sourceRecords": 177,
-    "acceptedRecords": 177,
-    "excludedRecords": 0
+    "acceptedRecords": 7,
+    "excludedRecords": 170,
+    "freshnessExcludedRecords": 170
   }
 }

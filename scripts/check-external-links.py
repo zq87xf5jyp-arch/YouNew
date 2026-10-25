@@ -5,12 +5,15 @@ import argparse
 import csv
 import datetime
 import json
+import random
 import re
 import ssl
 import sys
+import time
 import urllib.error
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
+from email.utils import parsedate_to_datetime
 from pathlib import Path
 
 from effective_release import (
@@ -36,8 +39,12 @@ PUBLISHED_WEB_ARTIFACTS = (
     ROOT / "admin-dashboard" / "public-site" / "public" / "data" / "search-index.json",
     ROOT / "admin-dashboard" / "public-site" / "public" / "data" / "content-provenance.json",
 )
-RESTRICTED_STATUSES = {401, 403, 429}
-CHECKER_VERSION = "younew-link-checker-v3"
+# HTTP 402 alone does not establish a missing resource; keep it unverified.
+RESTRICTED_STATUSES = {401, 402, 403, 429}
+CHECKER_VERSION = "younew-link-checker-v4"
+REQUEST_TIMEOUT_SECONDS = 10
+MAX_TRANSIENT_RETRIES = 1
+MAX_RETRY_DELAY_SECONDS = 2
 
 
 def add_urls(urls, text, location):
@@ -102,33 +109,91 @@ def collect_urls(release_id=None):
     return urls, release_ids
 
 
-def check(pair, context):
+def retry_delay(retry_after):
+    """Do not retry earlier than Retry-After or sleep beyond the local bound."""
+    delay = 0.5 + random.uniform(0, 0.25)
+    if retry_after:
+        try:
+            minimum = int(retry_after)
+        except (TypeError, ValueError):
+            try:
+                retry_at = parsedate_to_datetime(retry_after)
+                if retry_at.tzinfo is None:
+                    return None
+                minimum = (retry_at - datetime.datetime.now(datetime.timezone.utc)).total_seconds()
+            except (TypeError, ValueError, OverflowError):
+                return None
+        delay = max(delay, minimum)
+    return delay if delay <= MAX_RETRY_DELAY_SECONDS else None
+
+
+def request_once(pair, context, method):
     url, location = pair
-    request = urllib.request.Request(url, method="HEAD", headers={"User-Agent": "YouNew-QA/1.0"})
+    agent = "YouNew-QA/1.0" if method == "HEAD" else "Mozilla/5.0"
+    request = urllib.request.Request(url, method=method, headers={"User-Agent": agent})
     try:
-        with urllib.request.urlopen(request, timeout=10, context=context) as response:
+        with urllib.request.urlopen(request, timeout=REQUEST_TIMEOUT_SECONDS, context=context) as response:
             code = response.status
             final = response.geturl()
-        return url, location, code, final, "" if code < 400 else "http_error"
+        return (url, location, code, final, "" if code < 400 else "http_error"), None, False
     except urllib.error.HTTPError as error:
-        # Some official/CDN endpoints reject HEAD while a normal browser GET is
-        # valid. Retry every client error with a browser-like GET before it can
-        # be classified as broken or access-restricted.
-        if 400 <= error.code < 500:
-            try:
-                request = urllib.request.Request(url, method="GET", headers={"User-Agent": "Mozilla/5.0"})
-                with urllib.request.urlopen(request, timeout=10, context=context) as response:
-                    evidence = f"head_{error.code}_get_ok" if response.status < 400 else "http_error"
-                    return url, location, response.status, response.geturl(), evidence
-            except urllib.error.HTTPError as retry:
-                return url, location, retry.code, retry.geturl(), type(retry).__name__
-            except Exception as retry:
-                # A failed GET transport cannot confirm the earlier HEAD status.
-                # Preserve it as transient evidence for the scheduled retry.
-                return url, location, "", "", type(retry).__name__
-        return url, location, error.code, "", "http_error"
+        # Retry only ambiguous HEAD absence/method rejection with GET. Auth,
+        # payment and rate-limit responses are final observations, not a reason
+        # to try a browser user agent or ignore Retry-After.
+        fallback = method == "HEAD" and error.code in {404, 405}
+        retry_after = error.headers.get("Retry-After") if error.headers else None
+        evidence = "http_error" if method == "HEAD" else type(error).__name__
+        result = url, location, error.code, error.geturl(), evidence
+        error.close()
+        return result, retry_after, fallback
     except Exception as error:
-        return url, location, "", "", type(error).__name__
+        return (url, location, "", "", type(error).__name__), None, False
+
+
+def check(pair, context, request_history=None):
+    """Keep one final five-tuple per URL; HTTP retries are not scheduled checks."""
+    history = request_history if request_history is not None else []
+    method, head_status, retries = "HEAD", None, 0
+    # <=3 urlopen attempts: one HEAD, one GET fallback, one transient retry.
+    # urllib may follow redirect hops within an attempt.
+    while True:
+        started_at = datetime.datetime.now(datetime.timezone.utc).isoformat()
+        result, retry_after, fallback = request_once(pair, context, method)
+        url, location, status, final, evidence = result
+        if method == "GET" and isinstance(status, int) and status < 400:
+            evidence = f"head_{head_status}_get_ok"
+            result = url, location, status, final, evidence
+        outcome = classify_outcome(url, status, final, evidence)
+        attempt = {
+            "requestNumber": len(history) + 1,
+            "method": method,
+            "startedAt": started_at,
+            "checkedAt": datetime.datetime.now(datetime.timezone.utc).isoformat(),
+            "outcome": outcome,
+            "httpStatus": status if isinstance(status, int) else None,
+            "finalURL": final or None,
+            "errorClass": evidence or None,
+        }
+        history.append(attempt)
+        if fallback:
+            head_status, method = status, "GET"
+            attempt["nextRequestReason"] = "verify_head_client_error_with_get"
+            continue
+        if outcome == "transient_failure":
+            delay = retry_delay(retry_after)
+            if retries < MAX_TRANSIENT_RETRIES and delay is not None:
+                attempt["nextRequestReason"] = "bounded_transient_retry"
+                attempt["retryDelaySeconds"] = delay
+                retries += 1
+                time.sleep(delay)
+                continue
+            attempt["retryStoppedReason"] = "retry_limit" if retries else "retry_after_outside_local_bound"
+        return result
+
+
+def check_with_history(pair, context):
+    history = []
+    return check(pair, context, history), history
 
 
 def is_confirmed_failure(status):
@@ -152,7 +217,7 @@ def record_id_from_location(location):
     return match.group(1) if match else None
 
 
-def write_reports(results, release_ids):
+def write_reports(results, release_ids, request_histories=None):
     confirmed_failures = [result for result in results if is_confirmed_failure(result[2])]
     restricted = [result for result in results if result[2] in RESTRICTED_STATUSES]
     transient = [result for result in results if not isinstance(result[2], int) or result[2] >= 500]
@@ -178,6 +243,7 @@ def write_reports(results, release_ids):
             "checkedAt": checked_at,
             "checkerVersion": CHECKER_VERSION,
             "writebackState": "disabled_requires_separate_approval",
+            "requestHistory": (request_histories or {}).get(url),
         }
         for url, location, status, final, evidence in sorted(results)
     ]
@@ -195,6 +261,14 @@ def write_reports(results, release_ids):
                     "reviewTaskAfterConsecutiveProblems": 2,
                     "sourceUnavailableAfterConsecutiveHardFailures": 3,
                     "minimumHardFailureSpanHours": 24,
+                },
+                "networkRetryPolicy": {
+                    "maxTransientRetriesPerURL": MAX_TRANSIENT_RETRIES,
+                    "maxRequestAttemptsPerURLIncludingHeadFallback": 3,
+                    "requestTimeoutSeconds": REQUEST_TIMEOUT_SECONDS,
+                    "maxRetryDelaySeconds": MAX_RETRY_DELAY_SECONDS,
+                    "automaticRedirectsIncludedInAttempt": True,
+                    "requestHistoryIsNotConsecutiveScheduledChecks": True,
                 },
             },
             ensure_ascii=False,
@@ -241,12 +315,16 @@ def main():
         return 1
     context = ssl.create_default_context()
     with ThreadPoolExecutor(max_workers=16) as pool:
-        results = list(pool.map(lambda pair: check(pair, context), urls.items()))
-    confirmed, restricted, transient = write_reports(results, release_ids)
+        checked = list(pool.map(lambda pair: check_with_history(pair, context), urls.items()))
+    results = [result for result, _ in checked]
+    histories = {result[0]: history for result, history in checked}
+    confirmed, restricted, transient = write_reports(results, release_ids, histories)
     print(
         f"checked={len(results)} confirmed_broken={len(confirmed)} "
         f"restricted={len(restricted)} transient={len(transient)}"
     )
+    print(f"request_attempts={sum(map(len, histories.values()))} "
+          f"transient_retries={sum(attempt.get('nextRequestReason') == 'bounded_transient_retry' for history in histories.values() for attempt in history)}")
     network_unavailable = bool(results) and len(transient) == len(results)
     if network_unavailable:
         print("external link check failed closed: every request was transient", file=sys.stderr)

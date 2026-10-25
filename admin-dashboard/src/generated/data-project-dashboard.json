@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-08-09T23:34:21+00:00",
+  "generated_at": "2026-10-24T11:22:48+00:00",
   "scope": "DATA PROJECT governed records only; legacy runtime data is excluded until audited and migrated.",
   "runtime_release": {
     "release_id": "legacy-runtime-unversioned",
@@ -36,10 +36,10 @@
     "published": 177,
     "verified": 454,
     "needs_review": 0,
-    "outdated": 0,
+    "outdated": 412,
     "blocked": 0,
-    "media_assets": 587,
-    "quality_score": 100.0
+    "media_assets": 577,
+    "quality_score": 81.9
   },
   "coverage": [
     {
@@ -150,9 +150,9 @@
       "key": "images",
       "label": "Verified media assets",
       "work_package": "WP-14",
-      "current": 587,
+      "current": 577,
       "target": 10000,
-      "coverage_percent": 5.9
+      "coverage_percent": 5.8
     }
   ],
   "breadth_coverage": [
@@ -2320,13 +2320,13 @@
       "published": 0,
       "verified": 105,
       "needs_review": 0,
-      "outdated": 0,
+      "outdated": 87,
       "blocked": 0,
-      "quality_score": 100.0,
+      "quality_score": 83.4,
       "coverage_dimensions": {
         "verification": 100.0,
         "official_source": 100.0,
-        "freshness": 100.0,
+        "freshness": 17.1,
         "relationships": 100.0,
         "geography": null,
         "media": null,
@@ -2345,13 +2345,13 @@
       "published": 0,
       "verified": 41,
       "needs_review": 0,
-      "outdated": 0,
+      "outdated": 39,
       "blocked": 0,
-      "quality_score": 100.0,
+      "quality_score": 81.0,
       "coverage_dimensions": {
         "verification": 100.0,
         "official_source": 100.0,
-        "freshness": 100.0,
+        "freshness": 4.9,
         "relationships": 100.0,
         "geography": null,
         "media": null,
@@ -2370,13 +2370,13 @@
       "published": 0,
       "verified": 40,
       "needs_review": 0,
-      "outdated": 0,
+      "outdated": 36,
       "blocked": 0,
-      "quality_score": 100.0,
+      "quality_score": 82.0,
       "coverage_dimensions": {
         "verification": 100.0,
         "official_source": 100.0,
-        "freshness": 100.0,
+        "freshness": 10.0,
         "relationships": 100.0,
         "geography": null,
         "media": null,
@@ -2395,13 +2395,13 @@
       "published": 0,
       "verified": 40,
       "needs_review": 0,
-      "outdated": 0,
+      "outdated": 40,
       "blocked": 0,
-      "quality_score": 100.0,
+      "quality_score": 80.0,
       "coverage_dimensions": {
         "verification": 100.0,
         "official_source": 100.0,
-        "freshness": 100.0,
+        "freshness": 0.0,
         "relationships": 100.0,
         "geography": null,
         "media": null,
@@ -2420,13 +2420,13 @@
       "published": 0,
       "verified": 40,
       "needs_review": 0,
-      "outdated": 0,
+      "outdated": 40,
       "blocked": 0,
-      "quality_score": 100.0,
+      "quality_score": 80.0,
       "coverage_dimensions": {
         "verification": 100.0,
         "official_source": 100.0,
-        "freshness": 100.0,
+        "freshness": 0.0,
         "relationships": 100.0,
         "geography": null,
         "media": null,
@@ -2445,13 +2445,13 @@
       "published": 177,
       "verified": 188,
       "needs_review": 0,
-      "outdated": 0,
+      "outdated": 170,
       "blocked": 0,
-      "quality_score": 100.0,
+      "quality_score": 81.9,
       "coverage_dimensions": {
         "verification": 100.0,
         "official_source": 100.0,
-        "freshness": 100.0,
+        "freshness": 9.6,
         "relationships": 100.0,
         "geography": 100.0,
         "media": 100.0,
@@ -2460,7 +2460,7 @@
         "publication": 94.1
       },
       "current_release": "0.1.8",
-      "next_release": null
+      "next_release": "0.1.9"
     },
     {
       "id": "WP-07",
@@ -2739,8 +2739,8 @@
     }
   ],
   "data_health": {
-    "status": "healthy",
-    "issues_total": 0,
+    "status": "attention_required",
+    "issues_total": 160,
     "issues": {
       "governed_broken_links": 0,
       "legacy_runtime_broken_links": 0,
@@ -2751,15 +2751,15 @@
       "missing_last_checked": 0,
       "missing_coordinates": 0,
       "missing_ai_summary": 0,
-      "outdated_records": 0
+      "outdated_records": 160
     },
     "link_check": {
-      "checked_at": "1970-01-01T00:00:00+00:00",
-      "total": 0,
-      "reachable": 0,
+      "checked_at": "2026-10-23T12:54:18.221248+00:00",
+      "total": 2920,
+      "reachable": 2031,
       "confirmed_broken": 0,
-      "access_restricted": 0,
-      "transient_failures": 0
+      "access_restricted": 792,
+      "transient_failures": 97
     }
   }
 }

@@ -1,6 +1,6 @@
 "use client";
 
-import { type KeyboardEvent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { usePathname } from "next/navigation";
 import { ShieldCheck } from "lucide-react";
 import siteConfig from "@/config/site-config.json";
@@ -67,12 +67,9 @@ function clearAnalyticsSession() {
 
 export function AnalyticsConsent() {
   const pathname = usePathname();
+  const nl = pathname.startsWith("/nl");
   const providerRef = useRef<AnalyticsProvider | undefined>(undefined);
   const consentGrantPendingRef = useRef(false);
-  const triggerRef = useRef<HTMLButtonElement>(null);
-  const dialogRef = useRef<HTMLElement>(null);
-  const declineRef = useRef<HTMLButtonElement>(null);
-  const previousFocusRef = useRef<HTMLElement | null>(null);
   const [choice, setChoice] = useState<ConsentChoice | null>(null);
   const [isReady, setIsReady] = useState(false);
   const [settingsOpen, setSettingsOpen] = useState(false);
@@ -83,12 +80,6 @@ export function AnalyticsConsent() {
     setSettingsOpen(storedChoice === null && !browserPrivacySignalEnabled());
     setIsReady(true);
   }, []);
-
-  useEffect(() => {
-    if (!settingsOpen) return;
-    previousFocusRef.current = document.activeElement instanceof HTMLElement ? document.activeElement : null;
-    window.requestAnimationFrame(() => declineRef.current?.focus());
-  }, [settingsOpen]);
 
   useEffect(() => {
     if (!isReady || choice !== "accepted" || !siteConfig.analytics.enabled) return;
@@ -133,84 +124,59 @@ export function AnalyticsConsent() {
     saveConsent("accepted");
     setChoice("accepted");
     setSettingsOpen(false);
-    window.requestAnimationFrame(() => triggerRef.current?.focus());
   };
 
   const decline = () => {
+    const provider = providerRef.current;
+    if (window.__YOUNEW_ANALYTICS__ === provider) {
+      delete window.__YOUNEW_ANALYTICS__;
+    }
+    provider?.dispose?.();
+    providerRef.current = undefined;
     saveConsent("declined");
     clearAnalyticsSession();
     setChoice("declined");
     setSettingsOpen(false);
-    window.requestAnimationFrame(() => triggerRef.current?.focus());
-  };
-
-  const closeSettings = () => {
-    setSettingsOpen(false);
-    window.requestAnimationFrame(() => (triggerRef.current ?? previousFocusRef.current)?.focus());
-  };
-
-  const handleDialogKeyDown = (event: KeyboardEvent<HTMLElement>) => {
-    if (event.key === "Escape") {
-      event.preventDefault();
-      closeSettings();
-      return;
-    }
-    if (event.key !== "Tab") return;
-    const focusable = [...(dialogRef.current?.querySelectorAll<HTMLElement>('a[href],button:not([disabled])') ?? [])];
-    if (focusable.length === 0) return;
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-    if (event.shiftKey && document.activeElement === first) {
-      event.preventDefault();
-      last.focus();
-    } else if (!event.shiftKey && document.activeElement === last) {
-      event.preventDefault();
-      first.focus();
-    }
   };
 
   return (
     <>
       {!settingsOpen ? (
         <button
-          ref={triggerRef}
           type="button"
           className="analytics-settings-trigger"
           onClick={() => setSettingsOpen(true)}
-          aria-label="Open analytics privacy choices"
+          aria-label={nl ? "Open privacykeuze voor analytics" : "Open analytics privacy choices"}
         >
           <ShieldCheck aria-hidden />
-          <span className="visually-hidden">Privacy choices</span>
+          <span className="visually-hidden">{nl ? "Privacykeuze" : "Privacy choices"}</span>
         </button>
       ) : null}
       {settingsOpen ? (
         <section
-          ref={dialogRef}
           className="analytics-consent"
-          role="dialog"
-          aria-modal="true"
+          role="region"
           aria-labelledby="analytics-consent-title"
-          onKeyDown={handleDialogKeyDown}
+          aria-live="polite"
         >
           <div>
-            <p className="analytics-consent-eyebrow">Your privacy choice</p>
-            <h2 id="analytics-consent-title">Help improve YouNew?</h2>
+            <p className="analytics-consent-eyebrow">{nl ? "Jouw privacykeuze" : "Your privacy choice"}</p>
+            <h2 id="analytics-consent-title">{nl ? "Wil je YouNew helpen verbeteren?" : "Help improve YouNew?"}</h2>
             <p>
-              With your permission, YouNew counts page visits and bounded product actions.
-              We do not send search text, profile details, precise location, advertising IDs
-              or cross-site identifiers. The identifier lasts only for this browser tab.
+              {nl
+                ? "Met jouw toestemming telt YouNew paginabezoeken en een beperkt aantal productacties. We versturen geen zoektekst, profielgegevens, precieze locatie, advertentie-ID's of cross-site identifiers. De identifier blijft alleen in dit browsertabblad bestaan."
+                : "With your permission, YouNew counts page visits and bounded product actions. We do not send search text, profile details, precise location, advertising IDs or cross-site identifiers. The identifier lasts only for this browser tab."}
             </p>
             <p>
-              Data is stored in the EU for up to {siteConfig.analytics.retentionDays} days.
-              You can change this choice at any time. Read the <a href="/privacy/">Privacy Policy</a>.
+              {nl ? `Gegevens worden maximaal ${siteConfig.analytics.retentionDays} dagen in de EU bewaard. Je kunt deze keuze altijd wijzigen. Lees het ` : `Data is stored in the EU for up to ${siteConfig.analytics.retentionDays} days. You can change this choice at any time. Read the `}<a href="/privacy/">{nl ? "privacybeleid" : "Privacy Policy"}</a>.
             </p>
           </div>
           <div className="analytics-consent-actions">
-            <button ref={declineRef} type="button" className="button-secondary" onClick={decline}>
-              Decline analytics
+            <button type="button" className="button-secondary" onClick={decline}>
+              {nl ? "Analytics weigeren" : "Decline analytics"}
             </button>
             <button type="button" className="button-primary" onClick={accept}>
-              Allow anonymous analytics
+              {nl ? "Anonieme analytics toestaan" : "Allow anonymous analytics"}
             </button>
           </div>
         </section>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { ExternalLink, Phone, ShieldAlert, Stethoscope } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageShell } from "@/components/page-shell";
@@ -29,6 +30,7 @@ export default function EmergencyPage() {
           <article><Stethoscope aria-hidden /><h2>Urgent but not life-threatening care</h2><p>Contact your GP during office hours or your local out-of-hours GP service. Phone numbers differ by region.</p><a href="https://www.thuisarts.nl/dutch-healthcare/in-case-of-emergency" rel="noreferrer" target="_blank">Open Thuisarts guidance <ExternalLink aria-hidden /></a></article>
         </div>
         <aside className="safety-note"><strong>Important</strong> This is a static safety page, not live emergency monitoring or medical advice. It is deliberately excluded from long-lived offline caching. Verify non-urgent details with the official source.</aside>
+        <p>For non-urgent help, <Link href="/search/">search the published YouNew directory</Link> or <Link href="/support/">contact YouNew support</Link>.</p>
       </section>
     </PageShell>
   );

@@ -213,7 +213,6 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
     if (filters.province !== "all") params.set("province", filters.province);
     if (filters.category !== "all") params.set("category", filters.category);
     if (filters.type !== "all") params.set("type", filters.type);
-    if (filters.query.trim()) params.set("q", filters.query.trim());
     window.history.replaceState(null, "", `${window.location.pathname}${params.size ? `?${params}` : ""}`);
     setActiveClusterId(null);
   }, [filters, queryReady]);

@@ -88,12 +88,17 @@ export function governanceDisclosure(envelope: ContentGovernanceEnvelope | null,
     };
   }
   const degraded = effectiveStatus !== "verified";
+  const includesReviewCredit =
+    envelope.confidenceBreakdown.humanReviewer > 0 ||
+    envelope.confidenceBreakdown.independentReview > 0;
   return {
     effectiveStatus,
     tone: degraded ? "warning" as const : "success" as const,
     label: degraded ? `Verification status: ${effectiveStatus.replaceAll("_", " ")}` : "Governance verification current",
     explanation: degraded
       ? "Open the official source and confirm the current municipality rules before acting."
-      : "The official source, human review, freshness and jurisdiction evidence are current under the recorded policy version."
+      : includesReviewCredit
+        ? "The recorded official-source, review, freshness and jurisdiction checks are current under the recorded policy version."
+        : "The recorded official-source, freshness and jurisdiction checks are current. No human or independent-review credit is included in this record's evidence score."
   };
 }

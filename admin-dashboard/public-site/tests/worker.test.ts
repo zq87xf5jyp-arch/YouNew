@@ -49,6 +49,29 @@ test("Sites worker permanently redirects www to the canonical origin", async () 
   assert.deepEqual(mock.calls, []);
 });
 
+test("Sites worker permanently redirects every retired business route and preserves the query", async () => {
+  const cases = [
+    ["/business", "/for-business/"],
+    ["/business/workspace/", "/for-business/pilot/"],
+    ["/business/pricing", "/for-business/pilot/"],
+    ["/business/media-kit/", "/for-business/demo-report/"],
+    ["/business/advertise", "/partners/"],
+    ["/business/partners/", "/partners/"],
+    ["/business/apply", "/partners/apply/"]
+  ];
+
+  for (const [legacy, canonical] of cases) {
+    const mock = createAssets({});
+    const response = await worker.fetch(
+      new Request(`https://younew.nl${legacy}?utm_source=legacy`),
+      { ASSETS: mock.assets }
+    );
+    assert.equal(response.status, 308);
+    assert.equal(response.headers.get("location"), `https://younew.nl${canonical}?utm_source=legacy`);
+    assert.deepEqual(mock.calls, []);
+  }
+});
+
 test("Sites worker serves the legacy favicon path from the canonical PNG asset", async () => {
   const favicon = new Uint8Array([137, 80, 78, 71]);
   const mock = createAssets({
@@ -194,8 +217,8 @@ test("Sites worker permits every governed public image host and Wikimedia redire
 });
 
 test("Sites worker resolves an exported directory through its index asset", async () => {
-  const pathname = "/business/workspace/";
-  const indexPathname = "/__site_payloads/business/workspace/index.html.payload";
+  const pathname = "/for-business/pilot/";
+  const indexPathname = "/__site_payloads/for-business/pilot/index.html.payload";
   const mock = createAssets({
     [indexPathname]: new Response("<!doctype html><title>Workspace</title>", {
       status: 200,

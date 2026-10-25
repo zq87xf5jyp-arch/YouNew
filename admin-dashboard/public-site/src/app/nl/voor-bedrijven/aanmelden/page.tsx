@@ -1,0 +1,7 @@
+import { NlLocalBusinessApplicationForm } from "@/components/nl-local-business-application-form";
+import { PageShell } from "@/components/page-shell";
+import { getGeographyProvinces, getMunicipalities } from "@/lib/geography";
+import { metadataForPage } from "@/lib/seo/metadata";
+
+export const metadata = metadataForPage("Bedrijfsprofiel aanmelden", "Dien een beveiligde aanvraag in om een YouNew-bedrijfsprofiel toe te voegen of te claimen.", "/nl/voor-bedrijven/aanmelden", { locale: "nl", noIndex: true, follow: true });
+export default function Page() { return <PageShell locale="nl" className="business-page business-apply-page"><section className="business-hero section-shell"><p className="section-label orange">Gratis profielcontrole</p><h1>Bedrijf toevoegen of profiel claimen</h1><p>Deel alleen openbare bedrijfsgegevens en een bevoegde zakelijke contactpersoon. YouNew controleert de aanvraag vóór publicatie.</p></section><section className="business-application-section section-shell" aria-labelledby="nl-application-title"><div className="business-application-intro"><h2 id="nl-application-title">Aanvraag</h2><p><strong>Geen betaling.</strong> De aanvraag publiceert niets en bevestigt nog geen eigendom.</p></div><NlLocalBusinessApplicationForm municipalities={getMunicipalities().map((item) => item.name)} provinces={getGeographyProvinces().map((item) => item.name)} /></section></PageShell>; }

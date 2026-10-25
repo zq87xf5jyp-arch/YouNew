@@ -1,5 +1,5 @@
 {
-  "datasetFingerprint": "72ef389733b1b785092353a75768b3af2dcdf878443f703ccd146156672f3552",
+  "datasetFingerprint": "f9887ff0ec6a4652414fef94e59f86e6a5679c31cd3c5d397cd2b5165b56ea86",
   "entities": [
     {
       "aiSummary": "Use the official Back to Black page for Back to Black and recheck current visitor or service conditions before acting. The Amsterdam record is designed for search and routing under coffee and does not treat AI text as a factual source.",
@@ -1942,7 +1942,7 @@
       "verificationStatus": "verified"
     },
     {
-      "aiSummary": "Use the City of Amsterdam portal as the primary source for municipal administration, resident services and local policy. Check the exact service page before acting because procedures and appointment requirements can change.",
+      "aiSummary": "Use the City of Amsterdam Civil Affairs portal to check BRP registration and address procedures. Open the linked service page before acting because documents, appointment routes and processing details can change.",
       "attributes": {
         "coordinate_source": "Existing NLCity runtime baseline audited during governance migration",
         "dataProjectRelease": "cities-v0.1.0",
@@ -2019,7 +2019,7 @@
         "Gemeente Amsterdam"
       ],
       "kind": "city",
-      "lastChecked": "2026-07-14",
+      "lastChecked": "2026-10-23",
       "provinceId": "noord-holland",
       "publicationStatus": "published",
       "relatedEntityIDs": [
@@ -2028,14 +2028,14 @@
         "government.municipal-taxes"
       ],
       "source": {
-        "checkedAt": "2026-07-14",
+        "checkedAt": "2026-10-23",
         "isOfficial": true,
         "publisher": "City of Amsterdam",
         "status": "verified_opened",
-        "title": "Governance and Organisation – Amsterdam City Hall",
-        "url": "https://www.amsterdam.nl/en/governance/"
+        "title": "Correct registration with the City",
+        "url": "https://www.amsterdam.nl/en/civil-affairs/correct-registration/"
       },
-      "summary": "Amsterdam is a municipality in Noord-Holland. Its official municipal portal provides resident and business services and explains the city government, district organisation, policy areas and public-space responsibilities.",
+      "summary": "Amsterdam is a municipality in Noord-Holland. The official City of Amsterdam registration page confirms that residents must keep their address registration in the Personal Records Database (BRP) correct and links to the relevant City services.",
       "title": "Amsterdam",
       "verificationStatus": "verified"
     },
@@ -2117,7 +2117,7 @@
         "The Hague resident registration"
       ],
       "kind": "city",
-      "lastChecked": "2026-07-14",
+      "lastChecked": "2026-10-23",
       "provinceId": "zuid-holland",
       "publicationStatus": "published",
       "relatedEntityIDs": [
@@ -2126,14 +2126,14 @@
         "government.municipal-taxes"
       ],
       "source": {
-        "checkedAt": "2026-07-14",
+        "checkedAt": "2026-10-23",
         "isOfficial": true,
         "publisher": "Municipality of The Hague",
         "status": "verified_opened",
-        "title": "The Hague municipal services",
-        "url": "https://www.denhaag.nl/en/"
+        "title": "Moving and immigration",
+        "url": "https://www.denhaag.nl/en/moving-and-immigration/"
       },
-      "summary": "Den Haag is a municipality in Zuid-Holland. Its official English portal brings together settling-in guidance, municipal contact, documents, housing, taxes, public-space reporting and other resident services.",
+      "summary": "Den Haag is a municipality in Zuid-Holland. Its official moving and immigration page groups the municipality's current routes for moves, BRP registration, RNI, foreign documents and newcomer support.",
       "title": "Den Haag",
       "verificationStatus": "verified"
     },
@@ -2215,7 +2215,7 @@
         "Gemeente Eindhoven"
       ],
       "kind": "city",
-      "lastChecked": "2026-07-14",
+      "lastChecked": "2026-10-23",
       "provinceId": "noord-brabant",
       "publicationStatus": "published",
       "relatedEntityIDs": [
@@ -2224,19 +2224,19 @@
         "government.municipal-taxes"
       ],
       "source": {
-        "checkedAt": "2026-07-14",
+        "checkedAt": "2026-10-23",
         "isOfficial": true,
         "publisher": "Gemeente Eindhoven",
         "status": "verified_opened",
-        "title": "Home",
-        "url": "https://www.eindhoven.nl/"
+        "title": "Moving house",
+        "url": "https://english.eindhoven.nl/en/list-of-municipal-products/moving-house"
       },
-      "summary": "Eindhoven is a municipality in Noord-Brabant. Its official portal provides appointments, contact, moving and registration services, identity documents, local projects and practical information for residents.",
+      "summary": "Eindhoven is a municipality in Noord-Brabant. Its official English moving page explains the municipal routes for moving within the Netherlands, arriving from abroad and emigration.",
       "title": "Eindhoven",
       "verificationStatus": "verified"
     },
     {
-      "aiSummary": "Use Rotterdam's official municipal portal for city-government information and resident procedures. Confirm the current product page, eligibility and appointment requirements before submitting a municipal request.",
+      "aiSummary": "Use Rotterdam's official BRP page as the starting point for resident registration and address obligations. Confirm the linked product page and current appointment requirements before submitting a request.",
       "attributes": {
         "coordinate_source": "Existing NLCity runtime baseline audited during governance migration",
         "dataProjectRelease": "cities-v0.1.0",
@@ -2313,7 +2313,7 @@
         "Rotterdam resident services"
       ],
       "kind": "city",
-      "lastChecked": "2026-07-14",
+      "lastChecked": "2026-10-23",
       "provinceId": "zuid-holland",
       "publicationStatus": "published",
       "relatedEntityIDs": [
@@ -2322,19 +2322,19 @@
         "government.municipal-taxes"
       ],
       "source": {
-        "checkedAt": "2026-07-14",
+        "checkedAt": "2026-10-23",
         "isOfficial": true,
         "publisher": "Municipality of Rotterdam",
         "status": "verified_opened",
-        "title": "City government",
-        "url": "https://www.rotterdam.nl/en/city-government"
+        "title": "Basisregistratie personen",
+        "url": "https://www.rotterdam.nl/basisregistratie-personen"
       },
-      "summary": "Rotterdam is a municipality in Zuid-Holland. The official municipal portal identifies the City Council and Municipal Executive as the governing bodies and provides practical services for residents and businesses.",
+      "summary": "Rotterdam is a municipality in Zuid-Holland. The official municipality page confirms that residents' personal details are held in the BRP and that people staying in the Netherlands for more than four months must register.",
       "title": "Rotterdam",
       "verificationStatus": "verified"
     },
     {
-      "aiSummary": "Use Utrecht's official city portal for municipal contact and service support, especially when language or digital access is a barrier. Verify the exact service page and current appointment process before visiting City Hall.",
+      "aiSummary": "Use Utrecht's official registration page to choose between BRP and RNI routes. Verify the current appointment process and required documents before visiting City Hall.",
       "attributes": {
         "coordinate_source": "Existing NLCity runtime baseline audited during governance migration",
         "dataProjectRelease": "cities-v0.1.0",
@@ -2411,7 +2411,7 @@
         "Utrecht resident services"
       ],
       "kind": "city",
-      "lastChecked": "2026-07-14",
+      "lastChecked": "2026-10-23",
       "provinceId": "utrecht",
       "publicationStatus": "published",
       "relatedEntityIDs": [
@@ -2420,14 +2420,14 @@
         "government.municipal-taxes"
       ],
       "source": {
-        "checkedAt": "2026-07-14",
+        "checkedAt": "2026-10-23",
         "isOfficial": true,
         "publisher": "Municipality of Utrecht",
         "status": "verified_opened",
-        "title": "Contact us",
-        "url": "https://www.utrecht.nl/city-of-utrecht/contact-us"
+        "title": "Registration",
+        "url": "https://www.utrecht.nl/city-of-utrecht/registration"
       },
-      "summary": "Utrecht is a municipality in the province of Utrecht. The official city portal provides municipal contact, service-desk support and City Hall information for residents who need help using local public services.",
+      "summary": "Utrecht is a municipality in the province of Utrecht. Its official registration page separates RNI registration for shorter stays from municipal BRP registration for people moving from abroad for more than four months.",
       "title": "Utrecht",
       "verificationStatus": "verified"
     },
@@ -15608,12 +15608,12 @@
       "verificationStatus": "verified"
     }
   ],
-  "generatedAt": "2026-08-01T00:00:00Z",
+  "generatedAt": "2026-10-23T00:00:00Z",
   "inputFingerprint": {
     "batchFiles": [
       {
         "path": "DataProject/batches/WP-06/M1-priority-cities-001.json",
-        "sha256": "a97582dad749abbfd6abaaeb85e6b72fd04754adfbc175a33ec127f54857de2e"
+        "sha256": "9695612943c6ed54cf86f82e3a7ff2d335e96bc3b3bae2f582503ae2a20d3858"
       },
       {
         "path": "DataProject/batches/WP-06/M2-amsterdam-001.json",
@@ -15689,11 +15689,11 @@
     "releaseManifests": [
       {
         "path": "DataProject/reports/release-manifests/amsterdam-v0.1.8.json",
-        "sha256": "ee4858717ac1bc04bec5d9d2108b1bc7d843b61b601167b1ccb90cd64ab91f95"
+        "sha256": "ad9158cd0f2bf5029c852fa6e50b695d0a38d3fc977360ab97f5f6ea12b7dc3d"
       },
       {
         "path": "DataProject/reports/release-manifests/cities-v0.1.0.json",
-        "sha256": "fa81ed3abf2cf037d2b431bf91b7863b700005c851dbda1ac568d152d1b9bed8"
+        "sha256": "f6d3f37176655d5264c99244837d2b3ac0f53bf5804fdff12a822b76b3fc38d6"
       }
     ],
     "schema": {
@@ -15765,7 +15765,7 @@
     }
   },
   "mode": "production",
-  "outputChecksum": "62cda6c0866ecb76db5906cae3e02b50134ab4a6b979b1c104dff28392f16425",
+  "outputChecksum": "c658b552fcdb314aa82f555dc971f346c0130a3aaeae36c46c1f2de23050dba4",
   "publicationPolicy": {
     "allSevenGatesRequired": true,
     "productionRequiresReleaseStatus": "published",

@@ -31,6 +31,8 @@ export default async function LoginPage({
               <div className="mb-4 rounded-md border border-destructive/30 bg-destructive/10 p-3 text-sm text-red-100">
                 {params.error === "configuration"
                   ? "Сервис входа не настроен. Обратитесь к владельцу системы."
+                  : params.error === "authorization-source"
+                    ? "Источник авторизации временно недоступен. Сессия сохранена; попробуйте снова позже."
                   : params.error === "not-approved"
                     ? "Аккаунт существует, но пока не одобрен для доступа к админке."
                     : "Email или пароль неверный."}

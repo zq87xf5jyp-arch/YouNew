@@ -13,7 +13,6 @@ export function CrudTable({
   description: string;
   rows: Row[];
   columns: string[];
-  cta?: string;
 }) {
   return (
     <Card>
@@ -80,6 +79,18 @@ const columnLabels: Record<string, string> = {
   event: "Событие",
   url: "URL",
   source_type: "Тип источника",
+  source_kind: "Канонический источник",
+  source_id: "ID источника",
+  canonical_url: "Канонический URL",
+  publisher: "Издатель",
+  evidence_state: "Evidence",
+  link_health_state: "Link health",
+  reference_count: "Ссылок на URL",
+  alias_count: "Aliases",
+  http_status: "HTTP",
+  checked_at: "Health checked",
+  admin_notes: "Admin notes",
+  check_notes: "Check notes",
   last_checked_date: "Проверено",
   question: "Вопрос",
   city: "Город",
@@ -88,6 +99,7 @@ const columnLabels: Record<string, string> = {
   message: "Сообщение",
   confirmation_code: "ID",
   feedback_type: "Тип отзыва",
+  record_origin: "Происхождение записи",
   page_reference: "Страница",
   user_id: "Пользователь",
   action: "Действие",
@@ -114,6 +126,7 @@ const columnLabels: Record<string, string> = {
   label: "Набор данных",
   version: "Версия",
   records: "Записей",
+  entity_count: "Объектов",
   last_sync: "Последняя синхронизация",
   job: "Задача",
   target: "Цель",
@@ -124,6 +137,11 @@ const columnLabels: Record<string, string> = {
   records_failed: "Ошибок",
   artifact_fingerprint: "Fingerprint",
   error_summary: "Ошибка",
+  queued_at: "Поставлено в очередь",
+  heartbeat_at: "Последний heartbeat",
+  lease_expires_at: "Lease истекает",
+  attempt_count: "Попыток",
+  timed_out_at: "Timeout",
   occurred_at: "Время события"
 };
 
@@ -161,7 +179,22 @@ const valueLabels: Record<string, string> = {
   synced: "синхронизировано",
   success: "успешно",
   warning: "предупреждение",
-  failed: "ошибка"
+  failed: "ошибка",
+  queued: "в очереди",
+  running: "выполняется",
+  succeeded: "завершено",
+  cancelled: "отменено",
+  timed_out: "превышено время",
+  measured: "измерено",
+  provisional: "предварительно",
+  unknown: "неизвестно",
+  unavailable: "недоступно",
+  stale: "устарело",
+  not_applicable: "N/A",
+  user_submission: "заявка пользователя",
+  sample: "образец",
+  synthetic_test: "синтетический тест",
+  legacy_unclassified: "legacy, не классифицировано"
 };
 
 export function labelForColumn(column: string) {

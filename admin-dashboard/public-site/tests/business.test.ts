@@ -9,10 +9,13 @@ const catalogModule = (await import(new URL("../src/lib/business/catalog.ts", im
 const typesModule = (await import(new URL("../src/lib/business/types.ts", import.meta.url).href)) as typeof import("../src/lib/business/types");
 const sponsoredModule = (await import(new URL("../src/lib/business/sponsored.ts", import.meta.url).href)) as typeof import("../src/lib/business/sponsored");
 const mediaKitSource = await readFile(new URL("../src/app/business/media-kit/page.tsx", import.meta.url), "utf8");
+const applyPageSource = await readFile(new URL("../src/app/business/apply/page.tsx", import.meta.url), "utf8");
 
 const validApplication: BusinessApplicationInput = {
   companyName: "Example Amsterdam BV",
   contactPerson: "Ada Example",
+  contactRole: "Partnership Lead",
+  offerInterest: "not_specified",
   email: "ada@example.nl",
   phone: "+31 20 123 4567",
   website: "https://example.nl",
@@ -180,6 +183,14 @@ test("media kit labels demonstrations and current reporting limits without publi
   assert.match(mediaKitSource, /Request a quote/);
   assert.match(mediaKitSource, /Reasons YouNew may refuse or stop a placement/);
   assert.doesNotMatch(mediaKitSource, /€\s*\d/);
+});
+
+test("business copy describes API-first storage and an honest user-controlled fallback", () => {
+  const copy = `${mediaKitSource}\n${applyPageSource}`;
+  assert.match(copy, /protected inquiry endpoint/);
+  assert.match(copy, /confirmation ID/);
+  assert.match(copy, /email draft/);
+  assert.doesNotMatch(copy, /browser-to-email inquiry|YouNew receives nothing when you fill it in|transparent email handoff/);
 });
 
 test("sponsored placements are globally disabled until real campaigns are configured", () => {

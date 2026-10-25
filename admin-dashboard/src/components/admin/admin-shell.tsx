@@ -8,11 +8,13 @@ import type { AdminRole } from "@/lib/auth";
 export function AdminShell({
   children,
   role,
-  name
+  name,
+  unreadNotifications
 }: {
   children: React.ReactNode;
   role: AdminRole;
   name: string;
+  unreadNotifications: number | null;
 }) {
   const pathname = usePathname();
 
@@ -20,7 +22,7 @@ export function AdminShell({
     <div className="min-h-screen overflow-x-hidden lg:flex">
       <AdminSidebar pathname={pathname} role={role} />
       <div className="min-w-0 flex-1 overflow-x-hidden">
-        <Topbar role={role} name={name} />
+        <Topbar role={role} name={name} unreadNotifications={unreadNotifications} />
         <AdminMobileNav pathname={pathname} role={role} />
         <main className="px-4 py-6 md:px-6 lg:px-8">{children}</main>
       </div>

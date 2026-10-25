@@ -82,3 +82,19 @@ test("missing governance is displayed as not established", () => {
   assert.equal(disclosure.effectiveStatus, "unverified");
   assert.match(disclosure.label, /not established/i);
 });
+
+test("current source-only evidence does not imply human or independent review", () => {
+  const disclosure = governanceDisclosure(envelope({
+    reviewedBy: null,
+    confidenceScore: 65,
+    confidenceBreakdown: {
+      officialSource: 40,
+      humanReviewer: 0,
+      independentReview: 0,
+      freshness: 10,
+      jurisdictionApplicability: 15
+    }
+  }), evaluatedAt);
+  assert.equal(disclosure.tone, "success");
+  assert.match(disclosure.explanation, /No human or independent-review credit/i);
+});

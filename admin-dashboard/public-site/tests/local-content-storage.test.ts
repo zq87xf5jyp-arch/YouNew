@@ -3,6 +3,7 @@ import test from "node:test";
 
 import {
   localContentRepository,
+  removeLegacySearchHistory,
   sanitizePlannerState,
   sanitizeRecentContentItems,
   sanitizeRecentSearches,
@@ -63,6 +64,92 @@ class MemoryStorage implements Storage {
   removeItem(key: string) { this.values.delete(key); }
   setItem(key: string, value: string) { this.values.set(key, value); }
 }
+
+function withStorage(storage: Storage, check: () => void) {
+  const previousWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
+  Object.defineProperty(globalThis, "window", {
+    configurable: true,
+    value: { localStorage: storage, dispatchEvent: () => true } as unknown as Window & typeof globalThis
+  });
+  try { check(); }
+  finally {
+    if (previousWindow) Object.defineProperty(globalThis, "window", previousWindow);
+    else Reflect.deleteProperty(globalThis, "window");
+  }
+}
+
+test("legacy-query migration removes exactly two keys and preserves user content byte-for-byte", () => {
+  const storage = new MemoryStorage();
+  const privateQuery = "person@example.invalid BSN 123456782";
+  const preserved = Object.values(localContentRepository.keys).filter(key => key !== localContentRepository.keys.searches && key !== localContentRepository.keys.rememberSearches);
+  for (const key of preserved) storage.setItem(key, `untouched:${key}`);
+  storage.setItem("unrelated.preference", "untouched");
+  storage.setItem(localContentRepository.keys.searches, JSON.stringify({ version: 1, value: [privateQuery] }));
+  storage.setItem(localContentRepository.keys.rememberSearches, JSON.stringify({ version: 1, value: true }));
+  withStorage(storage, () => {
+    assert.equal(removeLegacySearchHistory(), true);
+    assert.equal(removeLegacySearchHistory(), true);
+    assert.equal(storage.getItem(localContentRepository.keys.searches), null);
+    assert.equal(storage.getItem(localContentRepository.keys.rememberSearches), null);
+    for (const key of preserved) assert.equal(storage.getItem(key), `untouched:${key}`);
+    assert.equal(storage.getItem("unrelated.preference"), "untouched");
+    assert.equal(localContentRepository.searchHistoryEnabled(), false);
+    assert.deepEqual(localContentRepository.recentSearches(), []);
+  });
+});
+
+test("opt-in recent searches and one-time navigation handoff never persist or enter exports", () => {
+  const storage = new MemoryStorage();
+  const query = "private housing question person@example.invalid BSN 123456782";
+  withStorage(storage, () => {
+    localContentRepository.rememberSearch(query);
+    assert.deepEqual(localContentRepository.recentSearches(), []);
+    localContentRepository.setSearchHistoryEnabled(true);
+    localContentRepository.rememberSearch(query);
+    assert.deepEqual(localContentRepository.recentSearches(), [query]);
+    assert.deepEqual(localContentRepository.snapshot().recentSearches, []);
+    assert.equal(JSON.stringify(localContentRepository.snapshot()).includes(query), false);
+    localContentRepository.handoffSearch(query);
+    assert.equal(localContentRepository.takeSearchHandoff(), query);
+    assert.equal(localContentRepository.takeSearchHandoff(), null);
+    assert.equal(storage.length, 0);
+    localContentRepository.setSearchHistoryEnabled(false);
+    assert.deepEqual(localContentRepository.recentSearches(), []);
+  });
+  // A replacement document/window has no memory, even with the same storage.
+  withStorage(storage, () => {
+    assert.equal(localContentRepository.searchHistoryEnabled(), false);
+    assert.deepEqual(localContentRepository.recentSearches(), []);
+    assert.equal(localContentRepository.takeSearchHandoff(), null);
+  });
+});
+
+test("blocked legacy cleanup is reported without reviving or persisting raw queries", () => {
+  const storage = new MemoryStorage();
+  storage.setItem(localContentRepository.keys.searches, JSON.stringify({ version: 1, value: ["person@example.invalid"] }));
+  storage.removeItem = () => { throw new Error("blocked"); };
+  storage.setItem = () => { throw new Error("unexpected write"); };
+  withStorage(storage, () => {
+    assert.equal(removeLegacySearchHistory(), false);
+    assert.deepEqual(localContentRepository.recentSearches(), []);
+    localContentRepository.setSearchHistoryEnabled(true);
+    localContentRepository.rememberSearch("new private query");
+    assert.deepEqual(localContentRepository.recentSearches(), ["new private query"]);
+    assert.deepEqual(localContentRepository.snapshot().recentSearches, []);
+  });
+});
+
+test("clear all also clears only the current document's transient searches and handoff", () => {
+  withStorage(new MemoryStorage(), () => {
+    localContentRepository.setSearchHistoryEnabled(true);
+    localContentRepository.rememberSearch("private query");
+    localContentRepository.handoffSearch("pending query");
+    localContentRepository.clearAll();
+    assert.equal(localContentRepository.searchHistoryEnabled(), false);
+    assert.deepEqual(localContentRepository.recentSearches(), []);
+    assert.equal(localContentRepository.takeSearchHandoff(), null);
+  });
+});
 
 test("repository access never exposes malformed local storage payloads to UI consumers", () => {
   const storage = new MemoryStorage();

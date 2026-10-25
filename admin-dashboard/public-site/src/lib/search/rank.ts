@@ -3,8 +3,8 @@ import { canonicalCityId, resolveSearchLocation, selectedLocationContext } from 
 import { matchSearchIntents, taxonomyTopic } from "./taxonomy.ts";
 
 export type SearchDocumentType = ContentEntityType | "category" | "municipality" | "province" | "page";
-export type SearchLocationScope = "national" | "province" | "municipality" | "city" | "neighbourhood" | "organization" | "emergency" | "online-service";
-export type SearchScope = "national" | "provincial" | "municipal" | "city" | "neighbourhood" | "organization" | "online-service" | "emergency";
+export type SearchLocationScope = "national" | "province" | "municipality" | "city" | "neighbourhood" | "organization" | "service-area" | "online-service" | "remote" | "emergency";
+export type SearchScope = "national" | "provincial" | "municipal" | "city" | "neighbourhood" | "organization" | "service-area" | "online-service" | "remote" | "emergency";
 
 export interface SearchDocument {
   readonly id: string;
@@ -29,6 +29,7 @@ export interface SearchDocument {
   readonly nationalFallback?: boolean;
   readonly scope?: SearchScope;
   readonly locationAliases?: readonly string[];
+  readonly serviceAreaCityIds?: readonly string[];
   readonly intentIds?: readonly string[];
   readonly officialSourceURLs?: readonly string[];
   readonly qualityScore?: number;
@@ -69,7 +70,7 @@ export interface RankedSearchResult {
   readonly score: number;
   readonly matchedTerms: readonly string[];
   readonly matchedIntentIds?: readonly string[];
-  readonly locationMatch?: "exact" | "province" | "national" | "none";
+  readonly locationMatch?: "exact" | "service-area" | "province" | "national" | "online" | "none";
 }
 
 interface WeightedSearchField {
@@ -187,26 +188,85 @@ function documentScope(document: SearchDocument): SearchLocationScope {
   return "national";
 }
 
+function normalizedServiceArea(document: SearchDocument): Set<string> {
+  return new Set((document.serviceAreaCityIds ?? []).map(canonicalCityId).filter((value): value is string => Boolean(value)));
+}
+
+export function searchDocumentLocationMatch(
+  document: SearchDocument,
+  location: ReturnType<typeof selectedLocationContext>
+): NonNullable<RankedSearchResult["locationMatch"]> {
+  if (!location) return "none";
+  const scope = documentScope(document);
+  if (scope === "national" || scope === "emergency" || document.nationalFallback) return "national";
+  if (scope === "online-service" || scope === "remote") return "online";
+  if (location.kind === "province") {
+    return document.provinceId === location.provinceId ? "province" : "none";
+  }
+  if (normalizedServiceArea(document).has(location.canonicalId)) return "service-area";
+  if (scope === "service-area") return "none";
+  const documentCity = canonicalCityId(document.municipalityId ?? document.cityId ?? (document.type === "municipality" ? document.slug : null));
+  if (documentCity === location.canonicalId) return "exact";
+  if (scope === "province" && location.provinceId && document.provinceId === location.provinceId) return "province";
+  return "none";
+}
+
+function allowedForLocation(document: SearchDocument, location: ReturnType<typeof selectedLocationContext>): boolean {
+  if (!location) return true;
+  return searchDocumentLocationMatch(document, location) !== "none";
+}
+
+function allowedWithoutExplicitLocation(
+  document: SearchDocument,
+  queryTokens: readonly string[],
+  intentMatches: ReturnType<typeof matchSearchIntents>
+): boolean {
+  if (intentMatches.length === 0) return true;
+  const scope = documentScope(document);
+  if (["national", "emergency", "online-service", "remote"].includes(scope) || document.nationalFallback) return true;
+  const intentTokens = new Set(intentMatches.flatMap((match) => semanticQueryTokens(match.alias)));
+  // A broad request such as “GP” must not silently become an Amsterdam
+  // directory. A named/specific request such as “OLVG hospital” may still
+  // surface the local entity because it contains a non-intent identifying term.
+  return queryTokens.some((token) => !intentTokens.has(token));
+}
+
 function locationScore(
   document: SearchDocument,
   location: ReturnType<typeof selectedLocationContext>,
-  fromExplicitFilter: boolean
+  fromExplicitFilter: boolean,
+  penalizeUnscopedLocal = false
 ): number {
-  if (!location) return 0;
   const scope = documentScope(document);
+  if (!location) {
+    if (!penalizeUnscopedLocal) return 0;
+    const hasLocalIdentity = Boolean(
+      document.municipalityId ??
+        document.cityId ??
+        document.provinceId ??
+        (document.type === "municipality" || document.type === "province" ? document.slug : null)
+    );
+    return hasLocalIdentity && ["province", "municipality", "city", "neighbourhood", "organization"].includes(scope)
+      ? -64
+      : 0;
+  }
   if (scope === "national" || scope === "emergency" || scope === "online-service" || document.nationalFallback) {
     return fromExplicitFilter ? 22 : 12;
   }
+
+  if (scope === "remote") return fromExplicitFilter ? 22 : 12;
 
   if (location.kind === "province") {
     if (document.provinceId === location.provinceId) return 28;
     return fromExplicitFilter ? -48 : scope === "organization" ? -12 : -22;
   }
 
-  const documentCity = canonicalCityId(document.municipalityId ?? document.cityId ?? (document.type === "municipality" ? document.slug : null));
-  if (documentCity === location.canonicalId) return 36;
-  if (location.provinceId && document.provinceId === location.provinceId) return 16;
-  return fromExplicitFilter ? -64 : scope === "organization" ? -12 : -24;
+  const match = searchDocumentLocationMatch(document, location);
+  if (match === "exact") return 36;
+  if (match === "service-area") return 30;
+  if (match === "province") return 16;
+  if (match === "online" || match === "national") return fromExplicitFilter ? 22 : 12;
+  return -96;
 }
 
 function freshnessScore(value: string | null | undefined): number {
@@ -271,12 +331,12 @@ export function rankSearchDocuments(
   options: SearchOptions = {}
 ): RankedSearchResult[] {
   const queryText = normalizeSearchText(query);
-  const explicitLocation = selectedLocationContext(documents, options.filters?.cityId, options.filters?.provinceId);
-  const inferredLocation = explicitLocation ? null : resolveSearchLocation(documents, queryText, normalizeSearchText);
-  const location = explicitLocation ?? inferredLocation;
+  const selectedLocation = selectedLocationContext(documents, options.filters?.cityId, options.filters?.provinceId);
+  const queryLocation = resolveSearchLocation(documents, queryText, normalizeSearchText);
+  const location = queryLocation ?? selectedLocation;
   const allQueryTokens = semanticQueryTokens(queryText);
-  const nonLocationTokens = inferredLocation
-    ? allQueryTokens.filter((token) => !inferredLocation.consumedTokens.includes(token))
+  const nonLocationTokens = queryLocation
+    ? allQueryTokens.filter((token) => !queryLocation.consumedTokens.includes(token))
     : allQueryTokens;
   const queryTokens = nonLocationTokens.length > 0 ? nonLocationTokens : allQueryTokens;
   const intentMatches = matchSearchIntents(queryText, normalizeSearchText);
@@ -285,21 +345,24 @@ export function rankSearchDocuments(
   if (!queryText || queryTokens.length === 0) {
     return documents
       .filter((document) => matchesHardFilters(document, filters))
+      .filter((document) => allowedForLocation(document, location))
       .sort(
         (left, right) =>
-          locationScore(right, location, Boolean(explicitLocation)) - locationScore(left, location, Boolean(explicitLocation)) ||
+          locationScore(right, location, Boolean(selectedLocation && !queryLocation)) - locationScore(left, location, Boolean(selectedLocation && !queryLocation)) ||
           Number(searchDocumentMatchesProfile(right, options.preferredProfile)) -
             Number(searchDocumentMatchesProfile(left, options.preferredProfile)) ||
           left.title.localeCompare(right.title) || left.id.localeCompare(right.id)
       )
       .slice(0, limit)
-      .map((document) => ({ document, score: 0, matchedTerms: [] }));
+      .map((document) => ({ document, score: 0, matchedTerms: [], locationMatch: searchDocumentLocationMatch(document, location) }));
   }
 
   const results: RankedSearchResult[] = [];
 
   for (const document of documents) {
     if (!matchesHardFilters(document, filters)) continue;
+    if (!allowedForLocation(document, location)) continue;
+    if (!location && !allowedWithoutExplicitLocation(document, queryTokens, intentMatches)) continue;
 
     const titleText = normalizeSearchText(document.title);
     const documentFields = weightedFields(document);
@@ -347,7 +410,7 @@ export function rankSearchDocuments(
     const intentMatched = intentScore >= 100;
     if (score > 0 && (matchedTerms.length >= minimumCoverage || intentMatched)) {
       const profileBoost = searchDocumentMatchesProfile(document, options.preferredProfile) ? 12 : 0;
-      const geoBoost = locationScore(document, location, Boolean(explicitLocation));
+      const geoBoost = locationScore(document, location, Boolean(selectedLocation && !queryLocation), intentMatches.length > 0);
       const verificationBoost = freshnessScore(document.verifiedAt);
       const contentQualityBoost = qualityScore(document);
       const answerUsefulnessBoost = usefulnessScore(document);
@@ -356,9 +419,28 @@ export function rankSearchDocuments(
         results.push({
           document,
           score: finalScore,
-          matchedTerms: [...new Set(matchedTerms)]
+          matchedTerms: [...new Set(matchedTerms)],
+          locationMatch: searchDocumentLocationMatch(document, location)
         });
       }
+    }
+  }
+
+  if (location?.kind === "city" && !filters.category && (!filters.type || filters.type === "municipality")) {
+    const municipality = documents.find((document) =>
+      document.type === "municipality" &&
+      canonicalCityId(document.municipalityId ?? document.cityId ?? document.slug) === location.canonicalId
+    );
+    if (municipality && !results.some(({ document }) => document.id === municipality.id)) {
+      const leadingNationalGuide = results
+        .filter(({ document }) => document.type === "guide" && searchDocumentLocationMatch(document, location) === "national")
+        .sort((left, right) => right.score - left.score || left.document.id.localeCompare(right.document.id))[0];
+      results.push({
+        document: municipality,
+        score: Math.max(80, (leadingNationalGuide?.score ?? Math.max(0, ...results.map(({ score }) => score))) - 0.5),
+        matchedTerms: queryLocation?.consumedTokens ?? [],
+        locationMatch: "exact"
+      });
     }
   }
 

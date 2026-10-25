@@ -19,16 +19,19 @@ export type AnalyticsAudienceMetricRow = {
 };
 
 export type AnalyticsSessionQualityRow = {
-  platform: string;
-  sessions: number | string | null;
-  engaged_sessions: number | string | null;
+  platform_scope: string;
+  session_count: number | string | null;
+  matched_session_count: number | string | null;
+  missing_session_count: number | string | null;
+  platform_mismatch_count: number | string | null;
+  engaged_session_count: number | string | null;
   average_duration_seconds_capped: number | string | null;
   median_duration_seconds: number | string | null;
   last_seen_at: string | null;
 };
 
 export type AnalyticsConversionFunnelRow = {
-  platform: string;
+  platform_scope: string;
   funnel_step: string;
   events: number | string | null;
   sessions: number | string | null;
@@ -66,10 +69,15 @@ export type AnalyticsInsights = {
     share: number;
   }>>;
   sessions: Array<{
-    platform: string;
+    platformScope: string;
     sessions: number;
+    matchedSessions: number;
+    qualityEligibleSessions: number;
+    missingSessions: number;
+    platformMismatchSessions: number;
     engagedSessions: number;
     engagementRate: number | null;
+    sessionRowCoverage: number | null;
     averageDurationSecondsCapped: number | null;
     medianDurationSeconds: number | null;
     lastSeenAt: string | null;
@@ -183,21 +191,35 @@ export function buildAnalyticsInsights({
     audience[row.dimension] = values;
   }
   for (const values of Object.values(audience)) {
-    const total = values.reduce((sum, row) => sum + row.sessions, 0);
-    for (const row of values) row.share = total > 0 ? row.sessions / total : 0;
+    const totalsByPlatform = new Map<string, number>();
+    for (const row of values) {
+      totalsByPlatform.set(row.platform, (totalsByPlatform.get(row.platform) ?? 0) + row.sessions);
+    }
+    for (const row of values) {
+      const total = totalsByPlatform.get(row.platform) ?? 0;
+      row.share = total > 0 ? row.sessions / total : 0;
+    }
     values.sort((left, right) => right.sessions - left.sessions || left.value.localeCompare(right.value));
   }
 
   const sessions = sessionRows.map((row) => {
-    const sessionCount = count(row.sessions);
-    const engagedSessions = count(row.engaged_sessions);
+    const sessionCount = count(row.session_count);
+    const matchedSessions = count(row.matched_session_count);
+    const platformMismatchSessions = count(row.platform_mismatch_count);
+    const qualityEligibleSessions = Math.max(0, matchedSessions - platformMismatchSessions);
+    const engagedSessions = count(row.engaged_session_count);
     const average = Number(row.average_duration_seconds_capped);
     const median = Number(row.median_duration_seconds);
     return {
-      platform: row.platform,
+      platformScope: row.platform_scope,
       sessions: sessionCount,
+      matchedSessions,
+      qualityEligibleSessions,
+      missingSessions: count(row.missing_session_count),
+      platformMismatchSessions,
       engagedSessions,
-      engagementRate: sessionCount > 0 ? engagedSessions / sessionCount : null,
+      engagementRate: qualityEligibleSessions > 0 ? engagedSessions / qualityEligibleSessions : null,
+      sessionRowCoverage: sessionCount > 0 ? matchedSessions / sessionCount : null,
       averageDurationSecondsCapped: Number.isFinite(average) ? average : null,
       medianDurationSeconds: Number.isFinite(median) ? median : null,
       lastSeenAt: row.last_seen_at

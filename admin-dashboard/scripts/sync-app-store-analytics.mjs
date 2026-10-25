@@ -1,5 +1,8 @@
 import { createPrivateKey, sign } from "node:crypto";
-import { gunzipSync } from "node:zlib";
+import { boundedFetch, parseTsv, units, syncStateUpdates, SyncSourceError } from "./app-store-sync-safety.mjs";
+
+const sourceDeadline = Date.now() + 120_000;
+const request = (url, init) => boundedFetch(url, init, { deadline: sourceDeadline });
 
 const requiredEnvironment = [
   "APP_STORE_CONNECT_ISSUER_ID",
@@ -28,7 +31,9 @@ const configuration = {
 };
 
 if (configuration.supabaseUrl.protocol !== "https:"
-  || !configuration.supabaseUrl.hostname.endsWith(".supabase.co")) {
+  || !configuration.supabaseUrl.hostname.endsWith(".supabase.co")
+  || configuration.supabaseUrl.username || configuration.supabaseUrl.password
+  || (configuration.supabaseUrl.port && configuration.supabaseUrl.port !== "443")) {
   throw new Error("SUPABASE_URL must be an HTTPS Supabase project URL.");
 }
 
@@ -73,23 +78,6 @@ function reportDates() {
   return dates;
 }
 
-function parseTsv(buffer) {
-  const decompressed = buffer[0] === 0x1f && buffer[1] === 0x8b ? gunzipSync(buffer) : buffer;
-  const text = decompressed.toString("utf8").replace(/^\uFEFF/, "").trim();
-  if (!text) return [];
-  const lines = text.split(/\r?\n/);
-  const headers = lines.shift().split("\t").map((header) => header.trim());
-  return lines.filter(Boolean).map((line) => {
-    const values = line.split("\t");
-    return Object.fromEntries(headers.map((header, index) => [header, values[index] ?? ""]));
-  });
-}
-
-function units(value) {
-  const parsed = Number.parseInt(value || "0", 10);
-  return Number.isFinite(parsed) ? parsed : 0;
-}
-
 async function downloadSalesReport(reportDate) {
   const url = new URL("https://api.appstoreconnect.apple.com/v1/salesReports");
   url.searchParams.set("filter[frequency]", "DAILY");
@@ -98,18 +86,17 @@ async function downloadSalesReport(reportDate) {
   url.searchParams.set("filter[reportType]", "SALES");
   url.searchParams.set("filter[vendorNumber]", configuration.vendorNumber);
   url.searchParams.set("filter[version]", "1_0");
-  const response = await fetch(url, {
+  const response = await request(url, {
     headers: { Authorization: `Bearer ${appStoreToken()}`, Accept: "application/a-gzip" },
     redirect: "error"
   });
   if (response.status === 404) return { available: false, rows: [] };
   if (!response.ok) {
-    const detail = (await response.text()).slice(0, 300);
-    throw new Error(`App Store Connect ${response.status}: ${detail || response.statusText}`);
+    throw new SyncSourceError(`app_store_http_${response.status}`);
   }
   return {
     available: true,
-    rows: parseTsv(Buffer.from(await response.arrayBuffer()))
+    rows: parseTsv(Buffer.from(await response.arrayBuffer()), reportDate)
   };
 }
 
@@ -120,6 +107,7 @@ function aggregateReport(reportDate, rows) {
     const territory = String(row["Country Code"] ?? "").trim().toUpperCase();
     if (!/^[A-Z]{2}$/.test(territory)) continue;
     const productType = String(row["Product Type Identifier"] ?? "").trim();
+    if (!downloadProductTypes.has(productType) && !redownloadProductTypes.has(productType) && !updateProductTypes.has(productType)) continue;
     const amount = units(row.Units);
     const aggregate = byTerritory.get(territory) ?? {
       metric_date: reportDate,
@@ -141,19 +129,19 @@ function aggregateReport(reportDate, rows) {
     else if (updateProductTypes.has(productType)) aggregate.updates += amount;
     byTerritory.set(territory, aggregate);
   }
-  return [...byTerritory.values()].map((row) => ({
-    ...row,
-    first_time_downloads: Math.max(0, row.first_time_downloads),
-    redownloads: Math.max(0, row.redownloads),
-    updates: Math.max(0, row.updates)
-  }));
+  return [...byTerritory.values()].map((row) => {
+    for (const field of ["first_time_downloads", "redownloads", "updates"]) {
+      if (!Number.isSafeInteger(row[field]) || row[field] < 0 || row[field] > 2147483647) throw new SyncSourceError("aggregate_units_require_review");
+    }
+    return row;
+  });
 }
 
 async function supabaseUpsert(table, rows, conflict) {
   if (rows.length === 0) return;
   const url = new URL(`/rest/v1/${table}`, configuration.supabaseUrl);
   url.searchParams.set("on_conflict", conflict);
-  const response = await fetch(url, {
+  const response = await request(url, {
     method: "POST",
     headers: {
       apikey: configuration.supabaseServiceRoleKey,
@@ -165,20 +153,27 @@ async function supabaseUpsert(table, rows, conflict) {
     redirect: "error"
   });
   if (!response.ok) {
-    const detail = (await response.text()).slice(0, 300);
-    throw new Error(`Supabase ${table} upsert ${response.status}: ${detail || response.statusText}`);
+    throw new SyncSourceError(`supabase_upsert_http_${response.status}`);
   }
 }
 
 async function recordSyncState(status, detail, latestDataAt = null) {
-  await supabaseUpsert("analytics_source_sync_state", [{
-    source: "app_store_connect",
-    status,
-    last_attempt_at: new Date().toISOString(),
-    last_success_at: status === "error" ? null : new Date().toISOString(),
-    latest_data_at: latestDataAt,
-    detail: detail.slice(0, 500)
-  }], "source");
+  const current = syncStateUpdates(status, detail, new Date(), latestDataAt);
+  const base = new URL("/rest/v1/analytics_source_sync_state", configuration.supabaseUrl);
+  const headers = { apikey: configuration.supabaseServiceRoleKey, Authorization: `Bearer ${configuration.supabaseServiceRoleKey}`, "Content-Type": "application/json" };
+  const insert = new URL(base); insert.searchParams.set("on_conflict", "source");
+  // Ensure a missing row exists; DO NOTHING never resets prior successful data.
+  const initialized = await request(insert, { method: "POST", headers: { ...headers, Prefer: "resolution=ignore-duplicates,return=minimal" }, body: JSON.stringify([{ source: "app_store_connect", ...current }]), redirect: "error" });
+  if (!initialized.ok) throw new SyncSourceError(`supabase_state_initialize_http_${initialized.status}`);
+  const patch = new URL(base); patch.searchParams.set("source", "eq.app_store_connect");
+  const updated = await request(patch, { method: "PATCH", headers, body: JSON.stringify(current), redirect: "error" });
+  if (!updated.ok) throw new SyncSourceError(`supabase_state_update_http_${updated.status}`);
+  if (status === "success") {
+    // Older lookback imports must not move latest_data_at backwards.
+    patch.searchParams.set("or", `(latest_data_at.is.null,latest_data_at.lt.${latestDataAt})`);
+    const freshness = await request(patch, { method: "PATCH", headers, body: JSON.stringify({ latest_data_at: latestDataAt }), redirect: "error" });
+    if (!freshness.ok) throw new SyncSourceError(`supabase_freshness_update_http_${freshness.status}`);
+  }
 }
 
 async function main() {
@@ -210,7 +205,7 @@ async function main() {
 }
 
 main().catch(async (error) => {
-  const message = error instanceof Error ? error.message : String(error);
+  const message = error instanceof SyncSourceError ? error.message : "source_sync_failed";
   try {
     await recordSyncState("error", message);
   } catch {

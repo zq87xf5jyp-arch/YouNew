@@ -160,6 +160,7 @@ struct ContentExpansionCompletenessTests {
             index: KnowledgeIndex(items: items),
             repository: ContentRepository(legacyItems: items, now: auditDate, performsValidation: false)
         )
+        let partnerSearch = auditedPartnerSearchEngine()
 
         #expect(search.search("weather warning", language: .english, activePersona: .tourist).contains {
             $0.item.title(.english) == "Weather Planning"
@@ -167,23 +168,49 @@ struct ContentExpansionCompletenessTests {
         #expect(search.search("pets vet microchip", language: .english, activePersona: .family).contains {
             $0.item.title(.english) == "Pets in the Netherlands"
         })
-        #expect(search.search("taxi Rotterdam", language: .english, activePersona: .tourist).contains {
+        #expect(partnerSearch.search("taxi Rotterdam", language: .english, activePersona: .tourist).contains {
             $0.item.type == .localPartner && $0.item.city == "Rotterdam" && $0.item.category == "Taxi"
         })
-        #expect(search.search("cleaning Eindhoven", language: .english, activePersona: .worker).contains {
+        #expect(partnerSearch.search("cleaning Eindhoven", language: .english, activePersona: .worker).contains {
             $0.item.type == .localPartner && $0.item.city == "Eindhoven" && $0.item.category == "Cleaning"
         })
-        #expect(search.search("Van der Valk Amsterdam", language: .english, activePersona: .tourist).contains {
+        #expect(partnerSearch.search("Van der Valk Amsterdam", language: .english, activePersona: .tourist).contains {
             $0.item.type == .localPartner && $0.item.title(.english) == "Van der Valk Hotel Amsterdam-Amstel"
         })
-        #expect(search.search("Leiden University", language: .english, activePersona: .student).contains {
+        #expect(partnerSearch.search("Leiden University", language: .english, activePersona: .student).contains {
             $0.item.type == .localPartner && $0.item.title(.english) == "Leiden University"
         })
-        #expect(search.search("IND desk Amsterdam", language: .english, activePersona: .nonEU).contains {
+        #expect(partnerSearch.search("IND desk Amsterdam", language: .english, activePersona: .nonEU).contains {
             $0.item.type == .localPartner && $0.item.title(.english) == "IND Desk Amsterdam"
         })
-        #expect(search.search("IKEA Amsterdam", language: .english, activePersona: .student).contains {
+        #expect(partnerSearch.search("IKEA Amsterdam", language: .english, activePersona: .student).contains {
             $0.item.type == .localPartner && $0.item.title(.english) == "IKEA Amsterdam"
         })
+    }
+
+    @Test func expiredPartnerRecordsFailClosedInsteadOfMasqueradingAsCurrent() {
+        let afterMonthlyWindow = Date(timeIntervalSince1970: 1_788_264_000) // 2026-09-01T12:00:00Z
+        let database = NetherlandsKnowledgeDatabase.shared
+        let expectedExpiredTitles: Set<String> = ["RTC Taxi Rotterdam", "Helpling Eindhoven", "Leiden University"]
+        let expiredPartners = database.entities(kind: .localPartner)
+            .filter { expectedExpiredTitles.contains($0.title) }
+        let expiredPartnerIDs = Set(expiredPartners
+            .map { $0.id.replacingOccurrences(of: "local-partner:", with: "localPartner:") })
+        let indexedPartnerIDs = Set(KnowledgeIndexBuilder.buildItems(now: afterMonthlyWindow)
+            .filter { $0.type == .localPartner }
+            .map(\.id))
+
+        #expect(Set(expiredPartners.map(\.title)) == expectedExpiredTitles)
+        #expect(expiredPartners.allSatisfy { $0.verificationStatus(at: afterMonthlyWindow) == .outdated })
+        #expect(expiredPartnerIDs.isDisjoint(with: indexedPartnerIDs))
+    }
+
+    private func auditedPartnerSearchEngine() -> AppSearchEngine {
+        let auditDate = Date(timeIntervalSince1970: 1_785_412_800) // 2026-07-30T12:00:00Z
+        let items = KnowledgeIndexBuilder.buildItems(now: auditDate)
+        return AppSearchEngine(
+            index: KnowledgeIndex(items: items),
+            repository: ContentRepository(legacyItems: items, now: auditDate, performsValidation: false)
+        )
     }
 }

@@ -42,12 +42,12 @@ export default function MyYouNewPage() {
         <h1>Continue where you left off.</h1>
         <p>Your route, saved materials and reading progress stay on this device.</p>
       </section>
-      <main className="section-shell my-younew-main">
+      <div className="section-shell my-younew-main">
         <MyYouNewDashboard
           municipalities={getMunicipalities().map((municipality) => ({ slug: municipality.slug, name: municipality.name }))}
           latestUpdates={latestUpdates}
         />
-      </main>
+      </div>
     </PageShell>
   );
 }

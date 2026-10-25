@@ -1,4 +1,4 @@
-const CACHE_VERSION = "younew-web-7ce914e1cb3c";
+const CACHE_VERSION = "younew-web-82da375faa44";
 const SHELL_CACHE = `${CACHE_VERSION}-shell`;
 const GUIDE_CACHE = `${CACHE_VERSION}-guides`;
 const ASSET_CACHE = `${CACHE_VERSION}-assets`;
@@ -9,6 +9,20 @@ const isEmergencyRequest = (url) => url.pathname === "/emergency" || url.pathnam
 const isMutableConfiguration = (url) =>
   url.pathname === "/data/status.json" || url.pathname === "/data/site-config.json";
 const isGuidePage = (url) => url.pathname === "/guides" || url.pathname.startsWith("/guides/");
+const guideCacheKey = (url) => {
+  const key = new URL(url);
+  key.searchParams.delete("q");
+  return key.href;
+};
+const removeLegacyQueryCacheKeys = async () => {
+  for (const name of [SHELL_CACHE, GUIDE_CACHE, ASSET_CACHE]) {
+    const cache = await caches.open(name);
+    for (const request of await cache.keys()) {
+      const url = new URL(request.url);
+      if (url.origin === self.location.origin && url.searchParams.has("q")) await cache.delete(request);
+    }
+  }
+};
 
 self.addEventListener("install", (event) => {
   event.waitUntil(
@@ -29,6 +43,7 @@ self.addEventListener("activate", (event) => {
             .map((key) => caches.delete(key))
         )
       )
+      .then(removeLegacyQueryCacheKeys)
       .then(() => self.clients.claim())
   );
 });
@@ -42,12 +57,12 @@ const networkFirstNavigation = async (request, url) => {
     const response = await fetch(request, { cache: "no-store" });
     if (response.ok && isGuidePage(url)) {
       const cache = await caches.open(GUIDE_CACHE);
-      await cache.put(request, response.clone());
+      await cache.put(guideCacheKey(url), response.clone());
     }
     return response;
   } catch {
     if (isGuidePage(url)) {
-      const cachedGuide = await caches.match(request);
+      const cachedGuide = await caches.match(guideCacheKey(url));
       if (cachedGuide) return cachedGuide;
     }
     return (await caches.match(OFFLINE_URL)) || Response.error();

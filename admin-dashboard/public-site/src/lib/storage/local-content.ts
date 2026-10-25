@@ -56,6 +56,35 @@ const keys = {
   plannerRoute: "younew.next-step-route.v1"
 } as const;
 
+type SearchMemory = { enabled: boolean; queries: string[]; pendingQuery: string | null };
+const searchMemoryByWindow = new WeakMap<object, SearchMemory>();
+
+export function removeLegacySearchHistory(): boolean {
+  if (typeof window === "undefined") return false;
+  let cleared = true;
+  for (const key of [keys.searches, keys.rememberSearches]) {
+    try {
+      window.localStorage.removeItem(key);
+      if (window.localStorage.getItem(key) !== null) cleared = false;
+    } catch { cleared = false; }
+  }
+  return cleared;
+}
+
+function searchMemory(): SearchMemory | null {
+  if (typeof window === "undefined") return null;
+  removeLegacySearchHistory();
+  let memory = searchMemoryByWindow.get(window);
+  if (!memory) {
+    memory = { enabled: false, queries: [], pendingQuery: null };
+    searchMemoryByWindow.set(window, memory);
+  }
+  return memory;
+}
+
+// Clean the two old query keys when the client module loads, never other data.
+if (typeof window !== "undefined") removeLegacySearchHistory();
+
 const localIdentifier = /^[a-z0-9]+(?:[._:-][a-z0-9]+)*$/;
 const reservedIdentifiers = new Set(["constructor", "prototype", "__proto__"]);
 
@@ -191,6 +220,7 @@ export function withoutJourneyProgress(states: JourneyProgressState, journeyId: 
 
 function read<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
+  removeLegacySearchHistory();
   try {
     const raw = window.localStorage.getItem(key);
     if (!raw) return fallback;
@@ -279,21 +309,33 @@ export const localContentRepository = {
     write(keys.recent, next);
   },
   recentSearches(): string[] {
-    if (!this.searchHistoryEnabled()) return [];
-    return sanitizeRecentSearches(read<unknown>(keys.searches, []));
+    const memory = searchMemory();
+    return memory?.enabled ? [...memory.queries] : [];
   },
   searchHistoryEnabled(): boolean {
-    return read<unknown>(keys.rememberSearches, false) === true;
+    return searchMemory()?.enabled ?? false;
   },
   setSearchHistoryEnabled(enabled: boolean) {
-    write(keys.rememberSearches, enabled);
-    if (!enabled) remove(keys.searches);
+    const memory = searchMemory();
+    if (!memory) return;
+    memory.enabled = enabled;
+    if (!enabled) memory.queries = [];
   },
   rememberSearch(query: string) {
-    if (!this.searchHistoryEnabled()) return;
-    const normalized = query.trim();
-    if (normalized.length < 2) return;
-    write(keys.searches, [normalized, ...this.recentSearches().filter((item) => item !== normalized)].slice(0, 8));
+    const memory = searchMemory();
+    if (!memory?.enabled) return;
+    memory.queries = sanitizeRecentSearches([query, ...memory.queries]);
+  },
+  handoffSearch(query: string) {
+    const memory = searchMemory();
+    if (memory) memory.pendingQuery = query.trim();
+  },
+  takeSearchHandoff(): string | null {
+    const memory = searchMemory();
+    if (!memory) return null;
+    const query = memory.pendingQuery;
+    memory.pendingQuery = null;
+    return query;
   },
   profile(): UserPathProfile | null {
     return sanitizeUserPathProfile(read<unknown>(keys.profile, null));
@@ -331,7 +373,8 @@ export const localContentRepository = {
     return write(keys.guideChecklists, next);
   },
   clearRecentSearches() {
-    remove(keys.searches);
+    const memory = searchMemory();
+    if (memory) memory.queries = [];
   },
   plannerRoute(): SavedPlannerState | null {
     return readPlannerRoute();
@@ -349,7 +392,7 @@ export const localContentRepository = {
       schemaVersion: 1,
       saved: this.saved(),
       recent: this.recent(),
-      recentSearches: this.recentSearches(),
+      recentSearches: [],
       profile: this.profile(),
       journeys: this.journeyProgress(),
       guideChecklists: this.guideChecklistState(),
@@ -357,6 +400,8 @@ export const localContentRepository = {
     };
   },
   clearAll() {
+    const memory = searchMemory();
+    if (memory) { memory.enabled = false; memory.queries = []; memory.pendingQuery = null; }
     for (const key of Object.values(keys)) remove(key);
   },
   keys

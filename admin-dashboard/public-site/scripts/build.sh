@@ -10,7 +10,10 @@ if [[ ! -f "$next_cli" ]]; then
   next_cli="$project_root/../node_modules/next/dist/bin/next"
 fi
 
+"$node_command" ../scripts/generate-governed-runtime.mjs
+"$node_command" ../scripts/generate-canonical-admin-data.mjs
 "$node_command" scripts/generate-public-content.mjs
+"$node_command" ../scripts/generate-release-truth.mjs
 mkdir -p public/data
 cp src/config/status.json public/data/status.json
 cp src/config/site-config.json public/data/site-config.json
@@ -18,6 +21,14 @@ cp src/config/site-config.json public/data/site-config.json
 
 rm -rf "$project_root/.next" "$project_root/out"
 "$node_command" "$next_cli" build
+# Next requires at least one parameter for an exported dynamic route. The
+# organization pages provide a notFound() sentinel only when the freshness gate
+# has excluded every organization; remove those generated 404 copies so there
+# is no empty public profile or indexable placeholder URL.
+rm -rf \
+  "$project_root/out/organizations/__no-published-organizations__" \
+  "$project_root/out/nl/organisaties/__no-published-organizations__"
+"$node_command" scripts/set-static-document-language.mjs
 "$node_command" scripts/strip-static-client.mjs
 "$node_command" scripts/finalize-service-worker.mjs
 

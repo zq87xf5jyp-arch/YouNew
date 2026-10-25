@@ -2,6 +2,8 @@
 
 Release procedure verified: 2026-08-01, Europe/Amsterdam
 
+Production identity procedure verified: 2026-08-18, Europe/Amsterdam
+
 No production step in this runbook is authorized until the owner sends the exact instruction `GO LIVE`.
 
 ## Preconditions
@@ -56,10 +58,22 @@ pnpm dlx supabase@2.109.1 migration list --linked
 pnpm dlx supabase@2.109.1 db push --dry-run
 ```
 
-The expected state for the 2026-08-01 release candidate is 13 matching managed
-migrations and no pending SQL. Stop on any missing version, hash drift,
-unexpected pending migration or destructive statement. The `0001` through
-`0006` files are the historical bootstrap and must not be included as new
+The reviewed 2026-08-19 source state is 24 applied production migrations with
+exact local bytes, two manifest-recorded timestamp aliases, and seven explicitly
+pending migrations: `20260818145801_harden_analytics_ingest_windows_rls` and
+`20260818191112_harden_business_inquiry_pipeline` and
+`20260818192423_deduplicate_business_inquiry_submissions` and
+`20260818193310_extend_lead_analytics_funnel` and
+`20260818194626_add_business_inquiry_notification_inbox` and
+`20260818235619_enforce_monetization_retention_and_private_reports` and
+`20260819080242_allow_geo_relevance_analytics`. Stop on any missing version,
+hash drift, unrecorded pending migration or destructive statement. No pending
+migration is authorized by `GO LIVE`; database apply requires its own
+explicit approval after all seven migration-specific pgTAP suites (81 core plus
+67 retention/aggregation plus 43 geo analytics assertions; 191 targeted) pass
+on a disposable database and backup
+evidence is recorded. The `0001` through
+`0006` files are historical bootstrap and must not be included as new
 production migrations.
 
 Do not rotate the existing rate-limit salts during a routine application
@@ -79,6 +93,9 @@ Post-deploy checks:
 - operational tables have RLS enabled;
 - anonymous direct table writes fail;
 - one controlled business inquiry returns a receipt and appears in Admin;
+- the controlled inquiry can move through the seven canonical stages, `lost`
+  rejects a missing reason, `won` rejects missing/future evidence, and retired
+  statuses remain rejected;
 - one controlled feedback report returns a receipt and appears in Admin;
 - rate-limit and invalid payload tests fail without PII in logs;
 - an authenticated owner creates one sync candidate, sees the same fingerprint, and does not activate it automatically.
@@ -128,3 +145,29 @@ Record:
 - Hostinger deployment timestamp;
 - browser viewport results and screenshots;
 - final production URLs and remaining issues.
+
+### Production identity contract
+
+For every public deployment, create a new immutable observation from
+`docs/reports/production-identity/production-observation-2026-08-18.json` and
+validate it against `docs/schemas/production-identity.schema.json`. Never edit
+an older observation to describe a newer deployment.
+
+The record must contain the provider Sites version, full Git SHA and commit URL,
+deployment observation timestamp, service-worker cache version, at least three
+live artifact SHA-256 values and their deterministic subset fingerprint. If the
+provider record does not expose a source SHA, keep
+`providerDeploymentRecordHasSourceSha` false and use the honest
+`artifact_subset_match` verification level.
+
+Run the repository proof offline and then re-fetch the public evidence:
+
+```bash
+cd admin-dashboard/public-site
+pnpm qa:production-identity
+pnpm qa:production-identity:live
+```
+
+The prompt's audit label v54 and the hosting provider's Sites v53 are different
+version namespaces. Do not increment or reconcile one from the other. Only a
+provider deployment record may establish a different Sites version.

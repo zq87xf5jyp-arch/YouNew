@@ -9,6 +9,7 @@ import "./globals.css";
 import "./theme.css";
 
 const description = "Find housing, work, documents, healthcare, schools and trusted services in the Netherlands—with clear next steps and official sources.";
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://younew.nl"),
@@ -33,7 +34,8 @@ export const metadata: Metadata = {
     "refugee guide Netherlands",
     "international student Netherlands"
   ],
-  alternates: { canonical: "https://younew.nl/", languages: { "en": "https://younew.nl/", "x-default": "https://younew.nl/" } },
+  alternates: { canonical: "https://younew.nl/", languages: { "en": "https://younew.nl/", "nl": "https://younew.nl/nl/", "x-default": "https://younew.nl/" } },
+  verification: googleSiteVerification ? { google: googleSiteVerification } : undefined,
   openGraph: {
     title: "YouNew — Your guide to life in the Netherlands",
     description,

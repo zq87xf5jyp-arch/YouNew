@@ -132,7 +132,7 @@ enum AIContextBuilder {
             savedItemKinds: Array(Set(effectiveSavedItems.map { $0.kind.rawValue })).sorted(),
             currentRouteID: currentRouteID,
             recentRouteIDs: appState?.visibleRecentRouteIDs() ?? [],
-            lastSearches: recentSearches(),
+            lastSearches: [],
             completedChecklistItemIDs: completedChecklistIDs,
             completedGuideIDs: appState?.visibleCompletedGuideIDs() ?? [],
             journeyProgress: journeyProgress,
@@ -173,7 +173,7 @@ enum AIContextBuilder {
             savedItemKinds: context.savedItemKinds.isEmpty ? Array(Set(visibleSavedItems.map { $0.kind.rawValue })).sorted() : context.savedItemKinds,
             currentRouteID: currentRouteID ?? context.currentRouteID,
             recentRouteIDs: context.recentRouteIDs.isEmpty ? appState.visibleRecentRouteIDs() : context.recentRouteIDs,
-            lastSearches: context.lastSearches.isEmpty ? recentSearches() : context.lastSearches,
+            lastSearches: context.lastSearches,
             completedChecklistItemIDs: context.completedChecklistItemIDs.isEmpty ? completedChecklistIDs(from: appState) : context.completedChecklistItemIDs,
             completedGuideIDs: context.completedGuideIDs.isEmpty ? appState.visibleCompletedGuideIDs() : context.completedGuideIDs,
             journeyProgress: context.journeyProgress ?? "\(appState.checklistItems.filter { $0.isCompleted && $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }.count)/\(appState.checklistItems.filter { $0.isVisible(for: appState.selectedUserStatus?.personaTag, scope: .currentAndUniversal) }.count) checklist",
@@ -182,10 +182,6 @@ enum AIContextBuilder {
             secondaryPersonaTags: context.secondaryPersonaTags,
             personaSearchScope: context.personaSearchScope
         )
-    }
-
-    private static func recentSearches() -> [String] {
-        Array((UserDefaults.standard.stringArray(forKey: "question_search_recent_v1") ?? []).prefix(8))
     }
 
     private static func completedChecklistIDs(from appState: AppStateViewModel) -> [String] {

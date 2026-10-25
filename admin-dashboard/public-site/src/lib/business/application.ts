@@ -2,6 +2,7 @@ import type {
   BusinessApplicationInput,
   BusinessApplicationValidation,
   InquiryTypeId,
+  OfferInterestId,
   OrganizationType,
   PartnerApplicationRepository,
   PreparedBusinessApplication,
@@ -25,6 +26,13 @@ const userProfileIds = ["tourist", "student", "expat", "refugee", "worker", "res
 const requestedPlacementIds = advertisingFormatCatalog.map((format) => format.id);
 const budgetRangeIds = ["under-1000", "1000-3000", "3000-10000", "over-10000", "request-discussion"] as const;
 const inquiryTypeIds: readonly InquiryTypeId[] = ["advertising", "partnership", "media", "public-interest", "other"];
+const offerInterestIds: readonly OfferInterestId[] = [
+  "not_specified",
+  "onboarding_pilot",
+  "founding_partner_page",
+  "sponsored_practical_guide",
+  "other"
+];
 
 export const BUSINESS_APPLICATION_EMAIL = "support@younew.nl" as const;
 export const NOTHING_SENT_NOTICE = "Nothing has been sent yet" as const;
@@ -65,6 +73,10 @@ export function validateBusinessApplication(input: BusinessApplicationInput): Bu
   else if (input.companyName.trim().length > 120) errors.companyName = "Keep the organization name under 120 characters.";
   if (input.contactPerson.trim().length < 2) errors.contactPerson = "Enter a contact person.";
   else if (input.contactPerson.trim().length > 120) errors.contactPerson = "Keep the contact name under 120 characters.";
+  if (input.offerInterest === "onboarding_pilot" && input.contactRole.trim().length < 2) errors.contactRole = "Enter your role.";
+  else if (input.contactRole.trim() && input.contactRole.trim().length < 2) errors.contactRole = "Enter a role of at least 2 characters or leave it blank.";
+  else if (input.contactRole.trim().length > 120) errors.contactRole = "Keep the contact role under 120 characters.";
+  if (!offerInterestIds.includes(input.offerInterest)) errors.offerInterest = "Select a supported offer.";
   if (!emailPattern.test(input.email.trim())) errors.email = "Enter a valid email address.";
   else if (input.email.trim().length > 254) errors.email = "Keep the email address under 254 characters.";
   if (input.phone.trim() && input.phone.trim().length < 6) errors.phone = "Enter a valid phone number or leave it blank.";
@@ -99,7 +111,7 @@ export function validateBusinessApplication(input: BusinessApplicationInput): Bu
   if (input.description.trim().length > 600) errors.description = "Keep the description under 600 characters for the email handoff.";
   if (!input.consentToPrivacy) errors.consentToPrivacy = "Consent to the Privacy Policy is required.";
   if (!input.confirmAccuracy) errors.confirmAccuracy = "Confirm that the submitted information is accurate.";
-  if (!/^\/business(?:\/|$)/.test(input.sourcePage)) errors.sourcePage = "The inquiry source page is invalid.";
+  if (!["/business/apply/", "/partners/apply/", "/for-business/local/apply/", "/nl/voor-bedrijven/aanmelden/"].includes(input.sourcePage)) errors.sourcePage = "The inquiry source page is invalid.";
 
   return { valid: Object.keys(errors).length === 0, errors };
 }
@@ -115,6 +127,8 @@ export function createBusinessApplicationMailto(input: BusinessApplicationInput)
     "",
     `Company / organization: ${input.companyName.trim()}`,
     `Contact person: ${input.contactPerson.trim()}`,
+    `Contact role: ${input.contactRole.trim() || "Not provided"}`,
+    `Offer: ${readable(input.offerInterest)}`,
     `Email: ${input.email.trim().toLowerCase()}`,
     `Phone: ${input.phone.trim() || "Not provided"}`,
     `Website: ${input.website.trim()}`,

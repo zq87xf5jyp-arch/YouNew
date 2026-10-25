@@ -38,7 +38,8 @@ struct BrandAssetTests {
             let url = iconSet.appendingPathComponent("icon-\(size).png")
             #expect(FileManager.default.fileExists(atPath: url.path), "Missing icon-\(size).png")
 
-            guard let source = CGImageSourceCreateWithURL(url as CFURL, nil),
+            let data = try Data(contentsOf: url)
+            guard let source = CGImageSourceCreateWithData(data as CFData, nil),
                   let properties = CGImageSourceCopyPropertiesAtIndex(source, 0, nil) as? [CFString: Any] else {
                 Issue.record("Unreadable PNG: icon-\(size).png")
                 continue

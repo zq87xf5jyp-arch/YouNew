@@ -41,7 +41,7 @@ export const SEARCH_TAXONOMY: readonly SearchTaxonomyTopic[] = [
     id: "housing",
     title: "Housing",
     aliases: {
-      en: ["housing", "rent", "rental", "renting", "home", "apartment", "room", "house", "accommodation", "social housing", "private rental", "temporary housing", "tenant rights", "rental contract", "deposit", "housing scam", "rent benefit"],
+      en: ["housing", "rent", "rental", "renting", "home", "apartment", "room", "house", "accommodation", "social housing", "private rental", "temporary housing", "tenant rights", "landlord problem", "landlord does not repair", "housing defects", "rental contract", "deposit", "housing scam", "rent benefit"],
       nl: ["huur", "huren", "woning", "woonruimte", "appartement", "kamer", "sociale huur", "particuliere huur", "huurcontract", "borg", "huurtoeslag", "huurrecht"],
       ru: ["жилье", "жильё", "аренда", "снять жилье", "снять жильё", "квартира", "комната", "дом", "договор аренды", "депозит", "права арендатора", "пособие на жилье", "пособие на жильё", "zhile", "arenda"]
     },
@@ -61,7 +61,7 @@ export const SEARCH_TAXONOMY: readonly SearchTaxonomyTopic[] = [
     id: "documents",
     title: "Documents",
     aliases: {
-      en: ["documents", "document", "bsn", "digid", "residence permit", "residence card", "registration", "municipality registration", "address registration", "change address", "brp", "citizen service number"],
+      en: ["documents", "document", "bsn", "digid", "residence permit", "residence card", "registration", "municipality registration", "register gemeente", "gemeente registration", "address registration", "change address", "brp", "citizen service number"],
       nl: ["documenten", "document", "burgerservicenummer", "verblijfsvergunning", "verblijfsdocument", "inschrijving", "gemeente inschrijving", "adresregistratie", "verhuizing", "basisregistratie personen"],
       ru: ["документы", "документ", "регистрация", "вид на жительство", "внж", "регистрация адреса", "муниципалитет", "номер bsn", "dokumenty", "registratsiya"]
     },
@@ -175,12 +175,12 @@ export const SEARCH_TAXONOMY: readonly SearchTaxonomyTopic[] = [
   },
   ...[
     ["utilities", "Utilities", ["utilities", "electricity", "gas", "water"], ["nutsvoorzieningen", "elektriciteit", "gas", "water"], ["коммунальные услуги", "электричество", "газ", "вода"]],
-    ["legal-help", "Legal help", ["legal help", "lawyer", "legal advice"], ["juridische hulp", "advocaat", "juridisch advies"], ["юридическая помощь", "юрист", "адвокат"]],
+    ["legal-help", "Legal help", ["legal help", "lawyer", "legal advice", "debt help", "debt advice"], ["juridische hulp", "advocaat", "juridisch advies", "schuldhulp", "schuldhulpverlening"], ["юридическая помощь", "юрист", "адвокат", "помощь с долгами"]],
     ["family", "Family and children", ["family", "children", "childcare"], ["gezin", "kinderen", "kinderopvang"], ["семья", "дети", "детский сад"]],
     ["safety", "Safety", ["safety", "police help"], ["veiligheid", "politiehulp"], ["безопасность", "помощь полиции"]],
     ["shopping", "Shopping", ["shopping", "supermarket", "shop"], ["winkelen", "supermarkt", "winkel"], ["покупки", "супермаркет", "магазин"]],
     ["daily-life", "Daily life", ["daily life", "living in the netherlands"], ["dagelijks leven", "leven in nederland"], ["повседневная жизнь", "жизнь в нидерландах"]],
-    ["pets", "Pets", ["pet", "pets", "dog", "cat"], ["huisdier", "huisdieren", "hond", "kat"], ["домашние животные", "собака", "кошка"]],
+    ["pets", "Pets", ["pet", "pets", "dog", "cat", "vet", "veterinarian", "veterinary help"], ["huisdier", "huisdieren", "hond", "kat", "dierenarts"], ["домашние животные", "собака", "кошка", "ветеринар"]],
     ["municipal-services", "Municipal services", ["municipal services", "local government"], ["gemeentelijke diensten", "lokale overheid"], ["муниципальные услуги", "местные органы власти"]],
     ["internet", "Internet", ["internet", "broadband", "wifi"], ["internet", "breedband", "wifi"], ["интернет", "вайфай"]],
     ["insurance", "Insurance", ["insurance", "insured"], ["verzekering", "verzekerd"], ["страхование", "страховка"]]

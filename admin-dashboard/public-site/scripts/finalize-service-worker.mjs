@@ -1,7 +1,8 @@
 import { access, readdir, readFile, writeFile } from "node:fs/promises";
 import { join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const outRoot = new URL("../out/", import.meta.url).pathname;
+const outRoot = fileURLToPath(new URL("../out/", import.meta.url));
 const serviceWorkerPath = join(outRoot, "sw.js");
 const staticRoot = join(outRoot, "_next/static");
 

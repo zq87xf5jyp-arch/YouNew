@@ -2,63 +2,79 @@ import { PageHeader } from "@/components/admin/page-header";
 import { Badge } from "@/components/ui/badge";
 import { ReleaseReadinessOverview } from "@/components/admin/release-readiness-overview";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import dataProject from "@/generated/data-project-dashboard.json";
+import { evidenceStateLabel, releaseTruth } from "@/lib/release-truth/static";
 
 export default function ReleasesPage() {
-  const nextDataRelease = dataProject.next_release;
-
   return (
     <>
       <PageHeader
         title="Release Control"
-        description="Product Release и независимые Data Releases: только подтверждённый evidence, открытые gates и воспроизводимый статус."
+        description="Один deterministic snapshot для product, DATA PROJECT и production evidence. PARTIAL блокирует deployment, но не выдаётся за regression."
       />
       <div className="mb-8">
         <ReleaseReadinessOverview />
       </div>
-      <h2 className="mb-4 text-lg font-semibold">DATA PROJECT Releases</h2>
-      <div className="grid gap-6 xl:grid-cols-[0.8fr_1.2fr]">
+
+      <h2 className="mb-4 text-lg font-semibold">Publication layers</h2>
+      <div className="grid gap-6 xl:grid-cols-3">
         <Card>
           <CardHeader>
-            <CardTitle>Текущий Data Release</CardTitle>
-            <CardDescription>Версия данных, находящаяся у пользователей.</CardDescription>
+            <CardTitle>Governed inventory</CardTitle>
+            <CardDescription>Planned, QA and published candidate records under Data Project governance.</CardDescription>
           </CardHeader>
           <CardContent className="space-y-3">
-            <div className="flex items-center justify-between gap-3">
-              <span className="text-sm text-muted-foreground">Release</span>
-              <Badge variant="warning">{dataProject.runtime_release.version}</Badge>
-            </div>
-            <p className="text-sm">{dataProject.runtime_release.note}</p>
+            <div className="flex items-center justify-between gap-3"><span className="text-sm text-muted-foreground">Records</span><strong>{releaseTruth.publication.inventory.total}</strong></div>
+            <div className="flex items-center justify-between gap-3"><span className="text-sm text-muted-foreground">Verified candidates</span><strong>{releaseTruth.publication.inventory.verified}</strong></div>
+            <div className="flex items-center justify-between gap-3"><span className="text-sm text-muted-foreground">Next release</span><Badge>{releaseTruth.publication.inventory.nextReleaseID ?? "unknown"}</Badge></div>
           </CardContent>
         </Card>
         <Card>
           <CardHeader>
-            <CardTitle>Следующий Data Release</CardTitle>
-            <CardDescription>{nextDataRelease ? `${nextDataRelease.dataset} · v${nextDataRelease.version}` : "Не запланирован"}</CardDescription>
+            <CardTitle>Packaged published</CardTitle>
+            <CardDescription>Only records present in the verified governed runtime manifest.</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-4">
-            {nextDataRelease ? (
-              <>
-                <div className="flex flex-wrap items-center justify-between gap-3">
-                  <div>
-                    <p className="text-sm font-semibold">{nextDataRelease.id}</p>
-                    <p className="text-xs text-muted-foreground">{nextDataRelease.milestone} · {nextDataRelease.published_records} / {nextDataRelease.target_records} records</p>
-                  </div>
-                  <Badge>{nextDataRelease.status}</Badge>
-                </div>
-                <div className="grid gap-2 sm:grid-cols-2 lg:grid-cols-4">
-                  {Object.entries(nextDataRelease.qa).map(([gate, status]) => (
-                    <div key={gate} className="rounded-md border border-border bg-secondary/25 p-2 text-xs">
-                      <span className="font-medium uppercase">{gate}</span>
-                      <span className="ml-2 text-muted-foreground">{status}</span>
-                    </div>
-                  ))}
-                </div>
-              </>
-            ) : null}
+          <CardContent className="space-y-3">
+            <div className="flex items-center justify-between gap-3"><span className="text-sm text-muted-foreground">Records</span><strong>{releaseTruth.publication.packaged.entityCount}</strong></div>
+            <div className="flex items-center justify-between gap-3"><span className="text-sm text-muted-foreground">Evidence</span><Badge variant="success">{evidenceStateLabel(releaseTruth.publication.packaged.state)}</Badge></div>
+            <p className="break-all font-mono text-xs text-muted-foreground">{releaseTruth.publication.packaged.datasetFingerprint}</p>
+          </CardContent>
+        </Card>
+        <Card>
+          <CardHeader>
+            <CardTitle>Deployed observation</CardTitle>
+            <CardDescription>Production evidence is kept separate from packaged and candidate data.</CardDescription>
+          </CardHeader>
+          <CardContent className="space-y-3">
+            <div className="flex items-center justify-between gap-3"><span className="text-sm text-muted-foreground">Exact deployed count</span><strong>{releaseTruth.publication.deployed.entityCount ?? "—"}</strong></div>
+            <div className="flex items-center justify-between gap-3"><span className="text-sm text-muted-foreground">Evidence</span><Badge variant="warning">{evidenceStateLabel(releaseTruth.publication.deployed.state)}</Badge></div>
+            <p className="text-xs text-muted-foreground">Declared metadata count: {releaseTruth.publication.deployed.declaredEntityCount ?? "unknown"}. Full deployed payload is not independently attested.</p>
           </CardContent>
         </Card>
       </div>
+
+      <section className="mt-6">
+        <Card>
+          <CardHeader>
+            <CardTitle>Source evidence</CardTitle>
+            <CardDescription>Each source carries its own state and observation time; generated time alone does not prove freshness.</CardDescription>
+          </CardHeader>
+          <CardContent className="overflow-x-auto">
+            <table className="younew-table">
+              <thead><tr><th>Source</th><th>State</th><th>Observed</th><th>Scope</th></tr></thead>
+              <tbody>
+                {releaseTruth.sources.map((source) => (
+                  <tr key={source.id}>
+                    <td><p className="font-medium text-foreground">{source.id}</p><p className="break-all text-xs">{source.sourceRef}</p></td>
+                    <td><Badge variant={source.state === "measured" ? "success" : source.state === "provisional" ? "warning" : "secondary"}>{evidenceStateLabel(source.state)}</Badge></td>
+                    <td>{source.observedAt ?? "—"}</td>
+                    <td>{source.scope}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </CardContent>
+        </Card>
+      </section>
     </>
   );
 }

@@ -5,6 +5,11 @@ enum AIResponseParser {
         let summary: String
         let steps: [NewcomerBackendStep]
         let warnings: [String]
+        let contentReleaseId: String
+        let verifiedDate: String
+        let locationAssumption: String
+        let uncertainty: String
+        let escalation: String
         let model: String
         let requestId: String
         let decisionTrace: AIDecisionTrace?
@@ -16,6 +21,7 @@ enum AIResponseParser {
         let action: String
         let sourceTitle: String
         let sourceURL: String
+        let sourceVerifiedDate: String
         let appDestination: String
     }
 
@@ -135,11 +141,24 @@ enum AIResponseParser {
         let model = decoded.model.trimmingCharacters(in: .whitespacesAndNewlines)
         let requestID = decoded.requestId.trimmingCharacters(in: .whitespacesAndNewlines)
         let requestIDPattern = #"^[A-Za-z0-9][A-Za-z0-9._:-]{7,199}$"#
-        guard BuildWeekNewcomerDemo.isAllowedModel(model),
+        let governance = AIResponseGovernance(
+            contentReleaseID: decoded.contentReleaseId.trimmingCharacters(in: .whitespacesAndNewlines),
+            verifiedDate: decoded.verifiedDate.trimmingCharacters(in: .whitespacesAndNewlines),
+            locationAssumption: limitedBody(decoded.locationAssumption, maximumCharacters: 700),
+            uncertainty: limitedBody(decoded.uncertainty, maximumCharacters: 900),
+            escalation: limitedBody(decoded.escalation, maximumCharacters: 900)
+        )
+        guard let decisionTrace = decoded.decisionTrace,
+              newcomerTraceIsComplete(decisionTrace, model: model),
+              governance.isMachineValid,
+              BuildWeekNewcomerDemo.isApprovedContentRelease(
+                  id: governance.contentReleaseID,
+                  verifiedDate: governance.verifiedDate
+              ),
+              BuildWeekNewcomerDemo.isAllowedModel(model),
               requestID.range(of: requestIDPattern, options: .regularExpression) != nil,
               decoded.steps.count == BuildWeekNewcomerDemo.steps.count,
-              decoded.warnings.count <= 6,
-              decoded.decisionTrace?.isMachineValid != false
+              decoded.warnings.count <= 6
         else {
             return AIResponse.unverified(language: language)
         }
@@ -165,6 +184,9 @@ enum AIResponseParser {
                   !action.isEmpty,
                   step.sourceTitle == contract.sourceTitle,
                   step.sourceURL == contract.sourceURL.absoluteString,
+                  step.sourceVerifiedDate == contract.sourceVerifiedDate,
+                  step.sourceVerifiedDate <= governance.verifiedDate,
+                  let sourceCheckedDate = sourceCheckedDate(step.sourceVerifiedDate),
                   step.appDestination == contract.appDestination,
                   AppNavigationResolver.destination(for: step.appDestination) != nil
             else {
@@ -174,7 +196,8 @@ enum AIResponseParser {
             let source = OfficialSource(
                 title: contract.sourceTitle,
                 url: contract.sourceURL,
-                institution: contract.id == "digid" ? "DigiD" : "Government of the Netherlands"
+                institution: contract.id == "digid" ? "DigiD" : "Government of the Netherlands",
+                lastChecked: sourceCheckedDate
             )
             sources.append(source)
             sections.append(
@@ -216,7 +239,8 @@ enum AIResponseParser {
             origin: .liveOpenAI,
             model: model,
             requestID: requestID,
-            decisionTrace: decoded.decisionTrace ?? newcomerDecisionTrace(model: model)
+            decisionTrace: decisionTrace,
+            governance: governance
         )
         guard AIResponseLanguageGuard.isResponseAcceptable(response, for: language) else {
             return AIResponse.unverified(language: language)
@@ -237,42 +261,38 @@ enum AIResponseParser {
         }
     }
 
-    private static func newcomerDecisionTrace(model: String) -> AIDecisionTrace {
-        AIDecisionTrace(
-            selectedRecordIDs: BuildWeekNewcomerDemo.steps.map(\.knowledgeRecordID),
-            sourceCitations: BuildWeekNewcomerDemo.steps.map { contract in
-                AIDecisionSourceCitation(
-                    recordID: contract.knowledgeRecordID,
-                    sourceTitle: contract.sourceTitle,
-                    sourcePublisher: contract.id == "digid" ? "DigiD" : "Government of the Netherlands",
-                    sourceURL: contract.sourceURL
-                )
-            },
-            freshnessEvidence: BuildWeekNewcomerDemo.steps.map { contract in
-                AIDecisionEvidence(
-                    recordID: contract.knowledgeRecordID,
-                    summary: "Record-level governed freshness is not established in this bounded demo context."
-                )
-            },
-            jurisdictionEvidence: BuildWeekNewcomerDemo.steps.map { contract in
-                AIDecisionEvidence(
-                    recordID: contract.knowledgeRecordID,
-                    summary: contract.id == "bsn"
-                        ? "Municipality-specific steps must be checked with the selected municipality."
-                        : "National bounded context; personal applicability can still depend on the user's situation."
-                )
-            },
-            rankingFactors: [
-                "exact bounded scenario context",
-                "official source contract",
-                "stable knowledge-record order"
-            ],
-            confidenceBreakdown: [:],
-            excludedCandidateReasons: [:],
-            policyVersion: "retrieval-policy-v1",
-            modelVersion: model,
-            contextVersion: BuildWeekNewcomerDemo.contextVersion
-        )
+    private static func newcomerTraceIsComplete(_ trace: AIDecisionTrace, model: String) -> Bool {
+        let expectedIDs = Set(BuildWeekNewcomerDemo.knowledgeRecordIDs)
+        guard trace.isMachineValid,
+              trace.selectedRecordIDs.count == expectedIDs.count,
+              trace.sourceCitations.count == expectedIDs.count,
+              trace.freshnessEvidence.count == expectedIDs.count,
+              trace.jurisdictionEvidence.count == expectedIDs.count,
+              Set(trace.selectedRecordIDs) == expectedIDs,
+              Set(trace.sourceCitations.map(\.recordID)) == expectedIDs,
+              Set(trace.freshnessEvidence.map(\.recordID)) == expectedIDs,
+              Set(trace.jurisdictionEvidence.map(\.recordID)) == expectedIDs,
+              trace.contextVersion == BuildWeekNewcomerDemo.contextVersion,
+              trace.modelVersion == model
+        else { return false }
+
+        let citations = Dictionary(uniqueKeysWithValues: trace.sourceCitations.map { ($0.recordID, $0) })
+        return BuildWeekNewcomerDemo.steps.allSatisfy { contract in
+            guard let citation = citations[contract.knowledgeRecordID] else { return false }
+            return citation.sourceTitle == contract.sourceTitle
+                && citation.sourceURL == contract.sourceURL
+        }
+    }
+
+    nonisolated private static func sourceCheckedDate(_ value: String) -> Date? {
+        guard value.range(of: #"^\d{4}-\d{2}-\d{2}$"#, options: .regularExpression) != nil else {
+            return nil
+        }
+        let formatter = ISO8601DateFormatter()
+        guard let parsed = formatter.date(from: "\(value)T00:00:00Z"),
+              formatter.string(from: parsed).hasPrefix(value)
+        else { return nil }
+        return parsed
     }
 
     nonisolated private static func makeSource(_ source: BackendSource) -> OfficialSource? {

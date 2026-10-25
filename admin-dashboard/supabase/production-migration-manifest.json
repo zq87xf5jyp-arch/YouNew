@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "verifiedAt": "2026-08-05",
+  "schemaVersion": 2,
+  "verifiedAt": "2026-10-23",
   "projectRef": "pgdzdxsiagfjioxwuqxf",
   "historicalBootstrapFiles": [
     "0001_younew_admin_schema.sql",
@@ -144,16 +144,189 @@
       "bytes": 400
     },
     {
-      "version": "20260805173500",
+      "version": "20260805221430",
+      "localVersion": "20260805173500",
       "name": "normalize_article_search_taxonomy",
       "md5": "ea265966b977ac1824b84f5b3e78e990",
       "bytes": 5711
     },
     {
-      "version": "20260805223000",
+      "version": "20260805231047",
+      "localVersion": "20260805223000",
       "name": "expand_privacy_safe_analytics_dashboard",
       "md5": "e04e3378050bbe7cd5ecf79c28126807",
       "bytes": 17709
+    },
+    {
+      "version": "20260919161612",
+      "localVersion": "20260919140355",
+      "name": "arrival_commerce_private_store",
+      "md5": "eb96a5171ce1be89592929e6ad39cbbf",
+      "bytes": 23244
+    },
+    {
+      "version": "20260919170136",
+      "name": "arrival_sandbox_worker_extensions",
+      "md5": "1adbab165a2a93cb566fab86d3202836",
+      "bytes": 94
+    },
+    {
+      "version": "20260919171841",
+      "name": "arrival_sandbox_grant_probe_start",
+      "md5": "22a2d57f7ce314d10d08a5e36a25892b",
+      "bytes": 2353
+    },
+    {
+      "version": "20260919172207",
+      "name": "arrival_sandbox_grant_probe_cleanup",
+      "md5": "bb7a280f6cfb7479a225739ec07b74b0",
+      "bytes": 238
+    },
+    {
+      "version": "20260919235607",
+      "name": "restrict_crm_select_to_owner_admin",
+      "md5": "b23fc67055cfcb8c4d7baa64b1d6acc2",
+      "bytes": 1826
+    },
+    {
+      "version": "20260920005625",
+      "name": "allow_private_visual_qa_reviews",
+      "md5": "4fba1699ab42c2d23faf392fa058726e",
+      "bytes": 2892
+    },
+    {
+      "version": "20260920041806",
+      "name": "restrict_published_content_editor_writes",
+      "md5": "bbb1519bd97bc929cf317c57165ba7ff",
+      "bytes": 17853
+    },
+    {
+      "version": "20260920045511",
+      "name": "prepare_admin_trust_receipt_workflow",
+      "md5": "739ae901524e6c1111240d40d221e547",
+      "bytes": 16386
+    },
+    {
+      "version": "20260920050012",
+      "name": "finalize_admin_trust_receipt_access",
+      "md5": "0a25c3240669e9b39f04e8f049f7b54f",
+      "bytes": 4393
+    },
+    {
+      "version": "20260920053813",
+      "name": "reliable_manual_content_sync",
+      "md5": "05734c673abfc2b647ae6af39c58a87d",
+      "bytes": 24392
+    }
+  ],
+  "pendingMigrations": [
+    {
+      "version": "20260818145801",
+      "name": "harden_analytics_ingest_windows_rls",
+      "md5": "e702afeef312705d2a5bc5a8858da0c4",
+      "bytes": 5294
+    },
+    {
+      "version": "20260818191112",
+      "name": "harden_business_inquiry_pipeline",
+      "md5": "716b6222ca3010e4f385082414169440",
+      "bytes": 8280
+    },
+    {
+      "version": "20260818192423",
+      "name": "deduplicate_business_inquiry_submissions",
+      "md5": "d3010eb22035a572d0b36a8c522e68a0",
+      "bytes": 11408
+    },
+    {
+      "version": "20260818193310",
+      "name": "extend_lead_analytics_funnel",
+      "md5": "220bfa6bddd463acb67a86b31bbea285",
+      "bytes": 12423
+    },
+    {
+      "version": "20260818194626",
+      "name": "add_business_inquiry_notification_inbox",
+      "md5": "e9df9c0cbd8828bbe6cfa26f57c5a295",
+      "bytes": 4858
+    },
+    {
+      "version": "20260818235619",
+      "name": "enforce_monetization_retention_and_private_reports",
+      "md5": "8f7e418080a080e3204106f344836ee0",
+      "bytes": 27230
+    },
+    {
+      "version": "20260819080242",
+      "name": "allow_geo_relevance_analytics",
+      "md5": "113043c51e207e6d0d7c7ae6da4b5df2",
+      "bytes": 5569
+    },
+    {
+      "version": "20260819124835",
+      "name": "harden_editor_published_articles",
+      "md5": "41991d26985b684763458922f3e498ae",
+      "bytes": 2096
+    },
+    {
+      "version": "20260819124836",
+      "name": "harden_content_image_storage",
+      "md5": "3e1e728b4085de4dd1b87a583850a997",
+      "bytes": 2928
+    },
+    {
+      "version": "20260819124837",
+      "name": "add_feedback_record_origin",
+      "md5": "b4b68900509810f0a901ca8eda76f758",
+      "bytes": 5740
+    },
+    {
+      "version": "20260819124838",
+      "name": "add_analytics_v2_scoped_exact_metrics",
+      "md5": "4bc7ec0c4cd79a5709543575ec880dc0",
+      "bytes": 15665
+    },
+    {
+      "version": "20260819124839",
+      "name": "add_canonical_map_overrides",
+      "md5": "8963ffeba633445a74389e84434e0e31",
+      "bytes": 16045
+    },
+    {
+      "version": "20260819124856",
+      "name": "add_sync_job_leases",
+      "md5": "2ba90f2dd993900a536644d0b6298473",
+      "bytes": 11981
+    },
+    {
+      "version": "20260819132519",
+      "name": "align_review_task_closure_with_publication_v2",
+      "md5": "6b22c1618d3618b2693c7345d3c8a417",
+      "bytes": 4944
+    },
+    {
+      "version": "20260819142321",
+      "name": "add_admin_review_queue_view",
+      "md5": "917cc24913f3f0d406582044089d0ba6",
+      "bytes": 1244
+    },
+    {
+      "version": "20260819143000",
+      "name": "bootstrap_admin_settings_contract",
+      "md5": "970a1edd5805ab30d389fe0be981d3e1",
+      "bytes": 1654
+    },
+    {
+      "version": "20260819173000",
+      "name": "harden_public_relation_privileges",
+      "md5": "ba4ab214766866a1d9af022f60e7beed",
+      "bytes": 543
+    },
+    {
+      "version": "20261023193000",
+      "name": "allow_local_business_inquiry_routes",
+      "md5": "f0dbc4bf79452091de76115b6c7ba88b",
+      "bytes": 1573
     }
   ]
 }

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "release_id": "amsterdam-v0.1.9",
+  "prepared_at": "2026-10-24",
+  "decision": "approval_required",
+  "accepted": false,
+  "production_authorized": false,
+  "overlay": {
+    "path": "DataProject/overlays/WP-06/amsterdam-v0.1.9.json",
+    "sha256": "ef56dc29c01ba4962b5d29b3540254bad0549bb0315b458e6275667b047416c5",
+    "status": "qa"
+  },
+  "scope": {
+    "field_confirmed_records": 10,
+    "entity_ids": [
+      "transport.amsterdam-amstel-station",
+      "transport.amsterdam-bijlmer-arena-station",
+      "transport.amsterdam-centraal-station",
+      "transport.amsterdam-holendrecht-station",
+      "transport.amsterdam-lelylaan-station",
+      "transport.amsterdam-muiderpoort-station",
+      "transport.amsterdam-rai-station",
+      "transport.amsterdam-science-park-station",
+      "transport.amsterdam-sloterdijk-station",
+      "transport.amsterdam-zuid-station"
+    ]
+  },
+  "evidence": {
+    "confirmation_registry": "DataProject/research/phase5-station-confirmations.json",
+    "phase6_1_reverification_receipt": "DataProject/research/phase6-1-station-reverification.json",
+    "checked_at": "2026-10-24",
+    "official_source": "NS station information pages",
+    "coordinate_source": "exact OpenStreetMap objects",
+    "field_level_reverification_result": "10_of_10_exact_match_no_overlay_change_required",
+    "mutable_facts_excluded": [
+      "live departures",
+      "disruptions",
+      "opening hours",
+      "availability",
+      "prices"
+    ]
+  },
+  "qa_gates": {
+    "build": "passed",
+    "static": "passed",
+    "duplicate": "passed",
+    "source": "passed",
+    "media": "passed",
+    "search": "passed",
+    "ai": "passed"
+  },
+  "safety": {
+    "current_production_exclusions": 170,
+    "exclusions_change_authorized": false,
+    "public_runtime_change_authorized": false,
+    "production_deployment_authorized": false,
+    "acceptance_lock_created": false
+  },
+  "required_owner_statement": "ACCEPT DATA RELEASE amsterdam-v0.1.9 ef56dc29c01ba4962b5d29b3540254bad0549bb0315b458e6275667b047416c5",
+  "note": "Accepting the data release is separate from authorizing production deployment. Until both decisions exist, all 170 existing exclusions remain unchanged."
+}

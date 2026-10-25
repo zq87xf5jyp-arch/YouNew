@@ -10,12 +10,23 @@ export type AnalyticsEvent =
     fallbackTier: "exact" | "national" | "broadened";
   }
   | { name: "search_result_opened"; contentId: string; position: number; normalizedQuery: string }
+  | { name: "explicit_city_detected"; city: string; intentId: string }
+  | { name: "city_filter_applied"; city: string; source: "query" | "filter" }
+  | { name: "city_filter_corrected"; city: string; source: "query" | "filter" }
+  | { name: "local_result_available"; city: string; intentId: string }
+  | { name: "national_fallback_shown"; city: string; intentId: string }
+  | { name: "wrong_geo_result_reported"; city: string; intentId: string }
+  | { name: "action_panel_cta_clicked"; contentId: string; city: string }
+  | { name: "time_to_first_action"; city: string; intentId: string; durationMilliseconds: number }
   | { name: "official_source_click"; contentId: string }
   | { name: "partner_click"; contentId: string }
   | { name: "item_saved"; contentId: string }
   | { name: "app_cta_click"; location: string }
   | { name: "profile_selected" }
   | { name: "business_mailto_prepared"; organizationType: string }
+  | { name: "lead_start" }
+  | { name: "lead_submit" }
+  | { name: "pilot_request" }
   | { name: "analytics_consent_granted" };
 
 export type AnalyticsProvider = {
@@ -173,6 +184,22 @@ function eventProperties(event: AnalyticsEvent): Record<string, string | number 
         position: Math.max(1, Math.trunc(event.position)),
         normalized_query_safe: safeProperty(event.normalizedQuery)
       };
+    case "explicit_city_detected":
+    case "local_result_available":
+    case "national_fallback_shown":
+    case "wrong_geo_result_reported":
+      return { city: safeProperty(event.city), intent_id: safeProperty(event.intentId) };
+    case "city_filter_applied":
+    case "city_filter_corrected":
+      return { city: safeProperty(event.city), source: event.source };
+    case "action_panel_cta_clicked":
+      return { content_id: safeProperty(event.contentId), city: safeProperty(event.city) };
+    case "time_to_first_action":
+      return {
+        city: safeProperty(event.city),
+        intent_id: safeProperty(event.intentId),
+        duration_ms: Math.max(0, Math.min(3_600_000, Math.trunc(event.durationMilliseconds)))
+      };
     case "official_source_click":
     case "partner_click":
     case "item_saved":
@@ -182,6 +209,9 @@ function eventProperties(event: AnalyticsEvent): Record<string, string | number 
     case "business_mailto_prepared":
       return { organization_type: safeProperty(event.organizationType) };
     case "page_view":
+    case "lead_start":
+    case "lead_submit":
+    case "pilot_request":
     case "profile_selected":
     case "analytics_consent_granted":
       return {};

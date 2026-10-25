@@ -118,6 +118,56 @@ test("official source analytics keeps only a bounded content identifier", () => 
   });
 });
 
+test("geo relevance analytics stores only normalized city, intent and bounded timing", () => {
+  const runtime = {
+    now: () => new Date("2026-08-19T10:00:00.000Z"),
+    randomUUID: () => "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
+    pathname: () => "/search/?q=My+private+health+question+in+Leiden",
+    language: () => "en",
+    environment: () => "production" as const
+  };
+  const detected = createAnalyticsEnvelope(
+    { name: "explicit_city_detected", city: "leiden<script>", intentId: "healthcare<script>" },
+    identifiers,
+    runtime
+  );
+  const timing = createAnalyticsEnvelope(
+    { name: "time_to_first_action", city: "leiden", intentId: "healthcare", durationMilliseconds: 9_999_999 },
+    identifiers,
+    runtime
+  );
+
+  assert.deepEqual(detected.properties, { city: "leiden-script-", intent_id: "healthcare-script-" });
+  assert.deepEqual(timing.properties, { city: "leiden", intent_id: "healthcare", duration_ms: 3_600_000 });
+  assert.equal(detected.screen, "/search/");
+  assert.doesNotMatch(JSON.stringify([detected, timing]), /private|health question|My\+/i);
+});
+
+test("action-panel analytics has no person, free-text query or URL fields", () => {
+  const envelope = createAnalyticsEnvelope(
+    {
+      name: "action_panel_cta_clicked",
+      contentId: "national.documents.municipality.leiden<script>",
+      city: "leiden"
+    },
+    identifiers,
+    {
+      now: () => new Date("2026-08-19T10:00:00.000Z"),
+      randomUUID: () => "bbbbbbbb-bbbb-4bbb-8bbb-bbbbbbbbbbbb",
+      pathname: () => "/essentials/documents/?city=leiden&email=private@example.com",
+      language: () => "en",
+      environment: () => "production"
+    }
+  );
+
+  assert.deepEqual(envelope.properties, {
+    content_id: "national.documents.municipality.leiden-script-",
+    city: "leiden"
+  });
+  assert.equal(envelope.screen, "/essentials/documents/");
+  assert.doesNotMatch(JSON.stringify(envelope), /private@example|email=/i);
+});
+
 test("App Store CTA analytics records intent without claiming a download", () => {
   const envelope = createAnalyticsEnvelope(
     {
@@ -139,6 +189,64 @@ test("App Store CTA analytics records intent without claiming a download", () =>
     location: "app page hero-script--private-value"
   });
   assert.equal(JSON.stringify(envelope).includes("download_completed"), false);
+});
+
+test("business mail fallback records only a bounded organization type", () => {
+  const envelope = createAnalyticsEnvelope(
+    {
+      name: "business_mailto_prepared",
+      organizationType: "non-profit<script>?private=value"
+    },
+    identifiers,
+    {
+      now: () => new Date("2026-08-18T18:00:00.000Z"),
+      randomUUID: () => "88888888-8888-4888-8888-888888888888",
+      pathname: () => "/business/apply/",
+      language: () => "en",
+      environment: () => "production"
+    }
+  );
+
+  assert.equal(envelope.event_name, "business_mailto_prepared");
+  assert.deepEqual(envelope.properties, {
+    organization_type: "non-profit-script--private-value"
+  });
+});
+
+test("lead funnel events contain no form fields or receipt identifiers", () => {
+  const runtime = {
+    now: () => new Date("2026-08-18T19:30:00.000Z"),
+    randomUUID: () => "99999999-9999-4999-8999-999999999999",
+    pathname: () => "/business/apply/",
+    language: () => "en",
+    environment: () => "production" as const
+  };
+  for (const name of ["lead_start", "lead_submit", "pilot_request"] as const) {
+    const envelope = createAnalyticsEnvelope({ name }, identifiers, runtime);
+    assert.equal(envelope.event_name, name);
+    assert.deepEqual(envelope.properties, {});
+    assert.doesNotMatch(JSON.stringify(envelope), /company|contact|email|phone|message|description|confirmation/i);
+  }
+});
+
+test("generic saves and the validated mail fallback emit existing allowlisted events", async () => {
+  const [saveButton, businessForm] = await Promise.all([
+    readFile(new URL("../src/components/save-button.tsx", import.meta.url), "utf8"),
+    readFile(new URL("../src/components/partner-application-form.tsx", import.meta.url), "utf8")
+  ]);
+
+  assert.match(saveButton, /if \(stored\) track\(\{ name: "item_saved", contentId: item\.id \}\)/);
+  assert.match(businessForm, /const handoff = await mailtoPartnerApplicationRepository\.submit\(application\)/);
+  assert.match(businessForm, /track\(\{ name: "business_mailto_prepared", organizationType: application\.organizationType \}\)/);
+  assert.doesNotMatch(businessForm, /track\([^\n]*(companyName|contactPerson|email|phone|description|campaignGoal)/);
+});
+
+test("the business form emits one consent-aware start and submits only after a stored receipt", async () => {
+  const businessForm = await readFile(new URL("../src/components/partner-application-form.tsx", import.meta.url), "utf8");
+  assert.match(businessForm, /const leadStarted = useRef\(false\)/);
+  assert.match(businessForm, /if \(!leadStarted\.current[\s\S]+track\(\{ name: "lead_start" \}\)/);
+  assert.match(businessForm, /const submission = await repository\.submit\(application\)[\s\S]+track\(\{ name: "lead_submit" \}\)/);
+  assert.doesNotMatch(businessForm, /track\(\{ name: "lead_(?:start|submit)"[^\n]*(companyName|contactPerson|email|phone|description|confirmationId)/);
 });
 
 test("UUID fallback creates a valid version 4 identifier", () => {
@@ -253,4 +361,20 @@ test("the lightweight homepage shell preserves the full analytics consent flow",
   assert.match(shell, /data-analytics-official-source-id/);
   assert.match(shell, /official_source_click/);
   assert.doesNotMatch(shell, /analytics_consent_revoked/);
+  assert.match(shell, /consentDialog\.role = "region"/);
+  assert.doesNotMatch(shell, /aria-modal/);
+  const consentKeyboardHandler = shell.slice(
+    shell.indexOf('consentDialog.addEventListener("keydown"'),
+    shell.indexOf("document.body.append(consentTrigger, consentDialog)")
+  );
+  assert.doesNotMatch(consentKeyboardHandler, /event\.key !== "Tab"|querySelectorAll|const items/);
+});
+
+test("the hydrated consent notice never traps focus or blocks the primary page action", async () => {
+  const source = await readFile(new URL("../src/components/analytics-consent.tsx", import.meta.url), "utf8");
+
+  assert.match(source, /role="region"/);
+  assert.doesNotMatch(source, /aria-modal/);
+  assert.doesNotMatch(source, /handleDialogKeyDown|querySelectorAll<HTMLElement>/);
+  assert.doesNotMatch(source, /declineRef\.current\?\.focus/);
 });

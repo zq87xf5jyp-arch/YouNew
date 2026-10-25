@@ -33,7 +33,7 @@
       "province_id": "noord-holland",
       "coordinates": {"latitude": 52.3676, "longitude": 4.9041},
       "title": "Amsterdam",
-      "description": "Amsterdam is a municipality in Noord-Holland. Its official municipal portal provides resident and business services and explains the city government, district organisation, policy areas and public-space responsibilities.",
+      "description": "Amsterdam is a municipality in Noord-Holland. The official City of Amsterdam registration page confirms that residents must keep their address registration in the Personal Records Database (BRP) correct and links to the relevant City services.",
       "images": [
         {
           "id": "media.city.amsterdam.hero.damrak",
@@ -81,19 +81,19 @@
         }
       ],
       "official_source": {
-        "title": "Governance and Organisation – Amsterdam City Hall",
+        "title": "Correct registration with the City",
         "publisher": "City of Amsterdam",
-        "url": "https://www.amsterdam.nl/en/governance/",
+        "url": "https://www.amsterdam.nl/en/civil-affairs/correct-registration/",
         "is_official": true,
-        "checked_at": "2026-07-14",
+        "checked_at": "2026-10-23",
         "status": "verified_opened"
       },
-      "website": "https://www.amsterdam.nl/en/governance/",
+      "website": "https://www.amsterdam.nl/en/civil-affairs/correct-registration/",
       "related_entity_ids": ["government.brp-registration", "government.change-address", "government.municipal-taxes"],
-      "last_checked": "2026-07-14",
+      "last_checked": "2026-10-23",
       "review_frequency_days": 90,
       "verification_status": "verified",
-      "ai_summary": "Use the City of Amsterdam portal as the primary source for municipal administration, resident services and local policy. Check the exact service page before acting because procedures and appointment requirements can change.",
+      "ai_summary": "Use the City of Amsterdam Civil Affairs portal to check BRP registration and address procedures. Open the linked service page before acting because documents, appointment routes and processing details can change.",
       "search_keywords": ["Amsterdam municipality", "Gemeente Amsterdam", "Amsterdam city services", "Amsterdam Noord-Holland", "Amsterdam resident registration"],
       "lifecycle_status": "published",
       "attributes": {
@@ -112,7 +112,7 @@
       "province_id": "zuid-holland",
       "coordinates": {"latitude": 51.9244, "longitude": 4.4777},
       "title": "Rotterdam",
-      "description": "Rotterdam is a municipality in Zuid-Holland. The official municipal portal identifies the City Council and Municipal Executive as the governing bodies and provides practical services for residents and businesses.",
+      "description": "Rotterdam is a municipality in Zuid-Holland. The official municipality page confirms that residents' personal details are held in the BRP and that people staying in the Netherlands for more than four months must register.",
       "images": [
         {
           "id": "media.city.rotterdam.hero.erasmusbrug",
@@ -160,19 +160,19 @@
         }
       ],
       "official_source": {
-        "title": "City government",
+        "title": "Basisregistratie personen",
         "publisher": "Municipality of Rotterdam",
-        "url": "https://www.rotterdam.nl/en/city-government",
+        "url": "https://www.rotterdam.nl/basisregistratie-personen",
         "is_official": true,
-        "checked_at": "2026-07-14",
+        "checked_at": "2026-10-23",
         "status": "verified_opened"
       },
-      "website": "https://www.rotterdam.nl/en/city-government",
+      "website": "https://www.rotterdam.nl/basisregistratie-personen",
       "related_entity_ids": ["government.brp-registration", "government.change-address", "government.municipal-taxes"],
-      "last_checked": "2026-07-14",
+      "last_checked": "2026-10-23",
       "review_frequency_days": 90,
       "verification_status": "verified",
-      "ai_summary": "Use Rotterdam's official municipal portal for city-government information and resident procedures. Confirm the current product page, eligibility and appointment requirements before submitting a municipal request.",
+      "ai_summary": "Use Rotterdam's official BRP page as the starting point for resident registration and address obligations. Confirm the linked product page and current appointment requirements before submitting a request.",
       "search_keywords": ["Rotterdam municipality", "Gemeente Rotterdam", "Rotterdam city government", "Rotterdam Zuid-Holland", "Rotterdam resident services"],
       "lifecycle_status": "published",
       "attributes": {
@@ -191,7 +191,7 @@
       "province_id": "zuid-holland",
       "coordinates": {"latitude": 52.0705, "longitude": 4.3007},
       "title": "Den Haag",
-      "description": "Den Haag is a municipality in Zuid-Holland. Its official English portal brings together settling-in guidance, municipal contact, documents, housing, taxes, public-space reporting and other resident services.",
+      "description": "Den Haag is a municipality in Zuid-Holland. Its official moving and immigration page groups the municipality's current routes for moves, BRP registration, RNI, foreign documents and newcomer support.",
       "images": [
         {
           "id": "media.city.den-haag.hero.peace-palace",
@@ -239,16 +239,16 @@
         }
       ],
       "official_source": {
-        "title": "The Hague municipal services",
+        "title": "Moving and immigration",
         "publisher": "Municipality of The Hague",
-        "url": "https://www.denhaag.nl/en/",
+        "url": "https://www.denhaag.nl/en/moving-and-immigration/",
         "is_official": true,
-        "checked_at": "2026-07-14",
+        "checked_at": "2026-10-23",
         "status": "verified_opened"
       },
-      "website": "https://www.denhaag.nl/en/",
+      "website": "https://www.denhaag.nl/en/moving-and-immigration/",
       "related_entity_ids": ["government.brp-registration", "government.change-address", "government.municipal-taxes"],
-      "last_checked": "2026-07-14",
+      "last_checked": "2026-10-23",
       "review_frequency_days": 90,
       "verification_status": "verified",
       "ai_summary": "Start with The Hague's official English portal for registration, documents, taxes, housing and municipal contact. Open the exact service page and verify current evidence and appointment requirements before applying.",
@@ -270,7 +270,7 @@
       "province_id": "utrecht",
       "coordinates": {"latitude": 52.0907, "longitude": 5.1214},
       "title": "Utrecht",
-      "description": "Utrecht is a municipality in the province of Utrecht. The official city portal provides municipal contact, service-desk support and City Hall information for residents who need help using local public services.",
+      "description": "Utrecht is a municipality in the province of Utrecht. Its official registration page separates RNI registration for shorter stays from municipal BRP registration for people moving from abroad for more than four months.",
       "images": [
         {
           "id": "media.city.utrecht.hero.domtoren-oudegracht",
@@ -318,19 +318,19 @@
         }
       ],
       "official_source": {
-        "title": "Contact us",
+        "title": "Registration",
         "publisher": "Municipality of Utrecht",
-        "url": "https://www.utrecht.nl/city-of-utrecht/contact-us",
+        "url": "https://www.utrecht.nl/city-of-utrecht/registration",
         "is_official": true,
-        "checked_at": "2026-07-14",
+        "checked_at": "2026-10-23",
         "status": "verified_opened"
       },
-      "website": "https://www.utrecht.nl/city-of-utrecht/contact-us",
+      "website": "https://www.utrecht.nl/city-of-utrecht/registration",
       "related_entity_ids": ["government.brp-registration", "government.change-address", "government.municipal-taxes"],
-      "last_checked": "2026-07-14",
+      "last_checked": "2026-10-23",
       "review_frequency_days": 90,
       "verification_status": "verified",
-      "ai_summary": "Use Utrecht's official city portal for municipal contact and service support, especially when language or digital access is a barrier. Verify the exact service page and current appointment process before visiting City Hall.",
+      "ai_summary": "Use Utrecht's official registration page to choose between BRP and RNI routes. Verify the current appointment process and required documents before visiting City Hall.",
       "search_keywords": ["Utrecht municipality", "Gemeente Utrecht", "Utrecht City Hall", "Utrecht resident services", "Utrecht municipal contact"],
       "lifecycle_status": "published",
       "attributes": {
@@ -349,7 +349,7 @@
       "province_id": "noord-brabant",
       "coordinates": {"latitude": 51.4416, "longitude": 5.4697},
       "title": "Eindhoven",
-      "description": "Eindhoven is a municipality in Noord-Brabant. Its official portal provides appointments, contact, moving and registration services, identity documents, local projects and practical information for residents.",
+      "description": "Eindhoven is a municipality in Noord-Brabant. Its official English moving page explains the municipal routes for moving within the Netherlands, arriving from abroad and emigration.",
       "images": [
         {
           "id": "media.city.eindhoven.hero.witte-dame",
@@ -397,16 +397,16 @@
         }
       ],
       "official_source": {
-        "title": "Home",
+        "title": "Moving house",
         "publisher": "Gemeente Eindhoven",
-        "url": "https://www.eindhoven.nl/",
+        "url": "https://english.eindhoven.nl/en/list-of-municipal-products/moving-house",
         "is_official": true,
-        "checked_at": "2026-07-14",
+        "checked_at": "2026-10-23",
         "status": "verified_opened"
       },
-      "website": "https://www.eindhoven.nl/",
+      "website": "https://english.eindhoven.nl/en/list-of-municipal-products/moving-house",
       "related_entity_ids": ["government.brp-registration", "government.change-address", "government.municipal-taxes"],
-      "last_checked": "2026-07-14",
+      "last_checked": "2026-10-23",
       "review_frequency_days": 90,
       "verification_status": "verified",
       "ai_summary": "Use Eindhoven's official municipal portal for moving, registration, appointments, identity documents and contact. Open the relevant service page and confirm current documents and appointment rules before taking action.",

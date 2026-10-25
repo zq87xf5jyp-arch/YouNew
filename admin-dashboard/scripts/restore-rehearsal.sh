@@ -69,43 +69,106 @@ required_schemas="$(psql --dbname "$restore_url" --tuples-only --no-align --set 
 select count(*) from pg_namespace where nspname in ('auth','storage');")"
 [ "$required_schemas" -eq 2 ] || fail "local Supabase target is missing required managed schemas"
 
-managed_entries="$rehearsal_root/managed-migrations.tsv"
-jq -r '.managedMigrations[]? | [.version, .name] | @tsv' "$migration_manifest" > "$managed_entries"
-managed_count="$(awk 'NF { count += 1 } END { print count + 0 }' "$managed_entries")"
-[ "$managed_count" -gt 0 ] || fail "production migration manifest has no managed versions"
+restore_target_marker="$(python3 -c 'import uuid; print(uuid.uuid4())')"
+psql --dbname "$restore_url" --set ON_ERROR_STOP=1 --command "
+create schema if not exists younew_restore_guard;
+create table if not exists younew_restore_guard.target_marker (
+  singleton boolean primary key default true check (singleton),
+  marker text not null
+);
+truncate table younew_restore_guard.target_marker;
+insert into younew_restore_guard.target_marker (singleton, marker)
+values (true, '$restore_target_marker');" >/dev/null
+
+migration_entries="$rehearsal_root/full-migration-chain.tsv"
+jq -r '(.managedMigrations + .pendingMigrations)[]? | [.version, (.localVersion // .version), .name] | @tsv' \
+  "$migration_manifest" > "$migration_entries"
+migration_count="$(awk 'NF { count += 1 } END { print count + 0 }' "$migration_entries")"
+[ "$migration_count" -gt 0 ] || fail "production migration manifest has no versions"
 mkdir -p "$rehearsal_root/supabase/migrations"
-while IFS=$'\t' read -r managed_version managed_name; do
-  case "$managed_version" in
+while IFS=$'\t' read -r migration_version local_version migration_name; do
+  case "$migration_version" in
     20????????????) ;;
-    *) fail "invalid managed migration version: $managed_version" ;;
+    *) fail "invalid migration version: $migration_version" ;;
   esac
-  case "$managed_name" in
-    ''|*[!a-z0-9_]*) fail "invalid managed migration name: $managed_name" ;;
+  case "$local_version" in
+    20????????????) ;;
+    *) fail "invalid local migration version: $local_version" ;;
   esac
-  managed_file="$migration_source_dir/${managed_version}_${managed_name}.sql"
-  [ -f "$managed_file" ] || fail "managed migration file is missing: $managed_file"
-  cp "$managed_file" "$rehearsal_root/supabase/migrations/"
-done < "$managed_entries"
-managed_versions="$(cut -f1 "$managed_entries")"
+  case "$migration_name" in
+    ''|*[!a-z0-9_]*) fail "invalid migration name: $migration_name" ;;
+  esac
+  migration_file="$migration_source_dir/${local_version}_${migration_name}.sql"
+  [ -f "$migration_file" ] || fail "migration file is missing: $migration_file"
+  cp "$migration_file" "$rehearsal_root/supabase/migrations/${migration_version}_${migration_name}.sql"
+done < "$migration_entries"
+migration_versions="$(cut -f1 "$migration_entries")"
 
 # Supabase excludes its internal migration schema from logical dumps. Rebuild
-# only the immutable managed history; historical bootstrap files stay untracked.
+# the exact post-migration manifest history; historical bootstrap files stay intentionally untracked.
+# This drill is therefore a post-migration backup and
+# restore rehearsal, never evidence of a production rollback/downgrade.
 supabase migration repair \
   --workdir "$rehearsal_root" \
   --local \
   --status applied \
   --yes \
-  $managed_versions \
+  $migration_versions \
   >/dev/null
 
 repaired_migrations="$(psql --dbname "$restore_url" --tuples-only --no-align --set ON_ERROR_STOP=1 --command "
 select count(*) from supabase_migrations.schema_migrations;")"
-[ "$repaired_migrations" -eq "$managed_count" ] || fail "local migration history does not match the production manifest"
+[ "$repaired_migrations" -eq "$migration_count" ] || fail "local migration history does not match the full migration manifest"
 
 BACKUP_ARCHIVE="$archive" \
 AGE_IDENTITY_FILE="$identity_file" \
 RESTORE_DATABASE_URL="$restore_url" \
+RESTORE_TARGET_MARKER="$restore_target_marker" \
 RESTORE_REPORT_PATH="$report_path" \
+RESTORE_EXPECTED_MIGRATION_COUNT="$migration_count" \
   bash "$(dirname "$0")/restore-postgres.sh"
+
+inventory_sql="${RESTORE_INVENTORY_SQL:-}"
+inventory_path="${RESTORE_INVENTORY_PATH:-}"
+if [ -n "$inventory_sql" ] || [ -n "$inventory_path" ]; then
+  [ -n "$inventory_sql" ] || fail "RESTORE_INVENTORY_SQL is required when RESTORE_INVENTORY_PATH is set"
+  [ -f "$inventory_sql" ] || fail "restore inventory SQL does not exist: $inventory_sql"
+  [ -n "$inventory_path" ] || fail "RESTORE_INVENTORY_PATH is required when RESTORE_INVENTORY_SQL is set"
+  inventory_dir="$(dirname "$inventory_path")"
+  mkdir -p "$inventory_dir"
+  inventory_partial="$inventory_path.partial.$$"
+  psql \
+    --dbname "$restore_url" \
+    --tuples-only \
+    --no-align \
+    --set ON_ERROR_STOP=1 \
+    --set expected_migration_count="$migration_count" \
+    --file "$inventory_sql" \
+    > "$inventory_partial"
+  chmod 600 "$inventory_partial"
+  mv "$inventory_partial" "$inventory_path"
+fi
+
+schema_inventory_sql="${RESTORE_SCHEMA_INVENTORY_SQL:-}"
+schema_inventory_path="${RESTORE_SCHEMA_INVENTORY_PATH:-}"
+if [ -n "$schema_inventory_sql" ] || [ -n "$schema_inventory_path" ]; then
+  [ -n "$schema_inventory_sql" ] || fail "RESTORE_SCHEMA_INVENTORY_SQL is required when RESTORE_SCHEMA_INVENTORY_PATH is set"
+  [ -f "$schema_inventory_sql" ] || fail "restore schema inventory SQL does not exist: $schema_inventory_sql"
+  [ -n "$schema_inventory_path" ] || fail "RESTORE_SCHEMA_INVENTORY_PATH is required when RESTORE_SCHEMA_INVENTORY_SQL is set"
+  schema_inventory_dir="$(dirname "$schema_inventory_path")"
+  mkdir -p "$schema_inventory_dir"
+  schema_inventory_partial="$schema_inventory_path.partial.$$"
+  psql \
+    --dbname "$restore_url" \
+    --tuples-only \
+    --no-align \
+    --field-separator '|' \
+    --set ON_ERROR_STOP=1 \
+    --set expected_migration_count="$migration_count" \
+    --file "$schema_inventory_sql" \
+    > "$schema_inventory_partial"
+  chmod 600 "$schema_inventory_partial"
+  mv "$schema_inventory_partial" "$schema_inventory_path"
+fi
 
 printf '%s\n' "$report_path"

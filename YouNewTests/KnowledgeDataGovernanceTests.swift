@@ -104,9 +104,16 @@ struct KnowledgeDataGovernanceTests {
     }
 
     @Test func finalReportContainsEveryRequestedMetric() {
-        let report = NetherlandsKnowledgeDatabase.shared.premiumReport(now: Self.auditDate)
+        let database = NetherlandsKnowledgeDatabase.shared
+        let report = database.premiumReport(now: Self.auditDate)
+        // The report counts published cities at the audit date, not every city
+        // in the catalog. Later verification dates must remain excluded.
+        let publishedCities = database.publishedEntities(at: Self.auditDate)
+            .filter { $0.kind == .city }
 
-        #expect(report.cities >= 12)
+        #expect(database.entities(kind: .city).count >= 12)
+        #expect(!publishedCities.isEmpty)
+        #expect(report.cities == publishedCities.count)
         #expect(report.museums > 0)
         #expect(report.governmentServices >= 16)
         #expect(report.partners > 0)

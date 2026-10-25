@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageShell } from "@/components/page-shell";
 import { metadataForPage } from "@/lib/seo/metadata";
 
-export const metadata = metadataForPage("Business pricing", "YouNew advertising and partnership pricing is currently handled by request for quote; no fixed public tariff is approved.", "/business/pricing");
+export const metadata = metadataForPage("Business pricing", "YouNew advertising and partnership pricing is currently handled by request for quote; no fixed public tariff is approved.", "/business/pricing", { noIndex: true, follow: true });
 
 export default function PricingPage() {
   return (
