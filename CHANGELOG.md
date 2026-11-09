@@ -5,6 +5,9 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Build Hostinger archives from an exact committed Git tree, excluding untracked
+  files and local edits, with reproducible hashes and a completed release manifest.
+
 - Add an operator-only QA database dump with exact target guards, private
   credential handling, non-overwrite protection, and an explicit pending-restore result.
 
