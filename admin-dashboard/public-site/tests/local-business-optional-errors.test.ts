@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { createComponentHarness, findElement } from "./component-harness.ts";
+import { createComponentHarness, findElement, handler } from "./component-harness.ts";
 import { requiresKvkNumber, validateBusinessApplication } from "../src/lib/business/application.ts";
 
 const variants = [
@@ -59,14 +59,16 @@ function setup(variant: (typeof variants)[number]) {
   let tree = render();
   harness.flushEffects();
   tree = render();
-  findElement(tree, (element) => element.type === "details").props.ref.current = details;
+  const ref = findElement(tree, (element) => element.type === "details").props.ref;
+  assert.ok(ref && typeof ref === "object" && "current" in ref);
+  ref.current = details;
   return {
     details,
     focused,
     submissions: () => submissions,
     async submit(data: FormData) {
       const form = findElement(render(), (element) => element.type === "form");
-      await form.props.onSubmit({ preventDefault() {}, currentTarget: data });
+      await handler(form, "onSubmit")({ preventDefault() {}, currentTarget: data });
       return render();
     }
   };
@@ -88,7 +90,8 @@ for (const variant of variants) {
       assert.equal(typeof errorId, "string");
       const error = findElement(details, (element) => element.props.id === errorId);
       assert.equal(error.type, "p");
-      assert.match(error.props.children, variant.locale === "nl" ? /Vul .* of laat dit veld leeg\./ : /or leave it blank\./);
+      assert.equal(typeof error.props.children, "string");
+      assert.match(error.props.children as string, variant.locale === "nl" ? /Vul .* of laat dit veld leeg\./ : /or leave it blank\./);
 
       // Closing the native disclosure must not hide the same error on a later attempt.
       harness.details.open = false;

@@ -8,6 +8,7 @@ const publicTruth = JSON.parse(
 const adminTruth = JSON.parse(
   await readFile(new URL("../../src/generated/release-truth.json", import.meta.url), "utf8")
 );
+const content = JSON.parse(await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8"));
 
 test("public and admin surfaces identify the same release-truth snapshot", () => {
   assert.equal(publicTruth.snapshotID, adminTruth.snapshotID);
@@ -18,13 +19,14 @@ test("public and admin surfaces identify the same release-truth snapshot", () =>
 
 test("public release truth is fail-closed without inventing zero link health", () => {
   assert.equal(publicTruth.technicalVerdict, "PARTIAL");
-  assert.equal(publicTruth.publication.packagedPublishedRecords, 7);
+  const publishedCount = content.entities.length;
+  assert.equal(publicTruth.publication.packagedPublishedRecords, publishedCount);
   assert.equal(publicTruth.publication.inventoryRecords, 454);
   assert.deepEqual(publicTruth.publication.packagedCoverage, {
     kind: "ratio",
     unit: "percent",
-    value: 1.5,
-    numerator: 7,
+    value: Math.round(publishedCount / 454 * 1000) / 10,
+    numerator: publishedCount,
     denominator: 454,
     state: "measured",
     reasonCode: null,

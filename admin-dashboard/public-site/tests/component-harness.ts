@@ -2,7 +2,12 @@ import { readFileSync } from "node:fs";
 import vm from "node:vm";
 import ts from "typescript";
 
-export type TestElement = { type: unknown; props: Record<string, any> };
+export type TestElement = { type: unknown; props: Record<string, unknown> };
+export function handler(element: TestElement, name: string): (...args: unknown[]) => unknown {
+  const value = element.props[name];
+  if (typeof value !== 'function') throw new Error(`Missing component handler: ${name}`);
+  return value as (...args: unknown[]) => unknown;
+}
 
 // Execute component handlers without a browser or network. State survives rerenders;
 // effects are explicit so tests can inspect the HTML contract before hydration.
@@ -30,12 +35,12 @@ export function createComponentHarness(file: URL, dependencies: Record<string, u
     }
   };
   const jsx = (type: unknown, props: Record<string, unknown>) => ({ type, props });
-  const module = { exports: {} as Record<string, (...args: any[]) => TestElement> };
+  const componentModule = { exports: {} as Record<string, (props: Record<string, unknown>) => TestElement> };
   const output = ts.transpileModule(readFileSync(file, "utf8"), {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022, jsx: ts.JsxEmit.ReactJSX, esModuleInterop: true }
   });
   vm.runInNewContext(output.outputText, {
-    module, exports: module.exports, URL, URLSearchParams,
+    module: componentModule, exports: componentModule.exports, URL, URLSearchParams,
     require(name: string) {
       if (name === "react") return hooks;
       if (name === "react/jsx-runtime") return { jsx, jsxs: jsx, Fragment: Symbol.for("test.fragment") };
@@ -47,7 +52,7 @@ export function createComponentHarness(file: URL, dependencies: Record<string, u
   return {
     render(exportName: string, props: Record<string, unknown> = {}) {
       cursor = 0;
-      return module.exports[exportName](props);
+      return componentModule.exports[exportName](props);
     },
     flushEffects() { while (effects.length) effects.shift()?.(); }
   };

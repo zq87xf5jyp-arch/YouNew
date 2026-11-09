@@ -4,11 +4,16 @@ import test from "node:test";
 
 const siteRoot = new URL("../", import.meta.url);
 const canonicalRuntime = JSON.parse(await readFile(new URL("../../YouNew/Resources/Data/younew-runtime-data.json", siteRoot), "utf8"));
+// Schema tests use a synthetic in-memory parent, never a time-sensitive public record.
+const schemaRuntime = structuredClone(canonicalRuntime);
+const schemaParent = schemaRuntime.entities.find((entity: {id:string}) => entity.id === "government_service.driving-licence-amsterdam");
+assert.ok(schemaParent);
+schemaParent.id = "government_service.synthetic-guide-fixture";
 const { projectPublishedPracticalGuide } = await import(new URL("../scripts/practical-guide.mjs", import.meta.url).href);
 const { buildPublicDataset } = await import(new URL("../scripts/generate-public-content.mjs", import.meta.url).href);
 
 function fixture(overrides: Record<string, unknown> = {}) {
-  const id = "government_service.driving-licence-amsterdam";
+  const id = "government_service.synthetic-guide-fixture";
   const source = {
     id: "source.fixture",
     title: "Test-only official source",
@@ -21,7 +26,7 @@ function fixture(overrides: Record<string, unknown> = {}) {
   return {
     schemaVersion: 2,
     id,
-    slug: "driving-licence-amsterdam",
+    slug: "synthetic-guide-fixture",
     locale: "en",
     title: "Driving licence Amsterdam",
     shortSummary: { id: "summary", text: "Test-only sourced summary.", sourceIDs: [source.id] },
@@ -69,7 +74,7 @@ function fixture(overrides: Record<string, unknown> = {}) {
     seo: {
       title: "First registration fixture",
       description: "Test-only metadata used to verify fail-closed practical guide projection.",
-      canonicalPath: "/guides/driving-licence-amsterdam"
+      canonicalPath: "/guides/synthetic-guide-fixture"
     },
     synonyms: ["fixture synonym"],
     commonQuestions: ["Does the projection pass QA?"],
@@ -81,7 +86,7 @@ function parentContext(overrides: Record<string, unknown> = {}) {
   return {
     id: fixture().id,
     title: "Driving licence Amsterdam",
-    route: "/guides/driving-licence-amsterdam",
+    route: "/guides/synthetic-guide-fixture",
     language: "en",
     mediaAssets: [{
       id: "media.fixture",
@@ -150,14 +155,14 @@ test("published practical guides fail closed on missing trust and structure fiel
 });
 
 test("legacy guide records remain summary-depth and malformed published payloads stop generation", () => {
-  const baseline = buildPublicDataset(canonicalRuntime);
+  const baseline = buildPublicDataset(schemaRuntime, { verifyChecksum: false });
   assert.equal(baseline.content.guides.length, 1);
   assert.ok(baseline.content.guides.every((guide: { contentDepth: string; practicalGuide: unknown }) => guide.contentDepth === "summary" && guide.practicalGuide === null));
 
-  const parent = canonicalRuntime.entities.find((entity: { id: string }) => entity.id === fixture().id);
+  const parent = schemaRuntime.entities.find((entity: { id: string }) => entity.id === fixture().id);
   const withDraft = buildPublicDataset({
-    ...canonicalRuntime,
-    entities: canonicalRuntime.entities.map((entity: { id: string }) => entity.id === parent.id ? { ...entity, practicalGuide: fixture({ status: "draft" }) } : entity)
+    ...schemaRuntime,
+    entities: schemaRuntime.entities.map((entity: { id: string }) => entity.id === parent.id ? { ...entity, practicalGuide: fixture({ status: "draft" }) } : entity)
   }, { verifyChecksum: false });
   const publicParent = withDraft.content.guides.find((guide: { id: string }) => guide.id === parent.id);
   assert.equal(publicParent.contentDepth, "summary");
@@ -165,20 +170,20 @@ test("legacy guide records remain summary-depth and malformed published payloads
   assert.doesNotMatch(JSON.stringify(withDraft.search), /Test-only sourced summary/);
 
   assert.throws(() => buildPublicDataset({
-    ...canonicalRuntime,
-    entities: canonicalRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parent.id ? parentWithAuthoredMedia({ ...entity, practicalGuide: fixture({ numberedSteps: [] }) }) : entity)
+    ...schemaRuntime,
+    entities: schemaRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parent.id ? parentWithAuthoredMedia({ ...entity, practicalGuide: fixture({ numberedSteps: [] }) }) : entity)
   }, { verifyChecksum: false }), /numberedSteps/);
 });
 
 test("a valid published payload enriches guide rendering and search without changing its stable route", () => {
   const parentId = fixture().id;
   const output = buildPublicDataset({
-    ...canonicalRuntime,
-    entities: canonicalRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parentId ? parentWithAuthoredMedia({ ...entity, practicalGuide: fixture() }) : entity)
+    ...schemaRuntime,
+    entities: schemaRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parentId ? parentWithAuthoredMedia({ ...entity, practicalGuide: fixture() }) : entity)
   }, { verifyChecksum: false });
   const guide = output.content.guides.find((item: { id: string }) => item.id === parentId);
   const document = output.search.documents.find((item: { id: string }) => item.id === parentId);
-  assert.equal(guide.route, "/guides/driving-licence-amsterdam");
+  assert.equal(guide.route, "/guides/synthetic-guide-fixture");
   assert.equal(guide.contentDepth, "practical");
   assert.deepEqual(guide.categorySlugs, ["healthcare"]);
   assert.equal(guide.practicalGuide.numberedSteps.length, 1);
@@ -192,8 +197,8 @@ test("a valid published payload enriches guide rendering and search without chan
 test("a full guide requires an explicit canonical web category instead of the legacy Housing fallback", () => {
   const parentId = fixture().id;
   assert.throws(() => buildPublicDataset({
-    ...canonicalRuntime,
-    entities: canonicalRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parentId ? {
+    ...schemaRuntime,
+    entities: schemaRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parentId ? {
       ...entity,
       images: entity.images.map((image) => ({ ...image, alt: "Test-only image", publicAssetPath: "/images/og-younew.jpg" })),
       practicalGuide: fixture()

@@ -79,18 +79,20 @@ test("map filters combine city, content type and category", () => {
   ));
 });
 
-test("map text search narrows published records without changing coordinate data", () => {
-  const target = mapItems.find((item) => item.title.includes("Begijnhof"));
-  assert.ok(target);
-  const filtered = mapModule.filterCoverageMapItems(mapItems, {
+test("map text search narrows records without changing coordinate data", () => {
+  const target = fixture('place.synthetic-search', 52.37, 4.90, {title:'Synthetic garden'});
+  const sample = [target, fixture('place.synthetic-other', 52.36, 4.91, {title:'Other place'})];
+  const original = structuredClone(sample);
+  const filtered = mapModule.filterCoverageMapItems(sample, {
     city: "all",
     province: "all",
     type: "all",
     category: "all",
-    query: "begijnhof"
+    query: "garden"
   });
   assert.ok(filtered.some((item) => item.id === target.id));
-  assert.ok(filtered.every((item) => item.title.toLowerCase().includes("begijnhof") || item.cityId?.includes("begijnhof") || item.categorySlugs.some((category) => category.includes("begijnhof"))));
+  assert.deepEqual(filtered.map(item => item.id), [target.id]);
+  assert.deepEqual(sample, original);
 });
 
 test("identical coordinates are grouped deterministically", () => {

@@ -7,6 +7,9 @@ versions follow semantic versioning.
 
 ### Added
 
+- Update the Hostinger Admin MySQL driver to 3.23.1 to address authentication
+  downgrade and compressed-protocol decompression vulnerabilities.
+
 - Preserve the Hostinger PHP forms, MariaDB Admin candidate, and 71 unapproved
   editorial drafts in the canonical repository, with private backup tooling.
 - Recalculate public freshness exclusions at build time and support empty static

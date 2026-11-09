@@ -72,11 +72,18 @@ test("search tolerates a useful typo without returning the whole index", () => {
 });
 
 test("search filters are applied before ranking", () => {
-  const results = rankModule.rankSearchDocuments(index.documents, "Amsterdam", {
+  const base = index.documents.find(document => document.type === "guide");
+  assert.ok(base);
+  const candidates = [
+    {...base, id:"guide.synthetic-match", title:"Amsterdam", categories:["government"]},
+    {...base, id:"guide.synthetic-excluded", title:"Amsterdam", categories:["housing"]}
+  ];
+  const results = rankModule.rankSearchDocuments(candidates, "Amsterdam", {
     filters: { type: "guide", category: "government" }
   });
   assert.ok(results.length > 0);
   assert.ok(results.every(({ document }) => document.type === "guide" && document.categories.includes("government")));
+  assert.deepEqual(results.map(({document}) => document.id), ["guide.synthetic-match"]);
 });
 
 test("search is deterministic and bounded", () => {

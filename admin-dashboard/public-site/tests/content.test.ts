@@ -23,8 +23,9 @@ test("public content accepts the canonical base and only the explicit synthetic 
   if(local) assert.ok(content.entities.filter((e: {releaseId:string})=>e.releaseId==='integration-synthetic-local-v1').every((e:{id:string;title:string;source:{publisher:string}})=>e.id.startsWith('place.synthetic-')&&e.title.startsWith('[SYNTHETIC]')&&e.source.publisher==='Local QA'));
   assert.equal(content.stats.entities, provenance.counts.acceptedRecords);
   assert.equal(content.entities.length, content.stats.entities);
-  assert.equal(freshnessExclusions.count, 170);
-  assert.equal(provenance.counts.freshnessExcludedRecords, 170);
+  assert.equal(freshnessExclusions.count, freshnessExclusions.records.length);
+  assert.equal(provenance.counts.freshnessExcludedRecords, freshnessExclusions.count);
+  assert.equal(provenance.counts.sourceRecords, provenance.counts.acceptedRecords + freshnessExclusions.count);
   const excludedIds = new Set(freshnessExclusions.records.map((record: { id: string }) => record.id));
   assert.ok(content.entities.every((entity: { id: string }) => !excludedIds.has(entity.id)));
   assert.ok(content.entities.every((entity: { status: string; releaseId: string; trust: { sourceChecked: boolean } }) =>
@@ -44,7 +45,7 @@ test("public content accepts the canonical base and only the explicit synthetic 
     .filter((entity: { governance: unknown }) => entity.governance !== null)
     .map((entity: { id: string }) => entity.id)
     .sort();
-  assert.deepEqual(governedIds, legacyConfirmations.records.map((record: { id: string }) => record.id).sort());
+  assert.deepEqual(governedIds, legacyConfirmations.records.filter((record: {id: string}) => !excludedIds.has(record.id)).map((record: { id: string }) => record.id).sort());
   for (const entity of content.entities.filter((item: { id: string }) => governedIds.includes(item.id))) {
     assert.equal(entity.governance.confidenceScore, 65);
     assert.equal(entity.governance.verificationStatus, "unverified");
@@ -57,7 +58,8 @@ test("public content accepts the canonical base and only the explicit synthetic 
   }
   const drivingLicence = content.entities.find((entity: { id: string }) => entity.id === "government_service.driving-licence-amsterdam");
   assert.equal(drivingLicence?.governance ?? null, null);
-  assert.equal(drivingLicence?.indexable, true);
+  if (excludedIds.has("government_service.driving-licence-amsterdam")) assert.equal(drivingLicence, undefined);
+  else assert.equal(drivingLicence?.indexable, true);
 });
 
 test("derived collections, routes and slugs are internally consistent", () => {

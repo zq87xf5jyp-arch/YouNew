@@ -1,6 +1,6 @@
 import assert from "node:assert/strict";
 import test from "node:test";
-import { createComponentHarness, findElement } from "./component-harness.ts";
+import { createComponentHarness, findElement, handler } from "./component-harness.ts";
 
 const components = new URL("../src/components/", import.meta.url);
 
@@ -57,7 +57,7 @@ test("a stored pilot receipt remains successful when Safari storage is unavailab
   const scenario = pilotHarness({ kind: "server-submission", confirmationId: "YNB-TEST", createdAt: "2026-10-26T12:00:00Z" });
   const tree = scenario.harness.render("PilotRequestForm", { municipalities: [], provinces: [] });
   let prevented = false;
-  await findElement(tree, (element) => element.type === "form").props.onSubmit({
+  await handler(findElement(tree, (element) => element.type === "form"), "onSubmit")({
     preventDefault() { prevented = true; }, currentTarget: {}
   });
   assert.equal(prevented, true);
@@ -69,7 +69,7 @@ test("a stored pilot receipt remains successful when Safari storage is unavailab
 test("an unconfirmed pilot submission still cannot reach the success page", async () => {
   const scenario = pilotHarness({ kind: "user-email-handoff", href: "mailto:test@example.invalid" });
   const tree = scenario.harness.render("PilotRequestForm", { municipalities: [], provinces: [] });
-  await findElement(tree, (element) => element.type === "form").props.onSubmit({ preventDefault() {}, currentTarget: {} });
+  await handler(findElement(tree, (element) => element.type === "form"), "onSubmit")({ preventDefault() {}, currentTarget: {} });
   assert.deepEqual(scenario.counts(), { submitted: 1, fallback: 1, storageAttempts: 0 });
   assert.deepEqual(scenario.navigations, []);
   assert.equal(scenario.tracked.includes("lead_submit"), false);

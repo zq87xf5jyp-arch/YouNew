@@ -1,5 +1,6 @@
 import 'server-only';
 import mysql, {type RowDataPacket, type PoolConnection} from 'mysql2/promise';
+import type {ExecuteValues} from 'mysql2';
 let pool: ReturnType<typeof mysql.createPool> | undefined;
 export function db() {
   if (!pool) {
@@ -20,10 +21,10 @@ async function connection():Promise<PoolConnection> {
 }
 const access = {
  getConnection:connection,
- execute:(async (sql:string,params?:unknown[])=>{const c=await connection();try{return await c.execute(sql,params);}finally{c.release();}}) as ReturnType<typeof mysql.createPool>['execute']
+ execute:(async (sql:string,params?:ExecuteValues)=>{const c=await connection();try{return await c.execute(sql,params);}finally{c.release();}}) as ReturnType<typeof mysql.createPool>['execute']
 };
 export type Conn = PoolConnection;
-export async function rows(c: Pick<PoolConnection,'execute'>, sql:string, params:unknown[]=[]):Promise<RowDataPacket[]> { const [r]=await c.execute(sql,params); return r as RowDataPacket[]; }
+export async function rows(c: Pick<PoolConnection,'execute'>, sql:string, params:ExecuteValues=[]):Promise<RowDataPacket[]> { const [r]=await c.execute(sql,params); return r as RowDataPacket[]; }
 export async function transaction<T>(run:(c:Conn)=>Promise<T>):Promise<T> {
  const c=await db().getConnection();
  try {await c.query('SET TRANSACTION ISOLATION LEVEL READ COMMITTED'); await c.beginTransaction(); const value=await run(c); await c.commit(); return value;}
