@@ -72,6 +72,22 @@ verify('feedback retries are idempotent', callForm('feedback',$feedback)[2] === 
 verify('feedback invalid privacy consent', callForm('feedback',array_replace($feedback,['consentToPrivacy'=>false]))[0] === 400);
 verify('feedback rejects external reference', callForm('feedback',array_replace($feedback,['pageReference'=>'//evil.example/']))[0] === 400);
 
+// A separate feedback backlog must never starve the BUSINESS worker.
+$queue = new \YouNewForms\Store($directory, $public);
+verify('mixed outbox is retained', count($queue->pendingDeliveries()) === 3);
+verify('business outbox excludes feedback', count($queue->pendingDeliveries(100, 'business')) === 2);
+verify('feedback remains available separately', count($queue->pendingDeliveries(100, 'feedback')) === 1);
+$rejectedKind = false;
+try { $queue->pendingDeliveries(20, 'unknown'); } catch (InvalidArgumentException) { $rejectedKind = true; }
+verify('invalid outbox type refused', $rejectedKind);
+$backlog = new \YouNewForms\Store($root.'/mixed-backlog', $public);
+for ($i=0;$i<21;$i++) $backlog->submit('feedback', array_replace($feedback, ['email'=>'backlog-'.$i.'@example.invalid']), '192.0.2.'.($i+100));
+$businessAfterFeedback = $backlog->submit('business', $business, '192.0.2.200');
+verify('generic first batch contains only older feedback', count(array_filter($backlog->pendingDeliveries(20), static fn($r)=>$r['kind']==='business')) === 0);
+$businessBatch = $backlog->pendingDeliveries(20, 'business');
+verify('business behind feedback backlog is delivered in first business batch', count($businessBatch) === 1 && $businessBatch[0]['id'] === $businessAfterFeedback['confirmationId']);
+verify('all feedback remains retained', count($backlog->pendingDeliveries(100, 'feedback')) === 21);
+
 // Dedicated data directories exercise rate limits without altering other tests.
 for ($i=0;$i<8;$i++) verify('network allows bounded new request '.$i, callForm('business',array_replace($business,['email'=>'net-'.$i.'@example.invalid']),[],null,$root.'/network')[0] === 201);
 verify('network new-request limit', callForm('business',array_replace($business,['email'=>'net-over@example.invalid']),[],null,$root.'/network')[0] === 429);

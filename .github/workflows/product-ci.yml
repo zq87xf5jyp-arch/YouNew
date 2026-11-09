@@ -223,6 +223,6 @@ jobs:
         with:
           node-version: "24"
       - name: Run backend security contracts
-        run: node --test BackendExamples/cloudflare-worker-ai-proxy.test.mjs hostinger/runtime/tests/catalog-endpoint.test.mjs hostinger/runtime/tests/backup-qa.test.mjs
+        run: node --test BackendExamples/cloudflare-worker-ai-proxy.test.mjs hostinger/runtime/tests/catalog-endpoint.test.mjs hostinger/runtime/tests/backup-qa.test.mjs hostinger/runtime/tests/legacy-import.test.mjs
       - name: Verify exact-commit Hostinger packaging
         run: python3 -m unittest discover -s hostinger/deployment/tests -p 'test_*.py'

@@ -194,10 +194,13 @@ final class Store
     }
 
     /** Durable outbox: acknowledgement is written only after remote commit. */
-    public function pendingDeliveries(int $limit = 100): array
+    public function pendingDeliveries(int $limit = 100, ?string $kind = null): array
     {
         if ($limit < 1 || $limit > 100) throw new \InvalidArgumentException('Invalid batch size');
-        $result = $this->execute('SELECT s.id,s.kind,s.payload,s.created_at,s.consent_version FROM submissions s LEFT JOIN delivery_receipts d ON d.submission_id=s.id WHERE d.submission_id IS NULL ORDER BY s.rowid LIMIT :limit', [':limit'=>$limit]);
+        if ($kind !== null && !in_array($kind, ['business', 'feedback'], true)) throw new \InvalidArgumentException('Invalid delivery kind');
+        $parameters = [':limit'=>$limit];
+        if ($kind !== null) $parameters[':kind'] = $kind;
+        $result = $this->execute('SELECT s.id,s.kind,s.payload,s.created_at,s.consent_version FROM submissions s LEFT JOIN delivery_receipts d ON d.submission_id=s.id WHERE d.submission_id IS NULL' . ($kind === null ? '' : ' AND s.kind=:kind') . ' ORDER BY s.rowid LIMIT :limit', $parameters);
         $rows = [];
         while ($row = $result->fetchArray(SQLITE3_ASSOC)) { $row['payload'] = json_decode($row['payload'], true, 32, JSON_THROW_ON_ERROR); $rows[] = $row; }
         return $rows;

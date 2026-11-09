@@ -11,7 +11,7 @@ function dto(r:RowDataPacket):Record<string,unknown>{
  const out:Record<string,unknown>={};for(const [k,v] of Object.entries(map))out[k]=p[v];
  for(const k of ['id','status','admin_notes','handled_by','contact_role','offer_interest','lost_reason','lost_reason_detail','won_evidence_type'])out[k]=r[k];
  for(const k of ['won_evidence_at','created_at','consent_at','status_changed_at','updated_at'])out[k]=date(r[k]);
- return {...out,reference_code:r.receipt,legacy_status:null};
+ return {...out,reference_code:r.receipt,legacy_status:r.legacy_status??null};
 }
 export async function listInquiries(limit=250){const a=await authorize('crm.read');if(![250,10001].includes(limit))throw new Denied(400,'invalid_limit');return (await rows(db(),`SELECT * FROM business_inquiries WHERE workspace_id=? ORDER BY created_at DESC,id DESC LIMIT ${limit}`,[a.workspace_id])).map(dto);}
 export async function getInquiry(id:string){const a=await authorize('crm.read');if(!isInquiryId(id))throw new Denied(404,'not_found');const [r]=await rows(db(),'SELECT * FROM business_inquiries WHERE id=? AND workspace_id=?',[id,a.workspace_id]);if(!r)throw new Denied(404,'not_found');return dto(r);}

@@ -1,45 +1,14 @@
 import Link from "next/link";
-import {
-  BarChart3,
-  BookOpen,
-  Bot,
-  BriefcaseBusiness,
-  Bug,
-  Building2,
-  CheckCircle2,
-  ClipboardList,
-  ImageUp,
-  LayoutDashboard,
-  Link2,
-  Map,
-  MessageSquare,
-  RefreshCcw,
-  Settings,
-  ShieldCheck,
-  ShieldEllipsis
-} from "lucide-react";
+import {BookOpen,BriefcaseBusiness,LayoutDashboard,ShieldCheck,Archive} from "lucide-react";
 import { cn } from "@/lib/utils";
 import { YouNewLogo } from "@/components/admin/logo";
 import { canAccessPath, type AdminRole } from "@/lib/authorization";
 
 const items = [
-  { href: "/dashboard", label: "Панель", icon: LayoutDashboard },
-  { href: "/analytics", label: "Аналитика", icon: BarChart3 },
-  { href: "/finance", label: "Финансы", icon: BarChart3 },
-  { href: "/sync", label: "Синхронизация", icon: RefreshCcw },
-  { href: "/trust", label: "Trust & Review", icon: ShieldEllipsis },
-  { href: "/content", label: "Контент", icon: BookOpen },
-  { href: "/business-inquiries", label: "Бизнес-заявки", icon: BriefcaseBusiness },
-  { href: "/categories", label: "Категории", icon: ClipboardList },
-  { href: "/cities", label: "Города", icon: Building2 },
-  { href: "/map", label: "Карта", icon: Map },
-  { href: "/visual-qa", label: "Проверка UI", icon: ImageUp },
-  { href: "/bugs", label: "Ошибки", icon: Bug },
-  { href: "/releases", label: "Релизы", icon: CheckCircle2 },
-  { href: "/links", label: "Ссылки", icon: Link2 },
-  { href: "/ai-knowledge", label: "Знания AI", icon: Bot },
-  { href: "/feedback", label: "Отзывы", icon: MessageSquare },
-  { href: "/settings", label: "Настройки", icon: Settings },
+  { href: "/dashboard", label: "Admin", icon: LayoutDashboard },
+  { href: "/content", label: "Каталог", icon: BookOpen },
+  { href: "/business-inquiries", label: "Заявки", icon: BriefcaseBusiness },
+  { href: "/history", label: "История", icon: Archive },
   { href: "/audit-log", label: "Журнал", icon: ShieldCheck }
 ];
 

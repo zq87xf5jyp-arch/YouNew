@@ -19,7 +19,7 @@ export async function actor(c?:Pick<Conn,'execute'>,lock=false):Promise<Actor>{
  if(!p.is_approved || p.is_blocked)throw new Denied(403,'account_denied');
  return {id:p.id,workspace_id:p.workspace_id,email:p.email,full_name:p.full_name,role:p.role};
 }
-const policies:Record<string,readonly string[]>={ 'catalog.read':['owner','admin','editor','qa','viewer'],'catalog.write':['owner','admin','editor'],'catalog.approve':['owner','admin'], 'crm.read':['owner','admin'],'crm.write':['owner','admin'],'files.read':['owner','admin'],'files.write':['owner','admin'],'audit.read':['owner','admin'],'dashboard.read':['owner','admin','editor','qa','viewer']};
+const policies:Record<string,readonly string[]>={ 'catalog.read':['owner','admin','editor','qa','viewer'],'catalog.write':['owner','admin','editor'],'catalog.approve':['owner','admin'], 'crm.read':['owner','admin'],'crm.write':['owner','admin'],'files.read':['owner','admin'],'files.write':['owner','admin'],'audit.read':['owner','admin'],'dashboard.read':['owner','admin','editor','qa','viewer'],'history.read':['owner']};
 export function permit(a:Actor,capability:string){if(!policies[capability]?.includes(a.role))throw new Denied(403,'forbidden');}
 export async function authorize(cap:string,c?:Pick<Conn,'execute'>,lock=false){const a=await actor(c,lock);permit(a,cap);return a;}
 export async function signedIn(){return actor();}

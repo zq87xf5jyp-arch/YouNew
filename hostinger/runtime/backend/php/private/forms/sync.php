@@ -15,7 +15,7 @@ try {
  $dir=dirname(__DIR__).'/forms-data';$store=new \YouNewForms\Store($dir,$root);
  $retry=new SQLite3($dir.'/retry.sqlite');$retry->enableExceptions(true);$retry->busyTimeout(5000);$retry->exec('CREATE TABLE IF NOT EXISTS retries(id TEXT PRIMARY KEY,attempts INTEGER NOT NULL,next_at INTEGER NOT NULL,last_code INTEGER NOT NULL)');
  $count=['at'=>$started,'attempted'=>0,'delivered'=>0,'failed'=>0,'deferred'=>0];$deadline=microtime(true)+50;
- foreach($store->pendingDeliveries(20) as $row){if(microtime(true)>$deadline)break;
+ foreach($store->pendingDeliveries(20,'business') as $row){if(microtime(true)>$deadline)break;
   $q=$retry->prepare('SELECT attempts,next_at FROM retries WHERE id=:id');$q->bindValue(':id',$row['id']);$prior=$q->execute()->fetchArray(SQLITE3_ASSOC);
   if($prior&&$prior['next_at']>time()){$count['deferred']++;continue;}
   $count['attempted']++;$body=json_encode(['p_receipt'=>$row['id'],'p_kind'=>$row['kind'],'p_payload'=>$row['payload'],'p_created_at'=>$row['created_at'],'p_consent_version'=>$row['consent_version']],JSON_UNESCAPED_UNICODE|JSON_UNESCAPED_SLASHES|JSON_THROW_ON_ERROR);

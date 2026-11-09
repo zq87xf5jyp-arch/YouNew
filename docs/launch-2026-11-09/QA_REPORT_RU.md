@@ -32,3 +32,9 @@
 Открытые ограничения перечислены в `OPEN_ISSUES_RU.md`. Подробные логи, скриншоты, дампы и приватные manifests находятся в защищённых каталогах доказательств, а не в GitHub.
 
 Все workflows `7efb72f` прошли; точные SHA и ссылки — `CI_EVIDENCE_7EFB72F.json`. Два сбоя GitHub Internal server error устранены повторным запуском без изменения проверок. Scoped minimatch 11.0.1 проверен локально: lint/typecheck и три полных audit без уязвимостей. Новый commit требует собственных CI и Hostinger deployment.
+
+## Продолжение: minimatch и реальный перенос
+
+- `cd0546d`: 8 CI runs успешны; QA Node deployment `01a1c1b2-ed7f-7291-b92d-4882c2c71b4b`, scan 20:07 — 0 уязвимостей, 43 HTTP checks PASS. Production не переключён.
+- Новый importer: локальные import/idempotency/restore/rollback всех исходных данных и файла PASS. 42 HTTP проверки production-mode Admin на синтетических учётных записях PASS.
+- Подробные границы и недостающие серверные проверки: `LEGACY_MIGRATION_RU.md`, `LEGACY_MIGRATION_LOCAL_EVIDENCE.json`. SSH всё ещё отклоняет подготовленный ключ; создание отдельной БД/сохранение пароля ожидает владельца.

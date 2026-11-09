@@ -5,6 +5,7 @@ import {login,logout,signedIn,safeError,Denied} from '@/lib/r4/security';
 import {listInquiries,getInquiry,updateInquiry,notifications,updateNotification,audit} from '@/lib/r4/repository';
 import {readFile,writeFile} from '@/lib/r4/files';
 import {ingest} from '@/lib/r4/ingest';
+import {historyAsset} from '@/lib/r4/history';
 export const runtime='nodejs'; export const dynamic='force-dynamic';
 const responseHeaders={'Cache-Control':'no-store, private','X-Content-Type-Options':'nosniff'};
 async function textBody(req:Request,maximum=32768){const reader=req.body?.getReader();if(!reader)return '';let size=0;const chunks=[];while(true){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>maximum){await reader.cancel();throw new Denied(413,'too_large');}chunks.push(Buffer.from(value));}return Buffer.concat(chunks).toString('utf8');}
@@ -29,6 +30,7 @@ async function handle(req:Request,{params}:{params:Promise<{path:string[]}>}){tr
  else if(method==='GET'&&path==='notifications')result=await notifications();
  else if(method==='PATCH'&&path==='notifications')result=await updateNotification(form(JSON.parse(await textBody(req))));
  else if(method==='GET'&&path==='audit')result=await audit();
+ else if(method==='GET'&&/^history-files\/[^/]+$/.test(path)){const b=await historyAsset(path.split('/')[1]);return new Response(new Uint8Array(b),{headers:{...responseHeaders,'Content-Type':'application/octet-stream','Content-Disposition':'attachment; filename="younew-preserved-file.bin"'}});}
  else if(method==='POST'&&path==='files')result=await writeFile(JSON.parse(await textBody(req,1400200)));
  else if(method==='GET'&&/^files\/[^/]+$/.test(path)){const b=await readFile(path.split('/')[1]);return new Response(new Uint8Array(b),{headers:{...responseHeaders,'Content-Type':'application/octet-stream','Content-Disposition':'attachment; filename="younew-private-attachment.bin"'}});}
  else {await signedIn();throw new Denied(404,'not_found');}

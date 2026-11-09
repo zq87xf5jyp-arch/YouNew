@@ -53,6 +53,19 @@
       "typecheck": "PASS"
     }
   },
-  "deployed": false,
-  "node_24_ci_and_hostinger_scan_after_deployment_pending": true
+  "deployed": true,
+  "node_24_ci_and_hostinger_scan_after_deployment_pending": false,
+  "deployed_scope": "QA Node backend only; production not switched",
+  "post_deploy": {
+    "commit": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+    "deployment_id": "01a1c1b2-ed7f-7291-b92d-4882c2c71b4b",
+    "scan_display_time": "2026-11-09 20:07 Europe/Amsterdam",
+    "scanner_result": "No vulnerabilities found",
+    "vulnerabilities": 0,
+    "http_checks": 43,
+    "http_status": "PASS",
+    "server_evidence": "hp1/logs/release-cd0546d.json",
+    "ci": "CI_EVIDENCE_CD0546D.json",
+    "screenshot_sha256": "56da946b32576fbdd3531ef3ed66373c980b9244df87f5a755ee06e2cd75d2ff"
+  }
 }

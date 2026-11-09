@@ -5,6 +5,7 @@ let pool: ReturnType<typeof mysql.createPool> | undefined;
 export function db() {
   if (!pool) {
     const {R4_DB_USER:user,R4_DB_PASSWORD:password,R4_DB_NAME:database,R4_DB_SOCKET:socketPath} = process.env;
+    if(process.env.R4_ORIGIN==='https://admin.younew.nl'&&(process.env.R4_RUNTIME_MODE!=='production'||database!=='u246392949_younp1'||process.env.R4_LOCAL!=='false'))throw new Error('Production isolation required');
     if (!user || !password || !database || !/^[a-zA-Z0-9_]{1,64}$/.test(database) || (process.env.R4_LOCAL==='true' && !database.startsWith('r4_'))) throw new Error('R4 DB configuration required');
     pool = mysql.createPool({user,password,database,...(socketPath ? {socketPath} : {host:process.env.R4_DB_HOST ?? '127.0.0.1',port:3306}),connectionLimit:5,charset:'utf8mb4_unicode_ci',timezone:'Z',dateStrings:true,multipleStatements:false,connectTimeout:5000,enableKeepAlive:true});
   }

@@ -8,22 +8,9 @@ import { canAccessPath, type AdminRole } from "@/lib/authorization";
 
 const destinations = [
   ["/dashboard", "Панель"],
-  ["/analytics", "Аналитика"],
-  ["/finance", "Финансы"],
-  ["/sync", "Синхронизация"],
-  ["/trust", "Trust & Review"],
-  ["/content", "Контент"],
+  ["/content", "Каталог"],
   ["/business-inquiries", "Бизнес-заявки"],
-  ["/categories", "Категории"],
-  ["/cities", "Города"],
-  ["/map", "Карта"],
-  ["/visual-qa", "Проверка UI"],
-  ["/bugs", "Ошибки"],
-  ["/releases", "Релизы"],
-  ["/links", "Ссылки"],
-  ["/ai-knowledge", "Знания AI"],
-  ["/feedback", "Отзывы"],
-  ["/settings", "Настройки"],
+  ["/history", "Сохранённая история"],
   ["/audit-log", "Журнал"]
 ] as const;
 

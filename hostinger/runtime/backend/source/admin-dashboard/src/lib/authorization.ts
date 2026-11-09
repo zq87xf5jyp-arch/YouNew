@@ -32,6 +32,7 @@ const editorArticleStatuses = ["draft", "review", "qa"] as const;
  */
 export const routePolicies: readonly RoutePolicy[] = [
   { prefix: "/dashboard", roles: allRoles },
+  { prefix: "/history", roles: ["owner"] },
   { prefix: "/analytics", roles: ownerAdminRoles },
   { prefix: "/finance", roles: ["owner"] },
   { prefix: "/sync", roles: ownerAdminRoles, mutationRoles: ownerAdminRoles },
