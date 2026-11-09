@@ -48,6 +48,7 @@ NODE_OPTIONS=--v8-pool-size=1 UV_THREADPOOL_SIZE=1 \
 3. MariaDB 11.8.9 и schema privileges QA без GRANT OPTION подтверждены. Проверить оставшиеся global/table privileges, исходную пустоту БД, миграции, роли, сохранение заявок, consistent dump и изолированное восстановление. Полный preflight на сервере: `hp1/logs/db-preflight.json`.
 4. BUSINESS проверяется через настоящее расписание Hostinger: первичная доставка, повтор после временной ошибки, отсутствие дублей и параллельных исполнителей. Ручной запуск worker не закрывает этот пункт. Действующий analytics cron не меняется.
 5. Экспорт старого Supabase получен без активации. База, Storage и отчёты находятся на Hostinger в `younew-private/launch-backups/supabase-preservation-20261109/`; SHA-256 архива — `b51073a770006b4df9e7f880451edceb464971a00a79b85394ab98f1394055cb`. Данные COPY восстановлены и сверены побайтно; Storage payload сопоставлен с метаданными. Полный Supabase runtime и безопасный перенос в MariaDB остаются отдельной проверкой. Не активировать проект автоматически.
+   Совместимость проверки старых bcrypt-паролей подготовлена и испытана на синтетических аккаунтах: `LEGACY_AUTH_COMPATIBILITY_RU.md`. Перенос реальных пользователей, workspace, исторических заявок и остальных таблиц этим не закрывается.
 6. Прогнать весь сценарий на Hostinger QA, включая PHP → backend → Admin, EN/NL, LIVE/EXPLORE/BUSINESS, поиск, карту, мобильную форму, роли, reload и сохранение.
 
 ## Публикация и безопасный откат

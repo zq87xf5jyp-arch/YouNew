@@ -5,6 +5,10 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Verify preserved cost-10 bcrypt credentials alongside current scrypt records
+  in Hostinger Admin, without changing account approvals, roles, passwords or sessions.
+  Reject malformed records and bcrypt input truncation; test independent PHP vectors.
+
 - Build Hostinger archives from an exact committed Git tree, excluding untracked
   files and local edits, with reproducible hashes and a completed release manifest.
 

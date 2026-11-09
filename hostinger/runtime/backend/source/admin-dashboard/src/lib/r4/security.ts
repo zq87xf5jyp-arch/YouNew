@@ -1,8 +1,9 @@
 import 'server-only';
 import {cookies,headers} from 'next/headers';
-import {createHash,randomBytes,scrypt as rawScrypt,timingSafeEqual} from 'node:crypto';
+import {createHash,randomBytes} from 'node:crypto';
 import {db,rows,transaction,type Conn} from './db';
 import type {AdminRole} from '../authorization';
+import {verifyPassword} from './passwords';
 export class Denied extends Error {constructor(public status:number,public code:string){super(code);}}
 export const hash=(s:string|Buffer)=>createHash('sha256').update(s).digest('hex');
 let activeHashes=0;
@@ -28,13 +29,12 @@ export async function login(email:unknown,password:unknown){
  const normalized=email.trim().toLowerCase(), window=Math.floor(Date.now()/900000);
  await transaction(async c=>{for(const identity of ['account:'+normalized,'global']){const key=hash(identity+':'+window);await c.execute('INSERT INTO auth_attempts(bucket,total,expires_at) VALUES(?,1,DATE_ADD(UTC_TIMESTAMP(3),INTERVAL 15 MINUTE)) ON DUPLICATE KEY UPDATE total=total+1',[key]);const [r]=await rows(c,'SELECT total FROM auth_attempts WHERE bucket=?',[key]);if(r.total>(identity==='global'?1000:10))throw new Denied(429,'rate_limited');}});
  const [p]=await rows(db(),'SELECT id,password_hash,is_approved,is_blocked FROM profiles WHERE email=?',[normalized]);
- const stored=p?.password_hash ?? process.env.R4_DUMMY_PASSWORD_HASH;
- if(!stored)throw new Error('Dummy hash required');
- const [version,salt,digest]=stored.split('$');
- if(version!=='scrypt32768' || !/^[a-f0-9]{128}$/.test(digest??''))throw new Error('Invalid credential record');
+ const stored=p?.password_hash;
+ const dummy=process.env.R4_DUMMY_PASSWORD_HASH;
+ if(!dummy)throw new Error('Dummy hash required');
  if(activeHashes>=2)throw new Denied(429,'rate_limited');activeHashes++;
- let actual:Buffer;try{actual=await new Promise<Buffer>((resolve,reject)=>rawScrypt(password,salt,64,{N:32768,r:8,p:1,maxmem:64*1024*1024},(e,v)=>e?reject(e):resolve(v)));}finally{activeHashes--;}
- if(!p || !timingSafeEqual(Buffer.from(digest,'hex'),actual))throw new Denied(401,'invalid_credentials');
+ let valid:boolean;try{valid=await verifyPassword(password,stored,dummy);}finally{activeHashes--;}
+ if(!p || !valid)throw new Denied(401,'invalid_credentials');
  if(!p.is_approved||p.is_blocked)throw new Denied(403,'account_denied');
  const token=randomBytes(32).toString('hex');
  await transaction(async c=>{const [current]=await rows(c,'SELECT is_approved,is_blocked,password_hash FROM profiles WHERE id=? FOR UPDATE',[p.id]);if(!current?.is_approved||current.is_blocked||current.password_hash!==stored)throw new Denied(403,'account_denied');await c.execute('INSERT INTO sessions(token_hash,profile_id,expires_at) VALUES(?,?,DATE_ADD(UTC_TIMESTAMP(3),INTERVAL 8 HOUR))',[hash(token),p.id]);});
