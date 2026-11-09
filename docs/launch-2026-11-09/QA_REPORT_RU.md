@@ -22,11 +22,13 @@
 | Все применимые PR workflows кандидата кода | GitHub `a8054da` | PASS | Семь workflows завершились успешно; точные SHA/URL в `CI_EVIDENCE_A8054DA.json`. [Product CI](https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42654439522) включает iOS tests, accessibility и unsigned Release. Последующие commits требуют собственных checks. |
 | Архивы выбранного commit | Локально, `8524131` | PASS | 2374 члена двух архивов сверены с manifests; Node-архив размещён, PHP gate обновлён отдельно. Managed runtime сохраняет standalone output, не все исходники. |
 | Настоящий BUSINESS cron, retry, dedupe, блокировка worker | Hostinger QA | PASS | Доставка 17:22 UTC; 503 без частичных строк и успешный retry 17:28; worker_running 17:30 и доставка 17:31. Ручной worker не запускался, analytics cron сохранён. |
-| Каталог: переключение, ошибка сборки, отзыв, задержка | Hostinger QA | NOT TESTED | Зависимости установлены; отдельная сборка из Git подготавливается. Каталожный cron не включён. |
-| Роли, чужие объекты, сохранение и перезапуск | Hostinger QA | PARTIAL | Вход, права CRM и logout прошли; дополнительно 15 объектных/файловых проверок PASS, включая чужой workspace, byte equality и no-store. Managed restart ещё не завершён. |
+| Каталог: переключение, ошибка сборки, отзыв, задержка | Hostinger QA `7efb72f` | PASS | 64 HTTP-проверки; настоящий cron каждую минуту. Публикация за 79,74 с, отзыв за 131,42 с с намеренной ошибкой сборки; прежний active pointer сохранён, fault устранён. 71 реальный черновик исключён. |
+| Роли, чужие объекты, сохранение и перезапуск | Hostinger QA | PASS | 15 объектных/файловых проверок. Полная замена процессов сохранила прежнюю сессию без повторного входа, identity/inquiries/file побайтно совпали, logout отозвал сессию. `HOSTINGER_CATALOG_RESTART_EVIDENCE.json`. |
 | Перенос реальных пользователей, заявок и файлов | Hostinger | NOT TESTED | Экспорты сохранены; назначение workspace, исходные статусы и сверка всех записей требуют законченного импорта. |
-| Закрытый QA, секреты, логи, backup paths недоступны | Hostinger | PARTIAL | PHP Basic gate работает при приватных credentials 0600; полная матрица путей проверяется после сборки каталога. |
+| Закрытый QA, секреты, логи, backup paths недоступны | Hostinger QA | PASS | Basic gate, no-store/noindex и запрет приватных путей проверены в 64 catalog checks. |
 | Новый production: критические сценарии, CDN и rollback | Production | NOT TESTED | Переключение не выполнялось. |
 | Уборка после успешного запуска | GitHub/Hostinger/локальные копии | NOT TESTED | Не начиналась; действия и ограничения в `CLEANUP_MANIFEST.csv`. |
 
 Открытые ограничения перечислены в `OPEN_ISSUES_RU.md`. Подробные логи, скриншоты, дампы и приватные manifests находятся в защищённых каталогах доказательств, а не в GitHub.
+
+Все workflows `7efb72f` прошли; точные SHA и ссылки — `CI_EVIDENCE_7EFB72F.json`. Два сбоя GitHub Internal server error устранены повторным запуском без изменения проверок. Scoped minimatch 11.0.1 проверен локально: lint/typecheck и три полных audit без уязвимостей. Новый commit требует собственных CI и Hostinger deployment.

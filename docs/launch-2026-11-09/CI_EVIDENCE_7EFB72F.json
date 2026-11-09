@@ -1,0 +1,92 @@
+{
+  "source_commit": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+  "status": "PASS",
+  "runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 42672712463,
+      "event": "pull_request",
+      "headSha": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+      "name": "Secret Scan",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42672712463"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42672712389,
+      "event": "pull_request",
+      "headSha": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+      "name": "DATA PROJECT Health",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42672712389"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42672712418,
+      "event": "pull_request",
+      "headSha": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+      "name": "Monetization Dependency Audit",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42672712418"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42672712306,
+      "event": "pull_request",
+      "headSha": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+      "name": "Governance contract",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42672712306"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42672712450,
+      "event": "pull_request",
+      "headSha": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+      "name": "Supabase Disposable Verification",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42672712450"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42672712059,
+      "event": "pull_request",
+      "headSha": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+      "name": "Admin CI",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42672712059"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42672712092,
+      "event": "pull_request",
+      "headSha": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+      "name": "Product CI",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42672712092"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42672703269,
+      "event": "push",
+      "headSha": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+      "name": "Admin CI",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42672703269"
+    }
+  ],
+  "transient_platform_failures": [
+    {
+      "run": 42672703269,
+      "error": "GitHub Internal server error",
+      "correlation": "6db70d8c-f220-4f6e-8ac3-3f058e8d70b3"
+    },
+    {
+      "run": 42672712059,
+      "error": "GitHub Internal server error prevented Hostinger job startup",
+      "correlation": "219480b2-dbc3-4491-91d8-c1c5aa6b26d8"
+    }
+  ],
+  "reruns_passed": true,
+  "subsequent_changes_require_own_checks": true
+}

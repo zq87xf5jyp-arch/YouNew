@@ -65,21 +65,18 @@
   "configuration_backup": "/home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/backups/initial-config-20261109T171251Z-eec133bf",
   "gate_backup": "/home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/backups/qa-gate-20261109T172050Z",
   "catalog": {
-    "status": "NOT_YET_BUILT",
-    "builder_source_verified_files": 2223,
-    "builder_source_commit": "dd9b55373874b5229d7e075ddd6743e8166d3853",
-    "dependencies_installed": true,
-    "pnpm_version": "11.17.0",
-    "install_options": [
-      "frozen-lockfile",
-      "ignore-scripts",
-      "PNPM_MAX_WORKERS=1"
-    ],
-    "scheduled_catalog_job_installed": false
+    "status": "PASS",
+    "builder_source_commit": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+    "scheduled_catalog_job_installed": true,
+    "schedule": "* * * * *",
+    "checks": 64,
+    "failure_preserved_active_release": true,
+    "fault_removed": true,
+    "real_drafts_excluded": 71,
+    "evidence": "HOSTINGER_CATALOG_RESTART_EVIDENCE.json"
   },
   "limitations": [
     "Managed Node output is standalone; it omits source files and catalog tools. Uploaded archive identity is tracked separately from runtime bundle hashes.",
-    "Full QA publication and managed restart persistence checks still required.",
     "Real legacy data migration and production deployment remain pending."
   ],
   "bcrypt_compatibility": {
@@ -110,5 +107,28 @@
       "unsigned PHP rejection"
     ],
     "fixtures_retained": true
+  },
+  "restart": {
+    "status": "PASS",
+    "at": "2026-11-09T18:43:31.150004+00:00",
+    "sessionSurvived": true,
+    "objectsByteIdentical": [
+      "identity",
+      "inquiries",
+      "file"
+    ],
+    "logoutRevoked": true,
+    "reloginUsedForCheck": false,
+    "processesReplaced": true,
+    "hpanelRestartRetainedPredecessor": true,
+    "fullRestartOperationEvidence": "restart-full-operation.private.json",
+    "sameDeployment": true,
+    "configurationByteIdentical": true,
+    "processesAfter": [
+      {
+        "pid": "3624525",
+        "cwd": "/home/u246392949/domains/qa-runtime.younew.nl/hbuilds/versions/01a1c14c-d9f4-71a7-afa1-aa274a7abc95/nodejs"
+      }
+    ]
   }
 }

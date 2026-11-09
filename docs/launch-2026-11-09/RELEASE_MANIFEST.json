@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "recorded_at": "2026-11-09T17:41:35.945390+00:00",
-  "state": "QA_BACKEND_VERIFIED_PRODUCTION_PENDING",
+  "recorded_at": "2026-11-09T18:44:49.455717+00:00",
+  "state": "SYNTHETIC_HOSTINGER_QA_PASS_REAL_MIGRATION_PENDING",
   "repository": "https://github.com/zq87xf5jyp-arch/YouNew",
   "pull_request": "https://github.com/zq87xf5jyp-arch/YouNew/pull/54",
   "code_candidate_commit": "852413130f3bc190128e53bebdc997fef7d30d1e",
@@ -22,8 +22,11 @@
     "database_migrations_applied": true,
     "php_gate_commit": "dd9b55373874b5229d7e075ddd6743e8166d3853",
     "scheduled_business_verified": true,
-    "scheduled_catalog_verified": false,
-    "evidence": "HOSTINGER_QA_SERVER_EVIDENCE.json"
+    "scheduled_catalog_verified": true,
+    "evidence": "HOSTINGER_QA_SERVER_EVIDENCE.json",
+    "running_catalog_commit": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+    "catalog_release": "hp-1794248941535-be274c0c",
+    "full_process_restart_verified": true
   },
   "observed_hostinger_runtime": {
     "node_cli": "24.22.1",
@@ -65,7 +68,7 @@
   },
   "required_before_production": [
     "Current selected-commit required CI checks",
-    "Full closed QA integration and real scheduled BUSINESS/catalog tests",
+    "Revalidate selected release after dependency and real-data migration changes",
     "Verified migration of preserved accounts, inquiries and files",
     "Fresh production backup and tested code rollback without overwriting live data"
   ],
@@ -82,8 +85,8 @@
   },
   "prior_verified_code_ci": {
     "status": "PASS",
-    "source_commit": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
-    "evidence": "CI_EVIDENCE_A8054DA.json",
+    "source_commit": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+    "evidence": "CI_EVIDENCE_7EFB72F.json",
     "later_commits_require_own_checks": true
   },
   "production_admin_resource_settings": {
