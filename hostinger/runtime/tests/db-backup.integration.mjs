@@ -10,6 +10,7 @@ import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { clientOptions, schemaInventory, writeLogicalDump } from '../../deployment/backup-qa.mjs';
+import { fingerprintRows, restorePreservingTables } from '../../deployment/restore-qa.mjs';
 
 if (process.argv[2] !== '--local-disposable') throw new Error('Explicit local disposable test required');
 const mysql = createRequire(new URL('../backend/source/admin-dashboard/package.json', import.meta.url))('mysql2/promise');
@@ -93,6 +94,28 @@ try {
   assert.deepEqual(afterSchema, beforeSchema, 'every restored definition and engine matches');
   assert.deepEqual(await rowsFingerprint(afterSchema), beforeRows, 'all rows match including binary, Unicode, JSON, NULL and timestamps');
   checks.push('all_migration_tables_and_definitions_restored', 'all_rows_exact_fingerprints', 'unicode_binary_json_null_timestamps_preserved');
+  await connection.query('USE backup_source');
+  const preserved = await restorePreservingTables({ connection, database: 'backup_source',
+    options: { socketPath, user: 'root', password: '' }, dumpPath: root + '/backup/database.sql',
+    schema: beforeSchema, directory: root + '/preserve-restore' });
+  assert.equal(preserved.status, 'PASS');
+  assert.equal(preserved.restoredTables, 13);
+  assert.equal(preserved.restoredRows, 7);
+  assert.equal(preserved.originalTablesDeleted, false);
+  assert.equal((await schemaInventory(connection, 'backup_source')).tables.length, 26);
+  await assert.rejects(fs.access(root + '/preserve-restore/client.cnf'), { code: 'ENOENT' });
+  checks.push('same_qa_namespace_restored_with_all_original_tables_and_rows_preserved');
+  await connection.query('USE backup_restored');
+  await assert.rejects(restorePreservingTables({ connection, database: 'backup_restored',
+    options: { socketPath, user: 'root', password: '' }, dumpPath: root + '/backup/database.sql',
+    schema: afterSchema, directory: root + '/failed-preserve-restore', executable: root + '/missing-client' }));
+  const failedIntent = JSON.parse(await fs.readFile(root + '/failed-preserve-restore/intent.private.json', 'utf8'));
+  const heldPrefix = failedIntent.originalTables[0].preserved.slice(0, -failedIntent.originalTables[0].original.length);
+  assert.deepEqual(await fingerprintRows(connection, afterSchema.tables.map(t => t.TABLE_NAME), heldPrefix), beforeRows);
+  assert.equal((await schemaInventory(connection, 'backup_restored')).tables.length, 13);
+  await assert.rejects(fs.access(root + '/failed-preserve-restore/client.cnf'), { code: 'ENOENT' });
+  await assert.rejects(fs.access(root + '/failed-preserve-restore/report.private.json'), { code: 'ENOENT' });
+  checks.push('failed_restore_keeps_all_original_rows_and_removes_temporary_credentials');
   await connection.query('CREATE TABLE unsupported_engine(id INT) ENGINE=MyISAM');
   await assert.rejects(schemaInventory(connection, 'backup_restored'), /InnoDB/);
   checks.push('nontransactional_table_refused');

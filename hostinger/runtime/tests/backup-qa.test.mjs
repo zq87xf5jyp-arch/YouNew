@@ -5,9 +5,20 @@ import * as fs from 'node:fs/promises';
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { assertQaTarget, writeLogicalDump } from '../../deployment/backup-qa.mjs';
+import { assertRestoreTarget } from '../../deployment/restore-qa.mjs';
 
 const env = { R4_DB_NAME: 'u246392949_younq1', R4_DB_USER: 'u246392949_younq1', R4_DB_HOST: '127.0.0.1', R4_LOCAL: 'false', R4_DB_PASSWORD: 'synthetic-only' };
 const args = ['--approved-qa', '--no-schema-changes'];
+test('preserving restore refuses other databases, active app credentials and missing operator guards', () => {
+  const flags = ['--synthetic-qa-only', '--no-app-traffic', '/private/backup'];
+  assert.doesNotThrow(() => assertRestoreTarget(env, flags));
+  for (const change of [{ R4_DB_NAME: 'production' }, { R4_DB_USER: 'root' }, { R4_DB_HOST: 'localhost' },
+    { R4_LOCAL: 'true' }, { R4_DB_PASSWORD: '' }, { R4_INGEST_KEY: 'active-key' }, { R4_DUMMY_PASSWORD_HASH: 'active-hash' }]) {
+    assert.throws(() => assertRestoreTarget({ ...env, ...change }, flags));
+  }
+  assert.throws(() => assertRestoreTarget(env, flags.slice(1)));
+  assert.throws(() => assertRestoreTarget(env, [...flags, '--force']));
+});
 test('backup refuses production, alternate hosts/users and missing operator guards', () => {
   assert.doesNotThrow(() => assertQaTarget(env, args));
   for (const change of [{ R4_DB_NAME: 'production' }, { R4_DB_USER: 'root' }, { R4_DB_HOST: 'localhost' }, { R4_LOCAL: 'true' }, { R4_DB_PASSWORD: '' }]) {

@@ -14,7 +14,7 @@ SKIP = {'node_modules', '.next', 'out', 'dist', '.git', 'private', 'publication'
         'DerivedData', 'evidence', '__pycache__'}
 BACKEND = 'hostinger/runtime/backend/source/admin-dashboard/'
 TOOLS = ['publish-catalog.mjs', 'export-approved.mjs']
-OPS = ['host-preflight.mjs', 'init-qa.mjs', 'backup-qa.mjs']
+OPS = ['host-preflight.mjs', 'init-qa.mjs', 'backup-qa.mjs', 'restore-qa.mjs']
 PHP = ['public/submit-business-inquiry.php', 'public/api/submit-business-inquiry.php',
        'public/private-files.php', 'private/forms/service.php', 'private/forms/sync.php']
 DEPLOYMENT = ['cron-business.sh', 'cron-catalog.sh', 'cron-initialize.sh',

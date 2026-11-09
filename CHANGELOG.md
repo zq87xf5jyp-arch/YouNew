@@ -5,6 +5,9 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Add an initial synthetic Hostinger QA restore exercise that retains every
+  original table and verifies restored definitions and row fingerprints.
+
 - Add the requested launch manifest, environment-scoped QA report, deployment and
   rollback instructions, deferred-cleanup register, and explicit unresolved gates.
 - Preserve the initial Leiden experiment sources, refresh the 30-day acquisition

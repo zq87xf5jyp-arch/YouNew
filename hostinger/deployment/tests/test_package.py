@@ -49,6 +49,7 @@ class CommittedPackageTests(unittest.TestCase):
                     self.assertNotIn('catalog-builder/source/' + forbidden, names)
                 self.assertIn('catalog-builder/tools/publish-catalog.mjs', names)
                 self.assertIn('ops/backup-qa.mjs', names)
+                self.assertIn('ops/restore-qa.mjs', names)
             self.assertEqual(json.loads((root / 'first/release.json').read_text()), first)
             with self.assertRaises(FileExistsError):
                 package.build(repo, commit, root / 'first', archive=True)

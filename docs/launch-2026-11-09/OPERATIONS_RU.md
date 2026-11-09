@@ -28,7 +28,7 @@
 `hostinger/deployment/backup-qa.mjs` — отдельная операторская команда, не часть запуска приложения. Она допускает только `127.0.0.1`, базу и пользователя `u246392949_younq1`, `R4_LOCAL=false` и проверенную MariaDB 11.8.9. На время копирования должны быть остановлены изменения схемы. Из каталога серверного `hostinger/runtime/backend/source/admin-dashboard`, где установлен `mysql2`, команда:
 
 ```sh
-NODE_OPTIONS=--v8-pool-size=1 UV_THREADPOOL_SIZE=1 \
+R4_LOCAL=false NODE_OPTIONS=--v8-pool-size=1 UV_THREADPOOL_SIZE=1 \
 /opt/alt/alt-nodejs24/root/bin/node \
   --env-file=/home/u246392949/domains/qa-admin.younew.nl/younew-private/launch.env \
   /home/u246392949/domains/qa-catalog.younew.nl/younew-private/launch-source/hostinger/deployment/backup-qa.mjs \
@@ -38,6 +38,8 @@ NODE_OPTIONS=--v8-pool-size=1 UV_THREADPOOL_SIZE=1 \
 Скрипт создаёт новую папку в приватном `hp1/backups/`, не перезаписывает предыдущие копии, проверяет InnoDB и неизменность определений таблиц. Пароль используется через временный файл 0600 и удаляется из него после завершения клиента; в аргументы процесса и отчёт он не попадает. SQL, manifest и stderr остаются приватными. Частичный dump после ошибки нельзя использовать. Наличие routines/events/triggers требует отдельного расширения проверки и останавливает текущую команду.
 
 Успех команды означает только `BACKUP_WRITTEN_RESTORE_PENDING`. Затем нужно восстановить **эту** копию в отдельной пустой базе, сравнить определения и строки, записать результат. Production и рабочую QA-базу для проверки восстановления не использовать. Dump согласован для InnoDB при отсутствии параллельного DDL; это соответствует [документации MariaDB](https://mariadb.com/docs/server/clients-and-utilities/backup-restore-and-import-clients/mariadb-dump).
+
+Для первоначальной QA до application keys и трафика подготовлен отдельный сохраняющий вариант: `QA_RESTORE_RU.md`. Он принимает только известные синтетические fixtures и сохраняет все исходные таблицы внутри изолированной базы до восстановления. Его нельзя применять к уже работающей QA или production.
 
 Локальная проверка инструмента запускается командой `node hostinger/runtime/tests/db-backup.integration.mjs --local-disposable` при установленных MariaDB CLI и зависимостях нового Admin. Она поднимает собственный сервер без сетевого слушателя, проверяет dump/restore всей схемы миграций и синтетических строк, затем останавливает сервер. Подтверждённый результат на локальной MariaDB 13.0.2: 13 таблиц, 7 строк, совпадение определений и отпечатков данных; включая Unicode, JSON, binary, NULL и timestamps. Это **не** доказательство восстановления Hostinger MariaDB 11.8.9.
 
