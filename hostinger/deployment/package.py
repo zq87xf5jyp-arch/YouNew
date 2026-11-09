@@ -18,7 +18,7 @@ OPS = ['host-preflight.mjs', 'init-qa.mjs', 'backup-qa.mjs', 'restore-qa.mjs']
 PHP = ['public/submit-business-inquiry.php', 'public/api/submit-business-inquiry.php',
        'public/private-files.php', 'private/forms/service.php', 'private/forms/sync.php']
 DEPLOYMENT = ['cron-business.sh', 'cron-catalog.sh', 'cron-initialize.sh',
-              'php-preflight.php', 'sync-config.php.example', 'origins.php.example']
+              'php-preflight.php', 'qa-access.php', 'sync-config.php.example', 'origins.php.example']
 
 
 def git(repo, *args):

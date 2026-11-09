@@ -5,6 +5,9 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Enforce the isolated catalog's Basic gate in its PHP router, preserving 0600
+  credential files when the web-server account cannot traverse private directories.
+
 - Record the successful Hostinger synthetic database restore and add guarded
   initial QA configuration with private backups before runtime activation.
 

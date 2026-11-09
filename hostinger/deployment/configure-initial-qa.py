@@ -99,8 +99,8 @@ def install(ref):
         inventory.append(record)
     intent = {'source_commit': commit, 'scope': 'isolated QA only', 'files': inventory}
     (backup / 'intent.private.json').write_text(json.dumps(intent, indent=2))
-    # Install private code/config, then the gate, then the public router.
-    order = sorted(files, key=lambda p: (0 if ROOT / 'public_html' not in p.parents else 1 if p.name == '.htaccess' else 2))
+    # Install private code/config, then the gated router, then route all requests to it.
+    order = sorted(files, key=lambda p: (0 if ROOT / 'public_html' not in p.parents else 2 if p.name == '.htaccess' else 1))
     for path in order:
         path.parent.mkdir(parents=True, exist_ok=True, mode=0o700)
         temporary = path.with_name(path.name + '.new-' + secrets.token_hex(6))
