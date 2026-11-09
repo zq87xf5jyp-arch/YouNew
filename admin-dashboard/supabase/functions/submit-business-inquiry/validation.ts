@@ -104,12 +104,15 @@ export function validateBusinessInquiryPayload(
   if (!validText(value.companyName, 2, 120)) fields.push("companyName");
   if (!validText(value.contactPerson, 2, 120)) fields.push("contactPerson");
   if (
-    (text(value.offerInterest) === "onboarding_pilot" && !validText(value.contactRole, 2, 120)) ||
+    (text(value.offerInterest) === "onboarding_pilot" &&
+      !validText(value.contactRole, 2, 120)) ||
     (text(value.contactRole) && !validText(value.contactRole, 2, 120))
   ) {
     fields.push("contactRole");
   }
-  if (!offerInterests.has(text(value.offerInterest))) fields.push("offerInterest");
+  if (!offerInterests.has(text(value.offerInterest))) {
+    fields.push("offerInterest");
+  }
   if (!emailPattern.test(text(value.email)) || text(value.email).length > 254) {
     fields.push("email");
   }
@@ -146,7 +149,14 @@ export function validateBusinessInquiryPayload(
   if (!validText(value.description, 30, 600)) fields.push("description");
   if (value.consentToPrivacy !== true) fields.push("consentToPrivacy");
   if (value.confirmAccuracy !== true) fields.push("confirmAccuracy");
-  if (!["/business/apply/", "/partners/apply/", "/for-business/local/apply/", "/nl/voor-bedrijven/aanmelden/"].includes(text(value.sourcePage))) {
+  if (
+    ![
+      "/business/apply/",
+      "/partners/apply/",
+      "/for-business/local/apply/",
+      "/nl/voor-bedrijven/aanmelden/",
+    ].includes(text(value.sourcePage))
+  ) {
     fields.push("sourcePage");
   }
 

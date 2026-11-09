@@ -3,10 +3,10 @@
   "deprecated": true,
   "replacement": "release-truth.json",
   "generatedAt": "2026-11-09T14:16:09.000Z",
-  "snapshotID": "release-truth.c53f304f90620a44",
-  "snapshotDigest": "c53f304f90620a44a7c742b76ff56ea8fc1c79f3a4a16a118f224f4ce361257c",
+  "snapshotID": "release-truth.9e7753e7fcab5e60",
+  "snapshotDigest": "9e7753e7fcab5e60b738d6bc9d741f16bf7f2dc907342a7fcb6aa1ad58d0fa27",
   "release_identity": {
-    "candidate_commit": "1dab9d84875a0ba9a227c59f5b248aea129dfbe0",
+    "candidate_commit": "eebb6a9b254d74f6e0dc227af9ccabb1c2047bda",
     "source_tree_state": "dirty",
     "packaged_fingerprint": "39a365a2152382da678d1a888a535295ab497481858b815d785c00c32fcbabfc"
   },

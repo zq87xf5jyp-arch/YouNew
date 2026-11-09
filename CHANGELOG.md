@@ -5,6 +5,14 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Preserve the business add/claim choice across English/Dutch navigation while
+  retaining the private, in-memory search language handoff.
+- Test mobile city isolation with synthetic places and assert that withdrawn
+  partners and deep links stay unavailable without erasing the source catalog.
+- Format the legacy Edge functions and compare restored schema fingerprints in
+  a consistent PostgreSQL search path, accounting for deliberately revoked local
+  platform defaults without excluding application grants or policy expressions.
+
 - Withdraw 172 overdue Amsterdam records through an immutable patch without
   changing source facts or verification dates. Preserve unapproved replacements
   and prevent withdrawn records from returning through the mobile legacy fallback.

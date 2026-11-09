@@ -37,7 +37,9 @@ export async function readBoundedJsonBody(
   request: Request,
   maximumBytes: number,
 ): Promise<BoundedJsonResult> {
-  if (!Number.isSafeInteger(maximumBytes) || maximumBytes < 1 || !request.body) {
+  if (
+    !Number.isSafeInteger(maximumBytes) || maximumBytes < 1 || !request.body
+  ) {
     return { ok: false, reason: "invalid_json" };
   }
 
@@ -77,8 +79,8 @@ export async function readBoundedJsonBody(
 }
 
 function environmentForOrigin(origin: string | null) {
-  return origin?.startsWith("http://localhost:")
-      || origin?.startsWith("http://127.0.0.1:")
+  return origin?.startsWith("http://localhost:") ||
+      origin?.startsWith("http://127.0.0.1:")
     ? "staging"
     : "production";
 }
@@ -98,8 +100,10 @@ export function normalizeAnalyticsEvents(
   { origin, occurredAt }: NormalizationOptions,
 ) {
   return events.map((event) => {
-    if (!isRecord(event) || typeof event.event_name !== "string"
-      || !geoEventNames.has(event.event_name)) {
+    if (
+      !isRecord(event) || typeof event.event_name !== "string" ||
+      !geoEventNames.has(event.event_name)
+    ) {
       return event;
     }
 

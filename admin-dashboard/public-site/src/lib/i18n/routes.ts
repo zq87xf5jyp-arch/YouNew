@@ -1,3 +1,9 @@
+/** Carry only the public add/claim intent; never copy contact or search fields. */
+export function businessLanguageHref(href: string, pathname: string, action: string | null): string {
+  const isApplication = /^\/(?:for-business\/local\/apply|nl\/voor-bedrijven\/aanmelden)\/?$/.test(pathname);
+  return isApplication && (action === "add" || action === "claim") ? `${href}?action=${action}` : href;
+}
+
 export function localizedCounterpart(path: string): { en: string; nl: string } | null {
   const normalized = path === "/" ? "/" : `/${path.replace(/^\/+|\/+$/g, "")}`;
   const pairs: Array<[RegExp, (match: RegExpMatchArray) => string, (match: RegExpMatchArray) => string]> = [

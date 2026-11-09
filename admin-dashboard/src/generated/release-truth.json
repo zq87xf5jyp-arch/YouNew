@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "snapshotID": "release-truth.c53f304f90620a44",
-  "snapshotDigest": "c53f304f90620a44a7c742b76ff56ea8fc1c79f3a4a16a118f224f4ce361257c",
+  "snapshotID": "release-truth.9e7753e7fcab5e60",
+  "snapshotDigest": "9e7753e7fcab5e60b738d6bc9d741f16bf7f2dc907342a7fcb6aa1ad58d0fa27",
   "generatedAt": "2026-11-09T14:16:09.000Z",
-  "candidateCommit": "1dab9d84875a0ba9a227c59f5b248aea129dfbe0",
+  "candidateCommit": "eebb6a9b254d74f6e0dc227af9ccabb1c2047bda",
   "sourceTreeState": "dirty",
   "sourceTreeExclusions": [
     "admin-dashboard/src/generated/release-truth.json",
@@ -19,7 +19,7 @@
     {
       "id": "candidate-source",
       "kind": "git_source_identity",
-      "sourceRef": "git:1dab9d84875a0ba9a227c59f5b248aea129dfbe0",
+      "sourceRef": "git:eebb6a9b254d74f6e0dc227af9ccabb1c2047bda",
       "sha256": null,
       "observedAt": null,
       "validThrough": null,

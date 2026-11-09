@@ -73,7 +73,14 @@ struct KnowledgeIndexTests {
         #expect(report.cities >= 12)
         #expect(report.places >= NLCity.all.flatMap(\.attractions).count)
         #expect(report.governmentServices >= MockInstitutionsData.items.count)
-        #expect(report.localPartners == MockLocalPartnersData.partners.count)
+        let runtime = DataProjectRuntimeLoader.load()
+        let withdrawnPartnerIDs = Set(runtime.migrationRegistry.compactMap { legacyID, migration in
+            migration.retiresLegacyRuntimeRecord && runtime.withheldEntityIDs.contains(migration.canonicalID) ? legacyID : nil
+        })
+        let expectedPartnerIDs = Set(MockLocalPartnersData.partners.map { "local-partner:\($0.id)" })
+            .subtracting(withdrawnPartnerIDs)
+        #expect(Set(database.entities(kind: .localPartner).map(\.id)) == expectedPartnerIDs)
+        #expect(report.localPartners == expectedPartnerIDs.count)
         #expect(report.officialSources >= 10)
         #expect(report.linkedImages >= database.entities.count)
         #expect(report.relations >= report.cities * 3)
@@ -280,7 +287,12 @@ struct KnowledgeIndexTests {
         let indexedSubcategories = Set(partners.map(\.category))
 
         #expect(cities.isSubset(of: indexedCities))
-        #expect(requiredSubcategories.isSubset(of: indexedSubcategories))
+        // Preserve the source catalog while the runtime obeys withdrawals.
+        #expect(requiredSubcategories.isSubset(of: Set(MockLocalPartnersData.partners.map(\.subcategory))))
+        let auditDate = Date(timeIntervalSince1970: 1_785_412_800)
+        let publishablePartners = NetherlandsKnowledgeDatabase.shared.publishedEntities(at: auditDate)
+            .filter { $0.kind == .localPartner }
+        #expect(indexedSubcategories == Set(publishablePartners.map(\.category)))
         #expect(partners.allSatisfy { !$0.sources.compactMap(\.url).isEmpty })
         #expect(auditedPartnerSearchEngine().search("dentist Rotterdam", language: .english, activePersona: .worker).contains { $0.item.type == .localPartner && $0.item.city == "Rotterdam" })
         #expect(auditedPartnerSearchEngine().search("language school Eindhoven", language: .english, activePersona: .student).contains { $0.item.type == .localPartner && $0.item.city == "Eindhoven" })

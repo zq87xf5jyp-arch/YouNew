@@ -513,19 +513,19 @@ jobs:
           source_inventory="supabase/ci-artifacts/synthetic-restore-source-schema-inventory.txt"
           source_normalized="supabase/ci-artifacts/synthetic-restore-source-schema-inventory.normalized.txt"
           target_normalized="supabase/ci-artifacts/synthetic-restore-target-schema-inventory.normalized.txt"
-          platform_default_acl='^default_acl\|supabase_admin:public:[^|]*:(anon|authenticated):'
+          platform_default_acl='^default_acl\|supabase_admin:public:[^|]*:(anon|authenticated|service_role):'
           grep -Ev "$platform_default_acl" "$source_inventory" > "$source_normalized"
           grep -Ev "$platform_default_acl" "$restored_schema_inventory" > "$target_normalized"
           if grep -Eq "$platform_default_acl" "$restored_schema_inventory"; then
-            echo "FAIL restored target retained implicit supabase_admin browser default ACLs" >&2
+            echo "FAIL restored target retained implicit supabase_admin Data API default ACLs" >&2
             exit 1
           fi
           cmp "$source_normalized" "$target_normalized"
           {
             echo "PASS normalized application schema/security inventory matches source byte-for-byte"
-            echo "source_supabase_admin_browser_default_acl_rows=$(grep -Ec "$platform_default_acl" "$source_inventory" || true)"
-            echo "target_supabase_admin_browser_default_acl_rows=0"
-            echo "The excluded source rows are local platform defaults deliberately revoked before restore; every other captured identity and fingerprint is exact."
+            echo "source_supabase_admin_data_api_default_acl_rows=$(grep -Ec "$platform_default_acl" "$source_inventory" || true)"
+            echo "target_supabase_admin_data_api_default_acl_rows=0"
+            echo "The excluded source rows are local platform defaults for anon/authenticated/service_role deliberately revoked by prepare_restore_target.sql; every actual relation/routine grant and every other captured identity and fingerprint is exact."
           } | tee supabase/ci-artifacts/synthetic-restore-schema-normalization-summary.txt
           sha256sum \
             "$source_normalized" \

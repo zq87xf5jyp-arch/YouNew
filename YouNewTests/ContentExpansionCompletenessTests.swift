@@ -174,7 +174,9 @@ struct ContentExpansionCompletenessTests {
         #expect(partnerSearch.search("cleaning Eindhoven", language: .english, activePersona: .worker).contains {
             $0.item.type == .localPartner && $0.item.city == "Eindhoven" && $0.item.category == "Cleaning"
         })
-        #expect(partnerSearch.search("Van der Valk Amsterdam", language: .english, activePersona: .tourist).contains {
+        // Operational withdrawal applies even when a test uses an older audit date.
+        #expect(DataProjectRuntimeLoader.load().withheldEntityIDs.contains("local_partner.van-der-valk-hotel-amsterdam-amstel"))
+        #expect(!partnerSearch.search("Van der Valk Amsterdam", language: .english, activePersona: .tourist).contains {
             $0.item.type == .localPartner && $0.item.title(.english) == "Van der Valk Hotel Amsterdam-Amstel"
         })
         #expect(partnerSearch.search("Leiden University", language: .english, activePersona: .student).contains {
@@ -183,7 +185,7 @@ struct ContentExpansionCompletenessTests {
         #expect(partnerSearch.search("IND desk Amsterdam", language: .english, activePersona: .nonEU).contains {
             $0.item.type == .localPartner && $0.item.title(.english) == "IND Desk Amsterdam"
         })
-        #expect(partnerSearch.search("IKEA Amsterdam", language: .english, activePersona: .student).contains {
+        #expect(!partnerSearch.search("IKEA Amsterdam", language: .english, activePersona: .student).contains {
             $0.item.type == .localPartner && $0.item.title(.english) == "IKEA Amsterdam"
         })
     }

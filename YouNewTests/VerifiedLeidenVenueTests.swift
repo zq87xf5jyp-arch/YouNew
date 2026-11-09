@@ -35,9 +35,12 @@ struct VerifiedLeidenVenueTests {
 
     @Test func foodAndCultureCoverageIsEnrichedWithoutChangingHomeArchitecture() {
         let records = NetherlandsKnowledgeDatabase.shared.publishedEntities(at: Self.auditDate)
-        #expect(records.filter { $0.kind == .restaurant }.count >= 7)
-        #expect(records.filter { $0.kind == .cafe }.count >= 4)
-        #expect(records.filter { $0.kind == .museum }.count >= 27)
+        for kind in [NetherlandsEntityKind.restaurant, .cafe, .museum] {
+            let expectedIDs = Set(VerifiedLeidenVenueData.entities.filter { $0.kind == kind }.map(\.id))
+            let publishedIDs = Set(records.filter { $0.kind == kind }.map(\.id))
+            #expect(!expectedIDs.isEmpty)
+            #expect(expectedIDs.isSubset(of: publishedIDs))
+        }
     }
 
     @Test func healthSnapshotTracksEventsLinksAndMediaDebt() {

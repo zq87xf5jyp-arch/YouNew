@@ -1,5 +1,12 @@
 \set ON_ERROR_STOP on
 
+-- postgres and supabase_admin have different default search paths. Use the same
+-- deparser context so auth.users/auth.uid() keep their schema qualification on
+-- both sides of a restore. Do not normalize or omit any security expression.
+\set QUIET 1
+set search_path = pg_catalog, public;
+\set QUIET 0
+
 -- Stable identities plus definition/security fingerprints. This catches a
 -- same-named policy, function, view, index or constraint that was weakened.
 select object_kind, identity, definition_md5

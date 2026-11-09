@@ -143,7 +143,24 @@ struct CityPlacesCalendarRegressionTests {
 
     @Test func searchIndexDoesNotReturnPlacesFromAnotherCityWhenContextIsCitySpecific() {
         let rotterdamContext = Self.dashboardTouristContext(city: "Rotterdam")
-        let results = AppSearchEngine().search(
+        let auditDate = Date(timeIntervalSince1970: 1_786_276_800)
+        let items = ["Rotterdam", "Amsterdam"].map { city in
+            KnowledgeItem(
+                id: "place:synthetic-\(city.lowercased())-museum", type: .nearbyPlace,
+                title: LocalizedKnowledgeText("\(city) museum"),
+                summary: LocalizedKnowledgeText("Synthetic museum for city isolation testing."),
+                category: "museum", city: city, province: nil, keywords: ["museum"],
+                route: .mapFocus(.city(city)), routeID: "city:\(city.lowercased())",
+                sources: [OfficialSource(title: "Fixture", url: URL(string: "https://example.nl/museum"), institution: "Fixture")],
+                lastReviewed: auditDate, safetyLevel: .general, sourcePath: "test-fixture",
+                personaTags: [.tourist]
+            )
+        }
+        let engine = AppSearchEngine(
+            index: KnowledgeIndex(items: items),
+            repository: ContentRepository(legacyItems: items, now: auditDate, performsValidation: false)
+        )
+        let results = engine.search(
             "museum",
             language: AppLanguage.english,
             context: rotterdamContext,
@@ -155,7 +172,7 @@ struct CityPlacesCalendarRegressionTests {
 
         #expect(!placeResults.isEmpty)
         #expect(placeResults.allSatisfy { $0.item.city == "Rotterdam" })
-        #expect(!placeResults.contains { $0.item.title(.english).localizedCaseInsensitiveContains("Rijksmuseum") })
+        #expect(!placeResults.contains { $0.item.city == "Amsterdam" })
     }
 
     @Test func assistantUsesSelectedCityForStayFoodAndVisitQuestions() throws {
