@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "scope": "Hostinger synthetic QA only; production unchanged",
+  "node_archive_commit": "852413130f3bc190128e53bebdc997fef7d30d1e",
+  "php_gate_commit": "dd9b55373874b5229d7e075ddd6743e8166d3853",
+  "node_deployment_directory": "/home/u246392949/domains/qa-runtime.younew.nl/hbuilds/versions/01a1c14c-d9f4-71a7-afa1-aa274a7abc95",
+  "database": {
+    "server": "MariaDB 11.8.9",
+    "initially_empty": true,
+    "global_privileges": [
+      "USAGE"
+    ],
+    "global_grant_option": false,
+    "schema_grant_option": false,
+    "table_privileges": [],
+    "column_privileges": [],
+    "active_role": null,
+    "migrations_applied": 2,
+    "working_tables": 12,
+    "preserved_original_tables": 12,
+    "synthetic_users": 8,
+    "synthetic_workspaces": 2,
+    "restore_status": "PASS",
+    "restored_rows": 12,
+    "dump_sha256": "e0ad1e5f6f1fbe49c9072e24792ec8ca2aa62c04ced710f2805609c3ac7f0a07",
+    "restore_evidence": "/home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/backups/2026-11-09T16-58-15-988Z-a78d2763-68f9-43d1-a320-190a55d10a16/restore-preserved/report.private.json"
+  },
+  "authentication": {
+    "status": "PASS",
+    "checks": 43,
+    "evidence": "/home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/logs/auth-qa-20261109T171618Z.json"
+  },
+  "scheduled_business": {
+    "status": "PASS",
+    "schedule": "* * * * *",
+    "command": "/bin/bash /home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/deployment/cron-business.sh",
+    "worker_invoked_manually": false,
+    "initial_delivery_at": "2026-11-09T17:22:01+00:00",
+    "dedupe": "repeated public submission returned same receipt; one row in each of inquiry/receipt/notification/audit",
+    "retry": {
+      "failures_503_at": [
+        "2026-11-09T17:26:01+00:00",
+        "2026-11-09T17:27:01+00:00"
+      ],
+      "partial_rows_after_failure": 0,
+      "schema_restored_at": "2026-11-09T17:27:40.787Z",
+      "delivered_at": "2026-11-09T17:28:01+00:00",
+      "attempt": 3
+    },
+    "concurrency": {
+      "skipped_worker_running_at": "2026-11-09T17:30:01+00:00",
+      "pending_submission_delivered_once_at": "2026-11-09T17:31:01+00:00",
+      "fixture": "independent synthetic process held the same advisory lock for 75 seconds"
+    },
+    "evidence_files": [
+      "cron-first-result.private.json",
+      "cron-retry-failure.private.json",
+      "cron-retry-fault-removed.private.json",
+      "cron-retry-success.private.json",
+      "cron-concurrency-proof.private.json"
+    ],
+    "evidence_directory": "/home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/logs",
+    "existing_analytics_schedule_changed": false
+  },
+  "configuration_backup": "/home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/backups/initial-config-20261109T171251Z-eec133bf",
+  "gate_backup": "/home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/backups/qa-gate-20261109T172050Z",
+  "catalog": {
+    "status": "NOT_YET_BUILT",
+    "builder_source_verified_files": 2223,
+    "builder_source_commit": "dd9b55373874b5229d7e075ddd6743e8166d3853",
+    "dependencies_installed": true,
+    "pnpm_version": "11.17.0",
+    "install_options": [
+      "frozen-lockfile",
+      "ignore-scripts",
+      "PNPM_MAX_WORKERS=1"
+    ],
+    "scheduled_catalog_job_installed": false
+  },
+  "limitations": [
+    "Managed Node output is standalone; it omits source files and catalog tools. Uploaded archive identity is tracked separately from runtime bundle hashes.",
+    "Full QA publication, cross-object/file scenarios and restart checks still required.",
+    "Real legacy data migration and production deployment remain pending."
+  ],
+  "bcrypt_compatibility": {
+    "status": "PASS",
+    "at": "2026-11-09T17:40:27.423Z",
+    "independent_php_bcrypt_cost": 10,
+    "checks": [
+      "HTTP login",
+      "identity",
+      "viewer CRM denial",
+      "logout",
+      "revoked session"
+    ],
+    "original_fixture_restored": true,
+    "real_accounts_changed": false,
+    "evidence": "/home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/logs/bcrypt-qa-result.private.json"
+  }
+}

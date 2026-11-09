@@ -6,6 +6,7 @@ import {resolve,dirname,join,relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {createHash,randomUUID} from 'node:crypto';
 import {spawn} from 'node:child_process';
+import {createSourceWorktree,removeSourceWorktree} from './source-worktree.mjs';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const store=resolve(process.env.YOUNEW_PUBLICATION_ROOT||root+'/publication');
 const endpoint=process.env.YOUNEW_LOCAL_CATALOG_API||'http://127.0.0.1:4404/api/r4/editorial/approved';
@@ -19,6 +20,7 @@ const lock=store+'/build.lock';try{await fs.mkdir(lock);}catch(e){if(e.code==='E
 await fs.writeFile(lock+'/owner.json',JSON.stringify({pid:process.pid,startedAt,releaseId}));
 const stage=store+'/work-'+releaseId,release=store+'/releases/'+releaseId,logPath=store+'/logs/'+releaseId+'.log';
 const record={releaseId,startedAt,status:'STARTED',endpoint};
+let sourceWorktree;
 async function snapshot(){const r=await fetch(endpoint,{headers:{Authorization:'Bearer '+process.env.R4_CATALOG_BUILD_KEY},redirect:'error',signal:AbortSignal.timeout(10000)});if(!r.ok)throw Error('Approval API unavailable');const b=await r.json();if(b.schemaVersion!==1||b.localOnly!==true||!Array.isArray(b.revisions)||!Array.isArray(b.entities)||b.entities.length!==b.revisions.length)throw Error('Invalid snapshot');for(const e of b.entities)if(!e.id.startsWith('place.synthetic-')||e.publicationStatus!=='published'||e.attributes?.synthetic!=='true')throw Error('Non-synthetic or draft entry');return b;}
 async function run(command,args,cwd){const fd=await fs.open(logPath,'a',0o600);try{await new Promise((ok,bad)=>{const p=spawn(command,args,{cwd,env:{...process.env,NEXT_TELEMETRY_DISABLED:'1',YOUNEW_ATOMIC_BUILD:'1',NODE_BINARY:process.execPath,YOUNEW_LOCAL_NO_BUILD_CACHE:'1',YOUNEW_LOCAL_SOURCE_BASE_COMMIT:'484272957836615deb228d37c4e9d2ac0d9896a8',YOUNEW_LOCAL_CATALOG_API:endpoint,YOUNEW_APPROVED_SNAPSHOT_FILE:stage+'/snapshot.json'},stdio:['ignore',fd.fd,fd.fd]});p.once('error',bad);p.once('exit',code=>code===0?ok():bad(Error('Build exited '+code)));});}finally{await fd.close();}}
 const excluded=new Set(['node_modules','.next','out','dist','.git','private','DerivedData']);
@@ -30,7 +32,13 @@ try{
  if(process.argv.includes('--if-changed')&&previous?.snapshotSha256===record.snapshotSha256){record.status='UNCHANGED';console.log('UNCHANGED: approval snapshot already active');}
  else{
   await fs.mkdir(stage,{recursive:true,mode:0o700});
-  await copy(root+'/source',stage+'/source');await copy(root+'/tools',stage+'/tools');
+  if(endpoint==='https://qa-runtime.younew.nl/api/r4/editorial/approved'){
+   const provenance=JSON.parse(await fs.readFile(root+'/../source.json','utf8'));
+   if(provenance.status!=='SOURCE_VERIFIED')throw Error('Verified Hostinger source required');
+   sourceWorktree=await createSourceWorktree('/home/u246392949/domains/qa-catalog.younew.nl/younew-private/launch-source',provenance.commit,stage+'/source');
+   record.sourceCommit=sourceWorktree.commit;
+  }else{await copy(root+'/source',stage+'/source');}
+  await copy(root+'/tools',stage+'/tools');
   await fs.mkdir(stage+'/backend/db',{recursive:true});await fs.copyFile(root+'/backend/db/catalog-drafts.json',stage+'/backend/db/catalog-drafts.json');
   await fs.writeFile(stage+'/snapshot.json',JSON.stringify(batch));
   for(const rel of ['source/admin-dashboard','source/admin-dashboard/public-site']){
@@ -59,7 +67,7 @@ try{
   // content. Already open documents still need a reload after activation.
   await fs.writeFile(out+'/sw.js',"self.addEventListener('install',()=>self.skipWaiting());self.addEventListener('activate',e=>e.waitUntil(self.clients.claim()));self.addEventListener('fetch',e=>{if(e.request.method==='GET')e.respondWith(fetch(new Request(e.request,{cache:'no-store'})));});\n");
   await fs.mkdir(out+'/api',{recursive:true});await fs.writeFile(out+'/api/catalog.json',JSON.stringify(batch)+'\n');
-  const manifest={schemaVersion:1,releaseId,snapshotSha256:record.snapshotSha256,activatedAt:new Date().toISOString(),revisions:batch.revisions,localOnly:true};
+  const manifest={schemaVersion:1,releaseId,snapshotSha256:record.snapshotSha256,sourceCommit:record.sourceCommit,activatedAt:new Date().toISOString(),revisions:batch.revisions,localOnly:true};
   await fs.writeFile(out+'/data/publication-status.json',JSON.stringify(manifest,null,2)+'\n');
   const sums=[];for(const p of await allFiles(out))sums.push(hash(await fs.readFile(p))+'  '+relative(out,p));
   await fs.mkdir(release,{mode:0o700});await fs.rename(out,release+'/out');await fs.writeFile(release+'/SHA256SUMS.txt',sums.sort().join('\n')+'\n');
@@ -70,8 +78,12 @@ try{
  }
 }catch(e){record.status='FAIL';record.error=e.message;console.error(e.message);process.exitCode=1;}
 finally{
+ if(sourceWorktree){
+  try{await removeSourceWorktree(sourceWorktree);record.sourceWorktreeRemoved=true;}
+  catch(error){record.sourceWorktreeRemoved=false;record.cleanupError=error.message;process.exitCode=1;}
+ }
  record.finishedAt=new Date().toISOString();record.seconds=(Date.parse(record.finishedAt)-Date.parse(startedAt))/1000;
  await fs.writeFile(store+'/logs/'+releaseId+'.json',JSON.stringify(record,null,2)+'\n');
  // Only this invocation's new staging workspace is disposable. Releases/logs survive.
- await fs.rm(stage,{recursive:true,force:true});await fs.rm(lock,{recursive:true});
+ if(record.sourceWorktreeRemoved!==false)await fs.rm(stage,{recursive:true,force:true});await fs.rm(lock,{recursive:true});
 }

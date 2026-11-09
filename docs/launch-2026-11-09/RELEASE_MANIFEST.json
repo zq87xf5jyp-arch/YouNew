@@ -1,11 +1,11 @@
 {
   "schema_version": 1,
-  "recorded_at": "2026-11-09T16:35:51.144501+00:00",
-  "state": "PREPARED_NOT_DEPLOYED",
+  "recorded_at": "2026-11-09T17:41:35.945390+00:00",
+  "state": "QA_BACKEND_VERIFIED_PRODUCTION_PENDING",
   "repository": "https://github.com/zq87xf5jyp-arch/YouNew",
   "pull_request": "https://github.com/zq87xf5jyp-arch/YouNew/pull/54",
-  "code_candidate_commit": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
-  "scope_note": "This file records the named code candidate and its actual archives. Later documentation commits are not asserted to be running deployments.",
+  "code_candidate_commit": "852413130f3bc190128e53bebdc997fef7d30d1e",
+  "scope_note": "Node QA uses the named uploaded archive; PHP gate is a separate recorded fix. Later working changes and production are not asserted deployed.",
   "production": {
     "url": "https://younew.nl/",
     "candidate_deployed": false,
@@ -16,10 +16,14 @@
   },
   "qa": {
     "url": "https://qa-runtime.younew.nl/login",
-    "running_backend_commit": "1dab9d84875a0ba9a227c59f5b248aea129dfbe0",
-    "previous_backend_commit": "6a03b91c1911ab27e2668264cbc52d722cb1839e",
-    "candidate_authentication_change_deployed": false,
-    "database_migrations_applied": false
+    "running_backend_commit": "852413130f3bc190128e53bebdc997fef7d30d1e",
+    "previous_backend_commit": "1dab9d84875a0ba9a227c59f5b248aea129dfbe0",
+    "candidate_authentication_change_deployed": true,
+    "database_migrations_applied": true,
+    "php_gate_commit": "dd9b55373874b5229d7e075ddd6743e8166d3853",
+    "scheduled_business_verified": true,
+    "scheduled_catalog_verified": false,
+    "evidence": "HOSTINGER_QA_SERVER_EVIDENCE.json"
   },
   "observed_hostinger_runtime": {
     "node_cli": "24.22.1",
@@ -28,29 +32,30 @@
   },
   "packages": {
     "node-app": {
-      "files": 2359,
-      "bytes": 313661254,
-      "manifest_sha256": "6cff0bfc2396d1c8e14b9a8e740a37e704032986a0e89018a641788331ae3b79",
-      "archive_sha256": "33a9dfdeada9028b13a86344e3458a55c9737cdd1d176d37737a78a4a3274c71",
-      "archive_bytes": 272016368
+      "files": 2360,
+      "bytes": 313670884,
+      "manifest_sha256": "6c7a0029e6b8a60ed0339c5f5635ad606688bfb070474b6d86ba7b72b50a6b60",
+      "archive_sha256": "6879028b5be538dfa7a7679689d5c0ab1ba9618ce5e25f0b84fe65b8632feb80",
+      "archive_bytes": 272017789
     },
     "php-site": {
       "files": 14,
       "bytes": 32629,
       "manifest_sha256": "0f8769ee3278ef8e05f1e14b125b530a5d5721544858ece36f812ef8b3616400",
-      "archive_sha256": "543008debb130f98fe20e56989f33263d933ea044e70f0fab9179cc1d98800a5",
-      "archive_bytes": 11141
+      "archive_sha256": "1e8743e2e85ba61c34f641d5eba503ddd092860eb70323705a745ed41bc37788",
+      "archive_bytes": 11140
     }
   },
   "archive_verification": {
     "status": "PASS",
-    "source_commit": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
-    "archive_files_verified": 2373,
+    "source_commit": "852413130f3bc190128e53bebdc997fef7d30d1e",
+    "archive_files_verified": 2374,
     "content_matches_committed_git_objects": true,
     "paths_regular_and_relative": true,
     "duplicate_members": false,
     "runtime_databases_or_key_files": false,
-    "deployed": false
+    "deployed": true,
+    "scope": "Uploaded Node archive verified; PHP gate later updated separately. Source file hashes do not describe the platform standalone bundle."
   },
   "content": {
     "new_drafts_published": false,
@@ -60,14 +65,14 @@
   },
   "required_before_production": [
     "Current selected-commit required CI checks",
-    "Hostinger QA DB privileges, backup and isolated restore",
     "Full closed QA integration and real scheduled BUSINESS/catalog tests",
     "Verified migration of preserved accounts, inquiries and files",
     "Fresh production backup and tested code rollback without overwriting live data"
   ],
   "backup_evidence": [
     "HOSTINGER_BACKUP_EVIDENCE.json",
-    "SUPABASE_PRESERVATION_EVIDENCE.json"
+    "SUPABASE_PRESERVATION_EVIDENCE.json",
+    "HOSTINGER_QA_SERVER_EVIDENCE.json"
   ],
   "cleanup": {
     "performed": false,
@@ -75,7 +80,7 @@
     "quarantined_user_objects": 0,
     "register": "CLEANUP_MANIFEST.csv"
   },
-  "code_candidate_ci": {
+  "prior_verified_code_ci": {
     "status": "PASS",
     "source_commit": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
     "evidence": "CI_EVIDENCE_A8054DA.json",

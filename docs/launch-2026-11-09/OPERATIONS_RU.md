@@ -5,8 +5,8 @@
 ## Что работает сейчас
 
 - `https://younew.nl/` — прежний production. Главная при исходной проверке отвечала 200; её SHA-256 `640029346dbd00c7fd626acc65bbd2badbd5560f340d6629681a1babd8a2d254`. Точный Git commit этого старого размещения не подтверждён.
-- `https://qa-runtime.younew.nl/login` — новый изолированный Admin из архива `1dab9d8`. Node 24.x, команда сборки `pnpm run build`, output `.next`. Предыдущий архив `6a03b91` сохранён в истории Hostinger.
-- Приватная серверная копия исходников обновлена до `770d506e202ccf4e188038b600802aed4b6313ee`; это не означает переключение работающего Node deployment.
+- `https://qa-runtime.younew.nl/login` — изолированный Admin из архива `852413130f3bc190128e53bebdc997fef7d30d1e`, Node 24.x. Предыдущий `1dab9d8` сохранён. Вход/роли/logout: 43 проверки PASS; bcrypt cost-10: PASS. Это синтетическая QA, не перенесённые реальные аккаунты.
+- Приватная серверная Git-копия содержит `dd9b55373874b5229d7e075ddd6743e8166d3853`. PHP gate из этого commit размещён отдельно; последующие локальные изменения ещё не объявляются работающими.
 - `admin.younew.nl` сохранён. Его конфигурация ссылается на неактивный Supabase `pgdzdxsiagfjioxwuqxf`. Экспорт реальных данных сохранён; полное восстановление старого Supabase runtime и перенос аккаунтов/данных в новый backend ещё не выполнены.
 
 ## Резервные копии
@@ -47,8 +47,8 @@ R4_LOCAL=false NODE_OPTIONS=--v8-pool-size=1 UV_THREADPOOL_SIZE=1 \
 
 1. Обязательные проверки PR должны пройти для публикуемого commit. Старый PostgreSQL schema-diff одобрен владельцем; запись и digest находятся в `SUPABASE_SCHEMA_REVIEW_RU.md`.
 2. Владелец сохранил пароль новой QA-базы в приватном `launch.env`; подключение прошло. Сам пароль не переносится в GitHub, чат, командную строку или отчёт. Копия конфигурации: `/home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/backups/20261109T153346Z`, права файла 0600.
-3. MariaDB 11.8.9 и schema privileges QA без GRANT OPTION подтверждены. Проверить оставшиеся global/table privileges, исходную пустоту БД, миграции, роли, сохранение заявок, consistent dump и изолированное восстановление. Полный preflight на сервере: `hp1/logs/db-preflight.json`.
-4. BUSINESS проверяется через настоящее расписание Hostinger: первичная доставка, повтор после временной ошибки, отсутствие дублей и параллельных исполнителей. Ручной запуск worker не закрывает этот пункт. Действующий analytics cron не меняется.
+3. Полный preflight подтвердил scoped privileges, отсутствие GRANT OPTION, global USAGE, пустые table/column grants, NULL active role и исходную пустоту базы. Две миграции применены. Dump/restore 12 таблиц и 12 синтетических строк прошёл, все оригиналы сохранены; см. `HOSTINGER_QA_SERVER_EVIDENCE.json`.
+4. BUSINESS проверен настоящим cron Hostinger каждую минуту: доставка, два 503 без частичных строк, успешный retry, отсутствие дублей и worker_running при занятом lock. Действующий analytics cron не менялся. Каталожный cron ещё не активирован.
 5. Экспорт старого Supabase получен без активации. База, Storage и отчёты находятся на Hostinger в `younew-private/launch-backups/supabase-preservation-20261109/`; SHA-256 архива — `b51073a770006b4df9e7f880451edceb464971a00a79b85394ab98f1394055cb`. Данные COPY восстановлены и сверены побайтно; Storage payload сопоставлен с метаданными. Полный Supabase runtime и безопасный перенос в MariaDB остаются отдельной проверкой. Не активировать проект автоматически.
    Совместимость проверки старых bcrypt-паролей подготовлена и испытана на синтетических аккаунтах: `LEGACY_AUTH_COMPATIBILITY_RU.md`. Перенос реальных пользователей, workspace, исторических заявок и остальных таблиц этим не закрывается.
 6. Прогнать весь сценарий на Hostinger QA, включая PHP → backend → Admin, EN/NL, LIVE/EXPLORE/BUSINESS, поиск, карту, мобильную форму, роли, reload и сохранение.
@@ -71,3 +71,11 @@ python3 hostinger/deployment/package.py --ref FULL_COMMIT_SHA \
 При критической регрессии переключить **код** на предыдущий deployment/сохранённый release. Не откатывать базу или очередь старым снимком поверх новых заявок. Восстановление данных требует отдельного сопоставления новых записей, uploads и схемы. Реальный production rollback нового кандидата пока не испытан и не объявляется готовым.
 
 Уборка выполняется после этих проверок. Текущая ведомость `CLEANUP_INVENTORY.md` сохраняет все 21 локальный каталог; ни один пока не удалён и не перемещён в карантин.
+
+## Особенности фактического QA-размещения
+
+Managed Node разворачивает standalone build, оставляя `.next`, `node_modules`, `server.js` и package metadata; он не сохраняет 2359 исходных файлов из Node-архива. Поэтому попытка сопоставить весь source manifest с runtime не прошла и не используется как подтверждение идентичности compiled output. Связь с commit фиксируется через проверенный загруженный архив, deployment ID и HTTP-проверки. Catalog builder размещается отдельно в приватном `hp1/catalog-builders/`, с сохранением собственного Git commit и проверкой исходных файлов.
+
+Файловый Basic gate не смог читать credential внутри каталогов 0700 от пользователя веб-сервера. PHP router теперь проверяет те же QA credentials, остающиеся 0600. Единственное исключение — `/private-files.php`, где проверяются отдельные HMAC, timestamp и nonce. Прежние `.htaccess`/router сохранены в `hp1/backups/qa-gate-20261109T172050Z`. Для отката защитных файлов сначала установить прежний `.htaccess`, затем прежний router; не оставлять маршрут без проверки доступа.
+
+При установке catalog dependencies pnpm сначала получил `ERR_WORKER_INIT_FAILED EAGAIN`. Повтор с `PNPM_MAX_WORKERS=1`, `UV_THREADPOOL_SIZE=1`, `NODE_OPTIONS=--v8-pool-size=1`, `--child-concurrency=1 --network-concurrency=2 --frozen-lockfile --ignore-scripts` прошёл за 12.6 секунд (pnpm 11.17.0). Оба журнала сохранены в `hp1/logs/catalog-dependencies-dd9b553*.log`; другие приложения не останавливались. Новое ограничение Rayon относится только к процессу QA-сборки; [официальная документация Rayon](https://docs.rs/rayon/latest/rayon/struct.ThreadPoolBuilder.html#method.num_threads) описывает `RAYON_NUM_THREADS`.

@@ -5,6 +5,9 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Prepare catalog builds in detached Git worktrees on Hostinger and preserve
+  their source commit independently of the managed Node standalone deployment.
+
 - Enforce the isolated catalog's Basic gate in its PHP router, preserving 0600
   credential files when the web-server account cannot traverse private directories.
 
