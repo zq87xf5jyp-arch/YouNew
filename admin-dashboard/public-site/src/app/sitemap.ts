@@ -46,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
     priority: 0.85
   }));
-  const dutchStaticPaths = ["/nl", "/nl/zoeken", "/nl/categorieen", "/nl/voor-bedrijven", "/nl/voor-bedrijven/lokaal"]
+  const dutchStaticPaths = ["/nl", "/nl/categorieen", "/nl/voor-bedrijven", "/nl/voor-bedrijven/lokaal"]
     .concat(content.organizations.length ? ["/nl/organisaties"] : []);
   const dutchStaticEntries: MetadataRoute.Sitemap = dutchStaticPaths.map((path) => ({
     url: `https://younew.nl${path}/`, lastModified: updated, changeFrequency: "weekly", priority: path === "/nl" ? 0.9 : 0.75

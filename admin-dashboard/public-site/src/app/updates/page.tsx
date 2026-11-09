@@ -1,3 +1,4 @@
+import "@/styles/updates.css";
 import Link from "next/link";
 import { ArrowRight, CalendarDays, Info, ShieldCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";

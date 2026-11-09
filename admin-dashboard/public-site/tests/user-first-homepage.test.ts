@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 
 const [homepage, header, footer, analytics, staticShell, homeForm] = await Promise.all([
-  readFile(new URL("../src/app/page.tsx", import.meta.url), "utf8"),
+  readFile(new URL("../src/components/discovery-home.tsx", import.meta.url), "utf8"),
   readFile(new URL("../src/components/site-header.tsx", import.meta.url), "utf8"),
   readFile(new URL("../src/components/site-footer.tsx", import.meta.url), "utf8"),
   readFile(new URL("../src/lib/analytics/client.ts", import.meta.url), "utf8"),
@@ -11,78 +11,53 @@ const [homepage, header, footer, analytics, staticShell, homeForm] = await Promi
   readFile(new URL("../src/components/home-search-form.tsx", import.meta.url), "utf8")
 ]);
 
-test("homepage starts with one promise, one task search, and a narrowing journey", () => {
+test("bilingual discovery home keeps one promise, private search and honest paths", () => {
   assert.equal(homepage.match(/<h1\b/g)?.length, 1);
-  assert.equal(homepage.match(/<section\b/g)?.length, 9);
-  assert.match(homepage, /Your guide to life in the Netherlands\./);
-  assert.match(homeForm, /What do you need in the Netherlands\?/);
-  assert.match(homepage, /<HomeSearchForm \/>/);
+  assert.match(homepage, /What would you like/);
+  assert.match(homepage, /Wat wil je doen/);
+  assert.match(homepage, /<HomeSearchForm locale=\{locale\}/);
   assert.doesNotMatch(homeForm, /name="q"/);
-  assert.match(homepage, /What do you need\?/);
-  assert.match(homepage, /Life in the Netherlands/);
-  assert.match(homepage, /Popular tasks/);
-  assert.match(homepage, /Useful services/);
-  assert.match(homepage, /Trusted resources/);
-  assert.match(homepage, /No live public campaigns/);
-  assert.match(homepage, /never shown in emergency guidance/);
-  assert.match(homepage, /never replace responsible official sources/);
-  assert.match(homepage, /never change organic search ranking/);
-  assert.doesNotMatch(homepage, /\d+ (?:pages|categories|guides)/i);
-  assert.doesNotMatch(homepage, /Supabase|\bCI\b|test counts|release authority|SystemEvidence/i);
+  assert.match(homeForm, /handoffSearch/);
+  assert.match(homepage, /No payment\. No automatic publication/);
+  assert.match(homepage, /Unconfirmed profiles and publication candidates stay outside search results/);
+  assert.doesNotMatch(homepage, /\d+ (?:pages|categories|guides)|Supabase|test counts|SystemEvidence/i);
 });
 
-test("homepage LCP media is local while preserving its governed attribution", () => {
-  const heroMediaSource = homepage.slice(homepage.indexOf("const homeHeroMedia"), homepage.indexOf("const featuredCityIds"));
-  assert.match(heroMediaSource, /url: "\/images\/app-amsterdam-evening-background\.webp"/);
-  assert.match(heroMediaSource, /attribution: "Basile Morin"/);
-  assert.match(heroMediaSource, /license: "CC BY-SA 4\.0"/);
-  assert.match(heroMediaSource, /sourcePageUrl: "https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
-  assert.match(homepage, /<ContentMedia asset=\{homeHeroMedia\} eager variant="hero" \/>/);
-});
-
-test("homepage exposes ten user needs and ten concrete popular tasks", () => {
-  const destinationsSource = homepage.slice(homepage.indexOf("const taskDestinations"), homepage.indexOf("const lifeDirections"));
-  for (const title of [
-    "Find housing",
-    "Find work",
-    "Healthcare",
-    "Documents",
-    "Study",
-    "Daily life",
-    "Emergency",
-    "LGBTQ+",
-    "Pets",
-    "Families"
-  ]) {
-    assert.match(destinationsSource, new RegExp(`title: "${title.replace("+", "\\+")}"`));
+test("discovery imagery remains local, eager only for the hero, and licensed", async () => {
+  const media = JSON.parse(await readFile(new URL("../src/content/discovery-media.json", import.meta.url), "utf8"));
+  assert.equal(Object.keys(media).length, 5);
+  for (const [slug, asset] of Object.entries(media) as Array<[string, {url:string; attribution:string; license:string; sourcePageUrl:string; variants:Array<{url:string; bytes:number}>}]>) {
+    assert.match(asset.url, new RegExp(`/images/cities/${slug}-1920\\.webp`));
+    assert.ok(asset.attribution && asset.license);
+    assert.match(asset.sourcePageUrl, /^https:\/\/commons\.wikimedia\.org\/wiki\/File:/);
+    for (const variant of asset.variants) { const data = await readFile(new URL(`../public${variant.url}`, import.meta.url)); assert.equal(data.length, variant.bytes); }
   }
-  assert.equal(destinationsSource.match(/title:/g)?.length, 10);
-
-  const popularSource = homepage.slice(homepage.indexOf("const popularTasks"), homepage.indexOf("const usefulServices"));
-  assert.equal(popularSource.match(/title:/g)?.length, 10);
-  assert.match(popularSource, /title: "Apply for a driving licence"/);
-  assert.match(popularSource, /title: "Register with a huisarts"/);
+  assert.match(homepage, /variant="hero"[^>]*eager/);
+  assert.match(homepage, /discoveryMedia\[guide\.slug\]/);
 });
 
-test("global navigation keeps the product vision to eight primary destinations", () => {
-  assert.match(header, /\["Explore", "\/discover"\]/);
-  assert.match(header, /\["Housing", "\/categories\/housing"\]/);
-  assert.match(header, /\["Work", "\/search\/\?q=work"\]/);
-  assert.match(header, /\["Healthcare", "\/categories\/healthcare"\]/);
-  assert.match(header, /\["Services", "\/organizations"\]/);
-  assert.match(header, /\["Cities", "\/cities"\]/);
-  assert.match(header, /\["Guides", "\/guides"\]/);
-  assert.match(header, /\["Business", "\/for-business"\]/);
-  assert.equal(header.match(/^  \["/gm)?.length, 8);
-  assert.doesNotMatch(header, /Journeys|Updates|Map|Provinces|App status|My YouNew/);
-  assert.match(footer, /Website language:<\/strong> English/);
-  assert.match(footer, /Helping newcomers build a confident life in the Netherlands\./);
+test("discovery home exposes five real cities, six useful topics and three practical starts", () => {
+  for (const city of ["amsterdam", "rotterdam", "den-haag", "utrecht", "eindhoven"]) assert.ok(homepage.includes(city));
+  for (const category of ["culture", "food-drink", "outdoors", "organizations", "government", "/start/"]) assert.ok(homepage.includes(category));
+  for (const topic of ["BSN BRP", "GP health insurance", "housing renting"]) assert.ok(homepage.includes(topic));
+  assert.match(homepage, /cityGuides\.map/);
+  assert.match(homepage, /\/nl\/stadsgidsen\//);
+  assert.match(homepage, /\/city-guides\//);
+});
+
+test("compact navigation preserves bilingual core routes and emergency access", () => {
+  for (const route of ["/#live", "/#cities-title", "/for-business", "/emergency", "/nl/#live", "/nl/#cities-title", "/nl/voor-bedrijven"]) assert.ok(header.includes(route));
+  assert.match(header, /aria-label=\{isDutch \? "Navigatiemenu" : "Navigation menu"/);
+  for (const route of ["/privacy/", "/terms/", "/support/", "/status/", "/app/"]) assert.ok(footer.includes(route));
+  assert.match(footer, /LanguageLink locale=\{locale\} expanded/);
+  assert.match(homepage, /\/municipalities\/leiden\//);
+  for (const path of ["I live here", "I want to explore", "I own a business"]) assert.ok(homepage.includes(path));
 });
 
 test("profile analytics records only the action and never the selected profile", () => {
   assert.match(analytics, /\{ name: "profile_selected" \}/);
   assert.doesNotMatch(analytics, /name: "profile_selected"; profile:/);
-  assert.match(analytics, /case "profile_selected":\s*\n\s*case "analytics_consent_granted":\s*\n\s*return \{\};/);
+  assert.doesNotMatch(analytics, /profile: safeProperty|filter_profile:|normalized_query_safe:/);
 });
 
 test("exported homepage runtime preserves profile personalization without a focus trap", () => {

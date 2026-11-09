@@ -10,7 +10,7 @@ const [landing, applyPage, form, application, edgeValidation, sitemap, homepage,
   readFile(new URL("../lib/business/application.ts", appRoot), "utf8"),
   readFile(new URL("../../../supabase/functions/submit-business-inquiry/validation.ts", appRoot), "utf8"),
   readFile(new URL("sitemap.ts", appRoot), "utf8"),
-  readFile(new URL("page.tsx", appRoot), "utf8"),
+  readFile(new URL("../components/discovery-home.tsx", appRoot), "utf8"),
   readFile(new URL("../components/site-footer.tsx", appRoot), "utf8"),
   readFile(new URL("../components/entity-detail.tsx", appRoot), "utf8")
 ]);

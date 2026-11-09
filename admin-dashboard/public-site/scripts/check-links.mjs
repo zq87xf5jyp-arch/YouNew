@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { access, readdir, readFile } from "node:fs/promises";
+import { stat, readdir, readFile } from "node:fs/promises";
 import { extname, join, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
 
@@ -25,8 +25,7 @@ async function existingTarget(pathname) {
     try {
       const absolute = resolve(root, candidate);
       if (absolute !== root && !absolute.startsWith(rootPrefix)) return null;
-      await access(absolute);
-      return absolute;
+      if ((await stat(absolute)).isFile()) return absolute;
     } catch { /* continue */ }
   }
   return null;

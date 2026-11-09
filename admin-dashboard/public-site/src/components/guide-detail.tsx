@@ -1,3 +1,4 @@
+import "@/styles/guide.css";
 import { AlertTriangle, BookOpen, CheckCircle2, CircleHelp, Clock3, ExternalLink, FileText, Flag, Lightbulb, MapPin, ShieldCheck, Users } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CopyTextButton } from "@/components/copy-text-button";

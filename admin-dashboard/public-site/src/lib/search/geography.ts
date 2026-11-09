@@ -181,6 +181,14 @@ export function resolveSearchLocation(
   );
   if (exactCandidates.length > 0) return rankLocationCandidates(exactCandidates);
 
+  // A known place name must not be reinterpreted as a misspelled municipality.
+  // Exact location aliases above still win (for example an explicitly named city).
+  const namedPlace = documents.some(document => {
+    if (!['place', 'organization'].includes(document.type)) return false;
+    const title = normalize(document.title);
+    return title === normalizedQuery || (normalizedQuery.split(' ').length > 1 && (' ' + title + ' ').includes(' ' + normalizedQuery + ' '));
+  });
+  if (namedPlace) return null;
   const fuzzyCandidates: SearchLocationContext[] = [];
   for (const token of normalizedQuery.split(" ")) {
     if (token.length < 5) continue;

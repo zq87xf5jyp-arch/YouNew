@@ -1,5 +1,7 @@
 "use client";
 
+
+
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
@@ -103,9 +105,14 @@ export function LocalBusinessApplicationForm({
   provinces: readonly string[];
 }) {
   const [interactive, setInteractive] = useState(false);
+  const sending = useRef(false);
+  const optionalFields = useRef<HTMLDetailsElement>(null);
+  const [listingAction, setListingAction] = useState("");
+  useEffect(() => { const action = new URLSearchParams(window.location.search).get("action"); if (action === "add" || action === "claim") setListingAction(action); }, []);
   const [organizationType, setOrganizationType] = useState<BusinessApplicationInput["organizationType"]>("");
   const [errors, setErrors] = useState<ErrorMap>({});
   const [result, setResult] = useState<BusinessApplicationResult | null>(null);
+  useEffect(() => { if (result?.kind === "server-submission") document.getElementById("business-saved-confirmation")?.focus(); }, [result]);
   const [submissionError, setSubmissionError] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const leadStarted = useRef(false);
@@ -134,6 +141,7 @@ export function LocalBusinessApplicationForm({
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    if (sending.current || result?.kind === "server-submission") return;
     setResult(null);
     setSubmissionError("");
     const application = applicationFrom(new FormData(event.currentTarget));
@@ -141,10 +149,14 @@ export function LocalBusinessApplicationForm({
     setErrors(validation.errors);
 
     if (!validation.valid) {
+      if ((validation.errors.contactRole || validation.errors.phone) && optionalFields.current) {
+        optionalFields.current.open = true;
+      }
       requestAnimationFrame(() => document.getElementById("local-business-form-errors")?.focus());
       return;
     }
 
+    sending.current = true;
     setSubmitting(true);
     try {
       const submission = await repository.submit(application);
@@ -158,6 +170,7 @@ export function LocalBusinessApplicationForm({
       setResult(handoff);
       track({ name: "business_mailto_prepared", organizationType: application.organizationType });
     } finally {
+      sending.current = false;
       setSubmitting(false);
     }
   };
@@ -182,8 +195,8 @@ export function LocalBusinessApplicationForm({
         <fieldset className="form-section form-choice-group" aria-describedby={errors.campaignGoal ? "local-campaignGoal-error" : undefined}>
           <legend>What do you want to do?</legend>
           <div className="form-checkbox-grid local-business-action-grid">
-            <label><input type="radio" name="listingAction" value="add" required /> Add a new business profile</label>
-            <label><input type="radio" name="listingAction" value="claim" required /> Claim an existing YouNew profile</label>
+            <label><input type="radio" name="listingAction" value="add" checked={listingAction === "add"} onChange={() => setListingAction("add")} required /> Add a new business profile</label>
+            <label><input type="radio" name="listingAction" value="claim" checked={listingAction === "claim"} onChange={() => setListingAction("claim")} required /> Claim an existing YouNew profile</label>
           </div>
           <FieldError errors={errors} name="campaignGoal" />
         </fieldset>
@@ -210,19 +223,9 @@ export function LocalBusinessApplicationForm({
               <FieldError errors={errors} name="contactPerson" />
             </div>
             <div className="form-field">
-              <label htmlFor="local-contactRole">Role <span>(optional)</span></label>
-              <input id="local-contactRole" name="contactRole" maxLength={120} autoComplete="organization-title" aria-describedby={errors.contactRole ? "local-contactRole-error" : undefined} aria-invalid={Boolean(errors.contactRole)} />
-              <FieldError errors={errors} name="contactRole" />
-            </div>
-            <div className="form-field">
               <label htmlFor="local-email">Business email</label>
               <input id="local-email" name="email" type="email" maxLength={254} autoComplete="email" aria-describedby={errors.email ? "local-email-error" : undefined} aria-invalid={Boolean(errors.email)} required />
               <FieldError errors={errors} name="email" />
-            </div>
-            <div className="form-field">
-              <label htmlFor="local-phone">Phone <span>(optional)</span></label>
-              <input id="local-phone" name="phone" type="tel" maxLength={40} autoComplete="tel" aria-describedby={errors.phone ? "local-phone-error" : undefined} aria-invalid={Boolean(errors.phone)} />
-              <FieldError errors={errors} name="phone" />
             </div>
             <div className="form-field">
               <label htmlFor="local-website">Official website</label>
@@ -238,6 +241,17 @@ export function LocalBusinessApplicationForm({
           </div>
         </fieldset>
 
+        <details ref={optionalFields} className="form-section optional-fields"><summary>Additional contact details (optional)</summary><div className="form-grid">            <div className="form-field">
+              <label htmlFor="local-contactRole">Role <span>(optional)</span></label>
+              <input id="local-contactRole" name="contactRole" maxLength={120} autoComplete="organization-title" aria-describedby={errors.contactRole ? "local-contactRole-error" : undefined} aria-invalid={Boolean(errors.contactRole)} />
+              <FieldError errors={errors} name="contactRole" />
+            </div>
+            <div className="form-field">
+              <label htmlFor="local-phone">Phone <span>(optional)</span></label>
+              <input id="local-phone" name="phone" type="tel" maxLength={40} autoComplete="tel" aria-describedby={errors.phone ? "local-phone-error" : undefined} aria-invalid={Boolean(errors.phone)} />
+              <FieldError errors={errors} name="phone" />
+            </div>
+</div></details>
         <fieldset className="form-section">
           <legend>Location and audience</legend>
           <div className="form-grid">
@@ -282,7 +296,7 @@ export function LocalBusinessApplicationForm({
 
         <fieldset className="form-section form-confirmations">
           <legend>Confirmations</legend>
-          <label><input type="checkbox" name="consentToPrivacy" value="yes" aria-describedby={errors.consentToPrivacy ? "local-consentToPrivacy-error" : undefined} /> I consent to the processing described in the <Link href="/privacy/">Privacy Policy</Link> so YouNew can review and respond to this request.</label>
+          <label><input type="checkbox" name="consentToPrivacy" value="yes" aria-describedby={errors.consentToPrivacy ? "local-consentToPrivacy-error" : undefined} /> <span>I consent to the processing described in the <Link href="/privacy/">Privacy Policy</Link> so YouNew can review and respond to this request.</span></label>
           <FieldError errors={errors} name="consentToPrivacy" />
           <label><input type="checkbox" name="confirmAccuracy" value="yes" aria-describedby={errors.confirmAccuracy ? "local-confirmAccuracy-error" : undefined} /> I confirm that the information is accurate and that I am authorized to represent this organization.</label>
           <FieldError errors={errors} name="confirmAccuracy" />
@@ -293,7 +307,7 @@ export function LocalBusinessApplicationForm({
           <p>Submitting creates a review request only. It does not publish a profile, verify ownership, start a paid plan or create a contract.</p>
         </div>
 
-        <button className="button button-primary" type="submit" disabled={!interactive || submitting}>{submitting ? "Saving request…" : "Submit profile request"}</button>
+        <button className="button button-primary" type="submit" disabled={!interactive || submitting || result?.kind === "server-submission"}>{result?.kind === "server-submission" ? "Request saved" : submitting ? "Saving request…" : "Submit profile request"}</button>
 
         {submissionError ? (
           <section className="form-error-summary" role="alert">
@@ -304,7 +318,7 @@ export function LocalBusinessApplicationForm({
         ) : null}
 
         {result?.kind === "server-submission" ? (
-          <section className="form-prepared-state" aria-live="polite" aria-labelledby="local-request-saved">
+          <section id="business-saved-confirmation" tabIndex={-1} className="form-prepared-state" aria-live="polite" aria-labelledby="local-request-saved">
             <h2 id="local-request-saved">Profile request saved</h2>
             <p>Your confirmation ID is <strong>{result.confirmationId}</strong>. Keep it if you contact support.</p>
             <p>YouNew will review the organization and public claims. Submission does not guarantee publication or ownership confirmation.</p>

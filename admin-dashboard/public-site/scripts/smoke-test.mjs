@@ -29,29 +29,19 @@ for (const file of requiredFiles) await access(join(root, file));
 
 const home = await readFile(join(root, "index.html"), "utf8");
 assert.match(home, /Your guide to life in the Netherlands/);
-assert.match(home, /What do you need in the Netherlands\?/);
+assert.match(home, /What would you like<br\/>to do in <em>the Netherlands\?<\/em>/);
 assert.match(home, /data-private-search-form="true"/);
 assert.doesNotMatch(home.match(/<input[^>]+id="home-search"[^>]*>/)?.[0] ?? "", /name=/);
-assert.match(home, /Find my next step/);
-for (const title of [
-  "Find housing",
-  "Find work",
-  "Healthcare",
-  "Documents",
-  "Study",
-  "Daily life",
-  "Emergency",
-  "LGBTQ+",
-  "Pets",
-  "Families"
-]) assert.match(home, new RegExp(title));
-for (const section of ["Life in the Netherlands", "Popular tasks", "Cities", "Useful services", "Trusted resources", "Why YouNew", "Published content snapshot"]) {
-  assert.match(home, new RegExp(section));
-}
-assert.match(home, /No live public campaigns/);
-assert.match(home, /never shown in emergency guidance/);
-assert.match(home, /never replace responsible official sources/);
-assert.match(home, /never change organic search ranking/);
+assert.match(home, /Search YouNew/);
+for (const path of ["#live", "#cities-title", "/for-business/"]) assert.ok(home.includes(`href="${path}"`));
+assert.equal((home.match(/<h1\b/g) ?? []).length, 1);
+for (const section of ["I live here", "I want to explore", "I own a business", "BSN &amp; DigiD", "Find a doctor", "Rent a home", "Work &amp; rights", "Education", "Health insurance", "Every city, a different story", "Less searching. More getting started", "What brings you here", "Trust starts with the source", "Bring your business to YouNew"]) assert.ok(home.includes(section), `Missing homepage section: ${section}`);
+for (const slug of ["housing", "work", "healthcare", "documents", "education", "daily-life", "emergency", "pets", "family"]) await access(join(root, `categories/${slug}/index.html`));
+const advertisingPolicy = await readFile(join(root, "business/index.html"), "utf8");
+const advertisingPolicyText = advertisingPolicy.replace(/<[^>]*>/g, " ").replace(/\s+/g, " ");
+assert.match(advertisingPolicyText, /0\s+live public campaigns/i);
+assert.match(advertisingPolicyText, /Paid placement never changes organic ranking, official-source cards or emergency guidance\./);
+assert.match(advertisingPolicyText, /Excluded:\s*emergency pages, official-source ranking and life-critical instructions\./);
 assert.match(home, /support@younew\.nl/);
 assert.match(home, /rel="canonical" href="https:\/\/younew\.nl\/"/);
 assert.match(home, /application\/ld\+json/);
@@ -60,18 +50,18 @@ assert.doesNotMatch(home, /href=(?:"|')#(?:"|')/);
 assert.match(home, /href="\/app\/"/);
 assert.match(home, /iOS app/);
 assert.match(home, /<script[^>]+src="\/_next\/static\/chunks\//, "Private homepage handoff requires the Next client runtime");
-assert.match(home, /theme-init\.js/, "Retain the layout's beforeInteractive theme bootstrap");
+assert.ok(home.slice(0, home.indexOf("</head>")).includes(await readFile(join(root, "theme-init.js"), "utf8")), "Apply the saved theme inline in the head before first paint");
 assert.doesNotMatch(home, /<script[^>]+src="\/static-shell/, "Do not load a second enhancement runtime beside React");
 assert.match(home, /<noscript>Open the search page with this button, then enable JavaScript to search privately/);
 
 const search = await readFile(join(root, "search/index.html"), "utf8");
-assert.match(search, /Search YouNew and Dutch municipalities/);
+assert.match(search, /What are you looking for\?/);
 assert.match(search, /name="robots" content="noindex, follow"/);
 assert.match(search, /<script[^>]+src="\/_next\/static\/chunks\//, "Interactive routes must retain client JavaScript");
 
 const nlHome = await readFile(join(root, "nl/index.html"), "utf8");
 assert.match(nlHome, /<html lang="nl"/);
-assert.match(nlHome, /Praktische informatie\. Zichtbare bronnen\. Een duidelijke volgende stap\./);
+assert.match(nlHome, /Wat wil je doen<br\/>in <em>Nederland\?<\/em>/);
 assert.match(nlHome, /hrefLang="en" href="https:\/\/younew\.nl\/"/);
 assert.match(nlHome, /hrefLang="nl" href="https:\/\/younew\.nl\/nl\/"/);
 assert.match(nlHome, /rel="canonical" href="https:\/\/younew\.nl\/nl\/"/);
@@ -217,7 +207,7 @@ assert.match(serviceWorker, /\/theme-init\.js/);
 assert.match(serviceWorker, /\/_next\/static\/css\//, "The install cache must include the generated stylesheet for a styled first offline launch");
 
 const hostingerRules = await readFile(join(root, ".htaccess"), "utf8");
-assert.match(hostingerRules, /FilesMatch "\\\.\(\?:html\|txt\)\$"[\s\S]*?Cache-Control "public, max-age=0, must-revalidate"/, "Hostinger must permit CDN storage while forcing exported HTML revalidation");
+assert.match(hostingerRules, /FilesMatch "\\\.\(\?:html\|txt\)\$"[\s\S]*?Cache-Control "public, max-age=0, must-revalidate, no-transform"/, "Hostinger must permit CDN storage while forcing exported HTML revalidation");
 assert.match(hostingerRules, /AddType application\/manifest\+json \.webmanifest/, "Hostinger must serve the web manifest with its correct MIME type");
 assert.match(hostingerRules, /ForceType application\/manifest\+json/, "Hostinger must override a generic MIME mapping for the web manifest");
 assert.match(hostingerRules, /Files "apple-app-site-association"[\s\S]*ForceType application\/json/, "Hostinger must serve Apple's association file as JSON");

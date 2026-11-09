@@ -203,6 +203,23 @@ html[data-theme="light"] .mobile-menu nav a:focus-visible,
 html[data-theme="light"] .mobile-menu nav a[aria-current="page"] { background:rgba(8,126,170,.08); color:var(--text); }
 html[data-theme="light"] .site-footer { border-color:var(--line); background:var(--bg-secondary); }
 
+/* Search and national next-step panels share the active theme's readable surfaces. */
+html[data-theme="light"] :is(.search-input-wrap,.search-filter-bar,.search-filter-toggle,.search-suggestions,.search-active-filters button,.search-active-chips button,.search-starters button,.search-active-context button,.national-guide-action-panel) {
+  background:var(--panel);
+  border-color:var(--line-strong);
+  color:var(--text);
+}
+html[data-theme="light"] :is(.search-input-wrap input,.search-filter-bar select,.national-guide-municipality-form select) {
+  background:var(--panel);
+  color:var(--text);
+}
+html[data-theme="light"] .search-input-wrap input::placeholder,
+html[data-theme="light"] :is(.search-input-wrap button,.search-privacy-control,.search-privacy-control span) { color:var(--muted); }
+html[data-theme="light"] .search-result-list article:hover { background:var(--panel-2); }
+html[data-theme="light"] .national-guide-action-panel>.section-label { color:var(--muted); }
+html[data-theme="light"] .national-guide-action-links a:first-child { color:#fff; }
+html[data-theme="light"] .national-guide-action-warning { color:#944000; }
+
 .theme-toggle {
   width:44px;
   height:44px;
@@ -233,3 +250,57 @@ html[data-theme="light"] .theme-toggle-moon { display:none; }
 
 @media (prefers-reduced-motion:reduce) { .theme-toggle { transition:none; } }
 @media print { .theme-toggle { display:none!important; } }
+
+@media screen {
+/* Shared route surfaces must pair their background with the active theme.
+   Dark feature panels below deliberately keep their own complete palette. */
+html[data-theme] :is(.category-index-grid>a,.province-index-grid>a,.destination-grid>a,
+  .content-index-featured,.content-index-trust,.life-domain-sources,.city-topic-grid>a,
+  .profile-picker-grid button,.local-business-tier-grid article,.local-business-tier-grid article.is-current,
+  .emergency-secondary-grid article,.coverage-map-canvas,.coverage-map-selection) {
+  background:var(--panel-2);
+  color:var(--text);
+}
+html[data-theme] :is(.profile-picker-grid button:hover,.profile-picker-grid button.is-selected,
+  .saved-list>article:focus-within,.search-recovery-actions a,.search-recovery-actions button,.coverage-map-zoom-controls button) {
+  background:var(--panel);
+  color:var(--cyan);
+}
+html[data-theme] :is(.profile-picker-grid strong,.source-card dd,.recently-viewed a,
+  .local-business-tier-grid article>strong,.planner-privacy-strip p strong) { color:var(--text); }
+html[data-theme] :is(.practical-steps p,.local-business-tier-grid li) { color:var(--text-secondary); }
+html[data-theme] :is(.source-card dt,.status-release-details dt,.recently-viewed a span,
+  .coverage-map-legend,.coverage-map-method,.coverage-map-canvas-list small,
+  .coverage-map-canvas-list a>svg,.content-index-featured-meta,.demo-report-grid small,
+  .demo-report-grid article>span,.local-business-tier-grid article>p,.pilot-trust-note,
+  .local-business-free-card>p,.saved-list button,.planner-goal-step>p,.planner-submit p,
+  .planner-result-heading button,.planner-save-row p) { color:var(--muted); }
+html[data-theme] :is(.content-body a:not(.button),.status-alternative strong,
+  .coverage-map-selected-media figcaption a,.practical-steps .municipal-note) { color:var(--cyan); }
+html[data-theme] .content-body a:not(.button) { text-decoration-color:currentColor; }
+html[data-theme] .search-starter-heading>button { color:var(--cyan)!important; }
+html[data-theme] :is(.save-button:hover,.share-button:hover,.save-button.is-saved) { color:var(--cyan); }
+html[data-theme] .saved-list button:hover { color:var(--danger); }
+html[data-theme] :is(.updates-release>header time,.updates-note time,.latest-lead time,.latest-list time) { color:var(--muted); }
+html[data-theme] :is(.search-input-wrap input,.form-field input,.form-field textarea)::placeholder { color:var(--muted); opacity:1; }
+html[data-theme="dark"] .search-input-wrap input::placeholder { color:var(--text-secondary); }
+html[data-theme] :is(.coverage-map-search input,.planner-combobox-control input)::placeholder { color:var(--muted); opacity:1; }
+html[data-theme="dark"] .discovery-kicker { color:var(--orange-2); }
+
+html[data-theme] :is(.business-hero,.knowledge-trust-summary,.system-evidence,.local-business-free-card,.emergency-primary) {
+  --text:#f2f7ff;
+  --text-secondary:#c3d2e5;
+  --muted:#b8cae2;
+  --orange:#ffac76;
+  --orange-2:#ffac76;
+  --cyan:#70dce8;
+  --panel:#0e1d35;
+  --panel-2:#142846;
+  color:var(--text);
+}
+html[data-theme] :is(.business-hero,.knowledge-trust-summary) {
+  background:linear-gradient(145deg,#142846,#0e1d35);
+}
+html[data-theme] .system-evidence-heading aside span { color:var(--muted); }
+html[data-theme] .system-evidence-heading aside strong { color:var(--text); }
+}

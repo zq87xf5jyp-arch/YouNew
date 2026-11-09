@@ -3,6 +3,7 @@ import { readFile, mkdir, writeFile } from "node:fs/promises";
 import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { projectPublishedPracticalGuide } from "./practical-guide.mjs";
+import { projectPlaceDetails } from "../src/lib/content/place-details.mjs";
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const publicSiteRoot = resolve(scriptDirectory, "..");
@@ -163,6 +164,7 @@ const entityTypeByKind = Object.freeze({
   university: "organization",
   localPartner: "organization",
   cafe: "place",
+  hotel: "place",
   event: "place",
   museum: "place",
   park: "place",
@@ -180,6 +182,7 @@ const categoryByKind = Object.freeze({
   university: "education",
   localPartner: "local-services",
   cafe: "food-drink",
+  hotel: "local-services",
   restaurant: "food-drink",
   event: "culture",
   museum: "culture",
@@ -714,6 +717,7 @@ function sanitizeEntity(entity, slug) {
     provinceId: provinceId || null,
     categorySlugs: [broadCategorySlug],
     narrowCategory: narrowCategory || null,
+    placeDetails: type === "place" || type === "organization" ? projectPlaceDetails(entity) : null,
     keywords,
     coordinate,
     images,
@@ -808,7 +812,8 @@ function buildProvinces(entities) {
 }
 
 export function buildSearchIndex(entities, categories, citiesById, provincesById, generatedAt, datasetFingerprint) {
-  const entityDocuments = entities.map((entity) => {
+  // Legacy pages remain addressable, but discovery uses the same eligibility gate as the sitemap.
+  const entityDocuments = entities.filter((entity) => entity.status === "published" && entity.indexable === true).map((entity) => {
     const practical = entity.practicalGuide ?? null;
     const legacy = legacySearchMetadataById[entity.id] ?? {};
     const officialOrganizationNames = [
@@ -1215,7 +1220,7 @@ async function writeJSON(filePath, value) {
   await writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
 
-export async function generatePublicContent(sourcePath = paths.source) {
+export async function generatePublicContent(sourcePath = process.env.YOUNEW_LOCAL_APPROVED_RUNTIME || paths.source) {
   const runtime = JSON.parse(await readFile(sourcePath, "utf8"));
   const outputs = buildPublicDataset(runtime);
   await Promise.all([

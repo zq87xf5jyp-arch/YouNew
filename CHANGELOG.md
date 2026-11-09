@@ -7,6 +7,10 @@ versions follow semantic versioning.
 
 ### Added
 
+- Preserve the Hostinger PHP forms, MariaDB Admin candidate, and 71 unapproved
+  editorial drafts in the canonical repository, with private backup tooling.
+- Recalculate public freshness exclusions at build time and support empty static
+  catalog sections without publishing placeholder records.
 - Product CI for repository static checks, iOS unit tests, public-site validation,
   backend security contracts, failed-test diagnostics, and unsigned Release builds.
 - GitHub contribution, support, conduct, ownership, issue, pull-request, and

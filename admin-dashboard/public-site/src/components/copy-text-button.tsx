@@ -1,5 +1,8 @@
 "use client";
 
+import "@/styles/guide.css";
+
+
 import { useEffect, useRef, useState } from "react";
 import { Copy } from "lucide-react";
 

@@ -4,8 +4,8 @@
   "replacement": "release-truth.json",
   "title": "Deprecated release-truth compatibility projection",
   "generatedAt": "2026-10-24T11:22:48.000Z",
-  "snapshotID": "release-truth.f5ef59380676b569",
-  "snapshotDigest": "f5ef59380676b569f8634c7b814c55e6228626971ee57868a9626a49ab1cf3b2",
+  "snapshotID": "release-truth.2adcd24d3525e071",
+  "snapshotDigest": "2adcd24d3525e071361120ef22da647b08835bb617ae11453944cd643fcde4f9",
   "currentReleaseAuthority": "packaged-governed-runtime",
   "releaseAuthorityReason": "Packaged content is measured, while link health, exact-candidate CI, and full deployed-payload verification are not established.",
   "readiness": {
@@ -15,8 +15,8 @@
   "knowledgeCoverage": {
     "kind": "ratio",
     "unit": "percent",
-    "value": 1.5,
-    "numerator": 7,
+    "value": 1.1,
+    "numerator": 5,
     "denominator": 454,
     "state": "measured",
     "reasonCode": null,
@@ -50,7 +50,7 @@
     "packagedPublishedRecords": {
       "kind": "count",
       "unit": "count",
-      "value": 7,
+      "value": 5,
       "numerator": null,
       "denominator": null,
       "state": "measured",

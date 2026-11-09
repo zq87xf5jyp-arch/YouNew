@@ -1,0 +1,100 @@
+"use client";
+
+import Link from "next/link";
+import { useMemo, useState } from "react";
+import { Download, Search } from "lucide-react";
+import { Badge } from "@/components/ui/badge";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { inquiryLabels, type InquirySchema, type CompatibleInquiryListRow } from "@/lib/business-inquiry-compatibility";
+import type { BusinessInquiryIntegrityIssue } from "@/lib/business-inquiry-admin";
+export type { BusinessInquiryListRow } from "@/lib/business-inquiry-admin";
+
+export function BusinessInquiryList({
+  rows,
+  available,
+  schema,
+  integrityIssues = []
+}: {
+  rows: CompatibleInquiryListRow[];
+  schema: InquirySchema;
+  available: boolean;
+  integrityIssues?: BusinessInquiryIntegrityIssue[];
+}) {
+  const BUSINESS_INQUIRY_STATUS_LABELS = inquiryLabels(schema);
+  const [query, setQuery] = useState("");
+  const [status, setStatus] = useState("");
+  const filtered = useMemo(() => {
+    const normalized = query.trim().toLocaleLowerCase("ru");
+    return rows.filter((row) => {
+      const statusMatches = !status || row.status === status;
+      const queryMatches = !normalized || [
+        row.reference_code,
+        row.company_name,
+        row.contact_person,
+        row.email,
+        row.inquiry_type
+      ].join(" ").toLocaleLowerCase("ru").includes(normalized);
+      return statusMatches && queryMatches;
+    });
+  }, [query, rows, status]);
+
+  return (
+    <Card>
+      <CardHeader>
+        <div className="flex flex-wrap items-start justify-between gap-3">
+          <div>
+            <CardTitle>Входящие бизнес-заявки</CardTitle>
+            <CardDescription>
+              {available
+                ? `Последняя ограниченная выборка: ${rows.length} заявок · после локальных фильтров показано ${filtered.length}. Глобальный total не заявляется.`
+                : "Таблица business_inquiries пока недоступна в подключённом Supabase."}
+            </CardDescription>
+          </div>
+          {available ? (
+            <Button asChild variant="outline" size="sm">
+              <Link href="/business-inquiries/export"><Download className="size-4" />Экспорт без сообщения и внутренних заметок</Link>
+            </Button>
+          ) : null}
+        </div>
+        <div className="grid gap-3 pt-3 md:grid-cols-[1fr_220px]">
+          <div className="relative">
+            <Search className="absolute left-3 top-3 size-4 text-muted-foreground" />
+            <Input className="pl-9" value={query} onChange={(event) => setQuery(event.target.value)} placeholder="ID, компания, контакт или email" />
+          </div>
+          <label className="sr-only" htmlFor="business-inquiry-status">Статус заявки</label>
+          <select id="business-inquiry-status" className="h-10 rounded-md border border-input bg-secondary/50 px-3 text-sm" value={status} onChange={(event) => setStatus(event.target.value)}>
+            <option value="">Все статусы</option>
+            {Object.entries(BUSINESS_INQUIRY_STATUS_LABELS).map(([value, label]) => <option value={value} key={value}>{label}</option>)}
+          </select>
+        </div>
+      </CardHeader>
+      <CardContent>
+        {integrityIssues.length > 0 ? (
+          <p className="mb-4 rounded-md border border-red-400/30 bg-red-400/10 p-3 text-sm text-red-100" role="alert">
+            Data integrity error: {integrityIssues.length} заявок скрыто из списка из-за отсутствующих обязательных полей. Значения и контакты не записаны в сообщение об ошибке.
+          </p>
+        ) : null}
+        <div className="overflow-x-auto">
+          <table className="younew-table">
+            <thead><tr><th>ID</th><th>Компания</th><th>Тип</th><th>Статус</th><th>Создано (Амстердам)</th><th>Действия</th></tr></thead>
+            <tbody>
+              {filtered.map((row) => (
+                <tr key={row.id}>
+                  <td className="font-mono text-xs">{row.reference_code}</td>
+                  <td><p className="font-medium">{row.company_name}</p><p className="text-xs text-muted-foreground">{row.contact_person} · {row.email}</p></td>
+                  <td>{row.inquiry_type}</td>
+                  <td><Badge variant={row.status === "new" ? "warning" : row.status === "won" ? "success" : row.status === "lost" ? "destructive" : "secondary"}>{BUSINESS_INQUIRY_STATUS_LABELS[row.status]}</Badge></td>
+                  <td>{new Intl.DateTimeFormat("nl-NL", { dateStyle: "medium", timeStyle: "short", timeZone: "Europe/Amsterdam" }).format(new Date(row.created_at))}</td>
+                  <td><Link className="text-cyan-200 underline-offset-4 hover:underline" href={`/business-inquiries/${row.id}`}>Открыть</Link></td>
+                </tr>
+              ))}
+              {filtered.length === 0 ? <tr><td colSpan={6} className="py-10 text-center text-muted-foreground">{available ? "В загруженных заявках нет совпадений." : "Количество заявок неизвестно: источник недоступен."}</td></tr> : null}
+            </tbody>
+          </table>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}

@@ -376,7 +376,7 @@ export function rankSearchDocuments(
       : titleStartsWithPhrase
         ? (categoryLanding ? 52 : 90)
         : titleContainsPhrase
-          ? (categoryLanding ? 40 : 58)
+          ? (categoryLanding ? 40 : ["place", "organization"].includes(document.type) ? 180 : 58)
           : 0;
     const matchedTerms: string[] = [];
 

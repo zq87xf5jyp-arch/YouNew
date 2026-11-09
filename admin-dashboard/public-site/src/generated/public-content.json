@@ -9,15 +9,15 @@
     "cities-v0.1.0"
   ],
   "stats": {
-    "entities": 7,
+    "entities": 5,
     "cities": 5,
-    "guides": 1,
+    "guides": 0,
     "practicalGuides": 0,
-    "summaryGuides": 1,
+    "summaryGuides": 0,
     "organizations": 0,
-    "places": 1,
+    "places": 0,
     "categories": 33,
-    "provinces": 1
+    "provinces": 0
   },
   "entities": [
     {
@@ -38,6 +38,7 @@
         "things-to-do"
       ],
       "narrowCategory": "municipality",
+      "placeDetails": null,
       "keywords": [
         "Amsterdam Noord-Holland",
         "Amsterdam city services",
@@ -168,151 +169,6 @@
       }
     },
     {
-      "id": "place.begijnhof-amsterdam",
-      "slug": "begijnhof-amsterdam",
-      "type": "place",
-      "sourceKind": "place",
-      "route": "/places/begijnhof-amsterdam",
-      "language": "en",
-      "status": "published",
-      "title": "Begijnhof Amsterdam",
-      "summary": "Begijnhof Amsterdam is a confirmed Amsterdam place or attraction. The cited source specifically covers the enclosed historic courtyard in central Amsterdam. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
-      "contentDepth": "summary",
-      "practicalGuide": null,
-      "cityId": "amsterdam",
-      "provinceId": "noord-holland",
-      "categorySlugs": [
-        "things-to-do"
-      ],
-      "narrowCategory": "historic-courtyard",
-      "keywords": [
-        "Begijnhof Amsterdam",
-        "Begijnhof Amsterdam Amsterdam",
-        "Noord-Holland",
-        "historic courtyard",
-        "place or attraction Amsterdam"
-      ],
-      "coordinate": {
-        "latitude": 52.3694314,
-        "longitude": 4.8900431
-      },
-      "images": [
-        {
-          "id": "media.place.begijnhof-amsterdam.gallery.38a0434dc2",
-          "role": "gallery",
-          "url": "https://live.staticflickr.com/5540/12083059735_4664641009_b.jpg",
-          "alt": "Begijnhof Amsterdam: Netherlands-4454 - South Entrance",
-          "attribution": "\"Netherlands-4454 - South Entrance\" by archer10 (Dennis) is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-          "license": "CC BY-SA 2.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/22490717@N02/12083059735",
-          "retrievedAt": "2026-07-18"
-        },
-        {
-          "id": "media.place.begijnhof-amsterdam.hero.db88b31314",
-          "role": "hero",
-          "url": "https://live.staticflickr.com/2735/4151159388_1fe2d2f325_b.jpg",
-          "alt": "Begijnhof Amsterdam: Amsterdam",
-          "attribution": "\"Amsterdam\" by Bert Kaufmann is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-          "license": "CC BY 2.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/22746515@N02/4151159388",
-          "retrievedAt": "2026-07-18"
-        },
-        {
-          "id": "media.place.begijnhof-amsterdam.map_preview.2e33d4f698",
-          "role": "map_preview",
-          "url": "https://live.staticflickr.com/7404/12083455656_91263e8dd0_b.jpg",
-          "alt": "Begijnhof Amsterdam: Netherlands-4430 - Begijnhof",
-          "attribution": "\"Netherlands-4430 - Begijnhof\" by archer10 (Dennis) is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-          "license": "CC BY-SA 2.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/22490717@N02/12083455656",
-          "retrievedAt": "2026-07-18"
-        },
-        {
-          "id": "media.place.begijnhof-amsterdam.thumbnail.97ae33094e",
-          "role": "thumbnail",
-          "url": "https://live.staticflickr.com/3681/12083217693_fd55c6cae8_b.jpg",
-          "alt": "Begijnhof Amsterdam: Netherlands-4437 - Begijnesloot Gate",
-          "attribution": "\"Netherlands-4437 - Begijnesloot Gate\" by archer10 (Dennis) is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-          "license": "CC BY-SA 2.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/22490717@N02/12083217693",
-          "retrievedAt": "2026-07-18"
-        }
-      ],
-      "source": {
-        "title": "Begijnhof | Gemeente Amsterdam",
-        "publisher": "Gemeente Amsterdam",
-        "url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
-        "checkedAt": "2026-10-24T09:30:00.000Z",
-        "publisherOfficial": true
-      },
-      "trust": {
-        "sourceChecked": true,
-        "officialSource": true
-      },
-      "governance": {
-        "id": "place.begijnhof-amsterdam",
-        "title": "Begijnhof Amsterdam",
-        "contentType": "place",
-        "jurisdiction": {
-          "countryCode": "NL",
-          "level": "municipal",
-          "municipalityDependent": true,
-          "applicabilityVerified": true,
-          "provinceCode": "NH",
-          "provinceName": "Noord-Holland",
-          "municipalityCode": "GM0363",
-          "municipalityName": "Amsterdam"
-        },
-        "officialSourceURL": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
-        "sourceTitle": "Begijnhof | Gemeente Amsterdam",
-        "sourcePublisher": "Gemeente Amsterdam",
-        "lastVerifiedAt": "2026-10-24T09:30:00.000Z",
-        "nextReviewAt": "2027-01-22T09:30:00.000Z",
-        "reviewIntervalDays": 90,
-        "contentOwner": "YouNew Content Operations",
-        "reviewedBy": null,
-        "verificationStatus": "unverified",
-        "confidenceLevel": "medium",
-        "validityStart": null,
-        "validityEnd": null,
-        "changeNotes": "Official municipal source and the page-specific public claims were rechecked. No human-review or independent-review credit is claimed.",
-        "version": 1,
-        "updatedAt": "2026-10-24T09:30:00.000Z",
-        "publicationStatus": "published",
-        "reviewState": "needs_review",
-        "criticality": "standard",
-        "contentOrigin": "government_publication",
-        "originReference": "DataProject/quality/phase6-1-public-record-confirmations.json",
-        "originCapturedAt": "2026-10-24T09:30:00.000Z",
-        "originArtifactDigest": null,
-        "confidenceScore": 65,
-        "confidenceScoreVersion": 1,
-        "confidenceBreakdown": {
-          "officialSource": 40,
-          "humanReviewer": 0,
-          "independentReview": 0,
-          "freshness": 10,
-          "jurisdictionApplicability": 15
-        }
-      },
-      "indexable": false,
-      "verifiedAt": "2026-10-24T09:30:00.000Z",
-      "updatedAt": "2026-07-30",
-      "releaseId": "amsterdam-v0.1.8",
-      "relatedEntityIds": [
-        "city.amsterdam"
-      ],
-      "seo": {
-        "title": "Begijnhof Amsterdam | YouNew",
-        "description": "Begijnhof Amsterdam is a confirmed Amsterdam place or attraction. The cited source specifically covers the enclosed historic courtyard in central Amsterdam. Thi",
-        "canonicalPath": "/places/begijnhof-amsterdam"
-      }
-    },
-    {
       "id": "city.den-haag",
       "slug": "den-haag",
       "type": "city",
@@ -330,6 +186,7 @@
         "things-to-do"
       ],
       "narrowCategory": "municipality",
+      "placeDetails": null,
       "keywords": [
         "Den Haag Zuid-Holland",
         "Den Haag municipality",
@@ -460,73 +317,6 @@
       }
     },
     {
-      "id": "government_service.driving-licence-amsterdam",
-      "slug": "driving-licence-amsterdam",
-      "type": "guide",
-      "sourceKind": "governmentService",
-      "route": "/guides/driving-licence-amsterdam",
-      "language": "en",
-      "status": "published",
-      "title": "Driving licence Amsterdam",
-      "summary": "Driving licence Amsterdam is a confirmed Amsterdam municipal service. The cited source specifically covers municipal driving-licence applications and renewals. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
-      "contentDepth": "summary",
-      "practicalGuide": null,
-      "cityId": "amsterdam",
-      "provinceId": "noord-holland",
-      "categorySlugs": [
-        "government"
-      ],
-      "narrowCategory": "driving-documents",
-      "keywords": [
-        "Driving licence Amsterdam",
-        "Driving licence Amsterdam Amsterdam",
-        "Noord-Holland",
-        "driving documents",
-        "municipal service Amsterdam"
-      ],
-      "coordinate": {
-        "latitude": 52.3675554,
-        "longitude": 4.901289
-      },
-      "images": [
-        {
-          "id": "media.government-service.driving-licence-amsterdam.hero.e46ea3b1ad",
-          "role": "hero",
-          "url": "https://live.staticflickr.com/75/196457679_a01eb1118e_b.jpg",
-          "alt": "Driving licence Amsterdam: Amsterdam City Hall",
-          "attribution": "\"Amsterdam City Hall\" by Helder da Rocha is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-          "license": "CC BY-SA 2.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/49503071578@N01/196457679",
-          "retrievedAt": "2026-07-18"
-        }
-      ],
-      "source": {
-        "title": "Apply for a Dutch driving licence",
-        "publisher": "City of Amsterdam",
-        "url": "https://www.amsterdam.nl/en/civil-affairs/applying-dutch-driving-licence/",
-        "checkedAt": "2026-08-01",
-        "publisherOfficial": true
-      },
-      "trust": {
-        "sourceChecked": true,
-        "officialSource": true
-      },
-      "governance": null,
-      "indexable": true,
-      "verifiedAt": "2026-08-01",
-      "updatedAt": "2026-08-01",
-      "releaseId": "amsterdam-v0.1.8",
-      "relatedEntityIds": [
-        "city.amsterdam"
-      ],
-      "seo": {
-        "title": "Driving licence Amsterdam | YouNew",
-        "description": "Driving licence Amsterdam is a confirmed Amsterdam municipal service. The cited source specifically covers municipal driving-licence applications and renewals. ",
-        "canonicalPath": "/guides/driving-licence-amsterdam"
-      }
-    },
-    {
       "id": "city.eindhoven",
       "slug": "eindhoven",
       "type": "city",
@@ -544,6 +334,7 @@
         "things-to-do"
       ],
       "narrowCategory": "municipality",
+      "placeDetails": null,
       "keywords": [
         "Eindhoven Noord-Brabant",
         "Eindhoven city services",
@@ -691,6 +482,7 @@
         "things-to-do"
       ],
       "narrowCategory": "municipality",
+      "placeDetails": null,
       "keywords": [
         "Gemeente Rotterdam",
         "Rotterdam Zuid-Holland",
@@ -838,6 +630,7 @@
         "things-to-do"
       ],
       "narrowCategory": "municipality",
+      "placeDetails": null,
       "keywords": [
         "Gemeente Utrecht",
         "Utrecht City Hall",
@@ -987,6 +780,7 @@
         "things-to-do"
       ],
       "narrowCategory": "municipality",
+      "placeDetails": null,
       "keywords": [
         "Amsterdam Noord-Holland",
         "Amsterdam city services",
@@ -1134,6 +928,7 @@
         "things-to-do"
       ],
       "narrowCategory": "municipality",
+      "placeDetails": null,
       "keywords": [
         "Den Haag Zuid-Holland",
         "Den Haag municipality",
@@ -1281,6 +1076,7 @@
         "things-to-do"
       ],
       "narrowCategory": "municipality",
+      "placeDetails": null,
       "keywords": [
         "Eindhoven Noord-Brabant",
         "Eindhoven city services",
@@ -1428,6 +1224,7 @@
         "things-to-do"
       ],
       "narrowCategory": "municipality",
+      "placeDetails": null,
       "keywords": [
         "Gemeente Rotterdam",
         "Rotterdam Zuid-Holland",
@@ -1575,6 +1372,7 @@
         "things-to-do"
       ],
       "narrowCategory": "municipality",
+      "placeDetails": null,
       "keywords": [
         "Gemeente Utrecht",
         "Utrecht City Hall",
@@ -1705,223 +1503,9 @@
       }
     }
   ],
-  "guides": [
-    {
-      "id": "government_service.driving-licence-amsterdam",
-      "slug": "driving-licence-amsterdam",
-      "type": "guide",
-      "sourceKind": "governmentService",
-      "route": "/guides/driving-licence-amsterdam",
-      "language": "en",
-      "status": "published",
-      "title": "Driving licence Amsterdam",
-      "summary": "Driving licence Amsterdam is a confirmed Amsterdam municipal service. The cited source specifically covers municipal driving-licence applications and renewals. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
-      "contentDepth": "summary",
-      "practicalGuide": null,
-      "cityId": "amsterdam",
-      "provinceId": "noord-holland",
-      "categorySlugs": [
-        "government"
-      ],
-      "narrowCategory": "driving-documents",
-      "keywords": [
-        "Driving licence Amsterdam",
-        "Driving licence Amsterdam Amsterdam",
-        "Noord-Holland",
-        "driving documents",
-        "municipal service Amsterdam"
-      ],
-      "coordinate": {
-        "latitude": 52.3675554,
-        "longitude": 4.901289
-      },
-      "images": [
-        {
-          "id": "media.government-service.driving-licence-amsterdam.hero.e46ea3b1ad",
-          "role": "hero",
-          "url": "https://live.staticflickr.com/75/196457679_a01eb1118e_b.jpg",
-          "alt": "Driving licence Amsterdam: Amsterdam City Hall",
-          "attribution": "\"Amsterdam City Hall\" by Helder da Rocha is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-          "license": "CC BY-SA 2.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/49503071578@N01/196457679",
-          "retrievedAt": "2026-07-18"
-        }
-      ],
-      "source": {
-        "title": "Apply for a Dutch driving licence",
-        "publisher": "City of Amsterdam",
-        "url": "https://www.amsterdam.nl/en/civil-affairs/applying-dutch-driving-licence/",
-        "checkedAt": "2026-08-01",
-        "publisherOfficial": true
-      },
-      "trust": {
-        "sourceChecked": true,
-        "officialSource": true
-      },
-      "governance": null,
-      "indexable": true,
-      "verifiedAt": "2026-08-01",
-      "updatedAt": "2026-08-01",
-      "releaseId": "amsterdam-v0.1.8",
-      "relatedEntityIds": [
-        "city.amsterdam"
-      ],
-      "seo": {
-        "title": "Driving licence Amsterdam | YouNew",
-        "description": "Driving licence Amsterdam is a confirmed Amsterdam municipal service. The cited source specifically covers municipal driving-licence applications and renewals. ",
-        "canonicalPath": "/guides/driving-licence-amsterdam"
-      }
-    }
-  ],
+  "guides": [],
   "organizations": [],
-  "places": [
-    {
-      "id": "place.begijnhof-amsterdam",
-      "slug": "begijnhof-amsterdam",
-      "type": "place",
-      "sourceKind": "place",
-      "route": "/places/begijnhof-amsterdam",
-      "language": "en",
-      "status": "published",
-      "title": "Begijnhof Amsterdam",
-      "summary": "Begijnhof Amsterdam is a confirmed Amsterdam place or attraction. The cited source specifically covers the enclosed historic courtyard in central Amsterdam. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
-      "contentDepth": "summary",
-      "practicalGuide": null,
-      "cityId": "amsterdam",
-      "provinceId": "noord-holland",
-      "categorySlugs": [
-        "things-to-do"
-      ],
-      "narrowCategory": "historic-courtyard",
-      "keywords": [
-        "Begijnhof Amsterdam",
-        "Begijnhof Amsterdam Amsterdam",
-        "Noord-Holland",
-        "historic courtyard",
-        "place or attraction Amsterdam"
-      ],
-      "coordinate": {
-        "latitude": 52.3694314,
-        "longitude": 4.8900431
-      },
-      "images": [
-        {
-          "id": "media.place.begijnhof-amsterdam.gallery.38a0434dc2",
-          "role": "gallery",
-          "url": "https://live.staticflickr.com/5540/12083059735_4664641009_b.jpg",
-          "alt": "Begijnhof Amsterdam: Netherlands-4454 - South Entrance",
-          "attribution": "\"Netherlands-4454 - South Entrance\" by archer10 (Dennis) is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-          "license": "CC BY-SA 2.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/22490717@N02/12083059735",
-          "retrievedAt": "2026-07-18"
-        },
-        {
-          "id": "media.place.begijnhof-amsterdam.hero.db88b31314",
-          "role": "hero",
-          "url": "https://live.staticflickr.com/2735/4151159388_1fe2d2f325_b.jpg",
-          "alt": "Begijnhof Amsterdam: Amsterdam",
-          "attribution": "\"Amsterdam\" by Bert Kaufmann is licensed under CC BY 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by/2.0/.",
-          "license": "CC BY 2.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/22746515@N02/4151159388",
-          "retrievedAt": "2026-07-18"
-        },
-        {
-          "id": "media.place.begijnhof-amsterdam.map_preview.2e33d4f698",
-          "role": "map_preview",
-          "url": "https://live.staticflickr.com/7404/12083455656_91263e8dd0_b.jpg",
-          "alt": "Begijnhof Amsterdam: Netherlands-4430 - Begijnhof",
-          "attribution": "\"Netherlands-4430 - Begijnhof\" by archer10 (Dennis) is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-          "license": "CC BY-SA 2.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/22490717@N02/12083455656",
-          "retrievedAt": "2026-07-18"
-        },
-        {
-          "id": "media.place.begijnhof-amsterdam.thumbnail.97ae33094e",
-          "role": "thumbnail",
-          "url": "https://live.staticflickr.com/3681/12083217693_fd55c6cae8_b.jpg",
-          "alt": "Begijnhof Amsterdam: Netherlands-4437 - Begijnesloot Gate",
-          "attribution": "\"Netherlands-4437 - Begijnesloot Gate\" by archer10 (Dennis) is licensed under CC BY-SA 2.0. To view a copy of this license, visit https://creativecommons.org/licenses/by-sa/2.0/.",
-          "license": "CC BY-SA 2.0",
-          "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
-          "sourcePageUrl": "https://www.flickr.com/photos/22490717@N02/12083217693",
-          "retrievedAt": "2026-07-18"
-        }
-      ],
-      "source": {
-        "title": "Begijnhof | Gemeente Amsterdam",
-        "publisher": "Gemeente Amsterdam",
-        "url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
-        "checkedAt": "2026-10-24T09:30:00.000Z",
-        "publisherOfficial": true
-      },
-      "trust": {
-        "sourceChecked": true,
-        "officialSource": true
-      },
-      "governance": {
-        "id": "place.begijnhof-amsterdam",
-        "title": "Begijnhof Amsterdam",
-        "contentType": "place",
-        "jurisdiction": {
-          "countryCode": "NL",
-          "level": "municipal",
-          "municipalityDependent": true,
-          "applicabilityVerified": true,
-          "provinceCode": "NH",
-          "provinceName": "Noord-Holland",
-          "municipalityCode": "GM0363",
-          "municipalityName": "Amsterdam"
-        },
-        "officialSourceURL": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
-        "sourceTitle": "Begijnhof | Gemeente Amsterdam",
-        "sourcePublisher": "Gemeente Amsterdam",
-        "lastVerifiedAt": "2026-10-24T09:30:00.000Z",
-        "nextReviewAt": "2027-01-22T09:30:00.000Z",
-        "reviewIntervalDays": 90,
-        "contentOwner": "YouNew Content Operations",
-        "reviewedBy": null,
-        "verificationStatus": "unverified",
-        "confidenceLevel": "medium",
-        "validityStart": null,
-        "validityEnd": null,
-        "changeNotes": "Official municipal source and the page-specific public claims were rechecked. No human-review or independent-review credit is claimed.",
-        "version": 1,
-        "updatedAt": "2026-10-24T09:30:00.000Z",
-        "publicationStatus": "published",
-        "reviewState": "needs_review",
-        "criticality": "standard",
-        "contentOrigin": "government_publication",
-        "originReference": "DataProject/quality/phase6-1-public-record-confirmations.json",
-        "originCapturedAt": "2026-10-24T09:30:00.000Z",
-        "originArtifactDigest": null,
-        "confidenceScore": 65,
-        "confidenceScoreVersion": 1,
-        "confidenceBreakdown": {
-          "officialSource": 40,
-          "humanReviewer": 0,
-          "independentReview": 0,
-          "freshness": 10,
-          "jurisdictionApplicability": 15
-        }
-      },
-      "indexable": false,
-      "verifiedAt": "2026-10-24T09:30:00.000Z",
-      "updatedAt": "2026-07-30",
-      "releaseId": "amsterdam-v0.1.8",
-      "relatedEntityIds": [
-        "city.amsterdam"
-      ],
-      "seo": {
-        "title": "Begijnhof Amsterdam | YouNew",
-        "description": "Begijnhof Amsterdam is a confirmed Amsterdam place or attraction. The cited source specifically covers the enclosed historic courtyard in central Amsterdam. Thi",
-        "canonicalPath": "/places/begijnhof-amsterdam"
-      }
-    }
-  ],
+  "places": [],
   "categories": [
     {
       "id": "category.banking",
@@ -2075,13 +1659,9 @@
       "summary": "National government services, public administration, official correspondence and finding the responsible authority.",
       "status": "published",
       "language": "en",
-      "entityCount": 1,
-      "entityIds": [
-        "government_service.driving-licence-amsterdam"
-      ],
-      "entityTypes": [
-        "guide"
-      ]
+      "entityCount": 0,
+      "entityIds": [],
+      "entityTypes": []
     },
     {
       "id": "category.healthcare",
@@ -2324,25 +1904,5 @@
       "entityTypes": []
     }
   ],
-  "provinces": [
-    {
-      "id": "province.noord-holland",
-      "slug": "noord-holland",
-      "route": "/provinces/noord-holland",
-      "title": "Noord-Holland",
-      "summary": "Published YouNew information for Noord-Holland.",
-      "status": "published",
-      "language": "en",
-      "entityCount": 1,
-      "entityIds": [
-        "government_service.driving-licence-amsterdam"
-      ],
-      "cityIds": [
-        "amsterdam"
-      ],
-      "categorySlugs": [
-        "government"
-      ]
-    }
-  ]
+  "provinces": []
 }

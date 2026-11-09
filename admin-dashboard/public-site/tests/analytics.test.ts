@@ -4,14 +4,13 @@ import test from "node:test";
 import {
   analyticsEnvironment,
   createAnalyticsEnvelope,
-  createSupabaseAnalyticsProvider,
+  createHostingerAnalyticsProvider,
   randomUUIDv4,
   type AnalyticsConfiguration
 } from "../src/lib/analytics/client.ts";
 
 const configuration: AnalyticsConfiguration = {
-  endpoint: "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/analytics-ingest",
-  publishableKey: "sb_publishable_test",
+  endpoint: "/api/analytics-ingest.php",
   consentVersion: "2026-07-28",
   schemaVersion: 1,
   appVersion: "web-test"
@@ -58,13 +57,6 @@ test("analytics envelopes contain only bounded allowlisted values", () => {
   assert.equal(envelope.event_name, "search");
   assert.equal(envelope.screen, "/discover/");
   assert.deepEqual(envelope.properties, {
-    normalized_query_safe: "bsn",
-    intent_ids: "documents.bsn",
-    filter_type: "",
-    filter_city: "eindhoven",
-    filter_province: "",
-    filter_category: "documents",
-    filter_profile: "worker",
     result_count: 7,
     has_results: true,
     zero_result: false,
@@ -92,12 +84,10 @@ test("planner save analytics uses the production allowlisted event and no free t
   );
 
   assert.equal(envelope.event_name, "item_saved");
-  assert.deepEqual(envelope.properties, {
-    content_id: "planner route-script--private-value"
-  });
+  assert.deepEqual(envelope.properties, {});
 });
 
-test("official source analytics keeps only a bounded content identifier", () => {
+test("official source analytics sends only the action count", () => {
   const envelope = createAnalyticsEnvelope(
     {
       name: "official_source_click",
@@ -113,12 +103,10 @@ test("official source analytics keeps only a bounded content identifier", () => 
     }
   );
 
-  assert.deepEqual(envelope.properties, {
-    content_id: "guide.brp-script--private-value"
-  });
+  assert.deepEqual(envelope.properties, {});
 });
 
-test("geo relevance analytics stores only normalized city, intent and bounded timing", () => {
+test("geo analytics drops city and intent details while keeping bounded timing", () => {
   const runtime = {
     now: () => new Date("2026-08-19T10:00:00.000Z"),
     randomUUID: () => "aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa",
@@ -137,8 +125,8 @@ test("geo relevance analytics stores only normalized city, intent and bounded ti
     runtime
   );
 
-  assert.deepEqual(detected.properties, { city: "leiden-script-", intent_id: "healthcare-script-" });
-  assert.deepEqual(timing.properties, { city: "leiden", intent_id: "healthcare", duration_ms: 3_600_000 });
+  assert.deepEqual(detected.properties, {});
+  assert.deepEqual(timing.properties, { duration_ms: 3_600_000 });
   assert.equal(detected.screen, "/search/");
   assert.doesNotMatch(JSON.stringify([detected, timing]), /private|health question|My\+/i);
 });
@@ -160,10 +148,7 @@ test("action-panel analytics has no person, free-text query or URL fields", () =
     }
   );
 
-  assert.deepEqual(envelope.properties, {
-    content_id: "national.documents.municipality.leiden-script-",
-    city: "leiden"
-  });
+  assert.deepEqual(envelope.properties, {});
   assert.equal(envelope.screen, "/essentials/documents/");
   assert.doesNotMatch(JSON.stringify(envelope), /private@example|email=/i);
 });
@@ -185,13 +170,11 @@ test("App Store CTA analytics records intent without claiming a download", () =>
   );
 
   assert.equal(envelope.event_name, "app_cta_click");
-  assert.deepEqual(envelope.properties, {
-    location: "app page hero-script--private-value"
-  });
+  assert.deepEqual(envelope.properties, {});
   assert.equal(JSON.stringify(envelope).includes("download_completed"), false);
 });
 
-test("business mail fallback records only a bounded organization type", () => {
+test("business mail fallback records only the action count", () => {
   const envelope = createAnalyticsEnvelope(
     {
       name: "business_mailto_prepared",
@@ -208,9 +191,7 @@ test("business mail fallback records only a bounded organization type", () => {
   );
 
   assert.equal(envelope.event_name, "business_mailto_prepared");
-  assert.deepEqual(envelope.properties, {
-    organization_type: "non-profit-script--private-value"
-  });
+  assert.deepEqual(envelope.properties, {});
 });
 
 test("lead funnel events contain no form fields or receipt identifiers", () => {
@@ -276,7 +257,7 @@ test("analytics provider batches events and sends no credentials or referrer", a
   const requests: Array<{ input: RequestInfo | URL; init?: RequestInit }> = [];
   let scheduled: (() => void) | undefined;
   let sequence = 0;
-  const provider = createSupabaseAnalyticsProvider({
+  const provider = createHostingerAnalyticsProvider({
     ...identifiers,
     runtime: {
       fetch: (async (input: RequestInfo | URL, init?: RequestInit) => {
@@ -314,7 +295,9 @@ test("analytics provider batches events and sends no credentials or referrer", a
   assert.equal(requests[0].input, configuration.endpoint);
   assert.equal(requests[0].init?.credentials, "omit");
   assert.equal(requests[0].init?.referrerPolicy, "no-referrer");
-  assert.equal((requests[0].init?.headers as Record<string, string>).apikey, configuration.publishableKey);
+  assert.equal((requests[0].init?.headers as Record<string, string>).apikey, undefined);
+  assert.equal(requests[0].init?.mode, "same-origin");
+  assert.equal(requests[0].init?.redirect, "error");
   const payload = JSON.parse(String(requests[0].init?.body)) as { events: Array<Record<string, unknown>> };
   assert.equal(payload.events.length, 2);
   assert.equal(payload.events[0].screen, "/discover/");
@@ -323,7 +306,7 @@ test("analytics provider batches events and sends no credentials or referrer", a
 
 test("invalid analytics configuration fails closed without a request", async () => {
   let requestCount = 0;
-  const provider = createSupabaseAnalyticsProvider({
+  const provider = createHostingerAnalyticsProvider({
     ...identifiers,
     configuration: { ...configuration, endpoint: "https://example.com/collect" },
     runtime: {

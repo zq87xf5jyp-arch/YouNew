@@ -3,10 +3,10 @@
   "deprecated": true,
   "replacement": "release-truth.json",
   "generatedAt": "2026-10-24T11:22:48.000Z",
-  "snapshotID": "release-truth.f5ef59380676b569",
-  "snapshotDigest": "f5ef59380676b569f8634c7b814c55e6228626971ee57868a9626a49ab1cf3b2",
+  "snapshotID": "release-truth.2adcd24d3525e071",
+  "snapshotDigest": "2adcd24d3525e071361120ef22da647b08835bb617ae11453944cd643fcde4f9",
   "release_identity": {
-    "candidate_commit": "491ba5d4d7f3de167cbfcc9f3ef6858b6189316a",
+    "candidate_commit": "484272957836615deb228d37c4e9d2ac0d9896a8",
     "source_tree_state": "dirty",
     "packaged_fingerprint": "f9887ff0ec6a4652414fef94e59f86e6a5679c31cd3c5d397cd2b5165b56ea86"
   },
@@ -15,7 +15,7 @@
   "release_summary": "Packaged content is measured, while link health, exact-candidate CI, and full deployed-payload verification are not established.",
   "proven": {
     "inventory_records": 454,
-    "packaged_published_records": 7,
+    "packaged_published_records": 5,
     "packaged_release_ids": [
       "amsterdam-v0.1.8",
       "cities-v0.1.0"

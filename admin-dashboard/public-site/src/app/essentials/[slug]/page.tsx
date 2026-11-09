@@ -1,3 +1,4 @@
+import "@/styles/guide.css";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { CheckCircle2, ExternalLink, ShieldCheck } from "lucide-react";

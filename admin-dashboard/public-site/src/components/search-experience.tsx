@@ -1,5 +1,9 @@
 "use client";
 
+
+
+import { publishSearchTask, takeSearchLanguageHandoff } from "@/lib/search/language-handoff";
+import { sortSearchResults, type SearchSort } from "@/lib/search/sort";
 import { FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
 import { CalendarCheck2, Check, ChevronDown, FileCheck2, Globe2, MapPin, Search, Share2, SlidersHorizontal, X } from "lucide-react";
@@ -74,6 +78,7 @@ const filterLabels: Readonly<Record<FilterKey, string>> = {
 };
 
 export function SearchExperience() {
+  const [sort, setSort] = useState<SearchSort>("relevance");
   const [documents, setDocuments] = useState<SearchDocument[]>([]);
   const [query, setQuery] = useState("");
   const [submittedQuery, setSubmittedQuery] = useState("");
@@ -94,18 +99,21 @@ export function SearchExperience() {
   const lastGeoAnalyticsKey = useRef("");
   const searchStartedAt = useRef(0);
   const firstActionTracked = useRef(false);
+  const suggestionList = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const initialQuery = initialUrlSearch.current?.query ?? localContentRepository.takeSearchHandoff() ?? params.get("q") ?? "";
+    const task = initialUrlSearch.current ? null : takeSearchLanguageHandoff();
+    if (task) setSort(task.sort);
+    const initialQuery = initialUrlSearch.current?.query ?? task?.query ?? localContentRepository.takeSearchHandoff() ?? params.get("q") ?? "";
     const profileParameter = params.get("profile");
-    const initialFilters = initialUrlSearch.current?.filters ?? {
+    const initialFilters = initialUrlSearch.current?.filters ?? (task ? { type: task.type, city: task.city, category: task.category, province: task.province, profile: task.profile } : {
       type: params.get("type") ?? "", city: canonicalCityId(params.get("city")) ?? "", province: params.get("province") ?? "",
       category: params.get("category") ?? "",
       profile: profileParameter === null
         ? localContentRepository.profile() ?? ""
         : sanitizeUserPathProfile(profileParameter) ?? ""
-    };
+    });
     // Legacy incoming links still work in memory; never retain their query text.
     params.delete("q");
     window.history.replaceState(null, "", `${window.location.pathname}${params.size ? `?${params}` : ""}`);
@@ -122,6 +130,9 @@ export function SearchExperience() {
       })
       .catch(() => setLoadError(true)).finally(() => setLoading(false));
   }, []);
+
+  useEffect(() => { publishSearchTask({ query, ...filters, sort }); }, [query, filters, sort]);
+  useEffect(() => () => publishSearchTask(null), []);
 
   useEffect(() => {
     const initial = initialUrlSearch.current;
@@ -197,7 +208,7 @@ export function SearchExperience() {
     return { results: [], cleared: [] as FilterKey[] };
   }, [documents, effectiveLocation, filters, ranked.length, submittedQuery]);
 
-  const visibleResults = ranked.length > 0 ? ranked : recovery.results;
+  const visibleResults = useMemo(() => sortSearchResults(ranked.length > 0 ? ranked : recovery.results, sort), [ranked, recovery.results, sort]);
   const intentMatches = useMemo(() => matchSearchIntents(submittedQuery, normalizeSearchText), [submittedQuery]);
   const primaryIntent = intentMatches[0]?.intent ?? null;
   const primaryNationalCategory = primaryIntent ? nationalGuideCategoryByIntent[primaryIntent] : null;
@@ -251,6 +262,11 @@ export function SearchExperience() {
     ? rankSearchDocuments(documents, query, { limit: 6 }).map((result) => result.document)
     : [], [documents, query]);
   const suggestionsVisible = suggestions.length > 0 && query !== submittedQuery && !suggestionsDismissed;
+
+  useEffect(() => {
+    if (!suggestionsVisible || suggestionIndex < 0) return;
+    suggestionList.current?.querySelector<HTMLButtonElement>('[aria-selected="true"]')?.scrollIntoView({ block: "nearest" });
+  }, [suggestionIndex, suggestionsVisible]);
 
   function recordFirstAction() {
     if (firstActionTracked.current || !primaryIntent || effectiveLocation?.kind !== "city") return;
@@ -445,12 +461,12 @@ export function SearchExperience() {
     <div className="search-experience">
       <form className="search-form" role="search" onSubmit={submit}>
         <div className="search-input-wrap">
-          <Search aria-hidden /><input id="search-query" role="combobox" aria-label="Search published YouNew content" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded={suggestionsVisible} aria-activedescendant={suggestionIndex >= 0 ? `search-suggestion-${suggestionIndex}` : undefined} aria-haspopup="listbox" autoComplete="off" placeholder="Try ‘Register gemeente’ or ‘Housing defects’" value={query} onChange={(event) => { setQuery(event.target.value); setSuggestionIndex(-1); setSuggestionsDismissed(false); }} onKeyDown={onKeyDown} />
+          <Search aria-hidden /><input id="search-query" enterKeyHint="search" role="combobox" aria-label="Search published YouNew content" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded={suggestionsVisible} aria-activedescendant={suggestionIndex >= 0 ? `search-suggestion-${suggestionIndex}` : undefined} aria-haspopup="listbox" autoComplete="off" placeholder="Try ‘Register gemeente’ or ‘Housing defects’" value={query} onChange={(event) => { setQuery(event.target.value); setSuggestionIndex(-1); setSuggestionsDismissed(false); }} onKeyDown={onKeyDown} />
           {query ? <button type="button" aria-label="Clear search" onClick={() => { setQuery(""); setSubmittedQuery(""); setSuggestionsDismissed(true); syncUrl(filters); }}><X aria-hidden /></button> : null}
         </div>
         <button className="button button-primary" type="submit">Search</button>
         {suggestionsVisible ? (
-          <ul className="search-suggestions" id="search-suggestions" role="listbox">
+          <ul ref={suggestionList} className="search-suggestions" id="search-suggestions" role="listbox">
             {suggestions.map((suggestion, index) => <li key={suggestion.id} role="none"><button id={`search-suggestion-${index}`} role="option" aria-selected={index === suggestionIndex} type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => executeSearch(suggestion.title)}><span>{suggestion.type}</span>{suggestion.title}</button></li>)}
           </ul>
         ) : null}
@@ -494,12 +510,13 @@ export function SearchExperience() {
       {!loading && !loadError && (submittedQuery || hasActiveFilters || showAllResults) ? (
         <section className="search-results" aria-labelledby="results-title">
           <div className="search-results-heading"><div><h2 id="results-title" aria-live="polite">{visibleResults.length} helpful result{visibleResults.length === 1 ? "" : "s"}{submittedQuery ? ` for “${submittedQuery}”` : ""}</h2>{submittedQuery ? <p>Intent, synonyms, spelling variants, national guidance and local relevance all influence the order.</p> : null}</div><button type="button" onClick={shareResults}>{shareState === "copied" || shareState === "shared" ? <Check aria-hidden /> : <Share2 aria-hidden />}{shareState === "copied" ? "Filter link copied" : shareState === "shared" ? "Filters shared" : shareState === "sharing" ? "Opening share…" : shareState === "error" ? "Unable to share" : "Share filters"}</button></div>
+          <label className="search-sort">Sort these results<select value={sort} onChange={(event) => setSort(event.target.value as SearchSort)}><option value="relevance">Most relevant</option><option value="title">Name A–Z</option><option value="reviewed">Recently reviewed</option></select></label>
           {ranked.length === 0 && recovery.results.length ? (
             <div className="search-recovery-banner" role="status">
               <Globe2 aria-hidden />
               <div>
-                <strong>No exact match with every active filter — showing useful broader results.</strong>
-                <span>Your query is unchanged. National guidance stays available for every city and profile.</span>
+                <strong>{filters.type === "place" ? "No verified place matches these filters." : "No exact match with every active filter — showing useful broader results."}</strong>
+                <span>{filters.type === "place" ? "The results below are related guidance, not verified place listings. Your query is unchanged." : "Your query is unchanged. National guidance stays available for every city and profile."}</span>
               </div>
               <div className="search-recovery-actions">
                 {recovery.cleared.includes("city") || recovery.cleared.includes("province") ? <button type="button" onClick={() => clearSelectedFilters(["city", "province"])}>Search all Netherlands</button> : null}

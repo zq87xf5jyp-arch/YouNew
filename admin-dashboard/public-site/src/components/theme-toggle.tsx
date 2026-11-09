@@ -17,7 +17,7 @@ function applyTheme(theme: Theme) {
   root.style.colorScheme = theme;
   document.querySelector<HTMLMetaElement>('meta[name="theme-color"]')?.setAttribute(
     "content",
-    theme === "dark" ? "#050c1b" : "#eef3f8"
+    theme === "dark" ? "#050c1b" : "#ffffff"
   );
 }
 
@@ -25,13 +25,17 @@ export function ThemeToggle({ locale = "en" }: { locale?: "en" | "nl" }) {
   const [theme, setTheme] = useState<Theme | null>(null);
 
   useEffect(() => {
-    setTheme(currentTheme());
+    const syncTheme = () => setTheme(currentTheme());
+    syncTheme();
+    const observer = new MutationObserver(syncTheme);
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+    return () => observer.disconnect();
   }, []);
 
   function toggleTheme() {
     const nextTheme: Theme = currentTheme() === "dark" ? "light" : "dark";
     applyTheme(nextTheme);
-    window.localStorage.setItem(STORAGE_KEY, nextTheme);
+    try { window.localStorage.setItem(STORAGE_KEY, nextTheme); } catch { /* The current page still uses the selected theme when storage is unavailable. */ }
     setTheme(nextTheme);
   }
 

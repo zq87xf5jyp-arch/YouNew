@@ -76,7 +76,7 @@ export function governanceDisclosure(envelope: ContentGovernanceEnvelope | null,
       effectiveStatus,
       tone: "warning" as const,
       label: "Record-level verification not established",
-      explanation: "This legacy public record predates the governed record envelope. Use the official source before acting."
+      explanation: "This record has no reproducible verification envelope. Publication alone does not establish that its information is verified. Check the source before acting."
     };
   }
   if (!hasValidConfidenceEvidence(envelope)) {

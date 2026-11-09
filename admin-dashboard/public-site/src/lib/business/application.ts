@@ -173,14 +173,7 @@ export const mailtoPartnerApplicationRepository: PartnerApplicationRepository = 
 type FetchLike = (input: RequestInfo | URL, init?: RequestInit) => Promise<Response>;
 
 function validBusinessEndpoint(value: string) {
-  try {
-    const url = new URL(value);
-    return url.protocol === "https:"
-      && url.hostname.endsWith(".supabase.co")
-      && url.pathname === "/functions/v1/submit-business-inquiry";
-  } catch {
-    return false;
-  }
+  return value === "/api/submit-business-inquiry.php";
 }
 
 function isSubmissionReceipt(value: unknown): value is { confirmationId: string; createdAt: string } {
@@ -208,6 +201,9 @@ export function createApiPartnerApplicationRepository(
       try {
         const response = await fetchImplementation(endpoint, {
           method: "POST",
+          mode: "same-origin",
+          credentials: "omit",
+          redirect: "error",
           headers: {
             Accept: "application/json",
             "Content-Type": "application/json"

@@ -1,5 +1,10 @@
 "use client";
 
+
+
+import "@/styles/workspace.css";
+
+
 import Link from "next/link";
 import { useMemo, useState } from "react";
 import {

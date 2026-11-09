@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-10-23T00:00:00.000Z",
-  "datasetFingerprint": "cc0a52b322d3534aa010c4d6a7c114e0666e5e0ac4f98832e802d87bbcc13d32",
+  "datasetFingerprint": "10d08d0e06e4cbb288d8955f3c99ab5d5f94b0fe4630ba15111740fd6e63b385",
   "source": {
     "contentDatasetFingerprint": "f9887ff0ec6a4652414fef94e59f86e6a5679c31cd3c5d397cd2b5165b56ea86",
     "geographyEffectiveDate": "2026-01-01",
-    "contentSha256": "4a7c5e3bec7a0bb342433ba4e7df200940dbb15425d121bd67f4e1fb3f826d4d",
+    "contentSha256": "0dc8d0e9357b2ea955b80623c2ac72cc7afa669238f770001406517c2186d630",
     "geographySha256": "928ab17bf26b745c50a88b28e282f536d1a3e61a29066ae57269ed571d179170"
   },
   "counts": {
-    "contentEntities": 6,
+    "contentEntities": 5,
     "municipalities": 342,
-    "total": 348,
+    "total": 347,
     "categories": 33,
     "cities": 5
   },
@@ -117,7 +117,7 @@
       "title": "Government",
       "slug": "government",
       "status": "published",
-      "entity_count": 1,
+      "entity_count": 0,
       "source_id": "category.government"
     },
     {
@@ -898,25 +898,6 @@
       "source_kind": "municipality",
       "source_id": "GM0889",
       "route": "/municipalities/beesel"
-    },
-    {
-      "id": "52bc639b-6f14-51fc-9799-a885ddad20b7",
-      "title": "Begijnhof Amsterdam",
-      "type": "custom",
-      "latitude": 52.3694314,
-      "longitude": 4.8900431,
-      "city": "amsterdam",
-      "province": "noord-holland",
-      "description": "Begijnhof Amsterdam is a confirmed Amsterdam place or attraction. The cited source specifically covers the enclosed historic courtyard in central Amsterdam. This governed entry stores a verified city location and direct web route without copying mutable prices, ratings, reviews or opening hours.",
-      "source_url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
-      "status": "published",
-      "icon": "MapPin",
-      "color": "#f97316",
-      "created_at": null,
-      "updated_at": "2026-10-24T09:30:00.000ZT00:00:00Z",
-      "source_kind": "content_entity",
-      "source_id": "place.begijnhof-amsterdam",
-      "route": "/places/begijnhof-amsterdam"
     },
     {
       "id": "13af4224-6ef3-59a6-ad39-fa9cbe71e5db",

@@ -1,0 +1,141 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-09-catalog-20261103",
+  "work_package": "WP-09",
+  "milestone": "WP-09-CATALOG-20261103",
+  "target_release": "catalog-20261103-draft",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "qa_evidence": {
+    "checked_at": null,
+    "build": null,
+    "static": null,
+    "duplicate": null,
+    "source": null,
+    "media": null,
+    "search": null,
+    "ai": null
+  },
+  "records": [
+    {
+      "id": "cafe.utrecht-koffie-leute",
+      "entity_type": "cafe",
+      "category": "coffee",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": {
+        "latitude": 52.0794752,
+        "longitude": 5.1225502
+      },
+      "title": "Koffie Leute",
+      "description": "A coffee venue on Westerkade serving coffee, sandwiches and baked goods. The same premises also have a selection of music and coffee equipment, described on the venue’s own website.",
+      "images": [],
+      "official_source": {
+        "title": "Koffie Leute — visitor information",
+        "publisher": "Koffie Leute",
+        "url": "https://www.koffieleute.nl/",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://www.koffieleute.nl/",
+      "related_entity_ids": [
+        "city.utrecht"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A coffee venue on Westerkade serving coffee, sandwiches and baked goods. The same premises also have a selection of music and coffee equipment, described on the venue’s own website.",
+      "search_keywords": [
+        "Koffie Leute",
+        "utrecht",
+        "coffee",
+        "cafe",
+        "Westerkade 30, 3511 HC Utrecht"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Westerkade 30, 3511 HC Utrecht",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "opening_hours": "Monday–Friday 08:00–17:00; Saturday–Sunday 10:00–17:00. Checked 2026-11-03.",
+        "contact_email": "info@koffieleute.nl",
+        "contact_phone": "+31 30 2317832",
+        "contact_phone_source_url": "https://www.ontdek-utrecht.nl/locatie/koffie-leute/",
+        "contact_note": "Telephone is listed by Utrecht & Partners; email is confirmed on the venue’s own website.",
+        "address_source_url": "https://www.koffieleute.nl/",
+        "address_checked_at": "2026-11-03",
+        "contact_email_source_url": "https://www.koffieleute.nl/",
+        "contact_email_checked_at": "2026-11-03",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://www.koffieleute.nl/",
+        "website_checked_at": "2026-11-03",
+        "coordinate_source": "https://www.koffieleute.nl/",
+        "coordinate_method": "Destination !3d/!4d in the venue’s own map link; corroborated within 2 metres by Utrecht tourism JSON-LD. Not the viewport centre.",
+        "coordinates_checked_at": "2026-11-03"
+      }
+    },
+    {
+      "id": "cafe.den-haag-kaafi",
+      "entity_type": "cafe",
+      "category": "cafe",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Kaafi",
+      "description": "A café with a bar and kitchen on Prinsestraat in The Hague. Its own contact page provides daily visiting hours and distinguishes the kitchen’s closing time from the venue’s closing time.",
+      "images": [],
+      "official_source": {
+        "title": "Kaafi — visitor information",
+        "publisher": "Kaafi",
+        "url": "https://kaafi.nl/contact-us",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://kaafi.nl/",
+      "related_entity_ids": [
+        "city.den-haag"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A café with a bar and kitchen on Prinsestraat in The Hague. Its own contact page provides daily visiting hours and distinguishes the kitchen’s closing time from the venue’s closing time.",
+      "search_keywords": [
+        "Kaafi",
+        "den-haag",
+        "cafe",
+        "Prinsestraat 25, 2513 CA Den Haag"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Prinsestraat 25, 2513 CA Den Haag",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "opening_hours": "Daily 10:00–16:00; kitchen closes at 15:00. Checked 2026-11-03.",
+        "contact_email": "info@kaafi.nl",
+        "contact_phone": "+31 70 2097070",
+        "address_source_url": "https://kaafi.nl/contact-us",
+        "address_checked_at": "2026-11-03",
+        "contact_email_source_url": "https://kaafi.nl/contact-us",
+        "contact_email_checked_at": "2026-11-03",
+        "contact_phone_source_url": "https://kaafi.nl/contact-us",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://kaafi.nl/contact-us",
+        "website_checked_at": "2026-11-03"
+      }
+    }
+  ]
+}

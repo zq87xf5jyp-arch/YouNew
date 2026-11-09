@@ -702,6 +702,9 @@ def runtime_entity(record, release_id: str):
     source = record["official_source"]
     images = sorted((runtime_media(item) for item in record["images"]), key=lambda item: (item["role"], item["id"]))
     attributes = {str(key): str(value) for key, value in sorted((record.get("attributes") or {}).items())}
+    # Retain the canonical website for web/iOS; source URL remains distinct.
+    if record.get("website"):
+        attributes["website"] = record["website"]
     attributes.update({
         "dataProjectRelease": release_id,
         "editorialEntityType": record["entity_type"],

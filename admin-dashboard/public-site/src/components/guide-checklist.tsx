@@ -1,5 +1,8 @@
 "use client";
 
+import "@/styles/guide.css";
+
+
 import { useEffect, useId, useMemo, useState } from "react";
 import { ExternalLink } from "lucide-react";
 import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";

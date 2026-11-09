@@ -1,0 +1,30 @@
+import Link from "next/link";
+import { ArrowRight, Check, FileCheck2, Mail, ShieldCheck, Store } from "lucide-react";
+import { PageShell } from "@/components/page-shell";
+
+export function BusinessDiscovery({ locale }: { locale: "en" | "nl" }) {
+  const nl = locale === "nl";
+  const apply = nl ? "/nl/voor-bedrijven/aanmelden/" : "/for-business/local/apply/";
+  const included = nl
+    ? ["Een profiel met gecontroleerde bedrijfsgegevens", "Je officiële website en openbare contactroute", "Locatie, diensten en zichtbare bronnen", "Publicatie na menselijke beoordeling"]
+    : ["A profile with reviewed business information", "Your official website and public contact route", "Location, services and visible sources", "Publication after a human review"];
+  const steps = nl ? [
+    ["Vertel ons over je bedrijf", "Deel openbare bedrijfsgegevens en een bevoegde contactpersoon. Je kunt ook een bestaand profiel claimen."],
+    ["We controleren de aanvraag", "Organisatie, locatie, bevoegdheid en claims worden beoordeeld. Een aanvraag publiceert nog niets."],
+    ["Een duidelijk lokaal profiel", "Na goedkeuring wordt je profiel actief. Correcties kun je via de aanvraagroute of support doorgeven."]
+  ] : [
+    ["Tell us about your business", "Share public business information and an authorized contact. You can also request to claim an existing profile."],
+    ["We review your request", "The organization, location, authority and claims are checked. Submitting does not publish anything."],
+    ["A clear local profile", "After approval, your profile becomes active. Request corrections through the application route or support."]
+  ];
+  return <PageShell locale={locale} className="business-page business-discovery">
+    <section className="business-discovery-hero section-shell">
+      <div><p className="discovery-kicker">YouNew for Business</p><h1>{nl ? <>Zet je bedrijf<br /><em>gratis</em> op YouNew.</> : <>List your business<br />on YouNew <em>for free.</em></>}</h1><p>{nl ? "Help nieuwkomers begrijpen wat je doet, waar je zit en hoe ze je kunnen bereiken. Begin met een gratis profielaanvraag." : "Help newcomers understand what you do, where you are and how to reach you. Start with a free profile request."}</p><Link className="button button-primary" href={`${apply}?action=add`}>{nl ? "Een bedrijf toevoegen" : "Add your business"}<ArrowRight aria-hidden /></Link><Link className="discovery-text-link business-claim" href={`${apply}?action=claim`}>{nl ? "Een bestaand profiel claimen" : "Claim an existing profile"}<ArrowRight aria-hidden /></Link><small>{nl ? "Geen kaartgegevens. Geen automatische publicatie." : "No card details. No automatic publication."}</small></div>
+      <aside className="business-included" aria-labelledby="included-title"><Store aria-hidden /><h2 id="included-title">{nl ? "Een heldere basis." : "A clear starting point."}</h2><p className="business-free">€0 <span>{nl ? "profielaanvraag" : "profile request"}</span></p><ul>{included.map((line) => <li key={line}><Check aria-hidden />{line}</li>)}</ul><p className="business-boundary"><ShieldCheck aria-hidden />{nl ? "Geen belofte van bezoekers, leads of verkopen." : "No promise of visitors, leads or sales."}</p></aside>
+    </section>
+    <section className="discovery-section section-shell" aria-labelledby="business-process"><div className="discovery-section-heading"><div><p className="discovery-kicker">{nl ? "Zo werkt het" : "How it works"}</p><h2 id="business-process">{nl ? "Van aanvraag naar vertrouwen." : "From a request to a trusted profile."}</h2></div></div><ol className="business-editorial-steps">{steps.map(([title, text],i)=><li key={title}><span>0{i+1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></section>
+    <section className="discovery-categories-band"><div className="discovery-section section-shell business-next"><div><FileCheck2 aria-hidden /><h2>{nl ? "Jouw gegevens, zorgvuldig behandeld." : "Your information, handled with care."}</h2><p>{nl ? "Contactgegevens van de aanvrager worden niet automatisch openbaar. Claim een bestaand profiel via hetzelfde formulier. We controleren je bevoegdheid voordat gegevens worden aangepast." : "The applicant’s contact information is not made public automatically. Claim an existing profile through the same form. Your authority is checked before information is changed."}</p><Link className="discovery-text-link" href={apply}>{nl ? "Een profiel claimen of corrigeren" : "Claim or correct a profile"}<ArrowRight aria-hidden /></Link></div><div><h2>{nl ? "Wat komt er later?" : "What comes next?"}</h2><p>{nl ? "Profielinzichten, uitgebreidere profielen en duidelijk gemarkeerde sponsoring worden onderzocht. Business/Premium is nog niet te koop. Er is geen betalingsverplichting." : "Profile insights, richer profiles and clearly labelled sponsorship are being explored. Business/Premium is not available to buy. There is no payment commitment."}</p><p>{nl ? "Commerciële afspraken geven geen officiële status en veranderen de organische zoekvolgorde niet." : "Commercial arrangements do not confer official status or change organic search ranking."}</p></div></div></section>
+    <section className="discovery-section section-shell business-contact"><div><h2>{nl ? "Begin met je bedrijf." : "Start with your business."}</h2><p>{nl ? "Restaurants, winkels en dienstverleners: een duidelijk profiel begint met correcte informatie." : "Restaurants, shops and service providers: a useful profile starts with accurate information."}</p></div><div><Link className="button button-primary" href={apply}>{nl ? "Gratis aanmelden" : "Apply for free"}<ArrowRight aria-hidden /></Link><a className="discovery-text-link" href="mailto:support@younew.nl"><Mail aria-hidden />support@younew.nl</a></div></section>
+    {!nl ? <section className="section-shell business-existing-route"><p>Supporting international employees? The separate employer onboarding proposal remains available for review.</p><Link href="/for-business/pilot/">Explore employee pilot <ArrowRight aria-hidden /></Link></section> : null}
+  </PageShell>;
+}

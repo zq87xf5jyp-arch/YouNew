@@ -1,16 +1,20 @@
 import Link from "next/link";
 import { ArrowRight, ExternalLink, MapPin, ShieldCheck } from "lucide-react";
-import { ContentMedia, preferredMedia } from "@/components/content-media";
+import { ContentMedia } from "@/components/content-media";
+import { EntityCard } from "@/components/entity-card";
+import { NlEntityCard } from "@/components/nl-entity-card";
 import { PageShell } from "@/components/page-shell";
 import { TrackedOfficialSourceLink } from "@/components/tracked-official-source-link";
 import { cityGuides, type CityGuide } from "@/content/city-guides";
-import { getContentEntityById } from "@/lib/content";
+import discoveryMedia from "@/content/discovery-media.json";
+import { getContentEntityById, getContentEntities, type PublicMediaAsset } from "@/lib/content";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 
 export function CityGuidePage({ guide, locale }: { guide: CityGuide; locale: "en" | "nl" }) {
   const nl = locale === "nl";
   const city = getContentEntityById(guide.cityEntityId);
-  const image = city ? preferredMedia(city.images, ["hero", "gallery", "thumbnail"]) : null;
+  const localEntries = getContentEntities().filter((entry) => entry.type !== "city" && entry.cityId === guide.slug);
+  const image = discoveryMedia[guide.slug] as PublicMediaAsset;
   const guideRoute = nl ? `/nl/stadsgidsen/${guide.slug}` : `/city-guides/${guide.slug}`;
   const searchRoute = nl ? "/nl/zoeken" : "/search";
   const categoriesRoute = nl ? "/nl/categorieen" : "/categories";
@@ -28,22 +32,19 @@ export function CityGuidePage({ guide, locale }: { guide: CityGuide; locale: "en
   };
 
   return (
-    <PageShell locale={locale} className="city-guide-page">
-      <section className="app-hero section-shell compact-hero content-index-hero">
-        <nav className="breadcrumbs" aria-label={nl ? "Kruimelpad" : "Breadcrumb"}>
-          <ol><li><Link href={nl ? "/nl/" : "/"}>{nl ? "Home" : "Home"}</Link></li><li><span aria-current="page">{guide.title[locale]}</span></li></ol>
-        </nav>
-        <p className="section-label cyan">{nl ? "Gecontroleerde stadsgids" : "Source-checked city guide"}</p>
-        <h1>{guide.title[locale]}</h1>
-        <p>{guide.description[locale]}</p>
-        <div className="dataset-note"><ShieldCheck aria-hidden /><strong>{nl ? "Bron gecontroleerd" : "Source checked"}</strong> · {guide.verifiedAt} · {guide.municipalityName}</div>
+    <PageShell locale={locale} className="city-guide-page city-editorial">
+      <section className="city-editorial-hero section-shell">
+        <nav className="breadcrumbs" aria-label={nl ? "Kruimelpad" : "Breadcrumb"}><ol><li><Link href={nl ? "/nl/#cities-title" : "/#cities-title"}>{nl ? "Steden" : "Cities"}</Link></li><li aria-current="page">{city?.title ?? guide.slug}</li></ol></nav>
+        <div className="city-editorial-heading"><h1>{city?.title ?? guide.slug}<span aria-hidden style={{ color: "var(--orange)" }}>.</span></h1><p>{guide.description[locale]}</p></div>
+        {image ? <ContentMedia asset={image} variant="hero" eager /> : null}
+        <nav className="city-section-nav" aria-label={nl ? "Op deze pagina" : "On this page"}><Link href="#registration-title">{nl ? "De gemeente" : "The municipality"}</Link><Link href="#city-prepare-title">{nl ? "Voorbereiden" : "Get prepared"}</Link><Link href="#city-next-steps">{nl ? "Volgende stappen" : "Next steps"}</Link><Link href="#city-explore-title">{nl ? "Lokaal ontdekken" : "Explore locally"}</Link></nav>
       </section>
 
       <section className="section-shell content-index-showcase" aria-labelledby="registration-title">
         <article className="content-index-featured">
-          {image ? <ContentMedia asset={image} variant="hero" eager /> : null}
           <div className="content-index-featured-copy">
             <span><MapPin aria-hidden /> {guide.municipalityName}</span>
+            <p className="dataset-note"><ShieldCheck aria-hidden />{nl ? "Bron gecontroleerd" : "Source checked"} · {guide.verifiedAt}</p>
             <h2 id="registration-title">{nl ? "1. Begin bij de gemeente" : "1. Start with the municipality"}</h2>
             <p>{guide.registration[locale]}</p>
             <div className="content-index-featured-actions">
@@ -69,8 +70,13 @@ export function CityGuidePage({ guide, locale }: { guide: CityGuide; locale: "en
         </ol>
       </section>
 
+      <section className="discovery-section section-shell" aria-labelledby="city-published-title">
+        <div className="discovery-section-heading"><div><p className="discovery-kicker">{nl ? "Met zichtbare bronnen" : "With visible sources"}</p><h2 id="city-published-title">{nl ? "Gepubliceerde lokale informatie" : "Published local information"}</h2></div><Link className="discovery-text-link" href={`/map/?city=${guide.slug}`}>{nl ? "Bekijk kaartdekking (EN)" : "View map coverage"}<ArrowRight aria-hidden /></Link></div>
+        {localEntries.length ? <div className="entity-grid compact-grid">{localEntries.map((entry) => nl ? <NlEntityCard entity={entry} key={entry.id} /> : <EntityCard entity={entry} key={entry.id} />)}</div> : <div className="city-coverage-note"><p>{nl ? "Voor deze stad zijn nog geen afzonderlijke lokale profielen gepubliceerd. Gebruik de gemeentelijke bron en de praktische gidsen op deze pagina. Onbevestigde adressen voegen we niet toe." : "No individual local profiles are published for this city yet. Use the municipality source and practical guides on this page. We do not fill gaps with unconfirmed listings."}</p></div>}
+      </section>
+
       <section className="section-shell app-content-block category-index-grid" aria-labelledby="city-explore-title">
-        <div className="listing-heading"><div><span>{nl ? "Praktisch verder" : "Continue locally"}</span><h2 id="city-explore-title">{nl ? `Vind betrouwbare adressen in ${city?.title ?? guide.slug}` : `Find useful places in ${city?.title ?? guide.slug}`}</h2></div></div>
+        <div className="listing-heading"><div><span>{nl ? "Praktisch verder" : "Continue locally"}</span><h2 id="city-explore-title">{nl ? `Ontdek verder vanuit ${city?.title ?? guide.slug}` : `Keep exploring from ${city?.title ?? guide.slug}`}</h2></div></div>
         <Link href={`${categoriesRoute}/healthcare`}><div><span>{nl ? "Categorie" : "Category"}</span><h2>{nl ? "Zorg" : "Healthcare"}</h2><p>{nl ? "Bekijk gecontroleerde zorgorganisaties en landelijke uitleg." : "Browse reviewed healthcare organizations and national guidance."}</p></div><ArrowRight aria-hidden /></Link>
         <Link href={`${categoriesRoute}/transport`}><div><span>{nl ? "Categorie" : "Category"}</span><h2>{nl ? "Vervoer" : "Transport"}</h2><p>{nl ? "Vind stations, vervoersinformatie en officiële vertrekpunten." : "Find stations, transport information and official starting points."}</p></div><ArrowRight aria-hidden /></Link>
         <Link href={`${categoriesRoute}/food-drink`}><div><span>{nl ? "Categorie" : "Category"}</span><h2>{nl ? "Eten en drinken" : "Food and drink"}</h2><p>{nl ? "Bekijk lokale profielen met zichtbare bron en controledatum." : "Browse local profiles with visible sources and review dates."}</p></div><ArrowRight aria-hidden /></Link>

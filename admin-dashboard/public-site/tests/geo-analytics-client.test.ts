@@ -3,7 +3,7 @@ import { readFile } from "node:fs/promises";
 import test from "node:test";
 import {
   createAnalyticsEnvelope,
-  createSupabaseAnalyticsProvider,
+  createHostingerAnalyticsProvider,
   track,
   type AnalyticsConfiguration,
   type AnalyticsEvent,
@@ -12,8 +12,7 @@ import {
 import { privacySafeSearchQuery } from "../src/lib/search/taxonomy.ts";
 
 const configuration: AnalyticsConfiguration = {
-  endpoint: "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/analytics-ingest",
-  publishableKey: "sb_publishable_test",
+  endpoint: "/api/analytics-ingest.php",
   consentVersion: "2026-07-28",
   schemaVersion: 1,
   appVersion: "web-ranking-test"
@@ -43,7 +42,7 @@ function providerHarness(fetchImplementation?: typeof fetch) {
     requests.push({ input, init });
     return new Response(JSON.stringify({ accepted: 1, stored: true }), { status: 202 });
   }) as typeof fetch;
-  const provider = createSupabaseAnalyticsProvider({
+  const provider = createHostingerAnalyticsProvider({
     ...identifiers,
     runtime: {
       fetch: runtimeFetch,
@@ -107,9 +106,9 @@ test("consent grant enables permitted geo events in one batched request", async 
     "city_filter_corrected",
     "national_fallback_shown"
   ]);
-  assert.deepEqual(payload.events[1].properties, { city: "leiden", intent_id: "healthcare" });
-  assert.deepEqual(payload.events[2].properties, { city: "leiden", source: "query" });
-  assert.deepEqual(payload.events[3].properties, { city: "leiden", intent_id: "healthcare" });
+  assert.deepEqual(payload.events[1].properties, {});
+  assert.deepEqual(payload.events[2].properties, {});
+  assert.deepEqual(payload.events[3].properties, {});
 });
 
 test("consent withdrawal removes the provider and prevents subsequent writes", async () => {
@@ -145,10 +144,10 @@ test("geo event envelopes discard injected raw-query and PII fields", () => {
 
   const envelopes = events.map((event) => createAnalyticsEnvelope(event, identifiers, envelopeRuntime));
   assert.deepEqual(envelopes.map((envelope) => Object.keys(envelope.properties).sort()), [
-    ["city", "intent_id"],
-    ["city", "source"],
-    ["city", "intent_id"],
-    ["city", "content_id"]
+    [],
+    [],
+    [],
+    []
   ]);
   const serialized = JSON.stringify(envelopes);
   assert.doesNotMatch(serialized, /condition|person@example|12345678|203\.0\.113|52\.16|rawQuery/i);
@@ -172,7 +171,7 @@ test("search privacy normalization rejects raw identifiers and unknown free text
     identifiers,
     envelopeRuntime
   );
-  assert.equal(envelope.properties.normalized_query_safe, "[redacted]");
+  assert.equal(envelope.properties.normalized_query_safe, undefined);
   assert.doesNotMatch(JSON.stringify(envelope), /person@example|needs a huisarts/i);
 });
 
@@ -207,7 +206,7 @@ test("analytics failure is isolated and track remains fire-and-forget", async ()
   assert.equal(attempts, 1);
 });
 
-test("public analytics configuration exposes only a publishable key", async () => {
+test("Hostinger analytics configuration requires no application key", async () => {
   const [configSource, clientSource, consentSource] = await Promise.all([
     readFile(new URL("../src/config/site-config.json", import.meta.url), "utf8"),
     readFile(new URL("../src/lib/analytics/client.ts", import.meta.url), "utf8"),
@@ -215,7 +214,8 @@ test("public analytics configuration exposes only a publishable key", async () =
   ]);
   const config = JSON.parse(configSource) as { analytics: AnalyticsConfiguration & { enabled: boolean } };
 
-  assert.match(config.analytics.publishableKey, /^sb_publishable_/);
+  assert.equal(config.analytics.endpoint, "/api/analytics-ingest.php");
+  assert.equal("publishableKey" in config.analytics, false);
   assert.doesNotMatch(configSource + clientSource + consentSource, /service[_ -]?role|SUPABASE_SERVICE_ROLE_KEY/i);
   assert.doesNotMatch(clientSource, /Authorization\s*:/i);
   assert.match(consentSource, /choice !== "accepted"/);
@@ -228,4 +228,30 @@ test("public analytics configuration exposes only a publishable key", async () =
   assert.match(declineHandler, /delete window\.__YOUNEW_ANALYTICS__/);
   assert.match(declineHandler, /provider\?\.dispose\?\.\(\)/);
   assert.doesNotMatch(declineHandler, /flush/);
+});
+
+
+test("Hostinger withdrawal aborts an in-flight batch and discards queued actions", async () => {
+  let signal: AbortSignal | null | undefined;
+  let calls = 0;
+  const { provider } = providerHarness((async (_input, init) => {
+    calls += 1;
+    signal = init?.signal;
+    return new Promise<Response>((_resolve, reject) => signal?.addEventListener("abort", () => reject(new Error("aborted"))));
+  }) as typeof fetch);
+  provider.track({ name: "analytics_consent_granted" });
+  const pending = provider.flush?.();
+  provider.track({ name: "profile_selected" });
+  provider.dispose?.();
+  await pending;
+  await provider.flush?.();
+  assert.equal(signal?.aborted, true);
+  assert.equal(calls, 1);
+});
+
+test("Hostinger profile analytics drops injected profile values", () => {
+  const event = { name: "profile_selected", profile: "private-profile", email: "private@example.invalid" } as unknown as AnalyticsEvent;
+  const envelope = createAnalyticsEnvelope(event, identifiers, envelopeRuntime);
+  assert.deepEqual(envelope.properties, {});
+  assert.doesNotMatch(JSON.stringify(envelope), /private-profile|private@example/);
 });

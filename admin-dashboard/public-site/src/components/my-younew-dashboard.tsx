@@ -1,5 +1,8 @@
 "use client";
 
+import "@/styles/my.css";
+
+
 import Link from "next/link";
 import {
   ArrowRight,

@@ -1,18 +1,17 @@
 {
   "schemaVersion": 1,
   "businessInquiry": {
-    "endpoint": "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-business-inquiry"
+    "endpoint": "/api/submit-business-inquiry.php"
   },
   "publicFeedback": {
-    "endpoint": "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-public-feedback"
+    "endpoint": "/api/submit-public-feedback.php"
   },
   "analytics": {
     "enabled": true,
-    "endpoint": "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/analytics-ingest",
-    "publishableKey": "sb_publishable_6jxbkCcyqww3Qch1376gdA_FglUf4Cv",
-    "consentVersion": "2026-07-28",
+    "endpoint": "/api/analytics-ingest.php",
+    "consentVersion": "2026-10-26-hostinger",
     "schemaVersion": 1,
-    "appVersion": "web-2026.07.28",
+    "appVersion": "web-2026.10.26",
     "retentionDays": 90
   },
   "statusBanner": {

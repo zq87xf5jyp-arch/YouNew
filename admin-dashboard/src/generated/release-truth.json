@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "snapshotID": "release-truth.f5ef59380676b569",
-  "snapshotDigest": "f5ef59380676b569f8634c7b814c55e6228626971ee57868a9626a49ab1cf3b2",
+  "snapshotID": "release-truth.2adcd24d3525e071",
+  "snapshotDigest": "2adcd24d3525e071361120ef22da647b08835bb617ae11453944cd643fcde4f9",
   "generatedAt": "2026-10-24T11:22:48.000Z",
-  "candidateCommit": "491ba5d4d7f3de167cbfcc9f3ef6858b6189316a",
+  "candidateCommit": "484272957836615deb228d37c4e9d2ac0d9896a8",
   "sourceTreeState": "dirty",
   "sourceTreeExclusions": [
     "admin-dashboard/src/generated/release-truth.json",
@@ -19,7 +19,7 @@
     {
       "id": "candidate-source",
       "kind": "git_source_identity",
-      "sourceRef": "git:491ba5d4d7f3de167cbfcc9f3ef6858b6189316a",
+      "sourceRef": "git:484272957836615deb228d37c4e9d2ac0d9896a8",
       "sha256": null,
       "observedAt": null,
       "validThrough": null,
@@ -44,13 +44,13 @@
       "observedAt": "2026-10-23T00:00:00Z",
       "validThrough": null,
       "state": "measured",
-      "scope": "Governed source runtime with 177 records; public packaging accepts 7 and explicitly excludes 170 stale records."
+      "scope": "Governed source runtime with 177 records; public packaging accepts 5 and explicitly excludes 172 stale records."
     },
     {
       "id": "public-content-provenance",
       "kind": "packaged_provenance",
       "sourceRef": "admin-dashboard/public-site/public/data/content-provenance.json",
-      "sha256": "21119f71e7b28678ea17ead4b25f021f7fc65f00e7a29608a46d775818401316",
+      "sha256": "5f7f9f13dbd628010145f899965e4dccf8a1f01f9dd9e3e294bd137593c80556",
       "observedAt": "2026-10-23T00:00:00Z",
       "validThrough": null,
       "state": "measured",
@@ -98,9 +98,9 @@
     },
     "packaged": {
       "state": "measured",
-      "entityCount": 7,
+      "entityCount": 5,
       "sourceEntityCount": 177,
-      "freshnessExcludedEntityCount": 170,
+      "freshnessExcludedEntityCount": 172,
       "releaseIDs": [
         "amsterdam-v0.1.8",
         "cities-v0.1.0"
@@ -137,7 +137,7 @@
     "packagedPublishedRecords": {
       "kind": "count",
       "unit": "count",
-      "value": 7,
+      "value": 5,
       "numerator": null,
       "denominator": null,
       "state": "measured",
@@ -154,8 +154,8 @@
     "packagedCoverage": {
       "kind": "ratio",
       "unit": "percent",
-      "value": 1.5,
-      "numerator": 7,
+      "value": 1.1,
+      "numerator": 5,
       "denominator": 454,
       "state": "measured",
       "reasonCode": null,
@@ -189,7 +189,7 @@
   "gates": {
     "sourceIntegrity": {
       "result": "pass",
-      "reason": "Public provenance partitions all 177 governed source records into 7 packaged public records and 170 fail-closed freshness exclusions.",
+      "reason": "Public provenance partitions all 177 governed source records into 5 packaged public records and 172 fail-closed freshness exclusions.",
       "sourceIDs": [
         "data-project-inventory",
         "packaged-runtime",
@@ -198,7 +198,7 @@
     },
     "packagedPublication": {
       "result": "pass",
-      "reason": "The public package contains 7 accepted records and no freshness-excluded record.",
+      "reason": "The public package contains 5 accepted records and no freshness-excluded record.",
       "sourceIDs": [
         "packaged-runtime",
         "public-content-provenance"

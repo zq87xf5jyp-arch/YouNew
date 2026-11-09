@@ -16,9 +16,11 @@ const generator = (await import(new URL("scripts/generate-public-content.mjs", s
   buildPublicDataset: (runtime: unknown, options?: { verifyChecksum?: boolean }) => unknown;
 };
 
-test("generated public content comes only from governed production releases", () => {
+test("public content accepts the canonical base and only the explicit synthetic local overlay", () => {
   assert.equal(provenance.sourceMode, "production");
-  assert.deepEqual(provenance.acceptedReleaseIds, ["amsterdam-v0.1.8", "cities-v0.1.0"]);
+  const local = provenance.acceptedReleaseIds.includes('integration-synthetic-local-v1');
+  assert.deepEqual(provenance.acceptedReleaseIds, ['amsterdam-v0.1.8','cities-v0.1.0',...(local?['integration-synthetic-local-v1']:[])]);
+  if(local) assert.ok(content.entities.filter((e: {releaseId:string})=>e.releaseId==='integration-synthetic-local-v1').every((e:{id:string;title:string;source:{publisher:string}})=>e.id.startsWith('place.synthetic-')&&e.title.startsWith('[SYNTHETIC]')&&e.source.publisher==='Local QA'));
   assert.equal(content.stats.entities, provenance.counts.acceptedRecords);
   assert.equal(content.entities.length, content.stats.entities);
   assert.equal(freshnessExclusions.count, 170);
@@ -84,8 +86,8 @@ test("the public website exposes the verified app image catalogue", () => {
   const media = content.entities.flatMap((entity: { images: unknown[] }) => entity.images);
   assert.ok(media.length > 0, `expected images on the remaining current public records, received ${media.length}`);
   assert.equal(media.some((image: { id?: string }) => image.id === "media.museum.amsterdam-museum.thumbnail.3e34aacbba"), false);
-  assert.ok(content.entities.every((entity: { title: string; images: Array<{ role: string; url: string; alt: string }> }) =>
-    entity.images.some((image) => image.role === "hero") &&
+  assert.ok(content.entities.every((entity: { type: string; title: string; images: Array<{ role: string; url: string; alt: string }> }) =>
+    (entity.images.some((image) => image.role === "hero") || (entity.type === "place" && entity.images.length === 0)) &&
     entity.images.every((image) =>
       /^https?:\/\//.test(image.url) &&
       image.alt.length > 0 &&

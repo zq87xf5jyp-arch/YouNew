@@ -4,7 +4,7 @@ import test from "node:test";
 
 const appRoot = new URL("../src/app/", import.meta.url);
 const [forBusiness, pilot, demoReport, partners, apply, success, form, sitemap, header, footer] = await Promise.all([
-  readFile(new URL("for-business/page.tsx", appRoot), "utf8"),
+  readFile(new URL("../components/business-discovery.tsx", appRoot), "utf8"),
   readFile(new URL("for-business/pilot/page.tsx", appRoot), "utf8"),
   readFile(new URL("for-business/demo-report/page.tsx", appRoot), "utf8"),
   readFile(new URL("partners/page.tsx", appRoot), "utf8"),
@@ -26,13 +26,17 @@ const legacyPages = await Promise.all([
 ].map((path) => readFile(new URL(path, appRoot), "utf8")));
 
 test("the canonical business page routes local businesses and employers without merging their offers", () => {
-  assert.match(forBusiness, /For local businesses, employers and relocation teams/);
-  assert.match(forBusiness, /Build a useful, trusted presence for newcomers\./);
-  assert.match(forBusiness, /Add or claim a business/);
+  assert.match(forBusiness, /Add your business/);
+  assert.match(forBusiness, /Claim an existing profile/);
+  assert.match(forBusiness, /\?action=add/);
+  assert.match(forBusiness, /\?action=claim/);
   assert.match(forBusiness, /Explore employee pilot/);
-  assert.match(forBusiness, /Free reviewed request · add or claim/);
-  assert.match(forBusiness, /90-day pilot · €1,500 excl\. VAT/);
-  assert.match(forBusiness, /Commercial activity never buys official status or organic ranking\./);
+  assert.match(forBusiness, /No card details\. No automatic publication/);
+  assert.match(forBusiness, /Business\/Premium is not available to buy/);
+  assert.match(forBusiness, /No promise of visitors, leads or sales/);
+  assert.match(forBusiness, /do not confer official status or change organic search ranking/);
+  assert.match(forBusiness, /\/for-business\/pilot\//);
+  assert.match(forBusiness, /\/for-business\/local\/apply\//);
 });
 
 test("the pilot page fixes the approved scope and honest founding price", () => {

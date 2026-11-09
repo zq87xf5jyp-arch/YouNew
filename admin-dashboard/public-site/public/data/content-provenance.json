@@ -19,6 +19,7 @@
       "event",
       "governmentService",
       "healthcare",
+      "hotel",
       "knowledgeTopic",
       "localPartner",
       "museum",
@@ -36,8 +37,8 @@
   },
   "counts": {
     "sourceRecords": 177,
-    "acceptedRecords": 7,
-    "excludedRecords": 170,
-    "freshnessExcludedRecords": 170
+    "acceptedRecords": 5,
+    "excludedRecords": 172,
+    "freshnessExcludedRecords": 172
   }
 }

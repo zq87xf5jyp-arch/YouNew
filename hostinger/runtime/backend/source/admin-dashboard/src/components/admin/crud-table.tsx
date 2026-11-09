@@ -1,0 +1,217 @@
+import { Badge } from "@/components/ui/badge";
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+
+type Row = Record<string, unknown>;
+
+export function CrudTable({
+  title,
+  description,
+  rows,
+  columns
+}: {
+  title: string;
+  description: string;
+  rows: Row[];
+  columns: string[];
+}) {
+  return (
+    <Card>
+      <CardHeader>
+        <div>
+          <CardTitle>{title}</CardTitle>
+          <CardDescription>{description}</CardDescription>
+        </div>
+      </CardHeader>
+      <CardContent>
+        <div className="overflow-x-auto">
+          <table className="younew-table">
+            <thead>
+              <tr>
+                {columns.map((column) => (
+                  <th key={column}>{labelForColumn(column)}</th>
+                ))}
+              </tr>
+            </thead>
+            <tbody>
+              {rows.map((row, index) => (
+                <tr key={`${String(row.slug ?? row.title ?? row.name ?? index)}-${index}`}>
+                  {columns.map((column) => (
+                    <td key={column}>{renderCell(row[column])}</td>
+                  ))}
+                </tr>
+              ))}
+              {rows.length === 0 ? (
+                <tr>
+                  <td colSpan={columns.length} className="text-muted-foreground">Нет подтверждённых данных.</td>
+                </tr>
+              ) : null}
+            </tbody>
+          </table>
+        </div>
+      </CardContent>
+    </Card>
+  );
+}
+
+const columnLabels: Record<string, string> = {
+  title: "Название",
+  slug: "Слаг",
+  category: "Категория",
+  language: "Язык",
+  status: "Статус",
+  priority: "Приоритет",
+  icon: "Иконка",
+  color: "Цвет",
+  name: "Город",
+  province: "Провинция",
+  lat: "Широта",
+  lng: "Долгота",
+  latitude: "Широта",
+  longitude: "Долгота",
+  type: "Тип",
+  severity: "Серьезность",
+  platform: "Платформа",
+  app_screen: "Экран",
+  events: "События",
+  sessions: "Сессии",
+  key_actions: "Ключевые действия",
+  errors: "Ошибки",
+  event: "Событие",
+  url: "URL",
+  source_type: "Тип источника",
+  source_kind: "Канонический источник",
+  source_id: "ID источника",
+  canonical_url: "Канонический URL",
+  publisher: "Издатель",
+  evidence_state: "Evidence",
+  link_health_state: "Link health",
+  reference_count: "Ссылок на URL",
+  alias_count: "Aliases",
+  http_status: "HTTP",
+  checked_at: "Health checked",
+  admin_notes: "Admin notes",
+  check_notes: "Check notes",
+  last_checked_date: "Проверено",
+  question: "Вопрос",
+  city: "Город",
+  official_source: "Офиц. источник",
+  user_email: "Email",
+  message: "Сообщение",
+  confirmation_code: "ID",
+  feedback_type: "Тип отзыва",
+  record_origin: "Происхождение записи",
+  page_reference: "Страница",
+  user_id: "Пользователь",
+  action: "Действие",
+  entity_type: "Тип объекта",
+  entity_id: "ID объекта",
+  created_at: "Создано",
+  screen: "Экран",
+  views: "Просмотры",
+  avg_time: "Среднее время",
+  conversion: "Конверсия",
+  event_name: "Событие",
+  count: "Количество",
+  last_seen: "Последний раз",
+  query: "Запрос",
+  intent: "Intent",
+  searches: "Поисков",
+  zero_results: "Нулей",
+  avg_results: "Среднее результатов",
+  result_opens: "Переходов",
+  open_rate: "Доля переходов",
+  occurrences: "Повторов",
+  success_rate: "Успех",
+  top_result: "Лучший результат",
+  label: "Набор данных",
+  version: "Версия",
+  records: "Записей",
+  entity_count: "Объектов",
+  last_sync: "Последняя синхронизация",
+  job: "Задача",
+  target: "Цель",
+  duration: "Длительность",
+  dataset: "Набор данных",
+  duration_ms: "Длительность, мс",
+  records_processed: "Обработано",
+  records_failed: "Ошибок",
+  artifact_fingerprint: "Fingerprint",
+  error_summary: "Ошибка",
+  queued_at: "Поставлено в очередь",
+  heartbeat_at: "Последний heartbeat",
+  lease_expires_at: "Lease истекает",
+  attempt_count: "Попыток",
+  timed_out_at: "Timeout",
+  occurred_at: "Время события"
+};
+
+const valueLabels: Record<string, string> = {
+  draft: "черновик",
+  review: "на проверке",
+  published: "опубликовано",
+  archived: "архив",
+  open: "открыта",
+  "in progress": "в работе",
+  fixed: "исправлена",
+  verified: "проверена",
+  closed: "закрыта",
+  active: "активна",
+  broken: "сломана",
+  "needs review": "нужна проверка",
+  low: "низкий",
+  medium: "средний",
+  high: "высокий",
+  critical: "критический",
+  urgent: "срочно",
+  new: "новый",
+  planned: "запланировано",
+  reviewed: "просмотрено",
+  resolved: "решено",
+  city: "город",
+  municipality: "муниципалитет",
+  hospital: "больница",
+  transport: "транспорт",
+  government: "государство",
+  education: "образование",
+  custom: "пользовательская",
+  healthcare: "здравоохранение",
+  other: "другое",
+  synced: "синхронизировано",
+  success: "успешно",
+  warning: "предупреждение",
+  failed: "ошибка",
+  queued: "в очереди",
+  running: "выполняется",
+  succeeded: "завершено",
+  cancelled: "отменено",
+  timed_out: "превышено время",
+  measured: "измерено",
+  provisional: "предварительно",
+  unknown: "неизвестно",
+  unavailable: "недоступно",
+  stale: "устарело",
+  not_applicable: "N/A",
+  user_submission: "заявка пользователя",
+  sample: "образец",
+  synthetic_test: "синтетический тест",
+  legacy_unclassified: "legacy, не классифицировано"
+};
+
+export function labelForColumn(column: string) {
+  return columnLabels[column] ?? column.replaceAll("_", " ");
+}
+
+function renderCell(value: unknown) {
+  if (typeof value === "string" && Object.prototype.hasOwnProperty.call(valueLabels, value)) {
+    return (
+      <Badge variant={value === "published" || value === "verified" || value === "active" ? "success" : value === "open" || value === "critical" ? "destructive" : "warning"}>
+        {valueLabels[value]}
+      </Badge>
+    );
+  }
+  if (typeof value === "boolean") {
+    return <Badge variant={value ? "success" : "secondary"}>{value ? "Да" : "Нет"}</Badge>;
+  }
+  if (value === null || value === undefined || value === "") return <span className="text-muted-foreground">-</span>;
+  return String(value);
+}

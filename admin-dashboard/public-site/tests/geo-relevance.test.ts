@@ -195,9 +195,11 @@ test("P0 national guides render the action panel before detailed content", async
   assert.match(panel, /practical navigation, not individual legal, medical or tax advice/);
 });
 
-test("homepage uses the same explicit theme switch and a shorter hero without a redesign", async () => {
-  const styles = await readFile(new URL("../src/app/globals.css", import.meta.url), "utf8");
-  assert.match(styles, /\.product-vision-home \.theme-toggle \{ display:grid; \}/);
-  assert.match(styles, /html\[data-theme="dark"\] \.product-vision-home/);
-  assert.match(styles, /\.vision-hero-grid,\.vision-hero-media \.content-media \{ min-height:570px; \}/);
+test("discovery homepage retains explicit theme controls and a compact mobile hero", async () => {
+  const styles = await readFile(new URL("../src/app/discovery.css", import.meta.url), "utf8");
+  const header = await readFile(new URL("../src/components/site-header.tsx", import.meta.url), "utf8");
+  assert.match(header, /<ThemeToggle/);
+  assert.match(styles, /html\[data-theme="light"\]/);
+  assert.match(styles, /@media\(max-width:760px\) \{ \.experience-hero-photo \{ display:none; \}/);
+  assert.doesNotMatch(styles, /\.experience-hero[^}]*min-height:570px/);
 });

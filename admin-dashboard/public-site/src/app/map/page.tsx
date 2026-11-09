@@ -1,3 +1,4 @@
+import { EntityCard } from "@/components/entity-card";
 import { MapPinned } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { CoverageMap } from "@/components/coverage-map";
@@ -53,6 +54,7 @@ function getMunicipalityMapItems(): CoverageMapItem[] {
 
 export default function MapPage() {
   const publishedItems = getPublishedMapItems();
+  const withoutCoordinates = getContentEntities().filter(entity => entity.status === "published" && entity.type === "place" && !entity.coordinate);
   const municipalityItems = getMunicipalityMapItems();
   const items = [...publishedItems, ...municipalityItems];
   return (
@@ -67,6 +69,11 @@ export default function MapPage() {
       <section className="section-shell app-content-block">
         <CoverageMap items={items} />
       </section>
+      {withoutCoordinates.length > 0 && <section className="section-shell app-content-block" aria-labelledby="list-only-title">
+        <h2 id="list-only-title">Places without confirmed coordinates</h2>
+        <p>These published places are available in the list and search, with no map marker. Map filters above apply only to mapped records.</p>
+        <div className="entity-grid">{withoutCoordinates.map(entity => <EntityCard key={entity.id} entity={entity} />)}</div>
+      </section>}
     </PageShell>
   );
 }

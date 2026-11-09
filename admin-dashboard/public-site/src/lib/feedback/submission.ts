@@ -46,15 +46,10 @@ export function validatePublicFeedback(input: PublicFeedbackInput): PublicFeedba
 }
 
 function validatedEndpoint(value: string) {
-  const endpoint = new URL(value);
-  if (
-    endpoint.protocol !== "https:" ||
-    !endpoint.hostname.endsWith(".supabase.co") ||
-    endpoint.pathname !== "/functions/v1/submit-public-feedback"
-  ) {
+  if (value !== "/api/submit-public-feedback.php") {
     throw new Error("Feedback endpoint configuration is invalid.");
   }
-  return endpoint.toString();
+  return value;
 }
 
 export function createPublicFeedbackRepository(endpointValue: string) {
@@ -66,6 +61,9 @@ export function createPublicFeedbackRepository(endpointValue: string) {
       try {
         const response = await fetch(endpoint, {
           method: "POST",
+          mode: "same-origin",
+          credentials: "omit",
+          redirect: "error",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify(input),
           signal: controller.signal
@@ -76,7 +74,8 @@ export function createPublicFeedbackRepository(endpointValue: string) {
           !payload ||
           typeof payload.confirmationId !== "string" ||
           !/^YNF-[A-F0-9]{12}$/.test(payload.confirmationId) ||
-          typeof payload.createdAt !== "string"
+          typeof payload.createdAt !== "string" ||
+          !Number.isFinite(Date.parse(payload.createdAt))
         ) {
           return {
             submitted: false,

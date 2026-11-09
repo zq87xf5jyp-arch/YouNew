@@ -5,6 +5,11 @@ const nextConfig: NextConfig = {
   outputFileTracingRoot: process.cwd(),
   trailingSlash: true,
   poweredByHeader: false,
+  webpack(config) {
+    // Optional local resource limit; default hosting behavior stays unchanged.
+    if (process.env.YOUNEW_LOCAL_NO_BUILD_CACHE === "1") config.cache = false;
+    return config;
+  },
   images: {
     unoptimized: true,
     formats: ["image/avif", "image/webp"]

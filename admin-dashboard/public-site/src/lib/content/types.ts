@@ -224,6 +224,7 @@ export interface PracticalGuide {
 }
 
 export interface ContentEntity {
+  readonly placeDetails?: PublicPlaceDetails | null;
   readonly id: string;
   readonly slug: string;
   readonly type: ContentEntityType;
@@ -251,6 +252,20 @@ export interface ContentEntity {
   readonly releaseId: string;
   readonly relatedEntityIds: readonly string[];
   readonly seo: ContentSeo;
+}
+
+export interface PublicSourcedValue {
+  readonly value: string;
+  readonly sourceUrl: string;
+  readonly checkedAt: string;
+}
+export interface PublicPlaceDetails {
+  readonly address: PublicSourcedValue | null;
+  readonly website: PublicSourcedValue | null;
+  readonly email: PublicSourcedValue | null;
+  readonly phone: PublicSourcedValue | null;
+  readonly addressNote: string | null;
+  readonly contactNote: string | null;
 }
 
 export interface ContentCategory {

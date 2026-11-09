@@ -1,0 +1,3 @@
+import Link from 'next/link';
+import {authorize} from '@/lib/r4/security';
+export default async function Page(){const a=await authorize('dashboard.read');return <><h1 className="text-2xl">YouNew R4 · локальный кандидат</h1><p>Выполнен перенос BUSINESS, сессий, прав, квитанций и приватных вложений. Добавлен локальный редактор мест: черновик, просмотр и одобрение синтетической записи. Остальные разделы ещё не перенесены и закрыты.</p><p><Link href="/content">Каталог: редакторские черновики</Link></p>{['owner','admin'].includes(a.role)&&<Link href="/business-inquiries">Открыть бизнес-заявки</Link>}</>;}

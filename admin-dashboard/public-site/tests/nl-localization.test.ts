@@ -21,8 +21,9 @@ test("Dutch key routes and locale-aware shell are present", async () => {
   ]);
   assert.match(config, /publishedWebLocales[^=]*= \["en", "nl"\]/);
   assert.match(shell, /locale\?: "en" \| "nl"/);
-  assert.match(header, /Voor bedrijven/);
-  assert.match(footer, /Praktische en controleerbare informatie/);
+  assert.match(header, /Ondernemen/);
+  assert.match(footer, /Wonen, ontdekken en ondernemen in Nederland/);
+  assert.match(footer, /Met bronnen die je kunt controleren/);
 });
 
 test("five bilingual city guides use explicit reviewed sources", async () => {

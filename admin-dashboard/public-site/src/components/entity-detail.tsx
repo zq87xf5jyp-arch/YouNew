@@ -1,3 +1,4 @@
+import { PlaceContactDetails } from "@/components/place-contact-details";
 import Link from "next/link";
 import { ArrowRight, ExternalLink, Flag, MapPinned, MapPin, ShieldCheck } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
@@ -68,13 +69,15 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
           </div>
           <div className="detail-actions"><SaveButton item={{ id: entity.id, route: entity.route, title: entity.title, kind: entity.type }} /><ShareButton title={entity.title} /></div>
         </div>
+        {entity.type === "city" && launchCityGuideSlugs.has(entity.slug) ? <Link className="city-guide-shortcut" href={`/city-guides/${entity.slug}/`}>Start with the practical city guide <ArrowRight aria-hidden /></Link> : null}
         {location ? <p className="detail-location"><MapPin aria-hidden /> {location}</p> : null}
-        {heroImage ? <ContentMedia asset={heroImage} variant="hero" eager /> : null}
+        {heroImage ? <ContentMedia asset={heroImage} variant="hero" eager /> : entity.type === "place" || entity.type === "organization" ? <div className="coverage-map-image-fallback" role="img" aria-label="Place image unavailable"><MapPin aria-hidden /></div> : null}
       </section>
 
       <div className="section-shell entity-detail-layout">
         <article className="entity-main-copy">
           <GovernanceDisclosure entity={entity} />
+          {entity.type === "place" || entity.type === "organization" ? <PlaceContactDetails details={entity.placeDetails} /> : null}
           <h2>What this page covers</h2>
           <p>{summary}</p>
           <div className="topic-links" aria-label="Related categories">
@@ -97,7 +100,7 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
           ) : null}
           {galleryImages.length > 0 ? (
             <section className="entity-media-section" aria-labelledby="entity-media-title">
-              <h2 id="entity-media-title">Photos from the app dataset</h2>
+              <h2 id="entity-media-title">Photos and image sources</h2>
               <div className="entity-media-gallery">{galleryImages.map((image) => <ContentMedia asset={image} variant="gallery" key={image.id} />)}</div>
             </section>
           ) : null}
@@ -105,7 +108,7 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
           <ol className="next-steps">
             <li><span>1</span><div><strong>Read the source context</strong><p>Confirm that this information matches your city and situation.</p></div></li>
             <li><span>2</span><div><strong>Open the responsible source</strong><p>Check current requirements, access or service details before acting.</p></div></li>
-            <li><span>3</span><div><strong>Save or share the page</strong><p>Keep the canonical YouNew ID available for later app/web synchronization.</p></div></li>
+            <li><span>3</span><div><strong>Save or share the page</strong><p>Return to the source when you need it, or share this page with someone it can help.</p></div></li>
           </ol>
           <aside className="safety-note"><strong>Important</strong> {disclaimer}</aside>
         </article>
@@ -146,7 +149,7 @@ export function EntityDetail({ entity, related }: { entity: ContentEntity; relat
 
       {related.length > 0 ? (
         <section className="section-shell related-section" aria-labelledby="related-title">
-          <div className="listing-heading"><div><span>Continue exploring</span><h2 id="related-title">{localCityId ? `More published in ${localCityId.replaceAll("-", " ")}` : "Related published content"}</h2><p>Selected from shared city and category relationships in the governed dataset.</p></div></div>
+          <div className="listing-heading"><div><span>Continue exploring</span><h2 id="related-title">{localCityId ? `More published in ${localCityId.replaceAll("-", " ")}` : "Related published content"}</h2><p>Related information with visible sources and review dates.</p></div></div>
           <div className="entity-grid compact-grid">{related.slice(0, 6).map((item) => <EntityCard entity={item} key={item.id} />)}</div>
         </section>
       ) : null}

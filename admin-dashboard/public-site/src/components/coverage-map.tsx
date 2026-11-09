@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+
 import Link from "next/link";
 import {
   Building2,
@@ -30,6 +31,7 @@ import {
   type CoverageMapFilters,
   type CoverageMapItem
 } from "@/lib/map/coverage";
+import { coverageCityOptions } from "@/lib/map/city-options";
 import { optimizedPublicImageUrl } from "@/lib/media/image-url";
 import {
   netherlandsProvinceShapes,
@@ -155,12 +157,6 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
   const [viewMode, setViewMode] = useState<"map" | "list">("map");
 
   const options = useMemo(() => {
-    const cityLabelById = new Map<string, string>();
-    for (const item of items) {
-      if (!item.cityId) continue;
-      const current = cityLabelById.get(item.cityId);
-      if (!current || item.type === "municipality" || item.type === "city") cityLabelById.set(item.cityId, item.title);
-    }
     const provinceLabelById = new Map(
       netherlandsProvinceShapes.map((shape) => [
         shape.name
@@ -173,7 +169,7 @@ export function CoverageMap({ items }: { items: readonly CoverageMapItem[] }) {
       ])
     );
     return {
-      cities: [...cityLabelById].map(([id, label]) => ({ id, label })).sort((left, right) => left.label.localeCompare(right.label, "nl")),
+      cities: coverageCityOptions(items),
       provinces: [...new Set(items.map((item) => item.provinceId).filter((value): value is string => Boolean(value)))]
         .map((id) => ({ id, label: provinceLabelById.get(id) ?? humanizeMapSlug(id) }))
         .sort((left, right) => left.label.localeCompare(right.label, "nl")),

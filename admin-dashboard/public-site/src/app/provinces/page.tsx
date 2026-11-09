@@ -1,3 +1,4 @@
+import "@/styles/geography.css";
 import Link from "next/link";
 import { ArrowRight, MapPinned } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";

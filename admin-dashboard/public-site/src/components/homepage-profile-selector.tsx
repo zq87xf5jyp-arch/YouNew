@@ -1,5 +1,7 @@
 "use client";
 
+import "@/styles/legacy-home-profile.css";
+
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import { Building2, GraduationCap, Plane, RotateCcw, Users } from "lucide-react";

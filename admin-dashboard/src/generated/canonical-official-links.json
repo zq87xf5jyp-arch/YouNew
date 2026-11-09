@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-10-23T00:00:00.000Z",
-  "registryFingerprint": "0cc32c03731c3654226d264602b8add0a18be9f157471cb9655281d78672a67e",
+  "registryFingerprint": "376b835aecbd68b28cd8d728a718306f4085afa82c6408937a2d8ba8694b5d29",
   "source": {
-    "contentSha256": "4a7c5e3bec7a0bb342433ba4e7df200940dbb15425d121bd67f4e1fb3f826d4d",
+    "contentSha256": "0dc8d0e9357b2ea955b80623c2ac72cc7afa669238f770001406517c2186d630",
     "geographySha256": "928ab17bf26b745c50a88b28e282f536d1a3e61a29066ae57269ed571d179170",
     "trackedRegistrySha256": "45ac0cb52dd08a902f5b3645de1ecd3aeaf88917b846b4374dd7ecc9bdd5ff3d"
   },
@@ -17,8 +17,8 @@
     "confirmedBroken": null
   },
   "counts": {
-    "references": 689,
-    "canonicalLinks": 685,
+    "references": 687,
+    "canonicalLinks": 683,
     "duplicatesCollapsed": 4
   },
   "links": [
@@ -2021,24 +2021,6 @@
       ]
     },
     {
-      "source_key": "source.b67e55d099e9a8d9945ff659",
-      "title": "Apply for a Dutch driving licence",
-      "publisher": "City of Amsterdam",
-      "url": "https://www.amsterdam.nl/en/civil-affairs/applying-dutch-driving-licence/",
-      "canonical_url": "https://www.amsterdam.nl/en/civil-affairs/applying-dutch-driving-licence/",
-      "source_type": "other",
-      "evidence_state": "measured",
-      "link_health_state": "unknown",
-      "last_checked_date": "2026-08-01",
-      "reference_count": 1,
-      "reference_kinds": [
-        "content_entity"
-      ],
-      "reference_ids": [
-        "government_service.driving-licence-amsterdam"
-      ]
-    },
-    {
       "source_key": "source.ccd1edffb83eafd728f192f0",
       "title": "Correct registration with the City",
       "publisher": "City of Amsterdam",
@@ -3602,24 +3584,6 @@
       ],
       "reference_ids": [
         "GM1771"
-      ]
-    },
-    {
-      "source_key": "source.600f517ba716c576d0470a69",
-      "title": "Begijnhof | Gemeente Amsterdam",
-      "publisher": "Gemeente Amsterdam",
-      "url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
-      "canonical_url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
-      "source_type": "other",
-      "evidence_state": "measured",
-      "link_health_state": "unknown",
-      "last_checked_date": "2026-10-24T09:30:00.000Z",
-      "reference_count": 1,
-      "reference_kinds": [
-        "content_entity"
-      ],
-      "reference_ids": [
-        "place.begijnhof-amsterdam"
       ]
     },
     {

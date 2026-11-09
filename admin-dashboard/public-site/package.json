@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "type": "module",
-  "packageManager": "pnpm@11.9.0",
+  "packageManager": "pnpm@11.17.0",
   "engines": {
     "node": ">=24 <25"
   },
@@ -15,7 +15,7 @@
     "start": "node scripts/preview.mjs",
     "generate:content": "node scripts/generate-public-content.mjs",
     "generate:geography": "node scripts/generate-netherlands-geography.mjs",
-    "generate:runtime": "node ../scripts/generate-governed-runtime.mjs && node ../scripts/generate-canonical-admin-data.mjs && node scripts/generate-public-content.mjs && node ../scripts/generate-release-truth.mjs",
+    "generate:runtime": "node ../scripts/generate-governed-runtime.mjs && node ../scripts/generate-canonical-admin-data.mjs && python3 ../../scripts/generate-public-freshness-exclusions.py && node scripts/generate-public-content.mjs && node ../scripts/generate-release-truth.mjs",
     "lint": "node node_modules/eslint/bin/eslint.js src --max-warnings=0",
     "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
     "test": "pnpm generate:runtime && node --test tests/*.test.ts",

@@ -1,3 +1,4 @@
+import "@/styles/geography.css";
 import Link from "next/link";
 import { ArrowRight, Building2, MapPinned } from "lucide-react";
 import { ContentIndexPage } from "@/components/content-index-page";

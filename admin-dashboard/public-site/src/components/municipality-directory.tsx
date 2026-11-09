@@ -1,5 +1,8 @@
 "use client";
 
+import "@/styles/municipality.css";
+
+
 import Link from "next/link";
 import { ArrowRight, Building2, MapPin, Search, X } from "lucide-react";
 import { useDeferredValue, useEffect, useMemo, useState } from "react";

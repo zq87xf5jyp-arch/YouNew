@@ -1,0 +1,261 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-07-catalog-20261103",
+  "work_package": "WP-07",
+  "milestone": "WP-07-CATALOG-20261103",
+  "target_release": "catalog-20261103-draft",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "qa_evidence": {
+    "checked_at": null,
+    "build": null,
+    "static": null,
+    "duplicate": null,
+    "source": null,
+    "media": null,
+    "search": null,
+    "ai": null
+  },
+  "records": [
+    {
+      "id": "museum.rotterdam-chabot",
+      "entity_type": "museum",
+      "category": "art",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Chabot Museum",
+      "description": "A museum at Museumpark in central Rotterdam. Its visitor page provides ticket information and explains the entrance steps and small lift, so visitors with access needs can plan ahead.",
+      "images": [],
+      "official_source": {
+        "title": "Chabot Museum — visitor information",
+        "publisher": "Chabot Museum",
+        "url": "https://chabotmuseum.nl/bezoekers/",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://chabotmuseum.nl/",
+      "related_entity_ids": [
+        "city.rotterdam"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A museum at Museumpark in central Rotterdam. Its visitor page provides ticket information and explains the entrance steps and small lift, so visitors with access needs can plan ahead.",
+      "search_keywords": [
+        "Chabot Museum",
+        "rotterdam",
+        "art",
+        "museum",
+        "Museumpark 11, 3015 CB Rotterdam"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Museumpark 11, 3015 CB Rotterdam",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "opening_hours": "Tuesday–Saturday 11:00–17:00; Sunday 12:00–17:00; closed Mondays and public holidays.",
+        "price_note": "Standard adult admission EUR 12; concessions on the official visitor page. Checked 2026-11-03.",
+        "accessibility_note": "Entrance has steps; a small lift is available inside. The museum is not fully accessible; contact it about individual needs.",
+        "contact_email": "mail@chabotmuseum.nl",
+        "contact_phone": "+31 10 4363713",
+        "address_source_url": "https://chabotmuseum.nl/bezoekers/",
+        "address_checked_at": "2026-11-03",
+        "contact_email_source_url": "https://chabotmuseum.nl/bezoekers/",
+        "contact_email_checked_at": "2026-11-03",
+        "contact_phone_source_url": "https://chabotmuseum.nl/bezoekers/",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://chabotmuseum.nl/bezoekers/",
+        "website_checked_at": "2026-11-03"
+      }
+    },
+    {
+      "id": "museum.utrecht-sonnenborgh",
+      "entity_type": "museum",
+      "category": "science",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": {
+        "latitude": 52.085489,
+        "longitude": 5.129076
+      },
+      "title": "Sonnenborgh museum & sterrenwacht",
+      "description": "A museum and observatory in Utrecht’s city centre. The visitor entrance is reached through Zocherplantsoen; the official route page explains how to approach the building from the canals and railway stations.",
+      "images": [],
+      "official_source": {
+        "title": "Sonnenborgh museum & sterrenwacht — visitor information",
+        "publisher": "Sonnenborgh",
+        "url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://www.sonnenborgh.nl/",
+      "related_entity_ids": [
+        "city.utrecht"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A museum and observatory in Utrecht’s city centre. The visitor entrance is reached through Zocherplantsoen; the official route page explains how to approach the building from the canals and railway stations.",
+      "search_keywords": [
+        "Sonnenborgh museum & sterrenwacht",
+        "utrecht",
+        "science",
+        "museum",
+        "Zonnenburg 2, 3512 NL Utrecht"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Zonnenburg 2, 3512 NL Utrecht",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "opening_hours": "Tuesday–Friday 11:00–17:00; Saturday–Sunday 13:00–17:00. Check the official holiday exceptions.",
+        "contact_email": "info@sonnenborgh.nl",
+        "contact_phone": "+31 30 8201420",
+        "address_source_url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+        "address_checked_at": "2026-11-03",
+        "contact_email_source_url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+        "contact_email_checked_at": "2026-11-03",
+        "contact_phone_source_url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+        "website_checked_at": "2026-11-03",
+        "coordinate_source": "https://www.visitutrechtregion.com/nl/locaties/458594942/sonnenborgh-museum-en-sterrenwacht",
+        "coordinate_method": "Venue JSON-LD geo and the official tourism destination route agree.",
+        "coordinates_checked_at": "2026-11-03"
+      }
+    },
+    {
+      "id": "museum.den-haag-fotomuseum",
+      "entity_type": "museum",
+      "category": "photography",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 52.0901313,
+        "longitude": 4.2794094
+      },
+      "title": "Fotomuseum Den Haag",
+      "description": "A museum devoted to photography near the Kunstmuseum in The Hague. Its exhibition programme presents work by established and emerging photographers; consult the museum for the current programme.",
+      "images": [],
+      "official_source": {
+        "title": "Fotomuseum Den Haag — contact",
+        "publisher": "Fotomuseum Den Haag",
+        "url": "https://www.fotomuseumdenhaag.nl/en/contact",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://www.fotomuseumdenhaag.nl/",
+      "related_entity_ids": [
+        "city.den-haag"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A museum devoted to photography near the Kunstmuseum in The Hague. Its exhibition programme presents work by established and emerging photographers; consult the museum for the current programme.",
+      "search_keywords": [
+        "Fotomuseum Den Haag",
+        "den-haag",
+        "photography",
+        "museum",
+        "Stadhouderslaan 43, 2517 HV Den Haag"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Stadhouderslaan 43, 2517 HV Den Haag",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "contact_phone": "+31 70 3381111",
+        "contact_email": "info@fotomuseumdenhaag.nl",
+        "contact_note": "General museum contact. Tourism listing gives a different number; the museum’s own contact page is used.",
+        "address_source_url": "https://www.fotomuseumdenhaag.nl/en/contact",
+        "address_checked_at": "2026-11-03",
+        "contact_email_source_url": "https://www.fotomuseumdenhaag.nl/en/contact",
+        "contact_email_checked_at": "2026-11-03",
+        "contact_phone_source_url": "https://www.fotomuseumdenhaag.nl/en/contact",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://www.fotomuseumdenhaag.nl/en/contact",
+        "website_checked_at": "2026-11-03",
+        "coordinate_source": "https://www.fotomuseumdenhaag.nl/en/contact",
+        "coordinate_method": "Destination !3d/!4d in the museum’s own Google Maps link for Stadhouderslaan 43; not viewport centre.",
+        "coordinates_checked_at": "2026-11-03"
+      }
+    },
+    {
+      "id": "museum.eindhoven-inkijkmuseum",
+      "entity_type": "museum",
+      "category": "art",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": {
+        "latitude": 51.4415907,
+        "longitude": 5.4844886999999
+      },
+      "title": "Inkijkmuseum",
+      "description": "A small museum on Dommelstraat where artwork can be viewed through a window. The city tourism listing distinguishes this exterior viewing from private visits inside and occasional public activities.",
+      "images": [],
+      "official_source": {
+        "title": "Inkijkmuseum — visitor information",
+        "publisher": "Eindhoven365 / This is Eindhoven",
+        "url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://www.inkijkmuseum.nl/",
+      "related_entity_ids": [
+        "city.eindhoven"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A small museum on Dommelstraat where artwork can be viewed through a window. The city tourism listing distinguishes this exterior viewing from private visits inside and occasional public activities.",
+      "search_keywords": [
+        "Inkijkmuseum",
+        "eindhoven",
+        "art",
+        "museum",
+        "Dommelstraat 2 A, 5611 CK Eindhoven"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Dommelstraat 2 A, 5611 CK Eindhoven",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "opening_hours": "Window viewing: 24 hours according to the tourism listing. Interior access is by private visit or occasional public activity; do not treat it as continuously open.",
+        "contact_email": "globaaldorp@inkijkmuseum.nl",
+        "contact_phone": "+31 40 8488230",
+        "coordinate_source": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+        "coordinate_method": "Destination latitude/longitude in the official tourism page’s route link.",
+        "address_source_url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+        "address_checked_at": "2026-11-03",
+        "contact_email_source_url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+        "contact_email_checked_at": "2026-11-03",
+        "contact_phone_source_url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+        "website_checked_at": "2026-11-03",
+        "coordinates_checked_at": "2026-11-03"
+      }
+    }
+  ]
+}

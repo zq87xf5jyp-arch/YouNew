@@ -59,6 +59,14 @@ Secrets.xcconfig
 *.xcconfig.local
 
 # Local package/cache output
+**/node_modules/
+**/.next/
+hostinger/deployment/*.tar.gz
+hostinger/deployment/*-files.json
+hostinger/runtime/**/private/
+hostinger/runtime/**/evidence/
+hostinger/runtime/publication/
+hostinger/runtime/**/launch.env
 .pnpm-store/
 BackendExamples/node_modules/
 admin-dashboard/*
@@ -118,6 +126,10 @@ admin-dashboard/public-site/.openai/
 /DataProject/staging/*
 !/DataProject/staging/practical-guides-wave-1.json
 !/DataProject/staging/brp-amsterdam-governance-candidate.json
+!/DataProject/staging/catalog-20261103/
+!/DataProject/staging/catalog-20261103/**
+!/DataProject/staging/content-20261109/
+!/DataProject/staging/content-20261109/**
 /DataProject/reports/
 
 # Generated network-link evidence. Offline static QA uses an explicit sentinel;

@@ -1,5 +1,9 @@
 "use client";
 
+
+
+
+
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
@@ -126,10 +130,12 @@ export function PilotRequestForm({
     try {
       const submission = await repository.submit(application);
       if (submission.kind !== "server-submission") throw new Error("A stored receipt was not returned.");
-      sessionStorage.setItem("younew-pilot-receipt", JSON.stringify({
-        confirmationId: submission.confirmationId,
-        createdAt: submission.createdAt
-      }));
+      try {
+        sessionStorage.setItem("younew-pilot-receipt", JSON.stringify({
+          confirmationId: submission.confirmationId,
+          createdAt: submission.createdAt
+        }));
+      } catch { /* Optional local storage cannot invalidate the server's saved receipt. */ }
       track({ name: "lead_submit" });
       track({ name: "pilot_request" });
       window.location.assign("/partners/apply/success/");
@@ -253,7 +259,7 @@ export function PilotRequestForm({
           <legend>Confirmations</legend>
           <label>
             <input type="checkbox" name="consentToPrivacy" value="yes" aria-describedby={errors.consentToPrivacy ? "pilot-consentToPrivacy-error" : undefined} />
-            I consent to the processing described in the <Link href="/privacy">Privacy Policy</Link> so YouNew can review and reply to this request.
+            <span>I consent to the processing described in the <Link href="/privacy">Privacy Policy</Link> so YouNew can review and reply to this request.</span>
           </label>
           <FieldError errors={errors} name="consentToPrivacy" />
           <label>

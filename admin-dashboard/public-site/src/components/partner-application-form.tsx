@@ -1,5 +1,7 @@
 "use client";
 
+
+
 import Link from "next/link";
 import { useEffect, useRef, useState, type FormEvent } from "react";
 import {
@@ -332,7 +334,7 @@ export function PartnerApplicationForm({
         <legend>Confirmations</legend>
         <label>
           <input type="checkbox" name="consentToPrivacy" value="yes" aria-describedby={errors.consentToPrivacy ? "consentToPrivacy-error" : undefined} />
-          I consent to the processing described in the <Link href="/privacy">Privacy Policy</Link> for the purpose of responding to this inquiry.
+          <span>I consent to the processing described in the <Link href="/privacy">Privacy Policy</Link> for the purpose of responding to this inquiry.</span>
         </label>
         <FieldError errors={errors} name="consentToPrivacy" />
         <label>

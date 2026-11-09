@@ -1,0 +1,7 @@
+<?php
+return [
+ 'url'=>'https://qa-admin.younew.nl',
+ 'ingestKey'=>'REPLACE_WITH_NEW_QA_ONLY_SECRET',
+ 'documentRoot'=>'/home/u246392949/domains/qa-catalog.younew.nl/public_html',
+ 'local'=>false
+];

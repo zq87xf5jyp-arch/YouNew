@@ -1,3 +1,4 @@
+import "@/styles/my.css";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MyYouNewDashboard } from "@/components/my-younew-dashboard";
 import { PageShell } from "@/components/page-shell";

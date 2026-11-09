@@ -1,0 +1,14 @@
+Options -Indexes
+AuthType Basic
+AuthName "YouNew isolated acceptance"
+AuthUserFile /home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/access.htpasswd
+<RequireAny>
+    Require expr "%{REQUEST_URI} == '/private-files.php'"
+    Require valid-user
+</RequireAny>
+# private-files.php still requires the existing HMAC + nonce + timestamp.
+# This is the only Basic exception; there is no unauthenticated file read.
+RewriteEngine On
+RewriteRule ^ index.php [END]
+Header always set X-Robots-Tag "noindex, nofollow, noarchive"
+Header always set Cache-Control "no-store, max-age=0"

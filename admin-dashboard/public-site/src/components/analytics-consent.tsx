@@ -5,7 +5,7 @@ import { usePathname } from "next/navigation";
 import { ShieldCheck } from "lucide-react";
 import siteConfig from "@/config/site-config.json";
 import {
-  createSupabaseAnalyticsProvider,
+  createHostingerAnalyticsProvider,
   randomUUIDv4,
   type AnalyticsProvider
 } from "@/lib/analytics/client";
@@ -86,7 +86,7 @@ export function AnalyticsConsent() {
 
     let provider: AnalyticsProvider;
     try {
-      provider = createSupabaseAnalyticsProvider({
+      provider = createHostingerAnalyticsProvider({
         configuration: siteConfig.analytics,
         appInstanceId: sessionIdentifier(appInstanceStorageKey),
         sessionId: sessionIdentifier(sessionStorageKey)
@@ -154,7 +154,7 @@ export function AnalyticsConsent() {
       ) : null}
       {settingsOpen ? (
         <section
-          className="analytics-consent"
+          className={choice === null ? "analytics-consent analytics-consent-inline" : "analytics-consent"}
           role="region"
           aria-labelledby="analytics-consent-title"
           aria-live="polite"
@@ -168,7 +168,7 @@ export function AnalyticsConsent() {
                 : "With your permission, YouNew counts page visits and bounded product actions. We do not send search text, profile details, precise location, advertising IDs or cross-site identifiers. The identifier lasts only for this browser tab."}
             </p>
             <p>
-              {nl ? `Gegevens worden maximaal ${siteConfig.analytics.retentionDays} dagen in de EU bewaard. Je kunt deze keuze altijd wijzigen. Lees het ` : `Data is stored in the EU for up to ${siteConfig.analytics.retentionDays} days. You can change this choice at any time. Read the `}<a href="/privacy/">{nl ? "privacybeleid" : "Privacy Policy"}</a>.
+              {nl ? `Gegevens worden maximaal ${siteConfig.analytics.retentionDays} dagen op de Hostinger-hosting van YouNew in de EU bewaard. Je kunt deze keuze altijd wijzigen. Lees het ` : `Data is stored on YouNew’s Hostinger hosting in the EU for up to ${siteConfig.analytics.retentionDays} days. You can change this choice at any time. Read the `}<a href="/privacy/">{nl ? "privacybeleid" : "Privacy Policy"}</a>.
             </p>
           </div>
           <div className="analytics-consent-actions">

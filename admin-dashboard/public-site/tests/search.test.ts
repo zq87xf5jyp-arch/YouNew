@@ -34,16 +34,19 @@ const geography = JSON.parse(
   await readFile(new URL("../src/generated/netherlands-geography.json", import.meta.url), "utf8")
 ) as { municipalities: Array<{ code: string }>; provinces: Array<{ code: string }> };
 
-test("search index v3 contains only published entities, national guides and derived public routes", () => {
+test("search index v3 contains only indexable published entities, national guides and derived public routes", () => {
   assert.equal(index.schemaVersion, 3);
   assert.ok(index.documents.length > 0);
   assert.ok(content.entities.every((entity) => entity.status === "published"));
   const entityTypes = new Set(["city", "guide", "organization", "place"]);
   const indexedEntityIds = index.documents.filter((document) => entityTypes.has(document.type) && document.sourceKind !== "nationalResourceGuide").map((document) => document.id).sort();
-  assert.deepEqual(indexedEntityIds, content.entities.map((entity) => entity.id).sort());
+  assert.deepEqual(indexedEntityIds, content.entities.filter((entity) => entity.indexable && entity.status === "published").map((entity) => entity.id).sort());
   assert.deepEqual(index.documents.filter((document) => document.type === "category").map((document) => document.id).sort(), content.categories.map((category) => category.id).sort());
   assert.equal(index.documents.filter((document) => document.type === "municipality").length, geography.municipalities.length);
   assert.equal(index.documents.filter((document) => document.type === "province").length, geography.provinces.length);
+  for (const entity of content.entities.filter((entity) => !entity.indexable)) {
+    assert.ok(!index.documents.some((document) => document.id === entity.id), `Unverified record in search: ${entity.id}`);
+  }
 });
 
 test("official settlement names resolve to their municipality page", () => {
@@ -62,9 +65,9 @@ test("search normalizes accents and ranks exact titles first", () => {
 });
 
 test("search tolerates a useful typo without returning the whole index", () => {
-  const results = rankModule.rankSearchDocuments(index.documents, "Begijnhf");
+  const results = rankModule.rankSearchDocuments(index.documents, "Amsterdm");
   assert.ok(results.length > 0);
-  assert.match(results[0].document.title, /Begijnhof/i);
+  assert.match(results[0].document.title, /Amsterdam/i);
   assert.ok(results.length < index.documents.length);
 });
 
@@ -90,11 +93,11 @@ test("search is deterministic and bounded", () => {
 
 test("location filters boost applicable content while type and category stay hard filters", () => {
   const results = rankModule.rankSearchDocuments(index.documents, "", {
-    filters: { type: "place", provinceId: "noord-holland" },
+    filters: { type: "municipality", provinceId: "noord-holland" },
     limit: 80
   });
   assert.ok(results.length > 0);
-  assert.ok(results.every(({ document }) => document.type === "place" && document.provinceId === "noord-holland"));
+  assert.ok(results.every(({ document }) => document.type === "municipality" && document.provinceId === "noord-holland"));
 });
 
 test("practical-guide search fields participate in ranking", () => {

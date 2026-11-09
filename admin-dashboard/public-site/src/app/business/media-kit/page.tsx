@@ -1,3 +1,4 @@
+import "@/styles/media-kit.css";
 import Link from "next/link";
 import {
   BadgeCheck,

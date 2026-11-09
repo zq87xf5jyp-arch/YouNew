@@ -1,6 +1,8 @@
+import { PlaceContactDetails } from "@/components/place-contact-details";
 import Link from "next/link";
 import { Building2, FileText, MapPin, Navigation, ShieldCheck } from "lucide-react";
 import { SaveButton } from "@/components/save-button";
+import { MediaCredit } from "@/components/media-credit";
 import { ContentMedia, preferredMedia } from "@/components/content-media";
 import type { ContentEntity } from "@/lib/content";
 import { contentKindLabel, publicWebSummary } from "@/lib/content/presentation";
@@ -14,6 +16,8 @@ export function EntityCard({ entity, variant = "card" }: { entity: ContentEntity
   return (
     <article className={`entity-card${variant === "row" ? " entity-card-row" : ""}`} data-content-depth={entity.contentDepth}>
       {image ? <Link className="entity-card-media" href={entity.route} aria-label={`Open ${entity.title}`}><ContentMedia asset={image} variant="card" /></Link> : null}
+      {image ? <MediaCredit asset={image} /> : null}
+      {!image && (entity.type === "place" || entity.type === "organization") ? <div className="coverage-map-image-fallback" role="img" aria-label="Place image unavailable"><Icon aria-hidden /></div> : null}
       <div className="entity-card-top">
         <span className="entity-kind"><Icon aria-hidden /> {kindLabel}</span>
         <SaveButton item={{ id: entity.id, route: entity.route, title: entity.title, kind: entity.type }} compact />
@@ -22,6 +26,7 @@ export function EntityCard({ entity, variant = "card" }: { entity: ContentEntity
         <h2>{entity.title}</h2>
         <p>{publicWebSummary(entity.summary)}</p>
       </Link>
+      <PlaceContactDetails details={entity.placeDetails} compact />
       <div className="entity-card-meta">
         <span>{entity.categorySlugs[0]?.replaceAll("-", " ") ?? entity.type}</span>
         {entity.cityId ? <span>{entity.cityId.replaceAll("-", " ")}</span> : null}

@@ -14,7 +14,30 @@ const categoryLabels: Record<string, string> = {
   museums: "Musea",
   municipality: "Gemeente",
   "local-services": "Lokale diensten",
-  daily: "Dagelijks leven"
+  daily: "Dagelijks leven",
+  "daily-life": "Dagelijks leven",
+  banking: "Bankzaken",
+  benefits: "Toeslagen",
+  business: "Ondernemen",
+  children: "Kinderen",
+  documents: "Documenten",
+  emergency: "Noodgevallen",
+  family: "Gezin",
+  finance: "Financiën",
+  fines: "Boetes",
+  integration: "Inburgering",
+  internet: "Internet",
+  "language-learning": "Taal leren",
+  "legal-help": "Juridische hulp",
+  "municipal-services": "Gemeentelijke diensten",
+  pets: "Huisdieren",
+  rules: "Regels",
+  safety: "Veiligheid",
+  "sim-telecom": "Mobiel en telecom",
+  taxes: "Belastingen",
+  telecom: "Telecom",
+  "things-to-do": "Activiteiten",
+  utilities: "Energie en water"
 };
 
 export function dutchCategoryLabel(slug: string) {
