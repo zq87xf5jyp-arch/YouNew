@@ -1,0 +1,32 @@
+{
+  "source_copy": "YouNew-Leiden-2026-11-09",
+  "purpose": "Historical source preservation only; not a deployment or publication input",
+  "current_draft_source": "DataProject/staging/content-20261109",
+  "original_copy_deleted": false,
+  "files": [
+    {
+      "source": "docs/ACQUISITION_30_DAYS_RU.md",
+      "destination": "ACQUISITION_30_DAYS_ORIGINAL_RU.md",
+      "bytes": 14434,
+      "sha256": "06cb1ab64880ff9d7765efbf8e7ebb52d2e1f265125b985aaa53838ae578212e"
+    },
+    {
+      "source": "docs/INITIAL_AUDIT_RU.md",
+      "destination": "INITIAL_AUDIT_ORIGINAL_RU.md",
+      "bytes": 2618,
+      "sha256": "5027668b6b96fc813495f8615c721a739740d683797ae59a1efcf48cdc82aa56"
+    },
+    {
+      "source": "content/leiden-review.json",
+      "destination": "leiden-review.original.json",
+      "bytes": 11894,
+      "sha256": "a05e7d636076f4017fe0eb6f2c1f9e7871da90969fbaeeb7f9d1b8f182c76153"
+    },
+    {
+      "source": "work/source/admin-dashboard/public-site/src/lib/analytics/local-experiment.ts",
+      "destination": "local-experiment.original.ts",
+      "bytes": 1278,
+      "sha256": "630311c9b78357996c5aae4102869a050de195ed510d49e6cd0a402f22a2e352"
+    }
+  ]
+}

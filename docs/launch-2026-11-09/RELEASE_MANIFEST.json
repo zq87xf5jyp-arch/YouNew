@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-09T16:35:51.144501+00:00",
+  "state": "PREPARED_NOT_DEPLOYED",
+  "repository": "https://github.com/zq87xf5jyp-arch/YouNew",
+  "pull_request": "https://github.com/zq87xf5jyp-arch/YouNew/pull/54",
+  "code_candidate_commit": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
+  "scope_note": "This file records the named code candidate and its actual archives. Later documentation commits are not asserted to be running deployments.",
+  "production": {
+    "url": "https://younew.nl/",
+    "candidate_deployed": false,
+    "source_commit": null,
+    "source_commit_status": "NOT_ESTABLISHED",
+    "home_sha256": "640029346dbd00c7fd626acc65bbd2badbd5560f340d6629681a1babd8a2d254",
+    "last_readonly_check": "2026-11-09T16:13:03.510487+00:00"
+  },
+  "qa": {
+    "url": "https://qa-runtime.younew.nl/login",
+    "running_backend_commit": "1dab9d84875a0ba9a227c59f5b248aea129dfbe0",
+    "previous_backend_commit": "6a03b91c1911ab27e2668264cbc52d722cb1839e",
+    "candidate_authentication_change_deployed": false,
+    "database_migrations_applied": false
+  },
+  "observed_hostinger_runtime": {
+    "node_cli": "24.22.1",
+    "php_cli": "8.3.36",
+    "mariadb": "11.8.9-MariaDB-log"
+  },
+  "packages": {
+    "node-app": {
+      "files": 2359,
+      "bytes": 313661254,
+      "manifest_sha256": "6cff0bfc2396d1c8e14b9a8e740a37e704032986a0e89018a641788331ae3b79",
+      "archive_sha256": "33a9dfdeada9028b13a86344e3458a55c9737cdd1d176d37737a78a4a3274c71",
+      "archive_bytes": 272016368
+    },
+    "php-site": {
+      "files": 14,
+      "bytes": 32629,
+      "manifest_sha256": "0f8769ee3278ef8e05f1e14b125b530a5d5721544858ece36f812ef8b3616400",
+      "archive_sha256": "543008debb130f98fe20e56989f33263d933ea044e70f0fab9179cc1d98800a5",
+      "archive_bytes": 11141
+    }
+  },
+  "archive_verification": {
+    "status": "PASS",
+    "source_commit": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
+    "archive_files_verified": 2373,
+    "content_matches_committed_git_objects": true,
+    "paths_regular_and_relative": true,
+    "duplicate_members": false,
+    "runtime_databases_or_key_files": false,
+    "deployed": false
+  },
+  "content": {
+    "new_drafts_published": false,
+    "editorial_drafts": 71,
+    "overdue_records_withdrawn_in_candidate": 172,
+    "original_records_preserved": true
+  },
+  "required_before_production": [
+    "Current selected-commit required CI checks",
+    "Hostinger QA DB privileges, backup and isolated restore",
+    "Full closed QA integration and real scheduled BUSINESS/catalog tests",
+    "Verified migration of preserved accounts, inquiries and files",
+    "Fresh production backup and tested code rollback without overwriting live data"
+  ],
+  "backup_evidence": [
+    "HOSTINGER_BACKUP_EVIDENCE.json",
+    "SUPABASE_PRESERVATION_EVIDENCE.json"
+  ],
+  "cleanup": {
+    "performed": false,
+    "deleted_user_objects": 0,
+    "quarantined_user_objects": 0,
+    "register": "CLEANUP_MANIFEST.csv"
+  },
+  "code_candidate_ci": {
+    "status": "PASS",
+    "source_commit": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
+    "evidence": "CI_EVIDENCE_A8054DA.json",
+    "later_commits_require_own_checks": true
+  }
+}

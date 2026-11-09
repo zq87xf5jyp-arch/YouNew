@@ -11,6 +11,6 @@
   "restoreLocation": "private backup directory/restore-check",
   "cronViaShell": "unavailable; crontab not installed",
   "observedCron": "*/5 * * * * /usr/bin/php /home/u246392949/domains/younew.nl/younew-private/analytics-v1/maintenance.php",
-  "mariadbBackup": "NOT APPLICABLE to newly empty QA database; legacy Admin remote dependency unresolved",
+  "mariadbBackup": "NOT VERIFIED: QA connectivity confirmed; current table inventory, logical dump and isolated Hostinger restore pending",
   "productionModified": false
 }

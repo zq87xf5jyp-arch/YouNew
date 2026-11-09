@@ -5,6 +5,12 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Add the requested launch manifest, environment-scoped QA report, deployment and
+  rollback instructions, deferred-cleanup register, and explicit unresolved gates.
+- Preserve the initial Leiden experiment sources, refresh the 30-day acquisition
+  draft against official channel rules, and distinguish unmeasured metrics and
+  unresolved landing links from working production behavior.
+
 - Verify preserved cost-10 bcrypt credentials alongside current scrypt records
   in Hostinger Admin, without changing account approvals, roles, passwords or sessions.
   Reject malformed records and bcrypt input truncation; test independent PHP vectors.
