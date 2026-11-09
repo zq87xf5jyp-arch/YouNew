@@ -5,6 +5,9 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Record the successful Hostinger synthetic database restore and add guarded
+  initial QA configuration with private backups before runtime activation.
+
 - Add an initial synthetic Hostinger QA restore exercise that retains every
   original table and verifies restored definitions and row fingerprints.
 
