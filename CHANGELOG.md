@@ -5,6 +5,9 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Record successful Hostinger QA database connectivity and complete CI evidence,
+  and correct the canonical draft projection instructions after source integration.
+
 - Point isolated catalog export and cron preparation at the actual qa-runtime
   Node app and its shared private environment file; reject production endpoints.
 
