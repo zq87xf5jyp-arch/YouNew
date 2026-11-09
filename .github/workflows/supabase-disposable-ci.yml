@@ -165,6 +165,7 @@ jobs:
             exit 1
           fi
       - name: Rebuild from migrations with no seed data
+        id: rebuilt-runtime
         working-directory: admin-dashboard
         shell: bash
         run: |
@@ -244,12 +245,14 @@ jobs:
           pnpm dlx supabase@2.109.1 migration list --local --workdir .supabase-ci-runtime \
             2>&1 | tee supabase/ci-artifacts/local-migration-list.txt
       - name: Run the core and compliance pgTAP suites
+        if: ${{ always() && steps.rebuilt-runtime.outcome == 'success' }}
         working-directory: admin-dashboard
         shell: bash
         run: |
           set -euo pipefail
           python3 scripts/run-disposable-pgtap.py
       - name: Run every checked-in pgTAP suite
+        if: ${{ always() && steps.rebuilt-runtime.outcome == 'success' }}
         working-directory: admin-dashboard
         shell: bash
         run: |
@@ -261,6 +264,7 @@ jobs:
           grep -q "Files=${expected_files}, Tests=${expected_tests}" supabase/ci-artifacts/all-pgtap.log
           grep -q "Result: PASS" supabase/ci-artifacts/all-pgtap.log
       - name: Lint local public and private schemas
+        if: ${{ always() && steps.rebuilt-runtime.outcome == 'success' }}
         working-directory: admin-dashboard
         shell: bash
         run: |
@@ -434,7 +438,7 @@ jobs:
           grep -q "PASS synthetic legacy sync fixture removed" \
             supabase/ci-artifacts/synthetic-restore-legacy-fixture-cleanup.txt
           docker exec -e PGAPPNAME=younew-disposable-restore-drill \
-            -i "${source_containers[0]}" psql -v ON_ERROR_STOP=1 -U postgres -d postgres \
+            -i "${source_containers[0]}" psql -v ON_ERROR_STOP=1 -U supabase_admin -d postgres \
             < supabase/verification/seed_synthetic_restore_drill.sql \
             | tee supabase/ci-artifacts/synthetic-restore-seed-summary.txt
           grep -q '"fixture": "synthetic-only"' supabase/ci-artifacts/synthetic-restore-seed-summary.txt

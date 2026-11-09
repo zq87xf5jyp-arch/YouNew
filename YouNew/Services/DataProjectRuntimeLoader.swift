@@ -4,6 +4,13 @@ import OSLog
 struct DataProjectRuntimeLoadResult {
     let entities: [NetherlandsKnowledgeEntity]
     let migrationRegistry: [String: DataProjectMigration]
+    let withheldEntityIDs: Set<String>
+
+    init(entities: [NetherlandsKnowledgeEntity], migrationRegistry: [String: DataProjectMigration], withheldEntityIDs: Set<String> = []) {
+        self.entities = entities
+        self.migrationRegistry = migrationRegistry
+        self.withheldEntityIDs = withheldEntityIDs
+    }
 
     static let empty = DataProjectRuntimeLoadResult(entities: [], migrationRegistry: [:])
 }
@@ -54,7 +61,9 @@ enum DataProjectRuntimeLoader {
                 logger.error("Canonical runtime artifact has an unsupported schema or non-production mode; using legacy fallback")
                 return .empty
             }
+            let withheldIDs = Set(artifact.withheldEntityIDs ?? [])
             let entities = artifact.entities.compactMap { record -> NetherlandsKnowledgeEntity? in
+                guard !withheldIDs.contains(record.id) else { return nil }
                 guard record.publicationStatus == "published", record.verificationStatus == "verified" else {
                     logger.warning("Excluded non-published canonical entity: \(record.id, privacy: .public)")
                     return nil
@@ -68,7 +77,7 @@ enum DataProjectRuntimeLoader {
                 return record.entity
             }
             logger.info("Loaded \(entities.count, privacy: .public) canonical Data Project entities")
-            return DataProjectRuntimeLoadResult(entities: entities, migrationRegistry: artifact.migrationRegistry)
+            return DataProjectRuntimeLoadResult(entities: entities, migrationRegistry: artifact.migrationRegistry, withheldEntityIDs: withheldIDs)
         } catch {
             logger.error("Canonical runtime artifact failed to decode: \(error.localizedDescription, privacy: .public); using legacy fallback")
             return .empty
@@ -85,6 +94,7 @@ private struct RuntimeArtifact: Decodable {
     let schemaVersion: Int
     let mode: String
     let migrationRegistry: [String: DataProjectMigration]
+    let withheldEntityIDs: [String]?
     let entities: [RuntimeEntity]
 }
 

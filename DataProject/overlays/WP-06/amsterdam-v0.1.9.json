@@ -2,7 +2,7 @@
   "schema_version": 1,
   "release_id": "amsterdam-v0.1.9",
   "version": "0.1.9",
-  "status": "qa",
+  "status": "retired",
   "work_package": "WP-06",
   "dataset": "Amsterdam City 01",
   "base_release_id": "amsterdam-v0.1.8",

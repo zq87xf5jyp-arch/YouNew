@@ -19,7 +19,8 @@ const generator = (await import(new URL("scripts/generate-public-content.mjs", s
 test("public content accepts the canonical base and only the explicit synthetic local overlay", () => {
   assert.equal(provenance.sourceMode, "production");
   const local = provenance.acceptedReleaseIds.includes('integration-synthetic-local-v1');
-  assert.deepEqual(provenance.acceptedReleaseIds, ['amsterdam-v0.1.8','cities-v0.1.0',...(local?['integration-synthetic-local-v1']:[])]);
+  const expectedReleases = canonicalRuntime.releases.filter((r: {status:string}) => r.status === 'published').map((r: {id:string}) => r.id);
+  assert.deepEqual(provenance.acceptedReleaseIds, [...expectedReleases,...(local?['integration-synthetic-local-v1']:[])]);
   if(local) assert.ok(content.entities.filter((e: {releaseId:string})=>e.releaseId==='integration-synthetic-local-v1').every((e:{id:string;title:string;source:{publisher:string}})=>e.id.startsWith('place.synthetic-')&&e.title.startsWith('[SYNTHETIC]')&&e.source.publisher==='Local QA'));
   assert.equal(content.stats.entities, provenance.counts.acceptedRecords);
   assert.equal(content.entities.length, content.stats.entities);
@@ -45,7 +46,9 @@ test("public content accepts the canonical base and only the explicit synthetic 
     .filter((entity: { governance: unknown }) => entity.governance !== null)
     .map((entity: { id: string }) => entity.id)
     .sort();
-  assert.deepEqual(governedIds, legacyConfirmations.records.filter((record: {id: string}) => !excludedIds.has(record.id)).map((record: { id: string }) => record.id).sort());
+  const canonicalIds = new Set(canonicalRuntime.entities.map((record: {id:string}) => record.id));
+  assert.deepEqual(governedIds, legacyConfirmations.records.filter((record: {id: string}) => canonicalIds.has(record.id) && !excludedIds.has(record.id)).map((record: { id: string }) => record.id).sort());
+  assert.ok(content.entities.every((record: {id:string}) => !canonicalRuntime.withheldEntityIDs.includes(record.id)));
   for (const entity of content.entities.filter((item: { id: string }) => governedIds.includes(item.id))) {
     assert.equal(entity.governance.confidenceScore, 65);
     assert.equal(entity.governance.verificationStatus, "unverified");
@@ -58,7 +61,7 @@ test("public content accepts the canonical base and only the explicit synthetic 
   }
   const drivingLicence = content.entities.find((entity: { id: string }) => entity.id === "government_service.driving-licence-amsterdam");
   assert.equal(drivingLicence?.governance ?? null, null);
-  if (excludedIds.has("government_service.driving-licence-amsterdam")) assert.equal(drivingLicence, undefined);
+  if (excludedIds.has("government_service.driving-licence-amsterdam") || canonicalRuntime.withheldEntityIDs.includes("government_service.driving-licence-amsterdam")) assert.equal(drivingLicence, undefined);
   else assert.equal(drivingLicence?.indexable, true);
 });
 
@@ -156,6 +159,13 @@ test("generator rejects a tampered checked-in runtime payload", () => {
   assert.throws(() => generator.buildPublicDataset(tampered), /outputChecksum does not match/);
 });
 
+test("withdrawal tombstones block publication even when the caller bypasses checksum verification", () => {
+  const entity = canonicalRuntime.entities[0];
+  assert.throws(() => generator.buildPublicDataset({
+    ...canonicalRuntime, withheldEntityIDs: [...canonicalRuntime.withheldEntityIDs, entity.id]
+  }, {verifyChecksum: false}), /republish a withheld entity/);
+});
+
 test("legacy governance confirmations fail closed when their release or source binding changes", () => {
   type RuntimeEntity = {
     id: string;
@@ -179,7 +189,7 @@ test("legacy governance confirmations fail closed when their release or source b
   const withReleaseMismatch = {
     ...canonicalRuntime,
     entities: runtimeEntities.map((entity) => entity.id === amsterdam.id
-      ? { ...entity, attributes: { ...entity.attributes, dataProjectRelease: "amsterdam-v0.1.8" } }
+      ? { ...entity, attributes: { ...entity.attributes, dataProjectRelease: canonicalRuntime.releases.find((release: {id:string}) => release.id !== amsterdam.attributes.dataProjectRelease).id } }
       : entity)
   };
   assert.throws(

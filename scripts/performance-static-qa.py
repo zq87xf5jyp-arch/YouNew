@@ -30,7 +30,7 @@ ALLOWED_SYNC_DATA_READS = {
     ("YouNew/ViewModels/DocumentStore.swift", 152),
     # One-time, memory-mapped read of the bundled canonical dataset. The
     # loader has no network path and falls back safely if decoding fails.
-    ("YouNew/Services/DataProjectRuntimeLoader.swift", 30),
+    ("YouNew/Services/DataProjectRuntimeLoader.swift", 37),
 }
 
 ALLOWED_ASYNC_IMAGE = {

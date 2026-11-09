@@ -1108,6 +1108,10 @@ export function buildPublicDataset(runtime, { verifyChecksum = true } = {}) {
   if (publishedReleaseIds.size === 0) throw new Error("No published canonical releases are available.");
 
   const sourceEntities = Array.isArray(runtime.entities) ? runtime.entities : [];
+  const withheldIds = new Set(runtime.withheldEntityIDs ?? []);
+  if (sourceEntities.some((entity) => withheldIds.has(entity.id))) {
+    throw new Error("Canonical runtime attempts to republish a withheld entity.");
+  }
   const accepted = sourceEntities.filter((entity) => isPublishableEntity(entity, publishedReleaseIds));
 
   const rawByType = new Map();

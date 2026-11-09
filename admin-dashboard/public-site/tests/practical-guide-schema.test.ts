@@ -6,9 +6,17 @@ const siteRoot = new URL("../", import.meta.url);
 const canonicalRuntime = JSON.parse(await readFile(new URL("../../YouNew/Resources/Data/younew-runtime-data.json", siteRoot), "utf8"));
 // Schema tests use a synthetic in-memory parent, never a time-sensitive public record.
 const schemaRuntime = structuredClone(canonicalRuntime);
-const schemaParent = schemaRuntime.entities.find((entity: {id:string}) => entity.id === "government_service.driving-licence-amsterdam");
-assert.ok(schemaParent);
-schemaParent.id = "government_service.synthetic-guide-fixture";
+const schemaParent = {
+  ...structuredClone(canonicalRuntime.entities[0]),
+  id: "government_service.synthetic-guide-fixture",
+  kind: "governmentService",
+  title: "Driving licence Amsterdam",
+  category: "driving-licence",
+  source: {title: "Test-only source", publisher: "YouNew QA", url: "https://example.com/official-fixture", checkedAt: "2026-07-18", status: "verified_opened", isOfficial: true},
+  attributes: {dataProjectRelease: canonicalRuntime.releases[0].id, lifecycleStatus: "published", verificationStatus: "verified"},
+  governance: null,
+};
+schemaRuntime.entities = [schemaParent];
 const { projectPublishedPracticalGuide } = await import(new URL("../scripts/practical-guide.mjs", import.meta.url).href);
 const { buildPublicDataset } = await import(new URL("../scripts/generate-public-content.mjs", import.meta.url).href);
 

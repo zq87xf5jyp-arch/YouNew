@@ -94,7 +94,9 @@ test("release control uses one fail-closed deterministic truth snapshot", async 
   assert.equal(truth.technicalVerdict, "PARTIAL");
   assert.equal(truth.deploymentAuthorization, "not_granted");
   assert.equal(truth.publication.inventory.total, 454);
-  assert.equal(truth.publication.packaged.entityCount, 7);
+  const packaged = JSON.parse(await readFile(new URL("../public-site/src/generated/public-content.json", import.meta.url), "utf8"));
+  assert.ok(packaged.entities.length > 0);
+  assert.equal(truth.publication.packaged.entityCount, packaged.entities.length);
   assert.equal(truth.publication.deployed.state, "unknown");
   assert.equal(truth.publication.deployed.entityCount, null);
   assert.equal(truth.publication.deployed.declaredEntityCount, null);

@@ -6,8 +6,8 @@ Evidence date: **2026-11-09**. This is a read-only local audit; no live URL chec
 
 **NOT PRODUCTION READY for the attached 100%-content brief.** The repository has substantial governed summary inventory, but no practical guide passes the fail-closed production contract.
 
-- Governed records: **454**; effectively published: **177**.
-- Guide-capable material records: **281**; effectively published material records: **15**.
+- Governed records: **454**; effectively published: **5**.
+- Guide-capable material records: **281**; effectively published material records: **0**.
 - Material lifecycle states: **{"published": 15, "qa": 266}**.
 - Public guides: **0 summary / 0 full**.
 - Source-backed guide QA packets: **20**; production-ready guides: **0**.
@@ -140,18 +140,18 @@ This table uses the observed category count as the denominator for summary-field
 | WP-05 | duo | 10 | 0/10 | 0.0% | 0 | 0 | 10 | 10 | 10 |
 | WP-05 | higher_education | 10 | 0/10 | 0.0% | 0 | 0 | 10 | 10 | 10 |
 | WP-05 | schools | 10 | 0/10 | 0.0% | 0 | 0 | 10 | 10 | 10 |
-| WP-06 | civil-affairs | 2 | 0/2 | 0.0% | 2 | 0 | 0 | 2 | 2 |
-| WP-06 | civil-status | 2 | 0/2 | 0.0% | 2 | 0 | 0 | 2 | 2 |
-| WP-06 | driving-documents | 1 | 0/1 | 0.0% | 1 | 0 | 0 | 1 | 1 |
-| WP-06 | identity-documents | 1 | 0/1 | 0.0% | 1 | 0 | 0 | 1 | 1 |
-| WP-06 | municipal-housing-information | 2 | 0/2 | 0.0% | 2 | 0 | 0 | 2 | 2 |
-| WP-06 | municipal-housing-service | 1 | 0/1 | 0.0% | 1 | 0 | 0 | 1 | 1 |
-| WP-06 | municipal-taxes | 1 | 0/1 | 0.0% | 1 | 0 | 0 | 1 | 1 |
-| WP-06 | parking | 1 | 0/1 | 0.0% | 1 | 0 | 0 | 1 | 1 |
-| WP-06 | public-space | 1 | 0/1 | 0.0% | 1 | 0 | 0 | 1 | 1 |
-| WP-06 | social-housing-platform | 1 | 0/1 | 0.0% | 1 | 0 | 0 | 1 | 1 |
-| WP-06 | tenant-support | 1 | 0/1 | 0.0% | 1 | 0 | 0 | 1 | 1 |
-| WP-06 | waste-recycling | 1 | 0/1 | 0.0% | 1 | 0 | 0 | 1 | 1 |
+| WP-06 | civil-affairs | 2 | 0/2 | 0.0% | 0 | 0 | 0 | 2 | 2 |
+| WP-06 | civil-status | 2 | 0/2 | 0.0% | 0 | 0 | 0 | 2 | 2 |
+| WP-06 | driving-documents | 1 | 0/1 | 0.0% | 0 | 0 | 0 | 1 | 1 |
+| WP-06 | identity-documents | 1 | 0/1 | 0.0% | 0 | 0 | 0 | 1 | 1 |
+| WP-06 | municipal-housing-information | 2 | 0/2 | 0.0% | 0 | 0 | 0 | 2 | 2 |
+| WP-06 | municipal-housing-service | 1 | 0/1 | 0.0% | 0 | 0 | 0 | 1 | 1 |
+| WP-06 | municipal-taxes | 1 | 0/1 | 0.0% | 0 | 0 | 0 | 1 | 1 |
+| WP-06 | parking | 1 | 0/1 | 0.0% | 0 | 0 | 0 | 1 | 1 |
+| WP-06 | public-space | 1 | 0/1 | 0.0% | 0 | 0 | 0 | 1 | 1 |
+| WP-06 | social-housing-platform | 1 | 0/1 | 0.0% | 0 | 0 | 0 | 1 | 1 |
+| WP-06 | tenant-support | 1 | 0/1 | 0.0% | 0 | 0 | 0 | 1 | 1 |
+| WP-06 | waste-recycling | 1 | 0/1 | 0.0% | 0 | 0 | 0 | 1 | 1 |
 
 ## Quality gaps
 
@@ -180,7 +180,7 @@ Candidate pairs are evidence for editorial review, not automatic deletion. Full 
 
 - Effective published → runtime: **0 missing / 0 unexpected**.
 - Runtime → public web: **0 unexplained missing / 0 unexpected**.
-- Fail-closed freshness exclusions: **172**; public records that violate the exclusion: **0**.
+- Fail-closed freshness exclusions: **0**; public records that violate the exclusion: **0**.
 - Practical guides in runtime/public: **0 / 0**.
 
 ## Existing link-health evidence

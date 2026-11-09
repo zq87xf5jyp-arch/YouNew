@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "snapshotID": "release-truth.adc6b3d30da4df05",
-  "snapshotDigest": "adc6b3d30da4df0512b6e7d08969a98ac30fbfd72ed58e2a330827f7c47ec9f4",
-  "generatedAt": "2026-11-09T13:17:31.000Z",
-  "candidateCommit": "6a03b91c1911ab27e2668264cbc52d722cb1839e",
+  "snapshotID": "release-truth.c53f304f90620a44",
+  "snapshotDigest": "c53f304f90620a44a7c742b76ff56ea8fc1c79f3a4a16a118f224f4ce361257c",
+  "generatedAt": "2026-11-09T14:16:09.000Z",
+  "candidateCommit": "1dab9d84875a0ba9a227c59f5b248aea129dfbe0",
   "sourceTreeState": "dirty",
   "sourceTreeExclusions": [
     "admin-dashboard/src/generated/release-truth.json",
@@ -19,7 +19,7 @@
     {
       "id": "candidate-source",
       "kind": "git_source_identity",
-      "sourceRef": "git:6a03b91c1911ab27e2668264cbc52d722cb1839e",
+      "sourceRef": "git:1dab9d84875a0ba9a227c59f5b248aea129dfbe0",
       "sha256": null,
       "observedAt": null,
       "validThrough": null,
@@ -30,8 +30,8 @@
       "id": "data-project-inventory",
       "kind": "generated_inventory",
       "sourceRef": "admin-dashboard/src/generated/data-project-dashboard.json",
-      "sha256": "34c19d7bd361516ff26afe552d0473f925b83c6c0b822d8a76eba5b608eb8b8a",
-      "observedAt": "2026-11-09T13:17:31+00:00",
+      "sha256": "0960b31f92ed050dc78897ed3a8303b64d1d8ee6321429eb27b966642d1c109a",
+      "observedAt": "2026-11-09T14:16:09+00:00",
       "validThrough": null,
       "state": "measured",
       "scope": "Governed candidate inventory; link-health sentinel is explicitly excluded."
@@ -40,17 +40,17 @@
       "id": "packaged-runtime",
       "kind": "packaged_artifact_manifest",
       "sourceRef": "admin-dashboard/src/generated/governed-runtime-manifest.json",
-      "sha256": "5f95872a8316c09bb05a90844f2ea4a603dfeebc8bf4bb891c781b7ebe07e52e",
+      "sha256": "87a121a01024c8eea04e870636da5d6a5bb7bb96a9d0dedb1d13258e0d89d2d6",
       "observedAt": "2026-10-23T00:00:00Z",
       "validThrough": null,
       "state": "measured",
-      "scope": "Governed source runtime with 177 records; public packaging accepts 5 and explicitly excludes 172 stale records."
+      "scope": "Governed source runtime with 5 records; public packaging accepts 5 and explicitly excludes 0 stale records."
     },
     {
       "id": "public-content-provenance",
       "kind": "packaged_provenance",
       "sourceRef": "admin-dashboard/public-site/public/data/content-provenance.json",
-      "sha256": "1e94ca9828233b2a020ffe863be22469c66f6807f972199c942a9b64af5c2d64",
+      "sha256": "b1bf717fce63577fc9bd2d70d0c81186c1afa0ced040e10154101b5ebda9f09f",
       "observedAt": "2026-10-23T00:00:00Z",
       "validThrough": null,
       "state": "measured",
@@ -92,21 +92,21 @@
       "state": "measured",
       "total": 454,
       "verified": 454,
-      "outdated": 415,
+      "outdated": 425,
       "nextReleaseID": "education-v1.0.0",
       "nextReleaseStatus": "qa"
     },
     "packaged": {
       "state": "measured",
       "entityCount": 5,
-      "sourceEntityCount": 177,
-      "freshnessExcludedEntityCount": 172,
+      "sourceEntityCount": 5,
+      "freshnessExcludedEntityCount": 0,
       "releaseIDs": [
-        "amsterdam-v0.1.8",
+        "amsterdam-v0.1.10",
         "cities-v0.1.0"
       ],
-      "datasetFingerprint": "758a8607dbfad0fbf57cce4e4a170cc9b9c81dcd953160a117de5efda35d85e9",
-      "outputChecksum": "eadff7c85ed048f85aa06f3a74a495bd58500be8308a04b4e23e4da2607b9898"
+      "datasetFingerprint": "39a365a2152382da678d1a888a535295ab497481858b815d785c00c32fcbabfc",
+      "outputChecksum": "d39686302bac96ca65c9489f64ed7b7ded29e4f9865e21edfb0f52db8cb45e7c"
     },
     "deployed": {
       "state": "unknown",
@@ -189,7 +189,7 @@
   "gates": {
     "sourceIntegrity": {
       "result": "pass",
-      "reason": "Public provenance partitions all 177 governed source records into 5 packaged public records and 172 fail-closed freshness exclusions.",
+      "reason": "Public provenance partitions all 5 governed source records into 5 packaged public records and 0 fail-closed freshness exclusions.",
       "sourceIDs": [
         "data-project-inventory",
         "packaged-runtime",

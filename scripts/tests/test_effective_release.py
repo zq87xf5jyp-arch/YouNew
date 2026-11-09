@@ -240,7 +240,7 @@ class AmsterdamCandidateIntegrationTests(unittest.TestCase):
         ))
         self.assertEqual(file_sha256(base_path), accepted_hash)
 
-    def test_current_patch_release_retires_completed_events_and_replaces_sources(self):
+    def test_historical_patch_release_retires_completed_events_and_replaces_sources(self):
         repository = SCRIPTS.parent
         project = repository / "DataProject"
         current = resolve_release(project, "amsterdam-v0.1.8")
@@ -300,7 +300,7 @@ class AmsterdamCandidateIntegrationTests(unittest.TestCase):
             "https://bredagroup-amsterdam.com/",
         )
         self.assertEqual(records["restaurant.breda"]["lifecycle_status"], "retired")
-        self.assertIn("amsterdam-v0.1.8", effective_release_heads(project, {"published"}))
+        self.assertEqual(resolve_release(project, "amsterdam-v0.1.8").release["status"], "published")
 
     def test_link_checker_never_allowlists_client_errors(self):
         checker_path = SCRIPTS / "check-external-links.py"

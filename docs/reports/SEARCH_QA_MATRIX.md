@@ -1,6 +1,6 @@
 # YouNew search QA matrix
 
-Generated: 2026-11-09T13:42:10.746Z
+Generated: 2026-11-09T14:15:42.960Z
 
 Status: **PASS**
 

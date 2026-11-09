@@ -24,12 +24,22 @@ def exclusion(record, today):
 def main():
     today = datetime.now(timezone.utc).date()
     records = []
+    published_ids = set()
+    withheld_ids = set()
     for release in effective_release_heads(ROOT / 'DataProject', {'published'}):
         for record in resolve_release(ROOT / 'DataProject', release).records:
             if record['lifecycle_status'] == 'published':
+                published_ids.add(record['id'])
                 entry = exclusion(record, today)
                 if entry:
                     records.append(entry)
+            elif record['lifecycle_status'] == 'retired':
+                withheld_ids.add(record['id'])
+    runtime = json.loads((ROOT / 'YouNew/Resources/Data/younew-runtime-data.json').read_text())
+    if {record['id'] for record in runtime['entities']} != published_ids:
+        raise RuntimeError('Canonical runtime is out of sync; regenerate release manifests and run import-data-project.py --all-approved before export')
+    if not withheld_ids.issubset(runtime.get('withheldEntityIDs', [])):
+        raise RuntimeError('Canonical runtime omits withdrawal tombstones')
     records.sort(key=lambda record: record['id'])
     assert len(records) == len({record['id'] for record in records})
     payload = {'schemaVersion': 1, 'asOf': today.isoformat(),

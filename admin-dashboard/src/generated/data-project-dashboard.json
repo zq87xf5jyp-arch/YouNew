@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-09T13:43:38+00:00",
+  "generated_at": "2026-11-09T14:16:09+00:00",
   "scope": "DATA PROJECT governed records only; legacy runtime data is excluded until audited and migrated.",
   "runtime_release": {
     "release_id": "legacy-runtime-unversioned",
@@ -33,13 +33,13 @@
   "summary": {
     "batches": 29,
     "records": 454,
-    "published": 177,
+    "published": 5,
     "verified": 454,
     "needs_review": 0,
-    "outdated": 415,
+    "outdated": 425,
     "blocked": 0,
-    "media_assets": 577,
-    "quality_score": 81.7
+    "media_assets": 587,
+    "quality_score": 81.3
   },
   "coverage": [
     {
@@ -150,9 +150,9 @@
       "key": "images",
       "label": "Verified media assets",
       "work_package": "WP-14",
-      "current": 577,
+      "current": 587,
       "target": 10000,
-      "coverage_percent": 5.8
+      "coverage_percent": 5.9
     }
   ],
   "breadth_coverage": [
@@ -2442,25 +2442,25 @@
       "name": "Cities",
       "status": "active",
       "records": 188,
-      "published": 177,
+      "published": 5,
       "verified": 188,
       "needs_review": 0,
-      "outdated": 173,
+      "outdated": 183,
       "blocked": 0,
-      "quality_score": 81.6,
+      "quality_score": 80.5,
       "coverage_dimensions": {
         "verification": 100.0,
         "official_source": 100.0,
-        "freshness": 8.0,
+        "freshness": 2.7,
         "relationships": 100.0,
         "geography": 100.0,
         "media": 100.0,
         "search": 100.0,
         "ai": 100.0,
-        "publication": 94.1
+        "publication": 2.7
       },
-      "current_release": "0.1.8",
-      "next_release": "0.1.9"
+      "current_release": "0.1.10",
+      "next_release": null
     },
     {
       "id": "WP-07",
@@ -2739,8 +2739,8 @@
     }
   ],
   "data_health": {
-    "status": "attention_required",
-    "issues_total": 162,
+    "status": "healthy",
+    "issues_total": 0,
     "issues": {
       "governed_broken_links": 0,
       "legacy_runtime_broken_links": 0,
@@ -2751,7 +2751,7 @@
       "missing_last_checked": 0,
       "missing_coordinates": 0,
       "missing_ai_summary": 0,
-      "outdated_records": 162
+      "outdated_records": 0
     },
     "link_check": {
       "checked_at": "1970-01-01T00:00:00+00:00",

@@ -12,6 +12,7 @@ const adminTruth = await readJSON(new URL("../src/generated/release-truth.json",
 const publicTruth = await readJSON(new URL("../public-site/src/generated/release-truth-public.json", import.meta.url));
 const map = await readJSON(new URL("../src/generated/canonical-map-points.json", import.meta.url));
 const links = await readJSON(new URL("../src/generated/canonical-official-links.json", import.meta.url));
+const content = await readJSON(new URL("../public-site/src/generated/public-content.json", import.meta.url));
 
 test("release-truth digest binds the full snapshot and public projection", () => {
   const digestPayload = { ...adminTruth };
@@ -164,12 +165,14 @@ test("review pagination is ordered in SQL and SLA count is an independent exact 
 
 test("canonical map has stable source identities and preserves public API fields", () => {
   assert.deepEqual(map.counts, {
-    contentEntities: 6,
+    contentEntities: content.entities.filter((entity: {type:string;coordinate:unknown}) => ["city", "organization", "place"].includes(entity.type) && entity.coordinate).length,
     municipalities: 342,
-    total: 348,
-    categories: 33,
-    cities: 5
+    total: map.points.length,
+    categories: content.categories.length,
+    cities: content.cities.length
   });
+  assert.deepEqual(map.points.filter((point: {source_kind:string}) => point.source_kind === "content_entity").map((point: {source_id:string}) => point.source_id).sort(),
+    content.entities.filter((entity: {type:string;coordinate:unknown}) => ["city", "organization", "place"].includes(entity.type) && entity.coordinate).map((entity: {id:string}) => entity.id).sort());
   assert.equal(map.points.length, map.counts.total);
   assert.equal(new Set(map.points.map((point: Record<string, unknown>) => point.id)).size, map.points.length);
   assert.equal(
@@ -207,9 +210,7 @@ test("map API and packaged Admin projection share a registry beside the separate
 });
 
 test("official-link registry collapses exact canonical duplicates without claiming health", () => {
-  assert.equal(links.counts.references, 689);
-  assert.equal(links.counts.canonicalLinks, 685);
-  assert.equal(links.counts.duplicatesCollapsed, 4);
+  assert.ok(links.counts.references > links.counts.canonicalLinks, "the real registry contains repeated official URLs");
   assert.equal(links.counts.references - links.counts.canonicalLinks, links.counts.duplicatesCollapsed);
   assert.equal(links.links.length, links.counts.canonicalLinks);
   assert.equal(new Set(links.links.map((link: Record<string, unknown>) => link.canonical_url)).size, links.links.length);

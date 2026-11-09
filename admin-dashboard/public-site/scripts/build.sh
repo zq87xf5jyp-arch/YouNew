@@ -11,9 +11,9 @@ if [[ ! -f "$next_cli" ]]; then
 fi
 
 "$node_command" ../scripts/generate-governed-runtime.mjs
-"$node_command" ../scripts/generate-canonical-admin-data.mjs
 python3 ../../scripts/generate-public-freshness-exclusions.py
 "$node_command" scripts/generate-public-content.mjs
+"$node_command" ../scripts/generate-canonical-admin-data.mjs
 "$node_command" ../scripts/generate-release-truth.mjs
 if [[ -n "${YOUNEW_LOCAL_CATALOG_API:-}" ]]; then
   # Canonical production truth is generated before the explicitly synthetic overlay.

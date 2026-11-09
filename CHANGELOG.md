@@ -5,6 +5,10 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Withdraw 172 overdue Amsterdam records through an immutable patch without
+  changing source facts or verification dates. Preserve unapproved replacements
+  and prevent withdrawn records from returning through the mobile legacy fallback.
+
 - Validate dynamic freshness exclusions against canonical deadlines, honor each
   project's pinned package manager in dependency audits, and verify the completed
   disposable legacy-sync assertion before checking fixture cleanup.
