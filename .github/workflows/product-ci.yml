@@ -223,4 +223,4 @@ jobs:
         with:
           node-version: "24"
       - name: Run backend security contracts
-        run: node --test BackendExamples/cloudflare-worker-ai-proxy.test.mjs
+        run: node --test BackendExamples/cloudflare-worker-ai-proxy.test.mjs hostinger/runtime/tests/catalog-endpoint.test.mjs

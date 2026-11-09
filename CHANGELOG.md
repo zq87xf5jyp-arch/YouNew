@@ -5,6 +5,9 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Point isolated catalog export and cron preparation at the actual qa-runtime
+  Node app and its shared private environment file; reject production endpoints.
+
 - Pin CI Gitleaks to the locally verified 8.30.1 version so exact PostgreSQL
   definition-hash exceptions are understood while all default rules stay enabled.
 

@@ -9,7 +9,7 @@ import {spawn} from 'node:child_process';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const store=resolve(process.env.YOUNEW_PUBLICATION_ROOT||root+'/publication');
 const endpoint=process.env.YOUNEW_LOCAL_CATALOG_API||'http://127.0.0.1:4404/api/r4/editorial/approved';
-if(!['http://127.0.0.1:4404/api/r4/editorial/approved','https://qa-admin.younew.nl/api/r4/editorial/approved'].includes(endpoint))throw Error('Unapproved catalog endpoint');
+if(!['http://127.0.0.1:4404/api/r4/editorial/approved','https://qa-runtime.younew.nl/api/r4/editorial/approved'].includes(endpoint))throw Error('Unapproved catalog endpoint');
 if(!process.env.R4_CATALOG_BUILD_KEY&&endpoint.startsWith('http://127.0.0.1:')){const env=JSON.parse(await fs.readFile(root+'/backend/private/env.json','utf8'));process.env.R4_CATALOG_BUILD_KEY=env.R4_CATALOG_BUILD_KEY;}
 if(!process.env.R4_CATALOG_BUILD_KEY)throw Error('Server build key required');
 const hash=x=>createHash('sha256').update(typeof x==='string'||Buffer.isBuffer(x)?x:JSON.stringify(x)).digest('hex');

@@ -4,7 +4,7 @@ import {fileURLToPath} from 'node:url';
 import {dirname,resolve} from 'node:path';
 const root=resolve(dirname(fileURLToPath(import.meta.url)),'..');
 const endpoint=process.env.YOUNEW_LOCAL_CATALOG_API;
-if(!['http://127.0.0.1:4404/api/r4/editorial/approved','https://qa-admin.younew.nl/api/r4/editorial/approved'].includes(endpoint))throw Error('Exact isolated local catalog API required');
+if(!['http://127.0.0.1:4404/api/r4/editorial/approved','https://qa-runtime.younew.nl/api/r4/editorial/approved'].includes(endpoint))throw Error('Exact isolated local catalog API required');
 let batch;
 if(process.env.YOUNEW_APPROVED_SNAPSHOT_FILE){batch=JSON.parse(await readFile(process.env.YOUNEW_APPROVED_SNAPSHOT_FILE,'utf8'));}
 else{const response=await fetch(endpoint,{headers:{Authorization:'Bearer '+process.env.R4_CATALOG_BUILD_KEY},redirect:'error',signal:AbortSignal.timeout(10000)});if(!response.ok)throw Error('Approved export unavailable; do not reuse stale snapshot');batch=await response.json();}
