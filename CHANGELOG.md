@@ -5,6 +5,9 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Add an operator-only QA database dump with exact target guards, private
+  credential handling, non-overwrite protection, and an explicit pending-restore result.
+
 - Record successful Hostinger QA database connectivity and complete CI evidence,
   and correct the canonical draft projection instructions after source integration.
 

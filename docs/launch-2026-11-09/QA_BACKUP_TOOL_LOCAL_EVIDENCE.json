@@ -1,0 +1,19 @@
+{
+  "status": "PASS",
+  "date": "2026-11-09",
+  "scope": "Local synthetic MariaDB backup tool exercise, not Hostinger restore evidence",
+  "server_version": "13.0.2-MariaDB",
+  "network_disabled": true,
+  "server_stopped": true,
+  "tables": 13,
+  "rows": 7,
+  "schema_exact": true,
+  "row_fingerprints_exact": true,
+  "native_option_file_password_roundtrip": true,
+  "nontransactional_engine_refused": true,
+  "dump_bytes": 15789,
+  "dump_sha256": "d4718c7f2c8e485deb4fd5b068b7b27220f5f31a3bb855affeba8b7c4c030d37",
+  "integration_command": "node hostinger/runtime/tests/db-backup.integration.mjs --local-disposable",
+  "captured_from": "Successful integration command output; SQL checksum and stopped PID rechecked independently",
+  "hostinger_restore_verified": false
+}
