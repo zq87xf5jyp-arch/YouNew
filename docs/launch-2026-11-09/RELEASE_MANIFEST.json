@@ -85,5 +85,10 @@
     "source_commit": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
     "evidence": "CI_EVIDENCE_A8054DA.json",
     "later_commits_require_own_checks": true
+  },
+  "production_admin_resource_settings": {
+    "evidence": "ADMIN_RESOURCE_EVIDENCE.json",
+    "candidate_deployed": false,
+    "prior_source_rebuilt_by_hostinger": true
   }
 }

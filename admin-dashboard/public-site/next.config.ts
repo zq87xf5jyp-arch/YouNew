@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   poweredByHeader: false,
   ...(process.env.YOUNEW_HOSTINGER_QA_BUILD === "1"
-    ? { experimental: { cpus: 1, workerThreads: true } }
+    ? { experimental: { cpus: 1, workerThreads: false } }
     : {}),
   webpack(config) {
     // Optional local resource limit; default hosting behavior stays unchanged.
