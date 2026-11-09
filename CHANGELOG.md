@@ -5,6 +5,9 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Pin CI Gitleaks to the locally verified 8.30.1 version so exact PostgreSQL
+  definition-hash exceptions are understood while all default rules stay enabled.
+
 - Pin the exact disposable PostgreSQL schema delta after explicit owner review;
   document real Supabase export preservation, isolated data recovery, Hostinger
   backup checks, and the deferred cleanup inventory without including private data.
