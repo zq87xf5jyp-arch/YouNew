@@ -5,6 +5,10 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Pin the exact disposable PostgreSQL schema delta after explicit owner review;
+  document real Supabase export preservation, isolated data recovery, Hostinger
+  backup checks, and the deferred cleanup inventory without including private data.
+
 - Preserve the business add/claim choice across English/Dutch navigation while
   retaining the private, in-memory search language handoff.
 - Test mobile city isolation with synthetic places and assert that withdrawn

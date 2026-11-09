@@ -1,0 +1,18 @@
+title = "YouNew secret scanning"
+
+[extend]
+useDefault = true
+
+# These exact definition hashes were verified against the PostgreSQL inventories
+# from disposable run 42637172397. They are not tokens or authentication material.
+# Both the file path AND the finite hash set must match; other rules stay enabled.
+[[allowlists]]
+description = "Verified PostgreSQL definition MD5 values in the owner-reviewed schema delta"
+targetRules = ["generic-api-key"]
+condition = "AND"
+paths = [
+  '''^admin-dashboard/supabase/verification/admin-schema-reviewed-delta\.json$''',
+  '''^docs/launch-2026-11-09/supabase-schema-delta-candidate\.json$''',
+]
+regexTarget = "secret"
+regexes = ['''^(?:0d10afd319c610a24f47612624ca8c10|1349c9689dd51a5cde2dec4416a8926a|14a0e024f606ac82e30ae52d48f505e2|237564436b11f977656ac5f62980f89d|26a4033649c1a54bc92163c70ff11d4e|35d469d9858ddcdbf78f009cfc4b2a1e|3784c64d6ed25211ea6adc9b3c0ea8d6|52e447ccaab2bac8b55239c505418a91|551bc92f16c3e7270721d14615209edf|59f4791ea5f378fd3da14376945564c5|5a0f3906a9ce7633c667320cd7c0458f|6b46605bfcedf23522b6eb57d88e73a2|8fc67b7726c4e1aa150f48875e290915|9b8f87b2ed74dc9cb9db32eee51b0054|9c3a9a4848d23db3db6d0414a5b0131a|9d4d6428ff45f286e1057845af4ee1d5|ae3a03a77c070d6deb3c7eb155ffac9b|afde30f4a046ac5369680b8fd0653a52|b31c953e8f2e87a30da900ced8b7b515|b36fa0df594b1aaec99e5952aed5bb20|b5400cfc5d318246c972c372afa9f926|e43b38e36d205f74026d0f82313d8af3|e87fd62f86f9c01e54ecf4ef2b24da8a)$''']
