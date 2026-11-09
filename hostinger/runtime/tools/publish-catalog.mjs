@@ -52,10 +52,10 @@ try{
   }
   // Large immutable media need not be recopied by Next during page generation.
   const deferred=[];const publicRoot=stage+'/source/admin-dashboard/public-site/public';
-  for(const p of await allFiles(publicRoot)){const st=await fs.stat(p);if(st.size>1024*1024 && /\.(mp4|webm|zip|pdf)$/.test(p)){deferred.push(relative(publicRoot,p));await fs.unlink(p);}}
+  for(const p of await allFiles(publicRoot)){const st=await fs.stat(p);if(st.size>1024*1024 && /\.(mp4|webm|zip|pdf)$/.test(p)){const rel=relative(publicRoot,p);deferred.push(rel);await fs.mkdir(dirname(stage+'/deferred/'+rel),{recursive:true});await fs.rename(p,stage+'/deferred/'+rel);}}
   await run('/bin/bash',['scripts/build.sh'],stage+'/source/admin-dashboard/public-site');
   const out=stage+'/source/admin-dashboard/public-site/out';
-  for(const rel of deferred){await fs.mkdir(dirname(out+'/'+rel),{recursive:true});await fs.copyFile(root+'/source/admin-dashboard/public-site/public/'+rel,out+'/'+rel,constants.COPYFILE_FICLONE);}
+  for(const rel of deferred){await fs.mkdir(dirname(out+'/'+rel),{recursive:true});await fs.rename(stage+'/deferred/'+rel,out+'/'+rel);}
   record.deferredMedia=deferred;
   for(const path of ['index.html','sitemap.xml','data/search-index.json'])await fs.access(out+'/'+path);
   const draft=JSON.parse(await fs.readFile(root+'/backend/db/catalog-drafts.json','utf8')).entities;
