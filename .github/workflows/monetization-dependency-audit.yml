@@ -41,8 +41,8 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          pnpm --dir admin-dashboard install --frozen-lockfile
-          pnpm --dir admin-dashboard/public-site install --frozen-lockfile
+          (cd admin-dashboard && pnpm install --frozen-lockfile)
+          (cd admin-dashboard/public-site && pnpm install --frozen-lockfile)
       - name: Audit Admin and public dependencies
         shell: bash
         run: |
@@ -51,9 +51,9 @@ jobs:
           mkdir -p "$artifact_dir"
           admin_status=0
           public_status=0
-          pnpm --dir admin-dashboard audit --audit-level high --json \
+          (cd admin-dashboard && pnpm audit --audit-level high --json) \
             > "$artifact_dir/admin-audit.json" || admin_status=$?
-          pnpm --dir admin-dashboard/public-site audit --audit-level high --json \
+          (cd admin-dashboard/public-site && pnpm audit --audit-level high --json) \
             > "$artifact_dir/public-audit.json" || public_status=$?
           {
             echo "admin_status=$admin_status"

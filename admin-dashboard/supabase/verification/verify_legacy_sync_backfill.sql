@@ -2,21 +2,18 @@
 
 do $verification$
 begin
-  if not exists (
-    select 1
-    from public.sync_jobs
+  -- The disposable 20260819124857 migration asserts every backfilled lease
+  -- field and removes the synthetic row immediately, before later migrations.
+  -- A failed assertion prevents its migration ledger entry from committing.
+  if (select count(*) from supabase_migrations.schema_migrations
+      where version in ('20260819124855', '20260819124856', '20260819124857')) <> 3 then
+    raise exception 'legacy sync seed, backfill and assertion/cleanup migrations did not all complete';
+  end if;
+  if exists (
+    select 1 from public.sync_jobs
     where id = '74000000-0000-4000-8000-000000000001'
-      and status = 'running'
-      and queued_at is not null
-      and started_at is not null
-      and heartbeat_at is not null
-      and lease_expires_at is not null
-      and lease_token is not null
-      and attempt_count >= 1
-      and lease_expires_at = started_at + interval '15 minutes'
-      and details ->> 'lease_migration' = 'legacy_backfill'
   ) then
-    raise exception 'legacy running sync job was not normalized before lease validation';
+    raise exception 'verified legacy sync fixture was not removed before later migrations';
   end if;
 end
 $verification$;
@@ -24,18 +21,9 @@ $verification$;
 select jsonb_build_object(
   'result', 'PASS',
   'fixture', 'synthetic_legacy_running_sync_job',
-  'status', status,
-  'queued_at_present', queued_at is not null,
-  'heartbeat_present', heartbeat_at is not null,
-  'lease_present', lease_expires_at is not null and lease_token is not null,
-  'attempt_count', attempt_count,
-  'backfill_marker', details ->> 'lease_migration'
-) as legacy_sync_backfill_evidence
-from public.sync_jobs
-where id = '74000000-0000-4000-8000-000000000001';
-
-delete from public.sync_jobs
-where id = '74000000-0000-4000-8000-000000000001';
+  'assertion_migration', '20260819124857',
+  'fixture_removed_before_later_migrations', true
+) as legacy_sync_backfill_evidence;
 
 select case
   when count(*) = 0 then 'PASS synthetic legacy sync fixture removed'

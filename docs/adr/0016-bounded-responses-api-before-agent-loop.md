@@ -20,7 +20,9 @@ Adding an agent loop would introduce tool selection, state, approval, tracing an
 2. Add one server-controlled OpenAI Responses API call after deterministic governed retrieval and before independent response validation.
 3. Add an Agents SDK loop with tools, state and handoffs.
 
-## Proposed decision
+## Decision
+
+This decision remains proposed, not accepted.
 
 Keep option 1 as the truthful shipped state. Prepare option 2 as the first possible live experiment only after the documentation, human-content and eval gates pass. Do not implement option 3 until a measured workflow requires repeated tool calls, persisted state, approvals or handoffs.
 

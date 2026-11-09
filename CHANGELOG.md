@@ -5,6 +5,10 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Validate dynamic freshness exclusions against canonical deadlines, honor each
+  project's pinned package manager in dependency audits, and verify the completed
+  disposable legacy-sync assertion before checking fixture cleanup.
+
 - Make Hostinger anonymous authentication independent of database configuration; add HTTP coverage and CI for the Hostinger Admin candidate. Synchronize the approved runtime website fields and fail-closed export smoke checks.
 
 

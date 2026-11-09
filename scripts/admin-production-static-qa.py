@@ -6,6 +6,7 @@ import hashlib
 import json
 import re
 from public_runtime_contract import validate_public_partition
+from effective_release import effective_release_heads, resolve_release
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -68,6 +69,8 @@ failures.extend(validate_public_partition(
     public_content,
     json.loads(read("admin-dashboard/public-site/src/generated/public-freshness-exclusions.json")),
     json.loads(read("DataProject/quality/phase4-amsterdam-stale-disposition.json")),
+    [record for release in effective_release_heads(ROOT / "DataProject", {"published"})
+     for record in resolve_release(ROOT / "DataProject", release).records],
 ))
 if any(token in crud_table for token in ("<Edit", "<Trash2", "<Plus")):
     failures.append("inert CRUD mutation controls are visible")
