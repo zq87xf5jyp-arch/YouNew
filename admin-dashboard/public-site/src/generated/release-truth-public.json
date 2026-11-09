@@ -1,8 +1,8 @@
 {
   "schemaVersion": 1,
-  "snapshotID": "release-truth.2adcd24d3525e071",
-  "snapshotDigest": "2adcd24d3525e071361120ef22da647b08835bb617ae11453944cd643fcde4f9",
-  "generatedAt": "2026-10-24T11:22:48.000Z",
+  "snapshotID": "release-truth.adc6b3d30da4df05",
+  "snapshotDigest": "adc6b3d30da4df0512b6e7d08969a98ac30fbfd72ed58e2a330827f7c47ec9f4",
+  "generatedAt": "2026-11-09T13:17:31.000Z",
   "technicalVerdict": "PARTIAL",
   "deploymentAuthorization": "not_granted",
   "verdictReason": "Packaged content is measured, while link health, exact-candidate CI, and full deployed-payload verification are not established.",

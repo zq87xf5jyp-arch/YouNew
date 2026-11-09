@@ -4,12 +4,14 @@ on:
   pull_request:
     paths:
       - "admin-dashboard/**"
+      - "hostinger/runtime/backend/**"
       - "YouNew/Resources/Data/younew-runtime-data.json"
       - "scripts/admin-production-static-qa.py"
       - ".github/workflows/admin-ci.yml"
   push:
     paths:
       - "admin-dashboard/**"
+      - "hostinger/runtime/backend/**"
       - "YouNew/Resources/Data/younew-runtime-data.json"
       - "scripts/admin-production-static-qa.py"
       - ".github/workflows/admin-ci.yml"
@@ -23,6 +25,27 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  hostinger-admin:
+    name: Hostinger Admin build and anonymous access
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: hostinger/runtime/backend/source/admin-dashboard
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
+      - run: corepack enable
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm lint
+      - run: pnpm typecheck
+      - run: pnpm build
+      - run: pnpm test:anonymous
+
   admin-dashboard:
     runs-on: ubuntu-24.04
     timeout-minutes: 60

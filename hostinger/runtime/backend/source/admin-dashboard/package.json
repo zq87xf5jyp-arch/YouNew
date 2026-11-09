@@ -13,6 +13,7 @@
     "start": "node node_modules/next/dist/bin/next start",
     "lint": "node node_modules/eslint/bin/eslint.js src next.config.ts --max-warnings=0",
     "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
+    "test:anonymous": "node scripts/test-unauthenticated.mjs",
     "migrate:r4": "node scripts/r4-migrate.mjs",
     "test:r4:security": "python3 ../../tests/security-http.py",
     "test:r4:actions": "python3 ../../tests/server-actions-http.py",

@@ -5,6 +5,9 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Make Hostinger anonymous authentication independent of database configuration; add HTTP coverage and CI for the Hostinger Admin candidate. Synchronize the approved runtime website fields and fail-closed export smoke checks.
+
+
 ### Added
 
 - Update the Hostinger Admin MySQL driver to 3.23.1 to address authentication

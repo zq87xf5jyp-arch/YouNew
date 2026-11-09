@@ -10,17 +10,17 @@ export const COOKIE='younew_hostprep_session';
 export function origin(){const s=process.env.R4_ORIGIN;if(!s) throw new Error('Origin required');const u=new URL(s);if(u.origin!==s || (u.protocol!=='https:' && !(process.env.R4_LOCAL==='true' && s==='http://127.0.0.1:4404'))) throw new Error('Invalid origin');return s;}
 export async function mutationGuard(){const h=await headers();if(h.get('origin')!==origin() || h.get('host')!==new URL(origin()).host)throw new Denied(403,'origin_denied');}
 export type Actor={id:string;workspace_id:string;email:string;full_name:string;role:AdminRole};
-export async function actor(c:Pick<Conn,'execute'>=db(),lock=false):Promise<Actor>{
+export async function actor(c?:Pick<Conn,'execute'>,lock=false):Promise<Actor>{
  const token=(await cookies()).get(COOKIE)?.value;
  if(!token || !/^[a-f0-9]{64}$/.test(token))throw new Denied(401,'authentication_required');
- const [p]=await rows(c,`SELECT p.id,p.workspace_id,p.email,p.full_name,p.role,p.is_approved,p.is_blocked FROM sessions s JOIN profiles p ON p.id=s.profile_id WHERE s.token_hash=? AND s.revoked_at IS NULL AND s.expires_at>UTC_TIMESTAMP(3)${lock?' FOR UPDATE':''}`,[hash(token)]);
+ const [p]=await rows(c??db(),`SELECT p.id,p.workspace_id,p.email,p.full_name,p.role,p.is_approved,p.is_blocked FROM sessions s JOIN profiles p ON p.id=s.profile_id WHERE s.token_hash=? AND s.revoked_at IS NULL AND s.expires_at>UTC_TIMESTAMP(3)${lock?' FOR UPDATE':''}`,[hash(token)]);
  if(!p)throw new Denied(401,'authentication_required');
  if(!p.is_approved || p.is_blocked)throw new Denied(403,'account_denied');
  return {id:p.id,workspace_id:p.workspace_id,email:p.email,full_name:p.full_name,role:p.role};
 }
 const policies:Record<string,readonly string[]>={ 'catalog.read':['owner','admin','editor','qa','viewer'],'catalog.write':['owner','admin','editor'],'catalog.approve':['owner','admin'], 'crm.read':['owner','admin'],'crm.write':['owner','admin'],'files.read':['owner','admin'],'files.write':['owner','admin'],'audit.read':['owner','admin'],'dashboard.read':['owner','admin','editor','qa','viewer']};
 export function permit(a:Actor,capability:string){if(!policies[capability]?.includes(a.role))throw new Denied(403,'forbidden');}
-export async function authorize(cap:string,c:Pick<Conn,'execute'>=db(),lock=false){const a=await actor(c,lock);permit(a,cap);return a;}
+export async function authorize(cap:string,c?:Pick<Conn,'execute'>,lock=false){const a=await actor(c,lock);permit(a,cap);return a;}
 export async function signedIn(){return actor();}
 export async function login(email:unknown,password:unknown){
  await mutationGuard();

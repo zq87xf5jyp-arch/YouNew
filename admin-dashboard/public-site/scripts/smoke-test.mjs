@@ -4,8 +4,12 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = fileURLToPath(new URL("../out/", import.meta.url));
+const governedContent = JSON.parse(
+  await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8"),
+);
+const drivingGuidePublished = governedContent.entities.some((entity) => entity.route === "/guides/driving-licence-amsterdam");
 const requiredFiles = [
-  "index.html", "start/index.html", "my-younew/index.html", "discover/index.html", "search/index.html", "guides/index.html", "guides/driving-licence-amsterdam/index.html",
+  "index.html", "start/index.html", "my-younew/index.html", "discover/index.html", "search/index.html", "guides/index.html",
   "journeys/index.html", "map/index.html",
   "categories/index.html", "categories/housing/index.html", "cities/index.html", "cities/amsterdam/index.html",
   "nl/index.html", "nl/categorieen/index.html", "nl/categorieen/healthcare/index.html", "nl/zoeken/index.html",
@@ -93,9 +97,13 @@ for (const text of ["Continue where you left off", "Loading local YouNew progres
 assert.match(myYouNew, /name="robots" content="noindex, follow"/);
 assert.match(myYouNew, /<script[^>]+src="\/_next\/static\/chunks\//, "My YouNew must retain client JavaScript");
 
-const guide = await readFile(join(root, "guides/driving-licence-amsterdam/index.html"), "utf8");
-for (const text of ["Driving licence in Amsterdam", "Source checked", "Open official source", "Report outdated information", "next steps"]) assert.match(guide, new RegExp(text, "i"));
-assert.match(guide, /data-guide-depth="useful-summary"/);
+if (drivingGuidePublished) {
+  const guide = await readFile(join(root, "guides/driving-licence-amsterdam/index.html"), "utf8");
+  for (const text of ["Driving licence in Amsterdam", "Source checked", "Open official source", "Report outdated information", "next steps"]) assert.match(guide, new RegExp(text, "i"));
+  assert.match(guide, /data-guide-depth="useful-summary"/);
+} else {
+  await assert.rejects(access(join(root, "guides/driving-licence-amsterdam/index.html")), {code: "ENOENT"}, "A withheld guide must not leave an exported page behind");
+}
 
 const journeys = await readFile(join(root, "journeys/index.html"), "utf8");
 for (const text of ["New in the Netherlands", "International student", "Starting work", "Looking for housing", "Healthcare setup", "Refugee essentials", "Tourist essentials", "Starting a business", "stays only in this browser"]) assert.match(journeys, new RegExp(text, "i"));
@@ -163,9 +171,6 @@ const searchIndex = JSON.parse(await readFile(join(root, "data/search-index.json
 assert.equal(searchIndex.schemaVersion, 3);
 assert.ok(searchIndex.documents.some((document) => document.sourceKind === "nationalResourceGuide" && document.locationScope === "national" && document.nationalFallback === true));
 const provenance = JSON.parse(await readFile(join(root, "data/content-provenance.json"), "utf8"));
-const governedContent = JSON.parse(
-  await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8"),
-);
 const freshnessExclusions = JSON.parse(
   await readFile(new URL("../src/generated/public-freshness-exclusions.json", import.meta.url), "utf8"),
 );
@@ -215,7 +220,8 @@ assert.match(hostingerRules, /FilesMatch "\^\(sw\\\.js\|theme-init\\\.js\|static
 assert.match(hostingerRules, /Strict-Transport-Security "max-age=31536000"/, "HTTPS responses must advertise HSTS");
 
 const sitemap = await readFile(join(root, "sitemap.xml"), "utf8");
-for (const path of ["https://younew.nl", "/start", "/discover", "/guides/driving-licence-amsterdam", "/journeys", "/map", "/categories/housing", "/for-business", "/for-business/pilot", "/for-business/demo-report", "/partners", "/partners/apply", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
+for (const path of ["https://younew.nl", "/start", "/discover", "/journeys", "/map", "/categories/housing", "/for-business", "/for-business/pilot", "/for-business/demo-report", "/partners", "/partners/apply", "/privacy", "/terms", "/support"]) assert.match(sitemap, new RegExp(path));
+assert.equal(sitemap.includes("/guides/driving-licence-amsterdam"), drivingGuidePublished, "Sitemap must reflect the guide's current publication eligibility");
 for (const path of ["/cities/amsterdam", "/cities/den-haag", "/cities/eindhoven", "/cities/rotterdam", "/cities/utrecht", "/places/begijnhof-amsterdam"]) {
   assert.doesNotMatch(sitemap, new RegExp(path), `${path} is a legacy noindex route and must stay out of the sitemap`);
 }

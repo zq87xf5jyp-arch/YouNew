@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "snapshotID": "release-truth.2adcd24d3525e071",
-  "snapshotDigest": "2adcd24d3525e071361120ef22da647b08835bb617ae11453944cd643fcde4f9",
-  "generatedAt": "2026-10-24T11:22:48.000Z",
-  "candidateCommit": "484272957836615deb228d37c4e9d2ac0d9896a8",
+  "snapshotID": "release-truth.adc6b3d30da4df05",
+  "snapshotDigest": "adc6b3d30da4df0512b6e7d08969a98ac30fbfd72ed58e2a330827f7c47ec9f4",
+  "generatedAt": "2026-11-09T13:17:31.000Z",
+  "candidateCommit": "6a03b91c1911ab27e2668264cbc52d722cb1839e",
   "sourceTreeState": "dirty",
   "sourceTreeExclusions": [
     "admin-dashboard/src/generated/release-truth.json",
@@ -19,7 +19,7 @@
     {
       "id": "candidate-source",
       "kind": "git_source_identity",
-      "sourceRef": "git:484272957836615deb228d37c4e9d2ac0d9896a8",
+      "sourceRef": "git:6a03b91c1911ab27e2668264cbc52d722cb1839e",
       "sha256": null,
       "observedAt": null,
       "validThrough": null,
@@ -30,8 +30,8 @@
       "id": "data-project-inventory",
       "kind": "generated_inventory",
       "sourceRef": "admin-dashboard/src/generated/data-project-dashboard.json",
-      "sha256": "f60b594714f6135cc2033b3a722da63da9afffc4fa4c3cc324bb8dcbefb3ac5e",
-      "observedAt": "2026-10-24T11:22:48+00:00",
+      "sha256": "34c19d7bd361516ff26afe552d0473f925b83c6c0b822d8a76eba5b608eb8b8a",
+      "observedAt": "2026-11-09T13:17:31+00:00",
       "validThrough": null,
       "state": "measured",
       "scope": "Governed candidate inventory; link-health sentinel is explicitly excluded."
@@ -40,7 +40,7 @@
       "id": "packaged-runtime",
       "kind": "packaged_artifact_manifest",
       "sourceRef": "admin-dashboard/src/generated/governed-runtime-manifest.json",
-      "sha256": "144cdb12918bc4e675df731303a37c41fe436bfc6bede91b889ae89b2bc1eff3",
+      "sha256": "5f95872a8316c09bb05a90844f2ea4a603dfeebc8bf4bb891c781b7ebe07e52e",
       "observedAt": "2026-10-23T00:00:00Z",
       "validThrough": null,
       "state": "measured",
@@ -50,7 +50,7 @@
       "id": "public-content-provenance",
       "kind": "packaged_provenance",
       "sourceRef": "admin-dashboard/public-site/public/data/content-provenance.json",
-      "sha256": "5f7f9f13dbd628010145f899965e4dccf8a1f01f9dd9e3e294bd137593c80556",
+      "sha256": "1e94ca9828233b2a020ffe863be22469c66f6807f972199c942a9b64af5c2d64",
       "observedAt": "2026-10-23T00:00:00Z",
       "validThrough": null,
       "state": "measured",
@@ -92,7 +92,7 @@
       "state": "measured",
       "total": 454,
       "verified": 454,
-      "outdated": 412,
+      "outdated": 415,
       "nextReleaseID": "education-v1.0.0",
       "nextReleaseStatus": "qa"
     },
@@ -105,8 +105,8 @@
         "amsterdam-v0.1.8",
         "cities-v0.1.0"
       ],
-      "datasetFingerprint": "f9887ff0ec6a4652414fef94e59f86e6a5679c31cd3c5d397cd2b5165b56ea86",
-      "outputChecksum": "c658b552fcdb314aa82f555dc971f346c0130a3aaeae36c46c1f2de23050dba4"
+      "datasetFingerprint": "758a8607dbfad0fbf57cce4e4a170cc9b9c81dcd953160a117de5efda35d85e9",
+      "outputChecksum": "eadff7c85ed048f85aa06f3a74a495bd58500be8308a04b4e23e4da2607b9898"
     },
     "deployed": {
       "state": "unknown",

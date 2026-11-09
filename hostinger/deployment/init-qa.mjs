@@ -1,9 +1,11 @@
 // OPERATOR ONLY, after explicit approval of the new isolated DB. Never part of app start/build/cron.
-import mysql from 'mysql2/promise';
+import {createRequire} from 'node:module';
+const mysql=createRequire(process.cwd()+'/package.json')('mysql2/promise');
 import * as fs from 'node:fs/promises';import {createHash,randomUUID,randomBytes,scryptSync} from 'node:crypto';
 import {dirname,resolve} from 'node:path';import {fileURLToPath} from 'node:url';
 if(process.argv[2]!=='--apply'||process.env.R4_DB_NAME!=='u246392949_younq1'||process.env.R4_DB_HOST!=='127.0.0.1'||process.env.R4_LOCAL!=='false')throw Error('Explicit isolated Hostinger initialization required');
 const dir=dirname(fileURLToPath(import.meta.url));
+const migrationDir=await fs.stat(dir+'/migrations').then(()=>dir+'/migrations').catch(e=>{if(e.code!=='ENOENT')throw e;return resolve(dir,'../runtime/backend/db/migrations');});
 const privateRoot='/home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1';
 await fs.access(privateRoot+'/logs');
 try{await fs.access(privateRoot+'/synthetic-users.json');throw Error('Existing seed never overwritten');}catch(e){if(e.code!=='ENOENT')throw e;}
@@ -12,8 +14,8 @@ try{
  const [[v]]=await c.query('SELECT VERSION() AS version');if(!v.version.startsWith('11.8.9-'))throw Error('Recheck compatibility for changed MariaDB version');
  const [tables]=await c.execute('SELECT TABLE_NAME FROM information_schema.TABLES WHERE TABLE_SCHEMA=?',[process.env.R4_DB_NAME]);if(tables.length)throw Error('New empty QA database required; no reset or migration recovery attempted');
  await c.query("SET SESSION sql_mode='STRICT_TRANS_TABLES,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION',time_zone='+00:00'");
- for(const file of (await fs.readdir(dir+'/migrations')).filter(x=>/^\d+_.*\.sql$/.test(x)).sort()){
-  const sql=await fs.readFile(dir+'/migrations/'+file,'utf8');for(const statement of sql.split(';').map(s=>s.trim()).filter(Boolean))await c.query(statement);
+ for(const file of (await fs.readdir(migrationDir)).filter(x=>/^\d+_.*\.sql$/.test(x)).sort()){
+  const sql=await fs.readFile(migrationDir+'/'+file,'utf8');for(const statement of sql.split(';').map(s=>s.trim()).filter(Boolean))await c.query(statement);
   await c.execute('INSERT INTO schema_migrations(version,sha256) VALUES(?,?)',[file,createHash('sha256').update(sql).digest('hex')]);
  }
  const encode=p=>{const salt=randomBytes(16).toString('hex');return 'scrypt32768$'+salt+'$'+scryptSync(p,salt,64,{N:32768,r:8,p:1,maxmem:64*1024*1024}).toString('hex');};
