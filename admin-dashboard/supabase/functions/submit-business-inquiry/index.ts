@@ -77,9 +77,19 @@ Deno.serve(async (request) => {
     return jsonResponse(origin, 413, { error: "payload_too_large" });
   }
 
+  let rawBody: string;
+  try {
+    rawBody = await request.text();
+  } catch {
+    return jsonResponse(origin, 400, { error: "invalid_json" });
+  }
+  if (new TextEncoder().encode(rawBody).byteLength > 32_768) {
+    return jsonResponse(origin, 413, { error: "payload_too_large" });
+  }
+
   let payload: unknown;
   try {
-    payload = await request.json();
+    payload = JSON.parse(rawBody);
   } catch {
     return jsonResponse(origin, 400, { error: "invalid_json" });
   }

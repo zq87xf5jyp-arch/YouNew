@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-06-catalog-20261103",
+  "work_package": "WP-06",
+  "milestone": "WP-06-CATALOG-20261103",
+  "target_release": "catalog-20261103-draft",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "qa_evidence": {
+    "checked_at": null,
+    "build": null,
+    "static": null,
+    "duplicate": null,
+    "source": null,
+    "media": null,
+    "search": null,
+    "ai": null
+  },
+  "records": [
+    {
+      "id": "place.utrecht-neude",
+      "entity_type": "place",
+      "category": "public-library",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": {
+        "latitude": 52.093128,
+        "longitude": 5.118179
+      },
+      "title": "Bibliotheek Neude",
+      "description": "A public library in central Utrecht with reading and study places, computers, Wi-Fi and printing facilities. Staffing levels vary through the day; the branch page explains when help is available.",
+      "images": [],
+      "official_source": {
+        "title": "Bibliotheek Neude — visitor information",
+        "publisher": "Bibliotheek Utrecht",
+        "url": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+      "related_entity_ids": [
+        "city.utrecht"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A public library in central Utrecht with reading and study places, computers, Wi-Fi and printing facilities. Staffing levels vary through the day; the branch page explains when help is available.",
+      "search_keywords": [
+        "Bibliotheek Neude",
+        "utrecht",
+        "public-library",
+        "place",
+        "Neude 11, 3512 AE Utrecht"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Neude 11, 3512 AE Utrecht",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "contact_note": "Email and telephone are the library network’s central customer service, not a direct branch line.",
+        "opening_hours": "Monday–Saturday 09:00–21:00; Sunday 10:00–18:00. Department staff available 12:00–18:00 daily.",
+        "accessibility_note": "The branch lists wheelchair access, accessible toilets and a lift or stairlift.",
+        "contact_phone": "+31 30 2861800",
+        "contact_email": "klantenservice@bibliotheekutrecht.nl",
+        "contact_email_source_url": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+        "address_source_url": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+        "address_checked_at": "2026-11-03",
+        "contact_email_checked_at": "2026-11-03",
+        "contact_phone_source_url": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+        "website_checked_at": "2026-11-03",
+        "coordinate_source": "https://www.ontdek-utrecht.nl/locatie/centrale-bibliotheek-1/",
+        "coordinate_method": "Official Utrecht tourism JSON-LD geo and route query identify Bibliotheek Neude, Neude 11.",
+        "coordinates_checked_at": "2026-11-03"
+      }
+    }
+  ]
+}

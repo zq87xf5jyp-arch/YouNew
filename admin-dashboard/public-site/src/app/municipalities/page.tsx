@@ -1,3 +1,5 @@
+import "@/styles/municipality.css";
+import "@/styles/geography.css";
 import { Building2 } from "lucide-react";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { MunicipalityDirectory } from "@/components/municipality-directory";

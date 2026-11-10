@@ -1,5 +1,7 @@
 "use client";
 
+
+
 import { useEffect, useMemo, useState, type FormEvent } from "react";
 import siteConfig from "@/config/site-config.json";
 import {
@@ -34,6 +36,7 @@ export function PublicFeedbackForm() {
   const [deliveryError, setDeliveryError] = useState("");
   const [confirmationId, setConfirmationId] = useState("");
   const [submitting, setSubmitting] = useState(false);
+  const [interactive, setInteractive] = useState(false);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -42,6 +45,7 @@ export function PublicFeedbackForm() {
       setFeedbackType(requestedType ?? "");
     }
     setPageReference(safePageReference(params.get("page"), window.location.pathname));
+    setInteractive(true);
   }, []);
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -81,7 +85,9 @@ export function PublicFeedbackForm() {
   }
 
   return (
-    <form className="business-application-form support-feedback-form" onSubmit={submit} noValidate>
+    <>
+    <noscript><p className="form-delivery-notice">JavaScript is required to send feedback securely. No details have been sent. You can contact support@younew.nl directly.</p></noscript>
+    <form className="business-application-form support-feedback-form" action="/support/" method="post" onSubmit={submit} noValidate inert={interactive ? undefined : true}>
       <div className="form-delivery-notice">
         <strong>Secure feedback form</strong>
         <p>The form saves your report before showing a confirmation ID. Do not include BSN numbers, passwords, identity documents, medical files or financial records.</p>
@@ -94,7 +100,7 @@ export function PublicFeedbackForm() {
         </div>
       ) : null}
       {errors.form ? <p className="form-field-error" role="alert">{errors.form}</p> : null}
-      <fieldset className="form-section" disabled={submitting}>
+      <fieldset className="form-section" disabled={!interactive || submitting}>
         <legend>Send feedback</legend>
         <div className="form-grid">
           <div className="form-field">
@@ -129,9 +135,10 @@ export function PublicFeedbackForm() {
           {errors.consentToPrivacy ? <p className="form-field-error">{errors.consentToPrivacy}</p> : null}
         </div>
       </fieldset>
-      <button className="button button-primary" type="submit" disabled={submitting}>
+      <button className="button button-primary" type="submit" disabled={!interactive || submitting}>
         {submitting ? "Saving…" : "Send feedback"}
       </button>
     </form>
+    </>
   );
 }

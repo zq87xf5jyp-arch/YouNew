@@ -4,8 +4,9 @@ import { spawn } from "node:child_process";
 import { once } from "node:events";
 import { readdir, readFile } from "node:fs/promises";
 import { extname, join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const siteRoot = new URL("../", import.meta.url).pathname;
+const siteRoot = fileURLToPath(new URL("../", import.meta.url));
 const outRoot = join(siteRoot, "out");
 const mirrorRoot = join(siteRoot, "dist/client");
 const canonicalOrigin = "https://younew.nl";
@@ -104,10 +105,10 @@ assert.match(headers, /ForceType application\/manifest\+json/);
 assert.match(headers, /FilesMatch "\^\(sw\\\.js\|theme-init\\\.js\|static-shell\\\.js\|manifest\\\.webmanifest/);
 assert.match(headers, /Strict-Transport-Security "max-age=31536000"/);
 assert.match(headers, /X-Robots-Tag "noindex, nofollow, noarchive, nosnippet" env=is_acquisition_route/);
-assert.match(headers, /Cache-Control "public, max-age=0, must-revalidate"/);
+assert.match(headers, /Cache-Control "public, max-age=0, must-revalidate, no-transform"/);
 const csp = headers.match(/Content-Security-Policy "([^"]+)"/)?.[1];
 assert.ok(csp, "CSP is missing");
-for (const directive of ["default-src 'self'", "base-uri 'self'", "form-action 'self' mailto:", "frame-ancestors 'none'", "object-src 'none'", "img-src 'self' data: https://commons.wikimedia.org https://live.staticflickr.com", "script-src 'self'", "connect-src 'self'"]) assert.match(csp, new RegExp(directive.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+for (const directive of ["default-src 'self'", "base-uri 'self'", "form-action 'self' mailto:", "frame-ancestors 'none'", "object-src 'none'", "img-src 'self' data: https://commons.wikimedia.org https://thumb.wikimedia.org https://upload.wikimedia.org https://live.staticflickr.com", "script-src 'self'", "connect-src 'self'"]) assert.match(csp, new RegExp(directive.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
 
 const authoredExtensions = new Set([".html", ".json", ".xml", ".css", ".txt", ".webmanifest", ".htaccess"]);
 const localUrlPattern = /(?:https?:\/\/(?:localhost|127(?:\.\d{1,3}){3}|\[::1\])(?::\d+)?|file:\/{2,}|\/Users\/[A-Za-z0-9._-]+\/|\/home\/[A-Za-z0-9._-]+\/|[A-Za-z]:\\Users\\)/i;
@@ -130,6 +131,9 @@ assert.ok(publicContent.entities.every((entity) => entity.status === "published"
 assert.equal(publicContent.stats.practicalGuides + publicContent.stats.summaryGuides, publicContent.stats.guides);
 assert.ok(publicContent.entities.every((entity) => entity.practicalGuide == null || entity.practicalGuide.status === "published"));
 const searchIndex = JSON.parse(await readFile(join(outRoot, "data/search-index.json"), "utf8"));
+for (const entity of publicContent.entities.filter((entity) => !entity.indexable)) {
+  assert.ok(!searchIndex.documents.some((document) => document.id === entity.id), `Non-indexable record leaked into search: ${entity.id}`);
+}
 assert.ok(searchIndex.documents.every((document) => !/\b(?:draft|archived)\b/i.test(document.id)));
 assert.doesNotMatch(sitemap, /\b(?:draft|preview|archived)\b/i);
 

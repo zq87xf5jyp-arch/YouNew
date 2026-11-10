@@ -1,0 +1,42 @@
+{
+  "scope": "Existing production Admin resource settings only; release candidate not deployed; public younew.nl unchanged",
+  "url": "https://admin.younew.nl/login",
+  "backup": "/home/u246392949/domains/younew.nl/younew-private/launch-backups/admin-resource-20261109T180435Z",
+  "before_deployment_id": "01a0bd8b-9322-739c-ad31-c1abf8f25feb",
+  "after_deployment_id": "01a1c17c-3b68-72f9-892c-e0635e5aab0b",
+  "source_archive": "younew-admin-sync-20260920.zip",
+  "source_commit": "NOT_ESTABLISHED",
+  "hpanel_state": "Completed",
+  "settings_added": {
+    "NODE_OPTIONS": "--v8-pool-size=1",
+    "UV_THREADPOOL_SIZE": "1"
+  },
+  "existing_six_values_unchanged": true,
+  "qa_prevalidation": "Same values already used by QA runtime with 43 authentication checks and 15 private-file checks",
+  "pre_restart_check": {
+    "at": "2026-11-09T18:05:19.524762+00:00",
+    "http_status": 200,
+    "login_html_byte_identical": true,
+    "threads_per_process": 5
+  },
+  "post_redeploy_check": {
+    "at": "2026-11-09T18:14:44.027527+00:00",
+    "http_status": 200,
+    "password_input_present": true,
+    "login_html_byte_identical": false,
+    "note": "Hostinger rebuilt its previous source archive; compiled HTML identity is not asserted.",
+    "threads_per_process": [
+      5,
+      5
+    ]
+  },
+  "evidence_files": [
+    "manifest.private.json",
+    "after.private.json",
+    "after-redeploy.private.json"
+  ],
+  "rollback": "In hPanel remove only NODE_OPTIONS and UV_THREADPOOL_SIZE, preserving six previous values, then Apply changes. Previous release remains in history; config originals are in private backup. Do not overwrite databases or queues.",
+  "other_sites_changed": false,
+  "mail_changed": false,
+  "supabase_activated": false
+}

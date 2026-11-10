@@ -47,6 +47,7 @@ ENTITY_SCHEMA_PATH = DATA_PROJECT / "schema" / "entity.schema.json"
 FRESHNESS_POLICY_PATH = DATA_PROJECT / "observability" / "freshness-policy.json"
 RUNTIME_PATH = ROOT / "YouNew" / "Resources" / "Data" / "younew-runtime-data.json"
 PUBLIC_CONTENT_PATH = ROOT / "admin-dashboard" / "public-site" / "src" / "generated" / "public-content.json"
+PUBLIC_EXCLUSIONS_PATH = ROOT / "admin-dashboard" / "public-site" / "src" / "generated" / "public-freshness-exclusions.json"
 DATA_HEALTH_PATH = DATA_PROJECT / "reports" / "data-health.json"
 REVIEWER_REGISTRY_PATH = DATA_PROJECT / "operations" / "reviewer-registry.json"
 GUIDE_EVIDENCE_REGISTRY_PATH = DATA_PROJECT / "operations" / "guide-evidence-registry.json"
@@ -719,6 +720,7 @@ def build_report(as_of: date) -> dict[str, Any]:
     drafts = practical_drafts()
     runtime = read_json(RUNTIME_PATH)
     public_content = read_json(PUBLIC_CONTENT_PATH)
+    public_exclusions = read_json(PUBLIC_EXCLUSIONS_PATH)
     data_health = read_json(DATA_HEALTH_PATH) if DATA_HEALTH_PATH.exists() else {}
 
     materials = [envelope for envelope in records if envelope.record.get("entity_type") in GUIDE_ENTITY_TYPES]
@@ -741,6 +743,8 @@ def build_report(as_of: date) -> dict[str, Any]:
     public_entities = public_content.get("entities", [])
     runtime_ids = [str(item.get("id")) for item in runtime_entities]
     public_ids = [str(item.get("id")) for item in public_entities]
+    freshness_exclusion_ids = [str(item.get("id")) for item in public_exclusions.get("records", [])]
+    runtime_missing_from_public = set(runtime_ids) - set(public_ids)
     effective_ids = [
         str(record.get("id"))
         for release_id in effective_release_heads(DATA_PROJECT, statuses=("published",))
@@ -973,6 +977,10 @@ def build_report(as_of: date) -> dict[str, Any]:
             "effective_missing_from_runtime": sorted(set(effective_ids) - set(runtime_ids)),
             "runtime_not_effectively_published": sorted(set(runtime_ids) - set(effective_ids)),
             "runtime_missing_from_public": sorted(set(runtime_ids) - set(public_ids)),
+            "runtime_missing_from_public_unexplained": sorted(runtime_missing_from_public - set(freshness_exclusion_ids)),
+            "freshness_excluded_from_public": sorted(runtime_missing_from_public & set(freshness_exclusion_ids)),
+            "freshness_exclusions_not_in_runtime": sorted(set(freshness_exclusion_ids) - set(runtime_ids)),
+            "public_contains_freshness_excluded": sorted(set(public_ids) & set(freshness_exclusion_ids)),
             "public_not_in_runtime": sorted(set(public_ids) - set(runtime_ids)),
             "runtime_has_practical_guide": sum(isinstance(item.get("practicalGuide"), dict) for item in runtime_entities),
             "public_has_practical_guide": len(public_full_guides),
@@ -1036,6 +1044,13 @@ def build_report(as_of: date) -> dict[str, Any]:
     }
     reconciliation = report["runtime_reconciliation"]
     audit_integrity_failures: list[str] = []
+    if (
+        public_exclusions.get("schemaVersion") != 1
+        or public_exclusions.get("policy") != "fail_closed_until_field_level_reverification"
+        or public_exclusions.get("count") != len(freshness_exclusion_ids)
+        or len(set(freshness_exclusion_ids)) != len(freshness_exclusion_ids)
+    ):
+        audit_integrity_failures.append("public freshness exclusion registry is invalid")
     if report["duplicates"]["canonical_ids"]["exact_groups"]:
         audit_integrity_failures.append("duplicate canonical IDs")
     if unclassified_family_ids or unused_priority_family_ids:
@@ -1045,7 +1060,9 @@ def build_report(as_of: date) -> dict[str, Any]:
     for key in (
         "effective_missing_from_runtime",
         "runtime_not_effectively_published",
-        "runtime_missing_from_public",
+        "runtime_missing_from_public_unexplained",
+        "freshness_exclusions_not_in_runtime",
+        "public_contains_freshness_excluded",
         "public_not_in_runtime",
         "duplicate_runtime_ids",
         "duplicate_public_ids",
@@ -1143,7 +1160,7 @@ def render_markdown(report: dict[str, Any]) -> str:
         f"- Guide-capable material records: **{headline['material_records']}**; effectively published material records: **{headline['effective_published_material_records']}**.",
         f"- Material lifecycle states: **{json.dumps(headline['material_lifecycle_status_counts'], sort_keys=True)}**.",
         f"- Public guides: **{headline['public_summary_guides']} summary / {headline['public_full_practical_guides']} full**.",
-        f"- Editorial scaffolds: **{headline['staged_draft_or_review_guides']} draft/review**; production-ready guides: **{headline['production_ready_guides']}**.",
+        f"- Source-backed guide QA packets: **{headline['staged_draft_or_review_guides']}**; production-ready guides: **{headline['production_ready_guides']}**.",
         f"- Published FAQ: **{headline['published_faq_items']}/300**; staged draft FAQ: **{headline['staged_draft_faq_items']}**; staged search questions (not FAQ): **{headline['staged_search_question_items']}**.",
         f"- Governed topic families with zero inventory records: **{headline['empty_governed_topic_families']}**.",
         f"- Governed topic families with zero effective published records: **{headline['governed_topic_families_without_effective_publication']}/{len(report['governed_topic_family_matrix'])}**.",
@@ -1213,7 +1230,8 @@ def render_markdown(report: dict[str, Any]) -> str:
         "## Runtime reconciliation",
         "",
         f"- Effective published → runtime: **{len(report['runtime_reconciliation']['effective_missing_from_runtime'])} missing / {len(report['runtime_reconciliation']['runtime_not_effectively_published'])} unexpected**.",
-        f"- Runtime → public web: **{len(report['runtime_reconciliation']['runtime_missing_from_public'])} missing / {len(report['runtime_reconciliation']['public_not_in_runtime'])} unexpected**.",
+        f"- Runtime → public web: **{len(report['runtime_reconciliation']['runtime_missing_from_public_unexplained'])} unexplained missing / {len(report['runtime_reconciliation']['public_not_in_runtime'])} unexpected**.",
+        f"- Fail-closed freshness exclusions: **{len(report['runtime_reconciliation']['freshness_excluded_from_public'])}**; public records that violate the exclusion: **{len(report['runtime_reconciliation']['public_contains_freshness_excluded'])}**.",
         f"- Practical guides in runtime/public: **{report['runtime_reconciliation']['runtime_has_practical_guide']} / {report['runtime_reconciliation']['public_has_practical_guide']}**.",
         "",
         "## Existing link-health evidence",
@@ -1271,7 +1289,7 @@ def main() -> int:
     print(f"- Governed records: {headline['governed_records']}")
     print(f"- Material records: {headline['material_records']}")
     print(f"- Public guides: {headline['public_summary_guides']} summary / {headline['public_full_practical_guides']} full")
-    print(f"- Draft/review guide scaffolds: {headline['staged_draft_or_review_guides']}")
+    print(f"- Source-backed guide QA packets: {headline['staged_draft_or_review_guides']}")
     print(f"- Production-ready guides: {headline['production_ready_guides']}")
     print(f"- Audit integrity: {report['audit_integrity']['status']}")
     print(f"- JSON: {args.json_output}")

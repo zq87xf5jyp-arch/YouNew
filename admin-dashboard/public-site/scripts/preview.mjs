@@ -2,12 +2,31 @@ import { createReadStream } from "node:fs";
 import { stat } from "node:fs/promises";
 import { createServer } from "node:http";
 import { extname, join, normalize } from "node:path";
+import { fileURLToPath } from "node:url";
 import { createGzip } from "node:zlib";
 
-const root = new URL("../out/", import.meta.url).pathname;
+const root = fileURLToPath(new URL("../out/", import.meta.url));
 const port = Number(process.env.PORT ?? 4173);
 const host = process.env.HOST ?? "127.0.0.1";
 const types = { ".html": "text/html; charset=utf-8", ".js": "text/javascript; charset=utf-8", ".css": "text/css; charset=utf-8", ".json": "application/json; charset=utf-8", ".webmanifest": "application/manifest+json", ".xml": "application/xml; charset=utf-8", ".txt": "text/plain; charset=utf-8", ".pdf": "application/pdf", ".mp4": "video/mp4", ".png": "image/png", ".jpg": "image/jpeg", ".webp": "image/webp", ".svg": "image/svg+xml" };
+const legacyBusinessRedirects = Object.freeze({
+  "/business": "/for-business/",
+  "/business/workspace": "/for-business/pilot/",
+  "/business/pricing": "/for-business/pilot/",
+  "/business/media-kit": "/for-business/demo-report/",
+  "/business/advertise": "/partners/",
+  "/business/partners": "/partners/",
+  "/business/apply": "/partners/apply/"
+});
+
+function canonicalBusinessPath(requestUrl) {
+  const url = new URL(requestUrl, `http://${host}:${port}`);
+  const pathname = url.pathname.length > 1 ? url.pathname.replace(/\/+$/, "") : url.pathname;
+  const destination = legacyBusinessRedirects[pathname];
+  if (!destination) return null;
+  url.pathname = destination;
+  return `${url.pathname}${url.search}`;
+}
 
 function safePath(requestPath) {
   const decoded = decodeURIComponent(requestPath.split("?")[0]);
@@ -17,6 +36,15 @@ function safePath(requestPath) {
 }
 
 createServer(async (request, response) => {
+  const redirect = canonicalBusinessPath(request.url ?? "/");
+  if (redirect) {
+    response.writeHead(308, {
+      Location: redirect,
+      "Cache-Control": "no-store",
+      "X-Content-Type-Options": "nosniff"
+    }).end();
+    return;
+  }
   const base = safePath(request.url ?? "/");
   if (!base) { response.writeHead(400).end("Bad request"); return; }
   const candidates = [base, join(base, "index.html"), base.endsWith("/") ? null : `${base}.html`].filter(Boolean);

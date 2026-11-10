@@ -1,0 +1,167 @@
+{
+  "amsterdam": {
+    "id": "media.city.amsterdam.hero.damrak",
+    "role": "hero",
+    "url": "/images/cities/amsterdam-1920.webp",
+    "alt": "Amsterdam: Canal houses and Oude Kerk at blue hour with water reflection in Damrak Amsterdam Netherlands",
+    "attribution": "Basile Morin",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Canal_houses_and_Oude_Kerk_at_blue_hour_with_water_reflection_in_Damrak_Amsterdam_Netherlands.jpg",
+    "retrievedAt": "2026-07-14",
+    "variants": [
+      {
+        "width": 480,
+        "url": "/images/cities/amsterdam-480.webp",
+        "bytes": 32604
+      },
+      {
+        "width": 800,
+        "url": "/images/cities/amsterdam-800.webp",
+        "bytes": 80884
+      },
+      {
+        "width": 1200,
+        "url": "/images/cities/amsterdam-1200.webp",
+        "bytes": 179770
+      },
+      {
+        "width": 1920,
+        "url": "/images/cities/amsterdam-1920.webp",
+        "bytes": 482072
+      }
+    ]
+  },
+  "rotterdam": {
+    "id": "media.city.rotterdam.hero.erasmusbrug",
+    "role": "hero",
+    "url": "/images/cities/rotterdam-1920.webp",
+    "alt": "Rotterdam: Erasmusbrug seen from Euromast",
+    "attribution": "Mlefter",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Erasmusbrug_seen_from_Euromast.jpg",
+    "retrievedAt": "2026-07-14",
+    "variants": [
+      {
+        "width": 480,
+        "url": "/images/cities/rotterdam-480.webp",
+        "bytes": 20668
+      },
+      {
+        "width": 800,
+        "url": "/images/cities/rotterdam-800.webp",
+        "bytes": 55592
+      },
+      {
+        "width": 1200,
+        "url": "/images/cities/rotterdam-1200.webp",
+        "bytes": 121048
+      },
+      {
+        "width": 1920,
+        "url": "/images/cities/rotterdam-1920.webp",
+        "bytes": 282338
+      }
+    ]
+  },
+  "den-haag": {
+    "id": "media.city.den-haag.hero.peace-palace",
+    "role": "hero",
+    "url": "/images/cities/den-haag-1920.webp",
+    "alt": "Den Haag: Friedenspalast Den Haag",
+    "attribution": "Thomas Wolf, www.foto-tw.de",
+    "license": "CC BY-SA 3.0 DE",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/de/deed.en",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Friedenspalast_Den_Haag.jpg",
+    "retrievedAt": "2026-07-14",
+    "variants": [
+      {
+        "width": 480,
+        "url": "/images/cities/den-haag-480.webp",
+        "bytes": 22628
+      },
+      {
+        "width": 800,
+        "url": "/images/cities/den-haag-800.webp",
+        "bytes": 58748
+      },
+      {
+        "width": 1200,
+        "url": "/images/cities/den-haag-1200.webp",
+        "bytes": 133976
+      },
+      {
+        "width": 1920,
+        "url": "/images/cities/den-haag-1920.webp",
+        "bytes": 373364
+      }
+    ]
+  },
+  "utrecht": {
+    "id": "media.city.utrecht.hero.domtoren-oudegracht",
+    "role": "hero",
+    "url": "/images/cities/utrecht-1920.webp",
+    "alt": "Utrecht: Utrecht, de Domtoren (RM36075) vanaf de Oudegracht 230 ongeveer foto5 2015-11-01 08.56",
+    "attribution": "Michielverbeek",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Utrecht,_de_Domtoren_(RM36075)_vanaf_de_Oudegracht_230_ongeveer_foto5_2015-11-01_08.56.jpg",
+    "retrievedAt": "2026-07-14",
+    "variants": [
+      {
+        "width": 480,
+        "url": "/images/cities/utrecht-480.webp",
+        "bytes": 31470
+      },
+      {
+        "width": 800,
+        "url": "/images/cities/utrecht-800.webp",
+        "bytes": 85780
+      },
+      {
+        "width": 1200,
+        "url": "/images/cities/utrecht-1200.webp",
+        "bytes": 191392
+      },
+      {
+        "width": 1920,
+        "url": "/images/cities/utrecht-1920.webp",
+        "bytes": 489228
+      }
+    ]
+  },
+  "eindhoven": {
+    "id": "media.city.eindhoven.hero.witte-dame",
+    "role": "hero",
+    "url": "/images/cities/eindhoven-1920.webp",
+    "alt": "Eindhoven: Eindhoven-Witte Dame (5)",
+    "attribution": "Romaine",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Eindhoven-Witte_Dame_(5).jpg",
+    "retrievedAt": "2026-07-14",
+    "variants": [
+      {
+        "width": 480,
+        "url": "/images/cities/eindhoven-480.webp",
+        "bytes": 15876
+      },
+      {
+        "width": 800,
+        "url": "/images/cities/eindhoven-800.webp",
+        "bytes": 51192
+      },
+      {
+        "width": 1200,
+        "url": "/images/cities/eindhoven-1200.webp",
+        "bytes": 122146
+      },
+      {
+        "width": 1920,
+        "url": "/images/cities/eindhoven-1920.webp",
+        "bytes": 325338
+      }
+    ]
+  }
+}

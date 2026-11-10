@@ -1,6 +1,6 @@
 const securityHeaders = Object.freeze({
   "Content-Security-Policy":
-    "default-src 'self'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https://commons.wikimedia.org https://upload.wikimedia.org https://live.staticflickr.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://pgdzdxsiagfjioxwuqxf.supabase.co; upgrade-insecure-requests",
+    "default-src 'self'; base-uri 'self'; form-action 'self' mailto:; frame-ancestors 'none'; object-src 'none'; img-src 'self' data: https://commons.wikimedia.org https://thumb.wikimedia.org https://upload.wikimedia.org https://live.staticflickr.com; font-src 'self' data:; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline'; connect-src 'self' https://pgdzdxsiagfjioxwuqxf.supabase.co; upgrade-insecure-requests",
   "Cross-Origin-Opener-Policy": "same-origin",
   "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=()",
   "Referrer-Policy": "strict-origin-when-cross-origin",
@@ -23,6 +23,20 @@ const serviceWorkerPayloadPath = "/__site_payloads/sw.js.payload";
 const socialImagePath = "/images/og-younew.jpg";
 const notFoundPayloadPath = "/__site_payloads/404.html.payload";
 const acquisitionPathPrefix = "/acquisition";
+const legacyBusinessRedirects = Object.freeze({
+  "/business": "/for-business/",
+  "/business/workspace": "/for-business/pilot/",
+  "/business/pricing": "/for-business/pilot/",
+  "/business/media-kit": "/for-business/demo-report/",
+  "/business/advertise": "/partners/",
+  "/business/partners": "/partners/",
+  "/business/apply": "/partners/apply/"
+});
+
+function canonicalBusinessPath(pathname) {
+  const normalized = pathname.length > 1 ? pathname.replace(/\/+$/, "") : pathname;
+  return legacyBusinessRedirects[normalized];
+}
 
 function withSecurityHeaders(response, pathname = "") {
   const headers = new Headers(response.headers);
@@ -154,6 +168,17 @@ export default {
 
     if (url.hostname === mtaStsHostname && url.pathname !== mtaStsPolicyPath) {
       return withSecurityHeaders(new Response(null, { status: 404 }));
+    }
+
+    const businessRedirect = url.hostname === canonicalHostname
+      ? canonicalBusinessPath(url.pathname)
+      : undefined;
+    if (businessRedirect) {
+      url.pathname = businessRedirect;
+      return withSecurityHeaders(new Response(null, {
+        status: 308,
+        headers: { Location: url.toString() }
+      }), url.pathname);
     }
 
     if (isBlockedDeploymentArtifact(url.pathname)) {

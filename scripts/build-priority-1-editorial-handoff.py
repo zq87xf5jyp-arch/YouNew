@@ -1,10 +1,11 @@
 #!/usr/bin/env python3
 """Build the non-publishing Priority-1 practical-guide editorial handoff.
 
-The handoff joins the canonical 20 guide scaffolds with the two official-source
-research dossiers. It deliberately does not write to runtime data, releases, or
-the practical-guide staging collection. Use ``--write`` to refresh the checked-in
-quality evidence and ``--check`` to fail if it is stale or non-deterministic.
+The handoff joins the canonical 20 schema-v2 QA packets with the official-
+source research dossiers and the monetization topic addendum. It deliberately does not write to runtime data,
+releases, or the practical-guide staging collection. Use ``--write`` to refresh
+the checked-in quality evidence and ``--check`` to fail if it is stale or
+non-deterministic.
 """
 
 from __future__ import annotations
@@ -24,6 +25,9 @@ GOVERNMENT_PATH = (
     / "DataProject/research/priority-1-government/priority-1-government-sources-2026-07-20.json"
 )
 DAILY_PATH = ROOT / "DataProject/research/priority-1-daily/priority-1-dossiers.json"
+ADDENDUM_PATH = (
+    ROOT / "DataProject/research/monetization-practical-guide-addendum-2026-08-18.json"
+)
 SCHEMA_PATH = ROOT / "DataProject/schema/entity.schema.json"
 OUTPUT_JSON = ROOT / "DataProject/quality/priority-1-editorial-handoff.json"
 OUTPUT_MD = ROOT / "DataProject/quality/priority-1-editorial-handoff.md"
@@ -283,6 +287,7 @@ def find_research(
     guide_id: str,
     government: dict[str, Any],
     daily: dict[str, Any],
+    addendum: dict[str, Any],
 ) -> dict[str, Any] | None:
     for topic in government.get("topic_dossiers", []):
         if guide_id in topic.get("target_guide_ids", []):
@@ -332,6 +337,27 @@ def find_research(
                 "gaps": list(dossier.get("gaps", [])),
                 "municipal_variants_researched": [],
             }
+    for dossier in addendum.get("dossiers", []):
+        if dossier.get("guide_id") == guide_id:
+            _, source_by_id = validate_references(
+                facts=dossier.get("facts", []),
+                sources=dossier.get("sources", []),
+                context=f"monetization addendum {dossier.get('id')}",
+            )
+            facts = [normalized_fact(fact) for fact in dossier.get("facts", [])]
+            source_ids = sorted(unique(ref for fact in facts for ref in fact["source_ids"]))
+            sources = [normalized_source(source_by_id[source_id]) for source_id in source_ids]
+            return {
+                "kind": "monetization_addendum_topic",
+                "research_id": dossier["id"],
+                "input_path": str(ADDENDUM_PATH.relative_to(ROOT)),
+                "verified_at": dossier.get("verified_at"),
+                "jurisdiction": dossier.get("jurisdiction"),
+                "facts": facts,
+                "sources": sources,
+                "gaps": list(dossier.get("gaps", [])),
+                "municipal_variants_researched": [],
+            }
     return None
 
 
@@ -339,15 +365,18 @@ def build_handoff() -> dict[str, Any]:
     scaffolds = load_json(SCAFFOLDS_PATH)
     government = load_json(GOVERNMENT_PATH)
     daily = load_json(DAILY_PATH)
+    addendum = load_json(ADDENDUM_PATH)
     schema = load_json(SCHEMA_PATH)
     required_fields = published_required_fields(schema)
 
-    if scaffolds.get("status") != "draft":
-        raise SystemExit("Practical-guide scaffold collection must remain draft")
+    if scaffolds.get("status") != "qa":
+        raise SystemExit("Practical-guide collection must remain in QA")
     if government.get("status") != "research_draft" or government.get("publication_authorized") is not False:
         raise SystemExit("Government dossier is not a fail-closed research draft")
     if daily.get("status") != "research_draft" or daily.get("publication_policy", {}).get("publishable") is not False:
         raise SystemExit("Daily dossier is not a fail-closed research draft")
+    if addendum.get("status") != "research_draft" or addendum.get("publication_policy", {}).get("publishable") is not False:
+        raise SystemExit("Monetization addendum is not a fail-closed research draft")
 
     scaffold_items = scaffolds.get("guides", [])
     if not isinstance(scaffold_items, list) or len(scaffold_items) != 20:
@@ -357,24 +386,14 @@ def build_handoff() -> dict[str, Any]:
         raise SystemExit("A practical-guide scaffold is missing its canonical ID")
     if len(set(guide_ids)) != len(guide_ids):
         raise SystemExit("Practical-guide scaffold IDs are not unique")
-    if any(item.get("practical_guide", {}).get("status") != "draft" for item in scaffold_items):
-        raise SystemExit("Every practical-guide scaffold must remain draft")
-
-    known_ids = set(guide_ids)
-    research_target_ids = {
-        guide_id
-        for topic in government.get("topic_dossiers", [])
-        for guide_id in topic.get("target_guide_ids", [])
-    } | {dossier.get("guide_id") for dossier in daily.get("dossiers", [])}
-    unknown_targets = sorted(value for value in research_target_ids if value not in known_ids)
-    if unknown_targets:
-        raise SystemExit(f"Research dossiers target unknown guide IDs: {unknown_targets}")
+    if any(item.get("practical_guide", {}).get("status") != "qa" for item in scaffold_items):
+        raise SystemExit("Every practical-guide packet must remain in QA")
 
     queue: list[dict[str, Any]] = []
     for item in scaffold_items:
         guide = item["practical_guide"]
         guide_id = guide["id"]
-        research = find_research(guide_id, government, daily)
+        research = find_research(guide_id, government, daily, addendum)
         readiness = schema_readiness(guide, required_fields)
         scaffold_gaps = list(item.get("publication_gaps", []))
         research_gaps = [] if research is None else list(research["gaps"])
@@ -401,7 +420,7 @@ def build_handoff() -> dict[str, Any]:
                 "category": "media",
                 "detail": (
                     "No dedicated guide asset with verified provenance and non-empty alt text is "
-                    "attached to this scaffold."
+                    "attached through a canonical entity."
                 ),
             },
             {
@@ -444,7 +463,7 @@ def build_handoff() -> dict[str, Any]:
                 "slug": guide["slug"],
                 "title": guide["title"],
                 "locale": guide["locale"],
-                "queue_status": "research_draft" if research else "blocked",
+                "queue_status": "qa_packet" if research else "blocked",
                 "publication_authorized": False,
                 "scaffold_status": guide.get("status"),
                 "source_entity_ids": list(item.get("source_entity_ids", [])),
@@ -489,7 +508,7 @@ def build_handoff() -> dict[str, Any]:
                     },
                 },
                 "blockers": blockers,
-                "next_allowed_stage": "Draft" if research else None,
+                "next_allowed_stage": "QA" if research else None,
             }
         )
 
@@ -506,7 +525,7 @@ def build_handoff() -> dict[str, Any]:
     unique_source_ids = sorted({source_id for item in queue for source_id in item["source_ids"]})
     summary = {
         "guide_count": len(queue),
-        "research_draft_count": sum(item["queue_status"] == "research_draft" for item in queue),
+        "qa_packet_count": sum(item["queue_status"] == "qa_packet" for item in queue),
         "blocked_count": sum(item["queue_status"] == "blocked" for item in queue),
         "publication_authorized_count": 0,
         "guide_fact_assignment_count": sum(item["fact_count"] for item in queue),
@@ -526,16 +545,16 @@ def build_handoff() -> dict[str, Any]:
         "human_reviews_missing": len(queue),
     }
 
-    inputs = [SCAFFOLDS_PATH, GOVERNMENT_PATH, DAILY_PATH, SCHEMA_PATH]
+    inputs = [SCAFFOLDS_PATH, GOVERNMENT_PATH, DAILY_PATH, ADDENDUM_PATH, SCHEMA_PATH]
     return {
-        "handoff_id": "priority-1-practical-guides-editorial-handoff-2026-07-20",
+        "handoff_id": "priority-1-practical-guides-editorial-handoff-2026-08-18",
         "schema_version": 1,
-        "generated_for": "2026-07-20",
-        "status": "research_draft",
+        "generated_for": "2026-08-18",
+        "status": "qa",
         "publication_authorized": False,
         "purpose": (
-            "Auditable, deterministic editorial queue joining canonical guide scaffolds to "
-            "official-source research without publishing or interpreting research facts as steps."
+            "Auditable, deterministic editorial queue joining schema-v2 QA packets to "
+            "official-source research without human-review or publication claims."
         ),
         "source_policy": {
             "official_sources_only": True,
@@ -563,13 +582,13 @@ def markdown(handoff: dict[str, Any]) -> str:
         "",
         f"Generated for: `{handoff['generated_for']}`",
         "",
-        "> **Non-publishing evidence.** Every item is `research_draft` or `blocked`; publication "
-        "is not authorized. Research facts are not converted into procedural steps by this handoff.",
+        "> **Non-publishing evidence.** Every item is `qa_packet` or `blocked`; publication is "
+        "not authorized. The procedural interpretation remains subject to named human review.",
         "",
         "## Executive status",
         "",
-        f"- Canonical guide scaffolds: **{summary['guide_count']}**",
-        f"- Research drafts: **{summary['research_draft_count']}**",
+        f"- Canonical guide QA packets: **{summary['guide_count']}**",
+        f"- Source-backed QA packets: **{summary['qa_packet_count']}**",
         f"- Blocked without a matching dossier: **{summary['blocked_count']}**",
         f"- Schema v2 publication-ready guides: **{summary['schema_v2_ready_count']}**",
         f"- Unique sourced facts available for drafting: **{summary['unique_fact_count']}**",
@@ -664,9 +683,9 @@ def markdown(handoff: dict[str, Any]) -> str:
             "",
             "## Allowed next action",
             "",
-            "Editors may draft sourced schema v2 fields from the recorded facts, keeping every fact ID and "
-            "source ID attached. No item may skip QA or named human review, and no status in this file is a "
-            "publication status.",
+            "A named editor or subject-matter reviewer may now review the sourced schema-v2 packets, "
+            "request corrections, attach verified guide media, and record final QA evidence. No item may "
+            "skip named human review, and no status in this file is a publication status.",
             "",
         ]
     )

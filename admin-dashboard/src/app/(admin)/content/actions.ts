@@ -2,12 +2,20 @@
 
 import { revalidatePath } from "next/cache";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
+import { createSupabaseAdminClient } from "@/lib/supabase/admin";
 import { requireAdmin } from "@/lib/auth";
-import { canEditContent } from "@/lib/authorization";
+import { canEditArticle, canEditContent } from "@/lib/authorization";
 import type { ManagedArticle } from "@/components/admin/content-manager";
-import { CONTENT_IMAGES_BUCKET, normalizeManagedContentImages } from "@/lib/content-images";
+import {
+  CONTENT_IMAGE_CLEANUP_CANDIDATE_LIMIT,
+  CONTENT_IMAGE_LIMIT,
+  CONTENT_IMAGES_BUCKET,
+  isManagedContentImagePath,
+  normalizeManagedContentImages
+} from "@/lib/content-images";
 
 type ArticleInput = Omit<ManagedArticle, "id" | "updatedAt">;
+const CONTENT_IMAGE_CLEANUP_BATCH_LIMIT = CONTENT_IMAGE_CLEANUP_CANDIDATE_LIMIT + CONTENT_IMAGE_LIMIT;
 
 function listValues(value: string, { lowercase = true }: { lowercase?: boolean } = {}) {
   return [...new Set(value
@@ -37,6 +45,59 @@ async function resolveCategoryId(
   return data?.id ?? null;
 }
 
+function normalizeCleanupCandidatePaths(
+  candidatePaths: unknown,
+  limit = CONTENT_IMAGE_CLEANUP_CANDIDATE_LIMIT
+) {
+  if (!Array.isArray(candidatePaths)) return [];
+  return [...new Set(candidatePaths.slice(0, limit).filter(isManagedContentImagePath))];
+}
+
+async function removeUnreferencedContentImages(candidatePaths: unknown) {
+  const paths = normalizeCleanupCandidatePaths(candidatePaths, CONTENT_IMAGE_CLEANUP_BATCH_LIMIT);
+  if (paths.length === 0) return { cleanupWarning: null };
+
+  try {
+    const adminClient = createSupabaseAdminClient();
+    if (!adminClient) {
+      return {
+        cleanupWarning: "Материал сохранён, но серверная очистка удалённых изображений не настроена."
+      };
+    }
+
+    const { data: referencedRows, error: referenceError } = await adminClient.rpc(
+      "content_image_paths_in_use",
+      { p_paths: paths }
+    );
+    if (referenceError) {
+      return {
+        cleanupWarning: "Материал сохранён, но безопасную проверку ссылок на удалённые изображения выполнить не удалось."
+      };
+    }
+
+    const referencedPaths = new Set(
+      ((referencedRows ?? []) as Array<{ path?: unknown }>)
+        .map((row) => typeof row.path === "string" ? row.path : "")
+        .filter(Boolean)
+    );
+    const removablePaths = paths.filter((path) => !referencedPaths.has(path));
+    if (removablePaths.length === 0) return { cleanupWarning: null };
+
+    const { error: storageError } = await adminClient.storage
+      .from(CONTENT_IMAGES_BUCKET)
+      .remove(removablePaths);
+    return {
+      cleanupWarning: storageError
+        ? "Материал сохранён, но часть неиспользуемых изображений не удалось очистить из Supabase Storage."
+        : null
+    };
+  } catch {
+    return {
+      cleanupWarning: "Материал сохранён, но серверная очистка не завершилась."
+    };
+  }
+}
+
 function contentValidationErrors(input: ArticleInput, categoryId: string | null) {
   const errors: string[] = [];
   if (!input.title.trim()) errors.push("title");
@@ -58,11 +119,6 @@ function contentValidationErrors(input: ArticleInput, categoryId: string | null)
 }
 
 function articlePayload(input: ArticleInput, categoryId: string | null, authorId: string) {
-  if (input.status === "published") {
-    throw new Error(
-      "Прямая публикация из редактора заблокирована. Сохраните draft/qa и используйте Human Review Queue."
-    );
-  }
   const errors = contentValidationErrors(input, categoryId);
   const source = input.source?.trim() || null;
   const sourceUrls = [...new Set([
@@ -100,16 +156,22 @@ function articlePayload(input: ArticleInput, categoryId: string | null, authorId
     images: normalizeManagedContentImages(input.images),
     requires_media: input.requiresMedia,
     source_mapping: sourceUrls.map((url) => ({ url, type: "official" })),
+    author_id: authorId,
     publication_evidence: {},
     validation_passed: false,
     validation_errors: errors,
-    author_id: authorId,
     published_at: null
   };
 }
 
-export async function createArticle(input: ArticleInput) {
-  const { supabase, user } = await getAuthorizedClient();
+export async function createArticle(input: ArticleInput, cleanupCandidatePaths: unknown = []) {
+  const { admin, supabase, user } = await getAuthorizedClient();
+  if (!canEditArticle(admin.role, input.status)) {
+    throw new Error("Редактор может создавать материалы только в статусах draft, review или qa.");
+  }
+  if (input.status === "published") {
+    throw new Error("Прямая публикация запрещена. Используйте Human Review Queue.");
+  }
   const categoryId = await resolveCategoryId(supabase, input.category);
   const { data, error } = await supabase
     .from("articles")
@@ -118,39 +180,89 @@ export async function createArticle(input: ArticleInput) {
     .single();
 
   if (error) throw new Error(error.code === "23505" ? "Материал с таким слагом уже существует." : error.message);
+  const images = normalizeManagedContentImages(input.images);
+  const { cleanupWarning } = await removeUnreferencedContentImages(
+    normalizeCleanupCandidatePaths(cleanupCandidatePaths)
+  );
   revalidatePath("/content");
-  return { ...input, id: data.id, updatedAt: data.updated_at } satisfies ManagedArticle;
+  return {
+    article: { ...input, images, id: data.id, updatedAt: data.updated_at } satisfies ManagedArticle,
+    cleanupWarning
+  };
 }
 
-export async function updateArticle(id: string, input: ArticleInput) {
-  const { supabase, user } = await getAuthorizedClient();
+export async function updateArticle(id: string, input: ArticleInput, cleanupCandidatePaths: unknown = []) {
+  const { admin, supabase, user } = await getAuthorizedClient();
+  const { data: current, error: readError } = await supabase
+    .from("articles")
+    .select("status,images,updated_at")
+    .eq("id", id)
+    .maybeSingle();
+  if (readError) throw new Error(readError.message);
+  if (!current) throw new Error("Материал не найден или уже изменён.");
+  if (!canEditArticle(admin.role, String(current.status))) {
+    throw new Error("Редактор не может изменять опубликованный материал. Верните его в review через Owner/Admin workflow.");
+  }
+  if (!canEditArticle(admin.role, String(current.status), input.status)) {
+    throw new Error("Редактор может сохранять материалы только в статусах draft, review или qa.");
+  }
+  if (input.status === "published") {
+    throw new Error("Изменение опубликованного материала требует перевода в review и новой Human Review Queue проверки.");
+  }
+
   const categoryId = await resolveCategoryId(supabase, input.category);
+  const nextImages = normalizeManagedContentImages(input.images);
   const { data, error } = await supabase
     .from("articles")
     .update(articlePayload(input, categoryId, user.id))
     .eq("id", id)
+    .eq("status", current.status)
+    .eq("updated_at", current.updated_at)
     .select("id,updated_at")
-    .single();
+    .maybeSingle();
 
   if (error) throw new Error(error.code === "23505" ? "Материал с таким слагом уже существует." : error.message);
+  if (!data) throw new Error("Материал был изменён другим пользователем. Обновите страницу и повторите попытку.");
+  const nextPaths = new Set(nextImages.map((image) => image.path));
+  const removedPaths = normalizeManagedContentImages(current.images)
+    .map((image) => image.path)
+    .filter((path) => !nextPaths.has(path));
+  const { cleanupWarning } = await removeUnreferencedContentImages([
+    ...removedPaths,
+    ...normalizeCleanupCandidatePaths(cleanupCandidatePaths)
+  ]);
   revalidatePath("/content");
-  return { ...input, id: data.id, updatedAt: data.updated_at } satisfies ManagedArticle;
+  return {
+    article: { ...input, images: nextImages, id: data.id, updatedAt: data.updated_at } satisfies ManagedArticle,
+    cleanupWarning
+  };
 }
 
 export async function deleteArticle(id: string) {
-  const { supabase } = await getAuthorizedClient();
-  const { data: article, error: readError } = await supabase.from("articles").select("images").eq("id", id).maybeSingle();
+  const { admin, supabase } = await getAuthorizedClient();
+  const { data: article, error: readError } = await supabase
+    .from("articles")
+    .select("status,images,updated_at")
+    .eq("id", id)
+    .maybeSingle();
   if (readError) throw new Error(readError.message);
-  const { error } = await supabase.from("articles").delete().eq("id", id);
+  if (!article) throw new Error("Материал не найден или уже удалён.");
+  if (!canEditArticle(admin.role, String(article.status))) {
+    throw new Error("Редактор не может удалять опубликованный материал.");
+  }
+
+  const { data: deleted, error } = await supabase
+    .from("articles")
+    .delete()
+    .eq("id", id)
+    .eq("status", article.status)
+    .eq("updated_at", article.updated_at)
+    .select("id")
+    .maybeSingle();
   if (error) throw new Error(error.message);
+  if (!deleted) throw new Error("Материал был изменён другим пользователем. Обновите страницу и повторите попытку.");
   const paths = normalizeManagedContentImages(article?.images).map((image) => image.path);
-  const { error: storageError } = paths.length > 0
-    ? await supabase.storage.from(CONTENT_IMAGES_BUCKET).remove(paths)
-    : { error: null };
+  const { cleanupWarning } = await removeUnreferencedContentImages(paths);
   revalidatePath("/content");
-  return {
-    cleanupWarning: storageError
-      ? "Материал удалён, но часть файлов не удалось очистить из Supabase Storage."
-      : null
-  };
+  return { cleanupWarning };
 }

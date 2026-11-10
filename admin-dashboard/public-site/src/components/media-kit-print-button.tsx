@@ -1,5 +1,8 @@
 "use client";
 
+import "@/styles/media-kit.css";
+
+
 import { useEffect, useState } from "react";
 import { Printer } from "lucide-react";
 

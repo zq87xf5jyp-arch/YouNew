@@ -1,0 +1,71 @@
+{
+  "source_commit": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+  "status": "PASS",
+  "runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 42678636925,
+      "headSha": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+      "name": "DATA PROJECT Health",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42678636925"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42678636985,
+      "headSha": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+      "name": "Governance contract",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42678636985"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42678636901,
+      "headSha": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+      "name": "Secret Scan",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42678636901"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42678636876,
+      "headSha": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+      "name": "Monetization Dependency Audit",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42678636876"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42678637345,
+      "headSha": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+      "name": "Supabase Disposable Verification",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42678637345"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42678636958,
+      "headSha": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+      "name": "Admin CI",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42678636958"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42678636848,
+      "headSha": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+      "name": "Product CI",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42678636848"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42678626229,
+      "headSha": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+      "name": "Admin CI",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42678626229"
+    }
+  ],
+  "later_commits_require_own_checks": true
+}

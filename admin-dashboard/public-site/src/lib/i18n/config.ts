@@ -3,10 +3,10 @@ export type SupportedLocale = (typeof supportedLocales)[number];
 
 export const defaultLocale: SupportedLocale = "en";
 
-// Governed runtime content currently contains reviewed English copy only.
-// Dutch, Russian, Ukrainian and Polish remain deliberately unpublished until their content export
-// is reviewed, preventing mixed-language or unverified legal/official pages.
-export const publishedWebLocales: SupportedLocale[] = ["en"];
+// English remains the governed source-content language. The reviewed Dutch web shell,
+// category/search/business interfaces and city guides publish without inventing translations
+// of unreviewed entity facts. Russian, Ukrainian and Polish remain unpublished.
+export const publishedWebLocales: SupportedLocale[] = ["en", "nl"];
 
 export const localeLabels: Record<SupportedLocale, string> = {
   en: "English",

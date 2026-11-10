@@ -1,14 +1,14 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-08-01T00:00:00Z",
+  "generatedAt": "2026-10-23T00:00:00Z",
   "generatorVersion": 1,
   "source": "../../YouNew/Resources/Data/younew-runtime-data.json",
   "sourceMode": "production",
   "sourceSchemaVersion": 1,
-  "datasetFingerprint": "72ef389733b1b785092353a75768b3af2dcdf878443f703ccd146156672f3552",
-  "sourceOutputChecksum": "62cda6c0866ecb76db5906cae3e02b50134ab4a6b979b1c104dff28392f16425",
+  "datasetFingerprint": "39a365a2152382da678d1a888a535295ab497481858b815d785c00c32fcbabfc",
+  "sourceOutputChecksum": "d39686302bac96ca65c9489f64ed7b7ded29e4f9865e21edfb0f52db8cb45e7c",
   "acceptedReleaseIds": [
-    "amsterdam-v0.1.8",
+    "amsterdam-v0.1.10",
     "cities-v0.1.0"
   ],
   "publicationRules": {
@@ -19,6 +19,7 @@
       "event",
       "governmentService",
       "healthcare",
+      "hotel",
       "knowledgeTopic",
       "localPartner",
       "museum",
@@ -31,11 +32,13 @@
     "releaseStatus": "published",
     "recordLifecycleStatus": "published",
     "recordVerificationStatus": "verified",
-    "sourceStatus": "verified_opened"
+    "sourceStatus": "verified_opened",
+    "temporaryFreshnessExclusionPolicy": "fail_closed_until_field_level_reverification"
   },
   "counts": {
-    "sourceRecords": 177,
-    "acceptedRecords": 177,
-    "excludedRecords": 0
+    "sourceRecords": 5,
+    "acceptedRecords": 5,
+    "excludedRecords": 0,
+    "freshnessExcludedRecords": 0
   }
 }

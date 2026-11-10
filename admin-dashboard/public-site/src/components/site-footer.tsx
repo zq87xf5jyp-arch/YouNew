@@ -1,17 +1,14 @@
 import { Brand } from "@/components/brand";
+import { LanguageLink } from "@/components/language-link";
 import { links } from "@/lib/site-data";
 import Link from "next/link";
 
-export function SiteFooter() {
-  return (
-    <footer className="site-footer">
-      <div className="section-shell footer-grid">
-        <div className="footer-brand"><Brand /><p className="footer-copy">Helping newcomers build a confident life in the Netherlands.</p><p className="locale-status"><strong>Website language:</strong> English</p><p className="copyright">© 2026 YouNew. All rights reserved.</p></div>
-        <div className="footer-column"><h2>Explore</h2><nav className="footer-links" aria-label="Explore links"><Link href="/discover">Explore the Netherlands</Link><Link href="/categories/housing">Housing</Link><Link href="/search/?q=work">Work</Link><Link href="/categories/healthcare">Healthcare</Link><Link href="/cities">Cities</Link><Link href="/guides">Guides</Link></nav></div>
-        <div className="footer-column"><h2>Help</h2><nav className="footer-links" aria-label="Help links"><Link href="/start">Find my next step</Link><Link href="/search">Search</Link><Link href="/saved">Saved</Link><Link href="/my-younew">My YouNew</Link><Link href="/app">iOS app</Link><Link href="/emergency">Emergency</Link><Link href="/support">Support</Link><Link href="/status">Status</Link></nav></div>
-        <div className="footer-column"><h2>Legal</h2><nav className="footer-links" aria-label="Legal links"><Link href="/privacy">Privacy</Link><Link href="/terms">Terms</Link><a href={`mailto:${links.contactEmail}`}>Contact</a></nav></div>
-        <div className="footer-column"><h2>Business</h2><nav className="footer-links" aria-label="Business links"><Link href="/business">Overview</Link><Link href="/business/advertise">Advertising standards</Link><Link href="/business/partners">Partnerships</Link><Link href="/business/media-kit">Media kit</Link></nav></div>
-      </div>
-    </footer>
-  );
+export function SiteFooter({ locale = "en" }: { locale?: "en" | "nl" }) {
+  const nl = locale === "nl";
+  return <footer className="site-footer" lang={locale}><div className="section-shell footer-grid">
+    <div className="footer-brand"><Brand href={nl ? "/nl/" : "/"} homeLabel={nl ? "YouNew startpagina" : "YouNew home"} /><p className="footer-copy">{nl ? "Wonen, ontdekken en ondernemen in Nederland. Met bronnen die je kunt controleren." : "Live, explore and do business in the Netherlands. With sources you can check."}</p><p className="copyright">© 2026 YouNew.</p></div>
+    <div className="footer-column"><h2>{nl ? "Jouw volgende stap" : "Your next step"}</h2><nav className="footer-links" aria-label={nl ? "Routes" : "Paths"}><Link prefetch={false} href={nl ? "/nl/#live" : "/#live"}>{nl ? "Wonen" : "Live"}</Link><Link prefetch={false} href={nl ? "/nl/#cities-title" : "/#cities-title"}>{nl ? "Ontdekken" : "Explore"}</Link><Link prefetch={false} href={nl ? "/nl/voor-bedrijven/" : "/for-business/"}>{nl ? "Ondernemen" : "Business"}</Link><Link prefetch={false} href={nl ? "/nl/zoeken/" : "/search/"}>{nl ? "Zoeken" : "Search"}</Link><Link prefetch={false} href="/app/">iOS app</Link></nav></div>
+    <div className="footer-column"><h2>{nl ? "Hulp & vertrouwen" : "Help & trust"}</h2><nav className="footer-links" aria-label={nl ? "Hulp" : "Help"}><Link prefetch={false} href="/emergency/">{nl ? "Noodgeval (EN)" : "Emergency"}</Link><Link prefetch={false} href="/status/">{nl ? "Inhoudsstatus (EN)" : "Content status"}</Link><Link prefetch={false} href="/support/">{nl ? "Support (EN)" : "Support"}</Link><a href={`mailto:${links.contactEmail}`}>{links.contactEmail}</a></nav></div>
+    <div className="footer-column"><h2>{nl ? "Taal & voorwaarden" : "Language & legal"}</h2><nav className="footer-links" aria-label={nl ? "Taal en voorwaarden" : "Language and legal"}><LanguageLink locale={locale} expanded /><Link prefetch={false} href="/privacy/">{nl ? "Privacy (EN)" : "Privacy"}</Link><Link prefetch={false} href="/terms/">{nl ? "Voorwaarden (EN)" : "Terms"}</Link><Link prefetch={false} href={nl ? "/nl/voor-bedrijven/aanmelden/" : "/for-business/local/apply/"}>{nl ? "Gratis bedrijfsprofiel" : "Free business profile"}</Link></nav></div>
+  </div></footer>;
 }

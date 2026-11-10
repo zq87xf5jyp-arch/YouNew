@@ -77,6 +77,35 @@ enum AIResponseOrigin: String, Codable, Equatable {
     case safety
 }
 
+/// Server-owned release, scope, uncertainty, and escalation metadata required
+/// before a backend response may be presented as live OpenAI output.
+struct AIResponseGovernance: Codable, Equatable {
+    let contentReleaseID: String
+    let verifiedDate: String
+    let locationAssumption: String
+    let uncertainty: String
+    let escalation: String
+
+    var isMachineValid: Bool {
+        let releaseID = contentReleaseID.trimmingCharacters(in: .whitespacesAndNewlines)
+        let fields = [locationAssumption, uncertainty, escalation]
+        guard releaseID.range(of: #"^[A-Za-z0-9][A-Za-z0-9._:-]{2,119}$"#, options: .regularExpression) != nil,
+              Self.isISODate(verifiedDate),
+              fields.allSatisfy({ !$0.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty })
+        else { return false }
+        return true
+    }
+
+    nonisolated private static func isISODate(_ value: String) -> Bool {
+        guard value.range(of: #"^\d{4}-\d{2}-\d{2}$"#, options: .regularExpression) != nil else {
+            return false
+        }
+        let formatter = ISO8601DateFormatter()
+        guard let parsed = formatter.date(from: "\(value)T00:00:00Z") else { return false }
+        return formatter.string(from: parsed).hasPrefix(value) && parsed <= Date()
+    }
+}
+
 struct AIDecisionSourceCitation: Codable, Equatable, Identifiable {
     let recordID: String
     let sourceTitle: String
@@ -216,7 +245,10 @@ struct AIContext: Codable, Equatable {
         self.savedItemKinds = savedItemKinds
         self.currentRouteID = currentRouteID
         self.recentRouteIDs = recentRouteIDs
-        self.lastSearches = lastSearches
+        self.lastSearches = SearchHistoryPrivacy.contextTopics(
+            lastSearches,
+            allowedTopics: SearchCategory.allCases.map(\.rawValue)
+        )
         self.completedChecklistItemIDs = completedChecklistItemIDs
         self.completedGuideIDs = completedGuideIDs
         self.journeyProgress = journeyProgress
@@ -270,6 +302,7 @@ struct AIResponse: Codable, Equatable {
     let model: String?
     let requestID: String?
     let decisionTrace: AIDecisionTrace?
+    let governance: AIResponseGovernance?
 
     private enum CodingKeys: String, CodingKey {
         case answer
@@ -287,6 +320,7 @@ struct AIResponse: Codable, Equatable {
         case model
         case requestID = "requestId"
         case decisionTrace
+        case governance
     }
 
     init(
@@ -304,7 +338,8 @@ struct AIResponse: Codable, Equatable {
         origin: AIResponseOrigin = .localGuide,
         model: String? = nil,
         requestID: String? = nil,
-        decisionTrace: AIDecisionTrace? = nil
+        decisionTrace: AIDecisionTrace? = nil,
+        governance: AIResponseGovernance? = nil
     ) {
         self.answer = answer
         self.sources = sources
@@ -321,6 +356,7 @@ struct AIResponse: Codable, Equatable {
         self.model = model
         self.requestID = requestID
         self.decisionTrace = decisionTrace
+        self.governance = governance
     }
 
     init(from decoder: Decoder) throws {
@@ -342,13 +378,24 @@ struct AIResponse: Codable, Equatable {
         model = try container.decodeIfPresent(String.self, forKey: .model)
         requestID = try container.decodeIfPresent(String.self, forKey: .requestID)
         decisionTrace = try container.decodeIfPresent(AIDecisionTrace.self, forKey: .decisionTrace)
+        governance = try container.decodeIfPresent(AIResponseGovernance.self, forKey: .governance)
     }
 
     var isLiveOpenAI: Bool {
-        guard origin == .liveOpenAI,
+        guard isVerified,
+              origin == .liveOpenAI,
               let model,
               let requestID,
-              !requestID.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
+              !requestID.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty,
+              let governance,
+              governance.isMachineValid,
+              BuildWeekNewcomerDemo.isApprovedContentRelease(
+                  id: governance.contentReleaseID,
+                  verifiedDate: governance.verifiedDate
+              ),
+              decisionTrace?.isMachineValid == true,
+              !sources.isEmpty,
+              sources.allSatisfy({ $0.lastChecked != nil })
         else { return false }
         return BuildWeekNewcomerDemo.isAllowedModel(model)
     }

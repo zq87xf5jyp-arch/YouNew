@@ -1,0 +1,61 @@
+{
+  "schemaVersion": 1,
+  "recordType": "production_identity_observation",
+  "environment": "production",
+  "origin": "https://younew.nl",
+  "observedAt": "2026-08-18T14:45:26Z",
+  "provider": {
+    "name": "OpenAI Sites / Cloudflare",
+    "sitesVersion": 53
+  },
+  "source": {
+    "repository": "https://github.com/zq87xf5jyp-arch/YouNew.git",
+    "branch": "main",
+    "commitSha": "60accbcb8f8c169e1ef6e09cd7b56824bea6d08e",
+    "commitUrl": "https://github.com/zq87xf5jyp-arch/YouNew/commit/60accbcb8f8c169e1ef6e09cd7b56824bea6d08e"
+  },
+  "verification": {
+    "level": "artifact_subset_match",
+    "providerDeploymentRecordHasSourceSha": false,
+    "serviceWorkerCacheVersion": "younew-web-84200d19bb29",
+    "artifactSubsetSha256": "a7e2f4d15d58022341212d3ed39d37e183226f58f46cb8a8cef15157594c90cf",
+    "artifacts": [
+      {
+        "path": "/data/content-provenance.json",
+        "sha256": "539c07f481717aea4c697f6c8ccd39e1b82fbfdd30537cbdc8ab98a8a39216a0",
+        "sourceEvidence": {
+          "kind": "commit_blob",
+          "repositoryPath": "admin-dashboard/public-site/public/data/content-provenance.json"
+        }
+      },
+      {
+        "path": "/data/status.json",
+        "sha256": "0aa4ca7b96f6abb575249b5b6d65ba0df919758dc507042002533bbb485a7fb9",
+        "sourceEvidence": {
+          "kind": "commit_blob",
+          "repositoryPath": "admin-dashboard/public-site/public/data/status.json"
+        }
+      },
+      {
+        "path": "/sw.js",
+        "sha256": "f49745e9508427fffe3d1fe90cc986b2265cfa524bbc01d162cf309323c40355",
+        "sourceEvidence": {
+          "kind": "clean_build",
+          "templatePath": "admin-dashboard/public-site/public/sw.js",
+          "buildCommand": "pnpm predeploy:check"
+        }
+      }
+    ]
+  },
+  "versionReconciliation": {
+    "auditInputLabel": 54,
+    "sameNamespace": false,
+    "decision": "not_comparable",
+    "explanation": "The prompt's version 54 labels an audit input. Sites v53 is the observed hosting-provider deployment version; the two numbers are not successive versions of one system."
+  },
+  "limitations": [
+    "The hosting-provider deployment record was not available and therefore does not independently attest the source commit SHA.",
+    "The source commit is attributed at artifact-subset-match confidence: status and provenance are byte-identical commit blobs, and the clean-build service worker is byte-identical to production.",
+    "A future production change must create a new observation rather than overwrite this record."
+  ]
+}

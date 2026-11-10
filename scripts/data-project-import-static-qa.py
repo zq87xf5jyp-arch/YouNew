@@ -92,7 +92,7 @@ expected_runtime = captured.get("runtime")
 expect(isinstance(expected_runtime, dict), "deterministic production payload was not captured")
 semantic_fields = {
     "schemaVersion", "mode", "generatedAt", "datasetFingerprint", "releases",
-    "publicationPolicy", "migrationRegistry", "entities",
+    "publicationPolicy", "migrationRegistry", "withheldEntityIDs", "entities",
 }
 expect(
     {key: runtime.get(key) for key in semantic_fields}

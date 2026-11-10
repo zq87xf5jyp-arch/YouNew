@@ -44,6 +44,9 @@ export default function TermsPage() {
       <p>
         Questions about these terms can be sent to <a href={`mailto:${links.contactEmail}`}>{links.contactEmail}</a>.
       </p>
+      <p>
+        See the <a href="/privacy/">Privacy Policy</a>, open <a href="/support/">Support</a>, or use the <a href="/emergency/">emergency page</a> for urgent safety guidance.
+      </p>
     </ContentPage>
   );
 }

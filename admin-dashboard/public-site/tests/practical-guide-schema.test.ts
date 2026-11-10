@@ -4,11 +4,24 @@ import test from "node:test";
 
 const siteRoot = new URL("../", import.meta.url);
 const canonicalRuntime = JSON.parse(await readFile(new URL("../../YouNew/Resources/Data/younew-runtime-data.json", siteRoot), "utf8"));
+// Schema tests use a synthetic in-memory parent, never a time-sensitive public record.
+const schemaRuntime = structuredClone(canonicalRuntime);
+const schemaParent = {
+  ...structuredClone(canonicalRuntime.entities[0]),
+  id: "government_service.synthetic-guide-fixture",
+  kind: "governmentService",
+  title: "Driving licence Amsterdam",
+  category: "driving-licence",
+  source: {title: "Test-only source", publisher: "YouNew QA", url: "https://example.com/official-fixture", checkedAt: "2026-07-18", status: "verified_opened", isOfficial: true},
+  attributes: {dataProjectRelease: canonicalRuntime.releases[0].id, lifecycleStatus: "published", verificationStatus: "verified"},
+  governance: null,
+};
+schemaRuntime.entities = [schemaParent];
 const { projectPublishedPracticalGuide } = await import(new URL("../scripts/practical-guide.mjs", import.meta.url).href);
 const { buildPublicDataset } = await import(new URL("../scripts/generate-public-content.mjs", import.meta.url).href);
 
 function fixture(overrides: Record<string, unknown> = {}) {
-  const id = "government_service.first-registration-in-amsterdam";
+  const id = "government_service.synthetic-guide-fixture";
   const source = {
     id: "source.fixture",
     title: "Test-only official source",
@@ -21,9 +34,9 @@ function fixture(overrides: Record<string, unknown> = {}) {
   return {
     schemaVersion: 2,
     id,
-    slug: "first-registration-in-amsterdam",
+    slug: "synthetic-guide-fixture",
     locale: "en",
-    title: "First registration in Amsterdam",
+    title: "Driving licence Amsterdam",
     shortSummary: { id: "summary", text: "Test-only sourced summary.", sourceIDs: [source.id] },
     audienceProfiles: ["expat"],
     whoThisIsFor: { id: "audience", text: "Test-only audience explanation.", sourceIDs: [source.id] },
@@ -48,7 +61,7 @@ function fixture(overrides: Record<string, unknown> = {}) {
     sections: [{ id: "section.one", title: "Test context", body: "This is test-only contextual information.", sourceIDs: [source.id] }],
     officialSources: [source],
     contactOptions: [{ id: "contact.one", kind: "url", label: "Test contact", value: "https://example.com/contact", sourceIDs: [source.id] }],
-    relatedGuideIDs: ["housing.renting-a-home-in-amsterdam"],
+    relatedGuideIDs: [],
     nextActions: [{ id: "next.one", text: "Test-only next action.", sourceIDs: [source.id] }],
     verifiedAt: "2026-07-18",
     updatedAt: "2026-07-18",
@@ -69,7 +82,7 @@ function fixture(overrides: Record<string, unknown> = {}) {
     seo: {
       title: "First registration fixture",
       description: "Test-only metadata used to verify fail-closed practical guide projection.",
-      canonicalPath: "/guides/first-registration-in-amsterdam"
+      canonicalPath: "/guides/synthetic-guide-fixture"
     },
     synonyms: ["fixture synonym"],
     commonQuestions: ["Does the projection pass QA?"],
@@ -80,8 +93,8 @@ function fixture(overrides: Record<string, unknown> = {}) {
 function parentContext(overrides: Record<string, unknown> = {}) {
   return {
     id: fixture().id,
-    title: "First registration in Amsterdam",
-    route: "/guides/first-registration-in-amsterdam",
+    title: "Driving licence Amsterdam",
+    route: "/guides/synthetic-guide-fixture",
     language: "en",
     mediaAssets: [{
       id: "media.fixture",
@@ -150,14 +163,14 @@ test("published practical guides fail closed on missing trust and structure fiel
 });
 
 test("legacy guide records remain summary-depth and malformed published payloads stop generation", () => {
-  const baseline = buildPublicDataset(canonicalRuntime);
-  assert.equal(baseline.content.guides.length, 15);
+  const baseline = buildPublicDataset(schemaRuntime, { verifyChecksum: false });
+  assert.equal(baseline.content.guides.length, 1);
   assert.ok(baseline.content.guides.every((guide: { contentDepth: string; practicalGuide: unknown }) => guide.contentDepth === "summary" && guide.practicalGuide === null));
 
-  const parent = canonicalRuntime.entities.find((entity: { id: string }) => entity.id === fixture().id);
+  const parent = schemaRuntime.entities.find((entity: { id: string }) => entity.id === fixture().id);
   const withDraft = buildPublicDataset({
-    ...canonicalRuntime,
-    entities: canonicalRuntime.entities.map((entity: { id: string }) => entity.id === parent.id ? { ...entity, practicalGuide: fixture({ status: "draft" }) } : entity)
+    ...schemaRuntime,
+    entities: schemaRuntime.entities.map((entity: { id: string }) => entity.id === parent.id ? { ...entity, practicalGuide: fixture({ status: "draft" }) } : entity)
   }, { verifyChecksum: false });
   const publicParent = withDraft.content.guides.find((guide: { id: string }) => guide.id === parent.id);
   assert.equal(publicParent.contentDepth, "summary");
@@ -165,20 +178,20 @@ test("legacy guide records remain summary-depth and malformed published payloads
   assert.doesNotMatch(JSON.stringify(withDraft.search), /Test-only sourced summary/);
 
   assert.throws(() => buildPublicDataset({
-    ...canonicalRuntime,
-    entities: canonicalRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parent.id ? parentWithAuthoredMedia({ ...entity, practicalGuide: fixture({ numberedSteps: [] }) }) : entity)
+    ...schemaRuntime,
+    entities: schemaRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parent.id ? parentWithAuthoredMedia({ ...entity, practicalGuide: fixture({ numberedSteps: [] }) }) : entity)
   }, { verifyChecksum: false }), /numberedSteps/);
 });
 
 test("a valid published payload enriches guide rendering and search without changing its stable route", () => {
   const parentId = fixture().id;
   const output = buildPublicDataset({
-    ...canonicalRuntime,
-    entities: canonicalRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parentId ? parentWithAuthoredMedia({ ...entity, practicalGuide: fixture() }) : entity)
+    ...schemaRuntime,
+    entities: schemaRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parentId ? parentWithAuthoredMedia({ ...entity, practicalGuide: fixture() }) : entity)
   }, { verifyChecksum: false });
   const guide = output.content.guides.find((item: { id: string }) => item.id === parentId);
   const document = output.search.documents.find((item: { id: string }) => item.id === parentId);
-  assert.equal(guide.route, "/guides/first-registration-in-amsterdam");
+  assert.equal(guide.route, "/guides/synthetic-guide-fixture");
   assert.equal(guide.contentDepth, "practical");
   assert.deepEqual(guide.categorySlugs, ["healthcare"]);
   assert.equal(guide.practicalGuide.numberedSteps.length, 1);
@@ -192,8 +205,8 @@ test("a valid published payload enriches guide rendering and search without chan
 test("a full guide requires an explicit canonical web category instead of the legacy Housing fallback", () => {
   const parentId = fixture().id;
   assert.throws(() => buildPublicDataset({
-    ...canonicalRuntime,
-    entities: canonicalRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parentId ? {
+    ...schemaRuntime,
+    entities: schemaRuntime.entities.map((entity: RuntimeEntityFixture) => entity.id === parentId ? {
       ...entity,
       images: entity.images.map((image) => ({ ...image, alt: "Test-only image", publicAssetPath: "/images/og-younew.jpg" })),
       practicalGuide: fixture()

@@ -1,76 +1,66 @@
 import { Database, ShieldCheck } from "lucide-react";
 import { PageHeader } from "@/components/admin/page-header";
-import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Button } from "@/components/ui/button";
 import { CrudTable } from "@/components/admin/crud-table";
-import { fetchRowsResult } from "@/lib/data";
+import { SyncRequestPanel } from "@/components/admin/sync-request-panel";
+import { Badge } from "@/components/ui/badge";
+import { requireAdmin, isLocalDemoAdminEnabled } from "@/lib/auth";
+import { canRequestSync } from "@/lib/authorization";
+import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { buildMobileSyncPayload } from "@/lib/mobile-sync";
-import { requestContentSync } from "./actions";
+import { formatSyncTime } from "@/lib/sync-workflow";
 
+type Row = Record<string, unknown>;
 export default async function SyncPage() {
-  const canonicalRuntime = buildMobileSyncPayload();
-  const [datasetResult, jobResult] = await Promise.all([
-    fetchRowsResult("content_sync_state", []),
-    fetchRowsResult("sync_jobs", [], 20, "created_at")
+  const admin = await requireAdmin(), runtime = buildMobileSyncPayload();
+  const localDemo = admin.id === "demo-admin" && isLocalDemoAdminEnabled();
+  let client: Awaited<ReturnType<typeof createSupabaseServerClient>> = null;
+  try { client = await createSupabaseServerClient(); } catch { /* Independent data sources remain unknown. */ }
+  async function rows(table: string, columns: string, order: string, limit: number) {
+    try {
+      if (!client) return null;
+      const value = await client.from(table).select(columns).order(order, { ascending: false }).limit(limit).abortSignal(AbortSignal.timeout(5000));
+      return value.error || !Array.isArray(value.data) ? null : value.data as unknown as Row[];
+    } catch { return null; }
+  }
+  const [datasets, jobs, feed] = await Promise.all([
+    rows("content_sync_state", "dataset,version,records,last_sync,status", "last_sync", 50),
+    rows("sync_jobs", "id,job,type,target,status,created_at,started_at,completed_at,records_processed,records_failed,artifact_fingerprint,error_summary,duration_ms,details", "created_at", 20),
+    rows("public_content_feed", "feed_key,source_version,artifact_fingerprint,record_count,activated_at", "activated_at", 2)
   ]);
-  const connected = datasetResult.source === "supabase" && jobResult.source === "supabase";
-  const demo = datasetResult.source === "demo" || jobResult.source === "demo";
-  const stateLabel = connected ? "подключено" : demo ? "локальное демо" : "NOT VERIFIED";
-  return (
-    <>
-      <PageHeader
-        title="Публикация и синхронизация"
-        description="Контроль состояния наборов данных и истории публикаций Supabase."
-      />
-      <Card>
-        <CardHeader>
-          <div className="flex items-center gap-3">
-            <Database className="text-muted-foreground" />
-            <div>
-              <CardTitle>{connected ? "Supabase административное состояние доступно" : "Состояние Supabase не подтверждено"}</CardTitle>
-              <CardDescription>
-                {connected
-                  ? "Панель прочитала фактическое состояние наборов данных и журнал задач."
-                  : demo
-                    ? "Показаны только явно включённые локальные демо-данные; это не состояние production."
-                    : "Production-подключение или запросы к таблицам не подтверждены. Демо-данные скрыты."}
-              </CardDescription>
-            </div>
-            <Badge className="ml-auto" variant={connected ? "success" : demo ? "warning" : "destructive"}>{stateLabel}</Badge>
-          </div>
-        </CardHeader>
-        <CardContent className="space-y-4 text-sm text-muted-foreground">
-          <p>Приложение, публичный сайт и API админки используют один проверенный набор опубликованных данных; Supabase хранит административное состояние.</p>
-          <dl className="grid gap-3 rounded-md border border-border bg-secondary/30 p-4 text-xs sm:grid-cols-2">
-            <div><dt className="font-medium text-foreground">Dataset fingerprint</dt><dd className="mt-1 break-all font-mono">{canonicalRuntime.contentVersion}</dd></div>
-            <div><dt className="font-medium text-foreground">Опубликованные записи</dt><dd className="mt-1">{canonicalRuntime.entityCount}</dd></div>
-            <div><dt className="font-medium text-foreground">Сформирован</dt><dd className="mt-1">{canonicalRuntime.generatedAt}</dd></div>
-            <div><dt className="font-medium text-foreground">Релизы</dt><dd className="mt-1">{canonicalRuntime.publishedReleaseIds.join(", ")}</dd></div>
-          </dl>
-          <div className="rounded-md border border-border bg-secondary/30 p-4">
-            <div className="mb-2 flex items-center gap-2 font-medium text-foreground"><ShieldCheck className="size-4" />Защита публикации</div>
-            <ul className="list-disc space-y-1 pl-5">
-              <li>версионирование и проверка publishability остаются обязательными;</li>
-              <li>в публичный payload попадают только опубликованные записи;</li>
-              <li>public API возвращает 503 вместо вымышленных данных при недоступном Supabase;</li>
-              <li><code>/api/mobile/sync</code> отдаёт только этот опубликованный runtime с ETag по dataset fingerprint;</li>
-              <li>откат выполняется повторным развёртыванием ранее проверенной версии;</li>
-              <li>live DNS/TLS, rate limiting, журнал production-публикаций и фактический deploy требуют отдельной проверки.</li>
-            </ul>
-          </div>
-          <form action={requestContentSync}>
-            <Button type="submit" disabled={!connected}>
-              Подготовить candidate-артефакт
-            </Button>
-            <p className="mt-2 text-xs">Команда создаёт и проверяет кандидата для ручного GitHub handoff. Она не активирует production-версию.</p>
-          </form>
-        </CardContent>
-      </Card>
-      <div className="mt-6 grid gap-6">
-        <CrudTable title="Наборы данных" description="Текущее подтверждённое административное состояние." rows={datasetResult.rows} columns={["dataset", "version", "records", "last_sync", "status"]} cta="Обновить состояние" />
-        <CrudTable title="История задач" description="Последние подтверждённые операции публикации и проверки." rows={jobResult.rows} columns={["job", "target", "status", "records_processed", "records_failed", "artifact_fingerprint", "error_summary", "duration_ms", "created_at"]} />
-      </div>
-    </>
-  );
+  const connected = datasets !== null && jobs !== null;
+  const observedAt = new Date().toISOString();
+  const active = feed?.find((row) => row.feed_key === "active");
+  const feedValid = active && typeof active.artifact_fingerprint === "string" && /^[a-f0-9]{64}$/.test(active.artifact_fingerprint) && typeof active.record_count === "number" && Number.isSafeInteger(active.record_count) && active.record_count > 0 && typeof active.activated_at === "string" && Number.isFinite(Date.parse(active.activated_at));
+  const succeeded = jobs?.filter((row) => row.type === "content_artifact_candidate" && row.status === "succeeded" && typeof row.completed_at === "string" && Number.isFinite(Date.parse(row.completed_at))).sort((a,b) => Date.parse(String(b.completed_at))-Date.parse(String(a.completed_at)))[0];
+  return <>
+    <PageHeader title="Публикация и синхронизация" description="Подготовка кандидата, отдельная ручная активация и сохранённые состояния разных источников." />
+    <Card><CardHeader><CardTitle className="flex items-center gap-2"><Database className="size-5" />Ручная подготовка кандидата</CardTitle><CardDescription>Подготовка и активация — отдельные операции. Работающий автоматический синхронизатор по расписанию не подтверждён.</CardDescription></CardHeader>
+      <CardContent className="space-y-4 text-sm text-muted-foreground">
+        <div className="flex flex-wrap items-center gap-2"><Badge variant={connected ? "success" : localDemo ? "warning" : "destructive"}>{connected ? "административные источники прочитаны" : localDemo ? "локальное демо" : "NOT VERIFIED"}</Badge><span>Чтение · Amsterdam: {formatSyncTime(observedAt)}. Это время наблюдения, не время синхронизации или обновления данных.</span></div>
+        {localDemo ? <p>Локальное демо: production-состояние не подтверждено, запуск недоступен.</p> : canRequestSync(admin.role) ? <SyncRequestPanel userId={admin.id} disabled={!connected} /> : <p>Запуск доступен только Owner/Admin.</p>}
+        <p>Последний сохранённый успешный candidate среди последних 20 задач: {jobs === null ? "неизвестно — журнал недоступен" : succeeded ? formatSyncTime(String(succeeded.completed_at)) : "не найден в этом окне"}. Время: Europe/Amsterdam. Это не подтверждение публикации.</p>
+      </CardContent></Card>
+    <div className="mt-6 grid gap-6 lg:grid-cols-2">
+      <Card><CardHeader><CardTitle>Активированный web feed</CardTitle><CardDescription>Отдельная запись public_content_feed, доступная через /api/public/content-sync; доставка в публичный сайт проверяется отдельно.</CardDescription></CardHeader><CardContent className="space-y-2 text-sm">
+        {feed === null ? <p>Состояние неизвестно: источник недоступен.</p> : !active ? <p>Активная запись не найдена. Это не ошибка подготовки кандидата.</p> : !feedValid ? <p>Состояние неизвестно: метаданные активной записи не прошли проверку.</p> : <><p>Записей: {String(active.record_count)}</p><p>Активация · Amsterdam: {formatSyncTime(String(active.activated_at))}</p><p className="break-all font-mono text-xs">{String(active.artifact_fingerprint)}</p><p className="text-xs text-muted-foreground">Эта запись не доказывает обновление уже открытого сайта или установленного приложения.</p></>}
+      </CardContent></Card>
+      <Card><CardHeader><CardTitle>Упакованный mobile runtime этой сборки Admin</CardTitle><CardDescription>Независимый набор /api/mobile/sync. Подготовка Supabase candidate не меняет эту сборку или iOS на устройстве.</CardDescription></CardHeader><CardContent className="space-y-2 text-sm">
+        <p>Записей: {runtime.entityCount}</p><p>Сформирован: {runtime.generatedAt}</p><p className="break-all font-mono text-xs">{runtime.contentVersion}</p><p className="text-xs">Релизы: {runtime.publishedReleaseIds.join(", ")}</p>
+      </CardContent></Card>
+    </div>
+    <Card className="mt-6"><CardHeader><CardTitle className="flex items-center gap-2"><ShieldCheck className="size-4" />Защита публикации</CardTitle></CardHeader><CardContent className="text-sm text-muted-foreground"><ul className="list-disc space-y-1 pl-5">
+      <li>Версионирование и проверка publishability остаются отдельными условиями публикации; подготовка кандидата не заменяет их.</li>
+      <li>Candidate собирается только из записей со статусом published; их источники и даты проверки не обновляются этим действием.</li>
+      <li>Public content feed API возвращает 503 при недоступном или некорректном активном feed; это не гарантия доступности всех API.</li>
+      <li><code>/api/mobile/sync</code> отдаёт упакованный runtime с ETag по dataset fingerprint.</li>
+      <li>Откат сборки выполняется развёртыванием ранее проверенной версии; состояние активного feed требует отдельного рассмотрения.</li>
+      <li>Live DNS/TLS, rate limiting, журнал production-публикаций и фактический deploy требуют отдельной проверки.</li>
+    </ul></CardContent></Card>
+    <div className="mt-6 grid min-w-0 grid-cols-1 gap-6">
+      {datasets === null ? <Card><CardContent className="p-6">Административные снимки недоступны. Их состояние неизвестно.</CardContent></Card> : <CrudTable title="Сохранённые административные снимки" description="Исторические значения и их даты, а не подтверждение текущей синхронизации. Поле status сохранено источником." rows={datasets} columns={["dataset", "version", "records", "last_sync", "status"]} />}
+      {jobs === null ? <Card><CardContent className="p-6">Журнал задач недоступен. Последние попытки и успехи неизвестны.</CardContent></Card> : <CrudTable title="Последние 20 задач" description="queued означает очередь, а не работающий исполнитель. Историческое started_at не доказывает фактический старт. content_publication не обрабатывается ручным candidate-исполнителем." rows={jobs} columns={["id", "job", "type", "target", "status", "records_processed", "records_failed", "artifact_fingerprint", "error_summary", "duration_ms", "created_at", "started_at", "completed_at"]} />}
+      <p className="text-xs text-muted-foreground">Старые поля queued_at, heartbeat_at, lease_expires_at, attempt_count и timed_out_at из отдельного canonical lease-предложения не подтверждены текущей схемой sync_jobs. Аренда и попытки нового исполнителя читаются только для выбранного собственного запроса выше; отсутствие этих полей не означает ноль.</p>
+    </div>
+  </>;
 }

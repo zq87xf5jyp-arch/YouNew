@@ -113,7 +113,8 @@ require(
 )
 for required_scope in ("SOURCE_REGISTRY", "PUBLISHED_WEB_ARTIFACTS", "public-content.json", "search-index.json", "content-provenance.json"):
     require(required_scope in link_checker, f"nightly link checker is missing production scope: {required_scope}")
-require("400 <= error.code < 500" in link_checker, "every HEAD client error must receive a GET verification")
+require("error.code in {404, 405}" in link_checker, "ambiguous HEAD absence or method rejection must receive a GET verification")
+require("RESTRICTED_STATUSES = {401, 402, 403, 429}" in link_checker, "auth, payment and rate-limit responses must remain restricted observations")
 require("is_confirmed_failure" in link_checker, "non-restricted client errors must fail closed")
 require("effective_release_heads(PROJECT)" in dashboard_generator, "Data Health dashboard must resolve governed effective release heads")
 require("captured[\"runtime\"]" in import_qa and "semantic_fields" in import_qa, "import QA must compare shipped data with a deterministic effective rebuild")
@@ -129,10 +130,11 @@ require(
 public_dashboard_generation = "python3 ../../scripts/generate-data-dashboard.py"
 public_observability_generation = "python3 ../../scripts/generate-data-observability.py"
 public_import_validation = "python3 ../../scripts/data-project-import-static-qa.py"
-public_health_gate = "python3 ../../scripts/data-health-gate.py"
+public_health_gate = "python3 ../../scripts/data-health-gate.py --public-safe"
 require(public_dashboard_generation in public_site_predeploy, "public-site pre-deploy must generate current Data Health")
 require(public_observability_generation in public_site_predeploy, "public-site pre-deploy must generate release manifests")
 require(public_import_validation in public_site_predeploy, "public-site pre-deploy must validate the governed importer")
+require("python3 ../../scripts/data-project-qa.py --public-safe" in public_site_predeploy, "public-site pre-deploy must preserve strict data QA while honoring exact public exclusions")
 require(public_health_gate in public_site_predeploy, "public-site pre-deploy must enforce current Data Health")
 require(
     public_site_predeploy.index(public_observability_generation) < public_site_predeploy.index(public_import_validation),

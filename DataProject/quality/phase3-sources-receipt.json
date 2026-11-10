@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "items": [
+    {
+      "id": "catalog-readiness",
+      "title": "What is the verified catalog-readiness position?",
+      "assumptions": [
+        "A source reachability observation is not counted as factual verification.",
+        "The 50 Phase 3 records remain pending until a reviewer confirms named fields against an authoritative source."
+      ],
+      "queries": [
+        {
+          "id": "catalog-reconciliation",
+          "source": {
+            "label": "YouNew governed verification artifacts",
+            "files": [
+              { "label": "freshness-review-wave-1.json" },
+              { "label": "source-verification-queue.json" },
+              { "label": "freshness-review-wave-2.json" },
+              { "label": "data-health.json" }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Confirmed current",
+                "definition": "Confirmed current counts records whose named facts were reviewed against a recorded authoritative source, not records whose URL merely responded."
+              },
+              {
+                "label": "Pending factual review",
+                "definition": "Pending factual review counts records that still require a human fact comparison before their freshness date can change."
+              }
+            ],
+            "filters": [
+              "Audit date: 23 October 2026",
+              "Phase 3 review wave: 50 records"
+            ],
+            "caveats": [
+              "The production data-health gate still reports 170 outdated records in the effective published Amsterdam release."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Queue reconciliation",
+                "detail": "The audited baseline of 415 records reconciles to 5 confirmed current records and 410 pending factual reviews."
+              },
+              {
+                "kind": "validation",
+                "title": "Phase 3 status check",
+                "detail": "All 50 newly prioritized records are explicitly marked awaiting_fact_review."
+              }
+            ]
+          },
+          "reportingPeriod": "23 October 2026",
+          "columns": [
+            { "field": "metric", "label": "Metric" },
+            { "field": "count", "label": "Count" }
+          ],
+          "rows": [
+            { "metric": "Audited stale baseline", "count": 415 },
+            { "metric": "Confirmed current", "count": 5 },
+            { "metric": "Pending factual review", "count": 410 },
+            { "metric": "Phase 3 wave prepared", "count": 50 },
+            { "metric": "Published outdated records blocking data health", "count": 170 }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "Aggregate reconciliation recorded by the local Phase 3 pipeline."
+          }
+        }
+      ]
+    },
+    {
+      "id": "partner-readiness",
+      "title": "How much of the 30-company partner wave is ready?",
+      "assumptions": [
+        "A public contact page does not establish consent or another lawful basis for direct marketing.",
+        "No company is marked ready for contact without both an identity review and a separately documented lawful outreach decision."
+      ],
+      "queries": [
+        {
+          "id": "partner-verification",
+          "source": {
+            "label": "YouNew partner verification wave",
+            "files": [
+              { "label": "business-partners-wave-1.csv" },
+              { "label": "business-partner-verification-wave-1.json" },
+              { "label": "business-partner-status-tracker.csv" },
+              { "label": "business-partner-offers-nl-phase3.md" }
+            ],
+            "metricDefinitions": [
+              {
+                "label": "Verified identity",
+                "definition": "Verified identity counts supplied companies whose name and business identity were observed on the supplied official site."
+              },
+              {
+                "label": "Ready for contact",
+                "definition": "Ready for contact requires an approved public business channel and a documented lawful outreach basis; none were established in this local phase."
+              }
+            ],
+            "filters": [
+              "Supplied partner wave: 30 companies",
+              "No personal email extraction",
+              "No outreach sent"
+            ],
+            "caveats": [
+              "Three company identities and thirteen business contact routes still need manual review."
+            ],
+            "evidenceFlow": [
+              {
+                "kind": "validation",
+                "title": "Identity coverage",
+                "detail": "The bounded recheck observed matching identity evidence for 27 of 30 supplied companies."
+              },
+              {
+                "kind": "validation",
+                "title": "Outreach status",
+                "detail": "The tracker records zero sent, replied, interested or registered companies."
+              }
+            ]
+          },
+          "reportingPeriod": "23 October 2026",
+          "columns": [
+            { "field": "metric", "label": "Metric" },
+            { "field": "count", "label": "Count" }
+          ],
+          "rows": [
+            { "metric": "Companies supplied", "count": 30 },
+            { "metric": "Identity verified", "count": 27 },
+            { "metric": "Public business contact route observed", "count": 16 },
+            { "metric": "Ready for contact", "count": 0 },
+            { "metric": "Messages sent", "count": 0 },
+            { "metric": "Registered", "count": 0 }
+          ],
+          "preview": {
+            "kind": "aggregate",
+            "note": "Aggregate status only; direct contact identifiers are deliberately excluded."
+          }
+        }
+      ]
+    },
+    {
+      "id": "launch-and-outreach-rules",
+      "title": "Which external rules shape launch and outreach?",
+      "queries": [
+        {
+          "id": "search-launch-guidance",
+          "summary": "Google documents the requirements for localized alternates, canonical selection, sitemap submission and indexing review used in the local Search Console runbook.",
+          "source": {
+            "label": "Google Search documentation",
+            "links": [
+              { "href": "https://developers.google.com/search/docs/specialty/international/localized-versions", "label": "Localized versions" },
+              { "href": "https://developers.google.com/search/docs/crawling-indexing/canonicalization", "label": "Canonicalization" },
+              { "href": "https://support.google.com/webmasters/answer/12817956", "label": "Submit a sitemap" },
+              { "href": "https://support.google.com/webmasters/answer/7440203", "label": "Index coverage" }
+            ],
+            "caveats": [
+              "The local checks establish package correctness; Search Console submission and production indexing require an authorized live-site action after launch approval."
+            ]
+          }
+        },
+        {
+          "id": "direct-marketing-guidance",
+          "summary": "Dutch regulator guidance requires a lawful basis for direct marketing and treats public availability of contact details as distinct from marketing permission.",
+          "source": {
+            "label": "Dutch regulator guidance",
+            "links": [
+              { "href": "https://www.acm.nl/nl/telecom/zakelijk-abonnement-voor-bellen-en-internet/spam", "label": "ACM spam guidance" },
+              { "href": "https://autoriteitpersoonsgegevens.nl/nl/onderwerpen/internet-telefoon-tv-en-post/direct-marketing", "label": "AP direct marketing guidance" },
+              { "href": "https://autoriteitpersoonsgegevens.nl/en/themes/internet-and-smart-devices/advertising/digital-direct-marketing", "label": "AP digital direct marketing guidance" }
+            ],
+            "caveats": [
+              "The local outreach drafts are preparation only and do not constitute legal advice or authorization to send."
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}

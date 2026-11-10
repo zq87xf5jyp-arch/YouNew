@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
 import { readdir, readFile } from "node:fs/promises";
 import { extname, join } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = new URL("../out/", import.meta.url).pathname;
+const root = fileURLToPath(new URL("../out/", import.meta.url));
 async function files(directory) { const entries = await readdir(directory, { withFileTypes: true }); return (await Promise.all(entries.map((entry) => entry.isDirectory() ? files(join(directory, entry.name)) : [join(directory, entry.name)]))).flat(); }
 
 const textExtensions = new Set([".html", ".js", ".json", ".txt", ".xml", ".css", ".webmanifest", ".htaccess"]);

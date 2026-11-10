@@ -49,6 +49,7 @@ const KNOWLEDGE_RECORDS = Object.freeze([
     sourceTitle: "Government.nl — Citizen service number (BSN)",
     sourceURL:
       "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn",
+    verifiedDate: "2026-07-14",
     appDestination: "practicalGuide:municipalityRegistration",
   }),
   Object.freeze({
@@ -63,11 +64,12 @@ const KNOWLEDGE_RECORDS = Object.freeze([
     ]),
     sourceTitle: "DigiD — Apply and activate",
     sourceURL: "https://www.digid.nl/en/apply-and-activate/apply-digid",
+    verifiedDate: "2026-07-14",
     appDestination: "practicalGuide:digidSafety",
   }),
   Object.freeze({
     clientID: "government-service:health-insurance",
-    repositoryRecordIDs: Object.freeze(["healthcare.mandatory-insurance"]),
+    repositoryRecordIDs: Object.freeze(["government.health-insurance"]),
     status: "may_be_mandatory_depends_on_status",
     subject: "Dutch health insurance",
     boundedFacts: Object.freeze([
@@ -76,14 +78,15 @@ const KNOWLEDGE_RECORDS = Object.freeze([
       "The user must verify whether the duty applies to their residence, work, study, and social-insurance status before acting.",
       "Do not invent a deadline, entitlement, premium, or coverage promise.",
     ]),
-    sourceTitle: "Government.nl — Health insurance",
+    sourceTitle: "Government.nl — Taking out compulsory health insurance",
     sourceURL:
-      "https://www.government.nl/themes/family-health-and-care/health-insurance",
+      "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/taking-out-compulsory-health-insurance",
+    verifiedDate: "2026-07-14",
     appDestination: "practicalGuide:healthInsuranceBasics",
   }),
   Object.freeze({
     clientID: "government-service:gp",
-    repositoryRecordIDs: Object.freeze(["healthcare.choose-gp"]),
+    repositoryRecordIDs: Object.freeze(["government.register-family-doctor"]),
     status: "recommended",
     subject: "choosing a huisarts (GP)",
     boundedFacts: Object.freeze([
@@ -91,11 +94,29 @@ const KNOWLEDGE_RECORDS = Object.freeze([
       "Availability and registration procedures vary locally, so the user should check with a nearby practice or municipality.",
       "The assistant must not ask the user to send medical records or other sensitive identifiers.",
     ]),
-    sourceTitle: "Government.nl — Moving to the Netherlands",
+    sourceTitle: "Government.nl — Moving to the Netherlands checklist",
     sourceURL:
       "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands",
+    verifiedDate: "2026-07-14",
     appDestination: "practicalGuide:findingHuisarts",
   }),
+]);
+
+// The checked-in records are still QA material. A deployed Worker therefore
+// fails closed before any OpenAI request. The release object can only be
+// replaced through server-side composition (used by contract tests here); it
+// is never accepted from the client request or an environment variable.
+const KNOWLEDGE_RELEASE = Object.freeze({
+  id: "younew-newcomer-demo-unreleased",
+  status: "qa",
+  verifiedDate: null,
+  reviewer: null,
+});
+const KNOWLEDGE_RELEASE_KEYS = Object.freeze([
+  "id",
+  "status",
+  "verifiedDate",
+  "reviewer",
 ]);
 
 const REQUIRED_KNOWLEDGE_IDS = Object.freeze(
@@ -161,6 +182,11 @@ const RESPONSE_KEYS = Object.freeze([
   "summary",
   "steps",
   "warnings",
+  "contentReleaseId",
+  "verifiedDate",
+  "locationAssumption",
+  "uncertainty",
+  "escalation",
   "model",
   "requestId",
   "decisionTrace",
@@ -171,6 +197,7 @@ const STEP_KEYS = Object.freeze([
   "action",
   "sourceTitle",
   "sourceURL",
+  "sourceVerifiedDate",
   "appDestination",
 ]);
 
@@ -186,6 +213,7 @@ export async function handleRequest(request, env = {}, dependencies = {}) {
   const fetchImpl = dependencies.fetch ?? globalThis.fetch;
   const setTimer = dependencies.setTimeout ?? globalThis.setTimeout;
   const clearTimer = dependencies.clearTimeout ?? globalThis.clearTimeout;
+  const knowledgeRelease = dependencies.knowledgeRelease ?? KNOWLEDGE_RELEASE;
   const localRequestId = `yn_req_${randomUUID()}`;
 
   try {
@@ -203,6 +231,14 @@ export async function handleRequest(request, env = {}, dependencies = {}) {
     const configurationError = validateConfiguration(env);
     if (configurationError) {
       return errorResponse(configurationError, 503, localRequestId);
+    }
+
+    if (!isReleaseEligible(knowledgeRelease)) {
+      return errorResponse(
+        "knowledge_not_release_eligible",
+        503,
+        localRequestId,
+      );
     }
 
     if (!isJSONContentType(request.headers.get("Content-Type"))) {
@@ -293,6 +329,7 @@ export async function handleRequest(request, env = {}, dependencies = {}) {
       body.locale,
       actualModel,
       requestId,
+      knowledgeRelease,
     );
     if (!hasExactKeys(response, RESPONSE_KEYS)) {
       return errorResponse("invalid_upstream_response", 502, requestId);
@@ -320,6 +357,27 @@ function validateConfiguration(env) {
   }
 
   return null;
+}
+
+function isReleaseEligible(release) {
+  if (
+    !isPlainObject(release) ||
+    !hasExactKeys(release, KNOWLEDGE_RELEASE_KEYS) ||
+    release.status !== "published" ||
+    !isBoundedString(release.id, 3, 120) ||
+    !/^[A-Za-z0-9][A-Za-z0-9._:-]+$/.test(release.id) ||
+    !isISODate(release.verifiedDate) ||
+    release.verifiedDate > new Date().toISOString().slice(0, 10) ||
+    !isBoundedString(release.reviewer, 3, 120)
+  ) {
+    return false;
+  }
+
+  return KNOWLEDGE_RECORDS.every(
+    (record) =>
+      isISODate(record.verifiedDate) &&
+      record.verifiedDate <= release.verifiedDate,
+  );
 }
 
 function validateClientRequest(body) {
@@ -434,7 +492,7 @@ function validateGeneratedOutput(value) {
   }
 }
 
-function buildPublicResponse(generated, locale, model, requestId) {
+function buildPublicResponse(generated, locale, model, requestId, knowledgeRelease) {
   const steps = generated.steps.map((step, index) => {
     const record = KNOWLEDGE_RECORDS[index];
     const publicStep = {
@@ -443,6 +501,7 @@ function buildPublicResponse(generated, locale, model, requestId) {
       action: step.action.trim(),
       sourceTitle: record.sourceTitle,
       sourceURL: record.sourceURL,
+      sourceVerifiedDate: record.verifiedDate,
       appDestination: record.appDestination,
     };
     if (!hasExactKeys(publicStep, STEP_KEYS)) {
@@ -466,7 +525,7 @@ function buildPublicResponse(generated, locale, model, requestId) {
     })),
     freshnessEvidence: KNOWLEDGE_RECORDS.map((record) => ({
       recordID: record.clientID,
-      summary: "Record-level governed freshness is not established in this bounded demo context.",
+      summary: `Official source checked ${record.verifiedDate}; governed release verified ${knowledgeRelease.verifiedDate}.`,
     })),
     jurisdictionEvidence: KNOWLEDGE_RECORDS.map((record) => ({
       recordID: record.clientID,
@@ -490,6 +549,11 @@ function buildPublicResponse(generated, locale, model, requestId) {
     summary: generated.summary.trim(),
     steps,
     warnings: warnings.slice(0, 4),
+    contentReleaseId: knowledgeRelease.id,
+    verifiedDate: knowledgeRelease.verifiedDate,
+    locationAssumption: locationAssumption(locale),
+    uncertainty: uncertaintyStatement(locale),
+    escalation: escalationStatement(locale),
     model,
     requestId,
     decisionTrace,
@@ -624,6 +688,17 @@ function isBoundedString(value, minimum, maximum) {
   );
 }
 
+function isISODate(value) {
+  if (typeof value !== "string" || !/^\d{4}-\d{2}-\d{2}$/.test(value)) {
+    return false;
+  }
+  const timestamp = Date.parse(`${value}T00:00:00Z`);
+  return (
+    Number.isFinite(timestamp) &&
+    new Date(timestamp).toISOString().slice(0, 10) === value
+  );
+}
+
 function isJSONContentType(value) {
   return typeof value === "string" && /^application\/json(?:\s*;|$)/i.test(value);
 }
@@ -688,6 +763,30 @@ function statusWarning(locale) {
   }[locale];
 }
 
+function locationAssumption(locale) {
+  return {
+    en: "National Netherlands guidance; municipality-specific steps must be verified with the user's selected gemeente.",
+    nl: "Landelijke Nederlandse informatie; gemeentelijke stappen moeten bij de gekozen gemeente worden gecontroleerd.",
+    ru: "Общие правила Нидерландов; муниципальные шаги нужно проверить в выбранной gemeente.",
+  }[locale];
+}
+
+function uncertaintyStatement(locale) {
+  return {
+    en: "Registration and insurance duties depend on residence, work, study, cross-border, and personal status; the bounded records cannot determine individual eligibility.",
+    nl: "Registratie- en verzekeringsplichten hangen af van woon-, werk-, studie-, grens- en persoonlijke status; deze beperkte bronnen bepalen geen individuele rechten.",
+    ru: "Обязанности по регистрации и страховке зависят от проживания, работы, учёбы, трансграничного и личного статуса; этот ограниченный набор не определяет индивидуальные права.",
+  }[locale];
+}
+
+function escalationStatement(locale) {
+  return {
+    en: "Use 112 for immediate danger. Otherwise verify the official source or selected gemeente, insurer, or huisarts; seek a qualified professional for individual legal or medical advice.",
+    nl: "Bel 112 bij direct gevaar. Controleer anders de officiële bron of neem contact op met de gekozen gemeente, verzekeraar of huisarts; vraag een bevoegde professional om individueel juridisch of medisch advies.",
+    ru: "При непосредственной опасности звоните 112. В остальных случаях проверьте официальный источник или обратитесь в выбранную gemeente, страховую компанию или к huisarts; за индивидуальным юридическим или медицинским советом обратитесь к квалифицированному специалисту.",
+  }[locale];
+}
+
 function safeUpstreamRequestId(value, fallback) {
   if (
     typeof value === "string" &&
@@ -741,6 +840,8 @@ function publicErrorMessage(code) {
     method_not_allowed: "Only POST requests are accepted.",
     backend_not_configured: "Live AI is not configured on this backend.",
     model_not_allowed: "The configured model is not approved for this endpoint.",
+    knowledge_not_release_eligible:
+      "The governed knowledge release is not approved for live AI.",
     unsupported_media_type: "Content-Type must be application/json.",
     request_too_large: "The request is too large.",
     invalid_json: "The request body is not valid JSON.",
@@ -780,4 +881,5 @@ export const backendContract = Object.freeze({
   maxOutputTokens: MAX_OUTPUT_TOKENS,
   maxUpstreamResponseBytes: UPSTREAM_RESPONSE_LIMIT_BYTES,
   timeoutMilliseconds: OPENAI_TIMEOUT_MS,
+  checkedInKnowledgeRelease: KNOWLEDGE_RELEASE,
 });

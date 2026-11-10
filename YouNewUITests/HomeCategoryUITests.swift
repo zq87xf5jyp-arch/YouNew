@@ -271,10 +271,16 @@ final class HomeCategoryUITests: XCTestCase {
 
     @MainActor
     private func scrollToElement(_ element: XCUIElement, in app: XCUIApplication) {
-        var attempts = 0
-        while !element.isHittable && attempts < 30 {
-            app.swipeUp(velocity: .fast)
-            attempts += 1
+        let scrollView = app.descendants(matching: .any)["screen.home"]
+        XCTAssertTrue(scrollView.waitForExistence(timeout: 4), "Home scroll container is missing")
+        guard scrollView.exists else { return }
+        // Fast full-screen swipes can skip a lazily materialized section and
+        // keep moving toward the bottom. Advance by less than half a viewport.
+        for _ in 0..<30 {
+            if element.exists && element.isHittable { return }
+            let start = scrollView.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.75))
+            let end = scrollView.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.35))
+            start.press(forDuration: 0.05, thenDragTo: end)
         }
     }
 }

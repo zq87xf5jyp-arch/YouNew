@@ -9,10 +9,13 @@ const catalogModule = (await import(new URL("../src/lib/business/catalog.ts", im
 const typesModule = (await import(new URL("../src/lib/business/types.ts", import.meta.url).href)) as typeof import("../src/lib/business/types");
 const sponsoredModule = (await import(new URL("../src/lib/business/sponsored.ts", import.meta.url).href)) as typeof import("../src/lib/business/sponsored");
 const mediaKitSource = await readFile(new URL("../src/app/business/media-kit/page.tsx", import.meta.url), "utf8");
+const applyPageSource = await readFile(new URL("../src/app/business/apply/page.tsx", import.meta.url), "utf8");
 
 const validApplication: BusinessApplicationInput = {
   companyName: "Example Amsterdam BV",
   contactPerson: "Ada Example",
+  contactRole: "Partnership Lead",
+  offerInterest: "not_specified",
   email: "ada@example.nl",
   phone: "+31 20 123 4567",
   website: "https://example.nl",
@@ -114,8 +117,12 @@ test("mailto repository prepares a user-controlled draft and never claims submis
 test("API repository reports success only after a valid server confirmation", async () => {
   let receivedBody = "";
   const repository = applicationModule.createApiPartnerApplicationRepository(
-    "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-business-inquiry",
-    async (_input, init) => {
+    "/api/submit-business-inquiry.php",
+    async (input, init) => {
+      assert.equal(input, "/api/submit-business-inquiry.php");
+      assert.equal(init?.mode, "same-origin");
+      assert.equal(init?.credentials, "omit");
+      assert.equal(init?.redirect, "error");
       receivedBody = String(init?.body ?? "");
       return new Response(JSON.stringify({
         confirmationId: "YNI-A1B2C3D4E5F6",
@@ -132,15 +139,22 @@ test("API repository reports success only after a valid server confirmation", as
   assert.doesNotMatch(receivedBody, /service_role/i);
 });
 
+test("inquiry data cannot be sent to external or altered endpoints", async () => {
+  for (const endpoint of ["https://evil.example/api/submit-business-inquiry.php", "//evil.example/", "/api/submit-business-inquiry.php?redirect=external", "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-business-inquiry"]) {
+    const repository = applicationModule.createApiPartnerApplicationRepository(endpoint, async () => { throw new Error("Unexpected network request"); });
+    await assert.rejects(() => repository.submit(validApplication), /not configured/);
+  }
+});
+
 test("API repository rejects server errors and malformed confirmation payloads", async () => {
   const failing = applicationModule.createApiPartnerApplicationRepository(
-    "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-business-inquiry",
+    "/api/submit-business-inquiry.php",
     async () => new Response(JSON.stringify({ error: "unavailable" }), { status: 503 })
   );
   await assert.rejects(() => failing.submit(validApplication), /could not be saved/);
 
   const malformed = applicationModule.createApiPartnerApplicationRepository(
-    "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-business-inquiry",
+    "/api/submit-business-inquiry.php",
     async () => new Response(JSON.stringify({ confirmationId: "not-a-confirmation" }), { status: 201 })
   );
   await assert.rejects(() => malformed.submit(validApplication), /valid confirmation/);
@@ -180,6 +194,14 @@ test("media kit labels demonstrations and current reporting limits without publi
   assert.match(mediaKitSource, /Request a quote/);
   assert.match(mediaKitSource, /Reasons YouNew may refuse or stop a placement/);
   assert.doesNotMatch(mediaKitSource, /€\s*\d/);
+});
+
+test("business copy describes API-first storage and an honest user-controlled fallback", () => {
+  const copy = `${mediaKitSource}\n${applyPageSource}`;
+  assert.match(copy, /protected inquiry endpoint/);
+  assert.match(copy, /confirmation ID/);
+  assert.match(copy, /email draft/);
+  assert.doesNotMatch(copy, /browser-to-email inquiry|YouNew receives nothing when you fill it in|transparent email handoff/);
 });
 
 test("sponsored placements are globally disabled until real campaigns are configured", () => {

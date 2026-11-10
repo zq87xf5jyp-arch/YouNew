@@ -58,36 +58,81 @@ final class ContentCompletionRuntimeUITests: XCTestCase {
     }
 
     @MainActor
-    func testRequiredContentSurfacesStayCompletedWhileScrolling() throws {
-        let destinations: [(route: String, requiredIdentifiers: [String], scrolls: Int)] = [
-            ("search", ["search.input", "search.intro.card"], 3),
-            ("map", ["map.hub", "places.premiumNetherlandsMap"], 3),
-            ("journeyDocuments", ["documents.screen", "documents.empty.dashboard"], 4),
-            ("government", ["government.screen"], 4),
-            ("healthcare", ["practicalGuide.healthcareBasics"], 4),
-            ("housing", ["practicalGuide.housingBasics"], 4),
-            ("transport", ["practicalGuide.transportBasics"], 4),
-            ("education", ["institutions.screen"], 4),
-            ("businessGrowth", ["business.landing"], 4),
-            ("calendar", ["calendar.screen"], 3),
-            ("settings", ["settings.screen"], 4),
-            ("localPartners", ["localPartners.hero"], 4),
-            ("officialSources", ["officialSources.screen"], 4)
-        ]
+    func testSearchStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "search", requiredIdentifiers: ["search.input", "search.intro.card"], scrolls: 3)
+    }
 
-        for destination in destinations {
-            let app = launchApp(destination: destination.route)
-            try requireAppWindow(in: app)
-            assertAnyRequiredIdentifierExists(destination.requiredIdentifiers, in: app, context: destination.route)
-            assertCompletedVisibleState(in: app, context: "\(destination.route).initial")
+    @MainActor
+    func testMapStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "map", requiredIdentifiers: ["map.hub", "places.premiumNetherlandsMap"], scrolls: 3)
+    }
 
-            for index in 1...destination.scrolls {
-                app.swipeUp()
-                assertCompletedVisibleState(in: app, context: "\(destination.route).scroll\(index)")
-            }
+    @MainActor
+    func testJourneyDocumentsStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "journeyDocuments", requiredIdentifiers: ["documents.screen", "documents.empty.dashboard"], scrolls: 4)
+    }
 
-            app.terminate()
+    @MainActor
+    func testGovernmentStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "government", requiredIdentifiers: ["government.screen"], scrolls: 4)
+    }
+
+    @MainActor
+    func testHealthcareStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "healthcare", requiredIdentifiers: ["practicalGuide.healthcareBasics"], scrolls: 4)
+    }
+
+    @MainActor
+    func testHousingStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "housing", requiredIdentifiers: ["practicalGuide.housingBasics"], scrolls: 4)
+    }
+
+    @MainActor
+    func testTransportStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "transport", requiredIdentifiers: ["practicalGuide.transportBasics"], scrolls: 4)
+    }
+
+    @MainActor
+    func testEducationStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "education", requiredIdentifiers: ["institutions.screen"], scrolls: 4)
+    }
+
+    @MainActor
+    func testBusinessGrowthStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "businessGrowth", requiredIdentifiers: ["business.landing"], scrolls: 4)
+    }
+
+    @MainActor
+    func testCalendarStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "calendar", requiredIdentifiers: ["calendar.screen"], scrolls: 3)
+    }
+
+    @MainActor
+    func testSettingsStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "settings", requiredIdentifiers: ["settings.screen"], scrolls: 4)
+    }
+
+    @MainActor
+    func testLocalPartnersStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "localPartners", requiredIdentifiers: ["localPartners.hero"], scrolls: 4)
+    }
+
+    @MainActor
+    func testOfficialSourcesStaysCompletedWhileScrolling() throws {
+        try assertCompletedWhileScrolling(route: "officialSources", requiredIdentifiers: ["officialSources.screen"], scrolls: 4)
+    }
+
+    @MainActor
+    private func assertCompletedWhileScrolling(route: String, requiredIdentifiers: [String], scrolls: Int) throws {
+        let app = launchApp(destination: route)
+        try requireAppWindow(in: app)
+        assertAnyRequiredIdentifierExists(requiredIdentifiers, in: app, context: route)
+        assertCompletedVisibleState(in: app, context: "\(route).initial")
+        for index in 1...scrolls {
+            app.swipeUp()
+            assertCompletedVisibleState(in: app, context: "\(route).scroll\(index)")
         }
+        app.terminate()
     }
 
     @MainActor
@@ -231,21 +276,31 @@ final class ContentCompletionRuntimeUITests: XCTestCase {
 
     @MainActor
     private func visibleLabels(in app: XCUIApplication) -> [String] {
-        let textCarryingQueries: [XCUIElementQuery] = [
-            app.staticTexts,
-            app.buttons,
-            app.textFields,
-            app.searchFields
-        ]
-
-        return textCarryingQueries.flatMap { query in
-            query.allElementsBoundByIndex.prefix(120).compactMap { element in
-                guard element.exists else { return nil }
-                let frame = element.frame
-                guard !frame.isEmpty, frame.maxX > 0, frame.maxY > 0 else { return nil }
-                let label = element.label.trimmingCharacters(in: .whitespacesAndNewlines)
-                return label.isEmpty ? nil : label
+        // Read one consistent tree per state instead of issuing three remote
+        // accessibility queries for every element. Keep the same element types,
+        // per-type limit, frame filter and label assertions.
+        do {
+            let snapshot = try app.snapshot()
+            var descendants: [XCUIElementSnapshot] = []
+            func collect(_ node: XCUIElementSnapshot) {
+                for child in node.children {
+                    descendants.append(child)
+                    collect(child)
+                }
             }
+            collect(snapshot)
+            let types: [XCUIElement.ElementType] = [.staticText, .button, .textField, .searchField]
+            return types.flatMap { type in
+                descendants.filter { $0.elementType == type }.prefix(120).compactMap { element in
+                    let frame = element.frame
+                    guard !frame.isEmpty, frame.maxX > 0, frame.maxY > 0 else { return nil }
+                    let label = element.label.trimmingCharacters(in: .whitespacesAndNewlines)
+                    return label.isEmpty ? nil : label
+                }
+            }
+        } catch {
+            XCTFail("Unable to capture visible content: \(error)")
+            return []
         }
     }
 

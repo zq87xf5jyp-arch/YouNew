@@ -1,8 +1,9 @@
 import { createHash } from "node:crypto";
 import { readdir, readFile, writeFile } from "node:fs/promises";
 import { join, relative } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const siteRoot = new URL("../", import.meta.url).pathname;
+const siteRoot = fileURLToPath(new URL("../", import.meta.url));
 const serviceWorkerPath = join(siteRoot, "public/sw.js");
 
 async function files(directory) {

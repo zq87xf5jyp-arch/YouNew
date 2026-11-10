@@ -5,6 +5,8 @@ from pathlib import Path
 import hashlib
 import json
 import re
+from public_runtime_contract import validate_public_partition
+from effective_release import effective_release_heads, resolve_release
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,8 +64,14 @@ if admin_manifest.get("sourceSha256") != hashlib.sha256(runtime_text.encode("utf
     failures.append("admin runtime manifest source digest is stale")
 if public_content.get("datasetFingerprint") != runtime.get("datasetFingerprint"):
     failures.append("public website fingerprint differs from the iOS governed runtime")
-if {item["id"] for item in public_content.get("entities", [])} != {item["id"] for item in runtime.get("entities", [])}:
-    failures.append("public website entity IDs differ from the iOS governed runtime")
+failures.extend(validate_public_partition(
+    runtime,
+    public_content,
+    json.loads(read("admin-dashboard/public-site/src/generated/public-freshness-exclusions.json")),
+    json.loads(read("DataProject/quality/phase4-amsterdam-stale-disposition.json")),
+    [record for release in effective_release_heads(ROOT / "DataProject", {"published"})
+     for record in resolve_release(ROOT / "DataProject", release).records],
+))
 if any(token in crud_table for token in ("<Edit", "<Trash2", "<Plus")):
     failures.append("inert CRUD mutation controls are visible")
 if re.search(r"[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}", owner_migration, re.I):

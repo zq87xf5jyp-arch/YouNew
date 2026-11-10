@@ -144,7 +144,7 @@ enum MockChecklistData {
             priority: .medium,
             suggestedTimingByLanguage: [.russian: "Неделя 2", .english: "Week 2", .dutch: "Week 2"],
             officialSourceName: "Government.nl",
-            officialSourceURL: AppURL.make("https://www.government.nl/topics/mobility-public-transport-and-road-safety"),
+            officialSourceURL: AppURL.make("https://www.government.nl/themes/transport"),
             isCompleted: false,
             dueDate: nil,
             relevantProfileTypes: nil

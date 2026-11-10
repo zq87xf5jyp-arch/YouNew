@@ -1,0 +1,57 @@
+{
+  "initialization-result.json": {
+    "status": "SCHEMA_READY",
+    "commit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665",
+    "database": "u246392949_younp1",
+    "migrations": 4,
+    "tables": 16,
+    "seed": false,
+    "at": "2026-11-10T13:37:56.347Z"
+  },
+  "import-results.json": [
+    {
+      "status": "IMPORTED_VERIFIED",
+      "tables": 90,
+      "rows": 1396,
+      "assets": 1,
+      "profiles": 4,
+      "inquiries": 3,
+      "sessionsImported": 0
+    },
+    {
+      "status": "VERIFIED_ALREADY_IMPORTED",
+      "tables": 90,
+      "rows": 1396
+    }
+  ],
+  "backup-restore-result.json": {
+    "status": "PASS",
+    "at": "2026-11-10T13:39:31.581Z",
+    "commit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665",
+    "database": "u246392949_younp1",
+    "directory": "/home/u246392949/domains/younew.nl/younew-private/launch-backups/production-db-prelaunch-2026-11-10T13-39-28-735Z",
+    "dump": {
+      "file": "database.sql",
+      "bytes": 2443226,
+      "sha256": "cadf5eb63c3350444f2c24ae948b05bafe601d648b74299195b9ddc9eda12ad1"
+    },
+    "restoredTables": 16,
+    "restoredRows": 1500,
+    "definitionsMatch": true,
+    "restoredRowsMatch": true,
+    "preservedRowsMatch": true,
+    "originalTablesDeleted": false,
+    "legacyArchiveVerified": true,
+    "profilesPreserved": 4,
+    "inquiriesPreserved": 3,
+    "assetsPreserved": 1,
+    "sessionsImported": 0,
+    "scope": "disconnected prelaunch database only"
+  },
+  "localBackupCopies": {
+    "originalExportSha256": "b51073a770006b4df9e7f880451edceb464971a00a79b85394ab98f1394055cb",
+    "productionSqlSha256": "cadf5eb63c3350444f2c24ae948b05bafe601d648b74299195b9ddc9eda12ad1",
+    "ownerOnly": true,
+    "directory": "/Users/ivan/YouNew-Launch-Evidence-2026-11-10/private-backups"
+  }
+}

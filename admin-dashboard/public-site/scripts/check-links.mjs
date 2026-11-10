@@ -1,8 +1,9 @@
 import assert from "node:assert/strict";
-import { access, readdir, readFile } from "node:fs/promises";
+import { stat, readdir, readFile } from "node:fs/promises";
 import { extname, join, relative, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 
-const root = resolve(process.env.YOUNEW_STATIC_ROOT ?? new URL("../out/", import.meta.url).pathname);
+const root = resolve(process.env.YOUNEW_STATIC_ROOT ?? fileURLToPath(new URL("../out/", import.meta.url)));
 const rootPrefix = `${root}/`;
 const canonicalOrigin = "https://younew.nl";
 
@@ -24,8 +25,7 @@ async function existingTarget(pathname) {
     try {
       const absolute = resolve(root, candidate);
       if (absolute !== root && !absolute.startsWith(rootPrefix)) return null;
-      await access(absolute);
-      return absolute;
+      if ((await stat(absolute)).isFile()) return absolute;
     } catch { /* continue */ }
   }
   return null;

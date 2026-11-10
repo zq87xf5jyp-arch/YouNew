@@ -25,48 +25,17 @@ struct UniversalLinkRouterTests {
         #expect(UniversalLinkRouter.route(for: URL(string: "https://younew.nl/emergency/")!)?.destination != nil)
     }
 
-    @Test func resolvesPublishedContentSlugsToExactNativeDetails() throws {
-        let guideID = try #require(
-            ContentRepository.shared.item(id: "government_service.first-registration-in-amsterdam")?.id
-        )
-        let placeID = try #require(ContentRepository.shared.item(id: "place.adam-lookout")?.id)
-        let organizationID = try #require(ContentRepository.shared.item(id: "healthcare.acta")?.id)
-        let guide = UniversalLinkRouter.route(
-            for: URL(string: "https://younew.nl/guides/first-registration-in-amsterdam/")!
-        )
-        #expect(guide?.tab == .guide)
-        #expect(
-            guide?.destination == .guideArticle(
-                sectionID: GuideContent.dataProjectSectionID,
-                articleID: guideID
-            )
-        )
-
-        let place = UniversalLinkRouter.route(
-            for: URL(string: "https://younew.nl/places/adam-lookout/")!
-        )
-        #expect(place?.tab == .map)
-        #expect(
-            place?.destination == .guideArticle(
-                sectionID: GuideContent.dataProjectSectionID,
-                articleID: placeID
-            )
-        )
-
-        let organization = UniversalLinkRouter.route(
-            for: URL(string: "https://younew.nl/organizations/acta/")!
-        )
-        #expect(organization?.tab == .guide)
-        #expect(
-            organization?.destination == .guideArticle(
-                sectionID: GuideContent.dataProjectSectionID,
-                articleID: organizationID
-            )
-        )
-
-        for route in [guide, place, organization] {
-            let destination = try #require(route?.destination)
-            #expect(RelatedContentEngine.isVisible(destination, for: .worker))
+    @Test func withdrawnContentSlugsCannotOpenNativeDetails() {
+        let runtime = DataProjectRuntimeLoader.load()
+        let examples = [
+            ("government_service.first-registration-in-amsterdam", "guides/first-registration-in-amsterdam"),
+            ("place.adam-lookout", "places/adam-lookout"),
+            ("healthcare.acta", "organizations/acta")
+        ]
+        for (id, path) in examples {
+            #expect(runtime.withheldEntityIDs.contains(id))
+            #expect(ContentRepository.shared.item(id: id) == nil)
+            #expect(UniversalLinkRouter.route(for: URL(string: "https://younew.nl/\(path)/")!)?.destination == nil)
         }
     }
 

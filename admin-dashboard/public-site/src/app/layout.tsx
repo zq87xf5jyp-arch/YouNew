@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import Script from "next/script";
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { MotionEnhancer } from "@/components/motion-enhancer";
 import { AnalyticsConsent } from "@/components/analytics-consent";
 import { ServiceWorkerRegister } from "@/components/service-worker-register";
@@ -7,8 +8,12 @@ import { StatusBanner } from "@/components/status-banner";
 import { serializeJsonLd } from "@/lib/seo/json-ld";
 import "./globals.css";
 import "./theme.css";
+import "./discovery.css";
 
 const description = "Find housing, work, documents, healthcare, schools and trusted services in the Netherlands—with clear next steps and official sources.";
+const googleSiteVerification = process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION?.trim();
+// Apply the saved theme before first paint, without a framework-dependent request.
+const themeInitialization = readFileSync(join(process.cwd(), "public/theme-init.js"), "utf8");
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://younew.nl"),
@@ -33,7 +38,8 @@ export const metadata: Metadata = {
     "refugee guide Netherlands",
     "international student Netherlands"
   ],
-  alternates: { canonical: "https://younew.nl/", languages: { "en": "https://younew.nl/", "x-default": "https://younew.nl/" } },
+  alternates: { canonical: "https://younew.nl/", languages: { "en": "https://younew.nl/", "nl": "https://younew.nl/nl/", "x-default": "https://younew.nl/" } },
+  verification: googleSiteVerification ? { google: googleSiteVerification } : undefined,
   openGraph: {
     title: "YouNew — Your guide to life in the Netherlands",
     description,
@@ -67,7 +73,7 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  themeColor: "#050c1b"
+  themeColor: "#ffffff"
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
@@ -81,9 +87,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     ]
   };
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" data-theme="light" suppressHydrationWarning>
+      <head><script dangerouslySetInnerHTML={{ __html: themeInitialization }} /></head>
       <body>
-        <Script src="/theme-init.js" strategy="beforeInteractive" />
         {children}
         <AnalyticsConsent />
         <StatusBanner />

@@ -81,27 +81,39 @@ struct PublishedCitiesDataReleaseTests {
         #expect(unsafeResult.entities.isEmpty)
     }
 
-    @Test func publishedPlaceRoutesToItsCanonicalGuideDetail() throws {
-        let museum = try #require(
-            NetherlandsKnowledgeDatabase.shared.entity(id: "museum.rijksmuseum")
-        )
+    @Test func withheldPlacesDoNotReappearFromLegacyFallback() throws {
+        let runtime = DataProjectRuntimeLoader.load()
+        #expect(runtime.withheldEntityIDs.contains("museum.rijksmuseum"))
+        for id in runtime.withheldEntityIDs {
+            #expect(NetherlandsKnowledgeDatabase.shared.entity(id: id) == nil)
+            #expect(KnowledgeIndex.shared.itemsByID[id] == nil)
+        }
+        for (legacyID, migration) in runtime.migrationRegistry where runtime.withheldEntityIDs.contains(migration.canonicalID) {
+            #expect(NetherlandsKnowledgeDatabase.shared.entity(id: legacyID) == nil)
+            #expect(KnowledgeIndex.shared.itemsByID[legacyID] == nil)
+        }
+    }
 
-        #expect(
-            museum.route == .guideArticle(
-                sectionID: GuideContent.dataProjectSectionID,
-                articleID: museum.id
-            )
-        )
-        #expect(ContentRepository.shared.destination(id: museum.id) == museum.route)
-        let routeID = try #require(AppNavigationResolver.routeID(from: museum.route))
-        #expect(routeID == "article:data-project:museum.rijksmuseum")
-        #expect(AppNavigationResolver.destination(for: routeID) == museum.route)
-        #expect(
-            RelatedContentEngine.isVisible(
-                try #require(museum.route),
-                for: .tourist
-            )
-        )
+    @Test func explicitWithdrawalOverridesPublishedFlag() throws {
+        let fixture = try runtimeData(governance: nil)
+        var payload = try #require(JSONSerialization.jsonObject(with: fixture) as? [String: Any])
+        payload["withheldEntityIDs"] = ["government.fixture-governed"]
+        let result = DataProjectRuntimeLoader.load(data: try JSONSerialization.data(withJSONObject: payload))
+        #expect(result.entities.isEmpty)
+        #expect(result.withheldEntityIDs.contains("government.fixture-governed"))
+    }
+
+    @Test func publishedSyntheticPlaceRetainsCanonicalGuideRoute() throws {
+        let fixture = try runtimeData(governance: nil)
+        var payload = try #require(JSONSerialization.jsonObject(with: fixture) as? [String: Any])
+        var entities = try #require(payload["entities"] as? [[String: Any]])
+        entities[0]["id"] = "museum.synthetic-route"
+        entities[0]["kind"] = "museum"
+        payload["entities"] = entities
+        let result = DataProjectRuntimeLoader.load(data: try JSONSerialization.data(withJSONObject: payload))
+        let museum = try #require(result.entities.first)
+        #expect(museum.route == .guideArticle(sectionID: GuideContent.dataProjectSectionID, articleID: museum.id))
+        #expect(AppNavigationResolver.routeID(from: museum.route) == "article:data-project:museum.synthetic-route")
     }
 
     private func runtimeData(governance: [String: Any]?) throws -> Data {

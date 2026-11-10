@@ -20,6 +20,7 @@ export function SiteHeaderEnhancements() {
   const pathname = usePathname();
 
   useEffect(() => {
+    document.documentElement.lang = pathname === "/nl" || pathname.startsWith("/nl/") ? "nl" : "en";
     const header = document.querySelector<HTMLElement>("[data-site-header]");
     if (!header) return;
 
@@ -72,6 +73,10 @@ export function SiteHeaderEnhancements() {
       if ((event.target as Element).closest("a[href]")) closeMenu();
     };
 
+    const handleOutsidePointer = (event: PointerEvent) => {
+      if (event.target instanceof Node && !mobileMenu?.contains(event.target)) closeMenu();
+    };
+
     const handleViewportChange = (event: MediaQueryListEvent) => {
       if (event.matches) closeMenu();
     };
@@ -80,6 +85,7 @@ export function SiteHeaderEnhancements() {
     mobileMenu?.addEventListener("toggle", handleMenuToggle);
     mobileMenu?.addEventListener("keydown", handleMenuKeyDown);
     mobileMenu?.addEventListener("click", handleMenuClick);
+    document.addEventListener("pointerdown", handleOutsidePointer);
     desktopMediaQuery.addEventListener("change", handleViewportChange);
     window.addEventListener("scroll", scheduleScrollState, { passive: true });
 
@@ -88,6 +94,7 @@ export function SiteHeaderEnhancements() {
       mobileMenu?.removeEventListener("toggle", handleMenuToggle);
       mobileMenu?.removeEventListener("keydown", handleMenuKeyDown);
       mobileMenu?.removeEventListener("click", handleMenuClick);
+      document.removeEventListener("pointerdown", handleOutsidePointer);
       desktopMediaQuery.removeEventListener("change", handleViewportChange);
       window.removeEventListener("scroll", scheduleScrollState);
     };

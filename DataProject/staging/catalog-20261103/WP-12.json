@@ -1,0 +1,182 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-12-catalog-20261103",
+  "work_package": "WP-12",
+  "milestone": "WP-12-CATALOG-20261103",
+  "target_release": "catalog-20261103-draft",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "qa_evidence": {
+    "checked_at": null,
+    "build": null,
+    "static": null,
+    "duplicate": null,
+    "source": null,
+    "media": null,
+    "search": null,
+    "ai": null
+  },
+  "records": [
+    {
+      "id": "nature.rotterdam-trompenburg",
+      "entity_type": "nature",
+      "category": "botanical-garden",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Trompenburg Tuinen & Arboretum",
+      "description": "A botanical garden in Rotterdam’s Kralingen district, with collections of trees and other plants, connected gardens and walking paths. Check the garden’s own visitor information before travelling.",
+      "images": [],
+      "official_source": {
+        "title": "Trompenburg Tuinen & Arboretum — visitor information",
+        "publisher": "Trompenburg Tuinen & Arboretum",
+        "url": "https://trompenburg.nl/plan-your-visit/",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://trompenburg.nl/",
+      "related_entity_ids": [
+        "city.rotterdam"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A botanical garden in Rotterdam’s Kralingen district, with collections of trees and other plants, connected gardens and walking paths. Check the garden’s own visitor information before travelling.",
+      "search_keywords": [
+        "Trompenburg Tuinen & Arboretum",
+        "rotterdam",
+        "botanical-garden",
+        "nature",
+        "Honingerdijk 86, 3062 NX Rotterdam"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Honingerdijk 86, 3062 NX Rotterdam",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "price_note": "Standard adult admission EUR 12.50 as listed on 2026-11-03; concessions on the official page.",
+        "accessibility_note": "The garden describes itself as wheelchair friendly.",
+        "review_note": "Published seasonal hours include dated closure exceptions. Reconfirm the visit date; do not infer 2026 holiday opening from 2025 dates.",
+        "contact_phone": "+31 10 2330166",
+        "address_source_url": "https://trompenburg.nl/plan-your-visit/",
+        "address_checked_at": "2026-11-03",
+        "contact_phone_source_url": "https://trompenburg.nl/plan-your-visit/",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://trompenburg.nl/plan-your-visit/",
+        "website_checked_at": "2026-11-03"
+      }
+    },
+    {
+      "id": "nature.utrecht-oog-in-al",
+      "entity_type": "nature",
+      "category": "city-park",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": {
+        "latitude": 52.086849,
+        "longitude": 5.09231
+      },
+      "title": "Park Oog in Al",
+      "description": "A public park laid out on a former estate in western Utrecht. Walking paths, an animal enclosure and play areas make it a useful outdoor stop for both residents and visitors.",
+      "images": [],
+      "official_source": {
+        "title": "Park Oog in Al — visitor information",
+        "publisher": "Utrecht & Partners",
+        "url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+      "related_entity_ids": [
+        "city.utrecht"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A public park laid out on a former estate in western Utrecht. Walking paths, an animal enclosure and play areas make it a useful outdoor stop for both residents and visitors.",
+      "search_keywords": [
+        "Park Oog in Al",
+        "utrecht",
+        "city-park",
+        "nature",
+        "Park Oog in Al, 3533 HE Utrecht"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Park Oog in Al, 3533 HE Utrecht",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "address_note": "The tourism source uses house number 0 for the park; no building or numbered entrance is asserted.",
+        "coordinate_source": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+        "coordinate_method": "Official tourism page LocalBusiness.geo JSON-LD and map query agree. Point represents the park, not a promised accessible entrance.",
+        "address_source_url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+        "address_checked_at": "2026-11-03",
+        "website_source_url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+        "website_checked_at": "2026-11-03",
+        "coordinates_checked_at": "2026-11-03"
+      }
+    },
+    {
+      "id": "nature.den-haag-westbroekpark",
+      "entity_type": "nature",
+      "category": "city-park",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Westbroekpark",
+      "description": "A park in Scheveningen with lawns, ponds and a rose garden. The main entrance is on Kapelweg; the Rosarium has seasonal opening hours separate from access to the wider park.",
+      "images": [],
+      "official_source": {
+        "title": "Westbroekpark — visitor information",
+        "publisher": "The Hague & Partners",
+        "url": "https://denhaag.com/en/westbroekpark",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://denhaag.com/en/westbroekpark",
+      "related_entity_ids": [
+        "city.den-haag"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A park in Scheveningen with lawns, ponds and a rose garden. The main entrance is on Kapelweg; the Rosarium has seasonal opening hours separate from access to the wider park.",
+      "search_keywords": [
+        "Westbroekpark",
+        "den-haag",
+        "city-park",
+        "nature",
+        "Kapelweg, 2587 BK Den Haag"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Kapelweg, 2587 BK Den Haag",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "opening_hours": "Rosarium only: 1 October–1 April 07:45–16:15; 1 April–1 October 07:45–22:00. Wider park access differs; see source.",
+        "address_source_url": "https://evenementen.denhaag.nl/locatie/westbroekpark/",
+        "address_note": "Municipal venue listing: Kapelweg 35B; tourism listing: Kapelweg 35. Street and postcode agree; the house number and exact entrance point are not asserted.",
+        "address_checked_at": "2026-11-03",
+        "website_source_url": "https://denhaag.com/en/westbroekpark",
+        "website_checked_at": "2026-11-03"
+      }
+    }
+  ]
+}

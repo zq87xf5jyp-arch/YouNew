@@ -1,4 +1,8 @@
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
+import {
+  normalizeAnalyticsEvents,
+  readBoundedJsonBody,
+} from "./geo-event-normalization.ts";
 
 const allowedOrigins = new Set([
   "https://younew.nl",
@@ -108,7 +112,7 @@ async function ingest(events: unknown) {
   }
 
   const response = await fetch(
-    `${projectURL}/rest/v1/rpc/ingest_analytics_batch_v2`,
+    `${projectURL}/rest/v1/rpc/ingest_analytics_batch`,
     {
       method: "POST",
       headers: {
@@ -163,6 +167,10 @@ Deno.serve(async (request: Request) => {
     });
   }
 
+  if (request.method === "POST" && !origin) {
+    return jsonResponse({ error: "origin_required" }, { status: 403 });
+  }
+
   if (!await hasValidPublishableKey(request)) {
     return jsonResponse(
       { error: "invalid_application_key" },
@@ -202,7 +210,22 @@ Deno.serve(async (request: Request) => {
     );
   }
 
-  const payload = await request.json().catch(() => null);
+  const decodedBody = await readBoundedJsonBody(request, maximumPayloadBytes);
+  if (!decodedBody.ok) {
+    return jsonResponse(
+      {
+        error: decodedBody.reason === "payload_too_large"
+          ? "payload_too_large"
+          : "invalid_event_batch",
+      },
+      {
+        status: decodedBody.reason === "payload_too_large" ? 413 : 400,
+        origin,
+      },
+    );
+  }
+
+  const payload = decodedBody.value;
   if (
     !payload ||
     typeof payload !== "object" ||
@@ -214,7 +237,11 @@ Deno.serve(async (request: Request) => {
     );
   }
 
-  const result = await ingest((payload as { events: unknown[] }).events);
+  const events = normalizeAnalyticsEvents(
+    (payload as { events: unknown[] }).events,
+    { origin, occurredAt: new Date().toISOString() },
+  );
+  const result = await ingest(events);
   if (!result.ok) {
     const retryHeaders: Record<string, string> = result.status === 429
       ? { "Retry-After": "60" }

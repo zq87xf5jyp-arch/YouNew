@@ -6,7 +6,9 @@ import {
   canEditContent,
   canManageBusinessInquiries,
   canManageGovernancePolicy,
+  canApproveTrustPublication,
   canPublishContent,
+  canRequestSync,
   canVerifyContent,
   canWorkReviewQueue
 } from "../src/lib/authorization.ts";
@@ -14,11 +16,15 @@ import {
 test("only owners and admins may publish or manage business inquiries", () => {
   for (const role of ["owner", "admin"] as const) {
     assert.equal(canPublishContent(role), true);
+    assert.equal(canApproveTrustPublication(role), true);
+    assert.equal(canRequestSync(role), true);
     assert.equal(canManageBusinessInquiries(role), true);
     assert.equal(canAccessPath(role, "/business-inquiries/example"), true);
   }
   for (const role of ["editor", "qa", "viewer"] as const) {
     assert.equal(canPublishContent(role), false);
+    assert.equal(canApproveTrustPublication(role), false);
+    assert.equal(canRequestSync(role), false);
     assert.equal(canManageBusinessInquiries(role), false);
     assert.equal(canAccessPath(role, "/business-inquiries/example"), false);
   }

@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "policy": "explicit_source_bound_legacy_review_disposition",
+  "checked_at": "2026-10-24T09:30:00Z",
+  "reviewer": "OpenAI Codex assisted source review",
+  "human_review_credit": false,
+  "independent_review_credit": false,
+  "records": [
+    {
+      "id": "city.amsterdam",
+      "release_id": "cities-v0.1.0",
+      "record_status": "legacy_not_confirmed",
+      "indexing_strategy": "noindex",
+      "exact_source_url": "https://www.amsterdam.nl/en/civil-affairs/correct-registration/",
+      "confirmed_claims": ["municipality identity", "BRP registration route", "address-change route"],
+      "governance": {
+        "id": "city.amsterdam", "title": "Amsterdam", "contentType": "city",
+        "jurisdiction": {"countryCode": "NL", "level": "municipal", "municipalityDependent": true, "applicabilityVerified": true, "provinceCode": "NH", "provinceName": "Noord-Holland", "municipalityCode": "GM0363", "municipalityName": "Amsterdam"},
+        "officialSourceURL": "https://www.amsterdam.nl/en/civil-affairs/correct-registration/", "sourceTitle": "Correct registration with the City", "sourcePublisher": "City of Amsterdam",
+        "lastVerifiedAt": "2026-10-24T09:30:00Z", "nextReviewAt": "2027-01-22T09:30:00Z", "reviewIntervalDays": 90,
+        "contentOwner": "YouNew Content Operations", "reviewedBy": null, "verificationStatus": "unverified", "confidenceLevel": "medium",
+        "validityStart": null, "validityEnd": null, "changeNotes": "Official municipal source and the page-specific public claims were rechecked. No human-review or independent-review credit is claimed.",
+        "version": 1, "updatedAt": "2026-10-24T09:30:00Z", "publicationStatus": "published", "reviewState": "needs_review", "criticality": "standard",
+        "contentOrigin": "municipality_release", "originReference": "DataProject/quality/phase6-1-public-record-confirmations.json", "originCapturedAt": "2026-10-24T09:30:00Z", "originArtifactDigest": null,
+        "confidenceScore": 65, "confidenceScoreVersion": 1, "confidenceBreakdown": {"officialSource": 40, "humanReviewer": 0, "independentReview": 0, "freshness": 10, "jurisdictionApplicability": 15}
+      }
+    },
+    {
+      "id": "city.den-haag",
+      "release_id": "cities-v0.1.0",
+      "record_status": "legacy_not_confirmed",
+      "indexing_strategy": "noindex",
+      "exact_source_url": "https://www.denhaag.nl/en/moving-and-immigration/",
+      "confirmed_claims": ["municipality identity", "moving and immigration service route", "BRP and RNI routes"],
+      "governance": {
+        "id": "city.den-haag", "title": "Den Haag", "contentType": "city",
+        "jurisdiction": {"countryCode": "NL", "level": "municipal", "municipalityDependent": true, "applicabilityVerified": true, "provinceCode": "ZH", "provinceName": "Zuid-Holland", "municipalityCode": "GM0518", "municipalityName": "Den Haag"},
+        "officialSourceURL": "https://www.denhaag.nl/en/moving-and-immigration/", "sourceTitle": "Moving and immigration", "sourcePublisher": "Municipality of The Hague",
+        "lastVerifiedAt": "2026-10-24T09:30:00Z", "nextReviewAt": "2027-01-22T09:30:00Z", "reviewIntervalDays": 90,
+        "contentOwner": "YouNew Content Operations", "reviewedBy": null, "verificationStatus": "unverified", "confidenceLevel": "medium",
+        "validityStart": null, "validityEnd": null, "changeNotes": "Official municipal source and the page-specific public claims were rechecked. No human-review or independent-review credit is claimed.",
+        "version": 1, "updatedAt": "2026-10-24T09:30:00Z", "publicationStatus": "published", "reviewState": "needs_review", "criticality": "standard",
+        "contentOrigin": "municipality_release", "originReference": "DataProject/quality/phase6-1-public-record-confirmations.json", "originCapturedAt": "2026-10-24T09:30:00Z", "originArtifactDigest": null,
+        "confidenceScore": 65, "confidenceScoreVersion": 1, "confidenceBreakdown": {"officialSource": 40, "humanReviewer": 0, "independentReview": 0, "freshness": 10, "jurisdictionApplicability": 15}
+      }
+    },
+    {
+      "id": "city.eindhoven",
+      "release_id": "cities-v0.1.0",
+      "record_status": "legacy_not_confirmed",
+      "indexing_strategy": "noindex",
+      "exact_source_url": "https://english.eindhoven.nl/en/list-of-municipal-products/moving-house",
+      "confirmed_claims": ["municipality identity", "moving-house service route", "domestic and international move routes"],
+      "governance": {
+        "id": "city.eindhoven", "title": "Eindhoven", "contentType": "city",
+        "jurisdiction": {"countryCode": "NL", "level": "municipal", "municipalityDependent": true, "applicabilityVerified": true, "provinceCode": "NB", "provinceName": "Noord-Brabant", "municipalityCode": "GM0772", "municipalityName": "Eindhoven"},
+        "officialSourceURL": "https://english.eindhoven.nl/en/list-of-municipal-products/moving-house", "sourceTitle": "Moving house", "sourcePublisher": "Gemeente Eindhoven",
+        "lastVerifiedAt": "2026-10-24T09:30:00Z", "nextReviewAt": "2027-01-22T09:30:00Z", "reviewIntervalDays": 90,
+        "contentOwner": "YouNew Content Operations", "reviewedBy": null, "verificationStatus": "unverified", "confidenceLevel": "medium",
+        "validityStart": null, "validityEnd": null, "changeNotes": "Official municipal source and the page-specific public claims were rechecked. No human-review or independent-review credit is claimed.",
+        "version": 1, "updatedAt": "2026-10-24T09:30:00Z", "publicationStatus": "published", "reviewState": "needs_review", "criticality": "standard",
+        "contentOrigin": "municipality_release", "originReference": "DataProject/quality/phase6-1-public-record-confirmations.json", "originCapturedAt": "2026-10-24T09:30:00Z", "originArtifactDigest": null,
+        "confidenceScore": 65, "confidenceScoreVersion": 1, "confidenceBreakdown": {"officialSource": 40, "humanReviewer": 0, "independentReview": 0, "freshness": 10, "jurisdictionApplicability": 15}
+      }
+    },
+    {
+      "id": "city.rotterdam",
+      "release_id": "cities-v0.1.0",
+      "record_status": "legacy_not_confirmed",
+      "indexing_strategy": "noindex",
+      "exact_source_url": "https://www.rotterdam.nl/basisregistratie-personen",
+      "confirmed_claims": ["municipality identity", "BRP service route", "resident registration scope"],
+      "governance": {
+        "id": "city.rotterdam", "title": "Rotterdam", "contentType": "city",
+        "jurisdiction": {"countryCode": "NL", "level": "municipal", "municipalityDependent": true, "applicabilityVerified": true, "provinceCode": "ZH", "provinceName": "Zuid-Holland", "municipalityCode": "GM0599", "municipalityName": "Rotterdam"},
+        "officialSourceURL": "https://www.rotterdam.nl/basisregistratie-personen", "sourceTitle": "Basisregistratie personen", "sourcePublisher": "Municipality of Rotterdam",
+        "lastVerifiedAt": "2026-10-24T09:30:00Z", "nextReviewAt": "2027-01-22T09:30:00Z", "reviewIntervalDays": 90,
+        "contentOwner": "YouNew Content Operations", "reviewedBy": null, "verificationStatus": "unverified", "confidenceLevel": "medium",
+        "validityStart": null, "validityEnd": null, "changeNotes": "Official municipal source and the page-specific public claims were rechecked. No human-review or independent-review credit is claimed.",
+        "version": 1, "updatedAt": "2026-10-24T09:30:00Z", "publicationStatus": "published", "reviewState": "needs_review", "criticality": "standard",
+        "contentOrigin": "municipality_release", "originReference": "DataProject/quality/phase6-1-public-record-confirmations.json", "originCapturedAt": "2026-10-24T09:30:00Z", "originArtifactDigest": null,
+        "confidenceScore": 65, "confidenceScoreVersion": 1, "confidenceBreakdown": {"officialSource": 40, "humanReviewer": 0, "independentReview": 0, "freshness": 10, "jurisdictionApplicability": 15}
+      }
+    },
+    {
+      "id": "city.utrecht",
+      "release_id": "cities-v0.1.0",
+      "record_status": "legacy_not_confirmed",
+      "indexing_strategy": "noindex",
+      "exact_source_url": "https://www.utrecht.nl/city-of-utrecht/registration",
+      "confirmed_claims": ["municipality identity", "registration service route", "BRP and RNI stay-duration distinction"],
+      "governance": {
+        "id": "city.utrecht", "title": "Utrecht", "contentType": "city",
+        "jurisdiction": {"countryCode": "NL", "level": "municipal", "municipalityDependent": true, "applicabilityVerified": true, "provinceCode": "UT", "provinceName": "Utrecht", "municipalityCode": "GM0344", "municipalityName": "Utrecht"},
+        "officialSourceURL": "https://www.utrecht.nl/city-of-utrecht/registration", "sourceTitle": "Registration", "sourcePublisher": "Municipality of Utrecht",
+        "lastVerifiedAt": "2026-10-24T09:30:00Z", "nextReviewAt": "2027-01-22T09:30:00Z", "reviewIntervalDays": 90,
+        "contentOwner": "YouNew Content Operations", "reviewedBy": null, "verificationStatus": "unverified", "confidenceLevel": "medium",
+        "validityStart": null, "validityEnd": null, "changeNotes": "Official municipal source and the page-specific public claims were rechecked. No human-review or independent-review credit is claimed.",
+        "version": 1, "updatedAt": "2026-10-24T09:30:00Z", "publicationStatus": "published", "reviewState": "needs_review", "criticality": "standard",
+        "contentOrigin": "municipality_release", "originReference": "DataProject/quality/phase6-1-public-record-confirmations.json", "originCapturedAt": "2026-10-24T09:30:00Z", "originArtifactDigest": null,
+        "confidenceScore": 65, "confidenceScoreVersion": 1, "confidenceBreakdown": {"officialSource": 40, "humanReviewer": 0, "independentReview": 0, "freshness": 10, "jurisdictionApplicability": 15}
+      }
+    },
+    {
+      "id": "place.begijnhof-amsterdam",
+      "release_id": "amsterdam-v0.1.8",
+      "record_status": "legacy_not_confirmed",
+      "indexing_strategy": "noindex",
+      "exact_source_url": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/",
+      "confirmed_claims": ["place identity", "Amsterdam location", "historic courtyard context"],
+      "governance": {
+        "id": "place.begijnhof-amsterdam", "title": "Begijnhof Amsterdam", "contentType": "place",
+        "jurisdiction": {"countryCode": "NL", "level": "municipal", "municipalityDependent": true, "applicabilityVerified": true, "provinceCode": "NH", "provinceName": "Noord-Holland", "municipalityCode": "GM0363", "municipalityName": "Amsterdam"},
+        "officialSourceURL": "https://www.amsterdam.nl/nieuws/achtergrond/begijnhof/", "sourceTitle": "Begijnhof | Gemeente Amsterdam", "sourcePublisher": "Gemeente Amsterdam",
+        "lastVerifiedAt": "2026-10-24T09:30:00Z", "nextReviewAt": "2027-01-22T09:30:00Z", "reviewIntervalDays": 90,
+        "contentOwner": "YouNew Content Operations", "reviewedBy": null, "verificationStatus": "unverified", "confidenceLevel": "medium",
+        "validityStart": null, "validityEnd": null, "changeNotes": "Official municipal source and the page-specific public claims were rechecked. No human-review or independent-review credit is claimed.",
+        "version": 1, "updatedAt": "2026-10-24T09:30:00Z", "publicationStatus": "published", "reviewState": "needs_review", "criticality": "standard",
+        "contentOrigin": "government_publication", "originReference": "DataProject/quality/phase6-1-public-record-confirmations.json", "originCapturedAt": "2026-10-24T09:30:00Z", "originArtifactDigest": null,
+        "confidenceScore": 65, "confidenceScoreVersion": 1, "confidenceBreakdown": {"officialSource": 40, "humanReviewer": 0, "independentReview": 0, "freshness": 10, "jurisdictionApplicability": 15}
+      }
+    }
+  ]
+}

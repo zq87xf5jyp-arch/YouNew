@@ -1,0 +1,33 @@
+{
+  "consentToPrivacy": true,
+  "confirmAccuracy": true,
+  "email": "synthetic@example.invalid",
+  "companyName": "Synthetic R4 QA",
+  "contactPerson": "Synthetic Contact",
+  "phone": "",
+  "website": "https://example.invalid",
+  "city": "Amsterdam",
+  "province": "Noord-Holland",
+  "campaignGoal": "Synthetic reliability test only",
+  "description": "Synthetic application for isolated R4 acceptance only; no real organization or notification.",
+  "inquiryType": "partnership",
+  "organizationType": "non-profit",
+  "offerInterest": "not_specified",
+  "contactRole": "",
+  "kvkNumber": "",
+  "targetAudience": [
+    "resident"
+  ],
+  "requestedPlacements": [
+    "content-partnership"
+  ],
+  "budgetRange": "request-discussion",
+  "campaignStart": "",
+  "campaignEnd": "",
+  "sourcePage": "/business/apply/",
+  "utmSource": "",
+  "utmMedium": "",
+  "utmCampaign": "",
+  "utmContent": "",
+  "utmTerm": ""
+}

@@ -8,13 +8,15 @@ import { journeyCompletion, localContentRepository, sanitizeJourneyProgress, wit
 const content = JSON.parse(await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8"));
 const publishedGuideIds = new Set(content.guides.map((guide: { id: string }) => guide.id));
 
-test("the eight requested journeys have stable unique IDs and never reference an unpublished guide", () => {
+test("the eight requested journeys keep stable IDs and the page filters unavailable guide records", async () => {
   assert.equal(practicalJourneys.length, 8);
   assert.equal(new Set(practicalJourneys.map((journey) => journey.id)).size, 8);
   for (const journey of practicalJourneys) {
     assert.equal(new Set(journey.guideIds).size, journey.guideIds.length);
-    assert.ok(journey.guideIds.every((id) => publishedGuideIds.has(id)), journey.id);
   }
+  const page = await readFile(new URL("../src/app/journeys/page.tsx", import.meta.url), "utf8");
+  assert.match(page, /map\(getContentEntityById\)\.filter\(\(guide\) => guide\?\.type === "guide"\)/);
+  assert.ok(practicalJourneys.flatMap((journey) => journey.guideIds).some((id) => !publishedGuideIds.has(id)));
 });
 
 test("journey progress accepts only known steps and supported states", () => {

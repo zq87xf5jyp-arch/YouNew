@@ -57,9 +57,20 @@ export type BudgetRangeId = (typeof budgetRangeIds)[number];
 export const inquiryTypeIds = ["advertising", "partnership", "media", "public-interest", "other"] as const;
 export type InquiryTypeId = (typeof inquiryTypeIds)[number];
 
+export const offerInterestIds = [
+  "not_specified",
+  "onboarding_pilot",
+  "founding_partner_page",
+  "sponsored_practical_guide",
+  "other"
+] as const;
+export type OfferInterestId = (typeof offerInterestIds)[number];
+
 export interface BusinessApplicationInput {
   readonly companyName: string;
   readonly contactPerson: string;
+  readonly contactRole: string;
+  readonly offerInterest: OfferInterestId;
   readonly email: string;
   readonly phone: string;
   readonly website: string;

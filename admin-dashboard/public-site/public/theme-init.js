@@ -8,9 +8,7 @@
   }
   var theme = stored === "light" || stored === "dark"
     ? stored
-    : window.matchMedia("(prefers-color-scheme: light)").matches
-      ? "light"
-      : "dark";
+    : "light";
   document.documentElement.dataset.theme = theme;
   document.documentElement.style.colorScheme = theme;
 }());

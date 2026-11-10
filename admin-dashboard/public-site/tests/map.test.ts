@@ -39,7 +39,7 @@ const mapItems: MapFixture[] = content.entities
     verifiedAt: entity.verifiedAt
   }));
 
-function fixture(id: string, latitude: number, longitude: number): MapFixture {
+function fixture(id: string, latitude: number, longitude: number, overrides: Partial<MapFixture> = {}): MapFixture {
   return {
     id,
     title: id,
@@ -49,7 +49,8 @@ function fixture(id: string, latitude: number, longitude: number): MapFixture {
     provinceId: "noord-holland",
     categorySlugs: ["transport"],
     coordinate: { latitude, longitude },
-    verifiedAt: "2026-07-20"
+    verifiedAt: "2026-07-20",
+    ...overrides
   };
 }
 
@@ -65,7 +66,8 @@ test("map input includes only published coordinate-backed cities, organizations 
 });
 
 test("map filters combine city, content type and category", () => {
-  const filtered = mapModule.filterCoverageMapItems(mapItems, {
+  const sample = [fixture("healthcare-one", 52.37, 4.90, { type: "organization", categorySlugs: ["healthcare"] })];
+  const filtered = mapModule.filterCoverageMapItems(sample, {
     city: "amsterdam",
     province: "noord-holland",
     type: "organization",
@@ -77,18 +79,20 @@ test("map filters combine city, content type and category", () => {
   ));
 });
 
-test("map text search narrows published records without changing coordinate data", () => {
-  const target = mapItems.find((item) => item.title.includes("LOOKOUT"));
-  assert.ok(target);
-  const filtered = mapModule.filterCoverageMapItems(mapItems, {
+test("map text search narrows records without changing coordinate data", () => {
+  const target = fixture('place.synthetic-search', 52.37, 4.90, {title:'Synthetic garden'});
+  const sample = [target, fixture('place.synthetic-other', 52.36, 4.91, {title:'Other place'})];
+  const original = structuredClone(sample);
+  const filtered = mapModule.filterCoverageMapItems(sample, {
     city: "all",
     province: "all",
     type: "all",
     category: "all",
-    query: "lookout"
+    query: "garden"
   });
   assert.ok(filtered.some((item) => item.id === target.id));
-  assert.ok(filtered.every((item) => item.title.toLowerCase().includes("lookout") || item.cityId?.includes("lookout") || item.categorySlugs.some((category) => category.includes("lookout"))));
+  assert.deepEqual(filtered.map(item => item.id), [target.id]);
+  assert.deepEqual(sample, original);
 });
 
 test("identical coordinates are grouped deterministically", () => {

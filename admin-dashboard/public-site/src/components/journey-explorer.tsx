@@ -1,5 +1,8 @@
 "use client";
 
+import "@/styles/journey.css";
+
+
 import { useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { CheckCircle2, Circle, Clock3, LockKeyhole } from "lucide-react";

@@ -1,0 +1,10 @@
+import assert from 'node:assert/strict';
+import test from 'node:test';
+import {rankSearchDocuments,type SearchDocument} from '../src/lib/search/rank.ts';
+import {resolveSearchLocation} from '../src/lib/search/geography.ts';
+import {normalizeSearchText} from '../src/lib/search/rank.ts';
+const base={province:'Utrecht',slug:'fixture',route:'/places/fixture',summary:'Synthetic acceptance fixture',keywords:[],categories:['local-services'],organization:null,audienceProfiles:[],languages:['en']};
+const hotel={...base,id:'hotel',type:'place',sourceKind:'hotel',title:'[SYNTHETIC] Browser hotel',cityId:'utrecht',city:'Utrecht',provinceId:'utrecht',locationScope:'city',narrowCategory:'hotel'} as SearchDocument;
+const houten={...base,id:'municipality.houten',slug:'houten',type:'municipality',sourceKind:'municipality',narrowCategory:null,title:'Houten',cityId:'houten',city:'Houten',municipalityId:'houten',provinceId:'utrecht',locationScope:'municipality'} as SearchDocument;
+test('named hotel is not converted to the fuzzy location Houten',()=>{const docs=[hotel,houten];assert.equal(resolveSearchLocation(docs,'Browser hotel',normalizeSearchText),null);assert.equal(rankSearchDocuments(docs,'Browser hotel')[0]?.document.id,'hotel');});
+test('explicit geography and hard filters still constrain named places',()=>{const docs=[hotel,houten];assert.equal(resolveSearchLocation(docs,'hotel Houten',normalizeSearchText)?.canonicalId,'houten');assert.ok(!rankSearchDocuments(docs,'Browser hotel',{filters:{cityId:'rotterdam'}}).some(r=>r.document.id==='hotel'));});

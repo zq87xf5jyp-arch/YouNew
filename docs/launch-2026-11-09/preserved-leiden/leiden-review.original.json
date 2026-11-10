@@ -1,0 +1,372 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "places": [
+    {
+      "id": "place.leiden-hortus",
+      "slug": "hortus",
+      "title": "Hortus botanicus Leiden",
+      "category": "nature",
+      "city": "leiden",
+      "address": "Rapenburg 73, 2311 GJ Leiden",
+      "website": "https://hortusleiden.nl/",
+      "email": "info@hortusleiden.nl",
+      "phone": "+31 71 5275144",
+      "description": {
+        "en": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+        "nl": "Ontdek planten en kassen in de botanische tuin van Leiden. Bekijk de bezoekersinformatie voordat je een dag kiest."
+      },
+      "status": "draft",
+      "checkedAt": "2026-11-09",
+      "sources": [
+        {
+          "fields": [
+            "name",
+            "address",
+            "website",
+            "email",
+            "phone"
+          ],
+          "url": "https://hortusleiden.nl/over-ons/contact",
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://hortusleiden.nl/",
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "fields": [
+            "coordinates"
+          ],
+          "url": "https://goo.gl/maps/RasmPnCGe6m48u4G8",
+          "checkedAt": "2026-11-09",
+          "method": "Destination !3d/!4d in redirect from map link on official contact/visitor page, not viewport center. Building POI; accessible entrance not asserted."
+        }
+      ],
+      "coordinate": {
+        "latitude": 52.1571223,
+        "longitude": 4.484888
+      },
+      "images": []
+    },
+    {
+      "id": "place.leiden-rmo",
+      "slug": "rmo",
+      "title": "Rijksmuseum van Oudheden",
+      "category": "culture",
+      "city": "leiden",
+      "address": "Rapenburg 28, 2311 EW Leiden",
+      "website": "https://www.rmo.nl/en/",
+      "email": "",
+      "phone": "+31 71 5163163",
+      "description": {
+        "en": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+        "nl": "Ontdek oudheden in het museum aan het Rapenburg. Op de officiële bezoekerspagina vind je informatie om je bezoek te plannen."
+      },
+      "status": "draft",
+      "checkedAt": "2026-11-09",
+      "sources": [
+        {
+          "fields": [
+            "name",
+            "address",
+            "website",
+            "phone"
+          ],
+          "url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://www.rmo.nl/en/",
+          "checkedAt": "2026-11-09"
+        }
+      ],
+      "coordinate": null,
+      "images": []
+    },
+    {
+      "id": "place.leiden-lakenhal",
+      "slug": "lakenhal",
+      "title": "Museum De Lakenhal",
+      "category": "culture",
+      "city": "leiden",
+      "address": "Oude Singel 32, 2312 RA Leiden",
+      "website": "https://www.lakenhal.nl/en/",
+      "email": "info@lakenhal.nl",
+      "phone": "+31 71 5165360",
+      "description": {
+        "en": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+        "nl": "Ontdek kunst en de geschiedenis van Leiden. Begin bij de bezoekersinformatie en kies wat je wilt bekijken."
+      },
+      "status": "draft",
+      "checkedAt": "2026-11-09",
+      "sources": [
+        {
+          "fields": [
+            "name",
+            "address",
+            "website",
+            "email",
+            "phone"
+          ],
+          "url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://www.lakenhal.nl/nl/overzicht/organisatie",
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "fields": [
+            "coordinates"
+          ],
+          "url": "https://goo.gl/maps/FGxZEB8dgYjzoaoP7",
+          "checkedAt": "2026-11-09",
+          "method": "Destination !3d/!4d in redirect from map link on official contact/visitor page, not viewport center. Building POI; accessible entrance not asserted."
+        }
+      ],
+      "coordinate": {
+        "latitude": 52.1628566,
+        "longitude": 4.4875649
+      },
+      "images": []
+    },
+    {
+      "id": "place.leiden-naturalis",
+      "slug": "naturalis",
+      "title": "Naturalis",
+      "category": "nature",
+      "city": "leiden",
+      "address": "Darwinweg 2, 2333 CR Leiden",
+      "website": "https://www.naturalis.nl/en/museum/practical-info",
+      "email": "",
+      "phone": "+31 71 7519600",
+      "description": {
+        "en": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+        "nl": "Ontdek de natuur bij Naturalis. Bekijk de officiële pagina voor de actuele route naar het museum en de bezoekmogelijkheden."
+      },
+      "status": "draft",
+      "checkedAt": "2026-11-09",
+      "sources": [
+        {
+          "fields": [
+            "name",
+            "address",
+            "website",
+            "phone"
+          ],
+          "url": "https://www.naturalis.nl/en/contact",
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://www.naturalis.nl/en/museum/practical-info",
+          "checkedAt": "2026-11-09"
+        }
+      ],
+      "coordinate": null,
+      "images": []
+    },
+    {
+      "id": "place.leiden-vvv",
+      "slug": "vvv",
+      "title": "VVV Leiden",
+      "category": "information",
+      "city": "leiden",
+      "address": "Stationsweg 26, 2312 AV Leiden",
+      "website": "https://www.visitleiden.nl/en/plan-your-visit/tourist-information",
+      "email": "info@vvvleiden.nl",
+      "phone": "+31 71 5166000",
+      "description": {
+        "en": "A starting point for city maps and local visitor information. Use the official page to check how to visit or contact the tourist office.",
+        "nl": "Een vertrekpunt voor stadsplattegronden en lokale bezoekersinformatie. Bekijk de officiële pagina om je bezoek te plannen of contact op te nemen."
+      },
+      "status": "draft",
+      "checkedAt": "2026-11-09",
+      "sources": [
+        {
+          "fields": [
+            "name",
+            "address",
+            "website",
+            "email",
+            "phone"
+          ],
+          "url": "https://www.visitleiden.nl/en/plan-your-visit/tourist-information",
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://www.visitleiden.nl/en/plan-your-visit/tourist-information",
+          "checkedAt": "2026-11-09"
+        }
+      ],
+      "coordinate": null,
+      "images": []
+    },
+    {
+      "id": "place.leiden-cafe-laken",
+      "slug": "cafe-laken",
+      "title": "Café Laken",
+      "category": "food",
+      "city": "leiden",
+      "address": "Oude Singel 30, 2312 RA Leiden",
+      "website": "https://www.cafelaken.nl/",
+      "email": "cafelaken@vermaatgroep.nl",
+      "phone": "",
+      "description": {
+        "en": "A café at Museum De Lakenhal. Browse the café’s own menu and visitor information before planning a stop.",
+        "nl": "Een café bij Museum De Lakenhal. Bekijk het eigen menu en de bezoekersinformatie voordat je een stop plant."
+      },
+      "status": "draft",
+      "checkedAt": "2026-11-09",
+      "sources": [
+        {
+          "fields": [
+            "name",
+            "address",
+            "website",
+            "email"
+          ],
+          "url": "https://www.cafelaken.nl/",
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://www.cafelaken.nl/",
+          "checkedAt": "2026-11-09"
+        }
+      ],
+      "coordinate": null,
+      "images": []
+    }
+  ],
+  "collections": [
+    {
+      "id": "art-history",
+      "title": {
+        "en": "Art & history, at your own pace",
+        "nl": "Kunst en geschiedenis, in je eigen tempo"
+      },
+      "description": {
+        "en": "Choose between Leiden’s art and city history at De Lakenhal and antiquities at the Rijksmuseum van Oudheden. Open each official page to check what is on before visiting. These are options, not a timed itinerary.",
+        "nl": "Kies tussen kunst en stadsgeschiedenis in De Lakenhal en oudheden in het Rijksmuseum van Oudheden. Bekijk vóór je bezoek wat er te zien is. Dit zijn opties, geen route met vaste tijden."
+      },
+      "placeIds": [
+        "place.leiden-lakenhal",
+        "place.leiden-rmo"
+      ],
+      "status": "draft",
+      "checkedAt": "2026-11-09",
+      "sources": [
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://www.rmo.nl/en/",
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://www.lakenhal.nl/nl/overzicht/organisatie",
+          "checkedAt": "2026-11-09"
+        }
+      ]
+    },
+    {
+      "id": "nature",
+      "title": {
+        "en": "Curious about nature",
+        "nl": "Nieuwsgierig naar de natuur"
+      },
+      "description": {
+        "en": "Compare the plants and glasshouses of the Hortus with the natural world at Naturalis. Pick the setting that suits your day; check tickets, access and current visitor information at the source.",
+        "nl": "Vergelijk planten en kassen in de Hortus met de natuur in Naturalis. Kies wat bij je dag past; controleer tickets, toegankelijkheid en actuele bezoekersinformatie bij de bron."
+      },
+      "placeIds": [
+        "place.leiden-hortus",
+        "place.leiden-naturalis"
+      ],
+      "status": "draft",
+      "checkedAt": "2026-11-09",
+      "sources": [
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://hortusleiden.nl/",
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://www.naturalis.nl/en/museum/practical-info",
+          "checkedAt": "2026-11-09"
+        }
+      ]
+    },
+    {
+      "id": "first-visit",
+      "title": {
+        "en": "A starting point & a café stop",
+        "nl": "Een vertrekpunt en een caféstop"
+      },
+      "description": {
+        "en": "Start with visitor information and maps from VVV Leiden. For a café option, explore Café Laken’s own menu. Check both official pages before setting out; no walking time or opening overlap is assumed.",
+        "nl": "Begin met bezoekersinformatie en kaarten van VVV Leiden. Bekijk voor een caféstop het eigen menu van Café Laken. Controleer beide officiële pagina’s; looptijd en gelijktijdige opening zijn niet vastgesteld."
+      },
+      "placeIds": [
+        "place.leiden-vvv",
+        "place.leiden-cafe-laken"
+      ],
+      "status": "draft",
+      "checkedAt": "2026-11-09",
+      "sources": [
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://www.visitleiden.nl/en/plan-your-visit/tourist-information",
+          "checkedAt": "2026-11-09"
+        },
+        {
+          "fields": [
+            "description",
+            "category"
+          ],
+          "url": "https://www.cafelaken.nl/",
+          "checkedAt": "2026-11-09"
+        }
+      ]
+    }
+  ]
+}

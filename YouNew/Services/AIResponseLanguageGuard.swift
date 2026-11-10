@@ -31,7 +31,10 @@ enum AIResponseLanguageGuard {
             response.safetyNote,
             response.nextStep?.title,
             response.nextStep?.detail,
-            response.nextStep?.destinationTitle
+            response.nextStep?.destinationTitle,
+            response.governance?.locationAssumption,
+            response.governance?.uncertainty,
+            response.governance?.escalation
         ]
 
         if values.contains(where: { !isVisibleTextAcceptable($0, for: language) }) {

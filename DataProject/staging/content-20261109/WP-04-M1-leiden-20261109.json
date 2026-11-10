@@ -1,0 +1,409 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-04-M1-leiden-20261109",
+  "work_package": "WP-04",
+  "milestone": "WP-04-M1",
+  "target_release": "leiden-20261109-proposed",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "qa_evidence": {
+    "checked_at": null,
+    "build": null,
+    "static": null,
+    "duplicate": null,
+    "source": null,
+    "media": null,
+    "search": null,
+    "ai": null
+  },
+  "records": [
+    {
+      "id": "guide.leiden-transport",
+      "entity_type": "transport",
+      "category": "transport",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Use trains and local buses",
+      "description": "Plan the actual journey, then check in and out with the correct travel medium.",
+      "images": [],
+      "official_source": {
+        "title": "Official visitor information",
+        "publisher": "Use trains and local buses",
+        "url": "https://www.qbuzz.nl/ovpay",
+        "is_official": true,
+        "checked_at": "2026-11-09",
+        "status": "verified_opened"
+      },
+      "website": "https://www.qbuzz.nl/ovpay",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-09",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Plan the actual journey, then check in and out with the correct travel medium.",
+      "search_keywords": [
+        "Use trains and local buses",
+        "transport",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "transport",
+        "description_nl": "Plan je concrete reis en check in en uit met het juiste betaalmiddel.",
+        "content_language": "en",
+        "content_section": "LIVE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.qbuzz.nl/ovpay",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.qbuzz.nl/ovpay",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.qbuzz.nl/ovpay",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.qbuzz.nl/ovpay",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.qbuzz.nl/ovpay",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.qbuzz.nl/ovpay",
+        "website_checked_at": "2026-11-09",
+        "title_nl": "Reizen met trein en bus",
+        "practical_guide_nl": "{\"schema_version\": 2, \"id\": \"guide.leiden-transport\", \"slug\": \"transport\", \"locale\": \"nl\", \"title\": \"Reizen met trein en bus\", \"status\": \"draft\", \"short_summary\": {\"id\": \"summary\", \"text\": \"Plan je concrete reis en check in en uit met het juiste betaalmiddel.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\", \"source.4\"]}, \"who_this_is_for\": {\"id\": \"audience\", \"text\": \"Bezoekers en inwoners die naar of binnen Leiden reizen.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\", \"source.4\"]}, \"when_you_need_it\": {\"id\": \"situation\", \"text\": \"Bezoekers en inwoners die naar of binnen Leiden reizen.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\", \"source.4\"]}, \"audience_profiles\": [\"resident\", \"expat\", \"student\"], \"numbered_steps\": [{\"id\": \"step.1\", \"position\": 1, \"title\": \"Stap 1\", \"body\": \"Gebruik de NS-reisplanner voor treinen en Qbuzz Zuid-Holland Noord voor regionale bussen; controleer verstoringen op je reisdag.\", \"source_ids\": [\"source.3\", \"source.4\"], \"municipality_dependent\": true}, {\"id\": \"step.2\", \"position\": 2, \"title\": \"Stap 2\", \"body\": \"Kies een geldig vervoerbewijs of geaccepteerde betaalpas. Houd bij OVpay één pas apart tegen de lezer en controleer de bevestiging.\", \"source_ids\": [\"source.1\", \"source.2\"], \"municipality_dependent\": true}, {\"id\": \"step.3\", \"position\": 3, \"title\": \"Stap 3\", \"body\": \"Check uit met precies dezelfde pas of hetzelfde apparaat. Een fysieke pas en de telefoonversie zijn verschillende betaalmiddelen. Controleer productvoorwaarden voor korting of een abonnement.\", \"source_ids\": [\"source.1\", \"source.2\"], \"municipality_dependent\": true}], \"required_documents\": [], \"official_sources\": [{\"id\": \"source.1\", \"title\": \"Official guidance · www.qbuzz.nl\", \"publisher\": \"www.qbuzz.nl\", \"url\": \"https://www.qbuzz.nl/ovpay\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.2\", \"title\": \"Official guidance · www.ns.nl\", \"publisher\": \"www.ns.nl\", \"url\": \"https://www.ns.nl/service-en-contact/je-pas/veelgestelde-vragen-over-reizen-met-betaalpas\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.3\", \"title\": \"Official guidance · www.ns.nl\", \"publisher\": \"www.ns.nl\", \"url\": \"https://www.ns.nl/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.4\", \"title\": \"Official guidance · zhn.qbuzz.nl\", \"publisher\": \"zhn.qbuzz.nl\", \"url\": \"https://zhn.qbuzz.nl/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}], \"verified_at\": \"2026-11-09\", \"updated_at\": \"2026-11-09\", \"reviewer\": null, \"warnings\": [], \"disclaimer\": \"Algemene praktische informatie; de bevoegde instantie of zorgverlener beoordeelt je persoonlijke situatie.\", \"sections\": [{\"id\": \"cost\", \"title\": \"Kosten\", \"body\": \"Het standaard betaalpastarief van Qbuzz is gelijk aan OV-chipkaartreizen zonder korting of abonnement; de exacte prijs hangt af van de rit.\", \"source_ids\": [\"source.1\"]}]}",
+        "audience": "Visitors and residents travelling to or within Leiden.",
+        "audience_source_url": "https://www.qbuzz.nl/ovpay",
+        "audience_checked_at": "2026-11-09",
+        "steps": "[\"Use the NS journey planner for trains and Qbuzz Zuid-Holland Noord for regional buses; check disruptions on your travel day.\", \"Choose an accepted ticket or payment card. With OVpay, present one card separately at the reader and check the confirmation.\", \"Check out with exactly the same card or device used to check in. A physical card and its phone version are different travel media. Check product rules if you need discounts or a subscription.\"]",
+        "steps_source_url": "https://www.qbuzz.nl/ovpay",
+        "steps_checked_at": "2026-11-09",
+        "required_documents": "",
+        "cost": "Qbuzz’s standard bank-card fare equals OV-chipkaart travel without a discount or subscription; the exact fare depends on the journey.",
+        "cost_source_url": "https://www.qbuzz.nl/ovpay",
+        "cost_checked_at": "2026-11-09",
+        "timing": "",
+        "additional_sources": "[\"https://www.qbuzz.nl/ovpay\", \"https://www.ns.nl/service-en-contact/je-pas/veelgestelde-vragen-over-reizen-met-betaalpas\", \"https://www.ns.nl/\", \"https://zhn.qbuzz.nl/\"]"
+      },
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.leiden-transport",
+        "slug": "transport",
+        "locale": "en",
+        "title": "Use trains and local buses",
+        "status": "draft",
+        "short_summary": {
+          "id": "summary",
+          "text": "Plan the actual journey, then check in and out with the correct travel medium.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3",
+            "source.4"
+          ]
+        },
+        "who_this_is_for": {
+          "id": "audience",
+          "text": "Visitors and residents travelling to or within Leiden.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3",
+            "source.4"
+          ]
+        },
+        "when_you_need_it": {
+          "id": "situation",
+          "text": "Visitors and residents travelling to or within Leiden.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3",
+            "source.4"
+          ]
+        },
+        "audience_profiles": [
+          "resident",
+          "expat",
+          "student"
+        ],
+        "numbered_steps": [
+          {
+            "id": "step.1",
+            "position": 1,
+            "title": "Step 1",
+            "body": "Use the NS journey planner for trains and Qbuzz Zuid-Holland Noord for regional buses; check disruptions on your travel day.",
+            "source_ids": [
+              "source.3",
+              "source.4"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.2",
+            "position": 2,
+            "title": "Step 2",
+            "body": "Choose an accepted ticket or payment card. With OVpay, present one card separately at the reader and check the confirmation.",
+            "source_ids": [
+              "source.1",
+              "source.2"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.3",
+            "position": 3,
+            "title": "Step 3",
+            "body": "Check out with exactly the same card or device used to check in. A physical card and its phone version are different travel media. Check product rules if you need discounts or a subscription.",
+            "source_ids": [
+              "source.1",
+              "source.2"
+            ],
+            "municipality_dependent": true
+          }
+        ],
+        "required_documents": [],
+        "official_sources": [
+          {
+            "id": "source.1",
+            "title": "Official guidance · www.qbuzz.nl",
+            "publisher": "www.qbuzz.nl",
+            "url": "https://www.qbuzz.nl/ovpay",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.2",
+            "title": "Official guidance · www.ns.nl",
+            "publisher": "www.ns.nl",
+            "url": "https://www.ns.nl/service-en-contact/je-pas/veelgestelde-vragen-over-reizen-met-betaalpas",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.3",
+            "title": "Official guidance · www.ns.nl",
+            "publisher": "www.ns.nl",
+            "url": "https://www.ns.nl/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.4",
+            "title": "Official guidance · zhn.qbuzz.nl",
+            "publisher": "zhn.qbuzz.nl",
+            "url": "https://zhn.qbuzz.nl/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          }
+        ],
+        "verified_at": "2026-11-09",
+        "updated_at": "2026-11-09",
+        "reviewer": null,
+        "warnings": [],
+        "disclaimer": "General practical information; the responsible authority or care provider decides your individual case.",
+        "sections": [
+          {
+            "id": "cost",
+            "title": "Costs",
+            "body": "Qbuzz’s standard bank-card fare equals OV-chipkaart travel without a discount or subscription; the exact fare depends on the journey.",
+            "source_ids": [
+              "source.1"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "guide.leiden-bicycle",
+      "entity_type": "transport",
+      "category": "bicycle",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Park your bicycle in Leiden",
+      "description": "Find a permitted place and check the local parking limit.",
+      "images": [],
+      "official_source": {
+        "title": "Official visitor information",
+        "publisher": "Park your bicycle in Leiden",
+        "url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+        "is_official": true,
+        "checked_at": "2026-11-09",
+        "status": "verified_opened"
+      },
+      "website": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-09",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Find a permitted place and check the local parking limit.",
+      "search_keywords": [
+        "Park your bicycle in Leiden",
+        "bicycle",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "bicycle",
+        "description_nl": "Zoek een toegestane plek en controleer de maximale stallingsduur.",
+        "content_language": "en",
+        "content_section": "LIVE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+        "website_checked_at": "2026-11-09",
+        "title_nl": "Je fiets parkeren in Leiden",
+        "practical_guide_nl": "{\"schema_version\": 2, \"id\": \"guide.leiden-bicycle\", \"slug\": \"bicycle\", \"locale\": \"nl\", \"title\": \"Je fiets parkeren in Leiden\", \"status\": \"draft\", \"short_summary\": {\"id\": \"summary\", \"text\": \"Zoek een toegestane plek en controleer de maximale stallingsduur.\", \"source_ids\": [\"source.1\", \"source.2\"]}, \"who_this_is_for\": {\"id\": \"audience\", \"text\": \"Inwoners en bezoekers op de fiets, vooral bij Leiden Centraal.\", \"source_ids\": [\"source.1\", \"source.2\"]}, \"when_you_need_it\": {\"id\": \"situation\", \"text\": \"Inwoners en bezoekers op de fiets, vooral bij Leiden Centraal.\", \"source_ids\": [\"source.1\", \"source.2\"]}, \"audience_profiles\": [\"resident\", \"expat\", \"student\"], \"numbered_steps\": [{\"id\": \"step.1\", \"position\": 1, \"title\": \"Stap 1\", \"body\": \"Gebruik de gemeentelijke stallingskaart en kies een rek of stalling. Rond Leiden Centraal kunnen fietsen buiten de rekken worden verwijderd.\", \"source_ids\": [\"source.1\"], \"municipality_dependent\": true}, {\"id\": \"step.2\", \"position\": 2, \"title\": \"Stap 2\", \"body\": \"Controleer toegangstijden en borden. Waagstalling ligt aan Aalmarkt 22, met ingangen vanaf Aalmarkt en Breestraat. Betaalde abonnementsgedeelten bij stations hebben eigen regels.\", \"source_ids\": [\"source.1\"], \"municipality_dependent\": true}, {\"id\": \"step.3\", \"position\": 3, \"title\": \"Stap 3\", \"body\": \"Haal je fiets vóór de geldende termijn op. Kijk bij vermissing eerst op de gemeentelijke pagina “Fiets weg”.\", \"source_ids\": [\"source.1\", \"source.2\"], \"municipality_dependent\": true}], \"required_documents\": [], \"official_sources\": [{\"id\": \"source.1\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.2\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/inwoners-en-ondernemers/parkeren/fouten-met-parkeren/fiets-weg/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}], \"verified_at\": \"2026-11-09\", \"updated_at\": \"2026-11-09\", \"reviewer\": null, \"warnings\": [], \"disclaimer\": \"Algemene praktische informatie; de bevoegde instantie of zorgverlener beoordeelt je persoonlijke situatie.\", \"sections\": [{\"id\": \"cost\", \"title\": \"Kosten\", \"body\": \"Openbare gemeentelijke rekken en stallingen zijn gratis; er zijn ook betaalde bewaakte abonnementsgedeelten.\", \"source_ids\": [\"source.1\"]}, {\"id\": \"timing\", \"title\": \"Termijnen\", \"body\": \"Bij Leiden Centraal geldt maximaal twee weken aaneengesloten stallen. Zaterdagse pop-upstallingen hebben eerdere ophaaltijden; lees de borden.\", \"source_ids\": [\"source.1\"]}]}",
+        "audience": "Residents and visitors arriving by bicycle, particularly at Leiden Centraal.",
+        "audience_source_url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+        "audience_checked_at": "2026-11-09",
+        "steps": "[\"Use the municipality\\u2019s parking map and choose a rack or designated facility. Around Leiden Centraal, bicycles outside racks can be removed.\", \"Check access hours and signs. Waagstalling is at Aalmarkt 22 with entrances from Aalmarkt and Breestraat. Paid subscription sections at stations have separate rules.\", \"Retrieve your bicycle before the applicable limit. If missing, check the municipality\\u2019s \\u201cFiets weg\\u201d instructions before assuming theft.\"]",
+        "steps_source_url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+        "steps_checked_at": "2026-11-09",
+        "required_documents": "",
+        "cost": "Public municipal racks and facilities are free; paid guarded subscription sections also exist.",
+        "cost_source_url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+        "cost_checked_at": "2026-11-09",
+        "timing": "At Leiden Centraal the maximum continuous stay is two weeks. Pop-up Saturday facilities have earlier removal times; read the signs.",
+        "timing_source_url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+        "timing_checked_at": "2026-11-09",
+        "additional_sources": "[\"https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/\", \"https://gemeente.leiden.nl/inwoners-en-ondernemers/parkeren/fouten-met-parkeren/fiets-weg/\"]"
+      },
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.leiden-bicycle",
+        "slug": "bicycle",
+        "locale": "en",
+        "title": "Park your bicycle in Leiden",
+        "status": "draft",
+        "short_summary": {
+          "id": "summary",
+          "text": "Find a permitted place and check the local parking limit.",
+          "source_ids": [
+            "source.1",
+            "source.2"
+          ]
+        },
+        "who_this_is_for": {
+          "id": "audience",
+          "text": "Residents and visitors arriving by bicycle, particularly at Leiden Centraal.",
+          "source_ids": [
+            "source.1",
+            "source.2"
+          ]
+        },
+        "when_you_need_it": {
+          "id": "situation",
+          "text": "Residents and visitors arriving by bicycle, particularly at Leiden Centraal.",
+          "source_ids": [
+            "source.1",
+            "source.2"
+          ]
+        },
+        "audience_profiles": [
+          "resident",
+          "expat",
+          "student"
+        ],
+        "numbered_steps": [
+          {
+            "id": "step.1",
+            "position": 1,
+            "title": "Step 1",
+            "body": "Use the municipality’s parking map and choose a rack or designated facility. Around Leiden Centraal, bicycles outside racks can be removed.",
+            "source_ids": [
+              "source.1"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.2",
+            "position": 2,
+            "title": "Step 2",
+            "body": "Check access hours and signs. Waagstalling is at Aalmarkt 22 with entrances from Aalmarkt and Breestraat. Paid subscription sections at stations have separate rules.",
+            "source_ids": [
+              "source.1"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.3",
+            "position": 3,
+            "title": "Step 3",
+            "body": "Retrieve your bicycle before the applicable limit. If missing, check the municipality’s “Fiets weg” instructions before assuming theft.",
+            "source_ids": [
+              "source.1",
+              "source.2"
+            ],
+            "municipality_dependent": true
+          }
+        ],
+        "required_documents": [],
+        "official_sources": [
+          {
+            "id": "source.1",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.2",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/parkeren/fouten-met-parkeren/fiets-weg/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          }
+        ],
+        "verified_at": "2026-11-09",
+        "updated_at": "2026-11-09",
+        "reviewer": null,
+        "warnings": [],
+        "disclaimer": "General practical information; the responsible authority or care provider decides your individual case.",
+        "sections": [
+          {
+            "id": "cost",
+            "title": "Costs",
+            "body": "Public municipal racks and facilities are free; paid guarded subscription sections also exist.",
+            "source_ids": [
+              "source.1"
+            ]
+          },
+          {
+            "id": "timing",
+            "title": "Timing",
+            "body": "At Leiden Centraal the maximum continuous stay is two weeks. Pop-up Saturday facilities have earlier removal times; read the signs.",
+            "source_ids": [
+              "source.1"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-10-catalog-20261103",
+  "work_package": "WP-10",
+  "milestone": "WP-10-CATALOG-20261103",
+  "target_release": "catalog-20261103-draft",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "qa_evidence": {
+    "checked_at": null,
+    "build": null,
+    "static": null,
+    "duplicate": null,
+    "source": null,
+    "media": null,
+    "search": null,
+    "ai": null
+  },
+  "records": [
+    {
+      "id": "hotel.rotterdam-supernova",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": {
+        "latitude": 51.9164928,
+        "longitude": 4.4631285
+      },
+      "title": "Supernova Hotel",
+      "description": "A hotel on ’s-Gravendijkwal with different room layouts, a lounge and breakfast facilities. The official site describes the rooms and provides direct contact details for checking availability.",
+      "images": [],
+      "official_source": {
+        "title": "Supernova Hotel — visitor information",
+        "publisher": "Supernova Hotel",
+        "url": "https://supernovahotel.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://supernovahotel.nl/en",
+      "related_entity_ids": [
+        "city.rotterdam"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A hotel on ’s-Gravendijkwal with different room layouts, a lounge and breakfast facilities. The official site describes the rooms and provides direct contact details for checking availability.",
+      "search_keywords": [
+        "Supernova Hotel",
+        "rotterdam",
+        "hotel",
+        "’s-Gravendijkwal 68, 3014 EG Rotterdam"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "’s-Gravendijkwal 68, 3014 EG Rotterdam",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "contact_email": "sup@supernovahotel.nl",
+        "contact_phone": "+31 10 3076396",
+        "coordinate_source": "https://supernovahotel.nl/en",
+        "coordinate_method": "Venue destination in the official page’s Google Maps link (!3d/!4d), not the viewport centre.",
+        "address_source_url": "https://supernovahotel.nl/en",
+        "address_checked_at": "2026-11-03",
+        "contact_email_source_url": "https://supernovahotel.nl/en",
+        "contact_email_checked_at": "2026-11-03",
+        "contact_phone_source_url": "https://supernovahotel.nl/en",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://supernovahotel.nl/en",
+        "website_checked_at": "2026-11-03",
+        "coordinates_checked_at": "2026-11-03"
+      }
+    },
+    {
+      "id": "hotel.utrecht-nox",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": null,
+      "title": "The Nox Hotel Utrecht",
+      "description": "A city-centre hotel on Keistraat near Janskerkhof. Its contact page gives walking and public-transport directions, plus details about the limited paid parking available on request.",
+      "images": [],
+      "official_source": {
+        "title": "The Nox Hotel Utrecht — visitor information",
+        "publisher": "The Nox Hotel Utrecht",
+        "url": "https://www.thenoxhotel.com/en/contact",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://www.thenoxhotel.com/",
+      "related_entity_ids": [
+        "city.utrecht"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A city-centre hotel on Keistraat near Janskerkhof. Its contact page gives walking and public-transport directions, plus details about the limited paid parking available on request.",
+      "search_keywords": [
+        "The Nox Hotel Utrecht",
+        "utrecht",
+        "hotel",
+        "Keistraat 8, 3512 HV Utrecht"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Keistraat 8, 3512 HV Utrecht",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "review_note": "The embedded map exposes a viewport centre, not an unambiguous venue marker; coordinates are intentionally unset.",
+        "contact_email": "welcome@thenoxhotel.com",
+        "contact_phone": "+31 30 2029800",
+        "address_source_url": "https://www.thenoxhotel.com/en/contact",
+        "address_checked_at": "2026-11-03",
+        "contact_email_source_url": "https://www.thenoxhotel.com/en/contact",
+        "contact_email_checked_at": "2026-11-03",
+        "contact_phone_source_url": "https://www.thenoxhotel.com/en/contact",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://www.thenoxhotel.com/en/contact",
+        "website_checked_at": "2026-11-03"
+      }
+    },
+    {
+      "id": "hotel.den-haag-collector",
+      "entity_type": "hotel",
+      "category": "hotel",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "The Collector",
+      "description": "A hotel in the Haagsche Bluf courtyard in central The Hague. The official site presents its room types and guest facilities, with direct contact details for checking a proposed stay.",
+      "images": [],
+      "official_source": {
+        "title": "The Collector — visitor information",
+        "publisher": "The Collector",
+        "url": "https://www.thecollectorhotel.com/contact",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://www.thecollectorhotel.com/",
+      "related_entity_ids": [
+        "city.den-haag"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A hotel in the Haagsche Bluf courtyard in central The Hague. The official site presents its room types and guest facilities, with direct contact details for checking a proposed stay.",
+      "search_keywords": [
+        "The Collector",
+        "den-haag",
+        "hotel",
+        "Haagsche Bluf 52, 2511 CP Den Haag"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Haagsche Bluf 52, 2511 CP Den Haag",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "contact_email": "basecamp@thecollectorhotel.com",
+        "contact_phone": "+31 70 8505480",
+        "address_source_url": "https://www.thecollectorhotel.com/contact",
+        "address_checked_at": "2026-11-03",
+        "contact_email_source_url": "https://www.thecollectorhotel.com/contact",
+        "contact_email_checked_at": "2026-11-03",
+        "contact_phone_source_url": "https://www.thecollectorhotel.com/contact",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://www.thecollectorhotel.com/contact",
+        "website_checked_at": "2026-11-03"
+      }
+    }
+  ]
+}

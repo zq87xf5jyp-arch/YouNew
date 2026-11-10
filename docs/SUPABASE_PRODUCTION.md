@@ -1,14 +1,17 @@
 # Supabase production migrations
 
-Verified: **2026-08-01**
+Verified read-only: **2026-08-19**
 
 Production project: `pgdzdxsiagfjioxwuqxf` (`YouNew Project`, `eu-west-1`)
 
 ## Canonical contract
 
-The production-managed migration history and this repository contain the same
-13 timestamped migrations. `production-migration-manifest.json` is the
-machine-checked immutable contract for these files.
+Production has 24 applied timestamped migrations. The repository has exact SQL
+bytes for all 24 plus seven reviewed, unapplied forward migrations.
+`production-migration-manifest.json` schema 2 is the machine-checked contract:
+`managedMigrations` records production history, optional `localVersion` records
+two evidence-backed filename timestamp aliases, and `pendingMigrations` keeps
+unapplied SQL separate from production history.
 
 | Production version | Migration | SQL MD5 |
 | --- | --- | --- |
@@ -26,12 +29,54 @@ machine-checked immutable contract for these files.
 | `20260801002204` | `content_governance_platform` | `171e72a0c02d7f8c796427a4c814a83d` |
 | `20260801002707` | `harden_content_governance_performance` | `e71a0460b23ee953c92237852907bd11` |
 
-Canonical files live in `admin-dashboard/supabase/migrations/`. The hashes were
+The table above is the immutable 2026-08-01 baseline; the current 24-entry list
+and hashes are machine-readable in the manifest. Canonical files live in
+`admin-dashboard/supabase/migrations/`. The hashes were
 compared with the exact bytes in
 `supabase_migrations.schema_migrations.statements` in production, not inferred
 from filenames. Static QA runs
 `scripts/verify-supabase-migration-manifest.py` to prevent an applied migration
 from being renamed or edited in place.
+
+The two current timestamp aliases have identical production/local statement
+bytes:
+
+| Production version | Local filename version | Migration | SQL MD5 |
+| --- | --- | --- | --- |
+| `20260805221430` | `20260805173500` | `normalize_article_search_taxonomy` | `ea265966b977ac1824b84f5b3e78e990` |
+| `20260805231047` | `20260805223000` | `expand_privacy_safe_analytics_dashboard` | `e04e3378050bbe7cd5ecf79c28126807` |
+
+Pending local migrations:
+
+| Local version | Migration | SQL MD5 | Migration-specific pgTAP |
+| --- | --- | --- | ---: |
+| `20260818145801` | `harden_analytics_ingest_windows_rls` | `e702afeef312705d2a5bc5a8858da0c4` | 19 assertions |
+| `20260818191112` | `harden_business_inquiry_pipeline` | `716b6222ca3010e4f385082414169440` | 19 assertions |
+| `20260818192423` | `deduplicate_business_inquiry_submissions` | `d3010eb22035a572d0b36a8c522e68a0` | 13 assertions |
+| `20260818193310` | `extend_lead_analytics_funnel` | `220bfa6bddd463acb67a86b31bbea285` | 12 assertions |
+| `20260818194626` | `add_business_inquiry_notification_inbox` | `e9df9c0cbd8828bbe6cfa26f57c5a295` | 18 assertions |
+| `20260818235619` | `enforce_monetization_retention_and_private_reports` | `8f7e418080a080e3204106f344836ee0` | 67 assertions |
+| `20260819080242` | `allow_geo_relevance_analytics` | `113043c51e207e6d0d7c7ae6da4b5df2` | 43 assertions |
+
+None of these migrations is applied or authorized for production. The seven
+pending migrations are pinned to the Supabase CLI 2.109.1 verification
+workflow. The pipeline migration
+conservatively preserves retired statuses without promoting any existing
+inquiry to `won`; the dedupe migration returns an existing safe receipt for an
+exact valid retry without storing an additional PII fingerprint. The lead
+analytics migration accepts only property-free `lead_start`, `lead_submit` and
+`pilot_request`, and exposes an authenticated security-invoker
+aggregate whose receipt events are not labelled as unique leads or payments.
+The notification migration creates one RLS-protected, PII-minimised Admin inbox
+record only for a newly inserted inquiry; an exact retry creates none, and no
+email, webhook or third-party delivery is configured. The retention and private
+report migration adds configurable cleanup defaults, legal holds, count-only
+deletion audit, consent-gated client isolation and five-subject/five-event
+small-cohort suppression. It does not persist temporary CSV exports. The geo
+analytics migration permits eight bounded relevance events, rejects top-level
+city values and raw-query/PII-shaped properties, and preserves the existing
+service-role-only ingest boundary. It remains production-blocked pending the
+recorded privacy decisions in the geo analytics production approval packet.
 
 ## Historical baseline
 
@@ -49,13 +94,19 @@ so future production DDL must use reviewed versioned migrations.
 
 ## Verified production result
 
-Current production evidence on 2026-08-01:
+Current production evidence on 2026-08-18:
 
-- all 36 public tables have RLS enabled;
+- all exposed public tables have RLS enabled, while
+  `private.analytics_ingest_windows` still has RLS disabled pending the reviewed
+  forward migration;
+- production `business_inquiries` still uses its retired workflow; the new
+  seven-stage contract, mandatory lost reason and evidence-gated `won` exist
+  only in the pending source migration and aligned Admin source;
 - the Security Advisor reports seven authenticated `SECURITY DEFINER` warnings,
   one leaked-password-protection warning and two deny-by-default tables without
   policies;
-- the reviewed definer functions check `auth.uid()`, approved internal roles and
+- the seven reviewed definer functions check `auth.uid()` or a private
+  caller-role helper, approved internal roles and
   a fixed `search_path`; this is not evidence that future changes are safe, so
   advisor review remains mandatory;
 - the Performance Advisor reports four multiple-permissive-policy warnings and
@@ -69,7 +120,11 @@ owner-controlled action subject to the accepted project-plan limitation.
 
 1. Create and verify a backup or point-in-time recovery checkpoint.
 2. Run new migrations on a disposable branch or local database.
-3. Run `admin-dashboard/supabase/verification/verify_after_migration.sql`.
+3. Run all seven migration-specific pgTAP contracts (81 core assertions, 67
+   retention/aggregation assertions and 43 geo analytics assertions; 191
+   targeted assertions total) plus every checked-in pgTAP suite and
+   `admin-dashboard/supabase/verification/verify_after_migration.sql` on a
+   disposable database.
 4. Verify the anonymous, unapproved, and approved-role API matrix.
 5. Review Security and Performance Advisors.
 6. Apply the reviewed migration once through the managed migration boundary.

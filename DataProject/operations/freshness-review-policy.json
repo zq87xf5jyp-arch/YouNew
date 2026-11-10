@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-23",
+  "purpose": "Fail-closed editorial workflow for rechecking stale YouNew records without treating URL reachability as factual verification.",
+  "statuses": {
+    "confirmed_current": "A reviewer opened an authoritative source and confirmed the listed fields on the review date.",
+    "source_reachable_fact_review_pending": "The source responded, but the facts in the record have not yet been checked.",
+    "source_restricted_fact_review_pending": "The source blocked automated access; a human review is still required.",
+    "source_unavailable": "The source could not be reached and a replacement source must be investigated.",
+    "conflict_found": "A source contradicts the record; publication state and corrective action require editorial review."
+  },
+  "rules": [
+    "HTTP reachability never upgrades verification_status or last_checked.",
+    "confirmed_current requires an authoritative URL, review date, reviewer identity, and an explicit list of confirmed fields.",
+    "Only confirmed_current may update last_checked and official_source.checked_at.",
+    "Conflicts fail closed and are queued for editorial correction before any verified label is shown.",
+    "Records are not deleted automatically; superseded or closed records require an evidence-backed editorial decision.",
+    "Business contact research stores public business channels only and never collects personal addresses without a lawful basis."
+  ],
+  "review_order": [
+    "Official government or organisation source",
+    "Regulated public registry",
+    "Organisation-owned public business page",
+    "Independent secondary source, clearly labelled"
+  ],
+  "required_receipt_fields": [
+    "entity_id",
+    "status",
+    "source_url",
+    "reviewed_at",
+    "reviewer",
+    "confirmed_fields",
+    "notes"
+  ]
+}

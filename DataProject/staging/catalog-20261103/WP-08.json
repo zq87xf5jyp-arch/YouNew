@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-08-catalog-20261103",
+  "work_package": "WP-08",
+  "milestone": "WP-08-CATALOG-20261103",
+  "target_release": "catalog-20261103-draft",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "qa_evidence": {
+    "checked_at": null,
+    "build": null,
+    "static": null,
+    "duplicate": null,
+    "source": null,
+    "media": null,
+    "search": null,
+    "ai": null
+  },
+  "records": [
+    {
+      "id": "restaurant.eindhoven-kazerne",
+      "entity_type": "restaurant",
+      "category": "restaurant",
+      "city_id": "eindhoven",
+      "province_id": "noord-brabant",
+      "coordinates": {
+        "latitude": 51.4359783,
+        "longitude": 5.477588
+      },
+      "title": "Kazerne BarBistro",
+      "description": "A restaurant and bar within Kazerne in central Eindhoven. The current official page places the BarBistro at Paradijslaan and distinguishes it from the ByDay café serving breakfast and lunch.",
+      "images": [],
+      "official_source": {
+        "title": "Kazerne BarBistro — visitor information",
+        "publisher": "Kazerne",
+        "url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "is_official": true,
+        "checked_at": "2026-11-03",
+        "status": "verified_opened"
+      },
+      "website": "https://www.kazerne.com/bar-bistro-kazerne",
+      "related_entity_ids": [
+        "city.eindhoven"
+      ],
+      "last_checked": "2026-11-03",
+      "review_frequency_days": 30,
+      "verification_status": "verified",
+      "ai_summary": "A restaurant and bar within Kazerne in central Eindhoven. The current official page places the BarBistro at Paradijslaan and distinguishes it from the ByDay café serving breakfast and lunch.",
+      "search_keywords": [
+        "Kazerne BarBistro",
+        "eindhoven",
+        "restaurant",
+        "Paradijslaan 2–8, 5611 KN Eindhoven"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "address": "Paradijslaan 2–8, 5611 KN Eindhoven",
+        "content_language": "en",
+        "source_verification_method": "Official organization or tourism/municipal pages read on 2026-11-03; field-specific source URLs retained.",
+        "media_status": "no licensed image selected; existing neutral icon fallback",
+        "catalog_review_batch": "catalog-20261103",
+        "address_note": "Kazerne also lists Grote Berg 9 for the complex; the restaurant page identifies the renewed restaurant at Paradijslaan.",
+        "opening_hours": "Kitchen opens Monday–Saturday from 17:00; closing time not confirmed.",
+        "contact_email": "reservations@kazerne.com",
+        "contact_phone": "+31 40 2073730",
+        "address_source_url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "address_checked_at": "2026-11-03",
+        "contact_email_source_url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "contact_email_checked_at": "2026-11-03",
+        "contact_phone_source_url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "contact_phone_checked_at": "2026-11-03",
+        "website_source_url": "https://www.kazerne.com/bar-bistro-kazerne",
+        "website_checked_at": "2026-11-03",
+        "coordinate_source": "https://www.thisiseindhoven.com/en/locations/kazerne",
+        "coordinate_method": "Destination in official Eindhoven tourism route for Kazerne, Paradijslaan 2–8. No claim about a specific accessible entrance.",
+        "coordinates_checked_at": "2026-11-03"
+      }
+    }
+  ]
+}

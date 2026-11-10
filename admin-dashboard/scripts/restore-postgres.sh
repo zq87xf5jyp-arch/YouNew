@@ -13,7 +13,9 @@ require_command() {
 archive="${BACKUP_ARCHIVE:-${1:-}}"
 identity_file="${AGE_IDENTITY_FILE:-${2:-}}"
 restore_url="${RESTORE_DATABASE_URL:-${3:-}}"
+restore_target_marker="${RESTORE_TARGET_MARKER:-}"
 report_path="${RESTORE_REPORT_PATH:-./restore-verification.json}"
+expected_migration_count="${RESTORE_EXPECTED_MIGRATION_COUNT:-0}"
 prepare_sql="${RESTORE_PREPARE_SQL:-$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)/supabase/verification/prepare_restore_target.sql}"
 post_restore_sql="${RESTORE_POST_SQL:-$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)/supabase/verification/restore_managed_boundaries.sql}"
 
@@ -22,17 +24,27 @@ post_restore_sql="${RESTORE_POST_SQL:-$(CDPATH= cd -- "$(dirname "$0")/.." && pw
 [ -n "$identity_file" ] || fail "AGE_IDENTITY_FILE or argument 2 is required"
 [ -f "$identity_file" ] || fail "age identity file does not exist: $identity_file"
 [ -n "$restore_url" ] || fail "RESTORE_DATABASE_URL or argument 3 is required"
+[ -n "$restore_target_marker" ] || fail "RESTORE_TARGET_MARKER is required"
+case "$expected_migration_count" in
+  *[!0-9]*|'') fail "RESTORE_EXPECTED_MIGRATION_COUNT must be a non-negative integer" ;;
+esac
+case "$restore_target_marker" in
+  *[!a-zA-Z0-9._:-]*) fail "RESTORE_TARGET_MARKER contains unsupported characters" ;;
+esac
 [ -f "$prepare_sql" ] || fail "restore preparation SQL does not exist: $prepare_sql"
 [ -f "$post_restore_sql" ] || fail "post-restore SQL does not exist: $post_restore_sql"
 
-case "$restore_url" in
-  *"@localhost"*|*"@127.0.0.1"*|*"host=/"*|*"host=%2F"*) ;;
-  *) fail "RESTORE_DATABASE_URL must target an isolated local database" ;;
-esac
-
+require_command python3
 require_command age
 require_command psql
 require_command shasum
+python3 "$(dirname "$0")/validate-local-postgres-dsn.py" "$restore_url" >/dev/null \
+  || fail "RESTORE_DATABASE_URL must target an isolated local database"
+
+observed_target_marker="$(psql --dbname "$restore_url" --tuples-only --no-align --set ON_ERROR_STOP=1 --command \
+  "select marker from younew_restore_guard.target_marker where singleton is true;")"
+[ "$observed_target_marker" = "$restore_target_marker" ] \
+  || fail "disposable restore target marker is missing or does not match"
 
 umask 077
 started_epoch="$(date +%s)"
@@ -44,16 +56,41 @@ if [ -f "$manifest_path" ]; then
   [ "$archive_sha256" = "$expected_sha256" ] || fail "archive checksum does not match manifest"
 fi
 
+managed_boundaries_path="${RESTORE_MANAGED_BOUNDARIES_FILE:-}"
+managed_boundaries_sha256="${RESTORE_EXPECTED_MANAGED_BOUNDARIES_SHA256:-}"
+if [ -z "$managed_boundaries_path" ] && [ -f "$manifest_path" ]; then
+  managed_boundaries_name="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8")).get("managed_boundaries", ""))' "$manifest_path")"
+  [ -n "$managed_boundaries_name" ] || fail "managed_boundaries is missing from manifest: $manifest_path"
+  managed_boundaries_path="$(dirname "$manifest_path")/$managed_boundaries_name"
+fi
+[ -n "$managed_boundaries_path" ] || fail "managed-boundaries companion is required"
+[ -f "$managed_boundaries_path" ] || fail "managed-boundaries companion does not exist: $managed_boundaries_path"
+if [ -z "$managed_boundaries_sha256" ] && [ -f "$manifest_path" ]; then
+  managed_boundaries_sha256="$(python3 -c 'import json,sys; print(json.load(open(sys.argv[1], encoding="utf-8")).get("managed_boundaries_sha256", ""))' "$manifest_path")"
+fi
+case "$managed_boundaries_sha256" in
+  ''|*[!0-9a-f]*) fail "managed-boundaries SHA256 is missing or invalid" ;;
+esac
+[ "${#managed_boundaries_sha256}" -eq 64 ] || fail "managed-boundaries SHA256 must contain 64 hexadecimal characters"
+observed_managed_boundaries_sha256="$(shasum -a 256 "$managed_boundaries_path" | awk '{print $1}')"
+[ "$observed_managed_boundaries_sha256" = "$managed_boundaries_sha256" ] \
+  || fail "managed-boundaries companion checksum does not match manifest"
+managed_boundaries_json="$(cat "$managed_boundaries_path")"
+
 psql --dbname "$restore_url" --set ON_ERROR_STOP=1 --file "$prepare_sql"
 
 age --decrypt --identity "$identity_file" "$archive" | \
   psql --dbname "$restore_url" --single-transaction --set ON_ERROR_STOP=1
 
-psql --dbname "$restore_url" --set ON_ERROR_STOP=1 --file "$post_restore_sql"
+RESTORE_EXPECTED_MANAGED_BOUNDARIES_JSON="$managed_boundaries_json" \
+RESTORE_EXPECTED_MANAGED_BOUNDARIES_SHA256="$managed_boundaries_sha256" \
+  psql --dbname "$restore_url" --set ON_ERROR_STOP=1 --file "$post_restore_sql"
 
 verification_sql="${RESTORE_VERIFICATION_SQL:-$(CDPATH= cd -- "$(dirname "$0")/.." && pwd -P)/supabase/verification/verify_after_migration.sql}"
 if [ -f "$verification_sql" ]; then
-  psql --dbname "$restore_url" --set ON_ERROR_STOP=1 --file "$verification_sql"
+  psql --dbname "$restore_url" --set ON_ERROR_STOP=1 \
+    --set expected_migration_count="$expected_migration_count" \
+    --file "$verification_sql"
 fi
 
 metrics="$(psql --dbname "$restore_url" --tuples-only --no-align --field-separator '|' --set ON_ERROR_STOP=1 --command "

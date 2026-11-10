@@ -36,15 +36,21 @@ test("public feedback validates the controlled submission contract", () => {
 });
 
 test("public feedback reports success only for a valid stored receipt", async (context) => {
-  context.mock.method(globalThis, "fetch", async () => new Response(JSON.stringify({
+  context.mock.method(globalThis, "fetch", async (input: RequestInfo | URL, init?: RequestInit) => {
+    assert.equal(input, "/api/submit-public-feedback.php");
+    assert.equal(init?.mode, "same-origin");
+    assert.equal(init?.credentials, "omit");
+    assert.equal(init?.redirect, "error");
+    return new Response(JSON.stringify({
     confirmationId: "YNF-A1B2C3D4E5F6",
     createdAt: "2026-07-28T10:00:00.000Z"
   }), {
     status: 201,
     headers: { "Content-Type": "application/json" }
-  }));
+    });
+  });
   const repository = createPublicFeedbackRepository(
-    "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-public-feedback"
+    "/api/submit-public-feedback.php"
   );
   assert.deepEqual(await repository.submit(validFeedback), {
     submitted: true,
@@ -55,13 +61,21 @@ test("public feedback reports success only for a valid stored receipt", async (c
   });
 });
 
+test("feedback refuses external endpoints and invalid receipt dates", async (context) => {
+  for (const endpoint of ["//evil.example/api/submit-public-feedback.php", "https://younew.nl.evil.example/api/submit-public-feedback.php", "/api/submit-public-feedback.php?x=1"]) {
+    assert.throws(() => createPublicFeedbackRepository(endpoint), /configuration is invalid/);
+  }
+  context.mock.method(globalThis, "fetch", async () => new Response(JSON.stringify({confirmationId:"YNF-A1B2C3D4E5F6",createdAt:"invalid"}),{status:201}));
+  assert.equal((await createPublicFeedbackRepository("/api/submit-public-feedback.php").submit(validFeedback)).submitted,false);
+});
+
 test("public feedback keeps an honest error when confirmation is unavailable", async (context) => {
   context.mock.method(globalThis, "fetch", async () => new Response("{}", {
     status: 503,
     headers: { "Content-Type": "application/json" }
   }));
   const repository = createPublicFeedbackRepository(
-    "https://pgdzdxsiagfjioxwuqxf.supabase.co/functions/v1/submit-public-feedback"
+    "/api/submit-public-feedback.php"
   );
   assert.equal((await repository.submit(validFeedback)).submitted, false);
 });

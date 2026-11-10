@@ -702,6 +702,9 @@ def runtime_entity(record, release_id: str):
     source = record["official_source"]
     images = sorted((runtime_media(item) for item in record["images"]), key=lambda item: (item["role"], item["id"]))
     attributes = {str(key): str(value) for key, value in sorted((record.get("attributes") or {}).items())}
+    # Retain the canonical website for web/iOS; source URL remains distinct.
+    if record.get("website"):
+        attributes["website"] = record["website"]
     attributes.update({
         "dataProjectRelease": release_id,
         "editorialEntityType": record["entity_type"],
@@ -890,9 +893,12 @@ def build(args):
 
     eligible = []
     excluded = []
+    withheld_ids = set()
     for release_id in selected_ids:
         release = releases[release_id]
         for record in records_by_release[release_id]:
+            if release["status"] == "published" and record["lifecycle_status"] == "retired":
+                withheld_ids.add(record["id"])
             governance = record.get("governance") if isinstance(record.get("governance"), dict) else None
             governed_ready = (
                 governance is None
@@ -925,7 +931,7 @@ def build(args):
 
     mappings = migration_map()
     canonical_ids = set(by_identity)
-    bad_mappings = [legacy for legacy, item in mappings.items() if item["status"] in {"migrated", "verified", "retired"} and item["canonicalID"] not in canonical_ids]
+    bad_mappings = [legacy for legacy, item in mappings.items() if item["status"] in {"migrated", "verified", "retired"} and item["canonicalID"] not in canonical_ids | withheld_ids]
     if mode == "production" and bad_mappings:
         raise ImportFailure(f"Migration registry points outside the production artifact: {bad_mappings}")
 
@@ -968,6 +974,7 @@ def build(args):
             "allSevenGatesRequired": True,
         },
         "migrationRegistry": mappings,
+        "withheldEntityIDs": sorted(withheld_ids),
         "entities": entities,
     }
     output_checksum = hashlib.sha256(canonical_json(payload).encode("utf-8")).hexdigest()

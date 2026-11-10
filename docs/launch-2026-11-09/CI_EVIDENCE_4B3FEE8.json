@@ -1,0 +1,63 @@
+{
+  "recorded_at": "2026-11-10T12:43:17.884774+00:00",
+  "source_commit": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad",
+  "workflow_runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 42692773358,
+      "headSha": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad",
+      "status": "completed",
+      "workflowName": "Admin CI"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42692769910,
+      "headSha": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad",
+      "status": "completed",
+      "workflowName": "Product CI"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42692770470,
+      "headSha": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad",
+      "status": "completed",
+      "workflowName": "Governance contract"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42692770073,
+      "headSha": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad",
+      "status": "completed",
+      "workflowName": "Monetization Dependency Audit"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42692770328,
+      "headSha": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad",
+      "status": "completed",
+      "workflowName": "DATA PROJECT Health"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42692770201,
+      "headSha": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad",
+      "status": "completed",
+      "workflowName": "Secret Scan"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42692769884,
+      "headSha": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad",
+      "status": "completed",
+      "workflowName": "Supabase Disposable Verification"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42692759830,
+      "headSha": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad",
+      "status": "completed",
+      "workflowName": "Admin CI"
+    }
+  ],
+  "later_commits_require_own_checks": true
+}

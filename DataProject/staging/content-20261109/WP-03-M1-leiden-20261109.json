@@ -1,0 +1,424 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-03-M1-leiden-20261109",
+  "work_package": "WP-03",
+  "milestone": "WP-03-M1",
+  "target_release": "leiden-20261109-proposed",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "qa_evidence": {
+    "checked_at": null,
+    "build": null,
+    "static": null,
+    "duplicate": null,
+    "source": null,
+    "media": null,
+    "search": null,
+    "ai": null
+  },
+  "records": [
+    {
+      "id": "guide.leiden-gp",
+      "entity_type": "healthcare",
+      "category": "gp",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Find a general practitioner",
+      "description": "Ask nearby practices about registration and arrange a record transfer after acceptance.",
+      "images": [],
+      "official_source": {
+        "title": "Official visitor information",
+        "publisher": "Find a general practitioner",
+        "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+        "is_official": true,
+        "checked_at": "2026-11-09",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-09",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Ask nearby practices about registration and arrange a record transfer after acceptance.",
+      "search_keywords": [
+        "Find a general practitioner",
+        "gp",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "gp",
+        "description_nl": "Vraag praktijken in de buurt naar inschrijving en regel na acceptatie de overdracht van je dossier.",
+        "content_language": "en",
+        "content_section": "LIVE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+        "website_checked_at": "2026-11-09",
+        "title_nl": "Een huisarts vinden",
+        "practical_guide_nl": "{\"schema_version\": 2, \"id\": \"guide.leiden-gp\", \"slug\": \"gp\", \"locale\": \"nl\", \"title\": \"Een huisarts vinden\", \"status\": \"draft\", \"short_summary\": {\"id\": \"summary\", \"text\": \"Vraag praktijken in de buurt naar inschrijving en regel na acceptatie de overdracht van je dossier.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"who_this_is_for\": {\"id\": \"audience\", \"text\": \"Inwoners die zich in Leiden vestigen of buiten het gebied van hun huidige huisarts gaan wonen.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"when_you_need_it\": {\"id\": \"situation\", \"text\": \"Inwoners die zich in Leiden vestigen of buiten het gebied van hun huidige huisarts gaan wonen.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"audience_profiles\": [\"resident\", \"expat\", \"student\"], \"numbered_steps\": [{\"id\": \"step.1\", \"position\": 1, \"title\": \"Stap 1\", \"body\": \"Zoek praktijken bij je nieuwe adres en vraag of zij je kunnen aannemen. Capaciteit en afstand kunnen meewegen.\", \"source_ids\": [\"source.1\", \"source.2\"], \"municipality_dependent\": true}, {\"id\": \"step.2\", \"position\": 2, \"title\": \"Stap 2\", \"body\": \"Informeer na acceptatie je vorige huisarts en vraag overdracht van je dossier. Vraag de nieuwe praktijk welke inschrijfgegevens nodig zijn.\", \"source_ids\": [\"source.1\", \"source.2\"], \"municipality_dependent\": true}, {\"id\": \"step.3\", \"position\": 3, \"title\": \"Stap 3\", \"body\": \"Lukt het niet een praktijk te vinden, vraag je zorgverzekeraar om hulp of bemiddeling. Bezoekers en mensen zonder vaste huisarts volgen bij spoed de aparte informatie van De Limes.\", \"source_ids\": [\"source.1\", \"source.3\"], \"municipality_dependent\": true}], \"required_documents\": [], \"official_sources\": [{\"id\": \"source.1\", \"title\": \"Official guidance · www.rijksoverheid.nl\", \"publisher\": \"www.rijksoverheid.nl\", \"url\": \"https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.2\", \"title\": \"Official guidance · www.thuisarts.nl\", \"publisher\": \"www.thuisarts.nl\", \"url\": \"https://www.thuisarts.nl/inschrijven-bij-huisarts\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.3\", \"title\": \"Official guidance · huisartsenspoedpostdelimes.nl\", \"publisher\": \"huisartsenspoedpostdelimes.nl\", \"url\": \"https://huisartsenspoedpostdelimes.nl/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}], \"verified_at\": \"2026-11-09\", \"updated_at\": \"2026-11-09\", \"reviewer\": null, \"warnings\": [{\"id\": \"warning\", \"text\": \"Inschrijving is niet gegarandeerd. Bel bij direct levensgevaar 112; deze gids gaat over toegang tot zorg, niet over diagnose.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}], \"disclaimer\": \"Algemene praktische informatie; de bevoegde instantie of zorgverlener beoordeelt je persoonlijke situatie.\", \"sections\": []}",
+        "audience": "Residents settling in Leiden or moving away from their current GP’s area.",
+        "audience_source_url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+        "audience_checked_at": "2026-11-09",
+        "steps": "[\"Look for practices near your new address and ask whether they can accept you. Capacity and distance can affect acceptance.\", \"After the new practice accepts you, tell your previous GP and ask for transfer of your medical record. Ask the new practice which registration information it requires.\", \"If you cannot find a practice, ask your health insurer to help or mediate. For visitors or people without a regular GP, use the separate De Limes guidance when urgent care is needed.\"]",
+        "steps_source_url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+        "steps_checked_at": "2026-11-09",
+        "required_documents": "",
+        "cost": "",
+        "timing": "",
+        "additional_sources": "[\"https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts\", \"https://www.thuisarts.nl/inschrijven-bij-huisarts\", \"https://huisartsenspoedpostdelimes.nl/\"]"
+      },
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.leiden-gp",
+        "slug": "gp",
+        "locale": "en",
+        "title": "Find a general practitioner",
+        "status": "draft",
+        "short_summary": {
+          "id": "summary",
+          "text": "Ask nearby practices about registration and arrange a record transfer after acceptance.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "who_this_is_for": {
+          "id": "audience",
+          "text": "Residents settling in Leiden or moving away from their current GP’s area.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "when_you_need_it": {
+          "id": "situation",
+          "text": "Residents settling in Leiden or moving away from their current GP’s area.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "audience_profiles": [
+          "resident",
+          "expat",
+          "student"
+        ],
+        "numbered_steps": [
+          {
+            "id": "step.1",
+            "position": 1,
+            "title": "Step 1",
+            "body": "Look for practices near your new address and ask whether they can accept you. Capacity and distance can affect acceptance.",
+            "source_ids": [
+              "source.1",
+              "source.2"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.2",
+            "position": 2,
+            "title": "Step 2",
+            "body": "After the new practice accepts you, tell your previous GP and ask for transfer of your medical record. Ask the new practice which registration information it requires.",
+            "source_ids": [
+              "source.1",
+              "source.2"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.3",
+            "position": 3,
+            "title": "Step 3",
+            "body": "If you cannot find a practice, ask your health insurer to help or mediate. For visitors or people without a regular GP, use the separate De Limes guidance when urgent care is needed.",
+            "source_ids": [
+              "source.1",
+              "source.3"
+            ],
+            "municipality_dependent": true
+          }
+        ],
+        "required_documents": [],
+        "official_sources": [
+          {
+            "id": "source.1",
+            "title": "Official guidance · www.rijksoverheid.nl",
+            "publisher": "www.rijksoverheid.nl",
+            "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.2",
+            "title": "Official guidance · www.thuisarts.nl",
+            "publisher": "www.thuisarts.nl",
+            "url": "https://www.thuisarts.nl/inschrijven-bij-huisarts",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.3",
+            "title": "Official guidance · huisartsenspoedpostdelimes.nl",
+            "publisher": "huisartsenspoedpostdelimes.nl",
+            "url": "https://huisartsenspoedpostdelimes.nl/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          }
+        ],
+        "verified_at": "2026-11-09",
+        "updated_at": "2026-11-09",
+        "reviewer": null,
+        "warnings": [
+          {
+            "id": "warning",
+            "text": "Registration availability is not guaranteed. For immediate danger call 112; this guide is about access to care, not diagnosis.",
+            "source_ids": [
+              "source.1",
+              "source.2",
+              "source.3"
+            ]
+          }
+        ],
+        "disclaimer": "General practical information; the responsible authority or care provider decides your individual case.",
+        "sections": []
+      }
+    },
+    {
+      "id": "guide.leiden-pharmacy",
+      "entity_type": "healthcare",
+      "category": "pharmacy",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Medicines and out-of-hours care",
+      "description": "Use routine pharmacy services for planned needs and the regional emergency service for urgent needs.",
+      "images": [],
+      "official_source": {
+        "title": "Official visitor information",
+        "publisher": "Medicines and out-of-hours care",
+        "url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+        "is_official": true,
+        "checked_at": "2026-11-09",
+        "status": "verified_opened"
+      },
+      "website": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-09",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Use routine pharmacy services for planned needs and the regional emergency service for urgent needs.",
+      "search_keywords": [
+        "Medicines and out-of-hours care",
+        "pharmacy",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "pharmacy",
+        "description_nl": "Gebruik je gewone apotheek voor geplande zorg en de regionale spoeddienst bij dringende noodzaak.",
+        "content_language": "en",
+        "content_section": "LIVE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+        "website_checked_at": "2026-11-09",
+        "title_nl": "Medicijnen en zorg buiten kantooruren",
+        "practical_guide_nl": "{\"schema_version\": 2, \"id\": \"guide.leiden-pharmacy\", \"slug\": \"pharmacy\", \"locale\": \"nl\", \"title\": \"Medicijnen en zorg buiten kantooruren\", \"status\": \"draft\", \"short_summary\": {\"id\": \"summary\", \"text\": \"Gebruik je gewone apotheek voor geplande zorg en de regionale spoeddienst bij dringende noodzaak.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\", \"source.4\"]}, \"who_this_is_for\": {\"id\": \"audience\", \"text\": \"Inwoners en bezoekers die medicijnen nodig hebben als hun gewone zorgverlener gesloten is.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\", \"source.4\"]}, \"when_you_need_it\": {\"id\": \"situation\", \"text\": \"Inwoners en bezoekers die medicijnen nodig hebben als hun gewone zorgverlener gesloten is.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\", \"source.4\"]}, \"audience_profiles\": [\"resident\", \"expat\", \"student\"], \"numbered_steps\": [{\"id\": \"step.1\", \"position\": 1, \"title\": \"Stap 1\", \"body\": \"Neem voor gewone medicijnen tijdens openingstijden contact op met je apotheek. Zoek voor spoedmedicatie daarbuiten de actuele dienstapotheek via SSDR.\", \"source_ids\": [\"source.1\", \"source.3\"], \"municipality_dependent\": true}, {\"id\": \"step.2\", \"position\": 2, \"title\": \"Stap 2\", \"body\": \"Kan een huisartsenprobleem niet wachten tot het volgende spreekuur, bel dan eerst De Limes. De website wijst op basis van postcode de passende post aan.\", \"source_ids\": [\"source.2\", \"source.4\"], \"municipality_dependent\": true}, {\"id\": \"step.3\", \"position\": 3, \"title\": \"Stap 3\", \"body\": \"Neem een actueel medicatieoverzicht en identificatie mee naar de dienstapotheek en volg de betaalinstructies. Bel bij levensgevaar 112.\", \"source_ids\": [\"source.1\", \"source.3\", \"source.4\"], \"municipality_dependent\": true}], \"required_documents\": [{\"id\": \"documents\", \"text\": \"Actueel medicatieoverzicht en geldig identiteitsbewijs; houd waar van toepassing het BSN bij de hand.\", \"source_ids\": [\"source.1\", \"source.3\"]}], \"official_sources\": [{\"id\": \"source.1\", \"title\": \"Official guidance · huisartsenspoedpostdelimes.nl\", \"publisher\": \"huisartsenspoedpostdelimes.nl\", \"url\": \"https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.2\", \"title\": \"Official guidance · huisartsenspoedpostdelimes.nl\", \"publisher\": \"huisartsenspoedpostdelimes.nl\", \"url\": \"https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/wanneer-kan-ik-de-huisartsenpost-bellen/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.3\", \"title\": \"Official guidance · www.ssdr.nl\", \"publisher\": \"www.ssdr.nl\", \"url\": \"https://www.ssdr.nl/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.4\", \"title\": \"Official guidance · huisartsenspoedpostdelimes.nl\", \"publisher\": \"huisartsenspoedpostdelimes.nl\", \"url\": \"https://huisartsenspoedpostdelimes.nl/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}], \"verified_at\": \"2026-11-09\", \"updated_at\": \"2026-11-09\", \"reviewer\": null, \"warnings\": [{\"id\": \"warning\", \"text\": \"Dienstapotheken zijn voor spoedmedicatie. Kosten hangen af van dienst en medicijnen; dit is geen persoonlijke beoordeling van vergoeding.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\", \"source.4\"]}], \"disclaimer\": \"Algemene praktische informatie; de bevoegde instantie of zorgverlener beoordeelt je persoonlijke situatie.\", \"sections\": []}",
+        "audience": "Residents and visitors needing medicines when their usual provider is closed.",
+        "audience_source_url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+        "audience_checked_at": "2026-11-09",
+        "steps": "[\"For routine medicines, contact your regular pharmacy during its opening hours. For urgent medicines outside those hours, check the current service pharmacy on SSDR.\", \"If a GP problem cannot wait until the next regular consultation, call De Limes first. Its website selects the appropriate service by postcode; do not assume every patient uses the same site.\", \"Bring an up-to-date medication list and identification to the service pharmacy, and follow its payment instructions. For a life-threatening situation call 112.\"]",
+        "steps_source_url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+        "steps_checked_at": "2026-11-09",
+        "required_documents": "Current medication overview and valid identification; have BSN available where applicable.",
+        "required_documents_source_url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+        "required_documents_checked_at": "2026-11-09",
+        "cost": "",
+        "timing": "",
+        "additional_sources": "[\"https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/\", \"https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/wanneer-kan-ik-de-huisartsenpost-bellen/\", \"https://www.ssdr.nl/\", \"https://huisartsenspoedpostdelimes.nl/\"]"
+      },
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.leiden-pharmacy",
+        "slug": "pharmacy",
+        "locale": "en",
+        "title": "Medicines and out-of-hours care",
+        "status": "draft",
+        "short_summary": {
+          "id": "summary",
+          "text": "Use routine pharmacy services for planned needs and the regional emergency service for urgent needs.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3",
+            "source.4"
+          ]
+        },
+        "who_this_is_for": {
+          "id": "audience",
+          "text": "Residents and visitors needing medicines when their usual provider is closed.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3",
+            "source.4"
+          ]
+        },
+        "when_you_need_it": {
+          "id": "situation",
+          "text": "Residents and visitors needing medicines when their usual provider is closed.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3",
+            "source.4"
+          ]
+        },
+        "audience_profiles": [
+          "resident",
+          "expat",
+          "student"
+        ],
+        "numbered_steps": [
+          {
+            "id": "step.1",
+            "position": 1,
+            "title": "Step 1",
+            "body": "For routine medicines, contact your regular pharmacy during its opening hours. For urgent medicines outside those hours, check the current service pharmacy on SSDR.",
+            "source_ids": [
+              "source.1",
+              "source.3"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.2",
+            "position": 2,
+            "title": "Step 2",
+            "body": "If a GP problem cannot wait until the next regular consultation, call De Limes first. Its website selects the appropriate service by postcode; do not assume every patient uses the same site.",
+            "source_ids": [
+              "source.2",
+              "source.4"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.3",
+            "position": 3,
+            "title": "Step 3",
+            "body": "Bring an up-to-date medication list and identification to the service pharmacy, and follow its payment instructions. For a life-threatening situation call 112.",
+            "source_ids": [
+              "source.1",
+              "source.3",
+              "source.4"
+            ],
+            "municipality_dependent": true
+          }
+        ],
+        "required_documents": [
+          {
+            "id": "documents",
+            "text": "Current medication overview and valid identification; have BSN available where applicable.",
+            "source_ids": [
+              "source.1",
+              "source.3"
+            ]
+          }
+        ],
+        "official_sources": [
+          {
+            "id": "source.1",
+            "title": "Official guidance · huisartsenspoedpostdelimes.nl",
+            "publisher": "huisartsenspoedpostdelimes.nl",
+            "url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.2",
+            "title": "Official guidance · huisartsenspoedpostdelimes.nl",
+            "publisher": "huisartsenspoedpostdelimes.nl",
+            "url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/wanneer-kan-ik-de-huisartsenpost-bellen/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.3",
+            "title": "Official guidance · www.ssdr.nl",
+            "publisher": "www.ssdr.nl",
+            "url": "https://www.ssdr.nl/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.4",
+            "title": "Official guidance · huisartsenspoedpostdelimes.nl",
+            "publisher": "huisartsenspoedpostdelimes.nl",
+            "url": "https://huisartsenspoedpostdelimes.nl/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          }
+        ],
+        "verified_at": "2026-11-09",
+        "updated_at": "2026-11-09",
+        "reviewer": null,
+        "warnings": [
+          {
+            "id": "warning",
+            "text": "Service pharmacies are for urgent medication. Charges depend on the service and medicines; no personal reimbursement assessment is provided.",
+            "source_ids": [
+              "source.1",
+              "source.2",
+              "source.3",
+              "source.4"
+            ]
+          }
+        ],
+        "disclaimer": "General practical information; the responsible authority or care provider decides your individual case.",
+        "sections": []
+      }
+    }
+  ]
+}

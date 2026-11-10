@@ -19,7 +19,8 @@ import { metadataForPage } from "@/lib/seo/metadata";
 export const metadata = metadataForPage(
   "Business and partnerships",
   "Reach newcomers through reviewed YouNew organization profiles, local placements and useful content partnerships without buying editorial authority.",
-  "/business"
+  "/business",
+  { noIndex: true, follow: true }
 );
 
 const featuredFormatIds = [

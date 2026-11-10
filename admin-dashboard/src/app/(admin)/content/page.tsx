@@ -1,22 +1,37 @@
 import { PageHeader } from "@/components/admin/page-header";
 import { ContentManager, type ManagedArticle } from "@/components/admin/content-manager";
+import { ReadOnlySource, type ReadOnlySourceState } from "@/components/admin/read-only-source";
 import { sampleArticles } from "@/lib/data";
 import { createSupabaseServerClient } from "@/lib/supabase/server";
 import { requireAdmin } from "@/lib/auth";
-import { canEditContent } from "@/lib/authorization";
+import { canEditContent, canPublishContent } from "@/lib/authorization";
 import { normalizeManagedContentImages } from "@/lib/content-images";
 
 export default async function ContentPage() {
   const admin = await requireAdmin();
   const supabase = await createSupabaseServerClient();
-  const { data } = supabase
+  const queryResult = supabase
     ? await supabase
         .from("articles")
         .select("id,title,slug,short_description,full_content,language,status,priority,source_url,tags,images,verified_date,reviewer_id,requires_media,updated_at,canonical_title,subcategory,search_intents,search_synonyms,search_keywords,supported_languages,country_scope,scope_level,province,municipality,city,national_fallback,applicable_profiles,source_urls,content_quality_score,search_indexed,categories(slug)")
         .order("updated_at", { ascending: false })
         .limit(100)
-    : { data: null };
-  const rows = data ?? (process.env.NODE_ENV !== "production" && process.env.YOUNEW_ADMIN_DEMO_MODE === "true" ? sampleArticles : []);
+    : { data: null, error: null };
+  const explicitDemo = !supabase && process.env.NODE_ENV !== "production" && process.env.YOUNEW_ADMIN_DEMO_MODE === "true";
+  const forbidden = Boolean(queryResult.error && (
+    ["42501", "PGRST301", "PGRST302"].includes(String(queryResult.error.code ?? ""))
+    || String(queryResult.error.message ?? "").toLowerCase().includes("permission denied")
+    || String(queryResult.error.message ?? "").toLowerCase().includes("row-level security")
+  ));
+  const sourceState: ReadOnlySourceState = explicitDemo
+    ? "demo"
+    : !supabase || queryResult.error
+      ? forbidden ? "forbidden" : "unavailable"
+      : (queryResult.data?.length ?? 0) > 0 ? "data" : "empty";
+  const dataMode = sourceState === "data" || sourceState === "empty"
+    ? "supabase"
+    : sourceState === "demo" ? "demo" : sourceState === "forbidden" ? "forbidden" : "unavailable";
+  const rows = explicitDemo ? sampleArticles : queryResult.data ?? [];
   const initialRows: ManagedArticle[] = rows.map((row, index) => ({
     id: String((row as { id?: unknown }).id ?? `initial-${index + 1}`),
     title: String((row as { title?: unknown }).title ?? "Без названия"),
@@ -58,10 +73,20 @@ export default async function ContentPage() {
   return (
     <>
       <PageHeader title="Управление контентом" description="Создавайте и проверяйте статьи, транспортные гайды, справочные материалы, FAQ, экстренные контакты и источники знаний для AI." />
+      <ReadOnlySource
+        state={sourceState}
+        label={sourceState === "demo" ? "explicit synthetic demo" : "Supabase articles"}
+        detail={sourceState === "data" || sourceState === "empty"
+          ? `Authoritative query completed; ${initialRows.length} rows returned.`
+          : sourceState === "demo"
+            ? "No Supabase connection is used. Demo rows are visibly non-operational."
+            : "Authoritative read failed, so remote mutations are disabled and no zero count is claimed."}
+      />
       <ContentManager
         initialRows={initialRows}
-        supabaseEnabled={Boolean(supabase)}
-        canEdit={canEditContent(admin.role)}
+        dataMode={dataMode}
+        canEdit={canEditContent(admin.role) && (dataMode === "supabase" || dataMode === "demo")}
+        canManagePublished={canPublishContent(admin.role)}
       />
     </>
   );

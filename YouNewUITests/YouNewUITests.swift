@@ -291,6 +291,18 @@ final class YouNewUITests: XCTestCase {
 
         let documentsAction = waitForFirstElement("assistant.quickAction.openScreen.journeydocuments", in: app, timeout: 6)
         XCTAssertTrue(documentsAction.exists)
+        // Finish scrolling before tapping; XCTest's implicit scroll-and-tap
+        // can target a stale position while the response layout settles.
+        for _ in 0..<12 {
+            let frame = documentsAction.frame
+            if documentsAction.isHittable && frame.minY > 100 && frame.maxY < app.frame.height * 0.8 { break }
+            let movingDown = frame.minY > 100
+            let start = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: movingDown ? 0.65 : 0.35))
+            let end = app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: movingDown ? 0.35 : 0.65))
+            start.press(forDuration: 0.05, thenDragTo: end)
+        }
+        XCTAssertTrue(documentsAction.isHittable, "Documents action is not hittable")
+        guard documentsAction.isHittable else { return }
         documentsAction.tap()
 
         XCTAssertTrue(app.descendants(matching: .any)["documents.screen"].waitForExistence(timeout: 6))
@@ -793,11 +805,18 @@ final class YouNewUITests: XCTestCase {
     private func sendAssistantPrompt(_ prompt: String, in app: XCUIApplication) {
         let input = app.descendants(matching: .any)["assistant.input"]
         XCTAssertTrue(input.waitForExistence(timeout: 4))
+        let hittable = XCTNSPredicateExpectation(predicate: NSPredicate(format: "hittable == true"), object: input)
+        XCTAssertEqual(XCTWaiter.wait(for: [hittable], timeout: 4), .completed, "Assistant input is not hittable")
+        guard input.isHittable else { return }
         input.tap()
-        if !app.keyboards.firstMatch.waitForExistence(timeout: 1) {
-            input.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
-            _ = app.keyboards.firstMatch.waitForExistence(timeout: 1)
+        let keyboard = app.keyboards.firstMatch
+        if !keyboard.waitForExistence(timeout: 4) {
+            // The multiline field may expose an inner scrollbar across its
+            // center. Retry in the text area, away from that descendant.
+            input.coordinate(withNormalizedOffset: CGVector(dx: 0.1, dy: 0.15)).tap()
         }
+        XCTAssertTrue(keyboard.waitForExistence(timeout: 4), "Assistant keyboard did not open before typing")
+        guard keyboard.exists else { return }
         input.typeText(prompt)
 
         let send = app.descendants(matching: .any)["assistant.send"]

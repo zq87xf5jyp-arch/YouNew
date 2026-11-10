@@ -1,5 +1,8 @@
 "use client";
 
+import "@/styles/updates.css";
+
+
 import { useEffect, useState } from "react";
 import { ExternalLink, RefreshCw, ShieldCheck } from "lucide-react";
 import {

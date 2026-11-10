@@ -14,16 +14,19 @@
 }
 
 :global(html[data-theme="light"]) .page {
-  --guide-bg:#eef3f8;
-  --guide-surface:#f7f9fc;
-  --guide-surface-strong:#e4eef7;
-  --guide-text:#071a36;
-  --guide-copy:#29415f;
-  --guide-muted:#5b708a;
-  --guide-line:rgba(19,92,139,.18);
-  --guide-cyan:#087eaa;
-  --guide-orange:#f47721;
+  --guide-bg:var(--bg);
+  --guide-surface:var(--panel-2);
+  --guide-surface-strong:var(--panel-3);
+  --guide-text:var(--text);
+  --guide-copy:var(--text-secondary);
+  --guide-muted:var(--muted);
+  --guide-line:var(--line-strong);
+  --guide-cyan:var(--cyan);
+  --guide-orange:var(--orange);
 }
+
+:global(html[data-theme="light"]) .primaryAction { background:#164e48; color:#fff; box-shadow:none; }
+:global(html[data-theme="light"]) .primaryAction:hover { background:#103e39; }
 
 .shell { width:min(100% - 32px,900px); margin-inline:auto; }
 .hero { padding:34px 0 38px; border-bottom:1px solid var(--guide-line); }

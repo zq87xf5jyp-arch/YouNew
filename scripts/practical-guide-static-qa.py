@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""Validate the non-publishable first-wave practical-guide staging collection."""
+"""Validate the source-backed, non-publishable practical-guide QA collection."""
 
 from __future__ import annotations
 
 import copy
 import importlib.util
 import json
+from datetime import date
 from pathlib import Path
+from urllib.parse import urlparse
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,31 +16,33 @@ SCHEMA_PATH = ROOT / "DataProject" / "schema" / "entity.schema.json"
 STAGING_PATH = ROOT / "DataProject" / "staging" / "practical-guides-wave-1.json"
 IMPORTER_PATH = ROOT / "scripts" / "import-data-project.py"
 EXPECTED_TITLES = (
-    "Registering at a municipality",
-    "Getting a BSN",
+    "Getting a BSN and registering at a municipality",
     "Applying for DigiD",
+    "Navigating residence permits",
+    "Arranging Dutch health insurance",
     "Finding a huisarts",
-    "Dutch health insurance",
-    "Renting a home",
-    "Reporting housing defects",
-    "Using public transport",
-    "Finding work",
-    "Understanding an employment contract",
-    "Taxes and allowances",
-    "Opening a Dutch bank account",
     "Emergency numbers and urgent help",
-    "Residence permits",
-    "Dutch integration exams",
-    "Studying in the Netherlands",
-    "Student housing",
-    "Moving to another municipality",
-    "Reporting discrimination",
-    "Starting a business",
+    "Finding long-term housing",
+    "Finding temporary housing",
+    "Handling landlord problems and housing defects",
+    "Finding work with limited Dutch",
+    "Employment contract and payslip basics",
+    "Taxes and allowances",
+    "Getting help with debt",
+    "Opening a Dutch bank account",
+    "Choosing a SIM card and home internet",
+    "Using public transport",
+    "Getting a foreign diploma recognised",
+    "Dutch language courses and civic integration",
+    "Family, children and school registration",
+    "Pets and veterinary care",
 )
 REQUIRED_GOVERNED_SOURCE_TITLES = {
-    "Finding work",
+    "Finding temporary housing",
+    "Finding work with limited Dutch",
     "Opening a Dutch bank account",
-    "Student housing",
+    "Getting a foreign diploma recognised",
+    "Family, children and school registration",
 }
 CONTENT_ARRAYS = (
     "prerequisites",
@@ -87,6 +91,26 @@ def load_importer():
     module = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(module)
     return module
+
+
+def source_id_lists(value):
+    if isinstance(value, dict):
+        for key, child in value.items():
+            if key == "source_ids":
+                yield child
+            else:
+                yield from source_id_lists(child)
+    elif isinstance(value, list):
+        for child in value:
+            yield from source_id_lists(child)
+
+
+def valid_past_or_present_date(value, label):
+    try:
+        parsed = date.fromisoformat(value)
+    except (TypeError, ValueError):
+        fail(f"{label} is not an ISO date")
+    expect(parsed <= date.today(), f"{label} is in the future")
 
 
 def governed_records():
@@ -488,11 +512,11 @@ def main():
     records = governed_records()
 
     expect(set(staging) == {"schema_version", "collection_id", "purpose", "status", "guides"}, "staging envelope changed")
-    expect(staging["schema_version"] == 1, "unsupported staging schema version")
+    expect(staging["schema_version"] == 2, "unsupported staging schema version")
     expect(staging["collection_id"] == "practical-guides-wave-1", "unexpected collection ID")
-    expect(staging["status"] == "draft", "first-wave staging collection must remain draft")
+    expect(staging["status"] == "qa", "first-wave staging collection must remain in QA")
     guides = staging["guides"]
-    expect(isinstance(guides, list) and len(guides) == 20, "first wave must contain exactly 20 guide scaffolds")
+    expect(isinstance(guides, list) and len(guides) == 20, "first wave must contain exactly 20 guide QA packets")
 
     titles = tuple(item.get("practical_guide", {}).get("title") for item in guides)
     expect(titles == EXPECTED_TITLES, "first-wave topics or their order changed")
@@ -506,20 +530,43 @@ def main():
         expect(set(item) == {"source_entity_ids", "publication_gaps", "practical_guide"}, f"{label} has unknown envelope fields")
         guide = item["practical_guide"]
         importer.validate_schema(guide, schema["$defs"]["practicalGuide"], schema, f"{label}.practical_guide")
-        expect(guide["status"] == "draft", f"{label} escaped draft status")
-        expect(guide["short_summary"] is None, f"{label} contains an unreviewed summary")
-        expect(guide["jurisdiction"] is None, f"{label} asserts an unreviewed jurisdiction")
-        expect(all(guide.get(field, []) == [] for field in CONTENT_ARRAYS), f"{label} contains unreviewed practical content")
-        expect(guide.get("who_this_is_for") is None and guide.get("when_you_need_it") is None, f"{label} contains unreviewed audience/use-case copy")
-        expect(guide.get("reading_time_minutes") is None and guide.get("difficulty") is None, f"{label} invents reading metadata")
-        expect(guide.get("confidence_level") is None and guide.get("publication_gate") is None, f"{label} invents confidence or QA evidence")
-        expect(guide.get("tags", []) == [], f"{label} contains unreviewed tags")
-        expect(guide["verified_at"] is None and guide["updated_at"] is None, f"{label} invents editorial dates")
+        expect(guide["schema_version"] == 2, f"{label} is not schema v2")
+        expect(guide["status"] == "qa", f"{label} escaped QA status")
+        expect(guide["short_summary"] is not None, f"{label} has no sourced summary")
+        expect(guide["jurisdiction"] is not None, f"{label} has no sourced jurisdiction")
+        expect(all(guide.get(field, []) for field in CONTENT_ARRAYS), f"{label} has an empty required content array")
+        expect(len(guide["faqs"]) >= 3, f"{label} has fewer than three sourced FAQs")
+        expect(guide.get("who_this_is_for") is not None and guide.get("when_you_need_it") is not None, f"{label} has no sourced audience/use-case copy")
+        expect(guide.get("audience_profiles"), f"{label} has no audience profile")
+        expect(guide.get("reading_time_minutes") and guide.get("difficulty"), f"{label} has no reading metadata")
+        expect(guide.get("confidence_level") == "medium", f"{label} overstates automated confidence")
+        gate = guide.get("publication_gate") or {}
+        expect(gate.get("status") == "pending", f"{label} claims a completed publication gate")
+        expect(gate.get("checks", {}).get("media") is False, f"{label} claims guide media exists")
+        expect(not all(gate.get("checks", {}).values()), f"{label} escaped the fail-closed QA gate")
+        expect(len(guide.get("tags", [])) >= 2, f"{label} has insufficient tags")
+        valid_past_or_present_date(guide["verified_at"], f"{label}.verified_at")
+        valid_past_or_present_date(guide["updated_at"], f"{label}.updated_at")
         expect(guide["reviewer"] is None, f"{label} invents a reviewer")
-        expect(guide["disclaimer"] is None and guide["seo"] is None, f"{label} contains publishable presentation fields")
-        expect(guide["estimated_time"] == {"state": "unknown", "value": None, "note": None, "source_ids": []}, f"{label} invents a time estimate")
-        expect(guide["estimated_cost"] == {"state": "unknown", "value": None, "note": None, "currency": None, "source_ids": []}, f"{label} invents a cost estimate")
-        expect(len(item["publication_gaps"]) >= 4, f"{label} does not document publication gaps")
+        expect(guide.get("disclaimer") and guide.get("seo"), f"{label} has no reviewable presentation fields")
+        expect(guide["estimated_time"]["state"] in {"known", "varies", "not_applicable"} and guide["estimated_time"]["source_ids"], f"{label} has no sourced time estimate")
+        expect(guide["estimated_cost"]["state"] in {"known", "varies", "not_applicable"} and guide["estimated_cost"]["source_ids"], f"{label} has no sourced cost estimate")
+        expect(len(item["publication_gaps"]) >= 3, f"{label} does not document publication gaps")
+        gap_text = " ".join(item["publication_gaps"]).lower()
+        expect("human" in gap_text and "media" in gap_text and "publication gate" in gap_text, f"{label} hides a mandatory blocker")
+
+        official_sources = guide["official_sources"]
+        official_source_ids = {source["id"] for source in official_sources}
+        expect(len(official_source_ids) == len(official_sources), f"{label} repeats official source IDs")
+        for source in official_sources:
+            parsed = urlparse(source["url"])
+            expect(parsed.scheme == "https" and parsed.hostname, f"{label} has a non-HTTPS source")
+            expect(source["is_official"] is True and source["status"] == "verified_opened", f"{label} has a non-official or unopened source")
+            valid_past_or_present_date(source["checked_at"], f"{label} source {source['id']}.checked_at")
+        for references in source_id_lists(guide):
+            expect(isinstance(references, list) and references, f"{label} has an empty or invalid source_ids field")
+            unknown = set(references) - official_source_ids
+            expect(not unknown, f"{label} cites sources missing from official_sources: {sorted(unknown)}")
 
         source_entity_ids = item["source_entity_ids"]
         expect(len(source_entity_ids) == len(set(source_entity_ids)), f"{label} repeats a governed source entity")
@@ -535,7 +582,7 @@ def main():
         if guide["title"] in REQUIRED_GOVERNED_SOURCE_TITLES:
             expect(source_entity_ids, f"{label} has no governed QA source for its required topic")
 
-    # Regression proof: changing a scaffold status alone can never make it publishable.
+    # Regression proof: changing a QA packet status alone can never make it publishable.
     incomplete = copy.deepcopy(guides[0]["practical_guide"])
     incomplete["status"] = "published"
     try:
@@ -548,10 +595,12 @@ def main():
     validate_importer_projection(importer, schema, records)
 
     print("Practical guide QA passed")
-    print("- Draft scaffolds: 20")
+    print("- Source-backed schema-v2 QA packets: 20")
     print("- Published practical guides in staging: 0")
+    print("- Numbered steps, checklists and sourced FAQ sets: complete for 20/20")
+    print("- Human reviewers and publication authorization: 0/20 (fail-closed)")
     print("- Governed QA entity references and opened official sources: validated")
-    print("- Explicit governed-content gaps: none")
+    print("- Every declared governed source-entity reference resolves and remains verified")
     print("- Incomplete published-guide fail-closed check: passed")
     print("- Published projection and per-fact source-ID checks: passed")
     print("- Unrouted locale publication check: passed")

@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/breadcrumbs";
 import { PageShell } from "@/components/page-shell";
 import { metadataForPage } from "@/lib/seo/metadata";
 
-export const metadata = metadataForPage("Partner with YouNew", "Learn how YouNew reviews local organizations, content partnerships and clearly disclosed commercial relationships.", "/business/partners");
+export const metadata = metadataForPage("Partner with YouNew", "Learn how YouNew reviews local organizations, content partnerships and clearly disclosed commercial relationships.", "/business/partners", { noIndex: true, follow: true });
 
 export default function PartnersPage() {
   return (

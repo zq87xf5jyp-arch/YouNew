@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Offline publication-gate checks for YouNew Data Project batches."""
 
+import argparse
 import json
 import re
 import sys
@@ -39,6 +40,7 @@ GEO_TYPES = {"city", "place", "museum", "restaurant", "cafe", "hotel", "nature",
 MEDIA_ROLES = {"hero", "gallery", "thumbnail", "map_preview"}
 MEDIA_REQUIRED_TYPES = {"city", "place", "museum", "restaurant", "cafe", "hotel", "nature", "local_partner"}
 FORBIDDEN_TEXT = ("todo", "placeholder", "lorem ipsum", "generated placeholder")
+PUBLIC_EXCLUSIONS = ROOT / "admin-dashboard" / "public-site" / "src" / "generated" / "public-freshness-exclusions.json"
 
 
 def load_json(path: Path):
@@ -74,6 +76,29 @@ def parse_date(value, label: str):
 
 def normalized(value: str) -> str:
     return " ".join(re.findall(r"[a-z0-9]+", value.casefold()))
+
+
+def load_public_freshness_exclusions() -> set[str]:
+    payload = load_json(PUBLIC_EXCLUSIONS)
+    expect(payload.get("schemaVersion") == 1, "public freshness exclusion registry has an unsupported schema")
+    expect(payload.get("policy") == "fail_closed_until_field_level_reverification", "public freshness exclusion policy changed")
+    records = payload.get("records")
+    expect(isinstance(records, list), "public freshness exclusion registry must contain records")
+    ids = [record.get("id") for record in records if isinstance(record, dict)]
+    expect(len(ids) == len(records) and all(isinstance(item, str) and item for item in ids), "public freshness exclusions require stable IDs")
+    expect(len(ids) == len(set(ids)) == payload.get("count"), "public freshness exclusion count or identity is inconsistent")
+    return set(ids)
+
+
+def is_temporally_stale(record: dict) -> bool:
+    checked = date.fromisoformat(record["last_checked"])
+    if checked + timedelta(days=record["review_frequency_days"]) < date.today():
+        return True
+    if record["entity_type"] == "event":
+        attributes = record.get("attributes") or {}
+        active_through = attributes.get("end_date") or attributes.get("start_date")
+        return date.fromisoformat(active_through) < date.today()
+    return False
 
 
 def runtime_entity_ids():
@@ -259,6 +284,15 @@ def validate_record(
 
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument(
+        "--public-safe",
+        action="store_true",
+        help="Allow current-release temporal failures only when the exact stale set is fail-closed excluded from public output.",
+    )
+    args = parser.parse_args()
+    public_exclusions = load_public_freshness_exclusions() if args.public_safe else set()
+    observed_current_stale = set()
     package_ids = validate_manifest()
     releases, milestones = validate_governance(package_ids)
     current_published_heads = set(effective_release_heads(PROJECT, {"published"}))
@@ -298,11 +332,14 @@ def main():
         expect(isinstance(records, list) and records, f"{label} must contain at least one record")
         for index, record in enumerate(records):
             record_label = f"{label} record {index + 1}"
+            current_release_record = release_id in current_published_heads and record["lifecycle_status"] == "published"
+            if current_release_record and is_temporally_stale(record):
+                observed_current_stale.add(record["id"])
             validate_record(
                 record,
                 record_label,
                 media_id_owner,
-                enforce_current_temporal=release_id in current_published_heads,
+                enforce_current_temporal=current_release_record and record["id"] not in public_exclusions,
             )
             if batch["publication_status"] == "published":
                 expect(record["lifecycle_status"] == "published", f"published {label} contains a non-published record")
@@ -341,11 +378,14 @@ def main():
         effective_website_owners = {}
         for index, record in enumerate(effective.records):
             label = f"effective release {release_id} record {index + 1}"
+            current_release_record = release_id in current_published_heads and record["lifecycle_status"] == "published"
+            if current_release_record and is_temporally_stale(record):
+                observed_current_stale.add(record["id"])
             validate_record(
                 record,
                 label,
                 effective_media_owners,
-                enforce_current_temporal=release_id in current_published_heads,
+                enforce_current_temporal=current_release_record and record["id"] not in public_exclusions,
             )
             title_key = (record["entity_type"], normalized(record["title"]), record.get("city_id"))
             expect(
@@ -371,13 +411,21 @@ def main():
     for release_id, release in releases.items():
         expect(release.get("published_records") == published_by_release[release_id], f"release {release_id} published_records does not match its batches")
 
-    print("Data Project QA passed")
+    if args.public_safe:
+        expect(
+            observed_current_stale == public_exclusions,
+            "public freshness exclusions must exactly match the temporally stale records in current published release heads",
+        )
+
+    print("Data Project QA passed" if not args.public_safe else "Data Project public-safe QA passed")
     print("- Work packages: 17")
     print(f"- Milestones: {len(milestones)}")
     print(f"- Data Releases: {len(releases)}")
     print(f"- Batches: {len(batch_files)}")
     print(f"- Records: {len(entity_owner)}")
     print("- Publication gates: build, static, duplicate, source, media, search, AI")
+    if args.public_safe:
+        print(f"- Fail-closed public freshness exclusions: {len(public_exclusions)}")
 
 
 if __name__ == "__main__":

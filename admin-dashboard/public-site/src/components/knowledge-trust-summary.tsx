@@ -1,25 +1,16 @@
 import Link from "next/link";
-import { ArrowRight, Database, ShieldAlert, ShieldCheck } from "lucide-react";
-import trustDashboard from "@/generated/trust-dashboard.json";
+import { ArrowRight, ShieldAlert, ShieldCheck } from "lucide-react";
+import releaseTruth from "@/generated/release-truth-public.json";
 
-type TrustMetric = {
-  value: number | null;
-  numerator: number | null;
-  denominator: number | null;
-  evidenceState: string;
-};
-
-function metricValue(metric: TrustMetric, suffix = "") {
-  return metric.value === null ? "Not established" : `${metric.value}${suffix}`;
+function metricValue(metric: { value: number | string | null; state: string; unit: string }) {
+  if (metric.state === "not_applicable") return "N/A";
+  if (metric.state !== "measured") return "—";
+  return `${metric.value}${metric.unit === "percent" ? "%" : ""}`;
 }
 
 export function KnowledgeTrustSummary({ compact = false }: { compact?: boolean }) {
-  const governedPublic = trustDashboard.metrics.governedPublicCoverage as TrustMetric;
-  const pilotCoverage = trustDashboard.metrics.pilotMunicipalityCoverage as TrustMetric;
-  const sourceTrust = trustDashboard.metrics.sourceTrustScore as TrustMetric;
-  const hardGates = trustDashboard.readiness.hardGates;
-  const passedGates = Object.values(hardGates).filter(Boolean).length;
-  const totalGates = Object.keys(hardGates).length;
+  const passedGates = Object.values(releaseTruth.gates).filter((result) => result === "pass").length;
+  const totalGates = Object.keys(releaseTruth.gates).length;
 
   return (
     <section
@@ -35,40 +26,38 @@ export function KnowledgeTrustSummary({ compact = false }: { compact?: boolean }
         </div>
         <p>
           Advertising cannot override official-source ranking, verification status,
-          municipality applicability or a failed release gate.
+          municipality applicability or a blocked release gate.
         </p>
       </div>
 
       <dl className="knowledge-trust-metrics" aria-label="Current governed knowledge evidence">
         <div>
-          <dt>Governed public coverage</dt>
-          <dd>{metricValue(governedPublic, "%")}</dd>
-          <small>{governedPublic.numerator ?? "—"} / {governedPublic.denominator ?? "—"} records</small>
+          <dt>Packaged coverage</dt>
+          <dd>{metricValue(releaseTruth.publication.packagedCoverage)}</dd>
+          <small>{releaseTruth.publication.packagedPublishedRecords} / {releaseTruth.publication.inventoryRecords} governed records</small>
         </div>
         <div>
-          <dt>Amsterdam pilot coverage</dt>
-          <dd>{metricValue(pilotCoverage, "%")}</dd>
-          <small>{pilotCoverage.numerator ?? "—"} / {pilotCoverage.denominator ?? "—"} required topics</small>
+          <dt>Packaged published</dt>
+          <dd>{releaseTruth.publication.packagedPublishedRecords}</dd>
+          <small>measured build-time artifact</small>
         </div>
         <div>
-          <dt>Source Trust Score</dt>
-          <dd>{metricValue(sourceTrust)}</dd>
-          <small>{sourceTrust.evidenceState}</small>
+          <dt>Link health</dt>
+          <dd>{metricValue(releaseTruth.linkHealth)}</dd>
+          <small>{releaseTruth.linkHealth.state} · network check required</small>
         </div>
         <div>
           <dt>Hard release gates</dt>
           <dd>{passedGates} / {totalGates}</dd>
-          <small>Content, AI and user outcomes</small>
+          <small>Unknown evidence cannot pass</small>
         </div>
       </dl>
 
       <aside className="knowledge-trust-decision">
-        {trustDashboard.currentReleaseAuthority === "NO_GO"
-          ? <ShieldAlert aria-hidden />
-          : <Database aria-hidden />}
+        <ShieldAlert aria-hidden />
         <p>
-          <strong>Knowledge candidate: {trustDashboard.currentReleaseAuthority}</strong>
-          <span>{trustDashboard.releaseAuthorityReason}</span>
+          <strong>Technical release status: {releaseTruth.technicalVerdict}</strong>
+          <span>{releaseTruth.verdictReason}</span>
         </p>
         <Link href="/status/">System evidence <ArrowRight aria-hidden /></Link>
       </aside>

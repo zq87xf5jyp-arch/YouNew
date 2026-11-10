@@ -1,0 +1,22 @@
+{
+  "total": 71,
+  "leiden_places": 40,
+  "preserved_other_city_places": 14,
+  "guides": 10,
+  "collections": 5,
+  "business_copy": 2,
+  "unconfirmed_fields": 199,
+  "missing_by_field": {
+    "cost": 6,
+    "required_documents": 6,
+    "timing": 5,
+    "coordinates": 51,
+    "opening_hours": 44,
+    "prices": 50,
+    "contact_email": 20,
+    "contact_phone": 17
+  },
+  "confirmed_coordinate_pairs": 3,
+  "source_rows": 1006,
+  "unique_source_urls": 91
+}

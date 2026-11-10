@@ -2,6 +2,11 @@ import Link from "next/link";
 import { Activity, AppWindow, CheckCircle2, CircleAlert, Database, Download, ShieldCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  analyticsPlatformQueryValue,
+  type AnalyticsPeriodDays,
+  type AnalyticsPlatformScope
+} from "@/lib/analytics/dashboard";
 
 const integerFormatter = new Intl.NumberFormat("ru-RU");
 const percentFormatter = new Intl.NumberFormat("ru-RU", {
@@ -9,7 +14,13 @@ const percentFormatter = new Intl.NumberFormat("ru-RU", {
   maximumFractionDigits: 1
 });
 
-export function AnalyticsPeriodPicker({ days }: { days: 7 | 30 | 90 }) {
+export function AnalyticsPeriodPicker({
+  days,
+  platform
+}: {
+  days: AnalyticsPeriodDays;
+  platform: AnalyticsPlatformScope;
+}) {
   return (
     <nav aria-label="Период аналитики" className="flex rounded-xl border border-border/70 bg-background/45 p-1">
       {([7, 30, 90] as const).map((period) => (
@@ -18,10 +29,40 @@ export function AnalyticsPeriodPicker({ days }: { days: 7 | 30 | 90 }) {
           className={days === period
             ? "rounded-lg bg-cyan-400/15 px-3 py-2 text-sm font-semibold text-cyan-100"
             : "rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-white/5 hover:text-foreground"}
-          href={`/analytics?days=${period}`}
+          href={`/analytics?days=${period}&platform=${analyticsPlatformQueryValue(platform)}`}
           key={period}
         >
           {period} дней
+        </Link>
+      ))}
+    </nav>
+  );
+}
+
+export function AnalyticsPlatformPicker({
+  days,
+  platform
+}: {
+  days: AnalyticsPeriodDays;
+  platform: AnalyticsPlatformScope;
+}) {
+  const options = [
+    { label: "Web", value: "Web" as const },
+    { label: "iOS", value: "iOS" as const },
+    { label: "Web + iOS", value: "All" as const }
+  ];
+  return (
+    <nav aria-label="Платформа аналитики" className="flex rounded-xl border border-border/70 bg-background/45 p-1">
+      {options.map((option) => (
+        <Link
+          aria-current={platform === option.value ? "page" : undefined}
+          className={platform === option.value
+            ? "rounded-lg bg-cyan-400/15 px-3 py-2 text-sm font-semibold text-cyan-100"
+            : "rounded-lg px-3 py-2 text-sm text-muted-foreground transition hover:bg-white/5 hover:text-foreground"}
+          href={`/analytics?days=${days}&platform=${analyticsPlatformQueryValue(option.value)}`}
+          key={option.value}
+        >
+          {option.label}
         </Link>
       ))}
     </nav>
@@ -183,10 +224,12 @@ export function AnalyticsSourceMatrix({
 
 export function AnalyticsMetricGlossary() {
   const definitions = [
-    ["Сессия", "Одна анонимная вкладка браузера или сессия приложения. Это не уникальный человек."],
+    ["Сессия", "Distinct session_id за весь выбранный период. Дневные точки графика нельзя суммировать; это не уникальный человек."],
     ["Активный instance", "Случайный идентификатор после согласия на аналитику. На Web живёт в sessionStorage и не отслеживает человека между вкладками."],
     ["Просмотр страницы", "Событие page_view или screen_view для пути без query-параметров."],
     ["Ключевое действие", "Открытие официального источника/результата, сохранение, завершение шага, бизнес-контакт или переход в App Store."],
+    ["Action Panel CTA", "Отдельный contextual event. Тот же клик уже считается как official_source_click, поэтому CTA не добавляется в KPI второй раз."],
+    ["Сравнение", "Последние семь полных UTC-дней сравниваются с предыдущими семью; сегодняшний неполный день не входит."],
     ["Переход в App Store", "Клик по CTA на younew.nl. Это намерение загрузить, но не фактическая загрузка."],
     ["Первая загрузка", "Подтверждённая App Store Connect единица первого скачивания; источник должен быть синхронизирован отдельно."],
     ["Вовлечённая сессия", "Сессия длительностью не менее 10 секунд. Порог диагностический, не доказательство ценности."],

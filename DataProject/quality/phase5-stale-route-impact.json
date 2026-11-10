@@ -1,0 +1,1545 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-24",
+  "baseline_source": "git HEAD public-content snapshot before fail-closed exclusion",
+  "excluded_records": 170,
+  "absent_from_current_public_entities": 170,
+  "absent_static_pages": 170,
+  "absent_from_sitemap": 170,
+  "same_url_phase5_candidates": 10,
+  "new_redirects_added": 0,
+  "empty_pages_added": 0,
+  "policy": "Unverified removed records remain real 404s and stay out of the sitemap. Do not mass-redirect them to a category (soft-404 risk). Accepted reverified records return at their original canonical URL.",
+  "records": [
+    {
+      "entity_id": "cafe.back-to-black",
+      "previous_canonical_route": "/places/back-to-black",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.bakers-and-roasters",
+      "previous_canonical_route": "/places/bakers-and-roasters",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.bocca-coffee",
+      "previous_canonical_route": "/places/bocca-coffee",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.caf-de-jaren",
+      "previous_canonical_route": "/places/caf-de-jaren",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.coffee-and-coconuts",
+      "previous_canonical_route": "/places/coffee-and-coconuts",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.coffee-bru",
+      "previous_canonical_route": "/places/coffee-bru",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.de-koffiesalon",
+      "previous_canonical_route": "/places/de-koffiesalon",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.dignita-hoftuin",
+      "previous_canonical_route": "/places/dignita-hoftuin",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.fuku-friedhats",
+      "previous_canonical_route": "/places/fuku-friedhats",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.koffie-academie",
+      "previous_canonical_route": "/places/koffie-academie",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.lot-sixty-one-coffee-roasters",
+      "previous_canonical_route": "/places/lot-sixty-one-coffee-roasters",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.monks-coffee-roasters",
+      "previous_canonical_route": "/places/monks-coffee-roasters",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.pluk-amsterdam",
+      "previous_canonical_route": "/places/pluk-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.rum-baba",
+      "previous_canonical_route": "/places/rum-baba",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.saint-jean",
+      "previous_canonical_route": "/places/saint-jean",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.scandinavian-embassy",
+      "previous_canonical_route": "/places/scandinavian-embassy",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.screaming-beans",
+      "previous_canonical_route": "/places/screaming-beans",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.toki",
+      "previous_canonical_route": "/places/toki",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.uncommon-amsterdam",
+      "previous_canonical_route": "/places/uncommon-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "cafe.white-label-coffee",
+      "previous_canonical_route": "/places/white-label-coffee",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "education.amsterdam-university-college",
+      "previous_canonical_route": "/organizations/amsterdam-university-college",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "education.amsterdam-university-of-applied-sciences",
+      "previous_canonical_route": "/organizations/amsterdam-university-of-applied-sciences",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "education.conservatorium-van-amsterdam",
+      "previous_canonical_route": "/organizations/conservatorium-van-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "education.gerrit-rietveld-academie",
+      "previous_canonical_route": "/organizations/gerrit-rietveld-academie",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "education.hotelschool-the-hague-amsterdam",
+      "previous_canonical_route": "/organizations/hotelschool-the-hague-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "education.inholland-amsterdam",
+      "previous_canonical_route": "/organizations/inholland-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "education.roc-van-amsterdam",
+      "previous_canonical_route": "/organizations/roc-van-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "education.tio-business-school-amsterdam",
+      "previous_canonical_route": "/organizations/tio-business-school-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "education.university-of-amsterdam",
+      "previous_canonical_route": "/organizations/university-of-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "education.vrije-universiteit-amsterdam",
+      "previous_canonical_route": "/organizations/vrije-universiteit-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "government_service.first-registration-in-amsterdam",
+      "previous_canonical_route": "/guides/first-registration-in-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "government_service.marriage-and-registered-partnership-amsterdam",
+      "previous_canonical_route": "/guides/marriage-and-registered-partnership-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "government_service.moving-within-amsterdam",
+      "previous_canonical_route": "/guides/moving-within-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "government_service.municipal-taxes-amsterdam",
+      "previous_canonical_route": "/guides/municipal-taxes-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "government_service.parking-permit-amsterdam",
+      "previous_canonical_route": "/guides/parking-permit-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "government_service.passport-and-id-card-amsterdam",
+      "previous_canonical_route": "/guides/passport-and-id-card-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "government_service.registering-a-birth-in-amsterdam",
+      "previous_canonical_route": "/guides/registering-a-birth-in-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "government_service.report-a-problem-in-public-space-amsterdam",
+      "previous_canonical_route": "/guides/report-a-problem-in-public-space-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "government_service.waste-and-recycling-amsterdam",
+      "previous_canonical_route": "/guides/waste-and-recycling-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "healthcare.acta",
+      "previous_canonical_route": "/organizations/acta",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "healthcare.amsterdam-umc-location-amc",
+      "previous_canonical_route": "/organizations/amsterdam-umc-location-amc",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "healthcare.amsterdam-umc-location-vumc",
+      "previous_canonical_route": "/organizations/amsterdam-umc-location-vumc",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "healthcare.antoni-van-leeuwenhoek",
+      "previous_canonical_route": "/organizations/antoni-van-leeuwenhoek",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "healthcare.arkin",
+      "previous_canonical_route": "/organizations/arkin",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "healthcare.bovenij-hospital",
+      "previous_canonical_route": "/organizations/bovenij-hospital",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "healthcare.ggd-amsterdam",
+      "previous_canonical_route": "/organizations/ggd-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "healthcare.olvg-east",
+      "previous_canonical_route": "/organizations/olvg-east",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "healthcare.olvg-west",
+      "previous_canonical_route": "/organizations/olvg-west",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "healthcare.reade-overtoom",
+      "previous_canonical_route": "/organizations/reade-overtoom",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "housing.affordable-housing-amsterdam",
+      "previous_canonical_route": "/guides/affordable-housing-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "housing.housing-permit-amsterdam",
+      "previous_canonical_route": "/guides/housing-permit-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "housing.renting-a-home-in-amsterdam",
+      "previous_canonical_route": "/guides/renting-a-home-in-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "housing.woningnet-stadsregio-amsterdam",
+      "previous_canonical_route": "/guides/woningnet-stadsregio-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "housing.woon",
+      "previous_canonical_route": "/guides/woon",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "local_partner.citizenm-amsterdam-south",
+      "previous_canonical_route": "/organizations/citizenm-amsterdam-south",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "local_partner.everaert-advocaten",
+      "previous_canonical_route": "/organizations/everaert-advocaten",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "local_partner.funda",
+      "previous_canonical_route": "/organizations/funda",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "local_partner.ikea-amsterdam",
+      "previous_canonical_route": "/organizations/ikea-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "local_partner.ing-group",
+      "previous_canonical_route": "/organizations/ing-group",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "local_partner.macbike-amsterdam",
+      "previous_canonical_route": "/organizations/macbike-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "local_partner.rob-peetoom-amsterdam",
+      "previous_canonical_route": "/organizations/rob-peetoom-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "local_partner.tca-taxi-amsterdam",
+      "previous_canonical_route": "/organizations/tca-taxi-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "local_partner.uva-talen",
+      "previous_canonical_route": "/organizations/uva-talen",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "local_partner.van-der-valk-hotel-amsterdam-amstel",
+      "previous_canonical_route": "/organizations/van-der-valk-hotel-amsterdam-amstel",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.allard-pierson",
+      "previous_canonical_route": "/places/allard-pierson",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.amsterdam-museum",
+      "previous_canonical_route": "/places/amsterdam-museum",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.anne-frank-house",
+      "previous_canonical_route": "/places/anne-frank-house",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.artis-micropia",
+      "previous_canonical_route": "/places/artis-micropia",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.dutch-resistance-museum",
+      "previous_canonical_route": "/places/dutch-resistance-museum",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.eye-filmmuseum",
+      "previous_canonical_route": "/places/eye-filmmuseum",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.foam",
+      "previous_canonical_route": "/places/foam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.hart-museum",
+      "previous_canonical_route": "/places/hart-museum",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.het-scheepvaartmuseum",
+      "previous_canonical_route": "/places/het-scheepvaartmuseum",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.huis-marseille",
+      "previous_canonical_route": "/places/huis-marseille",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.jewish-museum",
+      "previous_canonical_route": "/places/jewish-museum",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.museum-of-the-canals",
+      "previous_canonical_route": "/places/museum-of-the-canals",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.museum-ons-lieve-heer-op-solder",
+      "previous_canonical_route": "/places/museum-ons-lieve-heer-op-solder",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.museum-rembrandthuis",
+      "previous_canonical_route": "/places/museum-rembrandthuis",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.museum-van-loon",
+      "previous_canonical_route": "/places/museum-van-loon",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.nemo-science-museum",
+      "previous_canonical_route": "/places/nemo-science-museum",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.rijksmuseum",
+      "previous_canonical_route": "/places/rijksmuseum",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.stedelijk-museum-amsterdam",
+      "previous_canonical_route": "/places/stedelijk-museum-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.van-gogh-museum",
+      "previous_canonical_route": "/places/van-gogh-museum",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "museum.wereldmuseum-amsterdam",
+      "previous_canonical_route": "/places/wereldmuseum-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "nature.amsterdamse-bos",
+      "previous_canonical_route": "/places/amsterdamse-bos",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "nature.erasmuspark",
+      "previous_canonical_route": "/places/erasmuspark",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "nature.noorderpark",
+      "previous_canonical_route": "/places/noorderpark",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "nature.oosterpark",
+      "previous_canonical_route": "/places/oosterpark",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "nature.park-frankendael",
+      "previous_canonical_route": "/places/park-frankendael",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "nature.rembrandtpark",
+      "previous_canonical_route": "/places/rembrandtpark",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "nature.sarphatipark",
+      "previous_canonical_route": "/places/sarphatipark",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "nature.sloterpark-and-sloterplas",
+      "previous_canonical_route": "/places/sloterpark-and-sloterplas",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "nature.vondelpark",
+      "previous_canonical_route": "/places/vondelpark",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "nature.westerpark",
+      "previous_canonical_route": "/places/westerpark",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.adam-lookout",
+      "previous_canonical_route": "/places/adam-lookout",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.albert-cuyp-market",
+      "previous_canonical_route": "/places/albert-cuyp-market",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.amsterdam-centrum",
+      "previous_canonical_route": "/places/amsterdam-centrum",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.amsterdam-nieuw-west",
+      "previous_canonical_route": "/places/amsterdam-nieuw-west",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.amsterdam-noord",
+      "previous_canonical_route": "/places/amsterdam-noord",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.amsterdam-oost",
+      "previous_canonical_route": "/places/amsterdam-oost",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.amsterdam-west",
+      "previous_canonical_route": "/places/amsterdam-west",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.amsterdam-westpoort",
+      "previous_canonical_route": "/places/amsterdam-westpoort",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.amsterdam-zuid",
+      "previous_canonical_route": "/places/amsterdam-zuid",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.amsterdam-zuidoost",
+      "previous_canonical_route": "/places/amsterdam-zuidoost",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.artis",
+      "previous_canonical_route": "/places/artis",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.bloemenmarkt",
+      "previous_canonical_route": "/places/bloemenmarkt",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.dam-square",
+      "previous_canonical_route": "/places/dam-square",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.de-hallen-amsterdam",
+      "previous_canonical_route": "/places/de-hallen-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.de-nieuwe-kerk-amsterdam",
+      "previous_canonical_route": "/places/de-nieuwe-kerk-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.heineken-experience",
+      "previous_canonical_route": "/places/heineken-experience",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.hortus-botanicus-amsterdam",
+      "previous_canonical_route": "/places/hortus-botanicus-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.johan-cruijff-arena",
+      "previous_canonical_route": "/places/johan-cruijff-arena",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.ndsm",
+      "previous_canonical_route": "/places/ndsm",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.oba-oosterdok",
+      "previous_canonical_route": "/places/oba-oosterdok",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.oude-kerk",
+      "previous_canonical_route": "/places/oude-kerk",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.royal-palace-amsterdam",
+      "previous_canonical_route": "/places/royal-palace-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.seventeenth-century-canal-ring-of-amsterdam",
+      "previous_canonical_route": "/places/seventeenth-century-canal-ring-of-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.this-is-holland",
+      "previous_canonical_route": "/places/this-is-holland",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.waterlooplein-market",
+      "previous_canonical_route": "/places/waterlooplein-market",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.westerkerk",
+      "previous_canonical_route": "/places/westerkerk",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "place.wondr-experience",
+      "previous_canonical_route": "/places/wondr-experience",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.bak",
+      "previous_canonical_route": "/places/bak",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.bougainville",
+      "previous_canonical_route": "/places/bougainville",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.caf-caron",
+      "previous_canonical_route": "/places/caf-caron",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.caf-restaurant-amsterdam",
+      "previous_canonical_route": "/places/caf-restaurant-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.cannibale-royale",
+      "previous_canonical_route": "/places/cannibale-royale",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.choux",
+      "previous_canonical_route": "/places/choux",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.ciel-bleu",
+      "previous_canonical_route": "/places/ciel-bleu",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.coulisse",
+      "previous_canonical_route": "/places/coulisse",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.daalder",
+      "previous_canonical_route": "/places/daalder",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.de-belhamel",
+      "previous_canonical_route": "/places/de-belhamel",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.de-plantage",
+      "previous_canonical_route": "/places/de-plantage",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.domenica",
+      "previous_canonical_route": "/places/domenica",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.entrepot",
+      "previous_canonical_route": "/places/entrepot",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.flore",
+      "previous_canonical_route": "/places/flore",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.gebr-hartering",
+      "previous_canonical_route": "/places/gebr-hartering",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.gitane",
+      "previous_canonical_route": "/places/gitane",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.jansz",
+      "previous_canonical_route": "/places/jansz",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.kaagman-and-kortekaas",
+      "previous_canonical_route": "/places/kaagman-and-kortekaas",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.moeders",
+      "previous_canonical_route": "/places/moeders",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.mos-amsterdam",
+      "previous_canonical_route": "/places/mos-amsterdam",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.pesca",
+      "previous_canonical_route": "/places/pesca",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.restaurant-212",
+      "previous_canonical_route": "/places/restaurant-212",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.restaurant-as",
+      "previous_canonical_route": "/places/restaurant-as",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.restaurant-de-juwelier",
+      "previous_canonical_route": "/places/restaurant-de-juwelier",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.restaurant-de-kas",
+      "previous_canonical_route": "/places/restaurant-de-kas",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.restaurant-europa",
+      "previous_canonical_route": "/places/restaurant-europa",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.restaurant-moon",
+      "previous_canonical_route": "/places/restaurant-moon",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.restaurant-vermeer",
+      "previous_canonical_route": "/places/restaurant-vermeer",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.rijks",
+      "previous_canonical_route": "/places/rijks",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.ron-gastrobar",
+      "previous_canonical_route": "/places/ron-gastrobar",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.sazanka",
+      "previous_canonical_route": "/places/sazanka",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.scheepskameel",
+      "previous_canonical_route": "/places/scheepskameel",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.the-white-room",
+      "previous_canonical_route": "/places/the-white-room",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.toscanini",
+      "previous_canonical_route": "/places/toscanini",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.vinkeles",
+      "previous_canonical_route": "/places/vinkeles",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.visaandeschelde",
+      "previous_canonical_route": "/places/visaandeschelde",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.wilde-zwijnen",
+      "previous_canonical_route": "/places/wilde-zwijnen",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.wils",
+      "previous_canonical_route": "/places/wils",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "restaurant.yamazato",
+      "previous_canonical_route": "/places/yamazato",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": false,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "transport.amsterdam-amstel-station",
+      "previous_canonical_route": "/places/amsterdam-amstel-station",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": true,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "transport.amsterdam-bijlmer-arena-station",
+      "previous_canonical_route": "/places/amsterdam-bijlmer-arena-station",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": true,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "transport.amsterdam-centraal-station",
+      "previous_canonical_route": "/places/amsterdam-centraal-station",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": true,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "transport.amsterdam-holendrecht-station",
+      "previous_canonical_route": "/places/amsterdam-holendrecht-station",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": true,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "transport.amsterdam-lelylaan-station",
+      "previous_canonical_route": "/places/amsterdam-lelylaan-station",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": true,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "transport.amsterdam-muiderpoort-station",
+      "previous_canonical_route": "/places/amsterdam-muiderpoort-station",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": true,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "transport.amsterdam-rai-station",
+      "previous_canonical_route": "/places/amsterdam-rai-station",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": true,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "transport.amsterdam-science-park-station",
+      "previous_canonical_route": "/places/amsterdam-science-park-station",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": true,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "transport.amsterdam-sloterdijk-station",
+      "previous_canonical_route": "/places/amsterdam-sloterdijk-station",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": true,
+      "current_http_intent": "404_not_found"
+    },
+    {
+      "entity_id": "transport.amsterdam-zuid-station",
+      "previous_canonical_route": "/places/amsterdam-zuid-station",
+      "current_public_entity_present": false,
+      "current_static_page_present": false,
+      "current_sitemap_present": false,
+      "phase5_candidate_for_same_url": true,
+      "current_http_intent": "404_not_found"
+    }
+  ]
+}

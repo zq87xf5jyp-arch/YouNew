@@ -37,6 +37,19 @@ Worker accepts it only when it is a canonical completed Responses API object:
 become the safe `invalid_upstream_response` error and therefore local guide
 fallback in the iOS app.
 
+The checked-in knowledge release is deliberately `qa`, not `published`.
+Consequently this reference returns `503 knowledge_not_release_eligible`
+**before an OpenAI request is made**. A release becomes technically eligible
+only after a code-reviewed server-owned object has an exact release ID,
+`published` status, a real ISO verification date and a named reviewer, with no
+source check date later than the release date. These fields are never accepted
+from a client or environment variable.
+
+The iOS client has an independent bundled release allowlist, currently empty.
+Even a structurally complete backend response therefore remains unverified
+until the same human-reviewed release ID and date are approved in the app.
+Neither side can grant itself live-answer authority alone.
+
 The reference endpoint does not emit browser CORS permission headers; the native
 iOS client does not need them. This is not authentication. Before deployment, add
 owner-selected platform rate limits and abuse controls without embedding a shared
@@ -54,12 +67,30 @@ The successful public response is:
       "action": "",
       "sourceTitle": "",
       "sourceURL": "",
+      "sourceVerifiedDate": "2026-07-14",
       "appDestination": ""
     }
   ],
   "warnings": [],
+  "contentReleaseId": "younew-newcomer-demo-v1",
+  "verifiedDate": "2026-07-14",
+  "locationAssumption": "",
+  "uncertainty": "",
+  "escalation": "",
   "model": "",
-  "requestId": ""
+  "requestId": "",
+  "decisionTrace": {
+    "selectedRecordIDs": [],
+    "sourceCitations": [],
+    "freshnessEvidence": [],
+    "jurisdictionEvidence": [],
+    "rankingFactors": [],
+    "confidenceBreakdown": {},
+    "excludedCandidateReasons": {},
+    "policyVersion": "retrieval-policy-v1",
+    "modelVersion": "",
+    "contextVersion": "newcomer-after-address.v1"
+  }
 }
 ```
 
@@ -76,8 +107,10 @@ cd BackendExamples
 npm test
 ```
 
-Tests mock the upstream network call. They do not use an API key and do not
-prove live model access.
+Tests mock the upstream network call and inject a test-only published release
+fixture so the success path can be checked. That fixture is not used by the
+Worker entry point, does not approve content and does not prove live model
+access.
 
 ## Deployment boundary
 
@@ -86,3 +119,9 @@ Before any owner-approved deployment, create the Worker and configure
 variable. Configure abuse controls at the Cloudflare account level. Do not
 place the API key in the iOS target, an Info.plist, source code, an `.env` file
 committed to Git, or a client-visible response.
+
+Do not change the checked-in release to `published` or add the iOS allowlist
+entry until the five governed DataProject records behind the four client steps
+have a named human review, release ID, verification date and recorded approval.
+Then rerun backend tests, iOS contract tests and the approved eval subset.
+Deployment remains a separate owner-approved action.

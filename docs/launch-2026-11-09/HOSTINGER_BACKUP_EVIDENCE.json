@@ -1,0 +1,16 @@
+{
+  "observedAt": "2026-11-09",
+  "manualBackup": "2026-11-09 13:22 hPanel displayed time",
+  "backupPath": "/home/u246392949/domains/younew.nl/younew-private/launch-backups/20261109T124105Z",
+  "fileCount": 5787,
+  "sqliteCount": 8,
+  "archiveBytes": 76344978,
+  "archiveSha256": "bac4d687c5ff3817ce84873539eee39ed1b3a808f513caac3af321bac96b8239",
+  "isolatedFileRestore": "PASS",
+  "sqliteIntegrity": "PASS",
+  "restoreLocation": "private backup directory/restore-check",
+  "cronViaShell": "unavailable; crontab not installed",
+  "observedCron": "*/5 * * * * /usr/bin/php /home/u246392949/domains/younew.nl/younew-private/analytics-v1/maintenance.php",
+  "mariadbBackup": "NOT VERIFIED: QA connectivity confirmed; current table inventory, logical dump and isolated Hostinger restore pending",
+  "productionModified": false
+}

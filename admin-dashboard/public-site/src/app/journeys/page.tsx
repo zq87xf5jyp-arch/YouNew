@@ -1,3 +1,4 @@
+import "@/styles/journey.css";
 import { Breadcrumbs } from "@/components/breadcrumbs";
 import { JourneyExplorer } from "@/components/journey-explorer";
 import { PageShell } from "@/components/page-shell";

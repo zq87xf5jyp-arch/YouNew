@@ -26,6 +26,9 @@ jobs:
       - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
         with:
           python-version: "3.12"
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version: "24"
       - name: Validate ADR structure and coupling
         env:
           ADR_DIFF_BASE: ${{ github.event_name == 'pull_request' && format('origin/{0}', github.base_ref) || 'HEAD^' }}
@@ -36,14 +39,32 @@ jobs:
         run: python3 scripts/validate_ai_regression_corpus.py
       - name: Validate semantic model provenance without downloading artifacts
         run: python3 scripts/semantic_duplicate_candidates.py --preflight-only
-      - name: Rebuild governed BRP vertical and Trust Dashboard
+      - name: Rebuild governed BRP vertical and the shared Release Truth
         env:
           GOVERNANCE_GENERATED_AT: "2026-07-30T12:00:00Z"
         run: |
           python3 scripts/generate_brp_amsterdam_candidate.py
           python3 scripts/generate-data-observability.py
-          python3 scripts/generate_trust_dashboard.py
+          node admin-dashboard/scripts/generate-governed-runtime.mjs
+          node admin-dashboard/scripts/generate-canonical-admin-data.mjs
+          node admin-dashboard/scripts/generate-release-truth.mjs
+          node admin-dashboard/scripts/generate-canonical-admin-data.mjs --check
+          node admin-dashboard/scripts/generate-release-truth.mjs --check
           git diff --exit-code -- \
             DataProject/staging/brp-amsterdam-governance-candidate.json \
-            admin-dashboard/src/generated/trust-dashboard.json \
+            admin-dashboard/src/generated/governed-runtime.json \
+            admin-dashboard/src/generated/governed-runtime-manifest.json \
+            admin-dashboard/src/generated/canonical-map-points.json \
+            admin-dashboard/src/generated/canonical-official-links.json
+      - name: Upload exact-run Release Truth evidence
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: release-truth-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            admin-dashboard/src/generated/release-truth.json
+            admin-dashboard/public-site/src/generated/release-truth-public.json
+            admin-dashboard/src/generated/release-readiness.json
+            admin-dashboard/src/generated/trust-dashboard.json
             admin-dashboard/public-site/src/generated/trust-dashboard.json
+          if-no-files-found: error
+          retention-days: 14

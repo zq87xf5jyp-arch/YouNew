@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 from pathlib import Path
+import json
 import re
 import sys
 
@@ -66,6 +67,7 @@ def main() -> None:
     ai_context_builder = read("YouNew/Services/AIContextBuilder.swift")
     ai_composer = read("YouNew/Services/AIResponseComposer.swift")
     ai_parser = read("YouNew/Services/AIResponseParser.swift")
+    ai_language_guard = read("YouNew/Services/AIResponseLanguageGuard.swift")
     mock_ai_service = read("YouNew/Services/MockAIService.swift")
     ai_view_model = read("YouNew/ViewModels/AIViewModel.swift")
     ai_workflow_engine = read("YouNew/Services/AIWorkflowEngine.swift")
@@ -84,12 +86,31 @@ def main() -> None:
     newcomer_tests = read("YouNewTests/BuildWeekNewcomerDemoTests.swift")
     backend = read("BackendExamples/cloudflare-worker-ai-proxy.js")
     backend_tests = read("BackendExamples/cloudflare-worker-ai-proxy.test.mjs")
+    governed_records: dict[str, dict] = {}
+    for batch_path in [
+        "DataProject/batches/WP-01/M1-government-core-001.json",
+        "DataProject/batches/WP-01/M1-government-core-003.json",
+        "DataProject/batches/WP-01/M1-government-core-008.json",
+    ]:
+        batch = json.loads(read(batch_path))
+        expect(batch.get("publication_status") == "qa", f"{batch_path} must remain QA")
+        for record in batch.get("records", []):
+            governed_records[record["id"]] = record
 
     expect_all(
         ai_context,
         [
             "struct AIContext",
             "struct AIResponse",
+            "struct AIResponseGovernance",
+            "contentReleaseID",
+            "verifiedDate",
+            "locationAssumption",
+            "uncertainty",
+            "escalation",
+            "let governance",
+            "governance.isMachineValid",
+            "BuildWeekNewcomerDemo.isApprovedContentRelease(",
             "struct AIResponseAction",
             "case openGuide",
             "case openScreen",
@@ -173,6 +194,9 @@ def main() -> None:
             "static func localResponse",
             "origin: .localGuide",
             "static func isAllowedModel",
+            "sourceVerifiedDate",
+            "approvedLiveContentReleases: [String: String] = [:]",
+            "static func isApprovedContentRelease",
         ],
         "BuildWeekNewcomerDemo",
     )
@@ -190,6 +214,14 @@ def main() -> None:
             "strict: true",
             "AbortController",
             "safeUpstreamRequestId",
+            "isReleaseEligible(knowledgeRelease)",
+            'status: "qa"',
+            '"knowledge_not_release_eligible"',
+            "contentReleaseId",
+            "sourceVerifiedDate",
+            "locationAssumption",
+            "uncertainty",
+            "escalation",
             '"Cache-Control": "no-store"',
         ],
         "bounded backend",
@@ -197,11 +229,11 @@ def main() -> None:
     for contract_literal in [
         "Government.nl — Citizen service number (BSN)",
         "DigiD — Apply and activate",
-        "Government.nl — Health insurance",
-        "Government.nl — Moving to the Netherlands",
+        "Government.nl — Taking out compulsory health insurance",
+        "Government.nl — Moving to the Netherlands checklist",
         "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn",
         "https://www.digid.nl/en/apply-and-activate/apply-digid",
-        "https://www.government.nl/themes/family-health-and-care/health-insurance",
+        "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/taking-out-compulsory-health-insurance",
         "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands",
         "practicalGuide:municipalityRegistration",
         "practicalGuide:digidSafety",
@@ -212,6 +244,42 @@ def main() -> None:
             contract_literal in newcomer_demo and contract_literal in backend,
             f"iOS/backend newcomer contract drift for {contract_literal}",
         )
+    for repository_record_id in [
+        "government.brp-registration",
+        "government.bsn",
+        "government.digid",
+        "government.health-insurance",
+        "government.register-family-doctor",
+    ]:
+        expect(
+            repository_record_id in backend,
+            f"bounded backend missing governed repository record {repository_record_id}",
+        )
+    expected_release_sources = {
+        "government.bsn": "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn",
+        "government.brp-registration": "https://www.rijksoverheid.nl/themas/overheid-en-democratie/privacy-en-persoonsgegevens/basisregistratie-personen-brp",
+        "government.digid": "https://www.digid.nl/en/apply-and-activate/apply-digid",
+        "government.health-insurance": "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/taking-out-compulsory-health-insurance",
+        "government.register-family-doctor": "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands",
+    }
+    # Dates advance only with the separate, source-bound review receipt.
+    confirmations = json.loads(read("DataProject/research/freshness-wave-1-confirmations.json"))
+    reviewed_sources = {item["entity_id"]: item for item in confirmations["records"]}
+    for record_id, source_url in expected_release_sources.items():
+        receipt = reviewed_sources.get(record_id)
+        expected_checked_at = "2026-07-14"
+        if receipt is not None:
+            expect(receipt.get("status") == "confirmed_current", f"{record_id} review not confirmed")
+            expect(receipt.get("source_url") == source_url, f"{record_id} review source mismatch")
+            expect(bool(receipt.get("reviewer")) and bool(receipt.get("confirmed_fields")), f"{record_id} incomplete review receipt")
+            expected_checked_at = receipt["reviewed_at"]
+        record = governed_records.get(record_id)
+        expect(record is not None, f"missing bounded DataProject record {record_id}")
+        expect(record.get("lifecycle_status") == "qa", f"{record_id} must remain QA")
+        expect(record.get("last_checked") == expected_checked_at, f"{record_id} checked-date drift")
+        official_source = record.get("official_source", {})
+        expect(official_source.get("url") == source_url, f"{record_id} source URL drift")
+        expect(official_source.get("checked_at") == expected_checked_at, f"{record_id} source-date drift")
     expect(
         "console.log" not in backend
         and "console.error" not in backend
@@ -222,6 +290,8 @@ def main() -> None:
     expect_all(
         backend_tests,
         [
+            "default QA knowledge release fails closed before an OpenAI request",
+            "release gate requires published status, a real date, and a reviewer",
             "configuration requires both secret and an explicit GPT-5.6 model",
             "request input is exact, bounded, and rejects unknown client prompt fields",
             "request rejects incomplete or substituted knowledge context",
@@ -329,8 +399,12 @@ def main() -> None:
             "struct NewcomerBackendResponse",
             "struct NewcomerBackendStep",
             "BuildWeekNewcomerDemo.isAllowedModel(model)",
+            "BuildWeekNewcomerDemo.isApprovedContentRelease(",
             "decoded.steps.count == BuildWeekNewcomerDemo.steps.count",
             "step.sourceURL == contract.sourceURL.absoluteString",
+            "step.sourceVerifiedDate == contract.sourceVerifiedDate",
+            "newcomerTraceIsComplete",
+            "governance.isMachineValid",
             "step.appDestination == contract.appDestination",
             "origin: .liveOpenAI",
             "struct BackendAction",
@@ -351,6 +425,15 @@ def main() -> None:
             "validatedURL",
         ],
         "AIResponseParser typed quick actions",
+    )
+    expect_all(
+        ai_language_guard,
+        [
+            "response.governance?.locationAssumption",
+            "response.governance?.uncertainty",
+            "response.governance?.escalation",
+        ],
+        "AIResponseLanguageGuard governance fields",
     )
 
     expect_all(
@@ -452,6 +535,10 @@ def main() -> None:
             "assistant.response.origin.localGuide",
             "assistant.response.model",
             "assistant.response.requestId",
+            'accessibilityIdentifier("assistant.response.governance")',
+            "governance.locationAssumption",
+            "governance.uncertainty",
+            "governance.escalation",
         ],
         "AIAssistantView quick actions",
     )
@@ -526,7 +613,7 @@ def main() -> None:
         ai_context_builder,
         [
             "static func automaticContext",
-            "recentSearches()",
+            "lastSearches: [],",
             "SavedItemsStore.shared.savedItems",
             "appState.visibleRecentRouteIDs()",
             "appState.visibleCompletedGuideIDs()",
@@ -534,6 +621,7 @@ def main() -> None:
         ],
         "AIContextBuilder context assembly",
     )
+    expect("recentSearches()" not in ai_context_builder, "AI context must not recover persisted raw search history")
     static_source_checks = expect_no_duplicate_static_sources(ai_context_builder, "AIContextBuilder")
     static_source_checks += expect_no_duplicate_static_sources(ai_composer, "AIResponseComposer")
 
@@ -549,7 +637,7 @@ def main() -> None:
             "whatNextWorkflowUsesContextAndChecklistRoutes",
             "whatNextWorkflowAvoidsRepeatingCurrentChecklistRoute",
             "workflowQuickActionDestinationsResolve",
-            "aiContextCarriesRouteSearchProgressAndCompletionSignals",
+            "aiContextCarriesProgressWithoutReadingLegacySearchText",
             "missingInformationResponseStillLinksSourceAndContextDestinations",
             "representativeAssistantQueriesUseKnowledgeNavigationSourcesAndActions",
             "unverifiedFallbackResponsesStillExposeBasicActions",
@@ -577,7 +665,13 @@ def main() -> None:
         newcomer_tests,
         [
             "boundedScenarioUsesExistingKnowledgeIndexRecordsAndRoutes",
-            "parserAcceptsOnlyBoundedLiveGPT56Response",
+            "parserRejectsUnapprovedReleaseEvenWhenLiveShapeIsComplete",
+            "governanceContractRequiresReleaseDateLocationUncertaintyAndEscalation",
+            "parserRejectsLiveResponseWithoutCompleteGovernanceContract",
+            "parserRejectsMismatchedSourceVerificationDate",
+            "parserRejectsDuplicateDecisionTraceRecordsWithoutTrapping",
+            "languageGuardChecksVisibleGovernanceBoundaryText",
+            "liveClassificationRequiresVerifiedApprovedBundledRelease",
             "parserRejectsModelsOutsideYouNewSolPolicy",
             "parserRejectsSourceOrRouteOutsideServerContract",
             "unavailableBackendUsesExplicitDeterministicFallback",
@@ -589,6 +683,7 @@ def main() -> None:
 
     print("AI subsystem static QA passed")
     print(f"- Static AI OfficialSource tuples checked: {static_source_checks}")
+    print(f"- Bounded governed release records checked: {len(expected_release_sources)} (all QA)")
 
 
 if __name__ == "__main__":

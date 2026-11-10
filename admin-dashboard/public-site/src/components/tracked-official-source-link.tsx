@@ -9,11 +9,13 @@ type TrackedOfficialSourceLinkProps = Omit<
 > & {
   href: string;
   contentId: string;
+  actionPanelCity?: string;
   children: ReactNode;
 };
 
 export function TrackedOfficialSourceLink({
   contentId,
+  actionPanelCity,
   children,
   ...props
 }: TrackedOfficialSourceLinkProps) {
@@ -21,7 +23,10 @@ export function TrackedOfficialSourceLink({
     <a
       {...props}
       data-analytics-official-source-id={contentId}
-      onClick={() => track({ name: "official_source_click", contentId })}
+      onClick={() => {
+        track({ name: "official_source_click", contentId });
+        if (actionPanelCity) track({ name: "action_panel_cta_clicked", contentId, city: actionPanelCity });
+      }}
     >
       {children}
     </a>

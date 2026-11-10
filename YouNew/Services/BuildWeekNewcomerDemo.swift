@@ -12,12 +12,17 @@ enum BuildWeekNewcomerDemo {
         "gpt-5.6",
         "gpt-5.6-sol"
     ]
+    /// Remains empty until a named human-reviewed DataProject release is
+    /// approved and bundled with the app. Backend metadata alone cannot grant
+    /// itself live-answer authority.
+    static let approvedLiveContentReleases: [String: String] = [:]
 
     struct StepContract: Equatable {
         let id: String
         let knowledgeRecordID: String
         let sourceTitle: String
         let sourceURL: URL
+        let sourceVerifiedDate: String
         let appDestination: String
     }
 
@@ -27,6 +32,7 @@ enum BuildWeekNewcomerDemo {
             knowledgeRecordID: "topic:registration-bsn",
             sourceTitle: "Government.nl — Citizen service number (BSN)",
             sourceURL: URL(string: "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn")!,
+            sourceVerifiedDate: "2026-07-14",
             appDestination: "practicalGuide:municipalityRegistration"
         ),
         StepContract(
@@ -34,20 +40,23 @@ enum BuildWeekNewcomerDemo {
             knowledgeRecordID: "topic:digid",
             sourceTitle: "DigiD — Apply and activate",
             sourceURL: URL(string: "https://www.digid.nl/en/apply-and-activate/apply-digid")!,
+            sourceVerifiedDate: "2026-07-14",
             appDestination: "practicalGuide:digidSafety"
         ),
         StepContract(
             id: "health-insurance",
             knowledgeRecordID: "government-service:health-insurance",
-            sourceTitle: "Government.nl — Health insurance",
-            sourceURL: URL(string: "https://www.government.nl/themes/family-health-and-care/health-insurance")!,
+            sourceTitle: "Government.nl — Taking out compulsory health insurance",
+            sourceURL: URL(string: "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/taking-out-compulsory-health-insurance")!,
+            sourceVerifiedDate: "2026-07-14",
             appDestination: "practicalGuide:healthInsuranceBasics"
         ),
         StepContract(
             id: "huisarts",
             knowledgeRecordID: "government-service:gp",
-            sourceTitle: "Government.nl — Moving to the Netherlands",
+            sourceTitle: "Government.nl — Moving to the Netherlands checklist",
             sourceURL: URL(string: "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands")!,
+            sourceVerifiedDate: "2026-07-14",
             appDestination: "practicalGuide:findingHuisarts"
         )
     ]
@@ -84,13 +93,18 @@ enum BuildWeekNewcomerDemo {
         allowedModels.contains(model)
     }
 
+    static func isApprovedContentRelease(id: String, verifiedDate: String) -> Bool {
+        approvedLiveContentReleases[id] == verifiedDate
+    }
+
     static func localResponse(language: AppLanguage) -> AIResponse {
         let copy = localizedCopy(language)
         let sources = steps.map { step in
             OfficialSource(
                 title: step.sourceTitle,
                 url: step.sourceURL,
-                institution: institution(for: step.id)
+                institution: institution(for: step.id),
+                lastChecked: sourceCheckedDate(step.sourceVerifiedDate)
             )
         }
         let sections = zip(copy.stepTitles, copy.stepBodies).enumerated().map { index, pair in
@@ -137,7 +151,7 @@ enum BuildWeekNewcomerDemo {
                 freshnessEvidence: steps.map {
                     AIDecisionEvidence(
                         recordID: $0.knowledgeRecordID,
-                        summary: "Record-level governed freshness is not established in this bundled demo context."
+                        summary: "Official source checked \($0.sourceVerifiedDate); the bundled demo content is not a published live-AI release."
                     )
                 },
                 jurisdictionEvidence: steps.map {
@@ -239,6 +253,10 @@ enum BuildWeekNewcomerDemo {
 
     private static func institution(for id: String) -> String {
         id == "digid" ? "DigiD" : "Government of the Netherlands"
+    }
+
+    private static func sourceCheckedDate(_ value: String) -> Date? {
+        ISO8601DateFormatter().date(from: "\(value)T00:00:00Z")
     }
 
     private static func symbol(for index: Int) -> String {

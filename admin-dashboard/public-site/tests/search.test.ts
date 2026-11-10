@@ -29,21 +29,24 @@ const index = JSON.parse(
 ) as { schemaVersion: number; documents: SearchDocument[] };
 const content = JSON.parse(
   await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8")
-) as { entities: Array<{ id: string; status: string }>; categories: Array<{ id: string }> };
+) as { entities: Array<{ id: string; status: string; indexable: boolean }>; categories: Array<{ id: string }> };
 const geography = JSON.parse(
   await readFile(new URL("../src/generated/netherlands-geography.json", import.meta.url), "utf8")
 ) as { municipalities: Array<{ code: string }>; provinces: Array<{ code: string }> };
 
-test("search index v3 contains only published entities, national guides and derived public routes", () => {
+test("search index v3 contains only indexable published entities, national guides and derived public routes", () => {
   assert.equal(index.schemaVersion, 3);
   assert.ok(index.documents.length > 0);
   assert.ok(content.entities.every((entity) => entity.status === "published"));
   const entityTypes = new Set(["city", "guide", "organization", "place"]);
   const indexedEntityIds = index.documents.filter((document) => entityTypes.has(document.type) && document.sourceKind !== "nationalResourceGuide").map((document) => document.id).sort();
-  assert.deepEqual(indexedEntityIds, content.entities.map((entity) => entity.id).sort());
+  assert.deepEqual(indexedEntityIds, content.entities.filter((entity) => entity.indexable && entity.status === "published").map((entity) => entity.id).sort());
   assert.deepEqual(index.documents.filter((document) => document.type === "category").map((document) => document.id).sort(), content.categories.map((category) => category.id).sort());
   assert.equal(index.documents.filter((document) => document.type === "municipality").length, geography.municipalities.length);
   assert.equal(index.documents.filter((document) => document.type === "province").length, geography.provinces.length);
+  for (const entity of content.entities.filter((entity) => !entity.indexable)) {
+    assert.ok(!index.documents.some((document) => document.id === entity.id), `Unverified record in search: ${entity.id}`);
+  }
 });
 
 test("official settlement names resolve to their municipality page", () => {
@@ -62,18 +65,25 @@ test("search normalizes accents and ranks exact titles first", () => {
 });
 
 test("search tolerates a useful typo without returning the whole index", () => {
-  const results = rankModule.rankSearchDocuments(index.documents, "Rijksmusem");
+  const results = rankModule.rankSearchDocuments(index.documents, "Amsterdm");
   assert.ok(results.length > 0);
-  assert.match(results[0].document.title, /Rijksmuseum/i);
+  assert.match(results[0].document.title, /Amsterdam/i);
   assert.ok(results.length < index.documents.length);
 });
 
 test("search filters are applied before ranking", () => {
-  const results = rankModule.rankSearchDocuments(index.documents, "Amsterdam", {
+  const base = index.documents.find(document => document.type === "guide");
+  assert.ok(base);
+  const candidates = [
+    {...base, id:"guide.synthetic-match", title:"Amsterdam", categories:["government"]},
+    {...base, id:"guide.synthetic-excluded", title:"Amsterdam", categories:["housing"]}
+  ];
+  const results = rankModule.rankSearchDocuments(candidates, "Amsterdam", {
     filters: { type: "guide", category: "government" }
   });
   assert.ok(results.length > 0);
   assert.ok(results.every(({ document }) => document.type === "guide" && document.categories.includes("government")));
+  assert.deepEqual(results.map(({document}) => document.id), ["guide.synthetic-match"]);
 });
 
 test("search is deterministic and bounded", () => {
@@ -90,11 +100,11 @@ test("search is deterministic and bounded", () => {
 
 test("location filters boost applicable content while type and category stay hard filters", () => {
   const results = rankModule.rankSearchDocuments(index.documents, "", {
-    filters: { type: "place", provinceId: "noord-holland" },
+    filters: { type: "municipality", provinceId: "noord-holland" },
     limit: 80
   });
   assert.ok(results.length > 0);
-  assert.ok(results.every(({ document }) => document.type === "place" && document.provinceId === "noord-holland"));
+  assert.ok(results.every(({ document }) => document.type === "municipality" && document.provinceId === "noord-holland"));
 });
 
 test("practical-guide search fields participate in ranking", () => {
@@ -185,8 +195,8 @@ test("a preferred profile personalizes ranking without hiding exact published an
 test("requested quality queries find a source-backed released destination", () => {
   const expected = new Map<string, string>([
     ["How do I get a BSN?", "national.documents"],
-    ["Register gemeente", "government_service.first-registration-in-amsterdam"],
-    ["Landlord does not repair", "housing.woon"],
+    ["Register gemeente", "national.documents"],
+    ["Landlord does not repair", "category.housing"],
     ["Student housing", "category.housing"],
     ["Emergency", "page.emergency"],
     ["Lost residence card", "national.documents"],
@@ -200,6 +210,20 @@ test("requested quality queries find a source-backed released destination", () =
     assert.equal(results[0]?.document.id, expectedId, `${query}: ${results.map(({ document }) => document.id).join(", ")}`);
   }
 
+});
+
+test("a registration query without a place never silently substitutes Amsterdam", () => {
+  const results = rankModule.rankSearchDocuments(index.documents, "gemeente registration", { limit: 5 });
+  assert.equal(results[0]?.document.locationScope, "national");
+  assert.notEqual(results[0]?.document.id, "government_service.first-registration-in-amsterdam");
+  assert.ok(results.slice(0, 3).some(({ document }) => document.id === "national.documents"));
+});
+
+test("an unscoped landlord problem keeps Amsterdam-only support below national guidance", () => {
+  const results = rankModule.rankSearchDocuments(index.documents, "landlord problem", { limit: 5 });
+  assert.equal(results[0]?.document.id, "national.housing");
+  assert.equal(results[0]?.document.locationScope, "national");
+  assert.notEqual(results[0]?.document.id, "housing.woon");
 });
 
 test("critical EN, NL and RU intents do not return a useless zero", () => {

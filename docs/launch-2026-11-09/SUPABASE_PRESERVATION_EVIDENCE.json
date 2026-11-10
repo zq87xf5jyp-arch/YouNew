@@ -1,0 +1,18 @@
+{
+  "observedAt": "2026-11-09",
+  "project": "pgdzdxsiagfjioxwuqxf",
+  "source": "Official Supabase paused-project backup downloads",
+  "projectRemainsPaused": true,
+  "hostingerPath": "/home/u246392949/domains/younew.nl/younew-private/launch-backups/supabase-preservation-20261109/supabase-preservation-20261109.tar.gz",
+  "archiveBytes": 250906,
+  "archiveSha256": "b51073a770006b4df9e7f880451edceb464971a00a79b85394ab98f1394055cb",
+  "directoryMode": "0700",
+  "fileMode": "0600",
+  "hostingerPayloadChecksums": "PASS: database export and Storage archive match originals",
+  "databaseArchiveIntegrity": "PASS: gzip and dump completion markers",
+  "isolatedLocalCopyDataRecovery": "PASS: every COPY payload recovered into PostgreSQL 17 text tables and matched byte-for-byte",
+  "storageVerification": "PASS: all archived payloads reconcile with database metadata; ZIP integrity and PNG CRCs valid",
+  "fullSupabaseSchemaAndRuntimeRestore": "NOT VERIFIED: provider extension environment required",
+  "productionChanged": false,
+  "remoteProjectActivated": false
+}

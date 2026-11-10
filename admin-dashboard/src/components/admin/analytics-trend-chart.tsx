@@ -20,7 +20,15 @@ function polyline(
   }).join(" ");
 }
 
-export function AnalyticsTrendChart({ points, days }: { points: AnalyticsTrendPoint[]; days: number }) {
+export function AnalyticsTrendChart({
+  points,
+  days,
+  scopeLabel
+}: {
+  points: AnalyticsTrendPoint[];
+  days: number;
+  scopeLabel: string;
+}) {
   const maximum = Math.max(0, ...points.flatMap((point) => [point.events, point.sessions, point.keyActions, point.errors]));
   const eventPoints = polyline(points, (point) => point.events, maximum);
   const sessionPoints = polyline(points, (point) => point.sessions, maximum);
@@ -31,7 +39,7 @@ export function AnalyticsTrendChart({ points, days }: { points: AnalyticsTrendPo
   return (
     <Card>
       <CardHeader>
-        <CardTitle>Посещаемость и активность за {days} дней</CardTitle>
+        <CardTitle>Посещаемость и активность {scopeLabel} за {days} дней</CardTitle>
         <CardDescription>
           Сессии — анонимные посещения вкладки, а не уникальные люди. Дни и границы периода рассчитаны в UTC.
         </CardDescription>
@@ -45,9 +53,9 @@ export function AnalyticsTrendChart({ points, days }: { points: AnalyticsTrendPo
               className="h-auto w-full"
               viewBox={`0 0 ${width} ${height}`}
             >
-              <title id="analytics-trend-title">События и сессии по дням</title>
+              <title id="analytics-trend-title">События и сессии {scopeLabel} по дням</title>
               <desc id="analytics-trend-description">
-                Линии показывают количество событий, анонимных сессий, ключевых действий и ошибок для каждого дня выбранного периода.
+                Линии показывают события, анонимные сессии, ключевые действия и ошибки {scopeLabel} для каждого UTC-дня.
               </desc>
               {[0, 0.25, 0.5, 0.75, 1].map((ratio) => {
                 const y = height - padding - ratio * (height - padding * 2);

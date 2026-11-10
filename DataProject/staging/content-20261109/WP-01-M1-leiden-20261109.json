@@ -1,0 +1,1166 @@
+{
+  "schema_version": 1,
+  "batch_id": "WP-01-M1-leiden-20261109",
+  "work_package": "WP-01",
+  "milestone": "WP-01-M1",
+  "target_release": "leiden-20261109-proposed",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "qa_evidence": {
+    "checked_at": null,
+    "build": null,
+    "static": null,
+    "duplicate": null,
+    "source": null,
+    "media": null,
+    "search": null,
+    "ai": null
+  },
+  "records": [
+    {
+      "id": "guide.leiden-registration",
+      "entity_type": "government_service",
+      "category": "registration",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Register your address",
+      "description": "Choose the correct registration procedure when moving to Leiden.",
+      "images": [],
+      "official_source": {
+        "title": "Official visitor information",
+        "publisher": "Register your address",
+        "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "is_official": true,
+        "checked_at": "2026-11-09",
+        "status": "verified_opened"
+      },
+      "website": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-09",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Choose the correct registration procedure when moving to Leiden.",
+      "search_keywords": [
+        "Register your address",
+        "registration",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "registration",
+        "description_nl": "Kies de juiste registratieprocedure als je naar Leiden verhuist.",
+        "content_language": "en",
+        "content_section": "LIVE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "website_checked_at": "2026-11-09",
+        "title_nl": "Je woonadres registreren",
+        "practical_guide_nl": "{\"schema_version\": 2, \"id\": \"guide.leiden-registration\", \"slug\": \"registration\", \"locale\": \"nl\", \"title\": \"Je woonadres registreren\", \"status\": \"draft\", \"short_summary\": {\"id\": \"summary\", \"text\": \"Kies de juiste registratieprocedure als je naar Leiden verhuist.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"who_this_is_for\": {\"id\": \"audience\", \"text\": \"Nieuwkomers die langer dan vier maanden blijven; inwoners die binnen Nederland verhuizen.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"when_you_need_it\": {\"id\": \"situation\", \"text\": \"Nieuwkomers die langer dan vier maanden blijven; inwoners die binnen Nederland verhuizen.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"audience_profiles\": [\"resident\", \"expat\", \"student\"], \"numbered_steps\": [{\"id\": \"step.1\", \"position\": 1, \"title\": \"Stap 1\", \"body\": \"Vanuit het buitenland: gebruik het Leidse immigratieformulier en de afspraaklink. Kom zelf met meeverhuizende gezinsleden. Zorg binnen vijf werkdagen na verhuizing voor een afspraak.\", \"source_ids\": [\"source.1\"], \"municipality_dependent\": true}, {\"id\": \"step.2\", \"position\": 2, \"title\": \"Stap 2\", \"body\": \"Neem identificatie en woonbewijs mee. Bij eerste inschrijving kunnen aktes en legalisatie nodig zijn; vanuit Caribisch Nederland ook een uitschrijfbewijs.\", \"source_ids\": [\"source.1\"], \"municipality_dependent\": true}, {\"id\": \"step.3\", \"position\": 3, \"title\": \"Stap 3\", \"body\": \"Binnen Nederland: meld de verhuizing bij de nieuwe gemeente vanaf vier weken vooraf tot vijf dagen erna. Gebruik de procedure voor een binnenlandse verhuizing.\", \"source_ids\": [\"source.2\"], \"municipality_dependent\": true}], \"required_documents\": [{\"id\": \"documents\", \"text\": \"Geldig identiteitsbewijs; koop-/huurcontract op naam of toestemming met ID-kopie hoofdbewoner; toepasselijke aktes.\", \"source_ids\": [\"source.1\"]}], \"official_sources\": [{\"id\": \"source.1\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.2\", \"title\": \"Official guidance · www.rijksoverheid.nl\", \"publisher\": \"www.rijksoverheid.nl\", \"url\": \"https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gemeenten/hoe-kan-ik-mijn-verhuizing-doorgeven-aan-de-gemeente\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.3\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}], \"verified_at\": \"2026-11-09\", \"updated_at\": \"2026-11-09\", \"reviewer\": null, \"warnings\": [{\"id\": \"warning\", \"text\": \"Leiden stelt voorwaarden aan rechtmatig verblijf. Voor kort verblijf gelden RNI-regels; registratie is geen verblijfsvergunning.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}], \"disclaimer\": \"Algemene praktische informatie; de bevoegde instantie of zorgverlener beoordeelt je persoonlijke situatie.\", \"sections\": [{\"id\": \"cost\", \"title\": \"Kosten\", \"body\": \"Eerste inschrijving of herinschrijving vanuit het buitenland is gratis.\", \"source_ids\": [\"source.1\"]}, {\"id\": \"timing\", \"title\": \"Termijnen\", \"body\": \"Verwerking bij aankomst uit het buitenland duurt minimaal vijf werkdagen, afhankelijk van de situatie.\", \"source_ids\": [\"source.1\"]}]}",
+        "audience": "New arrivals staying over four months; residents changing address within the Netherlands.",
+        "audience_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "audience_checked_at": "2026-11-09",
+        "steps": "[\"Arriving from abroad: use Leiden\\u2019s immigration form and appointment link. Attend in person with accompanying family members. Arrange the appointment within five working days of moving.\", \"Prepare identification and proof of housing. First-time arrivals may also need civil-status certificates and legalisation; arrivals from the Dutch Caribbean need proof of deregistration.\", \"Moving within the Netherlands: notify the new municipality up to four weeks before, or within five days after, the move. Use the domestic-change procedure, not first registration.\"]",
+        "steps_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "steps_checked_at": "2026-11-09",
+        "required_documents": "Valid ID; named purchase/rental contract or resident consent and ID copy; applicable civil-status documents.",
+        "required_documents_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "required_documents_checked_at": "2026-11-09",
+        "cost": "First registration or re-registration from abroad is free.",
+        "cost_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "cost_checked_at": "2026-11-09",
+        "timing": "Processing an arrival from abroad takes at least five working days, depending on the case.",
+        "timing_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+        "timing_checked_at": "2026-11-09",
+        "additional_sources": "[\"https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/\", \"https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gemeenten/hoe-kan-ik-mijn-verhuizing-doorgeven-aan-de-gemeente\", \"https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/\"]"
+      },
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.leiden-registration",
+        "slug": "registration",
+        "locale": "en",
+        "title": "Register your address",
+        "status": "draft",
+        "short_summary": {
+          "id": "summary",
+          "text": "Choose the correct registration procedure when moving to Leiden.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "who_this_is_for": {
+          "id": "audience",
+          "text": "New arrivals staying over four months; residents changing address within the Netherlands.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "when_you_need_it": {
+          "id": "situation",
+          "text": "New arrivals staying over four months; residents changing address within the Netherlands.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "audience_profiles": [
+          "resident",
+          "expat",
+          "student"
+        ],
+        "numbered_steps": [
+          {
+            "id": "step.1",
+            "position": 1,
+            "title": "Step 1",
+            "body": "Arriving from abroad: use Leiden’s immigration form and appointment link. Attend in person with accompanying family members. Arrange the appointment within five working days of moving.",
+            "source_ids": [
+              "source.1"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.2",
+            "position": 2,
+            "title": "Step 2",
+            "body": "Prepare identification and proof of housing. First-time arrivals may also need civil-status certificates and legalisation; arrivals from the Dutch Caribbean need proof of deregistration.",
+            "source_ids": [
+              "source.1"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.3",
+            "position": 3,
+            "title": "Step 3",
+            "body": "Moving within the Netherlands: notify the new municipality up to four weeks before, or within five days after, the move. Use the domestic-change procedure, not first registration.",
+            "source_ids": [
+              "source.2"
+            ],
+            "municipality_dependent": true
+          }
+        ],
+        "required_documents": [
+          {
+            "id": "documents",
+            "text": "Valid ID; named purchase/rental contract or resident consent and ID copy; applicable civil-status documents.",
+            "source_ids": [
+              "source.1"
+            ]
+          }
+        ],
+        "official_sources": [
+          {
+            "id": "source.1",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.2",
+            "title": "Official guidance · www.rijksoverheid.nl",
+            "publisher": "www.rijksoverheid.nl",
+            "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gemeenten/hoe-kan-ik-mijn-verhuizing-doorgeven-aan-de-gemeente",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.3",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          }
+        ],
+        "verified_at": "2026-11-09",
+        "updated_at": "2026-11-09",
+        "reviewer": null,
+        "warnings": [
+          {
+            "id": "warning",
+            "text": "Leiden lists lawful residence conditions. A short stay follows RNI rules; registration is not a residence permit.",
+            "source_ids": [
+              "source.1",
+              "source.2",
+              "source.3"
+            ]
+          }
+        ],
+        "disclaimer": "General practical information; the responsible authority or care provider decides your individual case.",
+        "sections": [
+          {
+            "id": "cost",
+            "title": "Costs",
+            "body": "First registration or re-registration from abroad is free.",
+            "source_ids": [
+              "source.1"
+            ]
+          },
+          {
+            "id": "timing",
+            "title": "Timing",
+            "body": "Processing an arrival from abroad takes at least five working days, depending on the case.",
+            "source_ids": [
+              "source.1"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "guide.leiden-bsn",
+      "entity_type": "document",
+      "category": "bsn",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Get or find your BSN",
+      "description": "A BSN is issued through registration; choose resident registration or the RNI route.",
+      "images": [],
+      "official_source": {
+        "title": "Official visitor information",
+        "publisher": "Get or find your BSN",
+        "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "is_official": true,
+        "checked_at": "2026-11-09",
+        "status": "verified_opened"
+      },
+      "website": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-09",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "A BSN is issued through registration; choose resident registration or the RNI route.",
+      "search_keywords": [
+        "Get or find your BSN",
+        "bsn",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "bsn",
+        "description_nl": "Een BSN wordt via registratie toegekend; kies inwonersregistratie of RNI.",
+        "content_language": "en",
+        "content_section": "LIVE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "website_checked_at": "2026-11-09",
+        "title_nl": "Een BSN krijgen of terugvinden",
+        "practical_guide_nl": "{\"schema_version\": 2, \"id\": \"guide.leiden-bsn\", \"slug\": \"bsn\", \"locale\": \"nl\", \"title\": \"Een BSN krijgen of terugvinden\", \"status\": \"draft\", \"short_summary\": {\"id\": \"summary\", \"text\": \"Een BSN wordt via registratie toegekend; kies inwonersregistratie of RNI.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"who_this_is_for\": {\"id\": \"audience\", \"text\": \"Nieuwe inwoners, kort verblijvende werknemers of studenten en mensen die mogelijk al een BSN hebben.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"when_you_need_it\": {\"id\": \"situation\", \"text\": \"Nieuwe inwoners, kort verblijvende werknemers of studenten en mensen die mogelijk al een BSN hebben.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"audience_profiles\": [\"resident\", \"expat\", \"student\"], \"numbered_steps\": [{\"id\": \"step.1\", \"position\": 1, \"title\": \"Stap 1\", \"body\": \"Bij verblijf langer dan vier maanden: schrijf je als inwoner in bij je woongemeente.\", \"source_ids\": [\"source.3\"], \"municipality_dependent\": true}, {\"id\": \"step.2\", \"position\": 2, \"title\": \"Stap 2\", \"body\": \"Bij maximaal vier maanden: controleer RNI-voorwaarden. Leiden accepteert Europese paspoorten; zonder Europees paspoort verwijst de gemeente naar Breda of Venlo.\", \"source_ids\": [\"source.1\", \"source.2\"], \"municipality_dependent\": true}, {\"id\": \"step.3\", \"position\": 3, \"title\": \"Stap 3\", \"body\": \"Vul het RNI-formulier in, bewaar de QR-code en boek een beschikbare afspraak. Neem identificatie mee. Heb je al een BSN, vraag dan welke wijziging nodig is in plaats van een eerste RNI-inschrijving.\", \"source_ids\": [\"source.1\"], \"municipality_dependent\": true}], \"required_documents\": [{\"id\": \"documents\", \"text\": \"RNI: paspoort of ID-kaart, geen rijbewijs, plus QR-code. Kinderen onder 16 komen met een ouder en het vereiste gelegaliseerde geboortedocument.\", \"source_ids\": [\"source.1\"]}], \"official_sources\": [{\"id\": \"source.1\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.2\", \"title\": \"Official guidance · www.rvig.nl\", \"publisher\": \"www.rvig.nl\", \"url\": \"https://www.rvig.nl/registratie-niet-ingezetenen-voor-burgers\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.3\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}], \"verified_at\": \"2026-11-09\", \"updated_at\": \"2026-11-09\", \"reviewer\": null, \"warnings\": [], \"disclaimer\": \"Algemene praktische informatie; de bevoegde instantie of zorgverlener beoordeelt je persoonlijke situatie.\", \"sections\": [{\"id\": \"cost\", \"title\": \"Kosten\", \"body\": \"RNI-inschrijving is gratis.\", \"source_ids\": [\"source.1\"]}, {\"id\": \"timing\", \"title\": \"Termijnen\", \"body\": \"Leiden verstrekt het BSN tijdens de afgeronde RNI-afspraak; beschikbaarheid van afspraken staat daar los van.\", \"source_ids\": [\"source.1\"]}]}",
+        "audience": "New residents, short-stay workers or students, and people who may already have a BSN.",
+        "audience_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "audience_checked_at": "2026-11-09",
+        "steps": "[\"If staying over four months, register as a resident with the municipality where you live.\", \"For a stay of four months or less, check RNI eligibility. Leiden accepts European passports; people without a European passport are directed to Breda or Venlo.\", \"Complete the RNI pre-registration, keep the QR code and book an available appointment. Bring ID. If you already have a BSN, do not apply as a new RNI registration; ask the municipality which update is needed.\"]",
+        "steps_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "steps_checked_at": "2026-11-09",
+        "required_documents": "RNI: passport or identity card, not a driving licence, plus QR code. Under-16s attend with a parent and the required legalised birth document.",
+        "required_documents_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "required_documents_checked_at": "2026-11-09",
+        "cost": "RNI registration is free.",
+        "cost_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "cost_checked_at": "2026-11-09",
+        "timing": "Leiden issues the BSN at the completed RNI appointment; appointment availability is separate.",
+        "timing_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+        "timing_checked_at": "2026-11-09",
+        "additional_sources": "[\"https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/\", \"https://www.rvig.nl/registratie-niet-ingezetenen-voor-burgers\", \"https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/\"]"
+      },
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.leiden-bsn",
+        "slug": "bsn",
+        "locale": "en",
+        "title": "Get or find your BSN",
+        "status": "draft",
+        "short_summary": {
+          "id": "summary",
+          "text": "A BSN is issued through registration; choose resident registration or the RNI route.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "who_this_is_for": {
+          "id": "audience",
+          "text": "New residents, short-stay workers or students, and people who may already have a BSN.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "when_you_need_it": {
+          "id": "situation",
+          "text": "New residents, short-stay workers or students, and people who may already have a BSN.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "audience_profiles": [
+          "resident",
+          "expat",
+          "student"
+        ],
+        "numbered_steps": [
+          {
+            "id": "step.1",
+            "position": 1,
+            "title": "Step 1",
+            "body": "If staying over four months, register as a resident with the municipality where you live.",
+            "source_ids": [
+              "source.3"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.2",
+            "position": 2,
+            "title": "Step 2",
+            "body": "For a stay of four months or less, check RNI eligibility. Leiden accepts European passports; people without a European passport are directed to Breda or Venlo.",
+            "source_ids": [
+              "source.1",
+              "source.2"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.3",
+            "position": 3,
+            "title": "Step 3",
+            "body": "Complete the RNI pre-registration, keep the QR code and book an available appointment. Bring ID. If you already have a BSN, do not apply as a new RNI registration; ask the municipality which update is needed.",
+            "source_ids": [
+              "source.1"
+            ],
+            "municipality_dependent": true
+          }
+        ],
+        "required_documents": [
+          {
+            "id": "documents",
+            "text": "RNI: passport or identity card, not a driving licence, plus QR code. Under-16s attend with a parent and the required legalised birth document.",
+            "source_ids": [
+              "source.1"
+            ]
+          }
+        ],
+        "official_sources": [
+          {
+            "id": "source.1",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.2",
+            "title": "Official guidance · www.rvig.nl",
+            "publisher": "www.rvig.nl",
+            "url": "https://www.rvig.nl/registratie-niet-ingezetenen-voor-burgers",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.3",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          }
+        ],
+        "verified_at": "2026-11-09",
+        "updated_at": "2026-11-09",
+        "reviewer": null,
+        "warnings": [],
+        "disclaimer": "General practical information; the responsible authority or care provider decides your individual case.",
+        "sections": [
+          {
+            "id": "cost",
+            "title": "Costs",
+            "body": "RNI registration is free.",
+            "source_ids": [
+              "source.1"
+            ]
+          },
+          {
+            "id": "timing",
+            "title": "Timing",
+            "body": "Leiden issues the BSN at the completed RNI appointment; appointment availability is separate.",
+            "source_ids": [
+              "source.1"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "guide.leiden-digid",
+      "entity_type": "document",
+      "category": "digid",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Apply for and activate DigiD",
+      "description": "Set up your personal login for Dutch public services.",
+      "images": [],
+      "official_source": {
+        "title": "Official visitor information",
+        "publisher": "Apply for and activate DigiD",
+        "url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+        "is_official": true,
+        "checked_at": "2026-11-09",
+        "status": "verified_opened"
+      },
+      "website": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-09",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Set up your personal login for Dutch public services.",
+      "search_keywords": [
+        "Apply for and activate DigiD",
+        "digid",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "digid",
+        "description_nl": "Regel je persoonlijke inlog voor Nederlandse overheidsdiensten.",
+        "content_language": "en",
+        "content_section": "LIVE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+        "website_checked_at": "2026-11-09",
+        "title_nl": "DigiD aanvragen en activeren",
+        "practical_guide_nl": "{\"schema_version\": 2, \"id\": \"guide.leiden-digid\", \"slug\": \"digid\", \"locale\": \"nl\", \"title\": \"DigiD aanvragen en activeren\", \"status\": \"draft\", \"short_summary\": {\"id\": \"summary\", \"text\": \"Regel je persoonlijke inlog voor Nederlandse overheidsdiensten.\", \"source_ids\": [\"source.1\", \"source.2\"]}, \"who_this_is_for\": {\"id\": \"audience\", \"text\": \"Inwoners met BSN en geregistreerd adres; niet-ingezetenen volgen een aparte aanvraagroute.\", \"source_ids\": [\"source.1\", \"source.2\"]}, \"when_you_need_it\": {\"id\": \"situation\", \"text\": \"Inwoners met BSN en geregistreerd adres; niet-ingezetenen volgen een aparte aanvraagroute.\", \"source_ids\": [\"source.1\", \"source.2\"]}, \"audience_profiles\": [\"resident\", \"expat\", \"student\"], \"numbered_steps\": [{\"id\": \"step.1\", \"position\": 1, \"title\": \"Stap 1\", \"body\": \"Controleer je geregistreerde adres en vraag DigiD aan op de officiële website met BSN, geboortedatum en adres.\", \"source_ids\": [\"source.1\"], \"municipality_dependent\": true}, {\"id\": \"step.2\", \"position\": 2, \"title\": \"Stap 2\", \"body\": \"Kies inloggegevens en volg de telefooncontrole. Houd de gegevens privé.\", \"source_ids\": [\"source.1\"], \"municipality_dependent\": true}, {\"id\": \"step.3\", \"position\": 3, \"title\": \"Stap 3\", \"body\": \"Activeer binnen 21 dagen met de code uit de brief. Woon je in het buitenland of Caribisch Nederland, volg dan de afzonderlijke instructies van DigiD.\", \"source_ids\": [\"source.1\", \"source.2\"], \"municipality_dependent\": true}], \"required_documents\": [{\"id\": \"documents\", \"text\": \"BSN, geregistreerd adres en telefoon; voor activering ook de brief en je gekozen inloggegevens.\", \"source_ids\": [\"source.1\"]}], \"official_sources\": [{\"id\": \"source.1\", \"title\": \"Official guidance · www.digid.nl\", \"publisher\": \"www.digid.nl\", \"url\": \"https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.2\", \"title\": \"Official guidance · www.digid.nl\", \"publisher\": \"www.digid.nl\", \"url\": \"https://www.digid.nl/aanvragen-en-activeren/digid-activeren\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}], \"verified_at\": \"2026-11-09\", \"updated_at\": \"2026-11-09\", \"reviewer\": null, \"warnings\": [{\"id\": \"warning\", \"text\": \"Government.nl noemt nog drie werkdagen. Dat wijkt af van de vijf dagen bij DigiD zelf; volg de aanbieder en controleer opnieuw vóór publicatie.\", \"source_ids\": [\"source.1\", \"source.2\"]}], \"disclaimer\": \"Algemene praktische informatie; de bevoegde instantie of zorgverlener beoordeelt je persoonlijke situatie.\", \"sections\": [{\"id\": \"timing\", \"title\": \"Termijnen\", \"body\": \"DigiD noemt momenteel bezorging binnen vijf werkdagen; activeer binnen 21 dagen.\", \"source_ids\": [\"source.1\", \"source.2\"]}]}",
+        "audience": "Residents with a BSN and registered address; non-residents use a separate application route.",
+        "audience_source_url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+        "audience_checked_at": "2026-11-09",
+        "steps": "[\"Check your registered address, then apply on DigiD\\u2019s official website with your BSN, birth date and address.\", \"Choose your login details and follow the phone verification steps. Keep credentials private.\", \"Activate using the mailed code within 21 days. If you live abroad or in the Dutch Caribbean, follow DigiD\\u2019s specific instructions for that situation.\"]",
+        "steps_source_url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+        "steps_checked_at": "2026-11-09",
+        "required_documents": "BSN, registered address and a phone; activation also requires the letter and your chosen login details.",
+        "required_documents_source_url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+        "required_documents_checked_at": "2026-11-09",
+        "cost": "",
+        "timing": "DigiD currently states delivery within five working days; activate within 21 days.",
+        "timing_source_url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+        "timing_checked_at": "2026-11-09",
+        "additional_sources": "[\"https://www.government.nl/themes/government-and-democracy/online-access-to-public-services-european-economic-area-eidas/digid/digid-applications-from-the-netherlands\"]"
+      },
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.leiden-digid",
+        "slug": "digid",
+        "locale": "en",
+        "title": "Apply for and activate DigiD",
+        "status": "draft",
+        "short_summary": {
+          "id": "summary",
+          "text": "Set up your personal login for Dutch public services.",
+          "source_ids": [
+            "source.1",
+            "source.2"
+          ]
+        },
+        "who_this_is_for": {
+          "id": "audience",
+          "text": "Residents with a BSN and registered address; non-residents use a separate application route.",
+          "source_ids": [
+            "source.1",
+            "source.2"
+          ]
+        },
+        "when_you_need_it": {
+          "id": "situation",
+          "text": "Residents with a BSN and registered address; non-residents use a separate application route.",
+          "source_ids": [
+            "source.1",
+            "source.2"
+          ]
+        },
+        "audience_profiles": [
+          "resident",
+          "expat",
+          "student"
+        ],
+        "numbered_steps": [
+          {
+            "id": "step.1",
+            "position": 1,
+            "title": "Step 1",
+            "body": "Check your registered address, then apply on DigiD’s official website with your BSN, birth date and address.",
+            "source_ids": [
+              "source.1"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.2",
+            "position": 2,
+            "title": "Step 2",
+            "body": "Choose your login details and follow the phone verification steps. Keep credentials private.",
+            "source_ids": [
+              "source.1"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.3",
+            "position": 3,
+            "title": "Step 3",
+            "body": "Activate using the mailed code within 21 days. If you live abroad or in the Dutch Caribbean, follow DigiD’s specific instructions for that situation.",
+            "source_ids": [
+              "source.1",
+              "source.2"
+            ],
+            "municipality_dependent": true
+          }
+        ],
+        "required_documents": [
+          {
+            "id": "documents",
+            "text": "BSN, registered address and a phone; activation also requires the letter and your chosen login details.",
+            "source_ids": [
+              "source.1"
+            ]
+          }
+        ],
+        "official_sources": [
+          {
+            "id": "source.1",
+            "title": "Official guidance · www.digid.nl",
+            "publisher": "www.digid.nl",
+            "url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.2",
+            "title": "Official guidance · www.digid.nl",
+            "publisher": "www.digid.nl",
+            "url": "https://www.digid.nl/aanvragen-en-activeren/digid-activeren",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          }
+        ],
+        "verified_at": "2026-11-09",
+        "updated_at": "2026-11-09",
+        "reviewer": null,
+        "warnings": [
+          {
+            "id": "warning",
+            "text": "Government.nl still mentions three working days. This conflicts with DigiD’s own five-day guidance; use the operator’s current guidance and check again before publication.",
+            "source_ids": [
+              "source.1",
+              "source.2"
+            ]
+          }
+        ],
+        "disclaimer": "General practical information; the responsible authority or care provider decides your individual case.",
+        "sections": [
+          {
+            "id": "timing",
+            "title": "Timing",
+            "body": "DigiD currently states delivery within five working days; activate within 21 days.",
+            "source_ids": [
+              "source.1",
+              "source.2"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "id": "guide.leiden-waste",
+      "entity_type": "government_service",
+      "category": "waste",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Sort and dispose of household waste",
+      "description": "Use your address-specific schedule and Leiden’s own sorting rules.",
+      "images": [],
+      "official_source": {
+        "title": "Official visitor information",
+        "publisher": "Sort and dispose of household waste",
+        "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+        "is_official": true,
+        "checked_at": "2026-11-09",
+        "status": "verified_opened"
+      },
+      "website": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-09",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Use your address-specific schedule and Leiden’s own sorting rules.",
+      "search_keywords": [
+        "Sort and dispose of household waste",
+        "waste",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "waste",
+        "description_nl": "Gebruik het ophaalschema voor je adres en de Leidse scheidingsregels.",
+        "content_language": "en",
+        "content_section": "LIVE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+        "website_checked_at": "2026-11-09",
+        "title_nl": "Huisafval scheiden en aanbieden",
+        "practical_guide_nl": "{\"schema_version\": 2, \"id\": \"guide.leiden-waste\", \"slug\": \"waste\", \"locale\": \"nl\", \"title\": \"Huisafval scheiden en aanbieden\", \"status\": \"draft\", \"short_summary\": {\"id\": \"summary\", \"text\": \"Gebruik het ophaalschema voor je adres en de Leidse scheidingsregels.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"who_this_is_for\": {\"id\": \"audience\", \"text\": \"Inwoners die ophaaldagen of de juiste container zoeken.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"when_you_need_it\": {\"id\": \"situation\", \"text\": \"Inwoners die ophaaldagen of de juiste container zoeken.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"audience_profiles\": [\"resident\", \"expat\", \"student\"], \"numbered_steps\": [{\"id\": \"step.1\", \"position\": 1, \"title\": \"Stap 1\", \"body\": \"Vul postcode en huisnummer in bij het gemeentelijke ophaalschema en bekijk vervangende feestdagen. In centrum en buitenwijken verschillen de inzamelmethoden.\", \"source_ids\": [\"source.2\"], \"municipality_dependent\": true}, {\"id\": \"step.2\", \"position\": 2, \"title\": \"Stap 2\", \"body\": \"In Leiden mogen plastic, blik en drankkartons bij het restafval voor nascheiding. Lever glas, papier en textiel apart in; controleer de GFT-informatie voor je adres.\", \"source_ids\": [\"source.1\", \"source.3\"], \"municipality_dependent\": true}, {\"id\": \"step.3\", \"position\": 3, \"title\": \"Stap 3\", \"body\": \"Zet geen zakken naast containers. Breng grofvuil naar de Milieustraat of maak een officiële ophaalafspraak.\", \"source_ids\": [\"source.3\"], \"municipality_dependent\": true}], \"required_documents\": [], \"official_sources\": [{\"id\": \"source.1\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.2\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/waste-collection-schedule/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.3\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}], \"verified_at\": \"2026-11-09\", \"updated_at\": \"2026-11-09\", \"reviewer\": null, \"warnings\": [], \"disclaimer\": \"Algemene praktische informatie; de bevoegde instantie of zorgverlener beoordeelt je persoonlijke situatie.\", \"sections\": []}",
+        "audience": "Residents who need to find collection days or the right container.",
+        "audience_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+        "audience_checked_at": "2026-11-09",
+        "steps": "[\"Enter your postcode and house number in the municipal collection schedule; check the holiday replacement dates. City-centre and suburban collection arrangements differ.\", \"In Leiden, plastic packaging, tins and drink cartons go with residual waste for later sorting. Keep glass, paper and textiles separate; check the municipal GFT instructions for your address.\", \"Do not leave bags beside a container. For bulky waste, use the Milieustraat or arrange an official collection appointment.\"]",
+        "steps_source_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+        "steps_checked_at": "2026-11-09",
+        "required_documents": "",
+        "cost": "",
+        "timing": "",
+        "additional_sources": "[\"https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/\", \"https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/waste-collection-schedule/\", \"https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/\"]"
+      },
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.leiden-waste",
+        "slug": "waste",
+        "locale": "en",
+        "title": "Sort and dispose of household waste",
+        "status": "draft",
+        "short_summary": {
+          "id": "summary",
+          "text": "Use your address-specific schedule and Leiden’s own sorting rules.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "who_this_is_for": {
+          "id": "audience",
+          "text": "Residents who need to find collection days or the right container.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "when_you_need_it": {
+          "id": "situation",
+          "text": "Residents who need to find collection days or the right container.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "audience_profiles": [
+          "resident",
+          "expat",
+          "student"
+        ],
+        "numbered_steps": [
+          {
+            "id": "step.1",
+            "position": 1,
+            "title": "Step 1",
+            "body": "Enter your postcode and house number in the municipal collection schedule; check the holiday replacement dates. City-centre and suburban collection arrangements differ.",
+            "source_ids": [
+              "source.2"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.2",
+            "position": 2,
+            "title": "Step 2",
+            "body": "In Leiden, plastic packaging, tins and drink cartons go with residual waste for later sorting. Keep glass, paper and textiles separate; check the municipal GFT instructions for your address.",
+            "source_ids": [
+              "source.1",
+              "source.3"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.3",
+            "position": 3,
+            "title": "Step 3",
+            "body": "Do not leave bags beside a container. For bulky waste, use the Milieustraat or arrange an official collection appointment.",
+            "source_ids": [
+              "source.3"
+            ],
+            "municipality_dependent": true
+          }
+        ],
+        "required_documents": [],
+        "official_sources": [
+          {
+            "id": "source.1",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.2",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/waste-collection-schedule/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.3",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          }
+        ],
+        "verified_at": "2026-11-09",
+        "updated_at": "2026-11-09",
+        "reviewer": null,
+        "warnings": [],
+        "disclaimer": "General practical information; the responsible authority or care provider decides your individual case.",
+        "sections": []
+      }
+    },
+    {
+      "id": "guide.leiden-contacts",
+      "entity_type": "government_service",
+      "category": "contacts",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Emergency and non-emergency contacts",
+      "description": "Choose the contact according to the urgency and type of help.",
+      "images": [],
+      "official_source": {
+        "title": "Official visitor information",
+        "publisher": "Emergency and non-emergency contacts",
+        "url": "https://www.politie.nl/contact/",
+        "is_official": true,
+        "checked_at": "2026-11-09",
+        "status": "verified_opened"
+      },
+      "website": "https://www.politie.nl/contact/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-09",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Choose the contact according to the urgency and type of help.",
+      "search_keywords": [
+        "Emergency and non-emergency contacts",
+        "contacts",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "contacts",
+        "description_nl": "Kies het contact op basis van urgentie en soort hulp.",
+        "content_language": "en",
+        "content_section": "LIVE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.politie.nl/contact/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.politie.nl/contact/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.politie.nl/contact/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.politie.nl/contact/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.politie.nl/contact/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.politie.nl/contact/",
+        "website_checked_at": "2026-11-09",
+        "title_nl": "Contact bij spoed en zonder spoed",
+        "practical_guide_nl": "{\"schema_version\": 2, \"id\": \"guide.leiden-contacts\", \"slug\": \"contacts\", \"locale\": \"nl\", \"title\": \"Contact bij spoed en zonder spoed\", \"status\": \"draft\", \"short_summary\": {\"id\": \"summary\", \"text\": \"Kies het contact op basis van urgentie en soort hulp.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"who_this_is_for\": {\"id\": \"audience\", \"text\": \"Iedereen in Leiden die politie, medische of gemeentelijke hulp nodig heeft.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"when_you_need_it\": {\"id\": \"situation\", \"text\": \"Iedereen in Leiden die politie, medische of gemeentelijke hulp nodig heeft.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}, \"audience_profiles\": [\"resident\", \"expat\", \"student\"], \"numbered_steps\": [{\"id\": \"step.1\", \"position\": 1, \"title\": \"Stap 1\", \"body\": \"Bel 112 bij direct gevaar of een levensbedreigende noodsituatie. Geef je locatie door en volg de instructies.\", \"source_ids\": [\"source.1\"], \"municipality_dependent\": true}, {\"id\": \"step.2\", \"position\": 2, \"title\": \"Stap 2\", \"body\": \"Bel in Nederland 0900-8844 voor politie zonder spoed. Gebruik voor dringende huisartsenzorg buiten kantooruren de postcodekeuze van De Limes en bel vóór vertrek.\", \"source_ids\": [\"source.1\", \"source.2\"], \"municipality_dependent\": true}, {\"id\": \"step.3\", \"position\": 3, \"title\": \"Stap 3\", \"body\": \"Bel voor gemeentevragen 14 071, of +31 71 516 5165 als het korte nummer niet werkt. Meld problemen in de openbare ruimte via de gemeentewebsite.\", \"source_ids\": [\"source.3\"], \"municipality_dependent\": true}], \"required_documents\": [], \"official_sources\": [{\"id\": \"source.1\", \"title\": \"Official guidance · www.politie.nl\", \"publisher\": \"www.politie.nl\", \"url\": \"https://www.politie.nl/contact/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.2\", \"title\": \"Official guidance · huisartsenspoedpostdelimes.nl\", \"publisher\": \"huisartsenspoedpostdelimes.nl\", \"url\": \"https://huisartsenspoedpostdelimes.nl/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.3\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/contact/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}], \"verified_at\": \"2026-11-09\", \"updated_at\": \"2026-11-09\", \"reviewer\": null, \"warnings\": [{\"id\": \"warning\", \"text\": \"Niet-spoednummers vervangen 112 niet als onmiddellijke hulp nodig is.\", \"source_ids\": [\"source.1\", \"source.2\", \"source.3\"]}], \"disclaimer\": \"Algemene praktische informatie; de bevoegde instantie of zorgverlener beoordeelt je persoonlijke situatie.\", \"sections\": []}",
+        "audience": "Anyone in Leiden needing police, medical or municipal assistance.",
+        "audience_source_url": "https://www.politie.nl/contact/",
+        "audience_checked_at": "2026-11-09",
+        "steps": "[\"For immediate danger or a life-threatening emergency, call 112. State your location and follow the operator\\u2019s instructions.\", \"For police assistance without an emergency in the Netherlands, call 0900-8844. For urgent GP care outside normal hours, use De Limes\\u2019 postcode selector and call before travelling.\", \"For municipal questions call 14 071, or +31 71 516 5165 if the short number does not work. Use the municipal website for public-space reports.\"]",
+        "steps_source_url": "https://www.politie.nl/contact/",
+        "steps_checked_at": "2026-11-09",
+        "required_documents": "",
+        "cost": "",
+        "timing": "",
+        "additional_sources": "[\"https://www.politie.nl/contact/\", \"https://huisartsenspoedpostdelimes.nl/\", \"https://gemeente.leiden.nl/contact/\"]"
+      },
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.leiden-contacts",
+        "slug": "contacts",
+        "locale": "en",
+        "title": "Emergency and non-emergency contacts",
+        "status": "draft",
+        "short_summary": {
+          "id": "summary",
+          "text": "Choose the contact according to the urgency and type of help.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "who_this_is_for": {
+          "id": "audience",
+          "text": "Anyone in Leiden needing police, medical or municipal assistance.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "when_you_need_it": {
+          "id": "situation",
+          "text": "Anyone in Leiden needing police, medical or municipal assistance.",
+          "source_ids": [
+            "source.1",
+            "source.2",
+            "source.3"
+          ]
+        },
+        "audience_profiles": [
+          "resident",
+          "expat",
+          "student"
+        ],
+        "numbered_steps": [
+          {
+            "id": "step.1",
+            "position": 1,
+            "title": "Step 1",
+            "body": "For immediate danger or a life-threatening emergency, call 112. State your location and follow the operator’s instructions.",
+            "source_ids": [
+              "source.1"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.2",
+            "position": 2,
+            "title": "Step 2",
+            "body": "For police assistance without an emergency in the Netherlands, call 0900-8844. For urgent GP care outside normal hours, use De Limes’ postcode selector and call before travelling.",
+            "source_ids": [
+              "source.1",
+              "source.2"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.3",
+            "position": 3,
+            "title": "Step 3",
+            "body": "For municipal questions call 14 071, or +31 71 516 5165 if the short number does not work. Use the municipal website for public-space reports.",
+            "source_ids": [
+              "source.3"
+            ],
+            "municipality_dependent": true
+          }
+        ],
+        "required_documents": [],
+        "official_sources": [
+          {
+            "id": "source.1",
+            "title": "Official guidance · www.politie.nl",
+            "publisher": "www.politie.nl",
+            "url": "https://www.politie.nl/contact/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.2",
+            "title": "Official guidance · huisartsenspoedpostdelimes.nl",
+            "publisher": "huisartsenspoedpostdelimes.nl",
+            "url": "https://huisartsenspoedpostdelimes.nl/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.3",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/contact/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          }
+        ],
+        "verified_at": "2026-11-09",
+        "updated_at": "2026-11-09",
+        "reviewer": null,
+        "warnings": [
+          {
+            "id": "warning",
+            "text": "Non-emergency numbers are not substitutes for 112 when immediate help is required.",
+            "source_ids": [
+              "source.1",
+              "source.2",
+              "source.3"
+            ]
+          }
+        ],
+        "disclaimer": "General practical information; the responsible authority or care provider decides your individual case.",
+        "sections": []
+      }
+    },
+    {
+      "id": "guide.leiden-municipal-services",
+      "entity_type": "government_service",
+      "category": "municipal-services",
+      "city_id": "leiden",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Arrange municipal services",
+      "description": "Start on the relevant product page and check whether you need an appointment.",
+      "images": [],
+      "official_source": {
+        "title": "Official visitor information",
+        "publisher": "Arrange municipal services",
+        "url": "https://gemeente.leiden.nl/contact/",
+        "is_official": true,
+        "checked_at": "2026-11-09",
+        "status": "verified_opened"
+      },
+      "website": "https://gemeente.leiden.nl/contact/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-09",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Start on the relevant product page and check whether you need an appointment.",
+      "search_keywords": [
+        "Arrange municipal services",
+        "municipal-services",
+        "leiden"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "slug": "municipal-services",
+        "description_nl": "Begin op de juiste productpagina en controleer of een afspraak nodig is.",
+        "content_language": "en",
+        "content_section": "LIVE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://gemeente.leiden.nl/contact/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://gemeente.leiden.nl/contact/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://gemeente.leiden.nl/contact/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://gemeente.leiden.nl/contact/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://gemeente.leiden.nl/contact/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://gemeente.leiden.nl/contact/",
+        "website_checked_at": "2026-11-09",
+        "title_nl": "Gemeentezaken regelen",
+        "practical_guide_nl": "{\"schema_version\": 2, \"id\": \"guide.leiden-municipal-services\", \"slug\": \"municipal-services\", \"locale\": \"nl\", \"title\": \"Gemeentezaken regelen\", \"status\": \"draft\", \"short_summary\": {\"id\": \"summary\", \"text\": \"Begin op de juiste productpagina en controleer of een afspraak nodig is.\", \"source_ids\": [\"source.1\", \"source.2\"]}, \"who_this_is_for\": {\"id\": \"audience\", \"text\": \"Inwoners die documenten aanvragen, problemen melden of gemeentelijke hulp zoeken.\", \"source_ids\": [\"source.1\", \"source.2\"]}, \"when_you_need_it\": {\"id\": \"situation\", \"text\": \"Inwoners die documenten aanvragen, problemen melden of gemeentelijke hulp zoeken.\", \"source_ids\": [\"source.1\", \"source.2\"]}, \"audience_profiles\": [\"resident\", \"expat\", \"student\"], \"numbered_steps\": [{\"id\": \"step.1\", \"position\": 1, \"title\": \"Stap 1\", \"body\": \"Zoek de dienst op gemeente.leiden.nl. Op de productpagina staan voorwaarden, documenten, kosten en de afspraakmogelijkheid.\", \"source_ids\": [\"source.2\"], \"municipality_dependent\": true}, {\"id\": \"step.2\", \"position\": 2, \"title\": \"Stap 2\", \"body\": \"Maak waar nodig via die pagina een afspraak. Controleer de locatie in de bevestiging: het Stadskantoor ligt aan Bargelaan 190, niet in het historische Stadhuis.\", \"source_ids\": [\"source.1\", \"source.2\"], \"municipality_dependent\": true}, {\"id\": \"step.3\", \"position\": 3, \"title\": \"Stap 3\", \"body\": \"Wijzig een afspraak via de bevestigingslink. Bel de gemeente voor hulp; gebruik voor straatproblemen de melding openbare ruimte.\", \"source_ids\": [\"source.1\"], \"municipality_dependent\": true}], \"required_documents\": [], \"official_sources\": [{\"id\": \"source.1\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/contact/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}, {\"id\": \"source.2\", \"title\": \"Official guidance · gemeente.leiden.nl\", \"publisher\": \"gemeente.leiden.nl\", \"url\": \"https://gemeente.leiden.nl/\", \"is_official\": true, \"checked_at\": \"2026-11-09\", \"status\": \"verified_opened\"}], \"verified_at\": \"2026-11-09\", \"updated_at\": \"2026-11-09\", \"reviewer\": null, \"warnings\": [], \"disclaimer\": \"Algemene praktische informatie; de bevoegde instantie of zorgverlener beoordeelt je persoonlijke situatie.\", \"sections\": [{\"id\": \"timing\", \"title\": \"Termijnen\", \"body\": \"Telefonisch: maandag–vrijdag 09:00–17:00. Balietijden verschillen; volg je afspraakbevestiging.\", \"source_ids\": [\"source.1\"]}]}",
+        "audience": "Residents requesting documents, reporting issues or seeking municipal help.",
+        "audience_source_url": "https://gemeente.leiden.nl/contact/",
+        "audience_checked_at": "2026-11-09",
+        "steps": "[\"Find the service on gemeente.leiden.nl. Its product page lists the current conditions, documents, cost and appointment option.\", \"Book through that page where required. Check the confirmation for the location; the Stadskantoor is at Bargelaan 190, not the historic Stadhuis.\", \"Use the confirmation link to change an appointment. If you need help, call the municipality; report street problems through the public-space reporting option.\"]",
+        "steps_source_url": "https://gemeente.leiden.nl/contact/",
+        "steps_checked_at": "2026-11-09",
+        "required_documents": "",
+        "cost": "",
+        "timing": "Telephone service: Monday–Friday 09:00–17:00. Counter hours vary; use your appointment confirmation.",
+        "timing_source_url": "https://gemeente.leiden.nl/contact/",
+        "timing_checked_at": "2026-11-09",
+        "additional_sources": "[\"https://gemeente.leiden.nl/contact/\", \"https://gemeente.leiden.nl/\"]"
+      },
+      "practical_guide": {
+        "schema_version": 2,
+        "id": "guide.leiden-municipal-services",
+        "slug": "municipal-services",
+        "locale": "en",
+        "title": "Arrange municipal services",
+        "status": "draft",
+        "short_summary": {
+          "id": "summary",
+          "text": "Start on the relevant product page and check whether you need an appointment.",
+          "source_ids": [
+            "source.1",
+            "source.2"
+          ]
+        },
+        "who_this_is_for": {
+          "id": "audience",
+          "text": "Residents requesting documents, reporting issues or seeking municipal help.",
+          "source_ids": [
+            "source.1",
+            "source.2"
+          ]
+        },
+        "when_you_need_it": {
+          "id": "situation",
+          "text": "Residents requesting documents, reporting issues or seeking municipal help.",
+          "source_ids": [
+            "source.1",
+            "source.2"
+          ]
+        },
+        "audience_profiles": [
+          "resident",
+          "expat",
+          "student"
+        ],
+        "numbered_steps": [
+          {
+            "id": "step.1",
+            "position": 1,
+            "title": "Step 1",
+            "body": "Find the service on gemeente.leiden.nl. Its product page lists the current conditions, documents, cost and appointment option.",
+            "source_ids": [
+              "source.2"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.2",
+            "position": 2,
+            "title": "Step 2",
+            "body": "Book through that page where required. Check the confirmation for the location; the Stadskantoor is at Bargelaan 190, not the historic Stadhuis.",
+            "source_ids": [
+              "source.1",
+              "source.2"
+            ],
+            "municipality_dependent": true
+          },
+          {
+            "id": "step.3",
+            "position": 3,
+            "title": "Step 3",
+            "body": "Use the confirmation link to change an appointment. If you need help, call the municipality; report street problems through the public-space reporting option.",
+            "source_ids": [
+              "source.1"
+            ],
+            "municipality_dependent": true
+          }
+        ],
+        "required_documents": [],
+        "official_sources": [
+          {
+            "id": "source.1",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/contact/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          },
+          {
+            "id": "source.2",
+            "title": "Official guidance · gemeente.leiden.nl",
+            "publisher": "gemeente.leiden.nl",
+            "url": "https://gemeente.leiden.nl/",
+            "is_official": true,
+            "checked_at": "2026-11-09",
+            "status": "verified_opened"
+          }
+        ],
+        "verified_at": "2026-11-09",
+        "updated_at": "2026-11-09",
+        "reviewer": null,
+        "warnings": [],
+        "disclaimer": "General practical information; the responsible authority or care provider decides your individual case.",
+        "sections": [
+          {
+            "id": "timing",
+            "title": "Timing",
+            "body": "Telephone service: Monday–Friday 09:00–17:00. Counter hours vary; use your appointment confirmation.",
+            "source_ids": [
+              "source.1"
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

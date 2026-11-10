@@ -1,0 +1,198 @@
+/* Route styles, loaded with their consuming components. */
+
+.municipality-directory { display:grid; gap:28px; }
+.municipality-directory-controls {
+  display:grid;
+  grid-template-columns:minmax(0,1.6fr) minmax(210px,.65fr) 120px;
+  gap:14px;
+  align-items:end;
+  padding:18px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  background:var(--panel-2);
+  box-shadow:var(--shadow-card);
+}
+.municipality-directory-controls label { min-width:0; display:grid; gap:8px; }
+.municipality-directory-controls label>span { color:var(--muted); font-size:10px; font-weight:850; letter-spacing:.05em; text-transform:uppercase; }
+.municipality-search>div {
+  min-height:48px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  padding:0 13px;
+  border:1px solid var(--line-strong);
+  border-radius:12px;
+  background:var(--panel);
+}
+.municipality-search svg { width:18px; flex:none; color:var(--muted); }
+.municipality-search input {
+  width:100%;
+  min-width:0;
+  border:0;
+  outline:0;
+  background:transparent;
+  color:var(--text);
+  font:inherit;
+  font-size:14px;
+}
+.municipality-search input::placeholder { color:var(--muted); opacity:1; }
+.municipality-search button {
+  width:32px;
+  height:32px;
+  display:grid;
+  place-items:center;
+  border:0;
+  border-radius:8px;
+  background:transparent;
+  color:var(--muted);
+  cursor:pointer;
+}
+.municipality-directory-controls select {
+  min-height:48px;
+  padding:0 38px 0 12px;
+  border:1px solid var(--line-strong);
+  border-radius:12px;
+  background:var(--panel);
+  color:var(--text);
+  font:inherit;
+  font-size:13px;
+}
+.municipality-directory-controls output {
+  min-height:48px;
+  display:grid;
+  place-content:center;
+  gap:2px;
+  border-left:1px solid var(--line);
+  color:var(--muted);
+  text-align:center;
+}
+.municipality-directory-controls output strong { color:var(--cyan); font-size:20px; }
+.municipality-directory-controls output span { font-size:9px; font-weight:850; letter-spacing:.05em; text-transform:uppercase; }
+.municipality-directory-list {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:0 22px;
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.municipality-directory-list li {
+  min-width:0;
+  border-bottom:1px solid var(--line);
+  content-visibility:auto;
+  contain-intrinsic-size:0 146px;
+}
+.municipality-directory-list a {
+  min-height:146px;
+  display:grid;
+  grid-template-columns:46px minmax(0,1fr) 18px;
+  align-items:center;
+  gap:14px;
+  padding:18px 8px;
+  border-radius:13px;
+  transition:background-color var(--motion-fast),padding-inline var(--motion-fast);
+}
+.municipality-directory-list a:hover { padding-inline:14px; background:rgba(58,196,214,.055); }
+.municipality-directory-icon {
+  width:46px;
+  height:46px;
+  display:grid;
+  place-items:center;
+  border:1px solid rgba(126,216,163,.32);
+  border-radius:12px;
+  background:rgba(126,216,163,.07);
+  color:var(--cyan);
+}
+.municipality-directory-icon svg { width:22px; }
+.municipality-directory-copy { min-width:0; display:grid; gap:5px; }
+.municipality-directory-copy>small { color:var(--muted); font-size:9px; font-weight:850; letter-spacing:.05em; text-transform:uppercase; }
+.municipality-directory-copy>strong { color:var(--text); font-size:18px; letter-spacing:-.02em; }
+.municipality-directory-copy>span { display:flex; flex-wrap:wrap; gap:6px 13px; }
+.municipality-directory-copy em { display:inline-flex; align-items:center; gap:5px; color:var(--muted); font-size:10px; font-style:normal; }
+.municipality-directory-copy em svg { width:12px; color:var(--cyan); }
+.municipality-directory-copy p { margin:1px 0 0; color:var(--muted); font-size:10px; line-height:1.5; }
+.municipality-directory-list a>svg { width:16px; color:var(--muted); }
+.municipality-directory-empty { min-height:320px; display:grid; place-items:center; align-content:center; gap:10px; text-align:center; }
+.municipality-directory-empty>svg { width:30px; color:var(--cyan); }
+.municipality-directory-empty h2,.municipality-directory-empty p { margin:0; }
+.municipality-directory-empty p { color:var(--text-secondary); }
+
+.municipality-detail-main { min-width:0; display:grid; gap:52px; }
+.municipality-detail-main h2 { margin:0 0 20px; font-size:clamp(25px,3vw,34px); letter-spacing:-.035em; }
+.municipality-facts { display:grid; grid-template-columns:1fr 1fr; margin:0; border-block:1px solid var(--line); }
+.municipality-facts>div { padding:18px 12px; border-bottom:1px solid var(--line); }
+.municipality-facts>div:nth-last-child(-n+2) { border-bottom:0; }
+.municipality-facts dt { color:var(--muted); font-size:9px; font-weight:850; letter-spacing:.05em; text-transform:uppercase; }
+.municipality-facts dd { margin:7px 0 0; color:var(--text); font-size:13px; }
+.municipality-facts a { color:var(--cyan); }
+.municipality-settlements ul {
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:8px;
+  margin:20px 0 0;
+  padding:0;
+  list-style:none;
+}
+.municipality-settlements li {
+  min-width:0;
+  display:grid;
+  gap:5px;
+  padding:13px;
+  border:1px solid var(--line);
+  border-radius:11px;
+  background:var(--panel-2);
+}
+.municipality-settlements li span { color:var(--muted); font-size:8px; font-weight:850; }
+.municipality-settlements li strong { font-size:12px; line-height:1.35; overflow-wrap:anywhere; }
+.municipality-source-note { padding-top:16px; border-top:1px solid var(--line); }
+.municipality-coverage-gap {
+  display:flex;
+  align-items:end;
+  justify-content:space-between;
+  gap:30px;
+  margin-bottom:90px;
+  padding:28px;
+  border:1px solid var(--line);
+  border-radius:var(--radius-card);
+  background:var(--panel-2);
+}
+.municipality-coverage-gap>div { max-width:720px; }
+.municipality-coverage-gap span { color:var(--orange-2); font-size:10px; font-weight:850; text-transform:uppercase; }
+.municipality-coverage-gap h2 { margin:10px 0 8px; font-size:26px; }
+.municipality-coverage-gap p { margin:0; color:var(--text-secondary); line-height:1.6; }
+
+@media (max-width:900px) {
+  .municipality-directory-list { grid-template-columns:1fr; }
+}
+
+@media (max-width:900px) {
+  .municipality-settlements ul { grid-template-columns:1fr 1fr; }
+}
+
+@media (max-width:760px) {
+  .municipality-directory-controls { grid-template-columns:1fr; }
+}
+
+@media (max-width:760px) {
+  .municipality-directory-controls output { grid-template-columns:auto auto; justify-content:space-between; align-items:center; padding-top:12px; border-left:0; border-top:1px solid var(--line); }
+}
+
+@media (max-width:760px) {
+  .municipality-facts { grid-template-columns:1fr; }
+}
+
+@media (max-width:760px) {
+  .municipality-facts>div:nth-last-child(-n+2) { border-bottom:1px solid var(--line); }
+}
+
+@media (max-width:760px) {
+  .municipality-facts>div:last-child { border-bottom:0; }
+}
+
+@media (max-width:760px) {
+  .municipality-settlements ul { grid-template-columns:1fr; }
+}
+
+@media (max-width:760px) {
+  .municipality-coverage-gap { align-items:flex-start; flex-direction:column; }
+}

@@ -4,7 +4,7 @@ import { PartnerApplicationForm } from "@/components/partner-application-form";
 import { getGeographyProvinces, getMunicipalities } from "@/lib/geography";
 import { metadataForPage } from "@/lib/seo/metadata";
 
-export const metadata = metadataForPage("Business inquiry", "Prepare a partnership, advertising or request-for-quote inquiry for YouNew using a transparent email handoff.", "/business/apply");
+export const metadata = metadataForPage("Business inquiry", "Submit a validated partnership, advertising or request-for-quote inquiry through YouNew's protected endpoint, with a user-controlled email draft only if saving fails.", "/business/apply", { noIndex: true, follow: true });
 
 export default function BusinessApplyPage() {
   return (

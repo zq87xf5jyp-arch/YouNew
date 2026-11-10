@@ -310,7 +310,11 @@ export function projectPublishedPracticalGuide(raw, parent = {}) {
     officialSources: sources,
     contactOptions: contacts,
     relatedGuideIds: (() => {
-      const ids = stringArray(raw.relatedGuideIDs, "relatedGuideIDs", context, { minimum: 1, maximum: 20, itemMaximum: 160 });
+      // A guide may be the only currently publishable guide after the freshness
+      // gate has excluded stale records. Keep the list optional instead of
+      // forcing a self-link or a link to an unpublished guide. Any IDs that are
+      // supplied are still checked against the published guide set below.
+      const ids = stringArray(raw.relatedGuideIDs, "relatedGuideIDs", context, { minimum: 0, maximum: 20, itemMaximum: 160 });
       if (ids.includes(id)) failure(context, "relatedGuideIDs cannot contain the guide itself");
       return ids;
     })(),

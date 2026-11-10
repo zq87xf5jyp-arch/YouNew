@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-10T13:59:13.147859+00:00",
+  "state": "REAL_IMPORT_RESTORE_PASS_QA_CF6AB6F_PASS_PUBLIC_BUILD_CONCURRENCY_FIX_PENDING",
+  "repository": "https://github.com/zq87xf5jyp-arch/YouNew",
+  "pull_request": "https://github.com/zq87xf5jyp-arch/YouNew/pull/54",
+  "code_candidate_commit": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+  "scope_note": "Node QA uses the named uploaded archive; PHP gate is a separate recorded fix. Later working changes and production are not asserted deployed.",
+  "production": {
+    "url": "https://younew.nl/",
+    "candidate_deployed": false,
+    "source_commit": null,
+    "source_commit_status": "NOT_ESTABLISHED",
+    "home_sha256": "640029346dbd00c7fd626acc65bbd2badbd5560f340d6629681a1babd8a2d254",
+    "last_readonly_check": "2026-11-10T12:36:24.669948+00:00"
+  },
+  "qa": {
+    "url": "https://qa-runtime.younew.nl/login",
+    "running_backend_commit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665",
+    "previous_backend_commit": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+    "candidate_authentication_change_deployed": true,
+    "database_migrations_applied": true,
+    "php_gate_commit": "dd9b55373874b5229d7e075ddd6743e8166d3853",
+    "scheduled_business_verified": true,
+    "scheduled_catalog_verified": true,
+    "evidence": "HOSTINGER_QA_SERVER_EVIDENCE.json",
+    "running_catalog_commit": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+    "catalog_release": "hp-1794248941535-be274c0c",
+    "full_process_restart_verified": true,
+    "deployment_id": "01a1c5b5-14e8-71bd-a669-bbdcb43bfd10",
+    "scheduled_jobs_paused": true,
+    "pause_evidence": "RESOURCE_REVIEW_2026-11-10_RU.md",
+    "php_runtime_commit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665",
+    "migrations": 4,
+    "latest_http_checks": 43
+  },
+  "observed_hostinger_runtime": {
+    "node_cli": "24.22.1",
+    "php_cli": "8.3.36",
+    "mariadb": "11.8.9-MariaDB-log"
+  },
+  "packages": {
+    "node-app": {
+      "files": 2361,
+      "bytes": 313675089,
+      "manifest_sha256": "e07c76dfa4f16b9c98f5a735488471f207b6cd5fe57694c9661f8138592a1c4d",
+      "archive_sha256": "b5ad15f9c451e9171f9f0e54061d0a868686cd16a4ed93528e8ba75539472249",
+      "archive_bytes": 272020079
+    },
+    "php-site": {
+      "files": 14,
+      "bytes": 32629,
+      "manifest_sha256": "0f8769ee3278ef8e05f1e14b125b530a5d5721544858ece36f812ef8b3616400",
+      "archive_sha256": "1e8743e2e85ba61c34f641d5eba503ddd092860eb70323705a745ed41bc37788",
+      "archive_bytes": 11140
+    }
+  },
+  "archive_verification": {
+    "status": "PASS",
+    "source_commit": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+    "archive_files_verified": 2361,
+    "content_matches_committed_git_objects": true,
+    "paths_regular_and_relative": true,
+    "duplicate_members": false,
+    "runtime_databases_or_key_files": false,
+    "deployed": true,
+    "scope": "Node archive only; PHP gate remains separately recorded. This does not attest the later importer candidate."
+  },
+  "content": {
+    "new_drafts_published": false,
+    "editorial_drafts": 71,
+    "overdue_records_withdrawn_in_candidate": 172,
+    "original_records_preserved": true
+  },
+  "required_before_production": [
+    "Required CI for the final selected commit",
+    "Bounded public-site Hostinger predeploy checks",
+    "Production-mode Hostinger UI acceptance",
+    "Fresh production backup and tested code rollback without overwriting live data",
+    "Production activation and real scheduled BUSINESS delivery"
+  ],
+  "backup_evidence": [
+    "HOSTINGER_BACKUP_EVIDENCE.json",
+    "SUPABASE_PRESERVATION_EVIDENCE.json",
+    "HOSTINGER_QA_SERVER_EVIDENCE.json"
+  ],
+  "cleanup": {
+    "performed": false,
+    "deleted_user_objects": 0,
+    "quarantined_user_objects": 0,
+    "register": "CLEANUP_MANIFEST.csv"
+  },
+  "prior_verified_code_ci": {
+    "status": "PASS",
+    "source_commit": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad",
+    "evidence": "CI_EVIDENCE_4B3FEE8.json",
+    "later_commits_require_own_checks": true
+  },
+  "production_admin_resource_settings": {
+    "evidence": "ADMIN_RESOURCE_EVIDENCE.json",
+    "candidate_deployed": false,
+    "prior_source_rebuilt_by_hostinger": true
+  },
+  "local_real_import_evidence": "LEGACY_MIGRATION_LOCAL_EVIDENCE.json",
+  "migration_candidate_deployed": true,
+  "prepared_migration_commit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665",
+  "real_data_migration": {
+    "status": "IMPORTED_RESTORE_VERIFIED_DISCONNECTED",
+    "evidence": "HOSTINGER_REAL_MIGRATION_EVIDENCE.json",
+    "database": "u246392949_younp1",
+    "archiveTables": 90,
+    "archiveRows": 1396,
+    "profiles": 4,
+    "inquiries": 3,
+    "assets": 1,
+    "sessionsImported": 0,
+    "originalTablesPreserved": true,
+    "productionAppConnected": false
+  },
+  "production_runtime_configuration": {
+    "state": "PREPARED_NOT_ACTIVE",
+    "privateEnv": "/home/u246392949/domains/admin.younew.nl/younew-private/launch.env",
+    "qaCredentialsReused": false,
+    "editorialDrafts": 71
+  },
+  "migration_candidate_deployed_scope": "QA backend only; real imported database remains disconnected"
+}

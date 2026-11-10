@@ -70,9 +70,10 @@ export async function uploadContentImages(files: File[], folder: string, existin
   const supabase = createSupabaseBrowserClient();
   const bucket = supabase.storage.from(CONTENT_IMAGES_BUCKET);
   const results: ManagedContentImage[] = [];
+  const failures: string[] = [];
 
-  try {
-    for (const file of files) {
+  for (const file of files) {
+    try {
       const optimized = await optimizeImage(file);
       const id = crypto.randomUUID();
       const path = `articles/${safeFolder(folder)}/${Date.now()}-${id}-${safeFileStem(file.name)}.webp`;
@@ -97,17 +98,15 @@ export async function uploadContentImages(files: File[], folder: string, existin
         bytes: optimized.blob.size,
         mimeType: "image/webp"
       });
+    } catch (error) {
+      failures.push(error instanceof Error ? error.message : `Не удалось загрузить ${file.name}.`);
     }
-  } catch (error) {
-    if (results.length > 0) await bucket.remove(results.map((image) => image.path));
-    throw error;
   }
 
-  return results;
-}
-
-export async function removeContentImage(path: string) {
-  const supabase = createSupabaseBrowserClient();
-  const { error } = await supabase.storage.from(CONTENT_IMAGES_BUCKET).remove([path]);
-  if (error) throw new Error(`Не удалось удалить изображение: ${error.message}`);
+  return {
+    images: results,
+    warning: failures.length > 0
+      ? `Загружено ${results.length} из ${files.length}. ${failures.join(" ")}`
+      : null
+  };
 }

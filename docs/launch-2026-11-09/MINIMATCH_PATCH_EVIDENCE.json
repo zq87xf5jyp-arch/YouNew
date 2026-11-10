@@ -1,0 +1,71 @@
+{
+  "advisory": "https://github.com/advisories/GHSA-g3hv-75wg-m249",
+  "cve": "CVE-2026-118764",
+  "hostinger_scan": {
+    "environment": "qa-runtime.younew.nl",
+    "scan_display_time": "2026-11-09 18:15",
+    "package": "minimatch",
+    "version": "10.2.5",
+    "severity": "Moderate"
+  },
+  "override": "minimatch@>=7.0.0 <11.0.1 -> 11.0.1",
+  "legacy_minimatch_3_changed": false,
+  "local_node": "22.23.4",
+  "local_pnpm": "11.25.0",
+  "checks": {
+    "admin": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "sha256": "5ce5a4e84351601c5794cd4c2203ee550e32ad91f7685bed5b9c48a45de4f668",
+      "scope": "all dependencies including development",
+      "lint": "PASS",
+      "typecheck": "PASS"
+    },
+    "public": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "sha256": "ddb7513677bcd20671bcb84fb7a0e8e1cfdae2d62a2b098fddbcb7e0aab9761c",
+      "scope": "all dependencies including development",
+      "lint": "PASS",
+      "typecheck": "PASS"
+    },
+    "backend": {
+      "vulnerabilities": {
+        "info": 0,
+        "low": 0,
+        "moderate": 0,
+        "high": 0,
+        "critical": 0
+      },
+      "sha256": "90bf3ee84de0dabdc09cfdc5a2a9aa158f90e715620ba6b84dcd1f0c38d2f050",
+      "scope": "all dependencies including development",
+      "lint": "PASS",
+      "typecheck": "PASS"
+    }
+  },
+  "deployed": true,
+  "node_24_ci_and_hostinger_scan_after_deployment_pending": false,
+  "deployed_scope": "QA Node backend only; production not switched",
+  "post_deploy": {
+    "commit": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
+    "deployment_id": "01a1c1b2-ed7f-7291-b92d-4882c2c71b4b",
+    "scan_display_time": "2026-11-09 20:07 Europe/Amsterdam",
+    "scanner_result": "No vulnerabilities found",
+    "vulnerabilities": 0,
+    "http_checks": 43,
+    "http_status": "PASS",
+    "server_evidence": "hp1/logs/release-cd0546d.json",
+    "ci": "CI_EVIDENCE_CD0546D.json",
+    "screenshot_sha256": "56da946b32576fbdd3531ef3ed66373c980b9244df87f5a755ee06e2cd75d2ff"
+  }
+}

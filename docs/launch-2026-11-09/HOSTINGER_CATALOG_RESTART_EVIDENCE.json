@@ -1,0 +1,67 @@
+{
+  "at": "2026-11-09T18:44:49.455717+00:00",
+  "catalog": {
+    "approve": {
+      "status": "PASS",
+      "startedAt": "2026-11-09T18:23:41.653182+00:00",
+      "finishedAt": "2026-11-09T18:23:43.352522+00:00",
+      "checks": 16
+    },
+    "observe-approved": {
+      "status": "PASS",
+      "startedAt": "2026-11-09T18:26:43.680873+00:00",
+      "finishedAt": "2026-11-09T18:26:44.305974+00:00",
+      "activationDelaySeconds": 79.739983,
+      "checks": 22
+    },
+    "withdraw": {
+      "status": "PASS",
+      "startedAt": "2026-11-09T18:27:47.909365+00:00",
+      "finishedAt": "2026-11-09T18:27:48.312487+00:00",
+      "checks": 3
+    },
+    "observe-withdrawn": {
+      "status": "PASS",
+      "startedAt": "2026-11-09T18:32:00.065377+00:00",
+      "finishedAt": "2026-11-09T18:32:03.862752+00:00",
+      "activationDelaySeconds": 131.424165,
+      "realDraftsExcluded": 71,
+      "checks": 23
+    }
+  },
+  "failedBuildAt": "2026-11-09T18:28:06.796Z",
+  "faultRemovedAt": "2026-11-09T18:28:50.104949+00:00",
+  "failurePreservedPointer": true,
+  "restart": {
+    "status": "PASS",
+    "at": "2026-11-09T18:43:31.150004+00:00",
+    "sessionSurvived": true,
+    "objectsByteIdentical": [
+      "identity",
+      "inquiries",
+      "file"
+    ],
+    "logoutRevoked": true,
+    "reloginUsedForCheck": false,
+    "processesReplaced": true,
+    "hpanelRestartRetainedPredecessor": true,
+    "fullRestartOperationEvidence": "restart-full-operation.private.json",
+    "sameDeployment": true,
+    "configurationByteIdentical": true,
+    "processesAfter": [
+      {
+        "pid": "3624525",
+        "cwd": "/home/u246392949/domains/qa-runtime.younew.nl/hbuilds/versions/01a1c14c-d9f4-71a7-afa1-aa274a7abc95/nodejs"
+      }
+    ]
+  },
+  "current": {
+    "schemaVersion": 1,
+    "releaseId": "hp-1794248941535-be274c0c",
+    "snapshotSha256": "8df2385bad0ee9910cc85babb2686ea622ad7752f549bab3932645138152df6f",
+    "sourceCommit": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
+    "activatedAt": "2026-11-09T18:29:59.736Z",
+    "revisions": [],
+    "localOnly": true
+  }
+}

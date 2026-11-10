@@ -1,0 +1,70 @@
+{
+  "recorded_at": "2026-11-09T16:49:13.041847+00:00",
+  "source_commit": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
+  "scope": "GitHub CI only; no Hostinger runtime, production deployment or cleanup is asserted. Later commits need their own required checks.",
+  "runs": [
+    {
+      "conclusion": "success",
+      "databaseId": 42654439508,
+      "event": "pull_request",
+      "headSha": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
+      "name": "Monetization Dependency Audit",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42654439508"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42654439592,
+      "event": "pull_request",
+      "headSha": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
+      "name": "DATA PROJECT Health",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42654439592"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42654439510,
+      "event": "pull_request",
+      "headSha": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
+      "name": "Secret Scan",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42654439510"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42654439523,
+      "event": "pull_request",
+      "headSha": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
+      "name": "Governance contract",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42654439523"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42654439531,
+      "event": "pull_request",
+      "headSha": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
+      "name": "Supabase Disposable Verification",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42654439531"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42654439522,
+      "event": "pull_request",
+      "headSha": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
+      "name": "Product CI",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42654439522"
+    },
+    {
+      "conclusion": "success",
+      "databaseId": 42654439648,
+      "event": "pull_request",
+      "headSha": "a8054da10f285b1ef30cbec511a65d4f0975a45b",
+      "name": "Admin CI",
+      "status": "completed",
+      "url": "https://github.com/zq87xf5jyp-arch/YouNew/actions/runs/42654439648"
+    }
+  ]
+}

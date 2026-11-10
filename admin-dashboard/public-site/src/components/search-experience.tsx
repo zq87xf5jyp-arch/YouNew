@@ -1,16 +1,20 @@
 "use client";
 
+
+
+import { publishSearchTask, takeSearchLanguageHandoff } from "@/lib/search/language-handoff";
+import { sortSearchResults, type SearchSort } from "@/lib/search/sort";
 import { FormEvent, KeyboardEvent, useEffect, useMemo, useRef, useState } from "react";
 import Link from "next/link";
-import { Check, ChevronDown, Globe2, Search, Share2, SlidersHorizontal, X } from "lucide-react";
+import { CalendarCheck2, Check, ChevronDown, FileCheck2, Globe2, MapPin, Search, Share2, SlidersHorizontal, X } from "lucide-react";
 import { SaveButton } from "@/components/save-button";
 import { track, type AnalyticsEvent } from "@/lib/analytics/client";
 import { contentKindLabel, publicWebSummary } from "@/lib/content/presentation";
-import { normalizeSearchText, rankSearchDocuments, type SearchDocument, type SearchFilters } from "@/lib/search/rank";
-import { canonicalCityId, cityDisplayName } from "@/lib/search/geography";
+import { normalizeSearchText, rankSearchDocuments, searchDocumentLocationMatch, type SearchDocument, type SearchFilters } from "@/lib/search/rank";
+import { canonicalCityId, cityDisplayName, removeSearchLocation, resolveSearchLocation, selectedLocationContext } from "@/lib/search/geography";
 import { matchSearchIntents, privacySafeSearchQuery, taxonomyTopic } from "@/lib/search/taxonomy";
 import type { GuideAudienceProfile } from "@/lib/content/types";
-import { localContentRepository, sanitizeUserPathProfile } from "@/lib/storage/local-content";
+import { localContentRepository, removeLegacySearchHistory, sanitizeUserPathProfile, userPathProfiles } from "@/lib/storage/local-content";
 
 type SearchIndex = { schemaVersion: 3; documents: SearchDocument[] };
 type Filters = { type: string; city: string; province: string; category: string; profile: string };
@@ -19,9 +23,19 @@ type SelectOption = { value: string; label: string };
 
 const emptyFilters: Filters = { type: "", city: "", province: "", category: "", profile: "" };
 const popularSearches = ["Register gemeente", "Housing defects", "Student housing", "Emergency", "Amsterdam", "train station"];
+const nationalGuideCategoryByIntent: Readonly<Record<string, string>> = {
+  housing: "housing", benefits: "housing",
+  work: "work", business: "work",
+  documents: "documents", government: "documents", integration: "documents",
+  healthcare: "healthcare", insurance: "healthcare", emergency: "healthcare",
+  education: "education", "language-learning": "education",
+  telecom: "telecom", internet: "telecom", "daily-life": "telecom",
+  "rules-fines": "rules", transport: "rules"
+};
 function unique(values: Array<string | null>) { return [...new Set(values.filter((value): value is string => Boolean(value)))].sort(); }
 function titleCase(value: string) { return `${value[0]?.toUpperCase() ?? ""}${value.slice(1)}`; }
 function humanize(value: string) { return value.replaceAll("-", " ").replace(/\b\w/g, (letter) => letter.toUpperCase()); }
+function verificationDateLabel(value: string | null | undefined) { return value?.slice(0, 10) || "date not published"; }
 
 function createSearchAnalyticsEvent(
   documents: SearchDocument[],
@@ -40,7 +54,9 @@ function createSearchAnalyticsEvent(
   });
   const resultCount = results.length;
   const intentIds = matchSearchIntents(query, normalizeSearchText).map((match) => match.intent);
-  const hasLocalFilter = Boolean(filters.city || filters.province);
+  const hasLocalContext = Boolean(
+    resolveSearchLocation(documents, query, normalizeSearchText) || filters.city || filters.province
+  );
   const hasNationalResult = results.some(({ document }) => document.locationScope === "national" || document.nationalFallback);
   return {
     name: "search",
@@ -49,7 +65,7 @@ function createSearchAnalyticsEvent(
     filters,
     resultCount,
     zeroResult: resultCount === 0,
-    fallbackTier: resultCount === 0 ? "broadened" : hasLocalFilter && hasNationalResult ? "national" : "exact"
+    fallbackTier: resultCount === 0 ? "broadened" : hasLocalContext && hasNationalResult ? "national" : "exact"
   };
 }
 
@@ -62,6 +78,7 @@ const filterLabels: Readonly<Record<FilterKey, string>> = {
 };
 
 export function SearchExperience() {
+  const [sort, setSort] = useState<SearchSort>("relevance");
   const [documents, setDocuments] = useState<SearchDocument[]>([]);
   const [query, setQuery] = useState("");
   const [submittedQuery, setSubmittedQuery] = useState("");
@@ -73,25 +90,37 @@ export function SearchExperience() {
   const [suggestionsDismissed, setSuggestionsDismissed] = useState(false);
   const [shareState, setShareState] = useState<"idle" | "sharing" | "shared" | "copied" | "error">("idle");
   const [rememberSearches, setRememberSearches] = useState(false);
+  const [legacyHistoryWarning, setLegacyHistoryWarning] = useState(false);
   const [showAllResults, setShowAllResults] = useState(false);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [compactFilters, setCompactFilters] = useState(false);
   const initialUrlSearch = useRef<{ query: string; filters: Filters } | null>(null);
   const initialUrlSearchTracked = useRef(false);
+  const lastGeoAnalyticsKey = useRef("");
+  const searchStartedAt = useRef(0);
+  const firstActionTracked = useRef(false);
+  const suggestionList = useRef<HTMLUListElement>(null);
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const initialQuery = params.get("q") ?? "";
+    const task = initialUrlSearch.current ? null : takeSearchLanguageHandoff();
+    if (task) setSort(task.sort);
+    const initialQuery = initialUrlSearch.current?.query ?? task?.query ?? localContentRepository.takeSearchHandoff() ?? params.get("q") ?? "";
     const profileParameter = params.get("profile");
-    const initialFilters = {
+    const initialFilters = initialUrlSearch.current?.filters ?? (task ? { type: task.type, city: task.city, category: task.category, province: task.province, profile: task.profile } : {
       type: params.get("type") ?? "", city: canonicalCityId(params.get("city")) ?? "", province: params.get("province") ?? "",
       category: params.get("category") ?? "",
       profile: profileParameter === null
         ? localContentRepository.profile() ?? ""
         : sanitizeUserPathProfile(profileParameter) ?? ""
-    };
+    });
+    // Legacy incoming links still work in memory; never retain their query text.
+    params.delete("q");
+    window.history.replaceState(null, "", `${window.location.pathname}${params.size ? `?${params}` : ""}`);
+    setLegacyHistoryWarning(!removeLegacySearchHistory());
     const historyEnabled = localContentRepository.searchHistoryEnabled();
-    initialUrlSearch.current = initialQuery.trim() ? { query: initialQuery.trim(), filters: initialFilters } : null;
+    initialUrlSearch.current = { query: initialQuery.trim(), filters: initialFilters };
+    if (initialQuery.trim()) searchStartedAt.current = performance.now();
     setQuery(initialQuery); setSubmittedQuery(initialQuery); setFilters(initialFilters); setRememberSearches(historyEnabled); setRecentSearches(historyEnabled ? localContentRepository.recentSearches() : []);
     fetch("/data/search-index.json", { headers: { Accept: "application/json" } })
       .then((response) => { if (!response.ok) throw new Error(String(response.status)); return response.json() as Promise<SearchIndex>; })
@@ -102,9 +131,12 @@ export function SearchExperience() {
       .catch(() => setLoadError(true)).finally(() => setLoading(false));
   }, []);
 
+  useEffect(() => { publishSearchTask({ query, ...filters, sort }); }, [query, filters, sort]);
+  useEffect(() => () => publishSearchTask(null), []);
+
   useEffect(() => {
     const initial = initialUrlSearch.current;
-    if (loading || initialUrlSearchTracked.current || !initial || documents.length === 0) return;
+    if (loading || initialUrlSearchTracked.current || !initial?.query || documents.length === 0) return;
     initialUrlSearchTracked.current = true;
     const analyticsEvent = createSearchAnalyticsEvent(documents, initial.query, initial.filters);
     track(analyticsEvent);
@@ -146,6 +178,16 @@ export function SearchExperience() {
     });
   }, [documents, submittedQuery, filters]);
 
+  const detectedLocation = useMemo(
+    () => resolveSearchLocation(documents, submittedQuery, normalizeSearchText),
+    [documents, submittedQuery]
+  );
+  const selectedLocation = useMemo(
+    () => selectedLocationContext(documents, filters.city || undefined, filters.province || undefined),
+    [documents, filters.city, filters.province]
+  );
+  const effectiveLocation = detectedLocation ?? selectedLocation;
+
   const recovery = useMemo(() => {
     if (ranked.length > 0 || !submittedQuery) return { results: [], cleared: [] as FilterKey[] };
     const attempts: Array<{ cleared: FilterKey[]; filters: SearchFilters }> = [
@@ -158,17 +200,48 @@ export function SearchExperience() {
         preferredProfile: (filters.profile || null) as GuideAudienceProfile | null,
         limit: 12
       });
-      if (results.length > 0) return { results, cleared: attempt.cleared };
+      const geographicallySafeResults = effectiveLocation
+        ? results.filter(({ document }) => searchDocumentLocationMatch(document, effectiveLocation) !== "none")
+        : results;
+      if (geographicallySafeResults.length > 0) return { results: geographicallySafeResults, cleared: attempt.cleared };
     }
     return { results: [], cleared: [] as FilterKey[] };
-  }, [documents, filters, ranked.length, submittedQuery]);
+  }, [documents, effectiveLocation, filters, ranked.length, submittedQuery]);
 
-  const visibleResults = ranked.length > 0 ? ranked : recovery.results;
+  const visibleResults = useMemo(() => sortSearchResults(ranked.length > 0 ? ranked : recovery.results, sort), [ranked, recovery.results, sort]);
   const intentMatches = useMemo(() => matchSearchIntents(submittedQuery, normalizeSearchText), [submittedQuery]);
   const primaryIntent = intentMatches[0]?.intent ?? null;
+  const primaryNationalCategory = primaryIntent ? nationalGuideCategoryByIntent[primaryIntent] : null;
   const primaryNationalGuide = primaryIntent
-    ? documents.find((document) => document.sourceKind === "nationalResourceGuide" && document.intents?.includes(primaryIntent))
+    ? documents.find((document) =>
+      document.sourceKind === "nationalResourceGuide" &&
+      primaryNationalCategory !== null &&
+      document.categories.includes(primaryNationalCategory)
+    )
     : undefined;
+  const municipalityResult = effectiveLocation?.kind === "city"
+    ? visibleResults.find(({ document, locationMatch }) => document.type === "municipality" && locationMatch === "exact")
+    : undefined;
+  const hasVerifiedLocalResult = effectiveLocation?.kind === "city" && visibleResults.some(({ document, locationMatch }) =>
+    (locationMatch === "exact" || locationMatch === "service-area") &&
+    !["municipality", "province", "category", "page"].includes(document.type)
+  );
+  const showLocalFallback = Boolean(submittedQuery && primaryIntent && effectiveLocation?.kind === "city" && !hasVerifiedLocalResult);
+
+  useEffect(() => {
+    if (loading || detectedLocation?.kind !== "city" || !primaryIntent) return;
+    const analyticsKey = [submittedQuery, detectedLocation.canonicalId, primaryIntent, hasVerifiedLocalResult ? "local" : "fallback"].join(":");
+    if (lastGeoAnalyticsKey.current === analyticsKey) return;
+    lastGeoAnalyticsKey.current = analyticsKey;
+    track({ name: "explicit_city_detected", city: detectedLocation.canonicalId, intentId: primaryIntent });
+    track({ name: "city_filter_applied", city: detectedLocation.canonicalId, source: "query" });
+    if ((filters.city && canonicalCityId(filters.city) !== detectedLocation.canonicalId) || filters.province) {
+      track({ name: "city_filter_corrected", city: detectedLocation.canonicalId, source: "query" });
+    }
+    track(hasVerifiedLocalResult
+      ? { name: "local_result_available", city: detectedLocation.canonicalId, intentId: primaryIntent }
+      : { name: "national_fallback_shown", city: detectedLocation.canonicalId, intentId: primaryIntent });
+  }, [detectedLocation, filters.city, filters.province, hasVerifiedLocalResult, loading, primaryIntent, submittedQuery]);
 
   const hasActiveFilters = Object.values(filters).some(Boolean);
   const activeProfileLabel = filters.profile ? titleCase(filters.profile) : null;
@@ -190,11 +263,41 @@ export function SearchExperience() {
     : [], [documents, query]);
   const suggestionsVisible = suggestions.length > 0 && query !== submittedQuery && !suggestionsDismissed;
 
-  function syncUrl(nextQuery = submittedQuery, nextFilters = filters) {
+  useEffect(() => {
+    if (!suggestionsVisible || suggestionIndex < 0) return;
+    suggestionList.current?.querySelector<HTMLButtonElement>('[aria-selected="true"]')?.scrollIntoView({ block: "nearest" });
+  }, [suggestionIndex, suggestionsVisible]);
+
+  function recordFirstAction() {
+    if (firstActionTracked.current || !primaryIntent || effectiveLocation?.kind !== "city") return;
+    firstActionTracked.current = true;
+    const elapsed = searchStartedAt.current > 0 ? performance.now() - searchStartedAt.current : 0;
+    track({
+      name: "time_to_first_action",
+      city: effectiveLocation.canonicalId,
+      intentId: primaryIntent,
+      durationMilliseconds: elapsed
+    });
+  }
+
+  function filterPath(nextFilters = filters) {
     const params = new URLSearchParams();
-    if (nextQuery) params.set("q", nextQuery);
-    Object.entries(nextFilters).forEach(([key, value]) => { if (value) params.set(key, value); });
-    window.history.replaceState(null, "", `${window.location.pathname}${params.size ? `?${params}` : ""}`);
+    const allowed = {
+      type: [...new Set(documents.map((document) => document.type))] as readonly string[],
+      city: options.cities.map((option) => option.value),
+      province: options.provinces.map((option) => option.value),
+      category: options.categories.map((option) => option.value),
+      profile: userPathProfiles as readonly string[]
+    };
+    for (const key of Object.keys(allowed) as FilterKey[]) {
+      const value = nextFilters[key];
+      if (value && allowed[key].includes(value)) params.set(key, value);
+    }
+    return `${window.location.pathname}${params.size ? `?${params}` : ""}`;
+  }
+
+  function syncUrl(nextFilters = filters) {
+    window.history.replaceState(null, "", filterPath(nextFilters));
   }
 
   function trackSearchSubmission(value: string, nextFilters: Filters, sourceDocuments = documents) {
@@ -208,10 +311,13 @@ export function SearchExperience() {
     const normalizedValue = value.trim();
     setQuery(normalizedValue);
     setSubmittedQuery(normalizedValue);
+    setFilters(nextFilters);
     setShowAllResults(false);
     setSuggestionIndex(-1);
     setSuggestionsDismissed(true);
-    syncUrl(normalizedValue, nextFilters);
+    searchStartedAt.current = performance.now();
+    firstActionTracked.current = false;
+    syncUrl(nextFilters);
     if (normalizedValue) {
       localContentRepository.rememberSearch(normalizedValue);
       setRecentSearches(localContentRepository.recentSearches());
@@ -240,9 +346,10 @@ export function SearchExperience() {
       else localContentRepository.clearProfile();
     }
     const next = { ...filters, [key]: value };
+    if (key === "city" && value) track({ name: "city_filter_applied", city: value, source: "filter" });
     setFilters(next);
     setShowAllResults(!submittedQuery && !Object.values(next).some(Boolean));
-    syncUrl(submittedQuery, next);
+    syncUrl(next);
     if (submittedQuery) trackSearchSubmission(submittedQuery, next);
   }
 
@@ -252,7 +359,7 @@ export function SearchExperience() {
     if (keys.includes("profile")) localContentRepository.clearProfile();
     setFilters(next);
     setShowAllResults(!submittedQuery && !Object.values(next).some(Boolean));
-    syncUrl(submittedQuery, next);
+    syncUrl(next);
     if (submittedQuery) trackSearchSubmission(submittedQuery, next);
   }
 
@@ -260,11 +367,42 @@ export function SearchExperience() {
     localContentRepository.clearProfile();
     setFilters(emptyFilters);
     setShowAllResults(!submittedQuery);
-    syncUrl(submittedQuery, emptyFilters);
+    syncUrl(emptyFilters);
     if (submittedQuery) trackSearchSubmission(submittedQuery, emptyFilters);
   }
 
+  function clearGeography() {
+    const nextFilters = { ...filters, city: "", province: "" };
+    const nextQuery = detectedLocation ? removeSearchLocation(submittedQuery, detectedLocation, normalizeSearchText) : submittedQuery;
+    if (effectiveLocation?.kind === "city") track({ name: "city_filter_corrected", city: effectiveLocation.canonicalId, source: detectedLocation ? "query" : "filter" });
+    executeSearch(nextQuery, nextFilters);
+  }
+
+  function contextualResultRoute(document: SearchDocument, locationMatch: string | undefined) {
+    if (effectiveLocation?.kind !== "city" || document.type !== "guide" || locationMatch !== "national") return document.route;
+    const separator = document.route.includes("?") ? "&" : "?";
+    return `${document.route}${separator}city=${encodeURIComponent(effectiveLocation.canonicalId)}`;
+  }
+
+  function geographyReason(locationMatch: string | undefined) {
+    if (!effectiveLocation) return null;
+    if (locationMatch === "exact") return `Matches ${effectiveLocation.label}`;
+    if (locationMatch === "service-area") return `Confirmed service area includes ${effectiveLocation.label}`;
+    if (locationMatch === "province") return effectiveLocation.provinceId ? `Relevant to ${humanize(effectiveLocation.provinceId)}` : "Provincial coverage";
+    if (locationMatch === "online") return `Available online from ${effectiveLocation.label}`;
+    if (locationMatch === "national") return `National guidance for ${effectiveLocation.label}`;
+    return null;
+  }
+
+  function resultTypeLabel(document: SearchDocument) {
+    if (document.type === "municipality" || document.type === "province") return "Official source";
+    if (document.type === "organization") return "Organization";
+    if (document.type === "guide") return "Guide";
+    return contentKindLabel(document.type, document.contentDepth);
+  }
+
   async function shareResults() {
+    const shareUrl = new URL(filterPath(), window.location.origin).href;
     const pulse = (state: Exclude<typeof shareState, "idle">) => {
       setShareState(state);
       window.setTimeout(() => setShareState("idle"), 1800);
@@ -272,7 +410,7 @@ export function SearchExperience() {
     if (navigator.share) {
       setShareState("sharing");
       try {
-        await navigator.share({ title: `YouNew search: ${submittedQuery}`, url: window.location.href });
+        await navigator.share({ title: "YouNew search filters", url: shareUrl });
         pulse("shared");
         return;
       } catch (error) {
@@ -283,7 +421,7 @@ export function SearchExperience() {
       }
     }
     try {
-      await navigator.clipboard.writeText(window.location.href);
+      await navigator.clipboard.writeText(shareUrl);
       pulse("copied");
     } catch {
       pulse("error");
@@ -295,7 +433,7 @@ export function SearchExperience() {
       <button
         className="search-filter-toggle"
         type="button"
-        aria-expanded={!compactFilters || filtersOpen}
+        aria-expanded={filtersOpen}
         aria-controls="search-filter-fields"
         onClick={() => setFiltersOpen((open) => !open)}
       >
@@ -323,18 +461,31 @@ export function SearchExperience() {
     <div className="search-experience">
       <form className="search-form" role="search" onSubmit={submit}>
         <div className="search-input-wrap">
-          <Search aria-hidden /><input id="search-query" role="combobox" aria-label="Search published YouNew content" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded={suggestionsVisible} aria-activedescendant={suggestionIndex >= 0 ? `search-suggestion-${suggestionIndex}` : undefined} aria-haspopup="listbox" autoComplete="off" placeholder="Try ‘Register gemeente’ or ‘Housing defects’" value={query} onChange={(event) => { setQuery(event.target.value); setSuggestionIndex(-1); setSuggestionsDismissed(false); }} onKeyDown={onKeyDown} />
-          {query ? <button type="button" aria-label="Clear search" onClick={() => { setQuery(""); setSubmittedQuery(""); setSuggestionsDismissed(true); syncUrl("", filters); }}><X aria-hidden /></button> : null}
+          <Search aria-hidden /><input id="search-query" enterKeyHint="search" role="combobox" aria-label="Search published YouNew content" aria-autocomplete="list" aria-controls="search-suggestions" aria-expanded={suggestionsVisible} aria-activedescendant={suggestionIndex >= 0 ? `search-suggestion-${suggestionIndex}` : undefined} aria-haspopup="listbox" autoComplete="off" placeholder="Try ‘Register gemeente’ or ‘Housing defects’" value={query} onChange={(event) => { setQuery(event.target.value); setSuggestionIndex(-1); setSuggestionsDismissed(false); }} onKeyDown={onKeyDown} />
+          {query ? <button type="button" aria-label="Clear search" onClick={() => { setQuery(""); setSubmittedQuery(""); setSuggestionsDismissed(true); syncUrl(filters); }}><X aria-hidden /></button> : null}
         </div>
         <button className="button button-primary" type="submit">Search</button>
         {suggestionsVisible ? (
-          <ul className="search-suggestions" id="search-suggestions" role="listbox">
+          <ul ref={suggestionList} className="search-suggestions" id="search-suggestions" role="listbox">
             {suggestions.map((suggestion, index) => <li key={suggestion.id} role="none"><button id={`search-suggestion-${index}`} role="option" aria-selected={index === suggestionIndex} type="button" onMouseDown={(event) => event.preventDefault()} onClick={() => executeSearch(suggestion.title)}><span>{suggestion.type}</span>{suggestion.title}</button></li>)}
           </ul>
         ) : null}
       </form>
 
-      {!compactFilters ? filterControls : null}
+      {effectiveLocation?.kind === "city" ? (
+        <div className="search-location-context" role="status">
+          <MapPin aria-hidden />
+          <div>
+            <strong>City: {effectiveLocation.label}{detectedLocation ? " — detected in your query" : ""}</strong>
+            <span>{detectedLocation && selectedLocation && selectedLocation.canonicalId !== detectedLocation.canonicalId
+              ? `${selectedLocation.label} is not used because the city written in your query has priority.`
+              : "Local results must match this municipality or publish a confirmed service area."}</span>
+          </div>
+          <button type="button" onClick={clearGeography}>Clear geography</button>
+        </div>
+      ) : null}
+
+      {filterControls}
       {activeFilterChips.length ? (
         <div className="search-active-chips" aria-label="Active search filters">
           {activeFilterChips.map((chip) => (
@@ -349,20 +500,23 @@ export function SearchExperience() {
 
       {!submittedQuery && !showAllResults ? (
         <><div className="search-starters"><section><h2>Popular searches</h2><div>{popularSearches.map((value) => <button type="button" key={value} onClick={() => executeSearch(value)}>{value}</button>)}</div></section>{recentSearches.length ? <section><div className="search-starter-heading"><h2>Recent searches</h2><button type="button" onClick={() => { localContentRepository.clearRecentSearches(); setRecentSearches([]); }}>Clear</button></div><div>{recentSearches.map((value) => <button type="button" key={value} onClick={() => executeSearch(value)}>{value}</button>)}</div></section> : null}</div>
-        <label className="search-privacy-control"><input type="checkbox" checked={rememberSearches} onChange={(event) => { const enabled = event.target.checked; localContentRepository.setSearchHistoryEnabled(enabled); setRememberSearches(enabled); if (!enabled) setRecentSearches([]); }} /> Remember searches on this device <span>(off by default)</span></label></>
+        <label className="search-privacy-control"><input type="checkbox" checked={rememberSearches} onChange={(event) => { const enabled = event.target.checked; localContentRepository.setSearchHistoryEnabled(enabled); setRememberSearches(enabled); if (!enabled) setRecentSearches([]); }} /> Keep recent searches in this tab <span>(off by default; cleared on reload)</span></label></>
       ) : null}
+      {legacyHistoryWarning ? <p role="alert">Your browser blocked removal of old search history. New queries are not saved to browser storage. You can remove old site data in your browser settings.</p> : null}
+      <p className="search-privacy-control">Search text stays in memory. Reloading clears it; shared links include filters only.</p>
 
       {loading ? <p className="loading-state">Loading the published search index…</p> : null}
       {loadError ? <div className="empty-state"><h2>Search index unavailable</h2><p>Browse <Link href="/discover">published content</Link> or retry when the connection is restored.</p></div> : null}
       {!loading && !loadError && (submittedQuery || hasActiveFilters || showAllResults) ? (
         <section className="search-results" aria-labelledby="results-title">
-          <div className="search-results-heading"><div><h2 id="results-title" aria-live="polite">{visibleResults.length} helpful result{visibleResults.length === 1 ? "" : "s"}{submittedQuery ? ` for “${submittedQuery}”` : ""}</h2>{submittedQuery ? <p>Intent, synonyms, spelling variants, national guidance and local relevance all influence the order.</p> : null}</div><button type="button" onClick={shareResults}>{shareState === "copied" || shareState === "shared" ? <Check aria-hidden /> : <Share2 aria-hidden />}{shareState === "copied" ? "Link copied" : shareState === "shared" ? "Shared" : shareState === "sharing" ? "Opening share…" : shareState === "error" ? "Unable to share" : "Share results"}</button></div>
+          <div className="search-results-heading"><div><h2 id="results-title" aria-live="polite">{visibleResults.length} helpful result{visibleResults.length === 1 ? "" : "s"}{submittedQuery ? ` for “${submittedQuery}”` : ""}</h2>{submittedQuery ? <p>Intent, synonyms, spelling variants, national guidance and local relevance all influence the order.</p> : null}</div><button type="button" onClick={shareResults}>{shareState === "copied" || shareState === "shared" ? <Check aria-hidden /> : <Share2 aria-hidden />}{shareState === "copied" ? "Filter link copied" : shareState === "shared" ? "Filters shared" : shareState === "sharing" ? "Opening share…" : shareState === "error" ? "Unable to share" : "Share filters"}</button></div>
+          <label className="search-sort">Sort these results<select value={sort} onChange={(event) => setSort(event.target.value as SearchSort)}><option value="relevance">Most relevant</option><option value="title">Name A–Z</option><option value="reviewed">Recently reviewed</option></select></label>
           {ranked.length === 0 && recovery.results.length ? (
             <div className="search-recovery-banner" role="status">
               <Globe2 aria-hidden />
               <div>
-                <strong>No exact match with every active filter — showing useful broader results.</strong>
-                <span>Your query is unchanged. National guidance stays available for every city and profile.</span>
+                <strong>{filters.type === "place" ? "No verified place matches these filters." : "No exact match with every active filter — showing useful broader results."}</strong>
+                <span>{filters.type === "place" ? "The results below are related guidance, not verified place listings. Your query is unchanged." : "Your query is unchanged. National guidance stays available for every city and profile."}</span>
               </div>
               <div className="search-recovery-actions">
                 {recovery.cleared.includes("city") || recovery.cleared.includes("province") ? <button type="button" onClick={() => clearSelectedFilters(["city", "province"])}>Search all Netherlands</button> : null}
@@ -371,8 +525,48 @@ export function SearchExperience() {
               </div>
             </div>
           ) : null}
+          {showLocalFallback && effectiveLocation?.kind === "city" ? (
+            <aside className="search-local-fallback" aria-label={`Local result availability for ${effectiveLocation.label}`}>
+              <Globe2 aria-hidden />
+              <div>
+                <strong>For {effectiveLocation.label}, we do not yet have a verified local list.</strong>
+                <p>We will not fill the page with organizations from another city. Continue with the national route and the responsible municipality.</p>
+              </div>
+              <div className="search-local-fallback-actions">
+                {primaryNationalGuide ? <Link href={contextualResultRoute(primaryNationalGuide, "national")} onClick={recordFirstAction}>Open national guidance</Link> : null}
+                {municipalityResult ? <Link href={municipalityResult.document.route} onClick={recordFirstAction}>Open {effectiveLocation.label} municipality</Link> : null}
+                {primaryNationalGuide?.officialSourceUrls?.[0] ? (
+                  <a href={primaryNationalGuide.officialSourceUrls[0]} rel="noreferrer" target="_blank" onClick={() => {
+                    track({ name: "official_source_click", contentId: primaryNationalGuide.id });
+                    recordFirstAction();
+                  }}>Open responsible official source</a>
+                ) : null}
+                {!primaryNationalGuide && primaryIntent ? (
+                  <Link href={`/categories/${taxonomyTopic(primaryIntent)?.id ?? primaryIntent}/`} onClick={recordFirstAction}>
+                    Browse {taxonomyTopic(primaryIntent)?.title ?? humanize(primaryIntent)} guidance
+                  </Link>
+                ) : null}
+                <Link href="/support/" onClick={() => {
+                  track({ name: "wrong_geo_result_reported", city: effectiveLocation.canonicalId, intentId: primaryIntent ?? "unknown" });
+                  recordFirstAction();
+                }}>Report a missing result</Link>
+              </div>
+            </aside>
+          ) : null}
           {visibleResults.length ? (
-            <div className="search-result-list">{visibleResults.map(({ document }, index) => <article key={document.id}><Link href={document.route} onClick={() => track({ name: "search_result_opened", contentId: document.id, position: index + 1, normalizedQuery: privacySafeSearchQuery(submittedQuery) })}><span>{contentKindLabel(document.type, document.contentDepth)}{document.locationScope === "national" ? " · Netherlands" : document.city ? ` · ${document.city}` : ""}</span><h3>{document.title}</h3><p>{publicWebSummary(document.summary)}</p></Link><SaveButton item={{ id: document.id, route: document.route, title: document.title, kind: document.type }} compact /></article>)}</div>
+            <div className="search-result-list">{visibleResults.map(({ document, locationMatch }, index) => {
+              const sourceCount = new Set([...(document.officialSourceUrls ?? []), ...(document.officialSourceURLs ?? [])]).size;
+              const relevance = geographyReason(locationMatch);
+              const scopeLabel = document.locationScope === "national" || document.nationalFallback
+                ? "Netherlands"
+                : locationMatch === "service-area" && effectiveLocation
+                  ? `Service area for ${effectiveLocation.label}`
+                : document.city ?? document.province ?? (document.locationScope === "online-service" || document.locationScope === "remote" ? "Online" : "Local");
+              return <article key={document.id}><Link href={contextualResultRoute(document, locationMatch)} onClick={() => {
+                track({ name: "search_result_opened", contentId: document.id, position: index + 1, normalizedQuery: privacySafeSearchQuery(submittedQuery) });
+                recordFirstAction();
+              }}><span>{resultTypeLabel(document)} · {scopeLabel}</span><h3>{document.title}</h3><p>{publicWebSummary(document.summary)}</p><div className="search-result-meta"><span><CalendarCheck2 aria-hidden /> Verified {verificationDateLabel(document.verifiedAt)}</span><span><FileCheck2 aria-hidden /> {sourceCount} official source{sourceCount === 1 ? "" : "s"}</span>{relevance ? <span><MapPin aria-hidden /> {relevance}</span> : null}</div></Link><SaveButton item={{ id: document.id, route: document.route, title: document.title, kind: document.type }} compact /></article>;
+            })}</div>
           ) : (
             <div className="empty-state search-empty-state">
               <Search aria-hidden />
@@ -391,7 +585,6 @@ export function SearchExperience() {
         </section>
       ) : null}
       {compactFilters ? profileContext : null}
-      {compactFilters ? filterControls : null}
     </div>
   );
 }

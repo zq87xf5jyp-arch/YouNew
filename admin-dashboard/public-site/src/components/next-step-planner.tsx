@@ -1,5 +1,8 @@
 "use client";
 
+import "@/styles/planner.css";
+
+
 import Link from "next/link";
 import {
   ArrowLeft,

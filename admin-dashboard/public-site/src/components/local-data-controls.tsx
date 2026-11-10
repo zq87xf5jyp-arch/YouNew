@@ -44,7 +44,7 @@ export function LocalDataControls() {
     <section className="local-data-controls" aria-labelledby="local-data-title">
       <div>
         <h2 id="local-data-title">Local web data</h2>
-        <p>Saved items, recent pages, journey progress, optional search history and your selected profile stay in this browser. They are not synced to an account.</p>
+        <p>Saved items, recent pages, journey progress and your selected profile stay in this browser. They are not synced to an account. Optional recent searches stay only in tab memory, clear on reload and are excluded from this export.</p>
       </div>
       <div className="local-data-actions">
         <button className="button button-outline" type="button" onClick={exportData}><Download aria-hidden /> Export local data</button>

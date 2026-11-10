@@ -1625,11 +1625,14 @@ struct NetherlandsKnowledgeDatabase {
 
         let runtime = DataProjectRuntimeLoader.load()
         let canonicalIDs = Set(runtime.entities.map(\.id))
+        let withheldIDs = runtime.withheldEntityIDs
+        let withheldLegacyAliases = Set(withheldIDs.map { $0.split(separator: ".", maxSplits: 1).joined(separator: ":") })
         let retiredLegacyIDs = Set(runtime.migrationRegistry.compactMap { legacyID, migration in
-            migration.retiresLegacyRuntimeRecord && canonicalIDs.contains(migration.canonicalID) ? legacyID : nil
+            migration.retiresLegacyRuntimeRecord && (canonicalIDs.contains(migration.canonicalID) || withheldIDs.contains(migration.canonicalID)) ? legacyID : nil
         })
         let remainingLegacy = legacyEntities.filter { entity in
             !canonicalIDs.contains(entity.id) && !retiredLegacyIDs.contains(entity.id)
+                && !withheldIDs.contains(entity.id) && !withheldLegacyAliases.contains(entity.id)
         }
         let entities = runtime.entities + remainingLegacy
 

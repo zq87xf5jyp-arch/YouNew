@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "as_of": "2026-10-24",
+  "phase4_stale_baseline": 170,
+  "new_field_confirmed_records": 10,
+  "remaining_without_current_field_confirmation": 160,
+  "production_exclusions_unchanged": 170,
+  "current_production_safe_public_records": 7,
+  "candidate_public_records_after_acceptance": 17,
+  "candidate_release_id": "amsterdam-v0.1.9",
+  "candidate_state": "qa_not_production_authorized",
+  "rule": "Confirmed QA candidates remain excluded from the production runtime until the release is accepted, its seven QA gates pass, and deployment receives separate owner approval.",
+  "confirmed_entity_ids": [
+    "transport.amsterdam-amstel-station",
+    "transport.amsterdam-bijlmer-arena-station",
+    "transport.amsterdam-centraal-station",
+    "transport.amsterdam-holendrecht-station",
+    "transport.amsterdam-lelylaan-station",
+    "transport.amsterdam-muiderpoort-station",
+    "transport.amsterdam-rai-station",
+    "transport.amsterdam-science-park-station",
+    "transport.amsterdam-sloterdijk-station",
+    "transport.amsterdam-zuid-station"
+  ]
+}

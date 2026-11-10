@@ -1,0 +1,7 @@
+Options -Indexes
+# index.php enforces Basic authentication using a private 0600 credential file.
+# The file endpoint independently requires its HMAC + nonce + timestamp.
+RewriteEngine On
+RewriteRule ^ index.php [END]
+Header always set X-Robots-Tag "noindex, nofollow, noarchive"
+Header always set Cache-Control "no-store, max-age=0"

@@ -189,6 +189,7 @@ select {
 }
 
 .button-orange {
+  color: #07111e;
   background: linear-gradient(180deg, #ff781f 0%, var(--orange) 100%);
   box-shadow: 0 13px 32px rgba(255, 106, 0, 0.16);
 }
@@ -198,7 +199,7 @@ select {
 }
 
 .button-blue {
-  background: linear-gradient(135deg, var(--blue) 0%, var(--blue-dark) 100%);
+  background: linear-gradient(135deg, #1761ce 0%, var(--blue-dark) 100%);
   box-shadow: var(--shadow-blue);
 }
 
@@ -218,6 +219,7 @@ select {
 }
 
 .mobile-cta {
+  color: #07111e;
   display: none;
   border-radius: 8px;
   background: var(--orange);

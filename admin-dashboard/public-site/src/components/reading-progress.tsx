@@ -1,5 +1,8 @@
 "use client";
 
+import "@/styles/guide.css";
+
+
 import { useEffect, useRef } from "react";
 
 type ReadingProgressProps = {

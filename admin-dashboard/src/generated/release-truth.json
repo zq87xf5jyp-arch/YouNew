@@ -1,0 +1,246 @@
+{
+  "schemaVersion": 2,
+  "snapshotID": "release-truth.9e7753e7fcab5e60",
+  "snapshotDigest": "9e7753e7fcab5e60b738d6bc9d741f16bf7f2dc907342a7fcb6aa1ad58d0fa27",
+  "generatedAt": "2026-11-09T14:16:09.000Z",
+  "candidateCommit": "eebb6a9b254d74f6e0dc227af9ccabb1c2047bda",
+  "sourceTreeState": "dirty",
+  "sourceTreeExclusions": [
+    "admin-dashboard/src/generated/release-truth.json",
+    "admin-dashboard/public-site/src/generated/release-truth-public.json",
+    "admin-dashboard/src/generated/release-readiness.json",
+    "admin-dashboard/src/generated/trust-dashboard.json",
+    "admin-dashboard/public-site/src/generated/trust-dashboard.json"
+  ],
+  "technicalVerdict": "PARTIAL",
+  "deploymentAuthorization": "not_granted",
+  "verdictReason": "Packaged content is measured, while link health, exact-candidate CI, and full deployed-payload verification are not established.",
+  "sources": [
+    {
+      "id": "candidate-source",
+      "kind": "git_source_identity",
+      "sourceRef": "git:eebb6a9b254d74f6e0dc227af9ccabb1c2047bda",
+      "sha256": null,
+      "observedAt": null,
+      "validThrough": null,
+      "state": "provisional",
+      "scope": "Candidate commit is recorded, but uncommitted source-tree changes are not represented by that commit."
+    },
+    {
+      "id": "data-project-inventory",
+      "kind": "generated_inventory",
+      "sourceRef": "admin-dashboard/src/generated/data-project-dashboard.json",
+      "sha256": "0960b31f92ed050dc78897ed3a8303b64d1d8ee6321429eb27b966642d1c109a",
+      "observedAt": "2026-11-09T14:16:09+00:00",
+      "validThrough": null,
+      "state": "measured",
+      "scope": "Governed candidate inventory; link-health sentinel is explicitly excluded."
+    },
+    {
+      "id": "packaged-runtime",
+      "kind": "packaged_artifact_manifest",
+      "sourceRef": "admin-dashboard/src/generated/governed-runtime-manifest.json",
+      "sha256": "87a121a01024c8eea04e870636da5d6a5bb7bb96a9d0dedb1d13258e0d89d2d6",
+      "observedAt": "2026-10-23T00:00:00Z",
+      "validThrough": null,
+      "state": "measured",
+      "scope": "Governed source runtime with 5 records; public packaging accepts 5 and explicitly excludes 0 stale records."
+    },
+    {
+      "id": "public-content-provenance",
+      "kind": "packaged_provenance",
+      "sourceRef": "admin-dashboard/public-site/public/data/content-provenance.json",
+      "sha256": "b1bf717fce63577fc9bd2d70d0c81186c1afa0ced040e10154101b5ebda9f09f",
+      "observedAt": "2026-10-23T00:00:00Z",
+      "validThrough": null,
+      "state": "measured",
+      "scope": "Generated public-content provenance bound to the packaged runtime."
+    },
+    {
+      "id": "production-identity",
+      "kind": "production_observation",
+      "sourceRef": "docs/reports/production-identity/production-observation-2026-08-18.json",
+      "sha256": "e2cfd951e1fe650f492b2e652996f37424551bbd2d23bc32bbf350b629560612",
+      "observedAt": "2026-08-18T14:45:26Z",
+      "validThrough": null,
+      "state": "unknown",
+      "scope": "Production observation does not match current packaged provenance metadata."
+    },
+    {
+      "id": "link-health",
+      "kind": "network_observation",
+      "sourceRef": "not_available_in_deterministic_build",
+      "sha256": null,
+      "observedAt": null,
+      "validThrough": null,
+      "state": "unknown",
+      "scope": "A fresh network link check is required; offline generation never fabricates 0/0 evidence."
+    },
+    {
+      "id": "candidate-ci",
+      "kind": "candidate_ci_evidence",
+      "sourceRef": "not_attached",
+      "sha256": null,
+      "observedAt": null,
+      "validThrough": null,
+      "state": "unknown",
+      "scope": "No exact-commit CI evidence manifest is attached to this repository snapshot."
+    }
+  ],
+  "publication": {
+    "inventory": {
+      "state": "measured",
+      "total": 454,
+      "verified": 454,
+      "outdated": 425,
+      "nextReleaseID": "education-v1.0.0",
+      "nextReleaseStatus": "qa"
+    },
+    "packaged": {
+      "state": "measured",
+      "entityCount": 5,
+      "sourceEntityCount": 5,
+      "freshnessExcludedEntityCount": 0,
+      "releaseIDs": [
+        "amsterdam-v0.1.10",
+        "cities-v0.1.0"
+      ],
+      "datasetFingerprint": "39a365a2152382da678d1a888a535295ab497481858b815d785c00c32fcbabfc",
+      "outputChecksum": "d39686302bac96ca65c9489f64ed7b7ded29e4f9865e21edfb0f52db8cb45e7c"
+    },
+    "deployed": {
+      "state": "unknown",
+      "evidenceLevel": "none",
+      "entityCount": null,
+      "declaredEntityCount": null,
+      "datasetFingerprint": null,
+      "observationRef": "docs/reports/production-identity/production-observation-2026-08-18.json"
+    }
+  },
+  "metrics": {
+    "inventoryRecords": {
+      "kind": "count",
+      "unit": "count",
+      "value": 454,
+      "numerator": null,
+      "denominator": null,
+      "state": "measured",
+      "reasonCode": null,
+      "formula": {
+        "id": "effective-governed-inventory-count",
+        "version": 1
+      },
+      "sourceIDs": [
+        "data-project-inventory"
+      ]
+    },
+    "packagedPublishedRecords": {
+      "kind": "count",
+      "unit": "count",
+      "value": 5,
+      "numerator": null,
+      "denominator": null,
+      "state": "measured",
+      "reasonCode": null,
+      "formula": {
+        "id": "packaged-published-record-count",
+        "version": 1
+      },
+      "sourceIDs": [
+        "packaged-runtime",
+        "public-content-provenance"
+      ]
+    },
+    "packagedCoverage": {
+      "kind": "ratio",
+      "unit": "percent",
+      "value": 1.1,
+      "numerator": 5,
+      "denominator": 454,
+      "state": "measured",
+      "reasonCode": null,
+      "formula": {
+        "id": "packaged-published-over-governed-inventory",
+        "version": 1
+      },
+      "sourceIDs": [
+        "data-project-inventory",
+        "packaged-runtime",
+        "public-content-provenance"
+      ]
+    },
+    "linkHealth": {
+      "kind": "ratio",
+      "unit": "percent",
+      "value": null,
+      "numerator": null,
+      "denominator": null,
+      "state": "unknown",
+      "reasonCode": "network_check_not_run",
+      "formula": {
+        "id": "reachable-links-over-inspected-links",
+        "version": 1
+      },
+      "sourceIDs": [
+        "link-health"
+      ]
+    }
+  },
+  "gates": {
+    "sourceIntegrity": {
+      "result": "pass",
+      "reason": "Public provenance partitions all 5 governed source records into 5 packaged public records and 0 fail-closed freshness exclusions.",
+      "sourceIDs": [
+        "data-project-inventory",
+        "packaged-runtime",
+        "public-content-provenance"
+      ]
+    },
+    "packagedPublication": {
+      "result": "pass",
+      "reason": "The public package contains 5 accepted records and no freshness-excluded record.",
+      "sourceIDs": [
+        "packaged-runtime",
+        "public-content-provenance"
+      ]
+    },
+    "deployedPayload": {
+      "result": "blocked",
+      "reason": "Production metadata does not match the packaged artifact.",
+      "sourceIDs": [
+        "production-identity",
+        "public-content-provenance"
+      ]
+    },
+    "linkHealth": {
+      "result": "blocked",
+      "reason": "No fresh non-empty network observation is attached.",
+      "sourceIDs": [
+        "link-health"
+      ]
+    },
+    "candidateCI": {
+      "result": "blocked",
+      "reason": "The source tree is dirty and no exact-commit CI evidence manifest is attached.",
+      "sourceIDs": [
+        "candidate-source",
+        "candidate-ci"
+      ]
+    },
+    "legacyCompatibilityArtifacts": {
+      "result": "pass",
+      "reason": "Three deprecated compatibility projections are deterministically generated from this snapshot and byte-checked by --check.",
+      "sourceIDs": [
+        "candidate-source"
+      ]
+    }
+  },
+  "limitations": [
+    "This snapshot does not authorize production deployment.",
+    "The recorded candidate commit does not include current uncommitted source-tree changes.",
+    "Production evidence is metadata-attested, not a complete deployed-payload verification.",
+    "Link reachability is unknown until a fresh network check inspects a non-empty URL set.",
+    "Legacy release-readiness and trust-dashboard JSON files are deprecated compatibility projections, not independent release authorities.",
+    "Operational Supabase data is loaded independently and cannot upgrade this build-time verdict."
+  ]
+}

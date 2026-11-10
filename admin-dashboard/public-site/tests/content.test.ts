@@ -5,6 +5,8 @@ import test from "node:test";
 const siteRoot = new URL("../", import.meta.url);
 const content = JSON.parse(await readFile(new URL("src/generated/public-content.json", siteRoot), "utf8"));
 const provenance = JSON.parse(await readFile(new URL("public/data/content-provenance.json", siteRoot), "utf8"));
+const freshnessExclusions = JSON.parse(await readFile(new URL("src/generated/public-freshness-exclusions.json", siteRoot), "utf8"));
+const legacyConfirmations = JSON.parse(await readFile(new URL("../../DataProject/quality/phase6-1-public-record-confirmations.json", siteRoot), "utf8"));
 const canonicalRuntime = JSON.parse(await readFile(new URL("../../YouNew/Resources/Data/younew-runtime-data.json", siteRoot), "utf8"));
 const generator = (await import(new URL("scripts/generate-public-content.mjs", siteRoot).href)) as {
   assignStableSlugs: (
@@ -14,11 +16,19 @@ const generator = (await import(new URL("scripts/generate-public-content.mjs", s
   buildPublicDataset: (runtime: unknown, options?: { verifyChecksum?: boolean }) => unknown;
 };
 
-test("generated public content comes only from governed production releases", () => {
+test("public content accepts the canonical base and only the explicit synthetic local overlay", () => {
   assert.equal(provenance.sourceMode, "production");
-  assert.deepEqual(provenance.acceptedReleaseIds, ["amsterdam-v0.1.8", "cities-v0.1.0"]);
+  const local = provenance.acceptedReleaseIds.includes('integration-synthetic-local-v1');
+  const expectedReleases = canonicalRuntime.releases.filter((r: {status:string}) => r.status === 'published').map((r: {id:string}) => r.id);
+  assert.deepEqual(provenance.acceptedReleaseIds, [...expectedReleases,...(local?['integration-synthetic-local-v1']:[])]);
+  if(local) assert.ok(content.entities.filter((e: {releaseId:string})=>e.releaseId==='integration-synthetic-local-v1').every((e:{id:string;title:string;source:{publisher:string}})=>e.id.startsWith('place.synthetic-')&&e.title.startsWith('[SYNTHETIC]')&&e.source.publisher==='Local QA'));
   assert.equal(content.stats.entities, provenance.counts.acceptedRecords);
   assert.equal(content.entities.length, content.stats.entities);
+  assert.equal(freshnessExclusions.count, freshnessExclusions.records.length);
+  assert.equal(provenance.counts.freshnessExcludedRecords, freshnessExclusions.count);
+  assert.equal(provenance.counts.sourceRecords, provenance.counts.acceptedRecords + freshnessExclusions.count);
+  const excludedIds = new Set(freshnessExclusions.records.map((record: { id: string }) => record.id));
+  assert.ok(content.entities.every((entity: { id: string }) => !excludedIds.has(entity.id)));
   assert.ok(content.entities.every((entity: { status: string; releaseId: string; trust: { sourceChecked: boolean } }) =>
     entity.status === "published" &&
     provenance.acceptedReleaseIds.includes(entity.releaseId) &&
@@ -32,7 +42,27 @@ test("generated public content comes only from governed production releases", ()
     entity.id === "event.worldpride-amsterdam-2026-canal-parade" ||
     entity.id === "restaurant.breda"
   ));
-  assert.ok(content.entities.every((entity: { governance: unknown }) => entity.governance === null));
+  const governedIds = content.entities
+    .filter((entity: { governance: unknown }) => entity.governance !== null)
+    .map((entity: { id: string }) => entity.id)
+    .sort();
+  const canonicalIds = new Set(canonicalRuntime.entities.map((record: {id:string}) => record.id));
+  assert.deepEqual(governedIds, legacyConfirmations.records.filter((record: {id: string}) => canonicalIds.has(record.id) && !excludedIds.has(record.id)).map((record: { id: string }) => record.id).sort());
+  assert.ok(content.entities.every((record: {id:string}) => !canonicalRuntime.withheldEntityIDs.includes(record.id)));
+  for (const entity of content.entities.filter((item: { id: string }) => governedIds.includes(item.id))) {
+    assert.equal(entity.governance.confidenceScore, 65);
+    assert.equal(entity.governance.verificationStatus, "unverified");
+    assert.equal(entity.indexable, false);
+    assert.equal(entity.governance.reviewedBy, null);
+    assert.equal(entity.governance.confidenceBreakdown.humanReviewer, 0);
+    assert.equal(entity.governance.confidenceBreakdown.independentReview, 0);
+    assert.equal(entity.governance.officialSourceURL, entity.source.url);
+    assert.equal(entity.source.checkedAt, entity.governance.lastVerifiedAt);
+  }
+  const drivingLicence = content.entities.find((entity: { id: string }) => entity.id === "government_service.driving-licence-amsterdam");
+  assert.equal(drivingLicence?.governance ?? null, null);
+  if (excludedIds.has("government_service.driving-licence-amsterdam") || canonicalRuntime.withheldEntityIDs.includes("government_service.driving-licence-amsterdam")) assert.equal(drivingLicence, undefined);
+  else assert.equal(drivingLicence?.indexable, true);
 });
 
 test("derived collections, routes and slugs are internally consistent", () => {
@@ -59,16 +89,21 @@ test("derived collections, routes and slugs are internally consistent", () => {
 
 test("the public website exposes the verified app image catalogue", () => {
   const media = content.entities.flatMap((entity: { images: unknown[] }) => entity.images);
-  assert.ok(media.length >= 500, `expected at least 500 app images, received ${media.length}`);
-  assert.ok(content.entities.every((entity: { images: Array<{ role: string; url: string; alt: string }> }) =>
-    entity.images.some((image) => image.role === "hero") &&
-    entity.images.every((image) => /^https?:\/\//.test(image.url) && image.alt.length > 0)
+  assert.ok(media.length > 0, `expected images on the remaining current public records, received ${media.length}`);
+  assert.equal(media.some((image: { id?: string }) => image.id === "media.museum.amsterdam-museum.thumbnail.3e34aacbba"), false);
+  assert.ok(content.entities.every((entity: { type: string; title: string; images: Array<{ role: string; url: string; alt: string }> }) =>
+    (entity.images.some((image) => image.role === "hero") || (entity.type === "place" && entity.images.length === 0)) &&
+    entity.images.every((image) =>
+      /^https?:\/\//.test(image.url) &&
+      image.alt.length > 0 &&
+      image.alt !== `${entity.title} — ${image.role.replace("_", " ")}`
+    )
   ));
 });
 
 test("local partners are source-checked but never promoted to sponsored or verified organizations", () => {
   const partners = content.organizations.filter((entity: { sourceKind: string }) => entity.sourceKind === "localPartner");
-  assert.ok(partners.length > 0);
+  assert.equal(partners.length, 0, "stale local partners must stay out of public output until field-level reverification");
   for (const partner of partners) {
     assert.deepEqual(partner.trust, { sourceChecked: true, officialSource: false });
     assert.equal(partner.source.publisherOfficial, false);
@@ -122,4 +157,43 @@ test("generator rejects a tampered checked-in runtime payload", () => {
     entities: canonicalRuntime.entities.map((entity: { id: string; title: string }, index: number) => index === 0 ? { ...entity, title: `${entity.title} tampered` } : entity)
   };
   assert.throws(() => generator.buildPublicDataset(tampered), /outputChecksum does not match/);
+});
+
+test("withdrawal tombstones block publication even when the caller bypasses checksum verification", () => {
+  const entity = canonicalRuntime.entities[0];
+  assert.throws(() => generator.buildPublicDataset({
+    ...canonicalRuntime, withheldEntityIDs: [...canonicalRuntime.withheldEntityIDs, entity.id]
+  }, {verifyChecksum: false}), /republish a withheld entity/);
+});
+
+test("legacy governance confirmations fail closed when their release or source binding changes", () => {
+  type RuntimeEntity = {
+    id: string;
+    source: Record<string, unknown>;
+    attributes: Record<string, unknown>;
+  };
+  const runtimeEntities = canonicalRuntime.entities as RuntimeEntity[];
+  const amsterdam = runtimeEntities.find((entity) => entity.id === "city.amsterdam");
+  assert.ok(amsterdam);
+  const withSourceMismatch = {
+    ...canonicalRuntime,
+    entities: runtimeEntities.map((entity) => entity.id === amsterdam.id
+      ? { ...entity, source: { ...entity.source, url: "https://www.amsterdam.nl/en/" } }
+      : entity)
+  };
+  assert.throws(
+    () => generator.buildPublicDataset(withSourceMismatch, { verifyChecksum: false }),
+    /source URL mismatch/
+  );
+
+  const withReleaseMismatch = {
+    ...canonicalRuntime,
+    entities: runtimeEntities.map((entity) => entity.id === amsterdam.id
+      ? { ...entity, attributes: { ...entity.attributes, dataProjectRelease: canonicalRuntime.releases.find((release: {id:string}) => release.id !== amsterdam.attributes.dataProjectRelease).id } }
+      : entity)
+  };
+  assert.throws(
+    () => generator.buildPublicDataset(withReleaseMismatch, { verifyChecksum: false }),
+    /release mismatch/
+  );
 });

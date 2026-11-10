@@ -1,0 +1,1948 @@
+{
+  "base_commit": "484272957836615deb228d37c4e9d2ac0d9896a8",
+  "copies": [
+    {
+      "source": "content-20261109/source/.node-version",
+      "destination": ".node-version",
+      "sha256": "d9f318747a126ce2247661af67852b185def7789492eabfad7bba322be087c33"
+    },
+    {
+      "source": "content-20261109/source/DataProject/staging/catalog-20261103/WP-09.json",
+      "destination": "DataProject/staging/catalog-20261103/WP-09.json",
+      "sha256": "8c29ad57597a28fe6c0d7182a670ee747b0322cc0307c93feacb52d41fa36c9a"
+    },
+    {
+      "source": "content-20261109/source/DataProject/staging/catalog-20261103/WP-08.json",
+      "destination": "DataProject/staging/catalog-20261103/WP-08.json",
+      "sha256": "b0bc6a6f80c5f1ddc1028b7decdcaed917dbcd24adde8fdf4477b896e2bc9429"
+    },
+    {
+      "source": "content-20261109/source/DataProject/staging/catalog-20261103/WP-12.json",
+      "destination": "DataProject/staging/catalog-20261103/WP-12.json",
+      "sha256": "9ed987b490496a51def1e5a8dc0456195725f72d7ef0da23802839e76cb90dfa"
+    },
+    {
+      "source": "content-20261109/source/DataProject/staging/catalog-20261103/WP-07.json",
+      "destination": "DataProject/staging/catalog-20261103/WP-07.json",
+      "sha256": "3b80abb97e3596f56c5116c904b0b1485a13b67ed142d97b17715fef57fef29a"
+    },
+    {
+      "source": "content-20261109/source/DataProject/staging/catalog-20261103/WP-06.json",
+      "destination": "DataProject/staging/catalog-20261103/WP-06.json",
+      "sha256": "cf64bda8d38e5bb7ac1b0b42baf8455c18f343b0c374c1c789c7057cf2a3eed4"
+    },
+    {
+      "source": "content-20261109/source/DataProject/staging/catalog-20261103/WP-10.json",
+      "destination": "DataProject/staging/catalog-20261103/WP-10.json",
+      "sha256": "a5d4470b899103db11b39fc7af5788076f8fea16a67f87af93a596bee2366ebb"
+    },
+    {
+      "source": "content-20261109/source/DataProject/batches/WP-04/WP-04-M1-leiden-20261109.json",
+      "destination": "DataProject/staging/content-20261109/WP-04-M1-leiden-20261109.json",
+      "sha256": "0cc29b40c392899cb22dad32810f36b0adcd2cae9dacf10085cc3c219de7c363",
+      "note": "Kept outside governed release batches until editorial approval; original local source preserved."
+    },
+    {
+      "source": "content-20261109/source/DataProject/batches/WP-03/WP-03-M1-leiden-20261109.json",
+      "destination": "DataProject/staging/content-20261109/WP-03-M1-leiden-20261109.json",
+      "sha256": "1808b89cc0171beb18f4c75943b4fe4ef9c6d1dd5cba9fbaf8f7ca5c33074743",
+      "note": "Kept outside governed release batches until editorial approval; original local source preserved."
+    },
+    {
+      "source": "content-20261109/source/DataProject/batches/WP-10/WP-10-M1-leiden-20261109.json",
+      "destination": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "sha256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be",
+      "note": "Kept outside governed release batches until editorial approval; original local source preserved."
+    },
+    {
+      "source": "content-20261109/source/DataProject/batches/WP-08/WP-08-M1-leiden-20261109.json",
+      "destination": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "sha256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452",
+      "note": "Kept outside governed release batches until editorial approval; original local source preserved."
+    },
+    {
+      "source": "content-20261109/source/DataProject/batches/WP-06/WP-06-M1-leiden-20261109.json",
+      "destination": "DataProject/staging/content-20261109/WP-06-M1-leiden-20261109.json",
+      "sha256": "088d023019eaf7433223e076084bf4633970f468507b90a5b2e629e87c2e7560",
+      "note": "Kept outside governed release batches until editorial approval; original local source preserved."
+    },
+    {
+      "source": "content-20261109/source/DataProject/batches/WP-01/WP-01-M1-leiden-20261109.json",
+      "destination": "DataProject/staging/content-20261109/WP-01-M1-leiden-20261109.json",
+      "sha256": "0d2772f0b9b15371f8bb4b61a17ce132a8e996a5bce12d3f5738c4cfa9e3b94f",
+      "note": "Kept outside governed release batches until editorial approval; original local source preserved."
+    },
+    {
+      "source": "content-20261109/source/DataProject/batches/WP-07/WP-07-M1-leiden-20261109.json",
+      "destination": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "sha256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0",
+      "note": "Kept outside governed release batches until editorial approval; original local source preserved."
+    },
+    {
+      "source": "content-20261109/source/DataProject/batches/WP-09/WP-09-M1-leiden-20261109.json",
+      "destination": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "sha256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b",
+      "note": "Kept outside governed release batches until editorial approval; original local source preserved."
+    },
+    {
+      "source": "content-20261109/source/DataProject/batches/WP-12/WP-12-M1-leiden-20261109.json",
+      "destination": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "note": "Kept outside governed release batches until editorial approval; original local source preserved."
+    },
+    {
+      "source": "content-20261109/source/DataProject/batches/WP-15/WP-15-M1-leiden-20261109.json",
+      "destination": "DataProject/staging/content-20261109/WP-15-M1-leiden-20261109.json",
+      "sha256": "20613563286823a6c6f7df808d03bdc508ab0677db94485df1ab1c7b23206490",
+      "note": "Kept outside governed release batches until editorial approval; original local source preserved."
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/package.json",
+      "destination": "admin-dashboard/public-site/package.json",
+      "sha256": "0be50a21910254c38da6ead96773ea81e55a0d110b9209638d2577526cf6a4d3"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/next.config.ts",
+      "destination": "admin-dashboard/public-site/next.config.ts",
+      "sha256": "cee044f7859fd3d2b72ebe69935a2327f3c60e3dde325d1f8fc1fcbebb1dced8"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/map-city-options.test.ts",
+      "destination": "admin-dashboard/public-site/tests/map-city-options.test.ts",
+      "sha256": "209f906bf2ae8fe088f5324a70692d5fef1c4c253ee6e872493a8c981777fec2"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/seo.test.ts",
+      "destination": "admin-dashboard/public-site/tests/seo.test.ts",
+      "sha256": "ae94e887cd7b624da2b627fe7ca30baa1e5db862bc70dbac68bce7b1f2f118f6"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/search-language-handoff.test.ts",
+      "destination": "admin-dashboard/public-site/tests/search-language-handoff.test.ts",
+      "sha256": "ebecd849012f1497eba4a86ae07046e4d05da7130aca028127ad45c519fbd364"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/content.test.ts",
+      "destination": "admin-dashboard/public-site/tests/content.test.ts",
+      "sha256": "1692950952a93adb22c3819f5a34013cdb3c88672a9e528d860be03dada72060"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/place-contact-details.test.ts",
+      "destination": "admin-dashboard/public-site/tests/place-contact-details.test.ts",
+      "sha256": "b13c330cdd0d9ae7665c29770ae1426e07b23bc2d0e4f83bdbeb58ca735d1da7"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/feedback.test.ts",
+      "destination": "admin-dashboard/public-site/tests/feedback.test.ts",
+      "sha256": "bd87a01c62f49107fde853abf42d0db0caf32b06db0e77902b5c3e517231cfd2"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/pilot-offer.test.ts",
+      "destination": "admin-dashboard/public-site/tests/pilot-offer.test.ts",
+      "sha256": "9ca9db0d5938d57782f62a29e56bf6e7389fee97e17fcddc0413625abd00c4f8"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/link-checker.test.ts",
+      "destination": "admin-dashboard/public-site/tests/link-checker.test.ts",
+      "sha256": "2d99ae8353039ad2ba27a4442fb636fd46f5484bc9ee1392a867efe4167d0f54"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/geo-analytics-client.test.ts",
+      "destination": "admin-dashboard/public-site/tests/geo-analytics-client.test.ts",
+      "sha256": "4686b8c1ab16dbed0cf08a062e7f01e8737539c4249c12c79a3f2bbc588c3188"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/catalog-hotel-projection.test.ts",
+      "destination": "admin-dashboard/public-site/tests/catalog-hotel-projection.test.ts",
+      "sha256": "23677be4a9a69d7b23eaf424b8bdff8a0cf01e666a34448d37860fa6ac89ef03"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/catalog-name-geography.test.ts",
+      "destination": "admin-dashboard/public-site/tests/catalog-name-geography.test.ts",
+      "sha256": "61caa522ad8e99464f3c23091bfbdaffbbfe8f01c039f8d4dd1e347488793caf"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/local-business-optional-errors.test.ts",
+      "destination": "admin-dashboard/public-site/tests/local-business-optional-errors.test.ts",
+      "sha256": "4a11f0a36bcf0685681aa3332aa1d586b7319a2ca92579262d41486277cfd327"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/nl-localization.test.ts",
+      "destination": "admin-dashboard/public-site/tests/nl-localization.test.ts",
+      "sha256": "684ff8e073199069940eea9e65015559745ee17d528e2e7bd3858972f98f5acc"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/analytics.test.ts",
+      "destination": "admin-dashboard/public-site/tests/analytics.test.ts",
+      "sha256": "ddc6043ab03d445b8107752264dbf96eeaf888f1ce7f45f2462128837bff2e91"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/local-business.test.ts",
+      "destination": "admin-dashboard/public-site/tests/local-business.test.ts",
+      "sha256": "c1a08629131e7c87770b4f591088a2bdf2232e0393c50a5277d199d17125d929"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/theme-and-summary-guide.test.ts",
+      "destination": "admin-dashboard/public-site/tests/theme-and-summary-guide.test.ts",
+      "sha256": "751071a7e897b3265632ff5d0783eb444e81737dab7a994f4597658abcfc4b91"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/search.test.ts",
+      "destination": "admin-dashboard/public-site/tests/search.test.ts",
+      "sha256": "b237b56c076bd8315cc32511a6d85be1bad5d119ae28182eaf037b75fa2a2719"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/discovery-behavior.test.ts",
+      "destination": "admin-dashboard/public-site/tests/discovery-behavior.test.ts",
+      "sha256": "ddc0bbc441b657f3e58da601955f9797be2219698cf8f5bacca4a173afd8ae6f"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/user-first-homepage.test.ts",
+      "destination": "admin-dashboard/public-site/tests/user-first-homepage.test.ts",
+      "sha256": "db97a35655f7dc932eb1fe8b317bc22959abed7953950454b44bdcc002e7307b"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/geo-relevance.test.ts",
+      "destination": "admin-dashboard/public-site/tests/geo-relevance.test.ts",
+      "sha256": "bcefa2574f0ee7caaac6e4c381209a2c855142cd381650918e2198c97406be56"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/form-failure-modes.test.ts",
+      "destination": "admin-dashboard/public-site/tests/form-failure-modes.test.ts",
+      "sha256": "7f344d314d3944c3664a7567f47c94d3e0dff0d3a9de620613f4ae42fe87f22c"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/business.test.ts",
+      "destination": "admin-dashboard/public-site/tests/business.test.ts",
+      "sha256": "20ed72b36a5862f7025ea881b667d63c497c4b29c784ae2c62e4e7c85bb8ac2c"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/tests/component-harness.ts",
+      "destination": "admin-dashboard/public-site/tests/component-harness.ts",
+      "sha256": "e8abc327da045abc04cc96034991686163bde6ff9ec9b1149a38f104f3ba5321"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/theme-init.js",
+      "destination": "admin-dashboard/public-site/public/theme-init.js",
+      "sha256": "08a13b6eb14bdb7e9d5141800dae8b21d8963bfe09ca0a541481106412f7c0c9"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/_headers",
+      "destination": "admin-dashboard/public-site/public/_headers",
+      "sha256": "0d434b199ac4effa125de567b5cef1a3ec42712c01591b73f62b15c3fc18627b"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/sw.js",
+      "destination": "admin-dashboard/public-site/public/sw.js",
+      "sha256": "734d2cd0fc3f367367b32f1ced5dd2059e5bacf64aa92050e1b179bcd6f281d7"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/static-shell.js",
+      "destination": "admin-dashboard/public-site/public/static-shell.js",
+      "sha256": "c081752df085d8c3c827391eb27680559264f569b3d6e0e033d59cbd9fa44f0c"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/.htaccess",
+      "destination": "admin-dashboard/public-site/public/.htaccess",
+      "sha256": "bdc0329611dd093b0a9a3d9d72fd816b18a0c3caabc15fa9c5d96396d1a8bbb6"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/amsterdam-480.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/amsterdam-480.webp",
+      "sha256": "6b219da966cdde4cdbcb58ab28c5a351dc73559794569891d027b5abdcef6cb5"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/amsterdam-1920.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/amsterdam-1920.webp",
+      "sha256": "e441a9e50ea66c174d9bf00ef67a1ac1e8cb8fb0f61367f1e5c80391f98d8aa8"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/eindhoven-1200.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/eindhoven-1200.webp",
+      "sha256": "8fbfbd189f04b5108b7eadb06fb86e527771fb431d894dc91d6fb8253ea9c19a"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/rotterdam-480.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/rotterdam-480.webp",
+      "sha256": "ed869114b6c23a686fe1dd115413be6705de03f6d8f581b1cf263cb5f5c69ea6"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/eindhoven-800.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/eindhoven-800.webp",
+      "sha256": "f268cdd0dc293dc845a6de9dd402301a2653aa158019147f86c94e0d2ee58a0e"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/utrecht-800.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/utrecht-800.webp",
+      "sha256": "63d6894fee41b59d2d007b9a9775ce7095702b38979ad08c8487bbc65d969125"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/utrecht-1200.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/utrecht-1200.webp",
+      "sha256": "43ba48cb5aec7c127b038ffdc8afdaf941a462f2903124c4242c18817fdd2957"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/den-haag-1920.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/den-haag-1920.webp",
+      "sha256": "4bdf4f35997ea16e5072efde86621a9771aa7e481a2a6e6f2bc0f4ca4089d04e"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/den-haag-800.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/den-haag-800.webp",
+      "sha256": "02d60d9219eb10e0a9105cf1db11cf1bca3dd5bc903a4db443eeb9b5d9a58d8f"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/rotterdam-1920.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/rotterdam-1920.webp",
+      "sha256": "5d5b6938ad202af521b141a24b1b7e93e4bcf17d768698c6824839c332a32413"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/eindhoven-480.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/eindhoven-480.webp",
+      "sha256": "6a97b393784793c6eb92b8a64dafb961a9a4a280228c5213dbdfba2e3491572a"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/utrecht-480.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/utrecht-480.webp",
+      "sha256": "687753e5494e6d9dbaa2706eac34215b118c3f0ad40bce6d882194634047b7cc"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/den-haag-1200.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/den-haag-1200.webp",
+      "sha256": "3f00b9dc23d54550b5a411778a96160343f4a6888232e1fd415006cd618926e9"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/utrecht-1920.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/utrecht-1920.webp",
+      "sha256": "3d89c94951f14f1ce3b3dbdeea026a0454504131df08b231d70e9dae641241a8"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/den-haag-480.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/den-haag-480.webp",
+      "sha256": "f20c71c0aea91cd622c09ce7a6d2f49daba7b386fc4ce02b1c072fc577a8c9e1"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/rotterdam-1200.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/rotterdam-1200.webp",
+      "sha256": "47045ad256133dfe76240530d899c1ed8ac378b4ba731b640df0bda4e92409e1"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/amsterdam-1200.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/amsterdam-1200.webp",
+      "sha256": "de2328043ae6ad38d3d45d96d972bd0b6b9b210f6bbd5c668b4b67f9816881e8"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/amsterdam-800.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/amsterdam-800.webp",
+      "sha256": "7eba6c380dfb8abbde0fde1faacef67ec0536bb2bd6c199580adb71a7247feaa"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/eindhoven-1920.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/eindhoven-1920.webp",
+      "sha256": "f1b7c801311e208e50bf30437f2e82a1c5e09770de34a43e277dfedb0e0cfc5a"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/images/cities/rotterdam-800.webp",
+      "destination": "admin-dashboard/public-site/public/images/cities/rotterdam-800.webp",
+      "sha256": "6fb884246875c7dda30054a9b981341e48f50902b7b16efe3438b94a5e923e7a"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/acquisition/index.html",
+      "destination": "admin-dashboard/public-site/public/acquisition/index.html",
+      "sha256": "a35edbe65d4712e2c581ec10c32461b2a7beea1f81b01224d00c53a22353c9da"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/acquisition/styles.css",
+      "destination": "admin-dashboard/public-site/public/acquisition/styles.css",
+      "sha256": "f026d1e50604320c0a7bf8d34a04808408aafc3dfc336d0b96d4fe292f0a434e"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/api/submit-public-feedback.php",
+      "destination": "admin-dashboard/public-site/public/api/submit-public-feedback.php",
+      "sha256": "5b0534d35556be614f01bf9ec4cf6ce00f187a5eddb0b83327c78d84d8443a25"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/api/submit-business-inquiry.php",
+      "destination": "admin-dashboard/public-site/public/api/submit-business-inquiry.php",
+      "sha256": "46775aa1816b347eccf814658a12fddf00887d21e23f518205404ff74c380406"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/api/analytics-ingest.php",
+      "destination": "admin-dashboard/public-site/public/api/analytics-ingest.php",
+      "sha256": "cbb14039cf1be857c82b291255a5f979f7c464880daf026251674f927592cd33"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/api/.htaccess",
+      "destination": "admin-dashboard/public-site/public/api/.htaccess",
+      "sha256": "2d582c190ffaa93b039d8ee977ba04d6cc17f13f3fc8e63213ca019da8a2fc46"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/data/search-index.json",
+      "destination": "admin-dashboard/public-site/public/data/search-index.json",
+      "sha256": "745b2ad8ec865051be20c3b7500259a4323ace126127e43fc3fc156c6b56d0e2"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/data/site-config.json",
+      "destination": "admin-dashboard/public-site/public/data/site-config.json",
+      "sha256": "af5b20f8662f97a8d453ec560ce1b88a9b31696a083f4dd5ebc9c394a2c9f05f"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/public/data/content-provenance.json",
+      "destination": "admin-dashboard/public-site/public/data/content-provenance.json",
+      "sha256": "17b3ba8121e88adee5d0395a5491d180643a9dbef95cb6550adad22ae9afe515"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/scripts/generate-public-content.mjs",
+      "destination": "admin-dashboard/public-site/scripts/generate-public-content.mjs",
+      "sha256": "3e0e8001f3206e2ea585fb6cf623f089083f0aeaf0f13114c24a637fb8c748d7"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/scripts/check-links.mjs",
+      "destination": "admin-dashboard/public-site/scripts/check-links.mjs",
+      "sha256": "60db5ac277ed8aef45b1d15b21f0b4543075813b586913bf1b9ee37e8804beeb"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/scripts/smoke-test.mjs",
+      "destination": "admin-dashboard/public-site/scripts/smoke-test.mjs",
+      "sha256": "bfe09407e629b785251acb976e54de20356100b48970af39bbe138541c02e8ea"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/scripts/check-pre-deploy.mjs",
+      "destination": "admin-dashboard/public-site/scripts/check-pre-deploy.mjs",
+      "sha256": "2a527327efea8d59b66ca269ff3a83045ba492f7801d43b28bf66bb7745e6d20"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/scripts/build.sh",
+      "destination": "admin-dashboard/public-site/scripts/build.sh",
+      "sha256": "2e6c67eb55f86f90dfee4be14c1c01b490b5e78db4fefba751875bfd4d841875"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/scripts/prepare-discovery-images.mjs",
+      "destination": "admin-dashboard/public-site/scripts/prepare-discovery-images.mjs",
+      "sha256": "678fa9a3e76df5d7f5a93eaf7c31bf905aa1b056838af412e860bb62de0ea481"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/scripts/generate-public-content.d.mts",
+      "destination": "admin-dashboard/public-site/scripts/generate-public-content.d.mts",
+      "sha256": "eec69aa746cf9874fbe5a4acc6be2e75bc3f584e0d916094c42e15025118aee4"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/worker/index.js",
+      "destination": "admin-dashboard/public-site/worker/index.js",
+      "sha256": "fe2086c94f65754a2a2af094bca467237770e22b17dc6bb429fbfb6b79398892"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/generated/public-content.json",
+      "destination": "admin-dashboard/public-site/src/generated/public-content.json",
+      "sha256": "d984a4faec737c5eefa67c935822cccaf92a3350c9c720bdcd2cb2925e7edb23"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/generated/release-truth-public.json",
+      "destination": "admin-dashboard/public-site/src/generated/release-truth-public.json",
+      "sha256": "c5ffd67bb8095423b3517af00afed327c5efd8d1f925baa42d32e79e3efc8e48"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/generated/trust-dashboard.json",
+      "destination": "admin-dashboard/public-site/src/generated/trust-dashboard.json",
+      "sha256": "55ee75437839cf668e1f312fd5c1686007369cc98eae5ea67438184e9f84a7d1"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/theme.css",
+      "destination": "admin-dashboard/public-site/src/app/theme.css",
+      "sha256": "c530c3a684ac246560fe9f4bf24e2fa4d43c6b970dbdf1771bbc14f0a9a11349"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/sitemap.ts",
+      "destination": "admin-dashboard/public-site/src/app/sitemap.ts",
+      "sha256": "1008b24ae010729437b90bb349fc8d74c5cade3f515bc6e9a178f524ee50d4c4"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/layout.tsx",
+      "destination": "admin-dashboard/public-site/src/app/layout.tsx",
+      "sha256": "6be61f0da698e6acdaccb27e14d6a0e874a35aecc6623f22cdac6cdd01e8db57"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/discovery.css",
+      "destination": "admin-dashboard/public-site/src/app/discovery.css",
+      "sha256": "46a0f08a95c512ff30afebb7815c054526bcf49a6ab8e9fe43aeaf65e88d4119"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/page.tsx",
+      "sha256": "2cd290b78cbc4ec959cf4ae5a198690d1de702c3ab589edc53921da29f0a4e06"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/globals.css",
+      "destination": "admin-dashboard/public-site/src/app/globals.css",
+      "sha256": "a7cf6b067a194dcb1636bce57f275758c8e8049eea995e0d578d9c722ee06038"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/municipalities/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/municipalities/page.tsx",
+      "sha256": "e5fd5d0b1a5bc51c1f35d29f68a92a13f03a7fd0499d4fe0aba816d886eca0c4"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/municipalities/[slug]/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/municipalities/[slug]/page.tsx",
+      "sha256": "d2a8aeb23074098a4eb4105c93ed93b49933282c1dac9dbc94cf89dd1e2dd0e8"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/my-younew/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/my-younew/page.tsx",
+      "sha256": "37d475244029eea046d4e8248b4f062c2a5af4f49f8dc9c2ed1a440cb1af4bc1"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/privacy/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/privacy/page.tsx",
+      "sha256": "4c7ce537810afa86ad8cb946a91030986f388822e6a60ee70c2c55ed959710ce"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/provinces/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/provinces/page.tsx",
+      "sha256": "9bb6799b1d8985f9a24a98c7103352c29d2e446c068f9f4312144e5103cefba1"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/provinces/[slug]/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/provinces/[slug]/page.tsx",
+      "sha256": "63ac6e1397d8f37ff4f8ef70bc4f10fc115c4fec40f482923e86802d558aebff"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/for-business/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/for-business/page.tsx",
+      "sha256": "703cf1cba523fbbed6f9fcfbe9da35bcf4df004d46ea9159d35bf62cdf76245f"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/business/media-kit/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/business/media-kit/page.tsx",
+      "sha256": "10dc7e43bf5fb247e0b5c9878b3561bf9efc9f9a71ff8d6f868520765253c2a2"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/updates/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/updates/page.tsx",
+      "sha256": "95cf8809b53c4a5b1b7e05aea0b6e7882f4a0b3975be0e4c6391ed26c5685963"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/search/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/search/page.tsx",
+      "sha256": "9bef70ed70e472dc6fe65977af98ec184e8a841afbcc06cb31b9831e7bd230c8"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/map/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/map/page.tsx",
+      "sha256": "e6862df92f6e7e683b0823361ca56d3ec5c58fdfaef7f463e80bf8f01d1c9e47"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/cities/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/cities/page.tsx",
+      "sha256": "b758b8eaf09069289bbbd80096db742f39e1391f96d8536d085a228ef0bbb602"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/guides/[slug]/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/guides/[slug]/page.tsx",
+      "sha256": "49d29dc3fb55a60611a6fdef9e4d5670fac5b737a3c77e2ff46aeb63d0135653"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/nl/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/nl/page.tsx",
+      "sha256": "e249c998bb39a098759d8807923dca83f282d93aa9554b3a2a1f68fdab3eb122"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/nl/voor-bedrijven/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/nl/voor-bedrijven/page.tsx",
+      "sha256": "2f7e80d57622c46958321afb2865a5af008c04ed1c2ceef6feb2fec53b29000e"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/nl/zoeken/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/nl/zoeken/page.tsx",
+      "sha256": "e658558702d08ce6469792130eb3397317521e5a299bc9e7084adea4f9fc9752"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/nl/organisaties/[slug]/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/nl/organisaties/[slug]/page.tsx",
+      "sha256": "c715ee659f3193e3028d01eecf8a517280d5d0fdb4539757ff99103852a089ef"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/journeys/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/journeys/page.tsx",
+      "sha256": "a8110d77780f95ae246124ad26425915622c425b21c3dae6c07de197b74fb5a3"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/app/essentials/[slug]/page.tsx",
+      "destination": "admin-dashboard/public-site/src/app/essentials/[slug]/page.tsx",
+      "sha256": "40760aaeb312431998db78bcad69c25aaa41d88d7b78b36f6c9aa3c75a0c1eeb"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/config/site-config.json",
+      "destination": "admin-dashboard/public-site/src/config/site-config.json",
+      "sha256": "af5b20f8662f97a8d453ec560ce1b88a9b31696a083f4dd5ebc9c394a2c9f05f"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/content/discovery-media.json",
+      "destination": "admin-dashboard/public-site/src/content/discovery-media.json",
+      "sha256": "1100e6877a7703ee3a819ccfa67c5ebb70ccdbe21a0a163a2afe881980838417"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/styles/guide.css",
+      "destination": "admin-dashboard/public-site/src/styles/guide.css",
+      "sha256": "76d716dc4404cd80caaa0df08ce0d02273a19aaf34f2d2cc859ea75a97834437"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/styles/municipality.css",
+      "destination": "admin-dashboard/public-site/src/styles/municipality.css",
+      "sha256": "5a16a4895a86aea27b85434732ad75229409299d1c96024abcc901947e1a68b6"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/styles/journey.css",
+      "destination": "admin-dashboard/public-site/src/styles/journey.css",
+      "sha256": "9af695579b5e2dc9aedb45253a77c1803cd205a824b51e962cd367363fb36a75"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/styles/media-kit.css",
+      "destination": "admin-dashboard/public-site/src/styles/media-kit.css",
+      "sha256": "1f7edca91133592b945d58a2a17095c475b77c0207f5da79dfae25e5df42b412"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/styles/updates.css",
+      "destination": "admin-dashboard/public-site/src/styles/updates.css",
+      "sha256": "6d6b50184ec32aaa83a9bacc7c8d4980b01680d05447517114736136fbedaab0"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/styles/my.css",
+      "destination": "admin-dashboard/public-site/src/styles/my.css",
+      "sha256": "d954e888747cab459c8e5fa8ab5b95d6e10d48a62a21fa0f42d93162900b7783"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/styles/legacy-home-profile.css",
+      "destination": "admin-dashboard/public-site/src/styles/legacy-home-profile.css",
+      "sha256": "1a8c552b55f427efdba48b76b002baa6286acaa452cd74efe6b04bfd4f5b9676"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/styles/workspace.css",
+      "destination": "admin-dashboard/public-site/src/styles/workspace.css",
+      "sha256": "ae3295dd227e4a27dab486b75b4f470f27af45f49cd2aaf966cd6a00cb309422"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/styles/geography.css",
+      "destination": "admin-dashboard/public-site/src/styles/geography.css",
+      "sha256": "26e6a058668e2407838663e1865254fdf6609540b22309d7a57df0a11b33b065"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/styles/planner.css",
+      "destination": "admin-dashboard/public-site/src/styles/planner.css",
+      "sha256": "b65f5d36e440230156b5cce92efb5b8e2a6d485fdaeb58e3025d89cabfa0e5c4"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/language-link.tsx",
+      "destination": "admin-dashboard/public-site/src/components/language-link.tsx",
+      "sha256": "2be60a36b72787f388450a358d7a2b29535ad768f26bb1c25d82ab207c8b1834"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/national-guide-action-panel.tsx",
+      "destination": "admin-dashboard/public-site/src/components/national-guide-action-panel.tsx",
+      "sha256": "bf35139531c8200ffbbda37639b2897cf6067ffcb7710c2105c32ccaa83fa2ca"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/coverage-map.tsx",
+      "destination": "admin-dashboard/public-site/src/components/coverage-map.tsx",
+      "sha256": "5b7be5304fdd3ef7d29fbb80bb8803326bf5a9ffa927ecb3623638665a5755a9"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/business-discovery.tsx",
+      "destination": "admin-dashboard/public-site/src/components/business-discovery.tsx",
+      "sha256": "b22c2f4ac1a3c27f69a2d7c6f8589ff8c5b9258d6740475dad9eda8e2b304588"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/discovery-home.tsx",
+      "destination": "admin-dashboard/public-site/src/components/discovery-home.tsx",
+      "sha256": "13bf2381a4976afb4e8f404f9aeefd24a5d60223b74459160eb18f6b441d9666"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/site-header-enhancements.tsx",
+      "destination": "admin-dashboard/public-site/src/components/site-header-enhancements.tsx",
+      "sha256": "b69d880fd11c531333e2c3dfc72e6c0c2ab0bd80936b639931e3591071b5c402"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/nl-local-business-application-form.tsx",
+      "destination": "admin-dashboard/public-site/src/components/nl-local-business-application-form.tsx",
+      "sha256": "3000dc4dcb810b12a21883a5be71abc81c4bcaca1b6598f42734a0eb6e1b8df7"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/media-kit-print-button.tsx",
+      "destination": "admin-dashboard/public-site/src/components/media-kit-print-button.tsx",
+      "sha256": "bb9d7a69a46f8d91848949fc55904af959bdac5c99487ce23551fae430ebed3c"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/pilot-request-form.tsx",
+      "destination": "admin-dashboard/public-site/src/components/pilot-request-form.tsx",
+      "sha256": "ab95a0991d0312779c05f80aa692a826382f13528aee7d87c27822ca5423505a"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/business-workspace.tsx",
+      "destination": "admin-dashboard/public-site/src/components/business-workspace.tsx",
+      "sha256": "7d155a82e9b1a09204b0523d667be06596ee26f05cba0e5c3ec027147e0d9ee4"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/partner-application-form.tsx",
+      "destination": "admin-dashboard/public-site/src/components/partner-application-form.tsx",
+      "sha256": "6aea5fb2306f0b11f36a9bbbbc55f1a13141bd6e592526a138b77df5deb2815c"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/media-credit.tsx",
+      "destination": "admin-dashboard/public-site/src/components/media-credit.tsx",
+      "sha256": "e5f6fbaec2ee8fcf0fd3b3c744971b2006fdd83c61dc06de3afd86af00129ee5"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/site-header.tsx",
+      "destination": "admin-dashboard/public-site/src/components/site-header.tsx",
+      "sha256": "1faa8d690bccfc55aadb069d4c848fa90a83fc59a560fac5373ab42502ad781f"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/viewport-image.tsx",
+      "destination": "admin-dashboard/public-site/src/components/viewport-image.tsx",
+      "sha256": "b36cfa4fc0c641639c10e205fbdb33945b853ca4ea25f84614a816b866d3b053"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/local-business-application-form.tsx",
+      "destination": "admin-dashboard/public-site/src/components/local-business-application-form.tsx",
+      "sha256": "047a26d39f4178dbbeca27e260d446a404a20170d4d2dde232dc51e0415b3674"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/site-footer.tsx",
+      "destination": "admin-dashboard/public-site/src/components/site-footer.tsx",
+      "sha256": "db6ec6d376666682f2f70d3057fcd4ccbfe57128acd0a7bfb92867f109f9ade0"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/homepage-profile-selector.tsx",
+      "destination": "admin-dashboard/public-site/src/components/homepage-profile-selector.tsx",
+      "sha256": "3bb3a619b56faab3c50343a59bce0822ee55709d2673fd15cf984661765a9dd5"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/my-younew-dashboard.tsx",
+      "destination": "admin-dashboard/public-site/src/components/my-younew-dashboard.tsx",
+      "sha256": "feca0dff67d1bd53a218b477b8d7c78c8fe62c403297201bf6e8f1759b92182a"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/home-search-form.tsx",
+      "destination": "admin-dashboard/public-site/src/components/home-search-form.tsx",
+      "sha256": "96ee95b33fd1097b2bba0052e6138538a95418fa6a4be046c938dc9c1d62237d"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/admin-updates.tsx",
+      "destination": "admin-dashboard/public-site/src/components/admin-updates.tsx",
+      "sha256": "4b45f437467c9cf994e458d993431003071b46eb1910f0755ac2e6e31ca7a022"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/next-step-planner.tsx",
+      "destination": "admin-dashboard/public-site/src/components/next-step-planner.tsx",
+      "sha256": "df1d7f9e903cb10cff7c8766e67117fee71c78f386adec8d2fbe207bb031109b"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/entity-detail.tsx",
+      "destination": "admin-dashboard/public-site/src/components/entity-detail.tsx",
+      "sha256": "918f98e3788c5ea8b7cbaf871ebbddae22cdd64bbb23654a46d2ebcfb4c99ad2"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/arrival-planner-account.tsx",
+      "destination": "admin-dashboard/public-site/src/components/arrival-planner-account.tsx",
+      "sha256": "973d92364f0fc33b4022df343e49e53234dba47070f64bc08477603a29514fe6"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/search-experience.tsx",
+      "destination": "admin-dashboard/public-site/src/components/search-experience.tsx",
+      "sha256": "6e8c12995037cea4141eea071c500390b013e1cc00a7ac51f67dfcce2d0926c9"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/entity-card.tsx",
+      "destination": "admin-dashboard/public-site/src/components/entity-card.tsx",
+      "sha256": "5b50393e3a74924f525ab058a7ca64e8f190e6d9fbadce345933e4036a9ded2f"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/analytics-consent.tsx",
+      "destination": "admin-dashboard/public-site/src/components/analytics-consent.tsx",
+      "sha256": "2c36300663f95f564108c86c48f90bde5840f8e698f9559e5b3c45cdc773ca70"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/nl-search-experience.tsx",
+      "destination": "admin-dashboard/public-site/src/components/nl-search-experience.tsx",
+      "sha256": "cb996a379be269d2b7fadc5fe4f8d6e0eb9d5addf05ddd98f9558a06f02d28a5"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/reading-progress.tsx",
+      "destination": "admin-dashboard/public-site/src/components/reading-progress.tsx",
+      "sha256": "3123d468fd61031e6ba9771d8731954852a6c0e151adb9a8dfed7af7370bb3d4"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/municipality-directory.tsx",
+      "destination": "admin-dashboard/public-site/src/components/municipality-directory.tsx",
+      "sha256": "f6169071625d206f1a6520b5ab14bb837994b234fef260cb5bd544f26ed41993"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/public-feedback-form.tsx",
+      "destination": "admin-dashboard/public-site/src/components/public-feedback-form.tsx",
+      "sha256": "cd2709da346edaa367f3810165d24a489db9fab987ab997b990a4822801a5fd9"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/content-media.tsx",
+      "destination": "admin-dashboard/public-site/src/components/content-media.tsx",
+      "sha256": "a9096a1c68888054bbd7678fa3d3ad824e7a556398c40572fa14702fbf03421d"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/guide-detail.tsx",
+      "destination": "admin-dashboard/public-site/src/components/guide-detail.tsx",
+      "sha256": "c170f4b4f25808d636e34101f9c288d43e1d4910ea76a9400dedf4abe1a79333"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/city-guide-page.tsx",
+      "destination": "admin-dashboard/public-site/src/components/city-guide-page.tsx",
+      "sha256": "d34e5bfd8290c8025361c25792c9e8d6b482e1d2a803da0b59fd146c1d71375d"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/guide-checklist.tsx",
+      "destination": "admin-dashboard/public-site/src/components/guide-checklist.tsx",
+      "sha256": "f463593c7fb6da483abf61eb5ca5a7ecb69b7ad8e01725e5138993ecd10f6105"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/place-contact-details.tsx",
+      "destination": "admin-dashboard/public-site/src/components/place-contact-details.tsx",
+      "sha256": "4b2920d76e85efe820e01ad5c5784a64b5e648919302ccdaadd38f8ea915293e"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/useful-summary-guide.module.css",
+      "destination": "admin-dashboard/public-site/src/components/useful-summary-guide.module.css",
+      "sha256": "27f8b0347d465c76b4960f06de244816cdb521f4d989ae139788e7e6ad32eb15"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/theme-toggle.tsx",
+      "destination": "admin-dashboard/public-site/src/components/theme-toggle.tsx",
+      "sha256": "7ad6c1c1ffdf4ed0d7d7311e9fc859310dede535c59fe76c97500f42207dbf96"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/copy-text-button.tsx",
+      "destination": "admin-dashboard/public-site/src/components/copy-text-button.tsx",
+      "sha256": "9f27c41086894724977c8aa7b4fcaacf50a70cd891f623016eee078433e4e50e"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/nl-entity-card.tsx",
+      "destination": "admin-dashboard/public-site/src/components/nl-entity-card.tsx",
+      "sha256": "7933b3e67251a0c0e7ae5b5580a064df0632de324c1766d7a26da4797e165353"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/components/journey-explorer.tsx",
+      "destination": "admin-dashboard/public-site/src/components/journey-explorer.tsx",
+      "sha256": "636a990674f4937f7c6f2ccf7ecec6656ef67c992134d6648085d5ee11740d41"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/business/application.ts",
+      "destination": "admin-dashboard/public-site/src/lib/business/application.ts",
+      "sha256": "476989fe1d5e05aa6b019cbc4cddb12114fcba6d5be9a00ee3e7c1e8075dd17f"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/content/governance.ts",
+      "destination": "admin-dashboard/public-site/src/lib/content/governance.ts",
+      "sha256": "291fa8525c866c60b7fb41664093b55f1b4095938ab5993b46aa0193481114d2"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/content/place-details.d.mts",
+      "destination": "admin-dashboard/public-site/src/lib/content/place-details.d.mts",
+      "sha256": "00d8089fccae099736ea2798a2a18ef1dd6917a02ea8f2aa0057456ca2f4e39e"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/content/place-details.mjs",
+      "destination": "admin-dashboard/public-site/src/lib/content/place-details.mjs",
+      "sha256": "ce25ec0dbdbdb0ad56c697f6ae1e187f0a0c20af9ecc5f144f52e4858152a3b4"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/content/types.ts",
+      "destination": "admin-dashboard/public-site/src/lib/content/types.ts",
+      "sha256": "388843f3c0185e6eb2dcc4850e2fe71f0938f482a49876c4a713d391590903ae"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/feedback/submission.ts",
+      "destination": "admin-dashboard/public-site/src/lib/feedback/submission.ts",
+      "sha256": "794388919f0c2b6c6760fba511b9e594c514765f4c7c20369455f873e71778d8"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/search/rank.ts",
+      "destination": "admin-dashboard/public-site/src/lib/search/rank.ts",
+      "sha256": "08fd829e3d80449cb886662c41532926aaabc929c308330feae6264e3bfa2586"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/search/sort.ts",
+      "destination": "admin-dashboard/public-site/src/lib/search/sort.ts",
+      "sha256": "092fe5eab1c5398a0986c58e5d77bc38e57f261720bab16f78ccdf4ae9e8da2d"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/search/geography.ts",
+      "destination": "admin-dashboard/public-site/src/lib/search/geography.ts",
+      "sha256": "ea814f7be5cb8929b6dbfe666e9df78d398419f428401a3c65fe5cf40bba4673"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/search/language-handoff.ts",
+      "destination": "admin-dashboard/public-site/src/lib/search/language-handoff.ts",
+      "sha256": "e46f49ed719f32e0035de9f4655ce2169fe3e02169eb5d9bdee4c6686ad26c71"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/map/city-options.ts",
+      "destination": "admin-dashboard/public-site/src/lib/map/city-options.ts",
+      "sha256": "ddc0280abd56c32b0b31e2a585f9dfc858c3466a477163b293856e07e62eb038"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/i18n/routes.ts",
+      "destination": "admin-dashboard/public-site/src/lib/i18n/routes.ts",
+      "sha256": "b9a3b86e299c5e3f1dbc8fdf06d45006bac15376f6a37096e595ae0bd8fdcecc"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/i18n/nl.ts",
+      "destination": "admin-dashboard/public-site/src/lib/i18n/nl.ts",
+      "sha256": "eaa6b943a988642f066f606a006fb3684f4e68074ed4d6802e617f83fb9d0fbf"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/seo/metadata.ts",
+      "destination": "admin-dashboard/public-site/src/lib/seo/metadata.ts",
+      "sha256": "b62b3b5fa9b76288110063cd1eb96e5947be76936587f7ffcfb1a3e260e93355"
+    },
+    {
+      "source": "content-20261109/source/admin-dashboard/public-site/src/lib/analytics/client.ts",
+      "destination": "admin-dashboard/public-site/src/lib/analytics/client.ts",
+      "sha256": "9e42a67f07878a8e0ba94a7b831c139bc0769a8076ad4a02d4b56a1c8e95a792"
+    },
+    {
+      "source": "content-20261109/source/scripts/import-data-project.py",
+      "destination": "scripts/import-data-project.py",
+      "sha256": "aeeda40412353c6859fc899e172305fead480208b3e797cf21f2204d274ad55f"
+    },
+    {
+      "source": "content-20261109/source/hostinger/forms/sync-config.example.php",
+      "destination": "hostinger/forms/sync-config.example.php",
+      "sha256": "ad4f9f135b166f69bc8021086fa59bacd8115e883bd78fb333f8ae7c388d9aeb"
+    },
+    {
+      "source": "content-20261109/source/hostinger/forms/service.php",
+      "destination": "hostinger/forms/service.php",
+      "sha256": "020b43101386f21e1dc8e3e54012723463a807e6865265c21aca2c5758ab9e58"
+    },
+    {
+      "source": "content-20261109/source/hostinger/forms/tests.php",
+      "destination": "hostinger/forms/tests.php",
+      "sha256": "e8fbf1d398534da3c921c3cda4f2f38591e7b9d07ce5804e555bf75236ff5d47"
+    },
+    {
+      "source": "content-20261109/source/hostinger/forms/README.md",
+      "destination": "hostinger/forms/README.md",
+      "sha256": "ad2c0cb89f3905b9067dac64db78503adc7da032c15c15b46e118925ee8472f2"
+    },
+    {
+      "source": "content-20261109/source/hostinger/forms/sync.php",
+      "destination": "hostinger/forms/sync.php",
+      "sha256": "396a5cecff2c0540b5183385364f193538fb29ea25d22a9888abcb9c5588d7c5"
+    },
+    {
+      "source": "content-20261109/source/hostinger/forms/.htaccess",
+      "destination": "hostinger/forms/.htaccess",
+      "sha256": "fa28d421a28ed9b6f4b997d5119c2b8adbacff6e2dd119a179b71230f9664934"
+    },
+    {
+      "source": "content-20261109/source/hostinger/analytics/maintenance.php",
+      "destination": "hostinger/analytics/maintenance.php",
+      "sha256": "7351958d6bf506c0ab6ac6d935045c9022c72a35a4eeacd35581a60e2897ac0c"
+    },
+    {
+      "source": "content-20261109/source/hostinger/analytics/service.php",
+      "destination": "hostinger/analytics/service.php",
+      "sha256": "87f8dcd28ff9100248072b15da2abc1818c3ce0b2f52dd94c69dc11b561db518"
+    },
+    {
+      "source": "content-20261109/source/hostinger/analytics/tests.php",
+      "destination": "hostinger/analytics/tests.php",
+      "sha256": "750b700cbe9b7b30a9c94b5afd05eeed5441ffe1ca492adc8835ea5bb18b6852"
+    },
+    {
+      "source": "content-20261109/source/hostinger/analytics/README.md",
+      "destination": "hostinger/analytics/README.md",
+      "sha256": "5215d0652f941610f13ece86bd47cf2c018a7acc2e72a743798194aa885dbde6"
+    },
+    {
+      "source": "content-20261109/source/hostinger/analytics/.htaccess",
+      "destination": "hostinger/analytics/.htaccess",
+      "sha256": "fa28d421a28ed9b6f4b997d5119c2b8adbacff6e2dd119a179b71230f9664934"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/pnpm-lock.yaml",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/pnpm-lock.yaml",
+      "sha256": "d4dd882b3e94af36820a904a4af81dc85c04c0f92457c85acefec32259df3d23"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/postcss.config.mjs",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/postcss.config.mjs",
+      "sha256": "2147573f4053310e348ad9d722882426c884376f42a354daea89bcd663b33b25"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/next-env.d.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/next-env.d.ts",
+      "sha256": "85ae5aee75f011967cf2d25cbc342f62d69314e9d925f7f4aa3456fc2cffcca6"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/tailwind.config.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/tailwind.config.ts",
+      "sha256": "37be81295754dc27ef1c3c4a3492cf2db9a87696978fe1339c6a89885c564054"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/package.json",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/package.json",
+      "sha256": "3e19cfa29a68c730d0e87e3ce7e1dfa19a4431b5f614ae2b02111b27a894e472"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/components.json",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/components.json",
+      "sha256": "fcef6c78d4b9e1550dba3b62ef6e777e9843bd26785f8d910f82f1f439881512"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/tsconfig.json",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/tsconfig.json",
+      "sha256": "8eb294bba1adcc00e55213544faef76f9486474b3f510f0f29109d1282cb6d53"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/eslint.config.mjs",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/eslint.config.mjs",
+      "sha256": "7dc9019d23c31250975f864b73a026bd61d47ee07fd951db0a5f4d35b55e9bf4"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/next.config.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/next.config.ts",
+      "sha256": "c9a5da469511f0fc1e7dc5dc98a2bd8d63fcdf1e278e0b4177933cb8d6cb5850"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/pnpm-workspace.yaml",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/pnpm-workspace.yaml",
+      "sha256": "0e16103a7ac62225434200243fd665273f6a395df23f67e224da022af5373b09"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/scripts/r4-migrate.mjs",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/scripts/r4-migrate.mjs",
+      "sha256": "f7d6fa699a62c572b461559385b461b3bdff9a24fa49432558af5ad3e90465b1"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/scripts/r4-seed-objects.mjs",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/scripts/r4-seed-objects.mjs",
+      "sha256": "c1cab861b1c5ffb418bbb82198fca8951441a8b8b112f095ecfa0522e4b50d81"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/scripts/r4-seed.mjs",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/scripts/r4-seed.mjs",
+      "sha256": "90a60a191ae4b368c3a892edcdb469f498e76b3637bcb0881a1ffda03075e111"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/scripts/integration-seed.mjs",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/scripts/integration-seed.mjs",
+      "sha256": "429019219cd961f71a651537367b0ef6a751847aef381ca0425849c9acb441ca"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/middleware.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/middleware.ts",
+      "sha256": "cf9bff3243f0e777c5ce1441b6f0cd5d423bd3a0b49c4b1fa25c80b498c6d77a"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/generated/governed-runtime-manifest.json",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/generated/governed-runtime-manifest.json",
+      "sha256": "144cdb12918bc4e675df731303a37c41fe436bfc6bede91b889ae89b2bc1eff3"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/generated/release-readiness.json",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/generated/release-readiness.json",
+      "sha256": "5626d99f4de93f5e4762170bda609a24356dc212a815c217d140c7c9bac5736d"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/generated/canonical-official-links.json",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/generated/canonical-official-links.json",
+      "sha256": "f335c9ffe4a4536f6cde232b5cdeca8e0dd41e5c34c76d4c67ff85bacbfb8456"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/generated/data-project-dashboard.json",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/generated/data-project-dashboard.json",
+      "sha256": "e9b4f2a6e1755833f92a8c0b6f8654d30654d075f716516e8645d2c41aa877f5"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/generated/canonical-map-points.json",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/generated/canonical-map-points.json",
+      "sha256": "7efdddd16407948b169b8ac4ff3edfb30764872beb8734dd404cae708211599b"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/generated/trust-dashboard.json",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/generated/trust-dashboard.json",
+      "sha256": "962977d8d24d368531ffe1dbe221e86ff848ecb67797d0e73b28af9e4fb98ac2"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/generated/release-truth.json",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/generated/release-truth.json",
+      "sha256": "bda13371e67b1008408553ebc1ed880a728f34e8a30ecc3ac96aa126587fede5"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/generated/governed-runtime.json",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/generated/governed-runtime.json",
+      "sha256": "fae92bbb28d19e40530571bfd6d67ae6b344c938b39da02b0647e7e7537695f2"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/layout.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/layout.tsx",
+      "sha256": "69a5de91f7674e0e44e3e0911d93dedfb2c94149007b9ea53fd31e8b8243ebde"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/page.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/page.tsx",
+      "sha256": "966501c70b46087364c60d57a749124b19e5b32413c51c3935842c45fa6e6221"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/globals.css",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/globals.css",
+      "sha256": "828f9012c69721c69c5f1c633768722c15e176b5c4464c7df03ae153595cce4d"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/api/r4/[...path]/route.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/api/r4/[...path]/route.ts",
+      "sha256": "0cca4a6dec16f35afc1d923bc20ed323b8617b99eba739b26e900f8d07a09727"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/(auth)/login/actions.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/(auth)/login/actions.ts",
+      "sha256": "80a5a09d79eb12479a4295e3d728806508b7268b33a1b2a55192e14f05f46c2b"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/(auth)/login/page.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/(auth)/login/page.tsx",
+      "sha256": "3a102ae672b114a43c4f4b6ff80340b9cd476f854c7dbb5ee29363cc0d3f6708"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/(admin)/layout.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/(admin)/layout.tsx",
+      "sha256": "98c740d436163dd4257e9daece74900dc21cde5172dc234a96e7c9a909db9d66"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/(admin)/[...unported]/page.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/(admin)/[...unported]/page.tsx",
+      "sha256": "fe424ff270a88c15db2968ec4cb8da77cbdbe0c7266fd0256a4aee6272279eed"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/(admin)/business-inquiries/actions.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/(admin)/business-inquiries/actions.ts",
+      "sha256": "4683b3a756fb46c333e2ccbcb7a6de7e6f439bd3ba7544869bf6217eca9e5402"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/(admin)/business-inquiries/page.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/(admin)/business-inquiries/page.tsx",
+      "sha256": "b88582b3c5bc46876db4febb0aba00c8ff3001164a7f5190f3f617585f83a7ac"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/(admin)/business-inquiries/export/route.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/(admin)/business-inquiries/export/route.ts",
+      "sha256": "5c6c845acf4debbd98b7aff4dfcff7b64cd44bb96aaa0b175faa7a67e50d2d18"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/(admin)/business-inquiries/[id]/page.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/(admin)/business-inquiries/[id]/page.tsx",
+      "sha256": "9b8284e4d4c0eddaedfbc231687867a7ff990a3ee30f7a8514c3c974ce98672b"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/(admin)/content/page.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/(admin)/content/page.tsx",
+      "sha256": "dc2206567fd0f52af79ecf5221d3ce8dd076f5ec6c4e9558b41015a040238f78"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/app/(admin)/dashboard/page.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/app/(admin)/dashboard/page.tsx",
+      "sha256": "eb8014c6a066d476803a6cd5874e63c6f0fadba7448e7e68d8a7fdff9178ad4d"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/ui/tabs.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/ui/tabs.tsx",
+      "sha256": "a76ab3dd85edc53c061f570d59ddf7676df59c6934fcfc687524eb047824cf10"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/ui/card.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/ui/card.tsx",
+      "sha256": "1a2abfff9e80f41d95ab90971a813cad2ac80bf483a49f258f490af35ef9a610"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/ui/label.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/ui/label.tsx",
+      "sha256": "24b68799fb35f38378619108938e9b1e7c89b153c18a833561e696954818e1e4"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/ui/badge.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/ui/badge.tsx",
+      "sha256": "470befd0fc29d1b894b22e1b0e03ffe85375e405a92adc7bbecaa1c8a2dbaef7"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/ui/separator.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/ui/separator.tsx",
+      "sha256": "e8a5555047f17edb3dbe657b8fc6f18053031eeb4f3c9def338547dfdd671336"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/ui/button.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/ui/button.tsx",
+      "sha256": "5cf8cdb04bde94a8c9cfbafcefc018cc41d2cbc9b4f8ab43759ff01a88c71fe4"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/ui/select.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/ui/select.tsx",
+      "sha256": "d000de7aec33a3905df00264c9d134df7b031e6c58304b01c147c01e6cc93ead"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/ui/textarea.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/ui/textarea.tsx",
+      "sha256": "484eff403664b5cc1c78ef5169b55e155528a4d606128e8dd8a514f0b63e11f6"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/ui/input.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/ui/input.tsx",
+      "sha256": "b7a3d517a24ce7762e51c28b3e87692890c8f630d41b18166a31cd488a89f494"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/nav.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/nav.tsx",
+      "sha256": "c85c1c07b6d49dd3d2f6b5d6cd5a86de9a683cade1827af1a59dc7dc45ad6a77"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/release-readiness-overview.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/release-readiness-overview.tsx",
+      "sha256": "5d9eb061fd8202ac1dea3b4c79ff5cac04c87afadc199ff81bf7afdbab52e92d"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/catalog-editor.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/catalog-editor.tsx",
+      "sha256": "0efdae9cf42b78e98bce44dca88a00ec2a6d844a6938d6cd4d1519bd7bd48ed0"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/settings-form.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/settings-form.tsx",
+      "sha256": "14404d521b2a7fa546fc27bf2fd270f933f2b94d16b865c1a11ec9612468ef92"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/category-manager.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/category-manager.tsx",
+      "sha256": "95f60ad657652bc227d4a11c2675161e6d4304c4648d1e654d0da6d5c434258f"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/topbar.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/topbar.tsx",
+      "sha256": "6c60808744aa2ce3007460a8a5e190ed1a7253c1e08bd57d697c7ff30e873505"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/analytics-trend-chart.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/analytics-trend-chart.tsx",
+      "sha256": "dfc1438918b5518ed716dcfdb758c1455bf9b66ec39a50162ee17575d9c722f7"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/map-point-manager.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/map-point-manager.tsx",
+      "sha256": "b669dd13f871830c9f36fea526432293fe2491bd0c50fbd9445b4cb0dc731668"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/links-manager.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/links-manager.tsx",
+      "sha256": "d5e9910bc16de6c0e0ec7100bdfaf195003d662811f4551b298ab6bf60da360e"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/analytics-visuals.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/analytics-visuals.tsx",
+      "sha256": "4f6af7fdc8eee8cdb9580eae8ddd0946db0bea29ceb3c84800a0a1c53d4517be"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/content-image-uploader.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/content-image-uploader.tsx",
+      "sha256": "d0c5a2d90299f7adbe9b82411ab6d8d97470aa186fcfc63690574fa712ba5122"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/sync-request-panel.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/sync-request-panel.tsx",
+      "sha256": "bdc60a9cbc9d38e331ea6d183f3a80db7303802b97d5b95ae2aaf2042dfdb143"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/feedback-manager.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/feedback-manager.tsx",
+      "sha256": "9d5167aa6d2f060b49504c6c609ad76436bfcf74db967e28ac9422546ec8c29f"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/business-inquiry-notification-inbox.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/business-inquiry-notification-inbox.tsx",
+      "sha256": "2997f8877a97af184ab88fc864daf9d46372781b06dffff48bad0b4101705e12"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/route-launcher.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/route-launcher.tsx",
+      "sha256": "9d003e5a51787d347e68c0786f72686c7c28a4590811408670db4b8dba1d29de"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/crud-table.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/crud-table.tsx",
+      "sha256": "484aa7acd1e8fb359914451d3f50c11ee61fdddad44c8b67839208be8a8b7ee9"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/read-only-source.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/read-only-source.tsx",
+      "sha256": "b5539cb10c00a85578c8d83e00a774f121bbca9ab9ec517fe7954adffba1d4b9"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/trust-workflow.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/trust-workflow.tsx",
+      "sha256": "5cb717920b3cbc914f21a9cfeda89b57379f56d8ce9278497f835676f3400d62"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/city-manager.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/city-manager.tsx",
+      "sha256": "775147051cbe81698c56a04e06f6a40eec921abc53841be63109d07965abe603"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/visual-qa-manager.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/visual-qa-manager.tsx",
+      "sha256": "52021e91d1331360c9c85ea4d348ae8a5cb49b9ac542f4349e46e9a26ec1ba80"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/content-manager.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/content-manager.tsx",
+      "sha256": "da4bd3b443cd7d6a1cbc3ece3457268cc06b747e28379dbc5e8d5579e7901ae7"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/business-inquiry-editor.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/business-inquiry-editor.tsx",
+      "sha256": "2b16a5988b24b05cbf7443cf681ec76161663bb0ae387df4046d7f6b966e4864"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/logo.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/logo.tsx",
+      "sha256": "eb5ea80ff7bc553cca7fa24c6fae0db7152e6c1f337091b806afc9abea99d7fe"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/bug-manager.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/bug-manager.tsx",
+      "sha256": "4c11486f79d3065c5d25fd8727208d75afc117b09267a054d35f7103a80d02a6"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/page-header.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/page-header.tsx",
+      "sha256": "bd32a4b80739450a21959508bd743a6bde2ee38fcbddd273b8bc69a26d3b421d"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/analytics-auto-refresh.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/analytics-auto-refresh.tsx",
+      "sha256": "23a18853a33e8d3a2350ff7eac98a852e13c458bf1b73b6852e87b5ecba7f7f2"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/catalog-preview.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/catalog-preview.tsx",
+      "sha256": "871bd62a26530c6921d7642b51fedb45900a49c8e2361fe053cefb47030241b5"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/business-inquiry-list.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/business-inquiry-list.tsx",
+      "sha256": "92a41f31dbe58aa6435fe6973dfe80f369b028e8251ba8ef1a108cc4897667e3"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/stat-card.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/stat-card.tsx",
+      "sha256": "c1706cc839f9cdc2189ac9b0462e134f5243f2b72921fd947d45d42a32ed2890"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/components/admin/admin-shell.tsx",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/components/admin/admin-shell.tsx",
+      "sha256": "03a4823d3c39689637ede3e47176f15cb1ce559007380a91780e917f88fad748"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/governance.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/governance.ts",
+      "sha256": "4201afe8d0c2303369727a8dbd9265acdfa40dfa55d2dde6ff7ee1d6cccff4a5"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/data.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/data.ts",
+      "sha256": "18d302681dc7580ef73f0c3fba074ed95e271aafff1d0dd3584d4eb8c732354f"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/visual-qa.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/visual-qa.ts",
+      "sha256": "3c1590d4bb3001859847088286b4936e5d0d00ae69f7590df856db485a2e9a1d"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/official-link-health.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/official-link-health.ts",
+      "sha256": "ebc789539179e200c95773620ddfef21a0baa47feb2c791efb34ef60b19e3bbd"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/mobile-sync.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/mobile-sync.ts",
+      "sha256": "c973de2dc3dacf3d40a0dc12ab3a1fabc5f12cd667e19bfc9a6c1568d8ca3ed9"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/admin-settings.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/admin-settings.ts",
+      "sha256": "6724f6754d0e31984765c51955d99013c23a07e16351ed2c64b4e53ec70c513b"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/official-link-check.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/official-link-check.ts",
+      "sha256": "eba561fb218dee27be5ed33e0cc7989c8647050b5e698d6c8d0f4d18c3c33cdb"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/trust-workflow.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/trust-workflow.ts",
+      "sha256": "ef1dc30cd74139b0148339fc59fc55d393a93f93b91713fd855c7d9b5565442b"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/content-sync-feed.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/content-sync-feed.ts",
+      "sha256": "56702a83d6d35cd0c68679a7f537133a12e2a1caaf746d8c43d8d07a5f687a81"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/cities.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/cities.ts",
+      "sha256": "6aaacaba545e249ab57314c6b222660939c7095c96bd5eb906ce131e1dc3c20b"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/business-inquiry-pipeline.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/business-inquiry-pipeline.ts",
+      "sha256": "5229422aa322d2ea564b4bac9d4aa27484fdfa927227a047c65ae7cee24e7ee4"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/security-policy.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/security-policy.ts",
+      "sha256": "6d3ecc5995c6829faa5b166a805df49328ffd7eefe93cef4c0f009caedead1df"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/official-link-workflow.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/official-link-workflow.ts",
+      "sha256": "c4195405c32a2300fe86e51ab17bb1b54e4cfb30b5c268e20c6934f66412b0e8"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/public-api.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/public-api.ts",
+      "sha256": "b45c086517943e6192e4b4e275529d54e2abcf566b0e5c3b11622e5d2cd63358"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/map-points.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/map-points.ts",
+      "sha256": "63c056306dc3a4974c5d4939697d52e0cdddfa6c39db1f0dbb259f9bba12b23d"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/business-inquiry-export.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/business-inquiry-export.ts",
+      "sha256": "33bec7fcd808bcdd72a3b7bd061984f0278575af4e2cb8a2de4f84411b147a23"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/utils.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/utils.ts",
+      "sha256": "486657be87dec913af694df6913901d99eb8e183ff91ba1fb257b12795e1ea2d"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/content-images.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/content-images.ts",
+      "sha256": "c84ab9463a86c91bd93a5a7decd25a988208b5d5040982c70212832f007b1df7"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/bugs.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/bugs.ts",
+      "sha256": "110e2e3116ea8da21299cbabee1a4e3e94174c58f5920ebe09cb86d21d415040"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/authorization.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/authorization.ts",
+      "sha256": "3c0e1fc559ea52df6be07c74045e368bdbacd41a1cf161a491c1a11357a7bf46"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/sync-workflow.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/sync-workflow.ts",
+      "sha256": "501074567b5b4c638b8363526b91050fdbcaeaeb3df595cb1a283a8024fad3d1"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/canonical-admin-data.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/canonical-admin-data.ts",
+      "sha256": "19d121e40514cc5a45bfbe785e245a1c5765116554ccd62945ad1e12e2de0f77"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/business-inquiry-compatibility.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/business-inquiry-compatibility.ts",
+      "sha256": "4f59e71ecfdac0a3d2756fc249e2d655f71ce835eef2d86318e3088a926a386d"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/feedback.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/feedback.ts",
+      "sha256": "a225702abf340cdc38f63c90724f6fa2e0d5f99462e4d3852afd21828edaf5cc"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/categories.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/categories.ts",
+      "sha256": "09106d142860c86d40dcdd05ca1a848e2aa419a1e76958349e5369a7c5c84f54"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/business-inquiry-admin.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/business-inquiry-admin.ts",
+      "sha256": "036ed279d1dbc7ae8b35baa53d3f60e07e5a3a076d8c20bc324ed546e2819f5d"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/auth.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/auth.ts",
+      "sha256": "ecde1868272ccfbe02cd80f9bf0abbd3d8c82ccff2d6daff8c5cd4c47b182fb4"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/release-truth/static.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/release-truth/static.ts",
+      "sha256": "6b2d9e63d7cc18d8181e176ab3e6f1c1fd61acd574329486b30b6ddb93f8616a"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/release-truth/types.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/release-truth/types.ts",
+      "sha256": "1c41c176c5e00fbb392618516bcf1cdf05eb3b503b7b7292bf92a686deddffe9"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/release-truth/operational.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/release-truth/operational.ts",
+      "sha256": "23516bd64648084cd71b3a37a0c538901ffaaa30303eab70cebbf5518e517b0a"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/release-truth/operational-classification.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/release-truth/operational-classification.ts",
+      "sha256": "31681ee7acb510d5c4e5cf1972c5243801cdfab178e7198b9842f711d0a8441c"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/supabase/admin.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/supabase/admin.ts",
+      "sha256": "2244187c61713b1f80eab66d15512df3cafdb594c789d1189fafbc74ce2979f0"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/supabase/client.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/supabase/client.ts",
+      "sha256": "12802487b575f2ecd91a9d67a0f08abef670b519820efcd971d61670a3305fad"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/supabase/content-image-storage.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/supabase/content-image-storage.ts",
+      "sha256": "111af0eae9ab1c2c9445c05d6ceb1ad2a0c0dd50230c9445b9dfb1dd18b4de98"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/supabase/server.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/supabase/server.ts",
+      "sha256": "c44b139024e25f320cc745e49c8f7c13d28c02c1c3edb849d2e6e6a973bfde68"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/finance/report.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/finance/report.ts",
+      "sha256": "2fbea5038c149d805668b958b74ffa528cc1791d59f263bcca2409b0a4fdaa9c"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/finance/load.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/finance/load.ts",
+      "sha256": "558f435c8ca805db6f1102d60fb526ea43498621043c07fe80e2fb3b85f0093d"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/r4/repository.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/r4/repository.ts",
+      "sha256": "6f2badc048c34da31e5935455783a226a8a72fc1c0f93433ff5766ec952570d1"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/r4/publication.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/r4/publication.ts",
+      "sha256": "3ad8cede5a8a7b3b8c41535ab87d40963bec4ee8d0634407a73bf8fdfce24c1b"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/r4/payload.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/r4/payload.ts",
+      "sha256": "fc7e7efc28811497c9803440597511ee5ab4e8533576ad1ae81579d7c0123f93"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/r4/security.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/r4/security.ts",
+      "sha256": "6ca19b0ce56155355c27b275392498fb3086f1685bff18f1e146c7aef4fca41a"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/r4/files.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/r4/files.ts",
+      "sha256": "73b43f75359cfba76ea8f0e139c27772ed89498f19a3bc56c6e68ec00ce31680"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/r4/db.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/r4/db.ts",
+      "sha256": "b9528299f593b38df35f1d46a87a5f27c386a4a51d4876ba5583b3fb8a27b1e1"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/r4/ingest.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/r4/ingest.ts",
+      "sha256": "baf67583610c9c5e3f34f76a15a124369694b16ea180813e7f4c1b26fa907ea7"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/r4/catalog.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/r4/catalog.ts",
+      "sha256": "5497cd0fe83d38238e043e1a6337eafb449c7b9ef1f55423cea8f8529c689e99"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/analytics/insights.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/analytics/insights.ts",
+      "sha256": "96d72c9e3f904b0e18fdeaf7b7561a277514aefce19d87f4e52b9c9c09091aae"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/analytics/dashboard.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/analytics/dashboard.ts",
+      "sha256": "7cc104bdfd600d8bc7c8206cd08cd99a0c7820196909c098f13cf0f3230c8a75"
+    },
+    {
+      "source": "content-20261109/work/backend/source/admin-dashboard/src/lib/analytics/launch-scorecard.ts",
+      "destination": "hostinger/runtime/backend/source/admin-dashboard/src/lib/analytics/launch-scorecard.ts",
+      "sha256": "5adb72de1628324d3409e80d70f97e9a7c9facfc77ced59d96d9b2cd854081a4"
+    },
+    {
+      "source": "content-20261109/work/backend/tests/server-actions-http.py",
+      "destination": "hostinger/runtime/backend/tests/server-actions-http.py",
+      "sha256": "f9b7b56ea6f6a08e448dd59aa7feebeb0298132dcabc3ede7c5fc4057e32ab79"
+    },
+    {
+      "source": "content-20261109/work/backend/tests/unified-router.py",
+      "destination": "hostinger/runtime/backend/tests/unified-router.py",
+      "sha256": "03c9c23f3feacf20f04b4446ed6f6617800c8b2ad8b5cae15942c376f90f7074"
+    },
+    {
+      "source": "content-20261109/work/backend/tests/business.json",
+      "destination": "hostinger/runtime/backend/tests/business.json",
+      "sha256": "bca72040d9dac91fca5e60505e5e128ac5529266199868f3fa41987b56fa21f4"
+    },
+    {
+      "source": "content-20261109/work/backend/tests/delivery-http.py",
+      "destination": "hostinger/runtime/backend/tests/delivery-http.py",
+      "sha256": "23fea9a8b4fcf646ec5f1b4bfaa740d012b06ede73b5ea113f81553a6bf4dd53"
+    },
+    {
+      "source": "content-20261109/work/backend/tests/form-origin-http.py",
+      "destination": "hostinger/runtime/backend/tests/form-origin-http.py",
+      "sha256": "357e55a7e6c4d136bc7c9e0ae2967fe4f210df0064a12d9e05a32c1616c8493c"
+    },
+    {
+      "source": "content-20261109/work/backend/tests/security-http.py",
+      "destination": "hostinger/runtime/backend/tests/security-http.py",
+      "sha256": "83bf185ae00437d3c02d8e9669716a563f042604eba84a3a3e2ba7eaf962587b"
+    },
+    {
+      "source": "content-20261109/work/backend/tests/sql-compat-probe.mjs",
+      "destination": "hostinger/runtime/backend/tests/sql-compat-probe.mjs",
+      "sha256": "925d043a349d49ec4c86ac77500090b2aed535319d05ae9e4f6331bdb95671b9"
+    },
+    {
+      "source": "content-20261109/work/backend/tests/catalog-http.py",
+      "destination": "hostinger/runtime/backend/tests/catalog-http.py",
+      "sha256": "f4d7b242b3c0de387a2856c0569ccce455f5be3ed932f3a23b888c3d4ed2b8e0"
+    },
+    {
+      "source": "content-20261109/work/backend/tests/catalog-withdraw.py",
+      "destination": "hostinger/runtime/backend/tests/catalog-withdraw.py",
+      "sha256": "f15a015c8e590c3cac4aade9b70de499110a396b231a233ae0466abf858b22cb"
+    },
+    {
+      "source": "content-20261109/work/backend/tools/local-bootstrap.py",
+      "destination": "hostinger/runtime/backend/tools/local-bootstrap.py",
+      "sha256": "2882d78d2e4d6ec1a0c7bbba56fe78ffc32756846d42cb90f6947f3929e1dc04"
+    },
+    {
+      "source": "content-20261109/work/backend/tools/run-local.py",
+      "destination": "hostinger/runtime/backend/tools/run-local.py",
+      "sha256": "0612ed0be19122cc1aa10976a535801ad668e1b4ded400bb8ea70fa112ea4119"
+    },
+    {
+      "source": "content-20261109/work/backend/tools/accept-local.py",
+      "destination": "hostinger/runtime/backend/tools/accept-local.py",
+      "sha256": "d644fccf60eb92cb053e424a8bd99e742de212989cdb4c48c22e3fa6afb17560"
+    },
+    {
+      "source": "content-20261109/work/backend/tools/restrict-local.py",
+      "destination": "hostinger/runtime/backend/tools/restrict-local.py",
+      "sha256": "c9b003b7e74b787c56c742d75fec73cfd0b6d419240b247116d549797de71c36"
+    },
+    {
+      "source": "content-20261109/work/tests/remaining-checks.mjs",
+      "destination": "hostinger/runtime/tests/remaining-checks.mjs",
+      "sha256": "e95397981614b9ec8fe169017dcca318dcdf0d302910b668807314a547a298e2"
+    },
+    {
+      "source": "content-20261109/work/tests/db-session.mjs",
+      "destination": "hostinger/runtime/tests/db-session.mjs",
+      "sha256": "ddaed3cd25ab6361c885cfd1940400e7d76239577e02158b466507216e750c9b"
+    },
+    {
+      "source": "content-20261109/work/tests/resume-publication.py",
+      "destination": "hostinger/runtime/tests/resume-publication.py",
+      "sha256": "a8db3b7a31702f0c5400dd96b08c122262a4bc79270304abb0c50e8228313454"
+    },
+    {
+      "source": "content-20261109/work/tests/static-serving.py",
+      "destination": "hostinger/runtime/tests/static-serving.py",
+      "sha256": "b56eaa012efd3fdeaae552decc96650f1bfb5bbbc45e1a313106d1da0e2cf5d3"
+    },
+    {
+      "source": "content-20261109/work/tests/publication.py",
+      "destination": "hostinger/runtime/tests/publication.py",
+      "sha256": "8b897076ccc61dd2187d8488b022fe4a6d3c6173a4061c67576a1590bac68a26"
+    },
+    {
+      "source": "content-20261109/work/tools/start-local.py",
+      "destination": "hostinger/runtime/tools/start-local.py",
+      "sha256": "57710ebfd44c7092c5af719a34ac99ff536f9742e211d8b2385ffb7a586e9d68"
+    },
+    {
+      "source": "content-20261109/work/tools/export-approved.mjs",
+      "destination": "hostinger/runtime/tools/export-approved.mjs",
+      "sha256": "31ac8f356132459b341a950c96dda904bf21c0b70c2f69150f8e49352cb47dec"
+    },
+    {
+      "source": "content-20261109/work/tools/publish-catalog.mjs",
+      "destination": "hostinger/runtime/tools/publish-catalog.mjs",
+      "sha256": "68b4e0f9fa5887dba9c4c7d23764ca7c194742819d7ebcb77ae982465892619d"
+    },
+    {
+      "source": "content-20261109/work/tools/integration-router.php",
+      "destination": "hostinger/runtime/tools/integration-router.php",
+      "sha256": "386fcd407aeeb099128754cfc112585e983737d7da95f4a3edab93b78f6d0317"
+    },
+    {
+      "source": "content-20261109/work/tools/check-integrated.mjs",
+      "destination": "hostinger/runtime/tools/check-integrated.mjs",
+      "sha256": "e5ea54ba456abc186384472e6eff3d83d794b908a652dda71ba158fdaeb55a8e"
+    },
+    {
+      "source": "content-20261109/work/tools/build-web.sh",
+      "destination": "hostinger/runtime/tools/build-web.sh",
+      "sha256": "9dc6d9ca006fd854552d6d97f46f00388a2c9c5922a90a7faf3b6297981f6b3e"
+    },
+    {
+      "source": "content-20261109/work/tools/package-local.py",
+      "destination": "hostinger/runtime/tools/package-local.py",
+      "sha256": "f9b8a381062bbc1772b589b13633a4241f32ce8629ab503b768a7a360c3dadbd"
+    },
+    {
+      "source": "content-20261109/backend/db/migrations/0002_catalog.sql",
+      "destination": "hostinger/runtime/backend/db/migrations/0002_catalog.sql",
+      "sha256": "b7815468c13ef3ffc06a148c4554ef711ae67ab5e0ef956ee6139aa61114883a"
+    },
+    {
+      "source": "content-20261109/backend/db/migrations/0001_core.sql",
+      "destination": "hostinger/runtime/backend/db/migrations/0001_core.sql",
+      "sha256": "fd665c1d7275b15d74bc0c782cd6c9e7f33afdd25e13eaca42ed3c83c7f7a08d"
+    },
+    {
+      "source": "content-20261109/backend/db/catalog-drafts.json",
+      "destination": "hostinger/runtime/backend/db/catalog-drafts.json",
+      "sha256": "bf746b4f40756ad91efc391287ed54631d54b861c2534a89c4baaec1ed224361"
+    },
+    {
+      "source": "content-20261109/backend/php/public/submit-business-inquiry.php",
+      "destination": "hostinger/runtime/backend/php/public/submit-business-inquiry.php",
+      "sha256": "f067b96a1f0de7426754a92eeda288526225be5ed82fb818af0582b0e8a05ab9"
+    },
+    {
+      "source": "content-20261109/backend/php/public/api/submit-business-inquiry.php",
+      "destination": "hostinger/runtime/backend/php/public/api/submit-business-inquiry.php",
+      "sha256": "a127931b9cdf79239766663c8d224ee5dee1298b828fa86d2439f0509c954d3f"
+    },
+    {
+      "source": "content-20261109/backend/php/public/private-files.php",
+      "destination": "hostinger/runtime/backend/php/public/private-files.php",
+      "sha256": "e0b72593be72243de634d77cc00ab4081c4b20ecc2530d59108dd26b63267356"
+    },
+    {
+      "source": "content-20261109/backend/php/private/forms/service.php",
+      "destination": "hostinger/runtime/backend/php/private/forms/service.php",
+      "sha256": "f657c41e33baf520d8cd609e09e5d3aedf6590af90ef81d3326f8dbb6c462428"
+    },
+    {
+      "source": "content-20261109/backend/php/private/forms/sync.php",
+      "destination": "hostinger/runtime/backend/php/private/forms/sync.php",
+      "sha256": "3c227a1898f535c66e0b2f06a3985a4a6d07e0960563429e62cf814daa3ec720"
+    },
+    {
+      "source": "hostprep-20261103/deployment/package.py",
+      "destination": "hostinger/deployment/package.py",
+      "sha256": "c2697e0830fd0bed2ef75ef32004af16dbacbfbd8f7c18fcf9468d2e7ef230fa"
+    },
+    {
+      "source": "hostprep-20261103/deployment/php-preflight.php",
+      "destination": "hostinger/deployment/php-preflight.php",
+      "sha256": "d8c8d0a55eed6b280cd253be1b98640a7ee18d1be1e1c0056d22e52c4d72e6fe"
+    },
+    {
+      "source": "hostprep-20261103/deployment/origins.php.example",
+      "destination": "hostinger/deployment/origins.php.example",
+      "sha256": "50d9a5850ceac27d2f9add54199715395002114fe93810f6c326e8401cebee62"
+    },
+    {
+      "source": "hostprep-20261103/deployment/cron-catalog.sh",
+      "destination": "hostinger/deployment/cron-catalog.sh",
+      "sha256": "9019271d55b449fe380c6a2c3b95994b325686084de234202506539092028bd5"
+    },
+    {
+      "source": "hostprep-20261103/deployment/cron-initialize.sh",
+      "destination": "hostinger/deployment/cron-initialize.sh",
+      "sha256": "f30b9ecc3e291b2250a279d7f38d72cc7e7187cb2a316a0dbb33e512ce8e697e"
+    },
+    {
+      "source": "hostprep-20261103/deployment/index.php",
+      "destination": "hostinger/deployment/index.php",
+      "sha256": "5d7b49c433a619c220689d5fa0c4412fd91572b9e29a49dd5425fe584a9b93e1"
+    },
+    {
+      "source": "hostprep-20261103/deployment/cron-business.sh",
+      "destination": "hostinger/deployment/cron-business.sh",
+      "sha256": "396ec639e31ca2b24d4305253fb58b5f6fe9db2ebfb845920eefc702a8b06920"
+    },
+    {
+      "source": "hostprep-20261103/deployment/htaccess.template",
+      "destination": "hostinger/deployment/htaccess.template",
+      "sha256": "a0c39a6daef2232a82668ccf0ea9ffbe6017c00df4b655faf812c12ec179a118"
+    },
+    {
+      "source": "hostprep-20261103/deployment/preflight.sql",
+      "destination": "hostinger/deployment/preflight.sql",
+      "sha256": "55146190abd7e290132310d8365ba14f4ce622a9659cc01322aa8487981f7377"
+    },
+    {
+      "source": "hostprep-20261103/deployment/node.env.example",
+      "destination": "hostinger/deployment/node.env.example",
+      "sha256": "5f618f21083f36974f383e0c33643e00533796567e8008de7386404763236786"
+    },
+    {
+      "source": "hostprep-20261103/deployment/init-qa.mjs",
+      "destination": "hostinger/deployment/init-qa.mjs",
+      "sha256": "737d3e6059b157924aeabfeff91c233e0edb3349dc0f7af1885dd888e8b9b926"
+    },
+    {
+      "source": "hostprep-20261103/deployment/host-preflight.mjs",
+      "destination": "hostinger/deployment/host-preflight.mjs",
+      "sha256": "86443d3cfb2182bf982fc7696e3f1601648add1ab8db6ed1fb47700fe9d70329"
+    },
+    {
+      "source": "hostprep-20261103/deployment/sync-config.php.example",
+      "destination": "hostinger/deployment/sync-config.php.example",
+      "sha256": "a4d9325294b7cde82e0699f565b1fd443f965a5d746833ca2c9f017fb5f34b5e"
+    },
+    {
+      "source": "content-20261109/SOURCES.csv",
+      "destination": "docs/content-review-2026-11-09/SOURCES.csv",
+      "sha256": "1ab37c6a96e2848c9a91449ef88f404f203f0e323afa3335140653f42a32d7f9"
+    },
+    {
+      "source": "content-20261109/MEDIA_RIGHTS.csv",
+      "destination": "docs/content-review-2026-11-09/MEDIA_RIGHTS.csv",
+      "sha256": "e8445dbee3466c6e79a2521828380dc0cf41206e581aef630152cbdb35076339"
+    },
+    {
+      "source": "content-20261109/CONTENT_INVENTORY_RU.md",
+      "destination": "docs/content-review-2026-11-09/CONTENT_INVENTORY_RU.md",
+      "sha256": "bbbf0e197ee2499e99c4d24b36e506f9e7c92f66900b87203d094f1a497567c2"
+    },
+    {
+      "source": "content-20261109/PUBLICATION_BATCH_RU.md",
+      "destination": "docs/content-review-2026-11-09/PUBLICATION_BATCH_RU.md",
+      "sha256": "83d4f945b24de58673f4663db6c75a0054496f22ed1b10356ab6456ff2cfdce8"
+    }
+  ],
+  "held_in_original_local_source": [
+    "DataProject/research/phase6-1-station-reverification.json",
+    "DataProject/research/phase5-station-confirmations.json",
+    "DataProject/staging/amsterdam-source-url-review-20260920.proposal.json",
+    "DataProject/quality/content-readiness-matrix.json",
+    "DataProject/quality/content-readiness-matrix.md",
+    "DataProject/overlays/WP-06/amsterdam-v0.1.9.json",
+    "DataProject/reports/usage-registry.json",
+    "DataProject/reports/migration-dashboard.json",
+    "DataProject/reports/data-health.json",
+    "DataProject/reports/freshness-dashboard.json",
+    "DataProject/reports/dashboard.md",
+    "DataProject/reports/observability.json",
+    "DataProject/reports/dashboard.json",
+    "DataProject/reports/source-reliability.json",
+    "DataProject/reports/observability.md",
+    "DataProject/reports/import-preview.json",
+    "DataProject/reports/release-manifests/amsterdam-v0.1.6.json",
+    "DataProject/reports/release-manifests/amsterdam-v0.1.7.json",
+    "DataProject/reports/release-manifests/cities-v0.1.0.json",
+    "DataProject/reports/release-manifests/amsterdam-v0.1.0.json",
+    "DataProject/reports/release-manifests/transport-v1.0.0.json",
+    "DataProject/reports/release-manifests/amsterdam-v0.1.1.json",
+    "DataProject/reports/release-manifests/amsterdam-v0.1.2.json",
+    "DataProject/reports/release-manifests/amsterdam-v0.1.3.json",
+    "DataProject/reports/release-manifests/healthcare-v1.0.0.json",
+    "DataProject/reports/release-manifests/amsterdam-v0.1.4.json",
+    "DataProject/reports/release-manifests/amsterdam-v0.1.8.json",
+    "DataProject/reports/release-manifests/education-v1.0.0.json",
+    "DataProject/reports/release-manifests/amsterdam-v0.1.9.json",
+    "DataProject/reports/release-manifests/housing-v1.0.0.json",
+    "DataProject/reports/release-manifests/amsterdam-v0.1.5.json",
+    "DataProject/reports/release-manifests/government-v1.0.0.json",
+    "admin-dashboard/pnpm-lock.yaml",
+    "admin-dashboard/package.json",
+    "admin-dashboard/tsconfig.json",
+    "admin-dashboard/next.config.ts",
+    "admin-dashboard/tests/business-inquiry-compatibility.test.ts",
+    "admin-dashboard/tests/supabase-contract.test.ts",
+    "admin-dashboard/tests/business-inquiry-admin-contract.test.ts",
+    "admin-dashboard/public-site/tsconfig.tsbuildinfo",
+    "admin-dashboard/public-site/public/data/integration-local-only.json",
+    "admin-dashboard/scripts/generate-release-truth.mjs",
+    "admin-dashboard/scripts/r4-migrate.mjs",
+    "admin-dashboard/scripts/r4-seed-objects.mjs",
+    "admin-dashboard/scripts/r4-seed.mjs",
+    "admin-dashboard/src/middleware.ts",
+    "admin-dashboard/src/generated/release-readiness.json",
+    "admin-dashboard/src/generated/canonical-official-links.json",
+    "admin-dashboard/src/generated/data-project-dashboard.json",
+    "admin-dashboard/src/generated/canonical-map-points.json",
+    "admin-dashboard/src/generated/trust-dashboard.json",
+    "admin-dashboard/src/generated/release-truth.json",
+    "admin-dashboard/src/app/page.tsx",
+    "admin-dashboard/src/app/api/r4/[...path]/route.ts",
+    "admin-dashboard/src/app/(auth)/login/actions.ts",
+    "admin-dashboard/src/app/(admin)/layout.tsx",
+    "admin-dashboard/src/app/(admin)/[...unported]/page.tsx",
+    "admin-dashboard/src/app/(admin)/business-inquiries/actions.ts",
+    "admin-dashboard/src/app/(admin)/business-inquiries/page.tsx",
+    "admin-dashboard/src/app/(admin)/business-inquiries/export/route.ts",
+    "admin-dashboard/src/app/(admin)/business-inquiries/[id]/page.tsx",
+    "admin-dashboard/src/app/(admin)/dashboard/page.tsx",
+    "admin-dashboard/src/lib/security-policy.ts",
+    "admin-dashboard/src/lib/content-images.ts",
+    "admin-dashboard/src/lib/business-inquiry-compatibility.ts",
+    "admin-dashboard/src/lib/auth.ts",
+    "admin-dashboard/src/lib/supabase/client.ts",
+    "admin-dashboard/src/lib/supabase/server.ts",
+    "admin-dashboard/src/lib/r4/repository.ts",
+    "admin-dashboard/src/lib/r4/payload.ts",
+    "admin-dashboard/src/lib/r4/security.ts",
+    "admin-dashboard/src/lib/r4/files.ts",
+    "admin-dashboard/src/lib/r4/db.ts",
+    "admin-dashboard/src/lib/r4/ingest.ts",
+    "docs/reports/SEARCH_QA_MATRIX.md",
+    "docs/reports/SEARCH_QA_MATRIX.json",
+    "hostinger/selfhost/php-entrypoint.sh",
+    "hostinger/selfhost/ingest-hostinger-forms.sql",
+    "hostinger/selfhost/assemble-local.py",
+    "hostinger/selfhost/install-empty-rehearsal.py",
+    "hostinger/selfhost/IMAGES.json",
+    "hostinger/selfhost/install-empty-cronqa.py",
+    "hostinger/selfhost/content-sync-lease-compat.sql",
+    "hostinger/selfhost/prepare-local.py",
+    "hostinger/selfhost/PHP.Dockerfile",
+    "hostinger/selfhost/vendor/PROVENANCE.json",
+    "hostinger/selfhost/vendor/LICENSE",
+    "hostinger/selfhost/vendor/docker-compose.yml",
+    "hostinger/selfhost/vendor/.env.example",
+    "hostinger/selfhost/vendor/volumes/db/realtime.sql",
+    "hostinger/selfhost/vendor/volumes/db/jwt.sql",
+    "hostinger/selfhost/vendor/volumes/db/_supabase.sql",
+    "hostinger/selfhost/vendor/volumes/db/roles.sql",
+    "hostinger/selfhost/vendor/volumes/db/webhooks.sql",
+    "hostinger/selfhost/vendor/volumes/db/logs.sql",
+    "hostinger/selfhost/vendor/volumes/db/pooler.sql",
+    "hostinger/selfhost/vendor/volumes/db/init/data.sql",
+    "hostinger/selfhost/vendor/volumes/api/kong.yml",
+    "hostinger/selfhost/vendor/volumes/api/kong-entrypoint.sh",
+    "hostinger/selfhost/vendor/volumes/api/envoy/lds.template.yaml",
+    "hostinger/selfhost/vendor/volumes/api/envoy/envoy.yaml",
+    "hostinger/selfhost/vendor/volumes/api/envoy/cds.yaml",
+    "hostinger/selfhost/vendor/volumes/api/envoy/docker-entrypoint.sh",
+    "hostinger/selfhost/vendor/volumes/functions/main/index.ts"
+  ],
+  "deleted_files": [],
+  "published_new_content": false
+}

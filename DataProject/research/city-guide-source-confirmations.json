@@ -1,0 +1,12 @@
+{
+  "schema_version": 1,
+  "reviewed_at": "2026-10-23",
+  "purpose": "Source receipt for the five launch city guides; these city records were not counted in the 415-record stale baseline.",
+  "records": [
+    {"entity_id":"city.amsterdam","source_url":"https://www.amsterdam.nl/en/civil-affairs/correct-registration/","status":"confirmed_current","confirmed_fields":["municipality registration entry point"]},
+    {"entity_id":"city.rotterdam","source_url":"https://www.rotterdam.nl/basisregistratie-personen","status":"confirmed_current","confirmed_fields":["BRP service entry point","four-month registration threshold"]},
+    {"entity_id":"city.den-haag","source_url":"https://www.denhaag.nl/en/moving-and-immigration/","status":"confirmed_current","confirmed_fields":["moving and immigration service routes"]},
+    {"entity_id":"city.utrecht","source_url":"https://www.utrecht.nl/city-of-utrecht/registration","status":"confirmed_current","confirmed_fields":["BRP and RNI registration routes"]},
+    {"entity_id":"city.eindhoven","source_url":"https://english.eindhoven.nl/en/list-of-municipal-products/moving-house","status":"confirmed_current","confirmed_fields":["moving and registration routes"]}
+  ]
+}

@@ -1,80 +1,81 @@
 import Link from "next/link";
-import {
-  CheckCircle2,
-  CircleAlert,
-  Database,
-  ExternalLink,
-  Gauge,
-  Globe2,
-  Smartphone,
-  TestTube2
-} from "lucide-react";
+import { CheckCircle2, CircleAlert, Database, ExternalLink, Gauge, Globe2, Link2, PackageCheck } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import readiness from "@/generated/release-readiness.json";
+import { displayMetric, evidenceStateLabel, releaseTruth } from "@/lib/release-truth/static";
+import { canAccessPath, type AdminRole } from "@/lib/authorization";
+import type { GateResult } from "@/lib/release-truth/types";
 
 const snapshotDate = new Intl.DateTimeFormat("ru-RU", {
   day: "numeric",
   month: "long",
   year: "numeric",
   timeZone: "Europe/Amsterdam"
-}).format(new Date(readiness.as_of));
+}).format(new Date(releaseTruth.generatedAt));
+
+function gateVariant(result: GateResult) {
+  if (result === "pass") return "success" as const;
+  if (result === "fail") return "destructive" as const;
+  return "warning" as const;
+}
+
+function gateLabel(result: GateResult) {
+  return { pass: "PASS", fail: "FAIL", blocked: "BLOCKED", not_applicable: "N/A" }[result];
+}
 
 const evidence = [
   {
-    label: "Public web",
-    value: `Version ${readiness.evidence.public_site.sites_version} LIVE`,
-    note: `${readiness.evidence.public_site.html_files} HTML · ${readiness.evidence.public_site.tests_passed} тестов`,
-    icon: Globe2
+    label: "Packaged published",
+    value: releaseTruth.publication.packaged.entityCount,
+    note: `${evidenceStateLabel(releaseTruth.publication.packaged.state)} · ${releaseTruth.publication.packaged.releaseIDs.join(", ")}`,
+    icon: PackageCheck
   },
   {
-    label: "Admin",
-    value: "Deployment LIVE",
-    note: `${readiness.evidence.admin.tests_passed} тестов · CSP enforced`,
-    icon: TestTube2
-  },
-  {
-    label: "Supabase",
-    value: "Recovery PASS",
-    note: `${readiness.evidence.supabase.remote_migrations} migrations · isolated restore`,
+    label: "Governed inventory",
+    value: releaseTruth.publication.inventory.total,
+    note: `${releaseTruth.publication.inventory.verified} verified · ${releaseTruth.publication.inventory.outdated} outdated`,
     icon: Database
   },
   {
-    label: "iOS Release",
-    value: readiness.evidence.ios.release_status_label,
-    note: readiness.evidence.ios.release_note,
-    icon: Smartphone
+    label: "Deployed payload",
+    value: releaseTruth.publication.deployed.entityCount ?? "—",
+    note: `${evidenceStateLabel(releaseTruth.publication.deployed.state)} · metadata attested only`,
+    icon: Globe2
+  },
+  {
+    label: "Link health",
+    value: displayMetric(releaseTruth.metrics.linkHealth),
+    note: `${evidenceStateLabel(releaseTruth.metrics.linkHealth.state)} · fresh network check required`,
+    icon: Link2
   }
 ];
 
-export function ReleaseReadinessOverview({ compact = false }: { compact?: boolean }) {
+export function ReleaseReadinessOverview({ compact = false, role }: { compact?: boolean; role?: AdminRole }) {
   return (
     <section className="grid gap-6" aria-labelledby="release-readiness-title">
-      <Card className="overflow-hidden border-cyan-400/25 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,.12),transparent_24rem),linear-gradient(145deg,rgba(14,29,53,.96),rgba(3,16,35,.96))]">
+      <Card className="overflow-hidden border-yellow-400/25 bg-[radial-gradient(circle_at_top_right,rgba(250,204,21,.1),transparent_24rem),linear-gradient(145deg,rgba(14,29,53,.96),rgba(3,16,35,.96))]">
         <CardHeader className="gap-3 border-b border-border/80 lg:flex-row lg:items-start lg:justify-between">
           <div>
             <CardTitle id="release-readiness-title" className="flex items-center gap-2 text-xl">
               <Gauge className="size-5 text-cyan-300" />
-              Product Release Readiness
+              Product Release Truth
             </CardTitle>
             <CardDescription className="mt-2 max-w-3xl">
-              Фактический evidence snapshot. Рабочие поверхности отделены от финального разрешения на релиз.
+              Один детерминированный snapshot для Dashboard, Trust и Releases. Технический статус не является разрешением на production.
             </CardDescription>
           </div>
           <div className="flex flex-wrap items-center gap-2">
-            <Badge variant="success">GO LIVE завершён</Badge>
-            <span className="text-xs text-muted-foreground">Проверено {snapshotDate}</span>
+            <Badge variant="warning">{releaseTruth.technicalVerdict}</Badge>
+            <Badge variant="destructive">production не разрешён</Badge>
+            <span className="text-xs text-muted-foreground">Evidence snapshot: {snapshotDate}</span>
           </div>
         </CardHeader>
-        <CardContent className="grid gap-6 pt-5 xl:grid-cols-[250px_1fr]">
-          <div className="rounded-xl border border-orange-400/25 bg-orange-400/10 p-5">
-            <p className="text-3xl font-black tracking-tight text-orange-400">{readiness.release_status_label}</p>
-            <p className="mt-2 text-sm font-semibold text-orange-100">Draft PR #{readiness.release_identity.draft_pr}</p>
-            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">
-              {readiness.release_summary}
-            </p>
+        <CardContent className="grid gap-6 pt-5 xl:grid-cols-[270px_1fr]">
+          <div className="rounded-xl border border-yellow-400/25 bg-yellow-400/10 p-5">
+            <p className="text-3xl font-black tracking-tight text-yellow-200">{releaseTruth.technicalVerdict}</p>
+            <p className="mt-2 text-sm font-semibold text-yellow-100">Fail-closed pre-production state</p>
+            <p className="mt-3 text-xs leading-relaxed text-muted-foreground">{releaseTruth.verdictReason}</p>
           </div>
-
           <div className="grid gap-3 sm:grid-cols-2">
             {evidence.map(({ label, value, note, icon: Icon }) => (
               <div key={label} className="rounded-lg border border-border bg-background/35 p-4">
@@ -91,44 +92,47 @@ export function ReleaseReadinessOverview({ compact = false }: { compact?: boolea
       </Card>
 
       {compact ? (
-        <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-border bg-secondary/25 px-4 py-3">
+        <div className="flex flex-wrap items-center justify-between gap-3 rounded-lg border border-yellow-400/20 bg-yellow-400/5 px-4 py-3">
           <p className="text-sm text-muted-foreground">
-            {readiness.proven.length} подтверждённых контролей · {readiness.remaining_items.length} remaining items
+            {Object.values(releaseTruth.gates).filter((gate) => gate.result === "pass").length} PASS · {Object.values(releaseTruth.gates).filter((gate) => gate.result === "blocked").length} BLOCKED · snapshot {releaseTruth.snapshotID}
           </p>
-          <Link className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 hover:text-cyan-100" href="/releases">
-            Открыть полный release control <ExternalLink className="size-4" />
-          </Link>
+          {role && canAccessPath(role, "/releases") ? (
+            <Link className="inline-flex items-center gap-2 text-sm font-semibold text-cyan-200 hover:text-cyan-100" href="/releases">
+              Открыть release evidence <ExternalLink className="size-4" />
+            </Link>
+          ) : null}
         </div>
       ) : (
         <div className="grid gap-6 xl:grid-cols-2">
           <Card>
             <CardHeader>
-              <CardTitle className="text-emerald-300">Уже подтверждено</CardTitle>
-              <CardDescription>Evidence, который можно повторно проверить.</CardDescription>
+              <CardTitle>Hard gates</CardTitle>
+              <CardDescription>Неизвестное или устаревшее evidence блокирует GO, но не выдаётся за FAIL.</CardDescription>
             </CardHeader>
             <CardContent className="grid gap-3">
-              {readiness.proven.map((item) => (
-                <div key={item} className="flex items-start gap-3 rounded-md border border-emerald-400/15 bg-emerald-400/5 p-3 text-sm">
-                  <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-300" />
-                  <span>{item}</span>
+              {Object.entries(releaseTruth.gates).map(([id, gate]) => (
+                <div key={id} className="flex items-start justify-between gap-4 rounded-md border border-border bg-secondary/25 p-3">
+                  <span className="flex items-start gap-3 text-sm">
+                    {gate.result === "pass"
+                      ? <CheckCircle2 className="mt-0.5 size-4 shrink-0 text-emerald-300" />
+                      : <CircleAlert className="mt-0.5 size-4 shrink-0 text-yellow-200" />}
+                    <span><strong>{id}</strong><span className="mt-1 block text-xs text-muted-foreground">{gate.reason}</span></span>
+                  </span>
+                  <Badge variant={gateVariant(gate.result)}>{gateLabel(gate.result)}</Badge>
                 </div>
               ))}
             </CardContent>
           </Card>
-
           <Card>
             <CardHeader>
-              <CardTitle className="text-amber-300">Оставшиеся hardening items</CardTitle>
-              <CardDescription>Product release завершён; эти пункты не являются release blockers.</CardDescription>
+              <CardTitle>Evidence limitations</CardTitle>
+              <CardDescription>Ограничения являются частью snapshot и не скрываются за общей оценкой.</CardDescription>
             </CardHeader>
             <CardContent className="grid gap-3">
-              {readiness.remaining_items.map((gate) => (
-                <div key={gate.id} className="flex items-start justify-between gap-4 rounded-md border border-amber-400/15 bg-amber-400/5 p-3">
-                  <span className="flex items-start gap-3 text-sm">
-                    <CircleAlert className="mt-0.5 size-4 shrink-0 text-amber-300" />
-                    {gate.label}
-                  </span>
-                  <Badge variant="warning">{gate.status.replaceAll("_", " ")}</Badge>
+              {releaseTruth.limitations.map((item) => (
+                <div key={item} className="flex items-start gap-3 rounded-md border border-yellow-400/15 bg-yellow-400/5 p-3 text-sm">
+                  <CircleAlert className="mt-0.5 size-4 shrink-0 text-yellow-200" />
+                  <span>{item}</span>
                 </div>
               ))}
             </CardContent>

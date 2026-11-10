@@ -5,7 +5,10 @@ import { getContentEntity, getStaticEntityParams } from "@/lib/content";
 import { metadataForEntity, relatedForEntity } from "@/lib/content/page-helpers";
 
 export const dynamicParams = false;
-export function generateStaticParams() { return getStaticEntityParams("place"); }
+export function generateStaticParams() {
+  const params = getStaticEntityParams("place");
+  return params.length ? params : [{slug: "__no-published-places__"}];
+}
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) { const entity = getContentEntity("place", (await params).slug); return entity ? metadataForEntity(entity) : {}; }
 export default async function PlaceDetailPage({ params }: { params: Promise<{ slug: string }> }) { const entity = getContentEntity("place", (await params).slug); if (!entity) notFound(); return <PageShell><EntityDetail entity={entity} related={relatedForEntity(entity)} /></PageShell>; }
 

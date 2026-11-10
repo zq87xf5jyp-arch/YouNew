@@ -13,6 +13,12 @@ const ENV = Object.freeze({
   OPENAI_API_KEY: "test-key-never-returned",
   OPENAI_MODEL: "gpt-5.6-sol",
 });
+const PUBLISHED_KNOWLEDGE_RELEASE = Object.freeze({
+  id: "younew-newcomer-demo-v1",
+  status: "published",
+  verifiedDate: "2026-07-14",
+  reviewer: "reviewer:contract-test",
+});
 
 function validBody(overrides = {}) {
   return {
@@ -96,14 +102,64 @@ function upstreamResponse({
   });
 }
 
-function dependencies(fetchImpl) {
+function dependencies(fetchImpl, overrides = {}) {
   return {
     fetch: fetchImpl,
     randomUUID: () => FIXED_UUID,
     setTimeout,
     clearTimeout,
+    knowledgeRelease: PUBLISHED_KNOWLEDGE_RELEASE,
+    ...overrides,
   };
 }
+
+test("default QA knowledge release fails closed before an OpenAI request", async () => {
+  let fetchCalled = false;
+  const response = await handleRequest(requestFor(), ENV, {
+    fetch: async () => {
+      fetchCalled = true;
+      return upstreamResponse();
+    },
+    randomUUID: () => FIXED_UUID,
+    setTimeout,
+    clearTimeout,
+  });
+
+  assert.equal(response.status, 503);
+  assert.equal(
+    (await response.json()).error.code,
+    "knowledge_not_release_eligible",
+  );
+  assert.equal(fetchCalled, false);
+});
+
+test("release gate requires published status, a real date, and a reviewer", async () => {
+  const invalidReleases = [
+    { ...PUBLISHED_KNOWLEDGE_RELEASE, status: "qa" },
+    { ...PUBLISHED_KNOWLEDGE_RELEASE, verifiedDate: "not-a-date" },
+    { ...PUBLISHED_KNOWLEDGE_RELEASE, verifiedDate: "2999-01-01" },
+    { ...PUBLISHED_KNOWLEDGE_RELEASE, reviewer: "" },
+    { ...PUBLISHED_KNOWLEDGE_RELEASE, extra: "not-allowed" },
+  ];
+
+  for (const knowledgeRelease of invalidReleases) {
+    let fetchCalled = false;
+    const response = await handleRequest(
+      requestFor(),
+      ENV,
+      dependencies(async () => {
+        fetchCalled = true;
+        return upstreamResponse();
+      }, { knowledgeRelease }),
+    );
+    assert.equal(response.status, 503);
+    assert.equal(
+      (await response.json()).error.code,
+      "knowledge_not_release_eligible",
+    );
+    assert.equal(fetchCalled, false);
+  }
+});
 
 test("configuration requires both secret and an explicit GPT-5.6 model", async () => {
   let fetchCalled = false;
@@ -250,16 +306,36 @@ test("successful request uses the Responses API and returns the exact public con
   assert.equal(upstreamBody.text.format.type, "json_schema");
   assert.equal(upstreamBody.text.format.strict, true);
   assert.equal(upstreamBody.input.includes("systemPrompt"), false);
+  const boundedInput = JSON.parse(upstreamBody.input);
+  assert.deepEqual(
+    boundedInput.boundedKnowledge.map((record) => record.repositoryRecordIDs),
+    [
+      ["government.brp-registration", "government.bsn"],
+      ["government.digid"],
+      ["government.health-insurance"],
+      ["government.register-family-doctor"],
+    ],
+  );
 
   const body = await response.json();
   assert.deepEqual(Object.keys(body).sort(), [
+    "contentReleaseId",
     "decisionTrace",
+    "escalation",
+    "locationAssumption",
     "model",
     "requestId",
     "steps",
     "summary",
+    "uncertainty",
+    "verifiedDate",
     "warnings",
   ]);
+  assert.equal(body.contentReleaseId, PUBLISHED_KNOWLEDGE_RELEASE.id);
+  assert.equal(body.verifiedDate, PUBLISHED_KNOWLEDGE_RELEASE.verifiedDate);
+  assert.match(body.locationAssumption, /national|municipality/i);
+  assert.match(body.uncertainty, /depend|verify/i);
+  assert.match(body.escalation, /112|official/i);
   assert.equal(body.model, "gpt-5.6-sol");
   assert.equal(body.requestId, "req_openai_safe_123");
   assert.equal(body.steps.length, 4);
@@ -273,8 +349,10 @@ test("successful request uses the Responses API and returns the exact public con
     "reason",
     "sourceTitle",
     "sourceURL",
+    "sourceVerifiedDate",
     "title",
   ]);
+  assert.equal(body.steps[0].sourceVerifiedDate, "2026-07-14");
   assert.equal(
     body.steps[0].sourceURL,
     "https://www.government.nl/themes/government-and-democracy/personal-data/citizen-service-number-bsn",
@@ -284,6 +362,10 @@ test("successful request uses the Responses API and returns the exact public con
     "practicalGuide:municipalityRegistration",
   );
   assert.equal(body.steps[2].appDestination, "practicalGuide:healthInsuranceBasics");
+  assert.equal(
+    body.steps[2].sourceURL,
+    "https://www.government.nl/themes/family-health-and-care/health-insurance/standard-health-insurance/taking-out-compulsory-health-insurance",
+  );
   assert.equal(
     body.steps[3].sourceURL,
     "https://www.government.nl/faq/what-do-i-need-to-arrange-if-im-moving-to-the-netherlands",
@@ -443,6 +525,7 @@ test("AbortController timeout maps to a safe timeout response", async () => {
       return 1;
     },
     clearTimeout: () => {},
+    knowledgeRelease: PUBLISHED_KNOWLEDGE_RELEASE,
   });
 
   assert.equal(response.status, 504);

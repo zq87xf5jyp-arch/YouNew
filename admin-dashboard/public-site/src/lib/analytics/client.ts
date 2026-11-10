@@ -10,12 +10,23 @@ export type AnalyticsEvent =
     fallbackTier: "exact" | "national" | "broadened";
   }
   | { name: "search_result_opened"; contentId: string; position: number; normalizedQuery: string }
+  | { name: "explicit_city_detected"; city: string; intentId: string }
+  | { name: "city_filter_applied"; city: string; source: "query" | "filter" }
+  | { name: "city_filter_corrected"; city: string; source: "query" | "filter" }
+  | { name: "local_result_available"; city: string; intentId: string }
+  | { name: "national_fallback_shown"; city: string; intentId: string }
+  | { name: "wrong_geo_result_reported"; city: string; intentId: string }
+  | { name: "action_panel_cta_clicked"; contentId: string; city: string }
+  | { name: "time_to_first_action"; city: string; intentId: string; durationMilliseconds: number }
   | { name: "official_source_click"; contentId: string }
   | { name: "partner_click"; contentId: string }
   | { name: "item_saved"; contentId: string }
   | { name: "app_cta_click"; location: string }
   | { name: "profile_selected" }
   | { name: "business_mailto_prepared"; organizationType: string }
+  | { name: "lead_start" }
+  | { name: "lead_submit" }
+  | { name: "pilot_request" }
   | { name: "analytics_consent_granted" };
 
 export type AnalyticsProvider = {
@@ -37,7 +48,6 @@ export function track(event: AnalyticsEvent) {
 
 export type AnalyticsConfiguration = {
   endpoint: string;
-  publishableKey: string;
   consentVersion: string;
   schemaVersion: number;
   appVersion: string;
@@ -77,7 +87,7 @@ type ProviderOptions = {
   runtime?: AnalyticsRuntime;
 };
 
-const safeEndpointPath = "/functions/v1/analytics-ingest";
+const safeEndpointPath = "/api/analytics-ingest.php";
 const maximumBatchSize = 20;
 const flushDelayMilliseconds = 1_000;
 
@@ -125,17 +135,9 @@ function defaultRuntime(): AnalyticsRuntime {
 }
 
 function isValidConfiguration(configuration: AnalyticsConfiguration) {
-  try {
-    const endpoint = new URL(configuration.endpoint);
-    return endpoint.protocol === "https:"
-      && endpoint.hostname.endsWith(".supabase.co")
-      && endpoint.pathname === safeEndpointPath
-      && configuration.publishableKey.startsWith("sb_publishable_")
+    return configuration.endpoint === safeEndpointPath
       && configuration.consentVersion.length > 0
       && configuration.schemaVersion === 1;
-  } catch {
-    return false;
-  }
 }
 
 function safeScreen(value: string) {
@@ -144,48 +146,19 @@ function safeScreen(value: string) {
   return normalized.slice(0, 160) || "/";
 }
 
-function safeProperty(value: string) {
-  return value
-    .normalize("NFC")
-    .replace(/[^\p{L}\p{N}_./: \[\]-]/gu, "-")
-    .slice(0, 160);
-}
-
+// Transport only the metrics actually used by the private Hostinger report.
+// Detailed query, filter, profile, content and location values stay in the browser.
 function eventProperties(event: AnalyticsEvent): Record<string, string | number | boolean> {
-  switch (event.name) {
-    case "search":
-      return {
-        normalized_query_safe: safeProperty(event.normalizedQuery),
-        intent_ids: event.intentIds.map(safeProperty).join(",").slice(0, 160),
-        filter_type: safeProperty(event.filters.type),
-        filter_city: safeProperty(event.filters.city),
-        filter_province: safeProperty(event.filters.province),
-        filter_category: safeProperty(event.filters.category),
-        filter_profile: safeProperty(event.filters.profile),
-        result_count: Math.max(0, Math.trunc(event.resultCount)),
-        has_results: !event.zeroResult,
-        zero_result: event.zeroResult,
-        fallback_tier: event.fallbackTier
-      };
-    case "search_result_opened":
-      return {
-        content_id: safeProperty(event.contentId),
-        position: Math.max(1, Math.trunc(event.position)),
-        normalized_query_safe: safeProperty(event.normalizedQuery)
-      };
-    case "official_source_click":
-    case "partner_click":
-    case "item_saved":
-      return { content_id: safeProperty(event.contentId) };
-    case "app_cta_click":
-      return { location: safeProperty(event.location) };
-    case "business_mailto_prepared":
-      return { organization_type: safeProperty(event.organizationType) };
-    case "page_view":
-    case "profile_selected":
-    case "analytics_consent_granted":
-      return {};
-  }
+  if (event.name === "search") return {
+    result_count: Math.max(0, Math.min(100_000, Math.trunc(event.resultCount))),
+    has_results: !event.zeroResult,
+    zero_result: event.zeroResult,
+    fallback_tier: event.fallbackTier
+  };
+  if (event.name === "time_to_first_action") return {
+    duration_ms: Math.max(0, Math.min(3_600_000, Math.trunc(event.durationMilliseconds)))
+  };
+  return {};
 }
 
 export function createAnalyticsEnvelope(
@@ -210,12 +183,13 @@ export function createAnalyticsEnvelope(
   };
 }
 
-export function createSupabaseAnalyticsProvider(options: ProviderOptions): AnalyticsProvider {
+export function createHostingerAnalyticsProvider(options: ProviderOptions): AnalyticsProvider {
   const runtime = options.runtime ?? defaultRuntime();
   let queue: AnalyticsEnvelope[] = [];
   let flushTimer: unknown;
   let disposed = false;
   let inFlight: Promise<void> | undefined;
+  let controller: AbortController | undefined;
 
   if (!isValidConfiguration(options.configuration)) {
     return { track() {} };
@@ -234,26 +208,30 @@ export function createSupabaseAnalyticsProvider(options: ProviderOptions): Analy
       flushTimer = undefined;
     }
     const events = queue.splice(0, maximumBatchSize);
+    controller = new AbortController();
     inFlight = runtime.fetch(options.configuration.endpoint, {
       method: "POST",
       headers: {
         Accept: "application/json",
-        apikey: options.configuration.publishableKey,
         "Content-Type": "application/json"
       },
       body: JSON.stringify({ events }),
       credentials: "omit",
+      mode: "same-origin",
+      redirect: "error",
+      signal: controller.signal,
       keepalive: true,
       referrerPolicy: "no-referrer"
     }).then(() => undefined).catch(() => undefined).finally(() => {
       inFlight = undefined;
+      controller = undefined;
     });
     await inFlight;
   };
 
   return {
     track(event) {
-      if (disposed) return;
+      if (disposed || queue.length >= 100) return;
       queue.push(createAnalyticsEnvelope(event, options, runtime));
       if (queue.length >= maximumBatchSize) {
         void flush();
@@ -270,6 +248,7 @@ export function createSupabaseAnalyticsProvider(options: ProviderOptions): Analy
       flushTimer = undefined;
       disposed = true;
       queue = [];
+      controller?.abort();
     }
   };
 }

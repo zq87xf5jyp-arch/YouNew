@@ -1,0 +1,364 @@
+{
+  "at": "2026-11-09T20:15:57.028Z",
+  "bundleSha256": "f8636c1651c3d5de483adba3e90d7f6f4c7935303fab69829be2523bce2d46e6",
+  "environment": "isolated local MariaDB 13.0.2",
+  "import": {
+    "status": "IMPORTED_VERIFIED",
+    "tables": 90,
+    "rows": 1396,
+    "assets": 1,
+    "profiles": 4,
+    "inquiries": 3,
+    "sessionsImported": 0
+  },
+  "repeat": {
+    "status": "VERIFIED_ALREADY_IMPORTED",
+    "tables": 90,
+    "rows": 1396
+  },
+  "dumpSha256": "54cb27d003b529d503cd634ee75fd651ab105b08ccea2b6da798a9013ce19198",
+  "source": {
+    "audit_events": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "auth_attempts": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "business_inquiries": {
+      "rows": 3,
+      "checksum": 1588586437
+    },
+    "business_inquiry_notifications": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "catalog_places": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "ingest_nonces": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "ingest_receipts": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "legacy_assets": {
+      "rows": 1,
+      "checksum": 1201727818
+    },
+    "legacy_imports": {
+      "rows": 1,
+      "checksum": 2574168177
+    },
+    "legacy_rows": {
+      "rows": 1396,
+      "checksum": 383431915
+    },
+    "legacy_tables": {
+      "rows": 90,
+      "checksum": 1096149782
+    },
+    "private_files": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "profiles": {
+      "rows": 4,
+      "checksum": 1781700900
+    },
+    "schema_migrations": {
+      "rows": 4,
+      "checksum": 1124485810
+    },
+    "sessions": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "workspaces": {
+      "rows": 1,
+      "checksum": 108083106
+    }
+  },
+  "restored": {
+    "audit_events": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "auth_attempts": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "business_inquiries": {
+      "rows": 3,
+      "checksum": 1588586437
+    },
+    "business_inquiry_notifications": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "catalog_places": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "ingest_nonces": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "ingest_receipts": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "legacy_assets": {
+      "rows": 1,
+      "checksum": 1201727818
+    },
+    "legacy_imports": {
+      "rows": 1,
+      "checksum": 2574168177
+    },
+    "legacy_rows": {
+      "rows": 1396,
+      "checksum": 383431915
+    },
+    "legacy_tables": {
+      "rows": 90,
+      "checksum": 1096149782
+    },
+    "private_files": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "profiles": {
+      "rows": 4,
+      "checksum": 1781700900
+    },
+    "schema_migrations": {
+      "rows": 4,
+      "checksum": 1124485810
+    },
+    "sessions": {
+      "rows": 0,
+      "checksum": 0
+    },
+    "workspaces": {
+      "rows": 1,
+      "checksum": 108083106
+    }
+  },
+  "restore": {
+    "status": "VERIFIED_ALREADY_IMPORTED",
+    "tables": 90,
+    "rows": 1396
+  },
+  "rollback": {
+    "status": "PASS",
+    "zeroRows": [
+      "legacy_imports",
+      "legacy_tables",
+      "legacy_rows",
+      "legacy_assets",
+      "profiles",
+      "business_inquiries",
+      "workspaces"
+    ]
+  },
+  "status": "PASS",
+  "http_acceptance": {
+    "at": "2026-11-09T20:20:43.439064+00:00",
+    "status": "PASS",
+    "checks": [
+      {
+        "name": "anonymous asset denied",
+        "pass": true
+      },
+      {
+        "name": "owner login",
+        "pass": true
+      },
+      {
+        "name": "owner history role",
+        "pass": true
+      },
+      {
+        "name": "owner history no-store",
+        "pass": true
+      },
+      {
+        "name": "owner retained history",
+        "pass": true
+      },
+      {
+        "name": "invalid page rejected",
+        "pass": true
+      },
+      {
+        "name": "retained row render",
+        "pass": true
+      },
+      {
+        "name": "owner file access",
+        "pass": true
+      },
+      {
+        "name": "file byte identity",
+        "pass": true
+      },
+      {
+        "name": "file private download",
+        "pass": true
+      },
+      {
+        "name": "owner crm access",
+        "pass": true
+      },
+      {
+        "name": "original status retained",
+        "pass": true
+      },
+      {
+        "name": "legacy archived",
+        "pass": true
+      },
+      {
+        "name": "owner audit page",
+        "pass": true
+      },
+      {
+        "name": "owner unsupported route absent",
+        "pass": true
+      },
+      {
+        "name": "owner crm page",
+        "pass": true
+      },
+      {
+        "name": "71 real drafts read-only",
+        "pass": true
+      },
+      {
+        "name": "publication denied",
+        "pass": true
+      },
+      {
+        "name": "owner logout",
+        "pass": true
+      },
+      {
+        "name": "owner revoked",
+        "pass": true
+      },
+      {
+        "name": "viewer login",
+        "pass": true
+      },
+      {
+        "name": "viewer history role",
+        "pass": true
+      },
+      {
+        "name": "viewer history no-store",
+        "pass": true
+      },
+      {
+        "name": "viewer file access",
+        "pass": true
+      },
+      {
+        "name": "viewer crm access",
+        "pass": true
+      },
+      {
+        "name": "viewer audit page",
+        "pass": true
+      },
+      {
+        "name": "viewer unsupported route absent",
+        "pass": true
+      },
+      {
+        "name": "viewer crm page",
+        "pass": true
+      },
+      {
+        "name": "viewer logout",
+        "pass": true
+      },
+      {
+        "name": "viewer revoked",
+        "pass": true
+      },
+      {
+        "name": "other login",
+        "pass": true
+      },
+      {
+        "name": "other history role",
+        "pass": true
+      },
+      {
+        "name": "other history no-store",
+        "pass": true
+      },
+      {
+        "name": "workspace history isolated",
+        "pass": true
+      },
+      {
+        "name": "other file access",
+        "pass": true
+      },
+      {
+        "name": "other crm access",
+        "pass": true
+      },
+      {
+        "name": "workspace crm isolated",
+        "pass": true
+      },
+      {
+        "name": "other audit page",
+        "pass": true
+      },
+      {
+        "name": "other unsupported route absent",
+        "pass": true
+      },
+      {
+        "name": "other crm page",
+        "pass": true
+      },
+      {
+        "name": "other logout",
+        "pass": true
+      },
+      {
+        "name": "other revoked",
+        "pass": true
+      }
+    ],
+    "scope": "Synthetic local production-mode Admin, not Hostinger or real credentials"
+  },
+  "form_tests": {
+    "passed": 113,
+    "scope": "Synthetic PHP storage, validation, rate limits, backups and mixed-queue ordering"
+  },
+  "server_imported": false,
+  "production_deployed": false,
+  "old_tokens_activated": false,
+  "new_drafts_published": false,
+  "source_database_sha256": "f7105eb2493d021f46c48a81c729e3ce1fb12b403790ead57a815cd90b22f410",
+  "source_storage_sha256": "076189d4eab41ed5dd71663306da1962680d5ae85fa9fcba41216b88b446361b",
+  "browser": {
+    "engine": "Safari native UI",
+    "synthetic_only": true,
+    "login": "PASS",
+    "history_expand": "PASS",
+    "catalog_filter_language_preview": "PASS",
+    "exact_390px_mobile": "NOT_TESTED",
+    "console_errors": "NOT_INSPECTED"
+  }
+}
