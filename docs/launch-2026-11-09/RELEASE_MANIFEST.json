@@ -66,12 +66,13 @@
   "evidenceDirectory": "production-evidence-20261110",
   "operatorsDirectory": "operators-20261110",
   "remaining": [
-    "real owner production login acceptance",
     "editorial batch approval",
-    "external notifications not configured"
+    "external notifications not configured",
+    "19 BuildWeekVideo lockfile alerts outside live runtime; see scope report"
   ],
   "ssh": {
     "status": "PASS",
     "evidence": "production-evidence-20261110/ssh-verified.json"
-  }
+  },
+  "ownerProductionLogin": "PASS"
 }

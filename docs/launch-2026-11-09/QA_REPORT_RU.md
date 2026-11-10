@@ -12,7 +12,7 @@
 | MariaDB restore | 16 таблиц/1500 строк, definitions/fingerprints совпали; оригиналы сохранены | PASS |
 | File restore | 4357 объектов и 8 SQLite, hash/integrity checks | PASS |
 | Production HTTP | 22 проверки: страницы/assets/gzip, canonical/hreflang, mail/apple files, invalid PHP/login | PASS |
-| Production browser | Desktop home, EN/NL Leiden/empty search, 390px карта/форма, Admin login | PASS; реальный owner login не выполнялся |
+| Production browser | Desktop home, EN/NL Leiden/empty search, 390px карта/форма, Admin login | PASS; владелец вошёл, /dashboard наблюдён без ошибок консоли |
 | Production BUSINESS | 49 реальных циклов, 4 заявки доставлены однократно; профили/роли/архив неизменны | PASS |
 | Health | QA normal OK, stale DEGRADED; production read-only OK | PASS; расписание */15 сохранено |
 

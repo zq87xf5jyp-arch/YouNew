@@ -4,8 +4,8 @@ Production опубликован и проверен; minimatch, реальны
 
 | Пункт | Конкретное состояние/действие |
 | --- | --- |
-| SSH | RESOLVED: owner added younew-launch-20261110; strict host-key SSH authentication passed without a password prompt on 10 Nov 19:50 UTC. |
-| Owner login | Хеши/роли 4 аккаунтов сохранены; QA bcrypt/auth/roles PASS. В production открыт login: владельцу следует войти своим прежним паролем, не передавая его в чат. |
+| SSH | Закрыто: владелец добавил younew-launch-20261110; прямое подключение с проверкой host key прошло без запроса пароля. |
+| Вход владельца | Закрыто: владелец подтвердил успешный вход; в браузере открыт /dashboard, заголовок YouNew Admin, ошибок/warnings консоли нет. Хеши и роли перенесённых аккаунтов сохранены. |
 | Контент | 71 private draft требует редакторского review конкретной партии. Автоматической публикации нет. |
 | Уведомления | 4 внутренних Admin notifications созданы. Email/SMS/SMTP delivery не настроены; условия и стоимость отправки отдельно не подтверждены. Health пишет private logs. |
 | Analytics experiment | Старый прототип новых событий сохранён, но не включён в production; метрики не выдуманы. Существующий maintenance сохранён. |

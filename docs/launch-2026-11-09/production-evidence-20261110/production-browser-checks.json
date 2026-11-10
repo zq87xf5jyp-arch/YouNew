@@ -12,12 +12,13 @@
     "Admin login form renders"
   ],
   "publicConsoleErrors": [],
-  "realOwnerProductionLogin": "NOT_TESTED",
+  "realOwnerProductionLogin": "OWNER_CONFIRMED_AND_DASHBOARD_OBSERVED",
   "screenshots": [
     "production-home-desktop.png",
     "production-search-nl-390.png",
     "production-map-leiden-390.png",
     "production-business-validation-390.png",
     "production-admin-login.png"
-  ]
+  ],
+  "ownerLoginEvidence": "owner-production-login.json"
 }
