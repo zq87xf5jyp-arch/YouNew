@@ -1,0 +1,159 @@
+{
+  "at": "2026-11-10T19:48:30.272280+00:00",
+  "openAlerts": [
+    {
+      "number": 88,
+      "package": "minimatch",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "medium",
+      "ghsa": "GHSA-g3hv-75wg-m249"
+    },
+    {
+      "number": 87,
+      "package": "fast-uri",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "medium",
+      "ghsa": "GHSA-hrr3-gc8f-f4qj"
+    },
+    {
+      "number": 86,
+      "package": "brace-expansion",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "medium",
+      "ghsa": "GHSA-q2hr-2g5m-vwhr"
+    },
+    {
+      "number": 81,
+      "package": "fast-uri",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "high",
+      "ghsa": "GHSA-qw65-cvwx-89v3"
+    },
+    {
+      "number": 72,
+      "package": "zod",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "high",
+      "ghsa": "GHSA-mrhx-c7xc-m3w5"
+    },
+    {
+      "number": 70,
+      "package": "postcss-selector-parser",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "medium",
+      "ghsa": "GHSA-rj75-hqrm-r3gf"
+    },
+    {
+      "number": 68,
+      "package": "fast-uri",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "low",
+      "ghsa": "GHSA-xhq7-xmqj-769h"
+    },
+    {
+      "number": 67,
+      "package": "fast-uri",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "low",
+      "ghsa": "GHSA-333x-w4r6-6crp"
+    },
+    {
+      "number": 66,
+      "package": "fast-uri",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "medium",
+      "ghsa": "GHSA-w74x-v6f9-j3xg"
+    },
+    {
+      "number": 65,
+      "package": "fast-uri",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "medium",
+      "ghsa": "GHSA-wjr9-j795-jxcr"
+    },
+    {
+      "number": 58,
+      "package": "source-map-js",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "high",
+      "ghsa": "GHSA-68fv-2mgg-jv7q"
+    },
+    {
+      "number": 55,
+      "package": "brace-expansion",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "medium",
+      "ghsa": "GHSA-q2hr-2g5m-vwhr"
+    },
+    {
+      "number": 45,
+      "package": "js-yaml",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "high",
+      "ghsa": "GHSA-2883-xcg3-v3hh"
+    },
+    {
+      "number": 31,
+      "package": "fast-uri",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "high",
+      "ghsa": "GHSA-jqff-g426-hqxp"
+    },
+    {
+      "number": 30,
+      "package": "fast-uri",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "high",
+      "ghsa": "GHSA-f65p-4m7j-42xc"
+    },
+    {
+      "number": 29,
+      "package": "fast-uri",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "high",
+      "ghsa": "GHSA-fph4-wmhf-6fwf"
+    },
+    {
+      "number": 28,
+      "package": "fast-uri",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "high",
+      "ghsa": "GHSA-5jgf-p345-68v8"
+    },
+    {
+      "number": 26,
+      "package": "nanoid",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "high",
+      "ghsa": "GHSA-2v37-7h3g-55p8"
+    },
+    {
+      "number": 23,
+      "package": "js-yaml",
+      "manifest": "BuildWeekVideo/pnpm-lock.yaml",
+      "severity": "high",
+      "ghsa": "GHSA-5p4m-2wfm-xmqj"
+    }
+  ],
+  "allConfinedTo": "BuildWeekVideo/pnpm-lock.yaml",
+  "videoSourceCopiedInsideCatalogBuilder": true,
+  "videoFilesInArchive": 30,
+  "deployedRootWorkspaceMembers": [
+    "."
+  ],
+  "videoDependenciesInstalledByRootBuild": false,
+  "action": "Preserved video source; dependency updates deferred outside live website runtime",
+  "productionMinimatchOverride": "minimatch@>=7.0.0 <11.0.1: 11.0.1",
+  "productionAudit": {
+    "at": "2026-11-10T19:49:16.766485+00:00",
+    "command": "pnpm audit --prod --json",
+    "publicSite": {
+      "vulnerabilities": 0,
+      "dependencies": 64
+    },
+    "hostingerAdmin": {
+      "vulnerabilities": 0,
+      "dependencies": 212
+    }
+  }
+}
