@@ -1,0 +1,68 @@
+[
+  {
+    "mode": "normal",
+    "exit": 0,
+    "result": {
+      "status": "OK",
+      "at": "2026-11-10T19:35:31.097674+00:00",
+      "checks": [
+        {
+          "name": "qa_login",
+          "pass": true,
+          "http": 200
+        },
+        {
+          "name": "qa_private",
+          "pass": true,
+          "http": 401
+        },
+        {
+          "name": "business_outbox",
+          "pass": true,
+          "pending": 0,
+          "oldestSeconds": 0
+        },
+        {
+          "name": "business_scheduler",
+          "pass": true,
+          "lastCompletedAt": "2026-11-10T15:02:01Z",
+          "ageSeconds": 16410
+        }
+      ],
+      "externalNotificationsConfigured": false
+    }
+  },
+  {
+    "mode": "stale",
+    "exit": 1,
+    "result": {
+      "status": "DEGRADED",
+      "at": "2026-11-10T19:35:31.297933+00:00",
+      "checks": [
+        {
+          "name": "qa_login",
+          "pass": true,
+          "http": 200
+        },
+        {
+          "name": "qa_private",
+          "pass": true,
+          "http": 401
+        },
+        {
+          "name": "business_outbox",
+          "pass": true,
+          "pending": 0,
+          "oldestSeconds": 0
+        },
+        {
+          "name": "business_scheduler",
+          "pass": false,
+          "lastCompletedAt": "2026-11-10T15:02:01Z",
+          "ageSeconds": 16410
+        }
+      ],
+      "externalNotificationsConfigured": false
+    }
+  }
+]

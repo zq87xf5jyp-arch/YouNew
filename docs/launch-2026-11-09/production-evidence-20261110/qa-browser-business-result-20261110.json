@@ -1,0 +1,67 @@
+{
+  "status": "PASS",
+  "receipt": "YNI-30E424AD3A66",
+  "browserReceiptSaved": true,
+  "sqliteRows": 1,
+  "sqliteReceipts": 1,
+  "deliveredAt": "2026-11-10T14:57:02+00:00",
+  "backendCounts": {
+    "business_inquiries": 1,
+    "ingest_receipts": 1,
+    "business_inquiry_notifications": 1
+  },
+  "schedulerEvents": [
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T14:57:01Z"
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T14:57:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T14:58:01Z"
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T14:58:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T14:59:01Z"
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T14:59:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T15:00:02Z"
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T15:00:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T15:01:01Z"
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T15:01:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T15:02:01Z"
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T15:02:01Z"
+    }
+  ],
+  "productionChanged": false,
+  "at": "2026-11-10T15:02:33.528106+00:00",
+  "qaBusinessPausedAfterVerification": true,
+  "qaCatalogRemainedPaused": true
+}

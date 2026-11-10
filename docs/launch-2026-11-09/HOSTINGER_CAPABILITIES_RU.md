@@ -1,26 +1,24 @@
-# Проверенные возможности Hostinger — 9 ноября 2026
+# Проверенные возможности Hostinger
 
-Обновление 10 ноября: два QA-cron обратимо приостановлены до следующей проверки; production analytics сохранён. Пики числа процессов и текущий запас подтверждены в [RESOURCE_REVIEW_2026-11-10_RU.md](RESOURCE_REVIEW_2026-11-10_RU.md).
+Business Web Hosting действует до 20 июля 2027: 50 ГБ, 3 ГБ RAM, 2 CPU, 600000 inodes, 50 сайтов, 120 процессов, 60 PHP workers. Тариф, платные дополнения и продления не менялись.
 
-Более поздняя проверка 10 ноября: реальные данные перенесены в новую MariaDB, dump/restore 16 таблиц / 1500 строк прошёл с сохранением оригиналов. QA Node/PHP обновлён до `cf6ab6f`, 43 HTTP checks PASS. Production не переключён. Точные результаты и границы — [REAL_MIGRATION_2026-11-10_RU.md](REAL_MIGRATION_2026-11-10_RU.md); строки первоначальной инвентаризации ниже описывают состояние 9 ноября.
-
-Business Web Hosting действует до 20 июля 2027. В панели подтверждены 50 ГБ диска, 3 ГБ RAM, 2 CPU, 600 000 inodes, 50 сайтов, 120 процессов и 60 PHP workers. Расходы, тариф и продления не менялись. Это промежуточная фиксация фактов; неподтверждённые проверки явно отмечены.
-
-| Возможность | Доступность / включение | Нужна YouNew | Фактическое использование и оставшаяся проверка |
+| Возможность | Доступна / включена | Нужна | Фактическое использование |
 | --- | --- | --- | --- |
-| Web / PHP | Включены, действующий публичный сайт; PHP CLI 8.3.36 | Да | Статический сайт и PHP-обработчики заявок. Production сохранён; новый кандидат ещё не опубликован. |
-| Node.js | Включён в Business; `qa-runtime.younew.nl`, Node 24.x | Да | Размещён архив `cd0546d`; повторный Hostinger scan показывает 0 уязвимостей. 43 проверки входа/ролей/logout и отдельный bcrypt cost-10 HTTP-тест прошли. Предыдущие архивы сохранены. Hostinger выпускает standalone output: исходники builder нужно хранить отдельно. |
-| MariaDB / права | Включена QA-база `u246392949_younq1`, MariaDB 11.8.9 | Да | Проверены privileges, две миграции, 8 синтетических пользователей; dump/restore 12 таблиц/12 строк прошёл с сохранением всех оригиналов. Реальные данные пока не перенесены на Hostinger; локальная репетиция 90 таблиц, 1396 строк и одного файла с restore/rollback прошла. |
-| Cron / фоновые задачи | Включены; hPanel управляет расписаниями | Да | QA BUSINESS каждую минуту: доставка, retry после 503, dedupe и worker lock прошли. Analytics каждые 5 минут сохранён. Каталог каждую минуту: публикация, отзыв, сохранение прежнего релиза при ошибке и восстановление проверены; 64 HTTP checks. |
-| Домены / поддомены / SSL | Доступны; SSL production включён; QA использует бесплатные поддомены существующего домена | Да | `qa-admin`, `qa-catalog`, новый `qa-runtime`. Перенос DNS-зоны и почты не выполнялся. HTTPS нового backend доступен для HTTP-проверок. |
-| Резервирование | Ежедневные и ручные копии включены; ручная завершена 09.11 в 13:22 | Да | Дополнительно 5787 файлов и 8 SQLite сохранены и восстановлены в приватный каталог; SHA-256 и integrity_check прошли. Отдельный экспорт реальных Supabase database/Storage сохранён на Hostinger вне web-root с правами 0600; хеши совпали. Полное восстановление Supabase runtime ещё не проверено. |
-| Журналы / диагностика | Доступны журналы сборок, приложения, ошибки и использование ресурсов | Да | Проверена сборка QA; предусмотрены приватные журналы worker/cron. Непрерывный мониторинг и доставка предупреждений ещё не проверены. |
-| Кэш / сжатие / CDN | CDN production включён; LiteSpeed и Cache Manager доступны | Да, для публичных ресурсов | Кандидат задаёт сжатие и заголовки статических ресурсов. Admin и API используют `private, no-store`. Проверка фактических CDN-ответов после нового релиза ещё требуется. |
-| Защита | SSL, malware scanner, IP Manager и защита каталогов доступны | Да | Malware scanner не показывал угроз за последние 30 дней. Приватные конфигурации находятся вне web-root, файл `launch.env` имел режим 0600. Доступ к данным Admin проверяется сервером. |
-| Файлы / SSH | Включены; SSH активирован владельцем | Да | Web terminal, приватные backups, отдельная QA-копия кода. CLI MySQL2 3.23.1 установлен в приватный ops-tools. При 112 потоках аккаунта полный pnpm-install получал EAGAIN; минимальные CLI-проверки работают с `UV_THREADPOOL_SIZE=1` и `NODE_OPTIONS=--v8-pool-size=1`. Ограничения применены к QA и отдельно к прежнему YouNew Admin после сохранения его конфигурации; Studio не изменялся (ADMIN_RESOURCE_EVIDENCE.json). |
-| GitHub / deployment | Загрузка архива и сборка Node работают. GitHub OAuth Hostinger сейчас видит только другой репозиторий Studio | Да | YouNew остаётся в GitHub; QA развёрнут точным архивом commit. Права Studio не менялись, дубликат репозитория не создавался. Приватная серверная копия берётся из публичного канонического GitHub. |
-| Почта | Плагин подтверждает существующий `support@younew.nl` и квоту; условия включения серверной отправки отдельно не проверены | Да, для будущих уведомлений | Ящик не менялся, письма не отправлялись. Автоматическую доставку и SMTP пока нельзя считать настроенными. Новые почтовые услуги не активированы. |
+| Web/PHP | Да, PHP CLI 8.3.36 | Да | Production static/PHP формы/private files, HTTPS checks PASS. |
+| Node.js | Да, Node 24 | Да | Новый production Admin; completed exact-archive deploy, ограничены thread pools. |
+| MariaDB/права | Да, 11.8.9 | Да | Отдельные QA/prod базы, реальный импорт и restore; права/миграции проверены. |
+| Cron | Да | Да | BUSINESS */5 проверен scheduler; health */15 сохранён; analytics сохранён; QA на паузе. |
+| Домены/SSL | Да; бесплатные поддомены | Да | Production HTTPS и изолированные QA. DNS-зона и почта не переносились. |
+| Backups | Daily и manual включены | Да | Manual 10.11 16:30 завершён; file/SQLite/MariaDB restore проверен; есть локальные copies. |
+| Logs/diagnostics | Доступны | Да | Build/runtime/resource панели, private worker/health logs, QA stale detection. Внешнего оповещения нет. |
+| Cache/gzip/CDN | Да, public CDN уже включён | Да | Gzip/static cache/HTML revalidation проверены. Admin/session/API no-store; private cache не включался. |
+| Защита | SSL, malware scanner, IP Manager, directory protection | Да | TLS/HSTS, server auth/roles, QA isolation, private env0600, secret URLs закрыты. Ранее malware сводка без угроз; новый отдельный scan не заявляется. |
+| Private storage | Да | Да | Исторический payload сохранён; signed file service/roles проверены в QA; публичный доступ закрыт. |
+| SSH/terminal | Да, SSH active | Да | Web terminal работает; direct key добавляет владелец, пока не подтверждён. |
+| GitHub/deploy | Archive build доступен; OAuth только Studio | Да | GitHub canonical, exact-commit archives, protected PR54. Чужие OAuth права не менялись. |
+| Mail | support@younew.nl/квота подтверждены; SMTP sending условия не установлены | Для будущих уведомлений | Ящик сохранён; отправка/новые услуги не активированы. Внутренние Admin notifications работают. |
+| WebMCP/MCP Server Card | Включение как услуги тарифа не установлено | Нет для этого запуска | Не добавлялись ради AI-score. |
 
-Доступный плагин Hostinger Mail управляет почтой, но не хостингом. В нём нет операций размещения Node/PHP, создания БД, cron, SSL, backup/restore или CDN. Для этих операций использован официальный hPanel. Отсутствие операций плагина не означает отсутствие функции в тарифе.
+Hostinger Mail не содержит hosting-операций Node/PHP/DB/cron/SSL/backup/CDN. Использован разрешённый официальный hPanel. Отсутствие API плагина не считалось отсутствием функции тарифа.
 
-AI-visibility/WebMCP/MCP Server Card не добавляются ради баллов аудитора. Сначала требуются рабочие пользовательские сценарии и проверенная серверная эксплуатация.
+[Node limits](https://www.hostinger.com/support/hostinger-node-js-limits-for-web-and-cloud-plans/) и [поддерживаемая связность](https://www.hostinger.com/support/which-web-standards-and-connectivity-features-are-supported-at-hostinger/) объясняют ограничение параллелизма и HTTPS QA вместо custom-port preview. Наблюдаемая нагрузка не потребовала upgrade или boost.

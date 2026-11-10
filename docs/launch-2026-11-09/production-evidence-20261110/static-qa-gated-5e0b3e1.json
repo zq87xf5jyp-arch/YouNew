@@ -1,0 +1,27 @@
+{
+  "checks": [
+    "anonymous PHP gate 401",
+    "/ exact bytes and private headers",
+    "/nl/ exact bytes and private headers",
+    "/discover/ exact bytes and private headers",
+    "/map/ exact bytes and private headers",
+    "/guides/ exact bytes and private headers",
+    "/search/ exact bytes and private headers",
+    "/for-business/ exact bytes and private headers",
+    "/privacy/ exact bytes and private headers",
+    "/terms/ exact bytes and private headers",
+    "HTTPS 404 app body via QA PHP gate",
+    "original page rollback exact over HTTPS",
+    "candidate restored over HTTPS"
+  ],
+  "status": "PASS",
+  "activeCandidate": true,
+  "productionChanged": false,
+  "at": "2026-11-10T14:29:04.706869+00:00",
+  "commit": "5e0b3e152c7619f967fc7b518854bd6d8c9cb374",
+  "qaOverlay": [
+    ".htaccess",
+    "robots.txt",
+    "qa-static-gate.php"
+  ]
+}

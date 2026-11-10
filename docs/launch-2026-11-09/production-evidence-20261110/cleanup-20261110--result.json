@@ -1,0 +1,69 @@
+{
+  "at": "2026-11-10T19:37:44.738686+00:00",
+  "deleted": [
+    {
+      "path": "/home/u246392949/domains/younew.nl/younew-private/launch-production/public-build-cf6ab6f/admin-dashboard/public-site/node_modules",
+      "bytesAllocated": 493219840,
+      "reason": "reproducible dependency/build cache; tracked source and lockfile preserved",
+      "recoveryCommit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665"
+    },
+    {
+      "path": "/home/u246392949/domains/younew.nl/younew-private/launch-production/public-build-cf6ab6f/admin-dashboard/public-site/.next",
+      "bytesAllocated": 305221632,
+      "reason": "reproducible dependency/build cache; tracked source and lockfile preserved",
+      "recoveryCommit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665"
+    },
+    {
+      "path": "/home/u246392949/domains/younew.nl/younew-private/launch-production/public-build-cf6ab6f/admin-dashboard/public-site/tsconfig.tsbuildinfo",
+      "bytesAllocated": 188416,
+      "reason": "reproducible dependency/build cache; tracked source and lockfile preserved",
+      "recoveryCommit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665"
+    },
+    {
+      "path": "/home/u246392949/domains/younew.nl/younew-private/launch-production/public-build-cf6ab6f/scripts/__pycache__",
+      "bytesAllocated": 24576,
+      "reason": "reproducible dependency/build cache; tracked source and lockfile preserved",
+      "recoveryCommit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665"
+    },
+    {
+      "path": "/home/u246392949/domains/younew.nl/younew-private/launch-production/public-build-5e0b3e1/admin-dashboard/public-site/node_modules",
+      "bytesAllocated": 493228032,
+      "reason": "reproducible dependency/build cache; tracked source and lockfile preserved",
+      "recoveryCommit": "5e0b3e152c7619f967fc7b518854bd6d8c9cb374"
+    },
+    {
+      "path": "/home/u246392949/domains/younew.nl/younew-private/launch-production/public-build-5e0b3e1/admin-dashboard/public-site/.next",
+      "bytesAllocated": 305348608,
+      "reason": "reproducible dependency/build cache; tracked source and lockfile preserved",
+      "recoveryCommit": "5e0b3e152c7619f967fc7b518854bd6d8c9cb374"
+    },
+    {
+      "path": "/home/u246392949/domains/younew.nl/younew-private/launch-production/public-build-5e0b3e1/admin-dashboard/public-site/tsconfig.tsbuildinfo",
+      "bytesAllocated": 188416,
+      "reason": "reproducible dependency/build cache; tracked source and lockfile preserved",
+      "recoveryCommit": "5e0b3e152c7619f967fc7b518854bd6d8c9cb374"
+    },
+    {
+      "path": "/home/u246392949/domains/younew.nl/younew-private/launch-production/public-build-5e0b3e1/scripts/__pycache__",
+      "bytesAllocated": 73728,
+      "reason": "reproducible dependency/build cache; tracked source and lockfile preserved",
+      "recoveryCommit": "5e0b3e152c7619f967fc7b518854bd6d8c9cb374"
+    }
+  ],
+  "preserved": [
+    {
+      "build": "/home/u246392949/domains/younew.nl/younew-private/launch-production/public-build-cf6ab6f",
+      "sourceCommit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665",
+      "diffSha256": "dd37b43552b09fce42da8a0cf9930f71696e6385fb8c81b96c883aba2b5d1691",
+      "outAndReportsPreserved": true
+    },
+    {
+      "build": "/home/u246392949/domains/younew.nl/younew-private/launch-production/public-build-5e0b3e1",
+      "sourceCommit": "5e0b3e152c7619f967fc7b518854bd6d8c9cb374",
+      "diffSha256": "8cbd8aae52e0da257920166dccd1ba1f662980b099b4c3f1eb0f94226bf531d1",
+      "outAndReportsPreserved": true
+    }
+  ],
+  "realDataDeleted": false,
+  "reclaimedAllocatedBytes": 1597493248
+}

@@ -1,0 +1,23 @@
+{
+  "status": "PASS",
+  "scope": "manual production browser verification 2026-11-10",
+  "desktop": "1280px home with photos and no overlay",
+  "mobile": "390px search/map; scrollWidth equals clientWidth",
+  "checks": [
+    "EN Leiden: two geography results",
+    "NL language switch preserves query",
+    "NL no-match empty state",
+    "Leiden map: one municipality; 342 official municipalities available",
+    "Empty BUSINESS form validates required fields without creating a record",
+    "Admin login form renders"
+  ],
+  "publicConsoleErrors": [],
+  "realOwnerProductionLogin": "NOT_TESTED",
+  "screenshots": [
+    "production-home-desktop.png",
+    "production-search-nl-390.png",
+    "production-map-leiden-390.png",
+    "production-business-validation-390.png",
+    "production-admin-login.png"
+  ]
+}

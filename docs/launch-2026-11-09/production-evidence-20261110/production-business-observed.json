@@ -1,0 +1,824 @@
+{
+  "status": "PASS",
+  "at": "2026-11-10T19:34:57.356Z",
+  "commit": "0c583ef093ae57863df7f7ea938d3c1dd32ff995",
+  "counts": {
+    "profiles": 4,
+    "business_inquiries": 7,
+    "ingest_receipts": 4,
+    "business_inquiry_notifications": 4,
+    "legacy_assets": 1,
+    "legacy_rows": 1396
+  },
+  "profileHashesAndRolesUnchanged": true,
+  "sqlite": {
+    "counts": {
+      "business": 4,
+      "feedback": 1
+    },
+    "receipts": 4,
+    "integrity": "ok"
+  },
+  "baselineBusiness": 4,
+  "baselineResults": [
+    {
+      "inquiries": 1,
+      "receipts": 1,
+      "notifications": 1
+    },
+    {
+      "inquiries": 1,
+      "receipts": 1,
+      "notifications": 1
+    },
+    {
+      "inquiries": 1,
+      "receipts": 1,
+      "notifications": 1
+    },
+    {
+      "inquiries": 1,
+      "receipts": 1,
+      "notifications": 1
+    }
+  ],
+  "completedScheduledRuns": 49,
+  "events": [
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T15:30:01Z"
+    },
+    {
+      "at": "2026-11-10T15:30:02+00:00",
+      "result": "delivered",
+      "http": 200,
+      "attempt": 1
+    },
+    {
+      "at": "2026-11-10T15:30:02+00:00",
+      "result": "delivered",
+      "http": 200,
+      "attempt": 1
+    },
+    {
+      "at": "2026-11-10T15:30:02+00:00",
+      "result": "delivered",
+      "http": 200,
+      "attempt": 1
+    },
+    {
+      "at": "2026-11-10T15:30:02+00:00",
+      "result": "delivered",
+      "http": 200,
+      "attempt": 1
+    },
+    {
+      "at": "2026-11-10T15:30:01+00:00",
+      "attempted": 4,
+      "delivered": 4,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T15:30:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T15:35:02Z"
+    },
+    {
+      "at": "2026-11-10T15:35:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T15:35:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T15:40:02Z"
+    },
+    {
+      "at": "2026-11-10T15:40:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T15:40:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T15:45:02Z"
+    },
+    {
+      "at": "2026-11-10T15:45:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T15:45:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T15:50:01Z"
+    },
+    {
+      "at": "2026-11-10T15:50:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T15:50:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T15:55:02Z"
+    },
+    {
+      "at": "2026-11-10T15:55:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T15:55:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:00:02Z"
+    },
+    {
+      "at": "2026-11-10T16:00:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:00:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:05:02Z"
+    },
+    {
+      "at": "2026-11-10T16:05:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:05:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:10:01Z"
+    },
+    {
+      "at": "2026-11-10T16:10:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:10:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:15:02Z"
+    },
+    {
+      "at": "2026-11-10T16:15:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:15:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:20:01Z"
+    },
+    {
+      "at": "2026-11-10T16:20:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:20:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:25:01Z"
+    },
+    {
+      "at": "2026-11-10T16:25:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:25:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:30:02Z"
+    },
+    {
+      "at": "2026-11-10T16:30:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:30:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:35:02Z"
+    },
+    {
+      "at": "2026-11-10T16:35:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:35:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:40:01Z"
+    },
+    {
+      "at": "2026-11-10T16:40:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:40:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:45:02Z"
+    },
+    {
+      "at": "2026-11-10T16:45:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:45:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:50:01Z"
+    },
+    {
+      "at": "2026-11-10T16:50:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:50:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T16:55:02Z"
+    },
+    {
+      "at": "2026-11-10T16:55:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T16:55:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:00:01Z"
+    },
+    {
+      "at": "2026-11-10T17:00:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:00:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:05:02Z"
+    },
+    {
+      "at": "2026-11-10T17:05:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:05:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:10:01Z"
+    },
+    {
+      "at": "2026-11-10T17:10:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:10:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:15:02Z"
+    },
+    {
+      "at": "2026-11-10T17:15:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:15:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:20:01Z"
+    },
+    {
+      "at": "2026-11-10T17:20:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:20:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:25:01Z"
+    },
+    {
+      "at": "2026-11-10T17:25:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:25:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:30:02Z"
+    },
+    {
+      "at": "2026-11-10T17:30:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:30:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:35:02Z"
+    },
+    {
+      "at": "2026-11-10T17:35:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:35:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:40:01Z"
+    },
+    {
+      "at": "2026-11-10T17:40:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:40:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:45:01Z"
+    },
+    {
+      "at": "2026-11-10T17:45:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:45:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:50:01Z"
+    },
+    {
+      "at": "2026-11-10T17:50:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:50:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T17:55:01Z"
+    },
+    {
+      "at": "2026-11-10T17:55:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T17:55:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:00:02Z"
+    },
+    {
+      "at": "2026-11-10T18:00:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:00:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:05:02Z"
+    },
+    {
+      "at": "2026-11-10T18:05:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:05:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:10:01Z"
+    },
+    {
+      "at": "2026-11-10T18:10:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:10:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:15:01Z"
+    },
+    {
+      "at": "2026-11-10T18:15:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:15:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:20:01Z"
+    },
+    {
+      "at": "2026-11-10T18:20:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:20:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:25:02Z"
+    },
+    {
+      "at": "2026-11-10T18:25:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:25:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:30:01Z"
+    },
+    {
+      "at": "2026-11-10T18:30:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:30:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:35:02Z"
+    },
+    {
+      "at": "2026-11-10T18:35:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:35:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:40:02Z"
+    },
+    {
+      "at": "2026-11-10T18:40:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:40:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:45:01Z"
+    },
+    {
+      "at": "2026-11-10T18:45:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:45:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:50:01Z"
+    },
+    {
+      "at": "2026-11-10T18:50:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:50:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T18:55:01Z"
+    },
+    {
+      "at": "2026-11-10T18:55:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T18:55:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T19:00:01Z"
+    },
+    {
+      "at": "2026-11-10T19:00:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T19:00:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T19:05:02Z"
+    },
+    {
+      "at": "2026-11-10T19:05:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T19:05:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T19:10:01Z"
+    },
+    {
+      "at": "2026-11-10T19:10:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T19:10:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T19:15:02Z"
+    },
+    {
+      "at": "2026-11-10T19:15:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T19:15:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T19:20:01Z"
+    },
+    {
+      "at": "2026-11-10T19:20:01+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T19:20:01Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T19:25:02Z"
+    },
+    {
+      "at": "2026-11-10T19:25:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T19:25:02Z"
+    },
+    {
+      "event": "cron_start",
+      "at": "2026-11-10T19:30:02Z"
+    },
+    {
+      "at": "2026-11-10T19:30:02+00:00",
+      "attempted": 0,
+      "delivered": 0,
+      "failed": 0,
+      "deferred": 0
+    },
+    {
+      "event": "cron_end",
+      "at": "2026-11-10T19:30:02Z"
+    }
+  ],
+  "checks": [
+    {
+      "path": "/api/r4/me",
+      "status": 401,
+      "noStore": true
+    },
+    {
+      "path": "/api/r4/catalog",
+      "status": 401,
+      "noStore": true
+    },
+    {
+      "path": "/api/r4/editorial/approved",
+      "status": 401,
+      "noStore": true
+    }
+  ]
+}

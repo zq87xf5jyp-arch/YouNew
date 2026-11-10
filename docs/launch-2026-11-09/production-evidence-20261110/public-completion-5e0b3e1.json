@@ -1,0 +1,88 @@
+{
+  "commit": "5e0b3e152c7619f967fc7b518854bd6d8c9cb374",
+  "startedAt": "2026-11-10T14:23:17.239604+00:00",
+  "productionChanged": false,
+  "steps": [
+    {
+      "command": [
+        "python3",
+        "scripts/generate-data-dashboard.py"
+      ],
+      "pass": true
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/generate-data-observability.py"
+      ],
+      "pass": true
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/data-project-qa.py",
+        "--public-safe"
+      ],
+      "pass": true
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/data-project-import-static-qa.py"
+      ],
+      "pass": true
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/build-practical-guide-qa-packets.py",
+        "--check"
+      ],
+      "pass": true
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/practical-guide-static-qa.py"
+      ],
+      "pass": true
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/priority-research-static-qa.py"
+      ],
+      "pass": true
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/build-priority-1-editorial-handoff.py",
+        "--check"
+      ],
+      "pass": true
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/content-readiness-audit.py",
+        "--check"
+      ],
+      "pass": true
+    },
+    {
+      "command": [
+        "python3",
+        "scripts/data-health-gate.py",
+        "--public-safe"
+      ],
+      "pass": true
+    }
+  ],
+  "status": "PASS",
+  "files": 1133,
+  "bytes": 100038906,
+  "manifestSha256": "27a0b5f11910974325b4dc2d0bd44efc84a859657d09eacc1ecdacb575a59bd5",
+  "httpAcceptance": "PENDING on isolated HTTPS; Hostinger custom ports unavailable",
+  "finishedAt": "2026-11-10T14:23:41.847728+00:00"
+}
