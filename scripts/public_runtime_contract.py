@@ -1,8 +1,21 @@
 """Validate a public subset without silently dropping canonical runtime records."""
 from datetime import date, datetime, timedelta, timezone
+import json
+import subprocess
 
 
-def validate_public_partition(runtime, public, exclusions, disposition, freshness_records=None, today=None):
+def verified_editorial_release(public, root):
+    if not any(item.get("editorial") for item in public["entities"]):
+        return {"ids": [], "sha": None}
+    script = "import {loadEditorialRelease} from './admin-dashboard/public-site/scripts/editorial-release.mjs'; const r=await loadEditorialRelease(); console.log(JSON.stringify({ids:r.entities.map(x=>x.id),sha:r.batchSha256}));"
+    approved = json.loads(subprocess.check_output(["node", "--input-type=module", "-e", script], cwd=root, text=True))
+    observed = {item["id"] for item in public["entities"] if item.get("editorial", {}).get("batchSha256") == approved["sha"]}
+    if observed != set(approved["ids"]):
+        raise ValueError("Approved editorial public projection differs from source batch")
+    return approved
+
+
+def validate_public_partition(runtime, public, exclusions, disposition, freshness_records=None, today=None, editorial_ids=()):
     errors = []
     runtime_ids = [item["id"] for item in runtime["entities"]]
     public_ids = [item["id"] for item in public["entities"]]
@@ -54,6 +67,8 @@ def validate_public_partition(runtime, public, exclusions, disposition, freshnes
         errors.append("public exclusions differ from the reviewed disposition")
     if set(public_ids) & set(excluded_ids):
         errors.append("excluded records remain in public content")
-    if set(public_ids) | set(excluded_ids) != set(runtime_ids):
+    if set(editorial_ids) & set(runtime_ids):
+        errors.append("editorial IDs overlap canonical runtime")
+    if set(public_ids) | set(excluded_ids) != set(runtime_ids) | set(editorial_ids):
         errors.append("public content and explicit exclusions do not partition the canonical runtime")
     return errors

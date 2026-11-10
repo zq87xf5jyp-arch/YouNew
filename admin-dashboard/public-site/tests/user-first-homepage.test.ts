@@ -50,7 +50,8 @@ test("compact navigation preserves bilingual core routes and emergency access", 
   assert.match(header, /aria-label=\{isDutch \? "Navigatiemenu" : "Navigation menu"/);
   for (const route of ["/privacy/", "/terms/", "/support/", "/status/", "/app/"]) assert.ok(footer.includes(route));
   assert.match(footer, /LanguageLink locale=\{locale\} expanded/);
-  assert.match(homepage, /\/municipalities\/leiden\//);
+  assert.match(homepage, /\/leiden\//);
+  assert.match(homepage, /\/nl\/leiden\//);
   for (const path of ["I live here", "I want to explore", "I own a business"]) assert.ok(homepage.includes(path));
 });
 

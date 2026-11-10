@@ -224,6 +224,7 @@ export interface PracticalGuide {
 }
 
 export interface ContentEntity {
+  readonly editorial?: EditorialContent;
   readonly placeDetails?: PublicPlaceDetails | null;
   readonly id: string;
   readonly slug: string;
@@ -252,6 +253,21 @@ export interface ContentEntity {
   readonly releaseId: string;
   readonly relatedEntityIds: readonly string[];
   readonly seo: ContentSeo;
+}
+
+export interface EditorialSource { readonly id: string; readonly title: string; readonly publisher: string; readonly url: string; readonly checkedAt: string; }
+export interface EditorialBlock { readonly id: string; readonly text: string; readonly sourceIds: readonly string[]; readonly title?: string; }
+export interface EditorialGuide {
+  readonly audience: EditorialBlock | null; readonly situation: EditorialBlock | null;
+  readonly steps: readonly EditorialBlock[]; readonly documents: readonly EditorialBlock[];
+  readonly warnings: readonly EditorialBlock[]; readonly sections: readonly EditorialBlock[];
+  readonly disclaimer: string; readonly sources: readonly EditorialSource[];
+}
+export interface EditorialContent {
+  readonly schemaVersion: 1;
+  readonly section: "EXPLORE" | "LIVE" | "COLLECTIONS" | "BUSINESS";
+  readonly locales: Readonly<Record<"en" | "nl", {readonly title:string; readonly summary:string; readonly guide:EditorialGuide|null}>>;
+  readonly sources: readonly EditorialSource[]; readonly reviewedAt:string; readonly reviewer:string; readonly batchSha256:string;
 }
 
 export interface PublicSourcedValue {

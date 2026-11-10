@@ -3,6 +3,7 @@ import { spawnSync } from "node:child_process";
 import { readFile, readdir, writeFile } from "node:fs/promises";
 import { dirname, relative, resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import {loadEditorialRelease} from '../public-site/scripts/editorial-release.mjs';
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const adminRoot = resolve(scriptDirectory, "..");
@@ -106,9 +107,9 @@ function productionMetadataMatch(observation, provenanceInput, runtimeManifest) 
   return Boolean(
     deployedProvenance &&
     deployedProvenance.sha256 === provenanceInput.sha256 &&
-    provenanceInput.value.datasetFingerprint === runtimeManifest.datasetFingerprint &&
+    (provenanceInput.value.sourceDatasetFingerprint ?? provenanceInput.value.datasetFingerprint) === runtimeManifest.datasetFingerprint &&
     provenanceInput.value.sourceOutputChecksum === runtimeManifest.outputChecksum &&
-    provenanceInput.value.counts?.sourceRecords === runtimeManifest.entityCount
+    provenanceInput.value.counts?.sourceRecords === runtimeManifest.entityCount + (provenanceInput.value.editorialRelease?.count ?? 0)
   );
 }
 
@@ -126,21 +127,25 @@ async function buildSnapshot() {
   if (dataProject.summary.published !== runtime.entityCount) {
     throw new Error(`Published count mismatch: DATA PROJECT=${dataProject.summary.published}, runtime=${runtime.entityCount}.`);
   }
-  if (provenanceInput.value.datasetFingerprint !== runtime.datasetFingerprint) {
+  const editorial=provenanceInput.value.editorialRelease ? await loadEditorialRelease() : null;
+  const editorialCount=editorial?.entities.length ?? 0;
+  if(editorial && (editorial.id!==provenanceInput.value.editorialRelease.id || editorial.batchSha256!==provenanceInput.value.editorialRelease.batchSha256 || editorialCount!==provenanceInput.value.editorialRelease.count)) throw new Error('Editorial provenance does not match owner approval.');
+  const expectedFingerprint=editorial ? createHash('sha256').update(`${runtime.datasetFingerprint}:${editorial.batchSha256}`).digest('hex') : runtime.datasetFingerprint;
+  if (provenanceInput.value.datasetFingerprint !== expectedFingerprint || (provenanceInput.value.sourceDatasetFingerprint ?? runtime.datasetFingerprint)!==runtime.datasetFingerprint) {
     throw new Error("Public content provenance does not match the packaged runtime fingerprint.");
   }
   const sourceCount = provenanceInput.value.counts?.sourceRecords;
   const packagedCount = provenanceInput.value.counts?.acceptedRecords;
   const freshnessExcludedCount = provenanceInput.value.counts?.freshnessExcludedRecords;
   if (![sourceCount, packagedCount, freshnessExcludedCount].every(Number.isInteger)
-      || sourceCount !== runtime.entityCount
+      || sourceCount !== runtime.entityCount + editorialCount
       || packagedCount + freshnessExcludedCount !== sourceCount) {
     throw new Error("Public freshness provenance must partition every packaged source record into accepted or explicitly excluded records.");
   }
 
   const metadataAttested = productionMetadataMatch(productionObservation, provenanceInput, runtime);
   const { candidateCommit, sourceTreeState, sourceTreeExclusions } = candidateSourceIdentity();
-  const inventoryCount = dataProject.summary.records;
+  const inventoryCount = dataProject.summary.records + editorialCount;
   const coverage = inventoryCount > 0 ? Number(((packagedCount / inventoryCount) * 100).toFixed(1)) : null;
   const generatedAt = maxTimestamp([
     dataProject.generated_at,
@@ -180,7 +185,7 @@ async function buildSnapshot() {
       observedAt: runtime.generatedAt,
       validThrough: null,
       state: "measured",
-      scope: `Governed source runtime with ${sourceCount} records; public packaging accepts ${packagedCount} and explicitly excludes ${freshnessExcludedCount} stale records.`
+      scope: `Governed source runtime with ${runtime.entityCount} records plus ${editorialCount} exact owner-approved editorial records; public packaging accepts ${packagedCount} and explicitly excludes ${freshnessExcludedCount} stale records.`
     },
     {
       id: "public-content-provenance",
@@ -252,8 +257,8 @@ async function buildSnapshot() {
         entityCount: packagedCount,
         sourceEntityCount: sourceCount,
         freshnessExcludedEntityCount: freshnessExcludedCount,
-        releaseIDs: runtime.publishedReleaseIds,
-        datasetFingerprint: runtime.datasetFingerprint,
+        releaseIDs: provenanceInput.value.acceptedReleaseIds,
+        datasetFingerprint: provenanceInput.value.datasetFingerprint,
         outputChecksum: runtime.outputChecksum
       },
       deployed: {

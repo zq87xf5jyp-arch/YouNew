@@ -75,10 +75,10 @@ test("search filters are applied before ranking", () => {
   const base = index.documents.find(document => document.type === "guide");
   assert.ok(base);
   const candidates = [
-    {...base, id:"guide.synthetic-match", title:"Amsterdam", categories:["government"]},
-    {...base, id:"guide.synthetic-excluded", title:"Amsterdam", categories:["housing"]}
+    {...base, id:"guide.synthetic-match", title:"Synthetic filter needle", categories:["government"]},
+    {...base, id:"guide.synthetic-excluded", title:"Synthetic filter needle", categories:["housing"]}
   ];
-  const results = rankModule.rankSearchDocuments(candidates, "Amsterdam", {
+  const results = rankModule.rankSearchDocuments(candidates, "Synthetic filter needle", {
     filters: { type: "guide", category: "government" }
   });
   assert.ok(results.length > 0);

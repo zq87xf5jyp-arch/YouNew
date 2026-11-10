@@ -1,6 +1,7 @@
 import 'server-only';
 import {readFile} from 'node:fs/promises';
 import {productionMode} from './runtime-mode';
+import {editorialPublished} from './editorial-publication';
 import {randomUUID,timingSafeEqual} from 'node:crypto';
 import {z} from 'zod';
 import {db,rows as sqlRows,transaction,type Conn} from './db';
@@ -46,9 +47,10 @@ function conflict(e:unknown):never{if((e as {code?:string})?.code==='ER_DUP_ENTR
 export async function catalogList(){const a=await authorize('catalog.read');
  if(productionMode()){
   const file=process.env.R4_EDITORIAL_DRAFTS_FILE;if(!file)throw new Error('Private draft source required');
-  const data=JSON.parse(await readFile(file,'utf8')) as {entities:Document[]};
+  const data=JSON.parse(await readFile(file,'utf8')) as {entities:Document[];publication?:unknown};
   if(!Array.isArray(data.entities)||data.entities.some(d=>d.publicationStatus!=='draft'||d.attributes?.synthetic==='true'))throw new Error('Invalid editorial source');
-  return data.entities.map(d=>({id:d.id,publicId:d.id,state:'draft',revision:1,synthetic:false,document:d}));
+  const state=editorialPublished(data)?'published':'draft';
+  return data.entities.map(d=>({id:d.id,publicId:d.id,state,revision:1,synthetic:false,document:d}));
  }
  return (await rows(db(),'SELECT * FROM catalog_places WHERE workspace_id=? ORDER BY public_id',[a.workspace_id])).map(dto);}
 

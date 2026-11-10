@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "snapshotID": "release-truth.9e7753e7fcab5e60",
-  "snapshotDigest": "9e7753e7fcab5e60b738d6bc9d741f16bf7f2dc907342a7fcb6aa1ad58d0fa27",
-  "generatedAt": "2026-11-09T14:16:09.000Z",
-  "candidateCommit": "eebb6a9b254d74f6e0dc227af9ccabb1c2047bda",
+  "snapshotID": "release-truth.2fd22b2035ddceb4",
+  "snapshotDigest": "2fd22b2035ddceb480435b4a1e607c218f6c5b919bf567e5e45286bbece24bc2",
+  "generatedAt": "2026-11-10T21:56:10.000Z",
+  "candidateCommit": "8277a38652a5f7d16f54ffe212f6f39efeecc00b",
   "sourceTreeState": "dirty",
   "sourceTreeExclusions": [
     "admin-dashboard/src/generated/release-truth.json",
@@ -19,7 +19,7 @@
     {
       "id": "candidate-source",
       "kind": "git_source_identity",
-      "sourceRef": "git:eebb6a9b254d74f6e0dc227af9ccabb1c2047bda",
+      "sourceRef": "git:8277a38652a5f7d16f54ffe212f6f39efeecc00b",
       "sha256": null,
       "observedAt": null,
       "validThrough": null,
@@ -30,8 +30,8 @@
       "id": "data-project-inventory",
       "kind": "generated_inventory",
       "sourceRef": "admin-dashboard/src/generated/data-project-dashboard.json",
-      "sha256": "0960b31f92ed050dc78897ed3a8303b64d1d8ee6321429eb27b966642d1c109a",
-      "observedAt": "2026-11-09T14:16:09+00:00",
+      "sha256": "8a05a2547314f7f353cf5956a711e582cfd3ef18342ac4ed7966c49230f3d42e",
+      "observedAt": "2026-11-10T21:56:10+00:00",
       "validThrough": null,
       "state": "measured",
       "scope": "Governed candidate inventory; link-health sentinel is explicitly excluded."
@@ -44,13 +44,13 @@
       "observedAt": "2026-10-23T00:00:00Z",
       "validThrough": null,
       "state": "measured",
-      "scope": "Governed source runtime with 5 records; public packaging accepts 5 and explicitly excludes 0 stale records."
+      "scope": "Governed source runtime with 5 records plus 71 exact owner-approved editorial records; public packaging accepts 76 and explicitly excludes 0 stale records."
     },
     {
       "id": "public-content-provenance",
       "kind": "packaged_provenance",
       "sourceRef": "admin-dashboard/public-site/public/data/content-provenance.json",
-      "sha256": "b1bf717fce63577fc9bd2d70d0c81186c1afa0ced040e10154101b5ebda9f09f",
+      "sha256": "632b0a70ef34168dc26ee1022af13cd60cfcf1269bf5acd94e6a867fb7e22ed1",
       "observedAt": "2026-10-23T00:00:00Z",
       "validThrough": null,
       "state": "measured",
@@ -90,7 +90,7 @@
   "publication": {
     "inventory": {
       "state": "measured",
-      "total": 454,
+      "total": 525,
       "verified": 454,
       "outdated": 425,
       "nextReleaseID": "education-v1.0.0",
@@ -98,14 +98,15 @@
     },
     "packaged": {
       "state": "measured",
-      "entityCount": 5,
-      "sourceEntityCount": 5,
+      "entityCount": 76,
+      "sourceEntityCount": 76,
       "freshnessExcludedEntityCount": 0,
       "releaseIDs": [
         "amsterdam-v0.1.10",
-        "cities-v0.1.0"
+        "cities-v0.1.0",
+        "editorial-leiden-20261110"
       ],
-      "datasetFingerprint": "39a365a2152382da678d1a888a535295ab497481858b815d785c00c32fcbabfc",
+      "datasetFingerprint": "32fb2435ffb84b46b7d0c2e3c2371a217b1bb5280e8aa13cff9bc394f8812e17",
       "outputChecksum": "d39686302bac96ca65c9489f64ed7b7ded29e4f9865e21edfb0f52db8cb45e7c"
     },
     "deployed": {
@@ -121,7 +122,7 @@
     "inventoryRecords": {
       "kind": "count",
       "unit": "count",
-      "value": 454,
+      "value": 525,
       "numerator": null,
       "denominator": null,
       "state": "measured",
@@ -137,7 +138,7 @@
     "packagedPublishedRecords": {
       "kind": "count",
       "unit": "count",
-      "value": 5,
+      "value": 76,
       "numerator": null,
       "denominator": null,
       "state": "measured",
@@ -154,9 +155,9 @@
     "packagedCoverage": {
       "kind": "ratio",
       "unit": "percent",
-      "value": 1.1,
-      "numerator": 5,
-      "denominator": 454,
+      "value": 14.5,
+      "numerator": 76,
+      "denominator": 525,
       "state": "measured",
       "reasonCode": null,
       "formula": {
@@ -189,7 +190,7 @@
   "gates": {
     "sourceIntegrity": {
       "result": "pass",
-      "reason": "Public provenance partitions all 5 governed source records into 5 packaged public records and 0 fail-closed freshness exclusions.",
+      "reason": "Public provenance partitions all 76 governed source records into 76 packaged public records and 0 fail-closed freshness exclusions.",
       "sourceIDs": [
         "data-project-inventory",
         "packaged-runtime",
@@ -198,7 +199,7 @@
     },
     "packagedPublication": {
       "result": "pass",
-      "reason": "The public package contains 5 accepted records and no freshness-excluded record.",
+      "reason": "The public package contains 76 accepted records and no freshness-excluded record.",
       "sourceIDs": [
         "packaged-runtime",
         "public-content-provenance"

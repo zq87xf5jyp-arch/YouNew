@@ -5,7 +5,7 @@ from pathlib import Path
 import hashlib
 import json
 import re
-from public_runtime_contract import validate_public_partition
+from public_runtime_contract import validate_public_partition, verified_editorial_release
 from effective_release import effective_release_heads, resolve_release
 
 
@@ -62,7 +62,11 @@ if admin_manifest.get("entityCount") != len(runtime.get("entities", [])):
     failures.append("admin runtime manifest entity count is stale")
 if admin_manifest.get("sourceSha256") != hashlib.sha256(runtime_text.encode("utf-8")).hexdigest():
     failures.append("admin runtime manifest source digest is stale")
-if public_content.get("datasetFingerprint") != runtime.get("datasetFingerprint"):
+editorial = verified_editorial_release(public_content, ROOT)
+expected_public_fingerprint = runtime.get("datasetFingerprint")
+if editorial["sha"]:
+    expected_public_fingerprint = hashlib.sha256(f'{expected_public_fingerprint}:{editorial["sha"]}'.encode()).hexdigest()
+if public_content.get("datasetFingerprint") != expected_public_fingerprint:
     failures.append("public website fingerprint differs from the iOS governed runtime")
 failures.extend(validate_public_partition(
     runtime,
@@ -71,6 +75,7 @@ failures.extend(validate_public_partition(
     json.loads(read("DataProject/quality/phase4-amsterdam-stale-disposition.json")),
     [record for release in effective_release_heads(ROOT / "DataProject", {"published"})
      for record in resolve_release(ROOT / "DataProject", release).records],
+    editorial_ids=editorial["ids"],
 ))
 if any(token in crud_table for token in ("<Edit", "<Trash2", "<Plus")):
     failures.append("inert CRUD mutation controls are visible")

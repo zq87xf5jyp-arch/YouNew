@@ -1,0 +1,286 @@
+[
+  {
+    "en": "/places/leiden-30ml",
+    "nl": "/nl/plaatsen/leiden-30ml"
+  },
+  {
+    "en": "/guides/leiden-rain",
+    "nl": "/nl/gidsen/leiden-rain"
+  },
+  {
+    "en": "/guides/leiden-centre-walk",
+    "nl": "/nl/gidsen/leiden-centre-walk"
+  },
+  {
+    "en": "/guides/leiden-weekend",
+    "nl": "/nl/gidsen/leiden-weekend"
+  },
+  {
+    "en": "/guides/leiden-add",
+    "nl": "/nl/gidsen/leiden-add"
+  },
+  {
+    "en": "/places/leiden-ankerpark",
+    "nl": "/nl/plaatsen/leiden-ankerpark"
+  },
+  {
+    "en": "/places/leiden-annemax",
+    "nl": "/nl/plaatsen/leiden-annemax"
+  },
+  {
+    "en": "/guides/leiden-digid",
+    "nl": "/nl/gidsen/leiden-digid"
+  },
+  {
+    "en": "/guides/leiden-municipal-services",
+    "nl": "/nl/gidsen/leiden-municipal-services"
+  },
+  {
+    "en": "/places/leiden-barista",
+    "nl": "/nl/plaatsen/leiden-barista"
+  },
+  {
+    "en": "/places/utrecht-neude",
+    "nl": "/nl/plaatsen/utrecht-neude"
+  },
+  {
+    "en": "/places/leiden-bikini",
+    "nl": "/nl/plaatsen/leiden-bikini"
+  },
+  {
+    "en": "/places/leiden-blekerspark",
+    "nl": "/nl/plaatsen/leiden-blekerspark"
+  },
+  {
+    "en": "/places/leiden-borgman",
+    "nl": "/nl/plaatsen/leiden-borgman"
+  },
+  {
+    "en": "/places/leiden-oude-morsch",
+    "nl": "/nl/plaatsen/leiden-oude-morsch"
+  },
+  {
+    "en": "/places/leiden-brownies",
+    "nl": "/nl/plaatsen/leiden-brownies"
+  },
+  {
+    "en": "/places/leiden-cafe-laken",
+    "nl": "/nl/plaatsen/leiden-cafe-laken"
+  },
+  {
+    "en": "/places/rotterdam-chabot",
+    "nl": "/nl/plaatsen/rotterdam-chabot"
+  },
+  {
+    "en": "/places/leiden-rembrandt-hotel",
+    "nl": "/nl/plaatsen/leiden-rembrandt-hotel"
+  },
+  {
+    "en": "/guides/leiden-claim-correct",
+    "nl": "/nl/gidsen/leiden-claim-correct"
+  },
+  {
+    "en": "/places/leiden-burcht",
+    "nl": "/nl/plaatsen/leiden-burcht"
+  },
+  {
+    "en": "/places/leiden-engelenbak",
+    "nl": "/nl/plaatsen/leiden-engelenbak"
+  },
+  {
+    "en": "/guides/leiden-contacts",
+    "nl": "/nl/gidsen/leiden-contacts"
+  },
+  {
+    "en": "/guides/leiden-gp",
+    "nl": "/nl/gidsen/leiden-gp"
+  },
+  {
+    "en": "/guides/leiden-first-day",
+    "nl": "/nl/gidsen/leiden-first-day"
+  },
+  {
+    "en": "/places/den-haag-fotomuseum",
+    "nl": "/nl/plaatsen/den-haag-fotomuseum"
+  },
+  {
+    "en": "/guides/leiden-free",
+    "nl": "/nl/gidsen/leiden-free"
+  },
+  {
+    "en": "/guides/leiden-bsn",
+    "nl": "/nl/gidsen/leiden-bsn"
+  },
+  {
+    "en": "/places/leiden-golden-tulip",
+    "nl": "/nl/plaatsen/leiden-golden-tulip"
+  },
+  {
+    "en": "/places/leiden-grand-cafe-burcht",
+    "nl": "/nl/plaatsen/leiden-grand-cafe-burcht"
+  },
+  {
+    "en": "/places/leiden-plantsoen",
+    "nl": "/nl/plaatsen/leiden-plantsoen"
+  },
+  {
+    "en": "/places/leiden-prentenkabinet",
+    "nl": "/nl/plaatsen/leiden-prentenkabinet"
+  },
+  {
+    "en": "/places/leiden-hortus",
+    "nl": "/nl/plaatsen/leiden-hortus"
+  },
+  {
+    "en": "/places/leiden-huigpark",
+    "nl": "/nl/plaatsen/leiden-huigpark"
+  },
+  {
+    "en": "/places/leiden-huys-van-leyden",
+    "nl": "/nl/plaatsen/leiden-huys-van-leyden"
+  },
+  {
+    "en": "/places/leiden-ibis",
+    "nl": "/nl/plaatsen/leiden-ibis"
+  },
+  {
+    "en": "/places/eindhoven-inkijkmuseum",
+    "nl": "/nl/plaatsen/eindhoven-inkijkmuseum"
+  },
+  {
+    "en": "/places/den-haag-kaafi",
+    "nl": "/nl/plaatsen/den-haag-kaafi"
+  },
+  {
+    "en": "/places/eindhoven-kazerne",
+    "nl": "/nl/plaatsen/eindhoven-kazerne"
+  },
+  {
+    "en": "/places/utrecht-koffie-leute",
+    "nl": "/nl/plaatsen/utrecht-koffie-leute"
+  },
+  {
+    "en": "/places/leiden-leidse-hout",
+    "nl": "/nl/plaatsen/leiden-leidse-hout"
+  },
+  {
+    "en": "/guides/leiden-pharmacy",
+    "nl": "/nl/gidsen/leiden-pharmacy"
+  },
+  {
+    "en": "/places/leiden-lakenhal",
+    "nl": "/nl/plaatsen/leiden-lakenhal"
+  },
+  {
+    "en": "/places/leiden-naturalis",
+    "nl": "/nl/plaatsen/leiden-naturalis"
+  },
+  {
+    "en": "/places/leiden-oudt-leyden",
+    "nl": "/nl/plaatsen/leiden-oudt-leyden"
+  },
+  {
+    "en": "/places/leiden-paco-ciao",
+    "nl": "/nl/plaatsen/leiden-paco-ciao"
+  },
+  {
+    "en": "/places/leiden-park-de-put",
+    "nl": "/nl/plaatsen/leiden-park-de-put"
+  },
+  {
+    "en": "/places/utrecht-oog-in-al",
+    "nl": "/nl/plaatsen/utrecht-oog-in-al"
+  },
+  {
+    "en": "/guides/leiden-bicycle",
+    "nl": "/nl/gidsen/leiden-bicycle"
+  },
+  {
+    "en": "/places/leiden-cronesteyn",
+    "nl": "/nl/plaatsen/leiden-cronesteyn"
+  },
+  {
+    "en": "/guides/leiden-registration",
+    "nl": "/nl/gidsen/leiden-registration"
+  },
+  {
+    "en": "/places/leiden-rembrandtpark",
+    "nl": "/nl/plaatsen/leiden-rembrandtpark"
+  },
+  {
+    "en": "/places/leiden-dende",
+    "nl": "/nl/plaatsen/leiden-dende"
+  },
+  {
+    "en": "/places/leiden-in-den-doofpot",
+    "nl": "/nl/plaatsen/leiden-in-den-doofpot"
+  },
+  {
+    "en": "/places/leiden-verboden-toegang",
+    "nl": "/nl/plaatsen/leiden-verboden-toegang"
+  },
+  {
+    "en": "/places/leiden-boerhaave",
+    "nl": "/nl/plaatsen/leiden-boerhaave"
+  },
+  {
+    "en": "/places/leiden-rmo",
+    "nl": "/nl/plaatsen/leiden-rmo"
+  },
+  {
+    "en": "/places/leiden-roos",
+    "nl": "/nl/plaatsen/leiden-roos"
+  },
+  {
+    "en": "/places/utrecht-sonnenborgh",
+    "nl": "/nl/plaatsen/utrecht-sonnenborgh"
+  },
+  {
+    "en": "/guides/leiden-waste",
+    "nl": "/nl/gidsen/leiden-waste"
+  },
+  {
+    "en": "/places/leiden-steenhof",
+    "nl": "/nl/plaatsen/leiden-steenhof"
+  },
+  {
+    "en": "/places/rotterdam-supernova",
+    "nl": "/nl/plaatsen/rotterdam-supernova"
+  },
+  {
+    "en": "/places/leiden-tabu",
+    "nl": "/nl/plaatsen/leiden-tabu"
+  },
+  {
+    "en": "/places/den-haag-collector",
+    "nl": "/nl/plaatsen/den-haag-collector"
+  },
+  {
+    "en": "/places/utrecht-nox",
+    "nl": "/nl/plaatsen/utrecht-nox"
+  },
+  {
+    "en": "/places/rotterdam-trompenburg",
+    "nl": "/nl/plaatsen/rotterdam-trompenburg"
+  },
+  {
+    "en": "/guides/leiden-transport",
+    "nl": "/nl/gidsen/leiden-transport"
+  },
+  {
+    "en": "/places/leiden-vvv",
+    "nl": "/nl/plaatsen/leiden-vvv"
+  },
+  {
+    "en": "/places/leiden-waag",
+    "nl": "/nl/plaatsen/leiden-waag"
+  },
+  {
+    "en": "/places/leiden-wereldmuseum",
+    "nl": "/nl/plaatsen/leiden-wereldmuseum"
+  },
+  {
+    "en": "/places/den-haag-westbroekpark",
+    "nl": "/nl/plaatsen/den-haag-westbroekpark"
+  }
+]

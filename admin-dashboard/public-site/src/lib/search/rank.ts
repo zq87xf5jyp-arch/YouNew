@@ -7,6 +7,7 @@ export type SearchLocationScope = "national" | "province" | "municipality" | "ci
 export type SearchScope = "national" | "provincial" | "municipal" | "city" | "neighbourhood" | "organization" | "service-area" | "online-service" | "remote" | "emergency";
 
 export interface SearchDocument {
+  readonly dutch?: {readonly title:string;readonly summary:string;readonly route:string};
   readonly id: string;
   readonly type: SearchDocumentType;
   readonly sourceKind: string;

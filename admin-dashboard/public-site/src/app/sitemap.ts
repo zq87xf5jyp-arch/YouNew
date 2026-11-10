@@ -10,7 +10,7 @@ export const dynamic = "force-static";
 export default function sitemap(): MetadataRoute.Sitemap {
   const content = getPublicContent();
   const updated = new Date(content.generatedAt);
-  const staticPaths = [
+  const staticPaths = ["/leiden",
     "", "/start", "/discover", "/guides", "/journeys", "/map", "/categories", "/cities", "/municipalities", "/provinces", "/places", "/updates",
     "/emergency", "/status", "/app", "/for-business", "/for-business/local", "/for-business/pilot", "/for-business/demo-report",
     "/partners", "/partners/apply", "/privacy", "/terms", "/support", "/arrival-planner"
@@ -46,7 +46,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changeFrequency: "monthly",
     priority: 0.85
   }));
-  const dutchStaticPaths = ["/nl", "/nl/categorieen", "/nl/voor-bedrijven", "/nl/voor-bedrijven/lokaal"]
+  const dutchStaticPaths = ["/nl", "/nl/leiden", "/nl/categorieen", "/nl/voor-bedrijven", "/nl/voor-bedrijven/lokaal"]
     .concat(content.organizations.length ? ["/nl/organisaties"] : []);
   const dutchStaticEntries: MetadataRoute.Sitemap = dutchStaticPaths.map((path) => ({
     url: `https://younew.nl${path}/`, lastModified: updated, changeFrequency: "weekly", priority: path === "/nl" ? 0.9 : 0.75
@@ -61,5 +61,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `https://younew.nl/city-guides/${guide.slug}/`, lastModified: new Date(`${guide.verifiedAt}T00:00:00Z`), changeFrequency: "monthly" as const, priority: 0.85 },
     { url: `https://younew.nl/nl/stadsgidsen/${guide.slug}/`, lastModified: new Date(`${guide.verifiedAt}T00:00:00Z`), changeFrequency: "monthly" as const, priority: 0.85 }
   ]));
-  return [...staticEntries, ...dutchStaticEntries, ...cityGuideEntries, ...dutchCategoryEntries, ...dutchOrganizationEntries, ...nationalGuideEntries, ...aggregateEntries, ...municipalityEntries, ...entityEntries];
+  const editorialDutchEntries:MetadataRoute.Sitemap=content.entities.filter(e=>e.editorial).map(e=>({url:`https://younew.nl/nl/${e.type==='place'?'plaatsen':'gidsen'}/${e.slug}/`,lastModified:new Date(`${e.editorial!.reviewedAt}T00:00:00Z`),changeFrequency:'monthly',priority:.7}));
+  return [...staticEntries, ...dutchStaticEntries, ...editorialDutchEntries, ...cityGuideEntries, ...dutchCategoryEntries, ...dutchOrganizationEntries, ...nationalGuideEntries, ...aggregateEntries, ...municipalityEntries, ...entityEntries];
 }
