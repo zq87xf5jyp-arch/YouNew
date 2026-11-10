@@ -1,0 +1,24 @@
+{
+  "status": "PASS",
+  "at": "2026-11-10T13:39:31.581Z",
+  "commit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665",
+  "database": "u246392949_younp1",
+  "directory": "/home/u246392949/domains/younew.nl/younew-private/launch-backups/production-db-prelaunch-2026-11-10T13-39-28-735Z",
+  "dump": {
+    "file": "database.sql",
+    "bytes": 2443226,
+    "sha256": "cadf5eb63c3350444f2c24ae948b05bafe601d648b74299195b9ddc9eda12ad1"
+  },
+  "restoredTables": 16,
+  "restoredRows": 1500,
+  "definitionsMatch": true,
+  "restoredRowsMatch": true,
+  "preservedRowsMatch": true,
+  "originalTablesDeleted": false,
+  "legacyArchiveVerified": true,
+  "profilesPreserved": 4,
+  "inquiriesPreserved": 3,
+  "assetsPreserved": 1,
+  "sessionsImported": 0,
+  "scope": "disconnected prelaunch database only"
+}

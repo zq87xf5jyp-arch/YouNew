@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "at": "2026-11-10T19:58:05.620689+00:00",
+  "ownerReportedSuccessfulLogin": true,
+  "browserObservedUrl": "https://admin.younew.nl/dashboard",
+  "browserHeadings": [
+    "YouNew Admin"
+  ],
+  "browserConsoleErrorsWarnings": [],
+  "credentialsHandledByOwner": true
+}

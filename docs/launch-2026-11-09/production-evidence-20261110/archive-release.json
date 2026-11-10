@@ -1,0 +1,21 @@
+{
+  "schema_version": 1,
+  "source_commit": "5e0b3e152c7619f967fc7b518854bd6d8c9cb374",
+  "archives_requested": true,
+  "packages": {
+    "node-app": {
+      "files": 2367,
+      "bytes": 313683724,
+      "manifest_sha256": "a6f36685bbef8f9edecd844327c539cec97ffc86f4d6749becf89f21f67b0577",
+      "archive_sha256": "e07769de608885752a60ffa86bb1620f819d0ec471e2d185448f61db044d9445",
+      "archive_bytes": 272022632
+    },
+    "php-site": {
+      "files": 15,
+      "bytes": 35763,
+      "manifest_sha256": "b0e2ea6f14c50d50d3664aa82894ed4e43f98a851e2505682c538b51a19fd3f4",
+      "archive_sha256": "8102447c3783b5ac4799f75f9637dd1891a1a57dc62345b6a3eae7da70738b80",
+      "archive_bytes": 11977
+    }
+  }
+}

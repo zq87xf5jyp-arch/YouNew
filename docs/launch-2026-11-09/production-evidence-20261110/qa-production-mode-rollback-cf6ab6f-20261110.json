@@ -1,0 +1,184 @@
+{
+  "status": "PASS",
+  "scope": "Hostinger production runtime mode with isolated synthetic QA database",
+  "at": "2026-11-10T15:22:48.757858+00:00",
+  "checks": [
+    {
+      "name": "anonymous history asset denied",
+      "pass": true
+    },
+    {
+      "name": "anonymous publication API denied",
+      "pass": true
+    },
+    {
+      "name": "owner login",
+      "pass": true
+    },
+    {
+      "name": "owner history role",
+      "pass": true
+    },
+    {
+      "name": "owner history no-store",
+      "pass": true
+    },
+    {
+      "name": "owner asset role",
+      "pass": true
+    },
+    {
+      "name": "history asset bytes preserved",
+      "pass": true
+    },
+    {
+      "name": "history download private",
+      "pass": true
+    },
+    {
+      "name": "history row rendered",
+      "pass": true
+    },
+    {
+      "name": "history rejects /history?table=auth.users",
+      "pass": true
+    },
+    {
+      "name": "history rejects /history?table=vault.secrets",
+      "pass": true
+    },
+    {
+      "name": "history rejects /history?table=public.feedback&page=-1",
+      "pass": true
+    },
+    {
+      "name": "history rejects /history?table=public.feedback&page=1001",
+      "pass": true
+    },
+    {
+      "name": "owner sees only 71 editorial drafts",
+      "pass": true
+    },
+    {
+      "name": "POST /api/r4/catalog denied by production mode",
+      "pass": true
+    },
+    {
+      "name": "PATCH /api/r4/catalog/33333333-3333-4333-8333-333333333333 denied by production mode",
+      "pass": true
+    },
+    {
+      "name": "POST /api/r4/catalog/33333333-3333-4333-8333-333333333333/transition denied by production mode",
+      "pass": true
+    },
+    {
+      "name": "owner unsupported route absent",
+      "pass": true
+    },
+    {
+      "name": "owner logout",
+      "pass": true
+    },
+    {
+      "name": "owner session revoked",
+      "pass": true
+    },
+    {
+      "name": "admin login",
+      "pass": true
+    },
+    {
+      "name": "admin history role",
+      "pass": true
+    },
+    {
+      "name": "admin history no-store",
+      "pass": true
+    },
+    {
+      "name": "admin asset role",
+      "pass": true
+    },
+    {
+      "name": "admin sees only 71 editorial drafts",
+      "pass": true
+    },
+    {
+      "name": "admin unsupported route absent",
+      "pass": true
+    },
+    {
+      "name": "admin logout",
+      "pass": true
+    },
+    {
+      "name": "admin session revoked",
+      "pass": true
+    },
+    {
+      "name": "viewer login",
+      "pass": true
+    },
+    {
+      "name": "viewer history role",
+      "pass": true
+    },
+    {
+      "name": "viewer history no-store",
+      "pass": true
+    },
+    {
+      "name": "viewer asset role",
+      "pass": true
+    },
+    {
+      "name": "viewer sees only 71 editorial drafts",
+      "pass": true
+    },
+    {
+      "name": "viewer unsupported route absent",
+      "pass": true
+    },
+    {
+      "name": "viewer logout",
+      "pass": true
+    },
+    {
+      "name": "viewer session revoked",
+      "pass": true
+    },
+    {
+      "name": "other login",
+      "pass": true
+    },
+    {
+      "name": "other history role",
+      "pass": true
+    },
+    {
+      "name": "other history no-store",
+      "pass": true
+    },
+    {
+      "name": "other asset role",
+      "pass": true
+    },
+    {
+      "name": "other sees only 71 editorial drafts",
+      "pass": true
+    },
+    {
+      "name": "other unsupported route absent",
+      "pass": true
+    },
+    {
+      "name": "other logout",
+      "pass": true
+    },
+    {
+      "name": "other session revoked",
+      "pass": true
+    }
+  ],
+  "realProductionDataTouched": false
+}

@@ -1,0 +1,16 @@
+{
+  "startedAt": "20261110T144758Z",
+  "sqlite": 8,
+  "productionChanged": false,
+  "mariadb": "Separate verified backup production-db-prelaunch-2026-11-10T13-39-28-735Z; originals retained.",
+  "status": "PASS",
+  "archiveSha256": "01cffa54c31a2838e62c85ab96a600b40179fbd62f29711ba3855f7381866960",
+  "archiveBytes": 63043041,
+  "queueCounts": {
+    "business": 4,
+    "feedback": 1
+  },
+  "finishedAt": "2026-11-10T14:48:11.170200+00:00",
+  "directory": "/home/u246392949/domains/younew.nl/younew-private/launch-backups/production-pre-switch-20261110T144758Z",
+  "entries": 4357
+}

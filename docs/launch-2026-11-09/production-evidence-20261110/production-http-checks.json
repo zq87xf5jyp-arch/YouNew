@@ -1,0 +1,204 @@
+{
+  "status": "PASS",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 107288,
+      "sha256": "93dc9eab6fdd320adb7833904be83c89906d4667911bf134d6ba5080887a7ebc",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/nl/",
+      "status": 200,
+      "bytes": 107930,
+      "sha256": "1038bed71b3d9cc3c09f7ab44d6e77680e8fcc04ddce0f4af0f290706501b8ca",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/start/",
+      "status": 200,
+      "bytes": 91653,
+      "sha256": "65e42f609c358aef419dae760f6a3a9a07e140c0e019e1f12c72e4a51bc4c10f",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/guides/",
+      "status": 200,
+      "bytes": 58695,
+      "sha256": "c1ed155e450d1cf8e961227719e3b544b39e1681ca61c43601b9ca9b623799ff",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/city-guides/amsterdam/",
+      "status": 200,
+      "bytes": 79444,
+      "sha256": "97dfdd82182079b37da056e38b22864b61281023a0a936a1c840536005b70e96",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/for-business/",
+      "status": 200,
+      "bytes": 65189,
+      "sha256": "252c0ee099a18801be5e862241afb732366791289c0ef28c2f9da6ed11d1da2e",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/search/",
+      "status": 200,
+      "bytes": 52289,
+      "sha256": "63f70cd8c81c580645cdf48d08d077226fe0678eab2e6c393640bdbb56d51c5c",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/map/",
+      "status": 200,
+      "bytes": 836876,
+      "sha256": "47c9902759e1e120d1694ae0f2ca6ccbaa3555386e9650c1bd0469cd9441ec03",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/municipalities/leiden/",
+      "status": 200,
+      "bytes": 65493,
+      "sha256": "53c995c0742feafc01e507f63a9e4172ded51a5e048bbef9aae02c00568334e1",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/privacy/",
+      "status": 200,
+      "bytes": 65427,
+      "sha256": "7d56a47742b372768cf2c8d39586f7fff813f782e79c9927979fb76112fed5a4",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/terms/",
+      "status": 200,
+      "bytes": 49442,
+      "sha256": "4d79bb91ac826c392e2ec885b2b4e2f56d6904a0f5d1bafa148292d1da15cce4",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/status/",
+      "status": 200,
+      "bytes": 71708,
+      "sha256": "4a0df9b163e7e938c92cd038a50779a309843fc924fba59ebb73d8448eaa3acb",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200,
+      "bytes": 135,
+      "sha256": "776b2f28a2b0bab0d9a10e0ed8bcd1fbed65809ba737cb94c7a92f3075cd623c",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": null,
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/sitemap.xml",
+      "status": 200,
+      "bytes": 77334,
+      "sha256": "223649c6ebd621e0ca650051eb9aaa58101514fb2c763e74c04b30221d744005",
+      "cache": null,
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/.well-known/mta-sts.txt",
+      "status": 200,
+      "bytes": 88,
+      "sha256": "375e74c77eae69009802fd0a5b13a1b3db2c61d8ed5a76a21ce4fa5a564adc16",
+      "cache": "public, max-age=0, must-revalidate, no-transform",
+      "encoding": null,
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/.well-known/apple-app-site-association",
+      "status": 200,
+      "bytes": 696,
+      "sha256": "39ccf05f0f68ed98829d7d244e0008eaeff02ea6a2df4d81456bdc748be5f5b5",
+      "cache": null,
+      "encoding": "gzip",
+      "server": "LiteSpeed",
+      "hsts": true
+    },
+    {
+      "path": "/_next/static/css/679f30fdd06cf9f9.css",
+      "status": 200,
+      "cache": "public, max-age=31536000",
+      "encoding": "gzip"
+    },
+    {
+      "path": "/_next/static/css/f744631a4ba2906d.css",
+      "status": 200,
+      "cache": "public, max-age=31536000",
+      "encoding": "gzip"
+    },
+    {
+      "path": "/_next/static/chunks/webpack-ebff2f5d7a538625.js",
+      "status": 200,
+      "cache": "public, max-age=604800",
+      "encoding": "gzip"
+    },
+    {
+      "path": "/api/submit-business-inquiry.php",
+      "status": 400,
+      "invalidPayloadRejected": true,
+      "noStore": true
+    },
+    {
+      "path": "/api/submit-public-feedback.php",
+      "status": 400,
+      "invalidPayloadRejected": true,
+      "noStore": true
+    },
+    {
+      "path": "Admin malformed login",
+      "status": 401,
+      "cache": "private, no-store",
+      "error": "invalid_credentials"
+    }
+  ],
+  "at": "2026-11-10T15:30:30.555741+00:00",
+  "fakeProductionRecordsCreated": false,
+  "verificationNote": "Initial harness expected HTTP 400 for empty login; source contract and separate live request verified intentional HTTP 401 invalid_credentials. No application change."
+}

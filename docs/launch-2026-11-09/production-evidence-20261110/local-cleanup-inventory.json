@@ -1,0 +1,86 @@
+[
+  {
+    "path": "/Users/ivan/YouNew",
+    "exists": true
+  },
+  {
+    "path": "/Users/ivan/YouNew-Catalog-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Catalog-R2-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Content-2026-11-09",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Cron-Review-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Cron-Test-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Hostinger-Architecture-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Hostinger-Preparation-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Hostinger-QA-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Hostinger-R3-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Hostinger-R4-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Hostinger-R4B-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Integration-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Launch-Evidence-2026-11-09",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Leiden-2026-11-09",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Local-2026-09-18",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Monitoring-2026-11-04",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-R4B-Hostinger-Review-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-R4B-Verify-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-R4B-Verify2-2026-11-03",
+    "exists": false
+  },
+  {
+    "path": "/Users/ivan/YouNew-Release-2026-11-02",
+    "exists": false
+  }
+]
