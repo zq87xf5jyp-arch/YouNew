@@ -5,6 +5,13 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Publish the exact 71-item owner-approved editorial batch as 142 English/Dutch
+  pages, with Leiden indexes, local search, source references and empty unknown
+  fields. Preserve source hashes and distinguish compact guides from full v2.
+- Show published editorial status in Hostinger Admin only after a validated
+  production activation receipt; retain real-data mutation restrictions and
+  reversible, isolated QA-first deployment with code/data backups.
+
 - Prepare catalog builds in detached Git worktrees on Hostinger and preserve
   their source commit independently of the managed Node standalone deployment.
 
