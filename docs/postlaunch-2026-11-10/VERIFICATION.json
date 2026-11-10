@@ -20,7 +20,10 @@
     "readOnlyProductionQueue": true,
     "realQaProbeMailerAcceptedAt": "2026-11-10T20:43:23Z",
     "mailboxDelivery": "INBOX observed at 20:44 UTC",
-    "mailboxRecipient": "support@younew.nl"
+    "mailboxRecipient": "support@younew.nl",
+    "productionCronExecutedAt": "2026-11-10T20:50:01Z",
+    "productionMailboxDeliveryObservedAt": "2026-11-10T20:50:23Z",
+    "healthMetadataQaConfigurations": 2
   },
   "content": {
     "count": 71,

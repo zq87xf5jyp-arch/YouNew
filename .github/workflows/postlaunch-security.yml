@@ -4,6 +4,7 @@ on:
     paths:
       - "BuildWeekVideo/**"
       - "hostinger/notifications/**"
+      - "hostinger/monitoring/**"
       - ".github/workflows/postlaunch-security.yml"
 permissions:
   contents: read
@@ -33,4 +34,5 @@ jobs:
         with:
           persist-credentials: false
       - run: php -l hostinger/notifications/worker.php
+      - run: sh -n hostinger/notifications/run.sh && python3 -m py_compile hostinger/monitoring/health-check.py
       - run: python3 hostinger/notifications/test-worker.py

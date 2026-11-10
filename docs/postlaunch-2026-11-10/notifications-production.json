@@ -1,0 +1,90 @@
+{
+  "at": "2026-11-10T20:51:26.115448+00:00",
+  "schedulerObservedAt": "2026-11-10T20:50:01Z",
+  "mailboxProbeObservedAt": "2026-11-10T20:50:23Z",
+  "recipient": "support@younew.nl",
+  "events": {
+    "accepted": 1,
+    "baseline": 4
+  },
+  "healthMetadataEnabled": true,
+  "ledgerBackupIntegrity": "ok",
+  "cron": "*/5 * * * *",
+  "applicationReleaseUnchanged": {
+    "status": "ACTIVE",
+    "commit": "0c583ef093ae57863df7f7ea938d3c1dd32ff995",
+    "payloadCommit": "5e0b3e152c7619f967fc7b518854bd6d8c9cb374",
+    "at": "2026-11-10T15:26:29.645365+00:00",
+    "backup": "/home/u246392949/domains/younew.nl/younew-private/launch-backups/production-pre-switch-20261110T144758Z",
+    "codeRollbackDirectory": "/home/u246392949/domains/younew.nl/public-release-5e0b3e1",
+    "activationBackup": "/home/u246392949/domains/younew.nl/younew-private/launch-production/activation-20261110",
+    "beforeRootSha256": "640029346dbd00c7fd626acc65bbd2badbd5560f340d6629681a1babd8a2d254",
+    "afterRootSha256": "93dc9eab6fdd320adb7833904be83c89906d4667911bf134d6ba5080887a7ebc",
+    "files": 1215,
+    "queueBaselineCounts": {
+      "business": 4,
+      "feedback": 1
+    },
+    "queueBaselineRowsPreserved": true,
+    "cronPaused": true,
+    "checks": [
+      {
+        "path": "/",
+        "status": 200,
+        "exact": true
+      },
+      {
+        "path": "/nl/",
+        "status": 200,
+        "exact": true
+      },
+      {
+        "path": "/search/",
+        "status": 200,
+        "exact": true
+      },
+      {
+        "path": "/map/",
+        "status": 200,
+        "exact": true
+      },
+      {
+        "path": "/for-business/local/apply/",
+        "status": 200,
+        "exact": true
+      },
+      {
+        "path": "/nl/voor-bedrijven/aanmelden/",
+        "status": 200,
+        "exact": true
+      },
+      {
+        "path": "404",
+        "status": 404,
+        "bodyMatches": true
+      },
+      {
+        "path": "/api/submit-business-inquiry.php",
+        "status": 405,
+        "noStore": true
+      },
+      {
+        "path": "/api/submit-public-feedback.php",
+        "status": 405,
+        "noStore": true
+      },
+      {
+        "path": "/younew-private/launch-production/migration.env",
+        "status": 404
+      },
+      {
+        "path": "/.env",
+        "status": 403
+      },
+      {
+        "path": "/api/submissions.sqlite",
+        "status": 404
+      }
+    ]
+  }
+}
