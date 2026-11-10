@@ -1,17 +1,17 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-10-23T00:00:00.000Z",
-  "datasetFingerprint": "72b38414604841b9a9536df6d6f793940b8c19fe1f182fb7f622a7b7e5d0c6fd",
+  "datasetFingerprint": "4203101e2755838e7cba5d903cdc59ac334e88a049bdab2ae0d5c6e438f41a93",
   "source": {
-    "contentDatasetFingerprint": "39a365a2152382da678d1a888a535295ab497481858b815d785c00c32fcbabfc",
+    "contentDatasetFingerprint": "32fb2435ffb84b46b7d0c2e3c2371a217b1bb5280e8aa13cff9bc394f8812e17",
     "geographyEffectiveDate": "2026-01-01",
-    "contentSha256": "af8e4b7b2ee3ba37a1f86a55a061079cc07d6a2eccd5b18189e9f2d2b7614984",
+    "contentSha256": "92d4593368923c5901d2ba7ca1df4627918240750e2be2db24e9d73f307f2ced",
     "geographySha256": "928ab17bf26b745c50a88b28e282f536d1a3e61a29066ae57269ed571d179170"
   },
   "counts": {
-    "contentEntities": 5,
+    "contentEntities": 8,
     "municipalities": 342,
-    "total": 347,
+    "total": 350,
     "categories": 33,
     "cities": 5
   },
@@ -37,7 +37,7 @@
       "title": "Business",
       "slug": "business",
       "status": "published",
-      "entity_count": 0,
+      "entity_count": 2,
       "source_id": "category.business"
     },
     {
@@ -53,7 +53,7 @@
       "title": "Culture & events",
       "slug": "culture",
       "status": "published",
-      "entity_count": 0,
+      "entity_count": 10,
       "source_id": "category.culture"
     },
     {
@@ -85,7 +85,7 @@
       "title": "Emergency",
       "slug": "emergency",
       "status": "published",
-      "entity_count": 0,
+      "entity_count": 1,
       "source_id": "category.emergency"
     },
     {
@@ -109,7 +109,7 @@
       "title": "Food & drink",
       "slug": "food-drink",
       "status": "published",
-      "entity_count": 0,
+      "entity_count": 21,
       "source_id": "category.food-drink"
     },
     {
@@ -117,7 +117,7 @@
       "title": "Government",
       "slug": "government",
       "status": "published",
-      "entity_count": 0,
+      "entity_count": 5,
       "source_id": "category.government"
     },
     {
@@ -125,7 +125,7 @@
       "title": "Healthcare",
       "slug": "healthcare",
       "status": "published",
-      "entity_count": 0,
+      "entity_count": 2,
       "source_id": "category.healthcare"
     },
     {
@@ -173,7 +173,7 @@
       "title": "Local services",
       "slug": "local-services",
       "status": "published",
-      "entity_count": 0,
+      "entity_count": 9,
       "source_id": "category.local-services"
     },
     {
@@ -197,7 +197,7 @@
       "title": "Parks & outdoors",
       "slug": "outdoors",
       "status": "published",
-      "entity_count": 0,
+      "entity_count": 11,
       "source_id": "category.outdoors"
     },
     {
@@ -213,7 +213,7 @@
       "title": "Places to visit",
       "slug": "things-to-do",
       "status": "published",
-      "entity_count": 0,
+      "entity_count": 8,
       "source_id": "category.things-to-do"
     },
     {
@@ -261,7 +261,7 @@
       "title": "Transport",
       "slug": "transport",
       "status": "published",
-      "entity_count": 0,
+      "entity_count": 2,
       "source_id": "category.transport"
     },
     {
@@ -3085,6 +3085,25 @@
       "route": "/municipalities/horst-aan-de-maas"
     },
     {
+      "id": "03f2c24e-5b81-5176-b5c2-d60c2563abcf",
+      "title": "Hortus botanicus Leiden",
+      "type": "custom",
+      "latitude": 52.1571223,
+      "longitude": 4.484888,
+      "city": "leiden",
+      "province": "zuid-holland",
+      "description": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+      "source_url": "https://hortusleiden.nl/",
+      "status": "published",
+      "icon": "MapPin",
+      "color": "#f97316",
+      "created_at": null,
+      "updated_at": "2026-11-09T00:00:00Z",
+      "source_kind": "content_entity",
+      "source_id": "place.leiden-hortus",
+      "route": "/places/leiden-hortus"
+    },
+    {
       "id": "a7e43fb9-30e0-5826-963a-dc7ff8bba029",
       "title": "Houten",
       "type": "municipality",
@@ -3140,6 +3159,25 @@
       "source_kind": "municipality",
       "source_id": "GM0677",
       "route": "/municipalities/hulst"
+    },
+    {
+      "id": "40fee855-cce6-547c-bc02-a0472e93b523",
+      "title": "ibis Leiden Centre",
+      "type": "custom",
+      "latitude": 52.164255,
+      "longitude": 4.481488,
+      "city": "leiden",
+      "province": "zuid-holland",
+      "description": "A hotel opposite Leiden Centraal. The operator lists room options and practical arrival information on its official page.",
+      "source_url": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "status": "published",
+      "icon": "MapPin",
+      "color": "#f97316",
+      "created_at": null,
+      "updated_at": "2026-11-09T00:00:00Z",
+      "source_kind": "content_entity",
+      "source_id": "hotel.leiden-ibis",
+      "route": "/places/leiden-ibis"
     },
     {
       "id": "32f1a771-02bf-5c47-9db8-e93929b6e0d9",
@@ -4014,6 +4052,25 @@
       "source_kind": "municipality",
       "source_id": "GM0944",
       "route": "/municipalities/mook-en-middelaar"
+    },
+    {
+      "id": "990d316e-69cc-5928-b0a6-3961e2c16283",
+      "title": "Museum De Lakenhal",
+      "type": "custom",
+      "latitude": 52.1628566,
+      "longitude": 4.4875649,
+      "city": "leiden",
+      "province": "zuid-holland",
+      "description": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+      "source_url": "https://www.lakenhal.nl/en/",
+      "status": "published",
+      "icon": "MapPin",
+      "color": "#f97316",
+      "created_at": null,
+      "updated_at": "2026-11-09T00:00:00Z",
+      "source_kind": "content_entity",
+      "source_id": "place.leiden-lakenhal",
+      "route": "/places/leiden-lakenhal"
     },
     {
       "id": "729d8d09-d04a-5a17-ba0e-566dd4216abd",

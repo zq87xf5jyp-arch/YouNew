@@ -9,6 +9,7 @@ const adminTruth = JSON.parse(
   await readFile(new URL("../../src/generated/release-truth.json", import.meta.url), "utf8")
 );
 const content = JSON.parse(await readFile(new URL("../src/generated/public-content.json", import.meta.url), "utf8"));
+const editorialApproval=JSON.parse(await readFile(new URL('../../../DataProject/editorial/leiden-20261110-approval.json',import.meta.url),'utf8'));
 
 test("public and admin surfaces identify the same release-truth snapshot", () => {
   assert.equal(publicTruth.snapshotID, adminTruth.snapshotID);
@@ -21,13 +22,14 @@ test("public release truth is fail-closed without inventing zero link health", (
   assert.equal(publicTruth.technicalVerdict, "PARTIAL");
   const publishedCount = content.entities.length;
   assert.equal(publicTruth.publication.packagedPublishedRecords, publishedCount);
-  assert.equal(publicTruth.publication.inventoryRecords, 454);
+  const inventory=454+editorialApproval.count;
+  assert.equal(publicTruth.publication.inventoryRecords, inventory);
   assert.deepEqual(publicTruth.publication.packagedCoverage, {
     kind: "ratio",
     unit: "percent",
-    value: Math.round(publishedCount / 454 * 1000) / 10,
+    value: Math.round(publishedCount / inventory * 1000) / 10,
     numerator: publishedCount,
-    denominator: 454,
+    denominator: inventory,
     state: "measured",
     reasonCode: null,
     formula: { id: "packaged-published-over-governed-inventory", version: 1 },

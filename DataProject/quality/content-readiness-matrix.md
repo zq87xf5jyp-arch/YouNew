@@ -1,6 +1,6 @@
 # YouNew content readiness matrix
 
-Evidence date: **2026-11-09**. This is a read-only local audit; no live URL check was performed.
+Evidence date: **2026-11-10**. This is a read-only local audit; no live URL check was performed.
 
 ## Outcome
 
@@ -9,7 +9,7 @@ Evidence date: **2026-11-09**. This is a read-only local audit; no live URL chec
 - Governed records: **454**; effectively published: **5**.
 - Guide-capable material records: **281**; effectively published material records: **0**.
 - Material lifecycle states: **{"published": 15, "qa": 266}**.
-- Public guides: **0 summary / 0 full**.
+- Public guides: **17 summary / 0 full**.
 - Source-backed guide QA packets: **20**; production-ready guides: **0**.
 - Published FAQ: **0/300**; staged draft FAQ: **60**; staged search questions (not FAQ): **20**.
 - Governed topic families with zero inventory records: **0**.
@@ -202,5 +202,5 @@ Production-ready explicit audience coverage is **0/6 (0.0%)**. All six brief pat
 ## Reproduction
 
 ```bash
-python3 scripts/content-readiness-audit.py --as-of 2026-11-09 --check
+python3 scripts/content-readiness-audit.py --as-of 2026-11-10 --check
 ```

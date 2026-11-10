@@ -44,6 +44,7 @@ jobs:
       - run: pnpm lint
       - run: pnpm typecheck
       - run: pnpm test:passwords
+      - run: node --test scripts/test-editorial-publication.mjs
       - run: pnpm build
       - run: pnpm test:anonymous
 

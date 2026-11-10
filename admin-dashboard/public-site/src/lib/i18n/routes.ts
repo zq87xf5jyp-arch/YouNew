@@ -1,3 +1,4 @@
+import editorialRoutes from "../../generated/editorial-routes.json" with {type:"json"};
 /** Carry only the public add/claim intent; never copy contact or search fields. */
 export function businessLanguageHref(href: string, pathname: string, action: string | null): string {
   const isApplication = /^\/(?:for-business\/local\/apply|nl\/voor-bedrijven\/aanmelden)\/?$/.test(pathname);
@@ -6,9 +7,12 @@ export function businessLanguageHref(href: string, pathname: string, action: str
 
 export function localizedCounterpart(path: string): { en: string; nl: string } | null {
   const normalized = path === "/" ? "/" : `/${path.replace(/^\/+|\/+$/g, "")}`;
+  const editorial=editorialRoutes.find(pair=>pair.en===normalized || pair.nl===normalized);
+  if(editorial)return editorial;
   const pairs: Array<[RegExp, (match: RegExpMatchArray) => string, (match: RegExpMatchArray) => string]> = [
     [/^\/$/, () => "/", () => "/nl"],
     [/^\/nl$/, () => "/", () => "/nl"],
+    [/^\/(?:nl\/)?leiden$/, () => "/leiden", () => "/nl/leiden"],
     [/^\/categories(?:\/(.+))?$/, (match) => `/categories${match[1] ? `/${match[1]}` : ""}`, (match) => `/nl/categorieen${match[1] ? `/${match[1]}` : ""}`],
     [/^\/organizations(?:\/(.+))?$/, (match) => `/organizations${match[1] ? `/${match[1]}` : ""}`, (match) => `/nl/organisaties${match[1] ? `/${match[1]}` : ""}`],
     [/^\/search$/, () => "/search", () => "/nl/zoeken"],

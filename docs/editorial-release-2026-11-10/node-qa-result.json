@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "commit": "549167b111e61bb164dc93e5a3bbb95df72d34f4",
+  "environment": "qa",
+  "buildId": "5ulZ9hQS2TC3XWD2TNyoq",
+  "at": "2026-11-10T22:05:10.989155+00:00",
+  "checks": [
+    {
+      "path": "/api/r4/me",
+      "status": 401,
+      "noStore": true
+    },
+    {
+      "path": "/api/r4/catalog",
+      "status": 401,
+      "noStore": true
+    },
+    {
+      "path": "/api/r4/inquiries",
+      "status": 401,
+      "noStore": true
+    }
+  ],
+  "rollbackDirectory": "/home/u246392949/domains/qa-runtime.younew.nl/hbuilds/versions/01a1c606-2f86-733f-aa60-a739ffb7035f/nodejs-editorial-20261110",
+  "backup": "/home/u246392949/domains/qa-catalog.younew.nl/younew-private/editorial-20261110/node-qa-backup",
+  "managedDeployment": "/home/u246392949/domains/qa-runtime.younew.nl/hbuilds/versions/01a1c606-2f86-733f-aa60-a739ffb7035f",
+  "rollbackRehearsed": true,
+  "databaseChanged": false,
+  "hostingConfigChanged": false
+}

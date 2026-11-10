@@ -3,6 +3,8 @@ import { ADMIN_CONTENT_SECURITY_POLICY } from "./src/lib/security-policy";
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  output: "standalone",
+  experimental: { cpus: 1 },
   webpack(config) { if(process.env.YOUNEW_LOCAL_NO_BUILD_CACHE === "1") config.cache=false; return config; },
   poweredByHeader: false,
   // Next normalizes loopback URLs to localhost, dropping the 127.0.0.1 session on redirects.

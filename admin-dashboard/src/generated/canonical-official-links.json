@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-10-23T00:00:00.000Z",
-  "registryFingerprint": "376b835aecbd68b28cd8d728a718306f4085afa82c6408937a2d8ba8694b5d29",
+  "registryFingerprint": "05a03abee982627980f71249ddafa12432e3ccf365b4a555fa9ea11df10e2238",
   "source": {
-    "contentSha256": "af8e4b7b2ee3ba37a1f86a55a061079cc07d6a2eccd5b18189e9f2d2b7614984",
+    "contentSha256": "92d4593368923c5901d2ba7ca1df4627918240750e2be2db24e9d73f307f2ced",
     "geographySha256": "928ab17bf26b745c50a88b28e282f536d1a3e61a29066ae57269ed571d179170",
     "trackedRegistrySha256": "45ac0cb52dd08a902f5b3645de1ecd3aeaf88917b846b4374dd7ecc9bdd5ff3d"
   },
@@ -17,9 +17,9 @@
     "confirmedBroken": null
   },
   "counts": {
-    "references": 687,
-    "canonicalLinks": 683,
-    "duplicatesCollapsed": 4
+    "references": 758,
+    "canonicalLinks": 745,
+    "duplicatesCollapsed": 13
   },
   "links": [
     {
@@ -92,6 +92,24 @@
       ],
       "reference_ids": [
         "GM0796"
+      ]
+    },
+    {
+      "source_key": "source.1b38a33a1e23498725b4057b",
+      "title": "Official visitor information",
+      "publisher": "30ML Leiden",
+      "url": "https://30ml.nl/en/locations/30ml-leiden/",
+      "canonical_url": "https://30ml.nl/en/locations/30ml-leiden/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "cafe.leiden-30ml"
       ]
     },
     {
@@ -671,6 +689,24 @@
       ]
     },
     {
+      "source_key": "source.08ac764d975b84dcca46970a",
+      "title": "Official visitor information",
+      "publisher": "Anne&Max Leiden",
+      "url": "https://www.annemax.nl/vestigingen/leiden/",
+      "canonical_url": "https://www.annemax.nl/vestigingen/leiden/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "cafe.leiden-annemax"
+      ]
+    },
+    {
       "source_key": "source.36f1b0c1c1e923813125b378",
       "title": "Apeldoorn official website",
       "publisher": "Apeldoorn",
@@ -707,6 +743,24 @@
       ]
     },
     {
+      "source_key": "source.d546b34129923a1b6fb8a894",
+      "title": "Official visitor information",
+      "publisher": "Apply for and activate DigiD",
+      "url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+      "canonical_url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "guide.leiden-digid"
+      ]
+    },
+    {
       "source_key": "source.f4a175d941a1568dfacb6cfa",
       "title": "Arnhem official website",
       "publisher": "Arnhem",
@@ -740,6 +794,26 @@
       ],
       "reference_ids": [
         "GM0202"
+      ]
+    },
+    {
+      "source_key": "source.1201f775ebab6e8664147153",
+      "title": "Official visitor information",
+      "publisher": "Arrange municipal services",
+      "url": "https://gemeente.leiden.nl/contact/",
+      "canonical_url": "https://gemeente.leiden.nl/contact/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 2,
+      "reference_kinds": [
+        "content_entity",
+        "municipality_appointment"
+      ],
+      "reference_ids": [
+        "GM0546",
+        "guide.leiden-municipal-services"
       ]
     },
     {
@@ -920,6 +994,25 @@
       ],
       "reference_ids": [
         "GM0489"
+      ]
+    },
+    {
+      "source_key": "source.5ccc5865c52c822659179106",
+      "title": "Official visitor information",
+      "publisher": "Barista Cafe Leiden",
+      "url": "https://www.baristacafe.nl/vestiging/leiden/",
+      "canonical_url": "https://www.baristacafe.nl/vestiging/leiden/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 2,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "cafe.leiden-barista",
+        "collection.leiden-first-day"
       ]
     },
     {
@@ -1409,6 +1502,42 @@
       ]
     },
     {
+      "source_key": "source.ab39d2169cd813e9cfef57da",
+      "title": "Official visitor information",
+      "publisher": "Bibliotheek Utrecht",
+      "url": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+      "canonical_url": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.utrecht-neude"
+      ]
+    },
+    {
+      "source_key": "source.93caab014e9f059cebb59008",
+      "title": "Official visitor information",
+      "publisher": "Bikini Bikini",
+      "url": "https://caferestaurantbikini.nl/contact/",
+      "canonical_url": "https://caferestaurantbikini.nl/contact/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "restaurant.leiden-bikini"
+      ]
+    },
+    {
       "source_key": "source.acfd535d3d6f2980129743f7",
       "title": "Bladel appointment page",
       "publisher": "Bladel",
@@ -1607,6 +1736,24 @@
       ]
     },
     {
+      "source_key": "source.785c1da777b0221f65f8a502",
+      "title": "Official visitor information",
+      "publisher": "Borgman Borgman",
+      "url": "https://www.borgmanborgman.nl/contact-1",
+      "canonical_url": "https://www.borgmanborgman.nl/contact-1",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "cafe.leiden-borgman"
+      ]
+    },
+    {
       "source_key": "source.a8029c04d1c817ebda1c71d6",
       "title": "Borne appointment page",
       "publisher": "Borne",
@@ -1676,6 +1823,24 @@
       ],
       "reference_ids": [
         "GM0654"
+      ]
+    },
+    {
+      "source_key": "source.7d375da3e804dae043eada83",
+      "title": "Official visitor information",
+      "publisher": "Boutique Hotel d’Oude Morsch",
+      "url": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+      "canonical_url": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "hotel.leiden-oude-morsch"
       ]
     },
     {
@@ -1784,6 +1949,24 @@
       ],
       "reference_ids": [
         "GM1876"
+      ]
+    },
+    {
+      "source_key": "source.6d5e1d53a240563724f3541d",
+      "title": "Official visitor information",
+      "publisher": "Brownies&downieS Leiden",
+      "url": "https://www.browniesanddownies.nl/leiden",
+      "canonical_url": "https://www.browniesanddownies.nl/leiden",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "cafe.leiden-brownies"
       ]
     },
     {
@@ -1949,6 +2132,24 @@
       ]
     },
     {
+      "source_key": "source.b1aee617f596b67b5b0af4d9",
+      "title": "Official visitor information",
+      "publisher": "Café Laken",
+      "url": "https://www.cafelaken.nl/",
+      "canonical_url": "https://www.cafelaken.nl/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.leiden-cafe-laken"
+      ]
+    },
+    {
       "source_key": "source.5a532dcd8e93fca1eb5c2693",
       "title": "Capelle aan den IJssel official website",
       "publisher": "Capelle aan den IJssel",
@@ -2018,6 +2219,42 @@
       ],
       "reference_ids": [
         "GM0383"
+      ]
+    },
+    {
+      "source_key": "source.94d3e4365095fb8389eb2660",
+      "title": "Official visitor information",
+      "publisher": "Chabot Museum",
+      "url": "https://chabotmuseum.nl/bezoekers/",
+      "canonical_url": "https://chabotmuseum.nl/bezoekers/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.rotterdam-chabot"
+      ]
+    },
+    {
+      "source_key": "source.ec67cafa4ceb9fa895d880a7",
+      "title": "Official visitor information",
+      "publisher": "City Hotel Rembrandt",
+      "url": "https://www.rembrandthotel.nl/contact",
+      "canonical_url": "https://www.rembrandthotel.nl/contact",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "hotel.leiden-rembrandt-hotel"
       ]
     },
     {
@@ -2252,6 +2489,42 @@
       ],
       "reference_ids": [
         "GM0310"
+      ]
+    },
+    {
+      "source_key": "source.ba402d381770f96739efffd8",
+      "title": "Official visitor information",
+      "publisher": "De Burcht",
+      "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+      "canonical_url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.leiden-burcht"
+      ]
+    },
+    {
+      "source_key": "source.e34076ce1d81a3a695610234",
+      "title": "Official visitor information",
+      "publisher": "De Engelenbak",
+      "url": "https://www.deengelenbak.nl/contact/",
+      "canonical_url": "https://www.deengelenbak.nl/contact/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "restaurant.leiden-engelenbak"
       ]
     },
     {
@@ -3245,6 +3518,24 @@
       ]
     },
     {
+      "source_key": "source.3d536116cc25720458a51a0e",
+      "title": "Official visitor information",
+      "publisher": "Emergency and non-emergency contacts",
+      "url": "https://www.politie.nl/contact/",
+      "canonical_url": "https://www.politie.nl/contact/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "guide.leiden-contacts"
+      ]
+    },
+    {
       "source_key": "source.0d97fc7f771766b8582b78b4",
       "title": "Emmen appointment page",
       "publisher": "Emmen",
@@ -3461,6 +3752,24 @@
       ]
     },
     {
+      "source_key": "source.1dcc9b72111dcedfd3d274ae",
+      "title": "Official visitor information",
+      "publisher": "Find a general practitioner",
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+      "canonical_url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "guide.leiden-gp"
+      ]
+    },
+    {
       "source_key": "source.d78d8ce76ffdb9698a4a96e7",
       "title": "Flevoland official website",
       "publisher": "Flevoland",
@@ -3476,6 +3785,42 @@
       ],
       "reference_ids": [
         "PV24"
+      ]
+    },
+    {
+      "source_key": "source.256fd6ef66b4e16cf68f4bfd",
+      "title": "Official visitor information",
+      "publisher": "Fotomuseum Den Haag",
+      "url": "https://www.fotomuseumdenhaag.nl/en/contact",
+      "canonical_url": "https://www.fotomuseumdenhaag.nl/en/contact",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.den-haag-fotomuseum"
+      ]
+    },
+    {
+      "source_key": "source.a609e63ad50a23422c3c7372",
+      "title": "Official visitor information",
+      "publisher": "Free places",
+      "url": "https://www.visitleiden.nl/nl/doen/blogs/leuke-gratis-activiteiten-in-leiden",
+      "canonical_url": "https://www.visitleiden.nl/nl/doen/blogs/leuke-gratis-activiteiten-in-leiden",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "collection.leiden-free"
       ]
     },
     {
@@ -3695,6 +4040,24 @@
       ]
     },
     {
+      "source_key": "source.8359b4be4fc408948e75ad7f",
+      "title": "Official visitor information",
+      "publisher": "Get or find your BSN",
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+      "canonical_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "guide.leiden-bsn"
+      ]
+    },
+    {
       "source_key": "source.163dd55311ac5e2cd4443ff9",
       "title": "Gilze en Rijen official website",
       "publisher": "Gilze en Rijen",
@@ -3822,6 +4185,24 @@
       ]
     },
     {
+      "source_key": "source.efb0e0f8270784b050190e8d",
+      "title": "Official visitor information",
+      "publisher": "Golden Tulip Leiden Centre",
+      "url": "https://goldengreenhotels.nl/en/contact/",
+      "canonical_url": "https://goldengreenhotels.nl/en/contact/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "hotel.leiden-golden-tulip"
+      ]
+    },
+    {
       "source_key": "source.b8b187e8cc43346d86da52e8",
       "title": "Gooise Meren appointment page",
       "publisher": "Gooise Meren",
@@ -3945,6 +4326,24 @@
       ],
       "reference_ids": [
         "government-kingdom-parts"
+      ]
+    },
+    {
+      "source_key": "source.d70325f4f0beec59ba2e1bbc",
+      "title": "Official visitor information",
+      "publisher": "Grand Café De Burcht",
+      "url": "https://www.grandcafedeburcht.nl/en",
+      "canonical_url": "https://www.grandcafedeburcht.nl/en",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "restaurant.leiden-grand-cafe-burcht"
       ]
     },
     {
@@ -4740,6 +5139,24 @@
       ]
     },
     {
+      "source_key": "source.7a158db6280a98a1865116bd",
+      "title": "Official visitor information",
+      "publisher": "Het Prentenkabinet",
+      "url": "https://www.prentenkabinet.nl/reserveren/",
+      "canonical_url": "https://www.prentenkabinet.nl/reserveren/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "restaurant.leiden-prentenkabinet"
+      ]
+    },
+    {
       "source_key": "source.f0224a16b7db3ea054363e71",
       "title": "Heumen official website",
       "publisher": "Heumen",
@@ -5136,6 +5553,24 @@
       ]
     },
     {
+      "source_key": "source.7a531930aa98aa85dd363430",
+      "title": "Official visitor information",
+      "publisher": "Hortus botanicus Leiden",
+      "url": "https://hortusleiden.nl/",
+      "canonical_url": "https://hortusleiden.nl/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.leiden-hortus"
+      ]
+    },
+    {
       "source_key": "source.79557fbb6e5069f0262b453f",
       "title": "Houten official website",
       "publisher": "Houten",
@@ -5244,6 +5679,24 @@
       ]
     },
     {
+      "source_key": "source.639b14412072f635ce6acfb6",
+      "title": "Official visitor information",
+      "publisher": "Huys van Leyden",
+      "url": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+      "canonical_url": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "hotel.leiden-huys-van-leyden"
+      ]
+    },
+    {
       "source_key": "source.0c71626f61465888ce0a9318",
       "title": "IJsselstein appointment page",
       "publisher": "IJsselstein",
@@ -5277,6 +5730,42 @@
       ],
       "reference_ids": [
         "GM0353"
+      ]
+    },
+    {
+      "source_key": "source.2d2400711657af81a08480d0",
+      "title": "Official visitor information",
+      "publisher": "Inkijkmuseum",
+      "url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+      "canonical_url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.eindhoven-inkijkmuseum"
+      ]
+    },
+    {
+      "source_key": "source.d057c17fe84659cc4453aa29",
+      "title": "Official visitor information",
+      "publisher": "Kaafi",
+      "url": "https://kaafi.nl/contact-us",
+      "canonical_url": "https://kaafi.nl/contact-us",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "cafe.den-haag-kaafi"
       ]
     },
     {
@@ -5424,6 +5913,24 @@
       ]
     },
     {
+      "source_key": "source.e2eb0203f9d297203e0b7bc9",
+      "title": "Official visitor information",
+      "publisher": "Kazerne BarBistro",
+      "url": "https://www.kazerne.com/bar-bistro-kazerne",
+      "canonical_url": "https://www.kazerne.com/bar-bistro-kazerne",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "restaurant.eindhoven-kazerne"
+      ]
+    },
+    {
       "source_key": "source.b6c17a393434253438a6e6ce",
       "title": "Kerkrade appointment page",
       "publisher": "Kerkrade",
@@ -5457,6 +5964,24 @@
       ],
       "reference_ids": [
         "GM0928"
+      ]
+    },
+    {
+      "source_key": "source.b56db85f9e586fcaa570642c",
+      "title": "Official visitor information",
+      "publisher": "Koffie Leute",
+      "url": "https://www.koffieleute.nl/",
+      "canonical_url": "https://www.koffieleute.nl/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "cafe.utrecht-koffie-leute"
       ]
     },
     {
@@ -5820,24 +6345,6 @@
       ]
     },
     {
-      "source_key": "source.1201f775ebab6e8664147153",
-      "title": "Leiden appointment page",
-      "publisher": "Leiden",
-      "url": "https://gemeente.leiden.nl/contact/",
-      "canonical_url": "https://gemeente.leiden.nl/contact/",
-      "source_type": "municipality",
-      "evidence_state": "measured",
-      "link_health_state": "unknown",
-      "last_checked_date": "2026-06-30",
-      "reference_count": 1,
-      "reference_kinds": [
-        "municipality_appointment"
-      ],
-      "reference_ids": [
-        "GM0546"
-      ]
-    },
-    {
       "source_key": "source.d55d473fa427667449265a89",
       "title": "Leiden official website",
       "publisher": "Leiden",
@@ -5853,6 +6360,24 @@
       ],
       "reference_ids": [
         "GM0546"
+      ]
+    },
+    {
+      "source_key": "source.9ca6afeb9950797eaac049f0",
+      "title": "Singelpark walking map",
+      "publisher": "Leiden & Partners",
+      "url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+      "canonical_url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "nature.leiden-rembrandtpark"
       ]
     },
     {
@@ -5925,6 +6450,24 @@
       ],
       "reference_ids": [
         "GM1916"
+      ]
+    },
+    {
+      "source_key": "source.6818ed8ac17cf58cd7f406f5",
+      "title": "Official visitor information",
+      "publisher": "Leidse Hout",
+      "url": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
+      "canonical_url": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "nature.leiden-leidse-hout"
       ]
     },
     {
@@ -6070,6 +6613,63 @@
       ],
       "reference_ids": [
         "GM1705"
+      ]
+    },
+    {
+      "source_key": "source.94ed7ef1c319a8d73f416e8a",
+      "title": "Source for an included place; selection is editorial",
+      "publisher": "Linked place / operator",
+      "url": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "canonical_url": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 2,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "collection.leiden-weekend",
+        "hotel.leiden-ibis"
+      ]
+    },
+    {
+      "source_key": "source.7bbe930978103c20e16396f7",
+      "title": "Source for an included place; selection is editorial",
+      "publisher": "Linked place / operator",
+      "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+      "canonical_url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 2,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "collection.leiden-rain",
+        "museum.leiden-wereldmuseum"
+      ]
+    },
+    {
+      "source_key": "source.4579e5f122bc13bcc4654b1e",
+      "title": "Source for an included place; selection is editorial",
+      "publisher": "Linked place / operator",
+      "url": "https://www.rmo.nl/en/",
+      "canonical_url": "https://www.rmo.nl/en/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 2,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "collection.leiden-centre-walk",
+        "place.leiden-rmo"
       ]
     },
     {
@@ -6449,6 +7049,24 @@
       ],
       "reference_ids": [
         "GM0420"
+      ]
+    },
+    {
+      "source_key": "source.890eb6fa4a3a0858587d276f",
+      "title": "Official visitor information",
+      "publisher": "Medicines and out-of-hours care",
+      "url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+      "canonical_url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "guide.leiden-pharmacy"
       ]
     },
     {
@@ -6917,6 +7535,42 @@
       ],
       "reference_ids": [
         "city.utrecht"
+      ]
+    },
+    {
+      "source_key": "source.47c016b5e90e47779e8d7a87",
+      "title": "Official visitor information",
+      "publisher": "Museum De Lakenhal",
+      "url": "https://www.lakenhal.nl/en/",
+      "canonical_url": "https://www.lakenhal.nl/en/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.leiden-lakenhal"
+      ]
+    },
+    {
+      "source_key": "source.3ade5fc7300beb55d5e9936a",
+      "title": "Official visitor information",
+      "publisher": "Naturalis",
+      "url": "https://www.naturalis.nl/en/museum/practical-info",
+      "canonical_url": "https://www.naturalis.nl/en/museum/practical-info",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.leiden-naturalis"
       ]
     },
     {
@@ -8108,6 +8762,24 @@
       ]
     },
     {
+      "source_key": "source.55b218f8861034d99b7f5e4e",
+      "title": "Official visitor information",
+      "publisher": "Oudt Leyden",
+      "url": "https://oudtleyden.nl/",
+      "canonical_url": "https://oudtleyden.nl/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "restaurant.leiden-oudt-leyden"
+      ]
+    },
+    {
       "source_key": "source.4b455e9ccd734feeb4d3dddb",
       "title": "Overbetuwe appointment page",
       "publisher": "Overbetuwe",
@@ -8162,6 +8834,24 @@
       ]
     },
     {
+      "source_key": "source.041e341f37cf5ac1190056d0",
+      "title": "Official visitor information",
+      "publisher": "Paco Ciao",
+      "url": "https://pacociao.nl/en/contact/",
+      "canonical_url": "https://pacociao.nl/en/contact/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "cafe.leiden-paco-ciao"
+      ]
+    },
+    {
       "source_key": "source.89c6c1751f4c3ecf221ad92f",
       "title": "Papendrecht appointment page",
       "publisher": "Papendrecht",
@@ -8195,6 +8885,42 @@
       ],
       "reference_ids": [
         "GM0590"
+      ]
+    },
+    {
+      "source_key": "source.a2b291c80b39432117618c4c",
+      "title": "Official visitor information",
+      "publisher": "Park Oog in Al",
+      "url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+      "canonical_url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "nature.utrecht-oog-in-al"
+      ]
+    },
+    {
+      "source_key": "source.1579d0e03e134ea22658bc48",
+      "title": "Official visitor information",
+      "publisher": "Park your bicycle in Leiden",
+      "url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+      "canonical_url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "guide.leiden-bicycle"
       ]
     },
     {
@@ -8285,6 +9011,24 @@
       ],
       "reference_ids": [
         "GM1926"
+      ]
+    },
+    {
+      "source_key": "source.d7dadf8b9fde55f308920705",
+      "title": "Official visitor information",
+      "publisher": "Polderpark Cronesteyn",
+      "url": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
+      "canonical_url": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "nature.leiden-cronesteyn"
       ]
     },
     {
@@ -8432,6 +9176,24 @@
       ]
     },
     {
+      "source_key": "source.6a0a1305e0016acadddca7fd",
+      "title": "Official visitor information",
+      "publisher": "Register your address",
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "canonical_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "guide.leiden-registration"
+      ]
+    },
+    {
       "source_key": "source.46a33f0c828658dad78ce538",
       "title": "Reimerswaal official website",
       "publisher": "Reimerswaal",
@@ -8537,6 +9299,60 @@
       ],
       "reference_ids": [
         "GM0339"
+      ]
+    },
+    {
+      "source_key": "source.30627a64a174e91922757cea",
+      "title": "Official visitor information",
+      "publisher": "Restaurant Dende",
+      "url": "https://www.dende.nl/contact",
+      "canonical_url": "https://www.dende.nl/contact",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "restaurant.leiden-dende"
+      ]
+    },
+    {
+      "source_key": "source.561959c68b428ad906269d04",
+      "title": "Official visitor information",
+      "publisher": "Restaurant In den Doofpot",
+      "url": "https://www.indendoofpot.nl/contact",
+      "canonical_url": "https://www.indendoofpot.nl/contact",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "restaurant.leiden-in-den-doofpot"
+      ]
+    },
+    {
+      "source_key": "source.ea934b5bea17be84632da775",
+      "title": "Official visitor information",
+      "publisher": "Restaurant Verboden Toegang",
+      "url": "https://www.verbodentoegang.nl/",
+      "canonical_url": "https://www.verbodentoegang.nl/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "restaurant.leiden-verboden-toegang"
       ]
     },
     {
@@ -8684,6 +9500,24 @@
       ]
     },
     {
+      "source_key": "source.120e6e3c77c6b9afc00107f6",
+      "title": "Official visitor information",
+      "publisher": "Rijksmuseum Boerhaave",
+      "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+      "canonical_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.leiden-boerhaave"
+      ]
+    },
+    {
       "source_key": "source.f120833fe72f1079f5f25276",
       "title": "Rijssen-Holten appointment page",
       "publisher": "Rijssen-Holten",
@@ -8825,6 +9659,24 @@
       ],
       "reference_ids": [
         "GM0957"
+      ]
+    },
+    {
+      "source_key": "source.ef9639067aef58cb443928bf",
+      "title": "Official visitor information",
+      "publisher": "ROOS Leiden",
+      "url": "https://www.roosleiden.nl/contact-roos",
+      "canonical_url": "https://www.roosleiden.nl/contact-roos",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "cafe.leiden-roos"
       ]
     },
     {
@@ -9441,6 +10293,42 @@
       ]
     },
     {
+      "source_key": "source.65c038f5bfe422a7ca45b07f",
+      "title": "Official visitor information",
+      "publisher": "Sonnenborgh museum & sterrenwacht",
+      "url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+      "canonical_url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.utrecht-sonnenborgh"
+      ]
+    },
+    {
+      "source_key": "source.63211b7fccfc1d5a7bc5dc33",
+      "title": "Official visitor information",
+      "publisher": "Sort and dispose of household waste",
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+      "canonical_url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "guide.leiden-waste"
+      ]
+    },
+    {
       "source_key": "source.9a90c44f2cadf805ee3d1fc4",
       "title": "Stadskanaal official website",
       "publisher": "Stadskanaal",
@@ -9567,6 +10455,24 @@
       ]
     },
     {
+      "source_key": "source.827b6945a05206bccad47763",
+      "title": "Official visitor information",
+      "publisher": "Steenhof Suites",
+      "url": "https://steenhofsuites.nl/contact/",
+      "canonical_url": "https://steenhofsuites.nl/contact/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "hotel.leiden-steenhof"
+      ]
+    },
+    {
       "source_key": "source.61e49f44caa97330c11f000f",
       "title": "Steenwijkerland appointment page",
       "publisher": "Steenwijkerland",
@@ -9639,6 +10545,27 @@
       ]
     },
     {
+      "source_key": "source.d6cb47dcfb5639504f6aac66",
+      "title": "Singelpark walking map",
+      "publisher": "Stichting Vrienden van het Singelpark",
+      "url": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
+      "canonical_url": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 4,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "nature.leiden-ankerpark",
+        "nature.leiden-blekerspark",
+        "nature.leiden-huigpark",
+        "nature.leiden-plantsoen"
+      ]
+    },
+    {
       "source_key": "source.f786953e2f1f0c11b0228549",
       "title": "Stichtse Vecht appointment page",
       "publisher": "Stichtse Vecht",
@@ -9708,6 +10635,42 @@
       ],
       "reference_ids": [
         "GM1900"
+      ]
+    },
+    {
+      "source_key": "source.238b1036e144a06a0f11a6eb",
+      "title": "Official visitor information",
+      "publisher": "Supernova Hotel",
+      "url": "https://supernovahotel.nl/en",
+      "canonical_url": "https://supernovahotel.nl/en",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "hotel.rotterdam-supernova"
+      ]
+    },
+    {
+      "source_key": "source.c553b52b53dca76d263c87e7",
+      "title": "Official visitor information",
+      "publisher": "Tabú",
+      "url": "https://www.tabu.nl/faq/",
+      "canonical_url": "https://www.tabu.nl/faq/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "restaurant.leiden-tabu"
       ]
     },
     {
@@ -9837,6 +10800,42 @@
       ]
     },
     {
+      "source_key": "source.010f4d8adc80a25ba1e8bee5",
+      "title": "Official visitor information",
+      "publisher": "The Collector",
+      "url": "https://www.thecollectorhotel.com/contact",
+      "canonical_url": "https://www.thecollectorhotel.com/contact",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "hotel.den-haag-collector"
+      ]
+    },
+    {
+      "source_key": "source.cbfe5993bd6188bc0d8d173d",
+      "title": "Official visitor information",
+      "publisher": "The Nox Hotel Utrecht",
+      "url": "https://www.thenoxhotel.com/en/contact",
+      "canonical_url": "https://www.thenoxhotel.com/en/contact",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "hotel.utrecht-nox"
+      ]
+    },
+    {
       "source_key": "source.ee6dc13510a88516fcada27a",
       "title": "Tholen official website",
       "publisher": "Tholen",
@@ -9942,6 +10941,24 @@
       ],
       "reference_ids": [
         "GM0855"
+      ]
+    },
+    {
+      "source_key": "source.e961783ccabd94c1062082e0",
+      "title": "Official visitor information",
+      "publisher": "Trompenburg Tuinen & Arboretum",
+      "url": "https://trompenburg.nl/plan-your-visit/",
+      "canonical_url": "https://trompenburg.nl/plan-your-visit/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "nature.rotterdam-trompenburg"
       ]
     },
     {
@@ -10194,6 +11211,24 @@
       ],
       "reference_ids": [
         "GM0184"
+      ]
+    },
+    {
+      "source_key": "source.03c023a7b20237cc4dff4af8",
+      "title": "Official visitor information",
+      "publisher": "Use trains and local buses",
+      "url": "https://www.qbuzz.nl/ovpay",
+      "canonical_url": "https://www.qbuzz.nl/ovpay",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "guide.leiden-transport"
       ]
     },
     {
@@ -10881,6 +11916,24 @@
       ]
     },
     {
+      "source_key": "source.2ee044e6dc516c3c553a9de0",
+      "title": "Singelpark walking map",
+      "publisher": "Vrienden van het Singelpark",
+      "url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+      "canonical_url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "nature.leiden-park-de-put"
+      ]
+    },
+    {
       "source_key": "source.6162517fa3ee61859c5ab6a2",
       "title": "Vught appointment page",
       "publisher": "Vught",
@@ -10917,6 +11970,24 @@
       ]
     },
     {
+      "source_key": "source.eb2269f07e3f462a264d82f0",
+      "title": "Official visitor information",
+      "publisher": "VVV Leiden",
+      "url": "https://www.visitleiden.nl/en/plan-your-visit/tourist-information",
+      "canonical_url": "https://www.visitleiden.nl/en/plan-your-visit/tourist-information",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.leiden-vvv"
+      ]
+    },
+    {
       "source_key": "source.9d1445d2d3a0648d14b74786",
       "title": "Waadhoeke appointment page",
       "publisher": "Waadhoeke",
@@ -10950,6 +12021,24 @@
       ],
       "reference_ids": [
         "GM1949"
+      ]
+    },
+    {
+      "source_key": "source.33ac2c403f9114e318411d4f",
+      "title": "Official visitor information",
+      "publisher": "Waag Leiden",
+      "url": "https://www.waagleiden.nl/nl/contactpagina/",
+      "canonical_url": "https://www.waagleiden.nl/nl/contactpagina/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "restaurant.leiden-waag"
       ]
     },
     {
@@ -11256,6 +12345,24 @@
       ],
       "reference_ids": [
         "GM0668"
+      ]
+    },
+    {
+      "source_key": "source.888485e0a2178fbc9fbeee83",
+      "title": "Official visitor information",
+      "publisher": "Westbroekpark",
+      "url": "https://denhaag.com/en/westbroekpark",
+      "canonical_url": "https://denhaag.com/en/westbroekpark",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-09",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "nature.den-haag-westbroekpark"
       ]
     },
     {
@@ -11796,6 +12903,25 @@
       ],
       "reference_ids": [
         "GM0351"
+      ]
+    },
+    {
+      "source_key": "source.e93843a9af5b2200981255bc",
+      "title": "Add a business",
+      "publisher": "YouNew",
+      "url": "https://younew.nl/for-business/local/",
+      "canonical_url": "https://younew.nl/for-business/local/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-10",
+      "reference_count": 2,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "business.leiden-add",
+        "business.leiden-claim-correct"
       ]
     },
     {

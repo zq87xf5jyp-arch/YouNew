@@ -2,23 +2,24 @@
   "schemaVersion": "release-truth-compatibility-v1",
   "deprecated": true,
   "replacement": "release-truth.json",
-  "generatedAt": "2026-11-09T14:16:09.000Z",
-  "snapshotID": "release-truth.9e7753e7fcab5e60",
-  "snapshotDigest": "9e7753e7fcab5e60b738d6bc9d741f16bf7f2dc907342a7fcb6aa1ad58d0fa27",
+  "generatedAt": "2026-11-10T21:57:22.000Z",
+  "snapshotID": "release-truth.b6e9bbc1d7d53672",
+  "snapshotDigest": "b6e9bbc1d7d53672e4722c7a2833b231e0285ed070b6348b1ff1310762cbcddb",
   "release_identity": {
-    "candidate_commit": "eebb6a9b254d74f6e0dc227af9ccabb1c2047bda",
+    "candidate_commit": "549167b111e61bb164dc93e5a3bbb95df72d34f4",
     "source_tree_state": "dirty",
-    "packaged_fingerprint": "39a365a2152382da678d1a888a535295ab497481858b815d785c00c32fcbabfc"
+    "packaged_fingerprint": "32fb2435ffb84b46b7d0c2e3c2371a217b1bb5280e8aa13cff9bc394f8812e17"
   },
   "posture": "PARTIAL",
   "release_status_label": "PARTIAL",
   "release_summary": "Packaged content is measured, while link health, exact-candidate CI, and full deployed-payload verification are not established.",
   "proven": {
-    "inventory_records": 454,
-    "packaged_published_records": 5,
+    "inventory_records": 525,
+    "packaged_published_records": 76,
     "packaged_release_ids": [
       "amsterdam-v0.1.10",
-      "cities-v0.1.0"
+      "cities-v0.1.0",
+      "editorial-leiden-20261110"
     ]
   },
   "remaining_items": [

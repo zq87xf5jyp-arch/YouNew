@@ -34,6 +34,7 @@ from pathlib import Path
 from typing import Any, Iterable
 
 from effective_release import effective_release_heads, resolve_release
+from public_runtime_contract import verified_editorial_release
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -743,6 +744,9 @@ def build_report(as_of: date) -> dict[str, Any]:
     public_entities = public_content.get("entities", [])
     runtime_ids = [str(item.get("id")) for item in runtime_entities]
     public_ids = [str(item.get("id")) for item in public_entities]
+    # This separate compact profile is not a full PracticalGuide v2 certification.
+    # Re-run the source/hash/reviewer/freshness validator; never trust public IDs alone.
+    editorial_ids = set(verified_editorial_release(public_content, ROOT)["ids"])
     freshness_exclusion_ids = [str(item.get("id")) for item in public_exclusions.get("records", [])]
     runtime_missing_from_public = set(runtime_ids) - set(public_ids)
     effective_ids = [
@@ -981,7 +985,9 @@ def build_report(as_of: date) -> dict[str, Any]:
             "freshness_excluded_from_public": sorted(runtime_missing_from_public & set(freshness_exclusion_ids)),
             "freshness_exclusions_not_in_runtime": sorted(set(freshness_exclusion_ids) - set(runtime_ids)),
             "public_contains_freshness_excluded": sorted(set(public_ids) & set(freshness_exclusion_ids)),
-            "public_not_in_runtime": sorted(set(public_ids) - set(runtime_ids)),
+            "public_not_in_runtime": sorted(set(public_ids) - set(runtime_ids) - editorial_ids),
+            "owner_approved_compact_editorial_count": len(editorial_ids),
+            "owner_approved_compact_editorial_ids": sorted(editorial_ids),
             "runtime_has_practical_guide": sum(isinstance(item.get("practicalGuide"), dict) for item in runtime_entities),
             "public_has_practical_guide": len(public_full_guides),
         },

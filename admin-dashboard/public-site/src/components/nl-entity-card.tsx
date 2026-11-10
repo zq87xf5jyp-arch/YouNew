@@ -16,7 +16,7 @@ export function NlEntityCard({ entity }: { entity: ContentEntity }) {
       {!image && (entity.type === "place" || entity.type === "organization") ? <div className="coverage-map-image-fallback" role="img" aria-label="Afbeelding niet beschikbaar"><MapPin aria-hidden /></div> : null}
       <div className="entity-card-top"><span className="entity-kind">{dutchEntityTypeLabel(entity.type)}</span></div>
       <Link className="entity-card-link" href={route}>
-        <h2>{entity.title}</h2>
+        <h2>{entity.editorial?.locales.nl.title ?? entity.title}</h2>
         <p>{dutchEntityDescription(entity)}</p>
       </Link>
       <PlaceContactDetails details={entity.placeDetails} compact locale="nl" />

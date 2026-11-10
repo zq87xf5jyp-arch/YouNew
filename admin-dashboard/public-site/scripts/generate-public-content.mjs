@@ -4,6 +4,7 @@ import { dirname, resolve } from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
 import { projectPublishedPracticalGuide } from "./practical-guide.mjs";
 import { projectPlaceDetails } from "../src/lib/content/place-details.mjs";
+import { loadEditorialRelease } from "./editorial-release.mjs";
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const publicSiteRoot = resolve(scriptDirectory, "..");
@@ -16,6 +17,7 @@ export const paths = Object.freeze({
   freshnessExclusions: resolve(publicSiteRoot, "src/generated/public-freshness-exclusions.json"),
   legacyGovernanceConfirmations: resolve(publicSiteRoot, "../../DataProject/quality/phase6-1-public-record-confirmations.json"),
   content: resolve(publicSiteRoot, "src/generated/public-content.json"),
+  editorialRoutes: resolve(publicSiteRoot, "src/generated/editorial-routes.json"),
   search: resolve(publicSiteRoot, "public/data/search-index.json"),
   provenance: resolve(publicSiteRoot, "public/data/content-provenance.json")
 });
@@ -539,6 +541,7 @@ function categoryFor(entity) {
   const fallback = categoryByKind[kind] ?? null;
   if (typeof entity !== "object" || entity == null) return fallback;
   const explicit = cleanIdentifier(entity.attributes?.publicWebCategory);
+  if (entity.editorial && broadCategoryDefinitions[explicit]) return explicit;
   if (entity.practicalGuide?.status === "published") {
     if (!practicalGuideCategories.has(explicit)) throw new Error(`Published practical guide ${entity.id ?? "<missing id>"} requires a supported canonical publicWebCategory.`);
     return explicit;
@@ -619,7 +622,7 @@ function isPublishableEntity(entity, publishedReleaseIds) {
       entity.attributes?.lifecycleStatus === "published" &&
       entity.verificationStatus === "verified" &&
       entity.attributes?.verificationStatus === "verified" &&
-      entity.source?.status === "verified_opened"
+      (entity.source?.status === "verified_opened" || (entity.editorial?.section === 'BUSINESS' && entity.source?.status === 'owner_approved_policy'))
   );
 }
 
@@ -713,6 +716,7 @@ function sanitizeEntity(entity, slug) {
     summary,
     contentDepth: practicalGuide ? "practical" : "summary",
     practicalGuide,
+    ...(entity.editorial ? {editorial:entity.editorial} : {}),
     cityId: cityId || null,
     provinceId: provinceId || null,
     categorySlugs: [broadCategorySlug],
@@ -841,7 +845,8 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       country: "NL",
       categories: entity.categorySlugs,
       intents: entity.categorySlugs,
-      languages: ["en"],
+      languages: entity.editorial ? ["en", "nl"] : ["en"],
+      ...(entity.editorial ? {dutch:{title:entity.editorial.locales.nl.title,summary:entity.editorial.locales.nl.summary,route:`/nl/${entity.type==='place'?'plaatsen':'gidsen'}/${entity.slug}`}} : {}),
       nationalFallback: !entity.cityId && !entity.provinceId,
       qualityScore: entity.contentDepth === "practical" ? 94 : 70,
       verifiedAt: entity.verifiedAt,
@@ -850,14 +855,14 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
       narrowCategory: entity.narrowCategory,
       organization: entity.type === "organization" ? entity.title : entity.source.publisher,
       audienceProfiles: practical?.audienceProfiles ?? [],
-      numberedSteps: practical?.numberedSteps?.flatMap((step) => [step.title, step.body]) ?? [],
+      numberedSteps: practical?.numberedSteps?.flatMap((step) => [step.title, step.body]) ?? entity.editorial?.locales.en.guide?.steps.map(step=>step.text) ?? [],
       requiredDocuments: practical?.requiredDocuments?.map((item) => item.text) ?? [],
       checklist: practical?.checklist?.map((item) => item.text) ?? [],
       tips: practical?.tips?.map((item) => item.text) ?? [],
       faqAnswers: practical?.faqs?.map((item) => `${item.question} ${item.answer}`) ?? [],
       whenYouNeedIt: practical?.whenYouNeedIt?.text ? [practical.whenYouNeedIt.text] : [],
       tags: practical?.tags ?? [],
-      synonyms: [...new Set([...(practical?.synonyms ?? []), ...(legacy.synonyms ?? [])])],
+      synonyms: [...new Set([...(practical?.synonyms ?? []), ...(legacy.synonyms ?? []), ...(entity.editorial ? [entity.editorial.locales.nl.title,entity.editorial.locales.nl.summary] : [])])],
       officialOrganizationNames: [...new Set(officialOrganizationNames.filter(Boolean))],
       terminology: [...new Set(legacy.terminology ?? [])],
       commonQuestions: [...new Set([...(practical?.commonQuestions ?? []), ...(legacy.commonQuestions ?? [])])]
@@ -1093,7 +1098,7 @@ export function buildSearchIndex(entities, categories, citiesById, provincesById
   };
 }
 
-export function buildPublicDataset(runtime, { verifyChecksum = true } = {}) {
+export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRelease = null } = {}) {
   if (!runtime || runtime.mode !== "production") {
     throw new Error("Public content generation requires a canonical dataset with mode=production.");
   }
@@ -1106,8 +1111,10 @@ export function buildPublicDataset(runtime, { verifyChecksum = true } = {}) {
   const publishedReleases = releases.filter((release) => release?.status === "published");
   const publishedReleaseIds = new Set(publishedReleases.map((release) => release.id));
   if (publishedReleaseIds.size === 0) throw new Error("No published canonical releases are available.");
+  if (editorialRelease) publishedReleaseIds.add(editorialRelease.id);
 
-  const sourceEntities = Array.isArray(runtime.entities) ? runtime.entities : [];
+  const sourceEntities = [...(Array.isArray(runtime.entities) ? runtime.entities : []), ...(editorialRelease?.entities ?? [])];
+  if (new Set(sourceEntities.map(e=>e.id)).size!==sourceEntities.length) throw new Error("Editorial release duplicates an existing entity ID.");
   const withheldIds = new Set(runtime.withheldEntityIDs ?? []);
   if (sourceEntities.some((entity) => withheldIds.has(entity.id))) {
     throw new Error("Canonical runtime attempts to republish a withheld entity.");
@@ -1158,7 +1165,7 @@ export function buildPublicDataset(runtime, { verifyChecksum = true } = {}) {
   const content = {
     schemaVersion: 1,
     generatedAt,
-    datasetFingerprint: cleanText(runtime.datasetFingerprint, 160),
+    datasetFingerprint: editorialRelease ? createHash('sha256').update(`${runtime.datasetFingerprint}:${editorialRelease.batchSha256}`).digest('hex') : cleanText(runtime.datasetFingerprint, 160),
     language: "en",
     fallbackLanguage: "en",
     publishedReleaseIds: [...publishedReleaseIds].sort(),
@@ -1198,6 +1205,8 @@ export function buildPublicDataset(runtime, { verifyChecksum = true } = {}) {
     sourceSchemaVersion: runtime.schemaVersion,
     datasetFingerprint: content.datasetFingerprint,
     sourceOutputChecksum: cleanText(runtime.outputChecksum, 160),
+    sourceDatasetFingerprint: cleanText(runtime.datasetFingerprint, 160),
+    editorialRelease: editorialRelease ? {id:editorialRelease.id,batchSha256:editorialRelease.batchSha256,approvedAt:editorialRelease.approvedAt,count:editorialRelease.entities.length} : null,
     acceptedReleaseIds: content.publishedReleaseIds,
     publicationRules: {
       datasetMode: "production",
@@ -1226,9 +1235,12 @@ async function writeJSON(filePath, value) {
 
 export async function generatePublicContent(sourcePath = process.env.YOUNEW_LOCAL_APPROVED_RUNTIME || paths.source) {
   const runtime = JSON.parse(await readFile(sourcePath, "utf8"));
-  const outputs = buildPublicDataset(runtime);
+  // The old synthetic rehearsal keeps its explicitly synthetic-only boundary.
+  const editorialRelease = process.env.YOUNEW_LOCAL_CATALOG_API || process.env.YOUNEW_LOCAL_APPROVED_RUNTIME ? null : await loadEditorialRelease();
+  const outputs = buildPublicDataset(runtime, {editorialRelease});
   await Promise.all([
     writeJSON(paths.content, outputs.content),
+    writeJSON(paths.editorialRoutes, outputs.content.entities.filter(e=>e.editorial).map(e=>({en:e.route,nl:`/nl/${e.type==='place'?'plaatsen':'gidsen'}/${e.slug}`}))),
     writeJSON(paths.search, outputs.search),
     writeJSON(paths.provenance, outputs.provenance)
   ]);

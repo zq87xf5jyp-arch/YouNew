@@ -1,0 +1,774 @@
+{
+  "status": "PASS",
+  "commit": "549167b111e61bb164dc93e5a3bbb95df72d34f4",
+  "checks": [
+    {
+      "path": "/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/leiden/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/leiden/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/search/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/zoeken/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/map/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/for-business/local/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-30ml/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-30ml/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-rain/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-rain/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-centre-walk/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-centre-walk/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-weekend/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-weekend/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-add/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-add/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-ankerpark/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-ankerpark/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-annemax/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-annemax/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-digid/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-digid/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-municipal-services/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-municipal-services/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-barista/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-barista/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/utrecht-neude/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/utrecht-neude/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-bikini/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-bikini/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-blekerspark/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-blekerspark/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-borgman/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-borgman/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-oude-morsch/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-oude-morsch/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-brownies/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-brownies/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-cafe-laken/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-cafe-laken/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/rotterdam-chabot/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/rotterdam-chabot/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-rembrandt-hotel/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-rembrandt-hotel/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-claim-correct/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-claim-correct/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-burcht/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-burcht/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-engelenbak/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-engelenbak/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-contacts/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-contacts/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-gp/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-gp/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-first-day/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-first-day/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/den-haag-fotomuseum/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/den-haag-fotomuseum/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-free/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-free/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-bsn/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-bsn/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-golden-tulip/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-golden-tulip/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-grand-cafe-burcht/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-grand-cafe-burcht/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-plantsoen/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-plantsoen/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-prentenkabinet/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-prentenkabinet/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-hortus/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-hortus/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-huigpark/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-huigpark/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-huys-van-leyden/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-huys-van-leyden/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-ibis/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-ibis/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/eindhoven-inkijkmuseum/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/eindhoven-inkijkmuseum/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/den-haag-kaafi/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/den-haag-kaafi/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/eindhoven-kazerne/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/eindhoven-kazerne/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/utrecht-koffie-leute/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/utrecht-koffie-leute/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-leidse-hout/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-leidse-hout/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-pharmacy/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-pharmacy/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-lakenhal/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-lakenhal/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-naturalis/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-naturalis/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-oudt-leyden/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-oudt-leyden/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-paco-ciao/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-paco-ciao/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-park-de-put/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-park-de-put/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/utrecht-oog-in-al/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/utrecht-oog-in-al/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-bicycle/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-bicycle/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-cronesteyn/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-cronesteyn/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-registration/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-registration/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-rembrandtpark/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-rembrandtpark/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-dende/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-dende/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-in-den-doofpot/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-in-den-doofpot/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-verboden-toegang/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-verboden-toegang/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-boerhaave/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-boerhaave/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-rmo/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-rmo/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-roos/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-roos/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/utrecht-sonnenborgh/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/utrecht-sonnenborgh/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-waste/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-waste/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-steenhof/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-steenhof/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/rotterdam-supernova/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/rotterdam-supernova/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-tabu/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-tabu/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/den-haag-collector/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/den-haag-collector/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/utrecht-nox/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/utrecht-nox/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/rotterdam-trompenburg/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/rotterdam-trompenburg/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/guides/leiden-transport/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/gidsen/leiden-transport/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-vvv/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-vvv/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-waag/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-waag/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/leiden-wereldmuseum/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/leiden-wereldmuseum/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/places/den-haag-westbroekpark/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/nl/plaatsen/den-haag-westbroekpark/",
+      "status": 200,
+      "exact": true
+    },
+    {
+      "path": "/.env",
+      "status": 403
+    },
+    {
+      "path": "/younew-private/launch-production/migration.env",
+      "status": 404
+    },
+    {
+      "path": "/.git/config",
+      "status": 403
+    },
+    {
+      "path": "/editorial-missing-20261110/",
+      "status": 404
+    }
+  ],
+  "anonymousDenied": true,
+  "rollbackRehearsed": true
+}

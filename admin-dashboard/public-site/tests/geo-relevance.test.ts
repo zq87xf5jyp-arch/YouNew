@@ -115,7 +115,7 @@ test("Leiden aliases and a useful typo resolve deterministically", () => {
     const location = resolveSearchLocation(index.documents, query, normalizeSearchText);
     assert.equal(location?.canonicalId, "leiden", query);
     const results = rankSearchDocuments(index.documents, query, { filters: { cityId: "amsterdam" }, limit: 5 });
-    assert.equal(results[0]?.document.id, "national.healthcare", query);
+    assert.equal(results[0]?.document.id, "guide.leiden-gp", query);
     assert.ok(results.some(({ document }) => document.id === "municipality.gm0546"), query);
     assert.ok(results.every(({ document }) => canonicalCityId(document.cityId ?? document.municipalityId) !== "amsterdam"), query);
   }

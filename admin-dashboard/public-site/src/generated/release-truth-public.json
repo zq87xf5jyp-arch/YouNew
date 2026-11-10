@@ -1,20 +1,20 @@
 {
   "schemaVersion": 1,
-  "snapshotID": "release-truth.9e7753e7fcab5e60",
-  "snapshotDigest": "9e7753e7fcab5e60b738d6bc9d741f16bf7f2dc907342a7fcb6aa1ad58d0fa27",
-  "generatedAt": "2026-11-09T14:16:09.000Z",
+  "snapshotID": "release-truth.b6e9bbc1d7d53672",
+  "snapshotDigest": "b6e9bbc1d7d53672e4722c7a2833b231e0285ed070b6348b1ff1310762cbcddb",
+  "generatedAt": "2026-11-10T21:57:22.000Z",
   "technicalVerdict": "PARTIAL",
   "deploymentAuthorization": "not_granted",
   "verdictReason": "Packaged content is measured, while link health, exact-candidate CI, and full deployed-payload verification are not established.",
   "publication": {
-    "inventoryRecords": 454,
-    "packagedPublishedRecords": 5,
+    "inventoryRecords": 525,
+    "packagedPublishedRecords": 76,
     "packagedCoverage": {
       "kind": "ratio",
       "unit": "percent",
-      "value": 1.1,
-      "numerator": 5,
-      "denominator": 454,
+      "value": 14.5,
+      "numerator": 76,
+      "denominator": 525,
       "state": "measured",
       "reasonCode": null,
       "formula": {

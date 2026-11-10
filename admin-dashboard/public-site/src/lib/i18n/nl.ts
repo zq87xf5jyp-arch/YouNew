@@ -48,13 +48,15 @@ export function dutchEntityTypeLabel(type: ContentEntity["type"]) {
   return { city: "Stad", guide: "Gids", organization: "Organisatie", place: "Locatie" }[type];
 }
 
-export function dutchEntityRoute(entity: Pick<ContentEntity, "type" | "slug" | "route">) {
+export function dutchEntityRoute(entity: Pick<ContentEntity, "type" | "slug" | "route" | "editorial">) {
+  if (entity.editorial) return `/nl/${entity.type==='place'?'plaatsen':'gidsen'}/${entity.slug}`;
   if (entity.type === "organization") return `/nl/organisaties/${entity.slug}`;
   if (entity.type === "city") return `/nl/stadsgidsen/${entity.slug}`;
   return entity.route;
 }
 
 export function dutchEntityDescription(entity: ContentEntity) {
+  if (entity.editorial) return entity.editorial.locales.nl.summary;
   const category = entity.categorySlugs[0] ? dutchCategoryLabel(entity.categorySlugs[0]) : dutchEntityTypeLabel(entity.type);
   const location = entity.cityId ? ` in ${entity.cityId.replaceAll("-", " ")}` : " in Nederland";
   return `${category}${location}. Bekijk de gecontroleerde bron, controledatum en praktische vervolgstappen op het profiel.`;

@@ -1,11 +1,11 @@
 {
   "schemaVersion": 1,
-  "generatedAt": "2026-11-09T14:15:42.960Z",
+  "generatedAt": "2026-11-10T21:56:58.613Z",
   "status": "PASS",
   "evidence": {
-    "searchIndexSha256": "526d7ae869c2028e85c3f6e7a4f4936197eee392879900217d323c00e4e1bc39",
+    "searchIndexSha256": "41080008a8c9976de78477200243cc740b1e00aa8ec5952905d7eebe0b1e9738",
     "searchIndexSchemaVersion": 3,
-    "searchDocumentCount": 397,
+    "searchDocumentCount": 468,
     "nationalGuideCount": 7,
     "provinceCount": 12,
     "municipalityCount": 342,
@@ -3096,10 +3096,10 @@
           "municipality.gm0546",
           "category.work",
           "category.business",
+          "guide.leiden-contacts",
           "national.documents",
           "national.education",
-          "category.healthcare",
-          "category.language-learning"
+          "guide.leiden-registration"
         ],
         "passed": true
       },
@@ -3231,6 +3231,7 @@
         "topIds": [
           "national.housing",
           "national.documents",
+          "guide.leiden-registration",
           "category.housing",
           "category.benefits",
           "page.journeys"
@@ -3251,7 +3252,9 @@
         "expected": "national.healthcare",
         "topIds": [
           "national.healthcare",
-          "category.healthcare"
+          "guide.leiden-gp",
+          "category.healthcare",
+          "guide.leiden-pharmacy"
         ],
         "passed": true
       },
@@ -3262,11 +3265,11 @@
           "national.documents",
           "national.housing",
           "national.education",
+          "guide.leiden-registration",
+          "guide.leiden-gp",
+          "guide.leiden-bsn",
           "category.business",
-          "category.children",
-          "category.documents",
-          "category.education",
-          "category.family"
+          "category.children"
         ],
         "passed": true
       },

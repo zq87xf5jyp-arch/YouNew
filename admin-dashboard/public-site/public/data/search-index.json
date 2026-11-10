@@ -1,10 +1,4594 @@
 {
   "schemaVersion": 3,
   "generatedAt": "2026-10-23T00:00:00Z",
-  "datasetFingerprint": "39a365a2152382da678d1a888a535295ab497481858b815d785c00c32fcbabfc",
+  "datasetFingerprint": "32fb2435ffb84b46b7d0c2e3c2371a217b1bb5280e8aa13cff9bc394f8812e17",
   "locale": "en",
   "geographyEffectiveDate": "2026-01-01",
   "documents": [
+    {
+      "id": "cafe.leiden-30ml",
+      "type": "place",
+      "sourceKind": "cafe",
+      "slug": "leiden-30ml",
+      "route": "/places/leiden-30ml",
+      "title": "30ML Leiden",
+      "summary": "Coffee, breakfast and lunch at Botermarkt. Browse the café’s official page for its current opening schedule.",
+      "contentDepth": "summary",
+      "keywords": [
+        "30ML Leiden",
+        "cafe",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "30ML Leiden",
+        "summary": "Koffie, ontbijt en lunch aan de Botermarkt. Bekijk de officiële pagina voor de actuele openingstijden.",
+        "route": "/nl/plaatsen/leiden-30ml"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://30ml.nl/en/locations/30ml-leiden/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "cafe",
+      "organization": "30ML Leiden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "30ML Leiden",
+        "Koffie, ontbijt en lunch aan de Botermarkt. Bekijk de officiële pagina voor de actuele openingstijden."
+      ],
+      "officialOrganizationNames": [
+        "30ML Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "collection.leiden-rain",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-rain",
+      "route": "/guides/leiden-rain",
+      "title": "A rainy day in Leiden",
+      "summary": "Compare indoor exhibitions at De Lakenhal, Naturalis and Wereldmuseum Leiden. Pick one according to the current programme and tickets. Café Laken is a separate refreshment option; travelling between locations is outdoors.",
+      "contentDepth": "summary",
+      "keywords": [
+        "A rainy day in Leiden",
+        "collection",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Een regenachtige dag in Leiden",
+        "summary": "Vergelijk binnententoonstellingen bij De Lakenhal, Naturalis en Wereldmuseum Leiden. Kies op basis van programma en tickets. Café Laken is een aparte horecastop; tussen de locaties reis je buiten.",
+        "route": "/nl/gidsen/leiden-rain"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "collection",
+      "organization": "Linked place / operator",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Een regenachtige dag in Leiden",
+        "Vergelijk binnententoonstellingen bij De Lakenhal, Naturalis en Wereldmuseum Leiden. Kies op basis van programma en tickets. Café Laken is een aparte horecastop; tussen de locaties reis je buiten."
+      ],
+      "officialOrganizationNames": [
+        "Linked place / operator"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "collection.leiden-centre-walk",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-centre-walk",
+      "route": "/guides/leiden-centre-walk",
+      "title": "A walk through the centre",
+      "summary": "Suggested stops: De Burcht, a break at ROOS, then the antiquities museum on Rapenburg. Follow current street access and choose which paid or food stops to enter. No duration is stated because no complete pedestrian route has been measured.",
+      "contentDepth": "summary",
+      "keywords": [
+        "A walk through the centre",
+        "collection",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Wandeling door de binnenstad",
+        "summary": "Voorgestelde stops: De Burcht, een pauze bij ROOS en het oudhedenmuseum aan het Rapenburg. Volg de actuele straattoegang en kies welke betaalde of horecastops je bezoekt. Er staat geen tijdsduur: de volledige looproute is niet gemeten.",
+        "route": "/nl/gidsen/leiden-centre-walk"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.rmo.nl/en/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "collection",
+      "organization": "Linked place / operator",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Wandeling door de binnenstad",
+        "Voorgestelde stops: De Burcht, een pauze bij ROOS en het oudhedenmuseum aan het Rapenburg. Volg de actuele straattoegang en kies welke betaalde of horecastops je bezoekt. Er staat geen tijdsduur: de volledige looproute is niet gemeten."
+      ],
+      "officialOrganizationNames": [
+        "Linked place / operator"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "collection.leiden-weekend",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-weekend",
+      "route": "/guides/leiden-weekend",
+      "title": "A weekend in Leiden",
+      "summary": "Combine a park visit at Leidse Hout with a museum choice at Boerhaave and an evening meal at Tabú. ibis Leiden Centre is one accommodation option. Check opening dates, prices and availability independently; this is not a package.",
+      "contentDepth": "summary",
+      "keywords": [
+        "A weekend in Leiden",
+        "collection",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Een weekend in Leiden",
+        "summary": "Combineer een bezoek aan de Leidse Hout met een museumkeuze bij Boerhaave en een maaltijd bij Tabú. ibis Leiden Centre is één overnachtingsoptie. Controleer openingsdagen, prijzen en beschikbaarheid afzonderlijk; dit is geen arrangement.",
+        "route": "/nl/gidsen/leiden-weekend"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://all.accor.com/hotel/8087/index.en.shtml"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "collection",
+      "organization": "Linked place / operator",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Een weekend in Leiden",
+        "Combineer een bezoek aan de Leidse Hout met een museumkeuze bij Boerhaave en een maaltijd bij Tabú. ibis Leiden Centre is één overnachtingsoptie. Controleer openingsdagen, prijzen en beschikbaarheid afzonderlijk; dit is geen arrangement."
+      ],
+      "officialOrganizationNames": [
+        "Linked place / operator"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "business.leiden-add",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-add",
+      "route": "/guides/leiden-add",
+      "title": "Add a business",
+      "summary": "Provide the public business name, category, address, official website and public business contacts. Describe the services and link evidence for factual claims. Only submit images you can license for this use and include attribution. A request enters review; it does not publish a listing or make the business a YouNew partner. No approval time, customers or promotion results are promised.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Add a business",
+        "business-editorial",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "business"
+      ],
+      "intents": [
+        "business"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Een bedrijf toevoegen",
+        "summary": "Geef de openbare bedrijfsnaam, categorie, adres, officiële website en zakelijke contactgegevens. Beschrijf diensten en voeg bronnen voor feitelijke claims toe. Dien alleen beelden in waarvoor je gebruiksrechten kunt verlenen, met naamsvermelding. Een aanvraag gaat naar beoordeling; zij publiceert geen vermelding en maakt het bedrijf geen YouNew-partner. Er is geen belofte over beoordelingstijd, klanten of promotieresultaten.",
+        "route": "/nl/gidsen/leiden-add"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-10",
+      "officialSourceUrls": [
+        "https://younew.nl/for-business/local/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "business-editorial",
+      "organization": "YouNew",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Een bedrijf toevoegen",
+        "Geef de openbare bedrijfsnaam, categorie, adres, officiële website en zakelijke contactgegevens. Beschrijf diensten en voeg bronnen voor feitelijke claims toe. Dien alleen beelden in waarvoor je gebruiksrechten kunt verlenen, met naamsvermelding. Een aanvraag gaat naar beoordeling; zij publiceert geen vermelding en maakt het bedrijf geen YouNew-partner. Er is geen belofte over beoordelingstijd, klanten of promotieresultaten."
+      ],
+      "officialOrganizationNames": [
+        "YouNew"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "nature.leiden-ankerpark",
+      "type": "place",
+      "sourceKind": "park",
+      "slug": "leiden-ankerpark",
+      "route": "/places/leiden-ankerpark",
+      "title": "Ankerpark",
+      "summary": "A waterside park that forms part of the walking circuit around Leiden’s historic centre.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Ankerpark",
+        "parks-walks",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "outdoors"
+      ],
+      "intents": [
+        "outdoors"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Ankerpark",
+        "summary": "Een park aan het water dat deel uitmaakt van de wandelroute rond de historische binnenstad.",
+        "route": "/nl/plaatsen/leiden-ankerpark"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "parks-walks",
+      "organization": "Stichting Vrienden van het Singelpark",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Ankerpark",
+        "Een park aan het water dat deel uitmaakt van de wandelroute rond de historische binnenstad."
+      ],
+      "officialOrganizationNames": [
+        "Stichting Vrienden van het Singelpark"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "cafe.leiden-annemax",
+      "type": "place",
+      "sourceKind": "cafe",
+      "slug": "leiden-annemax",
+      "route": "/places/leiden-annemax",
+      "title": "Anne&Max Leiden",
+      "summary": "A coffee, breakfast and lunch stop at Gangetje. Check its own menu for the current selection.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Anne&Max Leiden",
+        "cafe",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Anne&Max Leiden",
+        "summary": "Een plek voor koffie, ontbijt en lunch aan het Gangetje. Bekijk de eigen kaart voor het actuele aanbod.",
+        "route": "/nl/plaatsen/leiden-annemax"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.annemax.nl/vestigingen/leiden/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "cafe",
+      "organization": "Anne&Max Leiden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Anne&Max Leiden",
+        "Een plek voor koffie, ontbijt en lunch aan het Gangetje. Bekijk de eigen kaart voor het actuele aanbod."
+      ],
+      "officialOrganizationNames": [
+        "Anne&Max Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "guide.leiden-digid",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-digid",
+      "route": "/guides/leiden-digid",
+      "title": "Apply for and activate DigiD",
+      "summary": "Set up your personal login for Dutch public services.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Apply for and activate DigiD",
+        "digid",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "government"
+      ],
+      "intents": [
+        "government"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "DigiD aanvragen en activeren",
+        "summary": "Regel je persoonlijke inlog voor Nederlandse overheidsdiensten.",
+        "route": "/nl/gidsen/leiden-digid"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "digid",
+      "organization": "Apply for and activate DigiD",
+      "audienceProfiles": [],
+      "numberedSteps": [
+        "Check your registered address, then apply on DigiD’s official website with your BSN, birth date and address.",
+        "Choose your login details and follow the phone verification steps. Keep credentials private.",
+        "Activate using the mailed code within 21 days. If you live abroad or in the Dutch Caribbean, follow DigiD’s specific instructions for that situation."
+      ],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "DigiD aanvragen en activeren",
+        "Regel je persoonlijke inlog voor Nederlandse overheidsdiensten."
+      ],
+      "officialOrganizationNames": [
+        "Apply for and activate DigiD"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "guide.leiden-municipal-services",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-municipal-services",
+      "route": "/guides/leiden-municipal-services",
+      "title": "Arrange municipal services",
+      "summary": "Start on the relevant product page and check whether you need an appointment.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Arrange municipal services",
+        "municipal-services",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "government"
+      ],
+      "intents": [
+        "government"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Gemeentezaken regelen",
+        "summary": "Begin op de juiste productpagina en controleer of een afspraak nodig is.",
+        "route": "/nl/gidsen/leiden-municipal-services"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://gemeente.leiden.nl/contact/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "municipal-services",
+      "organization": "Arrange municipal services",
+      "audienceProfiles": [],
+      "numberedSteps": [
+        "Find the service on gemeente.leiden.nl. Its product page lists the current conditions, documents, cost and appointment option.",
+        "Book through that page where required. Check the confirmation for the location; the Stadskantoor is at Bargelaan 190, not the historic Stadhuis.",
+        "Use the confirmation link to change an appointment. If you need help, call the municipality; report street problems through the public-space reporting option."
+      ],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Gemeentezaken regelen",
+        "Begin op de juiste productpagina en controleer of een afspraak nodig is."
+      ],
+      "officialOrganizationNames": [
+        "Arrange municipal services"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "cafe.leiden-barista",
+      "type": "place",
+      "sourceKind": "cafe",
+      "slug": "leiden-barista",
+      "route": "/places/leiden-barista",
+      "title": "Barista Cafe Leiden",
+      "summary": "Coffee, breakfast and lunch in Catharinasteeg, with a courtyard terrace described by the café.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Barista Cafe Leiden",
+        "cafe",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Barista Cafe Leiden",
+        "summary": "Koffie, ontbijt en lunch in de Catharinasteeg, met een hofjesterras volgens de eigen bezoekersinformatie.",
+        "route": "/nl/plaatsen/leiden-barista"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.baristacafe.nl/vestiging/leiden/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "cafe",
+      "organization": "Barista Cafe Leiden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Barista Cafe Leiden",
+        "Koffie, ontbijt en lunch in de Catharinasteeg, met een hofjesterras volgens de eigen bezoekersinformatie."
+      ],
+      "officialOrganizationNames": [
+        "Barista Cafe Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.utrecht-neude",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "utrecht-neude",
+      "route": "/places/utrecht-neude",
+      "title": "Bibliotheek Neude",
+      "summary": "A public library in central Utrecht with reading and study places, computers, Wi-Fi and printing facilities. Staffing levels vary through the day; the branch page explains when help is available.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Bibliotheek Neude",
+        "public-library",
+        "utrecht"
+      ],
+      "city": "Utrecht",
+      "cityId": "utrecht",
+      "province": "Utrecht",
+      "provinceId": "utrecht",
+      "municipalityId": "utrecht",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Bibliotheek Neude",
+        "summary": "De centrale bibliotheek aan de Neude in het voormalige postkantoor, met boeken en plekken om te lezen.",
+        "route": "/nl/plaatsen/utrecht-neude"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "public-library",
+      "organization": "Bibliotheek Utrecht",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Bibliotheek Neude",
+        "De centrale bibliotheek aan de Neude in het voormalige postkantoor, met boeken en plekken om te lezen."
+      ],
+      "officialOrganizationNames": [
+        "Bibliotheek Utrecht"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "restaurant.leiden-bikini",
+      "type": "place",
+      "sourceKind": "restaurant",
+      "slug": "leiden-bikini",
+      "route": "/places/leiden-bikini",
+      "title": "Bikini Bikini",
+      "summary": "A café-restaurant at Haven 1. Check its current menu and opening information before choosing a meal by the harbour.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Bikini Bikini",
+        "restaurant",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Bikini Bikini",
+        "summary": "Een café-restaurant aan Haven 1. Bekijk de actuele kaart en openingstijden voor je maaltijd bij de haven.",
+        "route": "/nl/plaatsen/leiden-bikini"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://caferestaurantbikini.nl/contact/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "restaurant",
+      "organization": "Bikini Bikini",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Bikini Bikini",
+        "Een café-restaurant aan Haven 1. Bekijk de actuele kaart en openingstijden voor je maaltijd bij de haven."
+      ],
+      "officialOrganizationNames": [
+        "Bikini Bikini"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "nature.leiden-blekerspark",
+      "type": "place",
+      "sourceKind": "park",
+      "slug": "leiden-blekerspark",
+      "route": "/places/leiden-blekerspark",
+      "title": "Blekerspark",
+      "summary": "A Singelpark stop with Japanese planting described by Leiden’s official visitor information.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Blekerspark",
+        "parks-walks",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "outdoors"
+      ],
+      "intents": [
+        "outdoors"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Blekerspark",
+        "summary": "Een deel van het Singelpark met Japanse beplanting, beschreven door de officiële bezoekersinformatie.",
+        "route": "/nl/plaatsen/leiden-blekerspark"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "parks-walks",
+      "organization": "Stichting Vrienden van het Singelpark",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Blekerspark",
+        "Een deel van het Singelpark met Japanse beplanting, beschreven door de officiële bezoekersinformatie."
+      ],
+      "officialOrganizationNames": [
+        "Stichting Vrienden van het Singelpark"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "cafe.leiden-borgman",
+      "type": "place",
+      "sourceKind": "cafe",
+      "slug": "leiden-borgman",
+      "route": "/places/leiden-borgman",
+      "title": "Borgman Borgman",
+      "summary": "A coffee stop on Nieuwe Rijn. The café accepts walk-ins and publishes its weekly opening hours online.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Borgman Borgman",
+        "cafe",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Borgman Borgman",
+        "summary": "Een koffieadres aan de Nieuwe Rijn. Je kunt zonder reservering binnenlopen; de weektijden staan op de eigen website.",
+        "route": "/nl/plaatsen/leiden-borgman"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.borgmanborgman.nl/contact-1"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "cafe",
+      "organization": "Borgman Borgman",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Borgman Borgman",
+        "Een koffieadres aan de Nieuwe Rijn. Je kunt zonder reservering binnenlopen; de weektijden staan op de eigen website."
+      ],
+      "officialOrganizationNames": [
+        "Borgman Borgman"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "hotel.leiden-oude-morsch",
+      "type": "place",
+      "sourceKind": "hotel",
+      "slug": "leiden-oude-morsch",
+      "route": "/places/leiden-oude-morsch",
+      "title": "Boutique Hotel d’Oude Morsch",
+      "summary": "A boutique hotel at Park de Put. Check arrival arrangements with reception; reception hours are distinct from room access.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Boutique Hotel d’Oude Morsch",
+        "hotel",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "local-services"
+      ],
+      "intents": [
+        "local-services"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Boutique Hotel d’Oude Morsch",
+        "summary": "Een boutiquehotel bij Park de Put. Stem je aankomst af met de receptie; receptietijden zijn niet hetzelfde als toegang tot je kamer.",
+        "route": "/nl/plaatsen/leiden-oude-morsch"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.boutiquehoteldeoudemorsch.nl/contact/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "hotel",
+      "organization": "Boutique Hotel d’Oude Morsch",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Boutique Hotel d’Oude Morsch",
+        "Een boutiquehotel bij Park de Put. Stem je aankomst af met de receptie; receptietijden zijn niet hetzelfde als toegang tot je kamer."
+      ],
+      "officialOrganizationNames": [
+        "Boutique Hotel d’Oude Morsch"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "cafe.leiden-brownies",
+      "type": "place",
+      "sourceKind": "cafe",
+      "slug": "leiden-brownies",
+      "route": "/places/leiden-brownies",
+      "title": "Brownies&downieS Leiden",
+      "summary": "A café on Aalmarkt serving coffee, breakfast, lunch and brownies. The venue also describes a garden at the rear.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Brownies&downieS Leiden",
+        "cafe",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Brownies&downieS Leiden",
+        "summary": "Een café aan de Aalmarkt voor koffie, ontbijt, lunch en brownies. De vestiging beschrijft ook een tuin achter het pand.",
+        "route": "/nl/plaatsen/leiden-brownies"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.browniesanddownies.nl/leiden"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "cafe",
+      "organization": "Brownies&downieS Leiden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Brownies&downieS Leiden",
+        "Een café aan de Aalmarkt voor koffie, ontbijt, lunch en brownies. De vestiging beschrijft ook een tuin achter het pand."
+      ],
+      "officialOrganizationNames": [
+        "Brownies&downieS Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.leiden-cafe-laken",
+      "type": "place",
+      "sourceKind": "cafe",
+      "slug": "leiden-cafe-laken",
+      "route": "/places/leiden-cafe-laken",
+      "title": "Café Laken",
+      "summary": "A café at Museum De Lakenhal. Browse the café’s own menu and visitor information before planning a stop.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Café Laken",
+        "cafe",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Café Laken",
+        "summary": "Een café bij Museum De Lakenhal. Bekijk het eigen menu en de bezoekersinformatie voordat je een stop plant.",
+        "route": "/nl/plaatsen/leiden-cafe-laken"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.cafelaken.nl/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "cafe",
+      "organization": "Café Laken",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Café Laken",
+        "Een café bij Museum De Lakenhal. Bekijk het eigen menu en de bezoekersinformatie voordat je een stop plant."
+      ],
+      "officialOrganizationNames": [
+        "Café Laken"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.rotterdam-chabot",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "rotterdam-chabot",
+      "route": "/places/rotterdam-chabot",
+      "title": "Chabot Museum",
+      "summary": "A museum at Museumpark in central Rotterdam. Its visitor page provides ticket information and explains the entrance steps and small lift, so visitors with access needs can plan ahead.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Chabot Museum",
+        "art",
+        "rotterdam"
+      ],
+      "city": "Rotterdam",
+      "cityId": "rotterdam",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "rotterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Chabot Museum",
+        "summary": "Een museum in een villa aan het Museumpark, met aandacht voor het werk van Henk Chabot.",
+        "route": "/nl/plaatsen/rotterdam-chabot"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://chabotmuseum.nl/bezoekers/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "art",
+      "organization": "Chabot Museum",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Chabot Museum",
+        "Een museum in een villa aan het Museumpark, met aandacht voor het werk van Henk Chabot."
+      ],
+      "officialOrganizationNames": [
+        "Chabot Museum"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "hotel.leiden-rembrandt-hotel",
+      "type": "place",
+      "sourceKind": "hotel",
+      "slug": "leiden-rembrandt-hotel",
+      "route": "/places/leiden-rembrandt-hotel",
+      "title": "City Hotel Rembrandt",
+      "summary": "A hotel on Nieuwe Beestenmarkt. Compare the hotel’s own room options and conditions for your travel dates.",
+      "contentDepth": "summary",
+      "keywords": [
+        "City Hotel Rembrandt",
+        "hotel",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "local-services"
+      ],
+      "intents": [
+        "local-services"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "City Hotel Rembrandt",
+        "summary": "Een hotel aan de Nieuwe Beestenmarkt. Vergelijk de eigen kameropties en voorwaarden voor je reisdata.",
+        "route": "/nl/plaatsen/leiden-rembrandt-hotel"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.rembrandthotel.nl/contact"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "hotel",
+      "organization": "City Hotel Rembrandt",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "City Hotel Rembrandt",
+        "Een hotel aan de Nieuwe Beestenmarkt. Vergelijk de eigen kameropties en voorwaarden voor je reisdata."
+      ],
+      "officialOrganizationNames": [
+        "City Hotel Rembrandt"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "business.leiden-claim-correct",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-claim-correct",
+      "route": "/guides/leiden-claim-correct",
+      "title": "Claim or correct a business",
+      "summary": "Identify the existing listing and explain your authority to represent the organization. Supply the official website, applicable registration details and evidence for the requested change. Keep private contact information separate from public business contacts. Review checks representation, sources and duplicates before a decision. Corrections can be requested with the listing ID, changed field, proposed value and supporting URL. Ownership is not confirmed by submitting a form.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Claim or correct a business",
+        "business-editorial",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "business"
+      ],
+      "intents": [
+        "business"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Een bedrijf claimen of corrigeren",
+        "summary": "Noem de bestaande vermelding en leg uit namens welke organisatie je handelt. Geef de officiële website, toepasselijke registratiegegevens en bewijs voor de wijziging. Houd privécontactgegevens apart van openbare zakelijke contacten. Beoordeling controleert vertegenwoordiging, bronnen en duplicaten. Vraag een correctie aan met vermelding-ID, veld, nieuwe waarde en bron-URL. Een formulier bevestigt geen eigendom.",
+        "route": "/nl/gidsen/leiden-claim-correct"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-10",
+      "officialSourceUrls": [
+        "https://younew.nl/for-business/local/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "business-editorial",
+      "organization": "YouNew",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Een bedrijf claimen of corrigeren",
+        "Noem de bestaande vermelding en leg uit namens welke organisatie je handelt. Geef de officiële website, toepasselijke registratiegegevens en bewijs voor de wijziging. Houd privécontactgegevens apart van openbare zakelijke contacten. Beoordeling controleert vertegenwoordiging, bronnen en duplicaten. Vraag een correctie aan met vermelding-ID, veld, nieuwe waarde en bron-URL. Een formulier bevestigt geen eigendom."
+      ],
+      "officialOrganizationNames": [
+        "YouNew"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.leiden-burcht",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "leiden-burcht",
+      "route": "/places/leiden-burcht",
+      "title": "De Burcht",
+      "summary": "A historic ring fortification on a raised mound in the centre of Leiden, with views across the surrounding city.",
+      "contentDepth": "summary",
+      "keywords": [
+        "De Burcht",
+        "museums-sights",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "De Burcht",
+        "summary": "Een historische ringburcht op een verhoogde heuvel in het centrum van Leiden, met uitzicht over de omliggende stad.",
+        "route": "/nl/plaatsen/leiden-burcht"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "museums-sights",
+      "organization": "De Burcht",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "De Burcht",
+        "Een historische ringburcht op een verhoogde heuvel in het centrum van Leiden, met uitzicht over de omliggende stad."
+      ],
+      "officialOrganizationNames": [
+        "De Burcht"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "restaurant.leiden-engelenbak",
+      "type": "place",
+      "sourceKind": "restaurant",
+      "slug": "leiden-engelenbak",
+      "route": "/places/leiden-engelenbak",
+      "title": "De Engelenbak",
+      "summary": "A restaurant on Lange Mare serving dinner Tuesday to Saturday and lunch on Friday and Saturday.",
+      "contentDepth": "summary",
+      "keywords": [
+        "De Engelenbak",
+        "restaurant",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "De Engelenbak",
+        "summary": "Een restaurant aan de Lange Mare met diner van dinsdag tot en met zaterdag en lunch op vrijdag en zaterdag.",
+        "route": "/nl/plaatsen/leiden-engelenbak"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.deengelenbak.nl/contact/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "restaurant",
+      "organization": "De Engelenbak",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "De Engelenbak",
+        "Een restaurant aan de Lange Mare met diner van dinsdag tot en met zaterdag en lunch op vrijdag en zaterdag."
+      ],
+      "officialOrganizationNames": [
+        "De Engelenbak"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "guide.leiden-contacts",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-contacts",
+      "route": "/guides/leiden-contacts",
+      "title": "Emergency and non-emergency contacts",
+      "summary": "Choose the contact according to the urgency and type of help.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Emergency and non-emergency contacts",
+        "contacts",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "emergency"
+      ],
+      "intents": [
+        "emergency"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Contact bij spoed en zonder spoed",
+        "summary": "Kies het contact op basis van urgentie en soort hulp.",
+        "route": "/nl/gidsen/leiden-contacts"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.politie.nl/contact/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "contacts",
+      "organization": "Emergency and non-emergency contacts",
+      "audienceProfiles": [],
+      "numberedSteps": [
+        "For immediate danger or a life-threatening emergency, call 112. State your location and follow the operator’s instructions.",
+        "For police assistance without an emergency in the Netherlands, call 0900-8844. For urgent GP care outside normal hours, use De Limes’ postcode selector and call before travelling.",
+        "For municipal questions call 14 071, or +31 71 516 5165 if the short number does not work. Use the municipal website for public-space reports."
+      ],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Contact bij spoed en zonder spoed",
+        "Kies het contact op basis van urgentie en soort hulp."
+      ],
+      "officialOrganizationNames": [
+        "Emergency and non-emergency contacts"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "guide.leiden-gp",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-gp",
+      "route": "/guides/leiden-gp",
+      "title": "Find a general practitioner",
+      "summary": "Ask nearby practices about registration and arrange a record transfer after acceptance.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Find a general practitioner",
+        "gp",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "healthcare"
+      ],
+      "intents": [
+        "healthcare"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Een huisarts vinden",
+        "summary": "Vraag praktijken in de buurt naar inschrijving en regel na acceptatie de overdracht van je dossier.",
+        "route": "/nl/gidsen/leiden-gp"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "gp",
+      "organization": "Find a general practitioner",
+      "audienceProfiles": [],
+      "numberedSteps": [
+        "Look for practices near your new address and ask whether they can accept you. Capacity and distance can affect acceptance.",
+        "After the new practice accepts you, tell your previous GP and ask for transfer of your medical record. Ask the new practice which registration information it requires.",
+        "If you cannot find a practice, ask your health insurer to help or mediate. For visitors or people without a regular GP, use the separate De Limes guidance when urgent care is needed."
+      ],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Een huisarts vinden",
+        "Vraag praktijken in de buurt naar inschrijving en regel na acceptatie de overdracht van je dossier."
+      ],
+      "officialOrganizationNames": [
+        "Find a general practitioner"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "collection.leiden-first-day",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-first-day",
+      "route": "/guides/leiden-first-day",
+      "title": "First day in Leiden",
+      "summary": "Start with maps at VVV Leiden, choose De Burcht for a view of the centre, then consider a café stop. Check each venue before leaving. These are choices for your first day, without a fixed schedule.",
+      "contentDepth": "summary",
+      "keywords": [
+        "First day in Leiden",
+        "collection",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Eerste dag in Leiden",
+        "summary": "Begin met kaarten bij VVV Leiden, bekijk de binnenstad vanaf De Burcht en kies eventueel een caféstop. Controleer elke locatie vooraf. Dit zijn keuzes voor je eerste dag, zonder vast tijdschema.",
+        "route": "/nl/gidsen/leiden-first-day"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.baristacafe.nl/vestiging/leiden/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "collection",
+      "organization": "Linked place / operator",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Eerste dag in Leiden",
+        "Begin met kaarten bij VVV Leiden, bekijk de binnenstad vanaf De Burcht en kies eventueel een caféstop. Controleer elke locatie vooraf. Dit zijn keuzes voor je eerste dag, zonder vast tijdschema."
+      ],
+      "officialOrganizationNames": [
+        "Linked place / operator"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.den-haag-fotomuseum",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "den-haag-fotomuseum",
+      "route": "/places/den-haag-fotomuseum",
+      "title": "Fotomuseum Den Haag",
+      "summary": "A museum devoted to photography near the Kunstmuseum in The Hague. Its exhibition programme presents work by established and emerging photographers; consult the museum for the current programme.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Fotomuseum Den Haag",
+        "photography",
+        "den-haag"
+      ],
+      "city": "Den Haag",
+      "cityId": "den-haag",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "s-gravenhage",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Fotomuseum Den Haag",
+        "summary": "Fototentoonstellingen aan de Stadhouderslaan; de eigen website vermeldt het actuele programma.",
+        "route": "/nl/plaatsen/den-haag-fotomuseum"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.fotomuseumdenhaag.nl/en/contact"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "photography",
+      "organization": "Fotomuseum Den Haag",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Fotomuseum Den Haag",
+        "Fototentoonstellingen aan de Stadhouderslaan; de eigen website vermeldt het actuele programma."
+      ],
+      "officialOrganizationNames": [
+        "Fotomuseum Den Haag"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "collection.leiden-free",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-free",
+      "route": "/guides/leiden-free",
+      "title": "Free places",
+      "summary": "De Burcht, Het Plantsoen and Blekerspark appear in Leiden’s official free-activities guide. This selection covers the outdoor visit only; refreshments, events and nearby museums are separate.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Free places",
+        "collection",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Gratis plekken",
+        "summary": "De Burcht, Het Plantsoen en Blekerspark staan in de officiële Leidse gids met gratis activiteiten. Deze selectie gaat over het buitenbezoek; consumpties, evenementen en nabije musea staan daar los van.",
+        "route": "/nl/gidsen/leiden-free"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.visitleiden.nl/nl/doen/blogs/leuke-gratis-activiteiten-in-leiden"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "collection",
+      "organization": "Free places",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Gratis plekken",
+        "De Burcht, Het Plantsoen en Blekerspark staan in de officiële Leidse gids met gratis activiteiten. Deze selectie gaat over het buitenbezoek; consumpties, evenementen en nabije musea staan daar los van."
+      ],
+      "officialOrganizationNames": [
+        "Free places"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "guide.leiden-bsn",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-bsn",
+      "route": "/guides/leiden-bsn",
+      "title": "Get or find your BSN",
+      "summary": "A BSN is issued through registration; choose resident registration or the RNI route.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Get or find your BSN",
+        "bsn",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "government"
+      ],
+      "intents": [
+        "government"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Een BSN krijgen of terugvinden",
+        "summary": "Een BSN wordt via registratie toegekend; kies inwonersregistratie of RNI.",
+        "route": "/nl/gidsen/leiden-bsn"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "bsn",
+      "organization": "Get or find your BSN",
+      "audienceProfiles": [],
+      "numberedSteps": [
+        "If staying over four months, register as a resident with the municipality where you live.",
+        "For a stay of four months or less, check RNI eligibility. Leiden accepts European passports; people without a European passport are directed to Breda or Venlo.",
+        "Complete the RNI pre-registration, keep the QR code and book an available appointment. Bring ID. If you already have a BSN, do not apply as a new RNI registration; ask the municipality which update is needed."
+      ],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Een BSN krijgen of terugvinden",
+        "Een BSN wordt via registratie toegekend; kies inwonersregistratie of RNI."
+      ],
+      "officialOrganizationNames": [
+        "Get or find your BSN"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "hotel.leiden-golden-tulip",
+      "type": "place",
+      "sourceKind": "hotel",
+      "slug": "leiden-golden-tulip",
+      "route": "/places/leiden-golden-tulip",
+      "title": "Golden Tulip Leiden Centre",
+      "summary": "A hotel on Schipholweg. Use the operator’s own information for room availability and arrival arrangements.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Golden Tulip Leiden Centre",
+        "hotel",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "local-services"
+      ],
+      "intents": [
+        "local-services"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Golden Tulip Leiden Centre",
+        "summary": "Een hotel aan de Schipholweg. Bekijk de informatie van de aanbieder voor kamers en aankomstafspraken.",
+        "route": "/nl/plaatsen/leiden-golden-tulip"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://goldengreenhotels.nl/en/contact/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "hotel",
+      "organization": "Golden Tulip Leiden Centre",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Golden Tulip Leiden Centre",
+        "Een hotel aan de Schipholweg. Bekijk de informatie van de aanbieder voor kamers en aankomstafspraken."
+      ],
+      "officialOrganizationNames": [
+        "Golden Tulip Leiden Centre"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "restaurant.leiden-grand-cafe-burcht",
+      "type": "place",
+      "sourceKind": "restaurant",
+      "slug": "leiden-grand-cafe-burcht",
+      "route": "/places/leiden-grand-cafe-burcht",
+      "title": "Grand Café De Burcht",
+      "summary": "A café-restaurant below De Burcht offering lunch, dinner and drinks. It is separate from the historic fortification.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Grand Café De Burcht",
+        "restaurant",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Grand Café De Burcht",
+        "summary": "Een café-restaurant onder De Burcht voor lunch, diner en drankjes. Dit is een andere locatie dan de historische burcht.",
+        "route": "/nl/plaatsen/leiden-grand-cafe-burcht"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.grandcafedeburcht.nl/en"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "restaurant",
+      "organization": "Grand Café De Burcht",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Grand Café De Burcht",
+        "Een café-restaurant onder De Burcht voor lunch, diner en drankjes. Dit is een andere locatie dan de historische burcht."
+      ],
+      "officialOrganizationNames": [
+        "Grand Café De Burcht"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "nature.leiden-plantsoen",
+      "type": "place",
+      "sourceKind": "park",
+      "slug": "leiden-plantsoen",
+      "route": "/places/leiden-plantsoen",
+      "title": "Het Plantsoen",
+      "summary": "A landscaped stretch of the Singelpark beside the Zoeterwoudsesingel, suitable for a pause along the walking route.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Het Plantsoen",
+        "parks-walks",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "outdoors"
+      ],
+      "intents": [
+        "outdoors"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Het Plantsoen",
+        "summary": "Een landschappelijk deel van het Singelpark langs de Zoeterwoudsesingel, als rustpunt tijdens de wandeling.",
+        "route": "/nl/plaatsen/leiden-plantsoen"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "parks-walks",
+      "organization": "Stichting Vrienden van het Singelpark",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Het Plantsoen",
+        "Een landschappelijk deel van het Singelpark langs de Zoeterwoudsesingel, als rustpunt tijdens de wandeling."
+      ],
+      "officialOrganizationNames": [
+        "Stichting Vrienden van het Singelpark"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "restaurant.leiden-prentenkabinet",
+      "type": "place",
+      "sourceKind": "restaurant",
+      "slug": "leiden-prentenkabinet",
+      "route": "/places/leiden-prentenkabinet",
+      "title": "Het Prentenkabinet",
+      "summary": "A restaurant on Kloksteeg offering lunch and dinner on selected days. Check the official menu and arrival times before visiting.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Het Prentenkabinet",
+        "restaurant",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Het Prentenkabinet",
+        "summary": "Een restaurant aan de Kloksteeg met lunch en diner op geselecteerde dagen. Bekijk de eigen kaart en aankomsttijden voor je bezoek.",
+        "route": "/nl/plaatsen/leiden-prentenkabinet"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.prentenkabinet.nl/reserveren/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "restaurant",
+      "organization": "Het Prentenkabinet",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Het Prentenkabinet",
+        "Een restaurant aan de Kloksteeg met lunch en diner op geselecteerde dagen. Bekijk de eigen kaart en aankomsttijden voor je bezoek."
+      ],
+      "officialOrganizationNames": [
+        "Het Prentenkabinet"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.leiden-hortus",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "leiden-hortus",
+      "route": "/places/leiden-hortus",
+      "title": "Hortus botanicus Leiden",
+      "summary": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Hortus botanicus Leiden",
+        "museums-sights",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Hortus botanicus Leiden",
+        "summary": "Ontdek planten en kassen in de botanische tuin van Leiden. Bekijk de bezoekersinformatie voordat je een dag kiest.",
+        "route": "/nl/plaatsen/leiden-hortus"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://hortusleiden.nl/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "museums-sights",
+      "organization": "Hortus botanicus Leiden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Hortus botanicus Leiden",
+        "Ontdek planten en kassen in de botanische tuin van Leiden. Bekijk de bezoekersinformatie voordat je een dag kiest."
+      ],
+      "officialOrganizationNames": [
+        "Hortus botanicus Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "nature.leiden-huigpark",
+      "type": "place",
+      "sourceKind": "park",
+      "slug": "leiden-huigpark",
+      "route": "/places/leiden-huigpark",
+      "title": "Huigpark",
+      "summary": "A park along the northern section of the Singelpark walking circuit.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Huigpark",
+        "parks-walks",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "outdoors"
+      ],
+      "intents": [
+        "outdoors"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Huigpark",
+        "summary": "Een park langs het noordelijke deel van de Singelparkroute.",
+        "route": "/nl/plaatsen/leiden-huigpark"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "parks-walks",
+      "organization": "Stichting Vrienden van het Singelpark",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Huigpark",
+        "Een park langs het noordelijke deel van de Singelparkroute."
+      ],
+      "officialOrganizationNames": [
+        "Stichting Vrienden van het Singelpark"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "hotel.leiden-huys-van-leyden",
+      "type": "place",
+      "sourceKind": "hotel",
+      "slug": "leiden-huys-van-leyden",
+      "route": "/places/leiden-huys-van-leyden",
+      "title": "Huys van Leyden",
+      "summary": "A small hotel on Oude Singel in the historic centre. Confirm your room and arrival arrangements directly with the hotel.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Huys van Leyden",
+        "hotel",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "local-services"
+      ],
+      "intents": [
+        "local-services"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Huys van Leyden",
+        "summary": "Een kleinschalig hotel aan de Oude Singel in de historische binnenstad. Controleer kamerkeuze en aankomstafspraken bij het hotel.",
+        "route": "/nl/plaatsen/leiden-huys-van-leyden"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.boutiquehotelsvanleyden.nl/nl/contact.html"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "hotel",
+      "organization": "Huys van Leyden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Huys van Leyden",
+        "Een kleinschalig hotel aan de Oude Singel in de historische binnenstad. Controleer kamerkeuze en aankomstafspraken bij het hotel."
+      ],
+      "officialOrganizationNames": [
+        "Huys van Leyden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "hotel.leiden-ibis",
+      "type": "place",
+      "sourceKind": "hotel",
+      "slug": "leiden-ibis",
+      "route": "/places/leiden-ibis",
+      "title": "ibis Leiden Centre",
+      "summary": "A hotel opposite Leiden Centraal. The operator lists room options and practical arrival information on its official page.",
+      "contentDepth": "summary",
+      "keywords": [
+        "ibis Leiden Centre",
+        "hotel",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "local-services"
+      ],
+      "intents": [
+        "local-services"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "ibis Leiden Centre",
+        "summary": "Een hotel tegenover Leiden Centraal. De aanbieder vermeldt kameropties en praktische aankomstinformatie op de officiële pagina.",
+        "route": "/nl/plaatsen/leiden-ibis"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://all.accor.com/hotel/8087/index.en.shtml"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "hotel",
+      "organization": "ibis Leiden Centre",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "ibis Leiden Centre",
+        "Een hotel tegenover Leiden Centraal. De aanbieder vermeldt kameropties en praktische aankomstinformatie op de officiële pagina."
+      ],
+      "officialOrganizationNames": [
+        "ibis Leiden Centre"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.eindhoven-inkijkmuseum",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "eindhoven-inkijkmuseum",
+      "route": "/places/eindhoven-inkijkmuseum",
+      "title": "Inkijkmuseum",
+      "summary": "A small museum on Dommelstraat where artwork can be viewed through a window. The city tourism listing distinguishes this exterior viewing from private visits inside and occasional public activities.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Inkijkmuseum",
+        "art",
+        "eindhoven"
+      ],
+      "city": "Eindhoven",
+      "cityId": "eindhoven",
+      "province": "Noord-Brabant",
+      "provinceId": "noord-brabant",
+      "municipalityId": "eindhoven",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Inkijkmuseum",
+        "summary": "Een klein museum aan de Dommelstraat. De presentatie is vanaf buiten te bekijken; bezoek binnen is op afspraak of bij activiteiten.",
+        "route": "/nl/plaatsen/eindhoven-inkijkmuseum"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "art",
+      "organization": "Inkijkmuseum",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Inkijkmuseum",
+        "Een klein museum aan de Dommelstraat. De presentatie is vanaf buiten te bekijken; bezoek binnen is op afspraak of bij activiteiten."
+      ],
+      "officialOrganizationNames": [
+        "Inkijkmuseum"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "cafe.den-haag-kaafi",
+      "type": "place",
+      "sourceKind": "cafe",
+      "slug": "den-haag-kaafi",
+      "route": "/places/den-haag-kaafi",
+      "title": "Kaafi",
+      "summary": "A café with a bar and kitchen on Prinsestraat in The Hague. Its own contact page provides daily visiting hours and distinguishes the kitchen’s closing time from the venue’s closing time.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Kaafi",
+        "cafe",
+        "den-haag"
+      ],
+      "city": "Den Haag",
+      "cityId": "den-haag",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "s-gravenhage",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Kaafi",
+        "summary": "Een koffiebar aan de Prinsestraat met koffie en eten van de eigen kaart.",
+        "route": "/nl/plaatsen/den-haag-kaafi"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://kaafi.nl/contact-us"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "cafe",
+      "organization": "Kaafi",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Kaafi",
+        "Een koffiebar aan de Prinsestraat met koffie en eten van de eigen kaart."
+      ],
+      "officialOrganizationNames": [
+        "Kaafi"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "restaurant.eindhoven-kazerne",
+      "type": "place",
+      "sourceKind": "restaurant",
+      "slug": "eindhoven-kazerne",
+      "route": "/places/eindhoven-kazerne",
+      "title": "Kazerne BarBistro",
+      "summary": "A restaurant and bar within Kazerne in central Eindhoven. The current official page places the BarBistro at Paradijslaan and distinguishes it from the ByDay café serving breakfast and lunch.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Kazerne BarBistro",
+        "restaurant",
+        "eindhoven"
+      ],
+      "city": "Eindhoven",
+      "cityId": "eindhoven",
+      "province": "Noord-Brabant",
+      "provinceId": "noord-brabant",
+      "municipalityId": "eindhoven",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Kazerne BarBistro",
+        "summary": "Bar en bistro in Eindhoven. Raadpleeg de eigen kaart en reserveringsinformatie voor je bezoek.",
+        "route": "/nl/plaatsen/eindhoven-kazerne"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.kazerne.com/bar-bistro-kazerne"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "restaurant",
+      "organization": "Kazerne BarBistro",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Kazerne BarBistro",
+        "Bar en bistro in Eindhoven. Raadpleeg de eigen kaart en reserveringsinformatie voor je bezoek."
+      ],
+      "officialOrganizationNames": [
+        "Kazerne BarBistro"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "cafe.utrecht-koffie-leute",
+      "type": "place",
+      "sourceKind": "cafe",
+      "slug": "utrecht-koffie-leute",
+      "route": "/places/utrecht-koffie-leute",
+      "title": "Koffie Leute",
+      "summary": "A coffee venue on Westerkade serving coffee, sandwiches and baked goods. The same premises also have a selection of music and coffee equipment, described on the venue’s own website.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Koffie Leute",
+        "coffee",
+        "utrecht"
+      ],
+      "city": "Utrecht",
+      "cityId": "utrecht",
+      "province": "Utrecht",
+      "provinceId": "utrecht",
+      "municipalityId": "utrecht",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Koffie Leute",
+        "summary": "Koffie, broodjes en gebak aan de Westerkade, met ook platen en koffieartikelen in dezelfde zaak.",
+        "route": "/nl/plaatsen/utrecht-koffie-leute"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.koffieleute.nl/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "coffee",
+      "organization": "Koffie Leute",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Koffie Leute",
+        "Koffie, broodjes en gebak aan de Westerkade, met ook platen en koffieartikelen in dezelfde zaak."
+      ],
+      "officialOrganizationNames": [
+        "Koffie Leute"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "nature.leiden-leidse-hout",
+      "type": "place",
+      "sourceKind": "park",
+      "slug": "leiden-leidse-hout",
+      "route": "/places/leiden-leidse-hout",
+      "title": "Leidse Hout",
+      "summary": "A city park with trees, open lawns and a pond near the boundary with Oegstgeest.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Leidse Hout",
+        "parks-walks",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "outdoors"
+      ],
+      "intents": [
+        "outdoors"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Leidse Hout",
+        "summary": "Een stadspark met bomen, grasvelden en een vijver bij de grens met Oegstgeest.",
+        "route": "/nl/plaatsen/leiden-leidse-hout"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "parks-walks",
+      "organization": "Leidse Hout",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Leidse Hout",
+        "Een stadspark met bomen, grasvelden en een vijver bij de grens met Oegstgeest."
+      ],
+      "officialOrganizationNames": [
+        "Leidse Hout"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "guide.leiden-pharmacy",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-pharmacy",
+      "route": "/guides/leiden-pharmacy",
+      "title": "Medicines and out-of-hours care",
+      "summary": "Use routine pharmacy services for planned needs and the regional emergency service for urgent needs.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Medicines and out-of-hours care",
+        "pharmacy",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "healthcare"
+      ],
+      "intents": [
+        "healthcare"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Medicijnen en zorg buiten kantooruren",
+        "summary": "Gebruik je gewone apotheek voor geplande zorg en de regionale spoeddienst bij dringende noodzaak.",
+        "route": "/nl/gidsen/leiden-pharmacy"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "pharmacy",
+      "organization": "Medicines and out-of-hours care",
+      "audienceProfiles": [],
+      "numberedSteps": [
+        "For routine medicines, contact your regular pharmacy during its opening hours. For urgent medicines outside those hours, check the current service pharmacy on SSDR.",
+        "If a GP problem cannot wait until the next regular consultation, call De Limes first. Its website selects the appropriate service by postcode; do not assume every patient uses the same site.",
+        "Bring an up-to-date medication list and identification to the service pharmacy, and follow its payment instructions. For a life-threatening situation call 112."
+      ],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Medicijnen en zorg buiten kantooruren",
+        "Gebruik je gewone apotheek voor geplande zorg en de regionale spoeddienst bij dringende noodzaak."
+      ],
+      "officialOrganizationNames": [
+        "Medicines and out-of-hours care"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.leiden-lakenhal",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "leiden-lakenhal",
+      "route": "/places/leiden-lakenhal",
+      "title": "Museum De Lakenhal",
+      "summary": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Museum De Lakenhal",
+        "museums-sights",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Museum De Lakenhal",
+        "summary": "Ontdek kunst en de geschiedenis van Leiden. Begin bij de bezoekersinformatie en kies wat je wilt bekijken.",
+        "route": "/nl/plaatsen/leiden-lakenhal"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.lakenhal.nl/en/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "museums-sights",
+      "organization": "Museum De Lakenhal",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Museum De Lakenhal",
+        "Ontdek kunst en de geschiedenis van Leiden. Begin bij de bezoekersinformatie en kies wat je wilt bekijken."
+      ],
+      "officialOrganizationNames": [
+        "Museum De Lakenhal"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.leiden-naturalis",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "leiden-naturalis",
+      "route": "/places/leiden-naturalis",
+      "title": "Naturalis",
+      "summary": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Naturalis",
+        "museums-sights",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Naturalis",
+        "summary": "Ontdek de natuur bij Naturalis. Bekijk de officiële pagina voor de actuele route naar het museum en de bezoekmogelijkheden.",
+        "route": "/nl/plaatsen/leiden-naturalis"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.naturalis.nl/en/museum/practical-info"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "museums-sights",
+      "organization": "Naturalis",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Naturalis",
+        "Ontdek de natuur bij Naturalis. Bekijk de officiële pagina voor de actuele route naar het museum en de bezoekmogelijkheden."
+      ],
+      "officialOrganizationNames": [
+        "Naturalis"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "restaurant.leiden-oudt-leyden",
+      "type": "place",
+      "sourceKind": "restaurant",
+      "slug": "leiden-oudt-leyden",
+      "route": "/places/leiden-oudt-leyden",
+      "title": "Oudt Leyden",
+      "summary": "A pancake restaurant on Steenstraat with traditional and other pancake choices on its own menu.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Oudt Leyden",
+        "restaurant",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Oudt Leyden",
+        "summary": "Een pannenkoekenrestaurant aan de Steenstraat met traditionele en andere varianten op de eigen kaart.",
+        "route": "/nl/plaatsen/leiden-oudt-leyden"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://oudtleyden.nl/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "restaurant",
+      "organization": "Oudt Leyden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Oudt Leyden",
+        "Een pannenkoekenrestaurant aan de Steenstraat met traditionele en andere varianten op de eigen kaart."
+      ],
+      "officialOrganizationNames": [
+        "Oudt Leyden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "cafe.leiden-paco-ciao",
+      "type": "place",
+      "sourceKind": "cafe",
+      "slug": "leiden-paco-ciao",
+      "route": "/places/leiden-paco-ciao",
+      "title": "Paco Ciao",
+      "summary": "A café and dining stop on Stationsweg. Consult the venue’s menu and contact page before your visit.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Paco Ciao",
+        "cafe",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Paco Ciao",
+        "summary": "Een café en eetgelegenheid aan de Stationsweg. Bekijk de eigen kaart en contactpagina voor je bezoek.",
+        "route": "/nl/plaatsen/leiden-paco-ciao"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://pacociao.nl/en/contact/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "cafe",
+      "organization": "Paco Ciao",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Paco Ciao",
+        "Een café en eetgelegenheid aan de Stationsweg. Bekijk de eigen kaart en contactpagina voor je bezoek."
+      ],
+      "officialOrganizationNames": [
+        "Paco Ciao"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "nature.leiden-park-de-put",
+      "type": "place",
+      "sourceKind": "park",
+      "slug": "leiden-park-de-put",
+      "route": "/places/leiden-park-de-put",
+      "title": "Park de Put",
+      "summary": "A green stop beside the Morssingel and the mill on the Singelpark walking route.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Park de Put",
+        "parks-walks",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "outdoors"
+      ],
+      "intents": [
+        "outdoors"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Park de Put",
+        "summary": "Een groene stop bij de Morssingel en de molen aan de Singelparkroute.",
+        "route": "/nl/plaatsen/leiden-park-de-put"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "parks-walks",
+      "organization": "Vrienden van het Singelpark",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Park de Put",
+        "Een groene stop bij de Morssingel en de molen aan de Singelparkroute."
+      ],
+      "officialOrganizationNames": [
+        "Vrienden van het Singelpark"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "nature.utrecht-oog-in-al",
+      "type": "place",
+      "sourceKind": "park",
+      "slug": "utrecht-oog-in-al",
+      "route": "/places/utrecht-oog-in-al",
+      "title": "Park Oog in Al",
+      "summary": "A public park laid out on a former estate in western Utrecht. Walking paths, an animal enclosure and play areas make it a useful outdoor stop for both residents and visitors.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Park Oog in Al",
+        "city-park",
+        "utrecht"
+      ],
+      "city": "Utrecht",
+      "cityId": "utrecht",
+      "province": "Utrecht",
+      "provinceId": "utrecht",
+      "municipalityId": "utrecht",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "outdoors"
+      ],
+      "intents": [
+        "outdoors"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Park Oog in Al",
+        "summary": "Een stadspark in Utrecht bij het landgoed Oog in Al, met ruimte om te wandelen.",
+        "route": "/nl/plaatsen/utrecht-oog-in-al"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "city-park",
+      "organization": "Park Oog in Al",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Park Oog in Al",
+        "Een stadspark in Utrecht bij het landgoed Oog in Al, met ruimte om te wandelen."
+      ],
+      "officialOrganizationNames": [
+        "Park Oog in Al"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "guide.leiden-bicycle",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-bicycle",
+      "route": "/guides/leiden-bicycle",
+      "title": "Park your bicycle in Leiden",
+      "summary": "Find a permitted place and check the local parking limit.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Park your bicycle in Leiden",
+        "bicycle",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "transport"
+      ],
+      "intents": [
+        "transport"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Je fiets parkeren in Leiden",
+        "summary": "Zoek een toegestane plek en controleer de maximale stallingsduur.",
+        "route": "/nl/gidsen/leiden-bicycle"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "bicycle",
+      "organization": "Park your bicycle in Leiden",
+      "audienceProfiles": [],
+      "numberedSteps": [
+        "Use the municipality’s parking map and choose a rack or designated facility. Around Leiden Centraal, bicycles outside racks can be removed.",
+        "Check access hours and signs. Waagstalling is at Aalmarkt 22 with entrances from Aalmarkt and Breestraat. Paid subscription sections at stations have separate rules.",
+        "Retrieve your bicycle before the applicable limit. If missing, check the municipality’s “Fiets weg” instructions before assuming theft."
+      ],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Je fiets parkeren in Leiden",
+        "Zoek een toegestane plek en controleer de maximale stallingsduur."
+      ],
+      "officialOrganizationNames": [
+        "Park your bicycle in Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "nature.leiden-cronesteyn",
+      "type": "place",
+      "sourceKind": "park",
+      "slug": "leiden-cronesteyn",
+      "route": "/places/leiden-cronesteyn",
+      "title": "Polderpark Cronesteyn",
+      "summary": "A large park with waterways, meadows and woodland areas. Follow the park paths and current access notices.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Polderpark Cronesteyn",
+        "parks-walks",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "outdoors"
+      ],
+      "intents": [
+        "outdoors"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Polderpark Cronesteyn",
+        "summary": "Een groot park met water, weilanden en bosgedeelten. Volg de parkpaden en actuele aanwijzingen.",
+        "route": "/nl/plaatsen/leiden-cronesteyn"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "parks-walks",
+      "organization": "Polderpark Cronesteyn",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Polderpark Cronesteyn",
+        "Een groot park met water, weilanden en bosgedeelten. Volg de parkpaden en actuele aanwijzingen."
+      ],
+      "officialOrganizationNames": [
+        "Polderpark Cronesteyn"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "guide.leiden-registration",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-registration",
+      "route": "/guides/leiden-registration",
+      "title": "Register your address",
+      "summary": "Choose the correct registration procedure when moving to Leiden.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Register your address",
+        "registration",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "government"
+      ],
+      "intents": [
+        "government"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Je woonadres registreren",
+        "summary": "Kies de juiste registratieprocedure als je naar Leiden verhuist.",
+        "route": "/nl/gidsen/leiden-registration"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "registration",
+      "organization": "Register your address",
+      "audienceProfiles": [],
+      "numberedSteps": [
+        "Arriving from abroad: use Leiden’s immigration form and appointment link. Attend in person with accompanying family members. Arrange the appointment within five working days of moving.",
+        "Prepare identification and proof of housing. First-time arrivals may also need civil-status certificates and legalisation; arrivals from the Dutch Caribbean need proof of deregistration.",
+        "Moving within the Netherlands: notify the new municipality up to four weeks before, or within five days after, the move. Use the domestic-change procedure, not first registration."
+      ],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Je woonadres registreren",
+        "Kies de juiste registratieprocedure als je naar Leiden verhuist."
+      ],
+      "officialOrganizationNames": [
+        "Register your address"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "nature.leiden-rembrandtpark",
+      "type": "place",
+      "sourceKind": "park",
+      "slug": "leiden-rembrandtpark",
+      "route": "/places/leiden-rembrandtpark",
+      "title": "Rembrandtpark",
+      "summary": "A green stop on the Singelpark walking route near the Rembrandtbrug.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Rembrandtpark",
+        "parks-walks",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "outdoors"
+      ],
+      "intents": [
+        "outdoors"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Rembrandtpark",
+        "summary": "Een groene stop op de Singelparkroute bij de Rembrandtbrug.",
+        "route": "/nl/plaatsen/leiden-rembrandtpark"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "parks-walks",
+      "organization": "Leiden & Partners",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Rembrandtpark",
+        "Een groene stop op de Singelparkroute bij de Rembrandtbrug."
+      ],
+      "officialOrganizationNames": [
+        "Leiden & Partners"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "restaurant.leiden-dende",
+      "type": "place",
+      "sourceKind": "restaurant",
+      "slug": "leiden-dende",
+      "route": "/places/leiden-dende",
+      "title": "Restaurant Dende",
+      "summary": "A restaurant on Nieuwe Rijn. Use the current menu and direct contact details to plan your visit.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Restaurant Dende",
+        "restaurant",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Restaurant Dende",
+        "summary": "Een restaurant aan de Nieuwe Rijn. Gebruik de actuele kaart en contactgegevens om je bezoek te plannen.",
+        "route": "/nl/plaatsen/leiden-dende"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.dende.nl/contact"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "restaurant",
+      "organization": "Restaurant Dende",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Restaurant Dende",
+        "Een restaurant aan de Nieuwe Rijn. Gebruik de actuele kaart en contactgegevens om je bezoek te plannen."
+      ],
+      "officialOrganizationNames": [
+        "Restaurant Dende"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "restaurant.leiden-in-den-doofpot",
+      "type": "place",
+      "sourceKind": "restaurant",
+      "slug": "leiden-in-den-doofpot",
+      "route": "/places/leiden-in-den-doofpot",
+      "title": "Restaurant In den Doofpot",
+      "summary": "A restaurant on Turfmarkt with lunch and dinner on selected days. Use the official page to check service times.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Restaurant In den Doofpot",
+        "restaurant",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Restaurant In den Doofpot",
+        "summary": "Een restaurant aan de Turfmarkt met lunch en diner op geselecteerde dagen. Bekijk de officiële pagina voor de tijden.",
+        "route": "/nl/plaatsen/leiden-in-den-doofpot"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.indendoofpot.nl/contact"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "restaurant",
+      "organization": "Restaurant In den Doofpot",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Restaurant In den Doofpot",
+        "Een restaurant aan de Turfmarkt met lunch en diner op geselecteerde dagen. Bekijk de officiële pagina voor de tijden."
+      ],
+      "officialOrganizationNames": [
+        "Restaurant In den Doofpot"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "restaurant.leiden-verboden-toegang",
+      "type": "place",
+      "sourceKind": "restaurant",
+      "slug": "leiden-verboden-toegang",
+      "route": "/places/leiden-verboden-toegang",
+      "title": "Restaurant Verboden Toegang",
+      "summary": "A restaurant on Kaiserstraat with a changing seasonal menu. It serves dinner daily; the kitchen has an earlier closing time than the restaurant.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Restaurant Verboden Toegang",
+        "restaurant",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Restaurant Verboden Toegang",
+        "summary": "Een restaurant aan de Kaiserstraat met een wisselende seizoenskaart. Dagelijks diner; de keuken sluit eerder dan het restaurant.",
+        "route": "/nl/plaatsen/leiden-verboden-toegang"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.verbodentoegang.nl/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "restaurant",
+      "organization": "Restaurant Verboden Toegang",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Restaurant Verboden Toegang",
+        "Een restaurant aan de Kaiserstraat met een wisselende seizoenskaart. Dagelijks diner; de keuken sluit eerder dan het restaurant."
+      ],
+      "officialOrganizationNames": [
+        "Restaurant Verboden Toegang"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.leiden-boerhaave",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "leiden-boerhaave",
+      "route": "/places/leiden-boerhaave",
+      "title": "Rijksmuseum Boerhaave",
+      "summary": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Rijksmuseum Boerhaave",
+        "museums-sights",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Rijksmuseum Boerhaave",
+        "summary": "Een museum met tentoonstellingen en activiteiten over wetenschap en geneeskunde. Bekijk het programma en de geplande sluitingsdagen.",
+        "route": "/nl/plaatsen/leiden-boerhaave"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "museums-sights",
+      "organization": "Rijksmuseum Boerhaave",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Rijksmuseum Boerhaave",
+        "Een museum met tentoonstellingen en activiteiten over wetenschap en geneeskunde. Bekijk het programma en de geplande sluitingsdagen."
+      ],
+      "officialOrganizationNames": [
+        "Rijksmuseum Boerhaave"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.leiden-rmo",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "leiden-rmo",
+      "route": "/places/leiden-rmo",
+      "title": "Rijksmuseum van Oudheden",
+      "summary": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Rijksmuseum van Oudheden",
+        "museums-sights",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Rijksmuseum van Oudheden",
+        "summary": "Ontdek oudheden in het museum aan het Rapenburg. Op de officiële bezoekerspagina vind je informatie om je bezoek te plannen.",
+        "route": "/nl/plaatsen/leiden-rmo"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.rmo.nl/en/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "museums-sights",
+      "organization": "Rijksmuseum van Oudheden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Rijksmuseum van Oudheden",
+        "Ontdek oudheden in het museum aan het Rapenburg. Op de officiële bezoekerspagina vind je informatie om je bezoek te plannen."
+      ],
+      "officialOrganizationNames": [
+        "Rijksmuseum van Oudheden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "cafe.leiden-roos",
+      "type": "place",
+      "sourceKind": "cafe",
+      "slug": "leiden-roos",
+      "route": "/places/leiden-roos",
+      "title": "ROOS Leiden",
+      "summary": "A café on Botermarkt that accepts walk-in visits rather than reservations. Check the current menu before stopping by.",
+      "contentDepth": "summary",
+      "keywords": [
+        "ROOS Leiden",
+        "cafe",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "ROOS Leiden",
+        "summary": "Een café aan de Botermarkt waar je zonder reservering binnenloopt. Bekijk de actuele kaart voor je bezoek.",
+        "route": "/nl/plaatsen/leiden-roos"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.roosleiden.nl/contact-roos"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "cafe",
+      "organization": "ROOS Leiden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "ROOS Leiden",
+        "Een café aan de Botermarkt waar je zonder reservering binnenloopt. Bekijk de actuele kaart voor je bezoek."
+      ],
+      "officialOrganizationNames": [
+        "ROOS Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.utrecht-sonnenborgh",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "utrecht-sonnenborgh",
+      "route": "/places/utrecht-sonnenborgh",
+      "title": "Sonnenborgh museum & sterrenwacht",
+      "summary": "A museum and observatory in Utrecht’s city centre. The visitor entrance is reached through Zocherplantsoen; the official route page explains how to approach the building from the canals and railway stations.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Sonnenborgh museum & sterrenwacht",
+        "science",
+        "utrecht"
+      ],
+      "city": "Utrecht",
+      "cityId": "utrecht",
+      "province": "Utrecht",
+      "provinceId": "utrecht",
+      "municipalityId": "utrecht",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Sonnenborgh museum & sterrenwacht",
+        "summary": "Een museum en sterrenwacht aan de Zonnenburg. Bekijk het programma voordat je komt.",
+        "route": "/nl/plaatsen/utrecht-sonnenborgh"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.sonnenborgh.nl/english/address-contact-and-route"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "science",
+      "organization": "Sonnenborgh museum & sterrenwacht",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Sonnenborgh museum & sterrenwacht",
+        "Een museum en sterrenwacht aan de Zonnenburg. Bekijk het programma voordat je komt."
+      ],
+      "officialOrganizationNames": [
+        "Sonnenborgh museum & sterrenwacht"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "guide.leiden-waste",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-waste",
+      "route": "/guides/leiden-waste",
+      "title": "Sort and dispose of household waste",
+      "summary": "Use your address-specific schedule and Leiden’s own sorting rules.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Sort and dispose of household waste",
+        "waste",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "government"
+      ],
+      "intents": [
+        "government"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Huisafval scheiden en aanbieden",
+        "summary": "Gebruik het ophaalschema voor je adres en de Leidse scheidingsregels.",
+        "route": "/nl/gidsen/leiden-waste"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "waste",
+      "organization": "Sort and dispose of household waste",
+      "audienceProfiles": [],
+      "numberedSteps": [
+        "Enter your postcode and house number in the municipal collection schedule; check the holiday replacement dates. City-centre and suburban collection arrangements differ.",
+        "In Leiden, plastic packaging, tins and drink cartons go with residual waste for later sorting. Keep glass, paper and textiles separate; check the municipal GFT instructions for your address.",
+        "Do not leave bags beside a container. For bulky waste, use the Milieustraat or arrange an official collection appointment."
+      ],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Huisafval scheiden en aanbieden",
+        "Gebruik het ophaalschema voor je adres en de Leidse scheidingsregels."
+      ],
+      "officialOrganizationNames": [
+        "Sort and dispose of household waste"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "hotel.leiden-steenhof",
+      "type": "place",
+      "sourceKind": "hotel",
+      "slug": "leiden-steenhof",
+      "route": "/places/leiden-steenhof",
+      "title": "Steenhof Suites",
+      "summary": "An adults-only suite hotel on Steenschuur. The hotel states that the building has no lift; check access before booking.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Steenhof Suites",
+        "hotel",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "local-services"
+      ],
+      "intents": [
+        "local-services"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Steenhof Suites",
+        "summary": "Een adults-only hotel met suites aan het Steenschuur. Volgens het hotel heeft het pand geen lift; controleer de toegang vóór het boeken.",
+        "route": "/nl/plaatsen/leiden-steenhof"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://steenhofsuites.nl/contact/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "hotel",
+      "organization": "Steenhof Suites",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Steenhof Suites",
+        "Een adults-only hotel met suites aan het Steenschuur. Volgens het hotel heeft het pand geen lift; controleer de toegang vóór het boeken."
+      ],
+      "officialOrganizationNames": [
+        "Steenhof Suites"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "hotel.rotterdam-supernova",
+      "type": "place",
+      "sourceKind": "hotel",
+      "slug": "rotterdam-supernova",
+      "route": "/places/rotterdam-supernova",
+      "title": "Supernova Hotel",
+      "summary": "A hotel on ’s-Gravendijkwal with different room layouts, a lounge and breakfast facilities. The official site describes the rooms and provides direct contact details for checking availability.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Supernova Hotel",
+        "hotel",
+        "rotterdam"
+      ],
+      "city": "Rotterdam",
+      "cityId": "rotterdam",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "rotterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "local-services"
+      ],
+      "intents": [
+        "local-services"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Supernova Hotel",
+        "summary": "Een hotel aan de ’s-Gravendijkwal in Rotterdam, met verschillende kamertypen en een lounge.",
+        "route": "/nl/plaatsen/rotterdam-supernova"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://supernovahotel.nl/en"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "hotel",
+      "organization": "Supernova Hotel",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Supernova Hotel",
+        "Een hotel aan de ’s-Gravendijkwal in Rotterdam, met verschillende kamertypen en een lounge."
+      ],
+      "officialOrganizationNames": [
+        "Supernova Hotel"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "restaurant.leiden-tabu",
+      "type": "place",
+      "sourceKind": "restaurant",
+      "slug": "leiden-tabu",
+      "route": "/places/leiden-tabu",
+      "title": "Tabú",
+      "summary": "A restaurant on Rembrandtstraat with dishes inspired by Latin American cuisines and a separate drinks menu.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Tabú",
+        "restaurant",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Tabú",
+        "summary": "Een restaurant aan de Rembrandtstraat met gerechten uit Latijns-Amerikaanse keukens en een aparte drankenkaart.",
+        "route": "/nl/plaatsen/leiden-tabu"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.tabu.nl/faq/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "restaurant",
+      "organization": "Tabú",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Tabú",
+        "Een restaurant aan de Rembrandtstraat met gerechten uit Latijns-Amerikaanse keukens en een aparte drankenkaart."
+      ],
+      "officialOrganizationNames": [
+        "Tabú"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "hotel.den-haag-collector",
+      "type": "place",
+      "sourceKind": "hotel",
+      "slug": "den-haag-collector",
+      "route": "/places/den-haag-collector",
+      "title": "The Collector",
+      "summary": "A hotel in the Haagsche Bluf courtyard in central The Hague. The official site presents its room types and guest facilities, with direct contact details for checking a proposed stay.",
+      "contentDepth": "summary",
+      "keywords": [
+        "The Collector",
+        "hotel",
+        "den-haag"
+      ],
+      "city": "Den Haag",
+      "cityId": "den-haag",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "s-gravenhage",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "local-services"
+      ],
+      "intents": [
+        "local-services"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "The Collector",
+        "summary": "Een hotel aan de Haagsche Bluf in Den Haag. De eigen website geeft informatie over kamers en verblijf.",
+        "route": "/nl/plaatsen/den-haag-collector"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.thecollectorhotel.com/contact"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "hotel",
+      "organization": "The Collector",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "The Collector",
+        "Een hotel aan de Haagsche Bluf in Den Haag. De eigen website geeft informatie over kamers en verblijf."
+      ],
+      "officialOrganizationNames": [
+        "The Collector"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "hotel.utrecht-nox",
+      "type": "place",
+      "sourceKind": "hotel",
+      "slug": "utrecht-nox",
+      "route": "/places/utrecht-nox",
+      "title": "The Nox Hotel Utrecht",
+      "summary": "A city-centre hotel on Keistraat near Janskerkhof. Its contact page gives walking and public-transport directions, plus details about the limited paid parking available on request.",
+      "contentDepth": "summary",
+      "keywords": [
+        "The Nox Hotel Utrecht",
+        "hotel",
+        "utrecht"
+      ],
+      "city": "Utrecht",
+      "cityId": "utrecht",
+      "province": "Utrecht",
+      "provinceId": "utrecht",
+      "municipalityId": "utrecht",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "local-services"
+      ],
+      "intents": [
+        "local-services"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "The Nox Hotel Utrecht",
+        "summary": "Een hotel aan de Keistraat in het centrum van Utrecht. Bekijk beschikbaarheid en voorwaarden op de eigen website.",
+        "route": "/nl/plaatsen/utrecht-nox"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.thenoxhotel.com/en/contact"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "hotel",
+      "organization": "The Nox Hotel Utrecht",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "The Nox Hotel Utrecht",
+        "Een hotel aan de Keistraat in het centrum van Utrecht. Bekijk beschikbaarheid en voorwaarden op de eigen website."
+      ],
+      "officialOrganizationNames": [
+        "The Nox Hotel Utrecht"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "nature.rotterdam-trompenburg",
+      "type": "place",
+      "sourceKind": "park",
+      "slug": "rotterdam-trompenburg",
+      "route": "/places/rotterdam-trompenburg",
+      "title": "Trompenburg Tuinen & Arboretum",
+      "summary": "A botanical garden in Rotterdam’s Kralingen district, with collections of trees and other plants, connected gardens and walking paths. Check the garden’s own visitor information before travelling.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Trompenburg Tuinen & Arboretum",
+        "botanical-garden",
+        "rotterdam"
+      ],
+      "city": "Rotterdam",
+      "cityId": "rotterdam",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "rotterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "outdoors"
+      ],
+      "intents": [
+        "outdoors"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Trompenburg Tuinen & Arboretum",
+        "summary": "Een tuin in Rotterdam met een collectie bomen en planten; bezoekinformatie en tickets staan op de eigen website.",
+        "route": "/nl/plaatsen/rotterdam-trompenburg"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://trompenburg.nl/plan-your-visit/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "botanical-garden",
+      "organization": "Trompenburg Tuinen & Arboretum",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Trompenburg Tuinen & Arboretum",
+        "Een tuin in Rotterdam met een collectie bomen en planten; bezoekinformatie en tickets staan op de eigen website."
+      ],
+      "officialOrganizationNames": [
+        "Trompenburg Tuinen & Arboretum"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "guide.leiden-transport",
+      "type": "guide",
+      "sourceKind": "knowledgeTopic",
+      "slug": "leiden-transport",
+      "route": "/guides/leiden-transport",
+      "title": "Use trains and local buses",
+      "summary": "Plan the actual journey, then check in and out with the correct travel medium.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Use trains and local buses",
+        "transport",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "transport"
+      ],
+      "intents": [
+        "transport"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Reizen met trein en bus",
+        "summary": "Plan je concrete reis en check in en uit met het juiste betaalmiddel.",
+        "route": "/nl/gidsen/leiden-transport"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.qbuzz.nl/ovpay"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "transport",
+      "organization": "Use trains and local buses",
+      "audienceProfiles": [],
+      "numberedSteps": [
+        "Use the NS journey planner for trains and Qbuzz Zuid-Holland Noord for regional buses; check disruptions on your travel day.",
+        "Choose an accepted ticket or payment card. With OVpay, present one card separately at the reader and check the confirmation.",
+        "Check out with exactly the same card or device used to check in. A physical card and its phone version are different travel media. Check product rules if you need discounts or a subscription."
+      ],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Reizen met trein en bus",
+        "Plan je concrete reis en check in en uit met het juiste betaalmiddel."
+      ],
+      "officialOrganizationNames": [
+        "Use trains and local buses"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.leiden-vvv",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "leiden-vvv",
+      "route": "/places/leiden-vvv",
+      "title": "VVV Leiden",
+      "summary": "A starting point for city maps and local visitor information. Use the official page to check how to visit or contact the tourist office.",
+      "contentDepth": "summary",
+      "keywords": [
+        "VVV Leiden",
+        "visitor-information",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "VVV Leiden",
+        "summary": "Een vertrekpunt voor stadsplattegronden en lokale bezoekersinformatie. Bekijk de officiële pagina om je bezoek te plannen of contact op te nemen.",
+        "route": "/nl/plaatsen/leiden-vvv"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.visitleiden.nl/en/plan-your-visit/tourist-information"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "visitor-information",
+      "organization": "VVV Leiden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "VVV Leiden",
+        "Een vertrekpunt voor stadsplattegronden en lokale bezoekersinformatie. Bekijk de officiële pagina om je bezoek te plannen of contact op te nemen."
+      ],
+      "officialOrganizationNames": [
+        "VVV Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "restaurant.leiden-waag",
+      "type": "place",
+      "sourceKind": "restaurant",
+      "slug": "leiden-waag",
+      "route": "/places/leiden-waag",
+      "title": "Waag Leiden",
+      "summary": "A café-restaurant at the Aalmarkt. Its official contact page lists opening hours and links to the food and drinks menus.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Waag Leiden",
+        "restaurant",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "food-drink"
+      ],
+      "intents": [
+        "food-drink"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Waag Leiden",
+        "summary": "Een café-restaurant aan de Aalmarkt. De officiële contactpagina vermeldt openingstijden en verwijst naar de menukaarten.",
+        "route": "/nl/plaatsen/leiden-waag"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://www.waagleiden.nl/nl/contactpagina/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "restaurant",
+      "organization": "Waag Leiden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Waag Leiden",
+        "Een café-restaurant aan de Aalmarkt. De officiële contactpagina vermeldt openingstijden en verwijst naar de menukaarten."
+      ],
+      "officialOrganizationNames": [
+        "Waag Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.leiden-wereldmuseum",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "leiden-wereldmuseum",
+      "route": "/places/leiden-wereldmuseum",
+      "title": "Wereldmuseum Leiden",
+      "summary": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Wereldmuseum Leiden",
+        "museums-sights",
+        "leiden"
+      ],
+      "city": "Leiden",
+      "cityId": "leiden",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "leiden",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Wereldmuseum Leiden",
+        "summary": "Een museum van wereldculturen aan de Steenstraat. Bekijk het programma om vóór je bezoek een tentoonstelling te kiezen.",
+        "route": "/nl/plaatsen/leiden-wereldmuseum"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "museums-sights",
+      "organization": "Wereldmuseum Leiden",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Wereldmuseum Leiden",
+        "Een museum van wereldculturen aan de Steenstraat. Bekijk het programma om vóór je bezoek een tentoonstelling te kiezen."
+      ],
+      "officialOrganizationNames": [
+        "Wereldmuseum Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "nature.den-haag-westbroekpark",
+      "type": "place",
+      "sourceKind": "park",
+      "slug": "den-haag-westbroekpark",
+      "route": "/places/den-haag-westbroekpark",
+      "title": "Westbroekpark",
+      "summary": "A park in Scheveningen with lawns, ponds and a rose garden. The main entrance is on Kapelweg; the Rosarium has seasonal opening hours separate from access to the wider park.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Westbroekpark",
+        "city-park",
+        "den-haag"
+      ],
+      "city": "Den Haag",
+      "cityId": "den-haag",
+      "province": "Zuid-Holland",
+      "provinceId": "zuid-holland",
+      "municipalityId": "s-gravenhage",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "outdoors"
+      ],
+      "intents": [
+        "outdoors"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Westbroekpark",
+        "summary": "Een park in Den Haag met een rozentuin. Bekijk de bezoekersinformatie voor de locatie.",
+        "route": "/nl/plaatsen/den-haag-westbroekpark"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-09",
+      "officialSourceUrls": [
+        "https://denhaag.com/en/westbroekpark"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "city-park",
+      "organization": "Westbroekpark",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Westbroekpark",
+        "Een park in Den Haag met een rozentuin. Bekijk de bezoekersinformatie voor de locatie."
+      ],
+      "officialOrganizationNames": [
+        "Westbroekpark"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
     {
       "id": "national.housing",
       "type": "guide",

@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "archiveSha256": "88704e24011976159b9259a5e54db84860db49c6b16928bc815500c0b906ec49",
+  "allArchiveMembersReadable": true,
+  "files": 1215,
+  "bytes": 101859154,
+  "rootMatchesPreDeployment": true,
+  "queueIntegrity": "ok",
+  "queueCounts": {
+    "business": 4,
+    "feedback": 1
+  },
+  "retainedOnHostinger": true,
+  "offHostCopy": true
+}
