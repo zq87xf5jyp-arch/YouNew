@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "snapshotID": "release-truth.2fd22b2035ddceb4",
-  "snapshotDigest": "2fd22b2035ddceb480435b4a1e607c218f6c5b919bf567e5e45286bbece24bc2",
-  "generatedAt": "2026-11-10T21:56:10.000Z",
-  "candidateCommit": "8277a38652a5f7d16f54ffe212f6f39efeecc00b",
+  "snapshotID": "release-truth.b6e9bbc1d7d53672",
+  "snapshotDigest": "b6e9bbc1d7d53672e4722c7a2833b231e0285ed070b6348b1ff1310762cbcddb",
+  "generatedAt": "2026-11-10T21:57:22.000Z",
+  "candidateCommit": "549167b111e61bb164dc93e5a3bbb95df72d34f4",
   "sourceTreeState": "dirty",
   "sourceTreeExclusions": [
     "admin-dashboard/src/generated/release-truth.json",
@@ -19,7 +19,7 @@
     {
       "id": "candidate-source",
       "kind": "git_source_identity",
-      "sourceRef": "git:8277a38652a5f7d16f54ffe212f6f39efeecc00b",
+      "sourceRef": "git:549167b111e61bb164dc93e5a3bbb95df72d34f4",
       "sha256": null,
       "observedAt": null,
       "validThrough": null,
@@ -30,8 +30,8 @@
       "id": "data-project-inventory",
       "kind": "generated_inventory",
       "sourceRef": "admin-dashboard/src/generated/data-project-dashboard.json",
-      "sha256": "8a05a2547314f7f353cf5956a711e582cfd3ef18342ac4ed7966c49230f3d42e",
-      "observedAt": "2026-11-10T21:56:10+00:00",
+      "sha256": "1f2e49ec9245fa7d07720cbff2febe642fde294beba05f77275648220a2725df",
+      "observedAt": "2026-11-10T21:57:22+00:00",
       "validThrough": null,
       "state": "measured",
       "scope": "Governed candidate inventory; link-health sentinel is explicitly excluded."

@@ -2,11 +2,11 @@
   "schemaVersion": "release-truth-compatibility-v1",
   "deprecated": true,
   "replacement": "release-truth.json",
-  "generatedAt": "2026-11-10T21:56:10.000Z",
-  "snapshotID": "release-truth.2fd22b2035ddceb4",
-  "snapshotDigest": "2fd22b2035ddceb480435b4a1e607c218f6c5b919bf567e5e45286bbece24bc2",
+  "generatedAt": "2026-11-10T21:57:22.000Z",
+  "snapshotID": "release-truth.b6e9bbc1d7d53672",
+  "snapshotDigest": "b6e9bbc1d7d53672e4722c7a2833b231e0285ed070b6348b1ff1310762cbcddb",
   "release_identity": {
-    "candidate_commit": "8277a38652a5f7d16f54ffe212f6f39efeecc00b",
+    "candidate_commit": "549167b111e61bb164dc93e5a3bbb95df72d34f4",
     "source_tree_state": "dirty",
     "packaged_fingerprint": "32fb2435ffb84b46b7d0c2e3c2371a217b1bb5280e8aa13cff9bc394f8812e17"
   },

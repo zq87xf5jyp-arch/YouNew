@@ -93,7 +93,8 @@ test("release control uses one fail-closed deterministic truth snapshot", async 
   assert.ok(["clean", "dirty"].includes(truth.sourceTreeState));
   assert.equal(truth.technicalVerdict, "PARTIAL");
   assert.equal(truth.deploymentAuthorization, "not_granted");
-  assert.equal(truth.publication.inventory.total, 454);
+  const editorialApproval = JSON.parse(await readFile(new URL("../../DataProject/editorial/leiden-20261110-approval.json", import.meta.url), "utf8"));
+  assert.equal(truth.publication.inventory.total, 454 + editorialApproval.count);
   const packaged = JSON.parse(await readFile(new URL("../public-site/src/generated/public-content.json", import.meta.url), "utf8"));
   assert.ok(packaged.entities.length > 0);
   assert.equal(truth.publication.packaged.entityCount, packaged.entities.length);
