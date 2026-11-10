@@ -1,0 +1,32 @@
+{
+  "status": "ACTIVE",
+  "activatedAt": "2026-11-10T22:41:37.013560+00:00",
+  "reviewedMergeCommit": "250889bbf3f6d478cffa09bb9ad98ca7b2b287cf",
+  "payloadCommit": "549167b111e61bb164dc93e5a3bbb95df72d34f4",
+  "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea",
+  "items": 71,
+  "languagePages": 142,
+  "rootSha256": "69f95d6c6b63e03beaa4fdeafcbcda5419b12c3d52326cd63ba193307a624d1a",
+  "provenanceSha256": "632b0a70ef34168dc26ee1022af13cd60cfcf1269bf5acd94e6a867fb7e22ed1",
+  "adminBuildId": "5ulZ9hQS2TC3XWD2TNyoq",
+  "publicAcceptance": {
+    "status": "PASS",
+    "at": "2026-11-10T22:41:59.447197+00:00",
+    "checks": 160,
+    "defaultPublicUrls": true
+  },
+  "managedSource": {
+    "status": "PASS",
+    "sourceCommit": "549167b111e61bb164dc93e5a3bbb95df72d34f4",
+    "files": 138,
+    "environment": "production",
+    "previousSourceDirectory": "/home/u246392949/domains/admin.younew.nl/hbuilds/last-source-editorial-20261110",
+    "hostingOnlyFilesPreserved": true,
+    "runningCodeChanged": false
+  },
+  "backup": "/home/u246392949/domains/younew.nl/younew-private/editorial-backup-20261110",
+  "databaseChanged": false,
+  "realSubmissionsCreated": false,
+  "automaticRollbackVerified": true,
+  "rollbackReason": "First activation expected HTTP 405 without Origin; existing form protection correctly returned 403. Previous root SHA was restored. Same-origin GET returns 405 and no-store. Probe corrected; activation and ordinary-URL acceptance then passed."
+}

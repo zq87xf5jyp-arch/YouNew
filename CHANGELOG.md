@@ -5,6 +5,8 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+- Correct the editorial deployment form probe to supply its same-origin context and record verified production activation with a successful automatic rollback.
+
 - Publish the exact 71-item owner-approved editorial batch as 142 English/Dutch
   pages, with Leiden indexes, local search, source references and empty unknown
   fields. Preserve source hashes and distinguish compact guides from full v2.

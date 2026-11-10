@@ -14,6 +14,7 @@ def exchange(a,b):
  if lib.renameat2(-100,os.fsencode(a),-100,os.fsencode(b),2):raise OSError(ctypes.get_errno(),'Atomic exchange failed')
 def request(origin,path,auth=None):
  headers={'Cache-Control':'no-cache'}
+ if path in ['/api/submit-business-inquiry.php','/api/submit-public-feedback.php']:headers['Origin']=origin
  if auth:headers['Authorization']='Basic '+base64.b64encode((auth['user']+':'+auth['password']).encode()).decode()
  try:r=urllib.request.urlopen(urllib.request.Request(origin+path,headers=headers),timeout=30)
  except urllib.error.HTTPError as e:r=e
