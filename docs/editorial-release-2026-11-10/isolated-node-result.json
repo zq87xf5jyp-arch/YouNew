@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "qaDatabaseOnly": true,
+  "draftBeforeActivation": 71,
+  "publishedAfterValidReceipt": 71,
+  "invalidReceiptFailsClosed": true,
+  "rollbackToDraft": 71,
+  "privateNoStore": true,
+  "uiPublishedText": true,
+  "realMutationsDenied": true,
+  "realDataChanged": false,
+  "qaEnvironmentRestored": true,
+  "qaServerRestored": true
+}

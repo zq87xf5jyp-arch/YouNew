@@ -15,7 +15,7 @@ shutil.copytree(deployment/'public_html',backup/'public_html')
 shutil.copytree(base/host/'hbuilds/config',backup/'config')
 with tarfile.open(backup/'code-before.tar.gz','w:gz') as t:t.add(live,arcname='nodejs')
 with tarfile.open(backup/'code-before.tar.gz') as t:assert t.extractfile('nodejs/server.js').read()==(live/'server.js').read_bytes()
-shutil.copytree(payload,candidate)
+shutil.copytree(payload,candidate,symlinks=True)
 for old in (live/'.next/static').rglob('*'):
  if old.is_file():
   rel=old.relative_to(live);new=candidate/rel

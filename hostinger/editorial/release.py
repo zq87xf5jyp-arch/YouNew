@@ -14,7 +14,7 @@ def exchange(a,b):
  if lib.renameat2(-100,os.fsencode(a),-100,os.fsencode(b),2):raise OSError(ctypes.get_errno(),'Atomic exchange failed')
 def request(origin,path,auth=None):
  headers={'Cache-Control':'no-cache'}
- if auth:headers['Authorization']='Basic '+base64.b64encode((auth['username']+':'+auth['password']).encode()).decode()
+ if auth:headers['Authorization']='Basic '+base64.b64encode((auth['user']+':'+auth['password']).encode()).decode()
  try:r=urllib.request.urlopen(urllib.request.Request(origin+path,headers=headers),timeout=30)
  except urllib.error.HTTPError as e:r=e
  return r.status,r.read(),r.headers
@@ -33,7 +33,7 @@ def check_public(origin,out,auth=None):
  routes+=json.loads((ROOT/'routes.json').read_text())
  for route in dict.fromkeys(routes):
   code,body,headers=request(origin,route+'?editorial='+args.commit[:12],auth)
-  assert code==200 and hashlib.sha256(body).hexdigest()==sha(out/(route.strip('/')+'/index.html' if route!='/' else 'index.html')),route
+  assert code==200 and hashlib.sha256(body).hexdigest()==sha(out/(route.strip('/')+'/index.html' if route!='/' else 'index.html')),(route,code,hashlib.sha256(body).hexdigest(),body[:80] if code!=200 else '')
   if auth:assert 'noindex' in headers.get('X-Robots-Tag','') and 'no-store' in headers.get('Cache-Control','')
   checks.append({'path':route,'status':code,'exact':True})
  for route in ['/.env','/younew-private/launch-production/migration.env','/.git/config','/editorial-missing-20261110/']:
@@ -52,29 +52,35 @@ def stage():
  dump(ROOT/'stage.json',{'status':'STAGED','commit':args.commit,'archiveSha256':args.archive_sha})
 
 def qa():
- index=BASE/'qa-catalog.younew.nl/public_html/index.php';before=index.read_bytes();backup=ROOT/'qa-index-before.php'
- assert not backup.exists();backup.write_bytes(before)
- oldroot='/home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/publication'
- assert before.count(oldroot.encode())==1
- newroot=ROOT/'publication';release=newroot/'releases/hp-editorial-20261110';release.mkdir(parents=True)
- shutil.copytree(ROOT/'out',release/'out');dump(newroot/'current.json',{'releaseId':'hp-editorial-20261110'})
+ # The existing authenticated PHP router reads its JSON pointer on every request.
+ # Keep its code/config intact, avoiding delayed PHP opcode-cache invalidation.
+ store=BASE/'qa-catalog.younew.nl/younew-private/hp1/publication';pointer=store/'current.json'
+ before=pointer.read_bytes();backup=ROOT/'qa-pointer-before.json'
+ if backup.exists():assert backup.read_bytes()==before
+ else:backup.write_bytes(before)
+ release=store/'releases/hp-editorial-20261110'
+ if not release.exists():
+  release.mkdir();shutil.copytree(ROOT/'out',release/'out')
+ verify_files(release/'out',json.loads((ROOT/'files.json').read_text()))
  auth=json.loads((BASE/'qa-catalog.younew.nl/younew-private/hp1/qa-http.private.json').read_text())
  prior=request('https://qa-catalog.younew.nl','/',auth)
- changed=before.replace(oldroot.encode(),str(newroot).encode())
+ def activate_pointer():
+  temp=store/'editorial-pointer.tmp';dump(temp,{'releaseId':'hp-editorial-20261110'});os.replace(temp,pointer)
  try:
-  index.write_bytes(changed);checks=check_public('https://qa-catalog.younew.nl',ROOT/'out',auth)
+  activate_pointer();checks=check_public('https://qa-catalog.younew.nl',ROOT/'out',auth)
   assert request('https://qa-catalog.younew.nl','/')[0]==401
-  index.write_bytes(before)
+  pointer.write_bytes(before)
   restored=request('https://qa-catalog.younew.nl','/',auth)
   assert restored[0]==prior[0] and restored[1]==prior[1]
-  index.write_bytes(changed)
+  activate_pointer()
   assert request('https://qa-catalog.younew.nl','/leiden/',auth)[0]==200
   dump(ROOT/'qa-result.json',{'status':'PASS','commit':args.commit,'checks':checks,'anonymousDenied':True,'rollbackRehearsed':True})
  except:
-  index.write_bytes(before);raise
+  pointer.write_bytes(before);raise
 
 def stageprod():
  assert json.loads((ROOT/'qa-result.json').read_text())['status']=='PASS'
+ assert json.loads((ROOT/'isolated-node-result.json').read_text())['status']=='PASS'
  base=BASE/'younew.nl';live=base/'public_html';candidate=base/'public-editorial-20261110';backup=base/'younew-private/editorial-backup-20261110'
  assert not candidate.exists() and not backup.exists();backup.mkdir()
  verify_files(ROOT/'out',json.loads((ROOT/'files.json').read_text()))
@@ -113,6 +119,10 @@ def activate():
   checks=check_public('https://younew.nl',live)
   for path,expected in [('/api/submit-business-inquiry.php',405),('/api/submit-public-feedback.php',405),('/api/private-files.php',404)]:
    code,_,h=request('https://younew.nl',path);assert code==expected and 'no-store' in h.get('Cache-Control','');checks.append({'path':path,'status':code,'noStore':True})
+  queue=BASE/'younew.nl/younew-private/forms-data/submissions.sqlite'
+  with sqlite3.connect('file:'+str(Path(stage['backup'])/'queue-before.sqlite')+'?mode=ro',uri=True) as before, sqlite3.connect('file:'+str(queue)+'?mode=ro',uri=True) as after:
+   query='select id,kind,payload,dedupe,created_at,consent_version from submissions'
+   assert set(before.execute(query))<=set(after.execute(query))
   old=BASE/'younew.nl/younew-private/launch-production/editorial-drafts.json'
   approved=json.loads((ROOT/'approved-admin-documents.json').read_text())
   policy=json.loads((ROOT/'admin-approval.json').read_text())
