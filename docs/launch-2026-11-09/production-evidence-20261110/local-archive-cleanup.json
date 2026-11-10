@@ -1,0 +1,20 @@
+{
+  "at": "2026-11-10T19:54:00.652731+00:00",
+  "deleted": [
+    {
+      "path": "/Users/ivan/YouNew-Launch-Evidence-2026-11-10/hostinger-release-5e0b3e1/node-app.tar.gz",
+      "logicalBytes": 272022632,
+      "identicalPreservedCopy": "/Users/ivan/YouNew-Launch-Evidence-2026-11-10/hostinger-release-5e0b3e1/younew-admin-5e0b3e1.tar.gz",
+      "sha256": "e07769de608885752a60ffa86bb1620f819d0ec471e2d185448f61db044d9445"
+    },
+    {
+      "path": "/Users/ivan/YouNew-Launch-Evidence-2026-11-10/hostinger-release-cf6ab6f/node-app.tar.gz",
+      "logicalBytes": 272022613,
+      "identicalPreservedCopy": "/Users/ivan/YouNew-Launch-Evidence-2026-11-10/hostinger-release-cf6ab6f/younew-admin-cf6ab6f-rollback.tar.gz",
+      "sha256": "b0b2d15f67455b41add556f2028a1d1e9520e4bf9bf54ee0e26d711e9ac38095"
+    }
+  ],
+  "quarantined": [],
+  "removedDuplicateLogicalBytes": 544045245,
+  "physicalDiskReclamationNotMeasured": true
+}

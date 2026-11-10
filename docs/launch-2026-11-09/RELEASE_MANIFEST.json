@@ -51,7 +51,9 @@
     "deletedCacheObjects": 8,
     "deletedRealData": false,
     "quarantinedObjects": 0,
-    "localPreviouslyListedPathsAlreadyAbsent": 20
+    "localPreviouslyListedPathsAlreadyAbsent": 20,
+    "localDuplicateArchivesDeleted": 2,
+    "localDuplicateLogicalBytes": 544045245
   },
   "monitor": {
     "schedule": "*/15 * * * *",
