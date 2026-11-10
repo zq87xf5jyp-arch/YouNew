@@ -1,4 +1,5 @@
 #!/bin/sh
+if [ -f /home/u246392949/domains/qa-catalog.younew.nl/younew-private/hp1/QA_PAUSED ]; then exit 0; fi
 set -eu
 umask 077
 NODE=/opt/alt/alt-nodejs24/root/bin/node

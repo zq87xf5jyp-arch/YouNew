@@ -1,5 +1,7 @@
 # Подготовка запуска YouNew — 9 ноября 2026
 
+Обновление 10 ноября: [проверка ресурсов, обратимая пауза QA и состояние переноса](RESOURCE_REVIEW_2026-11-10_RU.md).
+
 Кандидат находится в ветке `release/younew-hostinger-launch-2026-11-09`. Публичный production не переключён; у прежнего Admin отдельно ограничены пулы Node.js (см. OPERATIONS_RU.md). Новые локальные изменения сохранены поверх интеграционного commit `484272957836615deb228d37c4e9d2ac0d9896a8`.
 
 Публичный сайт: `admin-dashboard/public-site`. Кандидат Hostinger Admin/MariaDB: `hostinger/runtime/backend/source/admin-dashboard`. Старый корневой Admin сохранён для истории и сверки ещё не перенесённых функций; перенос не объявлен завершённым.

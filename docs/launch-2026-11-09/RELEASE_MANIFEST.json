@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "recorded_at": "2026-11-09T20:22:04.624910+00:00",
+  "recorded_at": "2026-11-10T12:43:17.887953+00:00",
   "state": "QA_DEPENDENCY_PATCH_PASS_LOCAL_REAL_IMPORT_PASS_HOSTINGER_IMPORT_PENDING",
   "repository": "https://github.com/zq87xf5jyp-arch/YouNew",
   "pull_request": "https://github.com/zq87xf5jyp-arch/YouNew/pull/54",
@@ -12,7 +12,7 @@
     "source_commit": null,
     "source_commit_status": "NOT_ESTABLISHED",
     "home_sha256": "640029346dbd00c7fd626acc65bbd2badbd5560f340d6629681a1babd8a2d254",
-    "last_readonly_check": "2026-11-09T16:13:03.510487+00:00"
+    "last_readonly_check": "2026-11-10T12:36:24.669948+00:00"
   },
   "qa": {
     "url": "https://qa-runtime.younew.nl/login",
@@ -28,7 +28,9 @@
     "catalog_release": "hp-1794248941535-be274c0c",
     "full_process_restart_verified": true,
     "deployment_id": "01a1c1b2-ed7f-7291-b92d-4882c2c71b4b",
-    "vulnerabilities_after_patch": 0
+    "vulnerabilities_after_patch": 0,
+    "scheduled_jobs_paused": true,
+    "pause_evidence": "RESOURCE_REVIEW_2026-11-10_RU.md"
   },
   "observed_hostinger_runtime": {
     "node_cli": "24.22.1",
@@ -87,8 +89,8 @@
   },
   "prior_verified_code_ci": {
     "status": "PASS",
-    "source_commit": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
-    "evidence": "CI_EVIDENCE_CD0546D.json",
+    "source_commit": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad",
+    "evidence": "CI_EVIDENCE_4B3FEE8.json",
     "later_commits_require_own_checks": true
   },
   "production_admin_resource_settings": {
@@ -97,5 +99,6 @@
     "prior_source_rebuilt_by_hostinger": true
   },
   "local_real_import_evidence": "LEGACY_MIGRATION_LOCAL_EVIDENCE.json",
-  "migration_candidate_deployed": false
+  "migration_candidate_deployed": false,
+  "prepared_migration_commit": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad"
 }
