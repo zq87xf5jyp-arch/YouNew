@@ -2,6 +2,8 @@
 
 Обновление 10 ноября: [проверка ресурсов, обратимая пауза QA и состояние переноса](RESOURCE_REVIEW_2026-11-10_RU.md).
 
+Позднее 10 ноября: [реальный импорт и проверенное восстановление MariaDB на Hostinger](REAL_MIGRATION_2026-11-10_RU.md). QA `cf6ab6f` прошёл 43 HTTP-проверки; production остаётся на прежней версии.
+
 Кандидат находится в ветке `release/younew-hostinger-launch-2026-11-09`. Публичный production не переключён; у прежнего Admin отдельно ограничены пулы Node.js (см. OPERATIONS_RU.md). Новые локальные изменения сохранены поверх интеграционного commit `484272957836615deb228d37c4e9d2ac0d9896a8`.
 
 Публичный сайт: `admin-dashboard/public-site`. Кандидат Hostinger Admin/MariaDB: `hostinger/runtime/backend/source/admin-dashboard`. Старый корневой Admin сохранён для истории и сверки ещё не перенесённых функций; перенос не объявлен завершённым.

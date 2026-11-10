@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
-  "recorded_at": "2026-11-10T12:43:17.887953+00:00",
-  "state": "QA_DEPENDENCY_PATCH_PASS_LOCAL_REAL_IMPORT_PASS_HOSTINGER_IMPORT_PENDING",
+  "recorded_at": "2026-11-10T13:59:13.147859+00:00",
+  "state": "REAL_IMPORT_RESTORE_PASS_QA_CF6AB6F_PASS_PUBLIC_BUILD_CONCURRENCY_FIX_PENDING",
   "repository": "https://github.com/zq87xf5jyp-arch/YouNew",
   "pull_request": "https://github.com/zq87xf5jyp-arch/YouNew/pull/54",
   "code_candidate_commit": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
@@ -16,8 +16,8 @@
   },
   "qa": {
     "url": "https://qa-runtime.younew.nl/login",
-    "running_backend_commit": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
-    "previous_backend_commit": "852413130f3bc190128e53bebdc997fef7d30d1e",
+    "running_backend_commit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665",
+    "previous_backend_commit": "cd0546d98df9d1cef339d34bb47baf6643b7f845",
     "candidate_authentication_change_deployed": true,
     "database_migrations_applied": true,
     "php_gate_commit": "dd9b55373874b5229d7e075ddd6743e8166d3853",
@@ -27,10 +27,12 @@
     "running_catalog_commit": "7efb72f4bad93a62beb28eab507d0bb1eb537430",
     "catalog_release": "hp-1794248941535-be274c0c",
     "full_process_restart_verified": true,
-    "deployment_id": "01a1c1b2-ed7f-7291-b92d-4882c2c71b4b",
-    "vulnerabilities_after_patch": 0,
+    "deployment_id": "01a1c5b5-14e8-71bd-a669-bbdcb43bfd10",
     "scheduled_jobs_paused": true,
-    "pause_evidence": "RESOURCE_REVIEW_2026-11-10_RU.md"
+    "pause_evidence": "RESOURCE_REVIEW_2026-11-10_RU.md",
+    "php_runtime_commit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665",
+    "migrations": 4,
+    "latest_http_checks": 43
   },
   "observed_hostinger_runtime": {
     "node_cli": "24.22.1",
@@ -71,10 +73,11 @@
     "original_records_preserved": true
   },
   "required_before_production": [
-    "Current selected-commit required CI checks",
-    "Revalidate selected release after dependency and real-data migration changes",
-    "Verified migration of preserved accounts, inquiries and files",
-    "Fresh production backup and tested code rollback without overwriting live data"
+    "Required CI for the final selected commit",
+    "Bounded public-site Hostinger predeploy checks",
+    "Production-mode Hostinger UI acceptance",
+    "Fresh production backup and tested code rollback without overwriting live data",
+    "Production activation and real scheduled BUSINESS delivery"
   ],
   "backup_evidence": [
     "HOSTINGER_BACKUP_EVIDENCE.json",
@@ -99,6 +102,26 @@
     "prior_source_rebuilt_by_hostinger": true
   },
   "local_real_import_evidence": "LEGACY_MIGRATION_LOCAL_EVIDENCE.json",
-  "migration_candidate_deployed": false,
-  "prepared_migration_commit": "4b3fee8f6d5f33bd2c6d49c78405d21415471fad"
+  "migration_candidate_deployed": true,
+  "prepared_migration_commit": "cf6ab6f74f65a4c9c45c62c5c209090ab8960665",
+  "real_data_migration": {
+    "status": "IMPORTED_RESTORE_VERIFIED_DISCONNECTED",
+    "evidence": "HOSTINGER_REAL_MIGRATION_EVIDENCE.json",
+    "database": "u246392949_younp1",
+    "archiveTables": 90,
+    "archiveRows": 1396,
+    "profiles": 4,
+    "inquiries": 3,
+    "assets": 1,
+    "sessionsImported": 0,
+    "originalTablesPreserved": true,
+    "productionAppConnected": false
+  },
+  "production_runtime_configuration": {
+    "state": "PREPARED_NOT_ACTIVE",
+    "privateEnv": "/home/u246392949/domains/admin.younew.nl/younew-private/launch.env",
+    "qaCredentialsReused": false,
+    "editorialDrafts": 71
+  },
+  "migration_candidate_deployed_scope": "QA backend only; real imported database remains disconnected"
 }

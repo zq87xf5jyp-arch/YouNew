@@ -18,7 +18,7 @@
     "generate:runtime": "node ../scripts/generate-governed-runtime.mjs && python3 ../../scripts/generate-public-freshness-exclusions.py && node scripts/generate-public-content.mjs && node ../scripts/generate-canonical-admin-data.mjs && node ../scripts/generate-release-truth.mjs",
     "lint": "node node_modules/eslint/bin/eslint.js src --max-warnings=0",
     "typecheck": "node node_modules/typescript/bin/tsc --noEmit",
-    "test": "pnpm generate:runtime && node --test tests/*.test.ts",
+    "test": "pnpm generate:runtime && node --test --test-concurrency=1 tests/*.test.ts",
     "qa:search": "node scripts/search-qa-matrix.mjs",
     "qa:monetization": "node scripts/monetization-phase0-query-scorecard.mjs",
     "qa:monetization:private": "node scripts/monetization-gate1-private-scorecard.mjs",

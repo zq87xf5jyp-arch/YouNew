@@ -20,7 +20,7 @@ echo "[3/10] ESLint"
 "$node_command" "$eslint_cli" src tests --max-warnings=0
 echo "[4/10] Unit and schema tests"
 "$node_command" scripts/search-qa-matrix.mjs
-"$node_command" --test tests/*.test.ts
+"$node_command" --test --test-concurrency=1 tests/*.test.ts
 echo "[5/10] Static smoke tests"
 "$node_command" scripts/smoke-test.mjs
 echo "[6/10] Links, fragments and assets"
