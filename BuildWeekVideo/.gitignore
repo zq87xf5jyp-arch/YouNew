@@ -7,3 +7,6 @@ dist
 # repository source. Their hashes and capture details are documented separately.
 public/clips/*.mp4
 out
+
+# Reproducible Remotion bundle.
+build/

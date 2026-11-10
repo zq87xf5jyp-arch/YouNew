@@ -1,0 +1,36 @@
+{
+  "checkedAt": "2026-11-10T20:44:29.397151+00:00",
+  "video": {
+    "remotion": "4.0.542",
+    "auditAllDependencies": 0,
+    "lint": "PASS",
+    "typecheck": "PASS",
+    "bundle": "PASS",
+    "stillFrames": [
+      120,
+      1800,
+      3600
+    ],
+    "renderFrames": "120-149",
+    "renderMode": "explicit watermarked screenshotPreview, original MP4 inputs absent"
+  },
+  "notifications": {
+    "localIntegrationInvocations": 22,
+    "hostingerQaIntegrationInvocations": 22,
+    "readOnlyProductionQueue": true,
+    "realQaProbeMailerAcceptedAt": "2026-11-10T20:43:23Z",
+    "mailboxDelivery": "INBOX observed at 20:44 UTC",
+    "mailboxRecipient": "support@younew.nl",
+    "productionCronExecutedAt": "2026-11-10T20:50:01Z",
+    "productionMailboxDeliveryObservedAt": "2026-11-10T20:50:23Z",
+    "healthMetadataQaConfigurations": 2
+  },
+  "content": {
+    "count": 71,
+    "approval": "pending",
+    "httpSources": 91,
+    "http200": 85,
+    "webFallbackOpened": 6,
+    "draftsNotPublished": true
+  }
+}

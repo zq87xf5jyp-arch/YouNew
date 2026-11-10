@@ -1,0 +1,9 @@
+{
+  "environment": "production",
+  "transport": "mail",
+  "recipient": "support@younew.nl",
+  "sender": "support@younew.nl",
+  "stateDirectory": "/home/u246392949/domains/younew.nl/younew-private/notifications",
+  "queue": "/home/u246392949/domains/younew.nl/younew-private/forms-data/submissions.sqlite",
+  "health": "/home/u246392949/domains/younew.nl/younew-private/launch-production/logs/health/health-latest.json"
+}

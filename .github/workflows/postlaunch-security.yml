@@ -1,0 +1,38 @@
+name: Video and notification security
+on:
+  pull_request:
+    paths:
+      - "BuildWeekVideo/**"
+      - "hostinger/notifications/**"
+      - "hostinger/monitoring/**"
+      - ".github/workflows/postlaunch-security.yml"
+permissions:
+  contents: read
+jobs:
+  video:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    defaults:
+      run:
+        working-directory: BuildWeekVideo
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020
+        with:
+          node-version: "24"
+      - run: corepack enable && corepack prepare pnpm@11.25.0 --activate
+      - run: pnpm install --frozen-lockfile --ignore-scripts
+      - run: pnpm audit --audit-level low
+      - run: pnpm exec remotion versions && pnpm lint && pnpm build
+  notifications:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
+        with:
+          persist-credentials: false
+      - run: php -l hostinger/notifications/worker.php
+      - run: sh -n hostinger/notifications/run.sh && python3 -m py_compile hostinger/monitoring/health-check.py
+      - run: python3 hostinger/notifications/test-worker.py
