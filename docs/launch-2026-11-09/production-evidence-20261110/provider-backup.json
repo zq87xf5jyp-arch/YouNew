@@ -1,0 +1,14 @@
+{
+  "observedAt": "2026-11-10T19:52:57.883816+00:00",
+  "source": "Hostinger production Backups UI",
+  "latestBackupPanelLocalTime": "2026-11-10 16:30",
+  "manualBackupCompleted": true,
+  "automated": "Daily",
+  "nextBackupPanelDate": "2026-11-11",
+  "providerExcludes": [
+    "backup plugin archives",
+    "cache",
+    "database export files"
+  ],
+  "independentVerifiedBackupsRetained": true
+}

@@ -4,7 +4,7 @@ Production опубликован и проверен; minimatch, реальны
 
 | Пункт | Конкретное состояние/действие |
 | --- | --- |
-| SSH | SSH active, web terminal работает. Новый public key younew-launch-20261110 ожидает добавления владельцем в открытой форме. Direct SSH пока не подтверждён; runtime от него не зависит. |
+| SSH | RESOLVED: owner added younew-launch-20261110; strict host-key SSH authentication passed without a password prompt on 10 Nov 19:50 UTC. |
 | Owner login | Хеши/роли 4 аккаунтов сохранены; QA bcrypt/auth/roles PASS. В production открыт login: владельцу следует войти своим прежним паролем, не передавая его в чат. |
 | Контент | 71 private draft требует редакторского review конкретной партии. Автоматической публикации нет. |
 | Уведомления | 4 внутренних Admin notifications созданы. Email/SMS/SMTP delivery не настроены; условия и стоимость отправки отдельно не подтверждены. Health пишет private logs. |

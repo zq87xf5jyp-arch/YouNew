@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "at": "2026-11-10T19:51:57.457048+00:00",
+  "authentication": "ed25519 public key; no password prompt",
+  "hostKeyCheck": "StrictHostKeyChecking=yes; owner-displayed ED25519 fingerprint pinned",
+  "identityFileMode": "0600",
+  "ownerAddedKey": "younew-launch-20261110",
+  "remoteUser": "u246392949",
+  "port": 65002
+}

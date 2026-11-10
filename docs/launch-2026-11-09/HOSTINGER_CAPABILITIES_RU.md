@@ -14,7 +14,7 @@ Business Web Hosting действует до 20 июля 2027: 50 ГБ, 3 ГБ R
 | Cache/gzip/CDN | Да, public CDN уже включён | Да | Gzip/static cache/HTML revalidation проверены. Admin/session/API no-store; private cache не включался. |
 | Защита | SSL, malware scanner, IP Manager, directory protection | Да | TLS/HSTS, server auth/roles, QA isolation, private env0600, secret URLs закрыты. Ранее malware сводка без угроз; новый отдельный scan не заявляется. |
 | Private storage | Да | Да | Исторический payload сохранён; signed file service/roles проверены в QA; публичный доступ закрыт. |
-| SSH/terminal | Да, SSH active | Да | Web terminal работает; direct key добавляет владелец, пока не подтверждён. |
+| SSH/terminal | Included, active | Yes | Direct public-key SSH verified after owner grant; strict host-key check; web terminal also available. |
 | GitHub/deploy | Archive build доступен; OAuth только Studio | Да | GitHub canonical, exact-commit archives, protected PR54. Чужие OAuth права не менялись. |
 | Mail | support@younew.nl/квота подтверждены; SMTP sending условия не установлены | Для будущих уведомлений | Ящик сохранён; отправка/новые услуги не активированы. Внутренние Admin notifications работают. |
 | WebMCP/MCP Server Card | Включение как услуги тарифа не установлено | Нет для этого запуска | Не добавлялись ради AI-score. |

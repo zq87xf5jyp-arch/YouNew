@@ -64,9 +64,12 @@
   "evidenceDirectory": "production-evidence-20261110",
   "operatorsDirectory": "operators-20261110",
   "remaining": [
-    "owner SSH key grant",
     "real owner production login acceptance",
     "editorial batch approval",
     "external notifications not configured"
-  ]
+  ],
+  "ssh": {
+    "status": "PASS",
+    "evidence": "production-evidence-20261110/ssh-verified.json"
+  }
 }

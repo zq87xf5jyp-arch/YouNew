@@ -1,0 +1,16 @@
+{
+  "commit": "5e0b3e152c7619f967fc7b518854bd6d8c9cb374",
+  "packages": {
+    "node-app": {
+      "verifiedFiles": 2367,
+      "archiveSha256": "e07769de608885752a60ffa86bb1620f819d0ec471e2d185448f61db044d9445",
+      "exactCommittedBytes": true
+    },
+    "php-site": {
+      "verifiedFiles": 15,
+      "archiveSha256": "8102447c3783b5ac4799f75f9637dd1891a1a57dc62345b6a3eae7da70738b80",
+      "exactCommittedBytes": true
+    }
+  },
+  "status": "PASS"
+}
