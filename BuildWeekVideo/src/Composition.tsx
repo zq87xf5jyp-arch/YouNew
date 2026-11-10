@@ -22,6 +22,7 @@ const NAVY = "#07111F";
 
 type Props = {
   reviewDraft: boolean;
+  screenshotPreview?: boolean;
 };
 
 type SceneSpec = {
@@ -142,7 +143,7 @@ const audioClips = [
   {from: 110, src: "audio/09_creator_story.mp3"},
 ];
 
-const OpeningScene: React.FC<{scene: SceneSpec}> = ({scene}) => {
+const OpeningScene: React.FC<{scene: SceneSpec; screenshotPreview?: boolean}> = ({scene, screenshotPreview}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const duration = (scene.to - scene.from) * fps;
@@ -194,12 +195,12 @@ const OpeningScene: React.FC<{scene: SceneSpec}> = ({scene}) => {
             }),
           }}
         >
-          <Video
+          {screenshotPreview ? <Img src={staticFile(scene.image)} className="phone-image" style={{objectFit: "cover"}} /> : (<Video
             src={staticFile(scene.clip)}
             muted
             objectFit="cover"
             className="phone-image"
-          />
+          />)}
         </div>
         <div className="opening-copy">
           <div
@@ -254,7 +255,7 @@ const OpeningScene: React.FC<{scene: SceneSpec}> = ({scene}) => {
   );
 };
 
-const ProductScene: React.FC<{scene: SceneSpec}> = ({scene}) => {
+const ProductScene: React.FC<{scene: SceneSpec; screenshotPreview?: boolean}> = ({scene, screenshotPreview}) => {
   const frame = useCurrentFrame();
   const {fps} = useVideoConfig();
   const duration = (scene.to - scene.from) * fps;
@@ -305,13 +306,13 @@ const ProductScene: React.FC<{scene: SceneSpec}> = ({scene}) => {
       />
       <div className="scene-grid">
         <div className="phone-shell" style={{borderColor: `${scene.accent}66`}}>
-          <Video
+          {screenshotPreview ? <Img src={staticFile(scene.image)} className="phone-image" style={{objectFit: "cover"}} /> : (<Video
             src={staticFile(scene.clip)}
             muted
             objectFit="cover"
             className="phone-image"
             style={{scale, translate: pan}}
-          />
+          />)}
         </div>
         <div className="scene-copy" style={{opacity, translate: `0 ${copyY}px`}}>
           <div className="eyebrow" style={{color: scene.accent}}>{scene.eyebrow}</div>
@@ -328,7 +329,7 @@ const ProductScene: React.FC<{scene: SceneSpec}> = ({scene}) => {
   );
 };
 
-const CreatorMontage: React.FC = () => {
+const CreatorMontage: React.FC<{screenshotPreview?: boolean}> = ({screenshotPreview}) => {
   const frame = useCurrentFrame();
   const imageFrames = [
     "screenshots/01-home.png",
@@ -374,13 +375,13 @@ const CreatorMontage: React.FC = () => {
           <div className="scene-detail">Product vision and decisions remained human-directed.</div>
         </div>
         <div className="montage-phone">
-          <Video
+          {screenshotPreview ? <Img src={staticFile(imageFrames[index])} className="phone-image" style={{objectFit: "cover"}} /> : (<Video
             src={staticFile(videoFrames[index])}
             muted
             objectFit="cover"
             className="phone-image"
             style={{scale, translate: pan}}
-          />
+          />)}
         </div>
       </div>
     </AbsoluteFill>
@@ -465,11 +466,11 @@ const ReviewWatermark: React.FC = () => (
   <div className="review-watermark">REVIEW DRAFT · REPLACE STILLS WITH SCREEN RECORDING</div>
 );
 
-export const YouNewBuildWeekVideo: React.FC<Props> = ({reviewDraft}) => {
+export const YouNewBuildWeekVideo: React.FC<Props> = ({reviewDraft, screenshotPreview = false}) => {
   return (
     <AbsoluteFill style={{backgroundColor: NAVY}}>
       <Sequence durationInFrames={(scenes[0].to - scenes[0].from) * FPS}>
-        <OpeningScene scene={scenes[0]} />
+        <OpeningScene scene={scenes[0]} screenshotPreview={screenshotPreview} />
       </Sequence>
       {scenes.slice(1).map((scene) => (
         <Sequence
@@ -477,11 +478,11 @@ export const YouNewBuildWeekVideo: React.FC<Props> = ({reviewDraft}) => {
           from={scene.from * FPS}
           durationInFrames={(scene.to - scene.from) * FPS}
         >
-          <ProductScene scene={scene} />
+          <ProductScene scene={scene} screenshotPreview={screenshotPreview} />
         </Sequence>
       ))}
       <Sequence from={110 * FPS} durationInFrames={790}>
-        <CreatorMontage />
+        <CreatorMontage screenshotPreview={screenshotPreview} />
       </Sequence>
       <Sequence from={136.3 * FPS} durationInFrames={Math.round(3.7 * FPS)}>
         <FinalCard />
@@ -492,7 +493,7 @@ export const YouNewBuildWeekVideo: React.FC<Props> = ({reviewDraft}) => {
         </Sequence>
       ))}
       <CaptionLayer />
-      {reviewDraft ? <ReviewWatermark /> : null}
+      {reviewDraft || screenshotPreview ? <ReviewWatermark /> : null}
     </AbsoluteFill>
   );
 };

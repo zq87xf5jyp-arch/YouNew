@@ -30,7 +30,14 @@ locally; hashes and capture details are recorded in
 contain these binary inputs and therefore cannot reproduce the final MP4 without
 the retained local artifacts.
 
-The current workspace path contains a colon (`Developer:YouNew`), which can
-confuse package-runner binary lookup. TypeScript and ESLint were therefore run
-directly in this workspace; both passed. A normal clone path can use the commands
-above after the local recording inputs are restored.
+The canonical checkout is `/Users/ivan/YouNew`. A clean checkout can test the
+composition with the committed screenshots, narration and captions:
+
+```bash
+pnpm exec remotion render src/index.ts YouNewBuildWeekReview out/preview.mp4 --props='{"screenshotPreview":true}'
+```
+
+This explicit preview always displays the review watermark. It does not replace
+or claim to restore the missing recordings, and it is not a publication artifact.
+The default composition still requires the original MP4 inputs. Remotion packages
+are aligned at 4.0.542; security overrides cover vulnerable transitive versions.

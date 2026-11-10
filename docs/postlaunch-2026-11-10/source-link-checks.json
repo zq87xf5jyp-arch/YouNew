@@ -1,0 +1,546 @@
+{
+  "checkedAt": "2026-11-10T20:39:57.942459+00:00",
+  "note": "HTTP reachability only; does not approve claims or publication.",
+  "sources": [
+    {
+      "url": "https://30ml.nl/en/locations/30ml-leiden/",
+      "status": 200,
+      "finalUrl": "https://30ml.nl/en/locations/30ml-leiden/",
+      "bytesChecked": 34409
+    },
+    {
+      "url": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "status": 200,
+      "finalUrl": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "bytesChecked": 324861
+    },
+    {
+      "url": "https://caferestaurantbikini.nl/contact/",
+      "status": 200,
+      "finalUrl": "https://caferestaurantbikini.nl/contact/",
+      "bytesChecked": 40878
+    },
+    {
+      "url": "https://chabotmuseum.nl/bezoekers/",
+      "status": 200,
+      "finalUrl": "https://chabotmuseum.nl/bezoekers/",
+      "bytesChecked": 67794
+    },
+    {
+      "url": "https://denhaag.com/en/westbroekpark",
+      "error": "HTTPError",
+      "status": 403
+    },
+    {
+      "url": "https://gemeente.leiden.nl/",
+      "status": 200,
+      "finalUrl": "https://gemeente.leiden.nl/",
+      "bytesChecked": 57015
+    },
+    {
+      "url": "https://gemeente.leiden.nl/contact/",
+      "status": 200,
+      "finalUrl": "https://gemeente.leiden.nl/contact/",
+      "bytesChecked": 64116
+    },
+    {
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/",
+      "status": 200,
+      "finalUrl": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/",
+      "bytesChecked": 54798
+    },
+    {
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+      "status": 200,
+      "finalUrl": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/restafval-en-plastic/",
+      "bytesChecked": 76172
+    },
+    {
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/waste-collection-schedule/",
+      "status": 200,
+      "finalUrl": "https://gemeente.leiden.nl/inwoners-en-ondernemers/afval/huisafval/waste-collection-schedule/",
+      "bytesChecked": 80238
+    },
+    {
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/parkeren/fouten-met-parkeren/fiets-weg/",
+      "status": 200,
+      "finalUrl": "https://gemeente.leiden.nl/inwoners-en-ondernemers/parkeren/fouten-met-parkeren/fiets-weg/",
+      "bytesChecked": 83604
+    },
+    {
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "status": 200,
+      "finalUrl": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "bytesChecked": 98645
+    },
+    {
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+      "status": 200,
+      "finalUrl": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/inschrijven-als-niet-ingezetene-in-nederland-rni/",
+      "bytesChecked": 84191
+    },
+    {
+      "url": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+      "status": 200,
+      "finalUrl": "https://gemeente.leiden.nl/projecten/fietsen/fietsparkeren/",
+      "bytesChecked": 62351
+    },
+    {
+      "url": "https://goldengreenhotels.nl/en/contact/",
+      "status": 200,
+      "finalUrl": "https://goldengreenhotels.nl/en/contact/",
+      "bytesChecked": 273999
+    },
+    {
+      "url": "https://goldengreenhotels.nl/en/hotel-directory/",
+      "status": 200,
+      "finalUrl": "https://goldengreenhotels.nl/en/hotel-directory/",
+      "bytesChecked": 288574
+    },
+    {
+      "url": "https://goo.gl/maps/FGxZEB8dgYjzoaoP7",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/place/Museum+De+Lakenhal/@52.1628566,4.4853762,17z/data=!3m1!4b1!4m5!3m4!1s0x47c5c6ec5ec8e867:0xb64d67c1c6e77359!8m2!3d52.1628566!4d4.4875649?shorturl=1&ucbcb=1",
+      "bytesChecked": 220478
+    },
+    {
+      "url": "https://goo.gl/maps/RasmPnCGe6m48u4G8",
+      "status": 200,
+      "finalUrl": "https://www.google.com/maps/place/Hortus+Botanicus+Leiden/@52.1572922,4.4849929,19.58z/data=!4m6!3m5!1s0x47c5c6efe019d193:0x7d3795c652143fbf!8m2!3d52.1571223!4d4.484888!16zL20vMDYxbTA5?entry=tts&shorturl=1&ucbcb=1",
+      "bytesChecked": 221092
+    },
+    {
+      "url": "https://hortusleiden.nl/",
+      "status": 200,
+      "finalUrl": "https://hortusleiden.nl/",
+      "bytesChecked": 60986
+    },
+    {
+      "url": "https://hortusleiden.nl/over-ons/contact",
+      "status": 200,
+      "finalUrl": "https://hortusleiden.nl/over-ons/contact",
+      "bytesChecked": 43585
+    },
+    {
+      "url": "https://huisartsenspoedpostdelimes.nl/",
+      "status": 200,
+      "finalUrl": "https://huisartsenspoedpostdelimes.nl/",
+      "bytesChecked": 65599
+    },
+    {
+      "url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+      "status": 200,
+      "finalUrl": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/ik-heb-medicijnen-nodig-buiten-normale-apotheekuren/",
+      "bytesChecked": 57379
+    },
+    {
+      "url": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/wanneer-kan-ik-de-huisartsenpost-bellen/",
+      "status": 200,
+      "finalUrl": "https://huisartsenspoedpostdelimes.nl/veelgestelde-vragen/wanneer-kan-ik-de-huisartsenpost-bellen/",
+      "bytesChecked": 56359
+    },
+    {
+      "url": "https://kaafi.nl/contact-us",
+      "status": 200,
+      "finalUrl": "https://kaafi.nl/contact-us",
+      "bytesChecked": 174378
+    },
+    {
+      "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+      "status": 200,
+      "finalUrl": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+      "bytesChecked": 94936
+    },
+    {
+      "url": "https://oudtleyden.nl/",
+      "status": 200,
+      "finalUrl": "https://oudtleyden.nl/",
+      "bytesChecked": 94395
+    },
+    {
+      "url": "https://oudtleyden.nl/contact/",
+      "status": 200,
+      "finalUrl": "https://oudtleyden.nl/contact/",
+      "bytesChecked": 72173
+    },
+    {
+      "url": "https://pacociao.nl/en/contact/",
+      "status": 200,
+      "finalUrl": "https://pacociao.nl/en/contact/",
+      "bytesChecked": 79152
+    },
+    {
+      "url": "https://steenhofsuites.nl/contact/",
+      "status": 200,
+      "finalUrl": "https://steenhofsuites.nl/contact/",
+      "bytesChecked": 373660
+    },
+    {
+      "url": "https://supernovahotel.nl/en",
+      "status": 200,
+      "finalUrl": "https://supernovahotel.nl/en",
+      "bytesChecked": 195349
+    },
+    {
+      "url": "https://trompenburg.nl/plan-your-visit/",
+      "error": "URLError",
+      "status": null
+    },
+    {
+      "url": "https://www.annemax.nl/vestigingen/leiden/",
+      "status": 200,
+      "finalUrl": "https://www.annemax.nl/vestigingen/leiden/",
+      "bytesChecked": 238009
+    },
+    {
+      "url": "https://www.baristacafe.nl/vestiging/leiden/",
+      "status": 200,
+      "finalUrl": "https://www.baristacafe.nl/vestiging/leiden/",
+      "bytesChecked": 229973
+    },
+    {
+      "url": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+      "status": 200,
+      "finalUrl": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+      "bytesChecked": 25716
+    },
+    {
+      "url": "https://www.bibliotheekutrecht.nl/klantenservice.html",
+      "status": 200,
+      "finalUrl": "https://www.bibliotheekutrecht.nl/klantenservice.html",
+      "bytesChecked": 42267
+    },
+    {
+      "url": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+      "status": 200,
+      "finalUrl": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+      "bytesChecked": 30091
+    },
+    {
+      "url": "https://www.borgmanborgman.nl/contact-1",
+      "status": 200,
+      "finalUrl": "https://www.borgmanborgman.nl/contact-1",
+      "bytesChecked": 782466
+    },
+    {
+      "url": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+      "status": 200,
+      "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+      "bytesChecked": 60479
+    },
+    {
+      "url": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+      "status": 200,
+      "finalUrl": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+      "bytesChecked": 20843
+    },
+    {
+      "url": "https://www.browniesanddownies.nl/leiden",
+      "status": 200,
+      "finalUrl": "https://www.browniesanddownies.nl/leiden",
+      "bytesChecked": 861291
+    },
+    {
+      "url": "https://www.cafelaken.nl/",
+      "status": 200,
+      "finalUrl": "https://www.cafelaken.nl/",
+      "bytesChecked": 14920
+    },
+    {
+      "url": "https://www.deengelenbak.nl/contact/",
+      "status": 200,
+      "finalUrl": "https://www.deengelenbak.nl/contact/",
+      "bytesChecked": 62620
+    },
+    {
+      "url": "https://www.dende.nl/contact",
+      "status": 200,
+      "finalUrl": "https://www.dende.nl/contact",
+      "bytesChecked": 170252
+    },
+    {
+      "url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+      "status": 200,
+      "finalUrl": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+      "bytesChecked": 177764
+    },
+    {
+      "url": "https://www.digid.nl/aanvragen-en-activeren/digid-activeren",
+      "status": 200,
+      "finalUrl": "https://www.digid.nl/aanvragen-en-activeren/digid-activeren",
+      "bytesChecked": 174423
+    },
+    {
+      "url": "https://www.fotomuseumdenhaag.nl/en/contact",
+      "status": 200,
+      "finalUrl": "https://www.fotomuseumdenhaag.nl/en/contact",
+      "bytesChecked": 56546
+    },
+    {
+      "url": "https://www.government.nl/themes/government-and-democracy/online-access-to-public-services-european-economic-area-eidas/digid/digid-applications-from-the-netherlands",
+      "error": "URLError",
+      "status": null
+    },
+    {
+      "url": "https://www.grandcafedeburcht.nl/en",
+      "status": 200,
+      "finalUrl": "https://www.grandcafedeburcht.nl/en",
+      "bytesChecked": 1339620
+    },
+    {
+      "url": "https://www.indendoofpot.nl/contact",
+      "status": 200,
+      "finalUrl": "https://www.indendoofpot.nl/contact",
+      "bytesChecked": 89110
+    },
+    {
+      "url": "https://www.kazerne.com/bar-bistro-kazerne",
+      "status": 200,
+      "finalUrl": "https://www.kazerne.com/bar-bistro-kazerne",
+      "bytesChecked": 35277
+    },
+    {
+      "url": "https://www.koffieleute.nl/",
+      "status": 200,
+      "finalUrl": "https://www.koffieleute.nl/",
+      "bytesChecked": 50214
+    },
+    {
+      "url": "https://www.lakenhal.nl/en/",
+      "status": 200,
+      "finalUrl": "https://www.lakenhal.nl/en/",
+      "bytesChecked": 25783
+    },
+    {
+      "url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+      "status": 200,
+      "finalUrl": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+      "bytesChecked": 25693
+    },
+    {
+      "url": "https://www.lakenhal.nl/nl/overzicht/organisatie",
+      "status": 200,
+      "finalUrl": "https://www.lakenhal.nl/nl/overzicht/organisatie",
+      "bytesChecked": 19131
+    },
+    {
+      "url": "https://www.naturalis.nl/en/contact",
+      "status": 200,
+      "finalUrl": "https://www.naturalis.nl/en/contact",
+      "bytesChecked": 59104
+    },
+    {
+      "url": "https://www.naturalis.nl/en/museum/practical-info",
+      "status": 200,
+      "finalUrl": "https://www.naturalis.nl/en/museum/practical-info",
+      "bytesChecked": 71111
+    },
+    {
+      "url": "https://www.ns.nl/",
+      "status": 200,
+      "finalUrl": "https://www.ns.nl/",
+      "bytesChecked": 360333
+    },
+    {
+      "url": "https://www.ns.nl/service-en-contact/je-pas/veelgestelde-vragen-over-reizen-met-betaalpas",
+      "status": 200,
+      "finalUrl": "https://www.ns.nl/service-en-contact/je-pas/veelgestelde-vragen-over-reizen-met-betaalpas",
+      "bytesChecked": 400335
+    },
+    {
+      "url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+      "status": 200,
+      "finalUrl": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+      "bytesChecked": 237299
+    },
+    {
+      "url": "https://www.politie.nl/contact/",
+      "error": "URLError",
+      "status": null
+    },
+    {
+      "url": "https://www.prentenkabinet.nl/reserveren/",
+      "status": 200,
+      "finalUrl": "https://www.prentenkabinet.nl/reserveren/",
+      "bytesChecked": 308153
+    },
+    {
+      "url": "https://www.qbuzz.nl/ovpay",
+      "status": 200,
+      "finalUrl": "https://www.qbuzz.nl/ovpay",
+      "bytesChecked": 136598
+    },
+    {
+      "url": "https://www.rembrandthotel.nl/contact",
+      "status": 200,
+      "finalUrl": "https://www.rembrandthotel.nl/contact",
+      "bytesChecked": 123552
+    },
+    {
+      "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+      "status": 200,
+      "finalUrl": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+      "bytesChecked": 161348
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+      "error": "URLError",
+      "status": null
+    },
+    {
+      "url": "https://www.rijksoverheid.nl/documenten/vraag-en-antwoord/gemeenten/hoe-kan-ik-mijn-verhuizing-doorgeven-aan-de-gemeente",
+      "error": "URLError",
+      "status": null
+    },
+    {
+      "url": "https://www.rmo.nl/en/",
+      "status": 200,
+      "finalUrl": "https://www.rmo.nl/en/",
+      "bytesChecked": 141642
+    },
+    {
+      "url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+      "status": 200,
+      "finalUrl": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+      "bytesChecked": 138199
+    },
+    {
+      "url": "https://www.roosleiden.nl/contact-roos",
+      "status": 200,
+      "finalUrl": "https://www.roosleiden.nl/contact-roos",
+      "bytesChecked": 702574
+    },
+    {
+      "url": "https://www.rvig.nl/registratie-niet-ingezetenen-voor-burgers",
+      "status": 200,
+      "finalUrl": "https://www.rvig.nl/registratie-niet-ingezetenen-voor-burgers",
+      "bytesChecked": 23953
+    },
+    {
+      "url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+      "status": 200,
+      "finalUrl": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+      "bytesChecked": 2000000
+    },
+    {
+      "url": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
+      "status": 200,
+      "finalUrl": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
+      "bytesChecked": 1643173
+    },
+    {
+      "url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+      "status": 200,
+      "finalUrl": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+      "bytesChecked": 27690
+    },
+    {
+      "url": "https://www.ssdr.nl/",
+      "status": 200,
+      "finalUrl": "https://www.ssdr.nl/",
+      "bytesChecked": 59057
+    },
+    {
+      "url": "https://www.tabu.nl/",
+      "status": 200,
+      "finalUrl": "https://www.tabu.nl/",
+      "bytesChecked": 34531
+    },
+    {
+      "url": "https://www.tabu.nl/faq/",
+      "status": 200,
+      "finalUrl": "https://www.tabu.nl/faq/",
+      "bytesChecked": 21371
+    },
+    {
+      "url": "https://www.thecollectorhotel.com/contact",
+      "status": 200,
+      "finalUrl": "https://www.thecollectorhotel.com/contact",
+      "bytesChecked": 113635
+    },
+    {
+      "url": "https://www.thenoxhotel.com/contact",
+      "status": 200,
+      "finalUrl": "https://www.thenoxhotel.com/contact",
+      "bytesChecked": 21852
+    },
+    {
+      "url": "https://www.thenoxhotel.com/en/contact",
+      "status": 200,
+      "finalUrl": "https://www.thenoxhotel.com/en/contact",
+      "bytesChecked": 21293
+    },
+    {
+      "url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+      "status": 200,
+      "finalUrl": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+      "bytesChecked": 80701
+    },
+    {
+      "url": "https://www.thuisarts.nl/inschrijven-bij-huisarts",
+      "status": 200,
+      "finalUrl": "https://www.thuisarts.nl/inschrijven-bij-huisarts",
+      "bytesChecked": 65119
+    },
+    {
+      "url": "https://www.verbodentoegang.nl/",
+      "status": 200,
+      "finalUrl": "https://www.verbodentoegang.nl/",
+      "bytesChecked": 225401
+    },
+    {
+      "url": "https://www.visitleiden.nl/en/plan-your-visit/tourist-information",
+      "status": 200,
+      "finalUrl": "https://www.visitleiden.nl/en/plan-your-visit/tourist-information",
+      "bytesChecked": 152019
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/doen/blogs/leuke-gratis-activiteiten-in-leiden",
+      "status": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/doen/blogs/leuke-gratis-activiteiten-in-leiden",
+      "bytesChecked": 113794
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+      "status": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+      "bytesChecked": 64287
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+      "status": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+      "bytesChecked": 86127
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
+      "status": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
+      "bytesChecked": 67265
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
+      "status": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
+      "bytesChecked": 67002
+    },
+    {
+      "url": "https://www.waagleiden.nl/nl/contactpagina/",
+      "status": 200,
+      "finalUrl": "https://www.waagleiden.nl/nl/contactpagina/",
+      "bytesChecked": 33167
+    },
+    {
+      "url": "https://younew.nl/for-business/local/",
+      "status": 200,
+      "finalUrl": "https://younew.nl/for-business/local/",
+      "bytesChecked": 74126
+    },
+    {
+      "url": "https://zhn.qbuzz.nl/",
+      "status": 200,
+      "finalUrl": "https://zhn.qbuzz.nl/",
+      "bytesChecked": 300333
+    }
+  ]
+}

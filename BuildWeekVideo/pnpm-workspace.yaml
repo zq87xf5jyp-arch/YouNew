@@ -1,40 +1,16 @@
 overrides:
   '@eslint/plugin-kit': 0.3.4
-  brace-expansion@<2.0.0: 1.1.18
-  brace-expansion@>=2.0.0 <3.0.0: 2.1.4
+  brace-expansion@<2.0.0: 1.1.21
+  brace-expansion@>=2.0.0 <3.0.0: 2.1.7
   brace-expansion@>=3.0.0 <5.0.9: 5.0.9
-  fast-uri: 3.1.5
+  fast-uri: 3.1.9
+  minimatch@>=7.0.0 <11.0.1: 11.0.1
+  js-yaml@>=4.0.0 <4.3.2: 4.3.2
+  nanoid@<3.3.18: 3.3.18
+  source-map-js@>=1.0.0 <1.2.2: 1.2.2
+  zod: 4.6.7
+  postcss-selector-parser@>=7.0.0 <7.1.6: 7.1.6
   postcss: 8.5.23
 
 allowBuilds:
   esbuild: true
-minimumReleaseAgeExclude:
-  - '@eslint/plugin-kit@0.3.4'
-  - 'brace-expansion@1.1.18 || 2.1.4 || 5.0.9'
-  - '@remotion/bundler@4.0.496'
-  - '@remotion/canvas-capture@4.0.496'
-  - '@remotion/cli@4.0.496'
-  - '@remotion/compositor-darwin-arm64@4.0.496'
-  - '@remotion/compositor-darwin-x64@4.0.496'
-  - '@remotion/compositor-linux-arm64-gnu@4.0.496'
-  - '@remotion/compositor-linux-arm64-musl@4.0.496'
-  - '@remotion/compositor-linux-x64-gnu@4.0.496'
-  - '@remotion/compositor-linux-x64-musl@4.0.496'
-  - '@remotion/compositor-win32-x64-msvc@4.0.496'
-  - '@remotion/eslint-config-flat@4.0.496'
-  - '@remotion/licensing@4.0.496'
-  - '@remotion/media-parser@4.0.496'
-  - '@remotion/media-utils@4.0.496'
-  - '@remotion/player@4.0.496'
-  - '@remotion/renderer@4.0.496'
-  - '@remotion/streaming@4.0.496'
-  - '@remotion/studio-server@4.0.496'
-  - '@remotion/studio-shared@4.0.496'
-  - '@remotion/studio@4.0.496'
-  - '@remotion/tailwind-v4@4.0.496'
-  - '@remotion/timeline-utils@4.0.496'
-  - '@remotion/web-renderer@4.0.496'
-  - '@remotion/zod-types@4.0.496'
-  - remotion@4.0.496
-  - '@remotion/captions@4.0.496'
-  - '@remotion/media@4.0.496'
