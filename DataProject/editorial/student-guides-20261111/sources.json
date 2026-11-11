@@ -169,5 +169,32 @@
     "isOfficial": true,
     "status": "verified_opened",
     "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "leiden-arrival-en",
+    "title": "Moving to Leiden from abroad (English)",
+    "publisher": "Gemeente Leiden",
+    "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/moving-to-leiden-from-abroad/",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "rvig-deadline",
+    "title": "Municipal process for the statutory five-day declaration period",
+    "publisher": "RvIG",
+    "url": "https://www.rvig.nl/veelgestelde-vraag/19-heeft-uw-gemeente-een-proces-ingericht-en-uitgevoerd-om-de-burger-staat-te",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "rvig-duties",
+    "title": "Welke plichten heb ik?",
+    "publisher": "RvIG",
+    "url": "https://www.rvig.nl/veelgestelde-vraag/welke-plichten-heb-ik",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
   }
 ]

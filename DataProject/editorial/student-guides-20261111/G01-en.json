@@ -23,9 +23,10 @@
   },
   "whenYouNeedIt": {
     "id": "when",
-    "text": "Start before arrival, once you know where you will live.",
+    "text": "Start before arrival as soon as you know your Leiden address. National guidance requires in-person registration within five days of arrival; book ahead.",
     "sourceIDs": [
-      "brp"
+      "brp",
+      "leiden-arrival-en"
     ]
   },
   "applicability": {
@@ -48,18 +49,53 @@
   "prerequisites": [
     {
       "id": "prepare",
-      "text": "Start before arrival, once you know where you will live.",
+      "text": "Check that you will live in the Netherlands for at least four of the next six months and in Leiden. Leiden also lists lawful-residence conditions; ask the municipality if your residence documents are still being arranged.",
       "sourceIDs": [
-        "brp"
+        "leiden-arrival-en"
       ]
     }
   ],
   "requiredDocuments": [
     {
       "id": "document.0",
-      "text": "Valid ID and housing evidence; applicable civil-status records for first registration. Check Leiden’s exact list, including cohabitation consent where relevant.",
+      "text": "Bring valid identification.",
       "sourceIDs": [
-        "leiden-arrival"
+        "leiden-arrival-en"
+      ]
+    },
+    {
+      "id": "document.1",
+      "text": "Bring a copy of a purchase or rental contract in your name.",
+      "sourceIDs": [
+        "leiden-arrival-en"
+      ]
+    },
+    {
+      "id": "document.2",
+      "text": "Moving in with someone? Bring the main resident’s completed permission form and a copy of their identification.",
+      "sourceIDs": [
+        "leiden-arrival-en"
+      ]
+    },
+    {
+      "id": "document.3",
+      "text": "First registration in the Netherlands: prepare your birth certificate and applicable marriage, divorce or spouse’s death documents. Check with Leiden which documents apply to you.",
+      "sourceIDs": [
+        "leiden-arrival-en"
+      ]
+    },
+    {
+      "id": "document.4",
+      "text": "Check the country-specific legalisation and translation instructions before paying to prepare foreign documents.",
+      "sourceIDs": [
+        "legalise"
+      ]
+    },
+    {
+      "id": "document.5",
+      "text": "Coming from Aruba, Curaçao, Sint Maarten, Bonaire, Sint Eustatius or Saba? Bring proof of deregistration.",
+      "sourceIDs": [
+        "leiden-arrival-en"
       ]
     }
   ],
@@ -67,16 +103,17 @@
     "state": "varies",
     "value": null,
     "currency": null,
-    "note": "Leiden states at least five working days for processing, depending on the case. Appointment waiting time is separate.",
+    "note": "There are three different timings: the national registration guidance says within five days of arrival; appointment availability is separate; Leiden states processing takes at least five working days, depending on your situation. Neither source gives a guaranteed BSN delivery date.",
     "sourceIDs": [
-      "leiden-arrival"
+      "brp",
+      "leiden-arrival-en"
     ]
   },
   "estimatedCost": {
     "state": "known",
     "value": "0",
     "currency": "EUR",
-    "note": "Municipal registration is free. Document preparation may have separate costs.",
+    "note": "Municipal registration and re-registration are free. Check any separate document, legalisation or translation charges with the relevant provider.",
     "sourceIDs": [
       "leiden-arrival",
       "legalise"
@@ -86,10 +123,10 @@
     {
       "id": "step.1",
       "position": 1,
-      "title": "Choose BRP or RNI",
-      "body": "Staying longer than four months? Use resident registration. For a shorter stay, check RvIG’s RNI route and eligible desks.",
+      "title": "Choose the resident or non-resident route",
+      "body": "For Leiden resident registration, the municipality specifies at least four months in the Netherlands during the next six months. For a stay of less than four months, check RvIG’s RNI route and eligible desks. Ask Leiden if your plans are uncertain.",
       "sourceIDs": [
-        "brp",
+        "leiden-arrival-en",
         "rni"
       ],
       "municipalityDependent": true
@@ -97,29 +134,42 @@
     {
       "id": "step.2",
       "position": 2,
-      "title": "Check your documents",
-      "body": "Read Leiden’s document list. For foreign civil-status records, check the issuing-country instructions before arranging legalisation or translation.",
+      "title": "Book ahead and check the timing",
+      "body": "Complete Leiden’s form and use the emailed link to book. Aim for in-person registration within five days of arrival, as national guidance requires. If only a later appointment is offered, contact Leiden immediately and ask how to make your declaration on time; keep the reply.",
       "sourceIDs": [
-        "leiden-arrival",
-        "legalise"
+        "leiden-arrival-en",
+        "brp",
+        "rvig-deadline"
       ],
       "municipalityDependent": true
     },
     {
       "id": "step.3",
       "position": 3,
-      "title": "Arrange the appointment",
-      "body": "Complete Leiden’s form; use the emailed link to book. Attend in person with the required papers.",
+      "title": "Prepare the documents for your situation",
+      "body": "Use the checklist below and Leiden’s current list. Check the issuing-country instructions for foreign documents. If something is missing, ask Leiden what to do before the appointment.",
       "sourceIDs": [
-        "leiden-arrival"
+        "leiden-arrival-en",
+        "legalise"
       ],
       "municipalityDependent": true
     },
     {
       "id": "step.4",
       "position": 4,
-      "title": "Check the result",
-      "body": "Ask how you will receive confirmation. An existing BSN remains valid; registration is not an application for a second number.",
+      "title": "Attend in person",
+      "body": "Go to the appointment with the required documents. A partner or children moving with you must also attend to register. An online form or appointment confirmation is not the completed in-person registration.",
+      "sourceIDs": [
+        "leiden-arrival-en",
+        "brp"
+      ],
+      "municipalityDependent": true
+    },
+    {
+      "id": "step.5",
+      "position": 5,
+      "title": "Check the registration and your BSN",
+      "body": "Ask how you will receive confirmation. A BSN is assigned after registration if you do not already have one; an existing BSN remains valid. Do not plan around receiving a new number at the appointment.",
       "sourceIDs": [
         "brp"
       ],
@@ -143,6 +193,14 @@
       "sourceIDs": [
         "legalise"
       ]
+    },
+    {
+      "id": "mistake.timing",
+      "text": "Do not read “at least five working days” as a maximum, or confuse booking, attending and processing.",
+      "sourceIDs": [
+        "leiden-arrival-en",
+        "brp"
+      ]
     }
   ],
   "tips": [
@@ -156,31 +214,41 @@
   ],
   "checklist": [
     {
-      "id": "check.0",
-      "text": "Staying longer than four months? Use resident registration. For a shorter stay, check RvIG’s RNI route and eligible desks.",
+      "id": "check.route",
+      "text": "Confirm the resident/RNI route for your expected stay.",
       "sourceIDs": [
-        "brp",
+        "leiden-arrival-en",
         "rni"
       ]
     },
     {
-      "id": "check.1",
-      "text": "Read Leiden’s document list. For foreign civil-status records, check the issuing-country instructions before arranging legalisation or translation.",
+      "id": "check.appointment",
+      "text": "Book before arrival; contact Leiden immediately if the appointment falls outside the first five days.",
       "sourceIDs": [
-        "leiden-arrival",
+        "leiden-arrival-en",
+        "brp",
+        "rvig-deadline"
+      ]
+    },
+    {
+      "id": "check.documents",
+      "text": "Check and gather the required documents for your situation.",
+      "sourceIDs": [
+        "leiden-arrival-en",
         "legalise"
       ]
     },
     {
-      "id": "check.2",
-      "text": "Complete Leiden’s form; use the emailed link to book. Attend in person with the required papers.",
+      "id": "check.attend",
+      "text": "Attend in person, together with any family members who also need to register.",
       "sourceIDs": [
-        "leiden-arrival"
+        "leiden-arrival-en",
+        "brp"
       ]
     },
     {
-      "id": "check.3",
-      "text": "Ask how you will receive confirmation. An existing BSN remains valid; registration is not an application for a second number.",
+      "id": "check.result",
+      "text": "Ask how to receive confirmation and keep using an existing BSN.",
       "sourceIDs": [
         "brp"
       ]
@@ -210,25 +278,47 @@
       "sourceIDs": [
         "rni"
       ]
+    },
+    {
+      "id": "faq.late-appointment",
+      "question": "What if the earliest appointment is after the first five days?",
+      "answer": "Contact Leiden as soon as you see the problem, preferably before arrival. Ask how to meet the registration/declaration requirement and retain the municipality’s response. Do not assume that a later booking automatically extends the deadline.",
+      "sourceIDs": [
+        "brp",
+        "rvig-deadline",
+        "leiden-arrival-en"
+      ]
+    },
+    {
+      "id": "faq.bsn-timing",
+      "question": "Will I receive my BSN within five working days?",
+      "answer": "No guaranteed delivery date is stated in the cited sources. Leiden gives a minimum processing time of five working days, depending on the situation. Ask at the appointment how and when your registration and BSN will be confirmed.",
+      "sourceIDs": [
+        "leiden-arrival-en",
+        "brp"
+      ]
     }
   ],
   "emergencyInformation": [
     {
       "id": "help",
-      "text": "This guide cannot decide your personal case. Use the responsible institution for help.",
+      "text": "If you cannot attend in time or are missing documents, contact Leiden immediately: 14 071 in the Netherlands, or +31 71 516 51 65 from abroad. The municipality decides how your individual registration is handled.",
       "sourceIDs": [
-        "leiden-arrival"
+        "leiden-arrival-en"
       ]
     }
   ],
   "sections": [
     {
-      "id": "context",
-      "title": "Check before acting",
-      "body": "Official wording differs: NetherlandsWorldwide says register within five days; Leiden says arrange an appointment within five working days. Book before arrival and ask Leiden immediately if the timing is unclear.",
+      "id": "registration-timing",
+      "title": "Five days, an appointment and processing: keep them separate",
+      "body": "NetherlandsWorldwide requires in-person registration within five days of arrival, and RvIG identifies a statutory five-day declaration period. Leiden’s English page says five days; its Dutch page says to have an appointment within five working days. RvIG’s public duties page also uses working days. These published formulations differ. YouNew does not treat the longer wording as an automatic extension: book before arrival and contact Leiden immediately if timely attendance is not possible. Booking a later appointment does not by itself establish that you have met the declaration deadline. The separate minimum of five working days concerns processing.",
       "sourceIDs": [
         "brp",
-        "leiden-arrival"
+        "rvig-deadline",
+        "leiden-arrival",
+        "leiden-arrival-en",
+        "rvig-duties"
       ]
     }
   ],
@@ -277,6 +367,33 @@
       "isOfficial": true,
       "status": "verified_opened",
       "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "leiden-arrival-en",
+      "title": "Moving to Leiden from abroad (English)",
+      "publisher": "Gemeente Leiden",
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/moving-to-leiden-from-abroad/",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "rvig-deadline",
+      "title": "Municipal process for the statutory five-day declaration period",
+      "publisher": "RvIG",
+      "url": "https://www.rvig.nl/veelgestelde-vraag/19-heeft-uw-gemeente-een-proces-ingericht-en-uitgevoerd-om-de-burger-staat-te",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "rvig-duties",
+      "title": "Welke plichten heb ik?",
+      "publisher": "RvIG",
+      "url": "https://www.rvig.nl/veelgestelde-vraag/welke-plichten-heb-ik",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
     }
   ],
   "contactOptions": [
@@ -284,9 +401,18 @@
       "id": "official-contact",
       "kind": "url",
       "label": "Official instructions",
-      "value": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "value": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/moving-to-leiden-from-abroad/",
       "sourceIDs": [
-        "leiden-arrival"
+        "leiden-arrival-en"
+      ]
+    },
+    {
+      "id": "leiden-phone",
+      "kind": "phone",
+      "label": "Leiden registration questions (international number)",
+      "value": "+31715165165",
+      "sourceIDs": [
+        "leiden-arrival-en"
       ]
     }
   ],
@@ -303,7 +429,7 @@
   "verifiedAt": "2026-11-11",
   "updatedAt": "2026-11-11",
   "reviewer": null,
-  "readingTimeMinutes": 4,
+  "readingTimeMinutes": 7,
   "difficulty": "basic",
   "confidenceLevel": "pending_review",
   "tags": [
@@ -324,6 +450,8 @@
   "commonQuestions": [
     "Already have a BSN?",
     "Missing a document?",
-    "Staying briefly?"
+    "Staying briefly?",
+    "What if the earliest appointment is after the first five days?",
+    "Will I receive my BSN within five working days?"
   ]
 }

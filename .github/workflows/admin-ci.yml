@@ -94,7 +94,17 @@ jobs:
       - name: Build
         run: pnpm build
       - name: Install isolated Admin browser
-        run: pnpm exec playwright install --with-deps chromium
+        timeout-minutes: 10
+        run: |
+          # The hosted image's Azure mirror repeatedly fails DNS before its
+          # existing official Ubuntu HTTPS fallbacks are usable. Keep those
+          # fallbacks, package signature verification and all browser tests.
+          if [[ -f /etc/apt/apt-mirrors.txt ]]; then
+            sudo sed -i '\|azure\.archive\.ubuntu\.com|d' /etc/apt/apt-mirrors.txt
+            test -s /etc/apt/apt-mirrors.txt
+          fi
+          printf '%s\n' 'Acquire::Retries "2";' 'Acquire::http::Timeout "20";' 'Acquire::https::Timeout "20";' | sudo tee /etc/apt/apt.conf.d/80younew-network > /dev/null
+          pnpm exec playwright install --with-deps chromium
       - name: Run isolated Admin role and viewport matrix
         run: pnpm test:e2e:admin:isolated
       - name: Upload isolated Admin evidence

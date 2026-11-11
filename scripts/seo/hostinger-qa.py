@@ -4,8 +4,8 @@ import argparse,base64,hashlib,json,os,tarfile,urllib.request,urllib.error
 from pathlib import Path
 os.umask(0o077)
 BASE=Path('/home/u246392949/domains/qa-catalog.younew.nl/younew-private')
-ROOT=BASE/'seo-20261111-r4'; STORE=BASE/'hp1/publication'; POINTER=STORE/'current.json'
-RELEASE='hp-seo-review-20261111-r4'; ORIGIN='https://qa-catalog.younew.nl'
+ROOT=BASE/'seo-20261111-r6'; STORE=BASE/'hp1/publication'; POINTER=STORE/'current.json'
+RELEASE='hp-seo-review-20261111-r6'; ORIGIN='https://qa-catalog.younew.nl'
 def sha(data):return hashlib.sha256(data).hexdigest()
 def save(path,value):path.write_text(json.dumps(value,indent=2)+'\n');path.chmod(0o600)
 def get(path,authenticated=True):

@@ -4,20 +4,20 @@ Production не переключался. Изменения Admin, MariaDB, DNS
 
 ## Раздельные артефакты
 
-- Обычная сборка: `pnpm predeploy:check` на Node 24. Артефакт `admin-dashboard/public-site/out/`; копия `/Users/ivan/YouNew-SEO-Evidence-2026-11-11/production-candidate-final.tar.gz`. Digest — в `VERIFICATION.json`.
+- Обычная сборка: `pnpm predeploy:check` на Node 24. Артефакт `admin-dashboard/public-site/out/`; копия `/Users/ivan/YouNew-SEO-Evidence-2026-11-11/production-candidate-g01.tar.gz`. Digest — в `VERIFICATION.json`.
 - Приватный review: `YOUNEW_GUIDE_REVIEW=1 pnpm build`. Он содержит `PRIVATE_REVIEW_ONLY`, не предназначен для production и отвергается проверкой predeploy. После него выполнить `node scripts/generate-guide-review.mjs` без флага, чтобы в Git оставалась пустая проекция.
-- Финальный QA-артефакт: `review-r4.tar.gz`, серверная приватная директория `/domains/qa-catalog.younew.nl/younew-private/seo-20261111-r4/`.
+- Финальный QA-артефакт: `review-r6.tar.gz`, серверная приватная директория `/domains/qa-catalog.younew.nl/younew-private/seo-20261111-r6/`.
 
 ## QA и восстановление
 
 Оператор `scripts/seo/hostinger-qa.py` допускает только существующий QA-домен, проверяет digest архива и каждого файла, не заменяет существующий release, сохраняет предыдущий указатель до переключения. Проверяет точные ответы 15 маршрутов, отказ 401 без аутентификации и noindex/no-store. Затем восстанавливает предыдущую страницу, сравнивает её байты и возвращает кандидат.
 
-Текущий QA release: `hp-seo-review-20261111-r4`. Предыдущий: `hp-seo-review-20261111-r3`. Исходный QA до этой задачи: `hp-editorial-20261110`; его указатель сохранён в `seo-20261111/qa-pointer-before.json`.
+Текущий QA release: `hp-seo-review-20261111-r6`. Предыдущий: `hp-seo-review-20261111-r5`. Исходный QA до этой задачи: `hp-editorial-20261110`; его указатель сохранён в `seo-20261111/qa-pointer-before.json`.
 
 Откат только последней QA-итерации:
 
 ```sh
-python3 /home/u246392949/domains/qa-catalog.younew.nl/younew-private/seo-20261111-r4/operator.py rollback
+python3 /home/u246392949/domains/qa-catalog.younew.nl/younew-private/seo-20261111-r6/operator.py rollback
 ```
 
 Возврат к исходному QA до задачи — прежним `seo-20261111/operator.py rollback`. Архивы, releases и обе копии указателя сохранять; не удалять рабочие базы.

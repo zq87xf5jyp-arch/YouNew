@@ -13,6 +13,10 @@ versions follow semantic versioning.
 
 ### Changed
 
+- Keep Admin browser CI on the hosted image’s official HTTPS Ubuntu mirrors after repeated Azure mirror DNS failures; bound installation waits without skipping dependencies or tests.
+
+- Clarify the G01 EN/NL registration deadline, appointment and processing time against current official sources; prepare a separately hashed owner-review package without publishing.
+
 - BreadcrumbList follows visible navigation; global meta-keywords and travel category metadata are removed. Public guide IDs and EN compatibility payloads remain stable; reviewed NL payloads pass the importer and search, and explicit upgrades preserve historical editorial approvals.
 
 
