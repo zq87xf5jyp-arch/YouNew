@@ -13,7 +13,7 @@ versions follow semantic versioning.
 
 ### Changed
 
-- Keep Admin browser CI on the hosted image’s official HTTPS Ubuntu mirrors after repeated Azure mirror DNS failures; bound installation waits without skipping dependencies or tests.
+- Run isolated Admin CI in the official, digest-pinned Playwright image matching the installed test version, avoiding repeated Ubuntu mirror DNS failures while preserving the full role/viewport matrix.
 
 - Clarify the G01 EN/NL registration deadline, appointment and processing time against current official sources; prepare a separately hashed owner-review package without publishing.
 
