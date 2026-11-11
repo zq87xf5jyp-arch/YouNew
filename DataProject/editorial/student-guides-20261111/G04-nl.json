@@ -1,0 +1,291 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-student-health-insurance",
+  "slug": "leiden-student-health-insurance",
+  "locale": "nl",
+  "title": "Zorgverzekering als student: controleer je situatie",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Studie, werk en stage kunnen andere verzekeringsplichten geven. Controleer je situatie vóór je dekking kiest.",
+    "sourceIDs": [
+      "svb-student"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "Internationale studenten, ook wanneer zij gaan werken of stage lopen.",
+    "sourceIDs": [
+      "svb-student"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "Vóór aankomst en bij wijzigingen in werk of stage.",
+    "sourceIDs": [
+      "student-insurance"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "national",
+    "countryCode": "NL",
+    "municipalityDependent": false,
+    "note": "Landelijke regels; lokale startpunten voor studenten in Leiden.",
+    "sourceIDs": [
+      "svb-student"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "Vóór aankomst en bij wijzigingen in werk of stage.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "Verzamel studie-, werk- of stagegegevens en je huidige polis; controleer de SVB-aanvraag op vereiste bewijsstukken.",
+      "sourceIDs": [
+        "svb-work",
+        "student-insurance"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Beoordeling en ingangsdatum hangen af van de situatie; hier is geen behandelingstermijn bevestigd.",
+    "sourceIDs": [
+      "svb-work"
+    ]
+  },
+  "estimatedCost": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Premies en eigen betalingen hangen af van verzekering en polis. Een algemene studentenprijs is niet bevestigd.",
+    "sourceIDs": [
+      "student-insurance"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Bepaal je situatie",
+      "body": "Bij uitsluitend studie is Nederlandse basisverzekering meestal niet verplicht. Werk of betaalde stage kan dit veranderen; uitzonderingen gelden.",
+      "sourceIDs": [
+        "svb-student"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Gebruik de juiste SVB-route",
+      "body": "Lees de actuele studenten- en stageregels. Vraag SVB om beoordeling bij onduidelijkheid over je verzekeringspositie.",
+      "sourceIDs": [
+        "svb-student",
+        "svb-work"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Controleer de dekking",
+      "body": "Vraag je verzekeraar naar de studieperiode, bestaande aandoeningen, ziekenhuiszorg en repatriëring. Bewaar bevestiging.",
+      "sourceIDs": [
+        "student-insurance"
+      ],
+      "municipalityDependent": false
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "Kies een polis niet alleen omdat een andere student die heeft.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "Een Nederlands adres bepaalt op zichzelf niet de Wlz-positie van elke internationale student.",
+      "sourceIDs": [
+        "svb-student"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "Bereid inschrijving bij een huisarts voor zodra de dekking duidelijk is.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "Bij uitsluitend studie is Nederlandse basisverzekering meestal niet verplicht. Werk of betaalde stage kan dit veranderen; uitzonderingen gelden.",
+      "sourceIDs": [
+        "svb-student"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Lees de actuele studenten- en stageregels. Vraag SVB om beoordeling bij onduidelijkheid over je verzekeringspositie.",
+      "sourceIDs": [
+        "svb-student",
+        "svb-work"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "Vraag je verzekeraar naar de studieperiode, bestaande aandoeningen, ziekenhuiszorg en repatriëring. Bewaar bevestiging.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "Alleen studeren?",
+      "answer": "Controleer de studieroute en uitzonderingen; regel wel passende zorgdekking.",
+      "sourceIDs": [
+        "svb-student",
+        "student-insurance"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "Begin je met werk?",
+      "answer": "Controleer opnieuw bij SVB en je verzekeraar vóór de wijziging.",
+      "sourceIDs": [
+        "svb-work"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "Is EHIC genoeg?",
+      "answer": "Vraag de thuislandverzekeraar naar duur en dekking; de kaart beschrijft niet alle voorwaarden.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "Deze gids beslist niet over jouw situatie. Vraag hulp aan de verantwoordelijke instantie.",
+      "sourceIDs": [
+        "svb-student"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Controleer vóór je handelt",
+      "body": "Gebruik voor stages de regels vanaf september 2025. Woonland, vergoeding en werknemersverzekering kunnen relevant zijn.",
+      "sourceIDs": [
+        "svb-student"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "svb-student",
+      "title": "Studies and internships",
+      "publisher": "SVB",
+      "url": "https://svb.nl/en/the-wlz-scheme/insurance-under-the-wlz-scheme/you-are-a-student-or-doing-an-internship",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "svb-work",
+      "title": "Working in the Netherlands",
+      "publisher": "SVB",
+      "url": "https://svb.nl/en/the-wlz-scheme/insurance-under-the-wlz-scheme/you-work-in-the-netherlands",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "student-insurance",
+      "title": "Health and liability insurance",
+      "publisher": "Leiden University",
+      "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/insurance/health-insurance",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Officiële instructies",
+      "value": "https://svb.nl/en/the-wlz-scheme/insurance-under-the-wlz-scheme/you-are-a-student-or-doing-an-internship",
+      "sourceIDs": [
+        "svb-student"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "Bereid inschrijving bij een huisarts voor zodra de dekking duidelijk is.",
+      "sourceIDs": [
+        "student-insurance"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew legt officiële informatie uit. Het is geen overheidsdienst of persoonlijk juridisch of medisch advies.",
+  "status": "draft",
+  "seo": {
+    "title": "Zorgverzekering als student: controleer je situatie",
+    "description": "Studie, werk en stage kunnen andere verzekeringsplichten geven. Controleer je situatie vóór je dekking kiest. Officiële bronnen en een gedateerde checklist.",
+    "canonicalPath": "/nl/gidsen/leiden-student-health-insurance"
+  },
+  "synonyms": [
+    "leiden student health insurance"
+  ],
+  "commonQuestions": [
+    "Alleen studeren?",
+    "Begin je met werk?",
+    "Is EHIC genoeg?"
+  ]
+}

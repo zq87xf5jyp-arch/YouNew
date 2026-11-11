@@ -1,0 +1,24 @@
+{
+  "checkedAt": "2026-11-11T13:45:13.554280+00:00",
+  "sitemapUrls": 608,
+  "http200": 608,
+  "metadataKeywords": 608,
+  "categoryTravel": 608,
+  "canonicalH1RobotsHreflangIssues": [],
+  "publicStats": {
+    "entities": 76,
+    "cities": 5,
+    "guides": 17,
+    "practicalGuides": 0,
+    "summaryGuides": 17,
+    "organizations": 0,
+    "places": 54,
+    "categories": 33,
+    "provinces": 3
+  },
+  "municipalSitemapUrls": 343,
+  "GSC": "N/A: current Google session displays Add site; no verified property data visible",
+  "AppStoreConnect": "N/A: login required",
+  "fullGuidesInProduction": 0,
+  "analyticsGuideMetrics": "disabled; approval required"
+}

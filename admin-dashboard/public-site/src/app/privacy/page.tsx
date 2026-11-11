@@ -1,3 +1,4 @@
+import siteConfig from "@/config/site-config.json";
 import { ContentPage } from "@/components/content-page";
 import { links } from "@/lib/site-data";
 import { metadataForPage } from "@/lib/seo/metadata";
@@ -38,6 +39,7 @@ export default function PrivacyPage() {
       <p>
         New website analytics is processed on YouNew&apos;s Hostinger hosting in the Netherlands. The protected store is outside the public website folder and keeps only event types, broad page sections, language, result counts, timings and one-way keyed identifiers for duplicate prevention and daily browser-tab counts. Raw identifiers, full page paths and raw IP addresses are not retained in this store. The private report contains aggregated counts and is available through the authenticated hosting account. Scheduled maintenance removes events after 89 days; the daily recovery snapshot can lag by up to one day. Hosting backups are separate and expire under Hostinger&apos;s backup schedule; restores must run retention maintenance before reporting resumes. Hostinger may process IP addresses in its connection and security logs. Earlier Supabase analytics is not imported or changed by this migration; the historical dashboard still uses its original storage.
       </p>
+      {siteConfig.analytics.guideMetricsEnabled ? <p>With renewed consent, guide analytics also stores an allowlisted public guide ID, active visible reading time and one official action per guide, language and browser-tab session per UTC day. Only the browser stores the previous visit date. The server receives an optional yes/no flag for a visit 7–30 days earlier, without a persistent visitor identifier. Withdrawing consent removes this local date and guide-session measurements. Small samples and unavailable return measurements are reported separately.</p> : null}
       <p>
         The iOS app does not currently upload product analytics. It contains no advertising SDK or cross-app tracking. The app privacy controls and App Store privacy information will be updated before iOS analytics is enabled.
       </p>

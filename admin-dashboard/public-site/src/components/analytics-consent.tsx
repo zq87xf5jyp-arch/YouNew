@@ -12,7 +12,7 @@ import {
 
 type ConsentChoice = "accepted" | "declined";
 
-const consentStorageKey = "younew.analytics-consent.2026-07-28";
+const consentStorageKey = siteConfig.analytics.guideMetricsEnabled ? "younew.analytics-consent.2026-11-11-guides" : "younew.analytics-consent.2026-07-28";
 const appInstanceStorageKey = "younew.analytics-app-instance";
 const sessionStorageKey = "younew.analytics-session";
 
@@ -67,7 +67,7 @@ function clearAnalyticsSession() {
 
 export function AnalyticsConsent() {
   const pathname = usePathname();
-  const nl = pathname.startsWith("/nl");
+  const nl = pathname.startsWith("/nl") || /^\/review\/guides\/[^/]+\/nl\/?$/.test(pathname);
   const providerRef = useRef<AnalyticsProvider | undefined>(undefined);
   const consentGrantPendingRef = useRef(false);
   const [choice, setChoice] = useState<ConsentChoice | null>(null);
@@ -82,12 +82,12 @@ export function AnalyticsConsent() {
   }, []);
 
   useEffect(() => {
-    if (!isReady || choice !== "accepted" || !siteConfig.analytics.enabled) return;
+    if (!isReady || choice !== "accepted" || !siteConfig.analytics.enabled || pathname.startsWith("/review/")) return;
 
     let provider: AnalyticsProvider;
     try {
       provider = createHostingerAnalyticsProvider({
-        configuration: siteConfig.analytics,
+        configuration: {...siteConfig.analytics, consentVersion: siteConfig.analytics.guideMetricsEnabled ? "2026-11-11-guides" : siteConfig.analytics.consentVersion},
         appInstanceId: sessionIdentifier(appInstanceStorageKey),
         sessionId: sessionIdentifier(sessionStorageKey)
       });
@@ -96,6 +96,7 @@ export function AnalyticsConsent() {
     }
     providerRef.current = provider;
     window.__YOUNEW_ANALYTICS__ = provider;
+    window.dispatchEvent(new Event("younew:analytics-ready"));
     if (consentGrantPendingRef.current) {
       provider.track({ name: "analytics_consent_granted" });
       consentGrantPendingRef.current = false;
@@ -135,6 +136,11 @@ export function AnalyticsConsent() {
     providerRef.current = undefined;
     saveConsent("declined");
     clearAnalyticsSession();
+    window.dispatchEvent(new Event("younew:analytics-declined"));
+    try {
+      localStorage.removeItem("younew.guide-last-visit.2026-11-11");
+      for (const key of Object.keys(sessionStorage)) if (key.startsWith("younew.guide-return.") || key.startsWith("younew.guide-active.")) sessionStorage.removeItem(key);
+    } catch { /* Storage may be unavailable. */ }
     setChoice("declined");
     setSettingsOpen(false);
   };
@@ -172,6 +178,7 @@ export function AnalyticsConsent() {
             </p>
           </div>
           <div className="analytics-consent-actions">
+            {siteConfig.analytics.guideMetricsEnabled ? <p>{nl ? "We tellen ook de openbare gids, actieve leestijd en vervolgklikken. Alleen lokaal bewaren we de vorige bezoekdatum. We versturen alleen of je 7–30 dagen geleden kwam, zonder blijvend bezoekers-ID." : "We also count the public guide, active reading time and next-step clicks. Only this browser keeps the previous visit date. We send only whether it was 7–30 days ago, without a persistent visitor ID."}</p> : null}
             <button type="button" className="button-secondary" onClick={decline}>
               {nl ? "Analytics weigeren" : "Decline analytics"}
             </button>

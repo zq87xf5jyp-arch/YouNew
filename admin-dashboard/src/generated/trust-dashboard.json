@@ -3,9 +3,9 @@
   "deprecated": true,
   "replacement": "release-truth.json",
   "title": "Deprecated release-truth compatibility projection",
-  "generatedAt": "2026-11-10T21:57:22.000Z",
-  "snapshotID": "release-truth.b6e9bbc1d7d53672",
-  "snapshotDigest": "b6e9bbc1d7d53672e4722c7a2833b231e0285ed070b6348b1ff1310762cbcddb",
+  "generatedAt": "2026-11-11T14:52:51.000Z",
+  "snapshotID": "release-truth.9a19bff6d199a31f",
+  "snapshotDigest": "9a19bff6d199a31f9043f211873e2c118c759b56d2a78b9c14a2559d0a328ce5",
   "currentReleaseAuthority": "packaged-governed-runtime",
   "releaseAuthorityReason": "Packaged content is measured, while link health, exact-candidate CI, and full deployed-payload verification are not established.",
   "readiness": {

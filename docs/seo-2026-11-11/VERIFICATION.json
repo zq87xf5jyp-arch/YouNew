@@ -1,0 +1,157 @@
+{
+  "checkedAt": "2026-11-11",
+  "baseCommit": "7e806340808b7c8476c9da5f88ec83470d674374",
+  "branch": "feature/leiden-student-guides-20261111",
+  "contentDigest": "14aa6eae6864b4e6431d565c59630b74521ea199c18d968fce2e320f45271b66",
+  "productionChanged": false,
+  "productionCandidate": {
+    "sha256": "706725e41ed8a7003d92f42a36feb308bd27d724586c9fcd50a6aec49127f95f",
+    "bytes": 52312297,
+    "publicEntities": 76,
+    "fullGuides": 0,
+    "draftReviewEnabled": false,
+    "guideMetricsEnabled": false,
+    "deployed": false,
+    "artifact": "/Users/ivan/YouNew-SEO-Evidence-2026-11-11/production-candidate-g01.tar.gz"
+  },
+  "privateQa": {
+    "status": "PASS",
+    "artifactSha256": "155a925cf5db73a1dd56ebfc6daa8e3ee34d36d2a22541a3dd290c4635c9ddb6",
+    "anonymousDenied": true,
+    "rollbackRehearsed": true,
+    "productionChanged": false,
+    "checks": [
+      {
+        "path": "/review/guides/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-bsn/en/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-bsn/nl/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-digid/en/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-digid/nl/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-student-housing/en/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-student-housing/nl/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-student-health-insurance/en/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-student-health-insurance/nl/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-gp/en/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-gp/nl/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-registration/en/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/review/guides/leiden-registration/nl/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/leiden/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      },
+      {
+        "path": "/nl/leiden/",
+        "status": 200,
+        "exact": true,
+        "noindex": true,
+        "noStore": true
+      }
+    ]
+  },
+  "checks": {
+    "predeploy": "PASS: build, TypeScript, lint, tests, smoke, internal links, security, package isolation, upstream governance, data health",
+    "internalReferences": 36706,
+    "htmlFiles": 636,
+    "unitTests": 260,
+    "phpTests": 75,
+    "phpTestEnvironment": "Hostinger isolated CLI; live ingest unchanged",
+    "mobilePages": 12,
+    "desktopViewport": "1440x900",
+    "mobileViewport": "390x844",
+    "browserConsoleErrors": 0
+  },
+  "measurements": {
+    "GSC": null,
+    "AppStoreConnect": null,
+    "fieldCoreWebVitals": null,
+    "organicTraffic": null,
+    "additionalSpendEUR": 0
+  },
+  "limits": [
+    "New content and media need owner/editor approval.",
+    "Guide metrics disabled; weekly all-session median and whole-site return metric are not active.",
+    "Original source crawl covers 19 pages; G01 additionally checks Leiden EN and two RvIG pages; no complete external-site crawl is claimed.",
+    "Future weekly reviews and 90-day publications remain scheduled work."
+  ],
+  "g01ApprovalDigest": "201f67df72e89b75e9ba304ca24f7fb3b1ed2142a859eda80bcb4c2e70d6e699"
+}

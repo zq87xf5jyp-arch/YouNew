@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 1,
+  "status": "draft",
+  "preparedAt": "2026-11-11",
+  "ownerApproval": null,
+  "publicationAllowed": false,
+  "guides": [
+    {
+      "code": "G01",
+      "id": "guide.leiden-bsn",
+      "slug": "leiden-bsn",
+      "files": [
+        "G01-en.json",
+        "G01-nl.json"
+      ],
+      "blockers": [
+        "Owner EN/NL review of G01 including the documented official deadline wording difference",
+        "Owner review of the two original EN/NL workflow diagrams"
+      ]
+    },
+    {
+      "code": "G02",
+      "id": "guide.leiden-digid",
+      "slug": "leiden-digid",
+      "files": [
+        "G02-en.json",
+        "G02-nl.json"
+      ],
+      "blockers": [
+        "Owner EN/NL review",
+        "Confirm price statement or retain explicit unknown"
+      ]
+    },
+    {
+      "code": "G03",
+      "id": "guide.leiden-student-housing",
+      "slug": "leiden-student-housing",
+      "files": [
+        "G03-en.json",
+        "G03-nl.json"
+      ],
+      "blockers": [
+        "Owner EN/NL review",
+        "Recheck semester availability and fee immediately before release"
+      ]
+    },
+    {
+      "code": "G04",
+      "id": "guide.leiden-student-health-insurance",
+      "slug": "leiden-student-health-insurance",
+      "files": [
+        "G04-en.json",
+        "G04-nl.json"
+      ],
+      "blockers": [
+        "Owner EN/NL review",
+        "Recheck 2027 policy terms; do not invent premiums"
+      ]
+    },
+    {
+      "code": "G05",
+      "id": "guide.leiden-gp",
+      "slug": "leiden-gp",
+      "files": [
+        "G05-en.json",
+        "G05-nl.json"
+      ],
+      "blockers": [
+        "Owner EN/NL review",
+        "Confirm practice availability only if naming providers"
+      ]
+    },
+    {
+      "code": "G06",
+      "id": "guide.leiden-registration",
+      "slug": "leiden-registration",
+      "files": [
+        "G06-en.json",
+        "G06-nl.json"
+      ],
+      "blockers": [
+        "Owner EN/NL review"
+      ]
+    }
+  ]
+}

@@ -302,6 +302,38 @@ def validate_importer_projection(importer, schema, records):
     expect(projected["practicalGuide"]["numberedSteps"][0]["sourceIDs"] == ["source.fixture"], "runtime projection lost per-fact source IDs")
     expect(projected["coordinate"] == {"latitude": 52, "longitude": 4}, "integral coordinate floats were not normalized for cross-language checksum stability")
 
+    # A translated payload must survive the complete importer bridge, with
+    # independent language evidence. Draft translations never enter the runtime.
+    localized = copy.deepcopy(record)
+    nl = copy.deepcopy(guide)
+    nl.update(locale="nl", title="Nederlandse testinstructie")
+    nl["seo"]["canonical_path"] = "/nl/gidsen/qa-fixture"
+    nl["publication_gate"]["evidence_ids"] = ["evidence.qa-fixture-nl"]
+    localized["practical_guide_locales"] = {"nl": nl}
+    localized_reviewers = copy.deepcopy(reviewers)
+    localized_reviewers["reviewer.qa-fixture-human"]["locales"].append("nl")
+    localized_evidence = {**evidence, "evidence.qa-fixture-nl": {**evidence["evidence.qa-fixture"], "id": "evidence.qa-fixture-nl", "locale": "nl"}}
+    importer.validate_schema(localized, schema, schema, "localized fixture")
+    importer.validate_published_practical_guide(localized, "localized fixture", localized_reviewers, localized_evidence)
+    translated_runtime = importer.runtime_entity(localized, "qa-fixture-v1.0.0")
+    expect(translated_runtime["practicalGuide"] == projected["practicalGuide"], "translation changed the English compatibility payload")
+    expect(translated_runtime["practicalGuideLocales"]["nl"]["seo"]["canonicalPath"] == "/nl/gidsen/qa-fixture", "Dutch runtime lost its route")
+    for mutation in ("no_nl_reviewer", "english_evidence", "missing_english", "wrong_route"):
+        candidate = copy.deepcopy(localized)
+        selected_reviewers = localized_reviewers
+        if mutation == "no_nl_reviewer": selected_reviewers = reviewers
+        if mutation == "english_evidence": candidate["practical_guide_locales"]["nl"]["publication_gate"]["evidence_ids"] = ["evidence.qa-fixture"]
+        if mutation == "missing_english": candidate.pop("practical_guide")
+        if mutation == "wrong_route": candidate["practical_guide_locales"]["nl"]["seo"]["canonical_path"] = "/guides/qa-fixture"
+        try:
+            importer.validate_published_practical_guide(candidate, mutation, selected_reviewers, localized_evidence)
+        except importer.ImportFailure:
+            pass
+        else:
+            fail(f"localized publication gate accepted {mutation}")
+    localized["practical_guide_locales"]["nl"]["status"] = "draft"
+    expect("practicalGuideLocales" not in importer.runtime_entity(localized, "qa-fixture-v1.0.0"), "draft translation leaked into runtime")
+
     broken = copy.deepcopy(record)
     broken["practical_guide"]["numbered_steps"][0]["source_ids"] = ["source.missing"]
     try:

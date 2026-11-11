@@ -35,7 +35,11 @@ async function treeFingerprint(root) {
   return result;
 }
 
+const guideReview = JSON.parse(await readFile(join(siteRoot, "src/generated/guide-review.json"), "utf8"));
+assert.equal(guideReview.enabled, false, "Production must use the disabled review projection");
+assert.deepEqual(guideReview.guides, [], "Editorial payloads must be absent from production modules");
 const outFiles = await files(outRoot);
+assert.ok(!outFiles.some(p => relative(outRoot,p) === "PRIVATE_REVIEW_ONLY" || relative(outRoot,p).startsWith("review/")), "Private review artifacts must never be deployed to production");
 const htmlFiles = outFiles.filter((path) => extname(path) === ".html");
 const sitemap = await readFile(join(outRoot, "sitemap.xml"), "utf8");
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].replaceAll("&amp;", "&"));
@@ -130,6 +134,7 @@ const publicContent = JSON.parse(await readFile(join(siteRoot, "src/generated/pu
 assert.ok(publicContent.entities.every((entity) => entity.status === "published"));
 assert.equal(publicContent.stats.practicalGuides + publicContent.stats.summaryGuides, publicContent.stats.guides);
 assert.ok(publicContent.entities.every((entity) => entity.practicalGuide == null || entity.practicalGuide.status === "published"));
+assert.ok(publicContent.entities.every((entity) => Object.values(entity.practicalGuideLocales ?? {}).every(guide => guide.status === "published")));
 const searchIndex = JSON.parse(await readFile(join(outRoot, "data/search-index.json"), "utf8"));
 for (const entity of publicContent.entities.filter((entity) => !entity.indexable)) {
   assert.ok(!searchIndex.documents.some((document) => document.id === entity.id), `Non-indexable record leaked into search: ${entity.id}`);

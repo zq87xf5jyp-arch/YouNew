@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "asOf": "2026-11-10",
+  "asOf": "2026-11-11",
   "policy": "fail_closed_until_field_level_reverification",
   "source": "scripts/generate-public-freshness-exclusions.py",
   "count": 0,

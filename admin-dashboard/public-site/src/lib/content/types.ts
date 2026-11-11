@@ -223,7 +223,12 @@ export interface PracticalGuide {
   readonly commonQuestions: readonly string[];
 }
 
+export type PracticalGuideDraft = Omit<PracticalGuide, "reviewer" | "publicationGate" | "status" | "confidenceLevel"> & {
+  readonly reviewer: null; readonly publicationGate: null; readonly status: "draft"; readonly confidenceLevel: "pending_review";
+};
+
 export interface ContentEntity {
+  readonly practicalGuideLocales?: Readonly<Partial<Record<"en" | "nl", PracticalGuide>>>;
   readonly editorial?: EditorialContent;
   readonly placeDetails?: PublicPlaceDetails | null;
   readonly id: string;
