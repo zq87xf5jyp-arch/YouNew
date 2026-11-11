@@ -1,0 +1,14 @@
+week,from,to,task,owner_role,hours,status,publication_gate
+1,2026-11-11,2026-11-17,"Baseline: GSC/Apple access, inventory, sitemap and sources",Technical + Content + Owner,10,in_progress,owner approval for publication
+2,2026-11-18,2026-11-24,"Full EN/NL template, breadcrumb, metadata, isolated QA",Technical + Content + Owner,10,in_progress,owner approval for publication
+3,2026-11-25,2026-12-01,Owner review G01: registration/BSN; resolve deadline wording,Technical + Content + Owner,10,planned,owner approval for publication
+4,2026-12-02,2026-12-08,Release G01 after approval; review G02 DigiD,Technical + Content + Owner,10,planned,owner approval for publication
+5,2026-12-09,2026-12-15,Release G02 after approval; review G03 housing,Technical + Content + Owner,10,planned,owner approval for publication
+6,2026-12-16,2026-12-22,Release G03 after approval; consented guide metrics after separate approval,Technical + Content + Owner,10,planned,owner approval for publication
+7,2026-12-23,2026-12-29,Source and link checks; user questions; weekly report,Technical + Content + Owner,5,planned,owner approval for publication
+8,2026-12-30,2027-01-05,"Recheck rules, deadlines and fees for 2027",Technical + Content + Owner,5,planned,owner approval for publication
+9,2027-01-06,2027-01-12,Owner review G04 insurance branches,Technical + Content + Owner,10,planned,owner approval for publication
+10,2027-01-13,2027-01-19,Release G04 after approval; review G05 GP,Technical + Content + Owner,10,planned,owner approval for publication
+11,2027-01-20,2027-01-26,Release G05 after approval; review G06 address change,Technical + Content + Owner,10,planned,owner approval for publication
+12,2027-01-27,2027-02-02,Release G06 after approval; prepare 4-6 outreach drafts,Technical + Content + Owner,10,planned,owner approval for publication
+13,2027-02-03,2027-02-08,"Technical recheck, rollback, quarter report and next backlog",Technical + Content + Owner,10,planned,owner approval for publication

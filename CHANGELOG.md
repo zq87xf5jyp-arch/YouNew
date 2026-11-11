@@ -5,6 +5,17 @@ versions follow semantic versioning.
 
 ## [Unreleased]
 
+### Added
+
+- Private EN/NL review for six Leiden student guide drafts, a shared full-guide renderer, source-linked claims and explicit editorial gates.
+- Disabled-by-default Hostinger guide metrics with renewed consent, bounded public IDs, deduplicated official actions and local-only return dates.
+- A 50-query map, 90-day delivery board, nine guide briefs, unsent outreach drafts and an N/A-safe weekly report.
+
+### Changed
+
+- BreadcrumbList follows visible navigation; global meta-keywords and travel category metadata are removed. Public guide IDs and EN compatibility payloads remain stable; reviewed NL payloads pass the importer and search, and explicit upgrades preserve historical editorial approvals.
+
+
 - Correct the editorial deployment form probe to supply its same-origin context and record verified production activation with a successful automatic rollback.
 
 - Publish the exact 71-item owner-approved editorial batch as 142 English/Dutch

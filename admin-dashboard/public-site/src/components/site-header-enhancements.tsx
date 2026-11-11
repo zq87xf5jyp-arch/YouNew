@@ -20,7 +20,7 @@ export function SiteHeaderEnhancements() {
   const pathname = usePathname();
 
   useEffect(() => {
-    document.documentElement.lang = pathname === "/nl" || pathname.startsWith("/nl/") ? "nl" : "en";
+    document.documentElement.lang = pathname === "/nl" || pathname.startsWith("/nl/") || /^\/review\/guides\/[^/]+\/nl\/?$/.test(pathname) ? "nl" : "en";
     const header = document.querySelector<HTMLElement>("[data-site-header]");
     if (!header) return;
 

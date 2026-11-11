@@ -10,6 +10,7 @@ if [[ ! -f "$next_cli" ]]; then
   next_cli="$project_root/../node_modules/next/dist/bin/next"
 fi
 
+"$node_command" scripts/generate-guide-review.mjs
 "$node_command" ../scripts/generate-governed-runtime.mjs
 python3 ../../scripts/generate-public-freshness-exclusions.py
 "$node_command" scripts/generate-public-content.mjs
@@ -40,6 +41,11 @@ rm -rf \
   "$project_root/out/guides/__no-published-guides__" \
   "$project_root/out/places/__no-published-places__" \
   "$project_root/out/cities/__no-published-cities__"
+if [[ "${YOUNEW_GUIDE_REVIEW:-0}" != "1" ]]; then
+  rm -rf "$project_root/out/review"
+else
+  printf 'private-editorial-review-only\n' > "$project_root/out/PRIVATE_REVIEW_ONLY"
+fi
 "$node_command" scripts/set-static-document-language.mjs
 "$node_command" scripts/strip-static-client.mjs
 "$node_command" scripts/finalize-service-worker.mjs

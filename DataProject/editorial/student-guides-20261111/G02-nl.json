@@ -1,0 +1,287 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-digid",
+  "slug": "leiden-digid",
+  "locale": "nl",
+  "title": "DigiD aanvragen en activeren",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Vraag aan met je geregistreerde gegevens en activeer met de brief.",
+    "sourceIDs": [
+      "digid-apply"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "Studenten met een geregistreerd Nederlands adres die overheidszaken online willen regelen.",
+    "sourceIDs": [
+      "digid-apply"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "Zodra je BSN en adresregistratie beschikbaar zijn.",
+    "sourceIDs": [
+      "brp"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "national",
+    "countryCode": "NL",
+    "municipalityDependent": false,
+    "note": "Landelijke regels; lokale startpunten voor studenten in Leiden.",
+    "sourceIDs": [
+      "digid-apply"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "Zodra je BSN en adresregistratie beschikbaar zijn.",
+      "sourceIDs": [
+        "brp"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "Activeringsbrief, accountgegevens en telefoon; volg de instructies van je gekozen methode.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "known",
+    "value": "Brief binnen vijf werkdagen",
+    "currency": null,
+    "note": "DigiD vermeldt ontvangst van de brief binnen vijf werkdagen.",
+    "sourceIDs": [
+      "digid-apply"
+    ]
+  },
+  "estimatedCost": {
+    "state": "unknown",
+    "value": null,
+    "currency": null,
+    "note": "Een afzonderlijke prijsvermelding is in deze bronnen niet bevestigd; controleer vóór publicatie.",
+    "sourceIDs": [
+      "digid-apply"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Bereid voor",
+      "body": "Houd je BSN, geregistreerde adres en telefoon bij de hand.",
+      "sourceIDs": [
+        "digid-apply"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Vraag zelf aan",
+      "body": "Open het officiële aanvraagformulier. Houd gebruikersnaam en wachtwoord privé.",
+      "sourceIDs": [
+        "digid-apply"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Activeer",
+      "body": "Gebruik de briefcode in de DigiD-app of op de website. DigiD noemt een activeringstermijn van 21 dagen.",
+      "sourceIDs": [
+        "digid-activate"
+      ],
+      "municipalityDependent": false
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "Geef een helper nooit je wachtwoord of activeringscode.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "Aanvragen is niet hetzelfde als het account activeren.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "Test toegang bij een officiële dienst; zet inloggegevens niet in hulpberichten.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "Houd je BSN, geregistreerde adres en telefoon bij de hand.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Open het officiële aanvraagformulier. Houd gebruikersnaam en wachtwoord privé.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "Gebruik de briefcode in de DigiD-app of op de website. DigiD noemt een activeringstermijn van 21 dagen.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "Geen brief?",
+      "answer": "Wacht vijf werkdagen, controleer het geregistreerde adres en gebruik DigiD-hulp voor een ontbrekende brief.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "Buitenlandse telefoon?",
+      "answer": "Controleer of sms aankomt. DigiD beschrijft ook een gesproken code wanneer sms niet lukt.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "Code verlopen?",
+      "answer": "Volg de activeringspagina: zonder tijdige activering is opnieuw aanvragen nodig.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "Deze gids beslist niet over jouw situatie. Vraag hulp aan de verantwoordelijke instantie.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Controleer vóór je handelt",
+      "body": "Verhuis je opnieuw? Controleer je geregistreerde adres vóór de aanvraag.",
+      "sourceIDs": [
+        "digid-activate"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "digid-apply",
+      "title": "DigiD aanvragen",
+      "publisher": "DigiD",
+      "url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "digid-activate",
+      "title": "DigiD activeren",
+      "publisher": "DigiD",
+      "url": "https://www.digid.nl/aanvragen-en-activeren/digid-activeren",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "brp",
+      "title": "When to register",
+      "publisher": "NetherlandsWorldwide",
+      "url": "https://www.netherlandsworldwide.nl/personal-records-database-brp/when-register",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Officiële instructies",
+      "value": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "Test toegang bij een officiële dienst; zet inloggegevens niet in hulpberichten.",
+      "sourceIDs": [
+        "digid-apply"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew legt officiële informatie uit. Het is geen overheidsdienst of persoonlijk juridisch of medisch advies.",
+  "status": "draft",
+  "seo": {
+    "title": "DigiD aanvragen en activeren",
+    "description": "Vraag aan met je geregistreerde gegevens en activeer met de brief. Officiële bronnen en een gedateerde checklist.",
+    "canonicalPath": "/nl/gidsen/leiden-digid"
+  },
+  "synonyms": [
+    "leiden digid"
+  ],
+  "commonQuestions": [
+    "Geen brief?",
+    "Buitenlandse telefoon?",
+    "Code verlopen?"
+  ]
+}

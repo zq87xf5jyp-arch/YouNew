@@ -7,6 +7,8 @@ export function businessLanguageHref(href: string, pathname: string, action: str
 
 export function localizedCounterpart(path: string): { en: string; nl: string } | null {
   const normalized = path === "/" ? "/" : `/${path.replace(/^\/+|\/+$/g, "")}`;
+  const review = normalized.match(/^\/review\/guides\/([a-z0-9-]+)\/(en|nl)$/);
+  if (review) return {en:`/review/guides/${review[1]}/en`,nl:`/review/guides/${review[1]}/nl`};
   const editorial=editorialRoutes.find(pair=>pair.en===normalized || pair.nl===normalized);
   if(editorial)return editorial;
   const pairs: Array<[RegExp, (match: RegExpMatchArray) => string, (match: RegExpMatchArray) => string]> = [

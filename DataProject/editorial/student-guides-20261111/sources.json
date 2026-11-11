@@ -1,0 +1,173 @@
+[
+  {
+    "id": "leiden-arrival",
+    "title": "Moving to Leiden from abroad",
+    "publisher": "Gemeente Leiden",
+    "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "brp",
+    "title": "When to register",
+    "publisher": "NetherlandsWorldwide",
+    "url": "https://www.netherlandsworldwide.nl/personal-records-database-brp/when-register",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "rni",
+    "title": "Registration of non-residents",
+    "publisher": "RvIG",
+    "url": "https://www.rvig.nl/registratie-niet-ingezetenen-voor-burgers",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "legalise",
+    "title": "Legalisation of foreign documents",
+    "publisher": "NetherlandsWorldwide",
+    "url": "https://www.netherlandsworldwide.nl/legalisation/foreign-documents",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "bsn",
+    "title": "Citizen service number",
+    "publisher": "NetherlandsWorldwide",
+    "url": "https://www.netherlandsworldwide.nl/bsn",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "digid-apply",
+    "title": "DigiD aanvragen",
+    "publisher": "DigiD",
+    "url": "https://www.digid.nl/aanvragen-en-activeren/digid-aanvragen",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "digid-activate",
+    "title": "DigiD activeren",
+    "publisher": "DigiD",
+    "url": "https://www.digid.nl/aanvragen-en-activeren/digid-activeren",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "housing-office",
+    "title": "Housing via Leiden University",
+    "publisher": "Leiden University",
+    "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/housing/via-leiden-university-housing-office",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "housing-search",
+    "title": "Finding housing yourself",
+    "publisher": "Leiden University",
+    "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/housing/finding-housing-yourself",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "svb-student",
+    "title": "Studies and internships",
+    "publisher": "SVB",
+    "url": "https://svb.nl/en/the-wlz-scheme/insurance-under-the-wlz-scheme/you-are-a-student-or-doing-an-internship",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "svb-work",
+    "title": "Working in the Netherlands",
+    "publisher": "SVB",
+    "url": "https://svb.nl/en/the-wlz-scheme/insurance-under-the-wlz-scheme/you-work-in-the-netherlands",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "student-insurance",
+    "title": "Health and liability insurance",
+    "publisher": "Leiden University",
+    "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/insurance/health-insurance",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "gp-choice",
+    "title": "Choosing and changing a GP",
+    "publisher": "Rijksoverheid",
+    "url": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/eerstelijnszorg/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "gp-university",
+    "title": "Registering with a doctor",
+    "publisher": "Leiden University",
+    "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/insurance/registering-with-a-doctor",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "gp-cost",
+    "title": "GP costs and insurance",
+    "publisher": "Rijksoverheid",
+    "url": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/eerstelijnszorg/vraag-en-antwoord/eerstelijnszorg/huisartskosten-op-zorgnota",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "gp-help",
+    "title": "Choosing a GP",
+    "publisher": "Thuisarts / NHG",
+    "url": "https://www.thuisarts.nl/inschrijven-bij-huisarts",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "leiden-move",
+    "title": "Report a move to or within Leiden",
+    "publisher": "Gemeente Leiden",
+    "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/verhuizen/verhuizing-naar-of-in-leiden-doorgeven/",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "move-national",
+    "title": "Inform the municipality of a change of address",
+    "publisher": "Government.nl",
+    "url": "https://www.government.nl/documents/question-and-answer/how-do-i-inform-the-municipality-of-a-change-of-address",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  },
+  {
+    "id": "move-ind",
+    "title": "Change of address and IND",
+    "publisher": "Government.nl",
+    "url": "https://www.government.nl/themes/migration-and-travel/immigration-to-the-netherlands/question-and-answer/as-a-foreign-national-do-i-need-to-inform-the-immigration-and-naturalisation-service-ind-if-i-move",
+    "isOfficial": true,
+    "status": "verified_opened",
+    "checkedAt": "2026-11-11"
+  }
+]

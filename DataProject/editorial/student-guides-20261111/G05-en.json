@@ -1,0 +1,318 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-gp",
+  "slug": "leiden-gp",
+  "locale": "en",
+  "title": "Register with a GP in Leiden",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Find a nearby practice, confirm acceptance and ask about the documents and coverage you need.",
+    "sourceIDs": [
+      "gp-university"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "Students settling in Leiden who need a regular huisarts.",
+    "sourceIDs": [
+      "gp-university"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "Arrange this before you need routine care, where possible.",
+    "sourceIDs": [
+      "gp-help"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "national",
+    "countryCode": "NL",
+    "municipalityDependent": false,
+    "note": "National rules; local starting points for Leiden students.",
+    "sourceIDs": [
+      "gp-choice"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "Arrange this before you need routine care, where possible.",
+      "sourceIDs": [
+        "gp-help"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "ID and insurance evidence; confirm the practice’s own requirements rather than sending medical records to YouNew.",
+      "sourceIDs": [
+        "gp-university"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Acceptance and appointment availability must be confirmed by the practice.",
+    "sourceIDs": [
+      "gp-choice"
+    ]
+  },
+  "estimatedCost": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Under Dutch basic insurance, a GP visit is outside the mandatory deductible; tests or medicines may be different. Check foreign-policy reimbursement separately.",
+    "sourceIDs": [
+      "gp-cost"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Find nearby practices",
+      "body": "Use the university’s doctor page as a starting point, then contact the practice directly about current acceptance.",
+      "sourceIDs": [
+        "gp-university"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Check requirements",
+      "body": "Prepare ID and proof of insurance. Ask about any other registration data and the payment process for your cover.",
+      "sourceIDs": [
+        "gp-university",
+        "gp-cost"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Confirm and transfer",
+      "body": "After acceptance, inform your previous GP and request transfer of the medical record to the new practice.",
+      "sourceIDs": [
+        "gp-choice"
+      ],
+      "municipalityDependent": false
+    },
+    {
+      "id": "step.4",
+      "position": 4,
+      "title": "If practices are full",
+      "body": "Ask your insurer for help finding a GP. Thuisarts also lists Zorgbelang for concerns about refusal.",
+      "sourceIDs": [
+        "gp-choice",
+        "gp-help"
+      ],
+      "municipalityDependent": false
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "Do not postpone urgent care while waiting for routine registration; use the appropriate healthcare contact.",
+      "sourceIDs": [
+        "gp-help"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "Do not assume that every test or medicine is covered like the GP consultation.",
+      "sourceIDs": [
+        "gp-cost"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "Keep the practice’s contact instructions available and update them after moving.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "Use the university’s doctor page as a starting point, then contact the practice directly about current acceptance.",
+      "sourceIDs": [
+        "gp-university"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Prepare ID and proof of insurance. Ask about any other registration data and the payment process for your cover.",
+      "sourceIDs": [
+        "gp-university",
+        "gp-cost"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "After acceptance, inform your previous GP and request transfer of the medical record to the new practice.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    },
+    {
+      "id": "check.3",
+      "text": "Ask your insurer for help finding a GP. Thuisarts also lists Zorgbelang for concerns about refusal.",
+      "sourceIDs": [
+        "gp-choice",
+        "gp-help"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "Everyone says no?",
+      "answer": "Ask the insurer to help or mediate.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "Only foreign insurance?",
+      "answer": "Ask the practice and insurer about payment and reimbursement before a routine appointment.",
+      "sourceIDs": [
+        "gp-university",
+        "gp-cost"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "Previous medical records?",
+      "answer": "Ask the old practice to transfer the record securely to the new GP.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "This guide cannot decide your personal case. Use the responsible institution for help.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Check before acting",
+      "body": "Distance and capacity can limit your choice. A listed practice is not a promise of a place.",
+      "sourceIDs": [
+        "gp-help"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "gp-choice",
+      "title": "Choosing and changing a GP",
+      "publisher": "Rijksoverheid",
+      "url": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/eerstelijnszorg/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "gp-university",
+      "title": "Registering with a doctor",
+      "publisher": "Leiden University",
+      "url": "https://www.universiteitleiden.nl/en/education/international-students/prepare-your-stay/insurance/registering-with-a-doctor",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "gp-cost",
+      "title": "GP costs and insurance",
+      "publisher": "Rijksoverheid",
+      "url": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/eerstelijnszorg/vraag-en-antwoord/eerstelijnszorg/huisartskosten-op-zorgnota",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "gp-help",
+      "title": "Choosing a GP",
+      "publisher": "Thuisarts / NHG",
+      "url": "https://www.thuisarts.nl/inschrijven-bij-huisarts",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Official instructions",
+      "value": "https://www.rijksoverheid.nl/themas/familie-zorg-en-gezondheid/eerstelijnszorg/vraag-en-antwoord/eerstelijnszorg/ben-ik-vrij-om-zelf-een-huisarts-te-kiezen-en-hoe-verander-ik-van-huisarts",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "Keep the practice’s contact instructions available and update them after moving.",
+      "sourceIDs": [
+        "gp-choice"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew explains official information. It is not a government service or personal legal or medical advice.",
+  "status": "draft",
+  "seo": {
+    "title": "Register with a GP in Leiden",
+    "description": "Find a nearby practice, confirm acceptance and ask about the documents and coverage you need. Official sources and a dated checklist.",
+    "canonicalPath": "/guides/leiden-gp"
+  },
+  "synonyms": [
+    "leiden gp"
+  ],
+  "commonQuestions": [
+    "Everyone says no?",
+    "Only foreign insurance?",
+    "Previous medical records?"
+  ]
+}

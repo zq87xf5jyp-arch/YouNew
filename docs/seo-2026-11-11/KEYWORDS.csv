@@ -1,0 +1,51 @@
+id,guide,priority,query_en,page_type,monthly_volume,measurement_status
+1,G01,P0,how to register in Leiden as an international student,guide section,N/A,hypothesis
+2,G01,P0,how to get a BSN in Leiden,guide section,N/A,hypothesis
+3,G01,P0,Leiden municipality registration appointment,guide section,N/A,hypothesis
+4,G01,P0,documents needed for BSN registration Leiden,guide section,N/A,hypothesis
+5,G01,P0,BRP or RNI for international students Netherlands,guide section,N/A,hypothesis
+6,G08,P1,register in Leiden without a permanent address,guide section,N/A,hypothesis
+7,G07,P1,birth certificate apostille for registration in Leiden,guide section,N/A,hypothesis
+8,G06,P0,how to change address in Leiden,guide section,N/A,hypothesis
+9,G06,P1,moving from Leiden to The Hague municipality registration,guide section,N/A,hypothesis
+10,G06,P2,deregister from Leiden when leaving the Netherlands,guide section,N/A,hypothesis
+11,G02,P0,how to apply for DigiD as an international student,guide section,N/A,hypothesis
+12,G02,P0,how to activate DigiD,guide section,N/A,hypothesis
+13,G02,P0,DigiD activation letter not received,guide section,N/A,hypothesis
+14,G02,P1,apply for DigiD without a Dutch phone number,guide section,N/A,hypothesis
+15,G01,P2,how to find my BSN in MijnOverheid,guide section,N/A,hypothesis
+16,G15,P1,how to collect student residence permit Leiden,guide section,N/A,hypothesis
+17,G15,P1,IND biometrics appointment international student,guide section,N/A,hypothesis
+18,G06,P1,change address student residence permit Netherlands,guide section,N/A,hypothesis
+19,G03,P0,how to find student housing in Leiden,guide section,N/A,hypothesis
+20,G03,P0,Leiden University housing full what to do,guide section,N/A,hypothesis
+21,G03,P1,how to register with ROOM for Leiden student housing,guide section,N/A,hypothesis
+22,G09,P1,renting a room in Leiden with registration allowed,guide section,N/A,hypothesis
+23,G09,P1,how to check a student rental contract Netherlands,guide section,N/A,hypothesis
+24,G09,P1,student rental deposit rights Netherlands,guide section,N/A,hypothesis
+25,G03,P0,how to avoid student housing scams Leiden,guide section,N/A,hypothesis
+26,G10,P1,how to check room rent with Huurcommissie,guide section,N/A,hypothesis
+27,G10,P1,apply for rent reduction student room Netherlands,guide section,N/A,hypothesis
+28,G09,P2,how to get rental deposit back Netherlands student,guide section,N/A,hypothesis
+29,G04,P0,health insurance international student Leiden,guide section,N/A,hypothesis
+30,G04,P0,do I need Dutch health insurance if I only study,guide section,N/A,hypothesis
+31,G04,P0,part time job student health insurance Netherlands,guide section,N/A,hypothesis
+32,G04,P1,SVB Wlz assessment international student,guide section,N/A,hypothesis
+33,G05,P0,how to register with a GP in Leiden international student,guide section,N/A,hypothesis
+34,G05,P0,GP Leiden not accepting new patients what to do,guide section,N/A,hypothesis
+35,G05,P1,see a GP without Dutch health insurance Leiden,guide section,N/A,hypothesis
+36,G05,P1,transfer medical records to new GP Netherlands,guide section,N/A,hypothesis
+37,G11,P1,how to apply for zorgtoeslag international student,guide section,N/A,hypothesis
+38,G11,P1,can international students with EHIC get zorgtoeslag,guide section,N/A,hypothesis
+39,G12,P1,can international students work in the Netherlands,guide section,N/A,hypothesis
+40,G12,P1,TWV work permit international student Netherlands,guide section,N/A,hypothesis
+41,G12,P1,non EU student working 16 hours Netherlands rules,guide section,N/A,hypothesis
+42,G12,P2,internship work permit international student Netherlands,guide section,N/A,hypothesis
+43,G13,P1,how to apply for DUO student finance as an EU student,guide section,N/A,hypothesis
+44,G13,P1,DUO student finance work requirements EU students,guide section,N/A,hypothesis
+45,G13,P1,documents for DUO migrant worker student finance,guide section,N/A,hypothesis
+46,G14,P1,student travel product international student eligibility,guide section,N/A,hypothesis
+47,G14,P1,how to apply for student travel product Netherlands,guide section,N/A,hypothesis
+48,G14,P1,how to activate student travel product OV chipkaart,guide section,N/A,hypothesis
+49,G14,P2,cancel student travel product leaving Netherlands,guide section,N/A,hypothesis
+50,HUB,P0,first week in Leiden international student checklist,entry page,N/A,hypothesis

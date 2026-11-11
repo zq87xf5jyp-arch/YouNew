@@ -1,3 +1,4 @@
+import {Breadcrumbs} from "@/components/breadcrumbs";
 import Link from "next/link";
 import {MapPin, ExternalLink} from "lucide-react";
 import {PlaceContactDetails} from "@/components/place-contact-details";
@@ -21,7 +22,7 @@ export function EditorialDetail({entity,locale='en'}:{entity:ContentEntity;local
   const list=(items:readonly EditorialBlock[])=> <ul>{items.map(item=><li key={item.id}><p>{item.text}</p>{sourceLinks(item)}</li>)}</ul>;
   const report=`mailto:support@younew.nl?subject=${encodeURIComponent(`${nl?'Correctie':'Correction'}: ${copy.title} (${entity.id})`)}`;
   return <article className="section-shell editorial-detail" lang={locale}>
-    <nav className="editorial-breadcrumb" aria-label={nl?'Navigatie':'Navigation'}><Link href={nl?'/nl/leiden/':'/leiden/'}>Leiden</Link><span aria-hidden> / </span><span>{labels[content.section]}</span></nav>
+    <Breadcrumbs locale={locale} items={[{label:"Leiden",href:nl?"/nl/leiden/":"/leiden/"},{label:copy.title}]}/>
     <header><span className="entity-kind">{labels[content.section]}</span><h1>{copy.title}</h1><p className="editorial-summary">{copy.summary}</p>
       <div className="editorial-actions"><SaveButton item={{id:entity.id,route,title:copy.title,kind:entity.type}}/><ShareButton title={copy.title}/><Link href={editorialRoute(entity,nl?'en':'nl')} hrefLang={nl?'en':'nl'}>{nl?'Read in English':'Lees in het Nederlands'}</Link></div>
       {entity.cityId?<p><MapPin aria-hidden className="editorial-inline-icon"/> {entity.cityId.replaceAll('-',' ')}</p>:null}

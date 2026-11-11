@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-bsn",
+  "slug": "leiden-bsn",
+  "locale": "nl",
+  "title": "Inschrijven in Leiden en je BSN regelen",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Kies de juiste inschrijving, bereid je documenten voor en regel je gemeenteafspraak.",
+    "sourceIDs": [
+      "brp"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "Internationale studenten die vanuit het buitenland in Leiden gaan wonen.",
+    "sourceIDs": [
+      "leiden-arrival"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "Begin vóór aankomst zodra je weet waar je gaat wonen.",
+    "sourceIDs": [
+      "brp"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "municipal",
+    "countryCode": "NL",
+    "municipalityDependent": true,
+    "note": "Gemeentelijke procedure Leiden.",
+    "sourceIDs": [
+      "leiden-arrival"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "Begin vóór aankomst zodra je weet waar je gaat wonen.",
+      "sourceIDs": [
+        "brp"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "Geldig identiteitsbewijs en woonbewijs; toepasselijke aktes bij eerste inschrijving. Controleer de Leidse lijst, waaronder toestemming bij inwoning.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Leiden noemt minimaal vijf werkdagen verwerking, afhankelijk van de situatie. Wachttijd voor een afspraak staat hier los van.",
+    "sourceIDs": [
+      "leiden-arrival"
+    ]
+  },
+  "estimatedCost": {
+    "state": "known",
+    "value": "0",
+    "currency": "EUR",
+    "note": "Inschrijving is gratis. Voorbereiding van documenten kan afzonderlijke kosten hebben.",
+    "sourceIDs": [
+      "leiden-arrival",
+      "legalise"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Kies BRP of RNI",
+      "body": "Langer dan vier maanden blijven? Gebruik de inschrijving als inwoner. Controleer voor kort verblijf de RNI-route en geschikte loketten bij RvIG.",
+      "sourceIDs": [
+        "brp",
+        "rni"
+      ],
+      "municipalityDependent": true
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Controleer je documenten",
+      "body": "Lees de Leidse documentenlijst. Controleer bij buitenlandse aktes eerst de instructies voor het land van afgifte voordat je legalisatie of vertaling regelt.",
+      "sourceIDs": [
+        "leiden-arrival",
+        "legalise"
+      ],
+      "municipalityDependent": true
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Regel de afspraak",
+      "body": "Vul het Leidse formulier in; maak via de link in de e-mail een afspraak. Kom zelf met de benodigde documenten.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ],
+      "municipalityDependent": true
+    },
+    {
+      "id": "step.4",
+      "position": 4,
+      "title": "Controleer het resultaat",
+      "body": "Vraag hoe je bevestiging ontvangt. Een bestaand BSN blijft geldig; inschrijven is geen aanvraag voor een tweede nummer.",
+      "sourceIDs": [
+        "brp"
+      ],
+      "municipalityDependent": true
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "RNI vervangt bij langdurig verblijf geen inschrijving als inwoner.",
+      "sourceIDs": [
+        "rni",
+        "brp"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "Ga er niet van uit dat elke buitenlandse akte dezelfde legalisatie nodig heeft.",
+      "sourceIDs": [
+        "legalise"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "Controleer na inschrijving de voorwaarden voor DigiD.",
+      "sourceIDs": [
+        "brp"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "Langer dan vier maanden blijven? Gebruik de inschrijving als inwoner. Controleer voor kort verblijf de RNI-route en geschikte loketten bij RvIG.",
+      "sourceIDs": [
+        "brp",
+        "rni"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Lees de Leidse documentenlijst. Controleer bij buitenlandse aktes eerst de instructies voor het land van afgifte voordat je legalisatie of vertaling regelt.",
+      "sourceIDs": [
+        "leiden-arrival",
+        "legalise"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "Vul het Leidse formulier in; maak via de link in de e-mail een afspraak. Kom zelf met de benodigde documenten.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    },
+    {
+      "id": "check.3",
+      "text": "Vraag hoe je bevestiging ontvangt. Een bestaand BSN blijft geldig; inschrijven is geen aanvraag voor een tweede nummer.",
+      "sourceIDs": [
+        "brp"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "Al een BSN?",
+      "answer": "Blijf dat nummer gebruiken; terugkerende inwoners krijgen geen nieuw nummer.",
+      "sourceIDs": [
+        "brp"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "Ontbreekt een document?",
+      "answer": "Vraag Leiden welke stukken voor jouw afspraak nodig zijn; neem niet aan dat een alternatief wordt geaccepteerd.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "Kort verblijf?",
+      "answer": "Controleer bij RvIG de loketregels voor RNI. De geschikte loketten verschillen per paspoort.",
+      "sourceIDs": [
+        "rni"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "Deze gids beslist niet over jouw situatie. Vraag hulp aan de verantwoordelijke instantie.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Controleer vóór je handelt",
+      "body": "De formulering verschilt: NetherlandsWorldwide noemt inschrijven binnen vijf dagen; Leiden noemt een afspraak binnen vijf werkdagen. Plan vóór aankomst en vraag Leiden direct om uitleg bij onduidelijkheid.",
+      "sourceIDs": [
+        "brp",
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "leiden-arrival",
+      "title": "Moving to Leiden from abroad",
+      "publisher": "Gemeente Leiden",
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "brp",
+      "title": "When to register",
+      "publisher": "NetherlandsWorldwide",
+      "url": "https://www.netherlandsworldwide.nl/personal-records-database-brp/when-register",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "rni",
+      "title": "Registration of non-residents",
+      "publisher": "RvIG",
+      "url": "https://www.rvig.nl/registratie-niet-ingezetenen-voor-burgers",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "legalise",
+      "title": "Legalisation of foreign documents",
+      "publisher": "NetherlandsWorldwide",
+      "url": "https://www.netherlandsworldwide.nl/legalisation/foreign-documents",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "bsn",
+      "title": "Citizen service number",
+      "publisher": "NetherlandsWorldwide",
+      "url": "https://www.netherlandsworldwide.nl/bsn",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Officiële instructies",
+      "value": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "Controleer na inschrijving de voorwaarden voor DigiD.",
+      "sourceIDs": [
+        "brp"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew legt officiële informatie uit. Het is geen overheidsdienst of persoonlijk juridisch of medisch advies.",
+  "status": "draft",
+  "seo": {
+    "title": "Inschrijven in Leiden en je BSN regelen",
+    "description": "Kies de juiste inschrijving, bereid je documenten voor en regel je gemeenteafspraak. Officiële bronnen en een gedateerde checklist.",
+    "canonicalPath": "/nl/gidsen/leiden-bsn"
+  },
+  "synonyms": [
+    "leiden bsn"
+  ],
+  "commonQuestions": [
+    "Al een BSN?",
+    "Ontbreekt een document?",
+    "Kort verblijf?"
+  ]
+}

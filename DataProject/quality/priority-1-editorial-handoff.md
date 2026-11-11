@@ -536,7 +536,7 @@ No guide is missing a matching research dossier.
 - `DataProject/research/priority-1-government/priority-1-government-sources-2026-07-20.json` — SHA-256 `06722f7cc36c829bde409eb43d4449cf65fd1184f9ebb20bdf6945405e5a58c4`
 - `DataProject/research/priority-1-daily/priority-1-dossiers.json` — SHA-256 `35eef4576e95b52c72506cf63dad2ade1b5cd7ec3aeb1296d45b29e5c617dc1e`
 - `DataProject/research/monetization-practical-guide-addendum-2026-08-18.json` — SHA-256 `b0dbfa2fe95d184bb0feff5cf71cd2d4a4f385516501ee049f3447299b176080`
-- `DataProject/schema/entity.schema.json` — SHA-256 `b4536d7b7115c48d75539783eede556b5ff29bb1cdb89f9dec872abc3b1db87c`
+- `DataProject/schema/entity.schema.json` — SHA-256 `2dd0e1c25a4291afd6ee1bed16547f9693cc25a62233c3a78c99b1f1dc4b17f2`
 
 ## Allowed next action
 

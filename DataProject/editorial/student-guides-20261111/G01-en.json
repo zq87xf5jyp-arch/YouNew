@@ -1,0 +1,329 @@
+{
+  "schemaVersion": 2,
+  "id": "guide.leiden-bsn",
+  "slug": "leiden-bsn",
+  "locale": "en",
+  "title": "Register in Leiden and get your BSN",
+  "shortSummary": {
+    "id": "summary",
+    "text": "Choose the correct registration route, prepare your papers and arrange your municipal appointment.",
+    "sourceIDs": [
+      "brp"
+    ]
+  },
+  "audienceProfiles": [
+    "student"
+  ],
+  "whoThisIsFor": {
+    "id": "audience",
+    "text": "International students moving from abroad to live in Leiden.",
+    "sourceIDs": [
+      "leiden-arrival"
+    ]
+  },
+  "whenYouNeedIt": {
+    "id": "when",
+    "text": "Start before arrival, once you know where you will live.",
+    "sourceIDs": [
+      "brp"
+    ]
+  },
+  "applicability": {
+    "cityIDs": [
+      "leiden"
+    ],
+    "provinceIDs": [
+      "zuid-holland"
+    ]
+  },
+  "jurisdiction": {
+    "level": "municipal",
+    "countryCode": "NL",
+    "municipalityDependent": true,
+    "note": "Leiden municipal procedure.",
+    "sourceIDs": [
+      "leiden-arrival"
+    ]
+  },
+  "prerequisites": [
+    {
+      "id": "prepare",
+      "text": "Start before arrival, once you know where you will live.",
+      "sourceIDs": [
+        "brp"
+      ]
+    }
+  ],
+  "requiredDocuments": [
+    {
+      "id": "document.0",
+      "text": "Valid ID and housing evidence; applicable civil-status records for first registration. Check Leiden’s exact list, including cohabitation consent where relevant.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "estimatedTime": {
+    "state": "varies",
+    "value": null,
+    "currency": null,
+    "note": "Leiden states at least five working days for processing, depending on the case. Appointment waiting time is separate.",
+    "sourceIDs": [
+      "leiden-arrival"
+    ]
+  },
+  "estimatedCost": {
+    "state": "known",
+    "value": "0",
+    "currency": "EUR",
+    "note": "Municipal registration is free. Document preparation may have separate costs.",
+    "sourceIDs": [
+      "leiden-arrival",
+      "legalise"
+    ]
+  },
+  "numberedSteps": [
+    {
+      "id": "step.1",
+      "position": 1,
+      "title": "Choose BRP or RNI",
+      "body": "Staying longer than four months? Use resident registration. For a shorter stay, check RvIG’s RNI route and eligible desks.",
+      "sourceIDs": [
+        "brp",
+        "rni"
+      ],
+      "municipalityDependent": true
+    },
+    {
+      "id": "step.2",
+      "position": 2,
+      "title": "Check your documents",
+      "body": "Read Leiden’s document list. For foreign civil-status records, check the issuing-country instructions before arranging legalisation or translation.",
+      "sourceIDs": [
+        "leiden-arrival",
+        "legalise"
+      ],
+      "municipalityDependent": true
+    },
+    {
+      "id": "step.3",
+      "position": 3,
+      "title": "Arrange the appointment",
+      "body": "Complete Leiden’s form; use the emailed link to book. Attend in person with the required papers.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ],
+      "municipalityDependent": true
+    },
+    {
+      "id": "step.4",
+      "position": 4,
+      "title": "Check the result",
+      "body": "Ask how you will receive confirmation. An existing BSN remains valid; registration is not an application for a second number.",
+      "sourceIDs": [
+        "brp"
+      ],
+      "municipalityDependent": true
+    }
+  ],
+  "warnings": [
+    {
+      "id": "warning",
+      "text": "RNI is not a substitute for resident registration during a long stay.",
+      "sourceIDs": [
+        "rni",
+        "brp"
+      ]
+    }
+  ],
+  "commonMistakes": [
+    {
+      "id": "mistake",
+      "text": "Do not assume that every foreign document needs the same legalisation.",
+      "sourceIDs": [
+        "legalise"
+      ]
+    }
+  ],
+  "tips": [
+    {
+      "id": "tip",
+      "text": "After registration, check the DigiD application requirements.",
+      "sourceIDs": [
+        "brp"
+      ]
+    }
+  ],
+  "checklist": [
+    {
+      "id": "check.0",
+      "text": "Staying longer than four months? Use resident registration. For a shorter stay, check RvIG’s RNI route and eligible desks.",
+      "sourceIDs": [
+        "brp",
+        "rni"
+      ]
+    },
+    {
+      "id": "check.1",
+      "text": "Read Leiden’s document list. For foreign civil-status records, check the issuing-country instructions before arranging legalisation or translation.",
+      "sourceIDs": [
+        "leiden-arrival",
+        "legalise"
+      ]
+    },
+    {
+      "id": "check.2",
+      "text": "Complete Leiden’s form; use the emailed link to book. Attend in person with the required papers.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    },
+    {
+      "id": "check.3",
+      "text": "Ask how you will receive confirmation. An existing BSN remains valid; registration is not an application for a second number.",
+      "sourceIDs": [
+        "brp"
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "id": "faq.0",
+      "question": "Already have a BSN?",
+      "answer": "Keep using it; returning residents do not receive a new number.",
+      "sourceIDs": [
+        "brp"
+      ]
+    },
+    {
+      "id": "faq.1",
+      "question": "Missing a document?",
+      "answer": "Ask Leiden which papers are required for your appointment; do not guess whether a substitute is accepted.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    },
+    {
+      "id": "faq.2",
+      "question": "Staying briefly?",
+      "answer": "Check the RNI desk rules at RvIG. Eligibility of desks differs by passport.",
+      "sourceIDs": [
+        "rni"
+      ]
+    }
+  ],
+  "emergencyInformation": [
+    {
+      "id": "help",
+      "text": "This guide cannot decide your personal case. Use the responsible institution for help.",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "sections": [
+    {
+      "id": "context",
+      "title": "Check before acting",
+      "body": "Official wording differs: NetherlandsWorldwide says register within five days; Leiden says arrange an appointment within five working days. Book before arrival and ask Leiden immediately if the timing is unclear.",
+      "sourceIDs": [
+        "brp",
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "officialSources": [
+    {
+      "id": "leiden-arrival",
+      "title": "Moving to Leiden from abroad",
+      "publisher": "Gemeente Leiden",
+      "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "brp",
+      "title": "When to register",
+      "publisher": "NetherlandsWorldwide",
+      "url": "https://www.netherlandsworldwide.nl/personal-records-database-brp/when-register",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "rni",
+      "title": "Registration of non-residents",
+      "publisher": "RvIG",
+      "url": "https://www.rvig.nl/registratie-niet-ingezetenen-voor-burgers",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "legalise",
+      "title": "Legalisation of foreign documents",
+      "publisher": "NetherlandsWorldwide",
+      "url": "https://www.netherlandsworldwide.nl/legalisation/foreign-documents",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    },
+    {
+      "id": "bsn",
+      "title": "Citizen service number",
+      "publisher": "NetherlandsWorldwide",
+      "url": "https://www.netherlandsworldwide.nl/bsn",
+      "isOfficial": true,
+      "status": "verified_opened",
+      "checkedAt": "2026-11-11"
+    }
+  ],
+  "contactOptions": [
+    {
+      "id": "official-contact",
+      "kind": "url",
+      "label": "Official instructions",
+      "value": "https://gemeente.leiden.nl/inwoners-en-ondernemers/verhuizen-en-migreren/migreren/verhuizen-naar-leiden-vanuit-het-buitenland/",
+      "sourceIDs": [
+        "leiden-arrival"
+      ]
+    }
+  ],
+  "relatedGuideIDs": [],
+  "nextActions": [
+    {
+      "id": "next",
+      "text": "After registration, check the DigiD application requirements.",
+      "sourceIDs": [
+        "brp"
+      ]
+    }
+  ],
+  "verifiedAt": "2026-11-11",
+  "updatedAt": "2026-11-11",
+  "reviewer": null,
+  "readingTimeMinutes": 4,
+  "difficulty": "basic",
+  "confidenceLevel": "pending_review",
+  "tags": [
+    "Leiden",
+    "student"
+  ],
+  "publicationGate": null,
+  "disclaimer": "YouNew explains official information. It is not a government service or personal legal or medical advice.",
+  "status": "draft",
+  "seo": {
+    "title": "Register in Leiden and get your BSN",
+    "description": "Choose the correct registration route, prepare your papers and arrange your municipal appointment. Official sources and a dated checklist.",
+    "canonicalPath": "/guides/leiden-bsn"
+  },
+  "synonyms": [
+    "leiden bsn"
+  ],
+  "commonQuestions": [
+    "Already have a BSN?",
+    "Missing a document?",
+    "Staying briefly?"
+  ]
+}

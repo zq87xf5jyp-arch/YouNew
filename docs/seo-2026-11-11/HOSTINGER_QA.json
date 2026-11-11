@@ -1,0 +1,114 @@
+{
+  "status": "PASS",
+  "artifactSha256": "d2c45995c2cb4cb714ba0d8fe3e270392c6faf1d4934dbf67fc4195a467a0547",
+  "anonymousDenied": true,
+  "rollbackRehearsed": true,
+  "productionChanged": false,
+  "checks": [
+    {
+      "path": "/review/guides/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-bsn/en/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-bsn/nl/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-digid/en/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-digid/nl/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-student-housing/en/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-student-housing/nl/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-student-health-insurance/en/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-student-health-insurance/nl/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-gp/en/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-gp/nl/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-registration/en/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/review/guides/leiden-registration/nl/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/leiden/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    },
+    {
+      "path": "/nl/leiden/",
+      "status": 200,
+      "exact": true,
+      "noindex": true,
+      "noStore": true
+    }
+  ]
+}
