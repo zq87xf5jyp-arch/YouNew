@@ -1,0 +1,17 @@
+{
+  "url": "https://diergaardeblijdorp.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "15ddbf193a595b59bdb7b88553956fe590a1e9a7f2f5bf60e9947dff67c032cf",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://diergaardeblijdorp.nl/en",
+  "sha256": "30221fb965d1c3bebdc10ab12ffb12ab972cab10e970608328c6b2c0bb8bc7e1",
+  "title": "Visit Diergaarde Blijdorp - a top zoo in the Netherlands Language Toggle Contrast Mode: On Contrast Mode: OFF Contrast Mode Toggle",
+  "excerpt": "Visit Diergaarde Blijdorp - a top zoo in the Netherlands Skip to main content Buy your subscription Support us Discover",
+  "actionCandidates": [
+    "https://diergaardeblijdorp.nl/en/visit/tickets",
+    "https://diergaardeblijdorp.nl/nl/bezoek/tickets"
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "url": "https://www.hartmuseum.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "42f7b7c1ee50901ad3d5450c22ecca9e095d163fdac9b203e4d88e190ad51b07",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.hartmuseum.nl/en/",
+  "sha256": "1041160ad23cc50cbb894ec21f42cdd0d30d6fecd33680c487f1073d9cab0d5f",
+  "title": "Museum H'ART Amsterdam H'ART Ticketing Widget Accessibility  Grayscale High contrast Readable font Reset",
+  "excerpt": "Museum H'ART Amsterdam H'ART Ticketing Widget :host { --enviso-primary-color:#000; --enviso-secondary-color: #ff5c62; font-family: 'GoodSans-Regular'; } Museum H'ART Amsterdam Overslaan en naar",
+  "actionCandidates": [
+    "https://www.hartmuseum.nl/en/combo-tickets/",
+    "https://www.hartmuseum.nl/en/ticketshop"
+  ]
+}

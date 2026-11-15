@@ -1,0 +1,16 @@
+{
+  "url": "https://www.hetnatuurhistorisch.nl/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": null,
+  "robotsStatus": "absent",
+  "httpStatus": 200,
+  "finalURL": "https://www.hetnatuurhistorisch.nl/",
+  "sha256": "4003fe1b68ce365d7819510f085e0ff6279e4a868aef77b9ee8ffc61582c0318",
+  "title": "Home",
+  "excerpt": "Home Naar hoofdinhoud Een doodleuk museum Nieuws Pers Zaalverhuur Bureau Stadsnatuur Steun ons Tickets Log-in NL EN Bezoek Bezoekersinformatie Tickets",
+  "actionCandidates": [
+    "https://www.hetnatuurhistorisch.nl/bezoek/bezoekersinformatie/naar-de-online-tickets/"
+  ]
+}

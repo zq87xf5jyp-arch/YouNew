@@ -1,0 +1,43 @@
+{
+  "id": "place.den-haag-madurodam",
+  "url": "https://commons.wikimedia.org/wiki/File:Madurodam_pays_bas.JPG",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Madurodam",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.den-haag-madurodam-480.webp",
+      "width": 480,
+      "sha256": "35e0f704bf3c99e8f521328b94ccd841e15b50b38a2f9595131eac5e202ddb46",
+      "bytes": 49750
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.den-haag-madurodam-800.webp",
+      "width": 800,
+      "sha256": "9cf5af8e19282dd41b8ee8464415c7c802ca49f79c7124bc7cb6e16e0a277982",
+      "bytes": 133078
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.den-haag-madurodam-1200.webp",
+      "width": 1200,
+      "sha256": "87bfbaf467eeffd6216b81be6ffe3124d68133a6d4290b50a6e622ff221ffd6c",
+      "bytes": 266520
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "fd280bd55eb2fb0bccf8ba9af8bf663658045b409edcadfd102780bcd518ab6d",
+  "author": "Cqui",
+  "license": "CC BY-SA 2.5",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/2.5/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Madurodam_pays_bas.JPG — Cqui — CC BY-SA 2.5",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/0/0a/Madurodam_pays_bas.JPG",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0a/Madurodam_pays_bas.JPG/1280px-Madurodam_pays_bas.JPG",
+  "downloadSHA256": "669b076c2725994014c550d163172c6c91bdf73bb2a488d0344c28ada8bb96ad",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

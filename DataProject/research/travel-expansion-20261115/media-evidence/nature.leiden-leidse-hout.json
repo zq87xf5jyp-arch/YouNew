@@ -1,0 +1,43 @@
+{
+  "id": "nature.leiden-leidse-hout",
+  "url": "https://commons.wikimedia.org/wiki/File:Leiden-Leidse_Hout-div_functies-01.jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Leidse_Hout",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-leidse-hout-480.webp",
+      "width": 480,
+      "sha256": "b5d01dc0950382037c8b6a3b97639fbf26461430d6983741cd827fdc760dac94",
+      "bytes": 48986
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-leidse-hout-800.webp",
+      "width": 800,
+      "sha256": "7e841ba09da588a6de5085dcfc77b24790a7002aae95472968f406416f86c566",
+      "bytes": 137194
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-leidse-hout-1200.webp",
+      "width": 1200,
+      "sha256": "7be8d9af913aea204da35f3e23cf3450ff5aa7ab449babf43b571c1af451c43a",
+      "bytes": 281016
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "6d73db6a22a47e6d29a56825d385254eb7df5c04f4df2b48950a905a1b32f9bf",
+  "author": "Marianne Cornelissen-Kuyt",
+  "license": "CC BY-SA 4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Leiden-Leidse_Hout-div_functies-01.jpg — Marianne Cornelissen-Kuyt — CC BY-SA 4.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Leiden-Leidse_Hout-div_functies-01.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Leiden-Leidse_Hout-div_functies-01.jpg/1280px-Leiden-Leidse_Hout-div_functies-01.jpg",
+  "downloadSHA256": "71730ec8a4858318cda7d3489ce4d19ad0da1813dfadc525238809e257d0a143",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

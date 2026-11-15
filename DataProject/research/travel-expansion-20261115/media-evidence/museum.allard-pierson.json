@@ -1,0 +1,49 @@
+{
+  "id": "museum.allard-pierson",
+  "url": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Allard_Pierson_-_Amsterdam_%28NL32%29_-_2024-11-25_-_2.jpg",
+  "origin": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": true,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.allard-pierson-480.webp",
+      "width": 480,
+      "sha256": "dbf3de2cbf8bd62b183baaef0d8a13dbd4890a31586f24e3729fbb405c366279",
+      "bytes": 37304
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.allard-pierson-800.webp",
+      "width": 800,
+      "sha256": "2b99feaf9040824b48572ac885aedb990a57de4ca6b39dab78a86c8c0798ec27",
+      "bytes": 97258
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.allard-pierson-1200.webp",
+      "width": 1200,
+      "sha256": "d775fc10427a5d5e9301fb82925dad443e54e8c2cd0dec1497f8c23e535199bf",
+      "bytes": 197122
+    }
+  ],
+  "previousAttempts": [
+    {
+      "checkedAt": "2026-11-15",
+      "limitation": "No supported commercial CC license in Licensing section"
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "ad1a8b14ec8a22338d92e153ce5fb9843a409f05ba750c880a373211e103dff7",
+  "author": "Chabe01",
+  "license": "CC BY-SA 4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Musée_Allard_Pierson_-_Amsterdam_(NL32)_-_2024-11-25_-_2.jpg — Chabe01 — CC BY-SA 4.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/0/0d/Mus%C3%A9e_Allard_Pierson_-_Amsterdam_%28NL32%29_-_2024-11-25_-_2.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0d/Mus%C3%A9e_Allard_Pierson_-_Amsterdam_%28NL32%29_-_2024-11-25_-_2.jpg/1280px-Mus%C3%A9e_Allard_Pierson_-_Amsterdam_%28NL32%29_-_2024-11-25_-_2.jpg",
+  "downloadSHA256": "7d62d954060dce565ed1188dd5576686ffcab68e9192a8398989187c8d4ddd41",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

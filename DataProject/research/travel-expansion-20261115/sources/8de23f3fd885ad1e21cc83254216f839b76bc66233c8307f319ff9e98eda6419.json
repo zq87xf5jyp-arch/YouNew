@@ -1,0 +1,18 @@
+{
+  "url": "https://grachten.museum/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "bd04840c4764828b52b72a0322beadb46d1e92aae5a18d4ec6fc0507dae0d679",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://grachten.museum/en/",
+  "sha256": "a6e1add86f48ebdd18b0318ce6b5cb9638e32260bb992036fbbcf3145640b7ff",
+  "title": "The museum about the Amsterdam canal district",
+  "excerpt": "The museum about the Amsterdam canal district Skip to main content Opens in a new tab Visit Times & prices",
+  "actionCandidates": [
+    "https://grachten.museum/en/times-tickets/",
+    "https://tickets.grachten.museum/en/tickets",
+    "https://tickets.grachten.museum/nl/tickets"
+  ]
+}

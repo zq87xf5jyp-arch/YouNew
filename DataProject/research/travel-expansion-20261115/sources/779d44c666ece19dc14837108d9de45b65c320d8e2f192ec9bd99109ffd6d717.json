@@ -1,0 +1,16 @@
+{
+  "url": "https://jck.nl/en/location/jewish-museum",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "1df7c74e344e9cb52d44d045294794cb6478e8246d514b2250947ef3cef66ca1",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://jck.nl/en/location/jewish-museum",
+  "sha256": "795a2507a60dfc09d56e6779ed8bc19f33c25420febee2e49d3e0a21c4b01d27",
+  "title": "Jewish Museum + junior | Jewish Cultural Quarter",
+  "excerpt": "Jewish Museum + junior | Jewish Cultural Quarter Jump to main content Jump to footer Jewish Museum + junior Discover",
+  "actionCandidates": [
+    "https://jck.nl/en/tickets"
+  ]
+}

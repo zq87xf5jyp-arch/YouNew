@@ -1,0 +1,16 @@
+{
+  "url": "https://www.stedelijk.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "68427e3e5e9fbae3b246e15649a18ea4e3336a7f0ddf69d609cdf3966611b046",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.stedelijk.nl/en",
+  "sha256": "6697e36828059de095312fbaa5da2ff12d533d301a8cc09f767376e3ae5388ec",
+  "title": "Stedelijk Museum Amsterdam ",
+  "excerpt": "Stedelijk Museum Amsterdam Skip to main content Skip to language settings Skip to menu Visit What's on Search ReadSpeaker Listen",
+  "actionCandidates": [
+    "https://www.stedelijk.nl/en#menu"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "nature.leiden-blekerspark",
+  "url": "https://commons.wikimedia.org/wiki/File:Bleekerspark_Leiden.jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Blekerspark",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-blekerspark-480.webp",
+      "width": 480,
+      "sha256": "276baa2baf6dadfedfb5ebe9551c5705037d1b21f24b707349077b34181a6f27",
+      "bytes": 45384
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-blekerspark-800.webp",
+      "width": 800,
+      "sha256": "d5d9559d4d7e18e2bdf6a8756785580e3ff00ab119303f7935d0ed71ea870552",
+      "bytes": 125140
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-blekerspark-1200.webp",
+      "width": 1200,
+      "sha256": "83e7450db9516f7508558d71efd76858cf689ff104db6fc3cef24d4100ce7ec9",
+      "bytes": 261426
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "1d5b1f09ccaeb14d632b90ed10155edfccf92c9803814b8a40fd92e6f2c614c3",
+  "author": "Bic",
+  "license": "CC BY-SA 4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Bleekerspark_Leiden.jpg — Bic — CC BY-SA 4.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/c/c0/Bleekerspark_Leiden.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c0/Bleekerspark_Leiden.jpg/1280px-Bleekerspark_Leiden.jpg",
+  "downloadSHA256": "cb1cdc8fc023e02324eecc1a66118cc1dcb7bf975e57df0fde3e94553ffeeab9",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

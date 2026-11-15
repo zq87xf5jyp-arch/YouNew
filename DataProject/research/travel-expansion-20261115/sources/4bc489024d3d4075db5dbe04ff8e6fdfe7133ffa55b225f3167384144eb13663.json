@@ -1,0 +1,16 @@
+{
+  "url": "https://www.hetscheepvaartmuseum.com/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "8e8cb58d810473a52cce903be5ffb73d948eef981bbd101cffbf8dc2c02fcf4e",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.hetscheepvaartmuseum.com/",
+  "sha256": "1634f12616825f95eeacd34bc5bb25bc7858a65d934c937041993b178b2a8e9f",
+  "title": "Home | Het Scheepvaartmuseum | The National Maritime Museum",
+  "excerpt": "Home | Het Scheepvaartmuseum | The National Maritime Museum /> Skip to main content Het Scheepvaartmuseum Tickets Open today from",
+  "actionCandidates": [
+    "https://tickets.hetscheepvaartmuseum.nl/en-US/tickets"
+  ]
+}

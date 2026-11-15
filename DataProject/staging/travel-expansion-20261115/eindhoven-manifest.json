@@ -1,0 +1,115 @@
+{
+  "schemaVersion": 1,
+  "batchId": "travel-eindhoven-20261115",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "recordsSHA256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e",
+  "ids": [
+    "museum.eindhoven-van-abbe",
+    "museum.eindhoven-philips",
+    "museum.eindhoven-daf",
+    "museum.eindhoven-prehistorisch-dorp",
+    "place.eindhoven-evoluon",
+    "place.eindhoven-strijp-s",
+    "place.eindhoven-muziekgebouw",
+    "place.eindhoven-park-theatre",
+    "place.eindhoven-dynamo",
+    "place.eindhoven-piet-hein-eek"
+  ],
+  "evidence": [
+    {
+      "id": "museum.eindhoven-van-abbe",
+      "sourceEvidenceSHA256": "ca11682bdeeeac7fada9fdd7ef69d10d62fa21525c686ef09a329dcce95c7844",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.eindhoven-philips",
+      "sourceEvidenceSHA256": "2b2fa4fa10db783a2dd18e5aa4edf32b3eed3d0b5ad462fe62d7f4fe829c44c4",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.eindhoven-daf",
+      "sourceEvidenceSHA256": "e93f230376ef61068ebcb05650e6bee6ff29eaf83a9553e91a12f1f3347fa2ef",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "museum.eindhoven-prehistorisch-dorp",
+      "sourceEvidenceSHA256": "d55f9569e4f1d70ff2ca6f263ec65d932f66fdd42a618b339cfa679184d99f99",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "place.eindhoven-evoluon",
+      "sourceEvidenceSHA256": "97f0f615d8c9225676d5f458ed978461e4c8961112a8bf3ff8d6acda62d4c9c7",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "place.eindhoven-strijp-s",
+      "sourceEvidenceSHA256": "022b48a624d172a0caa6927d3b9410b7610c2814f748e2ebc50f93cd66466e89",
+      "contentChecked": false,
+      "missing": [
+        "photo",
+        "confirmed_coordinates",
+        "verified_primary_content"
+      ]
+    },
+    {
+      "id": "place.eindhoven-muziekgebouw",
+      "sourceEvidenceSHA256": "df11f27f725e78fb2d09fbfc7e2f7e0d34530eb9a43f3c09d803a883331b5719",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "place.eindhoven-park-theatre",
+      "sourceEvidenceSHA256": "692ee3dfa1af667666e98af0415c16096f2a34b79808711d6377285fc2a2a652",
+      "contentChecked": false,
+      "missing": [
+        "photo",
+        "confirmed_coordinates",
+        "verified_primary_content"
+      ]
+    },
+    {
+      "id": "place.eindhoven-dynamo",
+      "sourceEvidenceSHA256": "92db361ea396a9ea6ca0dcb0cdea6816ae332b1cbc23341001f952590a382888",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    },
+    {
+      "id": "place.eindhoven-piet-hein-eek",
+      "sourceEvidenceSHA256": "a6f2cf8defe16d97ba00b98ba1427ae90b8156f5b43a49a6bef7bfc09f673d98",
+      "contentChecked": true,
+      "missing": [
+        "photo",
+        "confirmed_coordinates"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "url": "https://www.muziekgebouweindhoven.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "8fa3036c68bfcbd32365f6225d24333264093b7cd38d306e106b4dbdc934fd5b",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://mge.nl/en/",
+  "sha256": "ae8913570224595121e22e4d6f602e9ccff685931906e6f9707581a4f545f489",
+  "title": "Home - English - MgE - Muziekgebouw Eindhoven",
+  "excerpt": "Home - English - MgE - Muziekgebouw Eindhoven Cookies & Privacy Wij maken gebruik van cookies. Cookies worden gebruikt voor",
+  "actionCandidates": [
+    "https://tickets.mge.nl/nl/profile/?redirect_url=https://mge.nl/en/tixly-login/",
+    "https://tickets.mge.nl/nl/profile/"
+  ]
+}

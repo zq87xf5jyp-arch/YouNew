@@ -1,0 +1,1798 @@
+{
+  "schemaVersion": 1,
+  "publicationAuthorized": false,
+  "preparedAt": "2026-11-15",
+  "counts": {
+    "trackedObjects": 129,
+    "sourceContentChecked": 120,
+    "reusedCompactRecords": 63,
+    "newDrafts": 46,
+    "revisedExistingIDs": 20,
+    "draftRecords": 66,
+    "draftPhotosActivated": 0,
+    "runtimeRecords": 12,
+    "runtimeBundledPhotos": 4,
+    "runtimeCoordinates": 7,
+    "runtimeTickets": 6,
+    "collectionsPrepared": 6,
+    "unresolvedSources": 9,
+    "optimizedPhotoCandidates": 40,
+    "optimizedImageFiles": 120,
+    "photoCandidatesVisuallyInspected": 11,
+    "newCoordinatesVerified": 0,
+    "newMediaApproved": 0
+  },
+  "batches": [
+    {
+      "city": "leiden",
+      "records": 6,
+      "sourceContentChecked": 5,
+      "status": "needs_review"
+    },
+    {
+      "city": "amsterdam",
+      "records": 20,
+      "sourceContentChecked": 17,
+      "status": "needs_review"
+    },
+    {
+      "city": "rotterdam",
+      "records": 10,
+      "sourceContentChecked": 10,
+      "status": "needs_review"
+    },
+    {
+      "city": "den-haag",
+      "records": 10,
+      "sourceContentChecked": 7,
+      "status": "needs_review"
+    },
+    {
+      "city": "utrecht",
+      "records": 10,
+      "sourceContentChecked": 10,
+      "status": "needs_review"
+    },
+    {
+      "city": "eindhoven",
+      "records": 10,
+      "sourceContentChecked": 8,
+      "status": "needs_review"
+    }
+  ],
+  "records": [
+    {
+      "id": "guide.leiden-registration",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-01-M1-leiden-20261109.json",
+      "fileSHA256": "df69541f55eae6be1b55c902e60e129b9c0fbe0071ad51183045ca93b9c20926",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "guide.leiden-bsn",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-01-M1-leiden-20261109.json",
+      "fileSHA256": "df69541f55eae6be1b55c902e60e129b9c0fbe0071ad51183045ca93b9c20926",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "guide.leiden-digid",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-01-M1-leiden-20261109.json",
+      "fileSHA256": "df69541f55eae6be1b55c902e60e129b9c0fbe0071ad51183045ca93b9c20926",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "guide.leiden-waste",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-01-M1-leiden-20261109.json",
+      "fileSHA256": "df69541f55eae6be1b55c902e60e129b9c0fbe0071ad51183045ca93b9c20926",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "guide.leiden-contacts",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-01-M1-leiden-20261109.json",
+      "fileSHA256": "df69541f55eae6be1b55c902e60e129b9c0fbe0071ad51183045ca93b9c20926",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "guide.leiden-municipal-services",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-01-M1-leiden-20261109.json",
+      "fileSHA256": "df69541f55eae6be1b55c902e60e129b9c0fbe0071ad51183045ca93b9c20926",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "guide.leiden-gp",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-03-M1-leiden-20261109.json",
+      "fileSHA256": "1808b89cc0171beb18f4c75943b4fe4ef9c6d1dd5cba9fbaf8f7ca5c33074743",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "guide.leiden-pharmacy",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-03-M1-leiden-20261109.json",
+      "fileSHA256": "1808b89cc0171beb18f4c75943b4fe4ef9c6d1dd5cba9fbaf8f7ca5c33074743",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "guide.leiden-transport",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-04-M1-leiden-20261109.json",
+      "fileSHA256": "0cc29b40c392899cb22dad32810f36b0adcd2cae9dacf10085cc3c219de7c363",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "guide.leiden-bicycle",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-04-M1-leiden-20261109.json",
+      "fileSHA256": "0cc29b40c392899cb22dad32810f36b0adcd2cae9dacf10085cc3c219de7c363",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.utrecht-neude",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/content-20261109/WP-06-M1-leiden-20261109.json",
+      "fileSHA256": "088d023019eaf7433223e076084bf4633970f468507b90a5b2e629e87c2e7560",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.leiden-vvv",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-06-M1-leiden-20261109.json",
+      "fileSHA256": "088d023019eaf7433223e076084bf4633970f468507b90a5b2e629e87c2e7560",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.leiden-burcht",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-06-M1-leiden-20261109.json",
+      "fileSHA256": "088d023019eaf7433223e076084bf4633970f468507b90a5b2e629e87c2e7560",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": true,
+      "photo": false
+    },
+    {
+      "id": "museum.rotterdam-chabot",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "fileSHA256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.rotterdam-chabot.json",
+        "sha256": "0a8fbeca28c736f3db0842de41c1f6b28344416eb127cf61ecf12aaf8de7543d",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.utrecht-sonnenborgh",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "fileSHA256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.den-haag-fotomuseum",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "fileSHA256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.eindhoven-inkijkmuseum",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "fileSHA256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.leiden-hortus",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "fileSHA256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": true,
+      "photo": true
+    },
+    {
+      "id": "place.leiden-rmo",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "fileSHA256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": true,
+      "photo": true
+    },
+    {
+      "id": "place.leiden-lakenhal",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "fileSHA256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": true,
+      "photo": false
+    },
+    {
+      "id": "place.leiden-naturalis",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "fileSHA256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": true,
+      "photo": false
+    },
+    {
+      "id": "museum.leiden-boerhaave",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "fileSHA256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": true,
+      "photo": true
+    },
+    {
+      "id": "museum.leiden-wereldmuseum",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "fileSHA256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": true,
+      "photo": true
+    },
+    {
+      "id": "restaurant.eindhoven-kazerne",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "fileSHA256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "restaurant.leiden-bikini",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "fileSHA256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "restaurant.leiden-in-den-doofpot",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "fileSHA256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "restaurant.leiden-verboden-toegang",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "fileSHA256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "restaurant.leiden-prentenkabinet",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "fileSHA256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "restaurant.leiden-waag",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "fileSHA256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "restaurant.leiden-oudt-leyden",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "fileSHA256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "restaurant.leiden-dende",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "fileSHA256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "restaurant.leiden-grand-cafe-burcht",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "fileSHA256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "restaurant.leiden-tabu",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-08-M1-leiden-20261109.json",
+      "fileSHA256": "bb36b4add35026cfc95fac11aeda5e9e28f72579f680fa5658057099f14c9452",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "cafe.utrecht-koffie-leute",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "fileSHA256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "cafe.den-haag-kaafi",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "fileSHA256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.leiden-cafe-laken",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "fileSHA256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "cafe.leiden-barista",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "fileSHA256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "cafe.leiden-annemax",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "fileSHA256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "cafe.leiden-roos",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "fileSHA256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "cafe.leiden-borgman",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "fileSHA256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "cafe.leiden-brownies",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "fileSHA256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "cafe.leiden-30ml",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "fileSHA256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "cafe.leiden-paco-ciao",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-09-M1-leiden-20261109.json",
+      "fileSHA256": "68917f141122109522c058021b14da8fe9766eeee49cca3b760b1e6d36be7b4b",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "hotel.rotterdam-supernova",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "fileSHA256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "hotel.utrecht-nox",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "fileSHA256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "hotel.den-haag-collector",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "fileSHA256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "hotel.leiden-huys-van-leyden",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "fileSHA256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "hotel.leiden-steenhof",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "fileSHA256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "hotel.leiden-rembrandt-hotel",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "fileSHA256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "hotel.leiden-ibis",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "fileSHA256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": true,
+      "photo": false
+    },
+    {
+      "id": "hotel.leiden-oude-morsch",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "fileSHA256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "hotel.leiden-golden-tulip",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-10-M1-leiden-20261109.json",
+      "fileSHA256": "36624d0c8c6338a8cbbb1b58020f93e7d00b345cda56b5ee2df22e79d0c588be",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "nature.rotterdam-trompenburg",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "fileSHA256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "nature.utrecht-oog-in-al",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "fileSHA256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/nature.utrecht-oog-in-al.json",
+        "sha256": "02781872182ff057777c2a574258ac3f2af340d395c0a182a8db2f01baa54600",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "nature.den-haag-westbroekpark",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "fileSHA256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/nature.den-haag-westbroekpark.json",
+        "sha256": "7e7017a1b206ad659d5067c40385a9bb6eae8e8975575c233a89604eac25fec8",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "nature.leiden-cronesteyn",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "fileSHA256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-cronesteyn.json",
+        "sha256": "9d7c37ab2ecf9f352d7b675025b586c6d13fe1ff96f57a472d3952666313bfd0",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "nature.leiden-leidse-hout",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "fileSHA256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-leidse-hout.json",
+        "sha256": "37711629a4ef5a16bf4318e1abe032c8254cc59a2ce8eb662d34b8e64ad90a95",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "nature.leiden-plantsoen",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "fileSHA256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-plantsoen.json",
+        "sha256": "21d2fa6db37bc9826d4ff0edd41b8d6176b5e3c4412210c810bf53df33e82d98",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "nature.leiden-rembrandtpark",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "fileSHA256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "nature.leiden-huigpark",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "fileSHA256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-huigpark.json",
+        "sha256": "80e22a97a972b035d8fd7848786b7ed8fcaac118a426d55157870b2a87cd17d8",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "nature.leiden-ankerpark",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "fileSHA256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-ankerpark.json",
+        "sha256": "b1730abb70928bbc99d61c8f88f9b6d5109e5a4b5ca5b2e361a1e046a223868a",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "nature.leiden-blekerspark",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "fileSHA256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-blekerspark.json",
+        "sha256": "7539c6b58d98b01ba71eeefe2231211cbbb81ac861dc334224f80fc8dc1e1664",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "nature.leiden-park-de-put",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "fileSHA256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830",
+      "origin": "existing_compact_approval",
+      "sourceCheckedAt": "2026-11-09",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-park-de-put.json",
+        "sha256": "577030e78000dedf4a8ca432cf9033d4474e4e195311d53378d7e131385d1959",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.leiden-de-valk",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/leiden.json",
+      "fileSHA256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.leiden-de-valk.json",
+        "sha256": "7a0a08ddff91876b4718f3d006ac9642d6dd8181b23c752df18e561576ae31d4",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": true,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.leiden-sieboldhuis",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/leiden.json",
+      "fileSHA256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.leiden-pieterskerk",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/leiden.json",
+      "fileSHA256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.leiden-oude-sterrewacht",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/leiden.json",
+      "fileSHA256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": false,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.leiden-young-rembrandt-studio",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/leiden.json",
+      "fileSHA256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.leiden-schouwburg",
+      "city": "leiden",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/leiden.json",
+      "fileSHA256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.rijksmuseum",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.van-gogh-museum",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.van-gogh-museum.json",
+        "sha256": "1e660f9267930406e8bd8afc8d184d64017efcefca78e428127ba689dd7d1afa",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.stedelijk-museum-amsterdam",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.stedelijk-museum-amsterdam.json",
+        "sha256": "402297e2b09eee235e6ba9052ac86cd565a4b713acfcaf6dc21c3d11f0d318f7",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.anne-frank-house",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.anne-frank-house.json",
+        "sha256": "a4ea2c131b125ab32e60279f4c344547cf99a1dfc021b2cf270bc1a9183692b3",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": true,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.nemo-science-museum",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.het-scheepvaartmuseum",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.het-scheepvaartmuseum.json",
+        "sha256": "77bd63fccfa9693a7ffdd8af9af88fd91226479972b3d796f62836a439588699",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": true,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.museum-rembrandthuis",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.museum-rembrandthuis.json",
+        "sha256": "c334d3f2ccc17433e39f7fcd405e5c31801bfd261417b00df4d985bfe6e9026a",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": true,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.museum-ons-lieve-heer-op-solder",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.museum-ons-lieve-heer-op-solder.json",
+        "sha256": "c0e3af8588b0df3561e822425ab5680c9a36ecd78629c8ea5b68af0ded3aa553",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": true,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.hart-museum",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.jewish-museum",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.dutch-resistance-museum",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.eye-filmmuseum",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.eye-filmmuseum.json",
+        "sha256": "7cc767737ecdc11c55357fe6ea4c314701b76b7e32fe4a8bf2aae6f0adcbadd7",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.museum-of-the-canals",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.foam",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": false,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.foam.json",
+        "sha256": "2c00ace1cb22e2b1db8d28c81a481cd5caba228310274c0fff8bfc28ae6731d9",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.huis-marseille",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.huis-marseille.json",
+        "sha256": "da84884127deb6c62e680fcd359b4bfb8cf8e92bde14b983e35d1d2d8c0424cb",
+        "optimizedCandidate": false,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.allard-pierson",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.allard-pierson.json",
+        "sha256": "5823489ede4640d267966b0cb06f92d4b6f9540240804244b9e0310fde8b9d64",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": true,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.artis-micropia",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": false,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.wereldmuseum-amsterdam",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.wereldmuseum-amsterdam.json",
+        "sha256": "94ff8cb7a838170612ece8583cb4ea7194c8df394a299e23b8e084fe9d78afc8",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": true,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.museum-van-loon",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": false,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.museum-van-loon.json",
+        "sha256": "d513b4fbbc7eb59a7fbd465e286ca3bd60701d1d0a006c23f26f09c658a1adfb",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": true,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "place.royal-palace-amsterdam",
+      "city": "amsterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+      "fileSHA256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae",
+      "origin": "revision",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.rotterdam-boijmans",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+      "fileSHA256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.rotterdam-boijmans.json",
+        "sha256": "7463a612df2b6a07f174521eebe0b8e84b32a9dd65fa3a9edabdb9fd21c0374f",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.rotterdam-kunsthal",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+      "fileSHA256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.rotterdam-kunsthal.json",
+        "sha256": "818f28a72c02e875c87e6860ebb17e9ad9b0e7a1564c52702f6270392927db8c",
+        "optimizedCandidate": false,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.rotterdam-maritime",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+      "fileSHA256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.rotterdam-euromast",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+      "fileSHA256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/place.rotterdam-euromast.json",
+        "sha256": "5156a030ce3a1e7a8d9e62f6baeca5a2446b4e6554f024bd511ca8b235ebe7bd",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": true,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "place.rotterdam-kijk-kubus",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+      "fileSHA256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.rotterdam-markthal",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+      "fileSHA256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/place.rotterdam-markthal.json",
+        "sha256": "2782a68e9e8897c792dce18f87734e78aba5241bc66b71d2d179736005caa0f2",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.rotterdam-natuurhistorisch",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+      "fileSHA256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.rotterdam-natuurhistorisch.json",
+        "sha256": "b826d1a90dbbf97eaf034cd0bec168db8d4eb0a879c02651641239aab58aa834",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.rotterdam-foto",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+      "fileSHA256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.rotterdam-blijdorp",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+      "fileSHA256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.rotterdam-laurenskerk",
+      "city": "rotterdam",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+      "fileSHA256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.den-haag-mauritshuis",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+      "fileSHA256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": false,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.den-haag-mauritshuis.json",
+        "sha256": "38580b2bf1b0509747b4c2a214bcfc9c14d8f18c428eae5a16dde013d183b426",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": true,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.den-haag-kunstmuseum",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+      "fileSHA256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": false,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.den-haag-kunstmuseum.json",
+        "sha256": "3500ede2dc79a474bc8e1ba486a5fe40a4b26d191788d862b32afb1c2bc6e534",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.den-haag-escher",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+      "fileSHA256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.den-haag-madurodam",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+      "fileSHA256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": false,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/place.den-haag-madurodam.json",
+        "sha256": "f7159332fca767486bf65f9f0234835f3fd7da082cfc63449db508d935c45974",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.den-haag-panorama-mesdag",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+      "fileSHA256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.den-haag-panorama-mesdag.json",
+        "sha256": "499c79aefae676e69a6565d24a7cc03bbccd8085c07f4944522bc0932a91681e",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.den-haag-museon-omniversum",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+      "fileSHA256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.den-haag-peace-palace",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+      "fileSHA256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/place.den-haag-peace-palace.json",
+        "sha256": "72d5acb6f3a03bcd711184730db79650d31e431847af5bd13d35b837aaa85531",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.den-haag-gevangenpoort",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+      "fileSHA256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.den-haag-beelden-aan-zee",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+      "fileSHA256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.den-haag-beelden-aan-zee.json",
+        "sha256": "efa1d815ecb414535d5642baf0b2733346d70c47e53af9ef0f68a44ef4085e0d",
+        "optimizedCandidate": false,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.den-haag-louwman",
+      "city": "den-haag",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+      "fileSHA256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.utrecht-centraal",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+      "fileSHA256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.utrecht-centraal.json",
+        "sha256": "766b9001b720da8b169f89914a66154eb78415e42a52d89b2d6a285e9d65ab95",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.utrecht-spoorwegmuseum",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+      "fileSHA256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.utrecht-speelklok",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+      "fileSHA256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.utrecht-speelklok.json",
+        "sha256": "f1dfc7ab9ce0ff4e3111af24948a6adba31c18c74af31454cee3fdb00b9a01ea",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.utrecht-catharijneconvent",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+      "fileSHA256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.utrecht-catharijneconvent.json",
+        "sha256": "be1fb04336eb1606fa0257192fc3f7c7867e9a33f6cdb93345c9ef9df1156236",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "place.utrecht-domtoren",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+      "fileSHA256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/place.utrecht-domtoren.json",
+        "sha256": "ac794f35908f1b6e1ba7b0a35b73597b3a6497f6bdedc8f4897359a383c86c16",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": true,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.utrecht-domunder",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+      "fileSHA256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.utrecht-nijntje",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+      "fileSHA256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.utrecht-rietveld-schroderhuis",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+      "fileSHA256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/place.utrecht-rietveld-schroderhuis.json",
+        "sha256": "564bd93d735b9c3a701fc542d8714f4274cee1af2752478fe82ea23d01f76402",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.utrecht-university-museum",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+      "fileSHA256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "nature.utrecht-botanic-gardens",
+      "city": "utrecht",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+      "fileSHA256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.eindhoven-van-abbe",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+      "fileSHA256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "museum.eindhoven-philips",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+      "fileSHA256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.eindhoven-philips.json",
+        "sha256": "bbe44b605de0f5227d526b543b49da1612c1df93b7a60db39ce827c3eaaa61fe",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.eindhoven-daf",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+      "fileSHA256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.eindhoven-daf.json",
+        "sha256": "6aae871e6836ce7024df1fe892ef09017cd8ac6d9442208a9d811e73071911fe",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "museum.eindhoven-prehistorisch-dorp",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+      "fileSHA256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.eindhoven-prehistorisch-dorp.json",
+        "sha256": "79fb45802cb9df17725f3ee7506da00208e615c954d8922aae28fc49d30ddd1a",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "place.eindhoven-evoluon",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+      "fileSHA256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.eindhoven-strijp-s",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+      "fileSHA256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": false,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/place.eindhoven-strijp-s.json",
+        "sha256": "684fd735ebfa3194cb8c51001977ac55a6be7b990436cb79bf1d93fa3ffeb892",
+        "optimizedCandidate": false,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "place.eindhoven-muziekgebouw",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+      "fileSHA256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.eindhoven-park-theatre",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+      "fileSHA256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": false,
+      "coordinate": false,
+      "photo": false,
+      "reviewMedia": {
+        "evidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/place.eindhoven-park-theatre.json",
+        "sha256": "773cc770d9bafd76b5d9cbc55fcabbf9c4cd444d01f445b827dcd78a360474c8",
+        "optimizedCandidate": true,
+        "visualIdentityChecked": false,
+        "publicationAuthorized": false
+      }
+    },
+    {
+      "id": "place.eindhoven-dynamo",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+      "fileSHA256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    },
+    {
+      "id": "place.eindhoven-piet-hein-eek",
+      "city": "eindhoven",
+      "recordFile": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+      "fileSHA256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e",
+      "origin": "new_draft",
+      "sourceCheckedAt": "2026-11-15",
+      "sourceContentChecked": true,
+      "coordinate": false,
+      "photo": false
+    }
+  ],
+  "excluded": [
+    {
+      "id": "restaurant.leiden-engelenbak",
+      "reason": "Previously observed unrelated casino promotion; investigate source integrity; no upstream status changed"
+    }
+  ]
+}

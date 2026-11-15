@@ -1,0 +1,18 @@
+{
+  "url": "https://www.beeldenaanzee.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "bbac2f6f28107d29bc705cd33b57fb38a65a7cdc6727b7c1ba28e3ceb00a535f",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.beeldenaanzee.nl/en",
+  "sha256": "d9dbb06b307b0fc35bf47d7e72a8184ef18729d38aef3196d01a22dd1c3c650d",
+  "title": "Homepage - Museum Beelden aan Zee - NL",
+  "excerpt": "Homepage - Museum Beelden aan Zee - NL Menu Search en nl de Become a friend Book tickets Museum Beelden",
+  "actionCandidates": [
+    "https://www.beeldenaanzee.nl/en/visit-tickets",
+    "https://www.beeldenaanzee.nl/en/visit-tickets/frequently-asked-questions",
+    "https://www.beeldenaanzee.nl/en/visit-tickets/house-rules"
+  ]
+}

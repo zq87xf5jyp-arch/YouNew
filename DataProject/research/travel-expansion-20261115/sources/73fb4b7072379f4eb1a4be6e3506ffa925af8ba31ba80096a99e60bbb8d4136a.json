@@ -1,0 +1,38 @@
+{
+  "url": "https://www.louwmanmuseum.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "b12d108318ff50e1b068b65aa0e86dd3a8c3d897b069b9441280030a3f4659ef",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.louwmanmuseum.nl/en",
+  "sha256": "99688d9b56a837881c2b2693f44acecd397ca2d17a268fe054a7b773fae16fe5",
+  "title": "History of the automobile | Louwman Museum",
+  "excerpt": "History of the automobile | Louwman Museum Tickets Menu Plan your visit Plan your event Collections The museum Webshop Plan",
+  "actionCandidates": [
+    "https://tickets.louwmanmuseum.nl/en"
+  ],
+  "previousAttempts": [
+    {
+      "url": "https://www.louwmanmuseum.nl/en/",
+      "checkedAt": "2026-11-15",
+      "status": "unavailable",
+      "contentReviewed": false,
+      "robotsSHA256": "b12d108318ff50e1b068b65aa0e86dd3a8c3d897b069b9441280030a3f4659ef",
+      "robotsStatus": "fetched",
+      "error": "HTTP Error 308: Permanent Redirect",
+      "previousAttempts": [
+        {
+          "url": "https://www.louwmanmuseum.nl/en/",
+          "checkedAt": "2026-11-15",
+          "status": "unavailable",
+          "contentReviewed": false,
+          "robotsSHA256": "b12d108318ff50e1b068b65aa0e86dd3a8c3d897b069b9441280030a3f4659ef",
+          "robotsStatus": "fetched",
+          "error": "HTTP Error 308: Permanent Redirect"
+        }
+      ]
+    }
+  ]
+}

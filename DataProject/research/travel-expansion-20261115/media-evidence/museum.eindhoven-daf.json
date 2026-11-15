@@ -1,0 +1,43 @@
+{
+  "id": "museum.eindhoven-daf",
+  "url": "https://commons.wikimedia.org/wiki/File:DAF_Museum_(2024).jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:DAF_Museum",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.eindhoven-daf-480.webp",
+      "width": 480,
+      "sha256": "e8d1847db0739b7554d2cdd73c39345e5c303a23769b1557a4773d4154197c94",
+      "bytes": 15992
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.eindhoven-daf-800.webp",
+      "width": 800,
+      "sha256": "ad938a4b1cb09a28f6dfd8d3503fdb767341568f1c1ff9ce3f27b52b59cc897b",
+      "bytes": 45662
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.eindhoven-daf-1200.webp",
+      "width": 1200,
+      "sha256": "274466c71bc7080dd83a82e944bff23c76cd8fbeab1f87444e08e5af951b3de2",
+      "bytes": 99818
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "2c5ff99050e00abe1300c00e5d3b0eb5bd4e12f6116958a1dc3303611c4e99d8",
+  "author": "S. Perquin",
+  "license": "CC BY-SA 4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "DAF_Museum_(2024).jpg — S. Perquin — CC BY-SA 4.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/0/0c/DAF_Museum_%282024%29.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0c/DAF_Museum_%282024%29.jpg/1280px-DAF_Museum_%282024%29.jpg",
+  "downloadSHA256": "d51c139c8fcd3646644be903c783da8b057490059e17e9213dd3331312a84ac7",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

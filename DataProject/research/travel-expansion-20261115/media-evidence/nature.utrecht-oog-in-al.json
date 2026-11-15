@@ -1,0 +1,43 @@
+{
+  "id": "nature.utrecht-oog-in-al",
+  "url": "https://commons.wikimedia.org/wiki/File:Bruggetje_-_panoramio_-_Marcel030NL.jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Park_Oog_in_Al",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.utrecht-oog-in-al-480.webp",
+      "width": 480,
+      "sha256": "64516ad155680f62d718ecfb323d0fe63e948d7251f6c11b260e4dfd46e8cf24",
+      "bytes": 101798
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.utrecht-oog-in-al-800.webp",
+      "width": 800,
+      "sha256": "d9996e612428c9295a12c82977373dbd4b3390eebb0a71351dab1bc5d85a67c4",
+      "bytes": 225372
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/nature.utrecht-oog-in-al-1200.webp",
+      "width": 1200,
+      "sha256": "80f8465547c30ad777ec7fc6ba621204790404cebddb4a4a0db38091475222ea",
+      "bytes": 370652
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "710078ff9cf647cb75b6b314e62dd9647fb73f5b608e9388083a7f4c5d8ad8e8",
+  "author": "Marcel030NL",
+  "license": "CC BY-SA 3.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Bruggetje_-_panoramio_-_Marcel030NL.jpg — Marcel030NL — CC BY-SA 3.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/f/f0/Bruggetje_-_panoramio_-_Marcel030NL.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f0/Bruggetje_-_panoramio_-_Marcel030NL.jpg/1280px-Bruggetje_-_panoramio_-_Marcel030NL.jpg",
+  "downloadSHA256": "4496a3003e31caa45870d98416beab2991b07c58fb20f116d107b310c53951cd",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

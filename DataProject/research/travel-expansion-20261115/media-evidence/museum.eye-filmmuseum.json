@@ -1,0 +1,43 @@
+{
+  "id": "museum.eye-filmmuseum",
+  "url": "https://commons.wikimedia.org/wiki/File:EYE_Filmmuseum.jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Eye_Filmmuseum",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.eye-filmmuseum-480.webp",
+      "width": 480,
+      "sha256": "c581f13b3fc6e5ad271fae586cacafda1fa0dab3a29ec9777e5e4ce6d6b85ee5",
+      "bytes": 27428
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.eye-filmmuseum-800.webp",
+      "width": 800,
+      "sha256": "e661fbfa62147bc957f196ce07b7ad046ca18fef427169885850929b09613070",
+      "bytes": 69868
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.eye-filmmuseum-1200.webp",
+      "width": 1200,
+      "sha256": "760b4c6d858f3e54d97b8af91b062e25471a713ac083093e752601a50ace0f56",
+      "bytes": 132768
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "250a479b17f722755862145866d2ba610bda2c9c8a5fd10762b70127187c7ac8",
+  "author": "Jvhertum",
+  "license": "CC BY-SA 3.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "EYE_Filmmuseum.jpg — Jvhertum — CC BY-SA 3.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/7/71/EYE_Filmmuseum.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/71/EYE_Filmmuseum.jpg/1280px-EYE_Filmmuseum.jpg",
+  "downloadSHA256": "1db0d2c9cea3deb6b448ef9167bb925482cc8ad1676a768c2b6a2a4750e243c3",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

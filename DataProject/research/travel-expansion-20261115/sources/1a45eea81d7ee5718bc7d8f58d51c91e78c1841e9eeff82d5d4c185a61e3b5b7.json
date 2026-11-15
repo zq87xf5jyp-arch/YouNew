@@ -1,0 +1,16 @@
+{
+  "url": "https://www.museumspeelklok.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "643a1ebefe4aefffa703df139022184debec10e762050d4e7ebd151c11ee931f",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.museumspeelklok.nl/en/",
+  "sha256": "24063e2cd1a96a76521d3694886fe35b16e22080233f00a11ab3d38417ae833c",
+  "title": "Museum Speelklok in Utrecht: where machines make music",
+  "excerpt": "Museum Speelklok in Utrecht: where machines make music Cookies & Privacy We use cookies to provide the best experience. Read",
+  "actionCandidates": [
+    "https://tickets.museumspeelklok.nl/en/toegangstickets/tickets"
+  ]
+}

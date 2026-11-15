@@ -1,0 +1,17 @@
+{
+  "url": "https://www.boijmans.nl/en/depot",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "5b1ffad7bf8c315131eecce1de124f09200dec7a9fff96f5808a3a3d1c02e8dd",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.boijmans.nl/en/depot",
+  "sha256": "7ceb1d7224c8da1a32551f8822e5783545704c58dfbc930c69f0a19232d5beee",
+  "title": "The Depot of Museum Boijmans Van Beuningen - Museum Boijmans Van Beuningen Previous Next Facebook Instagram Twitter Pinterest Tiktok Linkedin Back to top Search Search",
+  "excerpt": "The Depot of Museum Boijmans Van Beuningen - Museum Boijmans Van Beuningen :host { --enviso-primary-color: #FF8EDE; --enviso-secondary-color: #FF8EDE; font-family: 'boijmans-font',",
+  "actionCandidates": [
+    "https://www.boijmans.nl/tickets",
+    "https://www.boijmans.nl/en/tickets"
+  ]
+}

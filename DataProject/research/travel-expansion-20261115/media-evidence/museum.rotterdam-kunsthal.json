@@ -1,0 +1,17 @@
+{
+  "id": "museum.rotterdam-kunsthal",
+  "url": "https://commons.wikimedia.org/wiki/File:Rotterdam_kunsthal_achterzijde.jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Kunsthal_Rotterdam",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "644675f7fec6fa9e8b1acb0a85c578ad4491c5cf776763e33d7bf574126015f5",
+  "author": "Wikifrits",
+  "limitation": "No supported commercial CC license in Licensing section",
+  "licenseMetadataExtracted": false,
+  "rightsEvidenceChecked": false,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

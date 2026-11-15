@@ -1,0 +1,18 @@
+{
+  "url": "https://catharijneconvent.nl/visitor-information/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": null,
+  "robotsStatus": "absent",
+  "httpStatus": 200,
+  "finalURL": "https://catharijneconvent.nl/visitor-information/",
+  "sha256": "cb041062af52a507d19ecbecb6c56bd450c6e7b77a1201466b67ece28b1059a4",
+  "title": "\n    Visitor information - Catharijneconvent\n",
+  "excerpt": "Visitor information - Catharijneconvent Menu Steun ons en en Visitor information de Besucher Information fr Service visiteur es Informacion para",
+  "actionCandidates": [
+    "https://tickets.catharijneconvent.nl/Exhibitions/Register?ID=16393a13-71d0-ec11-a2e5-de402710edd8&language=NL&_gl=1*vjmcev*_gcl_aw*R0NMLjE3NTAxODE0NjkuQ2p3S0NBandwTVRDQmhBLUVpd0FfLU1zbVluRXpXcTFDamRpY050Z0t1Y3NjMGFhOHF1OFZEZ0h2ODY4bUpHWjFudERvY3hiaEtnUjR4b0M4TVlRQXZEX0J3RQ..*_gcl_au*NjEwMzUxMTgxLjE3NDg5NDQ2NDE.*_ga*NzU2MTg2NjAwLjE3MTA4Mzg4NjE.*_ga_SMJ46TPPWW*czE3NTEzNjAyNzgkbzM4NSRnMSR0MTc1MTM2MDY2NSRqNTUkbDAkaDA.",
+    "https://tickets.catharijneconvent.nl/Exhibitions/Register?ID=16393a13-71d0-ec11-a2e5-de402710edd8",
+    "https://catharijneconvent.nl/tijden-en-tickets/"
+  ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "place.rotterdam-markthal",
+  "url": "https://commons.wikimedia.org/wiki/File:Rotterdam_(21).jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Markthal_Rotterdam",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.rotterdam-markthal-480.webp",
+      "width": 480,
+      "sha256": "31d63b959271f6c5dfd275a9382f4856c6e2e15993760a0b46bd8a22e90d2c45",
+      "bytes": 26554
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.rotterdam-markthal-800.webp",
+      "width": 800,
+      "sha256": "6e62fd3987eff761c18ace625279e7eaf71519c112eaafa7f3b1c827614a3dda",
+      "bytes": 65932
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/place.rotterdam-markthal-1200.webp",
+      "width": 1200,
+      "sha256": "c6c43cd5b525ab1cd688169cb4342b9a9e5b3a2994e34b5652cd4f3282e8ec29",
+      "bytes": 123488
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "0f1b6d2b86beef2d699be7c63c143825ae614849546f9726f03a539353569d7e",
+  "author": "Elekes Andor",
+  "license": "CC BY-SA 4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Rotterdam_(21).jpg — Elekes Andor — CC BY-SA 4.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/b/b9/Rotterdam_%2821%29.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b9/Rotterdam_%2821%29.jpg/1280px-Rotterdam_%2821%29.jpg",
+  "downloadSHA256": "58a65707d7c9e0ccd538086fa8e5534df6ddef650acf12e72facea4ab107e813",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

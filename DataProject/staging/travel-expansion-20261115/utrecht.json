@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "batch_id": "travel-utrecht-20261115",
+  "work_package": "WP-06",
+  "milestone": "travel-content-review",
+  "target_release": "travel-review-20261115",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "records": [
+    {
+      "id": "museum.utrecht-centraal",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": null,
+      "title": "Centraal Museum",
+      "description": "Explore art, design, fashion and Utrecht's history through the Centraal Museum's collections and exhibitions.",
+      "images": [],
+      "official_source": {
+        "title": "Centraal Museum — official information",
+        "publisher": "Centraal Museum",
+        "url": "https://www.centraalmuseum.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.centraalmuseum.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore art, design, fashion and Utrecht's history through the Centraal Museum's collections and exhibitions.",
+      "search_keywords": [
+        "Centraal Museum",
+        "utrecht",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek kunst, vormgeving, mode en Utrechtse geschiedenis via de collecties en tentoonstellingen van het Centraal Museum.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/26a7df2d8917451a716400ab02a82a1d169c6c7ed557ef60b9d8bd88df79a11d.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.utrecht-spoorwegmuseum",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": null,
+      "title": "Spoorwegmuseum",
+      "description": "Explore railway history through trains, collections and presentations at Utrecht's railway museum.",
+      "images": [],
+      "official_source": {
+        "title": "Spoorwegmuseum — official information",
+        "publisher": "Spoorwegmuseum",
+        "url": "https://www.spoorwegmuseum.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.spoorwegmuseum.nl/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore railway history through trains, collections and presentations at Utrecht's railway museum.",
+      "search_keywords": [
+        "Spoorwegmuseum",
+        "utrecht",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek spoorweggeschiedenis via treinen, collecties en presentaties in het Utrechtse Spoorwegmuseum.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/ddd316ba1d593f1acb9c4167af19bb467462549e9709b0d9b711714b143d33ef.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.utrecht-speelklok",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": null,
+      "title": "Museum Speelklok",
+      "description": "Discover self-playing musical instruments and the mechanisms that bring their music to life at Museum Speelklok.",
+      "images": [],
+      "official_source": {
+        "title": "Museum Speelklok — official information",
+        "publisher": "Museum Speelklok",
+        "url": "https://www.museumspeelklok.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.museumspeelklok.nl/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover self-playing musical instruments and the mechanisms that bring their music to life at Museum Speelklok.",
+      "search_keywords": [
+        "Museum Speelklok",
+        "utrecht",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek zelfspelende muziekinstrumenten en de mechanismen die hun muziek tot leven brengen in Museum Speelklok.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/1a45eea81d7ee5718bc7d8f58d51c91e78c1841e9eeff82d5d4c185a61e3b5b7.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.utrecht-catharijneconvent",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": null,
+      "title": "Museum Catharijneconvent",
+      "description": "Explore Christian art and religious heritage through the collections and exhibitions of Museum Catharijneconvent.",
+      "images": [],
+      "official_source": {
+        "title": "Museum Catharijneconvent — official information",
+        "publisher": "Museum Catharijneconvent",
+        "url": "https://catharijneconvent.nl/visitor-information/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://catharijneconvent.nl/visitor-information/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore Christian art and religious heritage through the collections and exhibitions of Museum Catharijneconvent.",
+      "search_keywords": [
+        "Museum Catharijneconvent",
+        "utrecht",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek christelijke kunst en religieus erfgoed via de collecties en tentoonstellingen van Museum Catharijneconvent.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/c1b55a0c592c5fc60055dd445780823adaba2d4282d57c76961059d75823483a.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.utrecht-domtoren",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": null,
+      "title": "Dom Tower",
+      "description": "Discover Utrecht's Dom Tower through its official visitor programme. Check the available tours and access requirements before booking.",
+      "images": [],
+      "official_source": {
+        "title": "Dom Tower — official information",
+        "publisher": "Dom Tower",
+        "url": "https://www.domtoren.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.domtoren.nl/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover Utrecht's Dom Tower through its official visitor programme. Check the available tours and access requirements before booking.",
+      "search_keywords": [
+        "Dom Tower",
+        "utrecht",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek de Utrechtse Domtoren via het officiële bezoekersprogramma. Controleer beschikbare rondleidingen en toegangsvoorwaarden voordat je boekt.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/9c132fa3fa62d04ad12b655579b703a45a72e45b8567e03ec315ecd45a2d7797.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.utrecht-domunder",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": null,
+      "title": "DOMunder",
+      "description": "Explore archaeology beneath Utrecht's Dom Square and discover traces of the city's earlier history.",
+      "images": [],
+      "official_source": {
+        "title": "DOMunder — official information",
+        "publisher": "DOMunder",
+        "url": "https://www.domunder.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.domunder.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore archaeology beneath Utrecht's Dom Square and discover traces of the city's earlier history.",
+      "search_keywords": [
+        "DOMunder",
+        "utrecht",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Verken archeologie onder het Utrechtse Domplein en ontdek sporen uit de vroege geschiedenis van de stad.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/badfd2feef6bc2104dc0b6ffdca1d2802f21190a89dd81beeeb8d2ca228f3562.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.utrecht-nijntje",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": null,
+      "title": "Nijntje Museum",
+      "description": "Explore the world of Miffy through play at the Nijntje Museum, designed around young children's discovery and imagination.",
+      "images": [],
+      "official_source": {
+        "title": "Nijntje Museum — official information",
+        "publisher": "Nijntje Museum",
+        "url": "https://nijntjemuseum.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://nijntjemuseum.nl/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore the world of Miffy through play at the Nijntje Museum, designed around young children's discovery and imagination.",
+      "search_keywords": [
+        "Nijntje Museum",
+        "utrecht",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek de wereld van nijntje spelenderwijs in het Nijntje Museum, met aandacht voor de ontdekking en verbeelding van jonge kinderen.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/146aae42610ec88936fa34fa9190ecc9e648ca30e1076bd5439bd22ac3717949.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.utrecht-rietveld-schroderhuis",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": null,
+      "title": "Rietveld Schröder House",
+      "description": "Explore the Rietveld Schröder House and its distinctive approach to architecture and interior space. Plan a visit through the official booking information.",
+      "images": [],
+      "official_source": {
+        "title": "Rietveld Schröder House — official information",
+        "publisher": "Rietveld Schröder House",
+        "url": "https://www.rietveldschroderhuis.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.rietveldschroderhuis.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore the Rietveld Schröder House and its distinctive approach to architecture and interior space. Plan a visit through the official booking information.",
+      "search_keywords": [
+        "Rietveld Schröder House",
+        "utrecht",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek het Rietveld Schröderhuis en de bijzondere benadering van architectuur en binnenruimte. Plan je bezoek via de officiële boekingsinformatie.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/abc4c4ae1998bc0572b63a8d8e334b2489bbb0b511573e16aeebd94b55621fa3.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.utrecht-university-museum",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": null,
+      "title": "Universiteitsmuseum Utrecht",
+      "description": "Discover university research through interactive activities and collections at Utrecht University Museum.",
+      "images": [],
+      "official_source": {
+        "title": "Universiteitsmuseum Utrecht — official information",
+        "publisher": "Universiteitsmuseum Utrecht",
+        "url": "https://www.uu.nl/organisatie/universiteitsmuseum-utrecht",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.uu.nl/organisatie/universiteitsmuseum-utrecht",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover university research through interactive activities and collections at Utrecht University Museum.",
+      "search_keywords": [
+        "Universiteitsmuseum Utrecht",
+        "utrecht",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek universitair onderzoek via interactieve activiteiten en collecties in het Universiteitsmuseum Utrecht.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/94ec81fcb91a77296134ff38184834d77603ce3b5d9cee1577c54c187c4b1e41.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "nature.utrecht-botanic-gardens",
+      "entity_type": "nature",
+      "category": "botanical-garden",
+      "city_id": "utrecht",
+      "province_id": "utrecht",
+      "coordinates": null,
+      "title": "Botanische Tuinen Utrecht",
+      "description": "Explore the university's botanical gardens and plant collections. Consult seasonal opening information before visiting.",
+      "images": [],
+      "official_source": {
+        "title": "Botanische Tuinen Utrecht — official information",
+        "publisher": "Botanische Tuinen Utrecht",
+        "url": "https://www.uu.nl/en/utrecht-botanic-gardens",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.uu.nl/en/utrecht-botanic-gardens",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore the university's botanical gardens and plant collections. Consult seasonal opening information before visiting.",
+      "search_keywords": [
+        "Botanische Tuinen Utrecht",
+        "utrecht",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek de botanische tuinen en plantencollecties van de universiteit. Bekijk voor je bezoek de seizoensgebonden openingstijden.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/48a49b6142501896f25de400171c2cf1fb403d0c9e7662b1ffd06c43492d48ac.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    }
+  ]
+}

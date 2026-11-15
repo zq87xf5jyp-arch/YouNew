@@ -1,0 +1,36 @@
+{
+  "url": "https://www.nemosciencemuseum.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": null,
+  "robotsStatus": "absent",
+  "httpStatus": 200,
+  "finalURL": "https://www.nemosciencemuseum.nl/en",
+  "sha256": "14b69fb66d7798fe7bf85261098ea2342e1e813355fb359c1d592c4609464787",
+  "title": "NEMO Science Museum - NEMO Science Museum",
+  "excerpt": "NEMO Science Museum - NEMO Science Museum Go to main content Back to home Back to home Visit Discover and",
+  "actionCandidates": [],
+  "previousAttempts": [
+    {
+      "url": "https://www.nemosciencemuseum.nl/en/",
+      "checkedAt": "2026-11-15",
+      "status": "unavailable",
+      "contentReviewed": false,
+      "robotsSHA256": null,
+      "robotsStatus": "absent",
+      "error": "HTTP Error 308: Permanent Redirect",
+      "previousAttempts": [
+        {
+          "url": "https://www.nemosciencemuseum.nl/en/",
+          "checkedAt": "2026-11-15",
+          "status": "unavailable",
+          "contentReviewed": false,
+          "robotsSHA256": null,
+          "robotsStatus": "absent",
+          "error": "HTTP Error 308: Permanent Redirect"
+        }
+      ]
+    }
+  ]
+}

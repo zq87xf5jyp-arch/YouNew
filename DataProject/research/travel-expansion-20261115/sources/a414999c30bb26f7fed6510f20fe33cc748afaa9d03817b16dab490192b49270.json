@@ -1,0 +1,16 @@
+{
+  "url": "https://huismarseille.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "784901a8d62ad9d10fe607b565a99a4de5ef7e259c6e32cee5935ee17039ac62",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://huismarseille.nl/en/",
+  "sha256": "b51d6eef9b3e0805974c137001497727aecb83432123e7b6aa807e8ccab3f5c4",
+  "title": "Huis Marseille, Museum for Photography line line line search logo instagram search footer close",
+  "excerpt": "Huis Marseille, Museum for Photography Museum for Photography Amsterdam line line line Close NL Exhibitions Current & Upcoming Archive Visit",
+  "actionCandidates": [
+    "https://tickets.huismarseille.nl/en/tickets"
+  ]
+}

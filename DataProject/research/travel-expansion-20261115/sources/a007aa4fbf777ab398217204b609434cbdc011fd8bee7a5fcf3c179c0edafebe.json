@@ -1,0 +1,17 @@
+{
+  "url": "https://www.rijksmuseum.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "70e8f0463cade38695c2fe4b159d333858cc5484bd70c63e08ceebc78ce3687a",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.rijksmuseum.nl/en",
+  "sha256": "967e460b88ba253821c355fd2fd7eeaf08e6f5c3cb46dcea009e10545f3f8294",
+  "title": "Rijksmuseum Amsterdam, home of Dutch master pieces",
+  "excerpt": "Rijksmuseum Amsterdam, home of Dutch master pieces Cookie usage The Rijksmuseum uses cookies. A cookie is a small text file",
+  "actionCandidates": [
+    "https://www.rijksmuseumshop.nl/en?utm_source=rijksmuseum.nl&utm_medium=referral&utm_campaign=webshop&utm_content=uitklapmenu_en",
+    "https://www.rijksmuseum.nl/en/tickets"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "url": "https://laurenskerkrotterdam.nl/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "66ecc5bbb0cfedb96863ecbe17f6000dd4e8ba3e06ae9e40af6b6713c3bbbeda",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://laurenskerk.nl/",
+  "sha256": "a352b64c94632d4234ec5aab3372f4294192a4a2b0a4ff78060709ed64e0835f",
+  "title": "Home - Laurenskerk Rotterdam",
+  "excerpt": "Home - Laurenskerk Rotterdam Agenda Huur Bezoek Educatie Over ons Steun ons NL ENG Agenda Huur Bezoek Educatie Over ons",
+  "actionCandidates": [
+    "https://tickets.rotterdamsphilharmonisch.nl/nl/buyingflow/tickets/55262/115847/",
+    "https://sales.ticketing.cm.com/rwt2026vrijdag/nl-nl/53e40bbc-8093-4771-99b3-1dd801da00fe",
+    "https://tickets.iffr.com/mtTicket/performance/10041298",
+    "https://tickets.laurenskerkrotterdam.nl/laurenskerk/nl/flow_configs/webshop-laurenskerkrotterdam/overview"
+  ]
+}

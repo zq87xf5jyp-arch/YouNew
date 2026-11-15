@@ -1,0 +1,18 @@
+{
+  "url": "https://www.rietveldschroderhuis.nl/en",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "9e471f1b38bbbd1e687cdea23645aa4919f8287b315d3f6d68912d2537e13f25",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.rietveldschroderhuis.nl/en",
+  "sha256": "a1a3e3c3b2abdde81e702423a0fa960543b06ef98b1ebd9145acdb866a2e372a",
+  "title": "Rietveld Schröderhuis",
+  "excerpt": "Rietveld Schröderhuis Plan your visit Activities World Heritage Buy tickets Buy tickets Opening hours Tuesday to Sunday 11 a.m. to",
+  "actionCandidates": [
+    "https://tickets.rietveldschroderhuis.nl/en/tickets",
+    "https://www.rietveldschroderhuis.nl/en/visit/tickets-tijden-en-prijzen",
+    "https://tickets.centraalmuseum.nl/nl/tickets"
+  ]
+}

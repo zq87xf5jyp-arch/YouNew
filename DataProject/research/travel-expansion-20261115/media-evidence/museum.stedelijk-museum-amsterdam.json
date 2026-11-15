@@ -1,0 +1,43 @@
+{
+  "id": "museum.stedelijk-museum-amsterdam",
+  "url": "https://commons.wikimedia.org/wiki/File:De_nieuwe_vleugel_van_het_Stedelijk_Museum_Amsterdam.jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Stedelijk_Museum_Amsterdam",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.stedelijk-museum-amsterdam-480.webp",
+      "width": 480,
+      "sha256": "fb154538e5239609686832369181b313e3012753e654a7c746c3ef3f84600db1",
+      "bytes": 16824
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.stedelijk-museum-amsterdam-800.webp",
+      "width": 800,
+      "sha256": "3757899a0a31d8480597fceaf312b51aa97d98f13ebced870fe82e0cbf93cb2e",
+      "bytes": 40138
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.stedelijk-museum-amsterdam-1200.webp",
+      "width": 1200,
+      "sha256": "6f7a40d311becc9033da497fb3208cb54a17bea718ea81635188aa4fd03f07bf",
+      "bytes": 77182
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "3e9691f71571ba0fb4f6ef5f8b7dfbf710293bd125629bb01ef6306672168c52",
+  "author": "John Lewis Marshall",
+  "license": "CC BY-SA 4.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "De_nieuwe_vleugel_van_het_Stedelijk_Museum_Amsterdam.jpg — John Lewis Marshall — CC BY-SA 4.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/6/61/De_nieuwe_vleugel_van_het_Stedelijk_Museum_Amsterdam.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/6/61/De_nieuwe_vleugel_van_het_Stedelijk_Museum_Amsterdam.jpg/1280px-De_nieuwe_vleugel_van_het_Stedelijk_Museum_Amsterdam.jpg",
+  "downloadSHA256": "1e39af34b6ad82c67ce1108c39cf108106530b5c02714b457c35ed6633e5fd8b",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "batch_id": "travel-den-haag-20261115",
+  "work_package": "WP-06",
+  "milestone": "travel-content-review",
+  "target_release": "travel-review-20261115",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "records": [
+    {
+      "id": "museum.den-haag-mauritshuis",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Mauritshuis",
+      "description": "Explore Dutch painting at the Mauritshuis, including works by Vermeer and Rembrandt, in a historic building in The Hague.",
+      "images": [],
+      "official_source": {
+        "title": "Mauritshuis — official information",
+        "publisher": "Mauritshuis",
+        "url": "https://www.mauritshuis.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "access_restricted"
+      },
+      "website": null,
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore Dutch painting at the Mauritshuis, including works by Vermeer and Rembrandt, in a historic building in The Hague.",
+      "search_keywords": [
+        "Mauritshuis",
+        "den-haag",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek Nederlandse schilderkunst in het Mauritshuis, met werk van Vermeer en Rembrandt, in een historisch Haags gebouw.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "robots_disallowed_or_unavailable",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/adc02508086dd1a45891b2ef176e7e983f20a91efb22c32c29e345d10d95cfe2.json",
+        "content_verification": "not_fact_checked_do_not_release",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.den-haag-kunstmuseum",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Kunstmuseum Den Haag",
+      "description": "Discover modern art, design and decorative arts through the Kunstmuseum's collections and exhibitions.",
+      "images": [],
+      "official_source": {
+        "title": "Kunstmuseum Den Haag — official information",
+        "publisher": "Kunstmuseum Den Haag",
+        "url": "https://www.kunstmuseum.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "access_restricted"
+      },
+      "website": null,
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover modern art, design and decorative arts through the Kunstmuseum's collections and exhibitions.",
+      "search_keywords": [
+        "Kunstmuseum Den Haag",
+        "den-haag",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek moderne kunst, vormgeving en toegepaste kunst via de collecties en tentoonstellingen van het Kunstmuseum.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "robots_disallowed_or_unavailable",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/888dbd77ba593e5768d8208a987f6484e1f9923a229a3f47286066e434881dd1.json",
+        "content_verification": "not_fact_checked_do_not_release",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.den-haag-escher",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Escher in Het Paleis",
+      "description": "Explore M. C. Escher's graphic work and visual puzzles in the setting of a former palace in The Hague.",
+      "images": [],
+      "official_source": {
+        "title": "Escher in Het Paleis — official information",
+        "publisher": "Escher in Het Paleis",
+        "url": "https://www.escherinhetpaleis.nl/?lang=en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.escherinhetpaleis.nl/?lang=en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore M. C. Escher's graphic work and visual puzzles in the setting of a former palace in The Hague.",
+      "search_keywords": [
+        "Escher in Het Paleis",
+        "den-haag",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek het grafische werk en de visuele raadsels van M. C. Escher in een voormalig paleis in Den Haag.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/389da1dbdb4c7db5d881881337888e4dd5b3fd6b4d4f2b9a3cc519c858508a0d.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.den-haag-madurodam",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Madurodam",
+      "description": "Discover miniature Dutch landmarks alongside interactive attractions at Madurodam. Check the current visitor programme before planning a family outing.",
+      "images": [],
+      "official_source": {
+        "title": "Madurodam — official information",
+        "publisher": "Madurodam",
+        "url": "https://www.madurodam.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "access_restricted"
+      },
+      "website": null,
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover miniature Dutch landmarks alongside interactive attractions at Madurodam. Check the current visitor programme before planning a family outing.",
+      "search_keywords": [
+        "Madurodam",
+        "den-haag",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek Nederlandse monumenten in miniatuur en interactieve attracties in Madurodam. Bekijk het actuele bezoekersprogramma voor een gezinsuitje.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "robots_disallowed_or_unavailable",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/5135c7d32e5ab94f00684c8d993e9a35f684141b86e4aef772c915d9e781c38a.json",
+        "content_verification": "not_fact_checked_do_not_release",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.den-haag-panorama-mesdag",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Panorama Mesdag",
+      "description": "Explore Mesdag's panoramic painting of Scheveningen and the museum's exhibitions about art and the coastal landscape.",
+      "images": [],
+      "official_source": {
+        "title": "Panorama Mesdag — official information",
+        "publisher": "Panorama Mesdag",
+        "url": "https://panorama-mesdag.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://panorama-mesdag.nl/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore Mesdag's panoramic painting of Scheveningen and the museum's exhibitions about art and the coastal landscape.",
+      "search_keywords": [
+        "Panorama Mesdag",
+        "den-haag",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek Mesdags panoramaschilderij van Scheveningen en de museumtentoonstellingen over kunst en het kustlandschap.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/48c949443e27bdb678f144c5bf3f128f7f82f942fa07513ff88926e243b08c7b.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.den-haag-museon-omniversum",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Museon-Omniversum",
+      "description": "Explore science, culture and the planet through Museon-Omniversum's exhibitions and large-screen films.",
+      "images": [],
+      "official_source": {
+        "title": "Museon-Omniversum — official information",
+        "publisher": "Museon-Omniversum",
+        "url": "https://www.museon-omniversum.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.museon-omniversum.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore science, culture and the planet through Museon-Omniversum's exhibitions and large-screen films.",
+      "search_keywords": [
+        "Museon-Omniversum",
+        "den-haag",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek wetenschap, cultuur en de aarde via tentoonstellingen en grootbeeldfilms van Museon-Omniversum.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/02fcced22185753e525977e5b65dccdbe89a98ea340e3bd11515f88f4a7e4a4a.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.den-haag-peace-palace",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Peace Palace",
+      "description": "Learn about the Peace Palace and international peace and justice. Check the visitor centre and tour arrangements before visiting.",
+      "images": [],
+      "official_source": {
+        "title": "Peace Palace — official information",
+        "publisher": "Peace Palace",
+        "url": "https://www.vredespaleis.nl/?lang=en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.vredespaleis.nl/?lang=en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Learn about the Peace Palace and international peace and justice. Check the visitor centre and tour arrangements before visiting.",
+      "search_keywords": [
+        "Peace Palace",
+        "den-haag",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Leer over het Vredespaleis en internationale vrede en recht. Controleer vooraf de mogelijkheden voor het bezoekerscentrum en rondleidingen.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/e8e9c638862199d94d6af92a13918aa1b9f92a7e1422191f6fb0f4bd4b3167f8.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.den-haag-gevangenpoort",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Rijksmuseum de Gevangenpoort",
+      "description": "Explore the history of imprisonment and justice in the historic Gevangenpoort building in The Hague.",
+      "images": [],
+      "official_source": {
+        "title": "Rijksmuseum de Gevangenpoort — official information",
+        "publisher": "Rijksmuseum de Gevangenpoort",
+        "url": "https://www.gevangenpoort.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.gevangenpoort.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore the history of imprisonment and justice in the historic Gevangenpoort building in The Hague.",
+      "search_keywords": [
+        "Rijksmuseum de Gevangenpoort",
+        "den-haag",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek de geschiedenis van gevangenschap en rechtspraak in de historische Gevangenpoort in Den Haag.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/be8358cc50ceaa50b1232f497edcabcbec98a1a515e5b7932f9943355f72b60d.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.den-haag-beelden-aan-zee",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Museum Beelden aan Zee",
+      "description": "Discover sculpture at Museum Beelden aan Zee in Scheveningen, with exhibitions focused on three-dimensional art.",
+      "images": [],
+      "official_source": {
+        "title": "Museum Beelden aan Zee — official information",
+        "publisher": "Museum Beelden aan Zee",
+        "url": "https://www.beeldenaanzee.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.beeldenaanzee.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover sculpture at Museum Beelden aan Zee in Scheveningen, with exhibitions focused on three-dimensional art.",
+      "search_keywords": [
+        "Museum Beelden aan Zee",
+        "den-haag",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek beeldhouwkunst in Museum Beelden aan Zee in Scheveningen, met tentoonstellingen over driedimensionale kunst.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/923681a9d2fc1118441ee0a2adbaedf23c3a847592363f5a01752a6630f426b1.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.den-haag-louwman",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "den-haag",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Louwman Museum",
+      "description": "Explore automotive history through the Louwman Museum's collection of historic cars and related objects.",
+      "images": [],
+      "official_source": {
+        "title": "Louwman Museum — official information",
+        "publisher": "Louwman Museum",
+        "url": "https://www.louwmanmuseum.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.louwmanmuseum.nl/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore automotive history through the Louwman Museum's collection of historic cars and related objects.",
+      "search_keywords": [
+        "Louwman Museum",
+        "den-haag",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek autogeschiedenis via de collectie historische auto's en bijbehorende voorwerpen van het Louwman Museum.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/73fb4b7072379f4eb1a4be6e3506ffa925af8ba31ba80096a99e60bbb8d4136a.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    }
+  ]
+}

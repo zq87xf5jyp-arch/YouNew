@@ -1,0 +1,49 @@
+{
+  "id": "museum.museum-ons-lieve-heer-op-solder",
+  "url": "https://commons.wikimedia.org/wiki/File:Museum_Ons%27_Lieve_Heer_op_Solder%2C_Amsterdam_%288807517167%29.jpg",
+  "origin": "DataProject/batches/WP-06/M2-amsterdam-001.json",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": true,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.museum-ons-lieve-heer-op-solder-480.webp",
+      "width": 480,
+      "sha256": "3d506f3012c686c6444ea3e964b6545a5d3b7563986de0a7a105428cb174ab08",
+      "bytes": 40974
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.museum-ons-lieve-heer-op-solder-800.webp",
+      "width": 800,
+      "sha256": "d210f5081d18283fa345f1ddb7b13f405e22957240efce2e50e57a0ba5475df2",
+      "bytes": 92950
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.museum-ons-lieve-heer-op-solder-1200.webp",
+      "width": 1200,
+      "sha256": "3644b5d33bfa79db3d24085862d8cba78ca2a2f1b6616486dc1c995610f99470",
+      "bytes": 168610
+    }
+  ],
+  "previousAttempts": [
+    {
+      "checkedAt": "2026-11-15",
+      "limitation": "No supported commercial CC license in Licensing section"
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "8e1d86cd5855f69c40e32f62a93889925cfc3501d963dbedb7f456b395b648f1",
+  "author": "Gary Ullah from Edinburgh, UK",
+  "license": "CC BY 2.0",
+  "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+  "shareAlike": false,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Museum_Ons'_Lieve_Heer_op_Solder,_Amsterdam_(8807517167).jpg — Gary Ullah from Edinburgh, UK — CC BY 2.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/b/b7/Museum_Ons%27_Lieve_Heer_op_Solder%2C_Amsterdam_%288807517167%29.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/b/b7/Museum_Ons%27_Lieve_Heer_op_Solder%2C_Amsterdam_%288807517167%29.jpg/1280px-Museum_Ons%27_Lieve_Heer_op_Solder%2C_Amsterdam_%288807517167%29.jpg",
+  "downloadSHA256": "e47cd56f7d856dc5cfc0e94b6c12a75ec8a60f54498113d481455a3c4758e509",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

@@ -1,0 +1,429 @@
+{
+  "schema_version": 1,
+  "batch_id": "travel-rotterdam-20261115",
+  "work_package": "WP-06",
+  "milestone": "travel-content-review",
+  "target_release": "travel-review-20261115",
+  "publication_status": "draft",
+  "qa": {
+    "build": "pending",
+    "static": "pending",
+    "duplicate": "pending",
+    "source": "pending",
+    "media": "pending",
+    "search": "pending",
+    "ai": "pending"
+  },
+  "records": [
+    {
+      "id": "museum.rotterdam-boijmans",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Depot Boijmans Van Beuningen",
+      "description": "Explore the Depot's publicly accessible art storage and discover how a museum cares for its collection.",
+      "images": [],
+      "official_source": {
+        "title": "Depot Boijmans Van Beuningen — official information",
+        "publisher": "Depot Boijmans Van Beuningen",
+        "url": "https://www.boijmans.nl/en/depot",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.boijmans.nl/en/depot",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore the Depot's publicly accessible art storage and discover how a museum cares for its collection.",
+      "search_keywords": [
+        "Depot Boijmans Van Beuningen",
+        "rotterdam",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Verken de publiek toegankelijke kunstopslag van het Depot en ontdek hoe een museum voor zijn collectie zorgt.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/5060420016f0de92ba97feb696050b012a8c09bd2de901d3129e696c68cf970c.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.rotterdam-kunsthal",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Kunsthal Rotterdam",
+      "description": "Discover changing exhibitions of art, photography and design at Kunsthal Rotterdam. Consult the programme before your visit.",
+      "images": [],
+      "official_source": {
+        "title": "Kunsthal Rotterdam — official information",
+        "publisher": "Kunsthal Rotterdam",
+        "url": "https://www.kunsthal.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.kunsthal.nl/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover changing exhibitions of art, photography and design at Kunsthal Rotterdam. Consult the programme before your visit.",
+      "search_keywords": [
+        "Kunsthal Rotterdam",
+        "rotterdam",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek wisselende tentoonstellingen over kunst, fotografie en vormgeving in Kunsthal Rotterdam. Bekijk vooraf het programma.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/fd4b32bea73ea39dd7f782fab59ede44e12f2713f3210db1a3d93c423df250b6.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.rotterdam-maritime",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Maritime Museum Rotterdam",
+      "description": "Explore the maritime world through museum collections and harbour-related stories in central Rotterdam.",
+      "images": [],
+      "official_source": {
+        "title": "Maritime Museum Rotterdam — official information",
+        "publisher": "Maritime Museum Rotterdam",
+        "url": "https://www.maritiemmuseum.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.maritiemmuseum.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore the maritime world through museum collections and harbour-related stories in central Rotterdam.",
+      "search_keywords": [
+        "Maritime Museum Rotterdam",
+        "rotterdam",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek de maritieme wereld via museumcollecties en verhalen over de haven in het centrum van Rotterdam.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/65afd89a84cec08dff559b6e10dc63becdf8553de02d2b05b3329c4501be0090.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.rotterdam-euromast",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Euromast",
+      "description": "See Rotterdam from the Euromast observation tower. Consult the official visitor information for available experiences and access.",
+      "images": [],
+      "official_source": {
+        "title": "Euromast — official information",
+        "publisher": "Euromast",
+        "url": "https://euromast.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://euromast.nl/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "See Rotterdam from the Euromast observation tower. Consult the official visitor information for available experiences and access.",
+      "search_keywords": [
+        "Euromast",
+        "rotterdam",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Bekijk Rotterdam vanaf de uitkijktoren Euromast. Raadpleeg de officiële bezoekersinformatie voor beschikbare ervaringen en toegang.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/f86dee98356328f1ce2711a322fa58dd87dc3b06340f32f7706e530676299de2.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.rotterdam-kijk-kubus",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Kijk-Kubus",
+      "description": "Explore the interior of a Rotterdam cube house at Kijk-Kubus and discover how its unusual spaces are arranged.",
+      "images": [],
+      "official_source": {
+        "title": "Kijk-Kubus — official information",
+        "publisher": "Kijk-Kubus",
+        "url": "https://www.kubuswoning.nl/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.kubuswoning.nl/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore the interior of a Rotterdam cube house at Kijk-Kubus and discover how its unusual spaces are arranged.",
+      "search_keywords": [
+        "Kijk-Kubus",
+        "rotterdam",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Verken het interieur van een Rotterdamse kubuswoning in de Kijk-Kubus en ontdek hoe de bijzondere ruimtes zijn ingedeeld.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/97a9fb021aa380b3937b0a00a7d9b25c6be6581ab7d00a561a4989c023ca8748.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.rotterdam-markthal",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Markthal Rotterdam",
+      "description": "Explore food shops and eating places inside Rotterdam's Markthal, combining a covered market with a distinctive architectural setting.",
+      "images": [],
+      "official_source": {
+        "title": "Markthal Rotterdam — official information",
+        "publisher": "Markthal Rotterdam",
+        "url": "https://markthal.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://markthal.nl/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore food shops and eating places inside Rotterdam's Markthal, combining a covered market with a distinctive architectural setting.",
+      "search_keywords": [
+        "Markthal Rotterdam",
+        "rotterdam",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek levensmiddelenwinkels en eetgelegenheden in de Rotterdamse Markthal, waar een overdekte markt samengaat met bijzondere architectuur.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/064ef09faa6c9117a72a823412b5b95d6adbd6981874e484363f04713f2e7af3.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.rotterdam-natuurhistorisch",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Natuurhistorisch Museum Rotterdam",
+      "description": "Discover natural history through animal specimens, exhibitions and stories about nature at Rotterdam's natural history museum.",
+      "images": [],
+      "official_source": {
+        "title": "Natuurhistorisch Museum Rotterdam — official information",
+        "publisher": "Natuurhistorisch Museum Rotterdam",
+        "url": "https://www.hetnatuurhistorisch.nl/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.hetnatuurhistorisch.nl/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover natural history through animal specimens, exhibitions and stories about nature at Rotterdam's natural history museum.",
+      "search_keywords": [
+        "Natuurhistorisch Museum Rotterdam",
+        "rotterdam",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek natuurlijke historie via dierpreparaten, tentoonstellingen en verhalen over de natuur in het Rotterdamse Natuurhistorisch Museum.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/679d92dfe695374a4e2b2e1f91f081e738605c6fa0aa5d8887751cb66291d919.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "museum.rotterdam-foto",
+      "entity_type": "museum",
+      "category": "museum",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Nederlands Fotomuseum",
+      "description": "Explore Dutch photography through the Nederlands Fotomuseum's collection and exhibitions. Check the museum's current visitor location before travelling.",
+      "images": [],
+      "official_source": {
+        "title": "Nederlands Fotomuseum — official information",
+        "publisher": "Nederlands Fotomuseum",
+        "url": "https://www.nederlandsfotomuseum.nl/en/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://www.nederlandsfotomuseum.nl/en/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Explore Dutch photography through the Nederlands Fotomuseum's collection and exhibitions. Check the museum's current visitor location before travelling.",
+      "search_keywords": [
+        "Nederlands Fotomuseum",
+        "rotterdam",
+        "culture"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek Nederlandse fotografie via de collectie en tentoonstellingen van het Nederlands Fotomuseum. Controleer voor vertrek de actuele bezoekerslocatie.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/3672c97006b6f771c530be701857e6472aa0882b02a26c6d4472fa5be1049366.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.rotterdam-blijdorp",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Diergaarde Blijdorp",
+      "description": "Discover animals and conservation stories at Rotterdam Zoo. Use the official visitor information to plan your route through the zoo.",
+      "images": [],
+      "official_source": {
+        "title": "Diergaarde Blijdorp — official information",
+        "publisher": "Diergaarde Blijdorp",
+        "url": "https://diergaardeblijdorp.nl/en",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://diergaardeblijdorp.nl/en",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover animals and conservation stories at Rotterdam Zoo. Use the official visitor information to plan your route through the zoo.",
+      "search_keywords": [
+        "Diergaarde Blijdorp",
+        "rotterdam",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek dieren en verhalen over natuurbehoud in Diergaarde Blijdorp. Gebruik de officiële bezoekersinformatie om je route door de dierentuin te plannen.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/415e1f83d352fd06ae32d28bdfef2eec00fe282911ff7310514602ae127188c5.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    },
+    {
+      "id": "place.rotterdam-laurenskerk",
+      "entity_type": "place",
+      "category": "attraction",
+      "city_id": "rotterdam",
+      "province_id": "zuid-holland",
+      "coordinates": null,
+      "title": "Laurenskerk Rotterdam",
+      "description": "Discover Rotterdam's historic Laurenskerk and its cultural programme. Check access arrangements around services and events.",
+      "images": [],
+      "official_source": {
+        "title": "Laurenskerk Rotterdam — official information",
+        "publisher": "Laurenskerk Rotterdam",
+        "url": "https://laurenskerkrotterdam.nl/",
+        "is_official": true,
+        "checked_at": "2026-11-15",
+        "status": "verified_opened"
+      },
+      "website": "https://laurenskerkrotterdam.nl/",
+      "related_entity_ids": [],
+      "last_checked": "2026-11-15",
+      "review_frequency_days": 30,
+      "verification_status": "needs_review",
+      "ai_summary": "Discover Rotterdam's historic Laurenskerk and its cultural programme. Check access arrangements around services and events.",
+      "search_keywords": [
+        "Laurenskerk Rotterdam",
+        "rotterdam",
+        "visitor information"
+      ],
+      "lifecycle_status": "draft",
+      "attributes": {
+        "description_nl": "Ontdek de historische Laurenskerk en haar culturele programma. Controleer de toegang rond diensten en evenementen.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "research_source_status": "opened",
+        "source_evidence_file": "DataProject/research/travel-expansion-20261115/sources/e28753be0747eb95fd71be36b97bc8294617462988d188a6b140acbfa4531abc.json",
+        "content_verification": "source_read_proposed_text_checked",
+        "media_status": "no_new_runtime_photo",
+        "coordinate_status": "not_verified_no_marker"
+      }
+    }
+  ]
+}

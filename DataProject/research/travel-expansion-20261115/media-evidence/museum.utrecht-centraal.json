@@ -1,0 +1,43 @@
+{
+  "id": "museum.utrecht-centraal",
+  "url": "https://commons.wikimedia.org/wiki/File:Exterieur_Centraal_Museum.jpg",
+  "origin": "https://commons.wikimedia.org/wiki/Category:Centraal_Museum",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "visualIdentityChecked": false,
+  "files": [
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-centraal-480.webp",
+      "width": 480,
+      "sha256": "afbff522cd7618644b739f034f1c6bfd0061c6f9a2c53aad06f33d4a37b39e5d",
+      "bytes": 22794
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-centraal-800.webp",
+      "width": 800,
+      "sha256": "1c5bf06abdebcb57333d1c38411663220ccbb4ff4c4e050021da680da9ff1911",
+      "bytes": 60510
+    },
+    {
+      "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-centraal-1200.webp",
+      "width": 1200,
+      "sha256": "3a676932aebbf1871351ed60c3886f5cc57842ccde8d940e097ba4f8f911adc5",
+      "bytes": 125930
+    }
+  ],
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "sourcePageSHA256": "304738c468988d2198140932400e261ca5bd78135c3ebbc1099090b1982d3a78",
+  "author": "Centraal Museum / fotograaf: Vincent Zedelius",
+  "license": "CC BY-SA 3.0",
+  "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+  "shareAlike": true,
+  "changes": "Resized and re-encoded as WebP; no crop or generated content.",
+  "attribution": "Exterieur_Centraal_Museum.jpg — Centraal Museum / fotograaf: Vincent Zedelius — CC BY-SA 3.0",
+  "originalURL": "https://upload.wikimedia.org/wikipedia/commons/7/76/Exterieur_Centraal_Museum.jpg",
+  "downloadURL": "https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Exterieur_Centraal_Museum.jpg/1280px-Exterieur_Centraal_Museum.jpg",
+  "downloadSHA256": "310ea66e7971e50c8f7ddebd3d28411edb83b970296ea7a3c282aeafb4f911af",
+  "rightsEvidenceChecked": false,
+  "licenseMetadataExtracted": true,
+  "reviewNote": "License template extracted; human licensing and attribution review required before activation."
+}

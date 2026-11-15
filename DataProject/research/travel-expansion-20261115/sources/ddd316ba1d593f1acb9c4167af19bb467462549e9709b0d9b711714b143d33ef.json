@@ -1,0 +1,16 @@
+{
+  "url": "https://www.spoorwegmuseum.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "1359ea983c0c92ad32fe00e661f9afa321b86714f845d44bc7393b08372bcf58",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://www.spoorwegmuseum.nl/en/",
+  "sha256": "365ebd7c06028a4cfea9349c4c1935958040b5d95a2fd901b2f3874d75d5e022",
+  "title": "The Railway Museum - Spoorwegmuseum",
+  "excerpt": "The Railway Museum - Spoorwegmuseum Find everything you need to know about your visit at the Spoorwegmuseum. Visitor information The",
+  "actionCandidates": [
+    "https://ticket.spoorwegmuseum.nl/page/ticket"
+  ]
+}

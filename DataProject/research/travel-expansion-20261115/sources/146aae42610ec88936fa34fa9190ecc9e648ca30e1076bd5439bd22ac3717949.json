@@ -1,0 +1,16 @@
+{
+  "url": "https://nijntjemuseum.nl/en/",
+  "checkedAt": "2026-11-15",
+  "status": "opened",
+  "contentReviewed": false,
+  "robotsSHA256": "80aa45233a3b75c756f9d2161a8b3b8e5b1003b1c1b1e77aee1c54473c26c9f2",
+  "robotsStatus": "fetched",
+  "httpStatus": 200,
+  "finalURL": "https://nijntjemuseum.nl/en/",
+  "sha256": "2d5029519f033660a602e4dfea9f280976e96d3a0e3905b7c11fd95709f9910c",
+  "title": "Miffy Museum - Miffy Museum great britain nederland great britain great britain nederland great britain",
+  "excerpt": "Miffy Museum - Miffy Museum your visit times and prices accessibility gift shop and café address and route frequently asked",
+  "actionCandidates": [
+    "https://tickets.nijntjemuseum.nl/en/tickets"
+  ]
+}
