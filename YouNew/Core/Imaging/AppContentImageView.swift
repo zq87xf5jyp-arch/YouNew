@@ -462,6 +462,10 @@ struct CachedRemoteContentImage<Loading: View, Fallback: View, Content: View>: V
 
             let prepared = await RemoteContentImageFetchCoordinator.shared.image(for: diskCacheKey) {
                 do {
+                    if candidate.isFileURL {
+                        let data = try Data(contentsOf: candidate, options: .mappedIfSafe)
+                        return downsampledContentImage(from: data, maxPixelSize: targetDimension)
+                    }
                     var request = URLRequest(url: candidate, timeoutInterval: 12)
                     request.setValue("YouNew/1.0 (iOS; NetherlandsGuide)", forHTTPHeaderField: "User-Agent")
                     request.setValue("image/webp,image/jpeg,image/png,image/*,*/*;q=0.8", forHTTPHeaderField: "Accept")
@@ -542,6 +546,9 @@ struct CachedRemoteContentImage<Loading: View, Fallback: View, Content: View>: V
         for candidate in ([url] + fallbackURLs).uniquedByAbsoluteString() {
             let image = await Task.detached(priority: .utility) {
                 do {
+                    if candidate.isFileURL {
+                        return NSImage(contentsOf: candidate)
+                    }
                     var request = URLRequest(url: candidate, timeoutInterval: 12)
                     request.setValue("YouNew/1.0 (macOS; NetherlandsGuide)", forHTTPHeaderField: "User-Agent")
                     request.setValue("image/webp,image/jpeg,image/png,image/*,*/*;q=0.8", forHTTPHeaderField: "Accept")

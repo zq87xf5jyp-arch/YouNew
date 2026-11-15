@@ -1,4 +1,5 @@
 import Foundation
+import ImageIO
 import Testing
 @testable import YouNew
 
@@ -7,7 +8,7 @@ struct CityPlacesCalendarRegressionTests {
     @Test func approvedLeidenContentReusesSavedIDsAndDutchDescriptions() throws {
         let places = CanonicalPlaceCatalog.items.filter { $0.canonicalContentID != nil }
         #expect(places.count == 7)
-        #expect(places.filter { $0.coordinates != nil }.count == 2)
+        #expect(places.filter { $0.coordinates != nil }.count == 7)
         #expect(Set(places.compactMap(\.canonicalContentID)).count == 7)
         for place in places {
             let canonicalID = try #require(place.canonicalContentID)
@@ -42,9 +43,28 @@ struct CityPlacesCalendarRegressionTests {
         }
     }
 
-    @Test func leidenPendingEditorialMediaDoesNotBecomeReleasePhotography() throws {
-        let place = try #require(CanonicalPlaceCatalog.detailPlace(id: "leiden-seed-rijksmuseum-van-oudheden"))
-        #expect(CanonicalPlaceImageResolver.imageAsset(for: place) == nil)
+    @Test func approvedCompletionUsesFourBundledPhotosAndSixTicketActions() throws {
+        let ids = ["leiden-seed-hortus-botanicus", "leiden-seed-rijksmuseum-van-oudheden",
+                   "leiden-seed-rijksmuseum-boerhaave", "leiden-seed-wereldmuseum-leiden"]
+        for id in ids {
+            let place = try #require(CanonicalPlaceCatalog.detailPlace(id: id))
+            let asset = try #require(CanonicalPlaceImageResolver.imageAsset(for: place))
+            let url = try #require(asset.url)
+            #expect(url.isFileURL)
+            let source = try #require(CGImageSourceCreateWithURL(url as CFURL, nil))
+            #expect(CGImageSourceCreateImageAtIndex(source, 0, nil) != nil)
+            #expect(asset.author?.isEmpty == false)
+            #expect(asset.attribution?.isEmpty == false)
+            #expect(asset.licenseURL?.scheme == "https")
+            #expect(asset.sourcePageURL?.host == "commons.wikimedia.org")
+        }
+        let places = CanonicalPlaceCatalog.items.filter { $0.canonicalContentID != nil }
+        #expect(places.filter { $0.ticketsURL != nil }.count == 6)
+        #expect(CanonicalPlaceCatalog.detailPlace(id: "place.leiden-burcht")?.ticketsURL == nil)
+        for place in places {
+            #expect(place.directionsURL?.host == "maps.apple.com")
+            #expect(URLComponents(url: try #require(place.directionsURL), resolvingAgainstBaseURL: false)?.queryItems?.first?.name == "daddr")
+        }
         #expect(PremiumImageFallbackCategory.place.fallbackLocalAssetName.isEmpty)
         #expect(PremiumImageFallbackCategory.map.fallbackLocalAssetName == "netherlands_map_base")
     }

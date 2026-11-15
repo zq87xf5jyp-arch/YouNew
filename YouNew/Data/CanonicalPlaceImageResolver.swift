@@ -106,9 +106,14 @@ enum ImageDebugLogger {
 }
 
 enum CanonicalPlaceImageResolver {
-    /// Connects existing dashboard IDs to the governed knowledge graph without copying media.
-    /// Resolving through the database preserves migration and withholding rules.
+    /// Prefer the field-approved media projection; retain existing knowledge-graph media elsewhere.
+    /// The catalog applies withholding before exposing the approved projection.
     static func imageAsset(for place: PlaceItem) -> AppImageAsset? {
+        if let asset = CanonicalPlaceCatalog.approvedContent(for: place.id)?.images.hero,
+           asset.verified, asset.licenseURL != nil, asset.sourcePageURL != nil,
+           asset.attribution != nil {
+            return asset
+        }
         let entityID: String?
         switch place.id {
         case "leiden-seed-museum-de-lakenhal": entityID = "museum:leiden:lakenhal"

@@ -65,7 +65,10 @@
         "lifecycleStatus": "published",
         "verificationStatus": "verified",
         "dataProjectRelease": "editorial-leiden-20261110",
-        "iosLegacyPlaceID": "leiden-seed-museum-de-lakenhal"
+        "iosLegacyPlaceID": "leiden-seed-museum-de-lakenhal",
+        "iosTicketURL": "https://tickets.lakenhal.nl/en/tickets",
+        "iosTicketSourceURL": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+        "iosTicketCheckedAt": "2026-11-15"
       },
       "keywords": [
         "Museum De Lakenhal",
@@ -124,7 +127,21 @@
         "isOfficial": true
       },
       "lastChecked": "2026-11-09",
-      "images": [],
+      "images": [
+        {
+          "id": "media.place.leiden-hortus.commons-20261115",
+          "role": "hero",
+          "assetURL": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Hortus_botanicus_Leiden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Hortus_botanicus_Leiden.jpg",
+          "license": "CC BY 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by/4.0",
+          "attribution": "Roger Veringmeier · 2024-08-07 · resized WebP, no content edits",
+          "author": "Roger Veringmeier",
+          "verified": true,
+          "retrievedAt": "2026-11-15",
+          "bundledFileName": "approved-leiden-hortus-1200.webp"
+        }
+      ],
       "aiSummary": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
       "relatedEntityIDs": [],
       "attributes": {
@@ -162,7 +179,10 @@
         "lifecycleStatus": "published",
         "verificationStatus": "verified",
         "dataProjectRelease": "editorial-leiden-20261110",
-        "iosLegacyPlaceID": "leiden-seed-hortus-botanicus"
+        "iosLegacyPlaceID": "leiden-seed-hortus-botanicus",
+        "iosTicketURL": "https://tickets.hortusleiden.nl/nl/tickets",
+        "iosTicketSourceURL": "https://hortusleiden.nl/bezoek-info",
+        "iosTicketCheckedAt": "2026-11-15"
       },
       "keywords": [
         "Hortus botanicus Leiden",
@@ -208,7 +228,10 @@
       "cityId": "leiden",
       "provinceId": "zuid-holland",
       "category": "museums-sights",
-      "coordinate": null,
+      "coordinate": {
+        "latitude": 52.15831,
+        "longitude": 4.492962
+      },
       "source": {
         "title": "Official visitor information",
         "publisher": "De Burcht",
@@ -261,7 +284,8 @@
         "lifecycleStatus": "published",
         "verificationStatus": "verified",
         "dataProjectRelease": "editorial-leiden-20261110",
-        "iosLegacyPlaceID": "leiden-seed-burcht-van-leiden"
+        "iosLegacyPlaceID": "leiden-seed-burcht-van-leiden",
+        "iosCoordinateEvidence": "{\"url\":\"https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht\",\"checkedAt\":\"2026-11-15\",\"method\":\"Route destination explicitly linked by Visit Leiden; not camera coordinates\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.15831,4.492962\"}"
       },
       "keywords": [
         "De Burcht",
@@ -307,7 +331,10 @@
       "cityId": "leiden",
       "provinceId": "zuid-holland",
       "category": "museums-sights",
-      "coordinate": null,
+      "coordinate": {
+        "latitude": 52.1584668,
+        "longitude": 4.4858978
+      },
       "source": {
         "title": "Official visitor information",
         "publisher": "Rijksmuseum van Oudheden",
@@ -317,7 +344,21 @@
         "isOfficial": true
       },
       "lastChecked": "2026-11-09",
-      "images": [],
+      "images": [
+        {
+          "id": "media.place.leiden-rmo.commons-20261115",
+          "role": "hero",
+          "assetURL": "https://upload.wikimedia.org/wikipedia/commons/c/c9/Dutch_National_Museum_of_Antiquities_Leiden.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Dutch_National_Museum_of_Antiquities_Leiden.jpg",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+          "attribution": "Steven Lek · 2018-02-23 · resized WebP, no content edits",
+          "author": "Steven Lek",
+          "verified": true,
+          "retrievedAt": "2026-11-15",
+          "bundledFileName": "approved-leiden-rmo-1200.webp"
+        }
+      ],
       "aiSummary": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
       "relatedEntityIDs": [],
       "attributes": {
@@ -351,7 +392,11 @@
         "lifecycleStatus": "published",
         "verificationStatus": "verified",
         "dataProjectRelease": "editorial-leiden-20261110",
-        "iosLegacyPlaceID": "leiden-seed-rijksmuseum-van-oudheden"
+        "iosLegacyPlaceID": "leiden-seed-rijksmuseum-van-oudheden",
+        "iosCoordinateEvidence": "{\"url\":\"https://www.rmo.nl/en/visit/opening-hours-fees-address/\",\"checkedAt\":\"2026-11-15\",\"method\":\"Destination pin in the map linked by the official visitor page; not the map camera centre\"}",
+        "iosTicketURL": "https://ticket.rmo.nl/en-EN/tickets",
+        "iosTicketSourceURL": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+        "iosTicketCheckedAt": "2026-11-15"
       },
       "keywords": [
         "Rijksmuseum van Oudheden",
@@ -397,7 +442,10 @@
       "cityId": "leiden",
       "provinceId": "zuid-holland",
       "category": "museums-sights",
-      "coordinate": null,
+      "coordinate": {
+        "latitude": 52.1646451,
+        "longitude": 4.4730775
+      },
       "source": {
         "title": "Official visitor information",
         "publisher": "Naturalis",
@@ -442,7 +490,11 @@
         "lifecycleStatus": "published",
         "verificationStatus": "verified",
         "dataProjectRelease": "editorial-leiden-20261110",
-        "iosLegacyPlaceID": "leiden-seed-naturalis-biodiversity-center"
+        "iosLegacyPlaceID": "leiden-seed-naturalis-biodiversity-center",
+        "iosCoordinateEvidence": "{\"url\":\"https://www.naturalis.nl/en/museum/practical-info\",\"checkedAt\":\"2026-11-15\",\"method\":\"Destination pin in the map linked by the official visitor page; not the map camera centre\"}",
+        "iosTicketURL": "https://www.naturalis.nl/en/tickets-for-naturalis",
+        "iosTicketSourceURL": "https://www.naturalis.nl/en/museum/practical-info",
+        "iosTicketCheckedAt": "2026-11-15"
       },
       "keywords": [
         "Naturalis",
@@ -488,7 +540,10 @@
       "cityId": "leiden",
       "provinceId": "zuid-holland",
       "category": "museums-sights",
-      "coordinate": null,
+      "coordinate": {
+        "latitude": 52.16134171,
+        "longitude": 4.48917759
+      },
       "source": {
         "title": "Official visitor information",
         "publisher": "Rijksmuseum Boerhaave",
@@ -498,7 +553,21 @@
         "isOfficial": true
       },
       "lastChecked": "2026-11-09",
-      "images": [],
+      "images": [
+        {
+          "id": "media.museum.leiden-boerhaave.commons-20261115",
+          "role": "hero",
+          "assetURL": "https://upload.wikimedia.org/wikipedia/commons/0/08/Exterior_of_the_Boerhaave_museum.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=original",
+          "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Exterior_of_the_Boerhaave_museum.jpg",
+          "license": "CC BY-SA 3.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+          "attribution": "Goodness Shamrock · 2009-04-19 · resized WebP, no content edits",
+          "author": "Goodness Shamrock",
+          "verified": true,
+          "retrievedAt": "2026-11-15",
+          "bundledFileName": "approved-leiden-boerhaave-1200.webp"
+        }
+      ],
       "aiSummary": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
       "relatedEntityIDs": [],
       "attributes": {
@@ -542,7 +611,11 @@
         "lifecycleStatus": "published",
         "verificationStatus": "verified",
         "dataProjectRelease": "editorial-leiden-20261110",
-        "iosLegacyPlaceID": "leiden-seed-rijksmuseum-boerhaave"
+        "iosLegacyPlaceID": "leiden-seed-rijksmuseum-boerhaave",
+        "iosCoordinateEvidence": "{\"url\":\"https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Lange+Sint+Agnietenstraat+10+Leiden&fq=type%3Aadres&rows=5\",\"checkedAt\":\"2026-11-15\",\"method\":\"BAG address centroid, not an entrance survey\"}",
+        "iosTicketURL": "https://tickets.rijksmuseumboerhaave.nl/",
+        "iosTicketSourceURL": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "iosTicketCheckedAt": "2026-11-15"
       },
       "keywords": [
         "Rijksmuseum Boerhaave",
@@ -588,7 +661,10 @@
       "cityId": "leiden",
       "provinceId": "zuid-holland",
       "category": "museums-sights",
-      "coordinate": null,
+      "coordinate": {
+        "latitude": 52.16324,
+        "longitude": 4.48245
+      },
       "source": {
         "title": "Official visitor information",
         "publisher": "Wereldmuseum Leiden",
@@ -598,7 +674,21 @@
         "isOfficial": true
       },
       "lastChecked": "2026-11-09",
-      "images": [],
+      "images": [
+        {
+          "id": "media.museum.leiden-wereldmuseum.commons-20261115",
+          "role": "hero",
+          "assetURL": "https://upload.wikimedia.org/wikipedia/commons/5/51/Wereldmuseum_Leiden_%28nov_2024%29.jpg",
+          "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Wereldmuseum_Leiden_(nov_2024).jpg",
+          "license": "CC BY-SA 4.0",
+          "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+          "attribution": "Sneeuwvlakte · 2024-11-08 · resized WebP, no content edits",
+          "author": "Sneeuwvlakte",
+          "verified": true,
+          "retrievedAt": "2026-11-15",
+          "bundledFileName": "approved-leiden-wereldmuseum-1200.webp"
+        }
+      ],
       "aiSummary": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
       "relatedEntityIDs": [],
       "attributes": {
@@ -634,7 +724,11 @@
         "lifecycleStatus": "published",
         "verificationStatus": "verified",
         "dataProjectRelease": "editorial-leiden-20261110",
-        "iosLegacyPlaceID": "leiden-seed-wereldmuseum-leiden"
+        "iosLegacyPlaceID": "leiden-seed-wereldmuseum-leiden",
+        "iosCoordinateEvidence": "{\"url\":\"https://www.visitleiden.nl/nl/locaties/3715984452/wereldmuseum-leiden\",\"checkedAt\":\"2026-11-15\",\"method\":\"Destination coordinates in the route link on Visit Leiden, not camera centre or image metadata\",\"destinationURL\":\"https://www.google.com/maps/dir/?api=1&destination=52.16324%2C4.48245\"}",
+        "iosTicketURL": "https://leiden.wereldmuseum.nl/nl/tickets",
+        "iosTicketSourceURL": "https://leiden.wereldmuseum.nl/nl/tickets",
+        "iosTicketCheckedAt": "2026-11-15"
       },
       "keywords": [
         "Wereldmuseum Leiden",
@@ -672,5 +766,34 @@
         "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
       }
     }
-  ]
+  ],
+  "mediaFiles": [
+    {
+      "sourceFile": "DataProject/editorial/leiden-places-20261115/media/hortus-1200.webp",
+      "bundledFileName": "approved-leiden-hortus-1200.webp",
+      "sha256": "aa5adb110d38aeb603639e87c00e9f9d6d553ab7934e38a1b8b856224d139c8a"
+    },
+    {
+      "sourceFile": "DataProject/editorial/leiden-places-20261115/media/rmo-1200.webp",
+      "bundledFileName": "approved-leiden-rmo-1200.webp",
+      "sha256": "ee6e448c468f6871b126dda4d67c38cb44152b2a92729ca1bcc81b3cb602868b"
+    },
+    {
+      "sourceFile": "DataProject/editorial/leiden-places-20261115/media/boerhaave-1200.webp",
+      "bundledFileName": "approved-leiden-boerhaave-1200.webp",
+      "sha256": "020065927bec18268e835975edfb3785a8c88a47806243a61454a3ace1696891"
+    },
+    {
+      "sourceFile": "DataProject/editorial/leiden-nature-culture-20261115/media/wereldmuseum-1200.webp",
+      "bundledFileName": "approved-leiden-wereldmuseum-1200.webp",
+      "sha256": "37b210c022306b54cf3bcbc23bb50c554f9c1242df35f45d513ac87ea9023b23"
+    }
+  ],
+  "completionApproval": {
+    "path": "DataProject/editorial/leiden-ios-completion-20261115-approval.json",
+    "sha256": "0111c292c3c05c127839359851130d33b18f62d78f15d5f30d4474d172919bff",
+    "selectionSha256": "bfada10e8b2ef709ab52bfebf347131fec619545717b8e9246c0b87e8f30cead",
+    "reviewerId": "owner.ivan",
+    "approvedAt": "2026-11-15"
+  }
 }
