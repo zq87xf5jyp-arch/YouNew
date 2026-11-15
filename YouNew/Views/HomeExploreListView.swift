@@ -297,7 +297,7 @@ struct HomeExploreListView: View {
     private func placeRow(_ place: PlaceItem) -> some View {
         rowContent(
             title: place.shortTitle ?? place.title,
-            subtitle: place.description,
+            subtitle: place.localizedDescription(lang),
             symbol: place.primaryCategory.symbol,
             accent: place.primaryCategory.accent,
             trailingSymbol: "chevron.right"
@@ -640,7 +640,7 @@ private struct DiscoveryPlacePreviewSheet: View {
                         }.padding(14)
                     }
 
-                    Text(place.description).font(AppTypography.body).foregroundStyle(AppColors.textSecondary)
+                    Text(place.localizedDescription(language)).font(AppTypography.body).foregroundStyle(AppColors.textSecondary)
                     Label(place.address ?? city, systemImage: "mappin.and.ellipse")
                         .font(AppTypography.caption).foregroundStyle(AppColors.textSecondary)
 

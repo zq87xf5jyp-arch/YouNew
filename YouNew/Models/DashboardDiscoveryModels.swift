@@ -351,6 +351,31 @@ struct PlaceItem: Identifiable, Codable, Equatable {
     let hidden: Bool
     let draft: Bool
 
+    /// Preserve existing Saved IDs while resolving the shared web identity.
+    var canonicalContentID: String? { CanonicalPlaceCatalog.approvedContent(for: id)?.id }
+
+    func localizedDescription(_ language: AppLanguage) -> String {
+        guard language == .dutch,
+              let text = CanonicalPlaceCatalog.approvedContent(for: id)?.attributes["description_nl"],
+              !text.isEmpty else { return description }
+        return text
+    }
+
+    var directionsURL: URL? {
+        let destination: String
+        if let coordinates {
+            destination = "\(coordinates.lat),\(coordinates.lng)"
+        } else if canonicalContentID != nil, let address, !address.isEmpty {
+            // Let Apple Maps resolve the approved address; never invent a pin.
+            destination = address
+        } else {
+            return nil
+        }
+        var components = URLComponents(string: "https://maps.apple.com/")
+        components?.queryItems = [URLQueryItem(name: "daddr", value: destination)]
+        return components?.url
+    }
+
     var destination: AppDestination { .placeDetail(id) }
     var primaryCategory: VisitPlaceCategory { category.first ?? .landmark }
 
