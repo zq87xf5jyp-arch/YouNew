@@ -1,0 +1,228 @@
+{
+  "schemaVersion": 1,
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "preparedAt": "2026-11-15",
+  "scope": "Only the listed four photos, five coordinates and six ticket URLs for the existing seven Leiden cards. No approval of other draft fields, replacement photos, prices, hours or park records is implied.",
+  "sourcePackages": {
+    "leiden-places-20261115": {
+      "recordsSha256": "cded4e8afbf2a1f20cbfd1a8edeae261d61922e1932905062d0f297c6d16c75a",
+      "manifestSha256": "209917daee852ffc15e8763d3c36ba0d39115f55e336a5c56588e59e990be5a1"
+    },
+    "leiden-nature-culture-20261115": {
+      "recordsSha256": "c0b1a9bf76814484e1e01297a9ee6f4f7429e8d313a0203d127a2d5a791faa5a",
+      "manifestSha256": "a4d25a0d494e1c8dd243eef8d6317e2c0c43468a559ac79e2a8736aadcb68c9e"
+    }
+  },
+  "photos": [
+    {
+      "id": "place.leiden-hortus",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Hortus_botanicus_Leiden.jpg",
+      "license": "CC BY 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/4.0",
+      "attribution": "Roger Veringmeier · 2024-08-07 · resized WebP, no content edits",
+      "files": {
+        "DataProject/editorial/leiden-places-20261115/media/hortus-480.webp": {
+          "sha256": "4767864168c9b4e4020c296179dffcdb124167495a3b21914ab36ad707360b91",
+          "bytes": 28408
+        },
+        "DataProject/editorial/leiden-places-20261115/media/hortus-800.webp": {
+          "sha256": "d999255fad9b6951aceb80f747114c14ab8daddc7428199507cb731551be4eff",
+          "bytes": 79534
+        },
+        "DataProject/editorial/leiden-places-20261115/media/hortus-1200.webp": {
+          "sha256": "aa5adb110d38aeb603639e87c00e9f9d6d553ab7934e38a1b8b856224d139c8a",
+          "bytes": 175822
+        }
+      },
+      "visualReview": "performed; correct named place, historical capture date disclosed; proportional resize without content changes"
+    },
+    {
+      "id": "place.leiden-rmo",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Dutch_National_Museum_of_Antiquities_Leiden.jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0",
+      "attribution": "Steven Lek · 2018-02-23 · resized WebP, no content edits",
+      "files": {
+        "DataProject/editorial/leiden-places-20261115/media/rmo-480.webp": {
+          "sha256": "b7d3485f7d2259b2d916f24fe6bad05ee222c9698aef0973affabad3b75bef9d",
+          "bytes": 30220
+        },
+        "DataProject/editorial/leiden-places-20261115/media/rmo-800.webp": {
+          "sha256": "1c73acc55d7bdd3b8c58be3e5b52af5eaec24f2ef4cfabc234a1cdaa1ab8201a",
+          "bytes": 83848
+        },
+        "DataProject/editorial/leiden-places-20261115/media/rmo-1200.webp": {
+          "sha256": "ee6e448c468f6871b126dda4d67c38cb44152b2a92729ca1bcc81b3cb602868b",
+          "bytes": 186578
+        }
+      },
+      "visualReview": "performed; correct named place, historical capture date disclosed; proportional resize without content changes"
+    },
+    {
+      "id": "museum.leiden-boerhaave",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Exterior_of_the_Boerhaave_museum.jpg",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0",
+      "attribution": "Goodness Shamrock · 2009-04-19 · resized WebP, no content edits",
+      "files": {
+        "DataProject/editorial/leiden-places-20261115/media/boerhaave-480.webp": {
+          "sha256": "7c1b656b3bac01161869307998f10308b572d7b9dd4b7d3f8b801d746fbbbfd1",
+          "bytes": 77112
+        },
+        "DataProject/editorial/leiden-places-20261115/media/boerhaave-800.webp": {
+          "sha256": "ecbb485b5a307a75d4ae52525ab1ed5ab8414f8c326418b89c8048cdaec9360a",
+          "bytes": 198368
+        },
+        "DataProject/editorial/leiden-places-20261115/media/boerhaave-1200.webp": {
+          "sha256": "020065927bec18268e835975edfb3785a8c88a47806243a61454a3ace1696891",
+          "bytes": 361424
+        }
+      },
+      "visualReview": "performed; correct named place, historical capture date disclosed; proportional resize without content changes"
+    },
+    {
+      "id": "museum.leiden-wereldmuseum",
+      "sourcePage": "https://commons.wikimedia.org/wiki/File:Wereldmuseum_Leiden_(nov_2024).jpg",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "attribution": "Sneeuwvlakte · 2024-11-08 · resized WebP, no content edits",
+      "files": {
+        "DataProject/editorial/leiden-nature-culture-20261115/media/wereldmuseum-480.webp": {
+          "sha256": "59de72ed49b98024f5bdbb385a445889085916c2179e6cc354cfc787210ea443",
+          "bytes": 26694
+        },
+        "DataProject/editorial/leiden-nature-culture-20261115/media/wereldmuseum-800.webp": {
+          "sha256": "cb4de8529a84679c4bc3641c3d0dfb5bb8b2bbcabe06ea59ad3f0aa7a60aad4c",
+          "bytes": 69406
+        },
+        "DataProject/editorial/leiden-nature-culture-20261115/media/wereldmuseum-1200.webp": {
+          "sha256": "37b210c022306b54cf3bcbc23bb50c554f9c1242df35f45d513ac87ea9023b23",
+          "bytes": 147886
+        }
+      },
+      "visualReview": "performed; correct named place, historical capture date disclosed; proportional resize without content changes"
+    }
+  ],
+  "coordinates": [
+    {
+      "id": "place.leiden-naturalis",
+      "coordinate": {
+        "latitude": 52.1646451,
+        "longitude": 4.4730775
+      },
+      "evidence": {
+        "url": "https://www.naturalis.nl/en/museum/practical-info",
+        "checkedAt": "2026-11-15",
+        "method": "Destination pin in the map linked by the official visitor page; not the map camera centre"
+      },
+      "evidenceFile": "DataProject/editorial/leiden-places-20261115/coordinate-evidence.json"
+    },
+    {
+      "id": "place.leiden-rmo",
+      "coordinate": {
+        "latitude": 52.1584668,
+        "longitude": 4.4858978
+      },
+      "evidence": {
+        "url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+        "checkedAt": "2026-11-15",
+        "method": "Destination pin in the map linked by the official visitor page; not the map camera centre"
+      },
+      "evidenceFile": "DataProject/editorial/leiden-places-20261115/coordinate-evidence.json"
+    },
+    {
+      "id": "museum.leiden-boerhaave",
+      "coordinate": {
+        "latitude": 52.16134171,
+        "longitude": 4.48917759
+      },
+      "evidence": {
+        "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Lange+Sint+Agnietenstraat+10+Leiden&fq=type%3Aadres&rows=5",
+        "checkedAt": "2026-11-15",
+        "method": "BAG address centroid, not an entrance survey"
+      },
+      "evidenceFile": "DataProject/editorial/leiden-places-20261115/coordinate-evidence.json"
+    },
+    {
+      "id": "place.leiden-burcht",
+      "coordinate": {
+        "latitude": 52.15831,
+        "longitude": 4.492962
+      },
+      "evidence": {
+        "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+        "checkedAt": "2026-11-15",
+        "method": "Route destination explicitly linked by Visit Leiden; not camera coordinates",
+        "destinationURL": "https://www.google.com/maps/dir/?api=1&destination=52.15831,4.492962"
+      },
+      "evidenceFile": "DataProject/editorial/leiden-nature-culture-20261115/coordinate-evidence.json"
+    },
+    {
+      "id": "museum.leiden-wereldmuseum",
+      "coordinate": {
+        "latitude": 52.16324,
+        "longitude": 4.48245
+      },
+      "evidence": {
+        "url": "https://www.visitleiden.nl/nl/locaties/3715984452/wereldmuseum-leiden",
+        "checkedAt": "2026-11-15",
+        "method": "Destination coordinates in the route link on Visit Leiden, not camera centre or image metadata",
+        "destinationURL": "https://www.google.com/maps/dir/?api=1&destination=52.16324%2C4.48245"
+      },
+      "evidenceFile": "DataProject/editorial/leiden-nature-culture-20261115/coordinate-evidence.json"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "place.leiden-lakenhal",
+      "url": "https://tickets.lakenhal.nl/en/tickets",
+      "sourceURL": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+      "httpStatus": 200,
+      "finalURL": "https://tickets.lakenhal.nl/en/tickets",
+      "checkedAt": "2026-11-15"
+    },
+    {
+      "id": "place.leiden-naturalis",
+      "url": "https://www.naturalis.nl/en/tickets-for-naturalis",
+      "sourceURL": "https://www.naturalis.nl/en/museum/practical-info",
+      "httpStatus": 200,
+      "finalURL": "https://www.naturalis.nl/en/tickets-for-naturalis",
+      "checkedAt": "2026-11-15"
+    },
+    {
+      "id": "place.leiden-hortus",
+      "url": "https://tickets.hortusleiden.nl/nl/tickets",
+      "sourceURL": "https://hortusleiden.nl/bezoek-info",
+      "httpStatus": 200,
+      "finalURL": "https://tickets.hortusleiden.nl/nl/tickets",
+      "checkedAt": "2026-11-15"
+    },
+    {
+      "id": "place.leiden-rmo",
+      "url": "https://ticket.rmo.nl/en-EN/tickets",
+      "sourceURL": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+      "httpStatus": 200,
+      "finalURL": "https://ticket.rmo.nl/en-US/tickets",
+      "checkedAt": "2026-11-15"
+    },
+    {
+      "id": "museum.leiden-boerhaave",
+      "url": "https://tickets.rijksmuseumboerhaave.nl/",
+      "sourceURL": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+      "httpStatus": 200,
+      "finalURL": "https://tickets.rijksmuseumboerhaave.nl/",
+      "checkedAt": "2026-11-15"
+    },
+    {
+      "id": "museum.leiden-wereldmuseum",
+      "url": "https://leiden.wereldmuseum.nl/nl/tickets",
+      "sourceURL": "https://leiden.wereldmuseum.nl/nl/tickets",
+      "httpStatus": 200,
+      "finalURL": "https://leiden.wereldmuseum.nl/nl/tickets",
+      "checkedAt": "2026-11-15"
+    }
+  ]
+}

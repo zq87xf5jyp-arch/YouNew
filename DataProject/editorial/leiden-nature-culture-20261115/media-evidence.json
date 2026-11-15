@@ -25,10 +25,15 @@
       "checkedAt": "2026-11-15",
       "licenseEvidence": "Commons file description inspected using web tool",
       "status": "needs_review",
-      "downloadResult": "HTTP 403 from this environment; bytes not obtained",
-      "visualReview": "not_performed",
+      "downloadResult": "HTTP 200; original downloaded and decoded",
+      "visualReview": "performed: museum name on facade, visitor entrance and identifiable building; uncropped historical photograph",
       "publicationAuthorized": false,
-      "attributionRequirements": "Credit author and source; link license; disclose resizing/cropping; preserve applicable ShareAlike conditions"
+      "attributionRequirements": "Credit author and source; link license; disclose resizing/cropping; preserve applicable ShareAlike conditions",
+      "originalURL": "https://upload.wikimedia.org/wikipedia/commons/5/51/Wereldmuseum_Leiden_%28nov_2024%29.jpg",
+      "downloadSha256": "68e446ebe3f28da708d01f5d81fb4555fe79277e41266161e770179ef75b804a",
+      "commonsSha1": "656c46c2d75cd64b05881510e0484fc4211d520a",
+      "transform": "Proportional WebP resize at 480/800/1200 px width, quality 82; no content edits or crop",
+      "derivativesLicense": "CC BY-SA 4.0"
     },
     {
       "entityID": "nature.leiden-plantsoen",

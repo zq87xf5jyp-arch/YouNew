@@ -35,6 +35,22 @@
       "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
     }
   },
-  "recordsSha256": "710cbdb950f52853a3ea2a7d3eed1a18fb13ab5e5eb2885262728e2b061e41ae",
-  "media": {}
+  "recordsSha256": "c0b1a9bf76814484e1e01297a9ee6f4f7429e8d313a0203d127a2d5a791faa5a",
+  "media": {
+    "wereldmuseum-480.webp": {
+      "sha256": "59de72ed49b98024f5bdbb385a445889085916c2179e6cc354cfc787210ea443",
+      "bytes": 26694,
+      "width": 480
+    },
+    "wereldmuseum-800.webp": {
+      "sha256": "cb4de8529a84679c4bc3641c3d0dfb5bb8b2bbcabe06ea59ad3f0aa7a60aad4c",
+      "bytes": 69406,
+      "width": 800
+    },
+    "wereldmuseum-1200.webp": {
+      "sha256": "37b210c022306b54cf3bcbc23bb50c554f9c1242df35f45d513ac87ea9023b23",
+      "bytes": 147886,
+      "width": 1200
+    }
+  }
 }

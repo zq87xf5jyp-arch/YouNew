@@ -26,9 +26,11 @@ test('five existing IDs gain bilingual private text without changing the approve
  assert.deepEqual(preview.entities.map(e=>e.id),release.entities.map(e=>e.id));
  const changed=preview.entities.filter(e=>e.editorial?.placeReview?.batchId===batch);
  assert.equal(changed.length,5);
- assert.equal(changed.filter(e=>e.coordinate).length,3);
+ assert.equal(changed.filter(e=>e.coordinate).length,4);
  assert.equal(changed.filter(e=>e.editorial?.place?.tickets).length,1);
- assert.ok(changed.every(e=>e.images.length===0));
+ assert.equal(changed.filter(e=>e.images.length===1).length,1);
+ assert.equal(changed.find(e=>e.id==='museum.leiden-wereldmuseum')?.images[0].license,'CC BY-SA 4.0');
+ assert.ok(changed.filter(e=>e.id!=='museum.leiden-wereldmuseum').every(e=>e.images.length===0));
  for(const e of changed)for(const language of ['en','nl'] as const)assert.equal(e.editorial!.place!.locales[language].blocks.length,5);
 });
 test('missing fields remain explicit; invented pins, unsupported tickets and unlicensed photos fail',()=>{
