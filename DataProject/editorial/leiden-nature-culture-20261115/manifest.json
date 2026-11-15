@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 1,
+  "batchId": "leiden-nature-culture-20261115",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "preparedAt": "2026-11-15",
+  "ids": [
+    "place.leiden-burcht",
+    "museum.leiden-wereldmuseum",
+    "nature.leiden-plantsoen",
+    "nature.leiden-leidse-hout",
+    "nature.leiden-cronesteyn"
+  ],
+  "baseFiles": {
+    "place.leiden-burcht": {
+      "file": "DataProject/staging/content-20261109/WP-06-M1-leiden-20261109.json",
+      "sha256": "088d023019eaf7433223e076084bf4633970f468507b90a5b2e629e87c2e7560"
+    },
+    "museum.leiden-wereldmuseum": {
+      "file": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "sha256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0"
+    },
+    "nature.leiden-plantsoen": {
+      "file": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
+    },
+    "nature.leiden-leidse-hout": {
+      "file": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
+    },
+    "nature.leiden-cronesteyn": {
+      "file": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
+    }
+  },
+  "recordsSha256": "69e33fc1e50ce0dd813ff385be98c4966e394042252299c5cd62371f47323c0f",
+  "media": {
+    "burcht-480.webp": {
+      "width": 480,
+      "bytes": 55680,
+      "sha256": "19913d9c7c1736fbd1838c60711308bbf92a664f67bd64f4b113277c9ea264da"
+    },
+    "burcht-800.webp": {
+      "width": 800,
+      "bytes": 154042,
+      "sha256": "2ead692d88d16488f6ce6113744ae3aa96e0712b56929eaa93f7aa0b53ea5f0c"
+    },
+    "burcht-1200.webp": {
+      "width": 1200,
+      "bytes": 342286,
+      "sha256": "453f8c46ccd2ac182c90e68896235193d52c8ac21aec80c7951d9856406e5fe0"
+    },
+    "wereldmuseum-480.webp": {
+      "width": 480,
+      "bytes": 25914,
+      "sha256": "b9ba04025872117a8910be29e54b88fcd346d7656d916b54c6ab98b7981c7472"
+    },
+    "wereldmuseum-800.webp": {
+      "width": 800,
+      "bytes": 68736,
+      "sha256": "2054158ba73cde7751513dc76ef5d50cbe05e68c212697c620a0a8cc79af8ac7"
+    },
+    "wereldmuseum-1200.webp": {
+      "width": 1200,
+      "bytes": 151928,
+      "sha256": "7f40c0a2c6d5e14f2a3ec761d5327d97dde950131444b86f7d9f51f61d9ef035"
+    },
+    "plantsoen-480.webp": {
+      "width": 480,
+      "bytes": 45962,
+      "sha256": "e823ccfcdb92cc356fe2bcbcfaf58ad4b2e0f2f610de7b8ffa20a4e31c6fcd6a"
+    },
+    "plantsoen-800.webp": {
+      "width": 800,
+      "bytes": 122860,
+      "sha256": "378d2e4944c519997c35ca82781b3bf198c50e50398c873f860e06d19fde1a42"
+    },
+    "plantsoen-1200.webp": {
+      "width": 1200,
+      "bytes": 289430,
+      "sha256": "694bc9bac03ae1f90732dcd778813e5edd613d96b7dec9a489c98454f6832702"
+    },
+    "leidsehout-480.webp": {
+      "width": 480,
+      "bytes": 36174,
+      "sha256": "e12dac926b24d6a0dcbdd0b2a797b6dc87487cd5eff67b987e463041036284f2"
+    },
+    "leidsehout-800.webp": {
+      "width": 800,
+      "bytes": 96164,
+      "sha256": "763ccde979de3a724057ed89f2f086a332e6caecbab3ff6878d6b0b99ade5cd0"
+    },
+    "leidsehout-1200.webp": {
+      "width": 1200,
+      "bytes": 200386,
+      "sha256": "7b0bf87a9866b56b9375e8240b2f1da8b68b4873dadbf89d723fef7ca57f6b73"
+    },
+    "cronesteyn-480.webp": {
+      "width": 480,
+      "bytes": 52376,
+      "sha256": "eb54c11bb11c38889e97539801fa95a3ce681a91120d8ff9c31b268475c021c1"
+    },
+    "cronesteyn-800.webp": {
+      "width": 800,
+      "bytes": 127480,
+      "sha256": "c8edf2fb174599dccbc71a9f067697eb09304c86ead5f1dc0fa5fe8aadbc6ddf"
+    },
+    "cronesteyn-1200.webp": {
+      "width": 1200,
+      "bytes": 243264,
+      "sha256": "8cf795db5dc8fe6d3d6447024b96416a2ee5451619e0da9d0f9899b2310cd09c"
+    }
+  }
+}

@@ -1,0 +1,107 @@
+[
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+    "http": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+    "checkedAt": "2026-11-15",
+    "file": "source-0.html"
+  },
+  {
+    "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+    "http": 200,
+    "finalURL": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+    "checkedAt": "2026-11-15",
+    "file": "source-1.html"
+  },
+  {
+    "url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden",
+    "http": 200,
+    "finalURL": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden",
+    "checkedAt": "2026-11-15",
+    "file": "source-2.html"
+  },
+  {
+    "url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden/toegankelijkheid",
+    "http": 200,
+    "finalURL": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden/toegankelijkheid",
+    "checkedAt": "2026-11-15",
+    "file": "source-3.html"
+  },
+  {
+    "url": "https://leiden.wereldmuseum.nl/nl/tickets",
+    "http": 200,
+    "finalURL": "https://leiden.wereldmuseum.nl/nl/tickets",
+    "checkedAt": "2026-11-15",
+    "file": "source-4.html"
+  },
+  {
+    "url": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+    "http": 200,
+    "finalURL": "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf",
+    "checkedAt": "2026-11-15",
+    "file": "source-5.html"
+  },
+  {
+    "url": "https://gemeente.leiden.nl/inwoners-en-ondernemers/sport-cultuur-en-recreatie/dieren/kinderboerderijen/",
+    "http": 200,
+    "finalURL": "https://gemeente.leiden.nl/inwoners-en-ondernemers/sport-cultuur-en-recreatie/dieren/kinderboerderijen/",
+    "checkedAt": "2026-11-15",
+    "file": "source-6.html"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
+    "http": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
+    "checkedAt": "2026-11-15",
+    "file": "source-7.html"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
+    "http": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
+    "checkedAt": "2026-11-15",
+    "file": "source-8.html"
+  },
+  {
+    "url": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/werkzaamheden-in-polderpark-cronesteyn/",
+    "http": 200,
+    "finalURL": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/werkzaamheden-in-polderpark-cronesteyn/",
+    "checkedAt": "2026-11-15",
+    "file": "source-9.html"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/822249959/plantsoen",
+    "http": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/822249959/plantsoen",
+    "checkedAt": "2026-11-15",
+    "file": "source-10.html"
+  },
+  {
+    "url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden/openingstijden-en-prijzen",
+    "http": 200,
+    "finalURL": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden/openingstijden-en-prijzen",
+    "checkedAt": "2026-11-15",
+    "file": "source-11.html"
+  },
+  {
+    "url": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden/adres-en-bereikbaarheid",
+    "http": 200,
+    "finalURL": "https://leiden.wereldmuseum.nl/nl/plan-je-bezoek-in-wereldmuseum-leiden/adres-en-bereikbaarheid",
+    "checkedAt": "2026-11-15",
+    "file": "source-12.html"
+  },
+  {
+    "url": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/vogelgriep-in-regio-leiden/",
+    "http": 200,
+    "finalURL": "https://gemeente.leiden.nl/nieuws-en-publicaties/nieuws/vogelgriep-in-regio-leiden/",
+    "checkedAt": "2026-11-15",
+    "file": "source-13.html"
+  },
+  {
+    "url": "https://www.visitleiden.nl/nl/locaties/3715984452/wereldmuseum-leiden",
+    "http": 200,
+    "finalURL": "https://www.visitleiden.nl/nl/locaties/3715984452/wereldmuseum-leiden",
+    "checkedAt": "2026-11-15",
+    "file": "source-14.html"
+  }
+]

@@ -4,17 +4,22 @@ import {readFile} from 'node:fs/promises';
 import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 export const placeReviewBatch='leiden-places-20261115';
+export const placeReviewBatches=[placeReviewBatch,'leiden-nature-culture-20261115'];
+export function reviewPath(batch=placeReviewBatch) {
+  assert.ok(placeReviewBatches.includes(batch),'unknown review');
+  return `DataProject/editorial/${batch}`;
+}
 export const placeReviewPath=`DataProject/editorial/${placeReviewBatch}`;
 export const placePublishedMediaPath=`/images/places/${placeReviewBatch}`;
 export const sha256=b=>createHash('sha256').update(b).digest('hex');
 const https=value=>{const u=new URL(value);assert.equal(u.protocol,'https:');assert.ok(!u.username&&!u.password);return value;};
 
-export async function readPlaceReview(root) {
-  const path=resolve(root,placeReviewPath);
+export async function readPlaceReview(root,batchId=placeReviewBatch) {
+  const path=resolve(root,reviewPath(batchId));
   const manifest=JSON.parse(await readFile(resolve(path,'manifest.json'),'utf8'));
   const bytes=await readFile(resolve(path,'records.json'));
   assert.equal(sha256(bytes),manifest.recordsSha256,'changed review records');
-  assert.equal(manifest.batchId,placeReviewBatch);
+  assert.equal(manifest.batchId,batchId);
   const reviewers=JSON.parse(await readFile(resolve(root,'DataProject/operations/reviewer-registry.json'),'utf8'));
   const batch=JSON.parse(bytes);assert.equal(batch.publication_status,'draft');
   assert.equal(batch.records.length,5);assert.equal(new Set(manifest.ids).size,5);
@@ -28,12 +33,12 @@ export async function readPlaceReview(root) {
     assert.match(file,/^[a-z]+-(480|800|1200)\.webp$/);
     assert.equal(sha256(await readFile(resolve(path,'media',file))),proof.sha256,'changed review image');
   }
-  validatePlaceRecords(batch.records,manifest.ids,bases);
+  validatePlaceRecords(batch.records,manifest.ids,bases,batchId!==placeReviewBatch);
   const reviewer=validatePlaceApproval(manifest,batch.records,reviewers);
   return {manifest,records:batch.records,reviewer};
 }
 
-export function validatePlaceRecords(records,ids,bases) {
+export function validatePlaceRecords(records,ids,bases,optionalTickets=false) {
   assert.equal(new Set(records.map(r=>r.id)).size,ids.length,'duplicate revision ID');
   for(const r of records) {
     const base=bases.get(r.id);assert.ok(ids.includes(r.id)&&base,'revision requires an existing ID');
@@ -50,9 +55,18 @@ export function validatePlaceRecords(records,ids,bases) {
       assert.ok(p.locales[locale].blocks.length>=5);
       for(const b of p.locales[locale].blocks)assert.ok(b.text.length>10&&b.source_ids.length&&b.source_ids.every(id=>sourceIds.has(id)),'unsourced text');
     }
-    https(p.tickets.url);assert.ok(sourceIds.has(p.tickets.sourceId));https(p.coordinateEvidence.url);
+    if(p.tickets) {
+      https(p.tickets.url);assert.ok(sourceIds.has(p.tickets.sourceId));
+      if(optionalTickets)assert.ok(p.sources.some(s=>s.id===p.tickets.sourceId&&s.url===p.tickets.url),'ticket URL not sourced');
+    } else assert.ok(optionalTickets&&p.tickets===null,'missing ticket evidence');
+    https(p.coordinateEvidence.url);
+    if(optionalTickets) {
+      assert.ok(p.sources.some(s=>s.url===p.coordinateEvidence.url),'coordinate source missing');
+      const destination=new URL(p.coordinateEvidence.destinationURL).searchParams.get('destination');
+      assert.equal(destination,`${r.coordinates.latitude},${r.coordinates.longitude}`,'coordinate destination mismatch');
+    }
     assert.equal(r.images.length,1);
-    for(const image of r.images){assert.equal(image.verified,true);https(image.source_page_url);https(image.asset_url);assert.match(image.license_url,/^https:\/\/creativecommons.org\/licenses\/(by|by-sa)\/(3|4)\.0\/?$/);assert.ok(image.attribution.length>10);assert.match(image.public_asset_path,/^\/images\/place-review\/[a-z]+-1200\.webp$/);}
+    for(const image of r.images){assert.equal(image.verified,true);https(image.source_page_url);https(image.asset_url);assert.match(image.license_url,/^https:\/\/creativecommons.org\/licenses\/(by|by-sa)\/(2|3|4)\.0(?:\/nl)?\/?$/);assert.ok(image.attribution.length>10);assert.match(image.public_asset_path,/^\/images\/place-review\/[a-z]+-1200\.webp$/);}
   }
 }
 
@@ -84,24 +98,36 @@ export function validatePlaceApproval(manifest,records,registry,{today=new Date(
 }
 
 export async function applyPlaceReview(release,root,env=process.env) {
-  const privateReview=Boolean(env.YOUNEW_PLACE_REVIEW);
-  if(privateReview) {
-    assert.equal(env.YOUNEW_PLACE_REVIEW,placeReviewBatch,'unknown review');
+  const selected=env.YOUNEW_PLACE_REVIEW;
+  if(selected) {
+    reviewPath(selected);
     assert.equal(env.YOUNEW_PRIVATE_REVIEW_BUILD,'1','private review build required');
   }
-  const {manifest,records,reviewer}=await readPlaceReview(root);
-  if(!privateReview&&!reviewer)return release;
+  let result=release;
+  for(const batchId of placeReviewBatches) {
+    const proof=await readPlaceReview(root,batchId);
+    const privateReview=batchId===selected;
+    if(!privateReview&&!proof.reviewer)continue;
+    // Do not apply the same approved revision twice when previewing an already
+    // projected release. Draft revisions never enter an ordinary build.
+    if(!privateReview&&result.revisions?.some(r=>r.id===batchId&&r.approvalSha256===proof.manifest.approvalSha256))continue;
+    result=projectPlaceRevision(result,proof,privateReview);
+  }
+  return result;
+}
+
+function projectPlaceRevision(release,{manifest,records,reviewer},privateReview) {
   const batchHash=sha256(`${release.batchSha256}:${privateReview?'PRIVATE-REVIEW':'APPROVED-REVISION'}:${manifest.recordsSha256}:${manifest.approvalSha256??''}`);
   const ids=new Set(release.entities.map(e=>e.id));assert.ok(records.every(r=>ids.has(r.id)),'cannot add catalogue IDs');
   const revisions=new Map(records.map(r=>[r.id,r]));
-  return {...release,batchSha256:batchHash,...(!privateReview?{baseBatchSha256:release.batchSha256,approvedAt:manifest.approvedAt,revisions:[{id:manifest.batchId,recordsSha256:manifest.recordsSha256,approvalSha256:manifest.approvalSha256,approvedAt:manifest.approvedAt,reviewerId:manifest.reviewerId,count:records.length}]}:{}),entities:release.entities.map(e=>{
+  return {...release,batchSha256:batchHash,...(!privateReview?{baseBatchSha256:release.baseBatchSha256??release.batchSha256,approvedAt:manifest.approvedAt,revisions:[...(release.revisions??[]),{id:manifest.batchId,recordsSha256:manifest.recordsSha256,approvalSha256:manifest.approvalSha256,approvedAt:manifest.approvedAt,reviewerId:manifest.reviewerId,count:records.length}]}:{}),entities:release.entities.map(e=>{
     const r=revisions.get(e.id);if(!r)return {...e,editorial:{...e.editorial,batchSha256:batchHash}};
     const p=JSON.parse(r.attributes.place_enrichment);
     return {...e,summary:r.description,coordinate:r.coordinates,lastChecked:r.last_checked,relatedEntityIDs:r.related_entity_ids,
       source:{...e.source,url:r.official_source.url,checkedAt:r.last_checked},
       attributes:{...e.attributes,...r.attributes,...(!privateReview?{dataProjectRevision:manifest.batchId,place_enrichment:JSON.stringify({...p,status:'approved',approvedAt:manifest.approvedAt,reviewer:reviewer.name})}:{})},
-      images:r.images.map(i=>({id:i.id,role:i.role,verified:i.verified,assetURL:i.asset_url,publicAssetPath:privateReview?i.public_asset_path:`${placePublishedMediaPath}/${i.public_asset_path.split('/').at(-1)}`,alt:i.alt,attribution:i.attribution,license:i.license,licenseURL:i.license_url,sourcePageURL:i.source_page_url,retrievedAt:i.retrieved_at})),
-      editorial:{...e.editorial,...(privateReview?{placeReview:{batchId:placeReviewBatch,preparedAt:p.preparedAt,approvedAt:null}}:{placeReview:undefined,reviewedAt:manifest.approvedAt,reviewer:reviewer.name,batchSha256:batchHash}),place:{locales:Object.fromEntries(['en','nl'].map(l=>[l,{alt:p.locales[l].alt,blocks:p.locales[l].blocks.map(b=>({id:b.id,text:b.text,title:b.title,sourceIds:b.source_ids}))}])),tickets:p.tickets},
+      images:r.images.map(i=>({id:i.id,role:i.role,verified:i.verified,assetURL:i.asset_url,publicAssetPath:privateReview?i.public_asset_path:`/images/places/${manifest.batchId}/${i.public_asset_path.split('/').at(-1)}`,alt:i.alt,attribution:i.attribution,license:i.license,licenseURL:i.license_url,sourcePageURL:i.source_page_url,retrievedAt:i.retrieved_at})),
+      editorial:{...e.editorial,batchSha256:batchHash,...(privateReview?{placeReview:{batchId:manifest.batchId,preparedAt:p.preparedAt,approvedAt:null}}:{placeReview:undefined,reviewedAt:manifest.approvedAt,reviewer:reviewer.name}),place:{locales:Object.fromEntries(['en','nl'].map(l=>[l,{alt:p.locales[l].alt,blocks:p.locales[l].blocks.map(b=>({id:b.id,text:b.text,title:b.title,sourceIds:b.source_ids}))}])),tickets:p.tickets},
         sources:p.sources.map(s=>({id:s.id,title:s.title,publisher:s.publisher,url:s.url,checkedAt:s.checked_at})),
         locales:{en:{...e.editorial.locales.en,summary:r.description},nl:{...e.editorial.locales.nl,summary:r.attributes.description_nl}}}
     };
