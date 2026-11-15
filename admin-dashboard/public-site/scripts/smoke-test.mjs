@@ -153,6 +153,24 @@ assert.match(status, /does not (?:use|provide) live (?:uptime )?monitoring/i);
 assert.match(status, /Business and feedback forms/);
 assert.match(status, /Knowledge trust stays independent/i);
 assert.match(status, /Technical release status:\s*(?:<!-- -->)?PARTIAL/i);
+// The rendered status and both JSON copies must describe the same build snapshot.
+const statusConfig = JSON.parse(await readFile(new URL("../src/config/status.json", import.meta.url), "utf8"));
+const publicStatus = JSON.parse(await readFile(join(root, "data/status.json"), "utf8"));
+assert.deepEqual(publicStatus, statusConfig);
+const escapeStatusText = (text) => text.replace(/[&<>"']/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#x27;" })[char]);
+for (const text of [statusConfig.assessment, statusConfig.history, ...statusConfig.limitations,
+  ...["website", "content", "ios", "businessForm"].map((key) => statusConfig[key].summary)]) {
+  assert.ok(status.includes(escapeStatusText(text)), `Status HTML must render snapshot text: ${text}`);
+}
+assert.match(status, new RegExp(`datetime="${statusConfig.checkedAt}"`, "i"));
+for (const [label, key] of [["Published entities", "total"], ["Places", "places"], ["Summary guides", "summaryGuides"], ["Cities", "cities"], ["Full practical guides", "fullGuides"]]) {
+  assert.ok(status.includes(`<dt>${label}</dt><dd>${statusConfig.content.counts[key]}</dd>`));
+}
+for (const link of [...statusConfig.evidenceLinks, ...statusConfig.webAlternatives]) {
+  assert.ok(status.includes(`href="${escapeStatusText(link.href)}"`));
+}
+assert.match(status.replace(/<!--.*?-->/g, ""), new RegExp(`${statusConfig.ios.sourceComparison.webOnlyIDs} published web IDs are absent from the current iOS source bundle`));
+assert.doesNotMatch(status, /Sites v53|Secure Supabase endpoints|177 published records|<dt>(?:182|581|571|129)<\/dt>/);
 
 const support = await readFile(join(root, "support/index.html"), "utf8");
 for (const field of ["feedbackType", "email", "message", "consentToPrivacy", "websiteConfirmation"]) {

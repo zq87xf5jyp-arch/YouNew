@@ -47,7 +47,7 @@ export default function UpdatesPage() {
         <div className="updates-facts">
           <div><strong>{content.stats.entities}</strong><span>published records</span></div>
           <div><strong>{content.publishedReleaseIds.length}</strong><span>accepted releases</span></div>
-          <div><strong>{humanDate(statusSnapshot.content.asOf)}</strong><span>content snapshot checked</span></div>
+          <div><strong>{humanDate(statusSnapshot.content.asOf)}</strong><span>latest editorial release</span></div>
         </div>
       </section>
 

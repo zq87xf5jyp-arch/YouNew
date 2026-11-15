@@ -18,7 +18,7 @@ export default function AppPage() {
           <Breadcrumbs items={[{ label: "App" }]} />
           <Smartphone aria-hidden className="hero-line-icon" />
           <h1>YouNew on iPhone</h1>
-          <p>The public YouNew App Store listing currently serves version {statusSnapshot.ios.publicVersion}. Version {statusSnapshot.ios.testedVersion} (build {statusSnapshot.ios.testedBuild}) has been submitted to App Review and is not public yet; the web guide remains available without an install.</p>
+          <p>{statusSnapshot.ios.summary} The web guide remains available without an install.</p>
           <div className="hero-actions">
             <TrackedAppStoreLink
               className="button button-primary"
@@ -32,7 +32,7 @@ export default function AppPage() {
             <Link className="button button-outline" href="/discover">Use the web guide</Link>
             <Link className="button button-outline" href="/status">Check release status</Link>
           </div>
-          <p className="availability-note"><CheckCircle2 aria-hidden /> Public distribution confirmed. Locally tested app version: {statusSnapshot.ios.testedVersion} (build {statusSnapshot.ios.testedBuild}).</p>
+          <p className="availability-note"><CheckCircle2 aria-hidden /> Public listing: version {statusSnapshot.ios.publicVersion}, released <time dateTime={statusSnapshot.ios.releasedAt}>{statusSnapshot.ios.releasedAt}</time>. See the dated status snapshot for verification limits.</p>
         </div>
         <div className="device-frame app-page-device">
           <Image src="/images/app-home-nl.webp" alt="Current YouNew iPhone home screen in Dutch" width={437} height={946} priority sizes="(max-width: 760px) 72vw, 330px" />
