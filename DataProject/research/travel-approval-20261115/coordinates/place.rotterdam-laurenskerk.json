@@ -1,0 +1,43 @@
+{
+  "id": "place.rotterdam-laurenskerk",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "place.rotterdam-laurenskerk",
+    "street": "Grotekerkplein",
+    "house": "15",
+    "postcode": "3011GC",
+    "locality": "Rotterdam"
+  },
+  "officialSourceURL": "https://laurenskerkrotterdam.nl/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/e28753be0747eb95fd71be36b97bc8294617462988d188a6b140acbfa4531abc.json",
+  "officialSourceEvidenceSHA256": "a64b5a71193e409abbe7142057c1720dce61d77febdd4e9e6c577bb0eead795f",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.92145122,
+    "longitude": 4.48490308
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Grotekerkplein+15+3011GC+Rotterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "c843a25a1b93020a1645e5b94655446bd6155301251b5dd7ca24c0da4cadbbbe",
+  "candidateAddresses": [
+    "Grotekerkplein 15, 3011GC Rotterdam",
+    "Grotekerkplein 10A, 3011GC Rotterdam",
+    "Grotekerkplein 10B, 3011GC Rotterdam",
+    "Grotekerkplein 12A, 3011GC Rotterdam",
+    "Grotekerkplein 12B, 3011GC Rotterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Grotekerkplein 15, 3011GC Rotterdam",
+    "straatnaam": "Grotekerkplein",
+    "huis_nlt": "15",
+    "postcode": "3011GC",
+    "woonplaatsnaam": "Rotterdam",
+    "nummeraanduiding_id": "0599200100025160",
+    "adresseerbaarobject_id": "0599010400024346",
+    "centroide_ll": "POINT(4.48490308 51.92145122)"
+  },
+  "addressMatched": true
+}

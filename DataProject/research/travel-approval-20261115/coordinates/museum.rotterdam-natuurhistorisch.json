@@ -1,0 +1,43 @@
+{
+  "id": "museum.rotterdam-natuurhistorisch",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.rotterdam-natuurhistorisch",
+    "street": "Westzeedijk",
+    "house": "345",
+    "postcode": "3015AA",
+    "locality": "Rotterdam"
+  },
+  "officialSourceURL": "https://www.hetnatuurhistorisch.nl/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/679d92dfe695374a4e2b2e1f91f081e738605c6fa0aa5d8887751cb66291d919.json",
+  "officialSourceEvidenceSHA256": "2112f504b5702b4af2c187090ab99c2b760e03415bfbef76da08834759dba26b",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.91078696,
+    "longitude": 4.47255117
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westzeedijk+345+3015AA+Rotterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "535c810714c772515e595e411a1e9504450d28abc6103aecf68019f0b928e5aa",
+  "candidateAddresses": [
+    "Westzeedijk 345, 3015AA Rotterdam",
+    "Westzeedijk 5, 3015AA Rotterdam",
+    "Westzeedijk 7, 3015AA Rotterdam",
+    "Westzeedijk 9, 3015AA Rotterdam",
+    "Westzeedijk 11, 3015AA Rotterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Westzeedijk 345, 3015AA Rotterdam",
+    "straatnaam": "Westzeedijk",
+    "huis_nlt": "345",
+    "postcode": "3015AA",
+    "woonplaatsnaam": "Rotterdam",
+    "nummeraanduiding_id": "0599200000518128",
+    "adresseerbaarobject_id": "0599010000255124",
+    "centroide_ll": "POINT(4.47255117 51.91078696)"
+  },
+  "addressMatched": true
+}

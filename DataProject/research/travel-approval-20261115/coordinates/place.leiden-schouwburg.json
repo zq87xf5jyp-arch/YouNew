@@ -1,0 +1,43 @@
+{
+  "id": "place.leiden-schouwburg",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "place.leiden-schouwburg",
+    "street": "Oude Vest",
+    "house": "43",
+    "postcode": "2312XS",
+    "locality": "Leiden"
+  },
+  "officialSourceURL": "https://leidseschouwburg-stadsgehoorzaal.nl/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/adade56780e8562d459f8c96893006e1fceb72aedbf0da2312452343714f321c.json",
+  "officialSourceEvidenceSHA256": "b7a857ad90a60adb90885d7d65434bb9b7fe4e2556f0de0592d81260ae816199",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.16240092,
+    "longitude": 4.48918582
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Vest+43+2312XS+Leiden&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "fec695293ae607e7d4503a54d66bb475edce1e3ccb7f7f4d2dadc0d0e3ec88cc",
+  "candidateAddresses": [
+    "Oude Vest 43, 2312XS Leiden",
+    "Oude Vest 55A, 2312XS Leiden",
+    "Oude Vest 57A, 2312XS Leiden",
+    "Oude Vest 59A, 2312XS Leiden",
+    "Oude Vest 47, 2312XS Leiden"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Oude Vest 43, 2312XS Leiden",
+    "straatnaam": "Oude Vest",
+    "huis_nlt": "43",
+    "postcode": "2312XS",
+    "woonplaatsnaam": "Leiden",
+    "nummeraanduiding_id": "0546200000069140",
+    "adresseerbaarobject_id": "0546010000068921",
+    "centroide_ll": "POINT(4.48918582 52.16240092)"
+  },
+  "addressMatched": true
+}

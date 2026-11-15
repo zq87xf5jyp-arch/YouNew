@@ -1,0 +1,43 @@
+{
+  "id": "museum.eindhoven-prehistorisch-dorp",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.eindhoven-prehistorisch-dorp",
+    "street": "Boutenslaan",
+    "house": "161B",
+    "postcode": "5644TV",
+    "locality": "Eindhoven"
+  },
+  "officialSourceURL": "https://prehistorischdorp.nl/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/b75bbb93ab4bd99084ad14b1cec83a9ccbbfc33938edd592952313d4ff12f57b.json",
+  "officialSourceEvidenceSHA256": "d55f9569e4f1d70ff2ca6f263ec65d932f66fdd42a618b339cfa679184d99f99",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.42213925,
+    "longitude": 5.4767892
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Boutenslaan+161B+5644TV+Eindhoven&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "c94c6d5c24d0ce56ed907140e5ab0e3d9aa9dcef25efa3cfe4ed389711044c51",
+  "candidateAddresses": [
+    "Boutenslaan 161B, 5644TV Eindhoven",
+    "Boutenslaan 159A, 5644TV Eindhoven",
+    "Boutenslaan 161C, 5644TV Eindhoven",
+    "Boutenslaan 145, 5644TV Eindhoven",
+    "Boutenslaan 147, 5644TV Eindhoven"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Boutenslaan 161B, 5644TV Eindhoven",
+    "straatnaam": "Boutenslaan",
+    "huis_nlt": "161B",
+    "postcode": "5644TV",
+    "woonplaatsnaam": "Eindhoven",
+    "nummeraanduiding_id": "0772200000027402",
+    "adresseerbaarobject_id": "0772010000713416",
+    "centroide_ll": "POINT(5.4767892 51.42213925)"
+  },
+  "addressMatched": true
+}

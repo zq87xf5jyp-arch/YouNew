@@ -1,0 +1,17 @@
+{
+  "id": "museum.den-haag-panorama-mesdag",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Panorama_Mesdag_08.jpg",
+  "checkedAt": "2026-11-15",
+  "publicationAuthorized": false,
+  "status": "needs_review",
+  "priorEvidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.den-haag-panorama-mesdag.json",
+  "priorEvidenceSHA256": "499c79aefae676e69a6565d24a7cc03bbccd8085c07f4944522bc0932a91681e",
+  "sourcePageSHA256": "df91be7d311415bfe4f6a73154be7529b552adee30ed4f7bcbbbd4a18cc294de",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "licenseURLs": [
+    "https://creativecommons.org/licenses/by-sa/3.0"
+  ],
+  "authorFromPriorReview": "Marion Golsteijn",
+  "sourceRead": true,
+  "descriptionExcerpt": "Description Nederlands: Ingang Panorama Mesdag, Den Haag, Nederland Date 5 August 2008 Source/Photographer Own work Object location 52° 05′ 04.96″"
+}

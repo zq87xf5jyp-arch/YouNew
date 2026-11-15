@@ -1,0 +1,43 @@
+{
+  "id": "museum.eindhoven-van-abbe",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.eindhoven-van-abbe",
+    "street": "Stratumsedijk",
+    "house": "2",
+    "postcode": "",
+    "locality": "Eindhoven"
+  },
+  "officialSourceURL": "https://vanabbemuseum.nl/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/08a9fa188f502a932005aaa99a6c9e216b22b3795de8cb8ef048b48876283232.json",
+  "officialSourceEvidenceSHA256": "ca11682bdeeeac7fada9fdd7ef69d10d62fa21525c686ef09a329dcce95c7844",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.43441483,
+    "longitude": 5.48191358
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stratumsedijk+2++Eindhoven&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "727a5875532474ccf2eabb6dafaf9c30ed898a3229fdc3987fc02039753b1c4f",
+  "candidateAddresses": [
+    "Stratumsedijk 2, 5611ND Eindhoven",
+    "Stratumsedijk 1A, 5611NA Eindhoven",
+    "Stratumsedijk 8A, 5611ND Eindhoven",
+    "Stratumsedijk 8B, 5611ND Eindhoven",
+    "Stratumsedijk 17A, 5611NA Eindhoven"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Stratumsedijk 2, 5611ND Eindhoven",
+    "straatnaam": "Stratumsedijk",
+    "huis_nlt": "2",
+    "postcode": "5611ND",
+    "woonplaatsnaam": "Eindhoven",
+    "nummeraanduiding_id": "0772200000090553",
+    "adresseerbaarobject_id": "0772010000702736",
+    "centroide_ll": "POINT(5.48191358 51.43441483)"
+  },
+  "addressMatched": true
+}

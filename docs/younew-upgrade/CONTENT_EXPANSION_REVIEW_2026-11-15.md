@@ -79,3 +79,27 @@ node --experimental-strip-types --test scripts/tests/approved-ios-places.test.mj
 - `scripts/tests/travel_expansion_review_test.py`: offline verification. This cumulative journal replaces per-object reports.
 
 Human approval records, previous review packages, runtime content and published data remain unchanged. The new manifests contain no reviewer identity or granted publication permission.
+
+## Follow-up: exact approval request (2026-11-15)
+
+Prepared from PR #70 in `feature/travel-approval-selection-20261115`. Prior source files, image bytes, staging manifests and approvals were preserved unchanged.
+
+- Reused official-source address evidence and matched 33 new coordinates against BAG via the already-used public PDOK service. Full street, house number, city and supplied postcode must agree. Points are address centroids, not entrance surveys. Two mismatches remain blocked: Dutch Resistance Museum (BAG house-number suffixes) and Muziekgebouw Eindhoven (official site says Heuvel; BAG says Heuvel Galerie). No nearest-result substitution.
+- All 40 local photo candidates visually inspected and their Commons pages checked. Thirty-two proposed for owner approval. Four held for subject/presentation problems (Foam is soap foam, Markthal is mostly a neighbouring streetscape, VONK is under construction, Parktheater is backstage); four held because the entity's primary-source content is unresolved (Kunstmuseum, Mauritshuis, Museum Van Loon, Madurodam).
+- Van Gogh Museum attribution corrected in the new selection to photographer Minke Wagenaar. Earlier rejected extraction remains immutable historical evidence. No image downloaded or generated again; all 96 selected derivative files are referenced with existing SHA-256 hashes.
+- Exact request: **57 source-checked EN/NL record projections, 32 photos, 33 address coordinates, six cultural collections**. Existing compact records are not re-approved wholesale. Nine unresolved sources and all unlisted fields remain outside scope. Selected park photos are explicitly visible in the review; other pending Leiden park draft fields remain excluded.
+- Selection SHA-256: `d00afc1621010eba612be3dc397c08a3b0f3a2633538fbe825697b00b8e0dca7`.
+- [Human-readable selection with photographs and EN/NL text](TRAVEL_APPROVAL_REVIEW_2026-11-15.md); [exact machine-readable selection](TRAVEL_APPROVAL_SELECTION_2026-11-15.json).
+- **Human approval still pending**: no reviewer identity or approval receipt invented. The new selection does not activate runtime content. After approval, the existing governed exporter needs tested support for this exact selection; its current earlier Leiden approval remains intact.
+- Tests: seven new selection checks + eight existing expansion checks + twenty publication/export/review tests passed (35 total). Governed exporter `--check` passed. Negative tests reject changed address/coordinate evidence; checks bind source/media hashes and ensure wrong-subject photos cannot enter this selection.
+- No iOS code or runtime resources changed; no Xcode build or Simulator run performed. Runtime remains 12 cards, four local photos, seven coordinates and six ticket links. Full runtime QA remains mandatory after integration.
+- The 80% image/coordinate targets are still unmet. This is a concrete approval-ready subset, not a complete national release candidate. Continue unresolved-source and missing-media work without publishing unapproved data.
+
+Reproduce this follow-up offline:
+
+```sh
+python3 scripts/prepare-travel-selection.py --check
+python3 scripts/tests/travel_selection_test.py
+```
+
+Optional cached evidence retrieval uses `--fetch-coordinates` / `--fetch-media`; neither grants approval. The previous `index.json` remains the historical PR #70 checkpoint. This journal and the new exact selection describe the follow-up, preventing old counters from being misrepresented as newly activated content.

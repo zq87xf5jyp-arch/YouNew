@@ -1,0 +1,43 @@
+{
+  "id": "museum.eindhoven-philips",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.eindhoven-philips",
+    "street": "Emmasingel",
+    "house": "31",
+    "postcode": "5611AZ",
+    "locality": "Eindhoven"
+  },
+  "officialSourceURL": "https://www.philips-museum.com/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/8a5a33cb0e765798b1f01d352d6f45fcf88989e4265d9d2ca3b73b1912ca9eec.json",
+  "officialSourceEvidenceSHA256": "2b2fa4fa10db783a2dd18e5aa4edf32b3eed3d0b5ad462fe62d7f4fe829c44c4",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.43931451,
+    "longitude": 5.47524132
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Emmasingel+31+5611AZ+Eindhoven&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "5771b085476182966d01c2c3ba7c0527c215700f70b64238bf6b17b3347a5570",
+  "candidateAddresses": [
+    "Emmasingel 31A, 5611AZ Eindhoven",
+    "Emmasingel 31, 5611AZ Eindhoven",
+    "Emmasingel 29-31, 5611AZ Eindhoven",
+    "Emmasingel 31-101, 5611AZ Eindhoven",
+    "Emmasingel 31-103, 5611AZ Eindhoven"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Emmasingel 31, 5611AZ Eindhoven",
+    "straatnaam": "Emmasingel",
+    "huis_nlt": "31",
+    "postcode": "5611AZ",
+    "woonplaatsnaam": "Eindhoven",
+    "nummeraanduiding_id": "0772200000093158",
+    "adresseerbaarobject_id": "0772010000792595",
+    "centroide_ll": "POINT(5.47524132 51.43931451)"
+  },
+  "addressMatched": true
+}

@@ -1,0 +1,43 @@
+{
+  "id": "place.rotterdam-euromast",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "place.rotterdam-euromast",
+    "street": "Parkhaven",
+    "house": "20",
+    "postcode": "3016GM",
+    "locality": "Rotterdam"
+  },
+  "officialSourceURL": "https://euromast.nl/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/f86dee98356328f1ce2711a322fa58dd87dc3b06340f32f7706e530676299de2.json",
+  "officialSourceEvidenceSHA256": "ca1725c332c85b27af9a4849ca90ec0cb6c75b25b437a97d91197ad1698a6619",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.90540245,
+    "longitude": 4.46651217
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Parkhaven+20+3016GM+Rotterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "dd9a74bc72f98e82ae975d0bd43b76c46b545282a908ec17b2e6c64b18379edf",
+  "candidateAddresses": [
+    "Parkhaven 20, 3016GM Rotterdam",
+    "Parkhaven 9, 3016GM Rotterdam",
+    "Parkhaven 11, 3016GM Rotterdam",
+    "Parkhaven 15, 3016GM Rotterdam",
+    "Parkhaven 19, 3016GM Rotterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Parkhaven 20, 3016GM Rotterdam",
+    "straatnaam": "Parkhaven",
+    "huis_nlt": "20",
+    "postcode": "3016GM",
+    "woonplaatsnaam": "Rotterdam",
+    "nummeraanduiding_id": "0599200000404322",
+    "adresseerbaarobject_id": "0599010000165687",
+    "centroide_ll": "POINT(4.46651217 51.90540245)"
+  },
+  "addressMatched": true
+}

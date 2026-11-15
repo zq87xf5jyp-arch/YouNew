@@ -1,0 +1,43 @@
+{
+  "id": "museum.nemo-science-museum",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.nemo-science-museum",
+    "street": "Oosterdok",
+    "house": "2",
+    "postcode": "1011VX",
+    "locality": "Amsterdam"
+  },
+  "officialSourceURL": "https://www.nemosciencemuseum.nl/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/485c344520841a6981af056f655c2361d5992b80cb5173a8d1f96d4d760dc9a3.json",
+  "officialSourceEvidenceSHA256": "efe753b3e94ede7984e83400d58c3400458890341dc2b5db657672399811ab20",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.37385316,
+    "longitude": 4.91211135
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdok+2+1011VX+Amsterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "88cb8c6461ab323f4e7cd1c3062922120d1e4b2dc92f45363ecea2b268d60191",
+  "candidateAddresses": [
+    "Oosterdok 2, 1011VX Amsterdam",
+    "Oosterdok 4, 1011VX Amsterdam",
+    "Oosterdok 6, 1011VX Amsterdam",
+    "Oosterdok 10, 1011VX Amsterdam",
+    "Oosterdok 8, Amsterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Oosterdok 2, 1011VX Amsterdam",
+    "straatnaam": "Oosterdok",
+    "huis_nlt": "2",
+    "postcode": "1011VX",
+    "woonplaatsnaam": "Amsterdam",
+    "nummeraanduiding_id": "0363200000478214",
+    "adresseerbaarobject_id": "0363010000994089",
+    "centroide_ll": "POINT(4.91211135 52.37385316)"
+  },
+  "addressMatched": true
+}

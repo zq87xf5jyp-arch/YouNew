@@ -1,0 +1,43 @@
+{
+  "id": "museum.anne-frank-house",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.anne-frank-house",
+    "street": "Westermarkt",
+    "house": "20",
+    "postcode": "1016DK",
+    "locality": "Amsterdam"
+  },
+  "officialSourceURL": "https://www.annefrank.org/en/museum/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/1a20a7f9914b1d6b3ec62c4e7e0f9ff0c280fc2395c2a948693ae88d3ff56583.json",
+  "officialSourceEvidenceSHA256": "55c1cf730c1e133fba58ed47123f6650a3a6d6f1b4a673447bfa407c6756cb43",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.37493637,
+    "longitude": 4.88431719
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westermarkt+20+1016DK+Amsterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "c6707d68d106b3875e8fad43016d8d4786a1290b44ecf575308decd0bd79d6a3",
+  "candidateAddresses": [
+    "Westermarkt 20, 1016DK Amsterdam",
+    "Westermarkt 8-H, 1016DK Amsterdam",
+    "Westermarkt 2, 1016DK Amsterdam",
+    "Westermarkt 4, 1016DK Amsterdam",
+    "Westermarkt 6, 1016DK Amsterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Westermarkt 20, 1016DK Amsterdam",
+    "straatnaam": "Westermarkt",
+    "huis_nlt": "20",
+    "postcode": "1016DK",
+    "woonplaatsnaam": "Amsterdam",
+    "nummeraanduiding_id": "0363200012151122",
+    "adresseerbaarobject_id": "0363010012149124",
+    "centroide_ll": "POINT(4.88431719 52.37493637)"
+  },
+  "addressMatched": true
+}

@@ -1,0 +1,43 @@
+{
+  "id": "museum.het-scheepvaartmuseum",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.het-scheepvaartmuseum",
+    "street": "Kattenburgerplein",
+    "house": "1",
+    "postcode": "1018KK",
+    "locality": "Amsterdam"
+  },
+  "officialSourceURL": "https://www.hetscheepvaartmuseum.com/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/4bc489024d3d4075db5dbe04ff8e6fdfe7133ffa55b225f3167384144eb13663.json",
+  "officialSourceEvidenceSHA256": "aa6aac25ca95686bc1290acfe1f68980c069a9e31c4200e7f81739f45003b767",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.37149196,
+    "longitude": 4.91500002
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kattenburgerplein+1+1018KK+Amsterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "7284e19e31facec3df6a868543cfa1d5fcddb9860fdbe20d466cb01fad64e6a8",
+  "candidateAddresses": [
+    "Kattenburgerplein 1, 1018KK Amsterdam",
+    "Kattenburgerplein 38-1, 1018KK Amsterdam",
+    "Kattenburgerplein 38-H, 1018KK Amsterdam",
+    "Kattenburgerplein 40A, 1018KK Amsterdam",
+    "Kattenburgerplein 40B, 1018KK Amsterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Kattenburgerplein 1, 1018KK Amsterdam",
+    "straatnaam": "Kattenburgerplein",
+    "huis_nlt": "1",
+    "postcode": "1018KK",
+    "woonplaatsnaam": "Amsterdam",
+    "nummeraanduiding_id": "0363200000161444",
+    "adresseerbaarobject_id": "0363010000699942",
+    "centroide_ll": "POINT(4.91500002 52.37149196)"
+  },
+  "addressMatched": true
+}

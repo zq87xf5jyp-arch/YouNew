@@ -1,0 +1,43 @@
+{
+  "id": "museum.leiden-sieboldhuis",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.leiden-sieboldhuis",
+    "street": "Rapenburg",
+    "house": "19",
+    "postcode": "2311GE",
+    "locality": "Leiden"
+  },
+  "officialSourceURL": "https://www.sieboldhuis.org/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/3c78171dc410734bc7797a5705929c438a947c46e9d43e2f12bccf0541b449e8.json",
+  "officialSourceEvidenceSHA256": "890c6726219324f4fefe90b33446bea950dbe6920546bc31d1cb8107d121ae1f",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.15964141,
+    "longitude": 4.48461576
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Rapenburg+19+2311GE+Leiden&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "a646bfae140c2a2f6b5ef57e35c1b6d85f83b370c26bd844b477d784e7f48bba",
+  "candidateAddresses": [
+    "Rapenburg 19, 2311GE Leiden",
+    "Rapenburg 13A, 2311GE Leiden",
+    "Rapenburg 13B, 2311GE Leiden",
+    "Rapenburg 23A, 2311GE Leiden",
+    "Rapenburg 13, 2311GE Leiden"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Rapenburg 19, 2311GE Leiden",
+    "straatnaam": "Rapenburg",
+    "huis_nlt": "19",
+    "postcode": "2311GE",
+    "woonplaatsnaam": "Leiden",
+    "nummeraanduiding_id": "0546200000008447",
+    "adresseerbaarobject_id": "0546010000008447",
+    "centroide_ll": "POINT(4.48461576 52.15964141)"
+  },
+  "addressMatched": true
+}

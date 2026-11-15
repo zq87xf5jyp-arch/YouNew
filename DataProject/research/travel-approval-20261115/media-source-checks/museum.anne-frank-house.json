@@ -1,0 +1,17 @@
+{
+  "id": "museum.anne-frank-house",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Anne_Frank_House%2C_Amsterdam_%2826210793741%29.jpg",
+  "checkedAt": "2026-11-15",
+  "publicationAuthorized": false,
+  "status": "needs_review",
+  "priorEvidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.anne-frank-house.json",
+  "priorEvidenceSHA256": "a4ea2c131b125ab32e60279f4c344547cf99a1dfc021b2cf270bc1a9183692b3",
+  "sourcePageSHA256": "1415f87c23d8abf1bf630c0ac92252825c8bb75b40af09de2dfccf11d55b69ce",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "licenseURLs": [
+    "https://creativecommons.org/licenses/by/2.0"
+  ],
+  "authorFromPriorReview": "Tobias Niepel",
+  "sourceRead": true,
+  "descriptionExcerpt": "Description Anne Frank House, Amsterdam (26210793741).jpg Anne Frank House, Amsterdam Date 12 March 2016, 14:06 Source Anne Frank House, Amsterdam"
+}

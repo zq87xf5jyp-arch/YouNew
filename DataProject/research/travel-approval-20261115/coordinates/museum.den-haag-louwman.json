@@ -1,0 +1,43 @@
+{
+  "id": "museum.den-haag-louwman",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.den-haag-louwman",
+    "street": "Leidsestraatweg",
+    "house": "57",
+    "postcode": "2594BB",
+    "locality": "'s-Gravenhage"
+  },
+  "officialSourceURL": "https://www.louwmanmuseum.nl/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/73fb4b7072379f4eb1a4be6e3506ffa925af8ba31ba80096a99e60bbb8d4136a.json",
+  "officialSourceEvidenceSHA256": "88db09cca8ce421aea5b8bd3c04f7ba08a3dd10a8062954c2b3f37c32526485d",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.09961462,
+    "longitude": 4.34858837
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Leidsestraatweg+57+2594BB+%27s-Gravenhage&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "d56920f1ebe56728eda2a6f70403d10916344b50fd141c03dbf7f29d2e24cb78",
+  "candidateAddresses": [
+    "Leidsestraatweg 57, 2594BB 's-Gravenhage",
+    "Leidsestraatweg 77A, 2594BB 's-Gravenhage",
+    "Leidsestraatweg 77B, 2594BB 's-Gravenhage",
+    "Leidsestraatweg 77C, 2594BB 's-Gravenhage",
+    "Leidsestraatweg 45, 2594BB 's-Gravenhage"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Leidsestraatweg 57, 2594BB 's-Gravenhage",
+    "straatnaam": "Leidsestraatweg",
+    "huis_nlt": "57",
+    "postcode": "2594BB",
+    "woonplaatsnaam": "'s-Gravenhage",
+    "nummeraanduiding_id": "0518200000369182",
+    "adresseerbaarobject_id": "0518010000369183",
+    "centroide_ll": "POINT(4.34858837 52.09961462)"
+  },
+  "addressMatched": true
+}

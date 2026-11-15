@@ -1,0 +1,43 @@
+{
+  "id": "museum.den-haag-gevangenpoort",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.den-haag-gevangenpoort",
+    "street": "Buitenhof",
+    "house": "33",
+    "postcode": "2513AH",
+    "locality": "'s-Gravenhage"
+  },
+  "officialSourceURL": "https://www.gevangenpoort.nl/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/be8358cc50ceaa50b1232f497edcabcbec98a1a515e5b7932f9943355f72b60d.json",
+  "officialSourceEvidenceSHA256": "0c19cfc71a7bfffde38b5739f0b6409eefbc25a634969c9549933bbb0138bb1a",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.07959563,
+    "longitude": 4.31027908
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Buitenhof+33+2513AH+%27s-Gravenhage&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "f93aa073b64011a78949d4503bd048596fc59ec3b1494aa37818e06265dbe822",
+  "candidateAddresses": [
+    "Buitenhof 33, 2513AH 's-Gravenhage",
+    "Buitenhof 47-33, 2513AH 's-Gravenhage",
+    "Buitenhof 43C, 2513AH 's-Gravenhage",
+    "Buitenhof 43D, 2513AH 's-Gravenhage",
+    "Buitenhof 44A, 2513AH 's-Gravenhage"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Buitenhof 33, 2513AH 's-Gravenhage",
+    "straatnaam": "Buitenhof",
+    "huis_nlt": "33",
+    "postcode": "2513AH",
+    "woonplaatsnaam": "'s-Gravenhage",
+    "nummeraanduiding_id": "0518200000392091",
+    "adresseerbaarobject_id": "0518010000392092",
+    "centroide_ll": "POINT(4.31027908 52.07959563)"
+  },
+  "addressMatched": true
+}

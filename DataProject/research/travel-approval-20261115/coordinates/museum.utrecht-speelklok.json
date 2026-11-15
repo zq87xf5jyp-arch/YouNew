@@ -1,0 +1,43 @@
+{
+  "id": "museum.utrecht-speelklok",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.utrecht-speelklok",
+    "street": "Steenweg",
+    "house": "6",
+    "postcode": "3511JP",
+    "locality": "Utrecht"
+  },
+  "officialSourceURL": "https://www.museumspeelklok.nl/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/1a45eea81d7ee5718bc7d8f58d51c91e78c1841e9eeff82d5d4c185a61e3b5b7.json",
+  "officialSourceEvidenceSHA256": "42957ea362eced8f2caf17ecc526bf7b3b96dcb7a038b355e4a60a78d69fcce7",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.09050772,
+    "longitude": 5.11891006
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Steenweg+6+3511JP+Utrecht&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "de6bfe25fb3788079f275824287851fa9759666e05df2a36354e777bedd9dc6f",
+  "candidateAddresses": [
+    "Steenweg 6, 3511JP Utrecht",
+    "Steenweg 2-BS, 3511JP Utrecht",
+    "Steenweg 4A, 3511JP Utrecht",
+    "Steenweg 8A, 3511JP Utrecht",
+    "Steenweg 8B, 3511JP Utrecht"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Steenweg 6, 3511JP Utrecht",
+    "straatnaam": "Steenweg",
+    "huis_nlt": "6",
+    "postcode": "3511JP",
+    "woonplaatsnaam": "Utrecht",
+    "nummeraanduiding_id": "0344200000160849",
+    "adresseerbaarobject_id": "0344010000050657",
+    "centroide_ll": "POINT(5.11891006 52.09050772)"
+  },
+  "addressMatched": true
+}

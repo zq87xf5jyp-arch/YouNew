@@ -1,0 +1,43 @@
+{
+  "id": "museum.rotterdam-maritime",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.rotterdam-maritime",
+    "street": "Leuvehaven",
+    "house": "1",
+    "postcode": "3011EA",
+    "locality": "Rotterdam"
+  },
+  "officialSourceURL": "https://www.maritiemmuseum.nl/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/65afd89a84cec08dff559b6e10dc63becdf8553de02d2b05b3329c4501be0090.json",
+  "officialSourceEvidenceSHA256": "cab5d13b21b8c2efedc081b7292238f6e3734ea1bc44036d3417350ed21cc254",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.91750027,
+    "longitude": 4.48244223
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Leuvehaven+1+3011EA+Rotterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "7456014e358988f6054c31cd51d3b0f6ac774476541116daa47eab08b6b5d993",
+  "candidateAddresses": [
+    "Leuvehaven 1, 3011EA Rotterdam",
+    "Leuvehaven 50, 3011EA Rotterdam",
+    "Leuvehaven 70, 3011EA Rotterdam",
+    "Leuvehaven 71, 3011EA Rotterdam",
+    "Leuvehaven 73, 3011EA Rotterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Leuvehaven 1, 3011EA Rotterdam",
+    "straatnaam": "Leuvehaven",
+    "huis_nlt": "1",
+    "postcode": "3011EA",
+    "woonplaatsnaam": "Rotterdam",
+    "nummeraanduiding_id": "0599200000351558",
+    "adresseerbaarobject_id": "0599010000071597",
+    "centroide_ll": "POINT(4.48244223 51.91750027)"
+  },
+  "addressMatched": true
+}

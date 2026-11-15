@@ -1,0 +1,43 @@
+{
+  "id": "museum.rotterdam-kunsthal",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.rotterdam-kunsthal",
+    "street": "Westzeedijk",
+    "house": "341",
+    "postcode": "3015AA",
+    "locality": "Rotterdam"
+  },
+  "officialSourceURL": "https://www.kunsthal.nl/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/fd4b32bea73ea39dd7f782fab59ede44e12f2713f3210db1a3d93c423df250b6.json",
+  "officialSourceEvidenceSHA256": "899db09c296a1f35b11b2ff4e1fb27badf177986178af034621647241588d344",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.91067289,
+    "longitude": 4.47338557
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westzeedijk+341+3015AA+Rotterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "77e4e8afc32f1fcd7a45997634995342187c4ce8070afcd6f07f23761dcb33f4",
+  "candidateAddresses": [
+    "Westzeedijk 341, 3015AA Rotterdam",
+    "Westzeedijk 5, 3015AA Rotterdam",
+    "Westzeedijk 7, 3015AA Rotterdam",
+    "Westzeedijk 9, 3015AA Rotterdam",
+    "Westzeedijk 11, 3015AA Rotterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Westzeedijk 341, 3015AA Rotterdam",
+    "straatnaam": "Westzeedijk",
+    "huis_nlt": "341",
+    "postcode": "3015AA",
+    "woonplaatsnaam": "Rotterdam",
+    "nummeraanduiding_id": "0599200000518127",
+    "adresseerbaarobject_id": "0599010000217278",
+    "centroide_ll": "POINT(4.47338557 51.91067289)"
+  },
+  "addressMatched": true
+}

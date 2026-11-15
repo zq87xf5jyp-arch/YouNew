@@ -1,0 +1,11 @@
+{
+  "checkedAt": "2026-11-15",
+  "dataset": "Basisregistratie Adressen en Gebouwen (BAG)",
+  "publisher": "Kadaster / PDOK",
+  "license": "CC0 1.0",
+  "licenseURL": "https://creativecommons.org/publicdomain/zero/1.0/",
+  "metadataURL": "https://data.overheid.nl/dataset/basisregistratie-adressen-en-gebouwen--bag-",
+  "serviceDocumentation": "https://github.com/PDOK/locatieserver",
+  "attribution": "Address coordinate source: Kadaster / PDOK, BAG (CC0 1.0). Address centroid, not surveyed entrance.",
+  "publicationAuthorized": false
+}

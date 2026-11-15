@@ -1,0 +1,43 @@
+{
+  "id": "museum.hart-museum",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.hart-museum",
+    "street": "Amstel",
+    "house": "51",
+    "postcode": "1018EJ",
+    "locality": "Amsterdam"
+  },
+  "officialSourceURL": "https://www.hartmuseum.nl/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/29314af7f1b4c380ad43b09dbf4a77ab6fc62190ae09acd8cdfbf807f8461115.json",
+  "officialSourceEvidenceSHA256": "a45361a4d4e394c9c3748a094b2a22df379275b3a15b17686bf4b96f23343055",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.36563495,
+    "longitude": 4.90222598
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Amstel+51+1018EJ+Amsterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "16554d36f45119179a689cfb256a16475f5c9d3f9d347d7919d54c65e03c914b",
+  "candidateAddresses": [
+    "Amstel 51, 1018EJ Amsterdam",
+    "Amstel 51A, 1018EJ Amsterdam",
+    "Amstel 51B, 1018EJ Amsterdam",
+    "Amstel 51D, 1018EJ Amsterdam",
+    "Amstel 51E, 1018EJ Amsterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Amstel 51, 1018EJ Amsterdam",
+    "straatnaam": "Amstel",
+    "huis_nlt": "51",
+    "postcode": "1018EJ",
+    "woonplaatsnaam": "Amsterdam",
+    "nummeraanduiding_id": "0363200012121273",
+    "adresseerbaarobject_id": "0363010012119487",
+    "centroide_ll": "POINT(4.90222598 52.36563495)"
+  },
+  "addressMatched": true
+}

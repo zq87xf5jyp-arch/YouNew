@@ -1,0 +1,43 @@
+{
+  "id": "place.rotterdam-kijk-kubus",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "place.rotterdam-kijk-kubus",
+    "street": "Overblaak",
+    "house": "70",
+    "postcode": "3011MH",
+    "locality": "Rotterdam"
+  },
+  "officialSourceURL": "https://www.kubuswoning.nl/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/97a9fb021aa380b3937b0a00a7d9b25c6be6581ab7d00a561a4989c023ca8748.json",
+  "officialSourceEvidenceSHA256": "879d8d7d05a3994230c9c5727ab586b6757134396f9c896234c465b9077faf12",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.92018545,
+    "longitude": 4.4905688
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Overblaak+70+3011MH+Rotterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "80e4dd6ab9c932281bb9e8917788a2e1f650bab7b151b4fff315cee7092a4eb0",
+  "candidateAddresses": [
+    "Overblaak 70, 3011MH Rotterdam",
+    "Overblaak 107-ZO, 3011MH Rotterdam",
+    "Overblaak 22, 3011MH Rotterdam",
+    "Overblaak 24, 3011MH Rotterdam",
+    "Overblaak 26, 3011MH Rotterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Overblaak 70, 3011MH Rotterdam",
+    "straatnaam": "Overblaak",
+    "huis_nlt": "70",
+    "postcode": "3011MH",
+    "woonplaatsnaam": "Rotterdam",
+    "nummeraanduiding_id": "0599200000398789",
+    "adresseerbaarobject_id": "0599010000285978",
+    "centroide_ll": "POINT(4.4905688 51.92018545)"
+  },
+  "addressMatched": true
+}

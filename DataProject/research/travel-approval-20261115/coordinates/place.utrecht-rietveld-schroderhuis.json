@@ -1,0 +1,43 @@
+{
+  "id": "place.utrecht-rietveld-schroderhuis",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "place.utrecht-rietveld-schroderhuis",
+    "street": "Prins Hendriklaan",
+    "house": "50",
+    "postcode": "3583EP",
+    "locality": "Utrecht"
+  },
+  "officialSourceURL": "https://www.rietveldschroderhuis.nl/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/abc4c4ae1998bc0572b63a8d8e334b2489bbb0b511573e16aeebd94b55621fa3.json",
+  "officialSourceEvidenceSHA256": "d53b634b3b1e2737205f17690bcd05c60bae68e2418d5cc9dac5ee3b44b95a50",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.08532347,
+    "longitude": 5.14751902
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prins+Hendriklaan+50+3583EP+Utrecht&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "733dc2304920b4e364e0c9ec8e0aa0623c27b90339291286b4853885a406b783",
+  "candidateAddresses": [
+    "Prins Hendriklaan 50A, 3583EP Utrecht",
+    "Prins Hendriklaan 50, 3583EP Utrecht",
+    "Prins Hendriklaan 54, 3583EP Utrecht",
+    "Prins Hendriklaan 56, 3583EP Utrecht",
+    "Prins Hendriklaan 58, 3583EP Utrecht"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Prins Hendriklaan 50, 3583EP Utrecht",
+    "straatnaam": "Prins Hendriklaan",
+    "huis_nlt": "50",
+    "postcode": "3583EP",
+    "woonplaatsnaam": "Utrecht",
+    "nummeraanduiding_id": "0344200000134230",
+    "adresseerbaarobject_id": "0344010000142969",
+    "centroide_ll": "POINT(5.14751902 52.08532347)"
+  },
+  "addressMatched": true
+}

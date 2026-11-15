@@ -1,0 +1,43 @@
+{
+  "id": "museum.utrecht-spoorwegmuseum",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.utrecht-spoorwegmuseum",
+    "street": "Maliebaanstation",
+    "house": "16",
+    "postcode": "3581XW",
+    "locality": "Utrecht"
+  },
+  "officialSourceURL": "https://www.spoorwegmuseum.nl/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/ddd316ba1d593f1acb9c4167af19bb467462549e9709b0d9b711714b143d33ef.json",
+  "officialSourceEvidenceSHA256": "da6691eda6675149a093b1066a3ecc75cebe42fcb0454f462a7596283f736e72",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.08795942,
+    "longitude": 5.13107733
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Maliebaanstation+16+3581XW+Utrecht&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "2d7c92dc939f770fbfe87bebe796dce957e4645593504ffb42bb830ab25756e0",
+  "candidateAddresses": [
+    "Maliebaanstation 16, 3581XW Utrecht",
+    "Maliebaanstation 18, 3581XW Utrecht",
+    "Hugo de Grootstraat 30-BS, 3581XW Utrecht",
+    "Hugo de Grootstraat 32-BS, 3581XW Utrecht",
+    "Hugo de Grootstraat 36-BS, 3581XW Utrecht"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Maliebaanstation 16, 3581XW Utrecht",
+    "straatnaam": "Maliebaanstation",
+    "huis_nlt": "16",
+    "postcode": "3581XW",
+    "woonplaatsnaam": "Utrecht",
+    "nummeraanduiding_id": "0344200000041198",
+    "adresseerbaarobject_id": "0344010000131605",
+    "centroide_ll": "POINT(5.13107733 52.08795942)"
+  },
+  "addressMatched": true
+}
