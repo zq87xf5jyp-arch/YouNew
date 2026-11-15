@@ -60,6 +60,7 @@ enum PremiumImageFallbackCategory {
     case city
     case province
     case nearbyHelp
+    case place
 
     var symbol: String {
         switch self {
@@ -77,6 +78,7 @@ enum PremiumImageFallbackCategory {
         case .ai: return "sparkles.rectangle.stack.fill"
         case .city: return "building.2.fill"
         case .province: return "leaf.fill"
+        case .place: return "photo"
         case .nearbyHelp: return "mappin.and.ellipse"
         }
     }
@@ -84,7 +86,7 @@ enum PremiumImageFallbackCategory {
     var accent: Color {
         switch self {
         case .documents, .government: return AppColors.softBlue
-        case .housing, .city: return AppColors.cyanGlow
+        case .housing, .city, .place: return AppColors.cyanGlow
         case .healthcare, .nearbyHelp: return AppColors.success
         case .transport, .map: return AppColors.routeLine
         case .dutchA1A2, .ai: return AppColors.violet
@@ -119,6 +121,8 @@ enum PremiumImageFallbackCategory {
             return "netherlands_map_base"
         case .province:
             return "netherlands_map_provinces"
+        case .place:
+            return "" // Deliberately use the accessible symbol fallback, never a map or unrelated photo.
         case .nearbyHelp:
             return "home_emergency_ambulance"
         }

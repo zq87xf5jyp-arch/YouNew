@@ -83,13 +83,13 @@ struct HomePlacesWorthVisitingSection: View {
             PremiumImageCard(
                 title: place.shortTitle ?? place.title,
                 subtitle: place.description,
-                asset: dashboardPlaceImageAsset(place),
+                asset: CanonicalPlaceImageResolver.imageAsset(for: place),
                 language: language,
                 symbol: category.symbol,
                 accent: category.accent,
                 imageHeight: index == 0 ? 122 : 104,
                 minHeight: index == 0 ? 218 : 188,
-                fallbackCategory: .city
+                fallbackCategory: .place
             ) {
                 Text(category.title(language))
                     .font(AppTypography.metadata)
@@ -101,23 +101,7 @@ struct HomePlacesWorthVisitingSection: View {
         .buttonStyle(NLTileButtonStyle())
     }
 
-    private func dashboardPlaceImageAsset(_ place: PlaceItem) -> AppImageAsset? {
-        guard let imageURL = AppURL.validatedWebURL(URL(string: place.image ?? "")) else { return nil }
-        return AppImageAsset(
-            id: "dashboard-place-\(place.id)",
-            url: imageURL,
-            title: place.shortTitle ?? place.title,
-            description: place.description,
-            sourceName: "YouNew",
-            sourceURL: imageURL,
-            license: nil,
-            attribution: nil,
-            width: nil,
-            height: nil,
-            type: .cardThumbnail,
-            verified: true
-        )
-    }
+
 }
 
 struct HomeNetherlandsCalendarSection: View {
