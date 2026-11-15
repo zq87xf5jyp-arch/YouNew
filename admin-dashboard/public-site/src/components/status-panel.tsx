@@ -1,43 +1,6 @@
-"use client";
+import type statusSnapshot from "@/config/status.json";
 
-import { useEffect, useState } from "react";
-
-export type StatusSnapshot = {
-  schemaVersion: number;
-  snapshotType: "static";
-  liveMonitoring: false;
-  checkedAt: string;
-  website: {
-    status: "operational" | "degraded";
-    label: string;
-    summary: string;
-  };
-  content: {
-    status: "current";
-    label: string;
-    asOf: string;
-    summary: string;
-  };
-  ios: {
-    status: "operational" | "unconfirmed";
-    label: string;
-    publicVersion: string | null;
-    testedVersion: string;
-    testedBuild: string;
-    summary: string;
-  };
-  businessForm: {
-    status: "operational" | "degraded";
-    label: string;
-    summary: string;
-  };
-  limitations: string[];
-  webAlternatives: Array<{
-    label: string;
-    href: string;
-    summary: string;
-  }>;
-};
+export type StatusSnapshot = typeof statusSnapshot;
 
 const humanDate = (date: string) =>
   new Intl.DateTimeFormat("en-NL", {
@@ -48,24 +11,9 @@ const humanDate = (date: string) =>
   }).format(new Date(date));
 
 export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
-  const [current, setCurrent] = useState(snapshot);
-
-  useEffect(() => {
-    const controller = new AbortController();
-    fetch("/data/status.json", { cache: "no-store", headers: { Accept: "application/json" }, signal: controller.signal })
-      .then((response) => {
-        if (!response.ok) throw new Error(String(response.status));
-        return response.json() as Promise<StatusSnapshot>;
-      })
-      .then((next) => {
-        if (next?.schemaVersion === 1 && next.snapshotType === "static" && next.liveMonitoring === false) setCurrent(next);
-      })
-      .catch((error: unknown) => {
-        if (error instanceof DOMException && error.name === "AbortError") return;
-        // Keep the bundled snapshot when the mutable status file is unavailable.
-      });
-    return () => controller.abort();
-  }, []);
+  // HTML and the public JSON are produced together by the normal static build.
+  // Do not overwrite this dated snapshot with a different cached runtime file.
+  const current = snapshot;
 
   return (
     <div className="status-panel">
@@ -73,6 +21,7 @@ export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
         <strong>Static status snapshot.</strong> This page does not use live monitoring. Snapshot checked{" "}
         <time dateTime={current.checkedAt}>{humanDate(current.checkedAt)}</time>.
       </p>
+      <p><strong>{current.assessment}</strong></p>
 
       <section className="status-grid" aria-label="YouNew service status">
         <article className="status-card">
@@ -89,8 +38,19 @@ export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
             <span className={`status-pill status-${current.content.status}`}>{current.content.status}</span>
           </div>
           <p>{current.content.summary}</p>
+          <dl className="status-release-details" aria-label="Published entity counts">
+            {([
+              ["Published entities", current.content.counts.total],
+              ["Places", current.content.counts.places],
+              ["Summary guides", current.content.counts.summaryGuides],
+              ["Cities", current.content.counts.cities],
+              ["Full practical guides", current.content.counts.fullGuides]
+            ] as const).map(([label, count]) => <div key={label}><dt>{label}</dt><dd>{count}</dd></div>)}
+          </dl>
           <p className="status-card-meta">
-            Content date: <time dateTime={current.content.asOf}>{humanDate(current.content.asOf)}</time>
+            Latest editorial release: <time dateTime={current.content.asOf}>{humanDate(current.content.asOf)}</time>.
+            {" "}Underlying source checks: {current.content.sourceCheckedDates.map(humanDate).join("; ")}.
+            {" "}The snapshot check is not a new verification of every content claim.
           </p>
         </article>
 
@@ -106,12 +66,14 @@ export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
               <dd>{current.ios.publicVersion ?? "Not independently verified"}</dd>
             </div>
             <div>
-              <dt>Locally tested version</dt>
-              <dd>
-                {current.ios.testedVersion} (build {current.ios.testedBuild})
-              </dd>
+              <dt>Public release date</dt>
+              <dd><time dateTime={current.ios.releasedAt}>{humanDate(current.ios.releasedAt)}</time></dd>
             </div>
           </dl>
+          <p>
+            Source comparison: {current.ios.sourceComparison.webOnlyIDs} published web IDs are absent from the current iOS source bundle;
+            {" "}{current.ios.sourceComparison.sharedIDs} IDs are shared. This compares source artifacts, not the shipped App Store binary.
+          </p>
         </article>
 
         <article className="status-card">
@@ -121,6 +83,14 @@ export function StatusPanel({ snapshot }: { snapshot: StatusSnapshot }) {
           </div>
           <p>{current.businessForm.summary}</p>
         </article>
+      </section>
+
+      <section className="status-section" aria-labelledby="status-evidence">
+        <h2 id="status-evidence">Evidence and dates</h2>
+        <p>{current.history}</p>
+        <ul className="status-list">
+          {current.evidenceLinks.map((link) => <li key={link.href}><a href={link.href}>{link.label}</a></li>)}
+        </ul>
       </section>
 
       <section className="status-section" aria-labelledby="status-limitations">

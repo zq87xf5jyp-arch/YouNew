@@ -14,7 +14,6 @@ const summaryComponent = await readFile(new URL("src/components/useful-summary-g
 const guideDetail = await readFile(new URL("src/components/guide-detail.tsx", root), "utf8");
 const pageHelpers = await readFile(new URL("src/lib/content/page-helpers.ts", root), "utf8");
 const shareButton = await readFile(new URL("src/components/share-button.tsx", root), "utf8");
-const systemEvidence = await readFile(new URL("src/config/system-evidence.ts", root), "utf8");
 const layout = await readFile(new URL("src/app/layout.tsx", root), "utf8");
 const homepage = await readFile(new URL("src/components/discovery-home.tsx", root), "utf8");
 
@@ -65,10 +64,6 @@ test("curated source truth also drives metadata and Article JSON-LD", () => {
 });
 
 test("operational evidence stays off the user-first homepage", () => {
-  assert.match(systemEvidence, /publishedRecords:\s*182/);
-  assert.match(systemEvidence, /staticRoutes:\s*581/);
-  assert.match(systemEvidence, /indexableUrls:\s*571/);
-  assert.match(systemEvidence, /passingWebAdminAiTests:\s*129/);
   assert.match(homepage, /Sources and review dates stay visible/);
   assert.match(homepage, /Our content status/);
   assert.doesNotMatch(homepage, /SystemEvidence|staticRoutes|passingWebAdminAiTests|Supabase|controlled release candidate/i);

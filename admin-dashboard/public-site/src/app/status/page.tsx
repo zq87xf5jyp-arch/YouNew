@@ -1,7 +1,6 @@
 import { ContentPage } from "@/components/content-page";
 import { KnowledgeTrustSummary } from "@/components/knowledge-trust-summary";
 import { StatusPanel, type StatusSnapshot } from "@/components/status-panel";
-import { SystemEvidence } from "@/components/system-evidence";
 import statusSnapshot from "@/config/status.json";
 import { metadataForPage } from "@/lib/seo/metadata";
 
@@ -15,7 +14,6 @@ export default function StatusPage() {
     >
       <StatusPanel snapshot={statusSnapshot as StatusSnapshot} />
       <KnowledgeTrustSummary />
-      <SystemEvidence />
     </ContentPage>
   );
 }

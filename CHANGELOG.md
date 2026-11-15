@@ -17,6 +17,10 @@ versions follow semantic versioning.
 - Prepare catalog builds in detached Git worktrees on Hostinger and preserve
   their source commit independently of the managed Node standalone deployment.
 
+- Refresh the dated public status from its single JSON source with verified
+  Hostinger architecture, artifact counts and explicit web/iOS limitations.
+  Remove the obsolete parallel August evidence block; keep production unchanged.
+
 - Enforce the isolated catalog's Basic gate in its PHP router, preserving 0600
   credential files when the web-server account cannot traverse private directories.
 
