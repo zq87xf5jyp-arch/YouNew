@@ -10,6 +10,7 @@ const siteRoot = fileURLToPath(new URL("../", import.meta.url));
 const outRoot = join(siteRoot, "out");
 const mirrorRoot = join(siteRoot, "dist/client");
 const canonicalOrigin = "https://younew.nl";
+assert.ok(!(await readdir(outRoot)).includes('PRIVATE-REVIEW.json') && !(await readdir(join(outRoot,'images'))).includes('place-review'), 'Private review cannot be deployed to production');
 
 async function files(directory) {
   const entries = await readdir(directory, { withFileTypes: true });
@@ -36,7 +37,6 @@ async function treeFingerprint(root) {
 }
 
 const outFiles = await files(outRoot);
-assert.ok(!outFiles.some(path => path.endsWith('/PRIVATE-REVIEW.json') || path.includes('/images/place-review/')), 'Private review cannot be deployed to production');
 const htmlFiles = outFiles.filter((path) => extname(path) === ".html");
 const sitemap = await readFile(join(outRoot, "sitemap.xml"), "utf8");
 const sitemapUrls = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1].replaceAll("&amp;", "&"));
