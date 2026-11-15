@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "batchId": "priority-cities-20261115",
-  "status": "needs_review",
-  "publicationAuthorized": false,
-  "approvedAt": null,
-  "reviewerId": null,
+  "status": "approved",
+  "publicationAuthorized": true,
+  "approvedAt": "2026-11-15",
+  "reviewerId": "owner.ivan",
   "preparedAt": "2026-11-15",
   "ids": [
     "place.utrecht-neude",
@@ -203,7 +203,22 @@
       "sha256": "35e91b78d1c9acd2d78ce41afb9d8a8aaba4a623abbab74cb24107b0159e4c3a"
     }
   },
-  "privateOnly": true,
+  "privateOnly": false,
   "sourceChecksSha256": "1a250283bd71fa9979e68041f1eceadd68ec9403025f3f58bf166734bfc69be7",
-  "mediaSourcesSha256": "6fe8cd17042ed6f3e4a3e38d4de2f29e28b2bee89affa2ec1ade22920706de55"
+  "mediaSourcesSha256": "6fe8cd17042ed6f3e4a3e38d4de2f29e28b2bee89affa2ec1ade22920706de55",
+  "approvalReference": "Owner explicitly approved all 49 EN/NL cards and PR #68/#72 in this Codex conversation on 2026-11-15, authorizing merge and production after official-source recheck and Hostinger QA.",
+  "approvedPullRequest": "https://github.com/zq87xf5jyp-arch/YouNew/pull/72",
+  "approvedReviewCommit": "06cd2e915597600f32de62d63f315f6d41a9ab7e",
+  "prepublicationCheck": {
+    "file": "DataProject/editorial/expansion-prepublication-20261115.json",
+    "sha256": "1e101882df9c77ad9459d391377650c65754b3497c71400b74d63dc301587c45",
+    "checkedAt": "2026-11-15T20:10:59.862Z",
+    "result": "135 official URLs rechecked: 133 HTTP 200, 2 official pages verified via web.run. Of HTTP responses, 78 exact bytes and 52 exact visible texts match prior evidence. The remaining changes are unrelated hotel review counts, a social label and related-place ordering. Approved prices, hours and restrictions unchanged."
+  },
+  "publicationScope": {
+    "type": "owner-approved-existing-ids",
+    "addedIds": [],
+    "supersedesHistoricalWithholding": false
+  },
+  "approvalSha256": "556a6a2c5673d14a2637fcb02a3e4c83384dde05da5daa555b20d33cbc36c64c"
 }

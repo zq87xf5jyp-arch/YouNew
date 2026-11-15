@@ -1,3 +1,4 @@
+import {pendingReviewRoot} from './place-review-fixture.ts';
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
@@ -24,12 +25,14 @@ test('private discovery needs an explicit draft ID and never makes an ordinary d
 
 test('expansion keeps ordinary content byte-equivalent and requires an explicit private build',async()=>{
  const runtime=JSON.parse(await readFile(paths.source,'utf8'));
- const ordinary=await loadEditorialRelease();const snapshot=JSON.stringify(ordinary);
- assert.strictEqual(await applyPlaceReview(ordinary,root,{}),ordinary);
- assert.equal(JSON.stringify(buildPublicDataset(runtime,{editorialRelease:ordinary}).content),JSON.stringify(JSON.parse(await readFile(paths.content,'utf8'))));
+ const fixture=await pendingReviewRoot(root,batches);
+ const ordinary=await loadEditorialRelease(fixture.root);const snapshot=JSON.stringify(ordinary);
+ try {
+ assert.strictEqual(await applyPlaceReview(ordinary,fixture.root,{}),ordinary);
+ assert.equal(buildPublicDataset(runtime,{editorialRelease:ordinary}).content.entities.length,76);
  assert.throws(()=>selectedPlaceReviews({YOUNEW_PLACE_REVIEW:batches.join(',')}),/private review/);
  assert.throws(()=>selectedPlaceReviews({YOUNEW_PLACE_REVIEW:batches[0]+','+batches[0],YOUNEW_PRIVATE_REVIEW_BUILD:'1'}),/duplicate/);
- const preview=await applyPlaceReview(ordinary,root,{YOUNEW_PLACE_REVIEW:batches.join(','),YOUNEW_PRIVATE_REVIEW_BUILD:'1'});
+ const preview=await applyPlaceReview(ordinary,fixture.root,{YOUNEW_PLACE_REVIEW:batches.join(','),YOUNEW_PRIVATE_REVIEW_BUILD:'1'});
  assert.equal(JSON.stringify(ordinary),snapshot,'input release mutated');
  assert.throws(()=>buildPublicDataset(runtime,{editorialRelease:preview}),/withheld/);
  const old=process.env.YOUNEW_PRIVATE_REVIEW_BUILD;
@@ -49,12 +52,13 @@ test('expansion keeps ordinary content byte-equivalent and requires an explicit 
    assert.equal(e.editorial.reviewedAt,null);assert.equal(e.editorial.reviewer,null);
   }
  }finally{if(old===undefined)delete process.env.YOUNEW_PRIVATE_REVIEW_BUILD;else process.env.YOUNEW_PRIVATE_REVIEW_BUILD=old;}
+ } finally {await fixture.cleanup();}
 });
 
 test('every expansion record has aligned EN/NL facts, existing identity and evidence',async()=>{
  const allIds=proofs.flatMap(p=>p.manifest.ids);assert.equal(new Set(allIds).size,allIds.length);
  for(const {manifest,records} of proofs){
-  assert.equal(manifest.status,'needs_review');assert.equal(manifest.publicationAuthorized,false);assert.equal(manifest.approvedAt,null);assert.equal(manifest.reviewerId,null);
+  assert.equal(manifest.status,'approved');assert.equal(manifest.publicationAuthorized,true);assert.equal(manifest.approvedAt,'2026-11-15');assert.equal(manifest.reviewerId,'owner.ivan');
   const bases=new Map(await Promise.all(Object.entries(manifest.baseFiles).map(async([id,b])=>[id,JSON.parse(await readFile(`${root}/${b.file}`,'utf8')).records.find((r:PlaceRevision)=>r.id===id)] as const)));
   const checks=JSON.parse(await readFile(`${root}/${reviewPath(manifest.batchId)}/source-checks.json`,'utf8'));
   for(const r of records){const p=JSON.parse(r.attributes.place_enrichment);assert.equal(r.lifecycle_status,'draft');assert.equal(r.verification_status,'needs_review');assert.deepEqual(p.locales.en.blocks.map((b:{id:string})=>b.id),p.locales.nl.blocks.map((b:{id:string})=>b.id));
@@ -76,4 +80,18 @@ schema=json.loads((root/'DataProject/schema/entity.schema.json').read_text())
 for batch in json.loads(sys.argv[2]):
  for r in json.loads((root/'DataProject/editorial'/batch/'records.json').read_text())['records']:m.validate_schema(r,schema,schema,r['id'])
 `,root,JSON.stringify(batches)],{encoding:'utf8'});assert.equal(check.status,0,check.stderr);
+});
+
+test('approved expansion adds only the twenty exact reviewed historical IDs',async()=>{
+ const runtime=JSON.parse(await readFile(paths.source,'utf8')),release=await loadEditorialRelease();
+ const data=buildPublicDataset(runtime,{editorialRelease:release}).content;
+ assert.equal(data.entities.length,96);assert.equal(Object.hasOwn(data,'privateReview'),false);
+ const proof=proofs.find(p=>p.manifest.batchId==='amsterdam-museums-20261115')!;
+ const additions=data.entities.filter(e=>proof.manifest.ids.includes(e.id));assert.equal(additions.length,20);
+ assert.ok(additions.every(e=>e.status==='published'&&e.indexable&&e.editorial?.reviewer==='Ivan'&&!e.editorial.placeReview));
+ assert.deepEqual(data.entities.filter(e=>runtime.withheldEntityIDs.includes(e.id)).map(e=>e.id).sort(),[...proof.manifest.ids].sort());
+ const corrupt=structuredClone(release);Reflect.deleteProperty(corrupt.entities.find(e=>e.id===proof.manifest.ids[0])!.editorial,'approvedAddition');
+ assert.throws(()=>buildPublicDataset(runtime,{editorialRelease:corrupt}),/withheld/);
+ const unrelated=structuredClone(release);unrelated.entities.find(e=>e.id===proof.manifest.ids[0])!.id='restaurant.breda';
+ assert.throws(()=>buildPublicDataset(runtime,{editorialRelease:unrelated}),/withheld/);
 });

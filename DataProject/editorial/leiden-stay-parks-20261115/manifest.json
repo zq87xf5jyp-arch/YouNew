@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "batchId": "leiden-stay-parks-20261115",
-  "status": "needs_review",
-  "publicationAuthorized": false,
-  "approvedAt": null,
-  "reviewerId": null,
+  "status": "approved",
+  "publicationAuthorized": true,
+  "approvedAt": "2026-11-15",
+  "reviewerId": "owner.ivan",
   "preparedAt": "2026-11-15",
   "ids": [
     "nature.leiden-ankerpark",
@@ -168,7 +168,22 @@
       "sha256": "4932feff39e7b7ddd63111885dc1e048971107c9f3af6fcefe2ef22395b52927"
     }
   },
-  "privateOnly": true,
+  "privateOnly": false,
   "sourceChecksSha256": "10cdea0c55fdc1e26ef06a05e902d8fa2643bc4af45c1202b237aaf90a491b2e",
-  "mediaSourcesSha256": "f86d182fbf302d3149105856ed70a1d35f0c6d053f9dfece670d9b9588308aa2"
+  "mediaSourcesSha256": "f86d182fbf302d3149105856ed70a1d35f0c6d053f9dfece670d9b9588308aa2",
+  "approvalReference": "Owner explicitly approved all 49 EN/NL cards and PR #68/#72 in this Codex conversation on 2026-11-15, authorizing merge and production after official-source recheck and Hostinger QA.",
+  "approvedPullRequest": "https://github.com/zq87xf5jyp-arch/YouNew/pull/72",
+  "approvedReviewCommit": "06cd2e915597600f32de62d63f315f6d41a9ab7e",
+  "prepublicationCheck": {
+    "file": "DataProject/editorial/expansion-prepublication-20261115.json",
+    "sha256": "1e101882df9c77ad9459d391377650c65754b3497c71400b74d63dc301587c45",
+    "checkedAt": "2026-11-15T20:10:59.862Z",
+    "result": "135 official URLs rechecked: 133 HTTP 200, 2 official pages verified via web.run. Of HTTP responses, 78 exact bytes and 52 exact visible texts match prior evidence. The remaining changes are unrelated hotel review counts, a social label and related-place ordering. Approved prices, hours and restrictions unchanged."
+  },
+  "publicationScope": {
+    "type": "owner-approved-existing-ids",
+    "addedIds": [],
+    "supersedesHistoricalWithholding": false
+  },
+  "approvalSha256": "dc8093b8a497802c4a34744f403580e0d012332fd9b53d392b17554b53ab97ca"
 }

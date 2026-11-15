@@ -20,8 +20,16 @@
     "nl": "/nl/gidsen/leiden-add"
   },
   {
+    "en": "/places/allard-pierson",
+    "nl": "/nl/plaatsen/allard-pierson"
+  },
+  {
     "en": "/places/leiden-ankerpark",
     "nl": "/nl/plaatsen/leiden-ankerpark"
+  },
+  {
+    "en": "/places/anne-frank-house",
+    "nl": "/nl/plaatsen/anne-frank-house"
   },
   {
     "en": "/places/leiden-annemax",
@@ -34,6 +42,10 @@
   {
     "en": "/guides/leiden-municipal-services",
     "nl": "/nl/gidsen/leiden-municipal-services"
+  },
+  {
+    "en": "/places/artis-micropia",
+    "nl": "/nl/plaatsen/artis-micropia"
   },
   {
     "en": "/places/leiden-barista",
@@ -88,8 +100,16 @@
     "nl": "/nl/plaatsen/leiden-engelenbak"
   },
   {
+    "en": "/places/dutch-resistance-museum",
+    "nl": "/nl/plaatsen/dutch-resistance-museum"
+  },
+  {
     "en": "/guides/leiden-contacts",
     "nl": "/nl/gidsen/leiden-contacts"
+  },
+  {
+    "en": "/places/eye-filmmuseum",
+    "nl": "/nl/plaatsen/eye-filmmuseum"
   },
   {
     "en": "/guides/leiden-gp",
@@ -98,6 +118,10 @@
   {
     "en": "/guides/leiden-first-day",
     "nl": "/nl/gidsen/leiden-first-day"
+  },
+  {
+    "en": "/places/foam",
+    "nl": "/nl/plaatsen/foam"
   },
   {
     "en": "/places/den-haag-fotomuseum",
@@ -120,6 +144,10 @@
     "nl": "/nl/plaatsen/leiden-grand-cafe-burcht"
   },
   {
+    "en": "/places/hart-museum",
+    "nl": "/nl/plaatsen/hart-museum"
+  },
+  {
     "en": "/places/leiden-plantsoen",
     "nl": "/nl/plaatsen/leiden-plantsoen"
   },
@@ -128,12 +156,20 @@
     "nl": "/nl/plaatsen/leiden-prentenkabinet"
   },
   {
+    "en": "/places/het-scheepvaartmuseum",
+    "nl": "/nl/plaatsen/het-scheepvaartmuseum"
+  },
+  {
     "en": "/places/leiden-hortus",
     "nl": "/nl/plaatsen/leiden-hortus"
   },
   {
     "en": "/places/leiden-huigpark",
     "nl": "/nl/plaatsen/leiden-huigpark"
+  },
+  {
+    "en": "/places/huis-marseille",
+    "nl": "/nl/plaatsen/huis-marseille"
   },
   {
     "en": "/places/leiden-huys-van-leyden",
@@ -146,6 +182,10 @@
   {
     "en": "/places/eindhoven-inkijkmuseum",
     "nl": "/nl/plaatsen/eindhoven-inkijkmuseum"
+  },
+  {
+    "en": "/places/jewish-museum",
+    "nl": "/nl/plaatsen/jewish-museum"
   },
   {
     "en": "/places/den-haag-kaafi",
@@ -172,8 +212,28 @@
     "nl": "/nl/plaatsen/leiden-lakenhal"
   },
   {
+    "en": "/places/museum-of-the-canals",
+    "nl": "/nl/plaatsen/museum-of-the-canals"
+  },
+  {
+    "en": "/places/museum-ons-lieve-heer-op-solder",
+    "nl": "/nl/plaatsen/museum-ons-lieve-heer-op-solder"
+  },
+  {
+    "en": "/places/museum-rembrandthuis",
+    "nl": "/nl/plaatsen/museum-rembrandthuis"
+  },
+  {
+    "en": "/places/museum-van-loon",
+    "nl": "/nl/plaatsen/museum-van-loon"
+  },
+  {
     "en": "/places/leiden-naturalis",
     "nl": "/nl/plaatsen/leiden-naturalis"
+  },
+  {
+    "en": "/places/nemo-science-museum",
+    "nl": "/nl/plaatsen/nemo-science-museum"
   },
   {
     "en": "/places/leiden-oudt-leyden",
@@ -220,6 +280,10 @@
     "nl": "/nl/plaatsen/leiden-verboden-toegang"
   },
   {
+    "en": "/places/rijksmuseum",
+    "nl": "/nl/plaatsen/rijksmuseum"
+  },
+  {
     "en": "/places/leiden-boerhaave",
     "nl": "/nl/plaatsen/leiden-boerhaave"
   },
@@ -232,12 +296,20 @@
     "nl": "/nl/plaatsen/leiden-roos"
   },
   {
+    "en": "/places/royal-palace-amsterdam",
+    "nl": "/nl/plaatsen/royal-palace-amsterdam"
+  },
+  {
     "en": "/places/utrecht-sonnenborgh",
     "nl": "/nl/plaatsen/utrecht-sonnenborgh"
   },
   {
     "en": "/guides/leiden-waste",
     "nl": "/nl/gidsen/leiden-waste"
+  },
+  {
+    "en": "/places/stedelijk-museum-amsterdam",
+    "nl": "/nl/plaatsen/stedelijk-museum-amsterdam"
   },
   {
     "en": "/places/leiden-steenhof",
@@ -268,12 +340,20 @@
     "nl": "/nl/gidsen/leiden-transport"
   },
   {
+    "en": "/places/van-gogh-museum",
+    "nl": "/nl/plaatsen/van-gogh-museum"
+  },
+  {
     "en": "/places/leiden-vvv",
     "nl": "/nl/plaatsen/leiden-vvv"
   },
   {
     "en": "/places/leiden-waag",
     "nl": "/nl/plaatsen/leiden-waag"
+  },
+  {
+    "en": "/places/wereldmuseum-amsterdam",
+    "nl": "/nl/plaatsen/wereldmuseum-amsterdam"
   },
   {
     "en": "/places/leiden-wereldmuseum",

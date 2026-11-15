@@ -1,0 +1,1951 @@
+{
+  "checkedAt": "2026-11-15T20:10:59.862Z",
+  "result": "135 official URLs rechecked: 133 HTTP 200, 2 official pages verified via web.run. Of HTTP responses, 78 exact bytes and 52 exact visible texts match prior evidence. The remaining changes are unrelated hotel review counts, a social label and related-place ordering. Approved prices, hours and restrictions unchanged.",
+  "sources": [
+    {
+      "url": "https://www.waagleiden.nl/nl/contactpagina/",
+      "ids": [
+        "restaurant.leiden-waag"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.018964+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.waagleiden.nl/nl/contactpagina/",
+      "contentType": "text/html",
+      "sha256": "e6fa3720fc2332d98b2985c6586ec8c6a0aba250bd6d62d20256e57115c5aec5",
+      "unchangedResponse": true,
+      "oldSha256": "e6fa3720fc2332d98b2985c6586ec8c6a0aba250bd6d62d20256e57115c5aec5",
+      "snapshot": "research/source-000.gz"
+    },
+    {
+      "url": "https://static.rce.eu/wp-content/uploads/sites/10/2026/03/17142126/26034-Menu_Waag_Locaties_105x304_ISO.pdf",
+      "ids": [
+        "restaurant.leiden-waag"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.019682+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://static.rce.eu/wp-content/uploads/sites/10/2026/03/17142126/26034-Menu_Waag_Locaties_105x304_ISO.pdf",
+      "contentType": "application/pdf",
+      "sha256": "a03637f495c8809140fdb89de2d9f794743d68d4ef21071de333342ba2b7041e",
+      "unchangedResponse": true,
+      "oldSha256": "a03637f495c8809140fdb89de2d9f794743d68d4ef21071de333342ba2b7041e",
+      "snapshot": "research/source-001.gz"
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/3402150775/waag-leiden",
+      "ids": [
+        "restaurant.leiden-waag"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.019859+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/3402150775/waag-leiden",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7831ae2a161efb8261fa428fa995c42c48c94ccd1c0442696a803bdab21467f8",
+      "unchangedResponse": false,
+      "oldSha256": "e3304ae11ad3566210497e693b530fa44d4ef99e0d6c52e7d91d7fa1e1858420",
+      "snapshot": "research/source-002.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.grandcafedeburcht.nl/en",
+      "ids": [
+        "restaurant.leiden-grand-cafe-burcht"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.115671+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.grandcafedeburcht.nl/en",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8aba1f47c6571d4d7fac74b97c3a80330dad378e54159a8d2e7e49c9e83c01e5",
+      "unchangedResponse": true,
+      "oldSha256": "8aba1f47c6571d4d7fac74b97c3a80330dad378e54159a8d2e7e49c9e83c01e5",
+      "snapshot": "research/source-003.gz"
+    },
+    {
+      "url": "https://www.grandcafedeburcht.nl/en/menu",
+      "ids": [
+        "restaurant.leiden-grand-cafe-burcht"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.279160+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.grandcafedeburcht.nl/en/menu",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9912b80172ad95514a7d57f7f43e1f7f30bcd8f1bf0cf15f3d040982aa42bbae",
+      "unchangedResponse": true,
+      "oldSha256": "9912b80172ad95514a7d57f7f43e1f7f30bcd8f1bf0cf15f3d040982aa42bbae",
+      "snapshot": "research/source-004.gz"
+    },
+    {
+      "url": "https://www.grandcafedeburcht.nl/en/_files/ugd/562831_79a35a217d4f4aefa34c91a0bab92fa5.pdf",
+      "ids": [
+        "restaurant.leiden-grand-cafe-burcht"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.417675+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.grandcafedeburcht.nl/en/_files/ugd/562831_79a35a217d4f4aefa34c91a0bab92fa5.pdf",
+      "contentType": "application/pdf",
+      "sha256": "c3e2bcfd65ec0779d0c4d308fbec80f8dd6b4fc8c52da5ad768f798812aa6a9e",
+      "unchangedResponse": true,
+      "oldSha256": "c3e2bcfd65ec0779d0c4d308fbec80f8dd6b4fc8c52da5ad768f798812aa6a9e",
+      "snapshot": "research/source-005.gz"
+    },
+    {
+      "url": "https://www.grandcafedeburcht.nl/en/_files/ugd/562831_c6ca34142990488fa99a31cf19c36290.pdf",
+      "ids": [
+        "restaurant.leiden-grand-cafe-burcht"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.435221+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.grandcafedeburcht.nl/en/_files/ugd/562831_c6ca34142990488fa99a31cf19c36290.pdf",
+      "contentType": "application/pdf",
+      "sha256": "51bc9fe7a8bf437c11a0868dc995816256b7f6145e7f27ede9cd046bcba04584",
+      "unchangedResponse": true,
+      "oldSha256": "51bc9fe7a8bf437c11a0868dc995816256b7f6145e7f27ede9cd046bcba04584",
+      "snapshot": "research/source-006.gz"
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/1464043421/grand-cafe-de-burcht",
+      "ids": [
+        "restaurant.leiden-grand-cafe-burcht"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.443533+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/1464043421/grand-cafe-de-burcht",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "44654e54e8a90c39dc858137c92378797e50375b2d3fe16567bd2a7ebab6792f",
+      "unchangedResponse": false,
+      "oldSha256": "614faa9513538f724c0f428dbb1b19d0c5e1295c465fe0f43544c12a96b922b2",
+      "snapshot": "research/source-007.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://oudtleyden.nl/",
+      "ids": [
+        "restaurant.leiden-oudt-leyden"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.513293+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://oudtleyden.nl/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "abe0500d26a7b108de7f201ac4cc46bef82262fd81a8c47c018269da046e6510",
+      "unchangedResponse": true,
+      "oldSha256": "abe0500d26a7b108de7f201ac4cc46bef82262fd81a8c47c018269da046e6510",
+      "snapshot": "research/source-008.gz"
+    },
+    {
+      "url": "https://oudtleyden.nl/contact/",
+      "ids": [
+        "restaurant.leiden-oudt-leyden"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.520799+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://oudtleyden.nl/contact/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2802e6b67605aa0ccaf2a31bc855f4a9c6479bdc5546bff90436bb924b7f9c7b",
+      "unchangedResponse": true,
+      "oldSha256": "2802e6b67605aa0ccaf2a31bc855f4a9c6479bdc5546bff90436bb924b7f9c7b",
+      "snapshot": "research/source-009.gz"
+    },
+    {
+      "url": "https://oudtleyden.nl/wp-content/uploads/2026/04/OUD_menukaart-2026-A3.pdf",
+      "ids": [
+        "restaurant.leiden-oudt-leyden"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.663271+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://oudtleyden.nl/wp-content/uploads/2026/04/OUD_menukaart-2026-A3.pdf",
+      "contentType": "application/pdf",
+      "sha256": "14c94a50a6e8236523af75b5fbc51dd6585b2440b26e612369d62ed308ad5ece",
+      "unchangedResponse": true,
+      "oldSha256": "14c94a50a6e8236523af75b5fbc51dd6585b2440b26e612369d62ed308ad5ece",
+      "snapshot": "research/source-010.gz"
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/2623615998/oudt-leyden-t-pannenkoekenhuysje",
+      "ids": [
+        "restaurant.leiden-oudt-leyden"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.781681+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/2623615998/oudt-leyden-t-pannenkoekenhuysje",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "070e47b174cdcdec7c386f4f0d3a11e0ebba07208a58dc91f51d44b3d05b6e2e",
+      "unchangedResponse": false,
+      "oldSha256": "f0ef8d8ccc48dc826446e6adbff671dbe1e84fda6ddf15ae75b6fb53ed4fd791",
+      "snapshot": "research/source-011.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.roosleiden.nl/contact-roos",
+      "ids": [
+        "cafe.leiden-roos"
+      ],
+      "checkedAt": "2026-11-15T20:08:35.931154+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.roosleiden.nl/contact-roos",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c35baefd412735fb64de84cd3d410c7c666eedf509955f1f9f6426ecb572f5fe",
+      "unchangedResponse": true,
+      "oldSha256": "c35baefd412735fb64de84cd3d410c7c666eedf509955f1f9f6426ecb572f5fe",
+      "snapshot": "research/source-012.gz"
+    },
+    {
+      "url": "https://www.roosleiden.nl/over-roos",
+      "ids": [
+        "cafe.leiden-roos"
+      ],
+      "checkedAt": "2026-11-15T20:08:36.021303+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.roosleiden.nl/over-roos",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "29ec9d35efbac50b94bb21fabde16dbcb9165e1b0adb9284d94ad97cc92516c4",
+      "unchangedResponse": true,
+      "oldSha256": "29ec9d35efbac50b94bb21fabde16dbcb9165e1b0adb9284d94ad97cc92516c4",
+      "snapshot": "research/source-013.gz"
+    },
+    {
+      "url": "https://www.roosleiden.nl/menu-roos",
+      "ids": [
+        "cafe.leiden-roos"
+      ],
+      "checkedAt": "2026-11-15T20:08:36.096779+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.roosleiden.nl/menu-roos",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "299c2e0952783a98eea599ef8bc2a4c6d2e6ca21490b4ea6db33e195c70bba9f",
+      "unchangedResponse": true,
+      "oldSha256": "299c2e0952783a98eea599ef8bc2a4c6d2e6ca21490b4ea6db33e195c70bba9f",
+      "snapshot": "research/source-014.gz"
+    },
+    {
+      "url": "https://www.roosleiden.nl/_files/ugd/8f9e89_e49e8ce1954646d08a34ce0f75840c2d.pdf",
+      "ids": [
+        "cafe.leiden-roos"
+      ],
+      "checkedAt": "2026-11-15T20:08:36.155573+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.roosleiden.nl/_files/ugd/8f9e89_e49e8ce1954646d08a34ce0f75840c2d.pdf",
+      "contentType": "application/pdf",
+      "sha256": "8cb542eb8e0d41d16be67ba1c8c9eb0c43ce81a8678187a5ab5cf1d1439c1be9",
+      "unchangedResponse": true,
+      "oldSha256": "8cb542eb8e0d41d16be67ba1c8c9eb0c43ce81a8678187a5ab5cf1d1439c1be9",
+      "snapshot": "research/source-015.gz"
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/599416677/roos",
+      "ids": [
+        "cafe.leiden-roos"
+      ],
+      "checkedAt": "2026-11-15T20:08:36.312482+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/599416677/roos",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5afdfa7db770d90790806b855b665b81c987106d897e3394ae01db19f84deb6b",
+      "unchangedResponse": false,
+      "oldSha256": "4599ab2bf10cb3569c6a2158c26cf0e9b10f1132d981ac13ee584d8aa9c1db13",
+      "snapshot": "research/source-016.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.prentenkabinet.nl/reserveren/",
+      "ids": [
+        "restaurant.leiden-prentenkabinet"
+      ],
+      "checkedAt": "2026-11-15T20:08:36.323171+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.prentenkabinet.nl/reserveren/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "90e574dbe37fe90f0acd9ff457048c100438a3b33f01d3307505083d396c32df",
+      "unchangedResponse": false,
+      "oldSha256": "6aa2616123735a62d24d732056556477ab679c38d2db1395bd3c175dab0cdcfe",
+      "snapshot": "research/source-017.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.prentenkabinet.nl/menukaart/",
+      "ids": [
+        "restaurant.leiden-prentenkabinet"
+      ],
+      "checkedAt": "2026-11-15T20:08:36.339022+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.prentenkabinet.nl/menukaart/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "00eb757a0b49a85d2c28a644017b19b7855c9132dc0052ace5a7a1649c6115a2",
+      "unchangedResponse": false,
+      "oldSha256": "636a44fa481a444f04cc83a510378029914b654e8b193dd60023294505bf8205",
+      "snapshot": "research/source-018.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.prentenkabinet.nl/lunch/",
+      "ids": [
+        "restaurant.leiden-prentenkabinet"
+      ],
+      "checkedAt": "2026-11-15T20:08:36.853225+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.prentenkabinet.nl/lunch/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f70fd42604ec283ab4186ee3a43ae5881a6982dbdb2f62fa129c39197ed0d21e",
+      "unchangedResponse": false,
+      "oldSha256": "e9fbefa87837816d5069839c0d6f3d8032fa04c44b276032a1ad21392a9b232b",
+      "snapshot": "research/source-019.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/1965820401/het-prentenkabinet",
+      "ids": [
+        "restaurant.leiden-prentenkabinet"
+      ],
+      "checkedAt": "2026-11-15T20:08:38.198106+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/1965820401/het-prentenkabinet",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f2a9e36dce9dd8746c1a58aa7a3ac5958e972f981904139513ebbf23da5482c7",
+      "unchangedResponse": false,
+      "oldSha256": "6849caef93656bbd325ea3fbdb0b411e85c1d16d42106199f20471ed1e813582",
+      "snapshot": "research/source-020.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark",
+      "ids": [
+        "nature.leiden-ankerpark"
+      ],
+      "checkedAt": "2026-11-15T20:08:38.221403+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4e6d53fa078a8cfb942663e0bc8941c3f0251c96ef5a888dc9a5799fef8be4b6",
+      "unchangedResponse": false,
+      "oldSha256": "6e0d6cfd5eea291b08fd0b6649d5ce7bf2eff2670f18b3d6b7a70cf37de8f272",
+      "snapshot": "research/source-021.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark",
+      "ids": [
+        "nature.leiden-blekerspark"
+      ],
+      "checkedAt": "2026-11-15T20:08:38.253777+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d722925cf73a831089d393174a6977a7235bd9a292af999d6e48a3487d1a3c29",
+      "unchangedResponse": false,
+      "oldSha256": "915f1f905fa1ba1ca74bb87bfd53a50d67efe27f58dafc5dd75089b5f14c7e0b",
+      "snapshot": "research/source-022.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/801920722/huigpark",
+      "ids": [
+        "nature.leiden-huigpark"
+      ],
+      "checkedAt": "2026-11-15T20:08:38.775442+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/801920722/huigpark",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8969dfefd0a969b1898aa1c4d2a3805eeab4333e82b137992bc38601f5917ac2",
+      "unchangedResponse": false,
+      "oldSha256": "8810c3fb58218fa3bdc7c4f46dabce377a707a8e56352cac76ef9d1ad10070a2",
+      "snapshot": "research/source-023.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put",
+      "ids": [
+        "nature.leiden-park-de-put"
+      ],
+      "checkedAt": "2026-11-15T20:08:38.991990+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b9535fa026e06d0404b2b14e2c8f8a716b1e083000ad2207d2e61b484737e8f0",
+      "unchangedResponse": false,
+      "oldSha256": "187541c4ccecf00809bf88c3966d6fafe958b135c57e0825d80a320413926db7",
+      "snapshot": "research/source-024.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch",
+      "ids": [
+        "hotel.leiden-oude-morsch",
+        "nature.leiden-park-de-put"
+      ],
+      "checkedAt": "2026-11-15T20:08:39.020501+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/3944718715/boutique-hotel-doude-morsch",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d65bb5e3d0e04c23fcb72277f3d55c72ffa42b23010159d831f04545693c6f2a",
+      "unchangedResponse": false,
+      "oldSha256": "d2ad39587a25c314bc640b72b9a37f3342e892b6b14c0d04cddbc913fa305a96",
+      "snapshot": "research/source-025.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+      "ids": [
+        "nature.leiden-rembrandtpark"
+      ],
+      "checkedAt": "2026-11-15T20:08:39.476232+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "480cf9ec03fefe1e3c5a69c39be454a471223cda7731143a1e691b247def36b2",
+      "unchangedResponse": false,
+      "oldSha256": "5a8018caa37ffbc38e1080c0cb0b38e832994a00cc2e8dc06b3a237426f823be",
+      "snapshot": "research/source-026.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+      "ids": [
+        "hotel.leiden-oude-morsch"
+      ],
+      "checkedAt": "2026-11-15T20:08:39.495956+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/contact/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c872484e7b1bff724f6229681767d135f78f08118caf3e32c5cab75835545dec",
+      "unchangedResponse": false,
+      "oldSha256": "1e3ca1842f2126477a064b82d9d00774e8246afa0c9b8f177333ed20c49b076d",
+      "snapshot": "research/source-027.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.boutiquehoteldeoudemorsch.nl/faciliteiten/",
+      "ids": [
+        "hotel.leiden-oude-morsch"
+      ],
+      "checkedAt": "2026-11-15T20:08:39.600433+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/faciliteiten/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9cb6708c2f626ef63f8bc6b87329c52a7551d8aaf13b3841efb8a3caa83a2fa9",
+      "unchangedResponse": true,
+      "oldSha256": "9cb6708c2f626ef63f8bc6b87329c52a7551d8aaf13b3841efb8a3caa83a2fa9",
+      "snapshot": "research/source-028.gz"
+    },
+    {
+      "url": "https://www.boutiquehoteldeoudemorsch.nl/openingstijden-feestdagen/",
+      "ids": [
+        "hotel.leiden-oude-morsch"
+      ],
+      "checkedAt": "2026-11-15T20:08:39.985670+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.boutiquehoteldeoudemorsch.nl/openingstijden-feestdagen/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ed08259c4d723870e041c66971b5d339e934e1ac8895796cbdae7965dd3fbf06",
+      "unchangedResponse": true,
+      "oldSha256": "ed08259c4d723870e041c66971b5d339e934e1ac8895796cbdae7965dd3fbf06",
+      "snapshot": "research/source-029.gz"
+    },
+    {
+      "url": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+      "ids": [
+        "hotel.leiden-huys-van-leyden"
+      ],
+      "checkedAt": "2026-11-15T20:08:39.996635+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.boutiquehotelsvanleyden.nl/nl/contact.html",
+      "contentType": "text/html",
+      "sha256": "ce5e557e0df049cc7aeea830c3964c16ecec8590264bbf8fec0a423c28e4dc19",
+      "unchangedResponse": false,
+      "oldSha256": "0bcff659234d75b1712ad2d17a541bab2b73d4e7cf7bbdfef9af70813e9df459",
+      "snapshot": "research/source-030.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.boutiquehotelsvanleyden.nl/nl/huys-van-leyden/accommodaties/suite-met-grachtzicht.html",
+      "ids": [
+        "hotel.leiden-huys-van-leyden"
+      ],
+      "checkedAt": "2026-11-15T20:08:40.050393+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.boutiquehotelsvanleyden.nl/nl/huys-van-leyden/accommodaties/suite-met-grachtzicht.html",
+      "contentType": "text/html",
+      "sha256": "568f0c619eba2b7e4fda86afa538193b7248e29e33ea5d81159c4a8714de2174",
+      "unchangedResponse": false,
+      "oldSha256": "08466de40ca82ea17eebd698110e87a2bce79c20f1226cc50814ecd4b20e3711",
+      "snapshot": "research/source-031.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden",
+      "ids": [
+        "hotel.leiden-huys-van-leyden"
+      ],
+      "checkedAt": "2026-11-15T20:08:40.144649+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/2048619726/boutique-hotel-huys-van-leyden",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5e61ac6b066493777f715fbf99e9b998d4db3f780ae206d182263d4e331efb5e",
+      "unchangedResponse": false,
+      "oldSha256": "8e9fef61db163acceb1d82cf70afec2a054696c8a3a5f25f6893739339c07166",
+      "snapshot": "research/source-032.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://steenhofsuites.nl/contact/",
+      "ids": [
+        "hotel.leiden-steenhof"
+      ],
+      "checkedAt": "2026-11-15T20:08:40.247504+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://steenhofsuites.nl/contact/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "ad47d8f2f85ac2f363b6393672b275b953a3cbc83a4c32691928bde4c629d56d",
+      "unchangedResponse": true,
+      "oldSha256": "ad47d8f2f85ac2f363b6393672b275b953a3cbc83a4c32691928bde4c629d56d",
+      "snapshot": "research/source-033.gz"
+    },
+    {
+      "url": "https://steenhofsuites.nl/faciliteiten-arrangement/",
+      "ids": [
+        "hotel.leiden-steenhof"
+      ],
+      "checkedAt": "2026-11-15T20:08:40.422085+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://steenhofsuites.nl/faciliteiten-arrangement/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "d23bbe977c6cc012bfea9be706e43624501db22ceb7cf0ed26a2a9b933913310",
+      "unchangedResponse": true,
+      "oldSha256": "d23bbe977c6cc012bfea9be706e43624501db22ceb7cf0ed26a2a9b933913310",
+      "snapshot": "research/source-034.gz"
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites",
+      "ids": [
+        "hotel.leiden-steenhof"
+      ],
+      "checkedAt": "2026-11-15T20:08:40.506064+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/4129642951/steenhof-suites",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "f59d5f83fb15fd5e3ccf829a61633a32b9837e799c541f7f2cfe479ecf7f2a81",
+      "unchangedResponse": false,
+      "oldSha256": "5659f9fbac416c6f4e2b4b52c8fb51088ded1cbe12b910a28bb39b4b3a46b89c",
+      "snapshot": "research/source-035.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "ids": [
+        "hotel.leiden-ibis"
+      ],
+      "checkedAt": "2026-11-15T20:08:40.597725+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "contentType": "text/html;charset=UTF-8",
+      "sha256": "ec544970fb2dad18ffabb5cedda96d9f3be92bd04e0514879d1d48f3099c7b6f",
+      "unchangedResponse": false,
+      "oldSha256": "77e5fd852dc110735995be033775ab850c459f2f956395b897f46ee22513ff5b",
+      "snapshot": "research/source-036.gz",
+      "unchangedVisibleText": false
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/3858932145/ibis-leiden-centre",
+      "ids": [
+        "hotel.leiden-ibis"
+      ],
+      "checkedAt": "2026-11-15T20:08:40.618119+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/3858932145/ibis-leiden-centre",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4b4fcfd4b64fbb7d3068122144e4ebfb39fd7258897e2cad8bad0bd3feb43b42",
+      "unchangedResponse": false,
+      "oldSha256": "a8061a9edb54b3922cf1b3bd5404bfd179487f8b24d7649e7b77ad58e9e6f4c5",
+      "snapshot": "research/source-037.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.rembrandthotel.nl/contact",
+      "ids": [
+        "hotel.leiden-rembrandt-hotel"
+      ],
+      "checkedAt": "2026-11-15T20:08:40.945026+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rembrandthotel.nl/contact",
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "a4b7c987303933828f1a607f46ebbe2ce49c702f1fdde809dd2f66de3b07443c",
+      "unchangedResponse": true,
+      "oldSha256": "a4b7c987303933828f1a607f46ebbe2ce49c702f1fdde809dd2f66de3b07443c",
+      "snapshot": "research/source-038.gz"
+    },
+    {
+      "url": "https://www.rembrandthotel.nl/",
+      "ids": [
+        "hotel.leiden-rembrandt-hotel"
+      ],
+      "checkedAt": "2026-11-15T20:08:41.049532+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rembrandthotel.nl/",
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "59406c3d99de32664e95dc4be7e58d3e7000c9176187657b9d06fad784345e0e",
+      "unchangedResponse": true,
+      "oldSha256": "59406c3d99de32664e95dc4be7e58d3e7000c9176187657b9d06fad784345e0e",
+      "snapshot": "research/source-039.gz"
+    },
+    {
+      "url": "https://www.visitleiden.nl/nl/locaties/976921119/rembrandt-hotel-leiden",
+      "ids": [
+        "hotel.leiden-rembrandt-hotel"
+      ],
+      "checkedAt": "2026-11-15T20:08:41.059669+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.visitleiden.nl/nl/locaties/976921119/rembrandt-hotel-leiden",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "aa12a59d92d4e7b50032d37a68144f55ef98e28616203856ce38ec3bca55f860",
+      "unchangedResponse": false,
+      "oldSha256": "a7ed7ea85bb67060a8214335b4c3d3f93195f695862096fae02e77d121434017",
+      "snapshot": "research/source-040.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.rijksmuseum.nl/en",
+      "ids": [
+        "museum.rijksmuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:41.157301+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rijksmuseum.nl/en",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "967e460b88ba253821c355fd2fd7eeaf08e6f5c3cb46dcea009e10545f3f8294",
+      "unchangedResponse": true,
+      "oldSha256": "967e460b88ba253821c355fd2fd7eeaf08e6f5c3cb46dcea009e10545f3f8294",
+      "snapshot": "research/source-041.gz"
+    },
+    {
+      "url": "https://www.rijksmuseum.nl/en/visit/practical-info",
+      "ids": [
+        "museum.rijksmuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:41.187642+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rijksmuseum.nl/en/visit/practical-info",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "535f0e418de9e38857a67222e29a8febf0e7ff671c07dfad1fd6d1af9376e8ac",
+      "unchangedResponse": true,
+      "oldSha256": "535f0e418de9e38857a67222e29a8febf0e7ff671c07dfad1fd6d1af9376e8ac",
+      "snapshot": "research/source-042.gz"
+    },
+    {
+      "url": "https://www.rijksmuseum.nl/en/visit/practical-info/opening-hours-and-prices",
+      "ids": [
+        "museum.rijksmuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:41.594471+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rijksmuseum.nl/en/visit/practical-info/opening-hours-and-prices",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "c1ebf5f678640f27b313837c43ca32dd9445215773405abe6bbc08ced6e18378",
+      "unchangedResponse": true,
+      "oldSha256": "c1ebf5f678640f27b313837c43ca32dd9445215773405abe6bbc08ced6e18378",
+      "snapshot": "research/source-043.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumstraat+1+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.rijksmuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:41.833342+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumstraat+1+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "c929bf69cb945068a5c5ae17fff4b4c9e553f6312faba477af57889b8e22b15e",
+      "unchangedResponse": true,
+      "oldSha256": "c929bf69cb945068a5c5ae17fff4b4c9e553f6312faba477af57889b8e22b15e",
+      "snapshot": "research/source-044.gz"
+    },
+    {
+      "url": "https://www.vangoghmuseum.nl/en",
+      "ids": [
+        "museum.van-gogh-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:41.865871+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.vangoghmuseum.nl/en",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "222510d847843dc82649d36e62d6e81046b67b6ebe1f874e7509b7d80e75ec77",
+      "unchangedResponse": true,
+      "oldSha256": "222510d847843dc82649d36e62d6e81046b67b6ebe1f874e7509b7d80e75ec77",
+      "snapshot": "research/source-045.gz"
+    },
+    {
+      "url": "https://www.vangoghmuseum.nl/en/visit/address-and-opening-hours",
+      "ids": [
+        "museum.van-gogh-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:42.058752+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.vangoghmuseum.nl/en/visit/address-and-opening-hours",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "eee8558b38c946c35b37ab7b7b74171c5cffd1e08a38bad38287e09a6f5962a8",
+      "unchangedResponse": true,
+      "oldSha256": "eee8558b38c946c35b37ab7b7b74171c5cffd1e08a38bad38287e09a6f5962a8",
+      "snapshot": "research/source-046.gz"
+    },
+    {
+      "url": "https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices",
+      "ids": [
+        "museum.van-gogh-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:42.089366+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.vangoghmuseum.nl/en/visit/tickets-and-ticket-prices",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "aafe95139fe9137caf2e261ce39fe5eb51b1855c875b146dad429bc3a4c348ef",
+      "unchangedResponse": true,
+      "oldSha256": "aafe95139fe9137caf2e261ce39fe5eb51b1855c875b146dad429bc3a4c348ef",
+      "snapshot": "research/source-047.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+6+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.van-gogh-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:42.733469+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+6+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "5a210c2fed4e15ba55800586cbe5fc1dfc6db3526fe76127ad72218db0d26d0f",
+      "unchangedResponse": true,
+      "oldSha256": "5a210c2fed4e15ba55800586cbe5fc1dfc6db3526fe76127ad72218db0d26d0f",
+      "snapshot": "research/source-048.gz"
+    },
+    {
+      "url": "https://www.stedelijk.nl/en",
+      "ids": [
+        "museum.stedelijk-museum-amsterdam"
+      ],
+      "checkedAt": "2026-11-15T20:08:42.889517+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.stedelijk.nl/en",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6697e36828059de095312fbaa5da2ff12d533d301a8cc09f767376e3ae5388ec",
+      "unchangedResponse": true,
+      "oldSha256": "6697e36828059de095312fbaa5da2ff12d533d301a8cc09f767376e3ae5388ec",
+      "snapshot": "research/source-049.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+10+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.stedelijk-museum-amsterdam"
+      ],
+      "checkedAt": "2026-11-15T20:08:42.954185+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+10+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "9a11c4af0f4ba93e74d1cdacd69a68755c35a5f207b5c33b75530e865916bdd3",
+      "unchangedResponse": true,
+      "oldSha256": "9a11c4af0f4ba93e74d1cdacd69a68755c35a5f207b5c33b75530e865916bdd3",
+      "snapshot": "research/source-050.gz"
+    },
+    {
+      "url": "https://www.annefrank.org/en/museum/",
+      "ids": [
+        "museum.anne-frank-house"
+      ],
+      "checkedAt": "2026-11-15T20:08:43.105362+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.annefrank.org/en/museum/",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "51bc4ee3daab5823d6e31cf8d7c81a9e89510311f5bd67e0777edbe8fd34e153",
+      "unchangedResponse": false,
+      "oldSha256": "bef0b5380a46646e43ce11fa15856d6f55ad4fec75f3e6d1a5b1bcf8657713af",
+      "snapshot": "research/source-051.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.annefrank.org/en/museum/tickets/",
+      "ids": [
+        "museum.anne-frank-house"
+      ],
+      "checkedAt": "2026-11-15T20:08:43.209665+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.annefrank.org/en/museum/tickets/",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b016c807430a8fdaae4c652270f1ee5f8ddd9041fcdd4d59917b87f5afb6cf83",
+      "unchangedResponse": false,
+      "oldSha256": "79f62c01291dcaa43331ff61e5e6239fa69f7d60f9b7297a061e79f5ef4c93ac",
+      "snapshot": "research/source-052.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.annefrank.org/en/museum/accessibility-museum/",
+      "ids": [
+        "museum.anne-frank-house"
+      ],
+      "checkedAt": "2026-11-15T20:08:43.359393+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.annefrank.org/en/museum/accessibility-museum/",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "058885dd4b324e2d6b46274b23ecb2e8672c5bd36a33772350f08501717e057f",
+      "unchangedResponse": true,
+      "oldSha256": "058885dd4b324e2d6b46274b23ecb2e8672c5bd36a33772350f08501717e057f",
+      "snapshot": "research/source-053.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westermarkt+20+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.anne-frank-house"
+      ],
+      "checkedAt": "2026-11-15T20:08:43.387094+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Westermarkt+20+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "b46a096afc034e98cfc084bb6c9b95e78b67c4131846846ac5db55d4db5708b6",
+      "unchangedResponse": true,
+      "oldSha256": "b46a096afc034e98cfc084bb6c9b95e78b67c4131846846ac5db55d4db5708b6",
+      "snapshot": "research/source-054.gz"
+    },
+    {
+      "url": "https://www.nemosciencemuseum.nl/en/plan-your-visit",
+      "ids": [
+        "museum.nemo-science-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:43.627931+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.nemosciencemuseum.nl/en/plan-your-visit",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "33ba23b5e345bf63978b23f7679b408cad57b8eb8f576776a19e1f3a480e2f73",
+      "unchangedResponse": false,
+      "oldSha256": "a1dd814c24ec2da19434542f42f6d57b84784e0860516dc4b31a45b877cb6c41",
+      "snapshot": "research/source-055.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdok+2+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.nemo-science-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:43.646581+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oosterdok+2+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "b402fe284cb8cd92c8ce47f813f1f7ca5df635f093e5e3d899787f5571b51a56",
+      "unchangedResponse": true,
+      "oldSha256": "b402fe284cb8cd92c8ce47f813f1f7ca5df635f093e5e3d899787f5571b51a56",
+      "snapshot": "research/source-056.gz"
+    },
+    {
+      "url": "https://www.hetscheepvaartmuseum.com/",
+      "ids": [
+        "museum.het-scheepvaartmuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:43.711904+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.hetscheepvaartmuseum.com/",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "1634f12616825f95eeacd34bc5bb25bc7858a65d934c937041993b178b2a8e9f",
+      "unchangedResponse": true,
+      "oldSha256": "1634f12616825f95eeacd34bc5bb25bc7858a65d934c937041993b178b2a8e9f",
+      "snapshot": "research/source-057.gz"
+    },
+    {
+      "url": "https://www.hetscheepvaartmuseum.com/visit/opening-hours-and-admission",
+      "ids": [
+        "museum.het-scheepvaartmuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:43.830085+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.hetscheepvaartmuseum.com/visit/opening-hours-and-admission",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "cd360ed7ffca02000aa76a64dc03034276e4b0c52cdd27bb17a02bc10ff2e575",
+      "unchangedResponse": true,
+      "oldSha256": "cd360ed7ffca02000aa76a64dc03034276e4b0c52cdd27bb17a02bc10ff2e575",
+      "snapshot": "research/source-058.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kattenburgerplein+1+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.het-scheepvaartmuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:43.843007+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Kattenburgerplein+1+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "18ed534c1c3079c6b4ea256640b00aabd3ecb0d07ca0047572c8296baad80de6",
+      "unchangedResponse": true,
+      "oldSha256": "18ed534c1c3079c6b4ea256640b00aabd3ecb0d07ca0047572c8296baad80de6",
+      "snapshot": "research/source-059.gz"
+    },
+    {
+      "url": "https://www.rembrandthuis.nl/en/",
+      "ids": [
+        "museum.museum-rembrandthuis"
+      ],
+      "checkedAt": "2026-11-15T20:08:43.964004+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rembrandthuis.nl/en/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "41f6302cd9409d08b44704bc43196c87173d8db8f2b8f4e6a701c169eaf354f8",
+      "unchangedResponse": true,
+      "oldSha256": "41f6302cd9409d08b44704bc43196c87173d8db8f2b8f4e6a701c169eaf354f8",
+      "snapshot": "research/source-060.gz"
+    },
+    {
+      "url": "https://www.rembrandthuis.nl/en/plan-your-visit/visitor-information/opening-hours-fees/",
+      "ids": [
+        "museum.museum-rembrandthuis"
+      ],
+      "checkedAt": "2026-11-15T20:08:43.994661+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.rembrandthuis.nl/en/plan-your-visit/visitor-information/opening-hours-fees/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "7721c77c2389a875612c8f7e94d6e11799ed69b5a6670d327c6a9314fc470f72",
+      "unchangedResponse": true,
+      "oldSha256": "7721c77c2389a875612c8f7e94d6e11799ed69b5a6670d327c6a9314fc470f72",
+      "snapshot": "research/source-061.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Jodenbreestraat+4+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.museum-rembrandthuis"
+      ],
+      "checkedAt": "2026-11-15T20:08:44.180610+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Jodenbreestraat+4+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "823c73218907f0c3ffc9b716be65a2edeeabc8995eca2fa6af794952f27f4b46",
+      "unchangedResponse": true,
+      "oldSha256": "823c73218907f0c3ffc9b716be65a2edeeabc8995eca2fa6af794952f27f4b46",
+      "snapshot": "research/source-062.gz"
+    },
+    {
+      "url": "https://opsolder.nl/en/museum-visit/",
+      "ids": [
+        "museum.museum-ons-lieve-heer-op-solder"
+      ],
+      "checkedAt": "2026-11-15T20:08:44.211589+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://opsolder.nl/en/museum-visit/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5c5917dca82a6c19387fcfb28b9fe45c6c13dc1677d938ac4910d6563e6c5a6f",
+      "unchangedResponse": false,
+      "oldSha256": "06f6a5c9e7cd483034f9643163a2f15cde537b3e0f07034582ef5d68796824c4",
+      "snapshot": "research/source-063.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://opsolder.nl/en/practical-information/",
+      "ids": [
+        "museum.museum-ons-lieve-heer-op-solder"
+      ],
+      "checkedAt": "2026-11-15T20:08:44.227359+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://opsolder.nl/en/practical-information/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "15518d0e87dceda630c7cdea0f71237793c254cfab72f3f0d7f40bf279380043",
+      "unchangedResponse": false,
+      "oldSha256": "dced2b396d61ed04564a172aa7ba29e02e873da537b4e9c3a4b2e3392ae070cb",
+      "snapshot": "research/source-064.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://opsolder.nl/en/opening-hours/",
+      "ids": [
+        "museum.museum-ons-lieve-heer-op-solder"
+      ],
+      "checkedAt": "2026-11-15T20:08:44.341729+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://opsolder.nl/en/opening-hours/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "897bc1fd37a32347f77aa0ea893ff4dc2804db6032b5720178243f139757160c",
+      "unchangedResponse": false,
+      "oldSha256": "c28fd0289de90d676902ec77662cb5ab6fd7ba68a26832454c4b46f77e28c79f",
+      "snapshot": "research/source-065.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://opsolder.nl/en/tickets-and-prices/",
+      "ids": [
+        "museum.museum-ons-lieve-heer-op-solder"
+      ],
+      "checkedAt": "2026-11-15T20:08:46.307045+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://opsolder.nl/en/tickets-and-prices/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4febaabdeacaf259fed786575e081f4c625bd3a67ad8b67bc927969f6adfa379",
+      "unchangedResponse": false,
+      "oldSha256": "ebb6dba470e1cb892024311d3abb729dc3859cc7c00ac4d91652396f0da135b2",
+      "snapshot": "research/source-066.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudezijds+Voorburgwal+38+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.museum-ons-lieve-heer-op-solder"
+      ],
+      "checkedAt": "2026-11-15T20:08:46.331806+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oudezijds+Voorburgwal+38+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "759d0f5aae7f568c2b28bc6864c9192c8a2681f8820c7aa855d8a7d2a1954172",
+      "unchangedResponse": true,
+      "oldSha256": "759d0f5aae7f568c2b28bc6864c9192c8a2681f8820c7aa855d8a7d2a1954172",
+      "snapshot": "research/source-067.gz"
+    },
+    {
+      "url": "https://www.hartmuseum.nl/en/",
+      "ids": [
+        "museum.hart-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:46.358108+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.hartmuseum.nl/en/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "1041160ad23cc50cbb894ec21f42cdd0d30d6fecd33680c487f1073d9cab0d5f",
+      "unchangedResponse": true,
+      "oldSha256": "1041160ad23cc50cbb894ec21f42cdd0d30d6fecd33680c487f1073d9cab0d5f",
+      "snapshot": "research/source-068.gz"
+    },
+    {
+      "url": "https://www.hartmuseum.nl/en/plan-your-visit/",
+      "ids": [
+        "museum.hart-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:46.473984+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.hartmuseum.nl/en/plan-your-visit/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "27f34907721e4c0aca728c4df4947345330d923a7b47b23450b3ea1a12a581ad",
+      "unchangedResponse": false,
+      "oldSha256": "966d92c987ddf53921eae680cd69a801ea1559c25ae760bfcfbb90f54a24f498",
+      "snapshot": "research/source-069.gz",
+      "unchangedVisibleText": false
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Amstel+51+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.hart-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:46.507738+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Amstel+51+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "2bd6de21086718ac2c420a7f183665fd4dbe4d69a6cded5a920e30be511b9b3c",
+      "unchangedResponse": true,
+      "oldSha256": "2bd6de21086718ac2c420a7f183665fd4dbe4d69a6cded5a920e30be511b9b3c",
+      "snapshot": "research/source-070.gz"
+    },
+    {
+      "url": "https://jck.nl/en/location/jewish-museum",
+      "ids": [
+        "museum.jewish-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:46.588016+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://jck.nl/en/location/jewish-museum",
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "795a2507a60dfc09d56e6779ed8bc19f33c25420febee2e49d3e0a21c4b01d27",
+      "unchangedResponse": false,
+      "oldSha256": "f67d6d948a320fba6184330a652257c5439c1c79327cb0d2d7285e3f8affcc12",
+      "snapshot": "research/source-071.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://jck.nl/en/plan-your-visit",
+      "ids": [
+        "museum.jewish-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:46.638860+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://jck.nl/en/plan-your-visit",
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "2ad6fcc8473892120bdc8e45633d422caf430558082269933cdcf60024dc8673",
+      "unchangedResponse": true,
+      "oldSha256": "2ad6fcc8473892120bdc8e45633d422caf430558082269933cdcf60024dc8673",
+      "snapshot": "research/source-072.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Amstelstraat+1+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.jewish-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.027483+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Nieuwe+Amstelstraat+1+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "4837916f0ecaff8485781bd53bf9ddc1a3bc5512822afd5605300d493c414663",
+      "unchangedResponse": true,
+      "oldSha256": "4837916f0ecaff8485781bd53bf9ddc1a3bc5512822afd5605300d493c414663",
+      "snapshot": "research/source-073.gz"
+    },
+    {
+      "url": "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands",
+      "ids": [
+        "museum.dutch-resistance-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.044885+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "8870ef14d6431be8940ba0edfb077d68d8936e7273209d57a3962a81cd903231",
+      "unchangedResponse": true,
+      "oldSha256": "8870ef14d6431be8940ba0edfb077d68d8936e7273209d57a3962a81cd903231",
+      "snapshot": "research/source-074.gz"
+    },
+    {
+      "url": "https://www.verzetsmuseum.org/en/address-and-opening-hours",
+      "ids": [
+        "museum.dutch-resistance-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.209372+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.verzetsmuseum.org/en/address-and-opening-hours",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "5361c6bf917c006150751821d0efd4a8e6a4cb61e7eaff2dba4cd8e6dc0746dc",
+      "unchangedResponse": true,
+      "oldSha256": "5361c6bf917c006150751821d0efd4a8e6a4cb61e7eaff2dba4cd8e6dc0746dc",
+      "snapshot": "research/source-075.gz"
+    },
+    {
+      "url": "https://www.verzetsmuseum.org/en/tickets",
+      "ids": [
+        "museum.dutch-resistance-museum"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.213640+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.verzetsmuseum.org/en/tickets",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "df0deed6b4ced6842cb1cf26eba661e35a2ef712d8dd392b87a3ad1a12ff42c2",
+      "unchangedResponse": true,
+      "oldSha256": "df0deed6b4ced6842cb1cf26eba661e35a2ef712d8dd392b87a3ad1a12ff42c2",
+      "snapshot": "research/source-076.gz"
+    },
+    {
+      "url": "https://www.eyefilm.nl/en",
+      "ids": [
+        "museum.eye-filmmuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.387769+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.eyefilm.nl/en",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "af4300cf57c7b94c438f349f4ca8876decd24aca271bae9ddfe1b06087167917",
+      "unchangedResponse": false,
+      "oldSha256": "67589556445ff3a9f74b31ddbacb7e8915e9bfcd38a50def0dd7cdd4b3606a67",
+      "snapshot": "research/source-077.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.eyefilm.nl/en/plan-your-visit",
+      "ids": [
+        "museum.eye-filmmuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.405002+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.eyefilm.nl/en/plan-your-visit",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "bad9b6a1f03995b7d0fb7e8cd64e416b25b1a78380cc8e748e56bf5a11115b33",
+      "unchangedResponse": true,
+      "oldSha256": "bad9b6a1f03995b7d0fb7e8cd64e416b25b1a78380cc8e748e56bf5a11115b33",
+      "snapshot": "research/source-078.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+1+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.eye-filmmuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.429995+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=IJpromenade+1+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "663924b37ae1b494f35f150d26906f2152ef38b9550c99400d1041ca2b5a2973",
+      "unchangedResponse": true,
+      "oldSha256": "663924b37ae1b494f35f150d26906f2152ef38b9550c99400d1041ca2b5a2973",
+      "snapshot": "research/source-079.gz"
+    },
+    {
+      "url": "https://grachten.museum/en/",
+      "ids": [
+        "museum.museum-of-the-canals"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.586260+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://grachten.museum/en/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a6e1add86f48ebdd18b0318ce6b5cb9638e32260bb992036fbbcf3145640b7ff",
+      "unchangedResponse": true,
+      "oldSha256": "a6e1add86f48ebdd18b0318ce6b5cb9638e32260bb992036fbbcf3145640b7ff",
+      "snapshot": "research/source-080.gz"
+    },
+    {
+      "url": "https://grachten.museum/en/times-tickets/",
+      "ids": [
+        "museum.museum-of-the-canals"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.590534+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://grachten.museum/en/times-tickets/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "26f8dab1006366957151187f65a45eb1e9be178f1a838df616b4d887271a7779",
+      "unchangedResponse": true,
+      "oldSha256": "26f8dab1006366957151187f65a45eb1e9be178f1a838df616b4d887271a7779",
+      "snapshot": "research/source-081.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Herengracht+386+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.museum-of-the-canals"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.847813+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Herengracht+386+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "96265252b75d1a327b3cbd649089683628a8765e824b3381a94b5914cddbb3db",
+      "unchangedResponse": true,
+      "oldSha256": "96265252b75d1a327b3cbd649089683628a8765e824b3381a94b5914cddbb3db",
+      "snapshot": "research/source-082.gz"
+    },
+    {
+      "url": "https://www.foam.org/visit",
+      "ids": [
+        "museum.foam"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.854528+00:00",
+      "httpStatus": 429,
+      "error": "HTTP Error 429: Too Many Requests",
+      "fallback": {
+        "method": "web.run",
+        "checkedAt": "2026-11-15T20:10:59.856Z",
+        "result": "Official page read; approved prices and restrictions reconfirmed. No inferred HTTP status or response checksum."
+      }
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+609+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.foam"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.960092+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+609+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "63c1069e02852c5ded7697789e6b5dff1e13e5d8e09f12133d19ac53deaa9db0",
+      "unchangedResponse": true,
+      "oldSha256": "63c1069e02852c5ded7697789e6b5dff1e13e5d8e09f12133d19ac53deaa9db0",
+      "snapshot": "research/source-084.gz"
+    },
+    {
+      "url": "https://huismarseille.nl/en/",
+      "ids": [
+        "museum.huis-marseille"
+      ],
+      "checkedAt": "2026-11-15T20:08:47.978076+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://huismarseille.nl/en/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "4a03648eb5a5cca49d336957de437cdcdc1d5201a69d024b7c331a82358f5fc3",
+      "unchangedResponse": false,
+      "oldSha256": "e3640195d3201295ab842185f3c099435668bb72b281c153b75fb665faed6b00",
+      "snapshot": "research/source-085.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://huismarseille.nl/en/visitor-information/",
+      "ids": [
+        "museum.huis-marseille"
+      ],
+      "checkedAt": "2026-11-15T20:08:48.091049+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://huismarseille.nl/en/visitor-information/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a918a703669abcc39700f9fdedd8a3d5a3dda177fc7be03d6e643bc322c73610",
+      "unchangedResponse": true,
+      "oldSha256": "a918a703669abcc39700f9fdedd8a3d5a3dda177fc7be03d6e643bc322c73610",
+      "snapshot": "research/source-086.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+401+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.huis-marseille"
+      ],
+      "checkedAt": "2026-11-15T20:08:48.383091+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+401+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "a82f2c3c130efbfe0395ed82646569f31324e4c9ff8a5ae317126f54be60e70b",
+      "unchangedResponse": true,
+      "oldSha256": "a82f2c3c130efbfe0395ed82646569f31324e4c9ff8a5ae317126f54be60e70b",
+      "snapshot": "research/source-087.gz"
+    },
+    {
+      "url": "https://www.allardpierson.nl/en/",
+      "ids": [
+        "museum.allard-pierson"
+      ],
+      "checkedAt": "2026-11-15T20:08:48.415740+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.allardpierson.nl/en/",
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "c461d507ca1e6ae08ab78448806510fcbbd17deb0b1c37f9e19b7add848bcde6",
+      "unchangedResponse": true,
+      "oldSha256": "c461d507ca1e6ae08ab78448806510fcbbd17deb0b1c37f9e19b7add848bcde6",
+      "snapshot": "research/source-088.gz"
+    },
+    {
+      "url": "https://www.allardpierson.nl/en/visit",
+      "ids": [
+        "museum.allard-pierson"
+      ],
+      "checkedAt": "2026-11-15T20:08:48.505373+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.allardpierson.nl/en/visit",
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "4d2c938c9a2e27a0ee8dc6c05967d37023e16548a3831e17464a00a532127719",
+      "unchangedResponse": false,
+      "oldSha256": "7952a4ceed12ab1aa2ca6eb50fef80da1fb42161bcc095af90d7090178e463fe",
+      "snapshot": "research/source-089.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Turfmarkt+127+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.allard-pierson"
+      ],
+      "checkedAt": "2026-11-15T20:08:48.659573+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Oude+Turfmarkt+127+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "fc3c782129c001055a449c56385a19d772d1aae82ec18ddb517875c0c743b4d0",
+      "unchangedResponse": true,
+      "oldSha256": "fc3c782129c001055a449c56385a19d772d1aae82ec18ddb517875c0c743b4d0",
+      "snapshot": "research/source-090.gz"
+    },
+    {
+      "url": "https://www.artis.nl/en/artis-micropia",
+      "ids": [
+        "museum.artis-micropia"
+      ],
+      "checkedAt": "2026-11-15T20:08:48.698721+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.artis.nl/en/artis-micropia",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "db0f0876167de45f2e1ec6f77f66d4dc57d724071a7ab174bd33e8e356a2f656",
+      "unchangedResponse": false,
+      "oldSha256": "aadf8d8b55666f0685d9195e2309afbb0e801329fbb1cc58d8ce35caa876ede2",
+      "snapshot": "research/source-091.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.artis.nl/en/plan-your-visit/opening-hours",
+      "ids": [
+        "museum.artis-micropia"
+      ],
+      "checkedAt": "2026-11-15T20:08:48.749420+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.artis.nl/en/plan-your-visit/opening-hours",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "ec5654bc043485d03a6246f1e93b95b18ee287c48687ddcbbcf3940e129263f2",
+      "unchangedResponse": false,
+      "oldSha256": "88a525a1fc9360cc210e7619e24ce90529755ee97d6471174721c2a76990095b",
+      "snapshot": "research/source-092.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.artis.nl/en/plan-your-visit/ticket-prices",
+      "ids": [
+        "museum.artis-micropia"
+      ],
+      "checkedAt": "2026-11-15T20:08:48.869817+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.artis.nl/en/plan-your-visit/ticket-prices",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "79a530c98aaf1977d740d3fcaecef4b26be582ecf0896caf076a33bfc01cedd4",
+      "unchangedResponse": false,
+      "oldSha256": "1351e5018c68519e4f1db1d1f01be1dfdc7b223d5a73c2d9367ab6f8334cc212",
+      "snapshot": "research/source-093.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.artis-micropia"
+      ],
+      "checkedAt": "2026-11-15T20:08:49.147391+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+38+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "b9c74d66f0d52447d71ca034c16e035bc22ea33e9b51d007b1bb93d324155ea0",
+      "unchangedResponse": true,
+      "oldSha256": "b9c74d66f0d52447d71ca034c16e035bc22ea33e9b51d007b1bb93d324155ea0",
+      "snapshot": "research/source-094.gz"
+    },
+    {
+      "url": "https://amsterdam.wereldmuseum.nl/en",
+      "ids": [
+        "museum.wereldmuseum-amsterdam"
+      ],
+      "checkedAt": "2026-11-15T20:08:49.174401+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://amsterdam.wereldmuseum.nl/en",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a726d62ed180ec49504f1cfafb52bfd587644e92d42254e6b74f549b767914fb",
+      "unchangedResponse": false,
+      "oldSha256": "3bf3cd1c2ff96f8005f1dc7a21285e4274cc9594a770f871308015b19204ed4d",
+      "snapshot": "research/source-095.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://amsterdam.wereldmuseum.nl/en/plan-your-visit/address-and-route",
+      "ids": [
+        "museum.wereldmuseum-amsterdam"
+      ],
+      "checkedAt": "2026-11-15T20:08:49.277484+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://amsterdam.wereldmuseum.nl/en/plan-your-visit/address-and-route",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "c6a5b2821ff398603e09cea5588de148eeda3f6469840e23ab73a1c16e81c066",
+      "unchangedResponse": false,
+      "oldSha256": "96cc4230dbb9533d3b807211427a7dd241b2a21d92bf1fb64b7d193689b85772",
+      "snapshot": "research/source-096.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://amsterdam.wereldmuseum.nl/en/plan-your-visit/hours-and-admission",
+      "ids": [
+        "museum.wereldmuseum-amsterdam"
+      ],
+      "checkedAt": "2026-11-15T20:08:49.286610+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://amsterdam.wereldmuseum.nl/en/plan-your-visit/hours-and-admission",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "b5f1d3699d4e386486dfae683fc1f7288a46b9cea8199b8beebe1fc7eeb00d99",
+      "unchangedResponse": false,
+      "oldSha256": "e0b55d9573f0b760e115cd11e70afc540f49512b6fee372ee5d48466b0c05d46",
+      "snapshot": "research/source-097.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.museumvanloon.nl/en",
+      "ids": [
+        "museum.museum-van-loon"
+      ],
+      "checkedAt": "2026-11-15T20:08:49.289457+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.museumvanloon.nl/en",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "af517d94b21a259c5f4babde95578ad2588bfb3135e3a82b24df25281d6a75e0",
+      "unchangedResponse": true,
+      "oldSha256": "af517d94b21a259c5f4babde95578ad2588bfb3135e3a82b24df25281d6a75e0",
+      "snapshot": "research/source-098.gz"
+    },
+    {
+      "url": "https://www.museumvanloon.nl/bezoek",
+      "ids": [
+        "museum.museum-van-loon"
+      ],
+      "checkedAt": "2026-11-15T20:08:49.469325+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.museumvanloon.nl/bezoek",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "73b98430f02e8aaca9c1651641f0ee4f42cf7f37a42de1e7bd272aa1cabc646a",
+      "unchangedResponse": true,
+      "oldSha256": "73b98430f02e8aaca9c1651641f0ee4f42cf7f37a42de1e7bd272aa1cabc646a",
+      "snapshot": "research/source-099.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+672+Amsterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.museum-van-loon"
+      ],
+      "checkedAt": "2026-11-15T20:08:49.535040+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keizersgracht+672+Amsterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "8fe79f9bf6368928e21f3f1bab6507c8696e69b05a418aa4b0c12d3e063ff7a4",
+      "unchangedResponse": true,
+      "oldSha256": "8fe79f9bf6368928e21f3f1bab6507c8696e69b05a418aa4b0c12d3e063ff7a4",
+      "snapshot": "research/source-100.gz"
+    },
+    {
+      "url": "https://www.paleisamsterdam.nl/en/",
+      "ids": [
+        "place.royal-palace-amsterdam"
+      ],
+      "checkedAt": "2026-11-15T20:08:49.573634+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.paleisamsterdam.nl/en/",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "6d7ff1cd31b9256b6b1b448657e423b2d5beea49e22c82fa44fa5b7db0e47d65",
+      "unchangedResponse": false,
+      "oldSha256": "d4f46996aa5a12293908ecdf08509facd39007276483a2138c6a9f439642322a",
+      "snapshot": "research/source-101.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.paleisamsterdam.nl/en/contact/",
+      "ids": [
+        "place.royal-palace-amsterdam"
+      ],
+      "checkedAt": "2026-11-15T20:08:49.663653+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.paleisamsterdam.nl/en/contact/",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "9b2f0710ad4ef474412b059f0acff2c58f63817510087a2b73d901265f42cd69",
+      "unchangedResponse": false,
+      "oldSha256": "80217fe30c5b5c640c49520b4203ab647bd57d71a790cef2a79f127695c963d8",
+      "snapshot": "research/source-102.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.paleisamsterdam.nl/en/visit/",
+      "ids": [
+        "place.royal-palace-amsterdam"
+      ],
+      "checkedAt": "2026-11-15T20:08:49.736352+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.paleisamsterdam.nl/en/visit/",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0e78cb9af9131431e56f24a237697da2ead9b4fa650ad8af0bf51715e52feebd",
+      "unchangedResponse": false,
+      "oldSha256": "fbe22643d9a961c0e5702cdfcd7edebafdd0a7a95bbfe4620cab2490cb0e595f",
+      "snapshot": "research/source-103.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+      "ids": [
+        "place.utrecht-neude"
+      ],
+      "checkedAt": "2026-11-15T20:08:49.799854+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "0aecd7c3f53cd76402b604c527833bb86298103172575a96642a2e87fceabd94",
+      "unchangedResponse": true,
+      "oldSha256": "0aecd7c3f53cd76402b604c527833bb86298103172575a96642a2e87fceabd94",
+      "snapshot": "research/source-104.gz"
+    },
+    {
+      "url": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+      "ids": [
+        "place.utrecht-neude"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.000313+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.bibliotheekutrecht.nl/klantenservice/vestigingen-openingstijden/vestiging.696013.html/bibliotheek-neude/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "524c2745b9ddddf7e2a29f59ee3db9c81f3a730d4cc0c21c75382392fb75c2a5",
+      "unchangedResponse": true,
+      "oldSha256": "524c2745b9ddddf7e2a29f59ee3db9c81f3a730d4cc0c21c75382392fb75c2a5",
+      "snapshot": "research/source-105.gz"
+    },
+    {
+      "url": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+      "ids": [
+        "place.utrecht-neude"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.019646+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a919f1329ff96d6b298e0f87d7d6538aaa5173fe8a69ddc71f8c44f9c09dc426",
+      "unchangedResponse": true,
+      "oldSha256": "a919f1329ff96d6b298e0f87d7d6538aaa5173fe8a69ddc71f8c44f9c09dc426",
+      "snapshot": "research/source-106.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3",
+      "ids": [
+        "place.utrecht-neude"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.084730+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Neude+11+Utrecht&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "64dbf298afb1b886b100c9c6c1409cd104e60f3c347fe463f266079cc5d4d968",
+      "unchangedResponse": true,
+      "oldSha256": "64dbf298afb1b886b100c9c6c1409cd104e60f3c347fe463f266079cc5d4d968",
+      "snapshot": "research/source-107.gz"
+    },
+    {
+      "url": "https://chabotmuseum.nl/bezoekers/",
+      "ids": [
+        "museum.rotterdam-chabot"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.094536+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://chabotmuseum.nl/bezoekers/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a7cc9d2d62dab5bb8d6e7d64de767cb5b326755e403a45079b10bc46151ce160",
+      "unchangedResponse": true,
+      "oldSha256": "a7cc9d2d62dab5bb8d6e7d64de767cb5b326755e403a45079b10bc46151ce160",
+      "snapshot": "research/source-108.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.rotterdam-chabot"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.104436+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumpark+11+Rotterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "8ebf867c7906723ff840d13c3dd2b3648d2158c1408ee475a268e52f10eed772",
+      "unchangedResponse": true,
+      "oldSha256": "8ebf867c7906723ff840d13c3dd2b3648d2158c1408ee475a268e52f10eed772",
+      "snapshot": "research/source-109.gz"
+    },
+    {
+      "url": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+      "ids": [
+        "museum.den-haag-fotomuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.211408+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "2d2f48dd4c376831791094ab5af284821769600191ff61b17f263cae819da862",
+      "unchangedResponse": false,
+      "oldSha256": "e30649a9250e5515e72bcfdd1f3e6d9dcdc855163a4dc7a50cf4834a3c716a19",
+      "snapshot": "research/source-110.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.fotomuseumdenhaag.nl/en/contact",
+      "ids": [
+        "museum.den-haag-fotomuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.234733+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.fotomuseumdenhaag.nl/en/contact",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9e19ae27aee1742e34dd0800b8ab5b608525cd98a6c276cd7d4bf158ef4566f7",
+      "unchangedResponse": false,
+      "oldSha256": "f508bae4daef2ab382184a96ce8d445572504fafaccd0fa845a6d5a9afd98b7d",
+      "snapshot": "research/source-111.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+      "ids": [
+        "museum.eindhoven-inkijkmuseum"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.479658+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "7c8fddf14b71b00f386bf8054baf81bd2f56f9e6c8daec2eb6f5ce81d770ece9",
+      "unchangedResponse": true,
+      "oldSha256": "7c8fddf14b71b00f386bf8054baf81bd2f56f9e6c8daec2eb6f5ce81d770ece9",
+      "snapshot": "research/source-112.gz"
+    },
+    {
+      "url": "https://kaafi.nl/contact-us",
+      "ids": [
+        "cafe.den-haag-kaafi"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.486845+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://kaafi.nl/contact-us",
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "5f783429abc7d71a66394728722ddd5aac28469a863a191a7674f7c4bead1def",
+      "unchangedResponse": true,
+      "oldSha256": "5f783429abc7d71a66394728722ddd5aac28469a863a191a7674f7c4bead1def",
+      "snapshot": "research/source-113.gz"
+    },
+    {
+      "url": "https://kaafi.nl/breakfast-brunch-and-lunch-in-the-hague",
+      "ids": [
+        "cafe.den-haag-kaafi"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.497130+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://kaafi.nl/breakfast-brunch-and-lunch-in-the-hague",
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "d2b2d68c2020792fc31346532c46772b50e53f1bcc42647c9153c4b418005337",
+      "unchangedResponse": true,
+      "oldSha256": "d2b2d68c2020792fc31346532c46772b50e53f1bcc42647c9153c4b418005337",
+      "snapshot": "research/source-114.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3",
+      "ids": [
+        "cafe.den-haag-kaafi"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.616554+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Prinsestraat+25+Den+Haag&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "c3bc3058e33e2e1bea2f04ac33c49eca91e867c047d122202473711f1d8789b4",
+      "unchangedResponse": true,
+      "oldSha256": "c3bc3058e33e2e1bea2f04ac33c49eca91e867c047d122202473711f1d8789b4",
+      "snapshot": "research/source-115.gz"
+    },
+    {
+      "url": "https://www.kazerne.com/bar-bistro-kazerne",
+      "ids": [
+        "restaurant.eindhoven-kazerne"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.648903+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.kazerne.com/bar-bistro-kazerne",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "0f57bf08b9f1612f8883c4e282cc4027b5095be67cd6da75bd81245a4ddfacc6",
+      "unchangedResponse": true,
+      "oldSha256": "0f57bf08b9f1612f8883c4e282cc4027b5095be67cd6da75bd81245a4ddfacc6",
+      "snapshot": "research/source-116.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3",
+      "ids": [
+        "restaurant.eindhoven-kazerne"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.670152+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Paradijslaan+2+Eindhoven&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "8be563e9ff04f101957fbe3f2a43c73b92d91919c70004915b6a57ad3f616082",
+      "unchangedResponse": true,
+      "oldSha256": "8be563e9ff04f101957fbe3f2a43c73b92d91919c70004915b6a57ad3f616082",
+      "snapshot": "research/source-117.gz"
+    },
+    {
+      "url": "https://www.koffieleute.nl/",
+      "ids": [
+        "cafe.utrecht-koffie-leute"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.752510+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.koffieleute.nl/",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "12a38175857a83ff5e03d33c0185de5797fa6ad805bd9fbd8604124957bb5c70",
+      "unchangedResponse": false,
+      "oldSha256": "1c5acbeef15b4e610ed95af470198bdb4fdf1d1bf0e66784548d0672ab5abb9c",
+      "snapshot": "research/source-118.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+      "ids": [
+        "nature.utrecht-oog-in-al"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.801311+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "b4515523569d407b4f307b93703fcd6e8cb36aaca5e79b4f91511377f3efd329",
+      "unchangedResponse": false,
+      "oldSha256": "b15ee6298d44bd472b7f96923bf1ed5f639e11884cfbce9913e467416689d6ae",
+      "snapshot": "research/source-119.gz",
+      "unchangedVisibleText": false
+    },
+    {
+      "url": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+      "ids": [
+        "museum.utrecht-sonnenborgh"
+      ],
+      "checkedAt": "2026-11-15T20:08:50.840403+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.sonnenborgh.nl/english/address-contact-and-route",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "fe3e77f5a236dedb27e589d35721d9c5f27e811bd247260c55f4467faac2f05a",
+      "unchangedResponse": false,
+      "oldSha256": "cbfc3900ccdb04b18475db3f6ae7e314861ce6b12883a7422c49bd6a5dd6c5bb",
+      "snapshot": "research/source-120.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.sonnenborgh.nl/bezoekersinformatie",
+      "ids": [
+        "museum.utrecht-sonnenborgh"
+      ],
+      "checkedAt": "2026-11-15T20:08:51.170782+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.sonnenborgh.nl/bezoekersinformatie",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "e4b03c7fbbd0b61d8b9a6a1fd89cbaef4d128573672fdd2e4b344423031fcd91",
+      "unchangedResponse": false,
+      "oldSha256": "05fc6d758cfc1765c3281cd6afa90e3ecb66b1f1cc87196542e09996545acc1d",
+      "snapshot": "research/source-121.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.sonnenborgh.nl/bezoekersinformatie/prijzen",
+      "ids": [
+        "museum.utrecht-sonnenborgh"
+      ],
+      "checkedAt": "2026-11-15T20:08:51.342373+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.sonnenborgh.nl/bezoekersinformatie/prijzen",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "9eb100bfc90772b154d8ec586922a67d1b92d7207de00d2cf8424a6d9bffcd5d",
+      "unchangedResponse": false,
+      "oldSha256": "c5defb06ce97e4e3a05f6ceff426ada8c04f8d787ab010441ae1fae17449a42c",
+      "snapshot": "research/source-122.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3",
+      "ids": [
+        "museum.utrecht-sonnenborgh"
+      ],
+      "checkedAt": "2026-11-15T20:08:51.514885+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Zonnenburg+2+Utrecht&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "a2f08e598d06482618a43dfe3488e4e4b7dd6b0e0381de6e708d561184e1a36f",
+      "unchangedResponse": true,
+      "oldSha256": "a2f08e598d06482618a43dfe3488e4e4b7dd6b0e0381de6e708d561184e1a36f",
+      "snapshot": "research/source-123.gz"
+    },
+    {
+      "url": "https://supernovahotel.nl/en",
+      "ids": [
+        "hotel.rotterdam-supernova"
+      ],
+      "checkedAt": "2026-11-15T20:08:51.654849+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://supernovahotel.nl/en",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "27406787cc23849a1995f8f9d1461422257039ea98b119cff4b00c116e8c5094",
+      "unchangedResponse": false,
+      "oldSha256": "10d4967c24635a4c71bec6b35bb8c303cf2d8947345ed9a4a8e010fe0974b643",
+      "snapshot": "research/source-124.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.thecollectorhotel.com/contact",
+      "ids": [
+        "hotel.den-haag-collector"
+      ],
+      "checkedAt": "2026-11-15T20:08:51.845702+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.thecollectorhotel.com/contact",
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "3bee6665a77a7d54b9d79ce0280b27c48700d2704fa4f485d8eb70ee2d4b25f7",
+      "unchangedResponse": false,
+      "oldSha256": "5552d3151e96092a29c3ac88fc106014ce7de70eb0c4f90a19cfdad9b75300de",
+      "snapshot": "research/source-125.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.thecollectorhotel.com/rooms",
+      "ids": [
+        "hotel.den-haag-collector"
+      ],
+      "checkedAt": "2026-11-15T20:08:52.225690+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.thecollectorhotel.com/rooms",
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "d6d386d08254af4b9496e2cea4f833f3a85753ee7bdc65d5c72a3350b8dce1dd",
+      "unchangedResponse": false,
+      "oldSha256": "d285599044cd5c624ddaaf7daf681ddb5e1bd28a775d297b9034ba1c4d7893d5",
+      "snapshot": "research/source-126.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://www.thecollectorhotel.com/faq",
+      "ids": [
+        "hotel.den-haag-collector"
+      ],
+      "checkedAt": "2026-11-15T20:08:52.606404+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.thecollectorhotel.com/faq",
+      "contentType": "text/html;charset=utf-8",
+      "sha256": "480f683c653ddee2f99dbab0a6c878a6aa1f0f003a764bc53d28c2ee7d2bee1d",
+      "unchangedResponse": false,
+      "oldSha256": "fd3c7534f8a6ae309b250c699052a37846ae27ae784ad357c541f56c62311bcc",
+      "snapshot": "research/source-127.gz",
+      "unchangedVisibleText": true
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3",
+      "ids": [
+        "hotel.den-haag-collector"
+      ],
+      "checkedAt": "2026-11-15T20:08:52.936711+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Haagsche+Bluf+52+Den+Haag&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "9be41f5dc46c1dafeabdd168e43b27186f4c699ceff3582f9b206c5524aa12e1",
+      "unchangedResponse": true,
+      "oldSha256": "9be41f5dc46c1dafeabdd168e43b27186f4c699ceff3582f9b206c5524aa12e1",
+      "snapshot": "research/source-128.gz"
+    },
+    {
+      "url": "https://www.thenoxhotel.com/en/contact",
+      "ids": [
+        "hotel.utrecht-nox"
+      ],
+      "checkedAt": "2026-11-15T20:08:53.087087+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.thenoxhotel.com/en/contact",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "a18e03083f56af0972f6fb1b76544ccb6135ba194da6dd723bacfabbf2975376",
+      "unchangedResponse": true,
+      "oldSha256": "a18e03083f56af0972f6fb1b76544ccb6135ba194da6dd723bacfabbf2975376",
+      "snapshot": "research/source-129.gz"
+    },
+    {
+      "url": "https://www.thenoxhotel.com/en/faq",
+      "ids": [
+        "hotel.utrecht-nox"
+      ],
+      "checkedAt": "2026-11-15T20:08:53.210538+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://www.thenoxhotel.com/en/faq",
+      "contentType": "text/html; charset=UTF-8",
+      "sha256": "6ddc1a86c2abfd106758c45e34209938bd8d51cf71026f3306badc0443c2c997",
+      "unchangedResponse": true,
+      "oldSha256": "6ddc1a86c2abfd106758c45e34209938bd8d51cf71026f3306badc0443c2c997",
+      "snapshot": "research/source-130.gz"
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3",
+      "ids": [
+        "hotel.utrecht-nox"
+      ],
+      "checkedAt": "2026-11-15T20:08:53.248794+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Keistraat+8+Utrecht&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "b15c9a69f7396c20b2f7d81b5d056ae7ba7c23239123d25fd04d4a3198d7a036",
+      "unchangedResponse": true,
+      "oldSha256": "b15c9a69f7396c20b2f7d81b5d056ae7ba7c23239123d25fd04d4a3198d7a036",
+      "snapshot": "research/source-131.gz"
+    },
+    {
+      "url": "https://trompenburg.nl/plan-your-visit/",
+      "ids": [
+        "nature.rotterdam-trompenburg"
+      ],
+      "checkedAt": "2026-11-15T20:08:53.301722+00:00",
+      "error": "<urlopen error [SSL: TLSV1_ALERT_PROTOCOL_VERSION] tlsv1 alert protocol version (_ssl.c:1129)>",
+      "fallback": {
+        "method": "web.run",
+        "checkedAt": "2026-11-15T20:10:59.862Z",
+        "result": "Official page read; approved prices and restrictions reconfirmed. No inferred HTTP status or response checksum."
+      }
+    },
+    {
+      "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3",
+      "ids": [
+        "nature.rotterdam-trompenburg"
+      ],
+      "checkedAt": "2026-11-15T20:08:53.349128+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Honingerdijk+86+Rotterdam&fq=type%3Aadres&rows=3",
+      "contentType": "application/json;charset=utf-8",
+      "sha256": "b26b97ccce86d043699ac32cf0114ee47a3da074a59359f067729ef740d69031",
+      "unchangedResponse": true,
+      "oldSha256": "b26b97ccce86d043699ac32cf0114ee47a3da074a59359f067729ef740d69031",
+      "snapshot": "research/source-133.gz"
+    },
+    {
+      "url": "https://denhaag.com/en/westbroekpark",
+      "ids": [
+        "nature.den-haag-westbroekpark"
+      ],
+      "checkedAt": "2026-11-15T20:08:53.357063+00:00",
+      "httpStatus": 200,
+      "finalUrl": "https://denhaag.com/en/westbroekpark",
+      "contentType": "text/html; charset=utf-8",
+      "sha256": "38ef363d303e27a44a308e8ff54393423f64ed146231cfd786e87c1bd657b836",
+      "unchangedResponse": false,
+      "oldSha256": "2a1b6efcb4ba980b8cd88d6b047785fe164af9c7be84bcfcc5366e7c80dc1d25",
+      "snapshot": "research/source-134.gz",
+      "unchangedVisibleText": true
+    }
+  ]
+}

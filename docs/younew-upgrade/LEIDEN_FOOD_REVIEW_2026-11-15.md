@@ -1,6 +1,6 @@
-# Leiden cafés and restaurants — pending batch 3, 15 November 2026
+# Leiden cafés and restaurants — approved batch 3, 15 November 2026
 
-**Prepared: 5 existing places / 10 EN/NL pages. Approved: 0. Published: 0. New IDs: 0.** This is an editorial Draft PR, not publication authorization. It starts from main `ec00b59f64603b6c3fb71a04c4c7e412c6c623d5`; PR #59/#60 and the owner's active iOS work are separate.
+**Prepared: 5 existing places / 10 EN/NL pages. Approved: 5. New IDs: 0.** The owner approved these five cards together with the 44-card expansion and PR #68/#72 on 15 November 2026. The exact records SHA `28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827` and photos remain unchanged. All 21 sources were rechecked; prices/hours/restrictions match. The manifest now records the registered human owner and approval digest. Deployment follows combined Hostinger QA; final publication evidence is `/Users/ivan/YouNew-Expansion-Publish-Evidence-2026-11-15/RELEASE_REPORT_RU.md`. PR #59/#60 remain separate.
 
 ## Review scope
 

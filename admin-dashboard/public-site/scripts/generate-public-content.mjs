@@ -5,6 +5,7 @@ import { fileURLToPath, pathToFileURL } from "node:url";
 import { projectPublishedPracticalGuide } from "./practical-guide.mjs";
 import { projectPlaceDetails } from "../src/lib/content/place-details.mjs";
 import { loadEditorialRelease } from "./editorial-release.mjs";
+import {isApprovedPlaceAddition} from "./place-review.mjs";
 
 const scriptDirectory = dirname(fileURLToPath(import.meta.url));
 const publicSiteRoot = resolve(scriptDirectory, "..");
@@ -1118,7 +1119,7 @@ export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRe
   const sourceEntities = [...(Array.isArray(runtime.entities) ? runtime.entities : []), ...(editorialRelease?.entities ?? [])];
   if (new Set(sourceEntities.map(e=>e.id)).size!==sourceEntities.length) throw new Error("Editorial release duplicates an existing entity ID.");
   const withheldIds = new Set(runtime.withheldEntityIDs ?? []);
-  if (sourceEntities.some((entity) => withheldIds.has(entity.id)&&!privateDraftIds.has(entity.id))) {
+  if (sourceEntities.some((entity) => withheldIds.has(entity.id)&&!privateDraftIds.has(entity.id)&&!isApprovedPlaceAddition(entity,editorialRelease))) {
     throw new Error("Canonical runtime attempts to republish a withheld entity.");
   }
   const accepted = sourceEntities.filter((entity) => isPublishableEntity(entity, publishedReleaseIds)||privateDraftIds.has(entity.id));

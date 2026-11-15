@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-10-23T00:00:00.000Z",
-  "registryFingerprint": "984e94e71ddd22cc08aae9fd55b86f5919900561f9abd05a7e8de5b6aff89fb9",
+  "registryFingerprint": "e952f3b63b70124266724f3ae7f6dc5a41ad5af0b8ccaec2c8fa750f5d494c35",
   "source": {
-    "contentSha256": "2cbe9da2398a62c12be4a433e30bd568943031d144c8de55e5da6e13c9d439c5",
+    "contentSha256": "2a2bffa682b5bd2ddf6d187afb91c45c89b2002784fce89e37a1e438b81d370d",
     "geographySha256": "928ab17bf26b745c50a88b28e282f536d1a3e61a29066ae57269ed571d179170",
     "trackedRegistrySha256": "45ac0cb52dd08a902f5b3645de1ecd3aeaf88917b846b4374dd7ecc9bdd5ff3d"
   },
@@ -17,9 +17,9 @@
     "confirmedBroken": null
   },
   "counts": {
-    "references": 758,
-    "canonicalLinks": 746,
-    "duplicatesCollapsed": 12
+    "references": 778,
+    "canonicalLinks": 769,
+    "duplicatesCollapsed": 9
   },
   "links": [
     {
@@ -686,6 +686,24 @@
       ],
       "reference_ids": [
         "GM0363"
+      ]
+    },
+    {
+      "source_key": "source.8350aba6a3a0793a4c95cd41",
+      "title": "Wereldmuseum Amsterdam | A museum about world cultures",
+      "publisher": "amsterdam.wereldmuseum.nl",
+      "url": "https://amsterdam.wereldmuseum.nl/en",
+      "canonical_url": "https://amsterdam.wereldmuseum.nl/en",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.wereldmuseum-amsterdam"
       ]
     },
     {
@@ -1502,15 +1520,15 @@
       ]
     },
     {
-      "source_key": "source.ab39d2169cd813e9cfef57da",
+      "source_key": "source.1d0a9d205320ff5d4c5a65db",
       "title": "Official visitor information",
       "publisher": "Bibliotheek Utrecht",
-      "url": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
-      "canonical_url": "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html",
+      "url": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
+      "canonical_url": "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html",
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -1834,7 +1852,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -2230,7 +2248,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -2248,7 +2266,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -3788,15 +3806,15 @@
       ]
     },
     {
-      "source_key": "source.256fd6ef66b4e16cf68f4bfd",
+      "source_key": "source.672e39d4dec7f4e28779db7b",
       "title": "Official visitor information",
       "publisher": "Fotomuseum Den Haag",
-      "url": "https://www.fotomuseumdenhaag.nl/en/contact",
-      "canonical_url": "https://www.fotomuseumdenhaag.nl/en/contact",
+      "url": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
+      "canonical_url": "https://www.fotomuseumdenhaag.nl/en/plan-your-visit",
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -4329,6 +4347,24 @@
       ]
     },
     {
+      "source_key": "source.8de23f3fd885ad1e21cc8325",
+      "title": "The museum about the Amsterdam canal district",
+      "publisher": "grachten.museum",
+      "url": "https://grachten.museum/en/",
+      "canonical_url": "https://grachten.museum/en/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.museum-of-the-canals"
+      ]
+    },
+    {
       "source_key": "source.d70325f4f0beec59ba2e1bbc",
       "title": "Official visitor information",
       "publisher": "Grand Café De Burcht",
@@ -4337,7 +4373,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -5147,7 +5183,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -5607,6 +5643,24 @@
       ]
     },
     {
+      "source_key": "source.a414999c30bb26f7fed6510f",
+      "title": "Huis Marseille, Museum for Photography",
+      "publisher": "huismarseille.nl",
+      "url": "https://huismarseille.nl/en/",
+      "canonical_url": "https://huismarseille.nl/en/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.huis-marseille"
+      ]
+    },
+    {
       "source_key": "source.c119d7de5ae1e8dbd723a4d1",
       "title": "Huizen official website",
       "publisher": "Huizen",
@@ -5687,13 +5741,32 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
       ],
       "reference_ids": [
         "hotel.leiden-huys-van-leyden"
+      ]
+    },
+    {
+      "source_key": "source.94ed7ef1c319a8d73f416e8a",
+      "title": "Official visitor information",
+      "publisher": "ibis Leiden Centre",
+      "url": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "canonical_url": "https://all.accor.com/hotel/8087/index.en.shtml",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 2,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "collection.leiden-weekend",
+        "hotel.leiden-ibis"
       ]
     },
     {
@@ -5741,13 +5814,31 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
       ],
       "reference_ids": [
         "museum.eindhoven-inkijkmuseum"
+      ]
+    },
+    {
+      "source_key": "source.779d44c666ece19dc1483710",
+      "title": "Jewish Museum + junior | Jewish Cultural Quarter",
+      "publisher": "jck.nl",
+      "url": "https://jck.nl/en/location/jewish-museum",
+      "canonical_url": "https://jck.nl/en/location/jewish-museum",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.jewish-museum"
       ]
     },
     {
@@ -5759,7 +5850,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -5921,7 +6012,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -5975,7 +6066,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -6371,7 +6462,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -6613,25 +6704,6 @@
       ],
       "reference_ids": [
         "GM1705"
-      ]
-    },
-    {
-      "source_key": "source.94ed7ef1c319a8d73f416e8a",
-      "title": "Source for an included place; selection is editorial",
-      "publisher": "Linked place / operator",
-      "url": "https://all.accor.com/hotel/8087/index.en.shtml",
-      "canonical_url": "https://all.accor.com/hotel/8087/index.en.shtml",
-      "source_type": "other",
-      "evidence_state": "measured",
-      "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
-      "reference_count": 2,
-      "reference_kinds": [
-        "content_entity"
-      ],
-      "reference_ids": [
-        "collection.leiden-weekend",
-        "hotel.leiden-ibis"
       ]
     },
     {
@@ -8562,6 +8634,24 @@
       ]
     },
     {
+      "source_key": "source.5b8f4cee26e6f18bf5bd2e6e",
+      "title": "Museum visit - Museum Ons' Lieve Heer op Solder",
+      "publisher": "opsolder.nl",
+      "url": "https://opsolder.nl/en/museum-visit/",
+      "canonical_url": "https://opsolder.nl/en/museum-visit/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.museum-ons-lieve-heer-op-solder"
+      ]
+    },
+    {
       "source_key": "source.c336db535fb970d264a2c171",
       "title": "Opsterland appointment page",
       "publisher": "Opsterland",
@@ -8750,7 +8840,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -8876,7 +8966,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -9668,7 +9758,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -10299,7 +10389,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -10461,7 +10551,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -10552,32 +10642,65 @@
       "evidence_state": "measured",
       "link_health_state": "unknown",
       "last_checked_date": "2026-11-15",
-      "reference_count": 2,
+      "reference_count": 1,
       "reference_kinds": [
         "content_entity"
       ],
       "reference_ids": [
-        "nature.leiden-park-de-put",
         "nature.leiden-plantsoen"
       ]
     },
     {
-      "source_key": "source.d6cb47dcfb5639504f6aac66",
+      "source_key": "source.4a789aa973f4c2025f9391b8",
       "title": "Singelpark walking map",
       "publisher": "Stichting Vrienden van het Singelpark",
-      "url": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
-      "canonical_url": "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf",
+      "url": "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark",
+      "canonical_url": "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark",
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
-      "reference_count": 3,
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
       "reference_kinds": [
         "content_entity"
       ],
       "reference_ids": [
-        "nature.leiden-ankerpark",
-        "nature.leiden-blekerspark",
+        "nature.leiden-blekerspark"
+      ]
+    },
+    {
+      "source_key": "source.749402f34647ac3028afee2e",
+      "title": "Singelpark walking map",
+      "publisher": "Stichting Vrienden van het Singelpark",
+      "url": "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark",
+      "canonical_url": "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "nature.leiden-ankerpark"
+      ]
+    },
+    {
+      "source_key": "source.a1799e44803209d39645220c",
+      "title": "Singelpark walking map",
+      "publisher": "Stichting Vrienden van het Singelpark",
+      "url": "https://www.visitleiden.nl/nl/locaties/801920722/huigpark",
+      "canonical_url": "https://www.visitleiden.nl/nl/locaties/801920722/huigpark",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
         "nature.leiden-huigpark"
       ]
     },
@@ -10662,7 +10785,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -10824,7 +10947,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -10842,7 +10965,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -10968,7 +11091,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -11932,6 +12055,24 @@
       ]
     },
     {
+      "source_key": "source.c38ba547edcc1bf69ba9febc",
+      "title": "Singelpark walking map",
+      "publisher": "Vrienden van het Singelpark",
+      "url": "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put",
+      "canonical_url": "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "nature.leiden-park-de-put"
+      ]
+    },
+    {
       "source_key": "source.6162517fa3ee61859c5ab6a2",
       "title": "Vught appointment page",
       "publisher": "Vught",
@@ -12030,7 +12171,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -12373,7 +12514,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -12920,6 +13061,276 @@
       ],
       "reference_ids": [
         "GM0351"
+      ]
+    },
+    {
+      "source_key": "source.42613502e948bb2695075c54",
+      "title": "Allard Pierson | Home",
+      "publisher": "www.allardpierson.nl",
+      "url": "https://www.allardpierson.nl/en/",
+      "canonical_url": "https://www.allardpierson.nl/en/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.allard-pierson"
+      ]
+    },
+    {
+      "source_key": "source.1a20a7f9914b1d6b3ec62c4e",
+      "title": "Museum | Anne Frank House",
+      "publisher": "www.annefrank.org",
+      "url": "https://www.annefrank.org/en/museum/",
+      "canonical_url": "https://www.annefrank.org/en/museum/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.anne-frank-house"
+      ]
+    },
+    {
+      "source_key": "source.ffd236ab82ac97530397e26d",
+      "title": "ARTIS-Micropia | Microbe Museum in Amsterdam | ARTIS",
+      "publisher": "www.artis.nl",
+      "url": "https://www.artis.nl/en/artis-micropia",
+      "canonical_url": "https://www.artis.nl/en/artis-micropia",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.artis-micropia"
+      ]
+    },
+    {
+      "source_key": "source.1eea00c662addebcd7df777f",
+      "title": "Eye Filmmuseum - Amsterdam",
+      "publisher": "www.eyefilm.nl",
+      "url": "https://www.eyefilm.nl/en",
+      "canonical_url": "https://www.eyefilm.nl/en",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.eye-filmmuseum"
+      ]
+    },
+    {
+      "source_key": "source.3c89e31cd932cf4a7f3fad77",
+      "title": "Plan your visit | Foam in Amsterdam",
+      "publisher": "www.foam.org",
+      "url": "https://www.foam.org/visit",
+      "canonical_url": "https://www.foam.org/visit",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.foam"
+      ]
+    },
+    {
+      "source_key": "source.29314af7f1b4c380ad43b09d",
+      "title": "Museum H'ART Amsterdam",
+      "publisher": "www.hartmuseum.nl",
+      "url": "https://www.hartmuseum.nl/en/",
+      "canonical_url": "https://www.hartmuseum.nl/en/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.hart-museum"
+      ]
+    },
+    {
+      "source_key": "source.4bc489024d3d4075db5dbe04",
+      "title": "Home | Het Scheepvaartmuseum | The National Maritime Museum",
+      "publisher": "www.hetscheepvaartmuseum.com",
+      "url": "https://www.hetscheepvaartmuseum.com/",
+      "canonical_url": "https://www.hetscheepvaartmuseum.com/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.het-scheepvaartmuseum"
+      ]
+    },
+    {
+      "source_key": "source.95c3032e44d1882913bda30d",
+      "title": "Museum Van Loon | historisch grachtenhuis in Amsterdam",
+      "publisher": "www.museumvanloon.nl",
+      "url": "https://www.museumvanloon.nl/en",
+      "canonical_url": "https://www.museumvanloon.nl/en",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.museum-van-loon"
+      ]
+    },
+    {
+      "source_key": "source.f1d9b9918fbce0ccfb50795e",
+      "title": "Plan your visit - NEMO Science Museum",
+      "publisher": "www.nemosciencemuseum.nl",
+      "url": "https://www.nemosciencemuseum.nl/en/plan-your-visit",
+      "canonical_url": "https://www.nemosciencemuseum.nl/en/plan-your-visit",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.nemo-science-museum"
+      ]
+    },
+    {
+      "source_key": "source.c888d92e5331effe695be984",
+      "title": "Royal Palace Amsterdam - Paleis Amsterdam",
+      "publisher": "www.paleisamsterdam.nl",
+      "url": "https://www.paleisamsterdam.nl/en/",
+      "canonical_url": "https://www.paleisamsterdam.nl/en/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.royal-palace-amsterdam"
+      ]
+    },
+    {
+      "source_key": "source.d2fe677be5c0961ca383ebfe",
+      "title": "Rembrandt House Museum Amsterdam | Atelier & Tickets",
+      "publisher": "www.rembrandthuis.nl",
+      "url": "https://www.rembrandthuis.nl/en/",
+      "canonical_url": "https://www.rembrandthuis.nl/en/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.museum-rembrandthuis"
+      ]
+    },
+    {
+      "source_key": "source.a007aa4fbf777ab398217204",
+      "title": "Rijksmuseum Amsterdam, home of Dutch master pieces",
+      "publisher": "www.rijksmuseum.nl",
+      "url": "https://www.rijksmuseum.nl/en",
+      "canonical_url": "https://www.rijksmuseum.nl/en",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.rijksmuseum"
+      ]
+    },
+    {
+      "source_key": "source.2b8daa364407c701f36b0934",
+      "title": "Stedelijk Museum Amsterdam",
+      "publisher": "www.stedelijk.nl",
+      "url": "https://www.stedelijk.nl/en",
+      "canonical_url": "https://www.stedelijk.nl/en",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.stedelijk-museum-amsterdam"
+      ]
+    },
+    {
+      "source_key": "source.78870b18aae86ef805c154d4",
+      "title": "The Museum about Vincent van Gogh in Amsterdam - Van Gogh Museum",
+      "publisher": "www.vangoghmuseum.nl",
+      "url": "https://www.vangoghmuseum.nl/en",
+      "canonical_url": "https://www.vangoghmuseum.nl/en",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.van-gogh-museum"
+      ]
+    },
+    {
+      "source_key": "source.949add72fe89298fe82d3132",
+      "title": "The Netherlands in World War II – Verzetsmuseum",
+      "publisher": "www.verzetsmuseum.org",
+      "url": "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands",
+      "canonical_url": "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "museum.dutch-resistance-museum"
       ]
     },
     {

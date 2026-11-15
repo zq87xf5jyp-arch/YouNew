@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generatedAt": "2026-10-23T00:00:00Z",
-  "datasetFingerprint": "c1f1f4fd7f7e47b2a64bfe068589412d3d11e9ff36d69440040a1ccc2e88856d",
+  "datasetFingerprint": "87c6b9743ecfc2eec0b3dc665d9af8f7a65e5d0830dff3b7439a26715a13a303",
   "locale": "en",
   "geographyEffectiveDate": "2026-01-01",
   "documents": [
@@ -326,13 +326,78 @@
       "commonQuestions": []
     },
     {
+      "id": "museum.allard-pierson",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "allard-pierson",
+      "route": "/places/allard-pierson",
+      "title": "Allard Pierson",
+      "summary": "Explore the collections of the University of Amsterdam at Allard Pierson through exhibitions and heritage research.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Allard Pierson",
+        "amsterdam",
+        "heritage-collections",
+        "allardpierson"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Allard Pierson",
+        "summary": "Ontdek de collecties van de Universiteit van Amsterdam in het Allard Pierson via tentoonstellingen en erfgoedonderzoek.",
+        "route": "/nl/plaatsen/allard-pierson"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.allardpierson.nl/en/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "heritage-collections",
+      "organization": "www.allardpierson.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Allard Pierson",
+        "Ontdek de collecties van de Universiteit van Amsterdam in het Allard Pierson via tentoonstellingen en erfgoedonderzoek."
+      ],
+      "officialOrganizationNames": [
+        "www.allardpierson.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "nature.leiden-ankerpark",
       "type": "place",
       "sourceKind": "park",
       "slug": "leiden-ankerpark",
       "route": "/places/leiden-ankerpark",
       "title": "Ankerpark",
-      "summary": "A waterside park that forms part of the walking circuit around Leiden’s historic centre.",
+      "summary": "A waterside peninsula in Leiden’s Singelpark, with chestnut trees and views towards the Zijlpoort. Approach it over the footbridges from the city side.",
       "contentDepth": "summary",
       "keywords": [
         "Ankerpark",
@@ -359,14 +424,14 @@
       ],
       "dutch": {
         "title": "Ankerpark",
-        "summary": "Een park aan het water dat deel uitmaakt van de wandelroute rond de historische binnenstad.",
+        "summary": "Een schiereiland aan het water in het Leidse Singelpark, met kastanjebomen en uitzicht op de Zijlpoort. Je bereikt het via de voetbruggen aan de stadszijde.",
         "route": "/nl/plaatsen/leiden-ankerpark"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
-        "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf"
+        "https://www.visitleiden.nl/nl/locaties/540000812/het-ankerpark"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "parks-walks",
@@ -381,10 +446,75 @@
       "tags": [],
       "synonyms": [
         "Ankerpark",
-        "Een park aan het water dat deel uitmaakt van de wandelroute rond de historische binnenstad."
+        "Een schiereiland aan het water in het Leidse Singelpark, met kastanjebomen en uitzicht op de Zijlpoort. Je bereikt het via de voetbruggen aan de stadszijde."
       ],
       "officialOrganizationNames": [
         "Stichting Vrienden van het Singelpark"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.anne-frank-house",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "anne-frank-house",
+      "route": "/places/anne-frank-house",
+      "title": "Anne Frank House",
+      "summary": "Learn about Anne Frank, her diary and the people who hid in the Secret Annex. Plan entry through the museum's official ticket information.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Anne Frank House",
+        "amsterdam",
+        "history-memorial",
+        "annefrankhouse"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Anne Frank House",
+        "summary": "Leer over Anne Frank, haar dagboek en de mensen die in het Achterhuis onderdoken. Plan je bezoek via de officiële ticketinformatie van het museum.",
+        "route": "/nl/plaatsen/anne-frank-house"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.annefrank.org/en/museum/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "history-memorial",
+      "organization": "www.annefrank.org",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Anne Frank House",
+        "Leer over Anne Frank, haar dagboek en de mensen die in het Achterhuis onderdoken. Plan je bezoek via de officiële ticketinformatie van het museum."
+      ],
+      "officialOrganizationNames": [
+        "www.annefrank.org"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -590,6 +720,71 @@
       "commonQuestions": []
     },
     {
+      "id": "museum.artis-micropia",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "artis-micropia",
+      "route": "/places/artis-micropia",
+      "title": "ARTIS-Micropia",
+      "summary": "Explore the world of microbes and their role in daily life through Micropia's displays and scientific perspective.",
+      "contentDepth": "summary",
+      "keywords": [
+        "ARTIS-Micropia",
+        "amsterdam",
+        "microbiology",
+        "artismicropia"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "ARTIS-Micropia",
+        "summary": "Ontdek de wereld van microben en hun rol in het dagelijks leven via de presentaties en wetenschappelijke blik van Micropia.",
+        "route": "/nl/plaatsen/artis-micropia"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.artis.nl/en/artis-micropia"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "microbiology",
+      "organization": "www.artis.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "ARTIS-Micropia",
+        "Ontdek de wereld van microben en hun rol in het dagelijks leven via de presentaties en wetenschappelijke blik van Micropia."
+      ],
+      "officialOrganizationNames": [
+        "www.artis.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "cafe.leiden-barista",
       "type": "place",
       "sourceKind": "cafe",
@@ -660,7 +855,7 @@
       "slug": "utrecht-neude",
       "route": "/places/utrecht-neude",
       "title": "Bibliotheek Neude",
-      "summary": "A public library in central Utrecht with reading and study places, computers, Wi-Fi and printing facilities. Staffing levels vary through the day; the branch page explains when help is available.",
+      "summary": "Explore Utrecht’s former post office as a working public library, with a monumental hall, reading spaces and a cultural programme.",
       "contentDepth": "summary",
       "keywords": [
         "Bibliotheek Neude",
@@ -687,14 +882,14 @@
       ],
       "dutch": {
         "title": "Bibliotheek Neude",
-        "summary": "De centrale bibliotheek aan de Neude in het voormalige postkantoor, met boeken en plekken om te lezen.",
+        "summary": "Ontdek het voormalige Utrechtse postkantoor als actieve openbare bibliotheek, met een monumentale hal, leesplekken en een cultureel programma.",
         "route": "/nl/plaatsen/utrecht-neude"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
-        "https://www.bibliotheekutrecht.nl/bereikbaarheid-neude.html"
+        "https://www.bibliotheekutrecht.nl/bibliotheken/bibliotheek-neude.html"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "public-library",
@@ -709,7 +904,7 @@
       "tags": [],
       "synonyms": [
         "Bibliotheek Neude",
-        "De centrale bibliotheek aan de Neude in het voormalige postkantoor, met boeken en plekken om te lezen."
+        "Ontdek het voormalige Utrechtse postkantoor als actieve openbare bibliotheek, met een monumentale hal, leesplekken en een cultureel programma."
       ],
       "officialOrganizationNames": [
         "Bibliotheek Utrecht"
@@ -788,7 +983,7 @@
       "slug": "leiden-blekerspark",
       "route": "/places/leiden-blekerspark",
       "title": "Blekerspark",
-      "summary": "A Singelpark stop with Japanese planting described by Leiden’s official visitor information.",
+      "summary": "A green stop beside the Herensingel on the former municipal yard site. Add it to a walk through the northern section of Leiden’s Singelpark.",
       "contentDepth": "summary",
       "keywords": [
         "Blekerspark",
@@ -815,14 +1010,14 @@
       ],
       "dutch": {
         "title": "Blekerspark",
-        "summary": "Een deel van het Singelpark met Japanse beplanting, beschreven door de officiële bezoekersinformatie.",
+        "summary": "Een groene halte aan de Herensingel op het terrein van de vroegere Gemeentewerf. Combineer het park met een wandeling langs het noordelijke Singelpark.",
         "route": "/nl/plaatsen/leiden-blekerspark"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
-        "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf"
+        "https://www.visitleiden.nl/nl/locaties/482052751/blekerspark"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "parks-walks",
@@ -837,7 +1032,7 @@
       "tags": [],
       "synonyms": [
         "Blekerspark",
-        "Een deel van het Singelpark met Japanse beplanting, beschreven door de officiële bezoekersinformatie."
+        "Een groene halte aan de Herensingel op het terrein van de vroegere Gemeentewerf. Combineer het park met een wandeling langs het noordelijke Singelpark."
       ],
       "officialOrganizationNames": [
         "Stichting Vrienden van het Singelpark"
@@ -916,7 +1111,7 @@
       "slug": "leiden-oude-morsch",
       "route": "/places/leiden-oude-morsch",
       "title": "Boutique Hotel d’Oude Morsch",
-      "summary": "A boutique hotel at Park de Put. Check arrival arrangements with reception; reception hours are distinct from room access.",
+      "summary": "A boutique hotel in the former guard building of the Morspoort barracks, beside Park de Put. Its location connects a stay with Leiden’s western city centre.",
       "contentDepth": "summary",
       "keywords": [
         "Boutique Hotel d’Oude Morsch",
@@ -943,12 +1138,12 @@
       ],
       "dutch": {
         "title": "Boutique Hotel d’Oude Morsch",
-        "summary": "Een boutiquehotel bij Park de Put. Stem je aankomst af met de receptie; receptietijden zijn niet hetzelfde als toegang tot je kamer.",
+        "summary": "Een boetiekhotel in het voormalige wachtgebouw van de Morspoortkazerne, naast Park de Put. De ligging sluit aan op het westelijke deel van de Leidse binnenstad.",
         "route": "/nl/plaatsen/leiden-oude-morsch"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.boutiquehoteldeoudemorsch.nl/contact/"
       ],
@@ -965,7 +1160,7 @@
       "tags": [],
       "synonyms": [
         "Boutique Hotel d’Oude Morsch",
-        "Een boutiquehotel bij Park de Put. Stem je aankomst af met de receptie; receptietijden zijn niet hetzelfde als toegang tot je kamer."
+        "Een boetiekhotel in het voormalige wachtgebouw van de Morspoortkazerne, naast Park de Put. De ligging sluit aan op het westelijke deel van de Leidse binnenstad."
       ],
       "officialOrganizationNames": [
         "Boutique Hotel d’Oude Morsch"
@@ -1108,7 +1303,7 @@
       "slug": "rotterdam-chabot",
       "route": "/places/rotterdam-chabot",
       "title": "Chabot Museum",
-      "summary": "A museum at Museumpark in central Rotterdam. Its visitor page provides ticket information and explains the entrance steps and small lift, so visitors with access needs can plan ahead.",
+      "summary": "A museum in a white modernist villa beside Rotterdam’s Museumpark. Plan around its changing exhibitions and compact historic building.",
       "contentDepth": "summary",
       "keywords": [
         "Chabot Museum",
@@ -1135,12 +1330,12 @@
       ],
       "dutch": {
         "title": "Chabot Museum",
-        "summary": "Een museum in een villa aan het Museumpark, met aandacht voor het werk van Henk Chabot.",
+        "summary": "Een museum in een witte modernistische villa aan het Rotterdamse Museumpark. Houd rekening met wisselende tentoonstellingen en het compacte historische gebouw.",
         "route": "/nl/plaatsen/rotterdam-chabot"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://chabotmuseum.nl/bezoekers/"
       ],
@@ -1157,7 +1352,7 @@
       "tags": [],
       "synonyms": [
         "Chabot Museum",
-        "Een museum in een villa aan het Museumpark, met aandacht voor het werk van Henk Chabot."
+        "Een museum in een witte modernistische villa aan het Rotterdamse Museumpark. Houd rekening met wisselende tentoonstellingen en het compacte historische gebouw."
       ],
       "officialOrganizationNames": [
         "Chabot Museum"
@@ -1172,7 +1367,7 @@
       "slug": "leiden-rembrandt-hotel",
       "route": "/places/leiden-rembrandt-hotel",
       "title": "City Hotel Rembrandt",
-      "summary": "A hotel on Nieuwe Beestenmarkt. Compare the hotel’s own room options and conditions for your travel dates.",
+      "summary": "A city hotel on Nieuwe Beestenmarkt, close to Leiden’s museum quarter. The official website distinguishes hotel rooms from hotel studios.",
       "contentDepth": "summary",
       "keywords": [
         "City Hotel Rembrandt",
@@ -1199,12 +1394,12 @@
       ],
       "dutch": {
         "title": "City Hotel Rembrandt",
-        "summary": "Een hotel aan de Nieuwe Beestenmarkt. Vergelijk de eigen kameropties en voorwaarden voor je reisdata.",
+        "summary": "Een stadshotel aan de Nieuwe Beestenmarkt, bij het Leidse museumgebied. De officiële website maakt onderscheid tussen hotelkamers en hotelstudio’s.",
         "route": "/nl/plaatsen/leiden-rembrandt-hotel"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.rembrandthotel.nl/contact"
       ],
@@ -1221,7 +1416,7 @@
       "tags": [],
       "synonyms": [
         "City Hotel Rembrandt",
-        "Een hotel aan de Nieuwe Beestenmarkt. Vergelijk de eigen kameropties en voorwaarden voor je reisdata."
+        "Een stadshotel aan de Nieuwe Beestenmarkt, bij het Leidse museumgebied. De officiële website maakt onderscheid tussen hotelkamers en hotelstudio’s."
       ],
       "officialOrganizationNames": [
         "City Hotel Rembrandt"
@@ -1422,6 +1617,71 @@
       "commonQuestions": []
     },
     {
+      "id": "museum.dutch-resistance-museum",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "dutch-resistance-museum",
+      "route": "/places/dutch-resistance-museum",
+      "title": "Dutch Resistance Museum",
+      "summary": "Explore personal stories about the Netherlands during the Second World War and the choices people faced under occupation.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Dutch Resistance Museum",
+        "amsterdam",
+        "war-history",
+        "dutchresistancemuseum"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Dutch Resistance Museum",
+        "summary": "Ontdek persoonlijke verhalen over Nederland tijdens de Tweede Wereldoorlog en de keuzes waarmee mensen tijdens de bezetting werden geconfronteerd.",
+        "route": "/nl/plaatsen/dutch-resistance-museum"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.verzetsmuseum.org/en/world-war-ii-in-the-netherlands"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "war-history",
+      "organization": "www.verzetsmuseum.org",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Dutch Resistance Museum",
+        "Ontdek persoonlijke verhalen over Nederland tijdens de Tweede Wereldoorlog en de keuzes waarmee mensen tijdens de bezetting werden geconfronteerd."
+      ],
+      "officialOrganizationNames": [
+        "www.verzetsmuseum.org"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "guide.leiden-contacts",
       "type": "guide",
       "sourceKind": "knowledgeTopic",
@@ -1485,6 +1745,71 @@
       ],
       "officialOrganizationNames": [
         "Emergency and non-emergency contacts"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.eye-filmmuseum",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "eye-filmmuseum",
+      "route": "/places/eye-filmmuseum",
+      "title": "Eye Filmmuseum",
+      "summary": "Explore film through exhibitions and cinema screenings at Eye. Consult the programme for current films and events.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Eye Filmmuseum",
+        "amsterdam",
+        "film",
+        "eyefilmmuseum"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Eye Filmmuseum",
+        "summary": "Ontdek film via tentoonstellingen en bioscoopvertoningen bij Eye. Bekijk het programma voor actuele films en evenementen.",
+        "route": "/nl/plaatsen/eye-filmmuseum"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.eyefilm.nl/en"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "film",
+      "organization": "www.eyefilm.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Eye Filmmuseum",
+        "Ontdek film via tentoonstellingen en bioscoopvertoningen bij Eye. Bekijk het programma voor actuele films en evenementen."
+      ],
+      "officialOrganizationNames": [
+        "www.eyefilm.nl"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -1622,13 +1947,78 @@
       "commonQuestions": []
     },
     {
+      "id": "museum.foam",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "foam",
+      "route": "/places/foam",
+      "title": "Foam",
+      "summary": "Explore photography through exhibitions featuring different approaches, established photographers and emerging talent.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Foam",
+        "amsterdam",
+        "photography",
+        "foam"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Foam",
+        "summary": "Ontdek fotografie via tentoonstellingen met uiteenlopende benaderingen, gevestigde fotografen en nieuw talent.",
+        "route": "/nl/plaatsen/foam"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.foam.org/visit"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "photography",
+      "organization": "www.foam.org",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Foam",
+        "Ontdek fotografie via tentoonstellingen met uiteenlopende benaderingen, gevestigde fotografen en nieuw talent."
+      ],
+      "officialOrganizationNames": [
+        "www.foam.org"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "museum.den-haag-fotomuseum",
       "type": "place",
       "sourceKind": "museum",
       "slug": "den-haag-fotomuseum",
       "route": "/places/den-haag-fotomuseum",
       "title": "Fotomuseum Den Haag",
-      "summary": "A museum devoted to photography near the Kunstmuseum in The Hague. Its exhibition programme presents work by established and emerging photographers; consult the museum for the current programme.",
+      "summary": "A photography museum at Stadhouderslaan with changing exhibitions. Check the current exhibition surcharge as well as the standard admission price.",
       "contentDepth": "summary",
       "keywords": [
         "Fotomuseum Den Haag",
@@ -1655,14 +2045,14 @@
       ],
       "dutch": {
         "title": "Fotomuseum Den Haag",
-        "summary": "Fototentoonstellingen aan de Stadhouderslaan; de eigen website vermeldt het actuele programma.",
+        "summary": "Een fotografiemuseum aan de Stadhouderslaan met wisselende tentoonstellingen. Controleer naast de basisentree ook de actuele tentoonstellingstoeslag.",
         "route": "/nl/plaatsen/den-haag-fotomuseum"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
-        "https://www.fotomuseumdenhaag.nl/en/contact"
+        "https://www.fotomuseumdenhaag.nl/en/plan-your-visit"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "photography",
@@ -1677,7 +2067,7 @@
       "tags": [],
       "synonyms": [
         "Fotomuseum Den Haag",
-        "Fototentoonstellingen aan de Stadhouderslaan; de eigen website vermeldt het actuele programma."
+        "Een fotografiemuseum aan de Stadhouderslaan met wisselende tentoonstellingen. Controleer naast de basisentree ook de actuele tentoonstellingstoeslag."
       ],
       "officialOrganizationNames": [
         "Fotomuseum Den Haag"
@@ -1888,7 +2278,7 @@
       "slug": "leiden-grand-cafe-burcht",
       "route": "/places/leiden-grand-cafe-burcht",
       "title": "Grand Café De Burcht",
-      "summary": "A café-restaurant below De Burcht offering lunch, dinner and drinks. It is separate from the historic fortification.",
+      "summary": "A café-restaurant at the foot of De Burcht for lunch, dinner and drinks. The venue and the hilltop fort are separate destinations.",
       "contentDepth": "summary",
       "keywords": [
         "Grand Café De Burcht",
@@ -1915,12 +2305,12 @@
       ],
       "dutch": {
         "title": "Grand Café De Burcht",
-        "summary": "Een café-restaurant onder De Burcht voor lunch, diner en drankjes. Dit is een andere locatie dan de historische burcht.",
+        "summary": "Een café-restaurant aan de voet van De Burcht voor lunch, diner en drankjes. Het horecabedrijf en de burcht boven op de heuvel zijn aparte bestemmingen.",
         "route": "/nl/plaatsen/leiden-grand-cafe-burcht"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.grandcafedeburcht.nl/en"
       ],
@@ -1937,10 +2327,75 @@
       "tags": [],
       "synonyms": [
         "Grand Café De Burcht",
-        "Een café-restaurant onder De Burcht voor lunch, diner en drankjes. Dit is een andere locatie dan de historische burcht."
+        "Een café-restaurant aan de voet van De Burcht voor lunch, diner en drankjes. Het horecabedrijf en de burcht boven op de heuvel zijn aparte bestemmingen."
       ],
       "officialOrganizationNames": [
         "Grand Café De Burcht"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.hart-museum",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "hart-museum",
+      "route": "/places/hart-museum",
+      "title": "H'ART Museum",
+      "summary": "Discover changing art exhibitions at H'ART Museum. Check the current programme to see which collections are on display.",
+      "contentDepth": "summary",
+      "keywords": [
+        "H'ART Museum",
+        "amsterdam",
+        "art",
+        "hartmuseum"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "H'ART Museum",
+        "summary": "Ontdek wisselende kunsttentoonstellingen in H'ART Museum. Bekijk het actuele programma om te zien welke collecties te zien zijn.",
+        "route": "/nl/plaatsen/hart-museum"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.hartmuseum.nl/en/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "art",
+      "organization": "www.hartmuseum.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "H'ART Museum",
+        "Ontdek wisselende kunsttentoonstellingen in H'ART Museum. Bekijk het actuele programma om te zien welke collecties te zien zijn."
+      ],
+      "officialOrganizationNames": [
+        "www.hartmuseum.nl"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -2016,7 +2471,7 @@
       "slug": "leiden-prentenkabinet",
       "route": "/places/leiden-prentenkabinet",
       "title": "Het Prentenkabinet",
-      "summary": "A restaurant on Kloksteeg offering lunch and dinner on selected days. Check the official menu and arrival times before visiting.",
+      "summary": "Lunch or dinner on Kloksteeg, with course menus and separate arrival deadlines. Plan the day and arrival time before reserving.",
       "contentDepth": "summary",
       "keywords": [
         "Het Prentenkabinet",
@@ -2043,12 +2498,12 @@
       ],
       "dutch": {
         "title": "Het Prentenkabinet",
-        "summary": "Een restaurant aan de Kloksteeg met lunch en diner op geselecteerde dagen. Bekijk de eigen kaart en aankomsttijden voor je bezoek.",
+        "summary": "Lunchen of dineren aan de Kloksteeg, met gangenmenu’s en aparte uiterste aankomsttijden. Kies de dag en aankomsttijd voordat je reserveert.",
         "route": "/nl/plaatsen/leiden-prentenkabinet"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.prentenkabinet.nl/reserveren/"
       ],
@@ -2065,10 +2520,75 @@
       "tags": [],
       "synonyms": [
         "Het Prentenkabinet",
-        "Een restaurant aan de Kloksteeg met lunch en diner op geselecteerde dagen. Bekijk de eigen kaart en aankomsttijden voor je bezoek."
+        "Lunchen of dineren aan de Kloksteeg, met gangenmenu’s en aparte uiterste aankomsttijden. Kies de dag en aankomsttijd voordat je reserveert."
       ],
       "officialOrganizationNames": [
         "Het Prentenkabinet"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.het-scheepvaartmuseum",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "het-scheepvaartmuseum",
+      "route": "/places/het-scheepvaartmuseum",
+      "title": "Het Scheepvaartmuseum",
+      "summary": "Explore maritime history and the relationship between the Netherlands and water through ships, objects and exhibitions.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Het Scheepvaartmuseum",
+        "amsterdam",
+        "maritime-history",
+        "hetscheepvaartmuseum"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Het Scheepvaartmuseum",
+        "summary": "Ontdek maritieme geschiedenis en de relatie tussen Nederland en water via schepen, voorwerpen en tentoonstellingen.",
+        "route": "/nl/plaatsen/het-scheepvaartmuseum"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.hetscheepvaartmuseum.com/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "maritime-history",
+      "organization": "www.hetscheepvaartmuseum.com",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Het Scheepvaartmuseum",
+        "Ontdek maritieme geschiedenis en de relatie tussen Nederland en water via schepen, voorwerpen en tentoonstellingen."
+      ],
+      "officialOrganizationNames": [
+        "www.hetscheepvaartmuseum.com"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -2144,7 +2664,7 @@
       "slug": "leiden-huigpark",
       "route": "/places/leiden-huigpark",
       "title": "Huigpark",
-      "summary": "A park along the northern section of the Singelpark walking circuit.",
+      "summary": "A small park along the Maresingel with grass, planted beds and a connection to the Energiepark area. It offers an outdoor pause north of Leiden’s centre.",
       "contentDepth": "summary",
       "keywords": [
         "Huigpark",
@@ -2171,14 +2691,14 @@
       ],
       "dutch": {
         "title": "Huigpark",
-        "summary": "Een park langs het noordelijke deel van de Singelparkroute.",
+        "summary": "Een klein park langs de Maresingel met gras, beplanting en een verbinding met het Energiepark. Een plek voor een buitenpauze ten noorden van de binnenstad.",
         "route": "/nl/plaatsen/leiden-huigpark"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
-        "https://www.singelpark.nl/wp-content/uploads/2025/04/DLH_FlyerA5_Singelparkroute_def2.pdf"
+        "https://www.visitleiden.nl/nl/locaties/801920722/huigpark"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "parks-walks",
@@ -2193,10 +2713,75 @@
       "tags": [],
       "synonyms": [
         "Huigpark",
-        "Een park langs het noordelijke deel van de Singelparkroute."
+        "Een klein park langs de Maresingel met gras, beplanting en een verbinding met het Energiepark. Een plek voor een buitenpauze ten noorden van de binnenstad."
       ],
       "officialOrganizationNames": [
         "Stichting Vrienden van het Singelpark"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.huis-marseille",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "huis-marseille",
+      "route": "/places/huis-marseille",
+      "title": "Huis Marseille",
+      "summary": "Discover photographic exhibitions at Huis Marseille, a museum dedicated to photography in Amsterdam.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Huis Marseille",
+        "amsterdam",
+        "photography",
+        "huismarseille"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Huis Marseille",
+        "summary": "Ontdek fotografietentoonstellingen in Huis Marseille, een Amsterdams museum gewijd aan fotografie.",
+        "route": "/nl/plaatsen/huis-marseille"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://huismarseille.nl/en/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "photography",
+      "organization": "huismarseille.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Huis Marseille",
+        "Ontdek fotografietentoonstellingen in Huis Marseille, een Amsterdams museum gewijd aan fotografie."
+      ],
+      "officialOrganizationNames": [
+        "huismarseille.nl"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -2208,7 +2793,7 @@
       "slug": "leiden-huys-van-leyden",
       "route": "/places/leiden-huys-van-leyden",
       "title": "Huys van Leyden",
-      "summary": "A small hotel on Oude Singel in the historic centre. Confirm your room and arrival arrangements directly with the hotel.",
+      "summary": "A small canal-side hotel on the Oude Singel, with rooms in historic buildings and separate apartment options. Check the exact accommodation before reserving.",
       "contentDepth": "summary",
       "keywords": [
         "Huys van Leyden",
@@ -2235,12 +2820,12 @@
       ],
       "dutch": {
         "title": "Huys van Leyden",
-        "summary": "Een kleinschalig hotel aan de Oude Singel in de historische binnenstad. Controleer kamerkeuze en aankomstafspraken bij het hotel.",
+        "summary": "Een kleinschalig hotel aan de Oude Singel, met kamers in historische panden en afzonderlijke appartementen. Controleer vóór reservering welke accommodatie je boekt.",
         "route": "/nl/plaatsen/leiden-huys-van-leyden"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.boutiquehotelsvanleyden.nl/nl/contact.html"
       ],
@@ -2257,7 +2842,7 @@
       "tags": [],
       "synonyms": [
         "Huys van Leyden",
-        "Een kleinschalig hotel aan de Oude Singel in de historische binnenstad. Controleer kamerkeuze en aankomstafspraken bij het hotel."
+        "Een kleinschalig hotel aan de Oude Singel, met kamers in historische panden en afzonderlijke appartementen. Controleer vóór reservering welke accommodatie je boekt."
       ],
       "officialOrganizationNames": [
         "Huys van Leyden"
@@ -2272,7 +2857,7 @@
       "slug": "leiden-ibis",
       "route": "/places/leiden-ibis",
       "title": "ibis Leiden Centre",
-      "summary": "A hotel opposite Leiden Centraal. The operator lists room options and practical arrival information on its official page.",
+      "summary": "A hotel opposite Leiden Centraal for visitors arriving by train. Accor’s official page lists room categories, breakfast arrangements and on-site facilities.",
       "contentDepth": "summary",
       "keywords": [
         "ibis Leiden Centre",
@@ -2299,12 +2884,12 @@
       ],
       "dutch": {
         "title": "ibis Leiden Centre",
-        "summary": "Een hotel tegenover Leiden Centraal. De aanbieder vermeldt kameropties en praktische aankomstinformatie op de officiële pagina.",
+        "summary": "Een hotel tegenover Leiden Centraal voor bezoekers die met de trein aankomen. De officiële Accor-pagina vermeldt kamertypes, ontbijt en voorzieningen.",
         "route": "/nl/plaatsen/leiden-ibis"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://all.accor.com/hotel/8087/index.en.shtml"
       ],
@@ -2321,7 +2906,7 @@
       "tags": [],
       "synonyms": [
         "ibis Leiden Centre",
-        "Een hotel tegenover Leiden Centraal. De aanbieder vermeldt kameropties en praktische aankomstinformatie op de officiële pagina."
+        "Een hotel tegenover Leiden Centraal voor bezoekers die met de trein aankomen. De officiële Accor-pagina vermeldt kamertypes, ontbijt en voorzieningen."
       ],
       "officialOrganizationNames": [
         "ibis Leiden Centre"
@@ -2336,7 +2921,7 @@
       "slug": "eindhoven-inkijkmuseum",
       "route": "/places/eindhoven-inkijkmuseum",
       "title": "Inkijkmuseum",
-      "summary": "A small museum on Dommelstraat where artwork can be viewed through a window. The city tourism listing distinguishes this exterior viewing from private visits inside and occasional public activities.",
+      "summary": "A tiny museum beside the Dommel that invites you to look through its windows. Window viewing and organised visits are different experiences.",
       "contentDepth": "summary",
       "keywords": [
         "Inkijkmuseum",
@@ -2363,12 +2948,12 @@
       ],
       "dutch": {
         "title": "Inkijkmuseum",
-        "summary": "Een klein museum aan de Dommelstraat. De presentatie is vanaf buiten te bekijken; bezoek binnen is op afspraak of bij activiteiten.",
+        "summary": "Een klein museum aan de Dommel waar je door de ramen naar binnen kijkt. Kijken vanaf buiten en een georganiseerd bezoek zijn verschillende ervaringen.",
         "route": "/nl/plaatsen/eindhoven-inkijkmuseum"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.thisiseindhoven.com/nl/locaties/inkijkmuseum"
       ],
@@ -2385,10 +2970,75 @@
       "tags": [],
       "synonyms": [
         "Inkijkmuseum",
-        "Een klein museum aan de Dommelstraat. De presentatie is vanaf buiten te bekijken; bezoek binnen is op afspraak of bij activiteiten."
+        "Een klein museum aan de Dommel waar je door de ramen naar binnen kijkt. Kijken vanaf buiten en een georganiseerd bezoek zijn verschillende ervaringen."
       ],
       "officialOrganizationNames": [
         "Inkijkmuseum"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.jewish-museum",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "jewish-museum",
+      "route": "/places/jewish-museum",
+      "title": "Jewish Museum",
+      "summary": "Explore Jewish history, culture and life in the Netherlands through the museum's collections and exhibitions.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Jewish Museum",
+        "amsterdam",
+        "cultural-history",
+        "jewishmuseum"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Jewish Museum",
+        "summary": "Ontdek Joodse geschiedenis, cultuur en leven in Nederland via de collecties en tentoonstellingen van het museum.",
+        "route": "/nl/plaatsen/jewish-museum"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://jck.nl/en/location/jewish-museum"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "cultural-history",
+      "organization": "jck.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Jewish Museum",
+        "Ontdek Joodse geschiedenis, cultuur en leven in Nederland via de collecties en tentoonstellingen van het museum."
+      ],
+      "officialOrganizationNames": [
+        "jck.nl"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -2400,7 +3050,7 @@
       "slug": "den-haag-kaafi",
       "route": "/places/den-haag-kaafi",
       "title": "Kaafi",
-      "summary": "A café with a bar and kitchen on Prinsestraat in The Hague. Its own contact page provides daily visiting hours and distinguishes the kitchen’s closing time from the venue’s closing time.",
+      "summary": "A daytime café on Prinsestraat serving coffee and brunch dishes. The kitchen closes an hour before the café.",
       "contentDepth": "summary",
       "keywords": [
         "Kaafi",
@@ -2427,12 +3077,12 @@
       ],
       "dutch": {
         "title": "Kaafi",
-        "summary": "Een koffiebar aan de Prinsestraat met koffie en eten van de eigen kaart.",
+        "summary": "Een dagcafé aan de Prinsestraat met koffie en brunchgerechten. De keuken sluit een uur eerder dan het café.",
         "route": "/nl/plaatsen/den-haag-kaafi"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://kaafi.nl/contact-us"
       ],
@@ -2449,7 +3099,7 @@
       "tags": [],
       "synonyms": [
         "Kaafi",
-        "Een koffiebar aan de Prinsestraat met koffie en eten van de eigen kaart."
+        "Een dagcafé aan de Prinsestraat met koffie en brunchgerechten. De keuken sluit een uur eerder dan het café."
       ],
       "officialOrganizationNames": [
         "Kaafi"
@@ -2464,7 +3114,7 @@
       "slug": "eindhoven-kazerne",
       "route": "/places/eindhoven-kazerne",
       "title": "Kazerne BarBistro",
-      "summary": "A restaurant and bar within Kazerne in central Eindhoven. The current official page places the BarBistro at Paradijslaan and distinguishes it from the ByDay café serving breakfast and lunch.",
+      "summary": "A bar-bistro within Eindhoven’s Kazerne design setting. Evening dining and the daytime offering have different schedules.",
       "contentDepth": "summary",
       "keywords": [
         "Kazerne BarBistro",
@@ -2491,12 +3141,12 @@
       ],
       "dutch": {
         "title": "Kazerne BarBistro",
-        "summary": "Bar en bistro in Eindhoven. Raadpleeg de eigen kaart en reserveringsinformatie voor je bezoek.",
+        "summary": "Een bar-bistro in de designomgeving van Kazerne in Eindhoven. Avondeten en het dagaanbod hebben verschillende openingstijden.",
         "route": "/nl/plaatsen/eindhoven-kazerne"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.kazerne.com/bar-bistro-kazerne"
       ],
@@ -2513,7 +3163,7 @@
       "tags": [],
       "synonyms": [
         "Kazerne BarBistro",
-        "Bar en bistro in Eindhoven. Raadpleeg de eigen kaart en reserveringsinformatie voor je bezoek."
+        "Een bar-bistro in de designomgeving van Kazerne in Eindhoven. Avondeten en het dagaanbod hebben verschillende openingstijden."
       ],
       "officialOrganizationNames": [
         "Kazerne BarBistro"
@@ -2528,7 +3178,7 @@
       "slug": "utrecht-koffie-leute",
       "route": "/places/utrecht-koffie-leute",
       "title": "Koffie Leute",
-      "summary": "A coffee venue on Westerkade serving coffee, sandwiches and baked goods. The same premises also have a selection of music and coffee equipment, described on the venue’s own website.",
+      "summary": "Coffee, all-day brunch and homemade cakes on Westerkade, alongside a small record shop. Drop in: the café does not take reservations.",
       "contentDepth": "summary",
       "keywords": [
         "Koffie Leute",
@@ -2555,12 +3205,12 @@
       ],
       "dutch": {
         "title": "Koffie Leute",
-        "summary": "Koffie, broodjes en gebak aan de Westerkade, met ook platen en koffieartikelen in dezelfde zaak.",
+        "summary": "Koffie, brunch de hele dag en huisgemaakt gebak aan de Westerkade, naast een kleine platenwinkel. Loop binnen: het café neemt geen reserveringen aan.",
         "route": "/nl/plaatsen/utrecht-koffie-leute"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.koffieleute.nl/"
       ],
@@ -2577,7 +3227,7 @@
       "tags": [],
       "synonyms": [
         "Koffie Leute",
-        "Koffie, broodjes en gebak aan de Westerkade, met ook platen en koffieartikelen in dezelfde zaak."
+        "Koffie, brunch de hele dag en huisgemaakt gebak aan de Westerkade, naast een kleine platenwinkel. Loop binnen: het café neemt geen reserveringen aan."
       ],
       "officialOrganizationNames": [
         "Koffie Leute"
@@ -2782,6 +3432,266 @@
       "commonQuestions": []
     },
     {
+      "id": "museum.museum-of-the-canals",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "museum-of-the-canals",
+      "route": "/places/museum-of-the-canals",
+      "title": "Museum of the Canals",
+      "summary": "Discover the story of Amsterdam's canals and the development of the canal district through the museum's presentation.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Museum of the Canals",
+        "amsterdam",
+        "urban-history",
+        "museumofthecanals"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Museum of the Canals",
+        "summary": "Ontdek het verhaal van de Amsterdamse grachten en de ontwikkeling van de grachtengordel via de museumpresentatie.",
+        "route": "/nl/plaatsen/museum-of-the-canals"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://grachten.museum/en/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "urban-history",
+      "organization": "grachten.museum",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Museum of the Canals",
+        "Ontdek het verhaal van de Amsterdamse grachten en de ontwikkeling van de grachtengordel via de museumpresentatie."
+      ],
+      "officialOrganizationNames": [
+        "grachten.museum"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.museum-ons-lieve-heer-op-solder",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "museum-ons-lieve-heer-op-solder",
+      "route": "/places/museum-ons-lieve-heer-op-solder",
+      "title": "Museum Ons' Lieve Heer op Solder",
+      "summary": "Explore a historic canal house with a church concealed in its upper floors. The museum connects domestic interiors with religious history.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Museum Ons' Lieve Heer op Solder",
+        "amsterdam",
+        "religious-history",
+        "museumonslieveheeropsolder"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Museum Ons' Lieve Heer op Solder",
+        "summary": "Verken een historisch grachtenhuis met een kerk op de bovenverdiepingen. Het museum verbindt wooninterieurs met religieuze geschiedenis.",
+        "route": "/nl/plaatsen/museum-ons-lieve-heer-op-solder"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://opsolder.nl/en/museum-visit/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "religious-history",
+      "organization": "opsolder.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Museum Ons' Lieve Heer op Solder",
+        "Verken een historisch grachtenhuis met een kerk op de bovenverdiepingen. Het museum verbindt wooninterieurs met religieuze geschiedenis."
+      ],
+      "officialOrganizationNames": [
+        "opsolder.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.museum-rembrandthuis",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "museum-rembrandthuis",
+      "route": "/places/museum-rembrandthuis",
+      "title": "Museum Rembrandthuis",
+      "summary": "Visit the house where Rembrandt lived and worked, and explore the surroundings of an artist's daily life and practice.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Museum Rembrandthuis",
+        "amsterdam",
+        "art-history",
+        "museumrembrandthuis"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Museum Rembrandthuis",
+        "summary": "Bezoek het huis waar Rembrandt woonde en werkte en ontdek de omgeving van zijn dagelijks leven en kunstenaarspraktijk.",
+        "route": "/nl/plaatsen/museum-rembrandthuis"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.rembrandthuis.nl/en/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "art-history",
+      "organization": "www.rembrandthuis.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Museum Rembrandthuis",
+        "Bezoek het huis waar Rembrandt woonde en werkte en ontdek de omgeving van zijn dagelijks leven en kunstenaarspraktijk."
+      ],
+      "officialOrganizationNames": [
+        "www.rembrandthuis.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.museum-van-loon",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "museum-van-loon",
+      "route": "/places/museum-van-loon",
+      "title": "Museum Van Loon",
+      "summary": "Explore a historic Amsterdam canal house, its interiors and garden through Museum Van Loon's presentation.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Museum Van Loon",
+        "amsterdam",
+        "canal-house-history",
+        "museumvanloon"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Museum Van Loon",
+        "summary": "Verken een historisch Amsterdams grachtenhuis, de interieurs en de tuin via de presentatie van Museum Van Loon.",
+        "route": "/nl/plaatsen/museum-van-loon"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.museumvanloon.nl/en"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "canal-house-history",
+      "organization": "www.museumvanloon.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Museum Van Loon",
+        "Verken een historisch Amsterdams grachtenhuis, de interieurs en de tuin via de presentatie van Museum Van Loon."
+      ],
+      "officialOrganizationNames": [
+        "www.museumvanloon.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "place.leiden-naturalis",
       "type": "place",
       "sourceKind": "museum",
@@ -2846,13 +3756,78 @@
       "commonQuestions": []
     },
     {
+      "id": "museum.nemo-science-museum",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "nemo-science-museum",
+      "route": "/places/nemo-science-museum",
+      "title": "NEMO Science Museum",
+      "summary": "Investigate science through hands-on experiments and demonstrations. NEMO also presents activities about the human body and everyday phenomena.",
+      "contentDepth": "summary",
+      "keywords": [
+        "NEMO Science Museum",
+        "amsterdam",
+        "science",
+        "nemosciencemuseum"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "NEMO Science Museum",
+        "summary": "Onderzoek wetenschap met interactieve experimenten en demonstraties. NEMO biedt ook activiteiten over het menselijk lichaam en alledaagse verschijnselen.",
+        "route": "/nl/plaatsen/nemo-science-museum"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.nemosciencemuseum.nl/en/plan-your-visit"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "science",
+      "organization": "www.nemosciencemuseum.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "NEMO Science Museum",
+        "Onderzoek wetenschap met interactieve experimenten en demonstraties. NEMO biedt ook activiteiten over het menselijk lichaam en alledaagse verschijnselen."
+      ],
+      "officialOrganizationNames": [
+        "www.nemosciencemuseum.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "restaurant.leiden-oudt-leyden",
       "type": "place",
       "sourceKind": "restaurant",
       "slug": "leiden-oudt-leyden",
       "route": "/places/leiden-oudt-leyden",
       "title": "Oudt Leyden",
-      "summary": "A pancake restaurant on Steenstraat with traditional and other pancake choices on its own menu.",
+      "summary": "A pancake restaurant on Steenstraat with sweet and savoury choices, including a children’s section on the menu.",
       "contentDepth": "summary",
       "keywords": [
         "Oudt Leyden",
@@ -2879,12 +3854,12 @@
       ],
       "dutch": {
         "title": "Oudt Leyden",
-        "summary": "Een pannenkoekenrestaurant aan de Steenstraat met traditionele en andere varianten op de eigen kaart.",
+        "summary": "Een pannenkoekenrestaurant aan de Steenstraat met zoete en hartige keuzes en een apart kindergedeelte op de kaart.",
         "route": "/nl/plaatsen/leiden-oudt-leyden"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://oudtleyden.nl/"
       ],
@@ -2901,7 +3876,7 @@
       "tags": [],
       "synonyms": [
         "Oudt Leyden",
-        "Een pannenkoekenrestaurant aan de Steenstraat met traditionele en andere varianten op de eigen kaart."
+        "Een pannenkoekenrestaurant aan de Steenstraat met zoete en hartige keuzes en een apart kindergedeelte op de kaart."
       ],
       "officialOrganizationNames": [
         "Oudt Leyden"
@@ -2980,7 +3955,7 @@
       "slug": "leiden-park-de-put",
       "route": "/places/leiden-park-de-put",
       "title": "Park de Put",
-      "summary": "A green stop beside the Morssingel and the mill on the Singelpark walking route.",
+      "summary": "A compact park by the Morspoort and Molen de Put, on former military barracks ground. It brings a windmill view and a small play area into a city walk.",
       "contentDepth": "summary",
       "keywords": [
         "Park de Put",
@@ -3007,14 +3982,14 @@
       ],
       "dutch": {
         "title": "Park de Put",
-        "summary": "Een groene stop bij de Morssingel en de molen aan de Singelparkroute.",
+        "summary": "Een compact park bij de Morspoort en Molen de Put, op voormalig kazerneterrein. Je vindt er uitzicht op de molen en een kleine speelplek tijdens een stadswandeling.",
         "route": "/nl/plaatsen/leiden-park-de-put"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
-        "https://www.singelpark.nl/wp-content/uploads/2024/10/Teksten-audiotour-Singelpark-Cultuur-en-Historie-5-2-2024.pdf"
+        "https://www.visitleiden.nl/nl/locaties/1077715464/park-de-put"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "parks-walks",
@@ -3029,7 +4004,7 @@
       "tags": [],
       "synonyms": [
         "Park de Put",
-        "Een groene stop bij de Morssingel en de molen aan de Singelparkroute."
+        "Een compact park bij de Morspoort en Molen de Put, op voormalig kazerneterrein. Je vindt er uitzicht op de molen en een kleine speelplek tijdens een stadswandeling."
       ],
       "officialOrganizationNames": [
         "Vrienden van het Singelpark"
@@ -3044,7 +4019,7 @@
       "slug": "utrecht-oog-in-al",
       "route": "/places/utrecht-oog-in-al",
       "title": "Park Oog in Al",
-      "summary": "A public park laid out on a former estate in western Utrecht. Walking paths, an animal enclosure and play areas make it a useful outdoor stop for both residents and visitors.",
+      "summary": "A former country estate turned public park in western Utrecht, with water, a historic pavilion and a playground.",
       "contentDepth": "summary",
       "keywords": [
         "Park Oog in Al",
@@ -3071,12 +4046,12 @@
       ],
       "dutch": {
         "title": "Park Oog in Al",
-        "summary": "Een stadspark in Utrecht bij het landgoed Oog in Al, met ruimte om te wandelen.",
+        "summary": "Een voormalig landgoed dat veranderde in een openbaar park in Utrecht-West, met water, een historisch paviljoen en een speeltuin.",
         "route": "/nl/plaatsen/utrecht-oog-in-al"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.ontdek-utrecht.nl/locatie/park-oog-in-al/"
       ],
@@ -3093,7 +4068,7 @@
       "tags": [],
       "synonyms": [
         "Park Oog in Al",
-        "Een stadspark in Utrecht bij het landgoed Oog in Al, met ruimte om te wandelen."
+        "Een voormalig landgoed dat veranderde in een openbaar park in Utrecht-West, met water, een historisch paviljoen en een speeltuin."
       ],
       "officialOrganizationNames": [
         "Park Oog in Al"
@@ -3308,7 +4283,7 @@
       "slug": "leiden-rembrandtpark",
       "route": "/places/leiden-rembrandtpark",
       "title": "Rembrandtpark",
-      "summary": "A green stop on the Singelpark walking route near the Rembrandtbrug.",
+      "summary": "A park in two parts around Noordeinde, close to the Witte Singel and the Weddesteeg. The northern and southern sections have different planting and layouts.",
       "contentDepth": "summary",
       "keywords": [
         "Rembrandtpark",
@@ -3335,12 +4310,12 @@
       ],
       "dutch": {
         "title": "Rembrandtpark",
-        "summary": "Een groene stop op de Singelparkroute bij de Rembrandtbrug.",
+        "summary": "Een park in twee delen rond het Noordeinde, bij de Witte Singel en de Weddesteeg. Het noordelijke en zuidelijke deel verschillen in beplanting en opzet.",
         "route": "/nl/plaatsen/leiden-rembrandtpark"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.visitleiden.nl/nl/locaties/1706027937/rembrandtpark"
       ],
@@ -3357,7 +4332,7 @@
       "tags": [],
       "synonyms": [
         "Rembrandtpark",
-        "Een groene stop op de Singelparkroute bij de Rembrandtbrug."
+        "Een park in twee delen rond het Noordeinde, bij de Witte Singel en de Weddesteeg. Het noordelijke en zuidelijke deel verschillen in beplanting en opzet."
       ],
       "officialOrganizationNames": [
         "Leiden & Partners"
@@ -3558,6 +4533,71 @@
       "commonQuestions": []
     },
     {
+      "id": "museum.rijksmuseum",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "rijksmuseum",
+      "route": "/places/rijksmuseum",
+      "title": "Rijksmuseum",
+      "summary": "Explore Dutch art and history at the Rijksmuseum, with works by Rembrandt, Vermeer and Van Gogh.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Rijksmuseum",
+        "amsterdam",
+        "art-history",
+        "rijksmuseum"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Rijksmuseum",
+        "summary": "Ontdek Nederlandse kunst en geschiedenis in het Rijksmuseum, met werk van Rembrandt, Vermeer en Van Gogh.",
+        "route": "/nl/plaatsen/rijksmuseum"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.rijksmuseum.nl/en"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "art-history",
+      "organization": "www.rijksmuseum.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Rijksmuseum",
+        "Ontdek Nederlandse kunst en geschiedenis in het Rijksmuseum, met werk van Rembrandt, Vermeer en Van Gogh."
+      ],
+      "officialOrganizationNames": [
+        "www.rijksmuseum.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "museum.leiden-boerhaave",
       "type": "place",
       "sourceKind": "museum",
@@ -3692,7 +4732,7 @@
       "slug": "leiden-roos",
       "route": "/places/leiden-roos",
       "title": "ROOS Leiden",
-      "summary": "A café on Botermarkt that accepts walk-in visits rather than reservations. Check the current menu before stopping by.",
+      "summary": "A walk-in café on Botermarkt for breakfast, lunch and coffee. Breakfast has a shorter serving window than the café’s opening hours.",
       "contentDepth": "summary",
       "keywords": [
         "ROOS Leiden",
@@ -3719,12 +4759,12 @@
       ],
       "dutch": {
         "title": "ROOS Leiden",
-        "summary": "Een café aan de Botermarkt waar je zonder reservering binnenloopt. Bekijk de actuele kaart voor je bezoek.",
+        "summary": "Een inloopcafé aan de Botermarkt voor ontbijt, lunch en koffie. Ontbijt wordt minder lang geserveerd dan het café open is.",
         "route": "/nl/plaatsen/leiden-roos"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.roosleiden.nl/contact-roos"
       ],
@@ -3741,10 +4781,75 @@
       "tags": [],
       "synonyms": [
         "ROOS Leiden",
-        "Een café aan de Botermarkt waar je zonder reservering binnenloopt. Bekijk de actuele kaart voor je bezoek."
+        "Een inloopcafé aan de Botermarkt voor ontbijt, lunch en koffie. Ontbijt wordt minder lang geserveerd dan het café open is."
       ],
       "officialOrganizationNames": [
         "ROOS Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "place.royal-palace-amsterdam",
+      "type": "place",
+      "sourceKind": "place",
+      "slug": "royal-palace-amsterdam",
+      "route": "/places/royal-palace-amsterdam",
+      "title": "Royal Palace Amsterdam",
+      "summary": "Discover the Royal Palace on Dam Square during public opening periods. Check official visitor information because royal use can affect access.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Royal Palace Amsterdam",
+        "amsterdam",
+        "historic-attraction",
+        "royalpalaceamsterdam"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "things-to-do"
+      ],
+      "intents": [
+        "things-to-do"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Royal Palace Amsterdam",
+        "summary": "Ontdek het Koninklijk Paleis op de Dam tijdens publieksopenstellingen. Controleer de officiële bezoekersinformatie omdat koninklijk gebruik de toegang kan beïnvloeden.",
+        "route": "/nl/plaatsen/royal-palace-amsterdam"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.paleisamsterdam.nl/en/"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "historic-attraction",
+      "organization": "www.paleisamsterdam.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Royal Palace Amsterdam",
+        "Ontdek het Koninklijk Paleis op de Dam tijdens publieksopenstellingen. Controleer de officiële bezoekersinformatie omdat koninklijk gebruik de toegang kan beïnvloeden."
+      ],
+      "officialOrganizationNames": [
+        "www.paleisamsterdam.nl"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -3756,7 +4861,7 @@
       "slug": "utrecht-sonnenborgh",
       "route": "/places/utrecht-sonnenborgh",
       "title": "Sonnenborgh museum & sterrenwacht",
-      "summary": "A museum and observatory in Utrecht’s city centre. The visitor entrance is reached through Zocherplantsoen; the official route page explains how to approach the building from the canals and railway stations.",
+      "summary": "Explore astronomy at Utrecht’s museum and observatory on a historic bastion. Daytime museum tickets and stargazing evenings have separate arrangements.",
       "contentDepth": "summary",
       "keywords": [
         "Sonnenborgh museum & sterrenwacht",
@@ -3783,12 +4888,12 @@
       ],
       "dutch": {
         "title": "Sonnenborgh museum & sterrenwacht",
-        "summary": "Een museum en sterrenwacht aan de Zonnenburg. Bekijk het programma voordat je komt.",
+        "summary": "Ontdek sterrenkunde in het Utrechtse museum en de sterrenwacht op een historisch bastion. Museumbezoek overdag en sterrenkijkavonden hebben aparte voorwaarden.",
         "route": "/nl/plaatsen/utrecht-sonnenborgh"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.sonnenborgh.nl/english/address-contact-and-route"
       ],
@@ -3805,7 +4910,7 @@
       "tags": [],
       "synonyms": [
         "Sonnenborgh museum & sterrenwacht",
-        "Een museum en sterrenwacht aan de Zonnenburg. Bekijk het programma voordat je komt."
+        "Ontdek sterrenkunde in het Utrechtse museum en de sterrenwacht op een historisch bastion. Museumbezoek overdag en sterrenkijkavonden hebben aparte voorwaarden."
       ],
       "officialOrganizationNames": [
         "Sonnenborgh museum & sterrenwacht"
@@ -3882,13 +4987,78 @@
       "commonQuestions": []
     },
     {
+      "id": "museum.stedelijk-museum-amsterdam",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "stedelijk-museum-amsterdam",
+      "route": "/places/stedelijk-museum-amsterdam",
+      "title": "Stedelijk Museum Amsterdam",
+      "summary": "Discover modern and contemporary art and design through the Stedelijk's collection and changing exhibitions.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Stedelijk Museum Amsterdam",
+        "amsterdam",
+        "modern-art-design",
+        "stedelijkmuseumamsterdam"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Stedelijk Museum Amsterdam",
+        "summary": "Ontdek moderne en hedendaagse kunst en vormgeving via de collectie en wisselende tentoonstellingen van het Stedelijk.",
+        "route": "/nl/plaatsen/stedelijk-museum-amsterdam"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.stedelijk.nl/en"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "modern-art-design",
+      "organization": "www.stedelijk.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Stedelijk Museum Amsterdam",
+        "Ontdek moderne en hedendaagse kunst en vormgeving via de collectie en wisselende tentoonstellingen van het Stedelijk."
+      ],
+      "officialOrganizationNames": [
+        "www.stedelijk.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "hotel.leiden-steenhof",
       "type": "place",
       "sourceKind": "hotel",
       "slug": "leiden-steenhof",
       "route": "/places/leiden-steenhof",
       "title": "Steenhof Suites",
-      "summary": "An adults-only suite hotel on Steenschuur. The hotel states that the building has no lift; check access before booking.",
+      "summary": "A suite hotel in historic buildings on the Steenschuur. It is adults-only and has no lift, making room access an important part of planning a stay.",
       "contentDepth": "summary",
       "keywords": [
         "Steenhof Suites",
@@ -3915,12 +5085,12 @@
       ],
       "dutch": {
         "title": "Steenhof Suites",
-        "summary": "Een adults-only hotel met suites aan het Steenschuur. Volgens het hotel heeft het pand geen lift; controleer de toegang vóór het boeken.",
+        "summary": "Een suitehotel in historische panden aan de Steenschuur. Het hotel is adults-only en heeft geen lift; controleer daarom vooraf hoe je de kamer bereikt.",
         "route": "/nl/plaatsen/leiden-steenhof"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://steenhofsuites.nl/contact/"
       ],
@@ -3937,7 +5107,7 @@
       "tags": [],
       "synonyms": [
         "Steenhof Suites",
-        "Een adults-only hotel met suites aan het Steenschuur. Volgens het hotel heeft het pand geen lift; controleer de toegang vóór het boeken."
+        "Een suitehotel in historische panden aan de Steenschuur. Het hotel is adults-only en heeft geen lift; controleer daarom vooraf hoe je de kamer bereikt."
       ],
       "officialOrganizationNames": [
         "Steenhof Suites"
@@ -3952,7 +5122,7 @@
       "slug": "rotterdam-supernova",
       "route": "/places/rotterdam-supernova",
       "title": "Supernova Hotel",
-      "summary": "A hotel on ’s-Gravendijkwal with different room layouts, a lounge and breakfast facilities. The official site describes the rooms and provides direct contact details for checking availability.",
+      "summary": "A Rotterdam hotel with individually arranged rooms, a library lounge and local recommendations. Select the room type that matches your stay.",
       "contentDepth": "summary",
       "keywords": [
         "Supernova Hotel",
@@ -3979,12 +5149,12 @@
       ],
       "dutch": {
         "title": "Supernova Hotel",
-        "summary": "Een hotel aan de ’s-Gravendijkwal in Rotterdam, met verschillende kamertypen en een lounge.",
+        "summary": "Een Rotterdams hotel met verschillend ingerichte kamers, een bibliotheeklounge en lokale tips. Kies het kamertype dat bij je verblijf past.",
         "route": "/nl/plaatsen/rotterdam-supernova"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://supernovahotel.nl/en"
       ],
@@ -4001,7 +5171,7 @@
       "tags": [],
       "synonyms": [
         "Supernova Hotel",
-        "Een hotel aan de ’s-Gravendijkwal in Rotterdam, met verschillende kamertypen en een lounge."
+        "Een Rotterdams hotel met verschillend ingerichte kamers, een bibliotheeklounge en lokale tips. Kies het kamertype dat bij je verblijf past."
       ],
       "officialOrganizationNames": [
         "Supernova Hotel"
@@ -4080,7 +5250,7 @@
       "slug": "den-haag-collector",
       "route": "/places/den-haag-collector",
       "title": "The Collector",
-      "summary": "A hotel in the Haagsche Bluf courtyard in central The Hague. The official site presents its room types and guest facilities, with direct contact details for checking a proposed stay.",
+      "summary": "A boutique hotel in Haagsche Bluf with named room categories, including an accessible-room category. Confirm the details of your chosen room before booking.",
       "contentDepth": "summary",
       "keywords": [
         "The Collector",
@@ -4107,12 +5277,12 @@
       ],
       "dutch": {
         "title": "The Collector",
-        "summary": "Een hotel aan de Haagsche Bluf in Den Haag. De eigen website geeft informatie over kamers en verblijf.",
+        "summary": "Een boetiekhotel in de Haagsche Bluf met benoemde kamertypen, waaronder een toegankelijke kamercategorie. Bevestig vóór boeken de details van je gekozen kamer.",
         "route": "/nl/plaatsen/den-haag-collector"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.thecollectorhotel.com/contact"
       ],
@@ -4129,7 +5299,7 @@
       "tags": [],
       "synonyms": [
         "The Collector",
-        "Een hotel aan de Haagsche Bluf in Den Haag. De eigen website geeft informatie over kamers en verblijf."
+        "Een boetiekhotel in de Haagsche Bluf met benoemde kamertypen, waaronder een toegankelijke kamercategorie. Bevestig vóór boeken de details van je gekozen kamer."
       ],
       "officialOrganizationNames": [
         "The Collector"
@@ -4144,7 +5314,7 @@
       "slug": "utrecht-nox",
       "route": "/places/utrecht-nox",
       "title": "The Nox Hotel Utrecht",
-      "summary": "A city-centre hotel on Keistraat near Janskerkhof. Its contact page gives walking and public-transport directions, plus details about the limited paid parking available on request.",
+      "summary": "A hotel on Keistraat in central Utrecht, with limited bookable parking and clearly stated arrival arrangements. Room prices depend on dates and rate conditions.",
       "contentDepth": "summary",
       "keywords": [
         "The Nox Hotel Utrecht",
@@ -4171,12 +5341,12 @@
       ],
       "dutch": {
         "title": "The Nox Hotel Utrecht",
-        "summary": "Een hotel aan de Keistraat in het centrum van Utrecht. Bekijk beschikbaarheid en voorwaarden op de eigen website.",
+        "summary": "Een hotel aan de Keistraat in de Utrechtse binnenstad, met beperkt reserveerbaar parkeren en duidelijke aankomstafspraken. Kamerprijzen hangen af van data en tariefvoorwaarden.",
         "route": "/nl/plaatsen/utrecht-nox"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.thenoxhotel.com/en/contact"
       ],
@@ -4193,7 +5363,7 @@
       "tags": [],
       "synonyms": [
         "The Nox Hotel Utrecht",
-        "Een hotel aan de Keistraat in het centrum van Utrecht. Bekijk beschikbaarheid en voorwaarden op de eigen website."
+        "Een hotel aan de Keistraat in de Utrechtse binnenstad, met beperkt reserveerbaar parkeren en duidelijke aankomstafspraken. Kamerprijzen hangen af van data en tariefvoorwaarden."
       ],
       "officialOrganizationNames": [
         "The Nox Hotel Utrecht"
@@ -4208,7 +5378,7 @@
       "slug": "rotterdam-trompenburg",
       "route": "/places/rotterdam-trompenburg",
       "title": "Trompenburg Tuinen & Arboretum",
-      "summary": "A botanical garden in Rotterdam’s Kralingen district, with collections of trees and other plants, connected gardens and walking paths. Check the garden’s own visitor information before travelling.",
+      "summary": "A botanical garden in Kralingen with trees, ponds and seasonal planting. Winter visiting hours are shorter than summer hours.",
       "contentDepth": "summary",
       "keywords": [
         "Trompenburg Tuinen & Arboretum",
@@ -4235,12 +5405,12 @@
       ],
       "dutch": {
         "title": "Trompenburg Tuinen & Arboretum",
-        "summary": "Een tuin in Rotterdam met een collectie bomen en planten; bezoekinformatie en tickets staan op de eigen website.",
+        "summary": "Een botanische tuin in Kralingen met bomen, vijvers en seizoensbeplanting. In de winter zijn de openingstijden korter.",
         "route": "/nl/plaatsen/rotterdam-trompenburg"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://trompenburg.nl/plan-your-visit/"
       ],
@@ -4257,7 +5427,7 @@
       "tags": [],
       "synonyms": [
         "Trompenburg Tuinen & Arboretum",
-        "Een tuin in Rotterdam met een collectie bomen en planten; bezoekinformatie en tickets staan op de eigen website."
+        "Een botanische tuin in Kralingen met bomen, vijvers en seizoensbeplanting. In de winter zijn de openingstijden korter."
       ],
       "officialOrganizationNames": [
         "Trompenburg Tuinen & Arboretum"
@@ -4334,6 +5504,71 @@
       "commonQuestions": []
     },
     {
+      "id": "museum.van-gogh-museum",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "van-gogh-museum",
+      "route": "/places/van-gogh-museum",
+      "title": "Van Gogh Museum",
+      "summary": "Follow Vincent van Gogh's artistic development through his paintings and drawings, alongside the work of his contemporaries.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Van Gogh Museum",
+        "amsterdam",
+        "art",
+        "vangoghmuseum"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Van Gogh Museum",
+        "summary": "Volg de artistieke ontwikkeling van Vincent van Gogh via zijn schilderijen en tekeningen, naast werk van tijdgenoten.",
+        "route": "/nl/plaatsen/van-gogh-museum"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://www.vangoghmuseum.nl/en"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "art",
+      "organization": "www.vangoghmuseum.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Van Gogh Museum",
+        "Volg de artistieke ontwikkeling van Vincent van Gogh via zijn schilderijen en tekeningen, naast werk van tijdgenoten."
+      ],
+      "officialOrganizationNames": [
+        "www.vangoghmuseum.nl"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
       "id": "place.leiden-vvv",
       "type": "place",
       "sourceKind": "place",
@@ -4404,7 +5639,7 @@
       "slug": "leiden-waag",
       "route": "/places/leiden-waag",
       "title": "Waag Leiden",
-      "summary": "A café-restaurant at the Aalmarkt. Its official contact page lists opening hours and links to the food and drinks menus.",
+      "summary": "Lunch or dinner in Leiden’s former weighing house on the Aalmarkt, with a waterside terrace and a separate dinner menu.",
       "contentDepth": "summary",
       "keywords": [
         "Waag Leiden",
@@ -4431,12 +5666,12 @@
       ],
       "dutch": {
         "title": "Waag Leiden",
-        "summary": "Een café-restaurant aan de Aalmarkt. De officiële contactpagina vermeldt openingstijden en verwijst naar de menukaarten.",
+        "summary": "Lunchen of dineren in de voormalige waag aan de Aalmarkt, met een terras aan het water en een aparte dinerkaart.",
         "route": "/nl/plaatsen/leiden-waag"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.waagleiden.nl/nl/contactpagina/"
       ],
@@ -4453,10 +5688,75 @@
       "tags": [],
       "synonyms": [
         "Waag Leiden",
-        "Een café-restaurant aan de Aalmarkt. De officiële contactpagina vermeldt openingstijden en verwijst naar de menukaarten."
+        "Lunchen of dineren in de voormalige waag aan de Aalmarkt, met een terras aan het water en een aparte dinerkaart."
       ],
       "officialOrganizationNames": [
         "Waag Leiden"
+      ],
+      "terminology": [],
+      "commonQuestions": []
+    },
+    {
+      "id": "museum.wereldmuseum-amsterdam",
+      "type": "place",
+      "sourceKind": "museum",
+      "slug": "wereldmuseum-amsterdam",
+      "route": "/places/wereldmuseum-amsterdam",
+      "title": "Wereldmuseum Amsterdam",
+      "summary": "Explore exhibitions about people, culture and connections across the world at Wereldmuseum Amsterdam.",
+      "contentDepth": "summary",
+      "keywords": [
+        "Wereldmuseum Amsterdam",
+        "amsterdam",
+        "world-cultures",
+        "wereldmuseumamsterdam"
+      ],
+      "city": "Amsterdam",
+      "cityId": "amsterdam",
+      "province": "Noord-Holland",
+      "provinceId": "noord-holland",
+      "municipalityId": "amsterdam",
+      "locationScope": "city",
+      "serviceAreaCityIds": [],
+      "country": "NL",
+      "categories": [
+        "culture"
+      ],
+      "intents": [
+        "culture"
+      ],
+      "languages": [
+        "en",
+        "nl"
+      ],
+      "dutch": {
+        "title": "Wereldmuseum Amsterdam",
+        "summary": "Ontdek tentoonstellingen over mensen, cultuur en wereldwijde verbindingen in Wereldmuseum Amsterdam.",
+        "route": "/nl/plaatsen/wereldmuseum-amsterdam"
+      },
+      "nationalFallback": false,
+      "qualityScore": 70,
+      "verifiedAt": "2026-11-15",
+      "officialSourceUrls": [
+        "https://amsterdam.wereldmuseum.nl/en"
+      ],
+      "relatedOrganizationIds": [],
+      "narrowCategory": "world-cultures",
+      "organization": "amsterdam.wereldmuseum.nl",
+      "audienceProfiles": [],
+      "numberedSteps": [],
+      "requiredDocuments": [],
+      "checklist": [],
+      "tips": [],
+      "faqAnswers": [],
+      "whenYouNeedIt": [],
+      "tags": [],
+      "synonyms": [
+        "Wereldmuseum Amsterdam",
+        "Ontdek tentoonstellingen over mensen, cultuur en wereldwijde verbindingen in Wereldmuseum Amsterdam."
+      ],
+      "officialOrganizationNames": [
+        "amsterdam.wereldmuseum.nl"
       ],
       "terminology": [],
       "commonQuestions": []
@@ -4532,7 +5832,7 @@
       "slug": "den-haag-westbroekpark",
       "route": "/places/den-haag-westbroekpark",
       "title": "Westbroekpark",
-      "summary": "A park in Scheveningen with lawns, ponds and a rose garden. The main entrance is on Kapelweg; the Rosarium has seasonal opening hours separate from access to the wider park.",
+      "summary": "A park in Scheveningen with lawns, ponds and an international rose garden. The rosarium gates follow seasonal hours; the wider park has a separate access route.",
       "contentDepth": "summary",
       "keywords": [
         "Westbroekpark",
@@ -4559,12 +5859,12 @@
       ],
       "dutch": {
         "title": "Westbroekpark",
-        "summary": "Een park in Den Haag met een rozentuin. Bekijk de bezoekersinformatie voor de locatie.",
+        "summary": "Een park in Scheveningen met gazons, vijvers en een internationaal rosarium. De rozentuinpoorten hebben seizoenstijden; het overige park heeft een aparte toegangsroute.",
         "route": "/nl/plaatsen/den-haag-westbroekpark"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://denhaag.com/en/westbroekpark"
       ],
@@ -4581,7 +5881,7 @@
       "tags": [],
       "synonyms": [
         "Westbroekpark",
-        "Een park in Den Haag met een rozentuin. Bekijk de bezoekersinformatie voor de locatie."
+        "Een park in Scheveningen met gazons, vijvers en een internationaal rosarium. De rozentuinpoorten hebben seizoenstijden; het overige park heeft een aparte toegangsroute."
       ],
       "officialOrganizationNames": [
         "Westbroekpark"

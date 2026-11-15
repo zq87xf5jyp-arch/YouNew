@@ -17,18 +17,28 @@
       ],
       "categories": [
         "art",
+        "art-history",
         "bicycle",
         "botanical-garden",
         "bsn",
         "business-editorial",
         "cafe",
+        "canal-house-history",
         "city-park",
         "coffee",
         "collection",
         "contacts",
+        "cultural-history",
         "digid",
+        "film",
         "gp",
+        "heritage-collections",
+        "historic-attraction",
+        "history-memorial",
         "hotel",
+        "maritime-history",
+        "microbiology",
+        "modern-art-design",
         "municipal-services",
         "museums-sights",
         "parks-walks",
@@ -36,13 +46,20 @@
         "photography",
         "public-library",
         "registration",
+        "religious-history",
         "restaurant",
         "science",
         "transport",
+        "urban-history",
         "visitor-information",
-        "waste"
+        "war-history",
+        "waste",
+        "world-cultures"
       ],
-      "approval_reference": "DataProject/editorial/leiden-20261110-approval.json"
+      "approval_reference": "DataProject/editorial/leiden-20261110-approval.json",
+      "additional_approval_references": [
+        "Owner approval of 49 EN/NL cards in PR #68/#72, Codex conversation 2026-11-15; existing owner identity retained."
+      ]
     }
   ]
 }

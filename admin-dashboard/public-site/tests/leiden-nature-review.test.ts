@@ -22,7 +22,7 @@ test('five existing IDs gain bilingual private text without changing the approve
  const preview=await applyPlaceReview(release,root,env);
  const runtime=JSON.parse(await readFile(paths.source,'utf8'));
  const publicPreview=buildPublicDataset(runtime,{editorialRelease:preview}).content;
- assert.equal(publicPreview.entities.length,76);
+ assert.equal(publicPreview.entities.length,96);
  assert.equal(publicPreview.entities.filter(e=>e.editorial?.placeReview?.batchId===batch).length,5);
  assert.equal(JSON.stringify(release),before);
  assert.deepEqual(preview.entities.map(e=>e.id),release.entities.map(e=>e.id));
@@ -31,7 +31,7 @@ test('five existing IDs gain bilingual private text without changing the approve
  assert.equal(changed.filter(e=>e.coordinate).length,5);
  assert.equal(changed.filter(e=>e.editorial?.place?.tickets).length,1);
  assert.ok(changed.every(e=>e.images.length===1));
- assert.equal(preview.entities.filter(e=>e.images.length).length,10);
+ assert.equal(preview.entities.filter(e=>e.images.length).length,50);
  assert.equal(preview.entities.filter(e=>e.editorial?.placeReview).length,5);
  assert.equal(Object.keys(manifest.media).length,15);
  for(const e of publicPreview.entities.filter(e=>manifest.ids.includes(e.id)))assert.ok(e.relatedEntityIds.every(id=>publicPreview.entities.some(other=>other.id===id)));
@@ -76,11 +76,11 @@ test('pending nature manifest still stays out of an ordinary release',async()=>{
  const temp=await mkdtemp(join(tmpdir(),'younew-nature-gate-'));
  try {
   await mkdir(`${temp}/DataProject/editorial/${batch}`,{recursive:true});
-  for(const path of ['DataProject/staging','DataProject/batches','DataProject/operations',...placeReviewBatches.filter(b=>b!==batch).map(b=>reviewPath(b)),approvalPath])await symlink(`${root}/${path}`,`${temp}/${path}`);
+  for(const path of ['DataProject/staging','DataProject/batches','DataProject/operations',...placeReviewBatches.filter(b=>b!==batch).map(b=>reviewPath(b)),approvalPath,'DataProject/editorial/expansion-prepublication-20261115.json'])await symlink(`${root}/${path}`,`${temp}/${path}`);
   for(const path of ['records.json','media'])await symlink(`${root}/${reviewPath(batch)}/${path}`,`${temp}/${reviewPath(batch)}/${path}`);
   await writeFile(`${temp}/${reviewPath(batch)}/manifest.json`,JSON.stringify({...manifest,status:'needs_review',publicationAuthorized:false,approvedAt:null,reviewerId:null}));
   const release=await loadEditorialRelease(temp);
-  assert.equal(release.entities.filter(e=>e.images.length).length,5);
+  assert.equal(release.entities.filter(e=>e.images.length).length,45);
   assert.ok(release.entities.filter(e=>manifest.ids.includes(e.id)).every(e=>!e.images.length&&!e.editorial.place&&!e.editorial.placeReview));
  } finally {await rm(temp,{recursive:true,force:true});}
 });

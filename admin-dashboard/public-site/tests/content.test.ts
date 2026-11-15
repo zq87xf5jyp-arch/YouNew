@@ -11,7 +11,8 @@ const canonicalRuntime = JSON.parse(await readFile(new URL("../../YouNew/Resourc
 const editorialApproval = JSON.parse(await readFile(new URL("../../DataProject/editorial/leiden-20261110-approval.json",siteRoot),'utf8'));
 const placeApproval = JSON.parse(await readFile(new URL('../../DataProject/editorial/leiden-places-20261115/manifest.json',siteRoot),'utf8'));
 const natureApproval = JSON.parse(await readFile(new URL('../../DataProject/editorial/leiden-nature-culture-20261115/manifest.json',siteRoot),'utf8'));
-const placeApprovals=[placeApproval,natureApproval];
+const placeApprovals=[placeApproval,natureApproval,...await Promise.all(['leiden-food-20261115','leiden-stay-parks-20261115','amsterdam-museums-20261115','priority-cities-20261115'].map(async batch=>JSON.parse(await readFile(new URL(`../../DataProject/editorial/${batch}/manifest.json`,siteRoot),'utf8'))))];
+const addedIds=placeApprovals.flatMap(approval=>approval.publicationScope?.addedIds??[]);
 const generator = (await import(new URL("scripts/generate-public-content.mjs", siteRoot).href)) as {
   assignStableSlugs: (
     records: Array<{ id: string; title: string }>,
@@ -25,7 +26,7 @@ test("public content accepts the canonical base and the exact owner-approved edi
   const local = provenance.acceptedReleaseIds.includes('integration-synthetic-local-v1');
   const expectedReleases = canonicalRuntime.releases.filter((r: {status:string}) => r.status === 'published').map((r: {id:string}) => r.id);
   assert.deepEqual(provenance.acceptedReleaseIds, [...expectedReleases,...(local?['integration-synthetic-local-v1']:[editorialApproval.releaseId])]);
-  if(!local){assert.equal(provenance.editorialRelease.baseBatchSha256,editorialApproval.batchSha256);assert.equal(provenance.editorialRelease.revisions.length,2);for(const approval of placeApprovals){const revision=provenance.editorialRelease.revisions.find((r:{id:string})=>r.id===approval.batchId);assert.equal(revision.approvalSha256,approval.approvalSha256);assert.equal(revision.recordsSha256,approval.recordsSha256);}assert.deepEqual(content.entities.filter((e:{releaseId:string})=>e.releaseId===editorialApproval.releaseId).map((e:{id:string})=>e.id).sort(),editorialApproval.ids);}
+  if(!local){assert.equal(provenance.editorialRelease.baseBatchSha256,editorialApproval.batchSha256);assert.equal(provenance.editorialRelease.revisions.length,placeApprovals.length);for(const approval of placeApprovals){const revision=provenance.editorialRelease.revisions.find((r:{id:string})=>r.id===approval.batchId);assert.equal(revision.approvalSha256,approval.approvalSha256);assert.equal(revision.recordsSha256,approval.recordsSha256);}assert.deepEqual(content.entities.filter((e:{releaseId:string})=>e.releaseId===editorialApproval.releaseId).map((e:{id:string})=>e.id).sort(),[...editorialApproval.ids,...addedIds].sort());}
   if(local) assert.ok(content.entities.filter((e: {releaseId:string})=>e.releaseId==='integration-synthetic-local-v1').every((e:{id:string;title:string;source:{publisher:string}})=>e.id.startsWith('place.synthetic-')&&e.title.startsWith('[SYNTHETIC]')&&e.source.publisher==='Local QA'));
   assert.equal(content.stats.entities, provenance.counts.acceptedRecords);
   assert.equal(content.entities.length, content.stats.entities);
@@ -53,7 +54,7 @@ test("public content accepts the canonical base and the exact owner-approved edi
     .sort();
   const canonicalIds = new Set(canonicalRuntime.entities.map((record: {id:string}) => record.id));
   assert.deepEqual(governedIds, legacyConfirmations.records.filter((record: {id: string}) => canonicalIds.has(record.id) && !excludedIds.has(record.id)).map((record: { id: string }) => record.id).sort());
-  assert.ok(content.entities.every((record: {id:string}) => !canonicalRuntime.withheldEntityIDs.includes(record.id)));
+  assert.ok(content.entities.every((record: {id:string}) => (!canonicalRuntime.withheldEntityIDs.includes(record.id)||addedIds.includes(record.id))));
   for (const entity of content.entities.filter((item: { id: string }) => governedIds.includes(item.id))) {
     assert.equal(entity.governance.confidenceScore, 65);
     assert.equal(entity.governance.verificationStatus, "unverified");

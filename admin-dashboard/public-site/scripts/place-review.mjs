@@ -34,12 +34,23 @@ export async function readPlaceReview(root,batchId=placeReviewBatch) {
   const bytes=await readFile(resolve(path,'records.json'));
   assert.equal(sha256(bytes),manifest.recordsSha256,'changed review records');
   assert.equal(manifest.batchId,batchId);
+  if(manifest.prepublicationCheck?.file) {
+    assert.equal(manifest.prepublicationCheck.file,'DataProject/editorial/expansion-prepublication-20261115.json');
+    assert.equal(sha256(await readFile(resolve(root,manifest.prepublicationCheck.file))),manifest.prepublicationCheck.sha256,'changed prepublication evidence');
+  }
   const reviewers=JSON.parse(await readFile(resolve(root,'DataProject/operations/reviewer-registry.json'),'utf8'));
   const batch=JSON.parse(bytes);assert.equal(batch.publication_status,'draft');
   const expansion=expansionReviews[batchId];
   const count=expansion?.count??5;
   assert.equal(batch.records.length,count);assert.equal(new Set(manifest.ids).size,count);
-  if(expansion){assert.equal(manifest.status,'needs_review','expansion requires a separate release review');assert.equal(manifest.privateOnly,true);}
+  if(expansion) {
+    assert.equal(manifest.privateOnly,manifest.status!=='approved','private/public approval scope mismatch');
+    if(manifest.status==='approved') {
+      assert.equal(manifest.publicationScope?.type,'owner-approved-existing-ids');
+      assert.deepEqual(manifest.publicationScope.addedIds,expansion.allowPrivateAdditions?manifest.ids:[],'unapproved added IDs');
+      assert.equal(manifest.publicationScope.supersedesHistoricalWithholding,Boolean(expansion.allowPrivateAdditions));
+    }
+  }
   if(expansion) {
     assert.equal(sha256(await readFile(resolve(path,'source-checks.json'))),manifest.sourceChecksSha256,'changed source evidence');
     assert.equal(sha256(await readFile(resolve(path,'media-sources.json'))),manifest.mediaSourcesSha256,'changed media provenance');
@@ -99,7 +110,7 @@ export function validatePlaceRecords(records,ids,bases,optionalTickets=false,exp
 }
 
 export function placeApprovalDigest(manifest) {
-  return sha256(JSON.stringify({batchId:manifest.batchId,ids:manifest.ids,recordsSha256:manifest.recordsSha256,media:manifest.media}));
+  return sha256(JSON.stringify({batchId:manifest.batchId,ids:manifest.ids,recordsSha256:manifest.recordsSha256,media:manifest.media,...(expansionReviews[manifest.batchId]?{publicationScope:manifest.publicationScope}: {})}));
 }
 
 export function validatePlaceApproval(manifest,records,registry,{today=new Date().toISOString().slice(0,10)}={}) {
@@ -144,20 +155,20 @@ function projectPlaceRevision(release,{manifest,records,reviewer},privateReview)
   const batchHash=sha256(`${release.batchSha256}:${privateReview?'PRIVATE-REVIEW':'APPROVED-REVISION'}:${manifest.recordsSha256}:${manifest.approvalSha256??''}`);
   const ids=new Set(release.entities.map(e=>e.id));
   const additions=records.filter(r=>!ids.has(r.id));
-  if(additions.length)assert.ok(privateReview&&expansionReviews[manifest.batchId]?.allowPrivateAdditions,'cannot add catalogue IDs');
+  if(additions.length)assert.ok(expansionReviews[manifest.batchId]?.allowPrivateAdditions&&(privateReview||(reviewer&&manifest.publicationScope?.addedIds.length===additions.length&&additions.every(r=>manifest.publicationScope.addedIds.includes(r.id)))),'cannot add catalogue IDs');
   // These IDs already exist in DataProject but are withheld from the public
   // runtime. Keep their draft lifecycle explicit throughout the local preview.
   const seeds=additions.map(r=>({
     id:r.id,kind:r.entity_type,title:r.title,summary:r.description,cityId:r.city_id,provinceId:r.province_id,category:r.category,
     coordinate:r.coordinates,images:[],aiSummary:r.ai_summary,relatedEntityIDs:r.related_entity_ids,keywords:r.search_keywords,
-    publicationStatus:'draft',verificationStatus:'needs_review',
-    attributes:{...r.attributes,website:r.website,lifecycleStatus:'draft',verificationStatus:'needs_review',dataProjectRelease:`private-review.${manifest.batchId}`},
+    publicationStatus:privateReview?'draft':'published',verificationStatus:privateReview?'needs_review':'verified',
+    attributes:{...r.attributes,website:r.website,lifecycleStatus:privateReview?'draft':'published',verificationStatus:privateReview?'needs_review':'verified',dataProjectRelease:privateReview?`private-review.${manifest.batchId}`:release.id},
     source:{...r.official_source,isOfficial:true,checkedAt:r.last_checked},
-    editorial:{schemaVersion:1,section:'EXPLORE',reviewedAt:null,reviewer:null,batchSha256:batchHash,
+    editorial:{schemaVersion:1,section:'EXPLORE',reviewedAt:null,reviewer:null,batchSha256:batchHash,...(!privateReview?{approvedAddition:{batchId:manifest.batchId,recordsSha256:manifest.recordsSha256,approvalSha256:manifest.approvalSha256}}:{}),
       locales:{en:{title:r.title,summary:r.description,guide:null},nl:{title:r.attributes.title_nl??r.title,summary:r.attributes.description_nl,guide:null}}}
   }));
   const revisions=new Map(records.map(r=>[r.id,r]));
-  return {...release,batchSha256:batchHash,...(privateReview?{privateReview:true}:{}),...(!privateReview?{baseBatchSha256:release.baseBatchSha256??release.batchSha256,approvedAt:manifest.approvedAt,revisions:[...(release.revisions??[]),{id:manifest.batchId,recordsSha256:manifest.recordsSha256,approvalSha256:manifest.approvalSha256,approvedAt:manifest.approvedAt,reviewerId:manifest.reviewerId,count:records.length}]}:{}),entities:[...release.entities,...seeds].map(e=>{
+  return {...release,batchSha256:batchHash,...(privateReview?{privateReview:true}:{}),...(!privateReview?{baseBatchSha256:release.baseBatchSha256??release.batchSha256,approvedAt:manifest.approvedAt,revisions:[...(release.revisions??[]),{id:manifest.batchId,recordsSha256:manifest.recordsSha256,approvalSha256:manifest.approvalSha256,approvedAt:manifest.approvedAt,reviewerId:manifest.reviewerId,count:records.length,...(additions.length?{addedIds:additions.map(r=>r.id)}:{})}]}:{}),entities:[...release.entities,...seeds].map(e=>{
     const r=revisions.get(e.id);if(!r)return {...e,editorial:{...e.editorial,batchSha256:batchHash}};
     const p=JSON.parse(r.attributes.place_enrichment);
     return {...e,summary:r.description,coordinate:r.coordinates,lastChecked:r.last_checked,relatedEntityIDs:r.related_entity_ids,
@@ -169,4 +180,18 @@ function projectPlaceRevision(release,{manifest,records,reviewer},privateReview)
         locales:{en:{...e.editorial.locales.en,summary:r.description},nl:{...e.editorial.locales.nl,summary:r.attributes.description_nl}}}
     };
   })};
+}
+
+// Only exact additions projected from a validated human-approved manifest may
+// supersede historical withholding; all unrelated runtime IDs still fail closed.
+export function isApprovedPlaceAddition(entity,release) {
+  const proof=entity.editorial?.approvedAddition;
+  const revision=release?.revisions?.find(r=>r.id===proof?.batchId);
+  return Boolean(proof&&revision&&expansionReviews[proof.batchId]?.allowPrivateAdditions&&
+    revision.addedIds?.includes(entity.id)&&revision.reviewerId==='owner.ivan'&&
+    revision.recordsSha256===proof.recordsSha256&&revision.approvalSha256===proof.approvalSha256&&
+    entity.attributes?.dataProjectRevision===revision.id&&entity.editorial.reviewedAt===revision.approvedAt&&
+    entity.publicationStatus==='published'&&entity.verificationStatus==='verified'&&
+    entity.attributes.lifecycleStatus==='published'&&entity.attributes.verificationStatus==='verified'&&
+    entity.source?.status==='verified_opened'&&!entity.editorial.placeReview);
 }

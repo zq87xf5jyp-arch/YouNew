@@ -5,14 +5,14 @@
   "source": "../../YouNew/Resources/Data/younew-runtime-data.json",
   "sourceMode": "production",
   "sourceSchemaVersion": 1,
-  "datasetFingerprint": "c1f1f4fd7f7e47b2a64bfe068589412d3d11e9ff36d69440040a1ccc2e88856d",
+  "datasetFingerprint": "87c6b9743ecfc2eec0b3dc665d9af8f7a65e5d0830dff3b7439a26715a13a303",
   "sourceOutputChecksum": "d39686302bac96ca65c9489f64ed7b7ded29e4f9865e21edfb0f52db8cb45e7c",
   "sourceDatasetFingerprint": "39a365a2152382da678d1a888a535295ab497481858b815d785c00c32fcbabfc",
   "editorialRelease": {
     "id": "editorial-leiden-20261110",
-    "batchSha256": "a86f55d6a86ff62032d703ba36914b4d119e27b7f17d850089b541ce09be199f",
+    "batchSha256": "7422f841d1d660379c366b0863a7e19a0f2eb2a2e4a0f85e74b26f3e911e7fdc",
     "approvedAt": "2026-11-15",
-    "count": 71,
+    "count": 91,
     "baseBatchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea",
     "revisions": [
       {
@@ -30,6 +30,60 @@
         "approvedAt": "2026-11-15",
         "reviewerId": "owner.ivan",
         "count": 5
+      },
+      {
+        "id": "leiden-food-20261115",
+        "recordsSha256": "28fc12087c3226f81f890a0899c8ffc2722b5593742ad45fac1b9dd008989827",
+        "approvalSha256": "51ad33261c1d3ec73e8ba6150ef2c5a206ec3aaf360d81b2354097b6927ffe04",
+        "approvedAt": "2026-11-15",
+        "reviewerId": "owner.ivan",
+        "count": 5
+      },
+      {
+        "id": "leiden-stay-parks-20261115",
+        "recordsSha256": "32fb30b21b90e5a9419bc2482384946c9acccd8f77997b0791d8679b29132864",
+        "approvalSha256": "dc8093b8a497802c4a34744f403580e0d012332fd9b53d392b17554b53ab97ca",
+        "approvedAt": "2026-11-15",
+        "reviewerId": "owner.ivan",
+        "count": 10
+      },
+      {
+        "id": "amsterdam-museums-20261115",
+        "recordsSha256": "44be921accc3b79e2b6d2f0fd14b9f5d12e2d4f305472c02d631eb20998531d2",
+        "approvalSha256": "088d835ffe3d52171ed87b26d2abc912b4cb6da006043e2e6c2f07ebaf8a2338",
+        "approvedAt": "2026-11-15",
+        "reviewerId": "owner.ivan",
+        "count": 20,
+        "addedIds": [
+          "museum.rijksmuseum",
+          "museum.van-gogh-museum",
+          "museum.stedelijk-museum-amsterdam",
+          "museum.anne-frank-house",
+          "museum.nemo-science-museum",
+          "museum.het-scheepvaartmuseum",
+          "museum.museum-rembrandthuis",
+          "museum.museum-ons-lieve-heer-op-solder",
+          "museum.hart-museum",
+          "museum.jewish-museum",
+          "museum.dutch-resistance-museum",
+          "museum.eye-filmmuseum",
+          "museum.museum-of-the-canals",
+          "museum.foam",
+          "museum.huis-marseille",
+          "museum.allard-pierson",
+          "museum.artis-micropia",
+          "museum.wereldmuseum-amsterdam",
+          "museum.museum-van-loon",
+          "place.royal-palace-amsterdam"
+        ]
+      },
+      {
+        "id": "priority-cities-20261115",
+        "recordsSha256": "8a808c99acf914a36e7e84f18198f32243badc55fe92e06be4c605903c98dab3",
+        "approvalSha256": "556a6a2c5673d14a2637fcb02a3e4c83384dde05da5daa555b20d33cbc36c64c",
+        "approvedAt": "2026-11-15",
+        "reviewerId": "owner.ivan",
+        "count": 14
       }
     ]
   },
@@ -63,8 +117,8 @@
     "temporaryFreshnessExclusionPolicy": "fail_closed_until_field_level_reverification"
   },
   "counts": {
-    "sourceRecords": 76,
-    "acceptedRecords": 76,
+    "sourceRecords": 96,
+    "acceptedRecords": 96,
     "excludedRecords": 0,
     "freshnessExcludedRecords": 0
   }

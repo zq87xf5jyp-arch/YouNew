@@ -6,7 +6,7 @@ export interface PlaceRevision {
 }
 export interface PlaceManifest {
   status:string; publicationAuthorized:boolean; approvedAt:string|null; reviewerId:string|null;
-  approvalSha256:string; recordsSha256:string; preparedAt:string; batchId:string;
+  privateOnly?:boolean; publicationScope?:{type:string;addedIds:string[];supersedesHistoricalWithholding:boolean}; approvalSha256:string; recordsSha256:string; preparedAt:string; batchId:string;
   ids:string[]; baseFiles:Record<string,{file:string;sha256:string}>;
   media:Record<string,{bytes:number;width:number;sha256:string}>;
 }
@@ -22,3 +22,5 @@ export const placeReviewPath:string;
 export function readPlaceReview(root:string,batchId?:string):Promise<{manifest:PlaceManifest;records:PlaceRevision[];reviewer:{name:string}|null}>;
 export function validatePlaceRecords(records:PlaceRevision[],ids:string[],bases:Map<string,PlaceRevision>,optionalTickets?:boolean,expansion?:{count:number;city?:string;bounds?:number[];cities?:Record<string,number[]>;allowPrivateAdditions?:boolean}|null):void;
 export function applyPlaceReview(release:EditorialRelease,root:string,env?:Record<string,string|undefined>):Promise<EditorialRelease>;
+
+export function isApprovedPlaceAddition(entity:unknown,release:unknown):boolean;

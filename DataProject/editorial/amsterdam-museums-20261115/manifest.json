@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "batchId": "amsterdam-museums-20261115",
-  "status": "needs_review",
-  "publicationAuthorized": false,
-  "approvedAt": null,
-  "reviewerId": null,
+  "status": "approved",
+  "publicationAuthorized": true,
+  "approvedAt": "2026-11-15",
+  "reviewerId": "owner.ivan",
   "preparedAt": "2026-11-15",
   "ids": [
     "museum.rijksmuseum",
@@ -413,7 +413,43 @@
       "sha256": "150358f0c28a02509d22edf2925b3eeed01cfaec93d0827d3b399c09c7a2abc4"
     }
   },
-  "privateOnly": true,
+  "privateOnly": false,
   "sourceChecksSha256": "6852d46c64115a3dfb48541cae8a9d4ccc1ce93dbf51eaa36cc709ff8d758fcd",
-  "mediaSourcesSha256": "3d81e21748c1daf411b8dd6e37a4d2ca9163e23e272fc9ca31162ba18d481758"
+  "mediaSourcesSha256": "3d81e21748c1daf411b8dd6e37a4d2ca9163e23e272fc9ca31162ba18d481758",
+  "approvalReference": "Owner explicitly approved all 49 EN/NL cards and PR #68/#72 in this Codex conversation on 2026-11-15, authorizing merge and production after official-source recheck and Hostinger QA.",
+  "approvedPullRequest": "https://github.com/zq87xf5jyp-arch/YouNew/pull/72",
+  "approvedReviewCommit": "06cd2e915597600f32de62d63f315f6d41a9ab7e",
+  "prepublicationCheck": {
+    "file": "DataProject/editorial/expansion-prepublication-20261115.json",
+    "sha256": "1e101882df9c77ad9459d391377650c65754b3497c71400b74d63dc301587c45",
+    "checkedAt": "2026-11-15T20:10:59.862Z",
+    "result": "135 official URLs rechecked: 133 HTTP 200, 2 official pages verified via web.run. Of HTTP responses, 78 exact bytes and 52 exact visible texts match prior evidence. The remaining changes are unrelated hotel review counts, a social label and related-place ordering. Approved prices, hours and restrictions unchanged."
+  },
+  "publicationScope": {
+    "type": "owner-approved-existing-ids",
+    "addedIds": [
+      "museum.rijksmuseum",
+      "museum.van-gogh-museum",
+      "museum.stedelijk-museum-amsterdam",
+      "museum.anne-frank-house",
+      "museum.nemo-science-museum",
+      "museum.het-scheepvaartmuseum",
+      "museum.museum-rembrandthuis",
+      "museum.museum-ons-lieve-heer-op-solder",
+      "museum.hart-museum",
+      "museum.jewish-museum",
+      "museum.dutch-resistance-museum",
+      "museum.eye-filmmuseum",
+      "museum.museum-of-the-canals",
+      "museum.foam",
+      "museum.huis-marseille",
+      "museum.allard-pierson",
+      "museum.artis-micropia",
+      "museum.wereldmuseum-amsterdam",
+      "museum.museum-van-loon",
+      "place.royal-palace-amsterdam"
+    ],
+    "supersedesHistoricalWithholding": true
+  },
+  "approvalSha256": "088d835ffe3d52171ed87b26d2abc912b4cb6da006043e2e6c2f07ebaf8a2338"
 }

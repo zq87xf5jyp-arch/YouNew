@@ -3,7 +3,7 @@
   "snapshotType": "static",
   "liveMonitoring": false,
   "checkedAt": "2026-11-15",
-  "assessment": "PARTIAL — the website is reachable, but this check does not establish readiness of every web, Admin or iOS feature.",
+  "assessment": "PARTIAL \u2014 the website is reachable, but this check does not establish readiness of every web, Admin or iOS feature.",
   "website": {
     "status": "checked",
     "label": "Website",
@@ -14,10 +14,10 @@
     "label": "Published content",
     "asOf": "2026-11-15",
     "summary": "The published content provenance fingerprint matches the generated web artifact. Counts below describe published entities, not page URLs, search documents or the full administrative inventory. Full practical guides remain unpublished.",
-    "datasetFingerprint": "c1f1f4fd7f7e47b2a64bfe068589412d3d11e9ff36d69440040a1ccc2e88856d",
+    "datasetFingerprint": "87c6b9743ecfc2eec0b3dc665d9af8f7a65e5d0830dff3b7439a26715a13a303",
     "counts": {
-      "total": 76,
-      "places": 54,
+      "total": 96,
+      "places": 74,
       "summaryGuides": 17,
       "cities": 5,
       "fullGuides": 0
@@ -37,7 +37,7 @@
     "summary": "Apple's public lookup was checked on 15 November 2026. This confirms a public listing only; authenticated App Store Connect access and the contents of the shipped app were not checked.",
     "sourceComparison": {
       "sharedIDs": 5,
-      "webOnlyIDs": 71,
+      "webOnlyIDs": 91,
       "iosOnlyIDs": 0
     }
   },
