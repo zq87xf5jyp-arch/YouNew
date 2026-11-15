@@ -10,6 +10,7 @@ const siteRoot = fileURLToPath(new URL("../", import.meta.url));
 const outRoot = join(siteRoot, "out");
 const mirrorRoot = join(siteRoot, "dist/client");
 const canonicalOrigin = "https://younew.nl";
+assert.ok(!(await readdir(outRoot)).includes('PRIVATE-REVIEW.json') && !(await readdir(join(outRoot,'images'))).includes('place-review'), 'Private review cannot be deployed to production');
 
 async function files(directory) {
   const entries = await readdir(directory, { withFileTypes: true });

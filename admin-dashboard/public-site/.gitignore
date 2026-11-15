@@ -3,3 +3,6 @@ dist/
 out/
 node_modules/
 *.tsbuildinfo
+
+/public/images/place-review/
+/public/images/places/leiden-places-20261115/

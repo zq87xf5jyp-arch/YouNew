@@ -5,6 +5,7 @@ project_root=$(cd "$(dirname "${BASH_SOURCE[0]}")/.." && pwd)
 cd "$project_root"
 
 node_command=${NODE_BINARY:-node}
+"$node_command" scripts/place-review-assets.mjs
 next_cli="$project_root/node_modules/next/dist/bin/next"
 if [[ ! -f "$next_cli" ]]; then
   next_cli="$project_root/../node_modules/next/dist/bin/next"

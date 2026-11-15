@@ -12,7 +12,7 @@ const records=(await Promise.all(Object.keys(approval.files).map(read))).flatMap
 const reviewers=await read('DataProject/operations/reviewer-registry.json');
 const opts={today:'2026-11-10'};
 test('exact owner-reviewed batch publishes both languages without guessed coordinates or photos',async()=>{
-  const release=await loadEditorialRelease();assert.equal(release.entities.length,71);
+  const release=projectEditorialRelease(approval,records,reviewers,opts);assert.equal(release.entities.length,71);
   assert.equal(release.entities.filter(e=>e.coordinate).length,3);
   assert.ok(release.entities.every(e=>e.images.length===0 && e.editorial.locales.en.title && e.editorial.locales.nl.title));
   for(const e of release.entities){const raw=records.find(r=>r.id===e.id);assert.equal(e.editorial.locales.en.summary,raw.description);assert.equal(e.editorial.locales.nl.summary,raw.attributes.description_nl);assert.deepEqual(e.coordinate,raw.coordinates);}

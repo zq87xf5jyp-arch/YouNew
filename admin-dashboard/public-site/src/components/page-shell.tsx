@@ -7,7 +7,7 @@ export function PageShell({ children, className = "", locale = "en" }: { childre
     <div className={`web-app-page ${className}`.trim()} data-page-shell lang={locale}>
       <a className="skip-link" href="#main-content">{locale === "nl" ? "Ga naar de inhoud" : "Skip to content"}</a>
       <SiteHeader locale={locale} />
-      <main id="main-content" className="page-shell-main" tabIndex={-1}>{children}</main>
+      <main id="main-content" className="page-shell-main" tabIndex={-1}>{process.env.YOUNEW_PLACE_REVIEW?<p className="safety-note" role="status">{locale==='nl'?'Besloten redactionele preview — nieuwe teksten en foto’s zijn nog niet goedgekeurd of gepubliceerd.':'Private editorial preview — new text and photographs are not yet approved or published.'}</p>:null}{children}</main>
       <SiteFooter locale={locale} />
     </div>
   );

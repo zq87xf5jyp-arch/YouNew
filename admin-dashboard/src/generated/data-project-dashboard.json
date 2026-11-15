@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-11-10T21:57:22+00:00",
+  "generated_at": "2026-11-15T14:52:43+00:00",
   "scope": "DATA PROJECT governed records only; legacy runtime data is excluded until audited and migrated.",
   "runtime_release": {
     "release_id": "legacy-runtime-unversioned",
@@ -36,10 +36,10 @@
     "published": 5,
     "verified": 454,
     "needs_review": 0,
-    "outdated": 425,
+    "outdated": 430,
     "blocked": 0,
     "media_assets": 587,
-    "quality_score": 81.3
+    "quality_score": 81.1
   },
   "coverage": [
     {
@@ -2345,13 +2345,13 @@
       "published": 0,
       "verified": 41,
       "needs_review": 0,
-      "outdated": 39,
+      "outdated": 40,
       "blocked": 0,
-      "quality_score": 81.0,
+      "quality_score": 80.5,
       "coverage_dimensions": {
         "verification": 100.0,
         "official_source": 100.0,
-        "freshness": 4.9,
+        "freshness": 2.4,
         "relationships": 100.0,
         "geography": null,
         "media": null,
@@ -2370,13 +2370,13 @@
       "published": 0,
       "verified": 40,
       "needs_review": 0,
-      "outdated": 36,
+      "outdated": 40,
       "blocked": 0,
-      "quality_score": 82.0,
+      "quality_score": 80.0,
       "coverage_dimensions": {
         "verification": 100.0,
         "official_source": 100.0,
-        "freshness": 10.0,
+        "freshness": 0.0,
         "relationships": 100.0,
         "geography": null,
         "media": null,

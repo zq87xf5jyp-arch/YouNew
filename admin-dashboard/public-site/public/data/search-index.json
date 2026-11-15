@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "generatedAt": "2026-10-23T00:00:00Z",
-  "datasetFingerprint": "32fb2435ffb84b46b7d0c2e3c2371a217b1bb5280e8aa13cff9bc394f8812e17",
+  "datasetFingerprint": "5ad1ce12ca2a73165b229eb592e33633f1244ffd284d5f7f73315a577edfe54c",
   "locale": "en",
   "geographyEffectiveDate": "2026-01-01",
   "documents": [
@@ -2080,7 +2080,7 @@
       "slug": "leiden-hortus",
       "route": "/places/leiden-hortus",
       "title": "Hortus botanicus Leiden",
-      "summary": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+      "summary": "Historic university gardens and greenhouses behind the Academy Building on the Rapenburg.",
       "contentDepth": "summary",
       "keywords": [
         "Hortus botanicus Leiden",
@@ -2107,14 +2107,14 @@
       ],
       "dutch": {
         "title": "Hortus botanicus Leiden",
-        "summary": "Ontdek planten en kassen in de botanische tuin van Leiden. Bekijk de bezoekersinformatie voordat je een dag kiest.",
+        "summary": "Historische universiteitstuinen en kassen achter het Academiegebouw aan het Rapenburg.",
         "route": "/nl/plaatsen/leiden-hortus"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
-        "https://hortusleiden.nl/"
+        "https://hortusleiden.nl/bezoek-info"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "museums-sights",
@@ -2129,7 +2129,7 @@
       "tags": [],
       "synonyms": [
         "Hortus botanicus Leiden",
-        "Ontdek planten en kassen in de botanische tuin van Leiden. Bekijk de bezoekersinformatie voordat je een dag kiest."
+        "Historische universiteitstuinen en kassen achter het Academiegebouw aan het Rapenburg."
       ],
       "officialOrganizationNames": [
         "Hortus botanicus Leiden"
@@ -2724,7 +2724,7 @@
       "slug": "leiden-lakenhal",
       "route": "/places/leiden-lakenhal",
       "title": "Museum De Lakenhal",
-      "summary": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+      "summary": "Art and Leiden’s textile history inside the former cloth hall beside the Oude Singel.",
       "contentDepth": "summary",
       "keywords": [
         "Museum De Lakenhal",
@@ -2751,14 +2751,14 @@
       ],
       "dutch": {
         "title": "Museum De Lakenhal",
-        "summary": "Ontdek kunst en de geschiedenis van Leiden. Begin bij de bezoekersinformatie en kies wat je wilt bekijken.",
+        "summary": "Kunst en de Leidse textielgeschiedenis in de voormalige lakenhal aan de Oude Singel.",
         "route": "/nl/plaatsen/leiden-lakenhal"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
-        "https://www.lakenhal.nl/en/"
+        "https://www.lakenhal.nl/en/story/visitor-information-pratical-information"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "museums-sights",
@@ -2773,7 +2773,7 @@
       "tags": [],
       "synonyms": [
         "Museum De Lakenhal",
-        "Ontdek kunst en de geschiedenis van Leiden. Begin bij de bezoekersinformatie en kies wat je wilt bekijken."
+        "Kunst en de Leidse textielgeschiedenis in de voormalige lakenhal aan de Oude Singel."
       ],
       "officialOrganizationNames": [
         "Museum De Lakenhal"
@@ -2788,7 +2788,7 @@
       "slug": "leiden-naturalis",
       "route": "/places/leiden-naturalis",
       "title": "Naturalis",
-      "summary": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+      "summary": "Explore biodiversity through animals, fossils and T. rex Trix at Leiden’s natural history museum.",
       "contentDepth": "summary",
       "keywords": [
         "Naturalis",
@@ -2815,12 +2815,12 @@
       ],
       "dutch": {
         "title": "Naturalis",
-        "summary": "Ontdek de natuur bij Naturalis. Bekijk de officiële pagina voor de actuele route naar het museum en de bezoekmogelijkheden.",
+        "summary": "Ontdek biodiversiteit met dieren, fossielen en T. rex Trix in het Leidse natuurhistorische museum.",
         "route": "/nl/plaatsen/leiden-naturalis"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.naturalis.nl/en/museum/practical-info"
       ],
@@ -2837,7 +2837,7 @@
       "tags": [],
       "synonyms": [
         "Naturalis",
-        "Ontdek de natuur bij Naturalis. Bekijk de officiële pagina voor de actuele route naar het museum en de bezoekmogelijkheden."
+        "Ontdek biodiversiteit met dieren, fossielen en T. rex Trix in het Leidse natuurhistorische museum."
       ],
       "officialOrganizationNames": [
         "Naturalis"
@@ -3564,7 +3564,7 @@
       "slug": "leiden-boerhaave",
       "route": "/places/leiden-boerhaave",
       "title": "Rijksmuseum Boerhaave",
-      "summary": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
+      "summary": "Scientific instruments and discoveries reveal the history of science and medicine in the Netherlands.",
       "contentDepth": "summary",
       "keywords": [
         "Rijksmuseum Boerhaave",
@@ -3591,12 +3591,12 @@
       ],
       "dutch": {
         "title": "Rijksmuseum Boerhaave",
-        "summary": "Een museum met tentoonstellingen en activiteiten over wetenschap en geneeskunde. Bekijk het programma en de geplande sluitingsdagen.",
+        "summary": "Wetenschappelijke instrumenten en ontdekkingen vertellen de geschiedenis van wetenschap en geneeskunde in Nederland.",
         "route": "/nl/plaatsen/leiden-boerhaave"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
         "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit"
       ],
@@ -3613,7 +3613,7 @@
       "tags": [],
       "synonyms": [
         "Rijksmuseum Boerhaave",
-        "Een museum met tentoonstellingen en activiteiten over wetenschap en geneeskunde. Bekijk het programma en de geplande sluitingsdagen."
+        "Wetenschappelijke instrumenten en ontdekkingen vertellen de geschiedenis van wetenschap en geneeskunde in Nederland."
       ],
       "officialOrganizationNames": [
         "Rijksmuseum Boerhaave"
@@ -3628,7 +3628,7 @@
       "slug": "leiden-rmo",
       "route": "/places/leiden-rmo",
       "title": "Rijksmuseum van Oudheden",
-      "summary": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+      "summary": "Ancient Egypt, classical worlds and Dutch archaeology meet at the museum on the Rapenburg.",
       "contentDepth": "summary",
       "keywords": [
         "Rijksmuseum van Oudheden",
@@ -3655,14 +3655,14 @@
       ],
       "dutch": {
         "title": "Rijksmuseum van Oudheden",
-        "summary": "Ontdek oudheden in het museum aan het Rapenburg. Op de officiële bezoekerspagina vind je informatie om je bezoek te plannen.",
+        "summary": "Het oude Egypte, de klassieke wereld en Nederlandse archeologie komen samen aan het Rapenburg.",
         "route": "/nl/plaatsen/leiden-rmo"
       },
       "nationalFallback": false,
       "qualityScore": 70,
-      "verifiedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
       "officialSourceUrls": [
-        "https://www.rmo.nl/en/"
+        "https://www.rmo.nl/en/visit/opening-hours-fees-address/"
       ],
       "relatedOrganizationIds": [],
       "narrowCategory": "museums-sights",
@@ -3677,7 +3677,7 @@
       "tags": [],
       "synonyms": [
         "Rijksmuseum van Oudheden",
-        "Ontdek oudheden in het museum aan het Rapenburg. Op de officiële bezoekerspagina vind je informatie om je bezoek te plannen."
+        "Het oude Egypte, de klassieke wereld en Nederlandse archeologie komen samen aan het Rapenburg."
       ],
       "officialOrganizationNames": [
         "Rijksmuseum van Oudheden"

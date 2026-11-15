@@ -7,6 +7,7 @@ import {getPublicContent} from "@/lib/content";
 import type {ContentEntity, EditorialBlock, EditorialSource} from "@/lib/content/types";
 import {serializeJsonLd} from "@/lib/seo/json-ld";
 import "@/styles/editorial.css";
+import {EditorialPlaceContent} from '@/components/editorial-place-content';
 
 export function editorialRoute(entity: ContentEntity, locale: "en"|"nl") {
   return locale==='en' ? entity.route : `/nl/${entity.type==='place'?'plaatsen':'gidsen'}/${entity.slug}`;
@@ -27,6 +28,7 @@ export function EditorialDetail({entity,locale='en'}:{entity:ContentEntity;local
       {entity.cityId?<p><MapPin aria-hidden className="editorial-inline-icon"/> {entity.cityId.replaceAll('-',' ')}</p>:null}
     </header>
     <div className="editorial-columns"><div>
+      <EditorialPlaceContent entity={entity} locale={locale}/>
       {entity.type==='place'?<PlaceContactDetails details={entity.placeDetails} locale={locale}/>:null}
       {entity.coordinate?<p><Link href={`/map/?city=${entity.cityId}`}>{nl?'Bekijk op de kaart':'View on the map'}</Link></p>:null}
       {guide?<>
@@ -41,7 +43,7 @@ export function EditorialDetail({entity,locale='en'}:{entity:ContentEntity;local
       {content.section==='BUSINESS'?<p><Link className="button button-primary" href={`${nl?'/nl/voor-bedrijven/aanmelden/':'/for-business/local/apply/'}?action=${entity.id.endsWith('-add')?'add':'claim'}`}>{nl?'Aanvraag indienen':'Submit a request'}</Link></p>:null}
       {related.length?<section><h2>{content.section==='COLLECTIONS'?(nl?'Plekken in deze selectie':'Places in this collection'):(nl?'Gerelateerde informatie':'Related information')}</h2><ul className="editorial-related">{related.map(e=><li key={e.id}><Link href={e.editorial?editorialRoute(e,locale):e.route}>{e.editorial?.locales[locale].title ?? e.title}</Link><p>{e.editorial?.locales[locale].summary ?? e.summary}</p></li>)}</ul></section>:null}
     </div><aside className="editorial-sources"><h2>{nl?'Bronnen':'Sources'}</h2><ul>{sources.map((s,i)=><li key={`${s.id}-${i}`}><a href={s.url} target="_blank" rel="noreferrer">{s.publisher}<ExternalLink aria-hidden /></a><small>{nl?'Gecontroleerd':'Checked'} <time dateTime={s.checkedAt}>{s.checkedAt}</time></small></li>)}</ul>
-      <p>{nl?'Redactioneel beoordeeld':'Editorially reviewed'} <time dateTime={content.reviewedAt}>{content.reviewedAt}</time></p>
+      {content.placeReview?<p>{nl?'Nieuwe versie voorbereid op':'Revision prepared on'} <time dateTime={content.placeReview.preparedAt}>{content.placeReview.preparedAt}</time> — {nl?'wacht op redactionele goedkeuring; nog niet gepubliceerd.':'awaiting editorial approval; not published.'}</p>:<p>{nl?'Redactioneel beoordeeld':'Editorially reviewed'} <time dateTime={content.reviewedAt}>{content.reviewedAt}</time></p>}
       {content.section==='COLLECTIONS'?<p>{nl?'Een redactionele selectie van YouNew; geen aanbeveling namens de genoemde locaties.':'A YouNew editorial selection; not an endorsement by the listed places.'}</p>:null}
       <a href={report}>{nl?'Meld een correctie':'Report a correction'}</a>
     </aside></div>

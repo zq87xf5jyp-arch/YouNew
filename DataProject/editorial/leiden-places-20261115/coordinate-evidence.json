@@ -1,0 +1,76 @@
+[
+  {
+    "place": "lakenhal",
+    "url": "https://goo.gl/maps/FGxZEB8dgYjzoaoP7",
+    "finalUrl": "https://www.google.com/maps/place/Museum+De+Lakenhal/@52.1628566,4.4853762,17z/data=!3m1!4b1!4m5!3m4!1s0x47c5c6ec5ec8e867:0xb64d67c1c6e77359!8m2!3d52.1628566!4d4.4875649?shorturl=1&ucbcb=1",
+    "http": 200,
+    "checkedAt": "2026-11-15",
+    "method": "Official visitor page map link; destination coordinates, not camera centre"
+  },
+  {
+    "place": "hortus",
+    "url": "https://goo.gl/maps/RasmPnCGe6m48u4G8",
+    "finalUrl": "https://www.google.com/maps/place/Hortus+Botanicus+Leiden/@52.1572922,4.4849929,19.58z/data=!4m6!3m5!1s0x47c5c6efe019d193:0x7d3795c652143fbf!8m2!3d52.1571223!4d4.484888!16zL20vMDYxbTA5?entry=tts&shorturl=1&ucbcb=1",
+    "http": 200,
+    "checkedAt": "2026-11-15",
+    "method": "Official visitor page map link; destination coordinates, not camera centre"
+  },
+  {
+    "place": "boerhaave",
+    "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Lange+Sint+Agnietenstraat+10+Leiden&fq=type%3Aadres&rows=5",
+    "checkedAt": "2026-11-15",
+    "method": "Exact official street address matched to BAG address centroid through PDOK",
+    "match": {
+      "bron": "BAG",
+      "woonplaatscode": "2088",
+      "type": "adres",
+      "woonplaatsnaam": "Leiden",
+      "wijkcode": "WK054601",
+      "huis_nlt": "10",
+      "openbareruimtetype": "Weg",
+      "buurtnaam": "De Camp",
+      "gemeentecode": "0546",
+      "rdf_seealso": "http://bag.basisregistraties.overheid.nl/bag/id/nummeraanduiding/0546200000055553",
+      "weergavenaam": "Lange Sint Agnietenstraat 10, 2312WC Leiden",
+      "straatnaam_verkort": "Lange Sint Agnietenstr",
+      "id": "adr-c81bde87fd1fab1ba82c5f508655ed66",
+      "gekoppeld_perceel": [
+        "LDN01-H-4118"
+      ],
+      "gemeentenaam": "Leiden",
+      "buurtcode": "BU05460100",
+      "wijknaam": "Binnenstad-Noord",
+      "identificatie": "0546010000055553-0546200000055553",
+      "openbareruimte_id": "0546300000000770",
+      "waterschapsnaam": "Hoogheemraadschap van Rijnland",
+      "provinciecode": "PV28",
+      "postcode": "2312WC",
+      "provincienaam": "Zuid-Holland",
+      "centroide_ll": "POINT(4.48917759 52.16134171)",
+      "nummeraanduiding_id": "0546200000055553",
+      "waterschapscode": "13",
+      "adresseerbaarobject_id": "0546010000055553",
+      "huisnummer": 10,
+      "provincieafkorting": "ZH",
+      "centroide_rd": "POINT(93553.917 464066.558)",
+      "straatnaam": "Lange Sint Agnietenstraat",
+      "score": 21.878597
+    }
+  },
+  {
+    "place": "naturalis",
+    "url": "https://www.naturalis.nl/en/museum/practical-info",
+    "checkedAt": "2026-11-15",
+    "method": "Official Google walking-route destination !1d4.4730775!2d52.1646451; not origin or camera centre",
+    "latitude": 52.1646451,
+    "longitude": 4.4730775
+  },
+  {
+    "place": "rmo",
+    "url": "https://www.rmo.nl/uw%20-bezoek/openingstijden-prijzen-route/",
+    "checkedAt": "2026-11-15",
+    "method": "Official Google Maps destination !3d52.1584668!4d4.4858978; not camera centre",
+    "latitude": 52.1584668,
+    "longitude": 4.4858978
+  }
+]

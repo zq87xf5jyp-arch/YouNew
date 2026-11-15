@@ -1,9 +1,9 @@
 {
   "schemaVersion": 2,
-  "snapshotID": "release-truth.b6e9bbc1d7d53672",
-  "snapshotDigest": "b6e9bbc1d7d53672e4722c7a2833b231e0285ed070b6348b1ff1310762cbcddb",
-  "generatedAt": "2026-11-10T21:57:22.000Z",
-  "candidateCommit": "549167b111e61bb164dc93e5a3bbb95df72d34f4",
+  "snapshotID": "release-truth.b98794ee08d43df6",
+  "snapshotDigest": "b98794ee08d43df64811a18e1308e9e18d910dee1fbde76026757df663f0a6f6",
+  "generatedAt": "2026-11-15T14:50:36.000Z",
+  "candidateCommit": "3e1d42180c35e0b489a769ea4c071a6c4c504f1a",
   "sourceTreeState": "dirty",
   "sourceTreeExclusions": [
     "admin-dashboard/src/generated/release-truth.json",
@@ -19,7 +19,7 @@
     {
       "id": "candidate-source",
       "kind": "git_source_identity",
-      "sourceRef": "git:549167b111e61bb164dc93e5a3bbb95df72d34f4",
+      "sourceRef": "git:3e1d42180c35e0b489a769ea4c071a6c4c504f1a",
       "sha256": null,
       "observedAt": null,
       "validThrough": null,
@@ -30,8 +30,8 @@
       "id": "data-project-inventory",
       "kind": "generated_inventory",
       "sourceRef": "admin-dashboard/src/generated/data-project-dashboard.json",
-      "sha256": "1f2e49ec9245fa7d07720cbff2febe642fde294beba05f77275648220a2725df",
-      "observedAt": "2026-11-10T21:57:22+00:00",
+      "sha256": "c856923a428dbbdd07eabac79c5ac66eca04c0f40ebc73f8362c1e0d42168d8f",
+      "observedAt": "2026-11-15T14:50:36+00:00",
       "validThrough": null,
       "state": "measured",
       "scope": "Governed candidate inventory; link-health sentinel is explicitly excluded."
@@ -50,7 +50,7 @@
       "id": "public-content-provenance",
       "kind": "packaged_provenance",
       "sourceRef": "admin-dashboard/public-site/public/data/content-provenance.json",
-      "sha256": "632b0a70ef34168dc26ee1022af13cd60cfcf1269bf5acd94e6a867fb7e22ed1",
+      "sha256": "c90b4b7687686b893184e6c475fd4e46de7a9b55c85e40253f3b72457af21835",
       "observedAt": "2026-10-23T00:00:00Z",
       "validThrough": null,
       "state": "measured",
@@ -92,7 +92,7 @@
       "state": "measured",
       "total": 525,
       "verified": 454,
-      "outdated": 425,
+      "outdated": 430,
       "nextReleaseID": "education-v1.0.0",
       "nextReleaseStatus": "qa"
     },
@@ -106,7 +106,7 @@
         "cities-v0.1.0",
         "editorial-leiden-20261110"
       ],
-      "datasetFingerprint": "32fb2435ffb84b46b7d0c2e3c2371a217b1bb5280e8aa13cff9bc394f8812e17",
+      "datasetFingerprint": "5ad1ce12ca2a73165b229eb592e33633f1244ffd284d5f7f73315a577edfe54c",
       "outputChecksum": "d39686302bac96ca65c9489f64ed7b7ded29e4f9865e21edfb0f52db8cb45e7c"
     },
     "deployed": {
