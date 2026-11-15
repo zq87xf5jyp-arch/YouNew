@@ -1,0 +1,43 @@
+{
+  "id": "museum.den-haag-museon-omniversum",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.den-haag-museon-omniversum",
+    "street": "Stadhouderslaan",
+    "house": "37",
+    "postcode": "2517HV",
+    "locality": "'s-Gravenhage"
+  },
+  "officialSourceURL": "https://www.museon-omniversum.nl/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/02fcced22185753e525977e5b65dccdbe89a98ea340e3bd11515f88f4a7e4a4a.json",
+  "officialSourceEvidenceSHA256": "b34597cacffcbde394d77b9fe833952fdc898549cbc2a7e212647b5f5a45894a",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.0890557,
+    "longitude": 4.2807185
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Stadhouderslaan+37+2517HV+%27s-Gravenhage&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "101aca7b4b2db3e0dcbf4efc2e961b0a0629b77a58c509ecfecd16ca1039bf8c",
+  "candidateAddresses": [
+    "Stadhouderslaan 37, 2517HV 's-Gravenhage",
+    "Stadhouderslaan 1P, 2517HV 's-Gravenhage",
+    "Stadhouderslaan 1Q, 2517HV 's-Gravenhage",
+    "Stadhouderslaan 1R, 2517HV 's-Gravenhage",
+    "Stadhouderslaan 3A, 2517HV 's-Gravenhage"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Stadhouderslaan 37, 2517HV 's-Gravenhage",
+    "straatnaam": "Stadhouderslaan",
+    "huis_nlt": "37",
+    "postcode": "2517HV",
+    "woonplaatsnaam": "'s-Gravenhage",
+    "nummeraanduiding_id": "0518200001646112",
+    "adresseerbaarobject_id": "0518010001646110",
+    "centroide_ll": "POINT(4.2807185 52.0890557)"
+  },
+  "addressMatched": true
+}

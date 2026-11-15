@@ -1,0 +1,43 @@
+{
+  "id": "museum.eindhoven-daf",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.eindhoven-daf",
+    "street": "Tongelresestraat",
+    "house": "27",
+    "postcode": "5613DA",
+    "locality": "Eindhoven"
+  },
+  "officialSourceURL": "https://www.dafmuseum.nl/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/d862bcbea53da8835224fa000a88d156938c9a230be323b6848879611ca307fa.json",
+  "officialSourceEvidenceSHA256": "e93f230376ef61068ebcb05650e6bee6ff29eaf83a9553e91a12f1f3347fa2ef",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.43722081,
+    "longitude": 5.49042939
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Tongelresestraat+27+5613DA+Eindhoven&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "218fce0f2f662a957683d0130d1ed37566efe10fa9229d27d3f4bbba790009dd",
+  "candidateAddresses": [
+    "Tongelresestraat 27, 5613DA Eindhoven",
+    "Tongelresestraat 29-27, 5613DA Eindhoven",
+    "Tongelresestraat 29A, 5613DA Eindhoven",
+    "Tongelresestraat 29B, 5613DA Eindhoven",
+    "Tongelresestraat 29C, 5613DA Eindhoven"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Tongelresestraat 27, 5613DA Eindhoven",
+    "straatnaam": "Tongelresestraat",
+    "huis_nlt": "27",
+    "postcode": "5613DA",
+    "woonplaatsnaam": "Eindhoven",
+    "nummeraanduiding_id": "0772200000016044",
+    "adresseerbaarobject_id": "0772010000766696",
+    "centroide_ll": "POINT(5.49042939 51.43722081)"
+  },
+  "addressMatched": true
+}

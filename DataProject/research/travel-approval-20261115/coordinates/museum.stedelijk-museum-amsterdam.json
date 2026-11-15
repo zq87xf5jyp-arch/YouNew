@@ -1,0 +1,43 @@
+{
+  "id": "museum.stedelijk-museum-amsterdam",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.stedelijk-museum-amsterdam",
+    "street": "Museumplein",
+    "house": "10",
+    "postcode": "1071DJ",
+    "locality": "Amsterdam"
+  },
+  "officialSourceURL": "https://www.stedelijk.nl/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/2b8daa364407c701f36b0934a77f269bf8cac37cfc6cf7ec4a25111a5ce331b8.json",
+  "officialSourceEvidenceSHA256": "7220b0a5fb7f4d89c6533f8942fd200ee62c95273ea18d17bd152135cbdf930d",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.35790993,
+    "longitude": 4.87985492
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Museumplein+10+1071DJ+Amsterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "8eea635a69e3a3b43053ea7f20ecb980c8367070222700a17687dc49185e6406",
+  "candidateAddresses": [
+    "Museumplein 10, 1071DJ Amsterdam",
+    "Museumplein 5A, 1071DJ Amsterdam",
+    "Museumplein 5B, 1071DJ Amsterdam",
+    "Museumplein 5C, 1071DJ Amsterdam",
+    "Museumplein 5D, 1071DJ Amsterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Museumplein 10, 1071DJ Amsterdam",
+    "straatnaam": "Museumplein",
+    "huis_nlt": "10",
+    "postcode": "1071DJ",
+    "woonplaatsnaam": "Amsterdam",
+    "nummeraanduiding_id": "0363200011324089",
+    "adresseerbaarobject_id": "0363010011323415",
+    "centroide_ll": "POINT(4.87985492 52.35790993)"
+  },
+  "addressMatched": true
+}

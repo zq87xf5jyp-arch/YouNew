@@ -1,0 +1,43 @@
+{
+  "id": "museum.museum-of-the-canals",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.museum-of-the-canals",
+    "street": "Herengracht",
+    "house": "386",
+    "postcode": "1016CJ",
+    "locality": "Amsterdam"
+  },
+  "officialSourceURL": "https://grachten.museum/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/8de23f3fd885ad1e21cc83254216f839b76bc66233c8307f319ff9e98eda6419.json",
+  "officialSourceEvidenceSHA256": "7739f9a582eef97e3779bdee6eb10823ba0f3d981d88a21668e2fd88c57d66e9",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.36788669,
+    "longitude": 4.8862747
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Herengracht+386+1016CJ+Amsterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "39c5371082d6775c4ec8f781b7002aa9900ecda41eab38e56db02471be2a4bdc",
+  "candidateAddresses": [
+    "Herengracht 386, 1016CJ Amsterdam",
+    "Herengracht 384A-1, 1016CJ Amsterdam",
+    "Herengracht 392C-1, 1016CJ Amsterdam",
+    "Herengracht 392C-2, 1016CJ Amsterdam",
+    "Herengracht 384B, 1016CJ Amsterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Herengracht 386, 1016CJ Amsterdam",
+    "straatnaam": "Herengracht",
+    "huis_nlt": "386",
+    "postcode": "1016CJ",
+    "woonplaatsnaam": "Amsterdam",
+    "nummeraanduiding_id": "0363200001992823",
+    "adresseerbaarobject_id": "0363010001993886",
+    "centroide_ll": "POINT(4.8862747 52.36788669)"
+  },
+  "addressMatched": true
+}

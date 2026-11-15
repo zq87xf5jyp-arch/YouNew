@@ -1,0 +1,43 @@
+{
+  "id": "place.eindhoven-evoluon",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "place.eindhoven-evoluon",
+    "street": "Noord Brabantlaan",
+    "house": "1A",
+    "postcode": "5652LA",
+    "locality": "Eindhoven"
+  },
+  "officialSourceURL": "https://nextnature.net/museum",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/d1143c69670441636c81946167f77016803ac4c80d85604ebdd1b1ea0fb591fb.json",
+  "officialSourceEvidenceSHA256": "97f0f615d8c9225676d5f458ed978461e4c8961112a8bf3ff8d6acda62d4c9c7",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.44361096,
+    "longitude": 5.4468137
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Noord+Brabantlaan+1A+5652LA+Eindhoven&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "1a50458165c6ac17dac535c434faa4d3ed01f075ac29f50b4d92e91c2e644739",
+  "candidateAddresses": [
+    "Noord Brabantlaan 1A, 5652LA Eindhoven",
+    "Noord Brabantlaan 33N, 5652LA Eindhoven",
+    "Noord Brabantlaan 33A, 5652LA Eindhoven",
+    "Noord Brabantlaan 33B, 5652LA Eindhoven",
+    "Noord Brabantlaan 33C, 5652LA Eindhoven"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Noord Brabantlaan 1A, 5652LA Eindhoven",
+    "straatnaam": "Noord Brabantlaan",
+    "huis_nlt": "1A",
+    "postcode": "5652LA",
+    "woonplaatsnaam": "Eindhoven",
+    "nummeraanduiding_id": "0772200000111333",
+    "adresseerbaarobject_id": "0772010000705321",
+    "centroide_ll": "POINT(5.4468137 51.44361096)"
+  },
+  "addressMatched": true
+}

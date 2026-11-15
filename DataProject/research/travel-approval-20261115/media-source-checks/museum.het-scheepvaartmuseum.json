@@ -1,0 +1,17 @@
+{
+  "id": "museum.het-scheepvaartmuseum",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Het_Scheepvaartmuseum_Amsterdam%2C_Photo_by_Persian_Dutch_Network%2C_January_2012.jpg",
+  "checkedAt": "2026-11-15",
+  "publicationAuthorized": false,
+  "status": "needs_review",
+  "priorEvidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.het-scheepvaartmuseum.json",
+  "priorEvidenceSHA256": "77bd63fccfa9693a7ffdd8af9af88fd91226479972b3d796f62836a439588699",
+  "sourcePageSHA256": "f7aa54589b3a0ae15c4966280182174341dfffb62440b65b431efc22a86a013f",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "licenseURLs": [
+    "https://creativecommons.org/licenses/by-sa/3.0"
+  ],
+  "authorFromPriorReview": "PersianDutchNetwork",
+  "sourceRead": true,
+  "descriptionExcerpt": "Description Het Scheepvaartmuseum Amsterdam, Photo by Persian Dutch Network, January 2012.jpg English: The Nederlands Scheepvaartmuseum (Netherlands Maritime Museum) in Amsterdam"
+}

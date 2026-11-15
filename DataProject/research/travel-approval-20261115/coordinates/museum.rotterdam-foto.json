@@ -1,0 +1,43 @@
+{
+  "id": "museum.rotterdam-foto",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.rotterdam-foto",
+    "street": "Brede Hilledijk",
+    "house": "95",
+    "postcode": "3072KD",
+    "locality": "Rotterdam"
+  },
+  "officialSourceURL": "https://www.nederlandsfotomuseum.nl/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/3672c97006b6f771c530be701857e6472aa0882b02a26c6d4472fa5be1049366.json",
+  "officialSourceEvidenceSHA256": "6788dc75d3f62fac54c12e4f5ea96d609aa27e1a43d24b6d8ba44d5b88250e12",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.9027092,
+    "longitude": 4.49519381
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Brede+Hilledijk+95+3072KD+Rotterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "4d6b4214740001289d2d04e7fa3321999052a21b5db7d58bc41a7ddec5f5c09d",
+  "candidateAddresses": [
+    "Brede Hilledijk 95, 3072KD Rotterdam",
+    "Brede Hilledijk 61A, 3072KD Rotterdam",
+    "Brede Hilledijk 61B, 3072KD Rotterdam",
+    "Brede Hilledijk 61C, 3072KD Rotterdam",
+    "Brede Hilledijk 61D, 3072KD Rotterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Brede Hilledijk 95, 3072KD Rotterdam",
+    "straatnaam": "Brede Hilledijk",
+    "huis_nlt": "95",
+    "postcode": "3072KD",
+    "woonplaatsnaam": "Rotterdam",
+    "nummeraanduiding_id": "0599200110004720",
+    "adresseerbaarobject_id": "0599010110004640",
+    "centroide_ll": "POINT(4.49519381 51.9027092)"
+  },
+  "addressMatched": true
+}

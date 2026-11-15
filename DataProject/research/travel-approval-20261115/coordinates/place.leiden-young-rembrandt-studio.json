@@ -1,0 +1,43 @@
+{
+  "id": "place.leiden-young-rembrandt-studio",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "place.leiden-young-rembrandt-studio",
+    "street": "Langebrug",
+    "house": "89",
+    "postcode": "",
+    "locality": "Leiden"
+  },
+  "officialSourceURL": "https://www.visitleiden.nl/nl/cultuur/jonge-rembrandt/young-rembrandt-studio",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/64e454f9338e7c0ae07d8e957e6611075bbfcee7cdad2e39014af160fa50dc2c.json",
+  "officialSourceEvidenceSHA256": "2c2b0f77e10de1092f7da28b568ddc837e569c96275ae7ffff2910707e6695a6",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.15761434,
+    "longitude": 4.48974704
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Langebrug+89++Leiden&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "a24ea53f4cd84a69ae12cb88e7888177e71e99c5b2dff5a8baa5ed03fcd5d2a2",
+  "candidateAddresses": [
+    "Langebrug 89, 2311TJ Leiden",
+    "Langebrug 89A, 2311TJ Leiden",
+    "Langebrug 12A-1, Leiden",
+    "Langebrug 2B, Leiden",
+    "Langebrug 6I, Leiden"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Langebrug 89, 2311TJ Leiden",
+    "straatnaam": "Langebrug",
+    "huis_nlt": "89",
+    "postcode": "2311TJ",
+    "woonplaatsnaam": "Leiden",
+    "nummeraanduiding_id": "0546200000010945",
+    "adresseerbaarobject_id": "0546010000010945",
+    "centroide_ll": "POINT(4.48974704 52.15761434)"
+  },
+  "addressMatched": true
+}

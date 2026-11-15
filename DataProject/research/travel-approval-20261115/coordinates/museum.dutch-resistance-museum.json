@@ -1,0 +1,29 @@
+{
+  "id": "museum.dutch-resistance-museum",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.dutch-resistance-museum",
+    "street": "Plantage Kerklaan",
+    "house": "61",
+    "postcode": "1018CX",
+    "locality": "Amsterdam"
+  },
+  "officialSourceURL": "https://www.verzetsmuseum.org/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/09d46f29d95e93a95c5bf94f440a077392c3a5b729481a1b7815f82586439973.json",
+  "officialSourceEvidenceSHA256": "e24d9b3c97ccb6155c6adb6b776d071bef5653af5184230392d75f246a50b70d",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": null,
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Plantage+Kerklaan+61+1018CX+Amsterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "47a01298406bd4b476430792934b15a88e648642e3b49a7c14a6cedbb7ebcdeb",
+  "candidateAddresses": [
+    "Plantage Kerklaan 61C-1, 1018CX Amsterdam",
+    "Plantage Kerklaan 61C-2, 1018CX Amsterdam",
+    "Plantage Kerklaan 61A, 1018CX Amsterdam",
+    "Plantage Kerklaan 61B, 1018CX Amsterdam",
+    "Plantage Kerklaan 61D, 1018CX Amsterdam"
+  ],
+  "limitation": "Expected one exact address; found 0"
+}

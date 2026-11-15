@@ -1,0 +1,17 @@
+{
+  "id": "museum.eindhoven-philips",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Philipsfabriekje.jpg",
+  "checkedAt": "2026-11-15",
+  "publicationAuthorized": false,
+  "status": "needs_review",
+  "priorEvidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.eindhoven-philips.json",
+  "priorEvidenceSHA256": "bbe44b605de0f5227d526b543b49da1612c1df93b7a60db39ce827c3eaaa61fe",
+  "sourcePageSHA256": "a3bba0b682908555f1a20235e6514900f032c7794598791847191e3bda4ca736",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "licenseURLs": [
+    "https://creativecommons.org/licenses/by-sa/3.0"
+  ],
+  "authorFromPriorReview": "Lempkesfabriek",
+  "sourceRead": true,
+  "descriptionExcerpt": "Description Philipsfabriekje.jpg Nederlands: Eerste Philipsfabriekje aan de Emmasingel in Eindhoven Date July 2008 Source Own work Author Lempkesfabriek Object location"
+}

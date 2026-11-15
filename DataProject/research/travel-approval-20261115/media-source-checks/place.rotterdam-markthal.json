@@ -1,0 +1,17 @@
+{
+  "id": "place.rotterdam-markthal",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Rotterdam_(21).jpg",
+  "checkedAt": "2026-11-15",
+  "publicationAuthorized": false,
+  "status": "needs_review",
+  "priorEvidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/place.rotterdam-markthal.json",
+  "priorEvidenceSHA256": "2782a68e9e8897c792dce18f87734e78aba5241bc66b71d2d179736005caa0f2",
+  "sourcePageSHA256": "0f1b6d2b86beef2d699be7c63c143825ae614849546f9726f03a539353569d7e",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "licenseURLs": [
+    "https://creativecommons.org/licenses/by-sa/4.0"
+  ],
+  "authorFromPriorReview": "Elekes Andor",
+  "sourceRead": true,
+  "descriptionExcerpt": "Description Rotterdam (21).jpg Nederlands: Zicht op een deel van de straat de Binnenrotte in het centrum van Rotterdam English: Binnenrotte,"
+}

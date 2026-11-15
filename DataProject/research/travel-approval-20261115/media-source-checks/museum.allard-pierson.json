@@ -1,0 +1,17 @@
+{
+  "id": "museum.allard-pierson",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Allard_Pierson_-_Amsterdam_%28NL32%29_-_2024-11-25_-_2.jpg",
+  "checkedAt": "2026-11-15",
+  "publicationAuthorized": false,
+  "status": "needs_review",
+  "priorEvidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.allard-pierson.json",
+  "priorEvidenceSHA256": "5823489ede4640d267966b0cb06f92d4b6f9540240804244b9e0310fde8b9d64",
+  "sourcePageSHA256": "ad1a8b14ec8a22338d92e153ce5fb9843a409f05ba750c880a373211e103dff7",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "licenseURLs": [
+    "https://creativecommons.org/licenses/by-sa/4.0"
+  ],
+  "authorFromPriorReview": "Chabe01",
+  "sourceRead": true,
+  "descriptionExcerpt": "Description Musée Allard Pierson - Amsterdam (NL32) - 2024-11-25 - 2.jpg Français : Musée Allard Pierson, Amsterdam. Date 25 November"
+}

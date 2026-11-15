@@ -1,0 +1,43 @@
+{
+  "id": "place.rotterdam-markthal",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "place.rotterdam-markthal",
+    "street": "Ds. Jan Scharpstraat",
+    "house": "298",
+    "postcode": "3011GZ",
+    "locality": "Rotterdam"
+  },
+  "officialSourceURL": "https://markthal.nl/en/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/064ef09faa6c9117a72a823412b5b95d6adbd6981874e484363f04713f2e7af3.json",
+  "officialSourceEvidenceSHA256": "6d695fe81f8828d0edc00468ad64f734a3b57f0fc00548e035d5c0b7cba0797f",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.91977096,
+    "longitude": 4.48625924
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Ds.+Jan+Scharpstraat+298+3011GZ+Rotterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "a8866dbcf358936c8c4e4d90307f85a4ce1d6f62e01a6d566841372a07f0d762",
+  "candidateAddresses": [
+    "Ds. Jan Scharpstraat 298, 3011GZ Rotterdam",
+    "Ds. Jan Scharpstraat 1, 3011GZ Rotterdam",
+    "Ds. Jan Scharpstraat 6, 3011GZ Rotterdam",
+    "Ds. Jan Scharpstraat 8, 3011GZ Rotterdam",
+    "Ds. Jan Scharpstraat 10, 3011GZ Rotterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Ds. Jan Scharpstraat 298, 3011GZ Rotterdam",
+    "straatnaam": "Ds. Jan Scharpstraat",
+    "huis_nlt": "298",
+    "postcode": "3011GZ",
+    "woonplaatsnaam": "Rotterdam",
+    "nummeraanduiding_id": "0599200100010820",
+    "adresseerbaarobject_id": "0599010400010438",
+    "centroide_ll": "POINT(4.48625924 51.91977096)"
+  },
+  "addressMatched": true
+}

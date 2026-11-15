@@ -1,0 +1,43 @@
+{
+  "id": "museum.utrecht-centraal",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.utrecht-centraal",
+    "street": "Agnietenstraat",
+    "house": "1",
+    "postcode": "3512XA",
+    "locality": "Utrecht"
+  },
+  "officialSourceURL": "https://www.centraalmuseum.nl/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/26a7df2d8917451a716400ab02a82a1d169c6c7ed557ef60b9d8bd88df79a11d.json",
+  "officialSourceEvidenceSHA256": "22cc8600374943e5c09dbde3966c7c99247d6967ffebf009ae3a3ada4fb500dc",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.08380965,
+    "longitude": 5.12595732
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Agnietenstraat+1+3512XA+Utrecht&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "f228eeba405cf7711d46d16e060776021e532738e32b8e2048488e579caf9bef",
+  "candidateAddresses": [
+    "Agnietenstraat 1, 3512XA Utrecht",
+    "Agnietenstraat 7-BS, 3512XA Utrecht",
+    "Agnietenstraat 3, 3512XA Utrecht",
+    "Agnietenstraat 5, 3512XA Utrecht",
+    "Agnietenstraat 7, 3512XA Utrecht"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Agnietenstraat 1, 3512XA Utrecht",
+    "straatnaam": "Agnietenstraat",
+    "huis_nlt": "1",
+    "postcode": "3512XA",
+    "woonplaatsnaam": "Utrecht",
+    "nummeraanduiding_id": "0344200000049301",
+    "adresseerbaarobject_id": "0344010000043177",
+    "centroide_ll": "POINT(5.12595732 52.08380965)"
+  },
+  "addressMatched": true
+}

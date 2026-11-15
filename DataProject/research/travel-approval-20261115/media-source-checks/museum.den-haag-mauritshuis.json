@@ -1,0 +1,17 @@
+{
+  "id": "museum.den-haag-mauritshuis",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Mauritshuis%20Den%20Haag.jpg",
+  "checkedAt": "2026-11-15",
+  "publicationAuthorized": false,
+  "status": "needs_review",
+  "priorEvidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.den-haag-mauritshuis.json",
+  "priorEvidenceSHA256": "38580b2bf1b0509747b4c2a214bcfc9c14d8f18c428eae5a16dde013d183b426",
+  "sourcePageSHA256": "87bff9759bda271ed2e2f30fb269c0a50a165bd97b1ea9f0df6e20ac46fa4c51",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "licenseURLs": [
+    "https://creativecommons.org/licenses/by/2.0"
+  ],
+  "authorFromPriorReview": "FaceMePLS",
+  "sourceRead": true,
+  "descriptionExcerpt": "Description Mauritshuis Den Haag.jpg The Mauritshuis was built in 1640. Now it is a museum in The Hague, Netherlands. Previously"
+}

@@ -1,0 +1,17 @@
+{
+  "id": "museum.utrecht-centraal",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Exterieur_Centraal_Museum.jpg",
+  "checkedAt": "2026-11-15",
+  "publicationAuthorized": false,
+  "status": "needs_review",
+  "priorEvidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.utrecht-centraal.json",
+  "priorEvidenceSHA256": "766b9001b720da8b169f89914a66154eb78415e42a52d89b2d6a285e9d65ab95",
+  "sourcePageSHA256": "304738c468988d2198140932400e261ca5bd78135c3ebbc1099090b1982d3a78",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "licenseURLs": [
+    "https://creativecommons.org/licenses/by-sa/3.0"
+  ],
+  "authorFromPriorReview": "Centraal Museum / fotograaf: Vincent Zedelius",
+  "sourceRead": true,
+  "descriptionExcerpt": "Description Exterieur Centraal Museum.jpg Nederlands: Centraal Museum Utrecht Date 19 June 2012, 13:01:42 Source Centraal Museum http://centraalmuseum.nl/over/organisatie/MVO/ Author Centraal Museum"
+}

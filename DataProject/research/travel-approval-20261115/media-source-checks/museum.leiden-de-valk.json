@@ -1,0 +1,17 @@
+{
+  "id": "museum.leiden-de-valk",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:MolenDeValkLeiden.jpg",
+  "checkedAt": "2026-11-15",
+  "publicationAuthorized": false,
+  "status": "needs_review",
+  "priorEvidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.leiden-de-valk.json",
+  "priorEvidenceSHA256": "7a0a08ddff91876b4718f3d006ac9642d6dd8181b23c752df18e561576ae31d4",
+  "sourcePageSHA256": "9d09b225854dd71a7608792ae58e914bc16dfde515c9098370cbb02ae6ce56cf",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "licenseURLs": [
+    "https://creativecommons.org/licenses/by-sa/3.0"
+  ],
+  "authorFromPriorReview": "Erik Zachte",
+  "sourceRead": true,
+  "descriptionExcerpt": "Description MolenDeValkLeiden.jpg English: Windmill Museum 'De Valk', Leiden, Netherlands Date 16 June 2010 Source Own work Author Erik Zachte Licensing"
+}

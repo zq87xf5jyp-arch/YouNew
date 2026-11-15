@@ -1,0 +1,4285 @@
+{
+  "schemaVersion": 1,
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "preparedAt": "2026-11-15",
+  "scope": "Only the exact record fields, photo derivatives, address coordinates and collection memberships listed here are proposed for owner approval and subsequent governed iOS integration. No approval is granted by this file. Historical package statuses remain unchanged. No production, TestFlight, App Store or merge authorization.",
+  "excludedFields": [
+    "prices",
+    "opening_hours",
+    "new_ticket_urls",
+    "menu_urls",
+    "booking_urls",
+    "unlisted_draft_fields"
+  ],
+  "index": {
+    "path": "DataProject/research/travel-expansion-20261115/index.json",
+    "sha256": "3578ff8c8f1c972250d4169ce8dc63a52be71714024da77b713131269a0af9a5"
+  },
+  "counts": {
+    "records": 57,
+    "photos": 32,
+    "coordinates": 33,
+    "collections": 6,
+    "newRuntimeItems": 0
+  },
+  "records": [
+    {
+      "id": "museum.leiden-de-valk",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/leiden.json",
+        "sha256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/cc470196e4a6468269ec34a42e2e973b45814d2adffba4edb2736643f73517d7.json",
+        "sha256": "e3502a8b12ed52215cacd77191d1ea56cdcfcec181ac02a77c3725a447945123"
+      },
+      "fields": {
+        "id": "museum.leiden-de-valk",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "leiden",
+        "province_id": "zuid-holland",
+        "title": "Molenmuseum De Valk",
+        "description": "Explore Leiden's windmill museum and the history of milling inside De Valk.",
+        "official_source": {
+          "title": "Molenmuseum De Valk — official information",
+          "publisher": "Molenmuseum De Valk",
+          "url": "https://molenmuseumdevalk.nl/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://molenmuseumdevalk.nl/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Molenmuseum De Valk",
+          "leiden",
+          "culture"
+        ],
+        "description_nl": "Ontdek het Leidse molenmuseum en de geschiedenis van het malen in De Valk."
+      }
+    },
+    {
+      "id": "museum.leiden-sieboldhuis",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/leiden.json",
+        "sha256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/3c78171dc410734bc7797a5705929c438a947c46e9d43e2f12bccf0541b449e8.json",
+        "sha256": "890c6726219324f4fefe90b33446bea950dbe6920546bc31d1cb8107d121ae1f"
+      },
+      "fields": {
+        "id": "museum.leiden-sieboldhuis",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "leiden",
+        "province_id": "zuid-holland",
+        "title": "Japanmuseum SieboldHuis",
+        "description": "Explore Japanese art and culture through the collections and exhibitions of SieboldHuis.",
+        "official_source": {
+          "title": "Japanmuseum SieboldHuis — official information",
+          "publisher": "Japanmuseum SieboldHuis",
+          "url": "https://www.sieboldhuis.org/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.sieboldhuis.org/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Japanmuseum SieboldHuis",
+          "leiden",
+          "culture"
+        ],
+        "description_nl": "Ontdek Japanse kunst en cultuur via de collecties en tentoonstellingen van SieboldHuis."
+      }
+    },
+    {
+      "id": "place.leiden-pieterskerk",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/leiden.json",
+        "sha256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/14f50bdcce911799142aa754e348b68911031d2f5188023ae58fe89875e7c79e.json",
+        "sha256": "5a78784b79ec3e65806331452878e3c802159f249d75263b89d7c43f03de4c56"
+      },
+      "fields": {
+        "id": "place.leiden-pieterskerk",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "leiden",
+        "province_id": "zuid-holland",
+        "title": "Pieterskerk Leiden",
+        "description": "Discover Pieterskerk, a historic Leiden church that now hosts cultural programmes and events.",
+        "official_source": {
+          "title": "Pieterskerk Leiden — official information",
+          "publisher": "Pieterskerk Leiden",
+          "url": "https://www.pieterskerk.com/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.pieterskerk.com/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Pieterskerk Leiden",
+          "leiden",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek de Pieterskerk, een historische Leidse kerk met culturele programma's en evenementen."
+      }
+    },
+    {
+      "id": "place.leiden-young-rembrandt-studio",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/leiden.json",
+        "sha256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/64e454f9338e7c0ae07d8e957e6611075bbfcee7cdad2e39014af160fa50dc2c.json",
+        "sha256": "2c2b0f77e10de1092f7da28b568ddc837e569c96275ae7ffff2910707e6695a6"
+      },
+      "fields": {
+        "id": "place.leiden-young-rembrandt-studio",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "leiden",
+        "province_id": "zuid-holland",
+        "title": "Young Rembrandt Studio",
+        "description": "Discover the early Leiden years of Rembrandt through the Young Rembrandt Studio presentation.",
+        "official_source": {
+          "title": "Young Rembrandt Studio — official information",
+          "publisher": "Young Rembrandt Studio",
+          "url": "https://www.visitleiden.nl/nl/cultuur/jonge-rembrandt/young-rembrandt-studio",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.visitleiden.nl/nl/cultuur/jonge-rembrandt/young-rembrandt-studio",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Young Rembrandt Studio",
+          "leiden",
+          "visitor information"
+        ],
+        "description_nl": "Maak via de presentatie van de Young Rembrandt Studio kennis met Rembrandts vroege Leidse jaren."
+      }
+    },
+    {
+      "id": "place.leiden-schouwburg",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/leiden.json",
+        "sha256": "cfa708c887889735dbadc389ba99e0387952ec56fefebf9f5dd88872c64cf4dc"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/adade56780e8562d459f8c96893006e1fceb72aedbf0da2312452343714f321c.json",
+        "sha256": "b7a857ad90a60adb90885d7d65434bb9b7fe4e2556f0de0592d81260ae816199"
+      },
+      "fields": {
+        "id": "place.leiden-schouwburg",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "leiden",
+        "province_id": "zuid-holland",
+        "title": "Leidse Schouwburg",
+        "description": "Explore theatre and live performance at the Leidse Schouwburg. Choose a performance from the venue's current programme.",
+        "official_source": {
+          "title": "Leidse Schouwburg — official information",
+          "publisher": "Leidse Schouwburg",
+          "url": "https://leidseschouwburg-stadsgehoorzaal.nl/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://leidseschouwburg-stadsgehoorzaal.nl/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Leidse Schouwburg",
+          "leiden",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek theater en livevoorstellingen in de Leidse Schouwburg. Kies een voorstelling uit het actuele programma."
+      }
+    },
+    {
+      "id": "museum.rijksmuseum",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/a007aa4fbf777ab398217204b609434cbdc011fd8bee7a5fcf3c179c0edafebe.json",
+        "sha256": "bddc85e6791f277180fbbdecb934fd8c935b6cce9c68fcd890d022acb8bc45c6"
+      },
+      "fields": {
+        "id": "museum.rijksmuseum",
+        "entity_type": "museum",
+        "category": "art-history",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Rijksmuseum",
+        "description": "Explore Dutch art and history at the Rijksmuseum, with works by Rembrandt, Vermeer and Van Gogh.",
+        "official_source": {
+          "title": "Rijksmuseum — official information",
+          "publisher": "Rijksmuseum",
+          "url": "https://www.rijksmuseum.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.rijksmuseum.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Rijksmuseum",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek Nederlandse kunst en geschiedenis in het Rijksmuseum, met werk van Rembrandt, Vermeer en Van Gogh."
+      }
+    },
+    {
+      "id": "museum.van-gogh-museum",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/78870b18aae86ef805c154d448cb52ecd2bb60178fb096406e6ada02920730ab.json",
+        "sha256": "c2278308132211e7dbee192c8e819dc0ed57f53cc18788ae553d4bb7db56ffe4"
+      },
+      "fields": {
+        "id": "museum.van-gogh-museum",
+        "entity_type": "museum",
+        "category": "art",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Van Gogh Museum",
+        "description": "Follow Vincent van Gogh's artistic development through his paintings and drawings, alongside the work of his contemporaries.",
+        "official_source": {
+          "title": "Van Gogh Museum — official information",
+          "publisher": "Van Gogh Museum",
+          "url": "https://www.vangoghmuseum.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.vangoghmuseum.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Van Gogh Museum",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Volg de artistieke ontwikkeling van Vincent van Gogh via zijn schilderijen en tekeningen, naast werk van tijdgenoten."
+      }
+    },
+    {
+      "id": "museum.stedelijk-museum-amsterdam",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/2b8daa364407c701f36b0934a77f269bf8cac37cfc6cf7ec4a25111a5ce331b8.json",
+        "sha256": "7220b0a5fb7f4d89c6533f8942fd200ee62c95273ea18d17bd152135cbdf930d"
+      },
+      "fields": {
+        "id": "museum.stedelijk-museum-amsterdam",
+        "entity_type": "museum",
+        "category": "modern-art-design",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Stedelijk Museum Amsterdam",
+        "description": "Discover modern and contemporary art and design through the Stedelijk's collection and changing exhibitions.",
+        "official_source": {
+          "title": "Stedelijk Museum Amsterdam — official information",
+          "publisher": "Stedelijk Museum Amsterdam",
+          "url": "https://www.stedelijk.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.stedelijk.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Stedelijk Museum Amsterdam",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek moderne en hedendaagse kunst en vormgeving via de collectie en wisselende tentoonstellingen van het Stedelijk."
+      }
+    },
+    {
+      "id": "museum.anne-frank-house",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/1a20a7f9914b1d6b3ec62c4e7e0f9ff0c280fc2395c2a948693ae88d3ff56583.json",
+        "sha256": "55c1cf730c1e133fba58ed47123f6650a3a6d6f1b4a673447bfa407c6756cb43"
+      },
+      "fields": {
+        "id": "museum.anne-frank-house",
+        "entity_type": "museum",
+        "category": "history-memorial",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Anne Frank House",
+        "description": "Learn about Anne Frank, her diary and the people who hid in the Secret Annex. Plan entry through the museum's official ticket information.",
+        "official_source": {
+          "title": "Anne Frank House — official information",
+          "publisher": "Anne Frank House",
+          "url": "https://www.annefrank.org/en/museum/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.annefrank.org/en/museum/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Anne Frank House",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Leer over Anne Frank, haar dagboek en de mensen die in het Achterhuis onderdoken. Plan je bezoek via de officiële ticketinformatie van het museum."
+      }
+    },
+    {
+      "id": "museum.nemo-science-museum",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/485c344520841a6981af056f655c2361d5992b80cb5173a8d1f96d4d760dc9a3.json",
+        "sha256": "efe753b3e94ede7984e83400d58c3400458890341dc2b5db657672399811ab20"
+      },
+      "fields": {
+        "id": "museum.nemo-science-museum",
+        "entity_type": "museum",
+        "category": "science",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "NEMO Science Museum",
+        "description": "Investigate science through hands-on experiments and demonstrations. NEMO also presents activities about the human body and everyday phenomena.",
+        "official_source": {
+          "title": "NEMO Science Museum — official information",
+          "publisher": "NEMO Science Museum",
+          "url": "https://www.nemosciencemuseum.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.nemosciencemuseum.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "NEMO Science Museum",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Onderzoek wetenschap met interactieve experimenten en demonstraties. NEMO biedt ook activiteiten over het menselijk lichaam en alledaagse verschijnselen."
+      }
+    },
+    {
+      "id": "museum.het-scheepvaartmuseum",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/4bc489024d3d4075db5dbe04ff8e6fdfe7133ffa55b225f3167384144eb13663.json",
+        "sha256": "aa6aac25ca95686bc1290acfe1f68980c069a9e31c4200e7f81739f45003b767"
+      },
+      "fields": {
+        "id": "museum.het-scheepvaartmuseum",
+        "entity_type": "museum",
+        "category": "maritime-history",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Het Scheepvaartmuseum",
+        "description": "Explore maritime history and the relationship between the Netherlands and water through ships, objects and exhibitions.",
+        "official_source": {
+          "title": "Het Scheepvaartmuseum — official information",
+          "publisher": "Het Scheepvaartmuseum",
+          "url": "https://www.hetscheepvaartmuseum.com/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.hetscheepvaartmuseum.com/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Het Scheepvaartmuseum",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek maritieme geschiedenis en de relatie tussen Nederland en water via schepen, voorwerpen en tentoonstellingen."
+      }
+    },
+    {
+      "id": "museum.museum-rembrandthuis",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/d2fe677be5c0961ca383ebfe0c523b9d43ef9204befd83e981c24c04e8b45cb9.json",
+        "sha256": "f9e7a2053f30920848c4d5b9f197d8090ff8bd60015d90013df24d01f9985fd5"
+      },
+      "fields": {
+        "id": "museum.museum-rembrandthuis",
+        "entity_type": "museum",
+        "category": "art-history",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Museum Rembrandthuis",
+        "description": "Visit the house where Rembrandt lived and worked, and explore the surroundings of an artist's daily life and practice.",
+        "official_source": {
+          "title": "Museum Rembrandthuis — official information",
+          "publisher": "Museum Rembrandthuis",
+          "url": "https://www.rembrandthuis.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.rembrandthuis.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Museum Rembrandthuis",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Bezoek het huis waar Rembrandt woonde en werkte en ontdek de omgeving van zijn dagelijks leven en kunstenaarspraktijk."
+      }
+    },
+    {
+      "id": "museum.museum-ons-lieve-heer-op-solder",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/e52b9bd3eb8e9f7b94a4caa9b9e5b095786b7b4c03b11b6338e5cb6f6af4ae14.json",
+        "sha256": "a4607549a408dbf52f13d1879b747c5f8dd2e7b909a8f76cbd215d6a05d0e0ca"
+      },
+      "fields": {
+        "id": "museum.museum-ons-lieve-heer-op-solder",
+        "entity_type": "museum",
+        "category": "religious-history",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Museum Ons' Lieve Heer op Solder",
+        "description": "Explore a historic canal house with a church concealed in its upper floors. The museum connects domestic interiors with religious history.",
+        "official_source": {
+          "title": "Museum Ons' Lieve Heer op Solder — official information",
+          "publisher": "Museum Ons' Lieve Heer op Solder",
+          "url": "https://opsolder.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://opsolder.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Museum Ons' Lieve Heer op Solder",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Verken een historisch grachtenhuis met een kerk op de bovenverdiepingen. Het museum verbindt wooninterieurs met religieuze geschiedenis."
+      }
+    },
+    {
+      "id": "museum.hart-museum",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/29314af7f1b4c380ad43b09dbf4a77ab6fc62190ae09acd8cdfbf807f8461115.json",
+        "sha256": "a45361a4d4e394c9c3748a094b2a22df379275b3a15b17686bf4b96f23343055"
+      },
+      "fields": {
+        "id": "museum.hart-museum",
+        "entity_type": "museum",
+        "category": "art",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "H'ART Museum",
+        "description": "Discover changing art exhibitions at H'ART Museum. Check the current programme to see which collections are on display.",
+        "official_source": {
+          "title": "H'ART Museum — official information",
+          "publisher": "H'ART Museum",
+          "url": "https://www.hartmuseum.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.hartmuseum.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "H'ART Museum",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek wisselende kunsttentoonstellingen in H'ART Museum. Bekijk het actuele programma om te zien welke collecties te zien zijn."
+      }
+    },
+    {
+      "id": "museum.jewish-museum",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/779d44c666ece19dc14837108d9de45b65c320d8e2f192ec9bd99109ffd6d717.json",
+        "sha256": "09b579d9794b1df6f070f4a65901cfa9e280b773b910be87c5376ba8aaaf0f88"
+      },
+      "fields": {
+        "id": "museum.jewish-museum",
+        "entity_type": "museum",
+        "category": "cultural-history",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Jewish Museum",
+        "description": "Explore Jewish history, culture and life in the Netherlands through the museum's collections and exhibitions.",
+        "official_source": {
+          "title": "Jewish Museum — official information",
+          "publisher": "Jewish Museum",
+          "url": "https://jck.nl/en/location/jewish-museum",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://jck.nl/en/location/jewish-museum",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Jewish Museum",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek Joodse geschiedenis, cultuur en leven in Nederland via de collecties en tentoonstellingen van het museum."
+      }
+    },
+    {
+      "id": "museum.dutch-resistance-museum",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/09d46f29d95e93a95c5bf94f440a077392c3a5b729481a1b7815f82586439973.json",
+        "sha256": "e24d9b3c97ccb6155c6adb6b776d071bef5653af5184230392d75f246a50b70d"
+      },
+      "fields": {
+        "id": "museum.dutch-resistance-museum",
+        "entity_type": "museum",
+        "category": "war-history",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Dutch Resistance Museum",
+        "description": "Explore personal stories about the Netherlands during the Second World War and the choices people faced under occupation.",
+        "official_source": {
+          "title": "Dutch Resistance Museum — official information",
+          "publisher": "Dutch Resistance Museum",
+          "url": "https://www.verzetsmuseum.org/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.verzetsmuseum.org/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Dutch Resistance Museum",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek persoonlijke verhalen over Nederland tijdens de Tweede Wereldoorlog en de keuzes waarmee mensen tijdens de bezetting werden geconfronteerd."
+      }
+    },
+    {
+      "id": "museum.eye-filmmuseum",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/1eea00c662addebcd7df777ffce51b4f4d967d78e81378b0284ef8a60d4cbad2.json",
+        "sha256": "6def35e20f24dec0440bc36a5e5131d15e71e8ceb138d2c5fb4caa500d39002d"
+      },
+      "fields": {
+        "id": "museum.eye-filmmuseum",
+        "entity_type": "museum",
+        "category": "film",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Eye Filmmuseum",
+        "description": "Explore film through exhibitions and cinema screenings at Eye. Consult the programme for current films and events.",
+        "official_source": {
+          "title": "Eye Filmmuseum — official information",
+          "publisher": "Eye Filmmuseum",
+          "url": "https://www.eyefilm.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.eyefilm.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Eye Filmmuseum",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek film via tentoonstellingen en bioscoopvertoningen bij Eye. Bekijk het programma voor actuele films en evenementen."
+      }
+    },
+    {
+      "id": "museum.museum-of-the-canals",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/8de23f3fd885ad1e21cc83254216f839b76bc66233c8307f319ff9e98eda6419.json",
+        "sha256": "7739f9a582eef97e3779bdee6eb10823ba0f3d981d88a21668e2fd88c57d66e9"
+      },
+      "fields": {
+        "id": "museum.museum-of-the-canals",
+        "entity_type": "museum",
+        "category": "urban-history",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Museum of the Canals",
+        "description": "Discover the story of Amsterdam's canals and the development of the canal district through the museum's presentation.",
+        "official_source": {
+          "title": "Museum of the Canals — official information",
+          "publisher": "Museum of the Canals",
+          "url": "https://grachten.museum/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://grachten.museum/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Museum of the Canals",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek het verhaal van de Amsterdamse grachten en de ontwikkeling van de grachtengordel via de museumpresentatie."
+      }
+    },
+    {
+      "id": "museum.huis-marseille",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/a414999c30bb26f7fed6510f20fe33cc748afaa9d03817b16dab490192b49270.json",
+        "sha256": "3359d7d5bba0dc37d73202adddd2640ba3a422bc4fb485f63bc8e6b4c79cce88"
+      },
+      "fields": {
+        "id": "museum.huis-marseille",
+        "entity_type": "museum",
+        "category": "photography",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Huis Marseille",
+        "description": "Discover photographic exhibitions at Huis Marseille, a museum dedicated to photography in Amsterdam.",
+        "official_source": {
+          "title": "Huis Marseille — official information",
+          "publisher": "Huis Marseille",
+          "url": "https://huismarseille.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://huismarseille.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Huis Marseille",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek fotografietentoonstellingen in Huis Marseille, een Amsterdams museum gewijd aan fotografie."
+      }
+    },
+    {
+      "id": "museum.allard-pierson",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/e7fa22b288b4a4d4a1d5e7b9aaf8c7634b71d2a2f356491b0ab0bfdde05b6ddb.json",
+        "sha256": "643682f85ed25a5cc934962f6fcf41b0cd7251254c9b8e7a9f77eef694164e9c"
+      },
+      "fields": {
+        "id": "museum.allard-pierson",
+        "entity_type": "museum",
+        "category": "heritage-collections",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Allard Pierson",
+        "description": "Explore the collections of the University of Amsterdam at Allard Pierson through exhibitions and heritage research.",
+        "official_source": {
+          "title": "Allard Pierson — official information",
+          "publisher": "Allard Pierson",
+          "url": "https://allardpierson.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://allardpierson.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Allard Pierson",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek de collecties van de Universiteit van Amsterdam in het Allard Pierson via tentoonstellingen en erfgoedonderzoek."
+      }
+    },
+    {
+      "id": "museum.wereldmuseum-amsterdam",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/8350aba6a3a0793a4c95cd41d7acb121589aaa60ad2b537616f0cdc4bc7a77b3.json",
+        "sha256": "3fcf804ad36e6b5e1e689e5ed680240787ff7b9f78a99bb49651a8487ae4f287"
+      },
+      "fields": {
+        "id": "museum.wereldmuseum-amsterdam",
+        "entity_type": "museum",
+        "category": "world-cultures",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Wereldmuseum Amsterdam",
+        "description": "Explore exhibitions about people, culture and connections across the world at Wereldmuseum Amsterdam.",
+        "official_source": {
+          "title": "Wereldmuseum Amsterdam — official information",
+          "publisher": "Wereldmuseum Amsterdam",
+          "url": "https://amsterdam.wereldmuseum.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://amsterdam.wereldmuseum.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Wereldmuseum Amsterdam",
+          "amsterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek tentoonstellingen over mensen, cultuur en wereldwijde verbindingen in Wereldmuseum Amsterdam."
+      }
+    },
+    {
+      "id": "place.royal-palace-amsterdam",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/amsterdam.json",
+        "sha256": "657498ae354832634e4b7a5adbef2fa290a85e4929ab1c64801f21fa0df382ae"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/c888d92e5331effe695be984675665595c06cc193159e0f670f189393470b1c6.json",
+        "sha256": "302a97e0ede4108e871a7adb4f6a43fcb57fe3624f40fe1f745e7c94677acd62"
+      },
+      "fields": {
+        "id": "place.royal-palace-amsterdam",
+        "entity_type": "place",
+        "category": "historic-attraction",
+        "city_id": "amsterdam",
+        "province_id": "noord-holland",
+        "title": "Royal Palace Amsterdam",
+        "description": "Discover the Royal Palace on Dam Square during public opening periods. Check official visitor information because royal use can affect access.",
+        "official_source": {
+          "title": "Royal Palace Amsterdam — official information",
+          "publisher": "Royal Palace Amsterdam",
+          "url": "https://www.paleisamsterdam.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.paleisamsterdam.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Royal Palace Amsterdam",
+          "amsterdam",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek het Koninklijk Paleis op de Dam tijdens publieksopenstellingen. Controleer de officiële bezoekersinformatie omdat koninklijk gebruik de toegang kan beïnvloeden."
+      }
+    },
+    {
+      "id": "museum.rotterdam-boijmans",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+        "sha256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/5060420016f0de92ba97feb696050b012a8c09bd2de901d3129e696c68cf970c.json",
+        "sha256": "d3136114b3858e22e5463ae8a893b0d5a607f7b7216d180ba08f36c8d0ca4f17"
+      },
+      "fields": {
+        "id": "museum.rotterdam-boijmans",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "rotterdam",
+        "province_id": "zuid-holland",
+        "title": "Depot Boijmans Van Beuningen",
+        "description": "Explore the Depot's publicly accessible art storage and discover how a museum cares for its collection.",
+        "official_source": {
+          "title": "Depot Boijmans Van Beuningen — official information",
+          "publisher": "Depot Boijmans Van Beuningen",
+          "url": "https://www.boijmans.nl/en/depot",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.boijmans.nl/en/depot",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Depot Boijmans Van Beuningen",
+          "rotterdam",
+          "culture"
+        ],
+        "description_nl": "Verken de publiek toegankelijke kunstopslag van het Depot en ontdek hoe een museum voor zijn collectie zorgt."
+      }
+    },
+    {
+      "id": "museum.rotterdam-kunsthal",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+        "sha256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/fd4b32bea73ea39dd7f782fab59ede44e12f2713f3210db1a3d93c423df250b6.json",
+        "sha256": "899db09c296a1f35b11b2ff4e1fb27badf177986178af034621647241588d344"
+      },
+      "fields": {
+        "id": "museum.rotterdam-kunsthal",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "rotterdam",
+        "province_id": "zuid-holland",
+        "title": "Kunsthal Rotterdam",
+        "description": "Discover changing exhibitions of art, photography and design at Kunsthal Rotterdam. Consult the programme before your visit.",
+        "official_source": {
+          "title": "Kunsthal Rotterdam — official information",
+          "publisher": "Kunsthal Rotterdam",
+          "url": "https://www.kunsthal.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.kunsthal.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Kunsthal Rotterdam",
+          "rotterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek wisselende tentoonstellingen over kunst, fotografie en vormgeving in Kunsthal Rotterdam. Bekijk vooraf het programma."
+      }
+    },
+    {
+      "id": "museum.rotterdam-maritime",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+        "sha256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/65afd89a84cec08dff559b6e10dc63becdf8553de02d2b05b3329c4501be0090.json",
+        "sha256": "cab5d13b21b8c2efedc081b7292238f6e3734ea1bc44036d3417350ed21cc254"
+      },
+      "fields": {
+        "id": "museum.rotterdam-maritime",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "rotterdam",
+        "province_id": "zuid-holland",
+        "title": "Maritime Museum Rotterdam",
+        "description": "Explore the maritime world through museum collections and harbour-related stories in central Rotterdam.",
+        "official_source": {
+          "title": "Maritime Museum Rotterdam — official information",
+          "publisher": "Maritime Museum Rotterdam",
+          "url": "https://www.maritiemmuseum.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.maritiemmuseum.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Maritime Museum Rotterdam",
+          "rotterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek de maritieme wereld via museumcollecties en verhalen over de haven in het centrum van Rotterdam."
+      }
+    },
+    {
+      "id": "place.rotterdam-euromast",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+        "sha256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/f86dee98356328f1ce2711a322fa58dd87dc3b06340f32f7706e530676299de2.json",
+        "sha256": "ca1725c332c85b27af9a4849ca90ec0cb6c75b25b437a97d91197ad1698a6619"
+      },
+      "fields": {
+        "id": "place.rotterdam-euromast",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "rotterdam",
+        "province_id": "zuid-holland",
+        "title": "Euromast",
+        "description": "See Rotterdam from the Euromast observation tower. Consult the official visitor information for available experiences and access.",
+        "official_source": {
+          "title": "Euromast — official information",
+          "publisher": "Euromast",
+          "url": "https://euromast.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://euromast.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Euromast",
+          "rotterdam",
+          "visitor information"
+        ],
+        "description_nl": "Bekijk Rotterdam vanaf de uitkijktoren Euromast. Raadpleeg de officiële bezoekersinformatie voor beschikbare ervaringen en toegang."
+      }
+    },
+    {
+      "id": "place.rotterdam-kijk-kubus",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+        "sha256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/97a9fb021aa380b3937b0a00a7d9b25c6be6581ab7d00a561a4989c023ca8748.json",
+        "sha256": "879d8d7d05a3994230c9c5727ab586b6757134396f9c896234c465b9077faf12"
+      },
+      "fields": {
+        "id": "place.rotterdam-kijk-kubus",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "rotterdam",
+        "province_id": "zuid-holland",
+        "title": "Kijk-Kubus",
+        "description": "Explore the interior of a Rotterdam cube house at Kijk-Kubus and discover how its unusual spaces are arranged.",
+        "official_source": {
+          "title": "Kijk-Kubus — official information",
+          "publisher": "Kijk-Kubus",
+          "url": "https://www.kubuswoning.nl/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.kubuswoning.nl/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Kijk-Kubus",
+          "rotterdam",
+          "visitor information"
+        ],
+        "description_nl": "Verken het interieur van een Rotterdamse kubuswoning in de Kijk-Kubus en ontdek hoe de bijzondere ruimtes zijn ingedeeld."
+      }
+    },
+    {
+      "id": "place.rotterdam-markthal",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+        "sha256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/064ef09faa6c9117a72a823412b5b95d6adbd6981874e484363f04713f2e7af3.json",
+        "sha256": "6d695fe81f8828d0edc00468ad64f734a3b57f0fc00548e035d5c0b7cba0797f"
+      },
+      "fields": {
+        "id": "place.rotterdam-markthal",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "rotterdam",
+        "province_id": "zuid-holland",
+        "title": "Markthal Rotterdam",
+        "description": "Explore food shops and eating places inside Rotterdam's Markthal, combining a covered market with a distinctive architectural setting.",
+        "official_source": {
+          "title": "Markthal Rotterdam — official information",
+          "publisher": "Markthal Rotterdam",
+          "url": "https://markthal.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://markthal.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Markthal Rotterdam",
+          "rotterdam",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek levensmiddelenwinkels en eetgelegenheden in de Rotterdamse Markthal, waar een overdekte markt samengaat met bijzondere architectuur."
+      }
+    },
+    {
+      "id": "museum.rotterdam-natuurhistorisch",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+        "sha256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/679d92dfe695374a4e2b2e1f91f081e738605c6fa0aa5d8887751cb66291d919.json",
+        "sha256": "2112f504b5702b4af2c187090ab99c2b760e03415bfbef76da08834759dba26b"
+      },
+      "fields": {
+        "id": "museum.rotterdam-natuurhistorisch",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "rotterdam",
+        "province_id": "zuid-holland",
+        "title": "Natuurhistorisch Museum Rotterdam",
+        "description": "Discover natural history through animal specimens, exhibitions and stories about nature at Rotterdam's natural history museum.",
+        "official_source": {
+          "title": "Natuurhistorisch Museum Rotterdam — official information",
+          "publisher": "Natuurhistorisch Museum Rotterdam",
+          "url": "https://www.hetnatuurhistorisch.nl/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.hetnatuurhistorisch.nl/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Natuurhistorisch Museum Rotterdam",
+          "rotterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek natuurlijke historie via dierpreparaten, tentoonstellingen en verhalen over de natuur in het Rotterdamse Natuurhistorisch Museum."
+      }
+    },
+    {
+      "id": "museum.rotterdam-foto",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+        "sha256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/3672c97006b6f771c530be701857e6472aa0882b02a26c6d4472fa5be1049366.json",
+        "sha256": "6788dc75d3f62fac54c12e4f5ea96d609aa27e1a43d24b6d8ba44d5b88250e12"
+      },
+      "fields": {
+        "id": "museum.rotterdam-foto",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "rotterdam",
+        "province_id": "zuid-holland",
+        "title": "Nederlands Fotomuseum",
+        "description": "Explore Dutch photography through the Nederlands Fotomuseum's collection and exhibitions. Check the museum's current visitor location before travelling.",
+        "official_source": {
+          "title": "Nederlands Fotomuseum — official information",
+          "publisher": "Nederlands Fotomuseum",
+          "url": "https://www.nederlandsfotomuseum.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.nederlandsfotomuseum.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Nederlands Fotomuseum",
+          "rotterdam",
+          "culture"
+        ],
+        "description_nl": "Ontdek Nederlandse fotografie via de collectie en tentoonstellingen van het Nederlands Fotomuseum. Controleer voor vertrek de actuele bezoekerslocatie."
+      }
+    },
+    {
+      "id": "place.rotterdam-blijdorp",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+        "sha256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/415e1f83d352fd06ae32d28bdfef2eec00fe282911ff7310514602ae127188c5.json",
+        "sha256": "f587f982d7f054a6ecc04e854e97bd3131095eba572f713cd3280ebb30e40e14"
+      },
+      "fields": {
+        "id": "place.rotterdam-blijdorp",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "rotterdam",
+        "province_id": "zuid-holland",
+        "title": "Diergaarde Blijdorp",
+        "description": "Discover animals and conservation stories at Rotterdam Zoo. Use the official visitor information to plan your route through the zoo.",
+        "official_source": {
+          "title": "Diergaarde Blijdorp — official information",
+          "publisher": "Diergaarde Blijdorp",
+          "url": "https://diergaardeblijdorp.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://diergaardeblijdorp.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Diergaarde Blijdorp",
+          "rotterdam",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek dieren en verhalen over natuurbehoud in Diergaarde Blijdorp. Gebruik de officiële bezoekersinformatie om je route door de dierentuin te plannen."
+      }
+    },
+    {
+      "id": "place.rotterdam-laurenskerk",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/rotterdam.json",
+        "sha256": "55b1ac862819a97f7c6b560ccad397929a636d867d739492a85a528de4f7ed74"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/e28753be0747eb95fd71be36b97bc8294617462988d188a6b140acbfa4531abc.json",
+        "sha256": "a64b5a71193e409abbe7142057c1720dce61d77febdd4e9e6c577bb0eead795f"
+      },
+      "fields": {
+        "id": "place.rotterdam-laurenskerk",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "rotterdam",
+        "province_id": "zuid-holland",
+        "title": "Laurenskerk Rotterdam",
+        "description": "Discover Rotterdam's historic Laurenskerk and its cultural programme. Check access arrangements around services and events.",
+        "official_source": {
+          "title": "Laurenskerk Rotterdam — official information",
+          "publisher": "Laurenskerk Rotterdam",
+          "url": "https://laurenskerkrotterdam.nl/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://laurenskerkrotterdam.nl/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Laurenskerk Rotterdam",
+          "rotterdam",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek de historische Laurenskerk en haar culturele programma. Controleer de toegang rond diensten en evenementen."
+      }
+    },
+    {
+      "id": "museum.den-haag-escher",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+        "sha256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/389da1dbdb4c7db5d881881337888e4dd5b3fd6b4d4f2b9a3cc519c858508a0d.json",
+        "sha256": "bf6f29d34beae3577c2727427cda73100f09998061dd69e854e3755fffc4fabd"
+      },
+      "fields": {
+        "id": "museum.den-haag-escher",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "den-haag",
+        "province_id": "zuid-holland",
+        "title": "Escher in Het Paleis",
+        "description": "Explore M. C. Escher's graphic work and visual puzzles in the setting of a former palace in The Hague.",
+        "official_source": {
+          "title": "Escher in Het Paleis — official information",
+          "publisher": "Escher in Het Paleis",
+          "url": "https://www.escherinhetpaleis.nl/?lang=en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.escherinhetpaleis.nl/?lang=en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Escher in Het Paleis",
+          "den-haag",
+          "culture"
+        ],
+        "description_nl": "Ontdek het grafische werk en de visuele raadsels van M. C. Escher in een voormalig paleis in Den Haag."
+      }
+    },
+    {
+      "id": "museum.den-haag-panorama-mesdag",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+        "sha256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/48c949443e27bdb678f144c5bf3f128f7f82f942fa07513ff88926e243b08c7b.json",
+        "sha256": "01b7a5b676530ed16ecd5e31782c0bd5b04ccdf96845baf30cd0d2f56e8eb14d"
+      },
+      "fields": {
+        "id": "museum.den-haag-panorama-mesdag",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "den-haag",
+        "province_id": "zuid-holland",
+        "title": "Panorama Mesdag",
+        "description": "Explore Mesdag's panoramic painting of Scheveningen and the museum's exhibitions about art and the coastal landscape.",
+        "official_source": {
+          "title": "Panorama Mesdag — official information",
+          "publisher": "Panorama Mesdag",
+          "url": "https://panorama-mesdag.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://panorama-mesdag.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Panorama Mesdag",
+          "den-haag",
+          "culture"
+        ],
+        "description_nl": "Ontdek Mesdags panoramaschilderij van Scheveningen en de museumtentoonstellingen over kunst en het kustlandschap."
+      }
+    },
+    {
+      "id": "museum.den-haag-museon-omniversum",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+        "sha256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/02fcced22185753e525977e5b65dccdbe89a98ea340e3bd11515f88f4a7e4a4a.json",
+        "sha256": "b34597cacffcbde394d77b9fe833952fdc898549cbc2a7e212647b5f5a45894a"
+      },
+      "fields": {
+        "id": "museum.den-haag-museon-omniversum",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "den-haag",
+        "province_id": "zuid-holland",
+        "title": "Museon-Omniversum",
+        "description": "Explore science, culture and the planet through Museon-Omniversum's exhibitions and large-screen films.",
+        "official_source": {
+          "title": "Museon-Omniversum — official information",
+          "publisher": "Museon-Omniversum",
+          "url": "https://www.museon-omniversum.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.museon-omniversum.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Museon-Omniversum",
+          "den-haag",
+          "culture"
+        ],
+        "description_nl": "Ontdek wetenschap, cultuur en de aarde via tentoonstellingen en grootbeeldfilms van Museon-Omniversum."
+      }
+    },
+    {
+      "id": "place.den-haag-peace-palace",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+        "sha256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/e8e9c638862199d94d6af92a13918aa1b9f92a7e1422191f6fb0f4bd4b3167f8.json",
+        "sha256": "098b958282a8e131bb4071dbcecb674c52da578748cb6c8427ed7ff8b9333a9e"
+      },
+      "fields": {
+        "id": "place.den-haag-peace-palace",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "den-haag",
+        "province_id": "zuid-holland",
+        "title": "Peace Palace",
+        "description": "Learn about the Peace Palace and international peace and justice. Check the visitor centre and tour arrangements before visiting.",
+        "official_source": {
+          "title": "Peace Palace — official information",
+          "publisher": "Peace Palace",
+          "url": "https://www.vredespaleis.nl/?lang=en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.vredespaleis.nl/?lang=en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Peace Palace",
+          "den-haag",
+          "visitor information"
+        ],
+        "description_nl": "Leer over het Vredespaleis en internationale vrede en recht. Controleer vooraf de mogelijkheden voor het bezoekerscentrum en rondleidingen."
+      }
+    },
+    {
+      "id": "museum.den-haag-gevangenpoort",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+        "sha256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/be8358cc50ceaa50b1232f497edcabcbec98a1a515e5b7932f9943355f72b60d.json",
+        "sha256": "0c19cfc71a7bfffde38b5739f0b6409eefbc25a634969c9549933bbb0138bb1a"
+      },
+      "fields": {
+        "id": "museum.den-haag-gevangenpoort",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "den-haag",
+        "province_id": "zuid-holland",
+        "title": "Rijksmuseum de Gevangenpoort",
+        "description": "Explore the history of imprisonment and justice in the historic Gevangenpoort building in The Hague.",
+        "official_source": {
+          "title": "Rijksmuseum de Gevangenpoort — official information",
+          "publisher": "Rijksmuseum de Gevangenpoort",
+          "url": "https://www.gevangenpoort.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.gevangenpoort.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Rijksmuseum de Gevangenpoort",
+          "den-haag",
+          "culture"
+        ],
+        "description_nl": "Ontdek de geschiedenis van gevangenschap en rechtspraak in de historische Gevangenpoort in Den Haag."
+      }
+    },
+    {
+      "id": "museum.den-haag-beelden-aan-zee",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+        "sha256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/923681a9d2fc1118441ee0a2adbaedf23c3a847592363f5a01752a6630f426b1.json",
+        "sha256": "512e36d21e3be1ad3b053b77daacb52effc59cec174ffc602f347711632c2ad4"
+      },
+      "fields": {
+        "id": "museum.den-haag-beelden-aan-zee",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "den-haag",
+        "province_id": "zuid-holland",
+        "title": "Museum Beelden aan Zee",
+        "description": "Discover sculpture at Museum Beelden aan Zee in Scheveningen, with exhibitions focused on three-dimensional art.",
+        "official_source": {
+          "title": "Museum Beelden aan Zee — official information",
+          "publisher": "Museum Beelden aan Zee",
+          "url": "https://www.beeldenaanzee.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.beeldenaanzee.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Museum Beelden aan Zee",
+          "den-haag",
+          "culture"
+        ],
+        "description_nl": "Ontdek beeldhouwkunst in Museum Beelden aan Zee in Scheveningen, met tentoonstellingen over driedimensionale kunst."
+      }
+    },
+    {
+      "id": "museum.den-haag-louwman",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/den-haag.json",
+        "sha256": "8df44df46a2878c6d63f952aba01bbc94113bdc00ddeebad60d9831fdd603601"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/73fb4b7072379f4eb1a4be6e3506ffa925af8ba31ba80096a99e60bbb8d4136a.json",
+        "sha256": "88db09cca8ce421aea5b8bd3c04f7ba08a3dd10a8062954c2b3f37c32526485d"
+      },
+      "fields": {
+        "id": "museum.den-haag-louwman",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "den-haag",
+        "province_id": "zuid-holland",
+        "title": "Louwman Museum",
+        "description": "Explore automotive history through the Louwman Museum's collection of historic cars and related objects.",
+        "official_source": {
+          "title": "Louwman Museum — official information",
+          "publisher": "Louwman Museum",
+          "url": "https://www.louwmanmuseum.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.louwmanmuseum.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Louwman Museum",
+          "den-haag",
+          "culture"
+        ],
+        "description_nl": "Ontdek autogeschiedenis via de collectie historische auto's en bijbehorende voorwerpen van het Louwman Museum."
+      }
+    },
+    {
+      "id": "museum.utrecht-centraal",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+        "sha256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/26a7df2d8917451a716400ab02a82a1d169c6c7ed557ef60b9d8bd88df79a11d.json",
+        "sha256": "22cc8600374943e5c09dbde3966c7c99247d6967ffebf009ae3a3ada4fb500dc"
+      },
+      "fields": {
+        "id": "museum.utrecht-centraal",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "utrecht",
+        "province_id": "utrecht",
+        "title": "Centraal Museum",
+        "description": "Explore art, design, fashion and Utrecht's history through the Centraal Museum's collections and exhibitions.",
+        "official_source": {
+          "title": "Centraal Museum — official information",
+          "publisher": "Centraal Museum",
+          "url": "https://www.centraalmuseum.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.centraalmuseum.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Centraal Museum",
+          "utrecht",
+          "culture"
+        ],
+        "description_nl": "Ontdek kunst, vormgeving, mode en Utrechtse geschiedenis via de collecties en tentoonstellingen van het Centraal Museum."
+      }
+    },
+    {
+      "id": "museum.utrecht-spoorwegmuseum",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+        "sha256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/ddd316ba1d593f1acb9c4167af19bb467462549e9709b0d9b711714b143d33ef.json",
+        "sha256": "da6691eda6675149a093b1066a3ecc75cebe42fcb0454f462a7596283f736e72"
+      },
+      "fields": {
+        "id": "museum.utrecht-spoorwegmuseum",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "utrecht",
+        "province_id": "utrecht",
+        "title": "Spoorwegmuseum",
+        "description": "Explore railway history through trains, collections and presentations at Utrecht's railway museum.",
+        "official_source": {
+          "title": "Spoorwegmuseum — official information",
+          "publisher": "Spoorwegmuseum",
+          "url": "https://www.spoorwegmuseum.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.spoorwegmuseum.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Spoorwegmuseum",
+          "utrecht",
+          "culture"
+        ],
+        "description_nl": "Ontdek spoorweggeschiedenis via treinen, collecties en presentaties in het Utrechtse Spoorwegmuseum."
+      }
+    },
+    {
+      "id": "museum.utrecht-speelklok",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+        "sha256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/1a45eea81d7ee5718bc7d8f58d51c91e78c1841e9eeff82d5d4c185a61e3b5b7.json",
+        "sha256": "42957ea362eced8f2caf17ecc526bf7b3b96dcb7a038b355e4a60a78d69fcce7"
+      },
+      "fields": {
+        "id": "museum.utrecht-speelklok",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "utrecht",
+        "province_id": "utrecht",
+        "title": "Museum Speelklok",
+        "description": "Discover self-playing musical instruments and the mechanisms that bring their music to life at Museum Speelklok.",
+        "official_source": {
+          "title": "Museum Speelklok — official information",
+          "publisher": "Museum Speelklok",
+          "url": "https://www.museumspeelklok.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.museumspeelklok.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Museum Speelklok",
+          "utrecht",
+          "culture"
+        ],
+        "description_nl": "Ontdek zelfspelende muziekinstrumenten en de mechanismen die hun muziek tot leven brengen in Museum Speelklok."
+      }
+    },
+    {
+      "id": "museum.utrecht-catharijneconvent",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+        "sha256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/c1b55a0c592c5fc60055dd445780823adaba2d4282d57c76961059d75823483a.json",
+        "sha256": "17ce074034d9b2cf35c00a71a71f17c324715da0d1183eaecef27933863e840c"
+      },
+      "fields": {
+        "id": "museum.utrecht-catharijneconvent",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "utrecht",
+        "province_id": "utrecht",
+        "title": "Museum Catharijneconvent",
+        "description": "Explore Christian art and religious heritage through the collections and exhibitions of Museum Catharijneconvent.",
+        "official_source": {
+          "title": "Museum Catharijneconvent — official information",
+          "publisher": "Museum Catharijneconvent",
+          "url": "https://catharijneconvent.nl/visitor-information/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://catharijneconvent.nl/visitor-information/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Museum Catharijneconvent",
+          "utrecht",
+          "culture"
+        ],
+        "description_nl": "Ontdek christelijke kunst en religieus erfgoed via de collecties en tentoonstellingen van Museum Catharijneconvent."
+      }
+    },
+    {
+      "id": "place.utrecht-domtoren",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+        "sha256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/9c132fa3fa62d04ad12b655579b703a45a72e45b8567e03ec315ecd45a2d7797.json",
+        "sha256": "55632c59d31a389f41625c4299cae5f1650cecfcd57bddda1306ee1abf51f60b"
+      },
+      "fields": {
+        "id": "place.utrecht-domtoren",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "utrecht",
+        "province_id": "utrecht",
+        "title": "Dom Tower",
+        "description": "Discover Utrecht's Dom Tower through its official visitor programme. Check the available tours and access requirements before booking.",
+        "official_source": {
+          "title": "Dom Tower — official information",
+          "publisher": "Dom Tower",
+          "url": "https://www.domtoren.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.domtoren.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Dom Tower",
+          "utrecht",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek de Utrechtse Domtoren via het officiële bezoekersprogramma. Controleer beschikbare rondleidingen en toegangsvoorwaarden voordat je boekt."
+      }
+    },
+    {
+      "id": "museum.utrecht-domunder",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+        "sha256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/badfd2feef6bc2104dc0b6ffdca1d2802f21190a89dd81beeeb8d2ca228f3562.json",
+        "sha256": "246a9bc7a8e46361c0df75ae769f5acfb6228d925403127f9c718463944c6c81"
+      },
+      "fields": {
+        "id": "museum.utrecht-domunder",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "utrecht",
+        "province_id": "utrecht",
+        "title": "DOMunder",
+        "description": "Explore archaeology beneath Utrecht's Dom Square and discover traces of the city's earlier history.",
+        "official_source": {
+          "title": "DOMunder — official information",
+          "publisher": "DOMunder",
+          "url": "https://www.domunder.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.domunder.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "DOMunder",
+          "utrecht",
+          "culture"
+        ],
+        "description_nl": "Verken archeologie onder het Utrechtse Domplein en ontdek sporen uit de vroege geschiedenis van de stad."
+      }
+    },
+    {
+      "id": "museum.utrecht-nijntje",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+        "sha256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/146aae42610ec88936fa34fa9190ecc9e648ca30e1076bd5439bd22ac3717949.json",
+        "sha256": "a91edea607fd083e55c002fae905a3af1f53f68cf2020bf73e6ecacd89b0638c"
+      },
+      "fields": {
+        "id": "museum.utrecht-nijntje",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "utrecht",
+        "province_id": "utrecht",
+        "title": "Nijntje Museum",
+        "description": "Explore the world of Miffy through play at the Nijntje Museum, designed around young children's discovery and imagination.",
+        "official_source": {
+          "title": "Nijntje Museum — official information",
+          "publisher": "Nijntje Museum",
+          "url": "https://nijntjemuseum.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://nijntjemuseum.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Nijntje Museum",
+          "utrecht",
+          "culture"
+        ],
+        "description_nl": "Ontdek de wereld van nijntje spelenderwijs in het Nijntje Museum, met aandacht voor de ontdekking en verbeelding van jonge kinderen."
+      }
+    },
+    {
+      "id": "place.utrecht-rietveld-schroderhuis",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+        "sha256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/abc4c4ae1998bc0572b63a8d8e334b2489bbb0b511573e16aeebd94b55621fa3.json",
+        "sha256": "d53b634b3b1e2737205f17690bcd05c60bae68e2418d5cc9dac5ee3b44b95a50"
+      },
+      "fields": {
+        "id": "place.utrecht-rietveld-schroderhuis",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "utrecht",
+        "province_id": "utrecht",
+        "title": "Rietveld Schröder House",
+        "description": "Explore the Rietveld Schröder House and its distinctive approach to architecture and interior space. Plan a visit through the official booking information.",
+        "official_source": {
+          "title": "Rietveld Schröder House — official information",
+          "publisher": "Rietveld Schröder House",
+          "url": "https://www.rietveldschroderhuis.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.rietveldschroderhuis.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Rietveld Schröder House",
+          "utrecht",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek het Rietveld Schröderhuis en de bijzondere benadering van architectuur en binnenruimte. Plan je bezoek via de officiële boekingsinformatie."
+      }
+    },
+    {
+      "id": "museum.utrecht-university-museum",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+        "sha256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/94ec81fcb91a77296134ff38184834d77603ce3b5d9cee1577c54c187c4b1e41.json",
+        "sha256": "8988b4fce912b3046bb6ebe30443182d544073f69401e67d0eba1fe6a8739b15"
+      },
+      "fields": {
+        "id": "museum.utrecht-university-museum",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "utrecht",
+        "province_id": "utrecht",
+        "title": "Universiteitsmuseum Utrecht",
+        "description": "Discover university research through interactive activities and collections at Utrecht University Museum.",
+        "official_source": {
+          "title": "Universiteitsmuseum Utrecht — official information",
+          "publisher": "Universiteitsmuseum Utrecht",
+          "url": "https://www.uu.nl/organisatie/universiteitsmuseum-utrecht",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.uu.nl/organisatie/universiteitsmuseum-utrecht",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Universiteitsmuseum Utrecht",
+          "utrecht",
+          "culture"
+        ],
+        "description_nl": "Ontdek universitair onderzoek via interactieve activiteiten en collecties in het Universiteitsmuseum Utrecht."
+      }
+    },
+    {
+      "id": "nature.utrecht-botanic-gardens",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/utrecht.json",
+        "sha256": "328d9574d71b8df965222b14eb4a4bfbdc8a3fe4d43a9f7cdfd815d5f8b0dfd3"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/48a49b6142501896f25de400171c2cf1fb403d0c9e7662b1ffd06c43492d48ac.json",
+        "sha256": "01391be9dc2a55c6aa0b1e7562ba6073e19a5eb7601003fd75f7d4c905caf0c0"
+      },
+      "fields": {
+        "id": "nature.utrecht-botanic-gardens",
+        "entity_type": "nature",
+        "category": "botanical-garden",
+        "city_id": "utrecht",
+        "province_id": "utrecht",
+        "title": "Botanische Tuinen Utrecht",
+        "description": "Explore the university's botanical gardens and plant collections. Consult seasonal opening information before visiting.",
+        "official_source": {
+          "title": "Botanische Tuinen Utrecht — official information",
+          "publisher": "Botanische Tuinen Utrecht",
+          "url": "https://www.uu.nl/en/utrecht-botanic-gardens",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.uu.nl/en/utrecht-botanic-gardens",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Botanische Tuinen Utrecht",
+          "utrecht",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek de botanische tuinen en plantencollecties van de universiteit. Bekijk voor je bezoek de seizoensgebonden openingstijden."
+      }
+    },
+    {
+      "id": "museum.eindhoven-van-abbe",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+        "sha256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/08a9fa188f502a932005aaa99a6c9e216b22b3795de8cb8ef048b48876283232.json",
+        "sha256": "ca11682bdeeeac7fada9fdd7ef69d10d62fa21525c686ef09a329dcce95c7844"
+      },
+      "fields": {
+        "id": "museum.eindhoven-van-abbe",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "eindhoven",
+        "province_id": "noord-brabant",
+        "title": "Van Abbemuseum",
+        "description": "Explore modern and contemporary art through the Van Abbemuseum's collection and exhibitions in Eindhoven.",
+        "official_source": {
+          "title": "Van Abbemuseum — official information",
+          "publisher": "Van Abbemuseum",
+          "url": "https://vanabbemuseum.nl/en/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://vanabbemuseum.nl/en/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Van Abbemuseum",
+          "eindhoven",
+          "culture"
+        ],
+        "description_nl": "Ontdek moderne en hedendaagse kunst via de collectie en tentoonstellingen van het Van Abbemuseum in Eindhoven."
+      }
+    },
+    {
+      "id": "museum.eindhoven-philips",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+        "sha256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/8a5a33cb0e765798b1f01d352d6f45fcf88989e4265d9d2ca3b73b1912ca9eec.json",
+        "sha256": "2b2fa4fa10db783a2dd18e5aa4edf32b3eed3d0b5ad462fe62d7f4fe829c44c4"
+      },
+      "fields": {
+        "id": "museum.eindhoven-philips",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "eindhoven",
+        "province_id": "noord-brabant",
+        "title": "Philips Museum",
+        "description": "Discover the history of Philips and the development of its technology through the museum's displays and stories.",
+        "official_source": {
+          "title": "Philips Museum — official information",
+          "publisher": "Philips Museum",
+          "url": "https://www.philips-museum.com/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.philips-museum.com/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Philips Museum",
+          "eindhoven",
+          "culture"
+        ],
+        "description_nl": "Ontdek de geschiedenis van Philips en de ontwikkeling van zijn technologie via de presentaties en verhalen van het museum."
+      }
+    },
+    {
+      "id": "museum.eindhoven-daf",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+        "sha256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/d862bcbea53da8835224fa000a88d156938c9a230be323b6848879611ca307fa.json",
+        "sha256": "e93f230376ef61068ebcb05650e6bee6ff29eaf83a9553e91a12f1f3347fa2ef"
+      },
+      "fields": {
+        "id": "museum.eindhoven-daf",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "eindhoven",
+        "province_id": "noord-brabant",
+        "title": "DAF Museum",
+        "description": "Explore DAF's vehicle history through its collection of cars, trucks and engineering stories.",
+        "official_source": {
+          "title": "DAF Museum — official information",
+          "publisher": "DAF Museum",
+          "url": "https://www.dafmuseum.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.dafmuseum.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "DAF Museum",
+          "eindhoven",
+          "culture"
+        ],
+        "description_nl": "Ontdek de voertuiggeschiedenis van DAF via de collectie auto's, vrachtwagens en verhalen over techniek."
+      }
+    },
+    {
+      "id": "museum.eindhoven-prehistorisch-dorp",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+        "sha256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/b75bbb93ab4bd99084ad14b1cec83a9ccbbfc33938edd592952313d4ff12f57b.json",
+        "sha256": "d55f9569e4f1d70ff2ca6f263ec65d932f66fdd42a618b339cfa679184d99f99"
+      },
+      "fields": {
+        "id": "museum.eindhoven-prehistorisch-dorp",
+        "entity_type": "museum",
+        "category": "museum",
+        "city_id": "eindhoven",
+        "province_id": "noord-brabant",
+        "title": "Museumpark VONK",
+        "description": "Explore history through hands-on activities and historic buildings at Museumpark VONK, the continuation of preHistorisch Dorp and Eindhoven Museum.",
+        "official_source": {
+          "title": "Museumpark VONK — official information",
+          "publisher": "Museumpark VONK",
+          "url": "https://prehistorischdorp.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://prehistorischdorp.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Museumpark VONK",
+          "eindhoven",
+          "culture"
+        ],
+        "description_nl": "Ontdek geschiedenis met praktische activiteiten en historische gebouwen in Museumpark VONK, de voortzetting van preHistorisch Dorp en Eindhoven Museum."
+      }
+    },
+    {
+      "id": "place.eindhoven-evoluon",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+        "sha256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/d1143c69670441636c81946167f77016803ac4c80d85604ebdd1b1ea0fb591fb.json",
+        "sha256": "97f0f615d8c9225676d5f458ed978461e4c8961112a8bf3ff8d6acda62d4c9c7"
+      },
+      "fields": {
+        "id": "place.eindhoven-evoluon",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "eindhoven",
+        "province_id": "noord-brabant",
+        "title": "Evoluon / Next Nature Museum",
+        "description": "Explore exhibitions about technology and the future at the Evoluon, home to the Next Nature Museum.",
+        "official_source": {
+          "title": "Evoluon / Next Nature Museum — official information",
+          "publisher": "Evoluon / Next Nature Museum",
+          "url": "https://nextnature.net/museum",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://nextnature.net/museum",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Evoluon / Next Nature Museum",
+          "eindhoven",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek tentoonstellingen over technologie en de toekomst in het Evoluon, de thuisbasis van het Next Nature Museum."
+      }
+    },
+    {
+      "id": "place.eindhoven-muziekgebouw",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+        "sha256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/9cb73f92e220a4cbd9a653e6c3b42f2c9765b315ec2bd107faa34994ebda090d.json",
+        "sha256": "df11f27f725e78fb2d09fbfc7e2f7e0d34530eb9a43f3c09d803a883331b5719"
+      },
+      "fields": {
+        "id": "place.eindhoven-muziekgebouw",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "eindhoven",
+        "province_id": "noord-brabant",
+        "title": "Muziekgebouw Eindhoven",
+        "description": "Explore the concert programme at Muziekgebouw Eindhoven, with performances across different musical traditions.",
+        "official_source": {
+          "title": "Muziekgebouw Eindhoven — official information",
+          "publisher": "Muziekgebouw Eindhoven",
+          "url": "https://www.muziekgebouweindhoven.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.muziekgebouweindhoven.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Muziekgebouw Eindhoven",
+          "eindhoven",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek het concertprogramma van Muziekgebouw Eindhoven, met uitvoeringen uit verschillende muzikale tradities."
+      }
+    },
+    {
+      "id": "place.eindhoven-dynamo",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+        "sha256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/3f7fc7f6df275cb09c67364ac11124b7f72121eb4809f08ab1b82e2b88743fb4.json",
+        "sha256": "92db361ea396a9ea6ca0dcb0cdea6816ae332b1cbc23341001f952590a382888"
+      },
+      "fields": {
+        "id": "place.eindhoven-dynamo",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "eindhoven",
+        "province_id": "noord-brabant",
+        "title": "Dynamo Eindhoven",
+        "description": "Explore live music and cultural activities at Dynamo in Eindhoven. Check the current venue programme before visiting.",
+        "official_source": {
+          "title": "Dynamo Eindhoven — official information",
+          "publisher": "Dynamo Eindhoven",
+          "url": "https://www.dynamo-eindhoven.nl/",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://www.dynamo-eindhoven.nl/",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Dynamo Eindhoven",
+          "eindhoven",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek livemuziek en culturele activiteiten bij Dynamo in Eindhoven. Bekijk vooraf het actuele programma van de locatie."
+      }
+    },
+    {
+      "id": "place.eindhoven-piet-hein-eek",
+      "source": {
+        "path": "DataProject/staging/travel-expansion-20261115/eindhoven.json",
+        "sha256": "4d8db5570d34666a1b573667db7c507b594ca8042e41b2c87e287c0fc08b017e"
+      },
+      "primarySourceEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/sources/e0c0839fdc5b358cb487776b073cb1f90a553a86fd308284edb65140de770ba7.json",
+        "sha256": "a6f2cf8defe16d97ba00b98ba1427ae90b8156f5b43a49a6bef7bfc09f673d98"
+      },
+      "fields": {
+        "id": "place.eindhoven-piet-hein-eek",
+        "entity_type": "place",
+        "category": "attraction",
+        "city_id": "eindhoven",
+        "province_id": "noord-brabant",
+        "title": "Piet Hein Eek",
+        "description": "Explore Piet Hein Eek's design world in Eindhoven through the site's current exhibitions, shop and visitor activities.",
+        "official_source": {
+          "title": "Piet Hein Eek — official information",
+          "publisher": "Piet Hein Eek",
+          "url": "https://pietheineek.nl/en",
+          "is_official": true,
+          "checked_at": "2026-11-15",
+          "status": "verified_opened"
+        },
+        "website": "https://pietheineek.nl/en",
+        "last_checked": "2026-11-15",
+        "review_frequency_days": 30,
+        "search_keywords": [
+          "Piet Hein Eek",
+          "eindhoven",
+          "visitor information"
+        ],
+        "description_nl": "Ontdek de designwereld van Piet Hein Eek in Eindhoven via de actuele tentoonstellingen, winkel en bezoekersactiviteiten."
+      }
+    }
+  ],
+  "photos": [
+    {
+      "id": "museum.allard-pierson",
+      "title": "Allard Pierson",
+      "author": "Chabe01",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Mus%C3%A9e_Allard_Pierson_-_Amsterdam_%28NL32%29_-_2024-11-25_-_2.jpg",
+      "captureDate": "25 November 2024, 14:39:49",
+      "attribution": "Allard Pierson — Chabe01 — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.allard-pierson-480.webp",
+          "width": 480,
+          "sha256": "dbf3de2cbf8bd62b183baaef0d8a13dbd4890a31586f24e3729fbb405c366279",
+          "bytes": 37304
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.allard-pierson-800.webp",
+          "width": 800,
+          "sha256": "2b99feaf9040824b48572ac885aedb990a57de4ca6b39dab78a86c8c0798ec27",
+          "bytes": 97258
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.allard-pierson-1200.webp",
+          "width": 1200,
+          "sha256": "d775fc10427a5d5e9301fb82925dad443e54e8c2cd0dec1497f8c23e535199bf",
+          "bytes": 197122
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.allard-pierson.json",
+        "sha256": "5823489ede4640d267966b0cb06f92d4b6f9540240804244b9e0310fde8b9d64"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.allard-pierson.json",
+        "sha256": "ede266e7ec7b2ff6e97fe1e6eae511b1a39cfd12a5a305c4781c9ccd01c6e39e"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.anne-frank-house",
+      "title": "Anne Frank House",
+      "author": "Tobias Niepel",
+      "license": "CC BY 2.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Anne_Frank_House%2C_Amsterdam_%2826210793741%29.jpg",
+      "captureDate": "12 March 2016, 14:06",
+      "attribution": "Anne Frank House — Tobias Niepel — CC BY 2.0; resized as WebP, no crop or content edits.",
+      "shareAlike": false,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.anne-frank-house-480.webp",
+          "width": 480,
+          "sha256": "d5292655ee787ed8c69f8a48c213728322bdd57bfff0b03bbd674162e6aefa9a",
+          "bytes": 69860
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.anne-frank-house-800.webp",
+          "width": 800,
+          "sha256": "0216f59e3b8b1a4bd63b135eff015fedfc29ef1634a424b9d375a644ce890d26",
+          "bytes": 174524
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.anne-frank-house-1200.webp",
+          "width": 1200,
+          "sha256": "a4649138012a5c0932e71d1c7bb7f3d9c779567ccd075020e597ed96f447536e",
+          "bytes": 326626
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.anne-frank-house.json",
+        "sha256": "a4ea2c131b125ab32e60279f4c344547cf99a1dfc021b2cf270bc1a9183692b3"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.anne-frank-house.json",
+        "sha256": "2a07c95f42367f58d83144110c6b2c1ac92020bef86fe70922ef7bc1f325228b"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.den-haag-panorama-mesdag",
+      "title": "Panorama Mesdag",
+      "author": "Marion Golsteijn",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Panorama_Mesdag_08.jpg",
+      "captureDate": "5 August 2008",
+      "attribution": "Panorama Mesdag — Marion Golsteijn — CC BY-SA 3.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-panorama-mesdag-480.webp",
+          "width": 480,
+          "sha256": "101c0cb85686360c6427cc565cf31b196988b2e28da41c2c54050414a793502a",
+          "bytes": 39744
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-panorama-mesdag-800.webp",
+          "width": 800,
+          "sha256": "6d535a5d122593a3e659ce8daeb49a6ac1e6b6046b321837b5c9452cec5cdf9f",
+          "bytes": 97218
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.den-haag-panorama-mesdag-1200.webp",
+          "width": 1200,
+          "sha256": "dedae1e28be8587d9aea3d54013e0cc8d75340cdd295c870d50a8d11e671f52b",
+          "bytes": 177942
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.den-haag-panorama-mesdag.json",
+        "sha256": "499c79aefae676e69a6565d24a7cc03bbccd8085c07f4944522bc0932a91681e"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.den-haag-panorama-mesdag.json",
+        "sha256": "be645db9afa2f7bdb5c35cca704cb8d061d247e70770335a29982bdb37a66bb9"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.eindhoven-daf",
+      "title": "DAF Museum",
+      "author": "S. Perquin",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:DAF_Museum_(2024).jpg",
+      "captureDate": "4 May 2024, 11:12:50",
+      "attribution": "DAF Museum — S. Perquin — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.eindhoven-daf-480.webp",
+          "width": 480,
+          "sha256": "e8d1847db0739b7554d2cdd73c39345e5c303a23769b1557a4773d4154197c94",
+          "bytes": 15992
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.eindhoven-daf-800.webp",
+          "width": 800,
+          "sha256": "ad938a4b1cb09a28f6dfd8d3503fdb767341568f1c1ff9ce3f27b52b59cc897b",
+          "bytes": 45662
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.eindhoven-daf-1200.webp",
+          "width": 1200,
+          "sha256": "274466c71bc7080dd83a82e944bff23c76cd8fbeab1f87444e08e5af951b3de2",
+          "bytes": 99818
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.eindhoven-daf.json",
+        "sha256": "6aae871e6836ce7024df1fe892ef09017cd8ac6d9442208a9d811e73071911fe"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.eindhoven-daf.json",
+        "sha256": "8a5d59e8d22ecc380f555639583f90d2bdd3b41c87c3cf246d3c3ef5ad297618"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.eindhoven-philips",
+      "title": "Philips Museum",
+      "author": "Lempkesfabriek",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Philipsfabriekje.jpg",
+      "captureDate": "July 2008",
+      "attribution": "Philips Museum — Lempkesfabriek — CC BY-SA 3.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.eindhoven-philips-480.webp",
+          "width": 480,
+          "sha256": "8956ed1dd602b07b31143ecfc692bd8d21a7d8f708674e6fc4d6fc03da4b25c8",
+          "bytes": 27782
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.eindhoven-philips-800.webp",
+          "width": 800,
+          "sha256": "4dbd95c8ea6b2662dd264d8d47f335cbdfe8f0172f9b565ca3eba02e2213792d",
+          "bytes": 71004
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.eindhoven-philips-1200.webp",
+          "width": 1200,
+          "sha256": "422179cba174eeb4af2627a9674770936aa23f960498b5cf77c654703331ec7f",
+          "bytes": 136780
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.eindhoven-philips.json",
+        "sha256": "bbe44b605de0f5227d526b543b49da1612c1df93b7a60db39ce827c3eaaa61fe"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.eindhoven-philips.json",
+        "sha256": "09d45efb1a257767a4c553493098c5b94244190c7f0b2e2121b70bedad98b88e"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.eye-filmmuseum",
+      "title": "Eye Filmmuseum",
+      "author": "Jvhertum",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:EYE_Filmmuseum.jpg",
+      "captureDate": "25 February 2012",
+      "attribution": "Eye Filmmuseum — Jvhertum — CC BY-SA 3.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.eye-filmmuseum-480.webp",
+          "width": 480,
+          "sha256": "c581f13b3fc6e5ad271fae586cacafda1fa0dab3a29ec9777e5e4ce6d6b85ee5",
+          "bytes": 27428
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.eye-filmmuseum-800.webp",
+          "width": 800,
+          "sha256": "e661fbfa62147bc957f196ce07b7ad046ca18fef427169885850929b09613070",
+          "bytes": 69868
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.eye-filmmuseum-1200.webp",
+          "width": 1200,
+          "sha256": "760b4c6d858f3e54d97b8af91b062e25471a713ac083093e752601a50ace0f56",
+          "bytes": 132768
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.eye-filmmuseum.json",
+        "sha256": "7cc767737ecdc11c55357fe6ea4c314701b76b7e32fe4a8bf2aae6f0adcbadd7"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.eye-filmmuseum.json",
+        "sha256": "071deea618ccbf27c994a5904da7c90e13bbb5d2c8b0a49404acbeed08ab0820"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.het-scheepvaartmuseum",
+      "title": "Het Scheepvaartmuseum",
+      "author": "PersianDutchNetwork",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Het_Scheepvaartmuseum_Amsterdam%2C_Photo_by_Persian_Dutch_Network%2C_January_2012.jpg",
+      "captureDate": "2 January 2011",
+      "attribution": "Het Scheepvaartmuseum — PersianDutchNetwork — CC BY-SA 3.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.het-scheepvaartmuseum-480.webp",
+          "width": 480,
+          "sha256": "2e95ebef36c18859cd8a4c652c18071552e5b7e7f890a091f0d2d2536c3d64d3",
+          "bytes": 20570
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.het-scheepvaartmuseum-800.webp",
+          "width": 800,
+          "sha256": "2a088e020f71abbe40271e056539c19f1537c1d465e52641f07dae864a6cad66",
+          "bytes": 52846
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.het-scheepvaartmuseum-1200.webp",
+          "width": 1200,
+          "sha256": "ba161677d09d1e6f24cb16e236b6769d5691322a0c5c82c364101b1f87f680cd",
+          "bytes": 105980
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.het-scheepvaartmuseum.json",
+        "sha256": "77bd63fccfa9693a7ffdd8af9af88fd91226479972b3d796f62836a439588699"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.het-scheepvaartmuseum.json",
+        "sha256": "29fd83f9d428cdaef9a223a28e70d7efd3ccf2164a222c04ca8d6d7ce1daa72c"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.leiden-de-valk",
+      "title": "Molenmuseum De Valk",
+      "author": "Erik Zachte",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:MolenDeValkLeiden.jpg",
+      "captureDate": "16 June 2010",
+      "attribution": "Molenmuseum De Valk — Erik Zachte — CC BY-SA 3.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.leiden-de-valk-480.webp",
+          "width": 480,
+          "sha256": "7c25b16154b701ef5126801c64f306025e7cf0f6cb76698ace75ad3fc8bd709b",
+          "bytes": 50998
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.leiden-de-valk-800.webp",
+          "width": 800,
+          "sha256": "a7198b67363b5163db8615f573c8af735232b65b3c6afc7de259b1f531316292",
+          "bytes": 136378
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.leiden-de-valk-1200.webp",
+          "width": 1200,
+          "sha256": "78ec478e68a04b790a7a52be18bd075c837d64379e05788f6970de1aff6b73e9",
+          "bytes": 276296
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.leiden-de-valk.json",
+        "sha256": "7a0a08ddff91876b4718f3d006ac9642d6dd8181b23c752df18e561576ae31d4"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.leiden-de-valk.json",
+        "sha256": "2473d770d12626e6c246987bd52366659a87040f5cf46eef0fb8586c3d09b4fd"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.museum-ons-lieve-heer-op-solder",
+      "title": "Museum Ons' Lieve Heer op Solder",
+      "author": "Gary Ullah from Edinburgh, UK",
+      "license": "CC BY 2.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Museum_Ons%27_Lieve_Heer_op_Solder%2C_Amsterdam_%288807517167%29.jpg",
+      "captureDate": "3 September 2012, 11:13",
+      "attribution": "Museum Ons' Lieve Heer op Solder — Gary Ullah from Edinburgh, UK — CC BY 2.0; resized as WebP, no crop or content edits.",
+      "shareAlike": false,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.museum-ons-lieve-heer-op-solder-480.webp",
+          "width": 480,
+          "sha256": "3d506f3012c686c6444ea3e964b6545a5d3b7563986de0a7a105428cb174ab08",
+          "bytes": 40974
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.museum-ons-lieve-heer-op-solder-800.webp",
+          "width": 800,
+          "sha256": "d210f5081d18283fa345f1ddb7b13f405e22957240efce2e50e57a0ba5475df2",
+          "bytes": 92950
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.museum-ons-lieve-heer-op-solder-1200.webp",
+          "width": 1200,
+          "sha256": "3644b5d33bfa79db3d24085862d8cba78ca2a2f1b6616486dc1c995610f99470",
+          "bytes": 168610
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.museum-ons-lieve-heer-op-solder.json",
+        "sha256": "c0e3af8588b0df3561e822425ab5680c9a36ecd78629c8ea5b68af0ded3aa553"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.museum-ons-lieve-heer-op-solder.json",
+        "sha256": "a8383ec500b1266728c2c36bb735843a8a0c0eee4c5127d60ffb11b1c75c5d1f"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.museum-rembrandthuis",
+      "title": "Museum Rembrandthuis",
+      "author": "Bysmon",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Rembrandthuis%2C_Amsterdam%2C_2015-04-25b.jpg",
+      "captureDate": "25 April 2015",
+      "attribution": "Museum Rembrandthuis — Bysmon — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.museum-rembrandthuis-480.webp",
+          "width": 480,
+          "sha256": "2f4adec2afba1ce9524a3f6cfe8e8919453b43d95fc58ddb4e0e05b501efa4c0",
+          "bytes": 41114
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.museum-rembrandthuis-800.webp",
+          "width": 800,
+          "sha256": "c477df04f571574eddf5d2fb69aacdae69f08834924a43131f4e7e3867f2af35",
+          "bytes": 101260
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.museum-rembrandthuis-1200.webp",
+          "width": 1200,
+          "sha256": "772da554bf46ccc634f0e5f76596bcd981a7212aa63ac3227b08af850fec81d2",
+          "bytes": 193838
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.museum-rembrandthuis.json",
+        "sha256": "c334d3f2ccc17433e39f7fcd405e5c31801bfd261417b00df4d985bfe6e9026a"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.museum-rembrandthuis.json",
+        "sha256": "32221234695d53685d8470dfb772c51123d1defe673ebd3eadb25907006916dc"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.rotterdam-boijmans",
+      "title": "Depot Boijmans Van Beuningen",
+      "author": "Renate Hano",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Depot_Boijmans_van_Beuningen_2025_(Osten).jpg",
+      "captureDate": "3 September 2025",
+      "attribution": "Depot Boijmans Van Beuningen — Renate Hano — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.rotterdam-boijmans-480.webp",
+          "width": 480,
+          "sha256": "53f3ee118742c4aa54481c8554e8c46224d3a5b0f46011e3caaf8bff93d8f511",
+          "bytes": 28350
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.rotterdam-boijmans-800.webp",
+          "width": 800,
+          "sha256": "b4c1468f430a165f2aa014f8e72da21fa519a799989c4577355c2aaa0c0a412a",
+          "bytes": 68178
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.rotterdam-boijmans-1200.webp",
+          "width": 1200,
+          "sha256": "ab66d811d226012ca608c4ddc219db7a2211e9b37843f9b0ce37a257249aabb8",
+          "bytes": 115780
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.rotterdam-boijmans.json",
+        "sha256": "7463a612df2b6a07f174521eebe0b8e84b32a9dd65fa3a9edabdb9fd21c0374f"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.rotterdam-boijmans.json",
+        "sha256": "140ff1983bc34fb68051a9ffb4d09ffa255705e9eb7e01883bc84434b149c651"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.rotterdam-chabot",
+      "title": "Chabot Museum",
+      "author": "Szilas",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Chabot_Museum.jpg",
+      "captureDate": "15 February 2009, 12:02:02",
+      "attribution": "Chabot Museum — Szilas — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.rotterdam-chabot-480.webp",
+          "width": 480,
+          "sha256": "4f0cf293a0f36d27f13be323402648d837ba557ef91ac82938ddf05987c014d0",
+          "bytes": 32320
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.rotterdam-chabot-800.webp",
+          "width": 800,
+          "sha256": "1bbb3167ac2f3a62b6d9baf81a1cfe408a7fb63b58fe99ba93b7b4518147a18a",
+          "bytes": 88798
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.rotterdam-chabot-1200.webp",
+          "width": 1200,
+          "sha256": "84d3b788acd566042235ff16a0e360c93fa76ca0f86038237f6c6835baaa61f0",
+          "bytes": 191120
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.rotterdam-chabot.json",
+        "sha256": "0a8fbeca28c736f3db0842de41c1f6b28344416eb127cf61ecf12aaf8de7543d"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.rotterdam-chabot.json",
+        "sha256": "8dff3efccaa3576d27ced862621e7404c1107121f4ce02dea0015a431e0f4252"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.rotterdam-natuurhistorisch",
+      "title": "Natuurhistorisch Museum Rotterdam",
+      "author": "Guilhem Vellut from Annecy, France",
+      "license": "CC BY 2.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Natuurhistorisch_Museum_@_Rotterdam_(29949323453).jpg",
+      "captureDate": "20 October 2016, 12:26",
+      "attribution": "Natuurhistorisch Museum Rotterdam — Guilhem Vellut from Annecy, France — CC BY 2.0; resized as WebP, no crop or content edits.",
+      "shareAlike": false,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.rotterdam-natuurhistorisch-480.webp",
+          "width": 480,
+          "sha256": "57fe48e76c96e3c1b44f651bb9da359f0445cfd51a83ee17fd3517182a4526bf",
+          "bytes": 41318
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.rotterdam-natuurhistorisch-800.webp",
+          "width": 800,
+          "sha256": "fc31c6cf36f73a4c7aaf9fe5677855eebc855561f50060684bffb8b6ba13bf26",
+          "bytes": 115754
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.rotterdam-natuurhistorisch-1200.webp",
+          "width": 1200,
+          "sha256": "7b38dbcd8d6ff49a6d05b2e0dd68237cc56a02c336e396516c533200a6c837ae",
+          "bytes": 237586
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.rotterdam-natuurhistorisch.json",
+        "sha256": "b826d1a90dbbf97eaf034cd0bec168db8d4eb0a879c02651641239aab58aa834"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.rotterdam-natuurhistorisch.json",
+        "sha256": "8ab7fda2a9e759031aae84fd6c8db975cdbae335364b7fd4c6c1d37c9695a259"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.stedelijk-museum-amsterdam",
+      "title": "Stedelijk Museum Amsterdam",
+      "author": "John Lewis Marshall",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:De_nieuwe_vleugel_van_het_Stedelijk_Museum_Amsterdam.jpg",
+      "captureDate": "6 September 2013, 21:47:14",
+      "attribution": "Stedelijk Museum Amsterdam — John Lewis Marshall — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.stedelijk-museum-amsterdam-480.webp",
+          "width": 480,
+          "sha256": "fb154538e5239609686832369181b313e3012753e654a7c746c3ef3f84600db1",
+          "bytes": 16824
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.stedelijk-museum-amsterdam-800.webp",
+          "width": 800,
+          "sha256": "3757899a0a31d8480597fceaf312b51aa97d98f13ebced870fe82e0cbf93cb2e",
+          "bytes": 40138
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.stedelijk-museum-amsterdam-1200.webp",
+          "width": 1200,
+          "sha256": "6f7a40d311becc9033da497fb3208cb54a17bea718ea81635188aa4fd03f07bf",
+          "bytes": 77182
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.stedelijk-museum-amsterdam.json",
+        "sha256": "402297e2b09eee235e6ba9052ac86cd565a4b713acfcaf6dc21c3d11f0d318f7"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.stedelijk-museum-amsterdam.json",
+        "sha256": "63cab0cd37bb58a8eec5fe98b7a7c7218d259089de43ce1bb7fdaba988b02e27"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.utrecht-catharijneconvent",
+      "title": "Museum Catharijneconvent",
+      "author": "FaceMePLS",
+      "license": "CC BY 2.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Catharijneconvent_Utrecht.jpg",
+      "captureDate": "12 December 2012, 14:12:06",
+      "attribution": "Museum Catharijneconvent — FaceMePLS — CC BY 2.0; resized as WebP, no crop or content edits.",
+      "shareAlike": false,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-catharijneconvent-480.webp",
+          "width": 480,
+          "sha256": "516c4a426be0467c175c4ac1ed7d77fe57ccc284c1a4f8ec5f65b3467ef1c7bc",
+          "bytes": 15364
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-catharijneconvent-800.webp",
+          "width": 800,
+          "sha256": "5588d806b06b68e93e22077a369be472acee4a9698cb4dda0b80c5094655bf9f",
+          "bytes": 31652
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-catharijneconvent-1200.webp",
+          "width": 1200,
+          "sha256": "46838dbc4281d9c2d0f2c7aefcaf42a514a57b325762d2ce75cee45cb781da02",
+          "bytes": 53726
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.utrecht-catharijneconvent.json",
+        "sha256": "be1fb04336eb1606fa0257192fc3f7c7867e9a33f6cdb93345c9ef9df1156236"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.utrecht-catharijneconvent.json",
+        "sha256": "b1a82c017c35c055016e0ae595c37ed1099983265232ef72d4d168ea709874d3"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.utrecht-centraal",
+      "title": "Centraal Museum",
+      "author": "Centraal Museum / fotograaf: Vincent Zedelius",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Exterieur_Centraal_Museum.jpg",
+      "captureDate": "19 June 2012, 13:01:42",
+      "attribution": "Centraal Museum — Centraal Museum / fotograaf: Vincent Zedelius — CC BY-SA 3.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-centraal-480.webp",
+          "width": 480,
+          "sha256": "afbff522cd7618644b739f034f1c6bfd0061c6f9a2c53aad06f33d4a37b39e5d",
+          "bytes": 22794
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-centraal-800.webp",
+          "width": 800,
+          "sha256": "1c5bf06abdebcb57333d1c38411663220ccbb4ff4c4e050021da680da9ff1911",
+          "bytes": 60510
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-centraal-1200.webp",
+          "width": 1200,
+          "sha256": "3a676932aebbf1871351ed60c3886f5cc57842ccde8d940e097ba4f8f911adc5",
+          "bytes": 125930
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.utrecht-centraal.json",
+        "sha256": "766b9001b720da8b169f89914a66154eb78415e42a52d89b2d6a285e9d65ab95"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.utrecht-centraal.json",
+        "sha256": "df17ea9c82e9e770e190abe6736d8d701a9c3a315445165cd5f39408d7b8050e"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.utrecht-speelklok",
+      "title": "Museum Speelklok",
+      "author": "artethgray",
+      "license": "CC BY 2.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Inside_the_Museum_Speelklok.jpg",
+      "captureDate": "14 December 2011, 11:08:58",
+      "attribution": "Museum Speelklok — artethgray — CC BY 2.0; resized as WebP, no crop or content edits.",
+      "shareAlike": false,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-speelklok-480.webp",
+          "width": 480,
+          "sha256": "5f4597ebd5fd8bb38ffac8aea41cd52d91ba58fb84ac6e53b729974b0635b569",
+          "bytes": 15276
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-speelklok-800.webp",
+          "width": 800,
+          "sha256": "35bbe0a67146f6c62a811c3d525687bc3cbeeac40863b4fc39328ba80272ffd7",
+          "bytes": 34600
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.utrecht-speelklok-1200.webp",
+          "width": 1200,
+          "sha256": "7e22d8032c03d79f1c39186c0556210c79095201c37541b2d4fb97d3180a5d01",
+          "bytes": 66150
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.utrecht-speelklok.json",
+        "sha256": "f1dfc7ab9ce0ff4e3111af24948a6adba31c18c74af31454cee3fdb00b9a01ea"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.utrecht-speelklok.json",
+        "sha256": "149da42c803bcbd7488e0c91accab9eb2436ca9ce6d23246a14cc0144caadd37"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.van-gogh-museum",
+      "title": "Van Gogh Museum",
+      "author": "Minke Wagenaar",
+      "license": "CC BY-SA 2.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/2.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:WLANL_-_Minke_Wagenaar_-_Van_Gogh_Museum_Amsterdam_159.jpg",
+      "captureDate": "23 June 2009, 08:39",
+      "attribution": "Van Gogh Museum — Minke Wagenaar — CC BY-SA 2.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.van-gogh-museum-480.webp",
+          "width": 480,
+          "sha256": "c6cf30034bb90dcc658213829b8df13f8fe65d89a9a6320de7f4df77e62b20da",
+          "bytes": 17848
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.van-gogh-museum-800.webp",
+          "width": 800,
+          "sha256": "7eb1b5d42b00fef5edd1475036c2c6b1c3510d7b22a00c99f426eb5bbfd39c34",
+          "bytes": 39114
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.van-gogh-museum-1200.webp",
+          "width": 1200,
+          "sha256": "af5a6be0ec719b5f63a0111ce16ec90510608d109fc930320603d37389027684",
+          "bytes": 67866
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.van-gogh-museum.json",
+        "sha256": "1e660f9267930406e8bd8afc8d184d64017efcefca78e428127ba689dd7d1afa"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.van-gogh-museum.json",
+        "sha256": "081d2216d8086a2d747453c5f7eeb301cd2eeddb14827aaa7a98b578a4cb5bdc"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "museum.wereldmuseum-amsterdam",
+      "title": "Wereldmuseum Amsterdam",
+      "author": "Sneeuwvlakte",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Wereldmuseum_Amsterdam_%282025%29.jpg",
+      "captureDate": "22 December 2025, 13:14:15",
+      "attribution": "Wereldmuseum Amsterdam — Sneeuwvlakte — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.wereldmuseum-amsterdam-480.webp",
+          "width": 480,
+          "sha256": "7473033d7b11b95b9d5ddb8c445bd2097faa6ed6a116798e746524ba5846dcf6",
+          "bytes": 39712
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.wereldmuseum-amsterdam-800.webp",
+          "width": 800,
+          "sha256": "b45523aa776c0303868b2435147a77273004dbb750fe40b23f2a4e94cf45ac61",
+          "bytes": 105574
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/museum.wereldmuseum-amsterdam-1200.webp",
+          "width": 1200,
+          "sha256": "7bb56aa3caefd8fb232926e8dc197a87bdc158c2923711137a8cdd9d10fb281b",
+          "bytes": 216204
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/museum.wereldmuseum-amsterdam.json",
+        "sha256": "94ff8cb7a838170612ece8583cb4ea7194c8df394a299e23b8e084fe9d78afc8"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/museum.wereldmuseum-amsterdam.json",
+        "sha256": "fce740443365e4c624d3c6d742dfd42bba87de36bd72f1cc737672d0bd951d95"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "nature.den-haag-westbroekpark",
+      "title": "Westbroekpark",
+      "author": "P.L. van Till at nl.wikipedia",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Westbroekpark_rozenbedden.JPG",
+      "captureDate": "29 June 2008",
+      "attribution": "Westbroekpark — P.L. van Till at nl.wikipedia — CC BY-SA 3.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.den-haag-westbroekpark-480.webp",
+          "width": 480,
+          "sha256": "a8415371d2f36fd2a1d8ccb567bf7f154dcd71c46e29dd2de012d4e0753678fd",
+          "bytes": 47380
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.den-haag-westbroekpark-800.webp",
+          "width": 800,
+          "sha256": "b90c4f8adb4299f35dd3a17f1dec01857873288377afaafa9662292b7fa6b186",
+          "bytes": 140908
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.den-haag-westbroekpark-1200.webp",
+          "width": 1200,
+          "sha256": "5182966a19a995296a150ed3d074b957ea02c83ec24e2fa8746573693d4b5a5b",
+          "bytes": 312720
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/nature.den-haag-westbroekpark.json",
+        "sha256": "7e7017a1b206ad659d5067c40385a9bb6eae8e8975575c233a89604eac25fec8"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/nature.den-haag-westbroekpark.json",
+        "sha256": "bdbde9312668cb22e6985c4a85098a56547bc77a3516f5c9d7b8c2e60d75fdc0"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "nature.leiden-ankerpark",
+      "title": "Ankerpark",
+      "author": "Michiel1972",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Kanon_Ankerpark_Leiden.jpg",
+      "captureDate": "25 July 2009",
+      "attribution": "Ankerpark — Michiel1972 — CC BY-SA 3.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-ankerpark-480.webp",
+          "width": 480,
+          "sha256": "f30443b69d61eb5a5c8e36f70c43f9f6c08915c0971a9d5ff1b11e8a822f9d0d",
+          "bytes": 50738
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-ankerpark-800.webp",
+          "width": 800,
+          "sha256": "d59e7f9f248d41ad116297fba6f10f082863b3e6d73c62bbd2f680fec9652fb8",
+          "bytes": 136696
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-ankerpark-1200.webp",
+          "width": 1200,
+          "sha256": "fd1f27735a3666cf31692a7095a080b604b4e09c03ebd7bcdab7fbfc7f9d4c85",
+          "bytes": 273230
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-ankerpark.json",
+        "sha256": "b1730abb70928bbc99d61c8f88f9b6d5109e5a4b5ca5b2e361a1e046a223868a"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/nature.leiden-ankerpark.json",
+        "sha256": "b56e20e80b9f5f43154484a931131a83d9eb6f7249cb24727f762ba3c6b4c15b"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "nature.leiden-blekerspark",
+      "title": "Blekerspark",
+      "author": "Bic",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Bleekerspark_Leiden.jpg",
+      "captureDate": "16 July 2014, 15:42:02",
+      "attribution": "Blekerspark — Bic — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-blekerspark-480.webp",
+          "width": 480,
+          "sha256": "276baa2baf6dadfedfb5ebe9551c5705037d1b21f24b707349077b34181a6f27",
+          "bytes": 45384
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-blekerspark-800.webp",
+          "width": 800,
+          "sha256": "d5d9559d4d7e18e2bdf6a8756785580e3ff00ab119303f7935d0ed71ea870552",
+          "bytes": 125140
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-blekerspark-1200.webp",
+          "width": 1200,
+          "sha256": "83e7450db9516f7508558d71efd76858cf689ff104db6fc3cef24d4100ce7ec9",
+          "bytes": 261426
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-blekerspark.json",
+        "sha256": "7539c6b58d98b01ba71eeefe2231211cbbb81ac861dc334224f80fc8dc1e1664"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/nature.leiden-blekerspark.json",
+        "sha256": "1051c648b64f6b09910394c1b9402a39124d2fe5ef5d2776b72460ec690a7fd2"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "nature.leiden-cronesteyn",
+      "title": "Polderpark Cronesteyn",
+      "author": "Ronald van der Graaf from Leiden, The Netherlands",
+      "license": "CC BY 2.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Park_Cronesteyn_Park_Cronesteijn_(26870194233).jpg",
+      "captureDate": "5 June 2016, 11:59",
+      "attribution": "Polderpark Cronesteyn — Ronald van der Graaf from Leiden, The Netherlands — CC BY 2.0; resized as WebP, no crop or content edits.",
+      "shareAlike": false,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-cronesteyn-480.webp",
+          "width": 480,
+          "sha256": "59466e5a8a06608b76f3f949612e46c7092c89ba634ae424d69c7d795a941035",
+          "bytes": 52584
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-cronesteyn-800.webp",
+          "width": 800,
+          "sha256": "eb999098631aaffc36a85fc64b3c66bff9ce37b1e51571b6c8ca71331f6f1f12",
+          "bytes": 129870
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-cronesteyn-1200.webp",
+          "width": 1200,
+          "sha256": "003ecfa53f41c9240ee2d7813783d8882451d9033a0c4f6e16f7b8c15b61e168",
+          "bytes": 248954
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-cronesteyn.json",
+        "sha256": "9d7c37ab2ecf9f352d7b675025b586c6d13fe1ff96f57a472d3952666313bfd0"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/nature.leiden-cronesteyn.json",
+        "sha256": "7972658e1c3a78f3b2880587ccfe9c0df61b6e4590d7f61cfdba3d930d9ea438"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "nature.leiden-huigpark",
+      "title": "Huigpark",
+      "author": "Bic",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Huigpark_Leiden.jpg",
+      "captureDate": "16 July 2014, 15:38:14",
+      "attribution": "Huigpark — Bic — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-huigpark-480.webp",
+          "width": 480,
+          "sha256": "3a739e6cd14d827f380b8e11208a8e06a1997f36ef35caa67b304698092aa85e",
+          "bytes": 39324
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-huigpark-800.webp",
+          "width": 800,
+          "sha256": "e4d07bde396a23f7b253a0470addb19651e0cea159e3226ca2f7334e69689110",
+          "bytes": 113130
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-huigpark-1200.webp",
+          "width": 1200,
+          "sha256": "63f80c9b3402fa5750a660fbfa0d2990558aee818979196e1dcffaf6170ca72c",
+          "bytes": 239420
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-huigpark.json",
+        "sha256": "80e22a97a972b035d8fd7848786b7ed8fcaac118a426d55157870b2a87cd17d8"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/nature.leiden-huigpark.json",
+        "sha256": "c6c0231ae6d0c97d0ec7e0977ca15860be7249933556ad128c755da4614c4362"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "nature.leiden-leidse-hout",
+      "title": "Leidse Hout",
+      "author": "Marianne Cornelissen-Kuyt",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Leiden-Leidse_Hout-div_functies-01.jpg",
+      "captureDate": "24 September 2017",
+      "attribution": "Leidse Hout — Marianne Cornelissen-Kuyt — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-leidse-hout-480.webp",
+          "width": 480,
+          "sha256": "b5d01dc0950382037c8b6a3b97639fbf26461430d6983741cd827fdc760dac94",
+          "bytes": 48986
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-leidse-hout-800.webp",
+          "width": 800,
+          "sha256": "7e841ba09da588a6de5085dcfc77b24790a7002aae95472968f406416f86c566",
+          "bytes": 137194
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-leidse-hout-1200.webp",
+          "width": 1200,
+          "sha256": "7be8d9af913aea204da35f3e23cf3450ff5aa7ab449babf43b571c1af451c43a",
+          "bytes": 281016
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-leidse-hout.json",
+        "sha256": "37711629a4ef5a16bf4318e1abe032c8254cc59a2ce8eb662d34b8e64ad90a95"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/nature.leiden-leidse-hout.json",
+        "sha256": "fd07466bc5fbb65ebd7d18b2c286bbfca4be4a0484b4b6922160500ec85706ab"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "nature.leiden-park-de-put",
+      "title": "Park de Put",
+      "author": "Xsandriel",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Park_de_put_(1).JPG",
+      "captureDate": "5 March 2015, 12:07:44",
+      "attribution": "Park de Put — Xsandriel — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-park-de-put-480.webp",
+          "width": 480,
+          "sha256": "c0e08fc8db0bb40d9373fb1f8a9350357c14a240c6dd70e50f1674a7b5f53916",
+          "bytes": 47618
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-park-de-put-800.webp",
+          "width": 800,
+          "sha256": "1a47162e712a38e28306df2aa963f6070c8aba81f4fedf0a3ef80ee898ddc6b7",
+          "bytes": 133124
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-park-de-put-1200.webp",
+          "width": 1200,
+          "sha256": "fa74162057b80c1fa72de098353098be1da4ef687ad57956861cc5a6680f0143",
+          "bytes": 279090
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-park-de-put.json",
+        "sha256": "577030e78000dedf4a8ca432cf9033d4474e4e195311d53378d7e131385d1959"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/nature.leiden-park-de-put.json",
+        "sha256": "14f1b1b25c072bdaaf8e02e45713e55325bb6507c0363e0734d3c8d3f2fc8da2"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "nature.leiden-plantsoen",
+      "title": "Het Plantsoen",
+      "author": "Rudolphous",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:20210806_Leiden_-_Plantsoen_Park_%27Plantsoen%27.jpg",
+      "captureDate": "6 August 2021, 11:16:46",
+      "attribution": "Het Plantsoen — Rudolphous — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-plantsoen-480.webp",
+          "width": 480,
+          "sha256": "dc621f2d8ed32219ea21af72fe479206d57456bbfcd3626e38b24628be6f7332",
+          "bytes": 47732
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-plantsoen-800.webp",
+          "width": 800,
+          "sha256": "6dc231c2ab8700d637d9deb8d4da90c56e46efb4464050aff792e2c90a3a5564",
+          "bytes": 138278
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.leiden-plantsoen-1200.webp",
+          "width": 1200,
+          "sha256": "acdaf31e4d80891bd89466b076be7dd2823dbcb84a30a8d403d68803402a4640",
+          "bytes": 302340
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/nature.leiden-plantsoen.json",
+        "sha256": "21d2fa6db37bc9826d4ff0edd41b8d6176b5e3c4412210c810bf53df33e82d98"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/nature.leiden-plantsoen.json",
+        "sha256": "727fa7e219651796372390a6eb0652f32261a67bb09d2518c038be445873831b"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "nature.utrecht-oog-in-al",
+      "title": "Park Oog in Al",
+      "author": "Marcel030NL",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Bruggetje_-_panoramio_-_Marcel030NL.jpg",
+      "captureDate": "Taken on 8 November 2003",
+      "attribution": "Park Oog in Al — Marcel030NL — CC BY-SA 3.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.utrecht-oog-in-al-480.webp",
+          "width": 480,
+          "sha256": "64516ad155680f62d718ecfb323d0fe63e948d7251f6c11b260e4dfd46e8cf24",
+          "bytes": 101798
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.utrecht-oog-in-al-800.webp",
+          "width": 800,
+          "sha256": "d9996e612428c9295a12c82977373dbd4b3390eebb0a71351dab1bc5d85a67c4",
+          "bytes": 225372
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/nature.utrecht-oog-in-al-1200.webp",
+          "width": 1200,
+          "sha256": "80f8465547c30ad777ec7fc6ba621204790404cebddb4a4a0db38091475222ea",
+          "bytes": 370652
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/nature.utrecht-oog-in-al.json",
+        "sha256": "02781872182ff057777c2a574258ac3f2af340d395c0a182a8db2f01baa54600"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/nature.utrecht-oog-in-al.json",
+        "sha256": "7258221d25e2fdd40ffa2c2b38ca8b8f37702d9c51159cafcaa87044c49ee19e"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "place.den-haag-peace-palace",
+      "title": "Peace Palace",
+      "author": "Lybil BER",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Peace_Palace_by_Night.jpg",
+      "captureDate": "21 September 2009",
+      "attribution": "Peace Palace — Lybil BER — CC BY-SA 4.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.den-haag-peace-palace-480.webp",
+          "width": 480,
+          "sha256": "fb171eb007fe56210ccece6bd81c104a83e093a345cbc66b020ad592308d27e1",
+          "bytes": 18750
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.den-haag-peace-palace-800.webp",
+          "width": 800,
+          "sha256": "77614d06f51d5f5ac8834dad937dc237c3d6f39b73bda9a58a308cae420afc7f",
+          "bytes": 47118
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.den-haag-peace-palace-1200.webp",
+          "width": 1200,
+          "sha256": "b6e33d9069d49722ed2f2d720a5efc2d19ead173aab19d9dc269b6bfa170edcc",
+          "bytes": 93160
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/place.den-haag-peace-palace.json",
+        "sha256": "72d5acb6f3a03bcd711184730db79650d31e431847af5bd13d35b837aaa85531"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/place.den-haag-peace-palace.json",
+        "sha256": "38d3e5560e6f29a3d6641efcd760b7ca6ebecf0d28b9ebc4b061171e79b182df"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "place.rotterdam-euromast",
+      "title": "Euromast",
+      "author": "Guilhem Vellut from Annecy, France",
+      "license": "CC BY 2.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Euromast%20%40%20Rotterdam%20%2829972520534%29.jpg",
+      "captureDate": "21 October 2016, 14:49",
+      "attribution": "Euromast — Guilhem Vellut from Annecy, France — CC BY 2.0; resized as WebP, no crop or content edits.",
+      "shareAlike": false,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.rotterdam-euromast-480.webp",
+          "width": 480,
+          "sha256": "72991943df83de0b51b2722919ef85a8be6d63c5f8d5e038f214d766a1d7477b",
+          "bytes": 27396
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.rotterdam-euromast-800.webp",
+          "width": 800,
+          "sha256": "7e5ec8692ad398a9e0e929ee466f11123d380ecc0c0d0815ed049816881c2dbf",
+          "bytes": 71228
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.rotterdam-euromast-1200.webp",
+          "width": 1200,
+          "sha256": "d6beec790513a3c77e64f7bf7b185ee3cb6f41557f6a152fb692d37994f4c07a",
+          "bytes": 144344
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/place.rotterdam-euromast.json",
+        "sha256": "5156a030ce3a1e7a8d9e62f6baeca5a2446b4e6554f024bd511ca8b235ebe7bd"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/place.rotterdam-euromast.json",
+        "sha256": "e7b7215f78d2588eebc42195cbed8bb5d5efc5cfd4080bfc9e078ebaa97e86d8"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "place.utrecht-domtoren",
+      "title": "Dom Tower",
+      "author": "Victor van Werkhooven",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:Utrecht%20Dom%20Tower%20by%20Night.jpg",
+      "captureDate": "6 April 2012",
+      "attribution": "Dom Tower — Victor van Werkhooven — CC BY-SA 3.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.utrecht-domtoren-480.webp",
+          "width": 480,
+          "sha256": "b224b7d83a1ca477c9991f7122d5e54a369f066ccf5274e6fff63a1e5cc85cdc",
+          "bytes": 43738
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.utrecht-domtoren-800.webp",
+          "width": 800,
+          "sha256": "2ea57fbe703ee249db30b6753cfeed1ad3c78a85cb03cf1e3ab0a77a93840aa3",
+          "bytes": 111250
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.utrecht-domtoren-1200.webp",
+          "width": 1200,
+          "sha256": "106b17d903ec0a9c4fd4a7d7c35b3acaaecd3330ba0988973a8d7dbe975c327a",
+          "bytes": 213466
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/place.utrecht-domtoren.json",
+        "sha256": "ac794f35908f1b6e1ba7b0a35b73597b3a6497f6bdedc8f4897359a383c86c16"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/place.utrecht-domtoren.json",
+        "sha256": "d43f235b0c7b8398cf79ecbcee3cd3def74f0d8a74c427befa6d3ec78754f7f3"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    },
+    {
+      "id": "place.utrecht-rietveld-schroderhuis",
+      "title": "Rietveld Schröder House",
+      "author": "ABrocke",
+      "license": "CC BY-SA 3.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "sourceURL": "https://commons.wikimedia.org/wiki/File:P5050049_-_Rietveld_Schr%C3%B6der_House_01.JPG",
+      "captureDate": "5 May 2013",
+      "attribution": "Rietveld Schröder House — ABrocke — CC BY-SA 3.0; resized as WebP, no crop or content edits.",
+      "shareAlike": true,
+      "files": [
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.utrecht-rietveld-schroderhuis-480.webp",
+          "width": 480,
+          "sha256": "b67bd492fcf6b00cf15909a980ddb39adc73e3fa0218c99c9b1e5ab4173c80b3",
+          "bytes": 52964
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.utrecht-rietveld-schroderhuis-800.webp",
+          "width": 800,
+          "sha256": "95c35759bb7490a4ab378931798a2830fe2fc6f802765d631ea5e9d9178240ab",
+          "bytes": 125142
+        },
+        {
+          "path": "DataProject/research/travel-expansion-20261115/media/place.utrecht-rietveld-schroderhuis-1200.webp",
+          "width": 1200,
+          "sha256": "31733594d81893a5183e37a20a0fdbf3a280bc52ad78e0f382db2c1ae12edb14",
+          "bytes": 239410
+        }
+      ],
+      "previousEvidence": {
+        "path": "DataProject/research/travel-expansion-20261115/media-evidence/place.utrecht-rietveld-schroderhuis.json",
+        "sha256": "564bd93d735b9c3a701fc542d8714f4274cee1af2752478fe82ea23d01f76402"
+      },
+      "sourceCheck": {
+        "path": "DataProject/research/travel-approval-20261115/media-source-checks/place.utrecht-rietveld-schroderhuis.json",
+        "sha256": "ac44cb3d32a1d3948fae1eed83a3fb242a7750af5f3c44f8b416bc9720bea993"
+      },
+      "visualReview": {
+        "path": "DataProject/research/travel-approval-20261115/visual-review.json",
+        "sha256": "0f274cf056185a27c7a750917d265da69547a112e0ddd41b1cd3e4b4e71497cb"
+      }
+    }
+  ],
+  "coordinates": [
+    {
+      "id": "museum.anne-frank-house",
+      "coordinate": {
+        "latitude": 52.37493637,
+        "longitude": 4.88431719
+      },
+      "address": "Westermarkt 20, 1016DK Amsterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.anne-frank-house.json",
+        "sha256": "88ea3be6d31328e21d922e78b2b81981e4beec174b82b826e2969cce733bcb35"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.den-haag-beelden-aan-zee",
+      "coordinate": {
+        "latitude": 52.110936,
+        "longitude": 4.27840114
+      },
+      "address": "Harteveltstraat 1, 2586EL 's-Gravenhage",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.den-haag-beelden-aan-zee.json",
+        "sha256": "1b593eeb865775a8a2b14ddfbe62b45595b16e1c8ac5c494f1bc75b12170f275"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.den-haag-escher",
+      "coordinate": {
+        "latitude": 52.08340076,
+        "longitude": 4.31417352
+      },
+      "address": "Lange Voorhout 74, 2514EH 's-Gravenhage",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.den-haag-escher.json",
+        "sha256": "9db47bfcb3777a5a474f475b9b7fbf1d21e7fe4eb31e61d86c394a6806ebf069"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.den-haag-gevangenpoort",
+      "coordinate": {
+        "latitude": 52.07959563,
+        "longitude": 4.31027908
+      },
+      "address": "Buitenhof 33, 2513AH 's-Gravenhage",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.den-haag-gevangenpoort.json",
+        "sha256": "c70eff7725964db2758d531b2256a7ad95a496acda461eb544e525650558e1b5"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.den-haag-louwman",
+      "coordinate": {
+        "latitude": 52.09961462,
+        "longitude": 4.34858837
+      },
+      "address": "Leidsestraatweg 57, 2594BB 's-Gravenhage",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.den-haag-louwman.json",
+        "sha256": "1ac31047f4e291ec59813014782b60eaa2bd3b67fa4123e043e9b9f97ec2bedc"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.den-haag-museon-omniversum",
+      "coordinate": {
+        "latitude": 52.0890557,
+        "longitude": 4.2807185
+      },
+      "address": "Stadhouderslaan 37, 2517HV 's-Gravenhage",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.den-haag-museon-omniversum.json",
+        "sha256": "e9ec7a3095f19797e38198135181daf3cd3bf38970cc6cfa142ae12a3c86de02"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.eindhoven-daf",
+      "coordinate": {
+        "latitude": 51.43722081,
+        "longitude": 5.49042939
+      },
+      "address": "Tongelresestraat 27, 5613DA Eindhoven",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.eindhoven-daf.json",
+        "sha256": "d136138199faedb751cbb9152dd2579468780e3546ee25689a5b29c28f7a2baf"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.eindhoven-philips",
+      "coordinate": {
+        "latitude": 51.43931451,
+        "longitude": 5.47524132
+      },
+      "address": "Emmasingel 31, 5611AZ Eindhoven",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.eindhoven-philips.json",
+        "sha256": "f9c8c1187f29e3a3cd1d721264b6e89873b32713b52f1ef778c55bc844694834"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.eindhoven-prehistorisch-dorp",
+      "coordinate": {
+        "latitude": 51.42213925,
+        "longitude": 5.4767892
+      },
+      "address": "Boutenslaan 161B, 5644TV Eindhoven",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.eindhoven-prehistorisch-dorp.json",
+        "sha256": "43353bde178bcf04613418f6542c909b19e2f831c103c102ffa3b27a04631c07"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.eindhoven-van-abbe",
+      "coordinate": {
+        "latitude": 51.43441483,
+        "longitude": 5.48191358
+      },
+      "address": "Stratumsedijk 2, 5611ND Eindhoven",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.eindhoven-van-abbe.json",
+        "sha256": "5396780d849897885b943b487efe415cf6d1ac3031cfe808fd9795e11c2bf881"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.hart-museum",
+      "coordinate": {
+        "latitude": 52.36563495,
+        "longitude": 4.90222598
+      },
+      "address": "Amstel 51, 1018EJ Amsterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.hart-museum.json",
+        "sha256": "ab67a9d87d8f72be0151777b7ad57e79c35582c8075d53c7cd355b124da8512d"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.het-scheepvaartmuseum",
+      "coordinate": {
+        "latitude": 52.37149196,
+        "longitude": 4.91500002
+      },
+      "address": "Kattenburgerplein 1, 1018KK Amsterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.het-scheepvaartmuseum.json",
+        "sha256": "1b38301f713ab821f77fffcfdaac12b48eccc7c0ba69ee889d40be55bf3b3271"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.leiden-sieboldhuis",
+      "coordinate": {
+        "latitude": 52.15964141,
+        "longitude": 4.48461576
+      },
+      "address": "Rapenburg 19, 2311GE Leiden",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.leiden-sieboldhuis.json",
+        "sha256": "f9486ec1eb05297d266a5f549ff602cb16b44b4fc0de0e3ecfc5e8f5e527c31f"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.museum-of-the-canals",
+      "coordinate": {
+        "latitude": 52.36788669,
+        "longitude": 4.8862747
+      },
+      "address": "Herengracht 386, 1016CJ Amsterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.museum-of-the-canals.json",
+        "sha256": "d6402546846a0a944600b94edc028800dbf5dc071950a5d87d3d48e6b4c8b0cd"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.nemo-science-museum",
+      "coordinate": {
+        "latitude": 52.37385316,
+        "longitude": 4.91211135
+      },
+      "address": "Oosterdok 2, 1011VX Amsterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.nemo-science-museum.json",
+        "sha256": "3210d8c7db4108e9dd6fb9b4a5fd99733ca42460d50f43bc7233ee38328e6bd6"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.rotterdam-foto",
+      "coordinate": {
+        "latitude": 51.9027092,
+        "longitude": 4.49519381
+      },
+      "address": "Brede Hilledijk 95, 3072KD Rotterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.rotterdam-foto.json",
+        "sha256": "c405e03379f816f4ed71d9ae49ed0869f60dc4c9042587344d3c563cec2b3859"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.rotterdam-kunsthal",
+      "coordinate": {
+        "latitude": 51.91067289,
+        "longitude": 4.47338557
+      },
+      "address": "Westzeedijk 341, 3015AA Rotterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.rotterdam-kunsthal.json",
+        "sha256": "e12952a203a78ab8c71ba8a1fb97e4c57a778b7fa60b2542c92a9de7aadf557f"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.rotterdam-maritime",
+      "coordinate": {
+        "latitude": 51.91750027,
+        "longitude": 4.48244223
+      },
+      "address": "Leuvehaven 1, 3011EA Rotterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.rotterdam-maritime.json",
+        "sha256": "6bb399fb2f5222a775d31fce438db94aa8921aedd28378b5332df5f2cdd73a07"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.rotterdam-natuurhistorisch",
+      "coordinate": {
+        "latitude": 51.91078696,
+        "longitude": 4.47255117
+      },
+      "address": "Westzeedijk 345, 3015AA Rotterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.rotterdam-natuurhistorisch.json",
+        "sha256": "7cd326ba2b6d08698ad845efaa7eddd89f3585ca579667eeef9d497e42a4693f"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.stedelijk-museum-amsterdam",
+      "coordinate": {
+        "latitude": 52.35790993,
+        "longitude": 4.87985492
+      },
+      "address": "Museumplein 10, 1071DJ Amsterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.stedelijk-museum-amsterdam.json",
+        "sha256": "b65728003c576fe696b424f8e1bda87e9eacc1c1ad81dbfc8df1dc92dc419493"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.utrecht-catharijneconvent",
+      "coordinate": {
+        "latitude": 52.08728915,
+        "longitude": 5.12392418
+      },
+      "address": "Lange Nieuwstraat 38, 3512PH Utrecht",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.utrecht-catharijneconvent.json",
+        "sha256": "79f18e87affff7353ef8e569b41d9b4b41e9bde6e14f458ca1585a402bd1f399"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.utrecht-centraal",
+      "coordinate": {
+        "latitude": 52.08380965,
+        "longitude": 5.12595732
+      },
+      "address": "Agnietenstraat 1, 3512XA Utrecht",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.utrecht-centraal.json",
+        "sha256": "81cbd3fe55d99800dbc0270fb316b4bbb217b4a0abdb784f69f074f20f6e0482"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.utrecht-speelklok",
+      "coordinate": {
+        "latitude": 52.09050772,
+        "longitude": 5.11891006
+      },
+      "address": "Steenweg 6, 3511JP Utrecht",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.utrecht-speelklok.json",
+        "sha256": "31a7b0b33ea2227bafd274ff0f93c0b2768a483dd4f43f099a58a85f5c880a59"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "museum.utrecht-spoorwegmuseum",
+      "coordinate": {
+        "latitude": 52.08795942,
+        "longitude": 5.13107733
+      },
+      "address": "Maliebaanstation 16, 3581XW Utrecht",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/museum.utrecht-spoorwegmuseum.json",
+        "sha256": "994486cc6da81a60d15cb5d48cd9f7722377833f3803bd0ea3c3bab38e0a1cb7"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "place.eindhoven-evoluon",
+      "coordinate": {
+        "latitude": 51.44361096,
+        "longitude": 5.4468137
+      },
+      "address": "Noord Brabantlaan 1A, 5652LA Eindhoven",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/place.eindhoven-evoluon.json",
+        "sha256": "b8719f0b50298d27f0e26a94037e411f9afcb0eedb3fbf64f28f9dea3cf9489e"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "place.leiden-schouwburg",
+      "coordinate": {
+        "latitude": 52.16240092,
+        "longitude": 4.48918582
+      },
+      "address": "Oude Vest 43, 2312XS Leiden",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/place.leiden-schouwburg.json",
+        "sha256": "ca05f1d7155cbc79504ecc0a34177a0ecbd0765e4be9455c7135c7c7741981e1"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "place.leiden-young-rembrandt-studio",
+      "coordinate": {
+        "latitude": 52.15761434,
+        "longitude": 4.48974704
+      },
+      "address": "Langebrug 89, 2311TJ Leiden",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/place.leiden-young-rembrandt-studio.json",
+        "sha256": "42374566c7ea72d2aa8008e0dd3271a033a3454095b7ac5513132c4f888096a5"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "place.rotterdam-blijdorp",
+      "coordinate": {
+        "latitude": 51.92801151,
+        "longitude": 4.44355811
+      },
+      "address": "Blijdorplaan 8, 3041JG Rotterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/place.rotterdam-blijdorp.json",
+        "sha256": "56d271ba1714311f3e38cd29d63f090702a479bf96574528d1d1a1fa1de5df72"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "place.rotterdam-euromast",
+      "coordinate": {
+        "latitude": 51.90540245,
+        "longitude": 4.46651217
+      },
+      "address": "Parkhaven 20, 3016GM Rotterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/place.rotterdam-euromast.json",
+        "sha256": "467665b4ceeed52f32a61236cbdd05412605b0f8d5be8d7f4d272067618ee828"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "place.rotterdam-kijk-kubus",
+      "coordinate": {
+        "latitude": 51.92018545,
+        "longitude": 4.4905688
+      },
+      "address": "Overblaak 70, 3011MH Rotterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/place.rotterdam-kijk-kubus.json",
+        "sha256": "6de33b8af79b6e44f681df77bcb9a8ab3ccbeeb0c4551c72c45d0e5d1a809b25"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "place.rotterdam-laurenskerk",
+      "coordinate": {
+        "latitude": 51.92145122,
+        "longitude": 4.48490308
+      },
+      "address": "Grotekerkplein 15, 3011GC Rotterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/place.rotterdam-laurenskerk.json",
+        "sha256": "63a3f2eca0b7451eb607e8b31386364a320f0d67993b069c6848865b9482ff8d"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "place.rotterdam-markthal",
+      "coordinate": {
+        "latitude": 51.91977096,
+        "longitude": 4.48625924
+      },
+      "address": "Ds. Jan Scharpstraat 298, 3011GZ Rotterdam",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/place.rotterdam-markthal.json",
+        "sha256": "cc047f30be0f1f23b8c5e1662d264e282bb10a75439eedcda0ea116acf9f6b2c"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    },
+    {
+      "id": "place.utrecht-rietveld-schroderhuis",
+      "coordinate": {
+        "latitude": 52.08532347,
+        "longitude": 5.14751902
+      },
+      "address": "Prins Hendriklaan 50, 3583EP Utrecht",
+      "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+      "evidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinates/place.utrecht-rietveld-schroderhuis.json",
+        "sha256": "b891537376e2b48c436f59c4759452a99db4a8240c252e23786af3bf986bb4eb"
+      },
+      "licenseEvidence": {
+        "path": "DataProject/research/travel-approval-20261115/coordinate-license.json",
+        "sha256": "b58fb25a7e092af16d88bd1697ae9cfe9d26b0eb0868a0abffedeea37bf669b7"
+      }
+    }
+  ],
+  "collections": {
+    "source": {
+      "path": "DataProject/staging/travel-expansion-20261115/collections.json",
+      "sha256": "febadceace12e2d7b6d628169780f0f1530bee5b8fdddef68f5818908441c19c"
+    },
+    "items": [
+      {
+        "id": "collection.leiden-culture-review-20261115",
+        "city": "leiden",
+        "title": {
+          "en": "Museums & Culture — Leiden",
+          "nl": "Musea & Cultuur — Leiden"
+        },
+        "entityIDs": [
+          "place.leiden-vvv",
+          "place.leiden-burcht",
+          "place.leiden-hortus",
+          "place.leiden-rmo",
+          "place.leiden-lakenhal",
+          "place.leiden-naturalis",
+          "museum.leiden-boerhaave",
+          "museum.leiden-wereldmuseum",
+          "place.leiden-cafe-laken",
+          "museum.leiden-de-valk",
+          "museum.leiden-sieboldhuis",
+          "place.leiden-pieterskerk",
+          "place.leiden-young-rembrandt-studio",
+          "place.leiden-schouwburg"
+        ],
+        "status": "needs_review",
+        "publicationAuthorized": false
+      },
+      {
+        "id": "collection.amsterdam-culture-review-20261115",
+        "city": "amsterdam",
+        "title": {
+          "en": "Museums & Culture — Amsterdam",
+          "nl": "Musea & Cultuur — Amsterdam"
+        },
+        "entityIDs": [
+          "museum.rijksmuseum",
+          "museum.van-gogh-museum",
+          "museum.stedelijk-museum-amsterdam",
+          "museum.anne-frank-house",
+          "museum.nemo-science-museum",
+          "museum.het-scheepvaartmuseum",
+          "museum.museum-rembrandthuis",
+          "museum.museum-ons-lieve-heer-op-solder",
+          "museum.hart-museum",
+          "museum.jewish-museum",
+          "museum.dutch-resistance-museum",
+          "museum.eye-filmmuseum",
+          "museum.museum-of-the-canals",
+          "museum.huis-marseille",
+          "museum.allard-pierson",
+          "museum.wereldmuseum-amsterdam",
+          "place.royal-palace-amsterdam"
+        ],
+        "status": "needs_review",
+        "publicationAuthorized": false
+      },
+      {
+        "id": "collection.rotterdam-culture-review-20261115",
+        "city": "rotterdam",
+        "title": {
+          "en": "Museums & Culture — Rotterdam",
+          "nl": "Musea & Cultuur — Rotterdam"
+        },
+        "entityIDs": [
+          "museum.rotterdam-chabot",
+          "museum.rotterdam-boijmans",
+          "museum.rotterdam-kunsthal",
+          "museum.rotterdam-maritime",
+          "place.rotterdam-euromast",
+          "place.rotterdam-kijk-kubus",
+          "place.rotterdam-markthal",
+          "museum.rotterdam-natuurhistorisch",
+          "museum.rotterdam-foto",
+          "place.rotterdam-blijdorp",
+          "place.rotterdam-laurenskerk"
+        ],
+        "status": "needs_review",
+        "publicationAuthorized": false
+      },
+      {
+        "id": "collection.den-haag-culture-review-20261115",
+        "city": "den-haag",
+        "title": {
+          "en": "Museums & Culture — Den Haag",
+          "nl": "Musea & Cultuur — Den Haag"
+        },
+        "entityIDs": [
+          "museum.den-haag-fotomuseum",
+          "museum.den-haag-escher",
+          "museum.den-haag-panorama-mesdag",
+          "museum.den-haag-museon-omniversum",
+          "place.den-haag-peace-palace",
+          "museum.den-haag-gevangenpoort",
+          "museum.den-haag-beelden-aan-zee",
+          "museum.den-haag-louwman"
+        ],
+        "status": "needs_review",
+        "publicationAuthorized": false
+      },
+      {
+        "id": "collection.utrecht-culture-review-20261115",
+        "city": "utrecht",
+        "title": {
+          "en": "Museums & Culture — Utrecht",
+          "nl": "Musea & Cultuur — Utrecht"
+        },
+        "entityIDs": [
+          "place.utrecht-neude",
+          "museum.utrecht-sonnenborgh",
+          "museum.utrecht-centraal",
+          "museum.utrecht-spoorwegmuseum",
+          "museum.utrecht-speelklok",
+          "museum.utrecht-catharijneconvent",
+          "place.utrecht-domtoren",
+          "museum.utrecht-domunder",
+          "museum.utrecht-nijntje",
+          "place.utrecht-rietveld-schroderhuis",
+          "museum.utrecht-university-museum"
+        ],
+        "status": "needs_review",
+        "publicationAuthorized": false
+      },
+      {
+        "id": "collection.eindhoven-culture-review-20261115",
+        "city": "eindhoven",
+        "title": {
+          "en": "Museums & Culture — Eindhoven",
+          "nl": "Musea & Cultuur — Eindhoven"
+        },
+        "entityIDs": [
+          "museum.eindhoven-inkijkmuseum",
+          "museum.eindhoven-van-abbe",
+          "museum.eindhoven-philips",
+          "museum.eindhoven-daf",
+          "museum.eindhoven-prehistorisch-dorp",
+          "place.eindhoven-evoluon",
+          "place.eindhoven-muziekgebouw",
+          "place.eindhoven-dynamo",
+          "place.eindhoven-piet-hein-eek"
+        ],
+        "status": "needs_review",
+        "publicationAuthorized": false
+      }
+    ]
+  },
+  "heldPhotos": [
+    {
+      "id": "museum.den-haag-kunstmuseum",
+      "reason": "Entity primary-source content remains unresolved; photo stays in review until that is checked."
+    },
+    {
+      "id": "museum.den-haag-mauritshuis",
+      "reason": "Entity primary-source content remains unresolved; photo stays in review until that is checked."
+    },
+    {
+      "id": "museum.eindhoven-prehistorisch-dorp",
+      "reason": "Construction-stage exterior; unsuitable as the current visitor hero. Retain as historical review evidence."
+    },
+    {
+      "id": "museum.foam",
+      "reason": "Wrong subject: scanned soap foam, not the museum. Correct Commons category is Fotografiemuseum Amsterdam."
+    },
+    {
+      "id": "museum.museum-van-loon",
+      "reason": "Entity primary-source content remains unresolved; photo stays in review until that is checked."
+    },
+    {
+      "id": "place.den-haag-madurodam",
+      "reason": "Entity primary-source content remains unresolved; photo stays in review until that is checked."
+    },
+    {
+      "id": "place.eindhoven-park-theatre",
+      "reason": "Backstage corridor rather than visitor-facing theatre experience; keep out of hero selection."
+    },
+    {
+      "id": "place.rotterdam-markthal",
+      "reason": "Binnenrotte streetscape with only a small edge of Markthal; insufficient subject emphasis."
+    }
+  ],
+  "unresolvedCoordinates": [
+    {
+      "id": "museum.dutch-resistance-museum",
+      "reason": "Expected one exact address; found 0"
+    },
+    {
+      "id": "place.eindhoven-muziekgebouw",
+      "reason": "Expected one exact address; found 0"
+    }
+  ],
+  "unresolvedSources": [
+    "place.leiden-oude-sterrewacht",
+    "museum.foam",
+    "museum.artis-micropia",
+    "museum.museum-van-loon",
+    "museum.den-haag-mauritshuis",
+    "museum.den-haag-kunstmuseum",
+    "place.den-haag-madurodam",
+    "place.eindhoven-strijp-s",
+    "place.eindhoven-park-theatre"
+  ]
+}

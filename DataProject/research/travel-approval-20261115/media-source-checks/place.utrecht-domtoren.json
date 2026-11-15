@@ -1,0 +1,17 @@
+{
+  "id": "place.utrecht-domtoren",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Utrecht%20Dom%20Tower%20by%20Night.jpg",
+  "checkedAt": "2026-11-15",
+  "publicationAuthorized": false,
+  "status": "needs_review",
+  "priorEvidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/place.utrecht-domtoren.json",
+  "priorEvidenceSHA256": "ac794f35908f1b6e1ba7b0a35b73597b3a6497f6bdedc8f4897359a383c86c16",
+  "sourcePageSHA256": "15062e68e9286e60340988cf71f7967a532cfe5a17b1a77f002ad33f78d5d9bc",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "licenseURLs": [
+    "https://creativecommons.org/licenses/by-sa/3.0"
+  ],
+  "authorFromPriorReview": "Victor van Werkhooven",
+  "sourceRead": true,
+  "descriptionExcerpt": "Description Utrecht Dom Tower by Night.jpg Nederlands: De Utrechtse Domtoren in de late uren, gezien vanaf het Domplein This is"
+}

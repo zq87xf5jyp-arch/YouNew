@@ -1,0 +1,43 @@
+{
+  "id": "museum.den-haag-escher",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.den-haag-escher",
+    "street": "Lange Voorhout",
+    "house": "74",
+    "postcode": "2514EH",
+    "locality": "'s-Gravenhage"
+  },
+  "officialSourceURL": "https://www.escherinhetpaleis.nl/?lang=en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/389da1dbdb4c7db5d881881337888e4dd5b3fd6b4d4f2b9a3cc519c858508a0d.json",
+  "officialSourceEvidenceSHA256": "bf6f29d34beae3577c2727427cda73100f09998061dd69e854e3755fffc4fabd",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.08340076,
+    "longitude": 4.31417352
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Lange+Voorhout+74+2514EH+%27s-Gravenhage&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "bb70c8e3450645c059b4ecbcb195f08dd7bde5fead0ca5418de4905c1e03b851",
+  "candidateAddresses": [
+    "Lange Voorhout 74, 2514EH 's-Gravenhage",
+    "Lange Voorhout 60A, 2514EH 's-Gravenhage",
+    "Lange Voorhout 60B, 2514EH 's-Gravenhage",
+    "Lange Voorhout 64A, 2514EH 's-Gravenhage",
+    "Lange Voorhout 60, 2514EH 's-Gravenhage"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Lange Voorhout 74, 2514EH 's-Gravenhage",
+    "straatnaam": "Lange Voorhout",
+    "huis_nlt": "74",
+    "postcode": "2514EH",
+    "woonplaatsnaam": "'s-Gravenhage",
+    "nummeraanduiding_id": "0518200000836976",
+    "adresseerbaarobject_id": "0518010000836977",
+    "centroide_ll": "POINT(4.31417352 52.08340076)"
+  },
+  "addressMatched": true
+}

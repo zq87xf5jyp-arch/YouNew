@@ -1,0 +1,43 @@
+{
+  "id": "place.rotterdam-blijdorp",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "place.rotterdam-blijdorp",
+    "street": "Blijdorplaan",
+    "house": "8",
+    "postcode": "3041JG",
+    "locality": "Rotterdam"
+  },
+  "officialSourceURL": "https://diergaardeblijdorp.nl/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/415e1f83d352fd06ae32d28bdfef2eec00fe282911ff7310514602ae127188c5.json",
+  "officialSourceEvidenceSHA256": "f587f982d7f054a6ecc04e854e97bd3131095eba572f713cd3280ebb30e40e14",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 51.92801151,
+    "longitude": 4.44355811
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Blijdorplaan+8+3041JG+Rotterdam&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "b9d6f6a87bb0acb218ff42ceda97e13cbc208ff1566b78519351f46898aaba97",
+  "candidateAddresses": [
+    "Blijdorplaan 8, 3041JG Rotterdam",
+    "Blijdorplaan 5, 3041JG Rotterdam",
+    "Agniesestraat 8A-01, 3032TK Rotterdam",
+    "Agniesestraat 8A-02, 3032TK Rotterdam",
+    "Bergstraat 8A-01L, 3035TD Rotterdam"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Blijdorplaan 8, 3041JG Rotterdam",
+    "straatnaam": "Blijdorplaan",
+    "huis_nlt": "8",
+    "postcode": "3041JG",
+    "woonplaatsnaam": "Rotterdam",
+    "nummeraanduiding_id": "0599200000746883",
+    "adresseerbaarobject_id": "0599010000200345",
+    "centroide_ll": "POINT(4.44355811 51.92801151)"
+  },
+  "addressMatched": true
+}

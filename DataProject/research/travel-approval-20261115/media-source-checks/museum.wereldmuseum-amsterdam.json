@@ -1,0 +1,17 @@
+{
+  "id": "museum.wereldmuseum-amsterdam",
+  "sourceURL": "https://commons.wikimedia.org/wiki/File:Wereldmuseum_Amsterdam_%282025%29.jpg",
+  "checkedAt": "2026-11-15",
+  "publicationAuthorized": false,
+  "status": "needs_review",
+  "priorEvidenceFile": "DataProject/research/travel-expansion-20261115/media-evidence/museum.wereldmuseum-amsterdam.json",
+  "priorEvidenceSHA256": "94ff8cb7a838170612ece8583cb4ea7194c8df394a299e23b8e084fe9d78afc8",
+  "sourcePageSHA256": "b38fa9026ebb42845b3c0014528f98ade836a26aaa80ab99d31cf0e58c320a8d",
+  "robotsSHA256": "89c0b6b55d04a401346110c36c8cd8663a3443f4b69cb2909a26ff79ac8f3884",
+  "licenseURLs": [
+    "https://creativecommons.org/licenses/by-sa/4.0"
+  ],
+  "authorFromPriorReview": "Sneeuwvlakte",
+  "sourceRead": true,
+  "descriptionExcerpt": "Description Wereldmuseum Amsterdam (2025).jpg Nederlands: Gebouw van het Wereldmuseum Amsterdam. Date 22 December 2025, 13:14:15 Source Own work Author Sneeuwvlakte"
+}

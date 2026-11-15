@@ -1,0 +1,29 @@
+{
+  "id": "place.eindhoven-muziekgebouw",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "place.eindhoven-muziekgebouw",
+    "street": "Heuvel",
+    "house": "140",
+    "postcode": "5611DK",
+    "locality": "Eindhoven"
+  },
+  "officialSourceURL": "https://www.muziekgebouweindhoven.nl/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/9cb73f92e220a4cbd9a653e6c3b42f2c9765b315ec2bd107faa34994ebda090d.json",
+  "officialSourceEvidenceSHA256": "df11f27f725e78fb2d09fbfc7e2f7e0d34530eb9a43f3c09d803a883331b5719",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": null,
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Heuvel+140+5611DK+Eindhoven&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "ee64656774de2dd5c852c643c100c1218ce4be47a9053aa629608c24f4efb70a",
+  "candidateAddresses": [
+    "Heuvel Galerie 140, 5611DK Eindhoven",
+    "Heuvel Galerie 131B, 5611DK Eindhoven",
+    "Heuvel Galerie 241A, 5611DK Eindhoven",
+    "Heuvel Galerie 4, 5611DK Eindhoven",
+    "Heuvel Galerie 8, 5611DK Eindhoven"
+  ],
+  "limitation": "Expected one exact address; found 0"
+}

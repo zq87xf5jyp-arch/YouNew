@@ -1,0 +1,43 @@
+{
+  "id": "museum.den-haag-beelden-aan-zee",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.den-haag-beelden-aan-zee",
+    "street": "Harteveltstraat",
+    "house": "1",
+    "postcode": "2586EL",
+    "locality": "'s-Gravenhage"
+  },
+  "officialSourceURL": "https://www.beeldenaanzee.nl/en",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/923681a9d2fc1118441ee0a2adbaedf23c3a847592363f5a01752a6630f426b1.json",
+  "officialSourceEvidenceSHA256": "512e36d21e3be1ad3b053b77daacb52effc59cec174ffc602f347711632c2ad4",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.110936,
+    "longitude": 4.27840114
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Harteveltstraat+1+2586EL+%27s-Gravenhage&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "a3b633053713a8a0628d534fe102ebf06d152db99a8aba963770d0e4195922c7",
+  "candidateAddresses": [
+    "Harteveltstraat 1, 2586EL 's-Gravenhage",
+    "Harteveltstraat 8, 2586EL 's-Gravenhage",
+    "Harteveltstraat 10, 2586EL 's-Gravenhage",
+    "Harteveltstraat 12, 2586EL 's-Gravenhage",
+    "Harteveltstraat 14, 2586EL 's-Gravenhage"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Harteveltstraat 1, 2586EL 's-Gravenhage",
+    "straatnaam": "Harteveltstraat",
+    "huis_nlt": "1",
+    "postcode": "2586EL",
+    "woonplaatsnaam": "'s-Gravenhage",
+    "nummeraanduiding_id": "0518200000515816",
+    "adresseerbaarobject_id": "0518010000515818",
+    "centroide_ll": "POINT(4.27840114 52.110936)"
+  },
+  "addressMatched": true
+}

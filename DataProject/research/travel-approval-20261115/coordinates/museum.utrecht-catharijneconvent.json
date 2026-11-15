@@ -1,0 +1,43 @@
+{
+  "id": "museum.utrecht-catharijneconvent",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "checkedAt": "2026-11-15",
+  "officialAddress": {
+    "id": "museum.utrecht-catharijneconvent",
+    "street": "Lange Nieuwstraat",
+    "house": "38",
+    "postcode": "3512PH",
+    "locality": "Utrecht"
+  },
+  "officialSourceURL": "https://catharijneconvent.nl/visitor-information/",
+  "officialSourceEvidenceFile": "DataProject/research/travel-expansion-20261115/sources/c1b55a0c592c5fc60055dd445780823adaba2d4282d57c76961059d75823483a.json",
+  "officialSourceEvidenceSHA256": "17ce074034d9b2cf35c00a71a71f17c324715da0d1183eaecef27933863e840c",
+  "method": "Exact official address matched to BAG address centroid; not a surveyed entrance",
+  "coordinate": {
+    "latitude": 52.08728915,
+    "longitude": 5.12392418
+  },
+  "url": "https://api.pdok.nl/bzk/locatieserver/search/v3_1/free?q=Lange+Nieuwstraat+38+3512PH+Utrecht&fq=type%3Aadres&rows=5",
+  "robotsSHA256": "852726886a24887ade58aec8312c9c622b4bd980c0729ebd008fc03b7679d84a",
+  "responseSHA256": "1c3819f1723ba256a7de95c3f673ba201ca5a1542a42562575be6999933fd9d3",
+  "candidateAddresses": [
+    "Lange Nieuwstraat 38, 3512PH Utrecht",
+    "Lange Nieuwstraat 10A, 3512PH Utrecht",
+    "Lange Nieuwstraat 12A, 3512PH Utrecht",
+    "Lange Nieuwstraat 12B, 3512PH Utrecht",
+    "Lange Nieuwstraat 12C, 3512PH Utrecht"
+  ],
+  "bag": {
+    "bron": "BAG",
+    "weergavenaam": "Lange Nieuwstraat 38, 3512PH Utrecht",
+    "straatnaam": "Lange Nieuwstraat",
+    "huis_nlt": "38",
+    "postcode": "3512PH",
+    "woonplaatsnaam": "Utrecht",
+    "nummeraanduiding_id": "0344200000068463",
+    "adresseerbaarobject_id": "0344010000063269",
+    "centroide_ll": "POINT(5.12392418 52.08728915)"
+  },
+  "addressMatched": true
+}
