@@ -36,6 +36,6 @@ Reproduce ordinary checks from `admin-dashboard/public-site` with Node 24 and `b
 
 Validation results and screenshots are recorded in `/Users/ivan/YouNew-Food-Evidence-2026-11-15/`. The owner review document is `CONTENT_REVIEW.html`. The Draft PR description records the final CI result on the exact submitted commit; local evidence is not a claim of Hostinger QA, production deployment, field Web Vitals or iOS/App Store validation.
 
-## Publication boundary
+## Publication boundary (original Draft before approval)
 
 This PR must remain a draft pending review of this exact batch. Approval would require rechecking volatile menu prices, hours and exceptional dates; then binding owner approval to records/media hashes through the existing mechanism. A later authorized release must snapshot current Hostinger configuration and static files, verify restoration, test an isolated candidate and retain a static-only rollback. No production, DNS, mail, database, iOS or paid-service action is included here.
