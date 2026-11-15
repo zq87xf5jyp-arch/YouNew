@@ -1206,7 +1206,7 @@ export function buildPublicDataset(runtime, { verifyChecksum = true, editorialRe
     datasetFingerprint: content.datasetFingerprint,
     sourceOutputChecksum: cleanText(runtime.outputChecksum, 160),
     sourceDatasetFingerprint: cleanText(runtime.datasetFingerprint, 160),
-    editorialRelease: editorialRelease ? {id:editorialRelease.id,batchSha256:editorialRelease.batchSha256,approvedAt:editorialRelease.approvedAt,count:editorialRelease.entities.length} : null,
+    editorialRelease: editorialRelease ? {id:editorialRelease.id,batchSha256:editorialRelease.batchSha256,approvedAt:editorialRelease.approvedAt,count:editorialRelease.entities.length,...(editorialRelease.revisions?{baseBatchSha256:editorialRelease.baseBatchSha256,revisions:editorialRelease.revisions}:{})} : null,
     acceptedReleaseIds: content.publishedReleaseIds,
     publicationRules: {
       datasetMode: "production",

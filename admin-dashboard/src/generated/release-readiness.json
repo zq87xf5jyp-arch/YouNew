@@ -2,13 +2,13 @@
   "schemaVersion": "release-truth-compatibility-v1",
   "deprecated": true,
   "replacement": "release-truth.json",
-  "generatedAt": "2026-11-10T21:57:22.000Z",
-  "snapshotID": "release-truth.b6e9bbc1d7d53672",
-  "snapshotDigest": "b6e9bbc1d7d53672e4722c7a2833b231e0285ed070b6348b1ff1310762cbcddb",
+  "generatedAt": "2026-11-15T14:50:36.000Z",
+  "snapshotID": "release-truth.b98794ee08d43df6",
+  "snapshotDigest": "b98794ee08d43df64811a18e1308e9e18d910dee1fbde76026757df663f0a6f6",
   "release_identity": {
-    "candidate_commit": "549167b111e61bb164dc93e5a3bbb95df72d34f4",
+    "candidate_commit": "3e1d42180c35e0b489a769ea4c071a6c4c504f1a",
     "source_tree_state": "dirty",
-    "packaged_fingerprint": "32fb2435ffb84b46b7d0c2e3c2371a217b1bb5280e8aa13cff9bc394f8812e17"
+    "packaged_fingerprint": "5ad1ce12ca2a73165b229eb592e33633f1244ffd284d5f7f73315a577edfe54c"
   },
   "posture": "PARTIAL",
   "release_status_label": "PARTIAL",

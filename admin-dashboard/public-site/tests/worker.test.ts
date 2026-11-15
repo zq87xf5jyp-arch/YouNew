@@ -204,11 +204,16 @@ test("Sites worker permits every governed public image host and Wikimedia redire
   const policy = response.headers.get("content-security-policy") ?? "";
   const mediaHosts = new Set<string>(
     publicContent.entities.flatMap((entity: { images?: Array<{ url: string }> }) =>
-      (entity.images ?? []).map((image) => new URL(image.url).origin)
+      (entity.images ?? []).map((image) => {
+        const url=new URL(image.url,'https://younew.nl');
+        assert.equal(url.protocol,'https:');
+        return url.origin;
+      })
     )
   );
 
   for (const origin of mediaHosts) {
+    if(origin==='https://younew.nl'){assert.match(policy,/img-src 'self'/);continue;}
     const escapedOrigin = origin.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
     assert.match(policy, new RegExp(escapedOrigin));
   }

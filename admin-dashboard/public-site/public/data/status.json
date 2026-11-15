@@ -12,11 +12,22 @@
   "content": {
     "status": "checked",
     "label": "Published content",
-    "asOf": "2026-11-10",
+    "asOf": "2026-11-15",
     "summary": "The published content provenance fingerprint matches the generated web artifact. Counts below describe published entities, not page URLs, search documents or the full administrative inventory. Full practical guides remain unpublished.",
-    "datasetFingerprint": "32fb2435ffb84b46b7d0c2e3c2371a217b1bb5280e8aa13cff9bc394f8812e17",
-    "counts": { "total": 76, "places": 54, "summaryGuides": 17, "cities": 5, "fullGuides": 0 },
-    "sourceCheckedDates": ["2026-10-24", "2026-11-09", "2026-11-10"]
+    "datasetFingerprint": "5ad1ce12ca2a73165b229eb592e33633f1244ffd284d5f7f73315a577edfe54c",
+    "counts": {
+      "total": 76,
+      "places": 54,
+      "summaryGuides": 17,
+      "cities": 5,
+      "fullGuides": 0
+    },
+    "sourceCheckedDates": [
+      "2026-10-24",
+      "2026-11-09",
+      "2026-11-10",
+      "2026-11-15"
+    ]
   },
   "ios": {
     "status": "unconfirmed",
@@ -24,7 +35,11 @@
     "publicVersion": "1.3",
     "releasedAt": "2026-08-03",
     "summary": "Apple's public lookup was checked on 15 November 2026. This confirms a public listing only; authenticated App Store Connect access and the contents of the shipped app were not checked.",
-    "sourceComparison": { "sharedIDs": 5, "webOnlyIDs": 71, "iosOnlyIDs": 0 }
+    "sourceComparison": {
+      "sharedIDs": 5,
+      "webOnlyIDs": 71,
+      "iosOnlyIDs": 0
+    }
   },
   "businessForm": {
     "status": "checked",
@@ -41,9 +56,18 @@
   ],
   "history": "August 2026 release reports describe earlier hosting and publication inventories. They are historical evidence, not the current runtime or current published totals. This snapshot does not re-date the underlying content checks.",
   "evidenceLinks": [
-    { "label": "Published content provenance", "href": "/data/content-provenance.json" },
-    { "label": "This status snapshot as JSON", "href": "/data/status.json" },
-    { "label": "Apple public listing lookup", "href": "https://itunes.apple.com/lookup?id=6782617312&country=nl" }
+    {
+      "label": "Published content provenance",
+      "href": "/data/content-provenance.json"
+    },
+    {
+      "label": "This status snapshot as JSON",
+      "href": "/data/status.json"
+    },
+    {
+      "label": "Apple public listing lookup",
+      "href": "https://itunes.apple.com/lookup?id=6782617312&country=nl"
+    }
   ],
   "webAlternatives": [
     {

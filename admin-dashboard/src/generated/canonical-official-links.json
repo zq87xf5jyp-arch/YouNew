@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-10-23T00:00:00.000Z",
-  "registryFingerprint": "05a03abee982627980f71249ddafa12432e3ccf365b4a555fa9ea11df10e2238",
+  "registryFingerprint": "b2e8fb610153bc9da091a7746091d7ffcbf56284fd50d37b449436bb0d3968fa",
   "source": {
-    "contentSha256": "92d4593368923c5901d2ba7ca1df4627918240750e2be2db24e9d73f307f2ced",
+    "contentSha256": "849be80bc145bb6ca52a0b1f44c335075e9f45a9bea03852fe6232cce58663fc",
     "geographySha256": "928ab17bf26b745c50a88b28e282f536d1a3e61a29066ae57269ed571d179170",
     "trackedRegistrySha256": "45ac0cb52dd08a902f5b3645de1ecd3aeaf88917b846b4374dd7ecc9bdd5ff3d"
   },
@@ -18,8 +18,8 @@
   },
   "counts": {
     "references": 758,
-    "canonicalLinks": 745,
-    "duplicatesCollapsed": 13
+    "canonicalLinks": 746,
+    "duplicatesCollapsed": 12
   },
   "links": [
     {
@@ -5553,15 +5553,15 @@
       ]
     },
     {
-      "source_key": "source.7a531930aa98aa85dd363430",
+      "source_key": "source.d4d0cb3e3338bd352e62a81c",
       "title": "Official visitor information",
       "publisher": "Hortus botanicus Leiden",
-      "url": "https://hortusleiden.nl/",
-      "canonical_url": "https://hortusleiden.nl/",
+      "url": "https://hortusleiden.nl/bezoek-info",
+      "canonical_url": "https://hortusleiden.nl/bezoek-info",
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -6663,13 +6663,12 @@
       "evidence_state": "measured",
       "link_health_state": "unknown",
       "last_checked_date": "2026-11-09",
-      "reference_count": 2,
+      "reference_count": 1,
       "reference_kinds": [
         "content_entity"
       ],
       "reference_ids": [
-        "collection.leiden-centre-walk",
-        "place.leiden-rmo"
+        "collection.leiden-centre-walk"
       ]
     },
     {
@@ -7538,15 +7537,15 @@
       ]
     },
     {
-      "source_key": "source.47c016b5e90e47779e8d7a87",
+      "source_key": "source.e2c6fb931107b23af91f0318",
       "title": "Official visitor information",
       "publisher": "Museum De Lakenhal",
-      "url": "https://www.lakenhal.nl/en/",
-      "canonical_url": "https://www.lakenhal.nl/en/",
+      "url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+      "canonical_url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -7564,7 +7563,7 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
@@ -9508,13 +9507,31 @@
       "source_type": "other",
       "evidence_state": "measured",
       "link_health_state": "unknown",
-      "last_checked_date": "2026-11-09",
+      "last_checked_date": "2026-11-15",
       "reference_count": 1,
       "reference_kinds": [
         "content_entity"
       ],
       "reference_ids": [
         "museum.leiden-boerhaave"
+      ]
+    },
+    {
+      "source_key": "source.3dd9936e69d06dcc442ee1e0",
+      "title": "Official visitor information",
+      "publisher": "Rijksmuseum van Oudheden",
+      "url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+      "canonical_url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+      "source_type": "other",
+      "evidence_state": "measured",
+      "link_health_state": "unknown",
+      "last_checked_date": "2026-11-15",
+      "reference_count": 1,
+      "reference_kinds": [
+        "content_entity"
+      ],
+      "reference_ids": [
+        "place.leiden-rmo"
       ]
     },
     {

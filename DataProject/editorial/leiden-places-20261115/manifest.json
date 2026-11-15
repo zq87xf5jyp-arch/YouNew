@@ -1,10 +1,10 @@
 {
   "schemaVersion": 1,
   "batchId": "leiden-places-20261115",
-  "status": "needs_review",
-  "publicationAuthorized": false,
-  "approvedAt": null,
-  "reviewerId": null,
+  "status": "approved",
+  "publicationAuthorized": true,
+  "approvedAt": "2026-11-15",
+  "reviewerId": "owner.ivan",
   "preparedAt": "2026-11-15",
   "ids": [
     "place.leiden-lakenhal",
@@ -112,5 +112,15 @@
       "bytes": 361424,
       "width": 1200
     }
+  },
+  "approvalReference": "Owner explicitly approved all five EN/NL cards and PR #62 in this Codex conversation on 2026-11-15, including production after official-source recheck.",
+  "approvedPullRequest": "https://github.com/zq87xf5jyp-arch/YouNew/pull/62",
+  "approvedReviewCommit": "3e1d42180c35e0b489a769ea4c071a6c4c504f1a",
+  "approvalSha256": "365976ac6f4ff5aaeabb69c18df2694234d6452857ee3615032dd36800b4a538",
+  "prepublicationCheck": {
+    "checkedAt": "2026-11-15T14:44:16.457950+00:00",
+    "officialUrls": 19,
+    "result": "All return HTTP 200. Prices, hours and accessibility/closure notices reconfirmed against official source text. Boerhaave fees and calendar also checked after browser rendering. No content change needed.",
+    "evidence": "link-checks.json"
   }
 }

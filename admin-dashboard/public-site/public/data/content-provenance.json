@@ -5,14 +5,25 @@
   "source": "../../YouNew/Resources/Data/younew-runtime-data.json",
   "sourceMode": "production",
   "sourceSchemaVersion": 1,
-  "datasetFingerprint": "32fb2435ffb84b46b7d0c2e3c2371a217b1bb5280e8aa13cff9bc394f8812e17",
+  "datasetFingerprint": "5ad1ce12ca2a73165b229eb592e33633f1244ffd284d5f7f73315a577edfe54c",
   "sourceOutputChecksum": "d39686302bac96ca65c9489f64ed7b7ded29e4f9865e21edfb0f52db8cb45e7c",
   "sourceDatasetFingerprint": "39a365a2152382da678d1a888a535295ab497481858b815d785c00c32fcbabfc",
   "editorialRelease": {
     "id": "editorial-leiden-20261110",
-    "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea",
-    "approvedAt": "2026-11-10",
-    "count": 71
+    "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+    "approvedAt": "2026-11-15",
+    "count": 71,
+    "baseBatchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea",
+    "revisions": [
+      {
+        "id": "leiden-places-20261115",
+        "recordsSha256": "cded4e8afbf2a1f20cbfd1a8edeae261d61922e1932905062d0f297c6d16c75a",
+        "approvalSha256": "365976ac6f4ff5aaeabb69c18df2694234d6452857ee3615032dd36800b4a538",
+        "approvedAt": "2026-11-15",
+        "reviewerId": "owner.ivan",
+        "count": 5
+      }
+    ]
   },
   "acceptedReleaseIds": [
     "amsterdam-v0.1.10",

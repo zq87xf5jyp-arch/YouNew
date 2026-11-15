@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "generatedAt": "2026-10-23T00:00:00Z",
-  "datasetFingerprint": "32fb2435ffb84b46b7d0c2e3c2371a217b1bb5280e8aa13cff9bc394f8812e17",
+  "datasetFingerprint": "5ad1ce12ca2a73165b229eb592e33633f1244ffd284d5f7f73315a577edfe54c",
   "language": "en",
   "fallbackLanguage": "en",
   "publishedReleaseIds": [
@@ -59,7 +59,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -176,7 +176,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -272,7 +272,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -374,7 +374,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -456,7 +456,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -681,7 +681,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -773,7 +773,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1079,7 +1079,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1309,7 +1309,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1386,7 +1386,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1486,7 +1486,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -1588,7 +1588,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1688,7 +1688,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1780,7 +1780,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1880,7 +1880,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -1980,7 +1980,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -2080,7 +2080,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -2176,7 +2176,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -2278,7 +2278,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -2378,7 +2378,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -2455,7 +2455,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -2547,7 +2547,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -3123,7 +3123,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -3384,7 +3384,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -3475,7 +3475,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -3556,7 +3556,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -3672,7 +3672,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -3963,7 +3963,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4040,7 +4040,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4140,7 +4140,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4240,7 +4240,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4332,7 +4332,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4403,7 +4403,7 @@
       "language": "en",
       "status": "published",
       "title": "Hortus botanicus Leiden",
-      "summary": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+      "summary": "Historic university gardens and greenhouses behind the Academy Building on the Rapenburg.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -4412,27 +4412,142 @@
         "locales": {
           "en": {
             "title": "Hortus botanicus Leiden",
-            "summary": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+            "summary": "Historic university gardens and greenhouses behind the Academy Building on the Rapenburg.",
             "guide": null
           },
           "nl": {
             "title": "Hortus botanicus Leiden",
-            "summary": "Ontdek planten en kassen in de botanische tuin van Leiden. Bekijk de bezoekersinformatie voordat je een dag kiest.",
+            "summary": "Historische universiteitstuinen en kassen achter het Academiegebouw aan het Rapenburg.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "visit",
+            "title": "Plan your visit",
             "publisher": "Hortus botanicus Leiden",
-            "url": "https://hortusleiden.nl/",
-            "checkedAt": "2026-11-09"
+            "url": "https://hortusleiden.nl/bezoek-info",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "about",
+            "title": "About the place",
+            "publisher": "Hortus botanicus Leiden",
+            "url": "https://hortusleiden.nl/zien-en-doen/ontdek-de-botanische-tuin",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Hortus botanicus Leiden",
+            "url": "https://hortusleiden.nl/bezoek-info",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Hortus botanicus Leiden across the water, photographed in 2024",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "The Hortus is a botanical garden with a university history, not simply a city park. Founded in 1590, it combines outdoor planting with glasshouses where different climates support very different plants. Orchids, pitcher plants and ferns make the indoor collections a reason to visit as well as the gardens.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Plan a visit that leaves room for both the paths outside and the glasshouses. That contrast helps explain why a botanical collection is more than a display of attractive flowers. Enter through the Academy Building gate on the Rapenburg, and check the seasonal opening hours before combining the garden with another Leiden museum.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "21 March–20 September 09:00–18:00; 21 September–20 March 10:00–17:00. Closed 3 October and 25 December–1 January inclusive.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Adults €14 at the desk or €13.50 online; ages 4–18 €6; ages 0–3 free.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Much of the garden is accessible, but the Tropisch Terras, canopy walks, Victoriakas and some soft paths have restrictions.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Hortus botanicus Leiden vanaf het water, gefotografeerd in 2024",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "De Hortus is een botanische tuin met een universitaire geschiedenis, niet zomaar een stadspark. De tuin werd in 1590 gesticht en combineert buitenbeplanting met kassen waar verschillende klimaten andere planten mogelijk maken. Orchideeën, bekerplanten en varens maken ook de collecties onder glas een bezoek waard.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Neem bij je bezoek zowel de buitenpaden als de kassen mee. Juist dat contrast laat zien dat een botanische collectie meer is dan een verzameling mooie bloemen. Ga naar binnen via de poort van het Academiegebouw aan het Rapenburg en controleer de seizoensuren voordat je de tuin met een museum combineert.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "21 maart–20 september 09.00–18.00; 21 september–20 maart 10.00–17.00. Gesloten op 3 oktober en 25 december t/m 1 januari.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Volwassenen €14 aan de kassa of €13,50 online; 4–18 jaar €6; 0–3 jaar gratis.",
+                  "title": "Entree",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Een groot deel is toegankelijk; het Tropisch Terras, de canopy walks, Victoriakas en enkele zachte paden hebben beperkingen.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://tickets.hortusleiden.nl/nl/tickets",
+            "sourceId": "visit",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4443,13 +4558,13 @@
       "placeDetails": {
         "address": {
           "value": "Rapenburg 73, 2311 GJ Leiden",
-          "sourceUrl": "https://hortusleiden.nl/over-ons/contact",
-          "checkedAt": "2026-11-09"
+          "sourceUrl": "https://hortusleiden.nl/bezoek-info",
+          "checkedAt": "2026-11-15"
         },
         "website": {
-          "value": "https://hortusleiden.nl/",
-          "sourceUrl": "https://hortusleiden.nl/over-ons/contact",
-          "checkedAt": "2026-11-09"
+          "value": "https://hortusleiden.nl/bezoek-info",
+          "sourceUrl": "https://hortusleiden.nl/bezoek-info",
+          "checkedAt": "2026-11-15"
         },
         "email": {
           "value": "info@hortusleiden.nl",
@@ -4473,12 +4588,24 @@
         "latitude": 52.1571223,
         "longitude": 4.484888
       },
-      "images": [],
+      "images": [
+        {
+          "id": "media.place.leiden-hortus.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-places-20261115/hortus-1200.webp",
+          "alt": "Hortus botanicus Leiden across the water, photographed in 2024",
+          "attribution": "Roger Veringmeier · 2024-08-07 · resized WebP, no content edits",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hortus_botanicus_Leiden.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Hortus botanicus Leiden",
-        "url": "https://hortusleiden.nl/",
-        "checkedAt": "2026-11-09",
+        "url": "https://hortusleiden.nl/bezoek-info",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -4487,13 +4614,18 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-lakenhal",
+        "place.leiden-naturalis",
+        "place.leiden-rmo",
+        "museum.leiden-boerhaave"
+      ],
       "seo": {
         "title": "Hortus botanicus Leiden | YouNew",
-        "description": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+        "description": "Historic university gardens and greenhouses behind the Academy Building on the Rapenburg.",
         "canonicalPath": "/places/leiden-hortus"
       }
     },
@@ -4535,7 +4667,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4627,7 +4759,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4727,7 +4859,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -4830,7 +4962,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "eindhoven",
       "provinceId": "noord-brabant",
@@ -4932,7 +5064,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -5034,7 +5166,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "eindhoven",
       "provinceId": "noord-brabant",
@@ -5136,7 +5268,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -5234,7 +5366,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -5557,7 +5689,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -5605,7 +5737,7 @@
       "language": "en",
       "status": "published",
       "title": "Museum De Lakenhal",
-      "summary": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+      "summary": "Art and Leiden’s textile history inside the former cloth hall beside the Oude Singel.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -5614,27 +5746,142 @@
         "locales": {
           "en": {
             "title": "Museum De Lakenhal",
-            "summary": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+            "summary": "Art and Leiden’s textile history inside the former cloth hall beside the Oude Singel.",
             "guide": null
           },
           "nl": {
             "title": "Museum De Lakenhal",
-            "summary": "Ontdek kunst en de geschiedenis van Leiden. Begin bij de bezoekersinformatie en kies wat je wilt bekijken.",
+            "summary": "Kunst en de Leidse textielgeschiedenis in de voormalige lakenhal aan de Oude Singel.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "visit",
+            "title": "Plan your visit",
             "publisher": "Museum De Lakenhal",
-            "url": "https://www.lakenhal.nl/en/",
-            "checkedAt": "2026-11-09"
+            "url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "about",
+            "title": "About the place",
+            "publisher": "Museum De Lakenhal",
+            "url": "https://www.lakenhal.nl/nl/verhaal/het-gebouw",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Museum De Lakenhal",
+            "url": "https://www.lakenhal.nl/nl/verhaal/bezoekersinformatie-toegankelijkheid",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Museum De Lakenhal beside the Oude Singel, photographed in 2015",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "The building is part of the visit at Museum De Lakenhal. This seventeenth-century cloth hall once served the city’s textile trade; it has housed the museum since 1874. Its rooms bring the story of Leiden into contact with art, rather than treating the city as a backdrop to a collection.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Look at the architecture as well as the objects: the transition between the historic hall and the museum spaces makes a useful starting point for exploring the city’s working past. Afterwards, use the related places below to compare Leiden’s art, archaeology and science museums; they each tell a different part of the story.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Tuesday–Sunday 10:00–17:00; closed Mondays. Holiday exceptions apply.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Adults €16; under 18 free. Check eligibility and temporary exceptions before booking.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Lifts reach most floors, but some historic rooms are inaccessible. Some passages are 85 cm wide; check the access guide for your needs.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Museum De Lakenhal aan de Oude Singel, gefotografeerd in 2015",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Het gebouw hoort bij het bezoek aan Museum De Lakenhal. Deze zeventiende-eeuwse lakenhal diende ooit de Leidse textielhandel en huisvest sinds 1874 het museum. De zalen verbinden de stadsgeschiedenis met kunst: Leiden is hier meer dan alleen de omgeving van een collectie.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Bekijk naast de voorwerpen ook de architectuur: de overgang van de historische hal naar de museumzalen is een goed begin om het werkende verleden van Leiden te ontdekken. Met de verwante plekken hieronder kun je kunst, archeologie en wetenschap vergelijken; elk museum vertelt een ander verhaal.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Dinsdag–zondag 10.00–17.00; maandag gesloten. Feestdagen kunnen afwijken.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Volwassenen €16; tot 18 jaar gratis. Controleer voorwaarden en tijdelijke uitzonderingen voor je boekt.",
+                  "title": "Entree",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Liften bereiken de meeste verdiepingen, maar enkele historische ruimtes zijn niet toegankelijk. Sommige doorgangen zijn 85 cm breed; raadpleeg de toegankelijkheidsinformatie.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://tickets.lakenhal.nl/en/tickets",
+            "sourceId": "visit",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -5646,12 +5893,12 @@
         "address": {
           "value": "Oude Singel 32, 2312 RA Leiden",
           "sourceUrl": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
-          "value": "https://www.lakenhal.nl/en/",
+          "value": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
           "sourceUrl": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "email": {
           "value": "info@lakenhal.nl",
@@ -5675,12 +5922,24 @@
         "latitude": 52.1628566,
         "longitude": 4.4875649
       },
-      "images": [],
+      "images": [
+        {
+          "id": "media.place.leiden-lakenhal.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-places-20261115/lakenhal-1200.webp",
+          "alt": "Museum De Lakenhal beside the Oude Singel, photographed in 2015",
+          "attribution": "Vera de Kok · 2015-03-21 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Leiden_-_Lakenhal_.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Museum De Lakenhal",
-        "url": "https://www.lakenhal.nl/en/",
-        "checkedAt": "2026-11-09",
+        "url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -5689,13 +5948,18 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-naturalis",
+        "place.leiden-hortus",
+        "place.leiden-rmo",
+        "museum.leiden-boerhaave"
+      ],
       "seo": {
         "title": "Museum De Lakenhal | YouNew",
-        "description": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+        "description": "Art and Leiden’s textile history inside the former cloth hall beside the Oude Singel.",
         "canonicalPath": "/places/leiden-lakenhal"
       }
     },
@@ -5708,7 +5972,7 @@
       "language": "en",
       "status": "published",
       "title": "Naturalis",
-      "summary": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+      "summary": "Explore biodiversity through animals, fossils and T. rex Trix at Leiden’s natural history museum.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -5717,27 +5981,158 @@
         "locales": {
           "en": {
             "title": "Naturalis",
-            "summary": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+            "summary": "Explore biodiversity through animals, fossils and T. rex Trix at Leiden’s natural history museum.",
             "guide": null
           },
           "nl": {
             "title": "Naturalis",
-            "summary": "Ontdek de natuur bij Naturalis. Bekijk de officiële pagina voor de actuele route naar het museum en de bezoekmogelijkheden.",
+            "summary": "Ontdek biodiversiteit met dieren, fossielen en T. rex Trix in het Leidse natuurhistorische museum.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "visit",
+            "title": "Plan your visit",
             "publisher": "Naturalis",
             "url": "https://www.naturalis.nl/en/museum/practical-info",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "about",
+            "title": "About the place",
+            "publisher": "Naturalis",
+            "url": "https://www.naturalis.nl/en/museum/galleries",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Naturalis",
+            "url": "https://www.naturalis.nl/en/museum/practical-info",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Exterior of Naturalis Biodiversity Center, photographed in 2019",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Naturalis connects the variety of life today with the worlds that came before it. Its galleries move between animals, the Ice Age and dinosaurs, including T. rex Trix. This is a different kind of museum stop from the city-centre art and archaeology collections: living diversity and deep time are the main subjects.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Choose the galleries that interest your group before setting out rather than making a special attraction the only reason to visit. The current access notice below matters when planning: an individual experience can be closed while the rest of the museum remains open. For a contrasting science visit, explore Rijksmuseum Boerhaave in the related places.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Daily 10:00–17:00; closed 25 December 2026. Check other exceptional closures.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Ages 4 and over €18; ages 0–3 free.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Two lifts; wheelchairs and compact mobility scooters can enter. Pedestrians use Darwinweg 2; bikes and cars use Mendelweg 2.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "Rexperience was temporarily closed due to a fault when checked. The museum and Trix remained open; recheck before travel.",
+                  "title": "Check before you travel",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Buitenzijde van Naturalis Biodiversity Center, gefotografeerd in 2019",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Naturalis verbindt de verscheidenheid van het huidige leven met vroegere werelden. De zalen voeren langs dieren, de ijstijd en dinosauriërs, waaronder T. rex Trix. Het museum biedt daarmee iets anders dan de kunst- en archeologiecollecties in de binnenstad: biodiversiteit en een ver verleden staan centraal.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Kies vooraf de zalen die bij je gezelschap passen, in plaats van je hele bezoek op één attractie te baseren. De actuele melding hieronder helpt bij het plannen: een afzonderlijke belevenis kan gesloten zijn terwijl de rest van het museum openblijft. Voor een andere blik op wetenschap staat Rijksmuseum Boerhaave bij de verwante plekken.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Dagelijks 10.00–17.00; gesloten op 25 december 2026. Controleer overige uitzonderingen.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Vanaf 4 jaar €18; kinderen van 0–3 jaar gratis.",
+                  "title": "Entree",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Twee liften; rolstoelen en compacte scootmobielen kunnen naar binnen. Voetgangers: Darwinweg 2; fiets en auto: Mendelweg 2.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "Rexperience was bij controle tijdelijk gesloten door een storing. Het museum en Trix bleven open; controleer dit voor vertrek.",
+                  "title": "Controleer voor vertrek",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://www.naturalis.nl/en/tickets-for-naturalis",
+            "sourceId": "visit",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -5748,13 +6143,13 @@
       "placeDetails": {
         "address": {
           "value": "Darwinweg 2, 2333 CR Leiden",
-          "sourceUrl": "https://www.naturalis.nl/en/contact",
-          "checkedAt": "2026-11-09"
+          "sourceUrl": "https://www.naturalis.nl/en/museum/practical-info",
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.naturalis.nl/en/museum/practical-info",
-          "sourceUrl": "https://www.naturalis.nl/en/contact",
-          "checkedAt": "2026-11-09"
+          "sourceUrl": "https://www.naturalis.nl/en/museum/practical-info",
+          "checkedAt": "2026-11-15"
         },
         "email": null,
         "phone": {
@@ -5770,13 +6165,28 @@
         "museums-sights",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.1646451,
+        "longitude": 4.4730775
+      },
+      "images": [
+        {
+          "id": "media.place.leiden-naturalis.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-places-20261115/naturalis-1200.webp",
+          "alt": "Exterior of Naturalis Biodiversity Center, photographed in 2019",
+          "attribution": "Schminnte · 2019-10-22 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Naturalis_Biodiversity_centre.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Naturalis",
         "url": "https://www.naturalis.nl/en/museum/practical-info",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -5785,13 +6195,18 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-lakenhal",
+        "place.leiden-hortus",
+        "place.leiden-rmo",
+        "museum.leiden-boerhaave"
+      ],
       "seo": {
         "title": "Naturalis | YouNew",
-        "description": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+        "description": "Explore biodiversity through animals, fossils and T. rex Trix at Leiden’s natural history museum.",
         "canonicalPath": "/places/leiden-naturalis"
       }
     },
@@ -5833,7 +6248,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -5933,7 +6348,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -6025,7 +6440,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -6117,7 +6532,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -6380,7 +6795,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -6457,7 +6872,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -6777,7 +7192,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -6854,7 +7269,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -6946,7 +7361,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -7042,7 +7457,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -7142,7 +7557,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -7213,7 +7628,7 @@
       "language": "en",
       "status": "published",
       "title": "Rijksmuseum Boerhaave",
-      "summary": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
+      "summary": "Scientific instruments and discoveries reveal the history of science and medicine in the Netherlands.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -7222,27 +7637,142 @@
         "locales": {
           "en": {
             "title": "Rijksmuseum Boerhaave",
-            "summary": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
+            "summary": "Scientific instruments and discoveries reveal the history of science and medicine in the Netherlands.",
             "guide": null
           },
           "nl": {
             "title": "Rijksmuseum Boerhaave",
-            "summary": "Een museum met tentoonstellingen en activiteiten over wetenschap en geneeskunde. Bekijk het programma en de geplande sluitingsdagen.",
+            "summary": "Wetenschappelijke instrumenten en ontdekkingen vertellen de geschiedenis van wetenschap en geneeskunde in Nederland.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "visit",
+            "title": "Plan your visit",
             "publisher": "Rijksmuseum Boerhaave",
             "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "about",
+            "title": "About the place",
+            "publisher": "Rijksmuseum Boerhaave",
+            "url": "https://www.rijksmuseumboerhaave.nl/en/about-us",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Rijksmuseum Boerhaave",
+            "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit/accessibility",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Historic exterior of Museum Boerhaave, photographed in 2009",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Rijksmuseum Boerhaave explores science and medicine through the instruments, discoveries and people that shaped them. Its subject is not just what was invented, but how new ways of observing and measuring changed people’s understanding of the world. That makes it a useful companion to Naturalis, with a stronger emphasis on the history of discovery.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Use the objects as starting points for questions: what could someone see or measure with an instrument, and what did that change? This approach gives a mixed-interest group something to discuss without requiring specialist knowledge. The exterior photograph dates from 2009; use the current official visitor page, rather than the photograph, for arrival and access arrangements.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Daily 10:00–17:00. Upcoming listed closures: 7 and 25 December 2026; check the complete calendar.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Adults €17.50; ages 4–17 €7; ages 0–3 free. The museum lists a €1 discount for online tickets.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Lifts and loan wheelchairs are available. The raised Waterland water-play area is not accessible to wheelchairs, walkers or mobility scooters.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Historische buitenzijde van Museum Boerhaave, gefotografeerd in 2009",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Rijksmuseum Boerhaave verkent wetenschap en geneeskunde via de instrumenten, ontdekkingen en mensen die ze vormgaven. Het gaat niet alleen om uitvindingen, maar ook om de invloed van nieuwe manieren van waarnemen en meten op ons wereldbeeld. Daarmee vormt het een aanvulling op Naturalis, met meer nadruk op de geschiedenis van ontdekkingen.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Gebruik de voorwerpen als begin van een vraag: wat kon iemand met een instrument zien of meten, en wat veranderde daardoor? Zo heeft een gezelschap met uiteenlopende interesses iets om over te praten zonder specialistische voorkennis. De buitenfoto dateert uit 2009; gebruik voor aankomst en toegankelijkheid de actuele officiële bezoekersinformatie.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Dagelijks 10.00–17.00. Vermelde komende sluitingsdagen: 7 en 25 december 2026; bekijk de volledige kalender.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Volwassenen €17,50; 4–17 jaar €7; 0–3 jaar gratis. Het museum vermeldt €1 korting op online tickets.",
+                  "title": "Entree",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Er zijn liften en leenrolstoelen. Het verhoogde waterspel Waterland is niet toegankelijk voor rolstoelen, rollators of scootmobielen.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://tickets.rijksmuseumboerhaave.nl/",
+            "sourceId": "visit",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -7252,14 +7782,14 @@
       "narrowCategory": "museums-sights",
       "placeDetails": {
         "address": {
-          "value": "Lange St. Agnietenstraat 10, 2312 WC Leiden",
+          "value": "Lange Sint Agnietenstraat 10, 2312 WC Leiden",
           "sourceUrl": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
           "sourceUrl": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "email": null,
         "phone": null,
@@ -7271,13 +7801,28 @@
         "museums-sights",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.16134171,
+        "longitude": 4.48917759
+      },
+      "images": [
+        {
+          "id": "media.museum.leiden-boerhaave.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-places-20261115/boerhaave-1200.webp",
+          "alt": "Historic exterior of Museum Boerhaave, photographed in 2009",
+          "attribution": "Goodness Shamrock · 2009-04-19 · resized WebP, no content edits",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Exterior_of_the_Boerhaave_museum.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Rijksmuseum Boerhaave",
         "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -7286,13 +7831,18 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-lakenhal",
+        "place.leiden-naturalis",
+        "place.leiden-hortus",
+        "place.leiden-rmo"
+      ],
       "seo": {
         "title": "Rijksmuseum Boerhaave | YouNew",
-        "description": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
+        "description": "Scientific instruments and discoveries reveal the history of science and medicine in the Netherlands.",
         "canonicalPath": "/places/leiden-boerhaave"
       }
     },
@@ -7305,7 +7855,7 @@
       "language": "en",
       "status": "published",
       "title": "Rijksmuseum van Oudheden",
-      "summary": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+      "summary": "Ancient Egypt, classical worlds and Dutch archaeology meet at the museum on the Rapenburg.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -7314,27 +7864,160 @@
         "locales": {
           "en": {
             "title": "Rijksmuseum van Oudheden",
-            "summary": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+            "summary": "Ancient Egypt, classical worlds and Dutch archaeology meet at the museum on the Rapenburg.",
             "guide": null
           },
           "nl": {
             "title": "Rijksmuseum van Oudheden",
-            "summary": "Ontdek oudheden in het museum aan het Rapenburg. Op de officiële bezoekerspagina vind je informatie om je bezoek te plannen.",
+            "summary": "Het oude Egypte, de klassieke wereld en Nederlandse archeologie komen samen aan het Rapenburg.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "visit",
+            "title": "Plan your visit",
             "publisher": "Rijksmuseum van Oudheden",
-            "url": "https://www.rmo.nl/en/",
-            "checkedAt": "2026-11-09"
+            "url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "about",
+            "title": "About the place",
+            "publisher": "Rijksmuseum van Oudheden",
+            "url": "https://www.rmo.nl/en/organisation/who-are-we/",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Rijksmuseum van Oudheden",
+            "url": "https://www.rmo.nl/uw%20-bezoek/openingstijden-prijzen-route/",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Rijksmuseum van Oudheden on the Rapenburg, photographed in 2018",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "The Rijksmuseum van Oudheden places archaeology from the Netherlands alongside Egypt and Nubia, the Near East and the Greek, Etruscan and Roman worlds. The Egyptian temple of Taffeh in the entrance hall gives the visit a distinctive starting point. From there, the collections open up different ways of looking at how earlier societies lived.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Pick one area as an anchor for your visit, then compare it with another collection rather than expecting a single continuous story of antiquity. The museum is also a useful counterpart to De Lakenhal: one looks across ancient cultures, while the other connects art with Leiden’s history. Check the current lift notice if step-free access is essential.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Daily 10:00–17:00; Thursday evenings 19:00–22:00, except 24 and 31 December 2026. Holiday closures apply.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Adults €14; visitors aged 18 and under free.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit",
+                    "access"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "The museum provides accessibility information for wheelchair users and visitors with visual impairments; see the current lift restriction.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "access"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "The Dutch visitor page reports a lift fault: the first floor is reachable by stairs only. Contact the museum before travelling if this affects your visit.",
+                  "title": "Check before you travel",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Rijksmuseum van Oudheden aan het Rapenburg, gefotografeerd in 2018",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Het Rijksmuseum van Oudheden plaatst Nederlandse archeologie naast Egypte en Nubië, het Nabije Oosten en de Griekse, Etruskische en Romeinse wereld. De Egyptische tempel van Taffeh in de entreehal geeft het bezoek een bijzonder begin. Daarna bieden de collecties verschillende perspectieven op het leven in vroegere samenlevingen.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Kies één gebied als uitgangspunt en vergelijk dat met een andere collectie, in plaats van één doorlopend verhaal over de oudheid te verwachten. Het museum vormt ook een aanvulling op De Lakenhal: het ene kijkt naar oude culturen, het andere verbindt kunst met de Leidse geschiedenis. Bekijk de liftmelding als traploze toegang noodzakelijk is.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Dagelijks 10.00–17.00; donderdagavond 19.00–22.00, behalve 24 en 31 december 2026. Feestdagen kunnen afwijken.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Volwassenen €14; bezoekers t/m 18 jaar gratis.",
+                  "title": "Entree",
+                  "sourceIds": [
+                    "visit",
+                    "access"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Het museum geeft toegankelijkheidsinformatie voor rolstoelgebruikers en slechtzienden; let op de actuele liftbeperking.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "access"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "De Nederlandse bezoekerspagina meldt een liftstoring: de eerste verdieping is alleen via de trap bereikbaar. Neem voor vertrek contact op als dit je bezoek beïnvloedt.",
+                  "title": "Controleer voor vertrek",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://ticket.rmo.nl/en-EN/tickets",
+            "sourceId": "visit",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -7346,12 +8029,12 @@
         "address": {
           "value": "Rapenburg 28, 2311 EW Leiden",
           "sourceUrl": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
-          "value": "https://www.rmo.nl/en/",
+          "value": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
           "sourceUrl": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "email": null,
         "phone": {
@@ -7367,13 +8050,28 @@
         "museums-sights",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.1584668,
+        "longitude": 4.4858978
+      },
+      "images": [
+        {
+          "id": "media.place.leiden-rmo.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-places-20261115/rmo-1200.webp",
+          "alt": "Rijksmuseum van Oudheden on the Rapenburg, photographed in 2018",
+          "attribution": "Steven Lek · 2018-02-23 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dutch_National_Museum_of_Antiquities_Leiden.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Rijksmuseum van Oudheden",
-        "url": "https://www.rmo.nl/en/",
-        "checkedAt": "2026-11-09",
+        "url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -7382,13 +8080,18 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-lakenhal",
+        "place.leiden-naturalis",
+        "place.leiden-hortus",
+        "museum.leiden-boerhaave"
+      ],
       "seo": {
         "title": "Rijksmuseum van Oudheden | YouNew",
-        "description": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+        "description": "Ancient Egypt, classical worlds and Dutch archaeology meet at the museum on the Rapenburg.",
         "canonicalPath": "/places/leiden-rmo"
       }
     },
@@ -7430,7 +8133,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -7674,7 +8377,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -7936,7 +8639,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -8013,7 +8716,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -8113,7 +8816,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -8215,7 +8918,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -8315,7 +9018,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -8417,7 +9120,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -8519,7 +9222,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -8824,7 +9527,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -9049,7 +9752,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -9149,7 +9852,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -9245,7 +9948,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -9341,7 +10044,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -10200,7 +10903,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -10296,7 +10999,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -10398,7 +11101,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -10480,7 +11183,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -10767,7 +11470,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -10997,7 +11700,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -11074,7 +11777,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -11331,7 +12034,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -11592,7 +12295,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -11683,7 +12386,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -11778,7 +12481,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -12069,7 +12772,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -12377,7 +13080,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -12623,7 +13326,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -12928,7 +13631,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -13165,7 +13868,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -13449,7 +14152,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -13529,7 +14232,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -13625,7 +14328,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -13717,7 +14420,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -13813,7 +14516,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -13913,7 +14616,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -14015,7 +14718,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14115,7 +14818,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14207,7 +14910,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14307,7 +15010,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14407,7 +15110,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14507,7 +15210,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14603,7 +15306,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -14705,7 +15408,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14805,7 +15508,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14897,7 +15600,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -14997,7 +15700,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -15099,7 +15802,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15199,7 +15902,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15299,7 +16002,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15391,7 +16094,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15462,7 +16165,7 @@
       "language": "en",
       "status": "published",
       "title": "Hortus botanicus Leiden",
-      "summary": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+      "summary": "Historic university gardens and greenhouses behind the Academy Building on the Rapenburg.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -15471,27 +16174,142 @@
         "locales": {
           "en": {
             "title": "Hortus botanicus Leiden",
-            "summary": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+            "summary": "Historic university gardens and greenhouses behind the Academy Building on the Rapenburg.",
             "guide": null
           },
           "nl": {
             "title": "Hortus botanicus Leiden",
-            "summary": "Ontdek planten en kassen in de botanische tuin van Leiden. Bekijk de bezoekersinformatie voordat je een dag kiest.",
+            "summary": "Historische universiteitstuinen en kassen achter het Academiegebouw aan het Rapenburg.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "visit",
+            "title": "Plan your visit",
             "publisher": "Hortus botanicus Leiden",
-            "url": "https://hortusleiden.nl/",
-            "checkedAt": "2026-11-09"
+            "url": "https://hortusleiden.nl/bezoek-info",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "about",
+            "title": "About the place",
+            "publisher": "Hortus botanicus Leiden",
+            "url": "https://hortusleiden.nl/zien-en-doen/ontdek-de-botanische-tuin",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Hortus botanicus Leiden",
+            "url": "https://hortusleiden.nl/bezoek-info",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Hortus botanicus Leiden across the water, photographed in 2024",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "The Hortus is a botanical garden with a university history, not simply a city park. Founded in 1590, it combines outdoor planting with glasshouses where different climates support very different plants. Orchids, pitcher plants and ferns make the indoor collections a reason to visit as well as the gardens.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Plan a visit that leaves room for both the paths outside and the glasshouses. That contrast helps explain why a botanical collection is more than a display of attractive flowers. Enter through the Academy Building gate on the Rapenburg, and check the seasonal opening hours before combining the garden with another Leiden museum.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "21 March–20 September 09:00–18:00; 21 September–20 March 10:00–17:00. Closed 3 October and 25 December–1 January inclusive.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Adults €14 at the desk or €13.50 online; ages 4–18 €6; ages 0–3 free.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Much of the garden is accessible, but the Tropisch Terras, canopy walks, Victoriakas and some soft paths have restrictions.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Hortus botanicus Leiden vanaf het water, gefotografeerd in 2024",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "De Hortus is een botanische tuin met een universitaire geschiedenis, niet zomaar een stadspark. De tuin werd in 1590 gesticht en combineert buitenbeplanting met kassen waar verschillende klimaten andere planten mogelijk maken. Orchideeën, bekerplanten en varens maken ook de collecties onder glas een bezoek waard.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Neem bij je bezoek zowel de buitenpaden als de kassen mee. Juist dat contrast laat zien dat een botanische collectie meer is dan een verzameling mooie bloemen. Ga naar binnen via de poort van het Academiegebouw aan het Rapenburg en controleer de seizoensuren voordat je de tuin met een museum combineert.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "21 maart–20 september 09.00–18.00; 21 september–20 maart 10.00–17.00. Gesloten op 3 oktober en 25 december t/m 1 januari.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Volwassenen €14 aan de kassa of €13,50 online; 4–18 jaar €6; 0–3 jaar gratis.",
+                  "title": "Entree",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Een groot deel is toegankelijk; het Tropisch Terras, de canopy walks, Victoriakas en enkele zachte paden hebben beperkingen.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://tickets.hortusleiden.nl/nl/tickets",
+            "sourceId": "visit",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15502,13 +16320,13 @@
       "placeDetails": {
         "address": {
           "value": "Rapenburg 73, 2311 GJ Leiden",
-          "sourceUrl": "https://hortusleiden.nl/over-ons/contact",
-          "checkedAt": "2026-11-09"
+          "sourceUrl": "https://hortusleiden.nl/bezoek-info",
+          "checkedAt": "2026-11-15"
         },
         "website": {
-          "value": "https://hortusleiden.nl/",
-          "sourceUrl": "https://hortusleiden.nl/over-ons/contact",
-          "checkedAt": "2026-11-09"
+          "value": "https://hortusleiden.nl/bezoek-info",
+          "sourceUrl": "https://hortusleiden.nl/bezoek-info",
+          "checkedAt": "2026-11-15"
         },
         "email": {
           "value": "info@hortusleiden.nl",
@@ -15532,12 +16350,24 @@
         "latitude": 52.1571223,
         "longitude": 4.484888
       },
-      "images": [],
+      "images": [
+        {
+          "id": "media.place.leiden-hortus.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-places-20261115/hortus-1200.webp",
+          "alt": "Hortus botanicus Leiden across the water, photographed in 2024",
+          "attribution": "Roger Veringmeier · 2024-08-07 · resized WebP, no content edits",
+          "license": "CC BY 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by/4.0",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Hortus_botanicus_Leiden.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Hortus botanicus Leiden",
-        "url": "https://hortusleiden.nl/",
-        "checkedAt": "2026-11-09",
+        "url": "https://hortusleiden.nl/bezoek-info",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -15546,13 +16376,18 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-lakenhal",
+        "place.leiden-naturalis",
+        "place.leiden-rmo",
+        "museum.leiden-boerhaave"
+      ],
       "seo": {
         "title": "Hortus botanicus Leiden | YouNew",
-        "description": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+        "description": "Historic university gardens and greenhouses behind the Academy Building on the Rapenburg.",
         "canonicalPath": "/places/leiden-hortus"
       }
     },
@@ -15594,7 +16429,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15686,7 +16521,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15786,7 +16621,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -15889,7 +16724,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "eindhoven",
       "provinceId": "noord-brabant",
@@ -15991,7 +16826,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -16093,7 +16928,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "eindhoven",
       "provinceId": "noord-brabant",
@@ -16195,7 +17030,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -16293,7 +17128,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -16356,7 +17191,7 @@
       "language": "en",
       "status": "published",
       "title": "Museum De Lakenhal",
-      "summary": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+      "summary": "Art and Leiden’s textile history inside the former cloth hall beside the Oude Singel.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -16365,27 +17200,142 @@
         "locales": {
           "en": {
             "title": "Museum De Lakenhal",
-            "summary": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+            "summary": "Art and Leiden’s textile history inside the former cloth hall beside the Oude Singel.",
             "guide": null
           },
           "nl": {
             "title": "Museum De Lakenhal",
-            "summary": "Ontdek kunst en de geschiedenis van Leiden. Begin bij de bezoekersinformatie en kies wat je wilt bekijken.",
+            "summary": "Kunst en de Leidse textielgeschiedenis in de voormalige lakenhal aan de Oude Singel.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "visit",
+            "title": "Plan your visit",
             "publisher": "Museum De Lakenhal",
-            "url": "https://www.lakenhal.nl/en/",
-            "checkedAt": "2026-11-09"
+            "url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "about",
+            "title": "About the place",
+            "publisher": "Museum De Lakenhal",
+            "url": "https://www.lakenhal.nl/nl/verhaal/het-gebouw",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Museum De Lakenhal",
+            "url": "https://www.lakenhal.nl/nl/verhaal/bezoekersinformatie-toegankelijkheid",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Museum De Lakenhal beside the Oude Singel, photographed in 2015",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "The building is part of the visit at Museum De Lakenhal. This seventeenth-century cloth hall once served the city’s textile trade; it has housed the museum since 1874. Its rooms bring the story of Leiden into contact with art, rather than treating the city as a backdrop to a collection.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Look at the architecture as well as the objects: the transition between the historic hall and the museum spaces makes a useful starting point for exploring the city’s working past. Afterwards, use the related places below to compare Leiden’s art, archaeology and science museums; they each tell a different part of the story.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Tuesday–Sunday 10:00–17:00; closed Mondays. Holiday exceptions apply.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Adults €16; under 18 free. Check eligibility and temporary exceptions before booking.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Lifts reach most floors, but some historic rooms are inaccessible. Some passages are 85 cm wide; check the access guide for your needs.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Museum De Lakenhal aan de Oude Singel, gefotografeerd in 2015",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Het gebouw hoort bij het bezoek aan Museum De Lakenhal. Deze zeventiende-eeuwse lakenhal diende ooit de Leidse textielhandel en huisvest sinds 1874 het museum. De zalen verbinden de stadsgeschiedenis met kunst: Leiden is hier meer dan alleen de omgeving van een collectie.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Bekijk naast de voorwerpen ook de architectuur: de overgang van de historische hal naar de museumzalen is een goed begin om het werkende verleden van Leiden te ontdekken. Met de verwante plekken hieronder kun je kunst, archeologie en wetenschap vergelijken; elk museum vertelt een ander verhaal.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Dinsdag–zondag 10.00–17.00; maandag gesloten. Feestdagen kunnen afwijken.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Volwassenen €16; tot 18 jaar gratis. Controleer voorwaarden en tijdelijke uitzonderingen voor je boekt.",
+                  "title": "Entree",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Liften bereiken de meeste verdiepingen, maar enkele historische ruimtes zijn niet toegankelijk. Sommige doorgangen zijn 85 cm breed; raadpleeg de toegankelijkheidsinformatie.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://tickets.lakenhal.nl/en/tickets",
+            "sourceId": "visit",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -16397,12 +17347,12 @@
         "address": {
           "value": "Oude Singel 32, 2312 RA Leiden",
           "sourceUrl": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
-          "value": "https://www.lakenhal.nl/en/",
+          "value": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
           "sourceUrl": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "email": {
           "value": "info@lakenhal.nl",
@@ -16426,12 +17376,24 @@
         "latitude": 52.1628566,
         "longitude": 4.4875649
       },
-      "images": [],
+      "images": [
+        {
+          "id": "media.place.leiden-lakenhal.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-places-20261115/lakenhal-1200.webp",
+          "alt": "Museum De Lakenhal beside the Oude Singel, photographed in 2015",
+          "attribution": "Vera de Kok · 2015-03-21 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Leiden_-_Lakenhal_.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Museum De Lakenhal",
-        "url": "https://www.lakenhal.nl/en/",
-        "checkedAt": "2026-11-09",
+        "url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -16440,13 +17402,18 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-naturalis",
+        "place.leiden-hortus",
+        "place.leiden-rmo",
+        "museum.leiden-boerhaave"
+      ],
       "seo": {
         "title": "Museum De Lakenhal | YouNew",
-        "description": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+        "description": "Art and Leiden’s textile history inside the former cloth hall beside the Oude Singel.",
         "canonicalPath": "/places/leiden-lakenhal"
       }
     },
@@ -16459,7 +17426,7 @@
       "language": "en",
       "status": "published",
       "title": "Naturalis",
-      "summary": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+      "summary": "Explore biodiversity through animals, fossils and T. rex Trix at Leiden’s natural history museum.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -16468,27 +17435,158 @@
         "locales": {
           "en": {
             "title": "Naturalis",
-            "summary": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+            "summary": "Explore biodiversity through animals, fossils and T. rex Trix at Leiden’s natural history museum.",
             "guide": null
           },
           "nl": {
             "title": "Naturalis",
-            "summary": "Ontdek de natuur bij Naturalis. Bekijk de officiële pagina voor de actuele route naar het museum en de bezoekmogelijkheden.",
+            "summary": "Ontdek biodiversiteit met dieren, fossielen en T. rex Trix in het Leidse natuurhistorische museum.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "visit",
+            "title": "Plan your visit",
             "publisher": "Naturalis",
             "url": "https://www.naturalis.nl/en/museum/practical-info",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "about",
+            "title": "About the place",
+            "publisher": "Naturalis",
+            "url": "https://www.naturalis.nl/en/museum/galleries",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Naturalis",
+            "url": "https://www.naturalis.nl/en/museum/practical-info",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Exterior of Naturalis Biodiversity Center, photographed in 2019",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Naturalis connects the variety of life today with the worlds that came before it. Its galleries move between animals, the Ice Age and dinosaurs, including T. rex Trix. This is a different kind of museum stop from the city-centre art and archaeology collections: living diversity and deep time are the main subjects.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Choose the galleries that interest your group before setting out rather than making a special attraction the only reason to visit. The current access notice below matters when planning: an individual experience can be closed while the rest of the museum remains open. For a contrasting science visit, explore Rijksmuseum Boerhaave in the related places.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Daily 10:00–17:00; closed 25 December 2026. Check other exceptional closures.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Ages 4 and over €18; ages 0–3 free.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Two lifts; wheelchairs and compact mobility scooters can enter. Pedestrians use Darwinweg 2; bikes and cars use Mendelweg 2.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "Rexperience was temporarily closed due to a fault when checked. The museum and Trix remained open; recheck before travel.",
+                  "title": "Check before you travel",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Buitenzijde van Naturalis Biodiversity Center, gefotografeerd in 2019",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Naturalis verbindt de verscheidenheid van het huidige leven met vroegere werelden. De zalen voeren langs dieren, de ijstijd en dinosauriërs, waaronder T. rex Trix. Het museum biedt daarmee iets anders dan de kunst- en archeologiecollecties in de binnenstad: biodiversiteit en een ver verleden staan centraal.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Kies vooraf de zalen die bij je gezelschap passen, in plaats van je hele bezoek op één attractie te baseren. De actuele melding hieronder helpt bij het plannen: een afzonderlijke belevenis kan gesloten zijn terwijl de rest van het museum openblijft. Voor een andere blik op wetenschap staat Rijksmuseum Boerhaave bij de verwante plekken.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Dagelijks 10.00–17.00; gesloten op 25 december 2026. Controleer overige uitzonderingen.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Vanaf 4 jaar €18; kinderen van 0–3 jaar gratis.",
+                  "title": "Entree",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Twee liften; rolstoelen en compacte scootmobielen kunnen naar binnen. Voetgangers: Darwinweg 2; fiets en auto: Mendelweg 2.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "Rexperience was bij controle tijdelijk gesloten door een storing. Het museum en Trix bleven open; controleer dit voor vertrek.",
+                  "title": "Controleer voor vertrek",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://www.naturalis.nl/en/tickets-for-naturalis",
+            "sourceId": "visit",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -16499,13 +17597,13 @@
       "placeDetails": {
         "address": {
           "value": "Darwinweg 2, 2333 CR Leiden",
-          "sourceUrl": "https://www.naturalis.nl/en/contact",
-          "checkedAt": "2026-11-09"
+          "sourceUrl": "https://www.naturalis.nl/en/museum/practical-info",
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.naturalis.nl/en/museum/practical-info",
-          "sourceUrl": "https://www.naturalis.nl/en/contact",
-          "checkedAt": "2026-11-09"
+          "sourceUrl": "https://www.naturalis.nl/en/museum/practical-info",
+          "checkedAt": "2026-11-15"
         },
         "email": null,
         "phone": {
@@ -16521,13 +17619,28 @@
         "museums-sights",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.1646451,
+        "longitude": 4.4730775
+      },
+      "images": [
+        {
+          "id": "media.place.leiden-naturalis.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-places-20261115/naturalis-1200.webp",
+          "alt": "Exterior of Naturalis Biodiversity Center, photographed in 2019",
+          "attribution": "Schminnte · 2019-10-22 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Naturalis_Biodiversity_centre.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Naturalis",
         "url": "https://www.naturalis.nl/en/museum/practical-info",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -16536,13 +17649,18 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-lakenhal",
+        "place.leiden-hortus",
+        "place.leiden-rmo",
+        "museum.leiden-boerhaave"
+      ],
       "seo": {
         "title": "Naturalis | YouNew",
-        "description": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+        "description": "Explore biodiversity through animals, fossils and T. rex Trix at Leiden’s natural history museum.",
         "canonicalPath": "/places/leiden-naturalis"
       }
     },
@@ -16584,7 +17702,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -16684,7 +17802,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -16776,7 +17894,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -16868,7 +17986,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -16962,7 +18080,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17054,7 +18172,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17146,7 +18264,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17242,7 +18360,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17342,7 +18460,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17413,7 +18531,7 @@
       "language": "en",
       "status": "published",
       "title": "Rijksmuseum Boerhaave",
-      "summary": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
+      "summary": "Scientific instruments and discoveries reveal the history of science and medicine in the Netherlands.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -17422,27 +18540,142 @@
         "locales": {
           "en": {
             "title": "Rijksmuseum Boerhaave",
-            "summary": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
+            "summary": "Scientific instruments and discoveries reveal the history of science and medicine in the Netherlands.",
             "guide": null
           },
           "nl": {
             "title": "Rijksmuseum Boerhaave",
-            "summary": "Een museum met tentoonstellingen en activiteiten over wetenschap en geneeskunde. Bekijk het programma en de geplande sluitingsdagen.",
+            "summary": "Wetenschappelijke instrumenten en ontdekkingen vertellen de geschiedenis van wetenschap en geneeskunde in Nederland.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "visit",
+            "title": "Plan your visit",
             "publisher": "Rijksmuseum Boerhaave",
             "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
-            "checkedAt": "2026-11-09"
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "about",
+            "title": "About the place",
+            "publisher": "Rijksmuseum Boerhaave",
+            "url": "https://www.rijksmuseumboerhaave.nl/en/about-us",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Rijksmuseum Boerhaave",
+            "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit/accessibility",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Historic exterior of Museum Boerhaave, photographed in 2009",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Rijksmuseum Boerhaave explores science and medicine through the instruments, discoveries and people that shaped them. Its subject is not just what was invented, but how new ways of observing and measuring changed people’s understanding of the world. That makes it a useful companion to Naturalis, with a stronger emphasis on the history of discovery.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Use the objects as starting points for questions: what could someone see or measure with an instrument, and what did that change? This approach gives a mixed-interest group something to discuss without requiring specialist knowledge. The exterior photograph dates from 2009; use the current official visitor page, rather than the photograph, for arrival and access arrangements.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Daily 10:00–17:00. Upcoming listed closures: 7 and 25 December 2026; check the complete calendar.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Adults €17.50; ages 4–17 €7; ages 0–3 free. The museum lists a €1 discount for online tickets.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Lifts and loan wheelchairs are available. The raised Waterland water-play area is not accessible to wheelchairs, walkers or mobility scooters.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Historische buitenzijde van Museum Boerhaave, gefotografeerd in 2009",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Rijksmuseum Boerhaave verkent wetenschap en geneeskunde via de instrumenten, ontdekkingen en mensen die ze vormgaven. Het gaat niet alleen om uitvindingen, maar ook om de invloed van nieuwe manieren van waarnemen en meten op ons wereldbeeld. Daarmee vormt het een aanvulling op Naturalis, met meer nadruk op de geschiedenis van ontdekkingen.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Gebruik de voorwerpen als begin van een vraag: wat kon iemand met een instrument zien of meten, en wat veranderde daardoor? Zo heeft een gezelschap met uiteenlopende interesses iets om over te praten zonder specialistische voorkennis. De buitenfoto dateert uit 2009; gebruik voor aankomst en toegankelijkheid de actuele officiële bezoekersinformatie.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Dagelijks 10.00–17.00. Vermelde komende sluitingsdagen: 7 en 25 december 2026; bekijk de volledige kalender.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Volwassenen €17,50; 4–17 jaar €7; 0–3 jaar gratis. Het museum vermeldt €1 korting op online tickets.",
+                  "title": "Entree",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Er zijn liften en leenrolstoelen. Het verhoogde waterspel Waterland is niet toegankelijk voor rolstoelen, rollators of scootmobielen.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://tickets.rijksmuseumboerhaave.nl/",
+            "sourceId": "visit",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17452,14 +18685,14 @@
       "narrowCategory": "museums-sights",
       "placeDetails": {
         "address": {
-          "value": "Lange St. Agnietenstraat 10, 2312 WC Leiden",
+          "value": "Lange Sint Agnietenstraat 10, 2312 WC Leiden",
           "sourceUrl": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
           "value": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
           "sourceUrl": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "email": null,
         "phone": null,
@@ -17471,13 +18704,28 @@
         "museums-sights",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.16134171,
+        "longitude": 4.48917759
+      },
+      "images": [
+        {
+          "id": "media.museum.leiden-boerhaave.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-places-20261115/boerhaave-1200.webp",
+          "alt": "Historic exterior of Museum Boerhaave, photographed in 2009",
+          "attribution": "Goodness Shamrock · 2009-04-19 · resized WebP, no content edits",
+          "license": "CC BY-SA 3.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Exterior_of_the_Boerhaave_museum.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Rijksmuseum Boerhaave",
         "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
-        "checkedAt": "2026-11-09",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -17486,13 +18734,18 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-lakenhal",
+        "place.leiden-naturalis",
+        "place.leiden-hortus",
+        "place.leiden-rmo"
+      ],
       "seo": {
         "title": "Rijksmuseum Boerhaave | YouNew",
-        "description": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
+        "description": "Scientific instruments and discoveries reveal the history of science and medicine in the Netherlands.",
         "canonicalPath": "/places/leiden-boerhaave"
       }
     },
@@ -17505,7 +18758,7 @@
       "language": "en",
       "status": "published",
       "title": "Rijksmuseum van Oudheden",
-      "summary": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+      "summary": "Ancient Egypt, classical worlds and Dutch archaeology meet at the museum on the Rapenburg.",
       "contentDepth": "summary",
       "practicalGuide": null,
       "editorial": {
@@ -17514,27 +18767,160 @@
         "locales": {
           "en": {
             "title": "Rijksmuseum van Oudheden",
-            "summary": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+            "summary": "Ancient Egypt, classical worlds and Dutch archaeology meet at the museum on the Rapenburg.",
             "guide": null
           },
           "nl": {
             "title": "Rijksmuseum van Oudheden",
-            "summary": "Ontdek oudheden in het museum aan het Rapenburg. Op de officiële bezoekerspagina vind je informatie om je bezoek te plannen.",
+            "summary": "Het oude Egypte, de klassieke wereld en Nederlandse archeologie komen samen aan het Rapenburg.",
             "guide": null
           }
         },
         "sources": [
           {
-            "id": "source.primary",
-            "title": "Official visitor information",
+            "id": "visit",
+            "title": "Plan your visit",
             "publisher": "Rijksmuseum van Oudheden",
-            "url": "https://www.rmo.nl/en/",
-            "checkedAt": "2026-11-09"
+            "url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "about",
+            "title": "About the place",
+            "publisher": "Rijksmuseum van Oudheden",
+            "url": "https://www.rmo.nl/en/organisation/who-are-we/",
+            "checkedAt": "2026-11-15"
+          },
+          {
+            "id": "access",
+            "title": "Accessibility",
+            "publisher": "Rijksmuseum van Oudheden",
+            "url": "https://www.rmo.nl/uw%20-bezoek/openingstijden-prijzen-route/",
+            "checkedAt": "2026-11-15"
           }
         ],
-        "reviewedAt": "2026-11-10",
+        "reviewedAt": "2026-11-15",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998",
+        "place": {
+          "locales": {
+            "en": {
+              "alt": "Rijksmuseum van Oudheden on the Rapenburg, photographed in 2018",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "The Rijksmuseum van Oudheden places archaeology from the Netherlands alongside Egypt and Nubia, the Near East and the Greek, Etruscan and Roman worlds. The Egyptian temple of Taffeh in the entrance hall gives the visit a distinctive starting point. From there, the collections open up different ways of looking at how earlier societies lived.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Pick one area as an anchor for your visit, then compare it with another collection rather than expecting a single continuous story of antiquity. The museum is also a useful counterpart to De Lakenhal: one looks across ancient cultures, while the other connects art with Leiden’s history. Check the current lift notice if step-free access is essential.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Daily 10:00–17:00; Thursday evenings 19:00–22:00, except 24 and 31 December 2026. Holiday closures apply.",
+                  "title": "Opening hours",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Adults €14; visitors aged 18 and under free.",
+                  "title": "Admission",
+                  "sourceIds": [
+                    "visit",
+                    "access"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "The museum provides accessibility information for wheelchair users and visitors with visual impairments; see the current lift restriction.",
+                  "title": "Accessibility",
+                  "sourceIds": [
+                    "access"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "The Dutch visitor page reports a lift fault: the first floor is reachable by stairs only. Contact the museum before travelling if this affects your visit.",
+                  "title": "Check before you travel",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            },
+            "nl": {
+              "alt": "Rijksmuseum van Oudheden aan het Rapenburg, gefotografeerd in 2018",
+              "blocks": [
+                {
+                  "id": "description-0",
+                  "text": "Het Rijksmuseum van Oudheden plaatst Nederlandse archeologie naast Egypte en Nubië, het Nabije Oosten en de Griekse, Etruskische en Romeinse wereld. De Egyptische tempel van Taffeh in de entreehal geeft het bezoek een bijzonder begin. Daarna bieden de collecties verschillende perspectieven op het leven in vroegere samenlevingen.",
+                  "title": null,
+                  "sourceIds": [
+                    "about"
+                  ]
+                },
+                {
+                  "id": "description-1",
+                  "text": "Kies één gebied als uitgangspunt en vergelijk dat met een andere collectie, in plaats van één doorlopend verhaal over de oudheid te verwachten. Het museum vormt ook een aanvulling op De Lakenhal: het ene kijkt naar oude culturen, het andere verbindt kunst met de Leidse geschiedenis. Bekijk de liftmelding als traploze toegang noodzakelijk is.",
+                  "title": null,
+                  "sourceIds": [
+                    "about",
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "hours",
+                  "text": "Dagelijks 10.00–17.00; donderdagavond 19.00–22.00, behalve 24 en 31 december 2026. Feestdagen kunnen afwijken.",
+                  "title": "Openingstijden",
+                  "sourceIds": [
+                    "visit"
+                  ]
+                },
+                {
+                  "id": "price",
+                  "text": "Volwassenen €14; bezoekers t/m 18 jaar gratis.",
+                  "title": "Entree",
+                  "sourceIds": [
+                    "visit",
+                    "access"
+                  ]
+                },
+                {
+                  "id": "accessibility",
+                  "text": "Het museum geeft toegankelijkheidsinformatie voor rolstoelgebruikers en slechtzienden; let op de actuele liftbeperking.",
+                  "title": "Toegankelijkheid",
+                  "sourceIds": [
+                    "access"
+                  ]
+                },
+                {
+                  "id": "warning",
+                  "text": "De Nederlandse bezoekerspagina meldt een liftstoring: de eerste verdieping is alleen via de trap bereikbaar. Neem voor vertrek contact op als dit je bezoek beïnvloedt.",
+                  "title": "Controleer voor vertrek",
+                  "sourceIds": [
+                    "access"
+                  ]
+                }
+              ]
+            }
+          },
+          "tickets": {
+            "url": "https://ticket.rmo.nl/en-EN/tickets",
+            "sourceId": "visit",
+            "checkedAt": "2026-11-15"
+          }
+        }
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17546,12 +18932,12 @@
         "address": {
           "value": "Rapenburg 28, 2311 EW Leiden",
           "sourceUrl": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "website": {
-          "value": "https://www.rmo.nl/en/",
+          "value": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
           "sourceUrl": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
-          "checkedAt": "2026-11-09"
+          "checkedAt": "2026-11-15"
         },
         "email": null,
         "phone": {
@@ -17567,13 +18953,28 @@
         "museums-sights",
         "leiden"
       ],
-      "coordinate": null,
-      "images": [],
+      "coordinate": {
+        "latitude": 52.1584668,
+        "longitude": 4.4858978
+      },
+      "images": [
+        {
+          "id": "media.place.leiden-rmo.commons-20261115",
+          "role": "hero",
+          "url": "/images/places/leiden-places-20261115/rmo-1200.webp",
+          "alt": "Rijksmuseum van Oudheden on the Rapenburg, photographed in 2018",
+          "attribution": "Steven Lek · 2018-02-23 · resized WebP, no content edits",
+          "license": "CC BY-SA 4.0",
+          "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+          "sourcePageUrl": "https://commons.wikimedia.org/wiki/File:Dutch_National_Museum_of_Antiquities_Leiden.jpg",
+          "retrievedAt": "2026-11-15"
+        }
+      ],
       "source": {
         "title": "Official visitor information",
         "publisher": "Rijksmuseum van Oudheden",
-        "url": "https://www.rmo.nl/en/",
-        "checkedAt": "2026-11-09",
+        "url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+        "checkedAt": "2026-11-15",
         "publisherOfficial": true
       },
       "trust": {
@@ -17582,13 +18983,18 @@
       },
       "governance": null,
       "indexable": true,
-      "verifiedAt": "2026-11-09",
-      "updatedAt": "2026-11-09",
+      "verifiedAt": "2026-11-15",
+      "updatedAt": "2026-11-15",
       "releaseId": "editorial-leiden-20261110",
-      "relatedEntityIds": [],
+      "relatedEntityIds": [
+        "place.leiden-lakenhal",
+        "place.leiden-naturalis",
+        "place.leiden-hortus",
+        "museum.leiden-boerhaave"
+      ],
       "seo": {
         "title": "Rijksmuseum van Oudheden | YouNew",
-        "description": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+        "description": "Ancient Egypt, classical worlds and Dutch archaeology meet at the museum on the Rapenburg.",
         "canonicalPath": "/places/leiden-rmo"
       }
     },
@@ -17630,7 +19036,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17726,7 +19132,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -17828,7 +19234,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -17928,7 +19334,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -18030,7 +19436,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -18130,7 +19536,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
@@ -18232,7 +19638,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "utrecht",
       "provinceId": "utrecht",
@@ -18334,7 +19740,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "rotterdam",
       "provinceId": "zuid-holland",
@@ -18432,7 +19838,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -18532,7 +19938,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -18628,7 +20034,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "leiden",
       "provinceId": "zuid-holland",
@@ -18724,7 +20130,7 @@
         ],
         "reviewedAt": "2026-11-10",
         "reviewer": "Ivan",
-        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+        "batchSha256": "491f49be5192a0722f3dc9c8151d2f7406bfa74f6963bd8bd8c8f38489bc0998"
       },
       "cityId": "den-haag",
       "provinceId": "zuid-holland",
