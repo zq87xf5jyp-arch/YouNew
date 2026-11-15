@@ -1,0 +1,57 @@
+[
+  {
+    "entityID": "restaurant.leiden-waag",
+    "url": "https://www.visitleiden.nl/nl/locaties/3402150775/waag-leiden",
+    "checkedAt": "2026-11-15",
+    "method": "Route destination explicitly linked by Visit Leiden; venue reference point, not a surveyed accessible entrance",
+    "destinationURL": "https://www.google.com/maps/dir/?api=1&destination=52.159463,4.489903",
+    "coordinate": {
+      "latitude": 52.159463,
+      "longitude": 4.489903
+    }
+  },
+  {
+    "entityID": "restaurant.leiden-grand-cafe-burcht",
+    "url": "https://www.visitleiden.nl/nl/locaties/1464043421/grand-cafe-de-burcht",
+    "checkedAt": "2026-11-15",
+    "method": "Route destination explicitly linked by Visit Leiden; venue reference point, not a surveyed accessible entrance",
+    "destinationURL": "https://www.google.com/maps/dir/?api=1&destination=52.158506,4.492824",
+    "coordinate": {
+      "latitude": 52.158506,
+      "longitude": 4.492824
+    }
+  },
+  {
+    "entityID": "restaurant.leiden-oudt-leyden",
+    "url": "https://www.visitleiden.nl/nl/locaties/2623615998/oudt-leyden-t-pannenkoekenhuysje",
+    "checkedAt": "2026-11-15",
+    "method": "Route destination explicitly linked by Visit Leiden; venue reference point, not a surveyed accessible entrance",
+    "destinationURL": "https://www.google.com/maps/dir/?api=1&destination=52.162479,4.484523",
+    "coordinate": {
+      "latitude": 52.162479,
+      "longitude": 4.484523
+    }
+  },
+  {
+    "entityID": "cafe.leiden-roos",
+    "url": "https://www.visitleiden.nl/nl/locaties/599416677/roos",
+    "checkedAt": "2026-11-15",
+    "method": "Route destination explicitly linked by Visit Leiden; venue reference point, not a surveyed accessible entrance",
+    "destinationURL": "https://www.google.com/maps/dir/?api=1&destination=52.157362,4.492313",
+    "coordinate": {
+      "latitude": 52.157362,
+      "longitude": 4.492313
+    }
+  },
+  {
+    "entityID": "restaurant.leiden-prentenkabinet",
+    "url": "https://www.visitleiden.nl/nl/locaties/1965820401/het-prentenkabinet",
+    "checkedAt": "2026-11-15",
+    "method": "Route destination explicitly linked by Visit Leiden; venue reference point, not a surveyed accessible entrance",
+    "destinationURL": "https://www.google.com/maps/dir/?api=1&destination=52.157094,4.486795",
+    "coordinate": {
+      "latitude": 52.157094,
+      "longitude": 4.486795
+    }
+  }
+]
