@@ -82,7 +82,7 @@ struct HomePlacesWorthVisitingSection: View {
         return NavigationLink(value: place.destination) {
             PremiumImageCard(
                 title: place.shortTitle ?? place.title,
-                subtitle: place.description,
+                subtitle: place.localizedDescription(language),
                 asset: CanonicalPlaceImageResolver.imageAsset(for: place),
                 language: language,
                 symbol: category.symbol,

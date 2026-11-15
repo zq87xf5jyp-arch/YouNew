@@ -9,6 +9,7 @@ struct PlaceItemDetailView: View {
     @EnvironmentObject private var languageManager: LanguageManager
     @EnvironmentObject private var savedStore: SavedItemsStore
     @Environment(\.dismiss) private var dismiss
+    @Environment(\.openURL) private var openURL
 
     private var lang: AppLanguage { languageManager.appLanguage }
     private var category: VisitPlaceCategory { place.primaryCategory }
@@ -76,7 +77,7 @@ struct PlaceItemDetailView: View {
 
                 VStack(alignment: .leading, spacing: 4) {
                     Text(place.title)
-                        .font(.system(size: 28, weight: .semibold, design: .default))
+                        .font(.title.weight(.semibold))
                         .foregroundStyle(AppColors.textPrimary)
                         .lineLimit(3)
                         .fixedSize(horizontal: false, vertical: true)
@@ -87,7 +88,7 @@ struct PlaceItemDetailView: View {
                 Spacer(minLength: 0)
             }
 
-            Text(place.description)
+            Text(place.localizedDescription(lang))
                 .font(AppTypography.body)
                 .foregroundStyle(AppColors.textSecondary)
                 .fixedSize(horizontal: false, vertical: true)
@@ -95,7 +96,7 @@ struct PlaceItemDetailView: View {
         .padding(18)
         .background(
             LinearGradient(
-                colors: [category.accent.opacity(0.18), AppColors.graphite.opacity(0.72)],
+                colors: [AppColors.cardElevated, AppColors.card],
                 startPoint: .topLeading,
                 endPoint: .bottomTrailing
             )
@@ -134,7 +135,7 @@ struct PlaceItemDetailView: View {
             if place.source == nil {
                 infoRow(icon: "exclamationmark.triangle.fill", title: sourceMissingTitle, value: sourceMissingBody)
             }
-            if place.coordinates != nil {
+            if place.directionsURL != nil {
                 Button(action: openInMaps) {
                     Label(mapButtonTitle, systemImage: "map.fill")
                         .font(AppTypography.bodyStrong)
@@ -159,7 +160,7 @@ struct PlaceItemDetailView: View {
             touristInfo
         }
         .padding(16)
-        .background(AppColors.graphite.opacity(0.54))
+        .background(AppColors.card)
         .clipShape(RoundedRectangle(cornerRadius: 8, style: .continuous))
     }
 
@@ -265,14 +266,9 @@ struct PlaceItemDetailView: View {
     }
 
     private func openInMaps() {
-        guard let coordinates = place.coordinates else { return }
-        let title = place.title.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? place.title
-        let url = URL(string: "https://maps.apple.com/?ll=\(coordinates.lat),\(coordinates.lng)&q=\(title)")
-        #if canImport(UIKit)
-        if let url {
-            UIApplication.shared.open(url)
+        if let url = place.directionsURL {
+            openURL(url)
         }
-        #endif
     }
 
     private var cityLabel: String { localized(en: "City", nl: "Stad", ru: "Город") }
@@ -282,7 +278,7 @@ struct PlaceItemDetailView: View {
     private var familyFriendlyLabel: String { localized(en: "Family-friendly", nl: "Geschikt voor gezinnen", ru: "Подходит для семьи") }
     private var howToGetThereLabel: String { localized(en: "How to get there", nl: "Hoe kom je er", ru: "Как добраться") }
     private var nearbyHelpLabel: String { localized(en: "Nearby help", nl: "Hulp dichtbij", ru: "Помощь рядом") }
-    private var mapButtonTitle: String { localized(en: "Open in Maps", nl: "Open in Kaarten", ru: "Открыть на карте") }
+    private var mapButtonTitle: String { localized(en: "Directions", nl: "Route", ru: "Маршрут") }
     private var saveLabel: String { localized(en: "Save for later", nl: "Bewaar voor later", ru: "Сохранить") }
     private var sourceTitle: String { localized(en: "Source", nl: "Bron", ru: "Источник") }
     private var openSourceLabel: String { localized(en: "Open official source", nl: "Officiële bron openen", ru: "Открыть источник") }

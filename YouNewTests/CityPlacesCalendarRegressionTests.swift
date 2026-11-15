@@ -4,6 +4,25 @@ import Testing
 
 @MainActor
 struct CityPlacesCalendarRegressionTests {
+    @Test func approvedLeidenContentReusesSavedIDsAndDutchDescriptions() throws {
+        let places = CanonicalPlaceCatalog.items.filter { $0.canonicalContentID != nil }
+        #expect(places.count == 7)
+        #expect(places.filter { $0.coordinates != nil }.count == 2)
+        #expect(Set(places.compactMap(\.canonicalContentID)).count == 7)
+        for place in places {
+            let canonicalID = try #require(place.canonicalContentID)
+            #expect(CanonicalPlaceCatalog.detailPlace(id: canonicalID)?.id == place.id)
+            #expect(place.id.hasPrefix("leiden-seed-"))
+            #expect(place.localizedDescription(.dutch) != place.localizedDescription(.english))
+            let url = try #require(place.directionsURL)
+            let query = URLComponents(url: url, resolvingAgainstBaseURL: false)?.queryItems
+            let expectedDestination = place.coordinates.map { "\($0.lat),\($0.lng)" } ?? place.address
+            #expect(query?.first(where: { $0.name == "daddr" })?.value == expectedDestination)
+            #expect(place.externalUrl?.scheme == "https")
+            #expect(place.lastChecked == "2026-11-09")
+        }
+    }
+
     @Test func leidenPlaceMediaPreservesExistingRightsAndIdentity() throws {
         let pairs = [
             ("leiden-seed-museum-de-lakenhal", "museum:leiden:lakenhal"),

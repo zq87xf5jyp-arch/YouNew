@@ -121,6 +121,18 @@ struct RootHomeView: View {
         }
     }
     @MainActor private var placePreviews: [HomeInformationPreview] {
+        if selectedCityID == .leiden {
+            return allPlacesToVisit.compactMap { place in
+                guard let asset = CanonicalPlaceImageResolver.imageAsset(for: place) else { return nil }
+                return HomeInformationPreview(
+                    id: place.id,
+                    remoteURL: asset.url,
+                    accessibilityLabel: place.title
+                )
+            }
+            .prefix(3)
+            .map { $0 }
+        }
         guard let city = selectedNLCity else { return [] }
         var seen = Set<String>()
         return city.attractions.compactMap { attraction in

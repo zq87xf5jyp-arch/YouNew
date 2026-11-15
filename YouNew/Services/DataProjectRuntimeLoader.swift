@@ -42,6 +42,16 @@ enum DataProjectRuntimeLoader {
         }
     }
 
+    /// Generated from the web's owner-approved release, never from review packages.
+    /// Kept separate from the canonical city export so regenerating that export
+    /// cannot silently remove the editorial projection.
+    static func loadApprovedPlaces(bundle: Bundle = .main) -> DataProjectRuntimeLoadResult {
+        let url = bundle.url(forResource: "younew-approved-places", withExtension: "json", subdirectory: "Resources/Data")
+            ?? bundle.url(forResource: "younew-approved-places", withExtension: "json")
+        guard let url, let data = try? Data(contentsOf: url) else { return .empty }
+        return load(data: data)
+    }
+
     static func load(data artifactData: Data) -> DataProjectRuntimeLoadResult {
         do {
             let decoder = JSONDecoder()

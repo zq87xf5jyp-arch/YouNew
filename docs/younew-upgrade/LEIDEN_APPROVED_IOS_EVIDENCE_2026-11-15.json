@@ -1,0 +1,152 @@
+{
+  "checkedAt": "2026-11-15",
+  "scope": "local source and built bundle, not App Store release",
+  "approvalBatchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea",
+  "webCount": 76,
+  "originalIOSCount": 5,
+  "iosWithEditorialProjectionCount": 12,
+  "webOnlyBefore": 71,
+  "webOnlyAfter": 64,
+  "webOnlyIDs": [
+    "business.leiden-add",
+    "business.leiden-claim-correct",
+    "cafe.den-haag-kaafi",
+    "cafe.leiden-30ml",
+    "cafe.leiden-annemax",
+    "cafe.leiden-barista",
+    "cafe.leiden-borgman",
+    "cafe.leiden-brownies",
+    "cafe.leiden-paco-ciao",
+    "cafe.leiden-roos",
+    "cafe.utrecht-koffie-leute",
+    "collection.leiden-centre-walk",
+    "collection.leiden-first-day",
+    "collection.leiden-free",
+    "collection.leiden-rain",
+    "collection.leiden-weekend",
+    "guide.leiden-bicycle",
+    "guide.leiden-bsn",
+    "guide.leiden-contacts",
+    "guide.leiden-digid",
+    "guide.leiden-gp",
+    "guide.leiden-municipal-services",
+    "guide.leiden-pharmacy",
+    "guide.leiden-registration",
+    "guide.leiden-transport",
+    "guide.leiden-waste",
+    "hotel.den-haag-collector",
+    "hotel.leiden-golden-tulip",
+    "hotel.leiden-huys-van-leyden",
+    "hotel.leiden-ibis",
+    "hotel.leiden-oude-morsch",
+    "hotel.leiden-rembrandt-hotel",
+    "hotel.leiden-steenhof",
+    "hotel.rotterdam-supernova",
+    "hotel.utrecht-nox",
+    "museum.den-haag-fotomuseum",
+    "museum.eindhoven-inkijkmuseum",
+    "museum.rotterdam-chabot",
+    "museum.utrecht-sonnenborgh",
+    "nature.den-haag-westbroekpark",
+    "nature.leiden-ankerpark",
+    "nature.leiden-blekerspark",
+    "nature.leiden-cronesteyn",
+    "nature.leiden-huigpark",
+    "nature.leiden-leidse-hout",
+    "nature.leiden-park-de-put",
+    "nature.leiden-plantsoen",
+    "nature.leiden-rembrandtpark",
+    "nature.rotterdam-trompenburg",
+    "nature.utrecht-oog-in-al",
+    "place.leiden-cafe-laken",
+    "place.leiden-vvv",
+    "place.utrecht-neude",
+    "restaurant.eindhoven-kazerne",
+    "restaurant.leiden-bikini",
+    "restaurant.leiden-dende",
+    "restaurant.leiden-engelenbak",
+    "restaurant.leiden-grand-cafe-burcht",
+    "restaurant.leiden-in-den-doofpot",
+    "restaurant.leiden-oudt-leyden",
+    "restaurant.leiden-prentenkabinet",
+    "restaurant.leiden-tabu",
+    "restaurant.leiden-verboden-toegang",
+    "restaurant.leiden-waag"
+  ],
+  "enrichedIDs": [
+    "place.leiden-lakenhal",
+    "place.leiden-hortus",
+    "place.leiden-burcht",
+    "place.leiden-rmo",
+    "place.leiden-naturalis",
+    "museum.leiden-boerhaave",
+    "museum.leiden-wereldmuseum"
+  ],
+  "coordinateCount": 2,
+  "newPhotoCount": 0,
+  "existingPhotoConnectionsToActiveHome": 3,
+  "officialLinkChecks": [
+    {
+      "id": "place.leiden-lakenhal",
+      "url": "https://www.lakenhal.nl/en/",
+      "httpStatus": 200,
+      "finalURL": "https://www.lakenhal.nl/en/"
+    },
+    {
+      "id": "place.leiden-hortus",
+      "url": "https://hortusleiden.nl/",
+      "httpStatus": 200,
+      "finalURL": "https://hortusleiden.nl/"
+    },
+    {
+      "id": "place.leiden-burcht",
+      "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+      "httpStatus": 200,
+      "finalURL": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht"
+    },
+    {
+      "id": "place.leiden-rmo",
+      "url": "https://www.rmo.nl/en/",
+      "httpStatus": 200,
+      "finalURL": "https://www.rmo.nl/en/"
+    },
+    {
+      "id": "place.leiden-naturalis",
+      "url": "https://www.naturalis.nl/en/museum/practical-info",
+      "httpStatus": 200,
+      "finalURL": "https://www.naturalis.nl/en/museum/practical-info"
+    },
+    {
+      "id": "museum.leiden-boerhaave",
+      "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+      "httpStatus": 200,
+      "finalURL": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit"
+    },
+    {
+      "id": "museum.leiden-wereldmuseum",
+      "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+      "httpStatus": 200,
+      "finalURL": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact"
+    }
+  ],
+  "builtProjectionMatchesSource": true,
+  "builtProjectionSHA256": "28b585c6268af0d2dbd8927c73d81ed2a4e6055820c24b386abe107d003d3239",
+  "simulator": "No available runtimes or devices",
+  "swiftTestExecution": "blocked by missing iOS runtime",
+  "contentTestsPassed": 16,
+  "build": {
+    "result": "TEST BUILD SUCCEEDED",
+    "architectures": [
+      "arm64",
+      "x86_64"
+    ],
+    "warnings": 0,
+    "errors": 0,
+    "log": "/tmp/leiden-approved-ios-build-final.log"
+  },
+  "testExecutionAttempt": {
+    "command": "xcodebuild -project YouNew.xcodeproj -scheme YouNew -destination platform=iOS Simulator,name=iPhone 16 -destination-timeout 5 -derivedDataPath /tmp/younew-leiden-build CODE_SIGNING_ALLOWED=NO test-without-building",
+    "result": "Unable to find a device matching the provided destination specifier",
+    "log": "/tmp/leiden-approved-ios-test.log"
+  }
+}

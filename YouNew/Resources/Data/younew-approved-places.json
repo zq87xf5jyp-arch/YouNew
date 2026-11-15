@@ -1,0 +1,676 @@
+{
+  "schemaVersion": 1,
+  "mode": "production",
+  "releaseID": "editorial-leiden-20261110",
+  "approvedBatchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea",
+  "migrationRegistry": {},
+  "withheldEntityIDs": [],
+  "entities": [
+    {
+      "id": "place.leiden-lakenhal",
+      "kind": "museum",
+      "title": "Museum De Lakenhal",
+      "summary": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "museums-sights",
+      "coordinate": {
+        "latitude": 52.1628566,
+        "longitude": 4.4875649
+      },
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "Museum De Lakenhal",
+        "url": "https://www.lakenhal.nl/en/",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "lakenhal",
+        "description_nl": "Ontdek kunst en de geschiedenis van Leiden. Begin bij de bezoekersinformatie en kies wat je wilt bekijken.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.lakenhal.nl/nl/overzicht/organisatie",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.lakenhal.nl/nl/overzicht/organisatie",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.lakenhal.nl/nl/overzicht/organisatie",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.lakenhal.nl/en/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+        "website_checked_at": "2026-11-09",
+        "address": "Oude Singel 32, 2312 RA Leiden",
+        "address_source_url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "info@lakenhal.nl",
+        "contact_email_source_url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+        "contact_email_checked_at": "2026-11-09",
+        "contact_phone": "+31 71 5165360",
+        "contact_phone_source_url": "https://www.lakenhal.nl/en/story/visitor-information-pratical-information",
+        "contact_phone_checked_at": "2026-11-09",
+        "coordinates_source_url": "https://goo.gl/maps/FGxZEB8dgYjzoaoP7",
+        "coordinates_checked_at": "2026-11-09",
+        "website": "https://www.lakenhal.nl/en/",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-museum-de-lakenhal"
+      },
+      "keywords": [
+        "Museum De Lakenhal",
+        "museums-sights",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "Museum De Lakenhal",
+            "summary": "Discover art and the history of Leiden. Start with the museum’s visitor information and choose what you want to see.",
+            "guide": null
+          },
+          "nl": {
+            "title": "Museum De Lakenhal",
+            "summary": "Ontdek kunst en de geschiedenis van Leiden. Begin bij de bezoekersinformatie en kies wat je wilt bekijken.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "Museum De Lakenhal",
+            "url": "https://www.lakenhal.nl/en/",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
+    },
+    {
+      "id": "place.leiden-hortus",
+      "kind": "museum",
+      "title": "Hortus botanicus Leiden",
+      "summary": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "museums-sights",
+      "coordinate": {
+        "latitude": 52.1571223,
+        "longitude": 4.484888
+      },
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "Hortus botanicus Leiden",
+        "url": "https://hortusleiden.nl/",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "hortus",
+        "description_nl": "Ontdek planten en kassen in de botanische tuin van Leiden. Bekijk de bezoekersinformatie voordat je een dag kiest.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://hortusleiden.nl/over-ons/contact",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://hortusleiden.nl/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://hortusleiden.nl/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://hortusleiden.nl/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://hortusleiden.nl/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://hortusleiden.nl/over-ons/contact",
+        "website_checked_at": "2026-11-09",
+        "address": "Rapenburg 73, 2311 GJ Leiden",
+        "address_source_url": "https://hortusleiden.nl/over-ons/contact",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "info@hortusleiden.nl",
+        "contact_email_source_url": "https://hortusleiden.nl/over-ons/contact",
+        "contact_email_checked_at": "2026-11-09",
+        "contact_phone": "+31 71 5275144",
+        "contact_phone_source_url": "https://hortusleiden.nl/over-ons/contact",
+        "contact_phone_checked_at": "2026-11-09",
+        "coordinates_source_url": "https://goo.gl/maps/RasmPnCGe6m48u4G8",
+        "coordinates_checked_at": "2026-11-09",
+        "website": "https://hortusleiden.nl/",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-hortus-botanicus"
+      },
+      "keywords": [
+        "Hortus botanicus Leiden",
+        "museums-sights",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "Hortus botanicus Leiden",
+            "summary": "Explore plants and glasshouses at Leiden’s botanical garden. Check the garden’s visitor information before choosing your day.",
+            "guide": null
+          },
+          "nl": {
+            "title": "Hortus botanicus Leiden",
+            "summary": "Ontdek planten en kassen in de botanische tuin van Leiden. Bekijk de bezoekersinformatie voordat je een dag kiest.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "Hortus botanicus Leiden",
+            "url": "https://hortusleiden.nl/",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
+    },
+    {
+      "id": "place.leiden-burcht",
+      "kind": "place",
+      "title": "De Burcht",
+      "summary": "A historic ring fortification on a raised mound in the centre of Leiden, with views across the surrounding city.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "museums-sights",
+      "coordinate": null,
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "De Burcht",
+        "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "A historic ring fortification on a raised mound in the centre of Leiden, with views across the surrounding city.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "burcht",
+        "description_nl": "Een historische ringburcht op een verhoogde heuvel in het centrum van Leiden, met uitzicht over de omliggende stad.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+        "website_checked_at": "2026-11-09",
+        "address": "Burgsteeg, 2312 JR Leiden",
+        "address_source_url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "",
+        "contact_phone": "",
+        "opening_hours": "",
+        "opening_hours_nl": "",
+        "prices": "Free entry to De Burcht; purchases and events are separate.",
+        "prices_source_url": "https://www.visitleiden.nl/nl/doen/blogs/leuke-gratis-activiteiten-in-leiden",
+        "prices_checked_at": "2026-11-09",
+        "prices_nl": "Vrije toegang tot De Burcht; aankopen en evenementen staan hier los van.",
+        "prices_nl_source_url": "https://www.visitleiden.nl/nl/doen/blogs/leuke-gratis-activiteiten-in-leiden",
+        "prices_nl_checked_at": "2026-11-09",
+        "free_entry": "true",
+        "free_entry_source_url": "https://www.visitleiden.nl/nl/doen/blogs/leuke-gratis-activiteiten-in-leiden",
+        "free_entry_checked_at": "2026-11-09",
+        "website": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-burcht-van-leiden"
+      },
+      "keywords": [
+        "De Burcht",
+        "museums-sights",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "De Burcht",
+            "summary": "A historic ring fortification on a raised mound in the centre of Leiden, with views across the surrounding city.",
+            "guide": null
+          },
+          "nl": {
+            "title": "De Burcht",
+            "summary": "Een historische ringburcht op een verhoogde heuvel in het centrum van Leiden, met uitzicht over de omliggende stad.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "De Burcht",
+            "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
+    },
+    {
+      "id": "place.leiden-rmo",
+      "kind": "museum",
+      "title": "Rijksmuseum van Oudheden",
+      "summary": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "museums-sights",
+      "coordinate": null,
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "Rijksmuseum van Oudheden",
+        "url": "https://www.rmo.nl/en/",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "rmo",
+        "description_nl": "Ontdek oudheden in het museum aan het Rapenburg. Op de officiële bezoekerspagina vind je informatie om je bezoek te plannen.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.rmo.nl/en/",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.rmo.nl/en/",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.rmo.nl/en/",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.rmo.nl/en/",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+        "website_checked_at": "2026-11-09",
+        "address": "Rapenburg 28, 2311 EW Leiden",
+        "address_source_url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "",
+        "contact_phone": "+31 71 5163163",
+        "contact_phone_source_url": "https://www.rmo.nl/en/visit/opening-hours-fees-address/",
+        "contact_phone_checked_at": "2026-11-09",
+        "website": "https://www.rmo.nl/en/",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-rijksmuseum-van-oudheden"
+      },
+      "keywords": [
+        "Rijksmuseum van Oudheden",
+        "museums-sights",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "Rijksmuseum van Oudheden",
+            "summary": "Explore antiquities at the museum on Rapenburg. The official visitor page helps you check tickets and plan your visit.",
+            "guide": null
+          },
+          "nl": {
+            "title": "Rijksmuseum van Oudheden",
+            "summary": "Ontdek oudheden in het museum aan het Rapenburg. Op de officiële bezoekerspagina vind je informatie om je bezoek te plannen.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "Rijksmuseum van Oudheden",
+            "url": "https://www.rmo.nl/en/",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
+    },
+    {
+      "id": "place.leiden-naturalis",
+      "kind": "museum",
+      "title": "Naturalis",
+      "summary": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "museums-sights",
+      "coordinate": null,
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "Naturalis",
+        "url": "https://www.naturalis.nl/en/museum/practical-info",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "naturalis",
+        "description_nl": "Ontdek de natuur bij Naturalis. Bekijk de officiële pagina voor de actuele route naar het museum en de bezoekmogelijkheden.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.naturalis.nl/en/contact",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.naturalis.nl/en/museum/practical-info",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.naturalis.nl/en/museum/practical-info",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.naturalis.nl/en/museum/practical-info",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.naturalis.nl/en/museum/practical-info",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.naturalis.nl/en/contact",
+        "website_checked_at": "2026-11-09",
+        "address": "Darwinweg 2, 2333 CR Leiden",
+        "address_source_url": "https://www.naturalis.nl/en/contact",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "",
+        "contact_phone": "+31 71 7519600",
+        "contact_phone_source_url": "https://www.naturalis.nl/en/contact",
+        "contact_phone_checked_at": "2026-11-09",
+        "review_notes": "Darwinweg 2 is visitor address. Check official approach: bike/car access via Mendelweg may differ.",
+        "website": "https://www.naturalis.nl/en/museum/practical-info",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-naturalis-biodiversity-center"
+      },
+      "keywords": [
+        "Naturalis",
+        "museums-sights",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "Naturalis",
+            "summary": "Discover the natural world at Naturalis. Check the official page for the current approach to the museum and your visit options.",
+            "guide": null
+          },
+          "nl": {
+            "title": "Naturalis",
+            "summary": "Ontdek de natuur bij Naturalis. Bekijk de officiële pagina voor de actuele route naar het museum en de bezoekmogelijkheden.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "Naturalis",
+            "url": "https://www.naturalis.nl/en/museum/practical-info",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
+    },
+    {
+      "id": "museum.leiden-boerhaave",
+      "kind": "museum",
+      "title": "Rijksmuseum Boerhaave",
+      "summary": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "museums-sights",
+      "coordinate": null,
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "Rijksmuseum Boerhaave",
+        "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "boerhaave",
+        "description_nl": "Een museum met tentoonstellingen en activiteiten over wetenschap en geneeskunde. Bekijk het programma en de geplande sluitingsdagen.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "website_checked_at": "2026-11-09",
+        "address": "Lange St. Agnietenstraat 10, 2312 WC Leiden",
+        "address_source_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "",
+        "contact_phone": "",
+        "opening_hours": "Daily 10:00–17:00; closed 7 and 25 December 2026; check the full official exceptions list.",
+        "opening_hours_source_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "opening_hours_checked_at": "2026-11-09",
+        "opening_hours_nl": "Dagelijks 10:00–17:00; gesloten 7 en 25 december 2026; bekijk alle uitzonderingen op de officiële site.",
+        "opening_hours_nl_source_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "opening_hours_nl_checked_at": "2026-11-09",
+        "prices": "Adult admission €17.50; online ticket €1 less. Other concessions have conditions.",
+        "prices_source_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "prices_checked_at": "2026-11-09",
+        "prices_nl": "Volwassenen €17,50; online €1 korting. Voor andere kortingen gelden voorwaarden.",
+        "prices_nl_source_url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "prices_nl_checked_at": "2026-11-09",
+        "website": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-rijksmuseum-boerhaave"
+      },
+      "keywords": [
+        "Rijksmuseum Boerhaave",
+        "museums-sights",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "Rijksmuseum Boerhaave",
+            "summary": "A museum with exhibitions and activities about science and medicine. Check the current programme and planned closing dates.",
+            "guide": null
+          },
+          "nl": {
+            "title": "Rijksmuseum Boerhaave",
+            "summary": "Een museum met tentoonstellingen en activiteiten over wetenschap en geneeskunde. Bekijk het programma en de geplande sluitingsdagen.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "Rijksmuseum Boerhaave",
+            "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
+    },
+    {
+      "id": "museum.leiden-wereldmuseum",
+      "kind": "museum",
+      "title": "Wereldmuseum Leiden",
+      "summary": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
+      "cityId": "leiden",
+      "provinceId": "zuid-holland",
+      "category": "museums-sights",
+      "coordinate": null,
+      "source": {
+        "title": "Official visitor information",
+        "publisher": "Wereldmuseum Leiden",
+        "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+        "checkedAt": "2026-11-09",
+        "status": "verified_opened",
+        "isOfficial": true
+      },
+      "lastChecked": "2026-11-09",
+      "images": [],
+      "aiSummary": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
+      "relatedEntityIDs": [],
+      "attributes": {
+        "slug": "wereldmuseum",
+        "description_nl": "Een museum van wereldculturen aan de Steenstraat. Bekijk het programma om vóór je bezoek een tentoonstelling te kiezen.",
+        "content_language": "en",
+        "content_section": "EXPLORE",
+        "media_status": "neutral_existing_placeholder",
+        "catalog_review_batch": "leiden-20261109",
+        "field_review_status": "Sources checked; human editorial approval pending",
+        "title_source_url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+        "title_checked_at": "2026-11-09",
+        "description_source_url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+        "description_checked_at": "2026-11-09",
+        "description_nl_source_url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+        "description_nl_checked_at": "2026-11-09",
+        "category_source_url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+        "category_checked_at": "2026-11-09",
+        "city_id_source_url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+        "city_id_checked_at": "2026-11-09",
+        "website_source_url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+        "website_checked_at": "2026-11-09",
+        "address": "Steenstraat 1, 2312 BS Leiden",
+        "address_source_url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+        "address_checked_at": "2026-11-09",
+        "contact_email": "",
+        "contact_phone": "+31 88 0042800",
+        "contact_phone_source_url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+        "contact_phone_checked_at": "2026-11-09",
+        "opening_hours": "",
+        "opening_hours_nl": "",
+        "website": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+        "lifecycleStatus": "published",
+        "verificationStatus": "verified",
+        "dataProjectRelease": "editorial-leiden-20261110",
+        "iosLegacyPlaceID": "leiden-seed-wereldmuseum-leiden"
+      },
+      "keywords": [
+        "Wereldmuseum Leiden",
+        "museums-sights",
+        "leiden"
+      ],
+      "publicationStatus": "published",
+      "verificationStatus": "verified",
+      "editorial": {
+        "schemaVersion": 1,
+        "section": "EXPLORE",
+        "locales": {
+          "en": {
+            "title": "Wereldmuseum Leiden",
+            "summary": "A museum of world cultures on Steenstraat. Use the museum’s programme to choose an exhibition before visiting.",
+            "guide": null
+          },
+          "nl": {
+            "title": "Wereldmuseum Leiden",
+            "summary": "Een museum van wereldculturen aan de Steenstraat. Bekijk het programma om vóór je bezoek een tentoonstelling te kiezen.",
+            "guide": null
+          }
+        },
+        "sources": [
+          {
+            "id": "source.primary",
+            "title": "Official visitor information",
+            "publisher": "Wereldmuseum Leiden",
+            "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+            "checkedAt": "2026-11-09"
+          }
+        ],
+        "reviewedAt": "2026-11-10",
+        "reviewer": "Ivan",
+        "batchSha256": "4010ebb033f399c0807bd2dca43b66c8ae03ba4ac0cfdc0e632fe718ee6293ea"
+      }
+    }
+  ]
+}

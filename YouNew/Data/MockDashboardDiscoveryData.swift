@@ -4,6 +4,21 @@ import CoreLocation
 /// The single canonical collection of discoverable places.
 /// Feature-specific APIs below are adapters over this collection, not copies.
 enum CanonicalPlaceCatalog {
+    private static let approvedPlaces: [String: NetherlandsKnowledgeEntity] = {
+        let runtime = DataProjectRuntimeLoader.loadApprovedPlaces()
+        let withheldIDs = DataProjectRuntimeLoader.load().withheldEntityIDs
+        return runtime.entities.reduce(into: [:]) { result, entity in
+            guard let legacyID = entity.attributes["iosLegacyPlaceID"],
+                  entity.cityId == "leiden", result[legacyID] == nil,
+                  !withheldIDs.contains(entity.id), !withheldIDs.contains(legacyID) else { return }
+            result[legacyID] = entity
+        }
+    }()
+
+    static func approvedContent(for legacyID: String) -> NetherlandsKnowledgeEntity? {
+        approvedPlaces[legacyID]
+    }
+
     static let items: [PlaceItem] = buildPlaces()
 
     static func prewarm() {
@@ -20,7 +35,7 @@ enum CanonicalPlaceCatalog {
 
     static func detailPlace(id: String) -> PlaceItem? {
         items.first { place in
-            place.id == id
+            (place.id == id || place.canonicalContentID == id)
                 && !place.hidden
                 && !place.draft
                 && !place.title.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
@@ -85,17 +100,19 @@ enum CanonicalPlaceCatalog {
             seedPlaces(for: cityId).enumerated().map { index, seed in
                 let city = CityDashboardContentData.city(for: cityId)
                 let center = CityNewcomerPlacesData.cityCenter(for: city.name)
+                let placeID = "\(cityId.rawValue)-seed-\(slug(seed.title))"
+                let approved = approvedContent(for: placeID)
                 return PlaceItem(
                     id: "\(cityId.rawValue)-seed-\(slug(seed.title))",
                     cityId: city.name,
                     section: IASection.infer(from: seed.categories.first ?? .landmark),
                     title: seed.title,
                     shortTitle: seed.shortTitle,
-                    description: seed.description,
+                    description: approved?.summary ?? seed.description,
                     category: seed.categories,
                     audience: [.tourist, .universal, .student, .family, .worker, .refugee, .entrepreneur, .eu, .nonEU, .highlySkilledMigrant, .lgbt],
-                    address: seed.address ?? "\(city.name), Netherlands",
-                    coordinates: seed.coordinates ?? PlaceCoordinate(lat: center.latitude, lng: center.longitude),
+                    address: approved?.attributes["address"] ?? seed.address ?? "\(city.name), Netherlands",
+                    coordinates: approved != nil ? approved?.coordinate.map { PlaceCoordinate(lat: $0.latitude, lng: $0.longitude) } : (seed.coordinates ?? PlaceCoordinate(lat: center.latitude, lng: center.longitude)),
                     image: seed.image,
                     estimatedVisitTime: seed.estimatedVisitTime,
                     priceHint: seed.priceHint,
@@ -103,10 +120,10 @@ enum CanonicalPlaceCatalog {
                     goodForRain: seed.categories.contains(.rainyDay),
                     familyFriendly: seed.familyFriendly ?? seed.categories.contains(.family),
                     priority: index + 1,
-                    source: CityDashboardContentData.officialGuideSource(for: city.name),
-                    lastChecked: seed.lastChecked ?? "June 2026",
+                    source: approved?.source ?? CityDashboardContentData.officialGuideSource(for: city.name),
+                    lastChecked: approved?.lastChecked ?? seed.lastChecked ?? "June 2026",
                     route: "place:\(cityId.rawValue)-seed-\(slug(seed.title))",
-                    externalUrl: seed.externalURL,
+                    externalUrl: approved.flatMap { URL(string: $0.attributes["website"] ?? "") } ?? seed.externalURL,
                     action: "openPlaceDetail",
                     hidden: false,
                     draft: false
