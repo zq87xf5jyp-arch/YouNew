@@ -142,5 +142,14 @@
     "sha256": "e196189fa60cdef8dad2fe8fd9a5e7f06326f8778c0b0e025e309665c6f864ff",
     "checkedAt": "2026-11-15",
     "result": "opened"
+  },
+  {
+    "url": "https://www.lakenhal.nl/nl/verhaal/bezoekersinformatie-praktische-informatie",
+    "http": 200,
+    "finalUrl": "https://www.lakenhal.nl/nl/verhaal/bezoekersinformatie-praktische-informatie",
+    "sha256": "b4b28687197c6f5f6f3f84cb13b1ab339e6a208151d73b3051fefbbe39272fc5",
+    "checkedAt": "2026-11-15",
+    "result": "opened",
+    "note": "NL explicitly says t/m 17; confirms Lakenhal under-18 wording. RMO NL separately says t/m 18; the ages must not be unified."
   }
 ]

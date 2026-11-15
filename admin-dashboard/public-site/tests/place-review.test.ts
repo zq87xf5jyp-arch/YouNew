@@ -43,7 +43,7 @@ test('duplicate IDs, changed URLs, unsafe URLs, unverified media and unsourced s
 });
 test('source and media evidence stays outside default public assets and declared revisions remain drafts',async()=>{
   const links=await read(`${root}/${placeReviewPath}/link-checks.json`);
-  assert.equal(links.length,18);assert.ok(links.every((l:{http:number})=>l.http===200));
+  assert.equal(links.length,19);assert.ok(links.every((l:{http:number})=>l.http===200));
   assert.ok(records.every((r)=>r.lifecycle_status==='draft'&&r.verification_status==='needs_review'));
   assert.equal(Object.keys(manifest.media).length,15);
   for(const [name,proof] of Object.entries(manifest.media) as [string,{bytes:number}][])if(name.endsWith('-480.webp'))assert.ok(proof.bytes<80000);
