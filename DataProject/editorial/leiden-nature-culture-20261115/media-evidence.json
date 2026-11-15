@@ -1,0 +1,76 @@
+{
+  "candidates": [
+    {
+      "entityID": "place.leiden-burcht",
+      "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Burcht,_Leiden.JPG",
+      "author": "Effeietsanders",
+      "license": "CC BY-SA 3.0 NL",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/3.0/nl/",
+      "captureDate": "2010-09-11",
+      "checkedAt": "2026-11-15",
+      "licenseEvidence": "Commons file description inspected using web tool",
+      "status": "needs_review",
+      "downloadResult": "HTTP 403 from this environment; bytes not obtained",
+      "visualReview": "not_performed",
+      "publicationAuthorized": false,
+      "attributionRequirements": "Credit author and source; link license; disclose resizing/cropping; preserve applicable ShareAlike conditions"
+    },
+    {
+      "entityID": "museum.leiden-wereldmuseum",
+      "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Wereldmuseum_Leiden_(nov_2024).jpg",
+      "author": "Sneeuwvlakte",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "captureDate": "2024-11-08",
+      "checkedAt": "2026-11-15",
+      "licenseEvidence": "Commons file description inspected using web tool",
+      "status": "needs_review",
+      "downloadResult": "HTTP 403 from this environment; bytes not obtained",
+      "visualReview": "not_performed",
+      "publicationAuthorized": false,
+      "attributionRequirements": "Credit author and source; link license; disclose resizing/cropping; preserve applicable ShareAlike conditions"
+    },
+    {
+      "entityID": "nature.leiden-plantsoen",
+      "sourcePageURL": "https://commons.wikimedia.org/wiki/File:20210806_Leiden_-_Plantsoen_Park_%27Plantsoen%27.jpg",
+      "author": "Rudolphous",
+      "license": "CC BY-SA 4.0",
+      "licenseURL": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "captureDate": "2021-08-06",
+      "checkedAt": "2026-11-15",
+      "licenseEvidence": "Commons file description inspected using web tool",
+      "status": "needs_review",
+      "downloadResult": "HTTP 403 from this environment; bytes not obtained",
+      "visualReview": "not_performed",
+      "publicationAuthorized": false,
+      "attributionRequirements": "Credit author and source; link license; disclose resizing/cropping; preserve applicable ShareAlike conditions"
+    },
+    {
+      "entityID": "nature.leiden-cronesteyn",
+      "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Park_Cronesteyn_Park_Cronesteijn_(26870194233).jpg",
+      "author": "Ronald van der Graaf",
+      "license": "CC BY 2.0",
+      "licenseURL": "https://creativecommons.org/licenses/by/2.0/",
+      "captureDate": "2016-06-05",
+      "checkedAt": "2026-11-15",
+      "licenseEvidence": "Commons file description inspected using web tool",
+      "status": "needs_review",
+      "downloadResult": "HTTP 403 from this environment; bytes not obtained",
+      "visualReview": "not_performed",
+      "publicationAuthorized": false,
+      "attributionRequirements": "Credit author and source; link license; disclose resizing/cropping; preserve applicable ShareAlike conditions"
+    }
+  ],
+  "unresolved": [
+    {
+      "entityID": "nature.leiden-leidse-hout",
+      "reason": "Candidate file pages unavailable; license not confirmed"
+    }
+  ],
+  "rejected": [
+    {
+      "sourcePageURL": "https://commons.wikimedia.org/wiki/File:Cronesteyn.jpg",
+      "reason": "Camera metadata locates image in Utrecht and subject is castle grounds, not a reliable park hero. Not imported; photo coordinates never used as venue coordinates."
+    }
+  ]
+}

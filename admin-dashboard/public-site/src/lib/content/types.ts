@@ -265,7 +265,7 @@ export interface EditorialGuide {
 }
 export interface EditorialContent {
   readonly placeReview?: {readonly batchId:string; readonly preparedAt:string; readonly approvedAt:null};
-  readonly place?: {readonly locales:Readonly<Record<'en'|'nl',{readonly alt:string;readonly blocks:readonly EditorialBlock[]}>>;readonly tickets:{readonly url:string;readonly sourceId:string;readonly checkedAt:string}};
+  readonly place?: {readonly locales:Readonly<Record<'en'|'nl',{readonly alt:string;readonly blocks:readonly EditorialBlock[]}>>;readonly tickets:{readonly url:string;readonly sourceId:string;readonly checkedAt:string}|null};
   readonly schemaVersion: 1;
   readonly section: "EXPLORE" | "LIVE" | "COLLECTIONS" | "BUSINESS";
   readonly locales: Readonly<Record<"en" | "nl", {readonly title:string; readonly summary:string; readonly guide:EditorialGuide|null}>>;

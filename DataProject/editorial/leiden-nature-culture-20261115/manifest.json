@@ -1,0 +1,40 @@
+{
+  "schemaVersion": 1,
+  "batchId": "leiden-nature-culture-20261115",
+  "status": "needs_review",
+  "publicationAuthorized": false,
+  "approvedAt": null,
+  "reviewerId": null,
+  "preparedAt": "2026-11-15",
+  "ids": [
+    "place.leiden-burcht",
+    "museum.leiden-wereldmuseum",
+    "nature.leiden-plantsoen",
+    "nature.leiden-leidse-hout",
+    "nature.leiden-cronesteyn"
+  ],
+  "baseFiles": {
+    "place.leiden-burcht": {
+      "file": "DataProject/staging/content-20261109/WP-06-M1-leiden-20261109.json",
+      "sha256": "088d023019eaf7433223e076084bf4633970f468507b90a5b2e629e87c2e7560"
+    },
+    "museum.leiden-wereldmuseum": {
+      "file": "DataProject/staging/content-20261109/WP-07-M1-leiden-20261109.json",
+      "sha256": "06f54513fcc68ed81d4e270f61419438cb9fd212f2eaff0a2fee147fcb8ba3e0"
+    },
+    "nature.leiden-plantsoen": {
+      "file": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
+    },
+    "nature.leiden-leidse-hout": {
+      "file": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
+    },
+    "nature.leiden-cronesteyn": {
+      "file": "DataProject/staging/content-20261109/WP-12-M1-leiden-20261109.json",
+      "sha256": "6e4667db1accf8149e97342dff5eeb1463738c48ef1dd901ab22a733ce938830"
+    }
+  },
+  "recordsSha256": "710cbdb950f52853a3ea2a7d3eed1a18fb13ab5e5eb2885262728e2b061e41ae",
+  "media": {}
+}

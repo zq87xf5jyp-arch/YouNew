@@ -1,0 +1,35 @@
+[
+  {
+    "id": "place.leiden-burcht",
+    "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+    "checkedAt": "2026-11-15",
+    "method": "Route destination explicitly linked by Visit Leiden; not camera coordinates",
+    "destinationURL": "https://www.google.com/maps/dir/?api=1&destination=52.15831,4.492962",
+    "coordinate": {
+      "latitude": 52.15831,
+      "longitude": 4.492962
+    }
+  },
+  {
+    "id": "nature.leiden-leidse-hout",
+    "url": "https://www.visitleiden.nl/nl/locaties/2420997644/leidse-hout",
+    "checkedAt": "2026-11-15",
+    "method": "Route destination explicitly linked by Visit Leiden; not camera coordinates",
+    "destinationURL": "https://www.google.com/maps/dir/?api=1&destination=52.173394,4.476831",
+    "coordinate": {
+      "latitude": 52.173394,
+      "longitude": 4.476831
+    }
+  },
+  {
+    "id": "nature.leiden-cronesteyn",
+    "url": "https://www.visitleiden.nl/nl/locaties/3133044659/polderpark-cronesteyn",
+    "checkedAt": "2026-11-15",
+    "method": "Route destination explicitly linked by Visit Leiden; not camera coordinates",
+    "destinationURL": "https://www.google.com/maps/dir/?api=1&destination=52.140322,4.496932",
+    "coordinate": {
+      "latitude": 52.140322,
+      "longitude": 4.496932
+    }
+  }
+]

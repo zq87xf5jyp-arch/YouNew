@@ -10,6 +10,8 @@ export interface PlaceManifest {
 }
 export const placeReviewBatch:string;
 export const placeReviewPath:string;
-export function readPlaceReview(root:string):Promise<{manifest:PlaceManifest;records:PlaceRevision[]}>;
-export function validatePlaceRecords(records:PlaceRevision[],ids:string[],bases:Map<string,PlaceRevision>):void;
+export const placeReviewBatches:string[];
+export function reviewPath(batch?:string):string;
+export function readPlaceReview(root:string,batchId?:string):Promise<{manifest:PlaceManifest;records:PlaceRevision[]}>;
+export function validatePlaceRecords(records:PlaceRevision[],ids:string[],bases:Map<string,PlaceRevision>,allowIncomplete?:boolean):void;
 export function applyPlaceReview(release:EditorialRelease,root:string,env?:Record<string,string|undefined>):Promise<EditorialRelease>;
