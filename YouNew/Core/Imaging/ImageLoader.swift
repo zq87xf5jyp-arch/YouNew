@@ -262,6 +262,10 @@ final class DirectImageLoader: ObservableObject {
             guard let url = URL(string: urlString) else { return nil }
 
             do {
+                if url.isFileURL {
+                    let data = try Data(contentsOf: url, options: .mappedIfSafe)
+                    return downsampledImage(from: data, maxPixelWidth: targetWidth)
+                }
                 var request = URLRequest(url: url, timeoutInterval: 12)
                 request.setValue("YouNew/1.0 (iOS; NetherlandsGuide)", forHTTPHeaderField: "User-Agent")
                 request.setValue("image/webp,image/jpeg,image/png,image/*,*/*;q=0.8", forHTTPHeaderField: "Accept")

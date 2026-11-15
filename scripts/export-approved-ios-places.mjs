@@ -2,9 +2,10 @@
  * Never edit the generated JSON; change/reapprove upstream content instead.
  */
 import assert from 'node:assert/strict';
-import { readFile, writeFile } from 'node:fs/promises';
+import { readFile, writeFile, mkdir, copyFile } from 'node:fs/promises';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
+import { applyApprovedCompletion } from './approved-ios-completion.mjs';
 import { loadEditorialRelease } from '../admin-dashboard/public-site/scripts/editorial-release.mjs';
 
 export const aliases = {
@@ -28,13 +29,22 @@ export async function projectApprovedPlaces(repositoryRoot = root) {
     assert.ok(entity.attributes.description_nl && entity.attributes.address);
     return { ...entity, attributes: { ...entity.attributes, iosLegacyPlaceID: legacyID } };
   });
+  const completion = await applyApprovedCompletion(entities, repositoryRoot);
   return { schemaVersion: 1, mode: 'production', releaseID: release.id,
-    approvedBatchSha256: release.batchSha256, migrationRegistry: {}, withheldEntityIDs: [], entities };
+    approvedBatchSha256: release.batchSha256, migrationRegistry: {}, withheldEntityIDs: [], ...completion };
 }
 if (process.argv[1] && resolve(process.argv[1]) === fileURLToPath(import.meta.url)) {
   const output = resolve(root, 'YouNew/Resources/Data/younew-approved-places.json');
-  const content = JSON.stringify(await projectApprovedPlaces(), null, 2) + '\n';
+  const artifact = await projectApprovedPlaces();
+  const content = JSON.stringify(artifact, null, 2) + '\n';
+  const mediaDirectory = resolve(root, 'YouNew/Resources/Data/ApprovedLeidenMedia');
+  for (const media of artifact.mediaFiles) {
+    const source = resolve(root, media.sourceFile);
+    const destination = resolve(mediaDirectory, media.bundledFileName);
+    if (process.argv.includes('--check')) assert.deepEqual(await readFile(destination), await readFile(source), 'Bundled approved image changed');
+    else { await mkdir(mediaDirectory, { recursive: true }); await copyFile(source, destination); }
+  }
   if (process.argv.includes('--check')) assert.equal(await readFile(output, 'utf8'), content, 'Regenerate approved iOS projection');
   else await writeFile(output, content);
-  console.log('Approved iOS projection: 7 existing Leiden places; review excluded.');
+  console.log('Approved iOS projection: 7 existing Leiden places; exactly 4 photos, 5 coordinates, 6 ticket links approved.');
 }

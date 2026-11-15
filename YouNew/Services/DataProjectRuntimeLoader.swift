@@ -211,19 +211,29 @@ private struct RuntimeMedia: Decodable {
     let attribution: String
     let verified: Bool
     let retrievedAt: String
+    let bundledFileName: String?
+    let author: String?
 
     func asset(title: String) -> AppImageAsset? {
         guard verified else { return nil }
+        let localURL = bundledFileName.flatMap { fileName -> URL? in
+            guard fileName.hasPrefix("approved-leiden-"),
+                  fileName.hasSuffix(".webp"), !fileName.contains("/"), !fileName.contains("..") else { return nil }
+            return Bundle.main.url(forResource: fileName, withExtension: nil, subdirectory: "Resources/Data/ApprovedLeidenMedia")
+                ?? Bundle.main.url(forResource: fileName, withExtension: nil)
+        }
         return AppImageAsset(
             id: id,
-            url: assetURL,
+            url: localURL ?? assetURL,
             sourcePageURL: sourcePageURL,
-            imageURL: assetURL,
-            thumbnailURL: assetURL,
+            imageURL: localURL ?? assetURL,
+            thumbnailURL: localURL ?? assetURL,
+            originalFileURL: assetURL,
             title: title,
             description: "Licensed Data Project visual for \(title)",
             sourceName: sourcePageURL.host ?? "Verified source",
             sourceURL: sourcePageURL,
+            author: author,
             license: license,
             licenseName: license,
             licenseURL: licenseURL,

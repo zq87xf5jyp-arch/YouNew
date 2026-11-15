@@ -361,6 +361,14 @@ struct PlaceItem: Identifiable, Codable, Equatable {
         return text
     }
 
+    var ticketsURL: URL? {
+        guard let content = CanonicalPlaceCatalog.approvedContent(for: id),
+              let value = content.attributes["iosTicketURL"],
+              let url = URL(string: value), url.scheme == "https",
+              url.host != nil, url.user == nil, url.password == nil else { return nil }
+        return url
+    }
+
     var directionsURL: URL? {
         let destination: String
         if let coordinates {

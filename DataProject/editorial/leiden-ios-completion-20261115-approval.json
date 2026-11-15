@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "releaseId": "ios-leiden-completion-20261115",
+  "status": "approved",
+  "reviewerId": "owner.ivan",
+  "approvedAt": "2026-11-15",
+  "selectionPath": "docs/younew-upgrade/LEIDEN_COMPLETION_SELECTION_2026-11-15.json",
+  "selectionSha256": "bfada10e8b2ef709ab52bfebf347131fec619545717b8e9246c0b87e8f30cead",
+  "sourcePR": "https://github.com/zq87xf5jyp-arch/YouNew/pull/66",
+  "sourceCommit": "29e5ade1008d208baa10b65175928a3393056964",
+  "scope": {
+    "platform": "ios",
+    "photos": [
+      "place.leiden-hortus",
+      "place.leiden-rmo",
+      "museum.leiden-boerhaave",
+      "museum.leiden-wereldmuseum"
+    ],
+    "coordinates": [
+      "place.leiden-naturalis",
+      "place.leiden-rmo",
+      "museum.leiden-boerhaave",
+      "place.leiden-burcht",
+      "museum.leiden-wereldmuseum"
+    ],
+    "tickets": [
+      "place.leiden-lakenhal",
+      "place.leiden-naturalis",
+      "place.leiden-hortus",
+      "place.leiden-rmo",
+      "museum.leiden-boerhaave",
+      "museum.leiden-wereldmuseum"
+    ],
+    "otherDraftFields": false,
+    "wholeBatchPublication": false,
+    "productionDeployment": false
+  },
+  "approvalEvidence": {
+    "source": "Explicit owner message in this Codex conversation following PR 66",
+    "summary": "Owner approves exactly four photos, five coordinates and six ticket URLs from the bound selection for existing iOS cards; authorizes a separate SHA-256-bound approval and governed exporter integration. Other draft fields, additional photos, prices, hours and park records are excluded. No whole-batch publication, production deployment, TestFlight, App Store Connect or automatic PR merge."
+  }
+}

@@ -157,6 +157,14 @@ struct PlaceItemDetailView: View {
                 }
                 .buttonStyle(.bordered)
             }
+            if let url = place.ticketsURL {
+                Link(destination: url) {
+                    Label(localized(en: "Tickets", nl: "Tickets", ru: "Билеты"), systemImage: "ticket")
+                        .frame(maxWidth: .infinity, minHeight: 44)
+                }
+                .buttonStyle(.bordered)
+                .accessibilityIdentifier("place.tickets.\(place.id)")
+            }
             touristInfo
         }
         .padding(16)

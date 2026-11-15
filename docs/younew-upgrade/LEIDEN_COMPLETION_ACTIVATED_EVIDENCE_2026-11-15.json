@@ -1,0 +1,103 @@
+{
+  "checkedAt": "2026-11-15",
+  "approval": {
+    "path": "DataProject/editorial/leiden-ios-completion-20261115-approval.json",
+    "sha256": "0111c292c3c05c127839359851130d33b18f62d78f15d5f30d4474d172919bff",
+    "selectionSha256": "bfada10e8b2ef709ab52bfebf347131fec619545717b8e9246c0b87e8f30cead",
+    "reviewerId": "owner.ivan",
+    "approvedAt": "2026-11-15"
+  },
+  "counts": {
+    "newPhotos": 4,
+    "newCoordinates": 5,
+    "ticketLinks": 6,
+    "totalKnownCoordinatesForSelectedPlaces": 7,
+    "cards": 7
+  },
+  "bundledPhotos": [
+    {
+      "file": "approved-leiden-hortus-1200.webp",
+      "sha256": "aa5adb110d38aeb603639e87c00e9f9d6d553ab7934e38a1b8b856224d139c8a",
+      "bytes": 175822
+    },
+    {
+      "file": "approved-leiden-rmo-1200.webp",
+      "sha256": "ee6e448c468f6871b126dda4d67c38cb44152b2a92729ca1bcc81b3cb602868b",
+      "bytes": 186578
+    },
+    {
+      "file": "approved-leiden-boerhaave-1200.webp",
+      "sha256": "020065927bec18268e835975edfb3785a8c88a47806243a61454a3ace1696891",
+      "bytes": 361424
+    },
+    {
+      "file": "approved-leiden-wereldmuseum-1200.webp",
+      "sha256": "37b210c022306b54cf3bcbc23bb50c554f9c1242df35f45d513ac87ea9023b23",
+      "bytes": 147886
+    }
+  ],
+  "builtJSONMatchesGeneratedSource": true,
+  "nativeImageIODecoding": [
+    "hortus: decoded 1200x798",
+    "rmo: decoded 1200x800",
+    "boerhaave: decoded 1200x1883",
+    "wereldmuseum: decoded 1200x900"
+  ],
+  "ticketHTTPChecks": [
+    {
+      "id": "place.leiden-lakenhal",
+      "url": "https://tickets.lakenhal.nl/en/tickets",
+      "status": 200,
+      "finalURL": "https://tickets.lakenhal.nl/en/tickets"
+    },
+    {
+      "id": "place.leiden-hortus",
+      "url": "https://tickets.hortusleiden.nl/nl/tickets",
+      "status": 200,
+      "finalURL": "https://tickets.hortusleiden.nl/nl/tickets"
+    },
+    {
+      "id": "place.leiden-rmo",
+      "url": "https://ticket.rmo.nl/en-EN/tickets",
+      "status": 200,
+      "finalURL": "https://ticket.rmo.nl/en-US/tickets"
+    },
+    {
+      "id": "place.leiden-naturalis",
+      "url": "https://www.naturalis.nl/en/tickets-for-naturalis",
+      "status": 200,
+      "finalURL": "https://www.naturalis.nl/en/tickets-for-naturalis"
+    },
+    {
+      "id": "museum.leiden-boerhaave",
+      "url": "https://tickets.rijksmuseumboerhaave.nl/",
+      "status": 200,
+      "finalURL": "https://tickets.rijksmuseumboerhaave.nl/"
+    },
+    {
+      "id": "museum.leiden-wereldmuseum",
+      "url": "https://leiden.wereldmuseum.nl/nl/tickets",
+      "status": 200,
+      "finalURL": "https://leiden.wereldmuseum.nl/nl/tickets"
+    }
+  ],
+  "build": {
+    "result": "TEST BUILD SUCCEEDED",
+    "architectures": [
+      "arm64",
+      "x86_64"
+    ],
+    "log": "/tmp/leiden-completion-activation-final-build.log",
+    "warningCount": 0,
+    "errorCount": 0
+  },
+  "automatedDataTests": {
+    "passed": 20,
+    "failed": 0,
+    "log": "/tmp/leiden-activation-data-tests-final.log"
+  },
+  "simulator": "No runtimes or available devices; UI actions not executed",
+  "swiftTests": "Compiled; runtime execution unavailable",
+  "appleMaps": "Directions uses maps.apple.com daddr with confirmed coordinates; Swift regression compiled; actual Maps launch and route calculation unverified",
+  "sourcePackages": "Historical manifests remain needs_review/publicationAuthorized false; original selection unchanged"
+}
