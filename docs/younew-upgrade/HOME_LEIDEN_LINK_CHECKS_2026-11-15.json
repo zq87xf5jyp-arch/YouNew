@@ -1,0 +1,132 @@
+{
+  "checkedAt": "2026-11-15T18:14:38.961752+00:00",
+  "method": "HTTP GET, follow redirects; no booking or ticket purchase",
+  "results": [
+    {
+      "id": "place.leiden-lakenhal",
+      "kind": "website",
+      "url": "https://www.lakenhal.nl/en/",
+      "result": "200 https://www.lakenhal.nl/en/",
+      "exitCode": 0
+    },
+    {
+      "id": "place.leiden-lakenhal",
+      "kind": "tickets",
+      "url": "https://tickets.lakenhal.nl/en/tickets",
+      "result": "200 https://tickets.lakenhal.nl/en/tickets",
+      "exitCode": 0
+    },
+    {
+      "id": "place.leiden-hortus",
+      "kind": "website",
+      "url": "https://hortusleiden.nl/",
+      "result": "200 https://hortusleiden.nl/",
+      "exitCode": 0
+    },
+    {
+      "id": "place.leiden-hortus",
+      "kind": "tickets",
+      "url": "https://tickets.hortusleiden.nl/nl/tickets",
+      "result": "200 https://tickets.hortusleiden.nl/nl/tickets",
+      "exitCode": 0
+    },
+    {
+      "id": "place.leiden-burcht",
+      "kind": "website",
+      "url": "https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+      "result": "200 https://www.visitleiden.nl/nl/locaties/2380897422/de-burcht",
+      "exitCode": 0
+    },
+    {
+      "id": "place.leiden-rmo",
+      "kind": "website",
+      "url": "https://www.rmo.nl/en/",
+      "result": "200 https://www.rmo.nl/en/",
+      "exitCode": 0
+    },
+    {
+      "id": "place.leiden-rmo",
+      "kind": "tickets",
+      "url": "https://ticket.rmo.nl/en-EN/tickets",
+      "result": "200 https://ticket.rmo.nl/en-US/tickets",
+      "exitCode": 0
+    },
+    {
+      "id": "place.leiden-naturalis",
+      "kind": "website",
+      "url": "https://www.naturalis.nl/en/museum/practical-info",
+      "result": "200 https://www.naturalis.nl/en/museum/practical-info",
+      "exitCode": 0
+    },
+    {
+      "id": "place.leiden-naturalis",
+      "kind": "tickets",
+      "url": "https://www.naturalis.nl/en/tickets-for-naturalis",
+      "result": "200 https://www.naturalis.nl/en/tickets-for-naturalis",
+      "exitCode": 0
+    },
+    {
+      "id": "museum.leiden-boerhaave",
+      "kind": "website",
+      "url": "https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+      "result": "200 https://www.rijksmuseumboerhaave.nl/en/plan-your-visit",
+      "exitCode": 0
+    },
+    {
+      "id": "museum.leiden-boerhaave",
+      "kind": "tickets",
+      "url": "https://tickets.rijksmuseumboerhaave.nl/",
+      "result": "200 https://tickets.rijksmuseumboerhaave.nl/",
+      "exitCode": 0
+    },
+    {
+      "id": "museum.leiden-wereldmuseum",
+      "kind": "website",
+      "url": "https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+      "result": "200 https://leiden.wereldmuseum.nl/nl/over-wereldmuseum-leiden/contact",
+      "exitCode": 0
+    },
+    {
+      "id": "museum.leiden-wereldmuseum",
+      "kind": "tickets",
+      "url": "https://leiden.wereldmuseum.nl/nl/tickets",
+      "result": "200 https://leiden.wereldmuseum.nl/nl/tickets",
+      "exitCode": 0
+    },
+    {
+      "id": "restaurant.leiden-bikini",
+      "kind": "website",
+      "url": "https://caferestaurantbikini.nl/contact/",
+      "result": "200 https://caferestaurantbikini.nl/contact/",
+      "exitCode": 0
+    },
+    {
+      "id": "restaurant.leiden-in-den-doofpot",
+      "kind": "website",
+      "url": "https://www.indendoofpot.nl/contact",
+      "result": "200 https://www.indendoofpot.nl/contact",
+      "exitCode": 0
+    },
+    {
+      "id": "restaurant.leiden-verboden-toegang",
+      "kind": "website",
+      "url": "https://www.verbodentoegang.nl/",
+      "result": "200 https://www.verbodentoegang.nl/",
+      "exitCode": 0
+    },
+    {
+      "id": "restaurant.leiden-prentenkabinet",
+      "kind": "website",
+      "url": "https://www.prentenkabinet.nl/reserveren/",
+      "result": "200 https://www.prentenkabinet.nl/reserveren/",
+      "exitCode": 0
+    },
+    {
+      "id": "restaurant.leiden-oudt-leyden",
+      "kind": "website",
+      "url": "https://oudtleyden.nl/",
+      "result": "200 https://oudtleyden.nl/",
+      "exitCode": 0
+    }
+  ]
+}

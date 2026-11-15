@@ -237,7 +237,13 @@ struct HomeExploreListView: View {
 
     @ViewBuilder
     private func foodRow(_ item: FoodGuideItem) -> some View {
-        if [.cafe, .breakfast].contains(item.category) {
+        if let place = CanonicalPlaceCatalog.detailPlace(id: item.id) {
+            NavigationLink(value: place.destination) {
+                foodRowContent(item)
+            }
+            .buttonStyle(NLTileButtonStyle())
+            .accessibilityIdentifier("category.detailLink.\(normalizedID).\(item.id)")
+        } else if [.cafe, .breakfast].contains(item.category) {
             NavigationLink(value: AppDestination.cafeDetail(city: cityID, itemID: item.id)) {
                 foodRowContent(item)
             }
@@ -255,7 +261,7 @@ struct HomeExploreListView: View {
     private func foodRowContent(_ item: FoodGuideItem, trailingSymbol: String = "chevron.right") -> some View {
         rowContent(
             title: item.shortTitle ?? item.title,
-            subtitle: item.description,
+            subtitle: CanonicalPlaceCatalog.detailPlace(id: item.id)?.localizedDescription(lang) ?? item.description,
             symbol: item.icon,
             accent: foodTint(item.category),
             trailingSymbol: trailingSymbol

@@ -1,0 +1,47 @@
+{
+  "date": "2026-11-15",
+  "build": {
+    "status": "TEST BUILD SUCCEEDED",
+    "architecture": "arm64",
+    "destination": "generic/platform=iOS Simulator",
+    "warnings": [],
+    "log": "/tmp/younew-home-content-final-build.log"
+  },
+  "governanceTests": {
+    "passed": 20,
+    "failed": 0
+  },
+  "swiftTests": "compiled; execution unavailable: no Simulator destination",
+  "bundledRecords": 12,
+  "bundledPhotos": 4,
+  "runtimeVisuallyVerifiedPhotos": 0,
+  "nativeImageIODecodePassed": 4,
+  "ticketURLs": 6,
+  "coordinateRecords": 7,
+  "newBatch": {
+    "records": 5,
+    "photos": 0,
+    "coordinates": 0,
+    "officialURLs": 5
+  },
+  "mediaSHA256": [
+    {
+      "file": "approved-leiden-hortus-1200.webp",
+      "sha256": "aa5adb110d38aeb603639e87c00e9f9d6d553ab7934e38a1b8b856224d139c8a"
+    },
+    {
+      "file": "approved-leiden-rmo-1200.webp",
+      "sha256": "ee6e448c468f6871b126dda4d67c38cb44152b2a92729ca1bcc81b3cb602868b"
+    },
+    {
+      "file": "approved-leiden-boerhaave-1200.webp",
+      "sha256": "020065927bec18268e835975edfb3785a8c88a47806243a61454a3ace1696891"
+    },
+    {
+      "file": "approved-leiden-wereldmuseum-1200.webp",
+      "sha256": "37b210c022306b54cf3bcbc23bb50c554f9c1242df35f45d513ac87ea9023b23"
+    }
+  ],
+  "runtimeBlocker": "No installed Simulator; DeviceInteraction supports Simulator only, not connected physical iPhone",
+  "productionChanged": false
+}
