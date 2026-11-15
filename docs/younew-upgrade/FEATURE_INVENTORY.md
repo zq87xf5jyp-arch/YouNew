@@ -35,7 +35,7 @@
 | Система ссылок / 8 | PARTIAL | Источники, checkedAt, entity ID, media source/license, `placeDetails` | Нет одного обязательного typed registry для всех Internal/Official/Booking/Directions/Report; расширять текущие модели | P2 |
 | Admin / 9 | EXISTS | Node 24, Next 15.5.28, MariaDB, роли, audit, private files; live anonymous API 401 | Реальный вход подтверждён владельцем 10.11; повторный authenticated UI 15.11 NOT VERIFIED | P1 |
 | Hostinger / 9 | VERIFIED | SSH, PHP 8.3.36, Node 24.22.3; health 15.11 11:00 UTC OK, outbox 0, реальный cron | Hosting plugin отсутствует (есть только Mail); это не отсутствие функции тарифа | P1 |
-| iOS / 9 | PARTIAL | SwiftUI исходники и общие governed data; public Apple lookup: 1.3, iOS ≥17.6 | App Store Connect authenticated access NOT VERIFIED; web Save не синхронизируется с iOS | P2 |
+| iOS / 9 | PARTIAL | SwiftUI, общий базовый runtime 5 сущностей; public Apple lookup: 1.3, iOS ≥17.6 | 71 новый web ID отсутствует в исходном iOS bundle; App Store Connect authenticated access NOT VERIFIED; Save не синхронизируется | P1 |
 | Доступность/скорость / 9 | PARTIAL | Существующие focus/alt/reduced-motion, responsive фото и тесты | Полный WCAG-аудит и полевые CWV не подтверждены; новые UI-проверки описаны в QA_REPORT | P1 |
 | Публичный status | OBSOLETE | В live HTML одновременно 177/182 исторических записей и 76 текущих; августовские Sites/Supabase | Обновить датированные конфиги статуса по современному evidence, не объявлять всё готовым | P0, следующий безопасный шаг |
 | Навигация редакционных карточек | BROKEN | Chabot Museum корректно связан с Rotterdam в related/source, но верхний breadcrumb общего `EditorialDetail` ведёт в Leiden | Исправить городскую привязку общего шаблона отдельным регрессионным шагом | P1 |
@@ -46,6 +46,12 @@
 0 organizations. 57 сущностей привязаны к Leiden (это не 57 мест). 608 sitemap URL
 не равны сущностям. Источники публичного набора датированы 24.10, 09.11 и 10.11;
 аудит интерфейса 15.11 не переименовывает эти даты в свежую проверку фактов.
+
+iOS: исходный `YouNew/Resources/Data/younew-runtime-data.json` содержит 5 entities и
+183 withheld IDs; web импортирует этот базовый runtime и отдельно добавляет
+71 одобренную editorial entity. Совпадают 5 ID, 71 web ID отсутствует в исходном
+iOS bundle. Это сравнение исходников, не выгрузка бинарника из App Store.
+Основной target Xcode: версия 1.3, build 8, iOS 17.6. Отправка новой сборки не выполнялась.
 
 Прямые HTTP-запросы 15.11 подтвердили все шесть URL из задания: `/`, `/discover/`,
 `/categories/`, `/cities/`, `/for-business/`, `/status/` → 200. Web search отдавал
